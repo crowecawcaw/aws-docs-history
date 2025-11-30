@@ -1,22 +1,12 @@
-# Amazon S3 integration
+# Removing the Amazon S3 integration option
 
-You can transfer files between your RDS for Oracle DB instance and an Amazon S3 bucket. You can use Amazon S3 integration with Oracle Database features such
-as Oracle Data Pump. For example, you can download Data Pump files from Amazon S3 to your RDS for Oracle DB instance. For more information, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.md "Oracle.Procedural.md").
+You can remove Amazon S3 integration option from a DB instance.
 
-###### Note
+To remove the Amazon S3 integration option from a DB instance, do one of the following:
 
-Your DB instance and your Amazon S3 bucket must be in the same AWS Region.
-
-###### Topics
-
-- [Configuring IAM permissions for RDS for Oracle integration with Amazon S3](oracle-s3-integration.md "oracle-s3-integration.md")
-- [Adding the Amazon S3 integration option](oracle-s3-integration.preparing.md "oracle-s3-integration.preparing.md")
-- [Transferring files between Amazon RDS for Oracle and an
-  Amazon S3 bucket](oracle-s3-integration.md "oracle-s3-integration.md")
-- [Troubleshooting Amazon S3 integration](#oracle-s3-integration.troubleshooting "#oracle-s3-integration.troubleshooting")
-- [Removing the Amazon S3 integration option](oracle-s3-integration.md "oracle-s3-integration.md")
-
-## Troubleshooting Amazon S3 integration
-
-For troubleshooting tips, see the AWS re:Post article [How do
-troubleshoot issues when I integrate Amazon RDS for Oracle with Amazon S3?](https://repost.aws/en/knowledge-center/rds-oracle-s3-integration "https://repost.aws/en/knowledge-center/rds-oracle-s3-integration").
+- To remove the Amazon S3 integration option from multiple DB instances, remove the `S3_INTEGRATION` option from the option
+  group to which the DB instances belong. This change affects all DB instances that use the option group. For more information, see
+  [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption").
+- To remove the Amazon S3 integration option from a single DB instance, modify the instance and specify a different option group that
+  doesn't include the `S3_INTEGRATION` option. You can specify the default (empty) option group or a different custom option
+  group. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").

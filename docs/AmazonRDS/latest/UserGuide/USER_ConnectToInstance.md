@@ -1,26 +1,19 @@
-# Connecting from MySQL Workbench
+# Troubleshooting
 
-###### To connect from MySQL Workbench
+connections to your MySQL DB instance
 
-1. Download and install MySQL Workbench at [Download MySQL Workbench](http://dev.mysql.com/downloads/workbench/ "http://dev.mysql.com/downloads/workbench/").
-2. Open MySQL Workbench.
+Two common causes of connection failures to a new DB instance are:
 
-![The Welcome screen in MySQL Workbench.](images/mysql-workbench-main.png) 3. From **Database**, choose **Manage Connections**. 4. In the **Manage Server Connections** window, choose **New**. 5. In the **Connect to Database** window, enter the following information:
+- The DB instance was created using a security group that doesn't authorize
+  connections from the device or Amazon EC2 instance where the MySQL application or utility
+  is running. The DB instance must have a VPC security group that authorizes the
+  connections. For more information, see [Amazon VPC and Amazon RDS](USER_VPC.md "USER_VPC.md").
 
-    * **Stored Connection** – Enter a name for the connection, such as `MyDB`.
-    * **Hostname** – Enter the DB instance endpoint.
-    * **Port** – Enter the port used by the DB instance.
-    * **Username** – Enter the user name of a valid
-     database user, such as the master user.
-    * **Password** – Optionally, choose **Store in Vault** and then enter and save
-     the password for the user.
+You can add or edit an inbound rule in the security group. For
+**Source**, choose **My IP**. This allows
+access to the DB instance from the IP address detected in your browser.
 
-The window looks similar to the following:
-
-![The Manage Server Connections window in MySQL Workbench.](images/mysql-workbench-connect.png)
-
-You can use the features of MySQL Workbench to customize connections. For example, you can use the **SSL** tab to configure SSL/TLS connections.
-For information about using MySQL Workbench, see the [MySQL Workbench documentation](https://dev.mysql.com/doc/workbench/en/ "https://dev.mysql.com/doc/workbench/en/").
-Encrypting client connections to MySQL DB instances with SSL/TLS, see
-[Encrypting client connections with SSL/TLS to MySQL
-DB instances on Amazon RDS](mysql-ssl-connections.md "mysql-ssl-connections.md"). 6. Optionally, choose **Test Connection** to confirm that the connection to the DB instance is successful. 7. Choose **Close**. 8. From **Database**, choose **Connect to Database**. 9. From **Stored Connection**, choose your connection. 10. Choose **OK**.
+- The DB instance was created using the default port of 3306, and your company has
+  firewall rules blocking connections to that port from devices in your company
+  network. To fix this failure, recreate the instance with a different port.
+  For more information on connection issues, see [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").

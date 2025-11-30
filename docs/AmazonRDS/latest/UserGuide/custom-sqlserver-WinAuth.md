@@ -1,44 +1,32 @@
-# Configure Self-Managed or On-premise AD
+# Working with Microsoft Active Directory with RDS Custom for SQL Server
 
-To join your on-premise or self-managed Microsoft AD to your RDS Custom for SQL Server DB instance, your Active Domain must be configured as follows:
+RDS Custom for SQL Server allows to join your instances to a Self-Managed Active Directory (AD) or AWS Managed Microsoft AD.
+This is regardless of where your AD is hosted, like an On-premises data center,
+Amazon EC2 or with any other cloud service providers.
 
-- Define the subnets in the VPC associated with your RDS Custom for SQL Server DB instance in your self-managed
-  or on-premises AD. Confirm there are no conflicts between the subnets in your VPC and the subnets in your AD sites.
-- Your AD domain controller has a domain functional level of Windows Server 2008 R2 or higher.
-- Your AD domain name can't be in Single Lable Domain (SLD) format. RDS Custom for SQL Server does not support SLD domains.
-- The fully qualified domain name (FQDN) for your AD can't exceed 47 characters.
+For authentication of users and services, you can use NTLM or Kerberos
+authentication on your RDS Custom for SQL Server DB instance without using intermediary domains and forest trusts.
+When a user tries to authenticate on your RDS Custom for SQL Server DB instance with a self joined Active Directory,
+requests for authentication are forwarded to a self-managed AD or AWS Managed Microsoft AD that you specify.
 
-## Configure your network connectivity
+In the following sections, you can find information about working with
+Self Managed Active Directory and AWS Managed Active Directory for RDS Custom for SQL Server.
 
-Configure your self-managed or on-premise AD network connectivity in the following manner:
+###### Topics
 
-- Set up connectivity between Amazon VPC where your RDS Custom for SQL Server instance is running,
-  and your AD. Use Direct Connect, Site-to-Site VPN, AWS Transit Gateway, and VPC Peering.
-- Allow traffic on the ports your RDS Custom for SQL Server security groups and network ACLs to your self-managed
-  or on-premise AD. For more information, see [Network configuration port rules](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md").
+- [Region and version availability](#custom-sqlserver-WinAuth.Regions "#custom-sqlserver-WinAuth.Regions")
+- [Configure Self-Managed or On-premise AD](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md")
+- [Configure Microsoft Active
+  Directory using Directory Service](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md")
+- [Network configuration port rules](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md")
+- [Network Validation](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md")
+- [Setting up Windows Authentication for RDS Custom for SQL Server instances](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md")
+- [Managing a DB instance in a Domain](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md")
+- [Understanding Domain membership](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md")
+- [Troubleshooting Active Directory](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md")
 
-![Microsoft SQL Server Windows Authentication directory](images/custom-sqs-SM-NC.png)
+## Region and version availability
 
-##
-
-Configure DNS resolution
-
-Set up the following requirements to configure DNS resolution with self-managed or on-premises AD's:
-
-- Configure DNS resolution within your VPC to resolve your self-hosted Active Directory's
-  fully qualified domain name (FQDN). An example of an FQDN is `corp.example.local`.
-  To configure DNS resolution, configure the VPC DNS resolver to forward queries for certain domains
-  with an Amazon Route 53 outbound endpoint and resolver rule. For more information, see
-  [Configure a Route 53 Resolver outbound endpoint to resolve DNS records](https://repost.aws/knowledge-center/route53-resolve-with-outbound-endpoint "https://repost.aws/knowledge-center/route53-resolve-with-outbound-endpoint").
-- For workloads that leverage both VPCs and on-premises resources, you must resolve DNS records hosted on-premises.
-  On-premise resources might need to resolve names hosted on AWS.
-
-To create a hybrid cloud setup, use resolver endpoints and conditional forwarding riles to resolve DNS queries
-between your on-premise resources and custom VPC. For more information, see
-[Resolving DNS queries between VPCs and your network](../../../Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.md "../../../Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.md") in the _Amazon Route 53 Developer Guide_.
-
-###### Important
-
-Modifying the DNS resolver settings of the network interface on the RDS Custom for SQL Server causes DNS-enabled VPC
-endpoints to no longer work correctly. DNS-enabled VPC endpoints are required for instances
-within private subnets without internet access.
+RDS Custom for SQL Server supports both Self Managed AD and AWS Managed Microsoft AD using NTLM or Kerberos in all Regions where RDS Custom for SQL Server is supported.
+For more information, see [Supported
+Regions and DB engines for RDS Custom](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").

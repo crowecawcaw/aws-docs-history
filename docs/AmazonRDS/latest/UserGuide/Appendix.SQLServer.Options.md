@@ -1,71 +1,145 @@
-# Support for SQL Server Analysis Services in Amazon RDS for SQL Server
+# Microsoft SQL Server resource governor with RDS for SQL Server
 
-Microsoft SQL Server Analysis Services (SSAS) is part of the Microsoft Business Intelligence (MSBI) suite. SSAS is an online
-analytical processing (OLAP) and data mining tool that is installed within SQL Server. You use SSAS to analyze data to help make
-business decisions. SSAS differs from the SQL Server relational database because SSAS is optimized for queries and calculations
-common in a business intelligence environment.
+Resource governor is a SQL Server Enterprise Edition feature that gives you precise control over
+your instance resources. It enables you to set specific limits on how workloads use CPU,
+memory, and physical I/O resources. With resource governor, you can:
 
-You can turn on SSAS for existing or new DB instances. It's installed on the same DB
-instance as your database engine. For more information on SSAS, see the Microsoft [Analysis services
-documentation](https://docs.microsoft.com/en-us/analysis-services "https://docs.microsoft.com/en-us/analysis-services").
+- Prevent resource monopolization in multi-tenant environments by managing how different workloads share instance resources
+- Deliver predictable performance by setting specific resource limits and priorities for different users and applications
+  You can enable resource governor on either an existing or new RDS for SQL Server DB instance.
 
-Amazon RDS supports SSAS for SQL Server Standard and Enterprise Editions on the following versions:
+Resource governor uses three fundamental concepts:
 
-- Tabular mode:
-  - SQL Server 2019, version 15.00.4043.16.v1 and higher
-  - SQL Server 2017, version 14.00.3223.3.v1 and higher
-  - SQL Server 2016, version 13.00.5426.0.v1 and higher
-
-- Multidimensional mode:
-  - SQL Server 2019, version 15.00.4153.1.v1 and higher
-  - SQL Server 2017, version 14.00.3381.3.v1 and higher
-  - SQL Server 2016, version 13.00.5882.1.v1 and higher
+- **Resource pool** - A container that manages your instance physical resources (CPU, memory, and I/O).
+  You get two built-in pools (internal and default) and you can create additional custom pools.
+- **Workload group** - A container for database sessions with similar characteristics.
+  Every workload group belongs to a resource pool. You get two built-in workload groups
+  (internal and default) and you can create additional custom workload groups.
+- **Classification** - The process that determines which workload
+  group handles incoming sessions based on user name, application name, database name or host name.
+  For additional details about resource governor functionality in SQL Server,
+  see [Resource Governor](https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver16")
+  in the Microsoft documentation.
 
 ###### Contents
 
-- [Limitations](Appendix.SQLServer.Options.md#SSAS.Limitations "Appendix.SQLServer.Options.md#SSAS.Limitations")
-- [Turning on SSAS](SSAS.md "SSAS.md")
-  - [Creating an option group for SSAS](SSAS.md#SSAS.OptionGroup "SSAS.md#SSAS.OptionGroup")
-  - [Adding the SSAS option to the option group](SSAS.md#SSAS.Add "SSAS.md#SSAS.Add")
-  - [Associating the option group with your DB instance](SSAS.md#SSAS.Apply "SSAS.md#SSAS.Apply")
-  - [Allowing inbound access to your VPC security group](SSAS.md#SSAS.InboundRule "SSAS.md#SSAS.InboundRule")
-  - [Enabling Amazon S3 integration](SSAS.md#SSAS.EnableS3 "SSAS.md#SSAS.EnableS3")
+- [Supported versions and Regions](Appendix.SQLServer.Options.md#ResourceGovernor.SupportedVersions "Appendix.SQLServer.Options.md#ResourceGovernor.SupportedVersions")
+- [Limitations and recommendations](Appendix.SQLServer.Options.md#ResourceGovernor.Limitations "Appendix.SQLServer.Options.md#ResourceGovernor.Limitations")
+- [Enabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+  - [Creating the option group for RESOURCE_GOVERNOR](ResourceGovernor.md#ResourceGovernor.OptionGroup "ResourceGovernor.md#ResourceGovernor.OptionGroup")
+  - [Adding the RESOURCE_GOVERNOR option to the option group](ResourceGovernor.md#ResourceGovernor.Add "ResourceGovernor.md#ResourceGovernor.Add")
+  - [Associating the option group with your DB instance](ResourceGovernor.md#ResourceGovernor.Apply "ResourceGovernor.md#ResourceGovernor.Apply")
 
-- [Deploying SSAS projects on Amazon RDS](SSAS.md "SSAS.md")
-- [Monitoring the status of a deployment task](SSAS.md "SSAS.md")
-- [Using SSAS on Amazon RDS](SSAS.md "SSAS.md")
-  - [Setting up a Windows-authenticated user for SSAS](SSAS.md#SSAS.Use.Auth "SSAS.md#SSAS.Use.Auth")
-  - [Adding a domain user as a database administrator](SSAS.md#SSAS.Admin "SSAS.md#SSAS.Admin")
-  - [Creating an SSAS proxy](SSAS.md#SSAS.Use.Proxy "SSAS.md#SSAS.Use.Proxy")
-  - [Scheduling SSAS database processing using SQL Server Agent](SSAS.md#SSAS.Use.Schedule "SSAS.md#SSAS.Use.Schedule")
-  - [Revoking SSAS access from the proxy](SSAS.md#SSAS.Use.Revoke "SSAS.md#SSAS.Use.Revoke")
+- [Using Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+  - [Manage resource pool](ResourceGovernor.md#ResourceGovernor.ManageResourcePool "ResourceGovernor.md#ResourceGovernor.ManageResourcePool")
+    - [Create resource Pool](ResourceGovernor.md#ResourceGovernor.CreateResourcePool "ResourceGovernor.md#ResourceGovernor.CreateResourcePool")
+    - [Alter resource pool](ResourceGovernor.md#ResourceGovernor.AlterResourcePool "ResourceGovernor.md#ResourceGovernor.AlterResourcePool")
+    - [Drop resource pool](ResourceGovernor.md#ResourceGovernor.DropResourcePool "ResourceGovernor.md#ResourceGovernor.DropResourcePool")
 
-- [Backing up an SSAS database](SSAS.md "SSAS.md")
-- [Restoring an SSAS database](SSAS.md "SSAS.md")
-  - [Restoring a DB instance to a specified time](SSAS.md#SSAS.PITR "SSAS.md#SSAS.PITR")
+  - [Manage workload groups](ResourceGovernor.md#ResourceGovernor.ManageWorkloadGroups "ResourceGovernor.md#ResourceGovernor.ManageWorkloadGroups")
+    - [Create workload group](ResourceGovernor.md#ResourceGovernor.CreateWorkloadGroup "ResourceGovernor.md#ResourceGovernor.CreateWorkloadGroup")
+    - [Alter workload group](ResourceGovernor.md#ResourceGovernor.AlterWorkloadGroup "ResourceGovernor.md#ResourceGovernor.AlterWorkloadGroup")
+    - [Drop workload group](ResourceGovernor.md#ResourceGovernor.DropWorkloadGroup "ResourceGovernor.md#ResourceGovernor.DropWorkloadGroup")
 
-- [Changing the SSAS mode](SSAS.md "SSAS.md")
-- [Turning off SSAS](SSAS.md "SSAS.md")
-- [Troubleshooting SSAS issues](SSAS.md "SSAS.md")
+  - [Create and register classifier function](ResourceGovernor.md#ResourceGovernor.ClassifierFunction "ResourceGovernor.md#ResourceGovernor.ClassifierFunction")
+  - [Drop classifier function](ResourceGovernor.md#ResourceGovernor.DropClassifier "ResourceGovernor.md#ResourceGovernor.DropClassifier")
+  - [De-register classifier function](ResourceGovernor.md#ResourceGovernor.DeregisterClassifier "ResourceGovernor.md#ResourceGovernor.DeregisterClassifier")
+  - [Reset statistics](ResourceGovernor.md#ResourceGovernor.ResetStats "ResourceGovernor.md#ResourceGovernor.ResetStats")
+  - [Resource governor configuration changes](ResourceGovernor.md#ResourceGovernor.ConfigChanges "ResourceGovernor.md#ResourceGovernor.ConfigChanges")
+  - [Bind TempDB to a resource pool](ResourceGovernor.md#ResourceGovernor.BindTempDB "ResourceGovernor.md#ResourceGovernor.BindTempDB")
+  - [Unbind TempDB from a resource pool](ResourceGovernor.md#ResourceGovernor.UnbindTempDB "ResourceGovernor.md#ResourceGovernor.UnbindTempDB")
+  - [Cleanup resource governor](ResourceGovernor.md#ResourceGovernor.Cleanup "ResourceGovernor.md#ResourceGovernor.Cleanup")
 
-## Limitations
+- [Considerations for Multi-AZ deployment](Appendix.SQLServer.Options.md#ResourceGovernor.Considerations "Appendix.SQLServer.Options.md#ResourceGovernor.Considerations")
+- [Considerations for read replicas](Appendix.SQLServer.Options.md#ResourceGovernor.ReadReplica "Appendix.SQLServer.Options.md#ResourceGovernor.ReadReplica")
+- [Monitor Microsoft SQL Server resource governor using system views for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+  - [Resource pool runtime statistics](ResourceGovernor.md#ResourceGovernor.ResourcePoolStats "ResourceGovernor.md#ResourceGovernor.ResourcePoolStats")
 
-The following limitations apply to using SSAS on RDS for SQL Server:
+- [Disabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+- [Best practices for configuring resource governor on RDS for SQL Server](ResourceGovernor.md "ResourceGovernor.md")
 
-- RDS for SQL Server supports running SSAS in Tabular or Multidimensional mode. For more information, see [Comparing tabular and
-  multidimensional solutions](https://docs.microsoft.com/en-us/analysis-services/comparing-tabular-and-multidimensional-solutions-ssas "https://docs.microsoft.com/en-us/analysis-services/comparing-tabular-and-multidimensional-solutions-ssas") in the Microsoft documentation.
-- You can only use one SSAS mode at a time. Before changing modes, make sure to
-  delete all of the SSAS databases.
+## Supported versions and Regions
 
-For more information, see [Changing the SSAS mode](SSAS.md "SSAS.md").
+Resource governor is available in all AWS Regions where RDS for SQL Server is available.
+It is only supported for SQL Server Enterprise Edition for SQL Server 2016, SQL Server 2017,
+SQL Server 2019, and SQL Server 2022.
 
-- Multi-AZ instances aren't supported.
-- Instances must use self-managed Active Directory or AWS Directory Service for Microsoft Active Directory for SSAS authentication. For more information, see [Working with Active Directory with RDS for SQL Server](User.SQLServer.md "User.SQLServer.md").
-- Users aren't given SSAS server administrator access, but they can be granted
-  database-level administrator access.
-- The only supported port for accessing SSAS is 2383.
-- You can't deploy projects directly. We provide an RDS stored procedure to do this. For more information, see [Deploying SSAS projects on Amazon RDS](SSAS.md "SSAS.md").
-- Processing during deployment isn't supported.
-- Using .xmla files for deployment isn't supported.
-- SSAS project input files and database backup output files can only be in the
-  `D:\S3` folder on the DB instance.
+## Limitations and recommendations
+
+The following limitations and recommendations apply to resource governor:
+
+- Edition and service restrictions:
+  - Available only in SQL Server Enterprise Edition.
+  - Resource management is limited to the SQL Server Database Engine.
+    Resource governor for Analysis Services, Integration Services, and Reporting Services are not supported.
+
+- Configuration restrictions:
+  - Must use Amazon RDS stored procedures for all configurations.
+  - Native DDL statements and SQL Server Management Studio GUI configurations aren't supported.
+
+- Resource pool parameters:
+  - Pool names starting with `rds_` aren't supported.
+  - Internal and default resource pool modifications aren't permitted.
+  - For the user-defined resource pools the following resource pool parameters aren't supported:
+    - `MIN_MEMORY_PERCENT`
+    - `MIN_CPU_PERCENT`
+    - `MIN_IOPS_PER_VOLUME`
+    - `AFFINITY`
+
+- Workload group parameters:
+  - Workload group names starting with `rds_` aren't supported.
+  - Internal workload group modification isn't permitted.
+  - For the default workload group:
+    - Only the `REQUEST_MAX_MEMORY_GRANT_PERCENT` parameter can be modified.
+    - For the default workload group, `REQUEST_MAX_MEMORY_GRANT_PERCENT` must be between 1 and 70.
+    - All other parameters are locked and can't be changed.
+
+  - User-defined workload groups allow modification of all parameters.
+
+- Classifier function limitations:
+  - Classifier function routes connections to custom workload groups
+    based on specified criteria (user name, database, host, or application name).
+  - Supports up to two user-defined workload groups with their
+    respective routing conditions.
+  - Combines criterion with `AND` conditions within each group.
+  - Requires at least one routing criterion per workload group.
+  - Only the classification methods listed above are supported.
+  - Function name must start with `rg_classifier_`.
+  - Default group assignment if no conditions match.
+
+## Considerations for Multi-AZ deployment
+
+RDS for SQL Server replicates resource governor to secondary instance in a Multi-AZ deployment.
+You can verify when modified and new resource governor last synchronized with the secondary instance.
+
+Use the following query to check the `last_sync_time` of the replication:
+
+```
+SELECT * from msdb.dbo.rds_fn_server_object_last_sync_time();
+```
+
+In the query results, if the sync time is past the resource governor updated or creation time, then the resource governor syncs with the secondary.
+
+To perform a manual DB failover to confirm that the resource governor replicate,
+wait for the `last_sync_time` to update first. Then, proceed with the Multi-AZ failover.
+
+## Considerations for read replicas
+
+- For SQL Server replicas in the same Region as the source DB instance,
+  use the same option group as the source. Changes to the option group propagate
+  to replicas immediately, regardless of their maintenance windows.
+- When you create a SQL Server cross-Region replica, RDS creates a dedicated option group for it.
+- You can't remove an SQL Server cross-Region replica from its dedicated option group.
+  No other DB instances can use the dedicated option group for a SQL Server cross-Region replica.
+- Resource governor option is non-replicated options.
+  You can add or remove non-replicated options from a dedicated option group.
+- When you promote a SQL Server cross-Region read replica, the promoted replica
+  behaves the same as other SQL Server DB instances, including the management of its options.
+
+###### Note
+
+When using Resource governor on a read replica, you must manually ensure that resource governor has been configured on your read replica
+using Amazon RDS stored procedures after the option is added to the option group. Resource governor configurations do not automatically replicate to
+the read replica. Also, the workload on read replica is typically different than the primary instance.
+Hence, it's recommended to apply the resource configuration on the replica based on your workload and instance type.
+You can run these Amazon RDS stored procedures on read replica independently to configure resource governor on read replica.

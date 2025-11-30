@@ -1,16 +1,20 @@
-# Troubleshooting connections to your SQL Server DB instance
+# Security group considerations
 
-The following table shows error messages that you might encounter when you attempt to
-connect to your SQL Server DB instance.
+To connect to your DB instance, your DB instance must be associated with a security
+group. This security group contains the IP addresses and network configuration that you
+use to access the DB instance. You might have associated your DB instance with an
+appropriate security group when you created your DB instance. If you assigned a default,
+no-configured security group when you created your DB instance, your DB instance
+firewall prevents connections.
 
-| Issue                                                                                                                                                                                                                                 | Troubleshooting suggestions                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`Could not open a connection to SQL Server –<br>Microsoft SQL Server, Error: 53`**                                                                                                                                                  | Make sure that you specified the server name correctly. For<br>**Server name**, enter the DNS name and port<br>number of your sample DB instance, separated by a comma.ImportantIf you have a colon between the DNS name and port number, change the colon to a comma.Your server name should look like the following<br>example.<br>`<br>sample-instance.cg034itsfake.us-east-1.rds.amazonaws.com,1433<br>` |
-| **`No connection could be made because the target machine<br>actively refused it – Microsoft SQL Server, Error:<br>10061`**                                                                                                           | You were able to reach the DB instance but the connection was<br>refused. This issue is usually caused by specifying the user name or<br>password incorrectly. Verify the user name and password, then retry.                                                                                                                                                                                                |
-| **`A network-related or instance-specific error<br>occurred while establishing a connection to SQL Server. The server<br>was not found or was not accessible... The wait operation timed out<br>– Microsoft SQL Server, Error: 258`** | The access rules enforced by your local firewall and the IP addresses<br>authorized to access your DB instance might not match. The problem is<br>most likely the inbound rules in your security group. For more information, see<br>[Security in Amazon RDS](UsingWithRDS.md "UsingWithRDS.md").                                                                                                            |
-| Your database instance must be publicly accessible. To connect to<br>it from outside of the VPC, the instance must have a public IP<br>address assigned.                                                                              |
+In some cases, you might need to create a new security group to make access possible. For instructions
+on creating a new security group, see [Controlling access with security
+groups](Overview.md "Overview.md").
+For a topic that walks you through the process of setting up rules for your VPC security group, see [Tutorial: Create a VPC for use with a
+DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
 
-###### Note
+After you have created the new security group, modify your DB instance to associate it with the security group.
+For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-For more information on connection issues, see
-[Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").
+You can enhance security by using SSL to encrypt connections to your DB instance. For more information, see
+[Using SSL with a Microsoft SQL Server DB instance](SQLServer.Concepts.General.SSL.md "SQLServer.Concepts.General.SSL.md").

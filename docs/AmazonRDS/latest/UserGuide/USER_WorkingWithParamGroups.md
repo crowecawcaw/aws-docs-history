@@ -1,74 +1,86 @@
-# Copying a DB parameter group in Amazon RDS
+# Creating a DB parameter group in Amazon RDS
 
-You can copy custom DB parameter groups that you create. Copying a parameter group can be
-convenient solution. An example is when you have created a DB parameter group and want to include
-most of its custom parameters and values in a new DB parameter group. You can copy a
-DB parameter group by using the AWS Management Console. You can also use the AWS CLI [copy-db-parameter-group](../../../cli/latest/reference/rds/copy-db-parameter-group.md "../../../cli/latest/reference/rds/copy-db-parameter-group.md")
-command or the RDS API [CopyDBParameterGroup](../APIReference/API_CopyDBParameterGroup.md "../APIReference/API_CopyDBParameterGroup.md") operation.
+You can create a new DB parameter group using the AWS Management Console, the AWS CLI, or the RDS API.
 
-After you copy a DB parameter group, wait at least 5 minutes before creating your first DB instance that
-uses that DB parameter group as the default parameter group. Doing this allows Amazon RDS to fully
-complete the copy action before the parameter group is used. This is especially
-important for parameters that are critical when creating the default database for a
-DB instance. An example is the character set for the default database defined by the
-`character_set_database` parameter. Use the **Parameter
-Groups** option of the [Amazon RDS
-console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") or the [describe-db-parameters](../../../cli/latest/reference/rds/describe-db-parameters.md "../../../cli/latest/reference/rds/describe-db-parameters.md") command to verify that your DB parameter group is created.
+The following limitations apply to the DB parameter group name:
 
-###### Note
+- The name must be 1 to 255 letters, numbers, or hyphens.
 
-You can't copy a default parameter group. However, you can create a new parameter
-group that is based on a default parameter group.
+Default parameter group names can include a period, such as
+`default.mysql8.0`. However, custom parameter group names can't
+include a period.
 
-You can't copy a DB parameter group to a different AWS account or AWS Region.
+- The first character must be a letter.
+- The name can't end with a hyphen or contain two consecutive hyphens.
 
-###### To copy a DB parameter group
+###### To create a DB parameter group
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Parameter
    groups**.
-3. In the list, choose the custom parameter group that you want to
-   copy.
-4. For **Parameter group actions**, choose
-   **Copy**.
-5. In **New DB parameter group identifier**, enter a name for the new
-   parameter group.
-6. In **Description**, enter a description for the new
-   parameter group.
-7. Choose **Copy**.
-   To copy a DB parameter group, use the AWS CLI [`copy-db-parameter-group`](../../../cli/latest/reference/rds/copy-db-parameter-group.md "../../../cli/latest/reference/rds/copy-db-parameter-group.md") command with the following
-   required options:
+3. Choose **Create parameter group**.
+4. For **Parameter group name**, enter the name of your
+   new DB parameter group.
+5. For **Description**, enter a description for your new
+   DB parameter group.
+6. For **Engine type**, choose your DB engine.
+7. For **Parameter group family**, choose a DB parameter group
+   family.
+8. For **Type**, if applicable, choose **DB
+   Parameter Group**.
+9. Choose **Create**.
+   To create a DB parameter group, use the AWS CLI [`create-db-parameter-group`](../../../cli/latest/reference/rds/create-db-parameter-group.md "../../../cli/latest/reference/rds/create-db-parameter-group.md") command. The following
+   example creates a DB parameter group named _mydbparametergroup_ for MySQL
+   version 8.0 with a description of "_My new parameter
+   group_."
 
-- `--source-db-parameter-group-identifier`
-- `--target-db-parameter-group-identifier`
-- `--target-db-parameter-group-description`
-  The following example creates a new DB parameter group named `mygroup2` that is
-  a copy of the DB parameter group `mygroup1`.
+Include the following required parameters:
+
+- `--db-parameter-group-name`
+- `--db-parameter-group-family`
+- `--description`
+  To list all of the available parameter group families, use the following
+  command:
+
+```
+aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
+```
+
+###### Note
+
+The output contains duplicates.
 
 ###### Example
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds copy-db-parameter-group \
-    --source-db-parameter-group-identifier `mygroup1` \
-    --target-db-parameter-group-identifier `mygroup2` \
-    --target-db-parameter-group-description `"DB parameter group 2"`
+aws rds create-db-parameter-group \
+    --db-parameter-group-name `mydbparametergroup` \
+    --db-parameter-group-family `MySQL8.0` \
+    --description `"My new parameter group"`
 ```
 
 For Windows:
 
 ```
-aws rds copy-db-parameter-group ^
-    --source-db-parameter-group-identifier `mygroup1` ^
-    --target-db-parameter-group-identifier `mygroup2` ^
-    --target-db-parameter-group-description `"DB parameter group 2"`
+aws rds create-db-parameter-group ^
+    --db-parameter-group-name `mydbparametergroup` ^
+    --db-parameter-group-family `MySQL8.0` ^
+    --description `"My new parameter group"`
 ```
 
-To copy a DB parameter group, use the RDS API [`CopyDBParameterGroup`](../APIReference/API_CopyDBParameterGroup.md "../APIReference/API_CopyDBParameterGroup.md") operation with the following
-required parameters:
+This command produces output similar to the following:
 
-- `SourceDBParameterGroupIdentifier`
-- `TargetDBParameterGroupIdentifier`
-- `TargetDBParameterGroupDescription`
+```
+DBPARAMETERGROUP  mydbparametergroup  mysql8.0  My new parameter group
+```
+
+To create a DB parameter group, use the RDS API [`CreateDBParameterGroup`](../APIReference/API_CreateDBParameterGroup.md "../APIReference/API_CreateDBParameterGroup.md") operation.
+
+Include the following required parameters:
+
+- `DBParameterGroupName`
+- `DBParameterGroupFamily`
+- `Description`

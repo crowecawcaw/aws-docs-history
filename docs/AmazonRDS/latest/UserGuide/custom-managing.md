@@ -1,41 +1,34 @@
-# Working with high availability features for RDS Custom for Oracle
+# Setting the NLS_LANG value in RDS Custom for Oracle
 
-RDS Custom for Oracle provides built-in high availability through Multi-AZ deployments. Alternatively, you can use Oracle Data Guard as a customer-managed option based on your use cases.
+A _locale_ is a set of information addressing linguistic and cultural
+requirements that corresponds to a given language and country. To specify locale behavior
+for Oracle software, set the `NLS_LANG` environment variable on your client host.
+This variable sets the language, territory, and character set used by the client application
+in a database session.
 
-## Multi-AZ deployments
+For RDS Custom for Oracle, you can set only the language in the `NLS_LANG` variable: the
+territory and character use defaults. The language is used for Oracle database messages,
+collation, day names, and month names. Each supported language has a unique name, for
+example, American, French, or German. If language is not specified, the value defaults to
+American.
 
-(fully-managed)
+After you create your RDS Custom for Oracle database, you can set `NLS_LANG` on your client
+host to a language other than English. To see a list of languages supported by Oracle
+Database, log in to your RDS Custom for Oracle database and run the following query:
 
-With Multi-AZ deployments for RDS Custom for Oracle, Amazon RDS automatically provisions and
-maintains a synchronous standby replica in a different Availability Zone (AZ). The
-primary DB instance is synchronously replicated across AZs to a standby replica for data
-redundancy. Multi-AZ deployment is supported in both the Enterprise Edition and the
-Standard Edition 2. See [Managing a Multi-AZ deployment for RDS Custom for Oracle](custom-oracle-multiaz.md "custom-oracle-multiaz.md") for details.
+```
+SELECT VALUE FROM V$NLS_VALID_VALUES WHERE PARAMETER='LANGUAGE' ORDER BY VALUE;
+```
 
-## Oracle Data Guard
+You can set `NLS_LANG` on the host command line. The following example sets the
+language to German for your client application using the Z shell on Linux.
 
-(customer-managed)
+```
+export NLS_LANG=German
+```
 
-Alternatively, you can achieve high availability by manually configuring Oracle
-Data Guard to replicate data between RDS Custom for Oracle DB instances. The primary DB instance
-automatically synchronizes data to the standby instances. Oracle Data Guard is supported
-only in the Enterprise Edition.
+Your application reads the `NLS_LANG` value when it starts and then
+communicates it to the database when it connects.
 
-You can configure your high availability environment in the following ways:
-
-- Configure standby instances in different AZs to be resilient to AZ
-  failures.
-- Place your standby databases in mounted or read-only mode. Read-only mode
-  requires an Oracle Active Data Guard license.
-- Fail over or switch over from the primary database to a standby database with no data loss.
-- Migrate data by configuring high availability for your on-premises
-  instance, and then failing over or switching over to the RDS Custom for Oracle standby
-  database.
-
-To learn how to configure Oracle Data Guard for high availability, see the AWS blog [Build high availability for RDS Custom for Oracle using read replicas](https://aws.amazon.com/blogs/database/build-high-availability-for-amazon-rds-custom-for-oracle-using-read-replicas/ "https://aws.amazon.com/blogs/database/build-high-availability-for-amazon-rds-custom-for-oracle-using-read-replicas/"). You can perform the following tasks:
-
-- Use a virtual private network (VPN) tunnel to encrypt data in transit for
-  your high availability instances. Encryption in transit isn't configured
-  automatically by RDS Custom for Oracle.
-- Configure Oracle Fast-Failover Observer (FSFO) to monitor your high availability instances.
-- Allow the observer to perform automatic failover when necessary conditions are met.
+For more information, see [Choosing a Locale with the NLS_LANG Environment Variable](https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/setting-up-globalization-support-environment.html#GUID-86A29834-AE29-4BA5-8A78-E19C168B690A "https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/setting-up-globalization-support-environment.html#GUID-86A29834-AE29-4BA5-8A78-E19C168B690A") in the
+_Oracle Database Globalization Support Guide_.

@@ -1,97 +1,105 @@
-# SQL statistics for Amazon RDS for SQL Server
+# SQL statistics for Amazon RDS for Oracle
 
-Amazon RDS for SQL Server collects SQL statistics both at the statement and digest level. At the statement level, the ID column represents the
-value of `sql_handle`. At the digest level, the ID column shows the value of `query_hash`.
+Amazon RDS for Oracle collects SQL statistics both at the statement and digest level. At the statement level, the ID column represents the
+value of `V$SQL.SQL_ID`. At the digest level, the ID column shows the value of `V$SQL.FORCE_MATCHING_SIGNATURE`.
 
-SQL Server returns NULL values for `query_hash` for a few statements. For example, ALTER INDEX, CHECKPOINT,
-UPDATE STATISTICS, COMMIT TRANSACTION, FETCH NEXT FROM Cursor, and a few INSERT statements, SELECT @<variable>, conditional statements,
-and executable stored procedures. In this case, the `sql_handle` value is displayed as the ID at the digest level for that statement.
+If the ID is `0` at the digest level, Oracle Database has determined that this statement is not suitable for reuse. In this
+case, the child SQL statements could belong to different digests. However, the statements are grouped together under the
+`digest_text` for the first SQL statement collected.
 
 ###### Topics
 
 - [Per-second statistics for
-  SQL Server](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.SQLServer.per-second "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.SQLServer.per-second")
-- [Per-call statistics for SQL Server](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.SQLServer.per-call "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.SQLServer.per-call")
+  Oracle](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.per-second "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.per-second")
+- [Per-call statistics for
+  Oracle](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.per-call "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.per-call")
 - [Primary statistics for
-  SQL Server](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.SQLServer.primary "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.SQLServer.primary")
+  Oracle](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.primary "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.primary")
 
 ## Per-second statistics for
 
-SQL Server
+Oracle
 
-The following metrics provide per-second statistics for a SQL Server SQL query.
+The following metrics provide per-second statistics for an Oracle SQL query.
 
-| Metric                                    | Unit                            |
-| ----------------------------------------- | ------------------------------- |
-| db.sql.stats.execution_count_per_sec      | Number of executions per second |
-| db.sql.stats.total_elapsed_time_per_sec   | Total elapsed time per second   |
-| db.sql.stats.total_rows_per_sec           | Total rows processed per second |
-| db.sql.stats.total_logical_reads_per_sec  | Total logical reads per second  |
-| db.sql.stats.total_logical_writes_per_sec | Total logical writes per second |
-| db.sql.stats.total_physical_reads_per_sec | Total physical reads per second |
-| db.sql.stats.total_worker_time_per_sec    | Total CPU time (in ms)          |
+| Metric                                       | Unit                                         |
+| -------------------------------------------- | -------------------------------------------- |
+| db.sql.stats.executions_per_sec              | Number of executions per second              |
+| db.sql.stats.elapsed_time_per_sec            | Average active executions (AAE)              |
+| db.sql.stats.rows_processed_per_sec          | Rows processed per second                    |
+| db.sql.stats.buffer_gets_per_sec             | Buffer gets per second                       |
+| db.sql.stats.physical_read_requests_per_sec  | Physical reads per second                    |
+| db.sql.stats.physical_write_requests_per_sec | Physical writes per second                   |
+| db.sql.stats.total_sharable_mem_per_sec      | Total shareable memory per second (in bytes) |
+| db.sql.stats.cpu_time_per_sec                | CPU time per second (in ms)                  |
 
-The following metrics provide per-second statistics for a SQL Server SQL digest
-query.
+The following metrics provide per-second statistics for an Oracle SQL digest query.
 
-| Metric                                              | Unit                            |
-| --------------------------------------------------- | ------------------------------- |
-| db.sql_tokenized.stats.execution_count_per_sec      | Number of execution per second  |
-| db.sql_tokenized.stats.total_elapsed_time_per_sec   | Total elapsed time per second   |
-| db.sql_tokenized.stats.total_rows_per_sec           | Total rows processed per second |
-| db.sql_tokenized.stats.total_logical_reads_per_sec  | Total logical reads per second  |
-| db.sql_tokenized.stats.total_logical_writes_per_sec | Total logical writes per second |
-| db.sql_tokenized.stats.total_physical_reads_per_sec | Total physical reads per second |
-| db.sql_tokenized.stats.total_worker_time_per_sec    | Total CPU time (in ms)          |
+| Metric                                                 | Unit                                         |
+| ------------------------------------------------------ | -------------------------------------------- |
+| db.sql_tokenized.stats.executions_per_sec              | Number of executions per second              |
+| db.sql_tokenized.stats.elapsed_time_per_sec            | Average active executions (AAE)              |
+| db.sql_tokenized.stats.rows_processed_per_sec          | Rows processed per second                    |
+| db.sql_tokenized.stats.buffer_gets_per_sec             | Buffer gets per second                       |
+| db.sql_tokenized.stats.physical_read_requests_per_sec  | Physical reads per second                    |
+| db.sql_tokenized.stats.physical_write_requests_per_sec | Physical writes per second                   |
+| db.sql_tokenized.stats.total_sharable_mem_per_sec      | Total shareable memory per second (in bytes) |
+| db.sql_tokenized.stats.cpu_time_per_sec                | CPU time per second (in ms)                  |
 
-## Per-call statistics for SQL Server
+## Per-call statistics for
 
-The following metrics provide per-call statistics for a SQL Server SQL statement.
+Oracle
 
-| Metric                                     | Unit                                     |
-| ------------------------------------------ | ---------------------------------------- |
-| db.sql.stats.total_elapsed_time_per_call   | Total elapsed time per execution (in ms) |
-| db.sql.stats.total_rows_per_call           | Total rows processed per execution       |
-| db.sql.stats.total_logical_reads_per_call  | Total logical reads per execution        |
-| db.sql.stats.total_logical_writes_per_call | Total logical writes per execution       |
-| db.sql.stats.total_physical_reads_per_call | Total physical reads per execution       |
-| db.sql.stats.total_worker_time_per_call    | Total CPU time per execution (in ms)     |
+The following metrics provide per-call statistics for an Oracle SQL statement.
 
-The following metrics provide per-call statistics for a SQL Server SQL digest query.
+| Metric                                        | Unit                                            |
+| --------------------------------------------- | ----------------------------------------------- |
+| db.sql.stats.elapsed_time_per_exec            | Elapsed time per executions (in ms)             |
+| db.sql.stats.rows_processed_per_exec          | Rows processed per execution                    |
+| db.sql.stats.buffer_gets_per_exec             | Buffer gets per execution                       |
+| db.sql.stats.physical_read_requests_per_exec  | Physical reads per execution                    |
+| db.sql.stats.physical_write_requests_per_exec | Physical writes per execution                   |
+| db.sql.stats.total_sharable_mem_per_exec      | Total shareable memory per execution (in bytes) |
+| db.sql.stats.cpu_time_per_exec                | CPU time per execution (in ms)                  |
 
-| Metric                                               | Unit                                 |
-| ---------------------------------------------------- | ------------------------------------ |
-| db.sql_tokenized.stats.total_elapsed_time_per_call   | Total elapsed time per execution     |
-| db.sql_tokenized.stats.total_rows_per_call           | Total rows processed per execution   |
-| db.sql_tokenized.stats.total_logical_reads_per_call  | Total logical reads per execution    |
-| db.sql_tokenized.stats.total_logical_writes_per_call | Total logical writes per execution   |
-| db.sql_tokenized.stats.total_physical_reads_per_call | Total physical reads per execution   |
-| db.sql_tokenized.stats.total_worker_time_per_call    | Total CPU time per execution (in ms) |
+The following metrics provide per-call statistics for an Oracle SQL digest query.
+
+| Metric                                                  | Unit                                            |
+| ------------------------------------------------------- | ----------------------------------------------- |
+| db.sql_tokenized.stats.elapsed_time_per_exec            | Elapsed time per executions (in ms)             |
+| db.sql_tokenized.stats.rows_processed_per_exec          | Rows processed per execution                    |
+| db.sql_tokenized.stats.buffer_gets_per_exec             | Buffer gets per execution                       |
+| db.sql_tokenized.stats.physical_read_requests_per_exec  | Physical reads per execution                    |
+| db.sql_tokenized.stats.physical_write_requests_per_exec | Physical writes per execution                   |
+| db.sql_tokenized.stats.total_sharable_mem_per_exec      | Total shareable memory per execution (in bytes) |
+| db.sql_tokenized.stats.cpu_time_per_exec                | CPU time per execution (in ms)                  |
 
 ## Primary statistics for
 
-SQL Server
+Oracle
 
-The following metrics provide primary statistics for a SQL Server SQL query.
+The following metrics provide primary statistics for an Oracle SQL query.
 
-| Metric                            | Unit                       |
-| --------------------------------- | -------------------------- |
-| db.sql.stats.execution_count      | Number of executions       |
-| db.sql.stats.total_elapsed_time   | Total elapsed time (in ms) |
-| db.sql.stats.total_rows           | Total rows processed       |
-| db.sql.stats.total_logical_reads  | Total logical reads        |
-| db.sql.stats.total_logical_writes | Total logical writes       |
-| db.sql.stats.total_physical_reads | Total physical reads       |
-| db.sql.stats.total_worker_time    | Total CPU time (in ms)     |
+| Metric                               | Unit                              |
+| ------------------------------------ | --------------------------------- |
+| db.sql.stats.executions              | Number of executions              |
+| db.sql.stats.elapsed_time            | Elapsed time (in ms)              |
+| db.sql.stats.rows_processed          | Rows processed                    |
+| db.sql.stats.buffer_gets             | Buffer gets                       |
+| db.sql.stats.physical_read_requests  | Physical reads                    |
+| db.sql.stats.physical_write_requests | Physical writes                   |
+| db.sql.stats.total_sharable_mem      | Total shareable memory (in bytes) |
+| db.sql.stats.cpu_time                | CPU time (in ms)                  |
 
-The following metrics provide primary statistics for a SQL Server SQL digest query.
+The following metrics provide primary statistics for an Oracle SQL digest query.
 
-| Metric                                      | Unit                       |
-| ------------------------------------------- | -------------------------- |
-| db.sql_tokenized.stats.execution_count      | Number of execution        |
-| db.sql_tokenized.stats.total_elapsed_time   | Total elapsed time (in ms) |
-| db.sql_tokenized.stats.total_rows           | Total rows processed       |
-| db.sql_tokenized.stats.total_logical_reads  | Total logical reads        |
-| db.sql_tokenized.stats.total_logical_writes | Total logical writes       |
-| db.sql_tokenized.stats.total_physical_reads | Total physical reads       |
-| db.sql_tokenized.stats.total_worker_time    | Total CPU time (in ms)     |
+| Metric                                         | Unit                              |
+| ---------------------------------------------- | --------------------------------- |
+| db.sql_tokenized.stats.executions              | Number of executions              |
+| db.sql_tokenized.stats.elapsed_time            | Elapsed time (in ms)              |
+| db.sql_tokenized.stats.rows_processed          | Rows processed                    |
+| db.sql_tokenized.stats.buffer_gets             | Buffer gets                       |
+| db.sql_tokenized.stats.physical_read_requests  | Physical reads                    |
+| db.sql_tokenized.stats.physical_write_requests | Physical writes                   |
+| db.sql_tokenized.stats.total_sharable_mem      | Total shareable memory (in bytes) |
+| db.sql_tokenized.stats.cpu_time                | CPU time (in ms)                  |

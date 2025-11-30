@@ -1,84 +1,274 @@
-# Troubleshooting for IAM DB authentication
+# Creating and using an IAM policy for
 
-Following, you can find troubleshooting ideas for some common IAM DB authentication
-issues and information on CloudWatch logs and metrics for IAM DB authentication.
+IAM database access
 
-## Exporting IAM DB authentication error logs to CloudWatch Logs
+To allow a user or role to connect to your DB instance,
+you must create an IAM policy. After that, you attach the policy to a permissions set or role.
 
-IAM DB authentication error logs are stored on the database host,
-and you can export these logs your CloudWatch Logs account. Use the logs and
-remediation methods in this page to troubleshoot IAM DB authentication issues.
+###### Note
 
-You can enable log exports to CloudWatch Logs from the console, AWS CLI, and RDS API. For console instructions, see
-[Publishing database logs to Amazon CloudWatch Logs](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
+To learn more about IAM policies, see [Identity and access management for Amazon RDS](UsingWithRDS.md "UsingWithRDS.md").
 
-To export your IAM DB authentication error logs to CloudWatch Logs when creating a
-DB instance from the AWS CLI, use the following command:
+The following example policy allows a user to connect to a DB instance
+using IAM database authentication.
 
-```
-aws rds create-db-instance --db-instance-identifier `mydbinstance` \
---region `us-east-1` \
---db-instance-class `db.t3.large` \
---allocated-storage `50` \
---engine `postgres` \
---engine-version `16` \
---port `5432` \
---master-username `master` \
---master-user-password `password` \
---publicly-accessible \
---enable-iam-database-authentication \
-*--enable-cloudwatch-logs-exports=iam-db-auth-error*
-```
-
-To export your IAM DB authentication error logs to CloudWatch Logs when modifying a DB instance
-from the AWS CLI, use the following command:
+JSON
 
 ```
-aws rds modify-db-instance --db-instance-identifier `mydbinstance` \
---region `us-east-1` \
-*--cloudwatch-logs-export-configuration '{"EnableLogTypes":["iam-db-auth-error"]}'*
-```
-
-To verify if your DB instance
-is exporting IAM DB authentication logs to CloudWatch Logs, check if the `EnabledCloudwatchLogsExports`
-parameter is set to `iam-db-auth-error` in the output for the `describe-db-instances` command.
-
-```
-aws rds describe-db-instances --region us-east-1 --db-instance-identifier `mydbinstance`
-            ...
-
-             "EnabledCloudwatchLogsExports": [
-                "iam-db-auth-error"
-            ],
-            ...
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:`111122223333`:dbuser:db-ABCDEFGHIJKL01234/db_user"
+ ]
+ }
+ ]
+}`
 
 ```
 
-## IAM DB authentication CloudWatch metrics
+JSON
 
-Amazon RDS delivers near-real time metrics
-about IAM DB authentication to your Amazon CloudWatch account.
-The following table lists the IAM DB authentication metrics available using CloudWatch:
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:`111122223333`:dbuser:cluster-ABCDEFGHIJKL01234/db_user"
+ ]
+ }
+ ]
+}`
 
-| Metric                                              | Description                                                                                                                       |
-| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `IamDbAuthConnectionRequests`                       | Total number of connection requests made with IAM DB<br>authentication.                                                           |
-| `IamDbAuthConnectionSuccess`                        | Total number of successful IAM DB authentication<br>requests.                                                                     |
-| `IamDbAuthConnectionFailure`                        | Total number of failed IAM DB authentication<br>requests.                                                                         |
-| `IamDbAuthConnectionFailureInvalidToken`            | Total number of failed IAM DB authentication requests due to<br>invalid token.                                                    |
-| `IamDbAuthConnectionFailureInsufficientPermissions` | Total number of failed IAM DB authentication requests due to<br>incorrect policies or permissions.                                |
-| `IamDbAuthConnectionFailureThrottling`              | Total number of failed IAM DB authentication requests due to<br>IAM DB authentication throttling.                                 |
-| `IamDbAuthConnectionFailureServerError`             | Total number of failed IAM DB authentication requests due to<br>an internal server error in the IAM DB authentication<br>feature. |
+```
 
-## Common issues and solutions
+###### Important
 
-You might encounter the following issues when using IAM DB authention. Use the remediation steps
-in the table to solve the issues:
+A user with administrator permissions can access DB instances without explicit
+permissions in an IAM policy. If you want to restrict administrator access to DB
+instances, you can create an IAM role with the appropriate, lesser
+privileged permissions and assign it to the administrator.
 
-| Error                                                                                                                                                                                                                                                                                                                  | Metric(s)                                                                           | Cause                                                                                                                                                                                                                                                                                                                                                                 | Solution                                                                                                                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `[ERROR] Failed to authenticate the connection request for<br>user `db_user` because the provided<br>token is malformed or otherwise invalid. (Status Code: 400,<br>Error Code: InvalidToken)`                                                                                                                         | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureInvalidToken`            | The IAM DB authentiation token in the connection request is<br>either not a valid SigV4a token, or it is not formatted<br>correctly.                                                                                                                                                                                                                                  | Check your token generation strategy in your application. In some<br>cases, make sure you are passing the token with valid formatting.<br>Truncating the token (or incorrect string formatting) will make the<br>token invalid. |
-| `[ERROR] Failed to authenticate the connection request for<br>user `db_user` because the token age is<br>longer than 15 minutes. (Status Code: 400, Error<br>Code:ExpiredToken)`                                                                                                                                       | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureInvalidToken`            | The IAM DB authentication token has expired. Tokens are only<br>valid for 15 minutes.                                                                                                                                                                                                                                                                                 | Check your token caching and/or token re-use logic in your<br>application. You should not re-use tokens that are older than 15<br>minutes.                                                                                      |
-| `[ERROR] Failed to authorize the connection request for user<br>`db_user` because the IAM policy<br>assumed by the caller 'arn:aws:sts::123456789012:assumed-role/<br><RoleName>/ <RoleSession>' is not authorized to perform<br>`rds-db:connect` on the DB instance. (Status Code: 403, Error<br>Code:NotAuthorized)` | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureInsufficientPermissions` | This error might be due to the following reasons:<br>• The IAM policy assumed by the application does not<br>authorize the `rds-db:connect` action.<br>• You are assuming the incorrect role/policy for<br>`db_user` to connect to the<br>database.<br>• You are assuming the correct policy for<br>`db_user`, but you are not<br>connecting to the correct database. | Verify that the IAM role and/or policy you are assuming in your<br>application. Make sure you assume the same policy to generate the<br>token as to connect to the DB.                                                          |
-| `[ERROR] Failed to authorize the connection request for user<br>`db_user` due to IAM DB<br>authentication throttling. (Status Code: 429, Error Code:<br>ThrottlingException)`                                                                                                                                          | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureThrottling`              | You are making too many connection requests to your DB in a short<br>amount of time. IAM DB authentication throttling limit is 200<br>connections per second.                                                                                                                                                                                                         | Reduce the rate of establishing new connections with IAM<br>authentication. Consider implementing connection pooling using RDS Proxy in<br>order to reuse established connections in your application.                          |
-| `[ERROR] Failed to authorize the connection request for user<br>`db_user` due to an internal IAM<br>DB authentication error. (Status Code: 500, Error Code: InternalError)`                                                                                                                                            | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureThrottling`              | There was an internal error while authorizing the<br>DB conneciton with IAM DB authentication.                                                                                                                                                                                                                                                                        | Reach out to https://aws.amazon.com/premiumsupport/ to investigate the issue.                                                                                                                                                   |
+###### Note
+
+Don't confuse the `rds-db:` prefix with other RDS API operation prefixes that begin with
+`rds:`. You use the `rds-db:` prefix and the
+`rds-db:connect` action only for IAM database authentication. They
+aren't valid in any other context.
+
+The example policy includes a single statement with the following elements:
+
+- `Effect` – Specify `Allow` to grant access
+  to the DB instance.
+  If you don't explicitly allow access, then access is denied by default.
+- `Action` – Specify `rds-db:connect` to allow
+  connections to the DB instance.
+- `Resource` – Specify an Amazon Resource Name (ARN) that
+  describes one database account in one DB instance.
+  The ARN format is as follows.
+
+```
+
+arn:aws:rds-db:`region`:`account-id`:dbuser:`DbiResourceId`/`db-user-name`
+
+```
+
+In this format, replace the following:
+
+    + ``region`` is the AWS Region for the DB instance. In
+     the example policy, the AWS Region is `us-east-2`.
+    + ``account-id`` is the AWS account number for the DB
+     instance. In the example policy, the account number is
+     `1234567890`. The user must be in the same account as the
+     account for the DB instance.
+
+
+    To perform cross-account access, create an IAM role with the policy shown above in the account for
+     the DB instance
+     and allow your other account to assume the role.
+    + ``DbiResourceId``
+     is the identifier for the DB instance.
+     This identifier is unique to an AWS Region and never changes. In the
+     example policy, the identifier is
+     `db-ABCDEFGHIJKL01234`.
+
+
+    To find a DB instance resource ID in the AWS Management Console for Amazon RDS, choose
+     the DB instance to see its details.
+     Then choose the **Configuration** tab. The **Resource
+     ID** is shown in the **Configuration** section.
+
+
+    Alternatively, you can use the AWS CLI command to list the identifiers
+     and resource IDs for all of your DB instance
+     in the current AWS Region, as shown following.
+
+
+
+    ```
+
+    aws rds describe-db-instances --query "DBInstances[*].[DBInstanceIdentifier,DbiResourceId]"
+
+    ```
+
+    If you are using Amazon Aurora, specify a `DbClusterResourceId` instead of a `DbiResourceId`.
+     For more information, see [Creating and using an IAM policy for IAM database access](../AuroraUserGuide/UsingWithRDS.IAMDBAuth.md "../AuroraUserGuide/UsingWithRDS.IAMDBAuth.md") in the *Amazon Aurora User Guide*.
+
+
+    ###### Note
+
+    If you are connecting to a database through RDS Proxy, specify the proxy resource ID, such as
+     `prx-ABCDEFGHIJKL01234`. For information about using IAM database authentication with RDS Proxy, see
+     [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam "rds-proxy-connecting.md#rds-proxy-connecting-iam").
+    + ``db-user-name`` is the name of
+     the database account to associate with IAM authentication. In the
+     example policy, the database account is `db_user`.
+
+You can construct other ARNs to support various access patterns. The following policy
+allows access to two different database accounts in a DB instance.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:db-ABCDEFGHIJKL01234/jane_doe",
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:db-ABCDEFGHIJKL01234/mary_roe"
+ ]
+ }
+ ]
+}`
+
+```
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:cluster-ABCDEFGHIJKL01234/jane_doe",
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:cluster-ABCDEFGHIJKL01234/mary_roe"
+ ]
+ }
+ ]
+}`
+
+```
+
+The following policy uses the "\*" character to match all DB
+instances
+and database accounts for a particular AWS account and AWS Region.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:`111122223333`:dbuser:*/*"
+ ]
+ }
+ ]
+}`
+
+```
+
+The following policy matches all of the DB instances
+for a particular AWS account and AWS Region. However, the policy only grants access to
+DB instances
+that have a `jane_doe` database
+account.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:*/jane_doe"
+ ]
+ }
+ ]
+}`
+
+```
+
+The user or role has access to only those databases that the database user
+does. For example, suppose that your DB instance has a database named
+_dev_, and another database named _test_. If
+the database user `jane_doe` has access only to _dev_, any
+users or roles that access that DB instance with the `jane_doe` user also
+have access only to _dev_. This access restriction is also true for
+other database objects, such as tables, views, and so on.
+
+An administrator must create IAM policies that grant entities permission to perform
+specific API operations on the specified resources they need. The administrator must then attach
+those policies to the permission sets or roles that require those permissions. For examples of policies, see
+[Identity-based policy
+examples for Amazon RDS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+## Attaching an IAM policy
+
+to a permission set or role
+
+After you create an IAM policy to allow database authentication, you need to
+attach the policy to a permission set or role. For a tutorial on this topic, see [Create and attach your first customer managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../../../IAM/latest/UserGuide/tutorial_managed-policies.md") in the
+_IAM User Guide_.
+
+As you work through the tutorial, you can use one of the policy examples shown in
+this section as a starting point and tailor it to your needs. At the end of the
+tutorial, you have a permission set with an attached policy that can make use of the
+`rds-db:connect` action.
+
+###### Note
+
+You can map multiple permission sets or roles to the same database user account. For
+example, suppose that your IAM policy specified the following resource
+ARN.
+
+```
+
+arn:aws:rds-db:us-east-2:123456789012:dbuser:db-12ABC34DEFG5HIJ6KLMNOP78QR/jane_doe
+
+```
+
+If you attach the policy to _Jane_,
+_Bob_, and _Diego_, then each of those
+users can connect to the specified DB instance
+using the `jane_doe` database account.

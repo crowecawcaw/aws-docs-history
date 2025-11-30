@@ -1,97 +1,40 @@
-# Amazon RDS for PostgreSQL
+# Common management tasks for
 
-Amazon RDS supports DB instances running several versions of PostgreSQL. For a list of
-available versions, see [Available PostgreSQL database
-versions](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md").
+Amazon RDS for PostgreSQL
 
-You can create DB instances and DB snapshots, point-in-time restores and backups. DB
-instances running PostgreSQL support Multi-AZ deployments, read replicas, Provisioned IOPS,
-and can be created inside a virtual private cloud (VPC). You can also use Secure Socket
-Layer (SSL) to connect to a DB instance running PostgreSQL.
+The following are the common management tasks you perform with an Amazon RDS for PostgreSQL
+DB instance, with links to relevant documentation for each task.
 
-Before creating a DB instance, make sure to complete the steps in [Setting up your Amazon RDS environment](CHAP_SettingUp.md "CHAP_SettingUp.md").
+| Task area                                                                                                                                                                                                                                                                                                                                                                                   | Relevant documentation                                                                                                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Setting up Amazon RDS for first-time<br>use**<br>Before you can create your DB instance, make sure to complete a<br>few prerequisites. For example, DB instances are created by default<br>with a firewall that prevents access to it. So you need to create a<br>security group with the correct IP addresses and network<br>configuration to access the DB instance.                    | [Setting up your Amazon RDS environment](CHAP_SettingUp.md "CHAP_SettingUp.md")                                                                                                                                                                                                                                |
+| **Understanding Amazon RDS DB<br>instances**<br>If you are creating a DB instance for production purposes, you<br>should understand how instance classes, storage types, and<br>Provisioned IOPS work in Amazon RDS.                                                                                                                                                                        | [DB instance classes](Concepts.md "Concepts.md")<br>[Amazon RDS storage types](CHAP_Storage.md#Concepts.Storage "CHAP_Storage.md#Concepts.Storage")<br>[Provisioned IOPS SSD storage](CHAP_Storage.md#USER_PIOPS "CHAP_Storage.md#USER_PIOPS")                                                                 |
+| **Finding available PostgreSQL<br>versions**<br>Amazon RDS supports several versions of PostgreSQL.                                                                                                                                                                                                                                                                                         | [Available PostgreSQL database<br>versions](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")                                                                                                                                                                                                   |
+| **Setting up high availability and failover<br>support**<br>A production DB instance should use Multi-AZ deployments. Multi-AZ<br>deployments provide increased availability, data durability, and<br>fault tolerance for DB instances.                                                                                                                                                     | [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md")                                                                                                                                                                                                                     |
+| **Understanding the Amazon Virtual Private Cloud (VPC)<br>network**<br>If your AWS account has a default VPC, then your DB instance is<br>automatically created inside the default VPC. In some cases, your<br>account might not have a default VPC, and you might want the DB<br>instance in a VPC. In these cases, create the VPC and subnet groups<br>before you create the DB instance. | [Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md")                                                                                                                                                                                                                                               |
+| **Importing data into Amazon RDS<br>PostgreSQL**<br>You can use several different tools to import data into your<br>PostgreSQL DB instance on Amazon RDS.                                                                                                                                                                                                                                   | [Importing data into PostgreSQL on<br>Amazon RDS](PostgreSQL.Procedural.md "PostgreSQL.Procedural.md")                                                                                                                                                                                                         |
+| **Setting up read-only read replicas (primary<br>and standbys)**<br>RDS for PostgreSQL supports read replicas in both the same AWS Region<br>and in a different AWS Region from the primary instance.                                                                                                                                                                                       | [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md")<br>[Working with read replicas for<br>Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md")<br>[Creating a read replica in a different<br>AWS Region](USER_ReadRepl.md "USER_ReadRepl.md") |
+| **Understanding security<br>groups**<br>By default, DB instances are created with a firewall that prevents<br>access to them. To provide access through that firewall, you edit<br>the inbound rules for the VPC security group associated with the VPC<br>hosting the DB instance.                                                                                                         | [Controlling access with security<br>groups](Overview.md "Overview.md")                                                                                                                                                                                                                                        |
+| **Setting up parameter groups and<br>features**<br>To change the default parameters for your DB instance, create a<br>custom DB parameter group and change settings to that. If you do<br>this before creating your DB instance, you can choose your custom DB<br>parameter group when you create the instance.                                                                             | [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")                                                                                                                                                                                                             |
+| **Connecting to your PostgreSQL DB<br>instance**<br>After creating a security group and associating it to a DB<br>instance, you can connect to the DB instance using any standard SQL<br>client application such as `psql` or<br>`pgAdmin`.                                                                                                                                                 | [Connecting to a DB instance running the<br>PostgreSQL database engine](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")<br>[Using SSL with a PostgreSQL DB<br>instance](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")                                            |
+| **Backing up and restoring your DB<br>instance**<br>You can configure your DB instance to take automated backups, or<br>take manual snapshots, and then restore instances from the backups<br>or snapshots.                                                                                                                                                                                 | [Backing up, restoring, and exporting data](CHAP_CommonTasks.md "CHAP_CommonTasks.md")                                                                                                                                                                                                                         |
+| **Monitoring the activity and performance of<br>your DB instance**<br>You can monitor a PostgreSQL DB instance by using CloudWatch Amazon RDS<br>metrics, events, and enhanced monitoring.                                                                                                                                                                                                  | [Viewing metrics in the Amazon RDS console](USER_Monitoring.md "USER_Monitoring.md")<br>[Viewing Amazon RDS events](USER_ListEvents.md "USER_ListEvents.md")                                                                                                                                                   |
+| **Upgrading the PostgreSQL database<br>version**<br>You can do both major and minor version upgrades for your<br>PostgreSQL DB instance.                                                                                                                                                                                                                                                    | [Upgrades of the RDS for PostgreSQL DB<br>engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")<br>[Choosing a<br>major version for an RDS for PostgreSQL upgrade](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md")                                                       |
+| **Working with log files**<br>You can access the log files for your PostgreSQL DB instance.                                                                                                                                                                                                                                                                                                 | [RDS for PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")                                                                                                                                                                                                               |
+| **Understanding the best practices for<br>PostgreSQL DB instances**<br>Find some of the best practices for working with PostgreSQL on<br>Amazon RDS.                                                                                                                                                                                                                                        | [Best practices for working with PostgreSQL](CHAP_BestPractices.md#CHAP_BestPractices.PostgreSQL "CHAP_BestPractices.md#CHAP_BestPractices.PostgreSQL")                                                                                                                                                        |
 
-You can use any standard SQL client application to run commands for the instance from your
-client computer. Such applications include pgAdmin, a popular Open Source administration and
-development tool for PostgreSQL, or psql, a command line utility that is part of a
-PostgreSQL installation. To deliver a managed service experience, Amazon RDS doesn't provide
-host access to DB instances. Also, it restricts access to certain system procedures and
-tables that require advanced privileges. Amazon RDS supports access to databases on a DB instance
-using any standard SQL client application. Amazon RDS doesn't allow direct host access to a
-DB instance by using Telnet or Secure Shell (SSH).
+Following is a list of other sections in this guide that can help you understand and
+use important features of RDS for PostgreSQL:
 
-Amazon RDS for PostgreSQL is compliant with many industry standards. For example, you can use
-Amazon RDS for PostgreSQL databases to build HIPAA-compliant applications and to store
-healthcare-related information. This includes storage for protected health information (PHI)
-under a completed Business Associate Agreement (BAA) with AWS. Amazon RDS for PostgreSQL also
-meets Federal Risk and Authorization Management Program (FedRAMP) security requirements.
-Amazon RDS for PostgreSQL has received a FedRAMP Joint Authorization Board (JAB) Provisional
-Authority to Operate (P-ATO) at the FedRAMP HIGH Baseline within the AWS GovCloud (US) Regions.
-For more information on supported compliance standards, see [AWS cloud compliance](https://aws.amazon.com/compliance/ "https://aws.amazon.com/compliance/").
-
-To import PostgreSQL data into a DB instance, follow the information in the [Importing data into PostgreSQL on
-Amazon RDS](PostgreSQL.Procedural.md "PostgreSQL.Procedural.md") section.
-
-###### Important
-
-If you encounter an issue with your RDS for PostgreSQL DB instance, your AWS support agent
-might need more information about the health of your databases. The goal is to ensure
-that AWS Support gets the required information as soon as possible.
-
-You can use PG Collector to help gather valuable database information in a
-consolidated HTML file. For more information on PG Collector, how to run it, and how to
-download the HTML report, see [PG
-Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector").
-
-Upon successful completion, and unless otherwise noted, the script returns output in a
-readable HTML format. The script is designed to exclude any data or security details
-from the HTML that might compromise your business. It also makes no modifications to
-your database or its environment. However, if you find any information in the HTML that
-you are uncomfortable sharing, feel free to remove the problematic information before
-uploading the HTML. When the HTML is acceptable, upload it using the attachments section
-in the case details of your support case.
-
-###### Topics
-
-- [Common management tasks for
-  Amazon RDS for PostgreSQL](CHAP_PostgreSQL.md "CHAP_PostgreSQL.md")
-- [Working with the
-  Database Preview environment](working-with-the-database-preview-environment.md "working-with-the-database-preview-environment.md")
-- [Available PostgreSQL database
-  versions](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")
-- [Understanding the
-  RDS for PostgreSQL incremental release process](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")
-- [Supported
-  PostgreSQL extension versions](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
+- [Understanding PostgreSQL roles and
+  permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Controlling user access to the
+  PostgreSQL database](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Working with parameters on
+  your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Understanding
+  logging mechanisms supported by RDS for PostgreSQL](Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.Auditing "Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.Auditing")
 - [Working with PostgreSQL
-  features supported by Amazon RDS for PostgreSQL](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")
-- [Connecting to a DB instance running the
-  PostgreSQL database engine](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
-- [Securing connections to
-  RDS for PostgreSQL with SSL/TLS](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")
-- [Using Kerberos authentication with Amazon RDS for
-  PostgreSQL](postgresql-kerberos.md "postgresql-kerberos.md")
+  autovacuum on Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
 - [Using a custom DNS server
   for outbound network access](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Upgrades of the RDS for PostgreSQL DB
-  engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
-- [Upgrading a PostgreSQL DB snapshot
-  engine version](USER_UpgradeDBSnapshot.md "USER_UpgradeDBSnapshot.md")
-- [Working with read replicas for
-  Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md")
-- [Improving query performance for RDS for PostgreSQL with Amazon RDS Optimized Reads](USER_PostgreSQL.md "USER_PostgreSQL.md")
-- [Importing data into PostgreSQL on
-  Amazon RDS](PostgreSQL.Procedural.md "PostgreSQL.Procedural.md")
-- [Exporting data from an RDS for PostgreSQL
-  DB instance to Amazon S3](postgresql-s3-export.md "postgresql-s3-export.md")
-- [Invoking an AWS Lambda function from an
-  RDS for PostgreSQL DB instance](PostgreSQL-Lambda.md "PostgreSQL-Lambda.md")
-- [Common DBA tasks for
-  Amazon RDS for PostgreSQL](Appendix.PostgreSQL.md "Appendix.PostgreSQL.md")
-- [Tuning with wait events for RDS for PostgreSQL](PostgreSQL.md "PostgreSQL.md")
-- [Tuning RDS for PostgreSQL with Amazon DevOps Guru proactive insights](PostgreSQL.md "PostgreSQL.md")
-- [Using PostgreSQL extensions with
-  Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Working
-  with the supported foreign data wrappers for Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.md")
-- [Working with Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension.md "PostgreSQL_trusted_language_extension.md")

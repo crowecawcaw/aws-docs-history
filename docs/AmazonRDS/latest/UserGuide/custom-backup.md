@@ -1,37 +1,18 @@
-# Deleting an RDS Custom for Oracle snapshot
+# Backing up and restoring an Amazon RDS Custom for Oracle DB instance
 
-You can delete DB snapshots managed by RDS Custom for Oracle when you no longer need them. The deletion procedure is the same for both Amazon RDS and
-RDS Custom DB instances.
+Like Amazon RDS, RDS Custom creates and saves automated backups of your RDS Custom for Oracle DB instance during
+the backup window of your DB instance. You can also back up your DB instance manually.
 
-The Amazon EBS snapshots for the binary and root volumes remain in your account for a longer time because they might be linked
-to some instances running in your account or to other RDS Custom for Oracle snapshots. These EBS snapshots are automatically deleted after
-they're no longer related to any existing RDS Custom for Oracle resources (DB instances or backups).
+The procedure is identical to taking a snapshot of an Amazon RDS DB instance. The first
+snapshot of an RDS Custom DB instance contains the data for the full DB instance. Subsequent
+snapshots are incremental.
 
-###### To delete a snapshot of an RDS Custom DB instance
+Restore DB snapshots using either the AWS Management Console or the AWS CLI.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Snapshots**.
-3. Choose the DB snapshot that you want to delete.
-4. For **Actions**, choose **Delete snapshot**.
-5. Choose **Delete** on the confirmation page.
-   To delete an RDS Custom snapshot, use the AWS CLI command [delete-db-snapshot](../../../cli/latest/reference/rds/delete-db-snapshot.md "../../../cli/latest/reference/rds/delete-db-snapshot.md").
+###### Topics
 
-The following option is required:
-
-- `--db-snapshot-identifier` – The snapshot to be deleted
-  The following example deletes the `my-custom-snapshot` DB snapshot.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds delete-db-snapshot \
-  --db-snapshot-identifier `my-custom-snapshot`
-```
-
-For Windows:
-
-```
-aws rds delete-db-snapshot ^
-  --db-snapshot-identifier `my-custom-snapshot`
-```
+- [Creating an RDS Custom for Oracle snapshot](custom-backup.md "custom-backup.md")
+- [Restoring from an RDS Custom for Oracle DB snapshot](custom-backup.md "custom-backup.md")
+- [Restoring an RDS Custom for Oracle instance to a point in time](custom-backup.md "custom-backup.md")
+- [Deleting an RDS Custom for Oracle snapshot](custom-backup.md "custom-backup.md")
+- [Deleting RDS Custom for Oracle automated backups](custom-backup.md "custom-backup.md")

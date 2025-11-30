@@ -1,32 +1,67 @@
-# Determining a
+# Working with trace and
 
-recovery model for your Amazon RDS for SQL Server database
+dump files for Amazon RDS for SQL Server
 
-In Amazon RDS, the recovery model, retention period, and database status are linked.
+This section describes working with trace files and dump files for your Amazon RDS DB
+instances running Microsoft SQL Server.
 
-It's important to understand the consequences before making a change to one of these
-settings. Each setting can affect the others. For example:
+## Generating a trace SQL query
 
-- If you change a database's recovery model to SIMPLE or BULK_LOGGED while backup retention
-  is enabled, Amazon RDS resets the recovery model to FULL within five minutes. This
-  also results in RDS taking a snapshot of the DB instance.
-- If you set backup retention to `0` days, RDS sets the recovery mode to SIMPLE.
-- If you change a database's recovery model from SIMPLE to any other option while backup
-  retention is set to `0` days, RDS resets the recovery model to SIMPLE.
+```
+declare @rc int
+declare @TraceID int
+declare @maxfilesize bigint
 
-###### Important
+set @maxfilesize = 5
 
-Never change the recovery model on Multi-AZ instances, even if it seems you can do so—for
-example, by using ALTER DATABASE. Backup retention, and therefore FULL recovery mode, is
-required for Multi-AZ. If you alter the recovery model, RDS immediately changes it back to FULL.
+exec @rc = sp_trace_create @TraceID output,  0, N'D:\rdsdbdata\log\rdstest', @maxfilesize, NULL
+```
 
-This automatic reset forces RDS to completely rebuild the mirror. During this rebuild, the
-availability of the database is degraded for about 30-90 minutes until the mirror is
-ready for failover. The DB instance also experiences performance degradation in the
-same way it does during a conversion from Single-AZ to Multi-AZ. How long
-performance is degraded depends on the database storage size—the bigger the
-stored database, the longer the degradation.
+## Viewing
 
-For more information on SQL Server recovery models, see
-[Recovery models (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server")
-in the Microsoft documentation.
+an open trace
+
+```
+select * from ::fn_trace_getinfo(default)
+```
+
+## Viewing trace contents
+
+```
+select * from ::fn_trace_gettable('D:\rdsdbdata\log\rdstest.trc', default)
+```
+
+## Setting the retention period for trace and dump files
+
+Trace and dump files can accumulate and consume disk space. By default, Amazon RDS
+purges trace and dump files that are older than seven days.
+
+To view the current trace and dump file retention period, use the
+`rds_show_configuration` procedure, as shown in the following
+example.
+
+```
+exec rdsadmin..rds_show_configuration;
+```
+
+To modify the retention period for trace files, use the
+`rds_set_configuration` procedure and set the `tracefile
+ retention` in minutes. The following example sets the trace file retention
+period to 24 hours.
+
+```
+exec rdsadmin..rds_set_configuration 'tracefile retention', `1440`;
+```
+
+To modify the retention period for dump files, use the
+`rds_set_configuration` procedure and set the `dumpfile
+ retention` in minutes. The following example sets the dump file retention
+period to 3 days.
+
+```
+exec rdsadmin..rds_set_configuration 'dumpfile retention', `4320`;
+```
+
+For security reasons, you cannot delete a specific trace or dump file on a SQL
+Server DB instance. To delete all unused trace or dump files, set the retention
+period for the files to 0.

@@ -1,84 +1,67 @@
-# Enabling MariaDB binary log annotation
+# Accessing MariaDB binary logs
 
-In a MariaDB DB instance, you can use the `Annotate_rows` event to annotate a
-row event with a copy of the SQL query that caused the row event. This approach
-provides similar functionality to enabling the
-`binlog_rows_query_log_events` parameter on an RDS for MySQL DB instance.
+You can use the mysqlbinlog utility to download binary logs in text format from MariaDB DB
+instances. The binary log is downloaded to your local computer. For more information
+about using the mysqlbinlog utility, go to [Using
+mysqlbinlog](http://mariadb.com/kb/en/mariadb/using-mysqlbinlog/ "http://mariadb.com/kb/en/mariadb/using-mysqlbinlog/") in the MariaDB documentation.
 
-You can enable binary log annotations globally by creating a custom parameter group and
-setting the `binlog_annotate_row_events` parameter to
-`1`. You can also enable annotations at the session level,
-by calling `SET SESSION binlog_annotate_row_events = 1`. Use the
-`replicate_annotate_row_events` to replicate binary log annotations
-to the replica instance if binary logging is enabled on it. No special privileges are
-required to use these settings.
+To run the mysqlbinlog utility against an Amazon RDS instance, use the following options:
 
-The following is an example of a row-based transaction in MariaDB. The use of row-based
-logging is triggered by setting the transaction isolation level to
-read-committed.
+- Specify the `--read-from-remote-server` option.
+- `--host`: Specify the DNS name from the endpoint of the instance.
+- `--port`: Specify the port used by the instance.
+- `--user`: Specify a MariaDB user that has been granted the
+  replication slave permission.
+- `--password`: Specify the password for the user, or
+  omit a password value so the utility prompts you for a password.
+- `--result-file`: Specify the local file that receives
+  the output.
+- Specify the names of one or more binary log files. To get a list of the available logs,
+  use the SQL command SHOW BINARY LOGS.
+  For more information about mysqlbinlog options, go to [mysqlbinlog options](http://mariadb.com/kb/en/mariadb/mysqlbinlog-options/ "http://mariadb.com/kb/en/mariadb/mysqlbinlog-options/") in the MariaDB documentation.
 
-```
-CREATE DATABASE IF NOT EXISTS test;
-USE test;
-CREATE TABLE square(x INT PRIMARY KEY, y INT NOT NULL) ENGINE = InnoDB;
-SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
-BEGIN
-INSERT INTO square(x, y) VALUES(5, 5 * 5);
-COMMIT;
-```
+The following is an example:
 
-Without annotations, the binary log entries for the transaction look like the
-following:
+For Linux, macOS, or Unix:
 
 ```
-BEGIN
-/*!*/;
-# at 1163
-# at 1209
-#150922  7:55:57 server id 1855786460  end_log_pos 1209         Table_map: `test`.`square` mapped to number 76
-#150922  7:55:57 server id 1855786460  end_log_pos 1247         Write_rows: table id 76 flags: STMT_END_F
-### INSERT INTO `test`.`square`
-### SET
-###   @1=5
-###   @2=25
-# at 1247
-#150922  7:56:01 server id 1855786460  end_log_pos 1274         Xid = 62
-COMMIT/*!*/;
+mysqlbinlog \
+    --read-from-remote-server \
+    --host=mariadbinstance1.1234abcd.region.rds.amazonaws.com \
+    --port=3306  \
+    --user ReplUser \
+    --password <password> \
+    --result-file=/tmp/binlog.txt
 ```
 
-The following statement enables session-level annotations for this same transaction, and
-disables them after committing the transaction:
+For Windows:
 
 ```
-CREATE DATABASE IF NOT EXISTS test;
-USE test;
-CREATE TABLE square(x INT PRIMARY KEY, y INT NOT NULL) ENGINE = InnoDB;
-SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
-SET SESSION binlog_annotate_row_events = 1;
-BEGIN;
-INSERT INTO square(x, y) VALUES(5, 5 * 5);
-COMMIT;
-SET SESSION binlog_annotate_row_events = 0;
+mysqlbinlog ^
+    --read-from-remote-server ^
+    --host=mariadbinstance1.1234abcd.region.rds.amazonaws.com ^
+    --port=3306  ^
+    --user ReplUser ^
+    --password <password> ^
+    --result-file=/tmp/binlog.txt
 ```
 
-With annotations, the binary log entries for the transaction look like the
-following:
+Amazon RDS normally purges a binary log as soon as possible. However, the binary log must still
+be available on the instance to be accessed by mysqlbinlog. To specify the number of
+hours for RDS to retain binary logs, use the `mysql.rds_set_configuration`
+stored procedure. Specify a period with enough time for you to download the logs. After
+you set the retention period, monitor storage usage for the DB instance to ensure that
+the retained binary logs don't take up too much storage.
+
+The following example sets the retention period to 1 day.
 
 ```
-BEGIN
-/*!*/;
-# at 423
-# at 483
-# at 529
-#150922  8:04:24 server id 1855786460  end_log_pos 483  Annotate_rows:
-#Q> INSERT INTO square(x, y) VALUES(5, 5 * 5)
-#150922  8:04:24 server id 1855786460  end_log_pos 529  Table_map: `test`.`square` mapped to number 76
-#150922  8:04:24 server id 1855786460  end_log_pos 567  Write_rows: table id 76 flags: STMT_END_F
-### INSERT INTO `test`.`square`
-### SET
-###   @1=5
-###   @2=25
-# at 567
-#150922  8:04:26 server id 1855786460  end_log_pos 594  Xid = 88
-COMMIT/*!*/;
+call mysql.rds_set_configuration('binlog retention hours', 24);
+```
+
+To display the current setting, use the `mysql.rds_show_configuration` stored
+procedure.
+
+```
+call mysql.rds_show_configuration;
 ```

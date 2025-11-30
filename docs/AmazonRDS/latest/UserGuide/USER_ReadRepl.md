@@ -1,173 +1,141 @@
-# Promoting a read replica to be a standalone
+# Monitoring read replication
 
-DB instance
+You can monitor the status of a read replica in several ways. The Amazon RDS console shows the
+status of a read replica in the **Replication** section of the
+**Connectivity & security** tab in the read replica details. To
+view the details for a read replica, choose the name of the read replica in the list of
+DB instances in the Amazon RDS console.
 
-You can promote a read replica into a standalone DB instance. If a source DB instance has several read
-replicas, promoting one of the read replicas to a DB instance has no effect on the other
-replicas.
+![Read replica status](images/ReadReplicaStatus.png)
+You can also see the status of a read replica using the AWS CLI
+`describe-db-instances` command or the Amazon RDS API
+`DescribeDBInstances` operation.
 
-When you promote a read replica, RDS reboots the DB instance before making it available. The
-promotion process can take several minutes or longer to complete, depending on the size of
-the read replica.
+The status of a read replica can be one of the following:
 
-![Promoting a read replica](images/read-replica-promote.png)
+- **replicating** – The read
+  replica is replicating successfully.
+- **replication degraded** (SQL Server and
+  PostgreSQL only) – Replicas are receiving data from the primary
+  instance, but one or more databases might be not getting updates. This can occur,
+  for example, when a replica is in the process of setting up newly created databases.
+  It can also occur when unsupported DDL or large object changes are made in the blue
+  environment of a blue/green deployment.
 
-## Use cases for promoting a read
+The status doesn't transition from `replication degraded` to
+`error`, unless an error occurs during the degraded state.
 
-replica
+- **error** – An error has
+  occurred with the replication. Check the **Replication Error**
+  field in the Amazon RDS console or the event log to determine the exact error. For more
+  information about troubleshooting a replication error, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.md "USER_ReadRepl.md").
+- **terminated** (MariaDB, MySQL, or
+  PostgreSQL only) – Replication is terminated. This occurs if
+  replication is stopped for more than 30 consecutive days, either manually or due to
+  a replication error. In this case, Amazon RDS terminates replication between the primary
+  DB instance and all read replicas. Amazon RDS does this to prevent increased storage
+  requirements on the source DB instance and long failover times.
 
-You might want to promote a read replica to a standalone DB instance for any of the
-following reasons:
+Broken replication can affect storage because the logs can grow in size and number
+due to the high volume of errors messages being written to the log. Broken
+replication can also affect failure recovery due to the time Amazon RDS requires to
+maintain and process the large number of logs during recovery.
 
-- **Implementing failure recovery** – You
-  can use read replica promotion as a data recovery scheme if the primary DB instance
-  fails. This approach complements synchronous replication, automatic failure
-  detection, and failover.
+- **terminated** (Oracle only)
+  – Replication is terminated. This occurs if replication is stopped for more
+  than 8 hours because there isn't enough storage remaining on the read replica. In
+  this case, Amazon RDS terminates replication between the primary DB instance and the affected
+  read replica. This status is a terminal state, and the read replica must be
+  re-created.
+- **stopped** (MariaDB or MySQL
+  only) – Replication has stopped because of a customer-initiated
+  request.
+- **replication stop point set** (MySQL
+  only) – A customer-initiated stop point was set using the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure and the
+  replication is in progress.
+- **replication stop point reached** (MySQL
+  only) – A customer-initiated stop point was set using the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure and
+  replication is stopped because the stop point was reached.
+  You can see where a DB instance is being replicated and if so, check its replication status. On
+  the **Databases** page in the RDS console, it shows
+  **Primary** in the **Role** column. Choose its DB instance
+  name. On its detail page, on the **Connectivity &
+  security** tab, its replication status is under **Replication**.
 
-If you are aware of the ramifications and limitations of asynchronous
-replication and you still want to use read replica promotion for data recovery,
-you can. To do this, first create a read replica and then monitor the primary
-DB instance for failures. In the event of a failure, do the following:
+## Monitoring replication lag
 
-    1. Promote the read replica.
-    2. Direct database traffic to the promoted DB instance.
-    3. Create a replacement read replica with the promoted DB instance as its
-     source.
+You can monitor replication lag in Amazon CloudWatch by viewing the Amazon RDS
+`ReplicaLag` metric.
 
-- **Upgrading storage configuration** – If
-  your source DB instance isn't on the preferred storage configuration, you can create a
-  read replica of the instance and upgrade the storage file system configuration.
-  This option migrates the file system of the read replica to the preferred
-  configuration. You can then promote the read replica to a standalone
-  instance.
+For Db2, the `ReplicaLag`
+metric is the maximum lag of databases that have fallen behind, in seconds. For example,
+if two databases lag 5 seconds and 10 seconds, respectively, then
+`ReplicaLag` is 10 seconds. Databases without available High Availability
+Disaster Recovery (HADR) statuses aren't included in the calculation.
 
-You can use this option to overcome the scaling limitations on storage and
-file size for older 32-bit file systems. For more information, see [Upgrading the storage file system for a DB
-instance](USER_PIOPS.md "USER_PIOPS.md").
+For MariaDB and MySQL, the `ReplicaLag` metric reports the value of the
+`Seconds_Behind_Master` field of the `SHOW REPLICA STATUS`
+command. Common causes for replication lag for MySQL and MariaDB are the
+following:
 
-This option is only available if your source DB instance is _not_
-on the latest storage configuration, or if you're modifying the DB instance class
-within the same request.
-
-- **Sharding** – Sharding embodies the
-  "share-nothing" architecture and essentially involves breaking a large database
-  into several smaller databases. One common way to split a database is splitting
-  tables that are not joined in the same query onto different hosts. Another
-  method is duplicating a table across multiple hosts and then using a hashing
-  algorithm to determine which host receives a given update. You can create read
-  replicas corresponding to each of your shards (smaller databases) and promote
-  them when you decide to convert them into standalone shards. You can then carve
-  out the key space (if you are splitting rows) or distribution of tables for each
-  of the shards depending on your requirements.
-- **Performing DDL operations (MySQL and MariaDB
-  only)** – DDL operations, such as creating or rebuilding
-  indexes, can take time and impose a significant performance penalty on your DB
-  instance. You can perform these operations on a MySQL or MariaDB read replica
-  once the read replica is in sync with its primary DB instance. Then you can promote
-  the read replica and direct your applications to use the promoted
-  instance.
-
-###### Note
-
-If your read replica is an RDS for Oracle DB instance, you can perform a
-_switchover_ instead of a promotion. In a switchover, the
-source DB instance becomes the new replica, and the replica becomes the new source DB instance.
-For more information, see [Performing an Oracle Data Guard switchover](oracle-replication-switchover.md "oracle-replication-switchover.md").
-
-## Characteristics of a promoted
-
-read replica
-
-After you promote the read replica, it ceases to function as a read replica and
-becomes a standalone DB instance. The new standalone DB instance has the following
-characteristics:
-
-- The standalone DB instance retains the option group and the parameter group of the
-  pre-promotion read replica.
-- You can create read replicas from the standalone DB instance and perform
-  point-in-time restore operations.
-- You can't use the DB instance as a replication target because it is no longer a read
-  replica.
-
-## Prerequisites for promoting a read
-
-replica
-
-Before you promote a read replica, do the following:
-
-- Review your backup strategy:
-  - We recommend that you enable backups and complete at least one backup.
-    Backup duration is a function of the number of changes to the database
-    since the previous backup.
-  - If you have enabled backups on your read replica, configure the
-    automated backup window so that daily backups don't interfere with
-    read replica promotion.
-  - Make sure that your read replica doesn't have the
-    `backing-up` status. You can't promote a read replica
-    when it is in this state.
-
-- Stop any transactions from being written to the primary DB instance, and then wait
-  for RDS to apply all updates to the read replica.
-
-Database updates occur on the read replica after they have occurred on the
-primary DB instance. Replication lag can vary significantly. Use the [`Replica Lag`](http://aws.amazon.com/rds/faqs/#105 "http://aws.amazon.com/rds/faqs/#105")
-metric to determine when all updates have been made to the read replica.
-
-- (MySQL and MariaDB only) To make changes to a MySQL or MariaDB read replica
-  before you promote it, set the `read_only` parameter to
-  `0` in the DB parameter group for the read replica. You can then
-  perform all needed DDL operations, such as creating indexes, on the read
-  replica. Actions taken on the read replica don't affect the performance of the
-  primary DB instance.
-
-## Promoting a read replica: basic
-
-steps
-
-The following steps show the general process for promoting a read replica to a DB
-instance:
-
-1. Promote the read replica by using the **Promote** option on
-   the Amazon RDS console, the AWS CLI command [`promote-read-replica`](../../../cli/latest/reference/rds/promote-read-replica.md "../../../cli/latest/reference/rds/promote-read-replica.md"), or the [`PromoteReadReplica`](../APIReference/API_PromoteReadReplica.md "../APIReference/API_PromoteReadReplica.md") Amazon RDS API operation.
+- A network outage.
+- Writing to tables with indexes on a read replica. If the
+  `read_only` parameter is not set to 0 on the read replica, it can
+  break replication.
+- Using a nontransactional storage engine such as MyISAM. Replication is only
+  supported for the InnoDB storage engine on MySQL and the XtraDB storage engine
+  on MariaDB.
 
 ###### Note
 
-The promotion process takes a few minutes to complete. When you promote a
-read replica, RDS stops replication and reboots the read replica. When the
-reboot is complete, the read replica is available as a new DB instance. 2. (Optional) Modify the new DB instance to be a Multi-AZ deployment. For more
-information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md") and [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+Previous versions of MariaDB used `SHOW SLAVE STATUS` instead of
+`SHOW REPLICA STATUS`. If you are using a MariaDB version lower than
+10.5, then use `SHOW SLAVE STATUS`.
 
-###### To promote a read replica to a standalone DB instance
+When the `ReplicaLag` metric reaches 0, the replica has caught up to the
+primary DB instance. If the `ReplicaLag` metric returns `-1`, then
+replication is currently not active. `ReplicaLag = -1` is equivalent to
+`Seconds_Behind_Master = NULL`.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the Amazon RDS console, choose **Databases**.
+For Oracle, the `ReplicaLag` metric is the sum of the `Apply
+ Lag` value and the difference between the current time and the apply lag's
+`DATUM_TIME` value. The `DATUM_TIME` value is the last time
+the read replica received data from its source DB instance. For more information, see [V$DATAGUARD_STATS](https://docs.oracle.com/database/121/REFRN/GUID-B346DD88-3F5E-4F16-9DEE-2FDE62B1ABF7.htm#REFRN30413 "https://docs.oracle.com/database/121/REFRN/GUID-B346DD88-3F5E-4F16-9DEE-2FDE62B1ABF7.htm#REFRN30413") in the Oracle documentation.
 
-The **Databases** pane appears. Each read replica
-shows **Replica** in the **Role**
-column. 3. Choose the read replica that you want to promote. 4. For **Actions**, choose
-**Promote**. 5. On the **Promote Read Replica** page, enter the
-backup retention period and the backup window for the newly promoted DB
-instance. 6. When the settings are as you want them, choose
-**Continue**. 7. On the acknowledgment page, choose **Promote Read
-Replica**.
-To promote a read replica to a standalone DB instance, use the AWS CLI [`promote-read-replica`](../../../cli/latest/reference/rds/promote-read-replica.md "../../../cli/latest/reference/rds/promote-read-replica.md") command.
-
-###### Example
-
-For Linux, macOS, or Unix:
+For SQL Server, the `ReplicaLag` metric is the maximum lag of databases
+that have fallen behind, in seconds. For example, if you have two databases that lag 5
+seconds and 10 seconds, respectively, then `ReplicaLag` is 10 seconds. The
+`ReplicaLag` metric returns the value of the following query.
 
 ```
-aws rds promote-read-replica \
-    --db-instance-identifier `myreadreplica`
+SELECT MAX(secondary_lag_seconds) max_lag FROM sys.dm_hadr_database_replica_states;
 ```
 
-For Windows:
+For more information, see [secondary_lag_seconds](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-database-replica-states-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-database-replica-states-transact-sql") in the Microsoft documentation.
+
+`ReplicaLag` returns `-1` if RDS can't determine the lag,
+such as during replica setup, or when the read replica is in the `error`
+state.
+
+###### Note
+
+New databases aren't included in the lag calculation until they are
+accessible on the read replica.
+
+For PostgreSQL, the `ReplicaLag` metric returns the value of the following
+query.
 
 ```
-aws rds promote-read-replica ^
-    --db-instance-identifier `myreadreplica`
+SELECT extract(epoch from now() - pg_last_xact_replay_timestamp()) AS reader_lag
 ```
 
-To promote a read replica to a standalone DB instance, call the Amazon RDS API [`PromoteReadReplica`](../APIReference/API_PromoteReadReplica.md "../APIReference/API_PromoteReadReplica.md") operation with the required
-parameter `DBInstanceIdentifier`.
+PostgreSQL versions 9.5.2 and later use physical replication slots to manage write
+ahead log (WAL) retention on the source instance. For each cross-Region read replica
+instance, Amazon RDS creates a physical replication slot and associates it with the instance.
+Two Amazon CloudWatch metrics, `Oldest Replication Slot Lag` and `Transaction
+ Logs Disk Usage`, show how far behind the most lagging replica is in terms of
+WAL data received and how much storage is being used for WAL data. The `Transaction
+ Logs Disk Usage` value can substantially increase when a cross-Region read
+replica is lagging significantly.
+
+For more information about monitoring a DB instance with CloudWatch, see [Monitoring Amazon RDS metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
