@@ -45,7 +45,7 @@ The following is an example of the **Reply** button and the **Additional contact
 
 ![Additional contacts - optional section example](images/workload-change-request3.png)
 
-![Additional contacts - option section example](/images/IDR/latest/userguide/images/workload-change-request4.png)
+![Additional contacts - option section example](images/workload-change-request4.png)
 After you create a support case for the subscription request, keep the following two documents ready to proceed with the workload onboarding process:
 
 - AWS workload architecture diagram.
