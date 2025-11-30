@@ -1,85 +1,228 @@
-# String functions for T-SQL
+# User-defined functions for T-SQL
 
-This topic provides reference information about string function compatibility when migrating from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can use this guide to understand the similarities and differences in string manipulation capabilities between the two database systems.
+This topic provides reference content comparing user-defined functions (UDFs) in Microsoft SQL Server 2019 and Amazon Aurora MySQL. It explains the capabilities, limitations, and key differences between UDFs in these two database systems. You’ll learn about the types of UDFs supported, their behavior, and important considerations when migrating from SQL Server to Aurora MySQL.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                                                                            |
-| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Four star feature compatibility | Four star automation level         | N/A                       | Differences with the UNICODE paradigm. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md"). Syntax and option differences. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                   | Key differences                                                                                                     |
+| ------------------------------ | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Two star feature compatibility | Three star automation level        | [User-Defined Functions](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.udf "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.udf") | Scalar functions only, rewrite inline TVF as views or derived tables, and multi-statement TVF as stored procedures. |
 
 ## SQL Server Usage
 
-String functions are typically scalar functions that perform an operation on string input and return a string or a numeric value.
+User-defined functions (UDF) are code objects that accept input parameters and return either a scalar value or a set consisting of rows and columns.
 
-### Syntax and Examples
+SQL Server UDFs can be implemented using T-SQL or Common Language Runtime (CLR) code.
 
-The following table lists the most commonly used string functions.
+###### Note
 
-| Function                         | Purpose                                                                                                                     | Example                                                                                  | Result          | Comments                                   |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | --------------- | ------------------------------------------ |
-| `ASCII` and `UNICODE`            | Convert an ASCII or UNICODE character to its ASCII or UNICODE code.                                                         | `SELECT ASCII ('A')`                                                                     | 65              | Returns a numeric integer value.           |
-| `CHAR` and `NCHAR`               | Convert between ASCII or UNICODE code to a string character.                                                                | `SELECT CHAR(65)`                                                                        | 'A'             | Numeric integer value as input.            |
-| `CHARINDEX` and `PATINDEX`       | Find the starting position of one string expression (or string pattern) within another string expression.                   | `SELECT CHARINDEX('ab', 'xabcdy')`                                                       | 2               | Returns a numeric integer value.           |
-| `CONCAT` and `CONCAT_WS`         | Combine multiple string input expressions into a single string with, or without, a separator character (WS).                | `SELECT CONCAT('a','b'), CONCAT_WS(',','a','b')`                                         | 'ab', 'a,b'     |                                            |
-| `LEFT`, `RIGHT`, and `SUBSTRING` | Return a partial string from another string expression based on position and length.                                        | `SELECT LEFT('abs',2), SUBSTRING('abcd',2,2)`                                            | 'ab', 'bc'      |                                            |
-| `LOWER` and `UPPER`              | Return a string with all characters in lower or upper case. Use for presentation or to handle case insensitive expressions. | `SELECT LOWER('ABcd')`                                                                   | 'abcd'          |                                            |
-| `LTRIM`, `RTRIM` and `TRIM`      | Remove leading and trailing spaces.                                                                                         | `SELECT LTRIM ('abc d ')`                                                                | 'abc d '        |                                            |
-| `STR`                            | Convert a numeric value to a string.                                                                                        | `SELECT STR(3.1415927,5,3)`                                                              | 3.142           | Numeric expressions as input.              |
-| `REVERSE`                        | Return a string in reverse order.                                                                                           | `SELECT REVERSE('abcd')`                                                                 | 'dcba'          |                                            |
-| `REPLICATE`                      | Return a string that consists of zero or more concatenated copies of another string expression.                             | `SELECT REPLICATE('abc', 3)`                                                             | 'abcabcabc'     |                                            |
-| `REPLACE`                        | Replace all occurrences of a string expression with another.                                                                | `SELECT REPLACE('abcd', 'bc', 'xy')`                                                     | 'axyd'          |                                            |
-| `STRING_SPLIT`                   | Parse a list of values with a separator and return a set of all individual elements.                                        | `SELECT<br>• FROM STRING_SPLIT('1,2',',') AS X©`                                        | 1<br>2          | `STRING_SPLIT` is a table-valued function. |
-| `STRING_AGG`                     | Return a string that consists of concatenated string values in row groups.                                                  | `SELECT STRING_AGG(C, ',') FROM VALUES(1,'a'), (1, 'b'), (2,'c') AS X (ID,C) GROUP BY I` | 1 'ab'<br>2 'c' | `STRING_AGG` is an aggregate function.     |
+This section doesn’t cover CLR code objects.
 
-For more information, see [String Functions (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+Function invocations can’t have any lasting impact on the database. They must be contained and can only modify objects and data local to their scope (for example, data in local variables). Functions aren’t allowed to modify data or the structure of a database.
+
+Functions may be deterministic or non-deterministic. Deterministic functions always return the same result when you run them with the same data. Non-deterministic functions may return different results each time they run. For example, a function that returns the current date or time.
+
+SQL Server supports three types of T-SQL UDFs: scalar functions, table-valued functions, and multi-statement table-valued functions.
+
+SQL Server 2019 adds scalar user-defined functions inlining. Inlining transforms functions into relational expressions and embeds them in the calling SQL query. This transformation improves the performance of workloads that take advantage of scalar UDFs. Scalar UDF inlining facilitates cost-based optimization of operations inside UDFs. The results are efficient, set-oriented, and parallel instead of inefficient, iterative, serial run plans. For more information, see [Scalar UDF Inlining](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15") in the _SQL Server documentation_.
+
+### Scalar User-Defined Functions
+
+Scalar UDFs accept zero or more parameters and return a scalar value. You can use scalar UDFs in T-SQL expressions.
+
+**Syntax**
+
+```
+CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default Value>] [READONLY]} [,...n]])
+RETURNS <Return Data Type>
+[AS]
+BEGIN
+<Function Body Code>
+RETURN <Scalar Expression>
+END[;]
+```
+
+**Examples**
+
+Create a scalar function to change the first character of a string to upper case.
+
+```
+CREATE FUNCTION dbo.UpperCaseFirstChar (@String VARCHAR(20))
+RETURNS VARCHAR(20)
+AS
+BEGIN
+RETURN UPPER(LEFT(@String, 1)) + LOWER(SUBSTRING(@String, 2, 19))
+END;
+```
+
+```
+SELECT dbo.UpperCaseFirstChar ('mIxEdCasE');
+
+Mixedcase
+```
+
+### User-Defined Table-Valued Functions
+
+Inline table-valued UDFs are similar to views or a Common Table Expressions (CTE) with the added benefit of parameters. They can be used in `FROM` clauses as subqueries and can be joined to other source table rows using the `APPLY` and `OUTER APPLY` operators. In-line table valued UDFs have many associated internal optimizer optimizations due to their simple, view-like characteristics.
+
+**Syntax**
+
+```
+CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
+Value>] [READONLY]} [,...n]])
+RETURNS TABLE
+[AS]
+RETURN (<SELECT Query>)[;]
+```
+
+**Examples**
+
+Create a table valued function to aggregate employee orders.
+
+```
+CREATE TABLE Orders
+(
+    OrderID INT NOT NULL PRIMARY KEY,
+    EmployeeID INT NOT NULL,
+    OrderDate DATETIME NOT NULL
+);
+```
+
+```
+INSERT INTO Orders (OrderID, EmployeeID, OrderDate)
+VALUES
+(1, 1, '20180101 13:00:05'),
+(2, 1, '20180201 11:33:12'),
+(3, 2, '20180112 10:22:35');
+```
+
+```
+CREATE FUNCTION dbo.EmployeeMonthlyOrders
+(@EmployeeID INT)
+RETURNS TABLE AS
+RETURN
+(
+SELECT EmployeeID,
+    YEAR(OrderDate) AS OrderYear,
+    MONTH(OrderDate) AS OrderMonth,
+    COUNT(*) AS NumOrders
+FROM Orders AS O
+WHERE EmployeeID = @EmployeeID
+GROUP BY EmployeeID,
+    YEAR(OrderDate),
+    MONTH(OrderDate)
+);
+```
+
+```
+SELECT *
+FROM dbo.EmployeeMonthlyOrders (1)
+
+EmployeeID  OrderYear  OrderMonth  NumOrders
+1           2018       1           1
+1           2018       2           1
+```
+
+### Multi-Statement User-Defined Table-Valued Functions
+
+Multi-statement table valued UDFs, like inline UDFs, are also similar to views or CTEs, with the added benefit of allowing parameters. They can be used in FROM clauses as sub queries and can be joined to other source table rows using the `APPLY` and `OUTER APPLY` operators.
+
+The difference between multi-statement UDFs and the inline UDFs is that multi-statement UDFs aren’t restricted to a single `SELECT` statement. They can consist of multiple statements including logic implemented with flow control, complex data processing, security checks, and so on.
+
+The downside of using multi-statement UDFs is that there are far less optimizations possible and performance may suffer.
+
+**Syntax**
+
+```
+CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
+Value>] [READONLY]} [,...n]])
+RETURNS <@Return Variable> TABLE <Table Definition>
+[AS]
+BEGIN
+<Function Body Code>
+RETURN
+END[;]
+```
+
+For more information, see [CREATE FUNCTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports a large set of string functions; far more than SQL Server. See the link at the end of this section for the full list. Some of the functions, such as regular expressions (`REGEXP`), don’t exist in SQL Server and may be useful for your application.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the creation of user-defined scalar functions only. There is no support for table-valued functions.
 
-### Syntax and Examples
+Unlike SQL Server, Aurora MySQL enables routines to read and write data using `INSERT`, `UPDATE`, and `DELETE`. It also allows DDL statements such as `CREATE` and `DROP`. Aurora MySQL doesn’t permit stored functions to contain explicit SQL transaction statements such as `COMMIT` and `ROLLBACK`.
 
-The following table lists the most commonly used string functions.
+In Aurora MySQL, you can explicitly specify several options with the `CREATE FUNCTION` statement. These characteristics are saved with the function definition and are viewable with the `SHOW CREATE FUNCTION` statement.
 
-| Function                         | Purpose                                                                                                                     | Example                                                                  | Result               | Comments                                                                                                                                   |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------- | -------------------------------------------- |
-| `ASCII` and `ORD`                | Convert an ASCII or multi-byte code to its string character.                                                                | `SELECT ASCII ('A')`                                                     | 65                   | Returns a numeric integer value.                                                                                                           |
-| `CHAR`                           | Convert between a character and its UNICODE code.                                                                           | `SELECT CHAR (65)`                                                       | 'A'                  | Numeric integer value as input.                                                                                                            |
-| `LOCATE`                         | Find the starting position of one string expression (or string pattern) within another string expression.                   | `SELECT LOCATE ('ab', 'xabcdy')`                                         | 2                    | Returns a numeric integer value.                                                                                                           |
-| `CONCAT` and `CONCAT_WS`         | Combine multiple string input expressions into a single string with or without a separator character (WS).                  | SELECT CONCAT ('a','b'), CONCAT_WS(',','a','b')                          | 'ab', 'a,b'          |                                                                                                                                            |
-| `LEFT`, `RIGHT`, and `SUBSTRING` | Return a partial string from another string expression based on position and length                                         | `SELECT LEFT('abs',2), SUBSTRING('abcd',2,2)`                            | 'ab', 'bc'           |                                                                                                                                            |
-| `LOWER` and `UPPER`              | Return a string with all characters in lower or upper case. Use for presentation or to handle case insensitive expressions. | `SELECT LOWER ('ABcd')`                                                  | 'abcd'               | These have no effect when applied to binary collation strings. Convert the string to a non-binary string collation to convert letter case. |
-| `LTRIM`, `RTRIM`, and `TRIM`     | Remove leading and trailing spaces.                                                                                         | `SELECT LTRIM(' abc d ')`<br>`SELECT TRIM(LEADING 'x' FROM 'xxxabcxxx')` | 'abc d '<br>'abcxxx' | `TRIM` in Aurora MySQL is not limited to spaces.<br>`TRIM ([{BOTH                                                                          | LEADING | TRAILING} [<Remove String>] FROM] <String>)` |
-| `FORMAT`                         | Convert a numeric value to a string.                                                                                        | `SELECT FORMAT (3.1415927,5)`                                            | 3.14159              | Numeric expressions as input.                                                                                                              |
-| `REVERSE`                        | Return a string in reverse order.                                                                                           | `SELECT REVERSE('abcd')`                                                 | 'dcba'               |                                                                                                                                            |
-| `REPEAT`                         | Return a string that consists of zero or more concatenated copies of another string expression.                             | SELECT REPEAT('abc', 3)                                                  | 'abcabcabc'          |                                                                                                                                            |
-| `REPLACE`                        | Replace all occurrence of a string expression with another.                                                                 | `SELECT REPLACE('abcd', 'bc','xy')`                                      | 'axyd'               |                                                                                                                                            |
+- The `DETERMINISTIC` option must be explicitly stated. Otherwise, the engine assumes it is not deterministic.
+
+###### Note
+
+The MySQL engine doesn’t check the validity of the deterministic property declaration. If you wrongly specify a function as `DETERMINISTIC` when in fact it is not, unexpected results and errors may occur.
+
+- `CONTAINS SQL` indicates the function code doesn’t contain statements that read or modify data.
+- `READS SQL DATA` indicates the function code contains statements that read data (for example, `SELECT`) but not statements that modify data (for example, `INSERT`, `DELETE`, or `UPDATE`).
+- `MODIFIES SQL DATA` indicates the function code contains statements that may modify data.
+
+###### Note
+
+The preceding options are advisory only. The server doesn’t constrain the function code based on the declaration. This feature is useful in assisting code management.
+
+### Syntax
+
+```
+CREATE FUNCTION <Function Name> ([<Function Parameter>[,...]])
+RETURNS <Returned Data Type> [characteristic ...]
+<Function Code Body>
+```
+
+```
+characteristic:
+COMMENT '<Comment>' | LANGUAGE SQL | [NOT] DETERMINISTIC
+| { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA }
+| SQL SECURITY { DEFINER | INVOKER }
+```
 
 ### Migration Considerations
 
-Aurora MySQL doesn’t handle `ASCII` and `UNICODE` types separately. Any string can be either `UNICODE` or `ASCII`, depending on its collation property. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md").
+For scalar functions, migration should be straight forward as far as the function syntax is concerned. Note that rules in Aurora MySQL regarding functions are much more lenient than SQL Server.
 
-Many of the Aurora MySQL string functions that are compatible with SQL Server also support additional functionality. For example, the `TRIM` and `CHAR` functions. Aurora MySQL also supports many functions that SQL Server doesn’t support. For example, functions that deal with a delimited list set of values. Be sure to explore all options.
+A function in Aurora MySQL may modify data and schema. Function determinism must be explicitly stated, unlike SQL Server that infers it from the code. Additional properties can be stated for a function, but most are advisory only and have no functional impact.
 
-Aurora MySQL also supports regular expressions. See the `REGEXP` and `RLIKE` functions to get started.
+Also note that the AS keyword, which is mandatory in SQL Server before the function’s code body, is not valid Aurora MySQL syntax and must be removed.
+
+Table-valued functions will be harder to migrate. For most in-line table valued functions, a simple path may consist of migrating to using views, and letting the calling code handle parameters.
+
+Complex multi-statement table valued functions will require rewrite as a stored procedure, which may in turn write the data to a temporary or standard table for further processing.
+
+### Examples
+
+Create a scalar function to change the first character of string to upper case.
+
+```
+CREATE FUNCTION UpperCaseFirstChar (String VARCHAR(20))
+RETURNS VARCHAR(20)
+BEGIN
+RETURN CONCAT(UPPER(LEFT(String, 1)) , LOWER(SUBSTRING(String, 2, 19)));
+END
+```
+
+```
+SELECT UpperCaseFirstChar ('mIxEdCasE');
+```
+
+```
+Mixedcase
+```
 
 ## Summary
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| SQL Server function              | Aurora MySQL function            | Comments                                                                                                                                                                                                                    |
-| -------------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------- |
-| `ASCII` and `UNICODE`            | `ASCII` and `ORD`                | Compatible. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md").                                                                                              |
-| `CHAR` and `NCHAR`               | `CHAR`                           | Unlike SQL Server, `CHAR` in Aurora MySQL accepts a list of values and constructs a concatenated string. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md"). |
-| `CHARINDEX` and `PATINDEX`       | `LOCATE` and `POSITION`          | `LOCATE` and `POSITION` are synonymous but don’t support wildcards as `PATINDEX`.<br>Use the `FIND_IN_SET` function to extract an element position in a comma separated value string.                                       |
-| `CONCAT` and `CONCAT_WS`         | `CONCAT` and `CONCAT_WS`         | Compatible syntax.                                                                                                                                                                                                          |
-| `LEFT`, `RIGHT`, and `SUBSTRING` | `LEFT`, `RIGHT`, and `SUBSTRING` | Compatible syntax. Aurora MySQL supports `MID` and `SUBSTR`, which are synonymous with `SUBSTRING`.<br>Use the `SUBSTRING_INDEX` function to extract an element from a delimited list.                                      |
-| `LOWER` and `UPPER`              | `LOWER` AND `UPPER`              | Compatible syntax. `LOWER` and `UPPER` have no effect when applied to binary collation strings.                                                                                                                             |
-| `LTRIM`, `RTRIM` and `TRIM`      | `LTRIM`, `RTRIM` and `TRIM`      | Compatible syntax. `TRIM` in Aurora MySQL is not limited to both ends and spaces. It can be used to trim either leading or trailing characters.<br>The syntax is shown following:<br>`TRIM ([{BOTH                          | LEADING | TRAILING} [<Remove String>] FROM] <String>)` |
-| `STR`                            | `FORMAT`                         | `FORMAT` doesn’t support full precision and scale definition, but does support locale formatting.                                                                                                                           |
-| `REVERSE`                        | `REVERSE`                        | Compatible syntax.                                                                                                                                                                                                          |
-| `REPLICATE`                      | `REPEAT`                         | Compatible arguments.                                                                                                                                                                                                       |
-| `REPLACE`                        | `REPLACE`                        | Compatible syntax.                                                                                                                                                                                                          |
-| `STRING_SPLIT`                   | Not supported.                   | Requires iterative code to extract elements with scalar string functions.                                                                                                                                                   |
-| `STRING_AGG`                     | Not supported                    | Requires iterative code to build a list with scalar string functions.                                                                                                                                                       |
+| SQL Server user-defined function feature | Migrate to Aurora MySQL    | Comment                                                                                                                   |
+| ---------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Scalar UDF                               | Scalar UDF                 | Use `CREATE FUNCTION` with similar syntax, remove the `AS` keyword.                                                       |
+| Inline table-valued UDF                  | N/A                        | Use views and replace parameters with `WHERE` filter predicates.                                                          |
+| Multi-statement table-valued UDF         | N/A                        | Use stored procedures to populate tables and read from the table directly.                                                |
+| UDF determinism implicit                 | Explicit declaration       | Use the `DETERMINISTIC` characteristic explicitly to denote a deterministic function, which enables engine optimizations. |
+| UDF boundaries local only                | Can change data and schema | UDF rules are more lenient, avoid unexpected changes from function invocation.                                            |
 
-For more information, see [String Functions and Operators](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html "https://dev.mysql.com/doc/refman/5.7/en/string-functions.html") in the _MySQL documentation_.
+For more information, see [CREATE PROCEDURE and CREATE FUNCTION Statements](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html "https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html") and [CREATE FUNCTION Statement for Loadable Functions](https://dev.mysql.com/doc/refman/5.7/en/create-function-loadable.html "https://dev.mysql.com/doc/refman/5.7/en/create-function-loadable.html") in the _MySQL documentation_.
