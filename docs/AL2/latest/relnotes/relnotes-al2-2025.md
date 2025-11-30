@@ -6,6 +6,7 @@ The following are the release notes for Amazon Linux 2 for 2025.
 
 ###### Release notes
 
+- [2.0.20251121](relnotes-20251121.md "relnotes-20251121.md")
 - [2.0.20251110](relnotes-20251110.md "relnotes-20251110.md")
 - [2.0.20251105](relnotes-20251105.md "relnotes-20251105.md")
 - [2.0.20251027](relnotes-20251027.md "relnotes-20251027.md")
