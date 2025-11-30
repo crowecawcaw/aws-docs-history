@@ -1,13 +1,13 @@
-# `pcluster list-cluster-log-streams`
+# `pcluster configure`
 
-Retrieve the list of log streams associated with a cluster.
+Begins an interactive configuration wizard for AWS ParallelCluster version 3. For more information, see
+[Configure and create a cluster with the AWS ParallelCluster
+command line interface](install-v3-configuring.md "install-v3-configuring.md").
 
 ```
-pcluster list-cluster-log-streams [-h]
-                 --cluster-name `CLUSTER_NAME`
-                [--filters `FILTERS` [`FILTERS` ...]]
-                [--next-token `NEXT_TOKEN`] [--debug]
-                [--query `QUERY`]
+pcluster configure [-h]
+                 --config `CONFIG`
+                [--debug]
                 [--region `REGION`]
 ```
 
@@ -15,58 +15,19 @@ pcluster list-cluster-log-streams [-h]
 
 `-h, --help`
 
-Shows the help text for `pcluster list-cluster-log-streams`.
+Shows the help text for `pcluster configure`.
 
-`--cluster-name, -n `CLUSTER_NAME``
+`--config `CONFIG``
 
-Specifies the name of the cluster.
+Path to output the generated config file.
 
 `--debug`
 
-Enables debug logging.
-
-`--filters `FILTERS` [`FILTERS`
- ...]`
-
-Specifies filters for the log streams. Format: `Name=a,Values=1 Name=b,Values=2,3`. Supported
-filters are:
-
-`private-dns-name`
-
-Specifies the short form of the private DNS name of the instance (e.g.
-`ip-10-0-0-101`).
-
-`node-type`
-
-Specifies the node type, the only accepted value for this filter is `HeadNode`.
-
-`--next-token `NEXT_TOKEN``
-
-The token for the next set of results.
-
-`--query `QUERY``
-
-Specifies the JMESPath query to perform on the output.
+Turn on debug logging.
 
 `--region, -r `REGION``
 
-Specifies the AWS Region to use. The AWS Region must be specified, using the `AWS_DEFAULT_REGION`
-environment variable, the `region` setting in the `[default]` section of the
-`~/.aws/config` file, or the `--region` parameter.
-
-**Example using AWS ParallelCluster version 3.1.4:**
-
-````
-`$` `pcluster list-cluster-log-streams \
- -n `cluster-v3` \
- -r `us-east-1` \
- --query `'logStreams[*].logStreamName'```[
- "ip-172-31-58-205.i-1234567890abcdef0.cfn-init",
- "ip-172-31-58-205.i-1234567890abcdef0.chef-client",
- "ip-172-31-58-205.i-1234567890abcdef0.cloud-init",
- "ip-172-31-58-205.i-1234567890abcdef0.clustermgtd",
- "ip-172-31-58-205.i-1234567890abcdef0.slurmctld",
- "ip-172-31-58-205.i-1234567890abcdef0.supervisord",
- "ip-172-31-58-205.i-1234567890abcdef0.system-messages"
-]`
-````
+Specifies the AWS Region to use. The Region must be specified, using the [Region](image-builder-configuration-file-v3.md#yaml-build-image-Region "image-builder-configuration-file-v3.md#yaml-build-image-Region") setting in the image configuration file, the
+`AWS_DEFAULT_REGION` environment variable, the `region` setting in the
+`[default]` section of the `~/.aws/config` file, or the `--region`
+parameter.

@@ -1,27 +1,43 @@
-# `awsbqueues`
+# `awsbstat`
 
-Shows the job queue that is associated with the cluster.
+Shows the jobs that are submitted in the cluster’s job queue.
 
 ```
-awsbqueues [-h] [-c `CLUSTER`] [-d] [`job_queues` [`job_queues` ... ]]
+awsbstat [-h] [-c `CLUSTER`] [-s `STATUS`] [-e] [-d] [`job_ids` [`job_ids` ...]]
 ```
 
-## Positional arguments
+## Positional Arguments
 
-`job_queues`
+`job_ids`
 
-Specifies the space-separated list of queue names to show. If a single queue is
-requested, it is shown in a detailed version.
+Specifies the space-separated list of job IDs to show in the output. If the job is a job array, all of the
+child jobs are displayed. If a single job is requested, it is shown in a detailed version.
 
-## Named arguments
+## Named Arguments
 
 `-c `CLUSTER`, --cluster
  `CLUSTER``
 
-Specifies the name of the cluster to use.
+Indicates the cluster to use.
+
+`-s `STATUS`, --status
+ `STATUS``
+
+Specifies a comma-separated list of job statuses to include. The default job status is “active.”. Accepted
+values are: `SUBMITTED`, `PENDING`, `RUNNABLE`, `STARTING`,
+`RUNNING`, `SUCCEEDED`, `FAILED`, and `ALL`.
+
+Default:
+“`SUBMITTED`,`PENDING`,`RUNNABLE`,`STARTING`,`RUNNING`”
+
+`-e, --expand-children`
+
+Expands jobs with children (both array and multi-node parallel).
+
+Default: False
 
 `-d, --details`
 
-Indicates whether to show the details of the queues.
+Shows jobs details.
 
 Default: False
