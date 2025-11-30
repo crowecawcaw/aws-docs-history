@@ -33,7 +33,7 @@ To add a Wi-Fi gateway
 1. Choose the menu icon (☰), and then choose **Getting
    Started**.
 
-![Menu options including Assets, Gateways, Users, Sites, with Getting started highlighted.](/images/Monitron/latest/getting-started-guide/images/getting-started.png) 2. Choose **Add gateway**.
+![Menu options including Assets, Gateways, Users, Sites, with Getting started highlighted.](images/getting-started.png) 2. Choose **Add gateway**.
 
 ![Step 1 of getting started shows icons for gateways and instructions to connect them.](images/gs-gateway.png) 3. In your factory, position your gateway in the location that works best for
 communicating with your sensors.
