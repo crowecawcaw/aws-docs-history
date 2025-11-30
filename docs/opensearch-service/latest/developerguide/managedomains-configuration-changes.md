@@ -423,9 +423,14 @@ first hour, you're charged only for the new cluster (3 \* `m3.xlarge`).
 When you initiate a configuration change or perform an OpenSearch or Elasticsearch version
 upgrade, OpenSearch Service first performs a series of validation checks to ensure that your domain is
 eligible for an update. If any of these checks fail, you receive a notification in the console
-containing the specific issues that you must fix before updating your domain. The following
-table lists the possible domain issues that OpenSearch Service might surface, and steps to resolve
-them.
+containing the specific issues that you must fix before updating your domain.
+
+OpenSearch Service isolates your domain if it remains in an unusable state for more than 60 days. We'll
+send you notification reminders to resolve these issues. If you don't fix the issues within
+this time frame, OpenSearch Service deletes your domain and its data.
+
+The following table lists the possible domain issues that OpenSearch Service might surface, and steps to
+resolve them.
 
 | Issue                                                                  | Error code                      | Troubleshooting steps                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ---------------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

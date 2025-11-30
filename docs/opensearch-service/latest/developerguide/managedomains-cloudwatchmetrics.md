@@ -584,7 +584,7 @@ to Rank](learning-to-rank.md "learning-to-rank.md").
 metrics
 
 Amazon OpenSearch Service provides the following metrics for [Piped
-Processing Language](ppl-support.md "ppl-support.md").
+Processing Language](observability.md "observability.md").
 
 | Metric                          | Description                                                                                                                                                                                             |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

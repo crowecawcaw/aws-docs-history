@@ -12,8 +12,22 @@ see if an update is available or to check the status of an update. Each notifica
 details about the service software update. All service software updates use blue/green
 deployments to minimize downtime.
 
-Service software updates differ from OpenSearch _version_ upgrades. For
-information about upgrading to a later version of OpenSearch, see [Upgrading Amazon OpenSearch Service domains](version-migration.md "version-migration.md").
+Service software updates differ from OpenSearch Service _version_ upgrades. For
+information about upgrading to a later version of OpenSearch Service, see [Upgrading Amazon OpenSearch Service domains](version-migration.md "version-migration.md").
+
+OpenSearch Service requires you to apply required service software updates within 30 days of their
+availability. These updates are critical for maintaining security compliance.
+
+If you don't apply required updates within the 30-day period, you'll receive reminder
+notifications every 15 days for 30 days. After this period without compliance, your domain will
+be isolated with the following effects:
+
+- All network access to your domain is removed
+- Domain status changes to **isolated**
+- The domain remains unusable until you apply the required updates
+  During isolation, you'll continue receiving reminder notifications every 15 days for 60
+  days. If you don't apply the required updates within this period, your OpenSearch Service domain and all
+  associated data will be permanently deleted. For more information, see [Troubleshooting validation errors](managedomains-configuration-changes.md#validation "managedomains-configuration-changes.md#validation").
 
 ## Optional versus required updates
 
@@ -272,8 +286,8 @@ notification severity is `Informational` if the update is optional and
 `High` if it's required.
 
 OpenSearch Service also sends service software events to Amazon EventBridge. You can use EventBridge to configure rules
-that send an email or perform a specific action when an event is received. For an example
-walkthrough, see [Tutorial: Sending Amazon SNS alerts for available software
+that send an email or perform a specific action when an event is received. For an example walk
+through, see [Tutorial: Sending Amazon SNS alerts for available software
 updates](sns-events.md "sns-events.md").
 
 To see the format of each service software event sent to Amazon EventBridge, see [Service software update events](monitoring-events.md#monitoring-events-sso "monitoring-events.md#monitoring-events-sso").

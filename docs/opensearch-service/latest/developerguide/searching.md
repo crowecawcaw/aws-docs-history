@@ -23,6 +23,7 @@ older Elasticsearch versions.
 - [Learning to Rank for Amazon OpenSearch Service](learning-to-rank.md "learning-to-rank.md")
 - [Asynchronous search in Amazon OpenSearch Service](asynchronous-search.md "asynchronous-search.md")
 - [Point in time search in Amazon OpenSearch Service](pit.md "pit.md")
+- [Agentic search in Amazon OpenSearch Service](agentic-search.md "agentic-search.md")
 - [Semantic search in Amazon OpenSearch Service](semantic-search.md "semantic-search.md")
 - [Concurrent segment search in Amazon OpenSearch Service](concurrent-segment-search.md "concurrent-segment-search.md")
 - [Natural language query generation in

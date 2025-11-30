@@ -42,7 +42,7 @@ For more information about AWS PrivateLink and VPC endpoints, see [VPC endpoints
 
 ### Creating the VPC endpoint for OpenSearch Serverless
 
-To create the VPC endpoint for Amazon OpenSearch Serverless, use the [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint") procedure in the . Create the following endpoint:
+To create the VPC endpoint for Amazon OpenSearch Serverless, use the [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint") procedure in the _Amazon VPC Developer Guide_. Create the following endpoint:
 
 - `com.amazonaws.region.aoss`
 
