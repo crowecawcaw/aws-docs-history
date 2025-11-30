@@ -16,14 +16,14 @@ cryptographic function with AWS CloudHSM.
 - An empty cell in the Default Value column indicates that there is no specific
   default value assigned to the attribute.
 
-| Attribute               | Key Type                             | **Default Value**                    |
-| ----------------------- | ------------------------------------ | ------------------------------------ | -------------------------------------- | -------------------------------------- | ----- |
-|                         | **EC private**                       | **EC public**                        | **RSA private**                        | **RSA public**                         |       |
+| Attribute               | Key Type                            | **Default Value**                   |
+| ----------------------- | ----------------------------------- | ----------------------------------- | ------------------------------------- | ------------------------------------- | ----- |
+|                         | **EC private**                      | **EC public**                       | **RSA private**                       | **RSA public**                        |       |
 | `CKA_CLASS`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     |       |
 | `CKA_KEY_TYPE`          | ✔                                   | ✔                                   | ✔                                     | ✔                                     |       |
 | `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     |       |
 | `CKA_ID`                | ✔                                   | ✔                                   | ✔                                     | ✔                                     |       |
-| `CKA_LOCAL`             | R                                    | R                                    | R                                      | R                                      | True  |
+| `CKA_LOCAL`             | R                                   | R                                   | R                                     | R                                     | True  |
 | `CKA_TOKEN`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     | False |
 | `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | True  |
 | `CKA_ENCRYPT`           | ✖                                   | ✔                                   | ✖                                     | ✔                                     | False |
@@ -42,9 +42,9 @@ cryptographic function with AWS CloudHSM.
 | `CKA_UNWRAP`            | ✔                                   | ✖                                   | ✔                                     | ✖                                     | False |
 | `CKA_UNWRAP_TEMPLATE`   | ✔                                   | ✖                                   | ✔                                     | ✖                                     |       |
 | `CKA_SENSITIVE`         | ✔                                   | ✖                                   | ✔                                     | ✖                                     | True  |
-| `CKA_ALWAYS_SENSITIVE`  | R                                    | ✖                                   | R                                      | ✖                                     |       |
+| `CKA_ALWAYS_SENSITIVE`  | R                                   | ✖                                   | R                                     | ✖                                     |       |
 | `CKA_EXTRACTABLE`       | ✔                                   | ✖                                   | ✔                                     | ✖                                     | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                    | ✖                                   | R                                      | ✖                                     |       |
+| `CKA_NEVER_EXTRACTABLE` | R                                   | ✖                                   | R                                     | ✖                                     |       |
 | `CKA_MODULUS`           | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
 | `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                     | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   |       |
 | `CKA_PRIME_1`           | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
@@ -58,16 +58,16 @@ cryptographic function with AWS CloudHSM.
 | `CKA_EC_POINT`          | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
 | `CKA_VALUE`             | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
 | `CKA_VALUE_LEN`         | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_CHECK_VALUE`       | R                                    | R                                    | R                                      | R                                      |       |
+| `CKA_CHECK_VALUE`       | R                                   | R                                   | R                                     | R                                     |       |
 
-| Attribute               | Key Type                             | **Default Value**                    |
-| ----------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ----- |
-|                         | **AES**                              | **DES3**                             | **Generic Secret**                   |       |
+| Attribute               | Key Type                            | **Default Value**                   |
+| ----------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----- |
+|                         | **AES**                             | **DES3**                            | **Generic Secret**                  |       |
 | `CKA_CLASS`             | ✔                                   | ✔                                   | ✔                                   |       |
 | `CKA_KEY_TYPE`          | ✔                                   | ✔                                   | ✔                                   |       |
 | `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                   |       |
 | `CKA_ID`                | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_LOCAL`             | R                                    | R                                    | R                                    | True  |
+| `CKA_LOCAL`             | R                                   | R                                   | R                                   | True  |
 | `CKA_TOKEN`             | ✔                                   | ✔                                   | ✔                                   | False |
 | `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
 | `CKA_ENCRYPT`           | ✔                                   | ✔                                   | ✖                                   | False |
@@ -88,7 +88,7 @@ cryptographic function with AWS CloudHSM.
 | `CKA_SENSITIVE`         | ✔                                   | ✔                                   | ✔                                   | True  |
 | `CKA_ALWAYS_SENSITIVE`  | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_EXTRACTABLE`       | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                    | R                                    | R                                    |       |
+| `CKA_NEVER_EXTRACTABLE` | R                                   | R                                   | R                                   |       |
 | `CKA_MODULUS`           | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_PRIME_1`           | ✖                                   | ✖                                   | ✖                                   |       |
@@ -102,16 +102,16 @@ cryptographic function with AWS CloudHSM.
 | `CKA_EC_POINT`          | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_VALUE`             | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_VALUE_LEN`         | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_CHECK_VALUE`       | R                                    | R                                    | R                                    |       |
+| `CKA_CHECK_VALUE`       | R                                   | R                                   | R                                   |       |
 
-| Attribute               | Key Type                             | **Default Value**                    |
-| ----------------------- | ------------------------------------ | ------------------------------------ | -------------------------------------- | -------------------------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ----- |
-|                         | **EC private**                       | **EC public**                        | **RSA private**                        | **RSA public**                         | **AES**                              | **DES3**                             | **Generic Secret**                   |       |
+| Attribute               | Key Type                            | **Default Value**                   |
+| ----------------------- | ----------------------------------- | ----------------------------------- | ------------------------------------- | ------------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----- |
+|                         | **EC private**                      | **EC public**                       | **RSA private**                       | **RSA public**                        | **AES**                             | **DES3**                            | **Generic Secret**                  |       |
 | `CKA_CLASS`             | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
 | `CKA_KEY_TYPE`          | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
 | `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     | ✔                                   | ✔                                   | ✔                                   |       |
 | `CKA_ID`                | ✔                                   | ✔                                   | ✔                                     | ✔                                     | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_LOCAL`             | R                                    | R                                    | R                                      | R                                      | R                                    | R                                    | R                                    | False |
+| `CKA_LOCAL`             | R                                   | R                                   | R                                     | R                                     | R                                   | R                                   | R                                   | False |
 | `CKA_TOKEN`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     | ✔                                   | ✔                                   | ✔                                   | False |
 | `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
 | `CKA_ENCRYPT`           | ✖                                   | ✖                                   | ✖                                     | ✔                                     | ✔                                   | ✔                                   | ✖                                   | False |
@@ -130,9 +130,9 @@ cryptographic function with AWS CloudHSM.
 | `CKA_UNWRAP`            | ✖                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✖                                   | False |
 | `CKA_UNWRAP_TEMPLATE`   | ✔                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✖                                   |       |
 | `CKA_SENSITIVE`         | ✔                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_ALWAYS_SENSITIVE`  | R                                    | ✖                                   | R                                      | ✖                                     | R                                    | R                                    | R                                    |       |
+| `CKA_ALWAYS_SENSITIVE`  | R                                   | ✖                                   | R                                     | ✖                                     | R                                   | R                                   | R                                   |       |
 | `CKA_EXTRACTABLE`       | ✔                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                    | ✖                                   | R                                      | ✖                                     | R                                    | R                                    | R                                    |       |
+| `CKA_NEVER_EXTRACTABLE` | R                                   | ✖                                   | R                                     | ✖                                     | R                                   | R                                   | R                                   |       |
 | `CKA_MODULUS`           | ✖                                   | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_PRIME_1`           | ✖                                   | ✖                                   | ✔                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
@@ -146,16 +146,16 @@ cryptographic function with AWS CloudHSM.
 | `CKA_EC_POINT`          | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_VALUE`             | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                   | ✖                                     | ✖                                     | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
 | `CKA_VALUE_LEN`         | ✖                                   | ✖                                   | ✖                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_CHECK_VALUE`       | R                                    | R                                    | R                                      | R                                      | R                                    | R                                    | R                                    |       |
+| `CKA_CHECK_VALUE`       | R                                   | R                                   | R                                     | R                                     | R                                   | R                                   | R                                   |       |
 
-| Attribute               | Key Type                             | **Default Value**                      |
-| ----------------------- | ------------------------------------ | -------------------------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ----- |
-|                         | **EC private**                       | **RSA private**                        | **AES**                              | **DES3**                             | **Generic Secret**                   |       |
+| Attribute               | Key Type                            | **Default Value**                     |
+| ----------------------- | ----------------------------------- | ------------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----- |
+|                         | **EC private**                      | **RSA private**                       | **AES**                             | **DES3**                            | **Generic Secret**                  |       |
 | `CKA_CLASS`             | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
 | `CKA_KEY_TYPE`          | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
 | `CKA_LABEL`             | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   |       |
 | `CKA_ID`                | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_LOCAL`             | R                                    | R                                      | R                                    | R                                    | R                                    | False |
+| `CKA_LOCAL`             | R                                   | R                                     | R                                   | R                                   | R                                   | False |
 | `CKA_TOKEN`             | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   | False |
 | `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
 | `CKA_ENCRYPT`           | ✖                                   | ✖                                     | ✔                                   | ✔                                   | ✖                                   | False |
@@ -171,8 +171,8 @@ cryptographic function with AWS CloudHSM.
 | `CKA_UNWRAP`            | ✖                                   | ✔                                     | ✔                                   | ✔                                   | ✖                                   | False |
 | `CKA_SENSITIVE`         | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   | True  |
 | `CKA_EXTRACTABLE`       | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                    | R                                      | R                                    | R                                    | R                                    |       |
-| `CKA_ALWAYS_SENSITIVE`  | R                                    | R                                      | R                                    | R                                    | R                                    |       |
+| `CKA_NEVER_EXTRACTABLE` | R                                   | R                                     | R                                   | R                                   | R                                   |       |
+| `CKA_ALWAYS_SENSITIVE`  | R                                   | R                                     | R                                   | R                                   | R                                   |       |
 | `CKA_MODULUS`           | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_MODULUS_BITS`      | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_PRIME_1`           | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
@@ -186,16 +186,16 @@ cryptographic function with AWS CloudHSM.
 | `CKA_EC_POINT`          | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_VALUE`             | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_VALUE_LEN`         | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_CHECK_VALUE`       | R                                    | R                                      | R                                    | R                                    | R                                    |       |
+| `CKA_CHECK_VALUE`       | R                                   | R                                     | R                                   | R                                   | R                                   |       |
 
-| Attribute               | Key Type                             | **Default Value**                    |
-| ----------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ----- |
-|                         | **AES**                              | **DES3**                             | **Generic Secret**                   |       |
+| Attribute               | Key Type                            | **Default Value**                   |
+| ----------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----- |
+|                         | **AES**                             | **DES3**                            | **Generic Secret**                  |       |
 | `CKA_CLASS`             | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
 | `CKA_KEY_TYPE`          | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
 | `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                   |       |
 | `CKA_ID`                | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_LOCAL`             | R                                    | R                                    | R                                    | True  |
+| `CKA_LOCAL`             | R                                   | R                                   | R                                   | True  |
 | `CKA_TOKEN`             | ✔                                   | ✔                                   | ✔                                   | False |
 | `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
 | `CKA_ENCRYPT`           | ✔                                   | ✔                                   | ✖                                   | False |
@@ -211,8 +211,8 @@ cryptographic function with AWS CloudHSM.
 | `CKA_UNWRAP`            | ✔                                   | ✔                                   | ✖                                   | False |
 | `CKA_SENSITIVE`         | ✔                                   | ✔                                   | ✔                                   | True  |
 | `CKA_EXTRACTABLE`       | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                    | R                                    | R                                    |       |
-| `CKA_ALWAYS_SENSITIVE`  | R                                    | R                                    | R                                    |       |
+| `CKA_NEVER_EXTRACTABLE` | R                                   | R                                   | R                                   |       |
+| `CKA_ALWAYS_SENSITIVE`  | R                                   | R                                   | R                                   |       |
 | `CKA_MODULUS`           | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_PRIME_1`           | ✖                                   | ✖                                   | ✖                                   |       |
@@ -226,11 +226,11 @@ cryptographic function with AWS CloudHSM.
 | `CKA_EC_POINT`          | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_VALUE`             | ✖                                   | ✖                                   | ✖                                   |       |
 | `CKA_VALUE_LEN`         | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_CHECK_VALUE`       | R                                    | R                                    | R                                    |       |
+| `CKA_CHECK_VALUE`       | R                                   | R                                   | R                                   |       |
 
-| Attribute               | Key Type                             |
-| ----------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-|                         | **EC private**                       | **EC public**                        | **RSA private**                      | **RSA public**                       | **AES**                              | **DES3**                             | **Generic Secret**                   |
+| Attribute               | Key Type                            |
+| ----------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+|                         | **EC private**                      | **EC public**                       | **RSA private**                     | **RSA public**                      | **AES**                             | **DES3**                            | **Generic Secret**                  |
 | `CKA_CLASS`             | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
 | `CKA_KEY_TYPE`          | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
 | `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
@@ -256,19 +256,19 @@ cryptographic function with AWS CloudHSM.
 | `CKA_SENSITIVE`         | ✔                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   |
 | `CKA_EXTRACTABLE`       | ✔                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   |
 | `CKA_NEVER_EXTRACTABLE` | ✔                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_ALWAYS_SENSITIVE`  | R                                    | R;                                   | R                                    | R                                    | R                                    | R                                    | R                                    |
+| `CKA_ALWAYS_SENSITIVE`  | R                                   | R;                                  | R                                   | R                                   | R                                   | R                                   | R                                   |
 | `CKA_MODULUS`           | ✖                                   | ✖                                   | ✔                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   |
 | `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_PRIME_1`           | ✖                                   | ✖                                   | S                                    | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_PRIME_2`           | ✖                                   | ✖                                   | S                                    | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_COEFFICIENT`       | ✖                                   | ✖                                   | S                                    | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_EXPONENT_1`        | ✖                                   | ✖                                   | S                                    | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_EXPONENT_2`        | ✖                                   | ✖                                   | S                                    | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_PRIVATE_EXPONENT`  | ✖                                   | ✖                                   | S                                    | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
+| `CKA_PRIME_1`           | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
+| `CKA_PRIME_2`           | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
+| `CKA_COEFFICIENT`       | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
+| `CKA_EXPONENT_1`        | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
+| `CKA_EXPONENT_2`        | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
+| `CKA_PRIVATE_EXPONENT`  | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
 | `CKA_PUBLIC_EXPONENT`   | ✖                                   | ✖                                   | ✔                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   |
 | `CKA_EC_PARAMS`         | ✔                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
 | `CKA_EC_POINT`          | ✖                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_VALUE`             | S                                    | ✖                                   | ✖                                   | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |
+| `CKA_VALUE`             | S                                   | ✖                                   | ✖                                   | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |
 | `CKA_VALUE_LEN`         | ✖                                   | ✖                                   | ✖                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   |
 | `CKA_CHECK_VALUE`       | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✖                                   |
 
