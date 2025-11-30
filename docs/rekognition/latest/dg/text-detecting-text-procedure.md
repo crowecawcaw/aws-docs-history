@@ -473,7 +473,7 @@ more information, see [BoundingBox](../APIReference/API_BoundingBox.md "../APIRe
 The following JSON response from the `DetectText` operation shows the
 words and lines that were detected in the following image.
 
-![Smiling coffee mug next to text that says "It's Monday but keep Smiling" on a brick background, with text bounding boxes.](/images/rekognition/latest/dg/images/text.png)
+![Smiling coffee mug next to text that says "It's Monday but keep Smiling" on a brick background, with text bounding boxes.](images/text.png)
 
 ```
 {

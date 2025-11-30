@@ -76,7 +76,7 @@ returns an array of persons detected in the input image. For each person, inform
 parts and detected items of PPE is returned. The JSON for the following image of a worker wearing a head cover,
 hand cover, and a face cover is as follows.
 
-![Construction worker wearing checkered shirt, hard hat and face mask holding a power tool. Green boxes highlight face, hard hat, gloved hand, and tool.](images/worker-with-bb.png)
+![Construction worker wearing checkered shirt, hard hat and face mask holding a power tool. Green boxes highlight face, hard hat, gloved hand, and tool.](/images/rekognition/latest/dg/images/worker-with-bb.png)
 
 In the JSON, note the following.
 
