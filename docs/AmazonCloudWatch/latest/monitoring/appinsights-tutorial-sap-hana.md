@@ -390,7 +390,7 @@ The log group widget in the problem dashboard shows the `ACCESS
  DENIED` event. This includes additional information, such as the S3
 bucket, the S3 bucket folder, and the S3 bucket Region.
 
-![Log group showing out of memory.](/images/AmazonCloudWatch/latest/monitoring/images/appinsights-backup-stopped-2.png)
+![Log group showing out of memory.](images/appinsights-backup-stopped-2.png)
 
 ## Detecting outliers for SAP HANA
 

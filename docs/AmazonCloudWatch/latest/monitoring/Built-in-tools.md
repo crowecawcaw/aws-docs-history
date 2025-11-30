@@ -45,7 +45,7 @@ Choose a **Session ID** under **Total sessions** to view the session dashboard.
 
 Choose a **Trace ID** under **Traces** to view the trace details.
 
-![Trace summary view](images/Trace-summary.png)
+![Trace summary view](/images/AmazonCloudWatch/latest/monitoring/images/Trace-summary.png)
 
 ## Browser use tool
 
