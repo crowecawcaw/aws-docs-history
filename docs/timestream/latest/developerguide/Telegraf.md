@@ -1,81 +1,44 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Mapping Telegraf/InfluxDB metrics to the Timestream for LiveAnalytics
+# Installing Telegraf with the Timestream for LiveAnalytics
 
-model
+output plugin
 
-When writing data from Telegraf to Timestream for LiveAnalytics, the data is mapped as follows.
+As of version 1.16, the Timestream for LiveAnalytics output plugin is available in the official Telegraf
+release. To install the output plugin on most major operating systems, follow the steps
+outlined in the [InfluxData Telegraf Documentation](https://docs.influxdata.com/telegraf/v1.16/introduction/installation/ "https://docs.influxdata.com/telegraf/v1.16/introduction/installation/"). To install on the Amazon Linux 2 OS,
+follow the instructions below.
 
-- The timestamp is written as the time field.
-- Tags are written as dimensions.
-- Fields are written as measures.
-- Measurements are mostly written as table names (more on this below).
-  The Timestream for LiveAnalytics output plugin for Telegraf offers multiple options for organizing and storing data
-  in Timestream for LiveAnalytics. This can be described with an example which begins with the data in line protocol format.
+## Installing
 
-`weather,location=us-midwest,season=summer temperature=82,humidity=71
- 1465839830100400200 airquality,location=us-west no2=5,pm25=16 1465839830100400200`
+Telegraf with the Timestream for LiveAnalytics output plugin on Amazon Linux 2
 
-The following describes the data.
+To install Telegraf with the Timestream Output Plugin on Amazon Linux 2, perform
+the following steps.
 
-- The measurement names are `weather` and `airquality`.
-- The tags are `location` and `season`.
-- The fields are `temperature`, `humidity`, `no2`, and `pm25`.
+1. Install Telegraf using the `yum` package manager.
 
-###### Topics
+```
+cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
+[influxdb]
+name = InfluxDB Repository - RHEL \$releasever
+baseurl = https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable
+enabled = 1
+gpgcheck = 1
+gpgkey = https://repos.influxdata.com/influxdb.key
+EOF
+```
 
-- [Storing the data
-  in multiple tables](#Telegraf.how-it-works.multi-table-single-measure.title "#Telegraf.how-it-works.multi-table-single-measure.title")
-- [Storing the data
-  in a single table](#Telegraf.how-it-works.single-table-single-measure.title "#Telegraf.how-it-works.single-table-single-measure.title")
+2. Run the following command.
 
-## Storing the data
+```
+sudo sed -i "s/\$releasever/$(rpm -E %{rhel})/g" /etc/yum.repos.d/influxdb.repo
+```
 
-in multiple tables
+3. Install and start Telegraf.
 
-You can choose to create a separate table per measurement and store each
-field in a separate row per table.
-
-The configuration is `mapping_mode = "multi-table"`.
-
-- The Timestream for LiveAnalytics adapter will create two tables, namely, `weather` and
-  `airquality`.
-- Each table row will contain a single field only.
-
-The resulting Timestream for LiveAnalytics tables, `weather` and `airquality`, will
-look like this.
-
-| `weather`           | time       | location | season      | measure_name | measure_value::bigint |
-| ------------------- | ---------- | -------- | ----------- | ------------ | --------------------- |
-| 2016-06-13 17:43:50 | us-midwest | summer   | temperature | 82           |
-| 2016-06-13 17:43:50 | us-midwest | summer   | humidity    | 71           |
-
-| `airquality`        | time       | location | measure_name | measure_value::bigint |
-| ------------------- | ---------- | -------- | ------------ | --------------------- |
-| 2016-06-13 17:43:50 | us-midwest | no2      | 5            |
-| 2016-06-13 17:43:50 | us-midwest | pm25     | 16           |
-
-## Storing the data
-
-in a single table
-
-You can choose to store all the measurements in a single table and store each
-field in a separate table row.
-
-The configuration is `mapping_mode = "single-table"`.
-There are two addition configurations when using `single-table`,
-`single_table_name` and `single_table_dimension_name_for_telegraf_measurement_name`.
-
-- The Timestream for LiveAnalytics output plugin will create a single table with name
-  `<single_table_name>` which includes a `<single_table_dimension_name_for_telegraf_measurement_name>` column.
-- The table may contain multiple fields in a single table row.
-
-The resulting Timestream for LiveAnalytics table will look like this.
-
-| `weather`           | time       | location | season     | `<single_table_dimension_name_<br>for_telegraf_measurement_name>` | measure_name | measure_value::bigint |
-| ------------------- | ---------- | -------- | ---------- | ----------------------------------------------------------------- | ------------ | --------------------- |
-| 2016-06-13 17:43:50 | us-midwest | summer   | weather    | temperature                                                       | 82           |
-| 2016-06-13 17:43:50 | us-midwest | summer   | weather    | humidity                                                          | 71           |
-| 2016-06-13 17:43:50 | us-midwest | summer   | airquality | no2                                                               | 5            |
-| 2016-06-13 17:43:50 | us-midwest | summer   | weather    | pm25                                                              | 16           |
+```
+sudo yum install telegraf
+sudo service telegraf start
+```
