@@ -122,4 +122,4 @@ order to associate it to the interaction.
 
 ![Autopopulated results in multiple profiles for the same call or chat.](images/example4-autopop-cp-3.png)
 
-![Autopopulated results in multiple profiles for the same call or chat.](images/example4-autopop-cp-4.png)
+![Autopopulated results in multiple profiles for the same call or chat.](/images/connect/latest/adminguide/images/example4-autopop-cp-4.png)

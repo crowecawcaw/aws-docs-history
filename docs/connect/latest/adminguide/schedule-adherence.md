@@ -190,7 +190,7 @@ view published schedules](scheduling-view-schedule-supervisors.md "scheduling-vi
 
 The following image shows an example of adherence on a calendar view.
 
-![An example of the adherence view where all the agents have breached their schedule during all blocks of time.](images/scheduling-dailyview1.png)
+![An example of the adherence view where all the agents have breached their schedule during all blocks of time.](/images/connect/latest/adminguide/images/scheduling-dailyview1.png)
 
 ### Queue and agent performance
 
