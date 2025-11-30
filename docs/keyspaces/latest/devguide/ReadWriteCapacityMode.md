@@ -1,86 +1,102 @@
-# Configure provisioned throughput capacity
+# Change capacity mode
 
-mode
+When you switch a table from provisioned capacity mode to on-demand capacity mode,
+Amazon Keyspaces makes several changes to the structure of your table and partitions. This
+process can take several minutes. During the switching period, your table delivers
+throughput that is consistent with the previously provisioned WCU and RCU amounts.
 
-If you choose _provisioned throughput_ capacity mode, you
-specify the number of reads and writes per second that are required for your
-application. This helps you manage your Amazon Keyspaces usage to stay at or below a defined
-request rate to maintain predictability. To learn more about
-automatic scaling for provisioned throughput see [Manage throughput capacity automatically with Amazon Keyspaces auto scaling](autoscaling.md "autoscaling.md").
+When you switch from on-demand capacity mode back to provisioned capacity mode,
+your table delivers throughput that is consistent with the previous peak reached
+when the table was set to on-demand capacity mode.
 
-Provisioned throughput capacity mode is a good option if any of the following is
-true:
+The following waiting periods apply when you switch capacity modes:
 
-- You have predictable application traffic.
-- You run applications whose traffic is consistent or ramps up gradually.
-- You can forecast capacity requirements.
+- You can switch a newly created table in on-demand mode to provisioned capacity mode at any time.
+  However, you can only switch it back to on-demand mode 24 hours after the table’s creation timestamp.
+- You can switch an existing table in on-demand mode to provisioned capacity mode at any time.
+  However, you can switch capacity modes from provisioned to on-demand only once in a 24-hour period.
 
-## Read capacity units
+Cassandra Query Language (CQL)
 
-and write capacity units
+###### Change a table's throughput capacity mode using CQL
 
-For provisioned throughput capacity mode tables, you specify throughput
-capacity in terms of read capacity units (RCUs) and write capacity units (WCUs):
+1. To change a table's capacity mode to `PROVIOSIONED` you
+   have to configure the read capacity and write capacity units
+   based on your workloads expected peak values. the following
+   statement is an example of this. You can also run this
+   statement to adjust the read capacity or the write capacity
+   units of the table.
 
-- One _RCU_ represents one `LOCAL_QUORUM`
-  read per second, or two `LOCAL_ONE` reads per second, for a
-  row up to 4 KB in size. If you need to read a row that is larger than
-  4 KB, the read operation uses additional RCUs.
+```
+ALTER TABLE catalog.book_awards WITH CUSTOM_PROPERTIES={'capacity_mode':{'throughput_mode': 'PROVISIONED', 'read_capacity_units': 6000, 'write_capacity_units': 3000}};
+```
 
-The total number of RCUs required depends on the row size, and whether
-you want `LOCAL_QUORUM` or `LOCAL_ONE` reads. For
-example, if your row size is 8 KB, you require 2 RCUs to sustain one
-`LOCAL_QUORUM` read per second, and 1 RCU if you choose
-`LOCAL_ONE` reads.
+To configure provisioned capacity mode with auto-scaling, see
+[Configure automatic scaling on an existing table](autoscaling.md "autoscaling.md"). 2. To change
+the capacity mode of a table to on-demand mode, set the throughput mode to `PAY_PER_REQUEST`.
+The following statement is an example of this.
 
-- One _WCU_ represents one write per second for a row
-  up to 1 KB in size. All writes are using
-  `LOCAL_QUORUM` consistency, and there is no additional
-  charge for using lightweight transactions (LWTs). If you need to write a
-  row that is larger than 1 KB, the write operation uses
-  additional WCUs.
+```
+ALTER TABLE catalog.book_awards WITH CUSTOM_PROPERTIES={'capacity_mode':{'throughput_mode': 'PAY_PER_REQUEST'}};
+```
 
-The total number of WCUs required depends on the row size. For
-example, if your row size is 2 KB, you require 2 WCUs to sustain one
-write request per second. For more information about how to estimate read and write capacity consumption of a table, see
-[Estimate capacity consumption of read and write throughput in Amazon Keyspaces](capacity-examples.md "capacity-examples.md").
+3. You can use the following statement to confirm the table's capacity mode.
 
-If your application reads or writes larger rows (up to the Amazon Keyspaces maximum row
-size of 1 MB), it consumes more capacity units. To learn more about
-how to estimate the row size, see [Estimate row size in Amazon Keyspaces](calculating-row-size.md "calculating-row-size.md"). For
-example, suppose that you create a provisioned table with 6 RCUs and 6 WCUs.
-With these settings, your application could do the following:
+```
+SELECT * from system_schema_mcs.tables where keyspace_name = 'catalog' and table_name = 'book_awards';
+```
 
-- Perform `LOCAL_QUORUM` reads of up to 24 KB per second
-  (4 KB × 6 RCUs).
-- Perform `LOCAL_ONE` reads of up to 48 KB per second (twice
-  as much read throughput).
-- Write up to 6 KB per second (1 KB × 6 WCUs).
+A table configured with on-demand capacity mode returns the following.
 
-_Provisioned throughput_ is the maximum amount of throughput
-capacity an application can consume from a table. If your application exceeds
-your provisioned throughput capacity, you might observe insufficient capacity
-errors.
+```
+`{
+ "capacity_mode":{
+ "last_update_to_pay_per_request_timestamp":"1727952499092",
+ "throughput_mode":"PAY_PER_REQUEST"
+ }
+}`
+```
 
-For example, a read request that doesn’t have enough throughput capacity fails
-with a `Read_Timeout` exception and is posted to the
-`ReadThrottleEvents` metric. A write request that doesn’t have
-enough throughput capacity fails with a `Write_Timeout` exception and
-is posted to the `WriteThrottleEvents` metric.
+The `last_update_to_pay_per_request_timestamp` value is measured in
+milliseconds.
 
-You can use Amazon CloudWatch to monitor your provisioned and actual throughput metrics
-and insufficient capacity events. For more information about these metrics, see
-[Amazon Keyspaces metrics and dimensions](metrics-dimensions.md "metrics-dimensions.md").
+CLI
 
-###### Note
+###### Change a table's throughput capacity mode using the AWS CLI
 
-Repeated errors due to insufficient capacity can lead to client-side
-driver specific exceptions, for example the DataStax Java driver fails with
-a `NoHostAvailableException`.
+1. To change the table's capacity mode to `PROVIOSIONED`
+   you have to configure the read capacity and write capacity units
+   based on the expected peak values of your workload. The
+   following command is an example of this. You can also run this
+   command to adjust the read capacity or the write capacity units
+   of the table.
 
-To change the throughput capacity settings for tables, you can use the
-AWS Management Console or the `ALTER TABLE` statement using CQL, for more
-information see [ALTER TABLE](cql.ddl.md#cql.ddl.table.alter "cql.ddl.md#cql.ddl.table.alter").
+```
+aws keyspaces update-table --keyspace-name catalog --table-name book_awards
+                                    \--capacity-specification throughputMode=PROVISIONED,readCapacityUnits=6000,writeCapacityUnits=3000
+```
 
-To learn more about default quotas for your account and how to increase them,
-see [Quotas for Amazon Keyspaces (for Apache Cassandra)](quotas.md "quotas.md").
+To configure provisioned capacity mode with auto-scaling, see
+[Configure automatic scaling on an existing table](autoscaling.md "autoscaling.md"). 2. To change
+the capacity mode of a table to on-demand mode, you set the throughput mode to `PAY_PER_REQUEST`.
+The following statement is an example of this.
+
+```
+aws keyspaces update-table --keyspace-name catalog --table-name book_awards
+                                    \--capacity-specification throughputMode=PAY_PER_REQUEST
+```
+
+3. You can use the following command to review the capacity mode that's configured for a table.
+
+```
+aws keyspaces get-table --keyspace-name catalog --table-name book_awards
+```
+
+The output for a table in on-demand mode looks like this.
+
+```
+`"capacitySpecification": {
+ "throughputMode": "PAY_PER_REQUEST",
+ "lastUpdateToPayPerRequestTimestamp": "2024-10-03T10:48:19.092000+00:00"
+ }`
+```

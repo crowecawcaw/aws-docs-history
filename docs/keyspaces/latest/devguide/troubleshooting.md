@@ -1,223 +1,196 @@
-# Troubleshooting capacity management errors in Amazon Keyspaces
+# Troubleshooting data definition language errors in Amazon Keyspaces
 
-Having trouble with serverless capacity? Here are some common issues and how to resolve them.
+Having trouble creating resources? Here are some common issues and how to resolve them.
 
-## Serverless capacity errors
+## Data definition language errors
 
-This section outlines how to recognize errors related to serverless capacity management
-and how to resolve them. For example, you might observe insufficient capacity events when
-your application exceeds your provisioned throughput capacity.
+Amazon Keyspaces performs data definition language (DDL) operations asynchronously—for
+example, creating and deleting keyspaces and tables. If an application is trying to use the
+resource before it's ready, the operation fails.
 
-Because Apache Cassandra is cluster-based software that is designed to run on a fleet of
-nodes, it doesn’t have exception messages related to serverless features such as throughput
-capacity. Most drivers only understand the error codes that are available in Apache
-Cassandra, so Amazon Keyspaces uses that same set of error codes to maintain compatibility.
-
-To map Cassandra errors to the underlying capacity events, you can use Amazon CloudWatch to monitor
-the relevant Amazon Keyspaces metrics. Insufficient-capacity events that result in client-side errors can be categorized into these three
-groups based on the resource that is causing the event:
-
-- **Table** – If you choose **Provisioned**
-  capacity mode for a table, and your application exceeds your
-  provisioned throughput, you might observe insufficient-capacity errors.
-  For more information, see [Configure read/write capacity modes in Amazon Keyspaces](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md").
-- **Partition** – You might experience
-  insufficient-capacity events if traffic against a given partition exceeds 3,000
-  RCUs or 1,000 WCUs. We recommend distributing traffic uniformly across
-  partitions as a best practice. For more information, see [Data modeling best practices: recommendations for designing data models](data-modeling.md "data-modeling.md").
-- **Connection** – You might experience
-  insufficient throughput if you exceed the quota for the maximum number of
-  operations per second, per connection. To increase throughput, you can increase
-  the number of default connections when configuring the connection with the
-  driver.
-
-To learn how to configure connections for Amazon Keyspaces, see [How to configure connections in Amazon Keyspaces](connections.md#connections.howtoconfigure "connections.md#connections.howtoconfigure"). For more information about optimizing
-connections over VPC endpoints, see [How to configure connections over VPC endpoints in Amazon Keyspaces](connections.md#connections.VPCendpoints "connections.md#connections.VPCendpoints").
-
-To determine which resource is causing the insufficient-capacity event that is
-returning the client-side error, you can check the dashboard in the Amazon Keyspaces console. By default, the
-console provides an aggregated view of the most common capacity and traffic related CloudWatch metrics
-in the **Capacity and related metrics** section on the **Capacity** tab for the table.
-
-To create your own dashboard using Amazon CloudWatch, check the following Amazon Keyspaces metrics.
-
-- `PerConnectionRequestRateExceeded` – Requests to Amazon Keyspaces that
-  exceed the quota for the per-connection request rate. Each client connection to
-  Amazon Keyspaces can support up to 3000 CQL requests per second. You can perform more than 3000
-  requests per second by creating multiple connections.
-- `ReadThrottleEvents` – Requests to Amazon Keyspaces that exceed the read
-  capacity for a table.
-- `StoragePartitionThroughputCapacityExceeded` – Requests to
-  an Amazon Keyspaces storage partition that exceed the throughput capacity of the partition.
-  Amazon Keyspaces storage partitions can support up to 1000 WCU/WRU per second and 3000
-  RCU/RRU per second. To mitigate these
-  exceptions, we recommend that you review your data model to distribute
-  read/write traffic across more partitions.
-- `WriteThrottleEvents` – Requests to Amazon Keyspaces that exceed the write
-  capacity for a table.
-
-To learn more about CloudWatch, see [Monitoring Amazon Keyspaces with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md"). For a list of
-all available CloudWatch metrics for Amazon Keyspaces, see [Amazon Keyspaces metrics and dimensions](metrics-dimensions.md "metrics-dimensions.md").
+You can monitor the creation status of new keyspaces and tables in the AWS Management Console, which
+indicates when a keyspace or table is pending or active. You can also monitor the creation
+status of a new keyspace or table programmatically by querying the system schema table. A
+keyspace or table becomes visible in the system schema when it's ready for use.
 
 ###### Note
 
-To get started with a custom dashboard that shows all commonly observed metrics
-for Amazon Keyspaces, you can use a prebuilt CloudWatch template available on GitHub in the [AWS samples](https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates "https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates") repository.
+To optimize the creation of keyspaces using CloudFormation, you can use this utility to convert
+CQL scripts into CloudFormation templates. The tool is available from the [GitHub repository](https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter "https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter").
 
 ###### Topics
 
-- [Client-side
-  errors](#troubleshooting.serverless.clientside "#troubleshooting.serverless.clientside")
-- [Write timeout errors
-  during data import](#troubleshooting.serverless.writetimeout "#troubleshooting.serverless.writetimeout")
-- [Keyspace or table
-  storage size](#troubleshooting.serverless.storagesize "#troubleshooting.serverless.storagesize")
+- [Keyspace creation errors](#troubleshooting.cql.keyspace "#troubleshooting.cql.keyspace")
+- [Table creation errors](#troubleshooting.cql.table "#troubleshooting.cql.table")
+- [I'm trying to restore a table using Amazon Keyspaces
+  point-in-time recovery (PITR), but the restore fails](#troubleshooting.cql.pitr "#troubleshooting.cql.pitr")
+- [I'm trying to use INSERT/UPDATE to edit custom
+  Time to Live (TTL) settings, but the operation
+  fails](#troubleshooting.cql.ttl "#troubleshooting.cql.ttl")
+- [Columns exceeded](#troubleshooting.cql.upload "#troubleshooting.cql.upload")
+- [Range delete error](#troubleshooting.cql.rangedelete "#troubleshooting.cql.rangedelete")
 
-### I'm receiving
+### I created a new keyspace, but I can't
 
-`NoHostAvailable` insufficient capacity errors from my client driver
+view or access it
 
-**You're seeing `Read_Timeout` or `Write_Timeout` exceptions for a table.**
+**You're receiving errors from your application that is trying to
+access a new keyspace.**
 
-Repeatedly trying to write to or read from an Amazon Keyspaces table with insufficient capacity
-can result in client-side errors that are specific to the driver.
-
-Use CloudWatch to monitor your provisioned and actual throughput metrics, and insufficient
-capacity events for the table. For example, a read request that doesn’t have enough
-throughput capacity fails with a `Read_Timeout` exception and is posted to
-the `ReadThrottleEvents` metric. A write request that doesn’t have enough
-throughput capacity fails with a `Write_Timeout` exception and is posted to
-the `WriteThrottleEvents` metric. For more information about these metrics,
-see [Amazon Keyspaces metrics and dimensions](metrics-dimensions.md "metrics-dimensions.md").
-
-To resolve these issues, consider one of the following options.
-
-- Increase the _provisioned throughput_ for the table, which is the maximum
-  amount of throughput capacity an application can consume. For more information,
-  see [Read capacity units
-  and write capacity units](ReadWriteCapacityMode.md#ReadWriteCapacityMode.Provisioned.Units "ReadWriteCapacityMode.md#ReadWriteCapacityMode.Provisioned.Units").
-- Let the service manage throughput capacity on your behalf with automatic scaling. For more
-  information, see [Manage throughput capacity automatically with Amazon Keyspaces auto scaling](autoscaling.md "autoscaling.md").
-- Chose **On-demand** capacity mode for the table. For more information, see
-  [Configure on-demand capacity mode](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md").
-
-If you need to increase the default capacity quota for your account, see
-[Quotas for Amazon Keyspaces (for Apache Cassandra)](quotas.md "quotas.md").
-
-**You're seeing errors related to exceeded partition
-capacity.**
-
-When you're seeing the error `StoragePartitionThroughputCapacityExceeded` the partition capacity
-is temporarily exceeded. This might be automatically handled by adaptive capacity or on-demand capacity. We recommend
-reviewing your data model to distribute read/write traffic across more partitions to mitigate these errors. Amazon Keyspaces storage
-partitions can support up to 1000 WCU/WRU per second and 3000 RCU/RRU per second.
-To learn more about how to improve your data model to distribute
-read/write traffic across more partitions, see [Data modeling best practices: recommendations for designing data models](data-modeling.md "data-modeling.md").
-
-`Write_Timeout` exceptions can also be caused by an elevated rate of
-concurrent write operations that include static and nonstatic data in the same logical
-partition. If traffic is expected to run multiple concurrent write operations that
-include static and nonstatic data within the same logical partition, we recommend
-writing static and nonstatic data separately. Writing the data separately also helps to
-optimize the throughput costs.
-
-**You're seeing errors related to exceeded connection
-request rate.**
-
-You're seeing `PerConnectionRequestRateExceeded` due to one of the following causes.
-
-- You might not have enough connections configured per session.
-- You might be getting fewer connections than available peers, because you don't
-  have the VPC endpoint permissions configured correctly. For more information
-  about VPC endpoint policies, see [Using interface VPC endpoints for
-  Amazon Keyspaces](vpc-endpoints.md#using-interface-vpc-endpoints "vpc-endpoints.md#using-interface-vpc-endpoints").
-- If you're using a 4.x driver, check to see if you have hostname validation
-  enabled. The driver enables TLS hostname verification by default. This
-  configuration leads to Amazon Keyspaces appearing as a single-node cluster to the driver.
-  We recommend that you turn hostname verification off.
-
-We recommend that you follow these best practices to ensure that your connections and
-throughput are optimized:
-
-- **Configure CQL query throughput tuning.**
-
-Amazon Keyspaces supports up to 3,000 CQL queries per TCP connection per second, but
-there is no limit on the number of connections a driver can establish.
-
-Most open-source Cassandra drivers establish a connection pool to Cassandra
-and load balance queries over that pool of connections. Amazon Keyspaces exposes 9 peer IP
-addresses to drivers. The default behavior of most drivers is to establish a
-single connection to each peer IP address. Therefore, the maximum CQL query
-throughput of a driver using the default settings will be 27,000 CQL queries per
-second.
-
-To increase this number, we recommend that you increase the number of
-connections per IP address that your driver is maintaining in its connection
-pool. For example, setting the maximum connections per IP address to 2 will
-double the maximum throughput of your driver to 54,000 CQL queries per second.
-
-- **Optimize your single-node connections.**
-
-By default, most open-source Cassandra drivers establish one or more
-connections to every IP address advertised in the `system.peers`
-table when establishing a session. However, certain configurations can lead to a
-driver connecting to a single Amazon Keyspaces IP address. This can happen if the driver is
-attempting SSL hostname validation of the peer nodes (for example, DataStax Java
-drivers), or when it's connecting through a VPC endpoint.
-
-To get the same availability and performance as a driver with connections to
-multiple IP addresses, we recommend that you do the following:
-
-    + Increase the number of connections per IP to 9 or higher depending on
-     the desired client throughput.
-    + Create a custom retry policy that ensures that retries are run against
-     the same node. For more information, see
-
-
-    [How to configure the retry policy for connections in Amazon Keyspaces](connections.md#connections.retry-policies "connections.md#connections.retry-policies").
-    + If you use VPC endpoints, grant the IAM entity that is used to
-     connect to Amazon Keyspaces access permissions to query your VPC for the endpoint
-     and network interface information. This improves load balancing and
-     increases read/write throughput. For more information, see [Populating system.peers table entries with
-     interface VPC endpoint information](vpc-endpoints.md#system_peers "vpc-endpoints.md#system_peers").
-
-### I'm receiving write timeout
-
-errors during data import
-
-**You're receiving a timeout error when uploading data using the
-`cqlsh`
-`COPY` command.**
+If you try to access a newly created Amazon Keyspaces keyspace that is still being created
+asynchronously, you will get an error. The following error is an example.
 
 ```
-`Failed to import 1 rows: WriteTimeout - Error from server: code=1100 [Coordinator node timed out waiting for replica nodes' responses]
- message="Operation timed out - received only 0 responses." info={'received_responses': 0, 'required_responses': 2, 'write_type': 'SIMPLE', 'consistency':
- 'LOCAL_QUORUM'}, will retry later, attempt 1 of 100`
+InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured keyspace mykeyspace"
 ```
 
-Amazon Keyspaces uses the `ReadTimeout` and `WriteTimeout` exceptions to
-indicate when a write request fails due to insufficient throughput capacity. To help
-diagnose insufficient capacity exceptions, Amazon Keyspaces publishes the following metrics in
-Amazon CloudWatch.
+The recommended design pattern to check when a new keyspace is ready for use
+is to poll the Amazon Keyspaces system schema tables (system_schema_mcs.\*).
 
-- `WriteThrottleEvents`
-- `ReadThrottledEvents`
-- `StoragePartitionThroughputCapacityExceeded`
+For more information, see [Check keyspace creation status in Amazon Keyspaces](keyspaces-create.md "keyspaces-create.md").
 
-To resolve insufficient-capacity errors during a data load, lower the write rate per
-worker or the total ingest rate, and then retry to upload the rows. For more
-information, see [Step 4: Configure cqlsh COPY FROM
-settings](bulk-upload-config.md "bulk-upload-config.md"). For a more robust data upload
-option, consider using DSBulk, which is available from the [GitHub repository](https://github.com/datastax/dsbulk "https://github.com/datastax/dsbulk"). For step-by-step
-instructions, see [Tutorial: Loading data into Amazon Keyspaces using DSBulk](dsbulk-upload.md "dsbulk-upload.md").
+### I created a new table, but I can't view or
 
-### I can't see the actual storage
+access it
 
-size of a keyspace or table
+**You're receiving errors from your application that is trying to
+access a new table.**
 
-**You can't see the actual storage size of the keyspace or
-table.**
+If you try to access a newly created Amazon Keyspaces table that is still being created
+asynchronously, you will get an error. For example, trying to query a table that isn't
+available yet fails with an `unconfigured table` error.
 
-To learn more about the storage size of your table, see [Evaluate your costs at the table level](CostOptimization_TableLevelCostAnalysis.md "CostOptimization_TableLevelCostAnalysis.md"). You can also estimate storage
-size by starting to calculate the row size in a table. Detailed instructions for
-calculating the row size are available at [Estimate row size in Amazon Keyspaces](calculating-row-size.md "calculating-row-size.md").
+```
+InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table mykeyspace.mytable"
+```
+
+Trying to view the table with `sync_table()` fails with a `KeyError`.
+
+```
+KeyError: 'mytable'
+```
+
+The recommended design pattern to check when a new table is ready for use
+is to poll the Amazon Keyspaces system schema tables (system_schema_mcs.\*).
+
+This is the example output for a table that is being created.
+
+```
+`user-at-123@cqlsh:system_schema_mcs> select table_name,status from system_schema_mcs.tables where keyspace_name='example_keyspace' and table_name='example_table';
+
+table_name | status
+
+------------+----------
+
+example_table | CREATING
+
+(1 rows)`
+```
+
+This is the example output for a table that is active.
+
+```
+`user-at-123@cqlsh:system_schema_mcs> select table_name,status from system_schema_mcs.tables where keyspace_name='example_keyspace' and table_name='example_table';
+
+table_name | status
+
+------------+----------
+
+example_table | ACTIVE
+
+(1 rows)`
+```
+
+For more information, see [Check table creation status in Amazon Keyspaces](tables-create.md "tables-create.md").
+
+### I'm trying to restore a table using Amazon Keyspaces
+
+point-in-time recovery (PITR), but the restore fails
+
+If you're trying to restore an Amazon Keyspaces table with point-in-time recovery (PITR), and
+you see the restore process begin but not complete successfully, you might not have
+configured all of the required permissions that are needed by the restore process
+for this particular table.
+
+In addition to user permissions, Amazon Keyspaces might require permissions to perform
+actions during the restore process on your principal's behalf. This is the case if
+the table is encrypted with a customer managed key, or if you're using IAM
+policies that restrict incoming traffic.
+
+For example, if you're using condition keys in your IAM policy to restrict
+source traffic to specific endpoints or IP ranges, the restore operation fails. To
+allow Amazon Keyspaces to perform the table restore operation on your principal's behalf, you
+must add an `aws:ViaAWSService` global condition key in the IAM
+policy.
+
+For more information about permissions to restore tables, see [Configure restore table IAM permissions for Amazon Keyspaces PITR](howitworks_restore_permissions.md "howitworks_restore_permissions.md").
+
+### I'm trying to use INSERT/UPDATE to edit custom
+
+Time to Live (TTL) settings, but the operation
+fails
+
+If you're trying to insert or update a custom TTL value, the operation might fail with the following error.
+
+```
+`TTL is not yet supported.`
+```
+
+To specify custom TTL values for rows or columns by using `INSERT` or
+`UPDATE` operations, you must first enable TTL for the table. You can
+enable TTL for a table using the `ttl` custom property.
+
+For more information about enabling custom TTL settings for tables, see [Update table with custom Time to Live (TTL)](TTL-how-to-enable-custom-alter.md "TTL-how-to-enable-custom-alter.md").
+
+### I'm trying to upload data to my Amazon Keyspaces table
+
+and I get an error about exceeding the number of columns
+
+**You're uploading data and have exceeded the number of columns
+that can be updated simultaneously.**
+
+This error occurs when your table schema exceeds the maximum size of 350 KB. For more
+information, see [Quotas for Amazon Keyspaces (for Apache Cassandra)](quotas.md "quotas.md").
+
+### I'm trying to delete data in my Amazon Keyspaces
+
+table and the deletion fails for the range
+
+**You're trying to delete data by partition key and receive a
+range delete error.**
+
+This error occurs when you're trying to delete more than 1,000 rows in one delete
+operation.
+
+```
+`Range delete requests are limited by the amount of items that can be deleted in a single range.`
+```
+
+For more information, see [Range delete](functional-differences.md#functional-differences.range-delete "functional-differences.md#functional-differences.range-delete").
+
+To delete more than 1,000 rows within a single partition, consider the following options.
+
+- Delete by partition – If the majority of partitions are under 1,000
+  rows, you can attempt to delete data by partition. If the partitions contain
+  more than 1,000 rows, attempt to delete by the clustering column instead.
+- Delete by clustering column – If your model contains multiple clustering
+  columns, you can use the column hierarchy to delete multiple rows. Clustering
+  columns are a nested structure, and you can delete many rows by operating
+  against the top-level column.
+- Delete by individual row – You can iterate through the rows and delete each row by its
+  full primary key (partition columns and clustering columns).
+- As a best practice, consider splitting your rows across partitions – In Amazon Keyspaces, we
+  recommend that you distribute your throughput across table partitions. This
+  distributes data and access evenly across physical resources, which provides the
+  best throughput. For more information, see [Data modeling best practices: recommendations for designing data models](data-modeling.md "data-modeling.md").
+
+Consider also the following recommendations when you're planning delete operations for
+heavy workloads.
+
+- With Amazon Keyspaces, partitions can contain a virtually unbounded number of rows. This allows you to
+  scale partitions “wider” than the traditional Cassandra guidance of 100 MB. It’s
+  not uncommon for time series or ledgers to grow over a gigabyte of data over
+  time.
+- With Amazon Keyspaces, there are no compaction strategies or tombstones to consider when you have to
+  perform delete operations for heavy workloads. You can delete as much data as
+  you want without impacting read performance.
