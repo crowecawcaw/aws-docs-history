@@ -129,7 +129,7 @@ change more specifically by defining repetitive end-to-end change
 types. These change models help you pre-plan for the level of
 business risk when you deploy a specific change.
 
-| ITIL®4 Change Enablement Practice<br>Guide, PeopleCert+                                     |
+| ITIL®4 Change Enablement Practice<br>Guide, PeopleCert+                                      |
 | -------------------------------------------------------------------------------------------- |
 | A Change Model is a repeatable approach to the management of a<br>particular type of change. |
 
