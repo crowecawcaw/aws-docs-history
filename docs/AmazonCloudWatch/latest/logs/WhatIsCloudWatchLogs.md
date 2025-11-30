@@ -67,6 +67,12 @@ subset of the Standard class capabilities. For more information, see [Log classe
   indefinitely and never expire. You can adjust the retention policy for each log
   group, keeping the indefinite retention, or choosing a retention period between
   10 years and one day.
+- **Deletion protection** – A safeguard that prevents
+  accidental deletion of log groups and their log streams. When enabled on a log group,
+  deletion protection blocks all deletion operations until it is explicitly disabled. By
+  default, deletion protection is not enabled. This optional feature helps protect critical
+  operational and compliance data from unintended removal, such as log groups that contain
+  audit data, and production application logs for troubleshooting and analysis.
 - **Archive log data** – You can use CloudWatch Logs to store
   your log data in highly durable storage. The CloudWatch Logs agent makes it easy to
   quickly send both rotated and non-rotated log data off of a host and into the

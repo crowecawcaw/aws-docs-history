@@ -51,3 +51,12 @@ Retention settings can be used to specify how long log events are kept in
 CloudWatch Logs. Expired log events get deleted automatically. Just like metric
 filters, retention settings are also assigned to log groups, and the
 retention assigned to a log group is applied to their log streams.
+
+**Deletion protection**
+
+Deletion protection is a safeguard that prevents accidental deletion of log
+groups and their log streams. When enabled on a log group, deletion protection blocks
+all deletion operations until it is explicitly disabled. By default, deletion protection
+is not enabled. This optional feature helps protect critical operational and compliance
+data from unintended removal, such as log groups that contain audit data, and production
+application logs for troubleshooting and analysis.

@@ -123,6 +123,11 @@ included when you use an API to retrieve the `storedBytes` value to see how many
 5. In **Retention setting**, for **Expire events after**,
    choose a log retention value, and then choose **Save**.
 
+## Protecting log groups from deletion
+
+You can optionally enable deletion protection to prevent accidental deletion of important log groups.
+For detailed information about deletion protection, see [Protecting log groups from deletion](protecting-log-groups-from-deletion.md "protecting-log-groups-from-deletion.md").
+
 ## Tag log groups in Amazon CloudWatch Logs
 
 You can assign your own metadata to the log groups you create in Amazon CloudWatch Logs in the form of
