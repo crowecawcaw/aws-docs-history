@@ -1,103 +1,56 @@
-# Clone an Elastic Beanstalk environment
+# Load balancer for your Elastic Beanstalk environment
 
-You can use an existing Elastic Beanstalk environment as the basis for a new environment by cloning the
-existing environment. For example, you might want to create a clone so that you can use a newer
-version of the platform branch used by the original environment's platform. Elastic Beanstalk configures the
-clone with the environment settings used by the original environment. By cloning an existing
-environment instead of creating a new environment, you don't have to manually configure option
-settings, environment variables, and other settings that you made with the Elastic Beanstalk service. Elastic Beanstalk
-also creates a copy of any AWS resource associated with the original environment.
+A load balancer distributes traffic among your environment's instances. When you [enable load
+balancing](using-features-managing-env-types.md#using-features.managing.changetype "using-features-managing-env-types.md#using-features.managing.changetype"), AWS Elastic Beanstalk creates an [Elastic Load Balancing](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md") load balancer dedicated to your environment. Elastic Beanstalk fully manages this
+load balancer, taking care of security settings and of terminating the load balancer when you terminate your environment.
 
-It's important to be aware of the following situations:
+Alternatively, you can choose to share a load balancer across several Elastic Beanstalk environments. With a shared load balancer, you save on operational cost by
+avoiding a dedicated load balancer for each environment. You also assume more of the management responsibility for the shared load balancer that your
+environments use.
 
-- During the cloning process, Elastic Beanstalk doesn't copy data from Amazon RDS to the clone.
-- Elastic Beanstalk doesn't include any unmanaged changes to resources in the clone. Changes to AWS
-  resources that you make using tools other than the Elastic Beanstalk console, command-line tools, or API
-  are considered unmanaged changes.
-- The security groups for ingress are considered unmanaged changes. Cloned Elastic Beanstalk
-  environments do not carry over the security groups for ingress, leaving the environment open
-  to all internet traffic. You’ll need to reestablish ingress security groups for the cloned
-  environment.
-  You can only clone an environment to a different platform version of the same platform
-  branch. A different platform branch isn't guaranteed to be compatible. To use a different
-  platform branch, you have to manually create a new environment, deploy your application code,
-  and make any necessary changes in code and options to ensure your application works correctly on
-  the new platform branch.
+ELB has these load balancer types:
 
-## AWS management console
+- [Classic Load Balancer](../../../elasticloadbalancing/latest/classic.md "../../../elasticloadbalancing/latest/classic.md") – The previous-generation load balancer. Routes HTTP, HTTPS, or TCP request traffic to different ports
+  on environment instances.
+- [Application Load Balancer](../../../elasticloadbalancing/latest/application.md "../../../elasticloadbalancing/latest/application.md") – An application layer load balancer. Routes HTTP or HTTPS request traffic to different ports on
+  environment instances based on the request path.
+- [Network Load Balancer](../../../elasticloadbalancing/latest/network.md "../../../elasticloadbalancing/latest/network.md") – A network layer load balancer. Routes TCP request traffic to different ports on environment instances.
+  Supports both active and passive health checks.
+  Elastic Beanstalk supports all three load balancer types. The following table shows which types you can use with the two usage patterns:
 
-###### Important
-
-Cloned Elastic Beanstalk environments do not carry over the security groups for ingress, leaving the
-environment open to all internet traffic. You’ll need to reestablish ingress security groups for
-the cloned environment.
-
-You can see resources that may not be cloned by checking the drift status of your
-environment configuration. For more information, see [Detect drift on an entire
-CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/detect-drift-stack.md "../../../AWSCloudFormation/latest/UserGuide/detect-drift-stack.md") in the _AWS CloudFormation User Guide_.
-
-###### To clone an environment
-
-1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
-   and in the **Regions** list, select your AWS Region.
-2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
-3. On the environment overview page, choose **Actions**.
-4. Choose **Clone environment**.
-5. On the **Clone environment** page, review the information in the
-   **Original Environment** section to verify that you chose the
-   environment from which you want to create a clone.
-6. In the **New Environment** section, you can optionally change the
-   **Environment name**, **Environment URL**,
-   **Description**, **Platform version**, and
-   **Service role** values that Elastic Beanstalk automatically set based on the
-   original environment.
+| Load balancer type        | Dedicated | Shared |
+| ------------------------- | --------- | ------ |
+| Classic Load Balancer     | Yes       | No     |
+| Application Load Balancer | Yes       | Yes    |
+| Network Load Balancer     | Yes       | No     |
 
 ###### Note
 
-If the platform version used in the original environment isn't the one recommended
-for use in the platform branch, you are warned that a different platform version is
-recommended. Choose **Platform version**, and you can see the
-recommended platform version on the list—for example, **3.3.2
-(Recommended)**. 7. When you are ready, choose **Clone**.
+The Classic Load Balancer (CLB) option is disabled on the **Create Environment** console wizard. If you have an existing environment configured with a
+Classic Load Balancer you can create a new one by [cloning the existing environment](using-features.managing.md "using-features.managing.md") using either the Elastic Beanstalk console or
+the [EB CLI](using-features.managing.md#using-features.managing.clone.CLI "using-features.managing.md#using-features.managing.clone.CLI"). You also have the option to use the EB
+CLI or the [AWS CLI](environments-create-awscli.md "environments-create-awscli.md") to create a new environment configured with a Classic Load Balancer. These command line tools
+will create a new environment with a CLB even if one doesn’t already exist in your account.
 
-## Elastic Beanstalk command line interface (EB
+By default, Elastic Beanstalk creates an Application Load Balancer for your environment when you enable load balancing with the Elastic Beanstalk console or the EB CLI. It configures the load balancer to listen
+for HTTP traffic on port 80 and forward this traffic to instances on the same port. You can choose the type of load balancer that your environment uses only
+during environment creation. Later, you can change settings to manage the behavior of your running environment's load balancer, but you can't change its
+type.
 
-CLI)
+###### Note
 
-###### Important
+Your environment must be in a VPC with subnets in at least two Availability Zones to create an Application Load Balancer. All new AWS accounts include default VPCs that
+meet this requirement.
 
-Cloned Elastic Beanstalk environments do not carry over the security groups for ingress, leaving the
-environment open to all internet traffic. You’ll need to reestablish ingress security groups for
-the cloned environment.
+See the following topics to learn about each load balancer type that Elastic Beanstalk supports, its functionality, how to configure and manage it in an Elastic Beanstalk
+environment, and how to configure a load balancer to [upload access logs](environments-cfg-loadbalancer-accesslogs.md "environments-cfg-loadbalancer-accesslogs.md") to Amazon S3.
 
-You can see resources that may not be cloned by checking the drift status of your
-environment configuration. For more information, see [Detect drift on an entire
-CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/detect-drift-stack.md "../../../AWSCloudFormation/latest/UserGuide/detect-drift-stack.md") in the _AWS CloudFormation User Guide_.
+###### Topics
 
-Use the **eb clone** command to clone a running environment, as
-follows.
-
-```
-~/workspace/my-app$ `eb clone `my-env1``
-Enter name for Environment Clone
-(default is my-env1-clone): ``my-env2``
-Enter DNS CNAME prefix
-(default is my-env1-clone): ``my-env2``
-
-```
-
-You can specify the name of the source environment in the clone command, or leave it out
-to clone the default environment for the current project folder. The EB CLI prompts you to
-enter a name and DNS prefix for the new environment.
-
-By default, **eb clone** creates the new environment with the latest
-available version of the source environment's platform. To force the EB CLI to use the same
-version, even if there is a newer version available, use the `--exact`
-option.
-
-```
-~/workspace/my-app$ `eb clone --exact`
-```
-
-For more information about this command, see [eb
-clone](eb3-clone.md "eb3-clone.md").
+- [Configuring a Classic Load Balancer](environments-cfg-clb.md "environments-cfg-clb.md")
+- [Configuring an Application Load Balancer](environments-cfg-alb.md "environments-cfg-alb.md")
+- [Configuring a shared Application Load Balancer](environments-cfg-alb-shared.md "environments-cfg-alb-shared.md")
+- [Configuring a Network Load Balancer](environments-cfg-nlb.md "environments-cfg-nlb.md")
+- [Configuring dual-stack Elastic Beanstalk load
+  balancers](environments-cfg-elbv2-ipv6-dualstack.md "environments-cfg-elbv2-ipv6-dualstack.md")
+- [Configuring access logs](environments-cfg-loadbalancer-accesslogs.md "environments-cfg-loadbalancer-accesslogs.md")

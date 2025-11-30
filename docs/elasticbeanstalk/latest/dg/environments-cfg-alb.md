@@ -261,7 +261,7 @@ You can now see your additional listener on the list.
 **Edit**. For **Port**, type `443`. For **Protocol**, select
 `HTTPS`.
 
-![Application Load Balancer configuration example - configuring default process to HTTPS](images/aeb-config-alb-process-definition-https.png) 4. _Add an admin process._ For **Name**, type `admin`. For **Port**, type
+![Application Load Balancer configuration example - configuring default process to HTTPS](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition-https.png) 4. _Add an admin process._ For **Name**, type `admin`. For **Port**, type
 `443`. For **Protocol**, select `HTTPS`. Under **Health check**, for
 **Path** type `/admin`.
 
