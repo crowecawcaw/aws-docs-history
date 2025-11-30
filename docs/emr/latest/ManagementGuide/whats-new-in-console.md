@@ -15,14 +15,14 @@ The following table lists the main Amazon EMR console components status.
 
 | Amazon EMR console component                                  | Console |
 | ------------------------------------------------------------- | ------- |
-| EMR Studio                                                    | ✔      |
-| Create and manage clusters                                    | ✔      |
-| Block public access                                           | ✔      |
-| Monitor Amazon CloudWatch Events                              | ✔      |
-| Security configurations                                       | ✔      |
-| Virtual clusters (Amazon EMR on EKS)                          | ✔      |
-| View and manage your Amazon Virtual Private Cloud<br>subnets1 | ✔      |
-| Notebooks2                                                    | ✔      |
+| EMR Studio                                                    | ✔       |
+| Create and manage clusters                                    | ✔       |
+| Block public access                                           | ✔       |
+| Monitor Amazon CloudWatch Events                              | ✔       |
+| Security configurations                                       | ✔       |
+| Virtual clusters (Amazon EMR on EKS)                          | ✔       |
+| View and manage your Amazon Virtual Private Cloud<br>subnets1 | ✔       |
+| Notebooks2                                                    | ✔       |
 
 1 In the console, you can view and manage your Amazon VPC
 subnets within the **Networking** section when you create a cluster.
@@ -107,9 +107,9 @@ configurations
 
 | Capability                                                                                                                                                                                                                                                                            | Console                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| Cloning security configurations                                                                                                                                                                                                                                                       | ✔                      |
-| [Federated governance using Trino and Apache Ranger](https://aws.amazon.com/blogs/big-data/enable-federated-governance-using-trino-and-apache-ranger-on-amazon-emr/ "https://aws.amazon.com/blogs/big-data/enable-federated-governance-using-trino-and-apache-ranger-on-amazon-emr/") | ✔                      |
-| [Using a runtime role<br>to submit work to a<br>cluster](emr-steps-runtime-roles.md "emr-steps-runtime-roles.md")1                                                                                                                                                                    | ✔                      |
+| Cloning security configurations                                                                                                                                                                                                                                                       | ✔                       |
+| [Federated governance using Trino and Apache Ranger](https://aws.amazon.com/blogs/big-data/enable-federated-governance-using-trino-and-apache-ranger-on-amazon-emr/ "https://aws.amazon.com/blogs/big-data/enable-federated-governance-using-trino-and-apache-ranger-on-amazon-emr/") | ✔                       |
+| [Using a runtime role<br>to submit work to a<br>cluster](emr-steps-runtime-roles.md "emr-steps-runtime-roles.md")1                                                                                                                                                                    | ✔                       |
 | [Authorizing access to EMR<br>File System (EMRFS) data](emr-emrfs-iam-roles.md "emr-emrfs-iam-roles.md")                                                                                                                                                                              | Amazon S3 access points |
 | AWS Lake Formation access controls                                                                                                                                                                                                                                                    | Runtime roles           |
 
