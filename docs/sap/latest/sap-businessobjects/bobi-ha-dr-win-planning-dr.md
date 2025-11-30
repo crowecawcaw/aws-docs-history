@@ -38,7 +38,7 @@ Figure 4 shows the user connectivity using Route 53 as an example. You can also 
 
 **Figure 4: User connectivity with Route 53**
 
-![User connectivity with Route 53](/images/sap/latest/sap-businessobjects/images/bobj-ha-dr-route53-connect.png)
+![User connectivity with Route 53](images/bobj-ha-dr-route53-connect.png)
 
 In the event of DR or when performing a DR drill, you can either manually switch the DNS to point to the DR region or you can use automatic failover by using Route 53 health checks. For details, see [Configuring DNS Failover](../../../Route53/latest/DeveloperGuide/dns-failover-configuring.md "../../../Route53/latest/DeveloperGuide/dns-failover-configuring.md") in the Route 53 documentation. Redirect all the users to the DR region as shown in Figure 5.
 
