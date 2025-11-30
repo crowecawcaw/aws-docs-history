@@ -3,6 +3,11 @@
 You can use the following built-in functions in the SELECT or WHERE clauses of your
 SQL expressions.
 
+The following external functions are billed equivalent to that of a rule action:
+[`aws_lambda`](iot-sql-functions.md#iot-func-aws-lambda "iot-sql-functions.md#iot-func-aws-lambda"), [`get_dynamodb()`](iot-sql-functions.md#iot-sql-function-get-dynamodb "iot-sql-functions.md#iot-sql-function-get-dynamodb"), [`get_registry_data()`](iot-sql-functions.md#iot-sql-function-get-registry_data "iot-sql-functions.md#iot-sql-function-get-registry_data"), and [`get_thing_shadow()`](iot-sql-functions.md#iot-sql-function-get-thing-shadow "iot-sql-functions.md#iot-sql-function-get-thing-shadow"). You also get billed for the [`decode()`](iot-sql-functions.md#iot-sql-decode-base64 "iot-sql-functions.md#iot-sql-decode-base64") function only when you are [decoding a Protobuf message to JSON](binary-payloads.md#binary-payloads-protobuf "binary-payloads.md#binary-payloads-protobuf"). For more details, refer to the
+[AWS IoT Core pricing
+page](https://aws.amazon.com/iot-core/pricing/ "https://aws.amazon.com/iot-core/pricing/").
+
 ## abs(Decimal)
 
 Returns the absolute value of a number. Supported by SQL version 2015-10-08 and
@@ -943,6 +948,68 @@ We recommend following these best practices to maintain security when using this
 - Avoid using hardcoded secrets in rule definitions including default values
 - Use AWS Secrets Manager for managing sensitive information
 
+## get_registry_data(registryAPI,
+
+thingName, roleArn)
+
+Retrieves AWS IoT thing registry data in an AWS IoT rule. You can read registry data
+(such as attributes, thing type, and thing groups a device belongs to) and use this
+information to filter, enrich, or dynamically route messages. Supported by SQL
+version 2016-03-23 and later.
+
+`get_registry_data()` takes the following parameters:
+
+registryAPI
+
+The registry API being called. Valid values are
+`DescribeThing` and `ListThingGroupsForThing`.
+These values must be constant strings.
+
+thingName
+
+String: The name of the thing whose registry data you want to
+retrieve.
+
+roleArn
+
+String: A role ARN with `iot:DescribeThing` permission
+and/or `iot:ListThingGroupsForThing` permission based on the
+API being called.
+
+The response format of the `get_registry_data` function is the same as
+the registry API called. For more information, see the [DescribeThing](../apireference/API_DescribeThing.md "../apireference/API_DescribeThing.md")
+and [ListThingGroupsForThing](../apireference/API_ListThingGroupsForThing.md "../apireference/API_ListThingGroupsForThing.md") APIs.
+
+Example:
+
+You can retrieve thing type information to allow filtering the AWS IoT Core lifecycle
+event messages for things (with the thing name matching the MQTT client id) where
+thing type is `testenv`.
+
+```
+SELECT *
+FROM '$aws/events/lifecycle/+'
+WHERE
+    get_registry_data("DescribeThing",clientId,[roleArn]).thingTypeName='testenv'
+```
+
+Example:
+
+You can retrieve thing attributes for a device with thing name
+`sensor1` for all messages sent by its gateway device
+`gateway1`.
+
+```
+SELECT *, get_registry_data("DescribeThing","sensor1",[roleArn]).attributes.temperature_threhold AS device1_tempthreshold
+FROM home1/gateway1/sensor1/#
+```
+
+###### Note
+
+- You can call `get_registry_data()` a maximum of one time
+  per SQL statement and substitution templates for actions and error
+  actions.
+
 ## get_secret(secretId, secretType, key, roleArn)
 
 Retrieves the value of the encrypted `SecretString` or
@@ -1021,7 +1088,7 @@ For more information about the HTTPS rule action, see [HTTP](https-rule-action.m
 
 ## get_thing_shadow(thingName,
 
-shadowName, roleARN)
+shadowName, roleArn)
 
 Returns the specified shadow of the specified thing. Supported by SQL version
 2016-03-23 and later.

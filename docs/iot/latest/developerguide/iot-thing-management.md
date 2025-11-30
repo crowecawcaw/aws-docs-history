@@ -36,3 +36,7 @@ underlying device certificate model or shadows.
 
 You don't need to create a thing in the registry to connect a device to AWS IoT. Adding
 things to the registry allows you to manage and search for devices more easily.
+
+Thing registry data (including attributes, thing types, and group memberships) can also be
+dynamically retrieved in the rules engine to use in message processing and routing. For more
+information, see [`get_registry_data`](iot-sql-functions.md#iot-sql-function-get-registry_data "iot-sql-functions.md#iot-sql-function-get-registry_data").

@@ -257,9 +257,6 @@ state document properties
     reported any data in the `desired` section and
     contains only fields that were in the request state
     document.
-  - `delta` — Present only if the
-    `desired` data differs from the shadow's
-    current `reported` data.
 
 - `metadata` — Contains the timestamps for each
   attribute in the `desired` and `reported`

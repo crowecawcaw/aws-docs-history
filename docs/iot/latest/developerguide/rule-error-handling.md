@@ -103,14 +103,9 @@ data to an Amazon S3 bucket:
 
 You can use any [function](iot-sql-functions.md "iot-sql-functions.md") or [substitution
 template](iot-substitution-templates.md "iot-substitution-templates.md") in an error action's SQL statement including the external
-functions: [`aws_lambda()`](iot-sql-functions.md#iot-func-aws-lambda "iot-sql-functions.md#iot-func-aws-lambda"), [`get_dynamodb()`](iot-sql-functions.md#iot-sql-function-get-dynamodb "iot-sql-functions.md#iot-sql-function-get-dynamodb"), [`get_thing_shadow()`](iot-sql-functions.md#iot-sql-function-get-thing-shadow "iot-sql-functions.md#iot-sql-function-get-thing-shadow"), [`get_secret()`](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"), [`machinelearning_predict()`](iot-sql-functions.md#iot-sql-function-machine-learning "iot-sql-functions.md#iot-sql-function-machine-learning"), and [`decode()`](iot-sql-functions.md#iot-sql-decode-base64 "iot-sql-functions.md#iot-sql-decode-base64"). If an error action requires to call an
+functions: [`aws_lambda()`](iot-sql-functions.md#iot-func-aws-lambda "iot-sql-functions.md#iot-func-aws-lambda"), [`get_dynamodb()`](iot-sql-functions.md#iot-sql-function-get-dynamodb "iot-sql-functions.md#iot-sql-function-get-dynamodb"), [`get_registry_data()`](iot-sql-functions.md#iot-sql-function-get-registry_data "iot-sql-functions.md#iot-sql-function-get-registry_data"), [`get_thing_shadow()`](iot-sql-functions.md#iot-sql-function-get-thing-shadow "iot-sql-functions.md#iot-sql-function-get-thing-shadow"), [`get_secret()`](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"), [`machinelearning_predict()`](iot-sql-functions.md#iot-sql-function-machine-learning "iot-sql-functions.md#iot-sql-function-machine-learning"), and [`decode()`](iot-sql-functions.md#iot-sql-decode-base64 "iot-sql-functions.md#iot-sql-decode-base64"). If an error action requires to call an
 external function, then invoking the error action can result in additional bill for
 the external function.
-
-The following external functions are billed equivalent to that of a rule action:
-[`aws_lambda`](iot-sql-functions.md#iot-func-aws-lambda "iot-sql-functions.md#iot-func-aws-lambda"), [`get_dynamodb()`](iot-sql-functions.md#iot-sql-function-get-dynamodb "iot-sql-functions.md#iot-sql-function-get-dynamodb"), and [`get_thing_shadow()`](iot-sql-functions.md#iot-sql-function-get-thing-shadow "iot-sql-functions.md#iot-sql-function-get-thing-shadow"). You also get billed for the [`decode()`](iot-sql-functions.md#iot-sql-decode-base64 "iot-sql-functions.md#iot-sql-decode-base64") function only when you are [decoding a Protobuf message to JSON](binary-payloads.md#binary-payloads-protobuf "binary-payloads.md#binary-payloads-protobuf"). For more details, refer to the
-[AWS IoT Core pricing
-page](https://aws.amazon.com/iot-core/pricing/ "https://aws.amazon.com/iot-core/pricing/").
 
 For more information about rules and how to specify an error action, see [Creating an AWS IoT Rule](iot-create-rule.md "iot-create-rule.md").
 

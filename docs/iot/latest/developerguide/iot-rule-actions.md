@@ -48,3 +48,9 @@ action's service is available.
   data encryption topics in the appropriate service guide. For more
   information about customer managed KMS keys, see [AWS Key Management Service concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the
   _AWS Key Management Service Developer Guide_.
+
+You can use any [function](iot-sql-functions.md "iot-sql-functions.md") or [substitution
+template](iot-substitution-templates.md "iot-substitution-templates.md") in an error action's SQL statement including the external
+functions: [`aws_lambda()`](iot-sql-functions.md#iot-func-aws-lambda "iot-sql-functions.md#iot-func-aws-lambda"), [`get_dynamodb()`](iot-sql-functions.md#iot-sql-function-get-dynamodb "iot-sql-functions.md#iot-sql-function-get-dynamodb"), [`get_registry_data()`](iot-sql-functions.md#iot-sql-function-get-registry_data "iot-sql-functions.md#iot-sql-function-get-registry_data"), [`get_thing_shadow()`](iot-sql-functions.md#iot-sql-function-get-thing-shadow "iot-sql-functions.md#iot-sql-function-get-thing-shadow"), [`get_secret()`](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"), [`machinelearning_predict()`](iot-sql-functions.md#iot-sql-function-machine-learning "iot-sql-functions.md#iot-sql-function-machine-learning"), and [`decode()`](iot-sql-functions.md#iot-sql-decode-base64 "iot-sql-functions.md#iot-sql-decode-base64"). If an error action requires to call an
+external function, then invoking the error action can result in additional bill for
+the external function.
