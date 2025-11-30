@@ -1,38 +1,80 @@
-# Getting started with AWS Database Migration Service
+# Migrating your source schema to your target database using AWS SCT
 
-In the following tutorial, you can find out how to perform a database migration with AWS Database Migration Service (AWS DMS).
+In this section, you use the AWS Schema Conversion Tool to migrate your source schema to your target database.
+Alternatively, you can use DMS Schema Conversion to convert your source database schemas. For more information,
+see [Getting started with DMS Schema Conversion](getting-started.md "getting-started.md").
 
-To perform a database migration, take the following steps:
+###### To migrate your source schema to your target database with AWS SCT
 
-1. Set up your AWS account by following the steps in [Set up for AWS Database Migration Service](CHAP_GettingStarted.md "CHAP_GettingStarted.md").
-2. Create your sample databases and an Amazon EC2 client to populate your source database and test
-   replication. Also, create a virtual private cloud (VPC) based on the Amazon Virtual Private Cloud (Amazon VPC) service
-   to contain your tutorial resources. To create these resources, follow the steps in
-   [Complete prerequisites to set up AWS Database Migration Service](CHAP_GettingStarted.md "CHAP_GettingStarted.md").
-3. Populate your source database using a [sample database creation script](https://github.com/aws-samples/aws-database-migration-samples "https://github.com/aws-samples/aws-database-migration-samples").
-4. Use DMS Schema Conversion or the AWS Schema Conversion Tool (AWS SCT) to convert the schema from the source database to
-   the target database. To use DMS Schema Conversion, follow the steps in [Getting started with DMS Schema Conversion](getting-started.md "getting-started.md"). To convert the schema with AWS SCT, follow the steps in
-   [Migrate schema](CHAP_GettingStarted.md "CHAP_GettingStarted.md").
-5. Create a replication instance to perform all the processes for the migration. To
-   do this and the following tasks, take the steps in [Replication](CHAP_GettingStarted.md "CHAP_GettingStarted.md").
-6. Specify source and target database endpoints. For information about creating endpoints, see
-   [Creating source and target endpoints](CHAP_Endpoints.md "CHAP_Endpoints.md").
-7. Create a task to define what tables and replication processes you want to use, and
-   start replication. For information about creating database migration tasks, see
-   [Creating a task](CHAP_Tasks.md "CHAP_Tasks.md").
-8. Verify that replication is working by running queries on the target database.
+1. Install the AWS Schema Conversion Tool. For more information, see [Installing, verifying, and updating the AWS SCT](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.Procedure "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.Procedure") in the
+   _AWS Schema Conversion Tool User Guide_.
 
-## Learn more about working with AWS Database Migration Service
+When you download JDBC drivers for MySQL and PostgreSQL, note where you save the drivers,
+in case the tool prompts you for their locations. 2. Open the AWS Schema Conversion Tool. Choose **File**,
+then choose **New project**. 3. In the **New project** window, set the following values:
 
-Later in this guide, you can learn how to use AWS DMS to migrate your data to and from
-the most widely used commercial and open-source databases.
+    * Set **Project name** to `DMSProject`.
+    * Keep **Location** as it is to store your AWS SCT project in the default folder.
 
-We also recommend that you check the following resources as you prepare and perform a
-database migration project:
+Choose **OK**. 4. Choose **Add source** to add a source MySQL database to your project,
+then choose **MySQL**, and choose **Next**. 5. In the **Add source** page, set the following values:
 
-- [AWS DMS Step-by-Step Migration Guide](../sbs/DMS-SBS-Welcome.md "../sbs/DMS-SBS-Welcome.md") – This guide provides step-by-step
-  walkthroughs that go through the process of migrating data to AWS.
-- [AWS DMS API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md") – This reference
-  describes all the API operations for AWS Database Migration Service in detail.
-- [AWS CLI for AWS DMS](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md") – This reference provides
-  information about using the AWS Command Line Interface (AWS CLI) with AWS DMS.
+    * **Connection name**: `source`
+    * **Server name**: Enter the endpoint for the MySQL database that you noted
+     previously.
+    * **Server port**: `3306`
+    * **User name**: `admin`
+    * **Password**: `changeit`
+
+6. Choose **Add target** to add a target Amazon RDS for PostgreSQL
+   database to your project, then choose **Amazon RDS for PostgreSQL**.
+   Choose **Next**.
+7. In the **Add target** page, set the following values:
+   - **Connection name**: `target`
+   - **Server name**: Enter the endpoint for the PostgreSQL database that you
+     noted previously.
+   - **Server port**: `5432`
+   - **Database**: Enter the name of your PostgreSQL database.
+   - **User name**: `postgres`
+   - **Password**: `changeit`
+
+8. In the left pane, choose **dms_sample** under **Schemas**.
+   In the right pane, choose your target Amazon RDS for PostgreSQL database. Choose
+   **Create mapping**. You can add multiple mapping rules to a
+   single AWS SCT project. For more information about mapping rules, see [Creating
+   mapping rules](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md").
+9. Choose **Main view**.
+10. In the left pane, choose **dms_sample** under **Schemas**.
+    Open the context (right-click) menu and choose **Convert schema**.
+    Confirm the action.
+
+After the tool converts the schema, the **dms_sample** schema appears
+in the right pane. 11. In the right pane, under **Schemas**, open the context (right-click) menu for
+**dms_sample** and choose **Apply to database**.
+Confirm the action.
+Verify that the schema migration completed. Perform the following steps.
+
+###### To check your schema migration
+
+1. Connect to your Amazon EC2 client.
+2. Start the PSQL client with the following command. Specify your PostgreSQL database endpoint,
+   and provide the database password when prompted.
+
+```
+psql \
+   --host=dms-postgresql.`abcdefg12345`.us-west-2.rds.amazonaws.com \
+   --port=5432 \
+   --username=postgres \
+   --password \
+   --dbname=dms_sample
+```
+
+3. Query one of the (empty) tables to verify that AWS SCT applied the schema correctly,
+
+```
+dms_sample=> SELECT * from dms_sample.player;
+ id | sport_team_id | last_name | first_name | full_name
+----+---------------+-----------+------------+-----------
+(0 rows)
+
+```

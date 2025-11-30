@@ -1,165 +1,205 @@
-# Using SSL with AWS Database Migration Service
+# Using Kerberos Authentication with AWS Database Migration Service
 
-You can encrypt connections for source and target endpoints by using Secure Sockets
-Layer (SSL). To do so, you can use the AWS DMS Management Console or AWS DMS API
-to assign a certificate to an endpoint. You can also use the AWS DMS console to
-manage your certificates.
+Starting with DMS v3.5.3, you can configure your Oracle or SQL Server source endpoint to connect to your
+database instance using Kerberos authentication. DMS supports Directory Service for Microsoft Active Directory and
+Kerberos authentication. For more information about AWS-managed access to Microsoft Active Directory Services, see
+[What is Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md").
 
-Not all databases use SSL in the same way. Amazon Aurora MySQL-Compatible Edition uses the server name,
-the endpoint of the primary instance in the cluster, as the endpoint for SSL. An Amazon Redshift
-endpoint already uses an SSL connection and does not require an SSL connection
-set up by AWS DMS. An Oracle endpoint requires additional steps; for more information, see
-[SSL support for an Oracle
-endpoint](CHAP_Source.md#CHAP_Security.SSL.Oracle "CHAP_Source.md#CHAP_Security.SSL.Oracle").
+## AWS DMS Kerberos Authentication Architecture Overview
 
-###### Topics
+The following diagram provides a high level overview of the AWS DMS Kerberos authentication workflow.
 
-- [Limitations on using SSL with
-  AWS DMS](#CHAP_Security.SSL.Limitations "#CHAP_Security.SSL.Limitations")
-- [Managing certificates](#CHAP_Security.SSL.ManagingCerts "#CHAP_Security.SSL.ManagingCerts")
-- [Enabling SSL for a MySQL-compatible,
-  PostgreSQL, or SQL Server endpoint](#CHAP_Security.SSL.Procedure "#CHAP_Security.SSL.Procedure")
-  To establish a secure connection, you provide the root certificate or the chain of
-  intermediate CA certificates leading to the root (as a certificate bundle) that was used
-  to sign the server's SSL certificate at the endpoint. Certificates are accepted as PEM
-  formatted X509 files, only. When you import a certificate, you receive an Amazon
-  Resource Name (ARN) that you can use to specify that certificate for an endpoint. If you
-  use Amazon RDS, you can download the root CA and certificate bundle provided in the
-  `rds-combined-ca-bundle.pem` file hosted by Amazon RDS. For more
-  information about downloading this file, see [Using
-  SSL/TLS to encrypt a connection to a DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the
-  _Amazon RDS User Guide_.
+![Kerberos Authentication Architecture](images/datarep-kerberos-architecture.jpg)
 
-You can choose from several SSL modes to use for your SSL certificate verification.
+## Limitations on using Kerberos authentication
 
-- **none** – The connection is not encrypted. This
-  option is not secure, but requires less overhead.
-- **require** – The connection is encrypted using SSL
-  (TLS) but no CA verification is made. This option is more secure, and requires
-  more overhead.
-- **verify-ca** – The connection is encrypted. This
-  option is more secure, and requires more overhead. This option verifies the
-  server certificate.
-- **verify-full** – The connection is encrypted. This
-  option is more secure, and requires more overhead. This option verifies the
-  server certificate and verifies that the server hostname matches the hostname
-  attribute for the certificate.
-  Not all SSL modes work with all database endpoints. The following table shows which
-  SSL modes are supported for each database engine.
+with AWS DMS
 
-| DB engine                         | **none** | **require**     | **verify-ca**   | **verify-full** |
-| --------------------------------- | -------- | --------------- | --------------- | --------------- |
-| MySQL/MariaDB/Amazon Aurora MySQL | Default  | Not supported   | Supported       | Supported       |
-| Microsoft SQL Server              | Default  | Supported       | Not Supported   | Supported       |
-| PostgreSQL                        | Default  | Supported       | Supported       | Supported       |
-| Amazon Redshift                   | Default  | SSL not enabled | SSL not enabled | SSL not enabled |
-| Oracle                            | Default  | Not supported   | Supported       | Not Supported   |
-| SAP ASE                           | Default  | SSL not enabled | SSL not enabled | Supported       |
-| MongoDB                           | Default  | Supported       | Not Supported   | Supported       |
-| Db2 LUW                           | Default  | Not Supported   | Supported       | Not Supported   |
-| Db2 for z/OS                      | Default  | Not Supported   | Supported       | Not Supported   |
+The following limitations apply when using Kerberos authentication with AWS DMS:
 
-###### Note
+- DMS replication instances support one Kerberos `krb5.conf` file and one keycache file.
+- You must update the Kerberos keycache file in Secrets Manager at least 30 minutes prior to
+  the ticket expiring.
+- A Kerberos-enabled DMS endpoint only works with a Kerberos-enabled DMS replication instance.
 
-The SSL Mode option on the DMS console or API doesn’t apply to some data streaming
-and NoSQL services like Kinesis, and DynamoDB. They are secure by default, so DMS
-shows the SSL mode setting is equal to none (**SSL
-Mode=None**). You don’t need to provide any additional configuration
-for your endpoint to make use of SSL. For example, when using Kinesis as a target
-endpoint, it is secure by default. All API calls to Kinesis use SSL, so there is no
-need for an additional SSL option in the DMS endpoint. You can securely put data and
-retrieve data through SSL endpoints using the HTTPS protocol, which DMS uses by
-default when connecting to a Kinesis Data Stream.
+## Prerequisites
 
-## Limitations on using SSL with
+To start, you must complete the following prerequisites from an existing Active Directory or Kerberos-authenticated host:
 
-AWS DMS
+- Establish an Active Directory trust relationship with your on-premise AD. For more information,
+  see [Tutorial: Create a trust relationship between your AWS Managed Microsoft AD and your self-managed Active Directory domain](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md").
+- Prepare a simplified version of the Kerberos `krb5.conf` configuration file. Include information about the realm, the location of the domain admin servers, and mappings of hostnames onto a Kerberos realm. You need to verify that the `krb5.conf` content is formatted with the correct mixed casing for the realms and domain realm names. For example:
 
-Following are limitations on using SSL with AWS DMS:
+```
+[libdefaults]
+ dns_lookup_realm = true
+ dns_lookup_kdc = true
+ forwardable = true
+ default_realm = MYDOMAIN.ORG
+[realms]
+MYDOMAIN.ORG = {
+kdc = mydomain.org
+admin_server = mydomain.org
+}
+[domain_realm]
+.mydomain.org = MYDOMAIN.ORG
+mydomain.org = MYDOMAIN.ORG
+```
 
-- SSL connections to Amazon Redshift target endpoints are not supported. AWS DMS uses an
-  Amazon S3 bucket to transfer data to the Amazon Redshift database. This transmission is
-  encrypted by Amazon Redshift by default.
-- SQL timeouts can occur when performing change data capture (CDC) tasks
-  with SSL-enabled Oracle endpoints. If you have an issue where CDC counters
-  don't reflect the expected numbers, set the
-  `MinimumTransactionSize` parameter from the
-  `ChangeProcessingTuning` section of the task settings to a
-  lower value. You can start with a value as low as 100. For more information
-  about the `MinimumTransactionSize` parameter, see [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
-- You can import certificates only in the .pem and .sso (Oracle wallet)
-  formats.
-- In some cases, your server SSL certificate might be signed by an
-  intermediate certificate authority (CA). If so, make sure that the entire
-  certificate chain leading from the intermediate CA up to the root CA is
-  imported as a single .pem file.
-- If you are using self-signed certificates on your server, choose
-  **require** as your SSL mode. The
-  **require** SSL mode implicitly trusts the
-  server's SSL certificate and doesn't try to validate that the
-  certificate was signed by a CA.
-- AWS DMS does not support TLS version 1.3 for MySQL and MariaDb
-  endpoints.
+- Prepare a Kerberos keycache file. The file contains a temporary Kerberos credential of the client
+  principal information. The file does not store the client's password. Your DMS task uses this cache ticket
+  information to get additional credentials without a password. Run the following steps on an existing Active
+  Directory or Kerberos-authenticated host to generate a keycache file.
+  - Create a Kerberos keytab file. You can generate a keytab file using the
+    **kutil** or **ktpass** utility.
 
-## Managing certificates
+  For more information about the Microsoft **ktpass** utility, see
+  [ktpass](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass")
+  in the _Windows Server documentation_.
 
-You can use the DMS console to view and manage your SSL certificates. You can also
-import your certificates using the DMS console.
+  For more information about the MIT **kutil** utility, see
+  [kutil](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html")
+  in the _MIT Kerberos Documentation_.
+  - Create a Kerberos keycache file from keytab file using the **kinit** utility. For more information about the **kinit** utility, see [kinit](https://web.mit.edu/kerberos/krb5-1.12/doc/user/user_commands/kinit.html "https://web.mit.edu/kerberos/krb5-1.12/doc/user/user_commands/kinit.html")
+    in the _MIT Kerberos Documentation_.
 
-![AWS Database Migration Service SSL certificate management](images/datarep-certificatemgr.png)
+- Store the Kerberos keycache file in Secrets Manager using the `SecretBinary` parameter. When you upload the
+  keycache file to Secrets Manager, DMS retrieves it, and then updates the local cache file about
+  every 30 minutes. When the local keycache file exceeds the predefined expiration timestamp, DMS
+  gracefully stops the task. To avoid authentication failures during an ongoing replication task,
+  update the keycache file in Secrets Manager at least 30 minutes before the ticket expiration. For more information,
+  see
+  [createsecret](../../../secretsmanager/latest/apireference/API_CreateSecret.md "../../../secretsmanager/latest/apireference/API_CreateSecret.md")
+  in the _Secrets Manager API Reference_. The following AWS CLI sample shows how to store the keycache file
+  in binary format in Secrets Manager:
 
-## Enabling SSL for a MySQL-compatible,
+```
+aws secretsmanager create-secret —name keycache —secret-binary fileb:`//keycachefile`
 
-PostgreSQL, or SQL Server endpoint
+```
 
-You can add an SSL connection to a newly created endpoint or to an existing
-endpoint.
+- Grant an IAM role the `GetSecretValue` and `DescribeSecret` permissions to get
+  the keycache file from Secrets Manager. Ensure that the IAM role includes the `dms-vpc-role` trust policy. For
+  more information about the `dms-vpc-role` trust policy, see
+  [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole "security-iam.md#CHAP_Security.APIRole").
 
-###### To create an AWS DMS endpoint with SSL
+The following example shows an IAM role policy with the Secrets Manager `GetSecretValue` and
+`DescribeSecret` permissions. The `<keycache_secretsmanager_arn>`
+value is the Keycache Secrets Manager ARN you created in the previous step.
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+JSON
 
-If you're signed in as an AWS Identity and Access Management (IAM) user, make sure that you
-have the appropriate permissions to access AWS DMS. For more information about
-the permissions required for database migration, see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. In the navigation pane, choose **Certificates**. 3. Choose **Import Certificate**. 4. Upload the certificate you want to use for encrypting the connection to an
-endpoint.
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue",
+ "secretsmanager:DescribeSecret"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
 
-###### Note
+```
 
-You can also upload a certificate using the AWS DMS console when
-you create or modify an endpoint by selecting **Add new CA
-certificate** on the **Create database
-endpoint** page.
+## Enabling Kerberos support on an AWS DMS
 
-For Aurora Serverless as target, get the certificate mentioned in
-[Using TLS/SSL with Aurora Serverless](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md#aurora-serverless.tls "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md#aurora-serverless.tls"). 5. Create an endpoint as described in [Step 2: Specify source and target endpoints](CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Endpoints "CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Endpoints")
+replication instance
 
-###### To modify an existing AWS DMS endpoint to use SSL
+Kerberos realms are identical to domains in Windows. In order to resolve a principle realm, Kerberos relies
+on a Domain Name Service (DNS). When you set the `dns-name-servers` parameter, your replication instance
+will use your predefined custom set of DNS servers to resolve the Kerberos domain realms. Another alternative
+option to resolve Kerberos realm queries is to configure Amazon Route 53 on the replication instance
+virtual private cloud (VPC). For more information, see [Route 53](../../../route53.md "../../../route53.md").
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+### Enabling Kerberos support on a DMS
 
-If you're signed in as an IAM user, make sure that you have the
-appropriate permissions to access AWS DMS. For more information about the
-permissions required for database migration, see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. In the navigation pane, choose **Certificates**. 3. Choose **Import Certificate**. 4. Upload the certificate you want to use for encrypting the connection to an
-endpoint.
+replication instance using the AWS Management Console
 
-###### Note
+To enable Kerberos support using the console, enter the following information in the
+**Kerberos authentication** section of the **Create Replication Instance**
+or **Modify Replication Instance** page:
 
-You can also upload a certificate using the AWS DMS console when
-you create or modify an endpoint by selecting **Add new CA
-certificate** on the **Create database
-endpoint** page. 5. In the navigation pane, choose **Endpoints**, select the
-endpoint you want to modify, and choose **Modify**. 6. Choose a value for **SSL mode**.
+- The content from your `krb5.conf` file
+- The ARN of the Secrets Manager secret that contains the keycache file
+- The ARN of the IAM role that has access to the secret manager ARN and permissions to
+  retrieve the keycache file
 
-If you choose **verify-ca** or
-**verify-full** mode, specify the certificate that you
-want to use for **CA certificate**, as shown following.
+### Enabling Kerberos support on a DMS
 
-![AWS Database Migration Service SSL certificate management](images/datarep-certificate2.png) 7. Choose **Modify**. 8. When the endpoint has been modified, choose the endpoint and choose
-**Test connection** to determine if the SSL connection
-is working.
+replication instance using the AWS CLI
 
-After you create your source and target endpoints, create a task that uses these
-endpoints. For more information about creating a task, see [Step 3: Create a task and migrate data](CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Tasks "CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Tasks").
+The following AWS CLI sample call creates a private DMS replication instance with Kerberos support.
+The replication instance uses a custom DNS to resolve the Kerberos realm. For more information,
+see [create-replication-instance](../../../cli/latest/reference/dms/create-replication-instance.md "../../../cli/latest/reference/dms/create-replication-instance.md").
+
+```
+aws dms create-replication-instance
+--replication-instance-identifier my-replication-instance
+--replication-instance-class dms.t2.micro
+--allocated-storage 50
+--vpc-security-group-ids sg-12345678
+--engine-version 3.5.4
+--no-auto-minor-version-upgrade
+--kerberos-authentication-settings'{"KeyCacheSecretId":<secret-id>,"KeyCacheSecretIamArn":<secret-iam-role-arn>,"Krb5FileContents":<krb5.conf file contents>}'
+--dns-name-servers `<custom dns server>`
+--no-publicly-accessible
+```
+
+## Enabling Kerberos support on a source endpoint
+
+Before enabling Kerberos authentication on a DMS Oracle or SQL server source endpoint, make sure
+you can authenticate to the source database using the Kerberos protocol from a client machine.
+You can use the AWS DMS Diagnostic AMI to launch an Amazon EC2 instance on the same VPC as the replication
+instance, and then test the kerberos authentication. For more information about the AMI, see
+[Working with the AWS DMS diagnostic support AMI](CHAP_SupportAmi.md "CHAP_SupportAmi.md").
+
+### Using the AWS DMS console
+
+Under **Access to endpoint database**, choose **Kerberos authentication**.
+
+### Using the AWS CLI
+
+Specify the endpoint setting parameter and set `AuthenticationMethod` option as kerberos. For example:
+
+**Oracle**
+
+```
+aws dms create-endpoint
+--endpoint-identifier my-endpoint
+--endpoint-type source
+--engine-name oracle
+--username dmsuser@MYDOMAIN.ORG
+--server-name `mydatabaseserver`
+--port 1521
+--database-name `mydatabase`
+--oracle-settings "{\"AuthenticationMethod\": \"kerberos\"}"
+```
+
+**SQL Server**
+
+```
+aws dms create-endpoint
+--endpoint-identifier my-endpoint
+--endpoint-type source
+--engine-name sqlserver
+--username dmsuser@MYDOMAIN.ORG
+--server-name `mydatabaseserver`
+--port 1433
+--database-name `mydatabase`
+--microsoft-sql-server-settings "{\"AuthenticationMethod\": \"kerberos\"}"
+```
+
+## Testing a source
+
+endpoint
+
+You must test the Kerberos-enabled endpoint against a Kerberos-enabled replication instance.
+When you don't properly confiugure the replication instance or source endpoint for Kerberos
+authentication, the endpoint `test-connection` action will fail, and might return Kerberos-related
+errors. For more information, see
+[test-connection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dms/test-connection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dms/test-connection.html").

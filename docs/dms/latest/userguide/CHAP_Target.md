@@ -1,86 +1,53 @@
-# Using a SAP ASE database as a target for
+# Using Amazon RDS for Db2 and IBM Db2 LUW as a target for AWS DMS
 
-AWS Database Migration Service
+You can migrate data to an Amazon RDS for Db2 or an on-premises Db2 database from a Db2 LUW
+database using AWS Database Migration Service (AWS DMS).
 
-You can migrate data to SAP Adaptive Server Enterprise (ASE)–formerly known as
-Sybase–databases using AWS DMS, either from any of the supported database
-sources.
+For information about versions of Db2 LUW that AWS DMS supports as a target,
+see [Targets for AWS DMS](CHAP_Introduction.md "CHAP_Introduction.md").
 
-For information about versions
-of SAP ASE that AWS DMS supports as a target, see [Targets for AWS DMS](CHAP_Introduction.md "CHAP_Introduction.md").
+You can use Secure Sockets Layer (SSL) to encrypt connections between your Db2 LUW
+endpoint and the replication instance. For more information about using SSL with a Db2 LUW
+endpoint, see [Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md").
 
-## Prerequisites for using a SAP ASE
+## Limitations when using Db2 LUW as a
 
-database as a target for AWS Database Migration Service
+target for AWS DMS
 
-Before you begin to work with a SAP ASE database as a target for AWS DMS, make
-sure that you have the following prerequisites:
+The following limitations apply when using Db2 LUW database as a target for AWS DMS. For
+limitations on using Db2 LUW as a source, see
+[Limitations when using Db2 LUW as a
+source for AWS DMS](CHAP_Source.md#CHAP_Source.DB2.Limitations "CHAP_Source.md#CHAP_Source.DB2.Limitations").
 
-- Provide SAP ASE account access to the AWS DMS user. This user must have
-  read/write privileges in the SAP ASE database.
-- In some cases, you might replicate to SAP ASE version 15.7 installed on an
-  Amazon EC2 instance on Microsoft Windows that is configured with non-Latin
-  characters (for example, Chinese). In such cases, AWS DMS requires SAP ASE
-  15.7 SP121 to be installed on the target SAP ASE machine.
-
-## Limitations when using a SAP ASE
-
-database as a target for AWS DMS
-
-The following limitations apply when using an SAP ASE database as a target for
-AWS DMS:
-
-- AWS DMS doesn't support tables that include fields with the following data
-  types. Replicated columns with these data types show as null.
-  - User-defined type (UDT)
+- AWS DMS only supports Db2 LUW as a target when the source is either Db2 LUW or Db2 for z/OS.
+- Using Db2 LUW as a target doesn't support replications with full LOB mode.
+- Using Db2 LUW as a target doesn't support the XML datatype in the full load phase. This is a limitation
+  of the IBM dbload utility. For more information, see
+  [The dbload utility](https://www.ibm.com/docs/en/informix-servers/14.10?topic=utilities-dbload-utility "https://www.ibm.com/docs/en/informix-servers/14.10?topic=utilities-dbload-utility")
+  in the _IBM Informix Servers_ documentation.
+- AWS DMS truncates BLOB fields with values corresponding to the double quote character (").
+  This is a limitation of the IBM dbload utility.
+- AWS DMS does not support the parallel full load option when migrating to a Db2
+  LUW target in DMS version 3.5.3. This option is available from DMS version 3.5.4
+  or later.
 
 ## Endpoint settings when
 
-using SAP ASE as a target for AWS DMS
+using Db2 LUW as a target for AWS DMS
 
-You can use endpoint settings to configure your SAP ASE target database similar to using
+You can use endpoint settings to configure your Db2 LUW target database similar to using
 extra connection attributes. You specify the settings when you create the target
 endpoint using the AWS DMS console, or by using the `create-endpoint` command in the
 [AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the
-`--sybase-settings '{"`EndpointSetting"`:
+`--ibm-db2-settings '{"`EndpointSetting"`:
  `"value"`, `...`}'` JSON syntax.
 
 The following table shows the endpoint settings that you can use with
-SAP ASE as a target.
+Db2 LUW as a target.
 
-| Name                             | Description                                                                                                                                                                                                                                             |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Driver`                         | Set this attribute if you want to use TLS for versions of ASE<br>15.7 and higher.<br>Default value: `Adaptive Server Enterprise`<br>Example: `driver=Adaptive Server Enterprise<br>16.03.06;`<br>Valid values: `Adaptive Server Enterprise<br>16.03.06` |
-| `AdditionalConnectionProperties` | Any additional ODBC connection parameters that you want to<br>specify.                                                                                                                                                                                  |
-
-## Target data types for SAP ASE
-
-The following table shows the SAP ASE database target data types that are
-supported when using AWS DMS and the default mapping from AWS DMS data
-types.
-
-For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.md "CHAP_Reference.md").
-
-| AWS DMS data types | SAP ASE data types                                                                            |
-| ------------------ | --------------------------------------------------------------------------------------------- |
-| BOOLEAN            | BIT                                                                                           |
-| BYTES              | VARBINARY (Length)                                                                            |
-| DATE               | DATE                                                                                          |
-| TIME               | TIME                                                                                          |
-| TIMESTAMP          | If scale is => 0 and =< 6, then: BIGDATETIME<br>If scale is => 7 and =< 9, then: VARCHAR (37) |
-| INT1               | TINYINT                                                                                       |
-| INT2               | SMALLINT                                                                                      |
-| INT4               | INTEGER                                                                                       |
-| INT8               | BIGINT                                                                                        |
-| NUMERIC            | NUMERIC (p,s)                                                                                 |
-| REAL4              | REAL                                                                                          |
-| REAL8              | DOUBLE PRECISION                                                                              |
-| STRING             | VARCHAR (Length)                                                                              |
-| UINT1              | TINYINT                                                                                       |
-| UINT2              | UNSIGNED SMALLINT                                                                             |
-| UINT4              | UNSIGNED INTEGER                                                                              |
-| UINT8              | UNSIGNED BIGINT                                                                               |
-| WSTRING            | VARCHAR (Length)                                                                              |
-| BLOB               | IMAGE                                                                                         |
-| CLOB               | UNITEXT                                                                                       |
-| NCLOB              | TEXT                                                                                          |
+| Name              | Description                                                                                                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `KeepCsvFiles`    | If true, AWS DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these<br>files for analysis and troubleshooting..                    |
+| `LoadTimeout`     | The amount of time (in milliseconds) before AWS DMS times out operations performed by DMS on the Db2 target.<br>The default value is 1200 (20 minutes).                     |
+| `MaxFileSize`     | Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.                                                                                          |
+| `WriteBufferSize` | The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk<br>on the DMS replication instance. The default value is 1024 (1 MB). |
