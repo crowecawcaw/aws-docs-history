@@ -28,3 +28,4 @@ Amazon VPC service. For more information, see [Working with private hosted zones
 - [Checking DNS responses from Route 53](dns-test.md "dns-test.md")
 - [Configuring white-label name servers](white-label-name-servers.md "white-label-name-servers.md")
 - [NS and SOA records that Amazon Route 53 creates for a public hosted zone](SOA-NSrecords.md "SOA-NSrecords.md")
+- [Enabling accelerated recovery for managing public DNS records](accelerated-recovery.md "accelerated-recovery.md")

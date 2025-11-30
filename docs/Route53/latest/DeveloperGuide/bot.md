@@ -1,7 +1,7 @@
-# .net
+# .bot
 
-Used for all types of websites. The .net extension is an abbreviation of
-network.
+Used for chatbot and AI-related products and services.
+This domain extension helps convey the nature of automated systems, conversational interfaces, and emerging technologies in artificial intelligence.
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
@@ -9,9 +9,10 @@ network.
 
 One to ten years.
 
-**Privacy protection**
+**Privacy protection (applies to all contact types: person, company,
+association, and public body)**
 
-All information is hidden.
+All information is hidden except organization name.
 
 **Domain locking to prevent unauthorized transfers**
 

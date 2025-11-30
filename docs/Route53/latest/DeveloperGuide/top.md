@@ -1,7 +1,6 @@
-# .net
+# .top
 
-Used for all types of websites. The .net extension is an abbreviation of
-network.
+Used by businesses and organizations that want to emphasize leadership or prominence in their industry.
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
@@ -9,9 +8,10 @@ network.
 
 One to ten years.
 
-**Privacy protection**
+**Privacy protection (applies to all contact types: person, company,
+association, and public body)**
 
-All information is hidden.
+All information is hidden except organization name.
 
 **Domain locking to prevent unauthorized transfers**
 
@@ -27,7 +27,7 @@ Yes
 
 **DNSSEC**
 
-Supported for domain registration. For more information, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md").
+Not supported.
 
 **Deadlines for renewing and restoring domains**
 
