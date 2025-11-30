@@ -53,7 +53,7 @@ elastic cluster.
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](/images/documentdb/latest/developerguide/images/docdb-menu-icon.png))
+(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the list of clusters, choose the button to the left
 of the name of the cluster that you want to stop or start.
 

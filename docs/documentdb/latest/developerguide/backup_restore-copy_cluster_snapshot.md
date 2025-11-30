@@ -109,7 +109,7 @@ encrypted or unencrypted cluster snapshots, in the same AWS Region or across Reg
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Hamburger menu icon with three horizontal lines.](/images/documentdb/latest/developerguide/images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. From the **Actions** menu, choose
 **Copy**. 4. In the resulting **Make Copy of cluster
 snapshot** page, complete the

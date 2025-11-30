@@ -42,7 +42,7 @@ procedure.
    identifier**. Your instances are listed under clusters, similar to the
    screenshot below.
 
-![Clusters table showing how an instance is nested under a cluster.](/images/documentdb/latest/developerguide/images/choose-clusters.png) 4. In the **Cluster identifier** column, find the name of the
+![Clusters table showing how an instance is nested under a cluster.](images/choose-clusters.png) 4. In the **Cluster identifier** column, find the name of the
 instance that you are interested in. Then, to find the status of the instance,
 read across that row to the **Status** column, as shown
 below.
