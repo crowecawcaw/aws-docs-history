@@ -1,103 +1,179 @@
-# Oracle and MySQL character sets
+# Oracle multitenant and MySQL databases
 
-With AWS DMS, you can migrate databases between different platforms while preserving character set encodings and collations. Character sets define the encoding used to represent characters, while collations determine the sorting order and comparison rules. Properly configuring character sets and collations is crucial for applications that handle multilingual data or have specific sorting requirements.
+With AWS DMS, you can migrate Oracle multitenant databases and MySQL databases to Amazon Aurora.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                               |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | N/A                       | Different syntax. MySQL can have different collations for each database in the same instance. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                     |
+| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, and users across multiple instances. |
 
 ## Oracle usage
 
-Oracle supports most national and international encoded character set standards including extensive support for Unicode.
+Oracle 12c introduces a new multitenant architecture that provides the ability to create additional independent pluggable databases under a single Oracle instance. Prior to Oracle 12c, a single Oracle database instance only supported running a single Oracle database as shown in the following diagram.
 
-Oracle provides two scalar string-specific data types:
+![A single Oracle database instance runs a single Oracle database](images/pb-oracle-multitenant.png)
 
-- `VARCHAR2` — Stores variable-length character strings with a length between 1 and 4000 bytes. The Oracle database can be configured to use the `VARCHAR2` data type to store either Unicode or Non-Unicode characters.
-- `NVARCHAR2` — Scalar data type used to store Unicode data. Supports AL16UTF16 or UTF8 and id specified during database creation.
+Oracle 12c introduces a new multitenant container database (CDB) that supports one or more pluggable databases (PDB). The CDB can be thought of as a single superset database with multiple pluggable databases. The relationship between an Oracle instance and databases is now 1:N.
 
-Character sets in Oracle are defined at the instance level (Oracle 11g) or the pluggable database level (Oracle 12c R2). In Pre-12cR2 Oracle databases, the character set for the root container and all pluggable databases were required to be identical.
+![Multitenant container Oracle database](images/pb-multitenant-container-database.png)
 
-Oracle 18c updates AL32UTF8 and AL16UTF16 character sets to Unicode standard version 9.0.
+Oracle 18c adds following multitenant related features:
 
-### UTF8 Unicode
+- **DBCA PDB Clone** — UI interface which allows cloning multiple pluggable databases (PDB).
+- **Refreshable PDB Switchover** — An ability to switch roles between pluggable database clone and its original primary.
+- **CDB Fleet Management** — An ability to group multiple container databases (CDB) into fleets that can be managed as a single logical database.
 
-In Oracle, you can use the AL32UTF8 character set. Oracle provides encoding of ASCII characters as single-byte for Latin characters, two-bytes for some European and Middle-Eastern languages, and three-bytes for certain South and East-Asian characters. Therefore, Unicode storage requirements are usually higher when compared non-Unicode character sets.
+Oracle 19 introduced support to having more than one pluggable database (PDB) in a container database (CDB) in sharded environments.
 
-### Character set migration
+### Advantages of the Oracle 12c multitenant architecture
 
-Two options exist for modifying existing Instance-level or database-level character sets:
+- You can use PDBs to isolate applications from one another.
+- You can use PDBs as portable collection of schemas.
+- You can clone PDBs and transport them to different CDBs/Oracle instances.
+- Management of many databases (individual PDBs) as a whole.
+- Separate security, users, permissions, and resource management for each PDB provides greater application isolation.
+- Enables a consolidated database model of many individual applications sharing a single Oracle server.
+- Provides an easier way to patch and upgrade individual clients and/or applications using PDBs.
+- Backups are supported at both a multitenant container-level as well as at an individual PDB-level (both for physical and logical backups).
 
-- Export or import from the source Instance/PDB to a new Instance/PDB with a modified character set.
-- Use the Database Migration Assistant for Unicode (DMU), which simplifies the migration process to the Unicode character set.
+### The Oracle multitenant architecture
 
-As of 2012, use of the `CSALTER` utility for character set migrations is deprecated.
+- A multitenant CDB can support one or more PDBs.
+- Each PDB contains its own copy of `SYSTEM` and application tablespaces.
+- The PDBs share the Oracle Instance memory and background processes. The use of PDBs enables consolidation of many databases and applications into individual containers under the same Oracle instance.
+- A single Root Container (CDB$ROOT) exists in a CDB and contains the Oracle Instance Redo Logs, undo tablespace (unless Oracle 12.2 local undo mode is enabled), and control files.
+- A single Seed PDB exists in a CDB and is used as a template for creating new PDBs.
 
-Oracle Database 12c Release 1 (12.1.0.1) complies with version 6.1 of the Unicode standard.
+![Container Oracle database](images/pb-oracle-container-database.png)
 
-Oracle Database 12c Release 2 (12.1.0.2) extends the compliance to version 6.2 of the Unicode standard.
+### CDB and PDB semantics
 
-UTF-8 is supported through the AL32UTF8 CS and is valid as both the client and database character sets.
+Container databases (CDB)
 
-UTF-16BE is supported through AL16UTF16 and is valid as the national (NCHAR) character set.
+- Created as part of the Oracle 12c software installation.
+- Contains the Oracle control files, its own set of system tablespaces, the instance undo tablespaces (unless Oracle 12.2 local undo mode is enabled), and the instance redo logs.
+- Holds the data dictionary for the root container and for all of the PDBs.
 
-For more information, see [Choosing a Character Set](https://docs.oracle.com/en/database/oracle/oracle-database/19/nlspg/choosing-character-set.html#GUID-BF26E01D-AB92-48FC-855A-69A5B3AF9A92 "https://docs.oracle.com/en/database/oracle/oracle-database/19/nlspg/choosing-character-set.html#GUID-BF26E01D-AB92-48FC-855A-69A5B3AF9A92"), [Locale Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/nlspg/appendix-A-locale-data.html#GUID-A9E30C27-FD47-4552-B670-F41A95B11405 "https://docs.oracle.com/en/database/oracle/oracle-database/19/nlspg/appendix-A-locale-data.html#GUID-A9E30C27-FD47-4552-B670-F41A95B11405"), and [Supporting Multilingual Databases with Unicode](https://docs.oracle.com/en/database/oracle/oracle-database/19/nlspg/supporting-multilingual-databases-with-unicode.html#GUID-AA09A60E-123E-457C-ACE1-89E4634E492C "https://docs.oracle.com/en/database/oracle/oracle-database/19/nlspg/supporting-multilingual-databases-with-unicode.html#GUID-AA09A60E-123E-457C-ACE1-89E4634E492C") in the _Oracle documentation_.
+Pluggable databases (PDB)
 
-## MySQL usage
-
-MySQL supports a variety of different character sets including support for both single-byte and multi-byte languages. The default character set is specified when initializing a MySQL database cluster with `initdb`. Each individual database created on the MySQL cluster supports individual character sets defined as part of database creation.
-
-To query the available character sets, use the `INFORMATION_SCHEMA CHARACTER_SETS` table or the `SHOW CHARACTER SET` statement.
-
-All character sets have at least one collation, and most character sets have more. To list the display collations for a character set, use the `INFORMATION_SCHEMA COLLATIONS` table or the `SHOW COLLATION` statement.
-
-Collations have these general characteristics:
-
-- Two different character sets cannot have the same collation.
-- Each character set has a default collation.
-- Collation names start with the name of the character set with which they are associated and are generally followed by one or more suffixes indicating other collation characteristics.
+- An independent database that exists under a CDB. Also known as a container.
+- Used to store application-specific data.
+- You can create a pluggable database from a the `pdb$seed` (template database) or as a clone of an existing PDB.
+- Stores metadata information specific to its own objects (data-dictionary).
+- Has its own set of application data files, system data files, and tablespaces along with temporary files to manage objects.
 
 ### Examples
 
-Create a database named test01 which uses the Korean EUC_KR Encoding the and the ko_KR locale.
+List existing PDBs created in an Oracle CDB instance.
 
 ```
-CREATE DATABASE test01 CHARACTER SET = euckr COLLATE = euckr_korean_ci;
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
 ```
 
-View the character sets configured for each database by querying the System Catalog.
+Provision a new PDB from the template `seed$pdb`.
 
 ```
-SELECT SCHEMA_NAME,
-    DEFAULT_CHARACTER_SET_NAME,
-    DEFAULT_COLLATION_NAME
-FROM INFORMATION_SCHEMA.SCHEMATA;
+CREATE PLUGGABLE DATABASE PDB2 admin USER ora_admin
+IDENTIFIED BY ora_admin FILE_NAME_CONVERT=('/pdbseed/','/pdb2/');
 ```
 
-Convert a character set and collation using the `ALTER DATABASE` command.
+Alter a specific PDB to the `READ/WRITE` mode and verify the change.
 
 ```
-ALTER DATABASE test01 CHARACTER SET = ucs2 COLLATE = ucs2_general_ci;
+ALTER PLUGGABLE DATABASE PDB2 OPEN READ WRITE;
+
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
 ```
 
-MySQL supports conversion of character sets between server and client for specific character set combinations with the parameter `character_set_client` and `character_set_connection`. For more information, see [Connection Character Sets and Collations](https://dev.mysql.com/doc/refman/5.7/en/charset-connection.html "https://dev.mysql.com/doc/refman/5.7/en/charset-connection.html").
-
-In MySQL, you can specify the sort order and character classification behavior on a per-column level. Specify specific collations for individual table columns.
+Clone a PDB from an existing PDB.
 
 ```
-CREATE TABLE lang(
-latin1_col CHAR(10) CHARACTER SET latin1 COLLATE latin1_german1_ci,
-latin2_col CHAR(10) CHARACTER SET latin2);
+CREATE PLUGGABLE DATABASE PDB3
+  FROM PDB2 FILE_NAME_CONVERT= ('/pdb2/','/pdb3/');
+
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
+5       PDB3      MOUNTED
 ```
 
-## Summary
+For more information, see [Oracle Multitenant](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html") in the _Oracle documentation_.
 
-| Feature                           | Oracle                                                                                                                          | Aurora MySQL                                                                                                                |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| View database character set       | `<br>SELECT<br>• FROM NLS_DATABASE_PARAMETERS;<br>`                                                                             | `<br>SELECT SCHEMA_NAME,<br>DEFAULT_CHARACTER_SET_NAME,<br>DEFAULT_COLLATION_NAME<br>FROM INFORMATION_SCHEMA.SCHEMATA;<br>` |
-| Modify the database character set | Choose one of the following options:<br>1. Full export or import.<br>2. When converting to Unicode, use the Oracle DMU utility. | `<br>ALTER DATABASE test01<br>CHARACTER SET = ucs2<br>COLLATE = ucs2_general_ci;<br>`                                       |
-| Character set granularity         | Instance (11g + 12cR1)<br>Database (Oracle 12cR2)                                                                               | Column                                                                                                                      |
-| UTF8                              | Supported by using `VARCHAR2` and `NVARCHAR`                                                                                    | Supported by using `CHAR` and `VARCHAR`                                                                                     |
-| UTF16                             | Supported by using `NVARCHAR2`                                                                                                  | Supported by using `CHAR` and `VARCHAR`                                                                                     |
-| `NCHAR` and `NVARCHAR` data types | Supported                                                                                                                       | Supported                                                                                                                   |
+## MySQL usage
 
-For more information, see [Character Sets, Collations, Unicode](https://dev.mysql.com/doc/refman/5.7/en/charset.html "https://dev.mysql.com/doc/refman/5.7/en/charset.html") and [Database Character Set and Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-database.html "https://dev.mysql.com/doc/refman/5.7/en/charset-database.html") in the _MySQL documentation_.
+Amazon Aurora MySQL offers a different and simplified architecture to manage and create a multitenant database environment. You can use Aurora MySQL to provide levels of functionality similar but not identical to those offered by Oracle PDBs by creating multiple databases under the same Aurora MySQL cluster and / or using separate Aurora clusters if total isolation of workloads is required.
+
+You can create multiple MySQL databases under a single Amazon Aurora MySQL cluster.
+
+![DB cluster](images/pb-aurora-mysql-cluster.png)
+
+Each Amazon Aurora cluster contains a primary instance that can accept both reads and writes for all cluster databases.
+
+You can create up to 15 read-only nodes providing scale-out functionality for application reads and high availability.
+
+![DB cluster storage volume](images/pb-aurora-cluster-storage-volume.png)
+
+An Oracle CDB/Instance is a high-level equivalent to an Amazon Aurora cluster, and an Oracle Pluggable Database (PDB) is equivalent to a MySQL database created inside the Amazon Aurora cluster. Not all features are comparable between Oracle 12c PDBs and Amazon Aurora.
+
+Starting with Oracle 18c and 19c, you can use this feature for the following:
+
+- PDB Clone
+- Refreshable PDB Switchover
+- CDB Fleet Management
+- More than one pluggable database (PDB) in a container database (CDB) in sharded environments.
+
+In the AWS Cloud, these features can be achieved in many ways and each can be optimized using different services.
+
+Cloning databases inside the MySQL instance is not so easy. For the same instance, you can use export and import.
+
+To achieve similar functionality to Refreshable PDB Switchover, it depends on the use case but there are multiple options mostly depended on the required granularity:
+
+- Databases in the same instance — you can do the failover using `CREATE DATABASE` statement when size and required downtime allow that and use an application failover to point to any of the databases.
+- Database links and replication method — database links or AWS DMS can be used to make sure there are two databases in two different instances that are in sync and have application failover to point to the other database when needed.
+
+Managing CDB is actually very similar to the AWS orchestration, as you can manage multiple Amazon RDS instances there (CDB) and databases inside (PDB), all monitored centrally and can be managed through the AWS console or AWS CLI.
+
+### Examples
+
+Create a new database in MySQL using the `CREATE DATABASE` statement.
+
+```
+CREATE DATABASE db1;
+CREATE DATABASE db2;
+CREATE DATABASE db3;
+```
+
+List all databases created under an Amazon Aurora MySQL cluster.
+
+```
+SHOW DATABASES;
+
+Database
+information_schema
+mysql
+performance_schema
+db1
+db2
+db3
+sys
+tmp
+```
+
+### Independent database backups
+
+Oracle 12c provides the ability to perform both logical backups using DataPump and physical backups using RMAN at both the CDB and PDB levels. Similarly, Aurora MySQL provides the ability to perform logical backups on all or a specific database using mysqldump. However, for physical backups when using snapshots, the entire cluster and all databases are included in the snapshot. Backing up a specific database with in the cluster is not supported.
+
+This is usually not a concern because volume snapshots are extremely fast operations that occur at the storage infrastructure layer, incur minimal overhead, and operate at extremely fast speeds. However, the process of restoring a single MySQL database from an Aurora snapshot requires additional steps such as exporting the specific database after a snapshot restore and importing it back to the original Aurora cluster.
+
+For more information, see [CREATE DATABASE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-database.html "https://dev.mysql.com/doc/refman/5.7/en/create-database.html") in the _MySQL documentation_.
