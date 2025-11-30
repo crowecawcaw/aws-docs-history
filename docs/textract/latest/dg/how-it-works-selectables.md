@@ -9,9 +9,9 @@ cells.
 |                  |           |             |              |
 | ---------------- | --------- | ----------- | ------------ |
 |                  | **Agree** | **Neutral** | **Disagree** |
-| **Good Service** | ☑        | ☐           | ☐            |
-| **Easy to Use**  | ☐         | ☑          | ☐            |
-| **Fair Price**   | ☑        | ☐           | ☐            |
+| **Good Service** | ☑         | ☐           | ☐            |
+| **Easy to Use**  | ☐         | ☑           | ☐            |
+| **Fair Price**   | ☑         | ☐           | ☐            |
 
 Detected selection elements are returned as [Block](API_Block.md "API_Block.md") objects in the responses from [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") and
 [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md").
@@ -23,7 +23,7 @@ supported by Amazon Textract.
 | ----------------- | ------------------------------------------------------------------ |
 | Selectable Type   | Example                                                            |
 | Radio Button      | Yes ○ No ●                                                         |
-| Checkbox          | Yes ☐ No ☑                                                        |
+| Checkbox          | Yes ☐ No ☑                                                         |
 | Underlined Words  | Yes No                                                             |
 | Circled Words     | Two buttons labeled "Yes" and "No" for making a binary choice.     |
 | Crossed Out Words | Two buttons labeled "Yes" and "No", with "No" crossed out in blue. |
@@ -263,9 +263,9 @@ example, the cells in the following table have check boxes.
 |                  |           |             |              |
 | ---------------- | --------- | ----------- | ------------ |
 |                  | **Agree** | **Neutral** | **Disagree** |
-| **Good Service** | ☑        | ☐           | ☐            |
-| **Easy to Use**  | ☐         | ☑          | ☐            |
-| **Fair Price**   | ☑        | ☐           | ☐            |
+| **Good Service** | ☑         | ☐           | ☐            |
+| **Easy to Use**  | ☐         | ☑           | ☐            |
+| **Fair Price**   | ☑         | ☐           | ☐            |
 
 A `CELL` block can contain child `SELECTION_ELEMENT`
 objects for selection elements and child `WORD` blocks for
