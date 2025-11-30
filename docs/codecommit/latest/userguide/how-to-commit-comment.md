@@ -94,7 +94,7 @@ comment with an emoji, choose the emoji you want from the list. You can only cho
 emoji per comment. If you want to change your emoji reaction, choose a different one
 from the list, or choose **None** to remove your reaction.
 
-![Adding replies and emoji reactions to a comment.](images/codecommit-commenting-commenttab.png)
+![Adding replies and emoji reactions to a comment.](/images/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
 
 ### Add and reply to comments when comparing two commit specifiers
 
@@ -443,7 +443,7 @@ The following values are supported for emojis in CodeCommit:
 | 👍    | :thumbsup:      | U+1F44D |
 | 👎    | :thumbsdown:    | U+1F44E |
 | 😄    | :smile:         | U+1F604 |
-| ❤    | :heart:         | U+2764  |
+| ❤     | :heart:         | U+2764  |
 | 😠    | :angry:         | U+1F620 |
 | 😕    | :confused:      | U+1F615 |
 | 😱    | :scream:        | U+1F631 |
