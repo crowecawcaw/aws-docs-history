@@ -2,21 +2,31 @@
 
 access settings for your account
 
-Amazon S3 Block Public Access provides settings for access points, buckets, and
-accounts to help you manage public access to Amazon S3 resources. By default, new buckets, access
-points, and objects do not allow public access.
+###### Important
 
-For more information, see [Blocking public access to your Amazon S3
+If your account is managed by an organization-level Block Public Access policy, you cannot
+modify these account-level settings. Organization-level policies override
+account-level configurations. For more information on centralized management
+options, see [S3 policy](../../../organizations/latest/userguide/orgs_manage_policies_s3.md "../../../organizations/latest/userguide/orgs_manage_policies_s3.md") in the _AWS Organizations user
+guide_.
+
+Amazon S3 Block Public Access provides settings for access points, buckets, organizations,
+and accounts to help you manage public access to Amazon S3 resources. By default, new
+buckets, access points, and objects do not allow public access. For more information,
+see [Blocking public access to your Amazon S3
 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 ###### Note
 
-Account level settings override settings on individual objects.
-Configuring your account to block public access will override any public access settings made to individual objects within your account.
+Account level settings override settings on individual objects. Configuring your account to
+block public access will override any public access settings made to individual
+objects within your account. When organization-level policies are active,
+account-level settings automatically inherit from the organization policy and cannot
+be modified directly.
 
-You can use the S3 console, AWS CLI, AWS SDKs, and REST API to configure block public
-access settings for all the buckets in your account. For more information, see the
-sections below.
+You can use the S3 console, AWS CLI, AWS SDKs, and REST API to configure block public access
+settings for all the buckets in your account when not managed by organization policies.
+For more information, see the sections below.
 
 To configure block public access settings for your buckets, see [Configuring block public access
 settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md"). For information about
@@ -39,26 +49,45 @@ storage](access-control-block-public-access.md "access-control-block-public-acce
    **Save changes**.
 5. When you're asked for confirmation, enter `confirm`. Then choose
    **Confirm** to save your changes.
-   You can use Amazon S3 Block Public Access through the AWS CLI. For more information
-   about setting up and using the AWS CLI, see [What is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md")
+   If you receive an error message that says, "This account does not allow changes to its
+   account-level S3 Block Public Access settings due to an organizational S3 Block Public Access
+   policy in effect," your account is managed by organization-level policies. Contact your
+   organization administrator to modify these settings.
+
+You can use Amazon S3 Block Public Access through the AWS CLI. For more information
+about setting up and using the AWS CLI, see [What is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md")
 
 **Account**
 
 - To perform block public access operations on an account, use the AWS CLI
   service `s3control`. The account-level operations that use
   this service are as follows:
+  - `PutPublicAccessBlock` (for an account)
+  - `GetPublicAccessBlock` (for an account)
+  - `DeletePublicAccessBlock` (for an account)
 
-      + `PutPublicAccessBlock` (for an account)
-      + `GetPublicAccessBlock` (for an account)
-      + `DeletePublicAccessBlock` (for an account)
+###### Note
 
-  For additional information and examples, see [put-public-access-block](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/put-public-access-block.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/put-public-access-block.html") in the _AWS CLI
-  Reference_.
+`PutPublicAccessBlock` and `DeletePublicAccessBlock` operations
+will return an "Access Denied" error when the account is managed by
+organization-level policies. Account-level `GetPublicAccessBlock`
+operations will return the enforced organization-level policy if
+present.
+
+For additional information and examples, see [put-public-access-block](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/put-public-access-block.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/put-public-access-block.html") in the _AWS CLI
+Reference_.
 
 Java
 The following examples show you how to use Amazon S3 Block Public
 Access with the AWS SDK for Java to put a public access block
 configuration on an Amazon S3 account.
+
+###### Note
+
+`PutPublicAccessBlock` and
+`DeletePublicAccessBlock` operations will fail
+with an "Access Denied" error if the account is managed by
+organization-level policies.
 
 ```
 
@@ -90,6 +119,14 @@ For information about using Amazon S3 Block Public Access through the REST APIs,
 see the following topics in the _Amazon Simple Storage Service API Reference_.
 
 - Account-level operations
-  - [PutPublicAccessBlock](../API/API_PutPublicAccessBlock.md "../API/API_PutPublicAccessBlock.md")
-  - [GetPublicAccessBlock](../API/API_GetPublicAccessBlock.md "../API/API_GetPublicAccessBlock.md")
-  - [DeletePublicAccessBlock](../API/API_DeletePublicAccessBlock.md "../API/API_DeletePublicAccessBlock.md")
+
+      + [PutPublicAccessBlock](../API/API_PutPublicAccessBlock.md "../API/API_PutPublicAccessBlock.md") - Fails
+       when account is managed by organization policies
+      + [GetPublicAccessBlock](../API/API_GetPublicAccessBlock.md "../API/API_GetPublicAccessBlock.md") - Returns
+       effective configuration including organization policies.
+      + [DeletePublicAccessBlock](../API/API_DeletePublicAccessBlock.md "../API/API_DeletePublicAccessBlock.md") - Fails
+       when account is managed by organization policies.
+
+  You'll see following error message for restricted operations: "This account
+  does not allow changes to its account-level S3 Block Public Access settings due
+  to an organizational S3 Block Public Access policy in effect."

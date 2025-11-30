@@ -2,42 +2,60 @@
 
 storage
 
-The Amazon S3 Block Public Access feature provides settings for access points, buckets, and accounts to
-help you manage public access to Amazon S3 resources. By default, new buckets, access points, and objects
-don't allow public access. However, users can modify bucket policies, access point policies, or
-object permissions to allow public access. S3 Block Public Access settings override these
-policies and permissions so that you can limit public access to these resources.
+The Amazon S3 Block Public Access feature provides settings for access points, buckets, accounts, and
+AWS Organizations to help you manage public access to Amazon S3 resources. By default, new buckets, access points,
+and objects don't allow public access. However, users can modify bucket policies, access point
+policies, or object permissions to allow public access. S3 Block Public Access settings
+override these policies and permissions so that you can limit public access to these
+resources.
 
-With S3 Block Public Access, account administrators and bucket owners can easily set up
-centralized controls to limit public access to their Amazon S3 resources that are enforced
-regardless of how the resources are created.
+With S3 Block Public Access, organization administrators, account administrators, and bucket
+owners can easily set up centralized controls to limit public access to their Amazon S3 resources
+that are enforced regardless of how the resources are created.
 
-For instructions on configuring public block access, see [Configuring block public
+You can manage Block Public Access settings at multiple levels: organization level (using
+AWS Organizations), account level, and bucket and access point level. For instructions on configuring public
+block access, see [Configuring block public
 access](#configuring-block-public-access "#configuring-block-public-access").
 
 When Amazon S3 receives a request to access a bucket or an object, it determines whether the
 bucket or the bucket owner's account has a block public access setting applied. If the
-request was made through an access point, Amazon S3 also checks for block public access settings for the
-access point. If there is an existing block public access setting that prohibits the requested
-access, Amazon S3 rejects the request.
+account is part of an AWS Organizations with Block Public Access policies, Amazon S3 also checks for
+organization-level settings. If the request was made through an access point, Amazon S3 also checks for
+block public access settings for the access point. If there is an existing block public access
+setting that prohibits the requested access, Amazon S3 rejects the request.
 
 Amazon S3 Block Public Access provides four settings. These settings are independent and can be
 used in any combination. Each setting can be applied to an access point, a bucket, or an entire
-AWS account. If the block public access settings for the access point, bucket, or account differ,
-then Amazon S3 applies the most restrictive combination of the access point, bucket, and account
-settings.
+AWS account. At the organization level, all four settings are applied together as a
+unified policy - you cannot select individual settings granularly. If the block public
+access settings for the access point, bucket, or account differ, then Amazon S3 applies the most
+restrictive combination of the access point, bucket, and account settings. Account-level settings automatically inherit
+organization-level policies when present, and S3 takes the most restrictive
+policy between bucket-level and effective account-level settings. For
+example, if your organization has a Block Public Access policy enabled, but
+a specific bucket has Block Public
+Access disabled at the bucket level, the bucket will still be protected
+because S3 applies the more restrictive organization/account-level
+settings. Conversely, if your organization policy is disabled but a
+bucket has Block Public Access enabled, that bucket remains protected by
+its bucket-level settings.
 
-When Amazon S3 evaluates whether an operation is prohibited by a block public access setting,
-it rejects any request that violates an access point, bucket, or account setting.
+When Amazon S3 evaluates whether an operation is prohibited by a block public access setting, it
+rejects any request that violates an organization policy (which enforces the account BPA
+setting) or an access point, bucket, or account setting.
 
 ###### Important
 
-Public access is
-granted to buckets and objects through access control lists (ACLs), access point policies, bucket policies, or
-all. To help ensure that all of your Amazon S3 access points, buckets, and objects have their
-public access blocked, we recommend that you turn on all four settings for block public
-access for your account. Additionally, we recommend that you also turn on all four settings for each bucket to comply with AWS Security Hub Foundational Security Best Practices control S3.8. These settings block public access for all current and future
-buckets and access points.
+Public access is granted to buckets and objects through access control lists (ACLs), access
+point policies, bucket policies, or all. To help ensure that all of your
+Amazon S3 access points, buckets, and objects have their public access blocked,
+we recommend that you turn on all four settings for block public access for your
+account. For organizations managing multiple accounts, consider using organization-level
+Block Public Access policies for centralized control. Additionally, we recommend that
+you also turn on all four settings for each bucket to comply with AWS Security Hub
+Foundational Security Best Practices control S3.8. These settings block public access
+for all current and future buckets and access points.
 
 Before applying these settings, verify that your applications will work
 correctly without public access. If you require some level of public access to your
@@ -55,18 +73,22 @@ access:
 
 ###### Note
 
-- You can enable block public access settings only for access points, buckets, and
+- You can enable block public access settings only for organizations, access points, buckets, and
   AWS accounts. Amazon S3 doesn't support block public access settings on a
   per-object basis.
 - When you apply block public access settings to an account, the settings apply
   to all AWS Regions globally. The settings might not take effect in all Regions
   immediately or simultaneously, but they eventually propagate to all
   Regions.
+- When you apply organization-level block public access policies, they
+  automatically propagate to selected member accounts and override account-level
+  settings.
 
 ###### Topics
 
-- [Block public access
-  settings](#access-control-block-public-access-options "#access-control-block-public-access-options")
+- [Block public access settings](#access-control-block-public-access-options "#access-control-block-public-access-options")
+- [Managing block public
+  access at organization level](#access-control-block-public-access-organization-level "#access-control-block-public-access-organization-level")
 - [Performing
   block public access operations on an access point](#access-control-block-public-access-examples-access-point "#access-control-block-public-access-examples-access-point")
 - [The meaning of
@@ -81,15 +103,30 @@ access:
 - [Configuring block public access
   settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md")
 
-## Block public access
-
-settings
+## Block public access settings
 
 S3 Block Public Access provides four settings. You can apply these settings in any
-combination to individual access points, buckets, or entire AWS accounts. If you apply a
-setting to an account, it applies to all buckets and access points that are owned by that
-account. Similarly, if you apply a setting to a bucket, it applies to all access points
+combination to individual access points, buckets, or entire AWS accounts. At the organization
+level, you can only enable or disable all four settings together using an "all" or
+"none" approach - granular control over individual settings is not available. If you
+apply a setting to an account, it applies to all buckets and access points that are owned by
+that account. Account-level settings automatically inherit from organization policies
+when present. Similarly, if you apply a setting to a bucket, it applies to all access points
 associated with that bucket.
+
+The policy inheritance and enforcement works as follows:
+
+- Organization-level policies automatically apply to member accounts, enforcing
+  any existing account-level settings
+- Account-level setting inherit from organization policies when present, or use
+  locally configured settings when no organization policy exists
+- Bucket-level settings operate independently but are subject to enforcement
+  restrictions. S3 applies the most restrictive combination across all applicable
+  levels - organization/account-level and bucket-level settings. This means a
+  bucket inherits the baseline protection from its account (which may be
+  organization-managed), but S3 will enforce whichever configuration is more
+  restrictive between the bucket's settings and the account's effective
+  settings.
 
 The following table contains the available settings.
 
@@ -112,6 +149,18 @@ The following table contains the available settings.
 - Block public access settings don't alter existing policies or ACLs.
   Therefore, removing a block public access setting causes a bucket or object
   with a public policy or ACL to again be publicly accessible.
+
+## Managing block public
+
+access at organization level
+
+Organization-level block public access uses AWS Organizations policies to centrally manage S3 public
+access controls across your entire organization. When enabled, these policies
+automatically apply to selected accounts and override individual account-level
+settings.
+
+For additional information on block public access at an organization level, see [S3 policy](../../../organizations/latest/userguide/orgs_manage_policies_s3.md "../../../organizations/latest/userguide/orgs_manage_policies_s3.md") in the _AWS Organizations user
+guide_.
 
 ## Performing
 

@@ -47,27 +47,29 @@ See the following example ABAC policies for Amazon S3 buckets.
 
 #### 1.1 - IAM policy to create or modify buckets with specific tags
 
-In this bucket policy, IAM principals (users and roles) are denied `s3:ListBucket`, `s3:GetObject`, and `s3:PutObject` actions on the bucket only if value of the `project` tag on the bucket matches the value of the `project` tag on the principal.
+In this IAM policy, users or roles with this policy can only create S3 buckets if they tag the bucket with the tag key `project` and tag value `Trinity` in the bucket creation request. They can also add or modify tags on existing S3 buckets as long as the `TagResource` request includes the tag key-value pair `project:Trinity`. This policy does not grant read, write, or delete permissions on the buckets or its objects.
 
 ```
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DenyObjectOperations",
-            "Effect": "Deny",
-            "Principal": "*",
-            "Action": ["s3:ListBucket",
-                       "s3:GetObject",
-                       "s3:PutObject"],
-            "Resource": "arn:aws:s3:::aws-s3-demo/*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/project": "${aws:PrincipalTag/project}"
-                }
-            }
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CreateBucketWithTags",
+      "Effect": "Allow",
+      "Action": [
+        "s3:CreateBucket",
+        "s3:TagResource"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/project": [
+            "Trinity"
+          ]
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 

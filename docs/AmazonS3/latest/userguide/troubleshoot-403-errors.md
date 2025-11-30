@@ -546,8 +546,7 @@ s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`" wi
 an explicit deny in a resource-based policy
 ```
 
-For more information about these settings, see [Block public access
-settings](access-control-block-public-access.md#access-control-block-public-access-options "access-control-block-public-access.md#access-control-block-public-access-options"). To review and update
+For more information about these settings, see [Block public access settings](access-control-block-public-access.md#access-control-block-public-access-options "access-control-block-public-access.md#access-control-block-public-access-options"). To review and update
 these settings, see [Configuring block public
 access](access-control-block-public-access.md#configuring-block-public-access "access-control-block-public-access.md#configuring-block-public-access").
 

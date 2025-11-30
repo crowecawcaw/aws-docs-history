@@ -56,6 +56,7 @@ you must have the following `s3tables` permissions:
   information, see [Permissions for SSE-KMS](#metadata-kms-permissions "#metadata-kms-permissions").
 - `kms:DescribeKey` – This permission allows you to retrieve information about a
   KMS key.
+- `s3tables:PutTableBucketPolicy` – This permission allows you to create or update a new table bucket policy.
   For detailed information about all table and table bucket permissions, see [Access
   management for S3 Tables](s3-tables-setting-up.md "s3-tables-setting-up.md").
 

@@ -72,7 +72,7 @@ mount-s3 --version
 You should see output similar to the following:
 
 ```
-mount-s3 1.3.1
+mount-s3 1.21.0
 ```
 
 ## DEB-based distributions
@@ -133,7 +133,7 @@ mount-s3 --version
 You should see output similar to the following:
 
 ```
-mount-s3 1.3.1
+mount-s3 1.21.0
 ```
 
 ## Other Linux distributions
@@ -208,7 +208,7 @@ mount-s3 --version
 You should see output similar to the following:
 
 ```
-mount-s3 1.3.1
+mount-s3 1.21.0
 ```
 
 ## Verifying the signature of the Mountpoint for Amazon S3

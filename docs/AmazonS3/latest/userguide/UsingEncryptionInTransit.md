@@ -1,76 +1,124 @@
-# Using hybrid post-quantum TLS with
+# Protecting data in transit with
 
-Amazon S3
+encryption
 
-Amazon S3 supports a hybrid post-quantum key exchange option for the TLS network encryption
-protocol. You can use this TLS option when you make requests to Amazon S3 endpoints utilizing TLS
-1.3. The classic cipher suites that S3 supports for TLS sessions make brute force attacks on
-the key exchange mechanisms infeasible with current technology. However, if a
-cryptographically relevant quantum computer becomes practical in the future, the classic
-cipher suites used in TLS key exchange mechanisms will be susceptible to these attacks. At
-present, the industry is aligned on hybrid post-quantum key exchange that combines classic
-and post-quantum elements to ensure that your TLS connection is at least as strong as it
-would be with classic cipher suites. Amazon S3 supports hybrid PQ-TLS, in compliance with the
-industry-standard IANA specification, today
+Amazon S3 supports both HTTP and HTTPS protocols for data transmission. HTTP transmits data in
+plain text, while HTTPS adds a security layer by encrypting data using Transport Layer
+Security (TLS). TLS protects against eavesdropping, data tampering, and man-in-the-middle
+attacks. While HTTP traffic is accepted, most implementations use encryption in transit with
+HTTPS and TLS to protect data as it travels between clients and Amazon S3.
 
-If you’re developing applications that rely on the long-term confidentiality of data
-passed over a TLS connection, you should consider a plan to migrate to post-quantum
-cryptography before large-scale quantum computers become available for use. As part of the
-shared responsibility model, S3 enables quantum-safe cryptography on our service endpoints.
-As browsers and applications enable PQ-TLS on their side, S3 will choose the strongest
-possible configuration to secure data in transit.
+## TLS 1.2 and TLS 1.3 Support
 
-**Supported endpoint types and
-AWS Regions**
-
-Post-quantum TLS for Amazon S3 is available in all AWS Regions. For a list of S3 endpoints for
-each AWS Region, see [Amazon Simple Storage Service
-endpoints and quotas](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md") in the _Amazon Web Services General Reference_.
+Amazon S3 supports TLS 1.2 and TLS 1.3 for HTTPS connections across all API endpoints for all
+AWS Regions. S3 automatically negotiates the strongest TLS protection supported by
+your client software, and the S3 endpoint you are accessing. Current AWS tools (2014
+or later) including the AWS SDKs and AWS CLI automatically default to TLS 1.3 with no action
+required on your part. You can override this automatic negotiation through client
+configuration settings to specify a particular TLS version if backward compatibility to
+TLS 1.2 is needed. When using TLS 1.3, you can optionally configure hybrid post quantum
+key exchange (ML-KEM) to make quantum-resistant requests to Amazon S3. For more information,
+see [Configuring hybrid post-quantum TLS for your client](pqtls-how-to.md "pqtls-how-to.md").
 
 ###### Note
 
-Hybrid post-quantum TLS is supported for all S3 endpoints except for AWS PrivateLink for Amazon S3,
-Multi-Region Access Points, and S3 Vectors.
+TLS 1.3 is supported in all S3 endpoints, except for AWS PrivateLink for Amazon S3 and
+Multi-Region Access Points.
 
-## Using hybrid post-quantum TLS with Amazon S3
+## Monitoring TLS usage
 
-You must configure the client that makes requests to Amazon S3 to support hybrid post-quantum
-TLS. When setting up your HTTP client test environment or production environments, be
-aware of the following information:
+You can use either Amazon S3 server access logs or AWS CloudTrail to monitor requests to Amazon S3 buckets.
+Both logging options record the TLS version and cipher suite used in each
+request.
 
-**Encryption in Transit**
+- **Amazon S3 server access logs** – Server access logging provides
+  detailed records for the requests that are made to a bucket. For example, access
+  log information can be useful in security and access audits. For more
+  information, see [Amazon S3 server access log format](LogFormat.md "LogFormat.md").
+- **AWS CloudTrail** – [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") is a service that provides a record of actions taken by a
+  user, role, or an AWS service. CloudTrail captures all API calls for Amazon S3 as events.
+  For more information, see [Amazon S3 CloudTrail events](cloudtrail-logging-s3-info.md "cloudtrail-logging-s3-info.md").
 
-Hybrid post-quantum TLS is only used for encryption in transit. This protects your data
-while it is traveling from your client to the S3 endpoint. This new support combined
-with Amazon S3’s server-side encryption by default utilizing AES-256
-algorithms offers customers quantum-resistant encryption both in-transit and at-rest.
-For more information about server-side encryption in Amazon S3, see [Protecting data with server-side encryption](serv-side-encryption.md "serv-side-encryption.md").
+## Enforcing encryption in transit
 
-**Supported Clients**
+It’s a security best practice to enforce encryption of data in transit to Amazon S3. You can
+enforce HTTPS-only communication or the use of specific TLS version through various
+policy mechanisms. These include IAM resource-based policies for S3 buckets ([bucket policies](bucket-policies.md "bucket-policies.md")), [Service Control
+Policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") (SCPs), [Resource Control
+Policies](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") (RCPs), and [VPC endpoint
+policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md").
 
-The use of hybrid post-quantum TLS requires using a client that supports this functionality.
-AWS SDKs and tools have cryptographic capabilities and configuration that differ across
-languages and runtimes. To learn more about post-quantum cryptography for specific
-tools, see [Enabling hybrid
-post-quantum TLS](../../../payment-cryptography/latest/userguide/pqtls-details.md "../../../payment-cryptography/latest/userguide/pqtls-details.md").
+### Bucket policy examples for enforcing encryption in transit
 
-###### Note
+You can use the [S3 condition key](../../../service-authorization/latest/reference/list_amazons3.md#amazons3-policy-keys "../../../service-authorization/latest/reference/list_amazons3.md#amazons3-policy-keys")
+`s3:TlsVersion` to restrict access to Amazon S3 buckets based on the TLS
+version that's used by the client. For more information, see [Example 6: Requiring a minimum TLS
+version](amazon-s3-policy-keys.md#example-object-tls-version "amazon-s3-policy-keys.md#example-object-tls-version").
 
-PQ-TLS key exchange details for requests to Amazon S3 are not available in AWS CloudTrail events or S3 server access logs.
+###### Example bucket policy enforcing TLS 1.3 using the `S3:TlsVersion` condition
 
-## Learn more about post-quantum TLS
+key
 
-For more information about using hybrid post-quantum TLS, see the following
-resources.
+```
+`{
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DenyInsecureConnections",
+ "Effect": "Deny",
+ "Principal": "*",
+ "Action": "s3:*",
+ "Resource": [
+ "arn:aws:s3:::``amzn-s3-demo-bucket1``",
+ "arn:aws:s3:::``amzn-s3-demo-bucket1``/*"
+ ],
+ "Condition": {
+ "NumericLessThan": {
+ "s3:TlsVersion": "1.3"
+ }
+ }
+ }
+ ]
+}`
+```
 
-- To learn about post-quantum cryptography at AWS, including links to blog posts and
-  research papers, see [Post-Quantum Cryptography for AWS](https://aws.amazon.com/security/post-quantum-cryptography/ "https://aws.amazon.com/security/post-quantum-cryptography/").
-- For information about s2n-tls, see [Introducing s2n-tls, a New Open Source TLS Implementation](https://aws.amazon.com/blogs/security/introducing-s2n-a-new-open-source-tls-implementation/ "https://aws.amazon.com/blogs/security/introducing-s2n-a-new-open-source-tls-implementation/") and
-  [Using
-  s2n-tls](https://github.com/aws/s2n-tls/tree/main/docs/usage-guide "https://github.com/aws/s2n-tls/tree/main/docs/usage-guide").
-- For information about the AWS Common Runtime HTTP Client, see [Configuring the AWS CRT-based HTTP
-  client](../../../sdk-for-java/latest/developer-guide/http-configuration-crt.md "../../../sdk-for-java/latest/developer-guide/http-configuration-crt.md") in the _AWS SDK for Java 2.x Developer Guide_.
-- For information about the post-quantum cryptography project at the National Institute
-  for Standards and Technology (NIST), see [Post-Quantum
-  Cryptography](https://csrc.nist.gov/Projects/Post-Quantum-Cryptography "https://csrc.nist.gov/Projects/Post-Quantum-Cryptography").
-- For information about NIST post-quantum cryptography standardization, see [NIST's Post-Quantum Cryptography Standardization](https://csrc.nist.gov/Projects/post-quantum-cryptography/post-quantum-cryptography-standardization "https://csrc.nist.gov/Projects/post-quantum-cryptography/post-quantum-cryptography-standardization").
+You can use the `aws:SecureTransport`
+[global
+condition key](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in your S3 bucket policy to check whether the request was
+sent through HTTPS (TLS). Unlike the previous example, this condition does not check
+for a specific TLS version. For more information, see [Restrict access to only
+HTTPS requests](example-bucket-policies.md#example-bucket-policies-use-case-HTTP-HTTPS-1 "example-bucket-policies.md#example-bucket-policies-use-case-HTTP-HTTPS-1").
+
+###### Example bucket policy enforcing HTTPS using the `aws:SecureTransport` global condition
+
+key
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "RestrictToTLSRequestsOnly",
+ "Action": "s3:*",
+ "Effect": "Deny",
+ "Resource": [
+ "arn:aws:s3:::``amzn-s3-demo-bucket1``",
+ "arn:aws:s3:::``amzn-s3-demo-bucket1``/*"
+ ],
+ "Condition": {
+ "Bool": {
+ "aws:SecureTransport": "false"
+ }
+ },
+ "Principal": "*"
+ }
+ ]
+}`
+```
+
+###### Example policy based on both keys and more examples
+
+You can use both types of condition keys in the previous examples in one
+policy. For more information and additional enforcement approaches, see the
+AWS Storage Blog article [Enforcing encryption in transit with TLS1.2 or higher with
+Amazon S3](https://aws.amazon.com/blogs/storage/enforcing-encryption-in-transit-with-tls1-2-or-higher-with-amazon-s3/ "https://aws.amazon.com/blogs/storage/enforcing-encryption-in-transit-with-tls1-2-or-higher-with-amazon-s3/").

@@ -89,8 +89,15 @@ access:
 - Use S3 Block Public Access. With S3 Block Public Access, you can
   easily set up centralized controls to limit public access to your
   Amazon S3 resources. These centralized controls are enforced regardless
-  of how the resources are created. For more information, see [Blocking public access to your Amazon S3
-  storage](access-control-block-public-access.md "access-control-block-public-access.md").
+  of how the resources are created. For organizations managing
+  multiple AWS accounts, you can now use organization-level
+  enforcement through AWS Organizations to centrally manage S3 Block Public
+  Access settings across your entire organization with a single policy
+  configuration.
+
+For more information, see [Blocking public access to your Amazon S3
+storage](access-control-block-public-access.md "access-control-block-public-access.md").
+
 - Identify Amazon S3 bucket policies that allow a wildcard identity such
   as `"Principal": "*"` (which effectively means "anyone").
   Also look for policies that allow a wildcard action `"*"`
@@ -110,6 +117,23 @@ access:
   [s3-bucket-public-read-prohibited](../../../config/latest/developerguide/s3-bucket-public-read-prohibited.md "../../../config/latest/developerguide/s3-bucket-public-read-prohibited.md") and
   [s3-bucket-public-write-prohibited](../../../config/latest/developerguide/s3-bucket-public-write-prohibited.md "../../../config/latest/developerguide/s3-bucket-public-write-prohibited.md")
   managed AWS Config Rules.
+
+**For organizations with multiple AWS accounts,
+consider using organization-level Block Public Access
+management:**
+
+- Centralized policy management: Use AWS Organizations to create a single S3
+  Block Public Access policy that automatically applies to all member
+  accounts or selected organizational units (OUs).
+- Automatic inheritance: When you attach the policy at the root or
+  OU level, new member accounts automatically inherit the Block Public
+  Access settings without individual account setup.
+- Simplified compliance: Organization-level policies eliminate the
+  need to maintain complex Service Control Policies (SCPs) for Block
+  Public Access enforcement and reduce operational overhead of
+  managing individual account configurations.
+- Audit capabilities: Use AWS CloudTrail to monitor policy attachment and
+  enforcement across member accounts for compliance tracking.
 
 For more information, see [Identity and Access Management for Amazon S3](security-iam.md "security-iam.md").
 

@@ -22,6 +22,7 @@ Iceberg, such as Amazon Athena, Amazon Redshift, and Apache Spark.
 - [Table namespaces](s3-tables-namespace.md "s3-tables-namespace.md")
 - [Tables in S3 table buckets](s3-tables-tables.md "s3-tables-tables.md")
 - [Accessing table data](s3-tables-access.md "s3-tables-access.md")
+- [Working with Apache Iceberg V3](working-with-apache-iceberg-v3.md "working-with-apache-iceberg-v3.md")
 - [S3 Tables AWS Regions, endpoints, and service
   quotas](s3-tables-regions-quotas.md "s3-tables-regions-quotas.md")
 - [Making requests to S3 Tables over IPv6](s3-tables-ipv6.md "s3-tables-ipv6.md")
