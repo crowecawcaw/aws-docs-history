@@ -6,8 +6,6 @@ AWS recommends the following best practices for using upgrade rollout policies.
 
 ###### Topics
 
-- [Leverage
-  readiness assessments](#orgs_manage_policies_upgrade_best_practices_readiness "#orgs_manage_policies_upgrade_best_practices_readiness")
 - [Start small and
   scale gradually](#orgs_manage_policies_upgrade_best_practices_scale "#orgs_manage_policies_upgrade_best_practices_scale")
 - [Establish review
@@ -20,22 +18,6 @@ AWS recommends the following best practices for using upgrade rollout policies.
   compliance and security](#orgs_manage_policies_upgrade_best_practices_compliance "#orgs_manage_policies_upgrade_best_practices_compliance")
 - [Optimize
   operational efficiency](#orgs_manage_policies_upgrade_best_practices_optimize "#orgs_manage_policies_upgrade_best_practices_optimize")
-
-## Leverage
-
-readiness assessments
-
-Before implementing upgrade rollout policies across your organization, use the account
-status report to evaluate your current environment. This report provides valuable
-insights into the uniformity of configurations across your accounts and organizational
-units. Understanding the existing patterns in your environment helps you make informed
-decisions about policy implementation. Pay particular attention to identifying critical
-resources and their dependencies.
-
-When assessing readiness, consider both the immediate impact of policy changes and
-their long-term effects on your upgrade management strategy. Your assessment should
-include reviewing maintenance windows, identifying resource relationships, and
-understanding the upgrade patterns specific to each AWS service you use.
 
 ## Start small and
 

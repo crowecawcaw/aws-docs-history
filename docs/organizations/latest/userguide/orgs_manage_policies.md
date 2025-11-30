@@ -75,6 +75,8 @@ their features across an organization.
   centrally applying them across an organization.
 - **[Amazon Inspector policies](orgs_manage_policies_inspector.md "orgs_manage_policies_inspector.md")** allow you to centrally enable and manage Amazon Inspector across accounts in your AWS organization.
 - **[Amazon Bedrock policies](orgs_manage_policies_bedrock.md "orgs_manage_policies_bedrock.md")** allow you to enforce safeguards configured in Amazon Bedrock Guardrails automatically across any element in your organization structure for all model inference calls to Amazon Bedrock.
+- **[Upgrade rollout policies](orgs_manage_policies_upgrade_rollout.md "orgs_manage_policies_upgrade_rollout.md")** allow you to centrally manage and stagger automatic upgrades across multiple AWS resources and accounts in your organization.
+- **[Amazon S3 policies](orgs_manage_policies_s3.md "orgs_manage_policies_s3.md")** allow you to centrally manage configurations for Amazon S3 resources at scale across the accounts in an organization.
 
 The following table summarizes some of the characteristics of each policy type. For
 additional characteristics about these policy types, see [Quotas and service limits for AWS Organizations](orgs_reference_limits.md "orgs_reference_limits.md").
@@ -89,3 +91,7 @@ additional characteristics about these policy types, see [Quotas and service lim
 | Chat applications policy   | Management      | Yes                        | 5                                                       | 10,000 characters | Yes                                                 |
 | AI services opt-out policy | Management      | Yes                        | 5                                                       | 2500 characters   | Yes                                                 |
 | Security Hub policy        | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Amazon Inspector policy    | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Amazon Bedrock policy      | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Upgrade rollout policy     | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| S3 policy                  | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |

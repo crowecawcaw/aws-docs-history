@@ -61,7 +61,7 @@ AWS Organizations console, AWS Command Line Interface (AWS CLI), or AWS SDKs.
 
 ### Minimum permissions
 
-To create an Amazon Inspector policy, you need permission to run the following action:
+To create an Amazon Inspector policy, you need the following permission:
 
 - `organizations:CreatePolicy`
 

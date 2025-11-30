@@ -20,3 +20,4 @@ understand relevant terms and concepts about management policies.
 - [Amazon Bedrock policies](orgs_manage_policies_bedrock.md "orgs_manage_policies_bedrock.md")
 - [Amazon Inspector policies](orgs_manage_policies_inspector.md "orgs_manage_policies_inspector.md")
 - [Upgrade rollout policies](orgs_manage_policies_upgrade_rollout.md "orgs_manage_policies_upgrade_rollout.md")
+- [Amazon S3 policies](orgs_manage_policies_s3.md "orgs_manage_policies_s3.md")

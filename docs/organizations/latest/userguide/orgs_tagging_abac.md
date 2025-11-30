@@ -138,7 +138,7 @@ the following syntax:
 
 You can use [`ForAllValues:`](../../../IAM/latest/UserGuide/reference_policies_multi-value-conditions.md#reference_policies_multi-key-or-value-conditions "../../../IAM/latest/UserGuide/reference_policies_multi-value-conditions.md#reference_policies_multi-key-or-value-conditions") to preface the comparison operator to ensure
 that all of the keys in the request must match one of the keys specified in the policy.
-For example, the following sample policy allows any Organizations operation only if all tags present in the request are a**_subset of the three_** tags in this policy.
+For example, the following sample policy allows any Organizations operation only if all tags present in the request are a***subset of the three*** tags in this policy.
 
 JSON
 

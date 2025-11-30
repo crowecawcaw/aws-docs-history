@@ -93,7 +93,15 @@ it's created. This policy allows all services and actions. You can replace
 that new AWS services are not allowed unless they are explicitly allowed by updating
 SCPs. For example, if your organization wants to only allow the use of a subset of
 services in your environment, you can use an `Allow` statement to only allow
-specific services.
+specific services. You can choose to either replace **FullAWSAccess**
+at the root level or at every level. If you attach a service-specific allowlist SCP at the root,
+it automatically applies to all OUs and accounts beneath it—meaning a single root-level policy
+determines the effective service allowlist across the entire organization as shown in scenario 7.
+Alternatively, you can remove and replace **FullAWSAccess** at each OU and account,
+allowing you to implement more granular service allowlists that differ between organizational units or individual accounts.
+
+Note: Relying solely on allow statements and the implicit deny-by-default model can lead to unintended access,
+because broader or overlapping Allow statements can override more restrictive ones.
 
 JSON
 
@@ -219,3 +227,15 @@ the root-level. Accounts E and F can access other services except for S3 because
 the explicit deny at the root-level.
 
 ![Scenario 6: Root-level deny affects all accounts regardless of lower-level allows](images/scp_scenario_6.png)
+
+### Scenario 7: Root level custom allow policies to restrict OU-level access
+
+This scenario demonstrates how SCPs with explicit service allow lists function when applied at root
+level within an AWS Organizations. At the organization root level, two custom "Service Allow" SCPs are attached
+that explicitly permits access to a limited set of AWS services — SCP_1 allows IAM and Amazon EC2, SCP_2 allows Amazon S3
+and Amazon CloudWatch. At the organizational unit (OU) level, the default FullAWSAccess policy remains attached.
+However, due intersection behaviour, accounts A and B under these OUs can only access the services explicitly
+permitted by the root-level SCP. The more restrictive root policy takes precedence, effectively limiting access
+to only IAM, EC2, S3, and CloudWatch services, regardless of the broader permissions granted at lower organizational levels.
+
+![Scenario 7: Root level custom allow policies to restrict OU-level access](images/scp_scenario_7.png)

@@ -58,7 +58,7 @@ account**.
 Any member account that you close will display a
 `CLOSED` label next to its account name in the
 AWS Organizations console for up to 90 days after the original closure date.
-After 90 days, the member account will no longer be displayed in the AWS Organizations console.
+After 90 days, the member account will be permanently closed and will no longer be displayed in the AWS Organizations console. Please note that it may take a few days for the account to be removed from the organization after permanent closure.
 
 **To close a member account from the Accounts
 page**

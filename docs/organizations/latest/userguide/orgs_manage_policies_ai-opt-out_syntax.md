@@ -123,6 +123,7 @@ elements:
     	- `transcribe`
     	- `transform`
     	- `translate`
+    	- `securityhub`
     Each policy statement identified by a service name key can contain the
      following elements:
 

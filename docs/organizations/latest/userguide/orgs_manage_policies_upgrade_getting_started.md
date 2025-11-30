@@ -46,7 +46,6 @@ steps
    - Designate production resources for last-order upgrades
 
 6. Monitor and validate the policy:
-   - Generate an account status report
    - Review upgrade order assignments
    - Verify policy effects on test resources
 
