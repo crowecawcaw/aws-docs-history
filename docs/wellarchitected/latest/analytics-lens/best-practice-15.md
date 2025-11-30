@@ -1,36 +1,29 @@
-# Best practice 15.1 – Define your organization’s current environmental impact
+# Best practice 15.2 – Encourage sustainable thinking
 
-As an organization, you should track your progress towards your sustainability goals. By determining your current environmental impact, you can track and report improvements as you make changes over time. Without knowing where you are you can’t know how far you’ve come.
+Software architects are often encouraged to apply systems thinking to the problems they tackle. To zoom out and look at the bigger picture and how the different components interact and form a whole. To build sustainable cloud workloads also requires sustainability thinking – including environmental impact as a parameter in design and planning.
 
-**How do you track your analytics
-carbon footprint?**
+Organizations should include sustainability requirements when considering new projects, and continuously evaluate the environmental impact of existing workloads. They should find the balance between business needs and sustainable goals – and creative solutions to achieve both.
 
-## Suggestion 15.1.1 – Determine the carbon emissions of your workload using the AWS Customer Carbon Footprint Tool
+Encourage questioning business requirements on sustainability grounds. For example, when considering the update frequency of dashboards, include the impact on things like energy usage in the discussions. Sometimes this leads to insights such as that only some of the KPIs need frequent updates, while the majority of the dashboard contents only need updating once per day. This can result in a reduction in energy usage while still delivering the same business value.
 
-Determining the current carbon emissions of your analytics workloads at the start of your optimization journey is important as it enables you to track your changes and see what efforts have the biggest impact. If you are an AWS user, your
-organization can use the AWS Customer Carbon Footprint Tool. The AWS Customer Carbon
-Footprint Tool is a data tracking and visualization tool that reports on your AWS accounts carbon usage.
+## Suggestion 15.2.1 – Review the update frequency of your reports and dashboards
 
-Your organization should maintain an audit trail of the changes that your team
-have made, when they were made, and the impact that the changes had on the carbon
-footprint of each workload.
+Running reports and refreshing dashboards can be a compute intensive process. Continuously review the business requirements and question how frequently refreshes are needed. Can some reports be run only on demand because they are accessed infrequently? Can reports that today run on demand instead be run on a schedule to have them always available instead of multiple people running them many times per day? Does every KPI need to be refreshed at the same time?
 
-For more details, refer to the following information:
+## Suggestion 15.2.2 – Review your reports, dashboards, and metrics and remove what is no longer needed
 
-- [AWS Customer Carbon Footprint Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/ "https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/")
-- [AWS Customer Carbon
-  Footprint Tool Overview](https://www.youtube.com/watch?v=WqhAnLdg3rg "https://www.youtube.com/watch?v=WqhAnLdg3rg")
-- [Sustainability Pillar Improvement Process](../sustainability-pillar/improvement-process.md "../sustainability-pillar/improvement-process.md")
-- [Sustainability Pillar Improvement Process](../sustainability-pillar/improvement-process.md "../sustainability-pillar/improvement-process.md")
+As organizations evolve, so does business requirements.. Over time, some reports and dashboards become more important and used, and others less. New metrics become important, and reports and dashboards accumulate elements that are no longer necessary.
 
-## Suggestion 15.1.2 – Define and track your progress using proxy metrics
+Continually evaluate business requirements and remove what is no longer needed. Remove metrics from reports when they are not necessary, and remove whole reports and dashboards when they lose their relevance. Eﬃcient reporting has a positive impact on your sustainability goals. Your organization can also identify similar goals across teams or departments to reduce the number of separate reports and thereby reduce duplication and overlap.
 
-When something is hard or impractical or very difficult to measure directly, you can instead use a related measurements in its place. This is called a _proxy metric_.
+## Suggestion 15.2.3– Review the running frequency of your data pipelines
 
-Environmental impact is hard to measure directly, especially when you want fine-grained measurements. However, in the cloud, the environmental impact of a workload is often correlated with efficiency, which is also often correlated with cost. Just like you can apply many of the best practices of the performance efficiency and cost optimization pillars to lower your environmental impact, you can also use performance metrics and cost as proxy metrics to track your progress.
+Data pipelines are the backbone of analytics platforms. They process data and produce new data sets. They are compute-intensive processes that can have a big impact on the overall environmental impact of your analytics platform. The more frequently they run, the higher the impact. Work backwards from your business requirements and decide appropriate running frequencies that balance business value and environmental impact.
 
-For more details, refer to the following information:
+Consider splitting pipeline jobs when there is an opportunity to run the majority of its calculations on a lower frequency while still maintaining the overall business goals.
 
-- [Evaluate specific improvements](../sustainability-pillar/evaluate-specific-improvements.md "../sustainability-pillar/evaluate-specific-improvements.md")
-- [Turning Cost and Usage Reports into Efficiency Reports](https://catalog.workshops.aws/well-architected-sustainability/en-US/5-process-and-culture/cur-reports-as-efficiency-reports "https://catalog.workshops.aws/well-architected-sustainability/en-US/5-process-and-culture/cur-reports-as-efficiency-reports")
-- [Best practice 8.3 – Define and measure the computing performance metrics](best-practice-8.3---define-and-measure-the-computing-performance-metrics..md "best-practice-8.3---define-and-measure-the-computing-performance-metrics..md")
+## Suggestion 15.2.4– Be flexible in your job schedules
+
+It’s common to run jobs on regular schedules, like hourly or daily, often at the top of the hour. When using managed and serverless technologies, the service often keeps a warm pool of compute resources to be able to meet demand. The pool needs to be managed to meet peaks in demand, and for job-oriented services this often coincides with the top of the hour. By being flexible in when you run your jobs, and for example avoiding the top of the hour, you can help the service smooth out demand.
+
+This is similar to how you can optimize your own resource usage by implementing buffering and throttling, as described in [SUS02-BP06 Implement buffering or throttling to flatten the demand curve](../sustainability-pillar/sus_sus_user_a7.md "../sustainability-pillar/sus_sus_user_a7.md").
