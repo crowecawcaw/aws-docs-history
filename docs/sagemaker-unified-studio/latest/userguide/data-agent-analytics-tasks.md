@@ -156,8 +156,10 @@ print(spending_data['total_spent'].describe())
 
 ```
 
-## Error handling and fix with the SageMaker Data Agent
+## Error handling and fix with the SageMaker Data
 
-When code execution fails, the SageMaker Data Agent can analyze error messages and suggest
-corrections. Use the fix with agent capability to automatically generate corrected
+Agent
+
+When code execution fails, the SageMaker Data Agent can analyze error messages and
+suggest corrections. Use the fix with agent capability to automatically generate corrected
 code.

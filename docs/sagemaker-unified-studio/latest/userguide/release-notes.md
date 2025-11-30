@@ -2,22 +2,95 @@
 
 The following sections describe the feature releases for Amazon SageMaker Unified Studio.
 
+## November 2025
+
+### November 21, 2025
+
+**Introducing one-click onboarding of existing datasets to Amazon
+SageMaker**
+
+Amazon SageMaker Unified Studio now offers one-click onboarding that helps customers start
+working with their existing AWS data in minutes. Customers can start directly from Amazon
+SageMaker, Amazon Athena, Amazon Redshift, or Amazon S3 Tables, giving them a fast path from
+their existing tools and data to the simple experience in SageMaker Unified Studio. After
+clicking "Get Started" and specifying an AWS IAM role, SageMaker automatically creates a
+project with all existing data permissions intact from AWS Glue Data Catalog, AWS Lake
+Formation, and Amazon S3. A notebook and serverless compute are pre-configured to accelerate
+first use. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-one-click-onboarding-existing-datasets/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-one-click-onboarding-existing-datasets/").
+
+**Announcing notebooks with a built-in AI agent in Amazon
+SageMaker**
+
+The new SageMaker notebooks provide data and AI teams a high-performance, serverless
+programming environment for analytics and machine learning jobs. Customers can quickly get
+started working with data without pre-provisioning data processing infrastructure. The notebook
+gives data engineers, analysts, and data scientists one place to perform SQL queries, execute
+Python code, process large-scale data jobs, run machine learning workloads and create
+visualizations, without having to switch between tools. It is powered by Amazon Athena for
+Apache Spark, automatically scaling from interactive queries to petabyte-scale processing. A
+built-in AI agent accelerates development by generating code and SQL statements from natural
+language prompts while guiding users through their tasks. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/notebooks-built-in-ai-agent-amazon-sagemaker/ "https://aws.amazon.com/about-aws/whats-new/2025/11/notebooks-built-in-ai-agent-amazon-sagemaker/").
+
+**Introducing Amazon SageMaker Data Agent for analytics and AI/ML
+development**
+
+SageMaker Data Agent works within new SageMaker notebooks to break down complex analytics
+and ML tasks into manageable steps. Customers can describe objectives in natural language and
+the agent creates a detailed execution plan and generates the required SQL and Python code. The
+agent maintains awareness of the notebook context, including available data sources, schemas,
+and catalog information, managing common tasks including data transformation, statistical
+analysis, and model development. This helps data engineers, analysts, and data scientists who
+spend significant time on manual setup tasks and boilerplate code build analytics and ML
+applications faster. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-data-agent-analytics-ai-ml-development/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-data-agent-analytics-ai-ml-development/").
+
+**Amazon Athena for Apache Spark is now available in Amazon SageMaker
+notebooks**
+
+Amazon SageMaker now supports Amazon Athena for Apache Spark, bringing a new notebook
+experience and fast serverless Spark experience together within a unified workspace. Now, data
+engineers, analysts, and data scientists can easily query data, run Python code, develop jobs,
+train models, visualize data, and work with AI from one place, with no infrastructure to manage
+and second-level billing. Athena for Apache Spark scales in seconds to support any workload,
+from interactive queries to petabyte-scale jobs. Athena for Apache Spark now runs on Spark
+3.5.6, the same high-performance Spark engine available across AWS, optimized for open table
+formats including Apache Iceberg and Delta Lake. It brings you new debugging features, real-time
+monitoring in the Spark UI, and secure interactive cluster communication through Spark Connect.
+As you use these capabilities to work with your data, Athena for Spark now enforces table-level
+access controls defined in AWS Lake Formation. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-athena-apache-spark-sagemaker-notebooks/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-athena-apache-spark-sagemaker-notebooks/").
+
 ## September 2025
 
 ### September 12, 2025
 
-**Continuous real-time ingestion of metadata from AWS Glue Data Catalog to SageMaker Catalog**
+**Continuous real-time ingestion of metadata from AWS Glue Data
+Catalog to SageMaker Catalog**
 
-We have launched a new capability within SageMaker Catalog that enables continuous real-time ingestion of metadata from AWS Glue Data Catalog to SageMaker Catalog. With this launch, once you onboard your tables and views in AWS Glue Data Catalog to SageMaker Catalog, SageMaker Catalog continuously keeps metadata current via real-time ingestion. Any changes, such as new tables or schema updates made in AWS Glue Data Catalog, are automatically reflected in the SageMaker Catalog. This eliminates the need for periodic ingestion jobs, reduces stale metadata risk, and lowers operational costs for you while ensuring access to the freshest metadata. For more information, see [Onboarding data in Amazon SageMaker Unified Studio](../adminguide/data-onboarding.md "../adminguide/data-onboarding.md").
+We have launched a new capability within SageMaker Catalog that enables continuous
+real-time ingestion of metadata from AWS Glue Data Catalog to SageMaker Catalog. With this
+launch, once you onboard your tables and views in AWS Glue Data Catalog to SageMaker Catalog,
+SageMaker Catalog continuously keeps metadata current via real-time ingestion. Any changes, such
+as new tables or schema updates made in AWS Glue Data Catalog, are automatically reflected in
+the SageMaker Catalog. This eliminates the need for periodic ingestion jobs, reduces stale
+metadata risk, and lowers operational costs for you while ensuring access to the freshest
+metadata. For more information, see [Onboarding data in Amazon SageMaker Unified Studio](../adminguide/data-onboarding.md "../adminguide/data-onboarding.md").
 
 ## August 2025
 
 ### August 22, 2025
 
-**Amazon SageMaker Unified Studio adds S3 file sharing options to projects
-experience**
+**Amazon SageMaker Unified Studio adds S3 file sharing options to
+projects experience**
 
-Amazon SageMaker Unified Studio now supports Trusted Identity Propagation (TIP) for SQL analytics use cases with Amazon Redshift and Amazon Athena. This feature enables administrators to grant permissions based on user attributes from their corporate identity center. Users can single-sign into databases with permissions based on their identity or group membership, while auditors can track access across Unified Studio query editor and services like Redshift, Athena, and Lake Formation. To implement, create or update your domain with TIP enabled in the project profile. TIP automatically enables for Amazon Athena workgroup, while Amazon Redshift requires creating a connection with IAM Identity Center connection type. For more information, see User Guide.For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-sagemaker-unified-studio-s3-file-sharing-options/ "https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-sagemaker-unified-studio-s3-file-sharing-options/") [User
+Amazon SageMaker Unified Studio now supports Trusted Identity Propagation (TIP) for SQL
+analytics use cases with Amazon Redshift and Amazon Athena. This feature enables administrators
+to grant permissions based on user attributes from their corporate identity center. Users can
+single-sign into databases with permissions based on their identity or group membership, while
+auditors can track access across Unified Studio query editor and services like Redshift, Athena,
+and Lake Formation. To implement, create or update your domain with TIP enabled in the project
+profile. TIP automatically enables for Amazon Athena workgroup, while Amazon Redshift requires
+creating a connection with IAM Identity Center connection type. For more information, see User
+Guide.For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-sagemaker-unified-studio-s3-file-sharing-options/ "https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-sagemaker-unified-studio-s3-file-sharing-options/")
+[User
 Guide](storage.md "storage.md") and [Admin
 Guide](../../../ssagemaker-unified-studio/latest/adminguide/smus-admin-storage-guide.md "../../../ssagemaker-unified-studio/latest/adminguide/smus-admin-storage-guide.md").
 
@@ -26,14 +99,21 @@ Guide](../../../ssagemaker-unified-studio/latest/adminguide/smus-admin-storage-g
 **Amazon SageMaker Unified Studio Redshift Managed Workgroup
 experience**
 
-Amazon SageMaker Unified Studio launched Redshift Managed Workgroup, a collection of Amazon Redshift compute resources that AWS Glue manages. It becomes visible as a managed workgroup in Amazon Redshift when users register a serverless namespace to AWS Glue Data Catalog and create a Lake Formation catalog. All management of these workgroups must be done through the AWS Glue Data Catalog interface. This eliminates the need for dedicated Redshift compute resources when querying Lakehouse catalogs, reducing costs, preserving data continuity, and accelerating project setup time.
+Amazon SageMaker Unified Studio launched Redshift Managed Workgroup, a collection of Amazon
+Redshift compute resources that AWS Glue manages. It becomes visible as a managed workgroup in
+Amazon Redshift when users register a serverless namespace to AWS Glue Data Catalog and create
+a Lake Formation catalog. All management of these workgroups must be done through the AWS Glue
+Data Catalog interface. This eliminates the need for dedicated Redshift compute resources when
+querying Lakehouse catalogs, reducing costs, preserving data continuity, and accelerating
+project setup time.
 
 ### August 5, 2025
 
-**Project deletion progress
-experience**
+**Project deletion progress experience**
 
-Users can now track project deletion progress through a visual interface, providing clear visibility and status updates until the process is complete, enhancing the project management experience.
+Users can now track project deletion progress through a visual interface, providing clear
+visibility and status updates until the process is complete, enhancing the project management
+experience.
 
 ## July 2025
 
@@ -186,18 +266,27 @@ Guide](getting-started-sagemaker-gdc-s3.md "getting-started-sagemaker-gdc-s3.md"
 
 ### July 25, 2025
 
-**Text search capability of Query history
-experience**
+**Text search capability of Query history experience**
 
-Amazon SageMaker Unified Studio introduces text search capability for query history in both Athena and Redshift engines. This enhancement enables users to efficiently search through their historical queries, improving workflow productivity and query reusability. For more information, see User Guide.
+Amazon SageMaker Unified Studio introduces text search capability for query history in both
+Athena and Redshift engines. This enhancement enables users to efficiently search through their
+historical queries, improving workflow productivity and query reusability. For more information,
+see User Guide.
 
 ### July 23, 2025
 
-**Trusted identity propagation
-experience**
+**Trusted identity propagation experience**
 
-Amazon SageMaker Unified Studio now supports Trusted Identity Propagation (TIP) for SQL analytics use cases with Amazon Redshift and Amazon Athena. This feature enables administrators to grant permissions based on user attributes from their corporate identity center. Users can single-sign into databases with permissions based on their identity or group membership, while auditors can track access across Unified Studio query editor and services like Redshift, Athena, and Lake Formation. To implement, create or update your domain with TIP enabled in the project profile. TIP automatically enables for Amazon Athena workgroup, while Amazon Redshift requires creating a connection with IAM Identity Center connection type. For more information, see User Guide.For more information, see [User
-Guide](using-project-tip.md "using-project-tip.md") and [Admin
+Amazon SageMaker Unified Studio now supports Trusted Identity Propagation (TIP) for SQL
+analytics use cases with Amazon Redshift and Amazon Athena. This feature enables administrators
+to grant permissions based on user attributes from their corporate identity center. Users can
+single-sign into databases with permissions based on their identity or group membership, while
+auditors can track access across Unified Studio query editor and services like Redshift, Athena,
+and Lake Formation. To implement, create or update your domain with TIP enabled in the project
+profile. TIP automatically enables for Amazon Athena workgroup, while Amazon Redshift requires
+creating a connection with IAM Identity Center connection type. For more information, see User
+Guide.For more information, see [User Guide](using-project-tip.md "using-project-tip.md") and
+[Admin
 Guide](../adminguide/trusted-identity-propagation.md "../adminguide/trusted-identity-propagation.md").
 
 ### July 2, 2025
@@ -205,7 +294,12 @@ Guide](../adminguide/trusted-identity-propagation.md "../adminguide/trusted-iden
 **Support of SQL generation actions in Data Explorer
 experience**
 
-Amazon SageMaker Unified Studio now supports SQL generation actions in Data Explorer, introducing automated generation of table definitions and common SQL queries (INSERT/UPDATE/SELECT/DROP). The feature includes a quick actions menu for frequently used operations and direct object manipulation capabilities. These enhancements significantly reduce manual query writing effort and improve overall productivity for data analysts and scientists.
+Amazon SageMaker Unified Studio now supports SQL generation actions in Data Explorer,
+introducing automated generation of table definitions and common SQL queries
+(INSERT/UPDATE/SELECT/DROP). The feature includes a quick actions menu for frequently used
+operations and direct object manipulation capabilities. These enhancements significantly reduce
+manual query writing effort and improve overall productivity for data analysts and
+scientists.
 
 ## June 2025 (Additional)
 
@@ -246,7 +340,15 @@ analysis and share findings more easily with your team.
 **Auto complete support for large number of tables and columns
 experience**
 
-Amazon SageMaker Unified Studio now delivers enhanced autocomplete capabilities for enterprise-scale Amazon Redshift databases. The feature supports seamless autocomplete functionality for massive databases containing up to 200,000 tables, while eliminating previous restrictions on the number of schemas or columns that can be indexed and suggested. Using real-time database metadata, it provides comprehensive coverage across your entire Redshift environment, including both user-defined native tables and critical system tables. This enables data analysts, engineers, and scientists working with complex, large-scale data warehouses to navigate their database structures effortlessly, dramatically reducing query development time and minimizing syntax errors.
+Amazon SageMaker Unified Studio now delivers enhanced autocomplete capabilities for
+enterprise-scale Amazon Redshift databases. The feature supports seamless autocomplete
+functionality for massive databases containing up to 200,000 tables, while eliminating previous
+restrictions on the number of schemas or columns that can be indexed and suggested. Using
+real-time database metadata, it provides comprehensive coverage across your entire Redshift
+environment, including both user-defined native tables and critical system tables. This enables
+data analysts, engineers, and scientists working with complex, large-scale data warehouses to
+navigate their database structures effortlessly, dramatically reducing query development time
+and minimizing syntax errors.
 
 ### June 5, 2025
 
@@ -330,14 +432,14 @@ making data and resources more accessible to users.
 
 AWS launched two complementary capabilities in the next generation of Amazon SageMaker
 that enhance the development experience for analytics, machine learning (ML), and GenAI teams:
-Code Editor and Multiple Spaces support. The Code Editor, based on Code-OSS (Open Source Software) like VS Code, offers a powerful
-IDE experience with familiar shortcuts, terminal access, and advanced development tools, while
-supporting thousands of VS Code-compatible extensions from Open VSX. It enables seamless version
-control through major Git platforms and comes preconfigured with Amazon SageMaker distribution
-for ML frameworks. To maximize the benefits of Code Editor alongside other coding interfaces in
-Unified Studio, including JupyterLab, SageMaker now supports multiple spaces per user per
-project, allowing users to manage parallel workstreams with different computational needs. For
-more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/05/code-editor-vs-code-open-source-sagemaker-unified-studio/ "https://aws.amazon.com/about-aws/whats-new/2025/05/code-editor-vs-code-open-source-sagemaker-unified-studio/") and [Using the Code Editor IDE in
+Code Editor and Multiple Spaces support. The Code Editor, based on Code-OSS (Open Source
+Software) like VS Code, offers a powerful IDE experience with familiar shortcuts, terminal
+access, and advanced development tools, while supporting thousands of VS Code-compatible
+extensions from Open VSX. It enables seamless version control through major Git platforms and
+comes preconfigured with Amazon SageMaker distribution for ML frameworks. To maximize the
+benefits of Code Editor alongside other coding interfaces in Unified Studio, including
+JupyterLab, SageMaker now supports multiple spaces per user per project, allowing users to
+manage parallel workstreams with different computational needs. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/05/code-editor-vs-code-open-source-sagemaker-unified-studio/ "https://aws.amazon.com/about-aws/whats-new/2025/05/code-editor-vs-code-open-source-sagemaker-unified-studio/") and [Using the Code Editor IDE in
 Amazon SageMaker Unified Studio](code-editor.md "code-editor.md").
 
 ### May 12, 2025

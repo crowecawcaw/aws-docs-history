@@ -7,7 +7,8 @@ apps, and more.
 
 In order to create a project in Amazon SageMaker Unified Studio, you must gain access to Amazon SageMaker Unified Studio. A domain
 unit owner must also grant you access to create projects through an authorization
-policy. For more information, see [Domain units and authorization policies in Amazon SageMaker Unified Studio](../adminguide/domain-units.md "../adminguide/domain-units.md").
+policy. For more information, see [Domain units and
+authorization policies in Amazon SageMaker Unified Studio](../adminguide/domain-units.md "../adminguide/domain-units.md").
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page using the URL from your admin.
 
@@ -32,12 +33,12 @@ Amazon SageMaker Unified Studio supports the following browsers:
    project in the root domain unit by default and no action is needed here.
 7. Select the project profile that contains the resources you will need in your
    project.
-   1. Select **All capabilities**
-      to access all of the supported services and resources in a single project.
+   1. Select **All capabilities** to access all of the
+      supported services and resources in a single project.
    2. Select **SQL analytics** to get started querying and
       analyzing SQL data.
-   3. Select **Generative AI application development** to get
-      started with generative AI.
+   3. Select **Generative AI application development** to
+      get started with generative AI.
 
 8. Choose **Continue**.
 9. (Optional) Customize parameters, if desired. For more information about

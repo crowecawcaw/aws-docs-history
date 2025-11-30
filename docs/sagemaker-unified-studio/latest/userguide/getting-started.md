@@ -1,5 +1,8 @@
 # Getting started
 
+The following getting started topics apply to setting up SageMaker Unified Studio unified
+domains configured with AWS IAM Identity Center. For more details, see [Domains in Amazon SageMaker Unified Studio](../adminguide/working-with-domains.md "../adminguide/working-with-domains.md").
+
 The information in this section helps you get started using Amazon SageMaker Unified Studio. If you are new to
 Amazon SageMaker Unified Studio, start by becoming familiar with the concepts and terminology presented in [Amazon SageMaker Unified Studio terminology and concepts](concepts.md "concepts.md").
 

@@ -2,8 +2,8 @@
 
 Notebook
 
-The SageMaker Data Agent is available directly within your SageMaker AI notebook interface through
-two interaction modes:
+The SageMaker Data Agent is available directly within your SageMaker AI notebook interface
+through two interaction modes:
 
 Agent panel
 

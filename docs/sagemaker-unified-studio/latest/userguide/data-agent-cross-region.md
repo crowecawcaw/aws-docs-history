@@ -1,17 +1,17 @@
-# Cross-region processing in the SageMaker Data Agent for
+# Cross-region processing in the SageMaker Data Agent
 
-Notebook
+for Notebook
 
 ## Cross-region inference
 
-The SageMaker Data Agent for Notebooks uses cross-region inference to process
-natural language requests and generate code responses. With cross-region inference, the
-agent will automatically route your inference request to optimize performance, maximizing
-available compute resources and model availability, and providing the best customer
-experience. The type of cross-region inference used depends on your Amazon SageMaker Unified Studio domain's
-Region. Most Regions use regional cross-region inference, which keeps requests within the
-same geography. However, some Regions use global cross-region inference, which may route
-requests to any AWS Region globally.
+The SageMaker Data Agent for Notebooks uses geographic cross-region inference to process
+natural language requests and generate code responses. With geographic cross-region
+inference, the agent will automatically route your inference request to optimize
+performance, maximizing available compute resources and model availability, and providing
+the best customer experience. The type of geographic cross-region inference used depends on
+your Amazon SageMaker Unified Studio domain's Region. Most Regions use geographic cross-region inference, which
+keeps requests within the same geography. However, some Regions use global cross-region
+inference, which may route requests to any AWS Region globally.
 
 ### Cross-Region Inference
 
@@ -53,9 +53,10 @@ Inference
 
 ###### Important
 
-The following AWS Regions use global cross-region inference. When you use the
-SageMaker Data Agent in these Regions, your requests may be transmitted globally to other
-AWS Regions for inference processing to optimize performance and availability:
+The following AWS Regions use global cross-region inference. An inference request
+made by the SageMaker Data Agent when your Amazon SageMaker Unified Studio domain's Region
+is listed below will be securely routed to all available compute resources across all
+global commercial AWS Regions, to optimize performance and availability:
 
 - Asia Pacific (Mumbai) (ap-south-1)
 - Asia Pacific (Tokyo) (ap-northeast-1)
