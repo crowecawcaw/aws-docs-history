@@ -185,4 +185,4 @@ CloudFront standard logs (access logs)
 
 If you enable logging, CloudFront logs the full URL, including query string parameters.
 This is true regardless of whether you have configured CloudFront to forward query strings
-to the origin. For more information about CloudFront logging, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+to the origin. For more information about CloudFront logging, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").

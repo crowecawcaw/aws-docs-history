@@ -10,7 +10,7 @@ for all distributions. For example:
   console, and you can [turn on additional metrics](viewing-cloudfront-metrics.md#monitoring-console.distributions-additional "viewing-cloudfront-metrics.md#monitoring-console.distributions-additional") (such as cache hit rate and error rate by
   status code) for an additional cost. You can also create alarms based on these
   metrics.
-- You can view [standard logs](AccessLogs.md "AccessLogs.md") and [real-time logs](real-time-logs.md "real-time-logs.md") to get detailed information about
+- You can view [standard logs](AccessLogs.md "AccessLogs.md") and [real-time access logs](real-time-logs.md "real-time-logs.md") to get detailed information about
   the requests that are received by the staging distribution. Standard logs
   contain the following two fields that help you identify the primary distribution
   that the request was originally sent to before CloudFront routed it to the staging

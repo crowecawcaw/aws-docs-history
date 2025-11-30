@@ -14,6 +14,7 @@ CloudFront Functions when the following events occur:
 
 - When CloudFront receives a request from a viewer (viewer request)
 - Before CloudFront returns the response to the viewer (viewer response)
+- During TLS connection establishment (connection request) - currently available for mutual TLS (mTLS) connections
   For more information about CloudFront Functions, see the following topics:
 
 ###### Topics

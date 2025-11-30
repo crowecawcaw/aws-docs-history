@@ -416,8 +416,8 @@ following:
 
 - [CloudFront standard logs (access logs)](AccessLogs.md "AccessLogs.md").
   Standard logs are provided free of charge.
-- [CloudFront real-time logs](real-time-logs.md "real-time-logs.md"). You incur
-  additional charges for using real-time logs. See [Amazon CloudFront
+- [CloudFront real-time access logs](real-time-logs.md "real-time-logs.md"). You incur
+  additional charges for using real-time access logs. See [Amazon CloudFront
   Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/").
 
 Cache hits from Origin Shield appear as `OriginShieldHit` in the

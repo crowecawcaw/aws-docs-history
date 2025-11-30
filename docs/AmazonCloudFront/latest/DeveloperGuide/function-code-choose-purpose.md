@@ -11,6 +11,8 @@ functions in CloudFront Functions have one of the following purposes.
   viewer request event type](#function-code-generate-response "#function-code-generate-response")
 - [Modify the HTTP response in a viewer
   response event type](#function-code-modify-response "#function-code-modify-response")
+- [Validate mTLS connections in a
+  connection request event type](#function-code-connection-request "#function-code-connection-request")
 - [Related
   information](#related-information-cloudfront-functions-purpose "#related-information-cloudfront-functions-purpose")
   Regardless of your function’s purpose, the `handler` is the entry point for
@@ -121,6 +123,42 @@ function handler(event) {
 
 The function returns the modified `response` object to CloudFront, which
 CloudFront immediately returns to the viewer.
+
+## Validate mTLS connections in a
+
+connection request event type
+
+Connection functions are a type of CloudFront Functions that run during TLS connections
+to provide custom validation and authentication logic. Connection functions are currently
+available for mutual TLS (mTLS) connections, where you can validate client certificates
+and implement custom authentication logic beyond standard certificate validation. Connection
+functions run during the TLS handshake process and can allow or deny connections based on
+certificate properties, client IP addresses, or other criteria.
+
+After you create and publish a connection function, make sure to add an
+association for the _connection request_ event type
+with an mTLS-enabled distribution. This makes the function run each time a client
+attempts to establish an mTLS connection with CloudFront.
+
+###### Example
+
+The following pseudocode shows the structure of a connection function:
+
+```
+function connectionHandler(connection) {
+    // Validate certificate and connection properties here.
+
+    if (/* validation passes */) {
+        connection.allow();
+    } else {
+        connection.deny();
+    }
+}
+```
+
+The function uses helper methods to determine whether to allow or deny the
+connection. Unlike viewer request and viewer response functions, connection
+functions cannot modify HTTP requests or responses.
 
 ## Related
 

@@ -199,7 +199,7 @@ related to data in the CloudFront standard logs (access logs)
 
 The following list shows how values in the popular objects report in the CloudFront
 console correspond with values in CloudFront access logs. For more information about CloudFront
-access logs, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+access logs, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 **URL**
 

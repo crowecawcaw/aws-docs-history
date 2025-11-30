@@ -17,4 +17,4 @@ You can view the following reports of your CloudFront activity in the console:
 - [View CloudFront viewers reports](viewers-reports.md "viewers-reports.md")
   Most of these reports are based on the data in CloudFront access logs, which contain detailed
   information about every user request that CloudFront receives. You don't need to enable access
-  logs to view the reports. For more information, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+  logs to view the reports. For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").

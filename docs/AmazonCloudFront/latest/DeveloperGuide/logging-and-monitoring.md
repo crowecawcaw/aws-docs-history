@@ -22,12 +22,12 @@ request, when it was made, and additional details.
 
 For more information, see [Logging Amazon CloudFront API calls using AWS CloudTrail](logging_using_cloudtrail.md "logging_using_cloudtrail.md").
 
-**CloudFront standard logs and real-time logs**
+**CloudFront standard logs and real-time access logs**
 CloudFront logs provide detailed records about requests that are made to a distribution. These logs
 are useful for many applications. For example, log information can be useful in
 security and access audits.
 
-For more information, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md") and [Create and use real-time log
+For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md") and [Create and use real-time access log
 configurations](real-time-logs.md#create-real-time-log-config "real-time-logs.md#create-real-time-log-config").
 
 **Edge function logs**

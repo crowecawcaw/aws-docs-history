@@ -1,10 +1,10 @@
 # Configure standard logging (v2)
 
-You can enable standard logging when you create or update a distribution. Standard logging
+You can enable access logs (standard logs) when you create or update a distribution. Standard logging
 (v2) includes the following features:
 
 - Send access logs to Amazon CloudWatch Logs, Amazon Data Firehose, and Amazon Simple Storage Service (Amazon S3).
-- Select the log fields that you want. You can also select a [subset of real-time log
+- Select the log fields that you want. You can also select a [subset of real-time access log
   fields](#standard-logging-real-time-log-selection "#standard-logging-real-time-log-selection").
 - Select additional [output log file](#supported-log-file-format "#supported-log-file-format") formats.
   If you’re using Amazon S3, you have the following optional features:
@@ -105,7 +105,7 @@ console)
    1. For **Field selection**, select the log field
       names that you want to deliver to your destination. You can select
       [access log
-      fields](standard-logs-reference.md#BasicDistributionFileFormat "standard-logs-reference.md#BasicDistributionFileFormat") and a subset of [real-time log
+      fields](standard-logs-reference.md#BasicDistributionFileFormat "standard-logs-reference.md#BasicDistributionFileFormat") and a subset of [real-time access log
       fields](#standard-logging-real-time-log-selection "#standard-logging-real-time-log-selection").
    2. (Amazon S3 only) For **Partitioning**, specify the
       path to partition your log file data.
@@ -596,7 +596,7 @@ For more information, see the following topics:
 You can select the same log fields that standard logging (legacy) supports. For more information,
 see [log file fields](standard-logs-reference.md#BasicDistributionFileFormat "standard-logs-reference.md#BasicDistributionFileFormat").
 
-In addition, you can select the following [real-time log fields](real-time-logs.md#understand-real-time-log-config "real-time-logs.md#understand-real-time-log-config").
+In addition, you can select the following [real-time access log fields](real-time-logs.md#understand-real-time-log-config "real-time-logs.md#understand-real-time-log-config").
 
 1. `**timestamp(ms)**` – Timestamp in
    milliseconds.
@@ -839,7 +839,7 @@ it.
 
 1. Sign in to the CloudFront console.
 2. Choose **Distribution** and then choose your distribution ID.
-3. Choose **Logging** and then under **Standard log
+3. Choose **Logging** and then under **Access log
    destinations**, select the destination.
 4. Choose **Manage** and then choose
    **Delete**.

@@ -209,7 +209,7 @@ The type of trigger that's associated with the request:
 An encrypted string that uniquely identifies a viewer-to-CloudFront
 request. The `requestId` value also appears in CloudFront
 access logs as `x-edge-request-id`. For more
-information, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md") and [Log file fields](standard-logs-reference.md#BasicDistributionFileFormat "standard-logs-reference.md#BasicDistributionFileFormat").
+information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md") and [Log file fields](standard-logs-reference.md#BasicDistributionFileFormat "standard-logs-reference.md#BasicDistributionFileFormat").
 
 #### Fields in the request
 
@@ -797,7 +797,7 @@ An encrypted string that uniquely identifies the
 viewer-to-CloudFront request that this response is associated with.
 The `requestId` value also appears in CloudFront access
 logs as `x-edge-request-id`. For more information,
-see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md") and
+see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md") and
 [Log file fields](standard-logs-reference.md#BasicDistributionFileFormat "standard-logs-reference.md#BasicDistributionFileFormat").
 
 #### Fields in the response

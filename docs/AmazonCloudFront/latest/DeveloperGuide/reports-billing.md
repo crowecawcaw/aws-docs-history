@@ -125,7 +125,7 @@ distributions, it might not be clear what portion applies to your CloudFront usa
 ###### Tip
 
 For detailed information about every request that CloudFront receives for your objects,
-turn on CloudFront access logs for your distribution. For more information, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+turn on CloudFront access logs for your distribution. For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 For more information about understanding the CloudFront charges and usage types on your
 reports, see [Interpret your AWS bill and usage

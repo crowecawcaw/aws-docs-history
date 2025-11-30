@@ -142,6 +142,17 @@ You can also modify the header using CloudFront edge compute functions.
 
 authentication
 
+CloudFront supports mutual TLS (mTLS) authentication where both the client and
+server authenticate each other using certificates. With mTLS configured, CloudFront
+can validate client certificates during the TLS handshake and optionally run
+CloudFront Functions to implement custom validation logic.
+
+For origins that request client-side certificates when mTLS is not configured,
+CloudFront drops the request.
+
+For more information about configuring mTLS, see
+[Associate a CloudFront Connection Function](connection-functions.md "connection-functions.md").
+
 CloudFront does not support client authentication with client-side SSL certificates.
 If an origin requests a client-side certificate, CloudFront drops the request.
 

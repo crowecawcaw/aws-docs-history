@@ -35,6 +35,8 @@ For more information, see the following topics:
 
 - [Version field](#functions-event-structure-version "#functions-event-structure-version")
 - [Context object](#functions-event-structure-context "#functions-event-structure-context")
+- [Connection event
+  structure](#functions-event-structure-connection "#functions-event-structure-connection")
 - [Viewer object](#functions-event-structure-viewer "#functions-event-structure-viewer")
 - [Request object](#functions-event-structure-request "#functions-event-structure-request")
 - [Response object](#functions-event-structure-response "#functions-event-structure-response")
@@ -84,6 +86,13 @@ The event type, either `viewer-request` or
 
 A string that uniquely identifies a CloudFront request (and its associated
 response).
+
+## Connection event
+
+structure
+
+Connection functions receive a different event structure than viewer functions. For
+detailed information about the connection event structure and response format, see [Associate a CloudFront Connection Function](connection-functions.md "connection-functions.md").
 
 ## Viewer object
 

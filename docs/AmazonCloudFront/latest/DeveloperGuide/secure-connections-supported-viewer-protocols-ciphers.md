@@ -23,38 +23,38 @@ cipher names](#secure-connections-openssl-rfc-cipher-names "#secure-connections-
 | ------------------------------- | --------------- | ----- | ---------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 |                                 | SSLv3           | TLSv1 | TLSv1_2016 | TLSv1.1_2016 | TLSv1.2_2018 | TLSv1.2_2019 | TLSv1.2_2021 | TLSv1.2_2025 | TLSv1.3_2025 |
 | **Supported SSL/TLS protocols** |
-| TLSv1.3                         | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLSv1.2                         | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           |              |
-| TLSv1.1                         | ♦              | ♦    | ♦         | ♦           |              |              |              |              |              |
-| TLSv1                           | ♦              | ♦    | ♦         |              |              |              |              |              |              |
-| SSLv3                           | ♦              |       |            |              |              |              |              |              |              |
+| TLSv1.3                         | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLSv1.2                         | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            |              |
+| TLSv1.1                         | ♦               | ♦     | ♦          | ♦            |              |              |              |              |              |
+| TLSv1                           | ♦               | ♦     | ♦          |              |              |              |              |              |              |
+| SSLv3                           | ♦               |       |            |              |              |              |              |              |              |
 | **Supported TLSv1.3 ciphers**   |
-| TLS_AES_128_GCM_SHA256          | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_AES_256_GCM_SHA384          | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_CHACHA20_POLY1305_SHA256    | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           |              | ♦           |
+| TLS_AES_128_GCM_SHA256          | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_AES_256_GCM_SHA384          | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_CHACHA20_POLY1305_SHA256    | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            |              | ♦            |
 | **Supported ECDSA ciphers**     |
-| ECDHE-ECDSA-AES128-GCM-SHA256   | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           |              |
-| ECDHE-ECDSA-AES128-SHA256       | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           |              |              |              |
-| ECDHE-ECDSA-AES128-SHA          | ♦              | ♦    | ♦         | ♦           |              |              |              |              |              |
-| ECDHE-ECDSA-AES256-GCM-SHA384   | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           |              |
-| ECDHE-ECDSA-CHACHA20-POLY1305   | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           |              |              |
-| ECDHE-ECDSA-AES256-SHA384       | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           |              |              |              |
-| ECDHE-ECDSA-AES256-SHA          | ♦              | ♦    | ♦         | ♦           |              |              |              |              |              |
+| ECDHE-ECDSA-AES128-GCM-SHA256   | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            |              |
+| ECDHE-ECDSA-AES128-SHA256       | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            |              |              |              |
+| ECDHE-ECDSA-AES128-SHA          | ♦               | ♦     | ♦          | ♦            |              |              |              |              |              |
+| ECDHE-ECDSA-AES256-GCM-SHA384   | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            |              |
+| ECDHE-ECDSA-CHACHA20-POLY1305   | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            |              |              |
+| ECDHE-ECDSA-AES256-SHA384       | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            |              |              |              |
+| ECDHE-ECDSA-AES256-SHA          | ♦               | ♦     | ♦          | ♦            |              |              |              |              |              |
 | **Supported RSA ciphers**       |
-| ECDHE-RSA-AES128-GCM-SHA256     | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           |              |
-| ECDHE-RSA-AES128-SHA256         | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           |              |              |              |
-| ECDHE-RSA-AES128-SHA            | ♦              | ♦    | ♦         | ♦           |              |              |              |              |              |
-| ECDHE-RSA-AES256-GCM-SHA384     | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           |              |
-| ECDHE-RSA-CHACHA20-POLY1305     | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           |              |              |
-| ECDHE-RSA-AES256-SHA384         | ♦              | ♦    | ♦         | ♦           | ♦           | ♦           |              |              |              |
-| ECDHE-RSA-AES256-SHA            | ♦              | ♦    | ♦         | ♦           |              |              |              |              |              |
-| AES128-GCM-SHA256               | ♦              | ♦    | ♦         | ♦           | ♦           |              |              |              |              |
-| AES256-GCM-SHA384               | ♦              | ♦    | ♦         | ♦           | ♦           |              |              |              |              |
-| AES128-SHA256                   | ♦              | ♦    | ♦         | ♦           | ♦           |              |              |              |              |
-| AES256-SHA                      | ♦              | ♦    | ♦         | ♦           |              |              |              |              |              |
-| AES128-SHA                      | ♦              | ♦    | ♦         | ♦           |              |              |              |              |              |
-| DES-CBC3-SHA                    | ♦              | ♦    |            |              |              |              |              |              |              |
-| RC4-MD5                         | ♦              |       |            |              |              |              |              |              |              |
+| ECDHE-RSA-AES128-GCM-SHA256     | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            |              |
+| ECDHE-RSA-AES128-SHA256         | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            |              |              |              |
+| ECDHE-RSA-AES128-SHA            | ♦               | ♦     | ♦          | ♦            |              |              |              |              |              |
+| ECDHE-RSA-AES256-GCM-SHA384     | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            |              |
+| ECDHE-RSA-CHACHA20-POLY1305     | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            |              |              |
+| ECDHE-RSA-AES256-SHA384         | ♦               | ♦     | ♦          | ♦            | ♦            | ♦            |              |              |              |
+| ECDHE-RSA-AES256-SHA            | ♦               | ♦     | ♦          | ♦            |              |              |              |              |              |
+| AES128-GCM-SHA256               | ♦               | ♦     | ♦          | ♦            | ♦            |              |              |              |              |
+| AES256-GCM-SHA384               | ♦               | ♦     | ♦          | ♦            | ♦            |              |              |              |              |
+| AES128-SHA256                   | ♦               | ♦     | ♦          | ♦            | ♦            |              |              |              |              |
+| AES256-SHA                      | ♦               | ♦     | ♦          | ♦            |              |              |              |              |              |
+| AES128-SHA                      | ♦               | ♦     | ♦          | ♦            |              |              |              |              |              |
+| DES-CBC3-SHA                    | ♦               | ♦     |            |              |              |              |              |              |              |
+| RC4-MD5                         | ♦               |       |            |              |              |              |              |              |              |
 
 ## OpenSSL, s2n, and RFC
 
@@ -129,21 +129,21 @@ CloudFront.
 |                                             | Security<br>policy |
 | ------------------------------------------- | ------------------ | ----- | ---------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | Signature schemes                           | SSLv3              | TLSv1 | TLSv1_2016 | TLSv1.1_2016 | TLSv1.2_2018 | TLSv1.2_2019 | TLSv1.2_2021 | TLSv1.2_2025 | TLSv1.3_2025 |
-| TLS_SIGNATURE_SCHEME_RSA_PSS_PSS_SHA256     | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PSS_PSS_SHA384     | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PSS_PSS_SHA512     | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PSS_RSAE_SHA256    | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PSS_RSAE_SHA384    | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PSS_RSAE_SHA512    | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA256       | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA384       | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA512       | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA224       | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           |              |              |
-| TLS_SIGNATURE_SCHEME_ECDSA_SHA256           | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_ECDSA_SHA384           | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_ECDSA_SHA512           | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_ECDSA_SHA224           | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           |              |              |
-| TLS_SIGNATURE_SCHEME_ECDSA_SECP256R1_SHA256 | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_ECDSA_SECP384R1_SHA384 | ♦                 | ♦    | ♦         | ♦           | ♦           | ♦           | ♦           | ♦           | ♦           |
-| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA1         | ♦                 | ♦    | ♦         | ♦           |              |              |              |              |              |
-| TLS_SIGNATURE_SCHEME_ECDSA_SHA1             | ♦                 | ♦    | ♦         | ♦           |              |              |              |              |              |
+| TLS_SIGNATURE_SCHEME_RSA_PSS_PSS_SHA256     | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PSS_PSS_SHA384     | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PSS_PSS_SHA512     | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PSS_RSAE_SHA256    | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PSS_RSAE_SHA384    | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PSS_RSAE_SHA512    | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA256       | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA384       | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA512       | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA224       | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            |              |              |
+| TLS_SIGNATURE_SCHEME_ECDSA_SHA256           | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_ECDSA_SHA384           | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_ECDSA_SHA512           | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_ECDSA_SHA224           | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            |              |              |
+| TLS_SIGNATURE_SCHEME_ECDSA_SECP256R1_SHA256 | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_ECDSA_SECP384R1_SHA384 | ♦                  | ♦     | ♦          | ♦            | ♦            | ♦            | ♦            | ♦            | ♦            |
+| TLS_SIGNATURE_SCHEME_RSA_PKCS1_SHA1         | ♦                  | ♦     | ♦          | ♦            |              |              |              |              |              |
+| TLS_SIGNATURE_SCHEME_ECDSA_SHA1             | ♦                  | ♦     | ♦          | ♦            |              |              |              |              |              |

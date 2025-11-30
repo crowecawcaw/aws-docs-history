@@ -18,9 +18,11 @@ The following values apply to the entire distribution.
 - [Default root
   object](#DownloadDistValuesDefaultRootObject "#DownloadDistValuesDefaultRootObject")
 - [Standard logging](#DownloadDistValuesLoggingOnOff "#DownloadDistValuesLoggingOnOff")
+- [Connection logs](#DownloadDistValuesConnectionLogs "#DownloadDistValuesConnectionLogs")
 - [Log prefix](#DownloadDistValuesLogPrefix "#DownloadDistValuesLogPrefix")
 - [Cookie logging](#DownloadDistValuesCookieLogging "#DownloadDistValuesCookieLogging")
 - [Enable IPv6 (viewer requests)](#DownloadDistValuesEnableIPv6 "#DownloadDistValuesEnableIPv6")
+- [Mutual authentication](#DownloadDistValuesMutualAuthentication "#DownloadDistValuesMutualAuthentication")
 - [Enable IPv6 for custom origins (origin requests)](#DownloadDistValuesEnableIPv6-origin "#DownloadDistValuesEnableIPv6-origin")
 - [Comment](#DownloadDistValuesComment "#DownloadDistValuesComment")
 - [Distribution state](#DownloadDistValuesEnabled "#DownloadDistValuesEnabled")
@@ -340,6 +342,16 @@ CloudFront supports the following standard logging options:
 - [Standard logging (legacy)](AccessLogs.md "AccessLogs.md") – You can only send
   logs to an Amazon S3 bucket.
 
+## Connection logs
+
+When you turn on [mutual authentication](#DownloadDistValuesMutualAuthentication "#DownloadDistValuesMutualAuthentication") for your distribution, CloudFront provides connection logs that capture attributes about the requests
+sent to your distributions. Connection logs contain information such as the
+client IP address and port, client certificate information, connection results,
+and TLS ciphers being used. These connection logs can then be used to review
+request patterns and other trends.
+
+To learn more about connection logs, see [Observability using connection logs](connection-logs.md "connection-logs.md").
+
 ## Log prefix
 
 (Optional) If you enable standard logging (legacy), specify the string, if any, that you want CloudFront to
@@ -367,6 +379,10 @@ For more information about cookies, see [Cache content based on cookies](Cookies
 If
 you want CloudFront to respond to viewer requests from IPv4 and IPv6 IP addresses,
 select **Enable IPv6**. For more information, see [Enable IPv6 for CloudFront distributions](cloudfront-enable-ipv6.md "cloudfront-enable-ipv6.md").
+
+## Mutual authentication
+
+Optional. You can choose to turn on mutual authentication for your CloudFront distribution. For more information, see [Mutual TLS (mTLS) viewer](mtls-authentication.md "mtls-authentication.md").
 
 ## Enable IPv6 for custom origins (origin requests)
 

@@ -1,8 +1,8 @@
-# Standard logging (access logs)
+# Access logs (standard logs)
 
-You can configure CloudFront to create log files that contain detailed information about every
-user (viewer) request that CloudFront receives. These are called _standard
-logs_, also known as _access logs_.
+You can configure CloudFront to create log files that contain detailed information about every user
+(viewer) request that CloudFront receives. These are called _access
+logs_, also known as _standard logs_.
 
 Each log contains information such as the time the request was received, the processing
 time, request paths, and server responses. You can use these access logs to analyze response
@@ -52,7 +52,7 @@ distribution. For more information, see the following topics:
 
 ###### Tip
 
-CloudFront also offers real-time logs, which give you information about requests made to a
+CloudFront also offers real-time access logs, which give you information about requests made to a
 distribution in real time (logs are delivered within seconds of receiving the requests).
-You can use real-time logs to monitor, analyze, and take action based on content
-delivery performance. For more information, see [Use real-time logs](real-time-logs.md "real-time-logs.md").
+You can use real-time access logs to monitor, analyze, and take action based on content
+delivery performance. For more information, see [Use real-time access logs](real-time-logs.md "real-time-logs.md").

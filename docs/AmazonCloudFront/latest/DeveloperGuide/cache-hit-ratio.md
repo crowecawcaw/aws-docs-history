@@ -76,7 +76,7 @@ caching if you do the following:
 For more information, see [Cache content based on query string
 parameters](QueryStringParameters.md "QueryStringParameters.md"). If you want to review the query strings
 that CloudFront forwards to your origin, see the values in the `cs-uri-query`
-column of your CloudFront log files. For more information, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+column of your CloudFront log files. For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 ## Caching based on cookie values
 
@@ -123,7 +123,7 @@ request after a `.css` file expires.
 For more information, see [Cache content based on cookies](Cookies.md "Cookies.md"). If
 you want to review the cookies that CloudFront forwards to your origin, see the values in
 the `cs(Cookie)` column of your CloudFront log files. For more information, see
-[Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+[Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 ## Caching based on request
 

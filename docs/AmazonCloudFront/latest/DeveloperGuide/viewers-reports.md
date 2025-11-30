@@ -526,7 +526,7 @@ to data in the CloudFront standard logs (access logs)
 
 The following list shows how data in the Locations report in the CloudFront console
 corresponds with values in CloudFront access logs. For more information about CloudFront access
-logs, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+logs, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 **Location**
 

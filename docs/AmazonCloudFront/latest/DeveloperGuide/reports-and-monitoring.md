@@ -10,7 +10,7 @@ can complete the following tasks:
   metrics to CloudWatch for distributions and edge functions, both Lambda@Edge and
   CloudFront Functions.
 - View logs for the viewer requests that your CloudFront distributions receive with standard logs
-  or real-time logs. In addition to viewer request logs, you can use CloudWatch Logs to get logs
+  or real-time access logs. In addition to viewer request logs, you can use CloudWatch Logs to get logs
   for your edge functions, both Lambda@Edge and CloudFront Functions. You can also use
   AWS CloudTrail to get logs of the CloudFront API activity in your AWS account.
 - Track configuration changes to your CloudFront resources using AWS Config.

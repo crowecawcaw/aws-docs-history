@@ -28,7 +28,7 @@ Following are the cache settings that CloudFront preconfigures for your Amazon S
 - Response header policy – None
 - Smooth Streaming – No
 - Field level encryption – No
-- Enable real-time logs – No
+- Enable real-time access logs – No
 - Functions – No
 
 Following are the settings that you can customize for your Amazon S3 origin in a multi-tenant distribution.
@@ -76,7 +76,7 @@ Following are the cache settings that CloudFront preconfigures for your API Gate
 - Response header policy – None
 - Smooth Streaming – No
 - Field level encryption – No
-- Enable real-time logs – No
+- Enable real-time access logs – No
 - Functions – No
 
 Following are the settings that you can customize for your API Gateway origin in a multi-tenant distribution.
@@ -118,7 +118,7 @@ Following are the cache settings that CloudFront preconfigures for your custom o
 - Response header policy – None
 - Smooth Streaming – No
 - Field level encryption – No
-- Enable real-time logs – No
+- Enable real-time access logs – No
 - Functions – No
 
 Following are the settings that you can customize for your custom origin and EC2 instance in a multi-tenant distribution.
@@ -171,7 +171,7 @@ Following are the cache settings that CloudFront preconfigures for your ELB orig
 - Response header policy – None
 - Smooth Streaming – No
 - Field level encryption – No
-- Enable real-time logs – No
+- Enable real-time access logs – No
 - Functions – No
 
 Following are the settings that you can customize for your ELB origin in a multi-tenant distribution.
@@ -218,7 +218,7 @@ Following are the cache settings that CloudFront preconfigures for your MediaPac
 - Response header policy – None
 - Smooth Streaming – No
 - Field level encryption – No
-- Enable real-time logs – No
+- Enable real-time access logs – No
 - Functions – No
 
 ## MediaPackage v2 origin
@@ -253,7 +253,7 @@ Following are the cache settings that CloudFront preconfigures for your MediaPac
 - Response header policy – None
 - Smooth Streaming – No
 - Field level encryption – No
-- Enable real-time logs – No
+- Enable real-time access logs – No
 - Functions – No
 
 ## MediaTailor origin
@@ -287,5 +287,5 @@ Following are the cache settings that CloudFront preconfigures for your MediaTai
 - Response header policy – None
 - Smooth Streaming – No
 - Field level encryption – No
-- Enable real-time logs – No
+- Enable real-time access logs – No
 - Functions – No

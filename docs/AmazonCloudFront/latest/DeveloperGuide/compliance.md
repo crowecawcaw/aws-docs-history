@@ -49,7 +49,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 last 365 days for future auditing purposes. To log usage data, you can do the
 following:
 
-- Enable CloudFront access logs. For more information, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+- Enable CloudFront access logs. For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 - Capture requests that are sent to the CloudFront API. For more information, see
   [Logging Amazon CloudFront API calls using AWS CloudTrail](logging_using_cloudtrail.md "logging_using_cloudtrail.md").
 

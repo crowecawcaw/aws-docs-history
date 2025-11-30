@@ -10,37 +10,78 @@ functions.
 CloudFront provides the following ways to log the requests that come to your
 distributions.
 
-**Standard logs (access logs)**
+**Access logs (standard logs)**
 
-CloudFront standard logs provide detailed records about every request that's
-made to a distribution.
+CloudFront
+access
+logs provide detailed records about every request that's
+made to a distribution. You can use the logs for scenarios, such as security
+and access audits.
+
+CloudFront
+access
+logs are delivered to the delivery destination that you specify.
+
+Use access logs when you need:
+
+- Historical analysis and reporting
+- Security audits and compliance requirements
+- Cost-effective long-term log retention
+
+For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
+
+**Real-time access logs**
+
+CloudFront
+real-time access logs
+are delivered within seconds of receiving the requests and
+provide information about requests made to a
+distribution
+in real time.
+
 You
-can use the logs for scenarios,
-such
-as security and access audits.
-
-CloudFront standard logs are delivered to
-the
-delivery destination that you specify.
-
-For more information, see
-[Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
-
-**Real-time logs**
-
-CloudFront real-time logs provide information about requests made to a
-distribution, in real time (log records are delivered within seconds of
-receiving the requests). You can choose the _sampling
-rate_ for your real-time logs—that is, the percentage
-of requests for which you want to receive real-time log records. You can
-also choose the specific fields that you want to receive in the log
+can choose the _sampling rate_ for your
+real-time access logs—that is, the percentage of requests for which you
+want to receive real-time access log records. You can also choose the specific
+fields that you want to receive in the log
 records.
+Real-time access logs are ideal for live monitoring for content delivery
+performance.
 
-CloudFront real-time logs are delivered to the data stream of your choice in
-Amazon Kinesis Data Streams. CloudFront charges for real-time logs, in addition to the charges you
+CloudFront real-time access logs are delivered to the data stream of your choice in
+Amazon Kinesis Data Streams. CloudFront charges for real-time access logs, in addition to the charges you
 incur for using Kinesis Data Streams.
 
-For more information, see [Use real-time logs](real-time-logs.md "real-time-logs.md").
+Use real-time access logs when you need:
+
+- Real-time monitoring and alerts
+- Live dashboards and operational insights
+
+For more information, see [Use real-time access logs](real-time-logs.md "real-time-logs.md").
+
+**Connection logs**
+
+Connection logs provide detailed information about the connection
+between the server and the client for mTLS enabled distributions.
+Connection logs provide visibility into client certificate information,
+reasons for mTLS authentication failures and whether a connection was
+permitted or refused.
+
+Like access logs (standard logs), connection logs are delivered to the delivery
+destination that you specify.
+
+###### Note
+
+To enable connection logs, you must first [enable mTLS](mtls-authentication.md "mtls-authentication.md") for your
+distribution.
+
+Use connection logs when you need:
+
+- Reasons for successful or unsuccessful connections during the TLS
+  handshake
+- Visibility into the client certificate information
+
+For more information, see [Observability using connection logs](connection-logs.md "connection-logs.md").
 
 ## Logging edge functions
 
@@ -62,7 +103,7 @@ For more information about logging, see the following topics:
 
 ###### Topics
 
-- [Standard logging (access logs)](AccessLogs.md "AccessLogs.md")
-- [Use real-time logs](real-time-logs.md "real-time-logs.md")
+- [Access logs (standard logs)](AccessLogs.md "AccessLogs.md")
+- [Use real-time access logs](real-time-logs.md "real-time-logs.md")
 - [Edge function logs](edge-functions-logs.md "edge-functions-logs.md")
 - [Logging Amazon CloudFront API calls using AWS CloudTrail](logging_using_cloudtrail.md "logging_using_cloudtrail.md")

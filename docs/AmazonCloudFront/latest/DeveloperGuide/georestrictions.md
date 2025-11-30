@@ -72,7 +72,7 @@ the user didn’t have permission to access the file for another reason. If you 
 third-party geolocation service such as Digital Element or MaxMind, you can identify
 the location of requests based on the IP address in the `c-ip` (client
 IP) column in the access logs. For more information about CloudFront standard logs, see
-[Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+[Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 The following procedure explains how to use the CloudFront console to add geographic restrictions
 to an existing distribution. For information about how to use the console to create

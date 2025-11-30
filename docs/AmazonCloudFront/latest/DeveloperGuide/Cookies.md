@@ -79,7 +79,7 @@ settings)](cloudfront-limits.md#limits-allowlisted-query-strings "cloudfront-lim
 If you configure CloudFront to log requests and to log cookies, CloudFront logs all
 cookies and all cookie attributes, even if you configure CloudFront not to forward
 cookies to your origin or if you configure CloudFront to forward only specific
-cookies. For more information about CloudFront logging, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+cookies. For more information about CloudFront logging, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 **Case sensitivity**
 

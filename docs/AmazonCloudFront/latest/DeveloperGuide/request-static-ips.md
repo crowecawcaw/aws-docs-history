@@ -149,6 +149,33 @@ needs.
 For more information about quotas related to Anycast static IP lists, see [Amazon CloudFront endpoints and quotas](../../../general/latest/gr/cf_region.md#limits_cloudfront "../../../general/latest/gr/cf_region.md#limits_cloudfront") in the
 _AWS General Reference_.
 
+## Associate an Anycast static IP list with
+
+a connection group
+
+Before you begin, request and create an Anycast static IP list as explained in the
+previous sections.
+
+###### To associate an Anycast static IP list with a new connection group
+
+1. Ensure you have enabled connection groups under **Settings**.
+2. Create a connection group. For more information, see [Create custom connection
+   group](custom-connection-group.md "custom-connection-group.md").
+3. For **Settings**, you must make the following selections
+   to use your Anycast static IP list.
+   1. For **Anycast IP list**, select your Anycast
+      static IP list from the dropdown list.
+
+4. Finish creating your connection group.
+
+###### Note
+
+If your Anycast static IP is only using IPv4 and not dualstack, for
+**IPv6**, select **Off**.
+
+For more information about quotas related to Anycast static IP lists, see [Amazon CloudFront endpoints and quotas](../../../general/latest/gr/cf_region.md#limits_cloudfront "../../../general/latest/gr/cf_region.md#limits_cloudfront") in the
+_Amazon Web Services General Reference_.
+
 ## Update an Anycast static IP list
 
 After you have created your Anycast static IP address and associated it to a

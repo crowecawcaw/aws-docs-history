@@ -434,7 +434,12 @@ this field contains the range start value. 33. **`sc-range-end`**
 When the response contains the HTTP `Content-Range` header,
 this field contains the range end value. 34. **`distribution-tenant-id`**
 
-The ID of the distribution tenant.
+The ID of the distribution tenant. 35. **`connection-id`**
+
+A unique identifier for the TLS connection.
+
+You must enable mTLS for your distributions before you can get information for
+this field. For more information, see [Mutual TLS (mTLS) viewer](mtls-authentication.md "mtls-authentication.md").
 
 The following is an example log file for a distribution.
 

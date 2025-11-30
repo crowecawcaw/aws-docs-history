@@ -18,4 +18,4 @@ many, as shown in the following examples:
   every file on your origin, you can determine which files viewers have requested from
   CloudFront and invalidate only those files. To determine which files viewers have
   requested, enable CloudFront access logging. For more information about access logs, see
-  [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+  [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").

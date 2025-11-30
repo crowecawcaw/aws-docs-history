@@ -82,6 +82,10 @@ This policy includes the following permissions.
   read-only access to get details about pricing plan subscriptions.
 - `pricingplanmanager:ListSubscriptions` – Allows principals
   read-only access to list pricing plan subscriptions.
+- `ec2:DescribeIpamPools` – Allows principals to get detailed information
+  about your IPAM pools.
+- `ec2:GetIpamPoolCidrs` – Allows principals to get the CIDRs provisioned
+  to an IPAM pool.
 
 To view the permissions for this policy, see [CloudFrontReadOnlyAccess](../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md") in the _AWS Managed Policy
 Reference_.
@@ -125,12 +129,8 @@ This policy includes the following permissions.
   web ACLs in AWS WAF.
 - `kinesis:ListStreams` – Allows principals to get a list of Amazon Kinesis
   streams.
-- `ec2:DescribeInstances` - Allows principals to get detailed information
-  about instances in Amazon EC2.
 - `elasticloadbalancing:DescribeLoadBalancers` - Allows principals to get
   detailed information about load balancers in ELB.
-- `ec2:DescribeInternetGateways` - Allows principals to get detailed
-  information about internet gateways in Amazon EC2.
 - `kinesis:DescribeStream` – Allows principals to get detailed
   information about a Kinesis stream.
 - `iam:ListRoles` – Allows principals to get a list of roles in
@@ -154,6 +154,14 @@ This policy includes the following permissions.
   read-only access to get details about pricing plan subscriptions.
 - `pricingplanmanager:ListSubscriptions` – Allows principals
   read-only access to list pricing plan subscriptions.
+- `ec2:DescribeInstances` - Allows principals to get detailed information
+  about instances in Amazon EC2.
+- `ec2:DescribeInternetGateways` - Allows principals to get detailed
+  information about internet gateways in Amazon EC2.
+- `ec2:DescribeIpamPools` – Allows principals to get detailed information
+  about your IPAM pools.
+- `ec2:GetIpamPoolCidrs` – Allows principals to get the CIDRs provisioned
+  to an IPAM pool.
 
 To view the permissions for this policy, see [CloudFrontFullAccess](../../../aws-managed-policy/latest/reference/CloudFrontFullAccess.md "../../../aws-managed-policy/latest/reference/CloudFrontFullAccess.md") in the _AWS Managed Policy
 Reference_.
@@ -219,7 +227,11 @@ the RSS feed on the CloudFront [Document history](WhatsNew.md "WhatsNew.md") pag
 
 | Change                                                                                                                                                                                                                                                                                       | Description                                                                                                                                                                                                    | Date              |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for Amazon EC2.<br>The new permissions allow principals to use the<br>`ec2:DescribeIpamPools` and `ec2:GetIpamPoolCidrs`<br>actions.                                          | November 24, 2025 |
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for Amazon EC2.<br>The new permissions allow principals to use the<br>`ec2:DescribeIpamPools` and `ec2:GetIpamPoolCidrs`<br>actions.                                          | November 24, 2025 |
 | [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added a new permission to create an AWS WAF ACL resource, and<br>added create, update, delete, and read permissions to AWS Pricing Plan<br>Manager.                                                 | November 18, 2025 |
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added a new permission to create an AWS WAF ACL resource, and<br>added create, update, delete, and read permissions to AWS Pricing Plan<br>Manager.                                                 | November 18, 2025 |
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for read-only access to AWS Pricing<br>Plan Manager.                                                                                                                          | November 18, 2025 |
 | [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for read-only access to AWS Pricing<br>Plan Manager.                                                                                                                          | November 18, 2025 |
 | [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permission for ACM.<br>The new permission allows principals to get details about an ACM<br>certificate.                                                                                   | April 28, 2025    |
 | [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for ACM.<br>The new permissions allow principals to get details about an ACM<br>certificate and to request a managed certificate from ACM.                                    | April 28, 2025    |

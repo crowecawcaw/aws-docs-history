@@ -1,24 +1,24 @@
-# Use real-time logs
+# Use real-time access logs
 
-With CloudFront real-time logs, you can get information about requests made to a distribution in
+With CloudFront real-time access logs, you can get information about requests made to a distribution in
 real time (logs are delivered within seconds of receiving the requests). You can use
-real-time logs to monitor, analyze, and take action based on content delivery
+real-time access logs to monitor, analyze, and take action based on content delivery
 performance.
 
-CloudFront real-time logs are configurable. You can choose:
+CloudFront real-time access logs are configurable. You can choose:
 
 - The _sampling rate_ for your real-time
   logs—that is, the percentage of requests for which you want to receive
-  real-time log records.
+  real-time access log records.
 - The specific fields that you want to receive in the log records.
 - The specific cache behaviors (path patterns) that you want to receive real-time
   logs for.
-  CloudFront real-time logs are delivered to the data stream of your choice in Amazon Kinesis Data Streams. You can
+  CloudFront real-time access logs are delivered to the data stream of your choice in Amazon Kinesis Data Streams. You can
   build your own [Kinesis data stream
   consumer](../../../streams/latest/dev/amazon-kinesis-consumers.md "../../../streams/latest/dev/amazon-kinesis-consumers.md"), or use Amazon Data Firehose to send the log data to Amazon Simple Storage Service (Amazon S3), Amazon Redshift,
   Amazon OpenSearch Service (OpenSearch Service), or a third-party log processing service.
 
-CloudFront charges for real-time logs, in addition to the charges you incur for using Kinesis Data Streams. For
+CloudFront charges for real-time access logs, in addition to the charges you incur for using Kinesis Data Streams. For
 more information about pricing, see [Amazon
 CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/") and [Amazon Kinesis Data Streams
 pricing](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazon.com/kinesis/data-streams/pricing/").
@@ -26,37 +26,37 @@ pricing](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazo
 ###### Important
 
 We recommend that you use the logs to understand the nature of the requests for your
-content, not as a complete accounting of all requests. CloudFront delivers real-time logs on a
+content, not as a complete accounting of all requests. CloudFront delivers real-time access logs on a
 best-effort basis. The log entry for a particular request might be delivered long after
 the request was actually processed and, in rare cases, a log entry might not be
-delivered at all. When a log entry is omitted from real-time logs, the number of entries
-in the real-time logs won't match the usage that appears in the AWS billing and usage
+delivered at all. When a log entry is omitted from real-time access logs, the number of entries
+in the real-time access logs won't match the usage that appears in the AWS billing and usage
 reports.
 
 ###### Topics
 
-- [Create and use real-time log
+- [Create and use real-time access log
   configurations](#create-real-time-log-config "#create-real-time-log-config")
-- [Understand real-time log
+- [Understand real-time access log
   configurations](#understand-real-time-log-config "#understand-real-time-log-config")
 - [Create a Kinesis Data Streams consumer](#real-time-log-consumer-guidance "#real-time-log-consumer-guidance")
-- [Troubleshoot real-time logs](#real-time-log-troubleshooting "#real-time-log-troubleshooting")
+- [Troubleshoot real-time access logs](#real-time-log-troubleshooting "#real-time-log-troubleshooting")
 
-## Create and use real-time log
+## Create and use real-time access log
 
 configurations
 
 To get information about requests made to a distribution in real time. you can use a
-real-time log configurations. Logs are delivered within seconds of receiving the
-requests. You can create a real-time log configuration in the CloudFront console, with the
+real-time access log configurations. Logs are delivered within seconds of receiving the
+requests. You can create a real-time access log configuration in the CloudFront console, with the
 AWS Command Line Interface (AWS CLI), or with the CloudFront API.
 
-To use a real-time log configuration, you attach it to one or more cache behaviors in
+To use a real-time access log configuration, you attach it to one or more cache behaviors in
 a CloudFront distribution.
 
 Console
 
-###### To create a real-time log configuration
+###### To create a real-time access log configuration
 
 1. Sign in to the AWS Management Console and open the **Logs**
    page in the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home?#/logs](https://console.aws.amazon.com/cloudfront/v4/home?#/logs "https://console.aws.amazon.com/cloudfront/v4/home?#/logs").
@@ -68,39 +68,39 @@ Console
 5. For **Sampling rate**, enter the percentage of
    requests for which you want to receive log records.
 6. For **Fields**, choose the fields to receive in
-   the real-time logs.
+   the real-time access logs.
    - To include all [CMCD
      fields](#CMCD-real-time-logging-fields "#CMCD-real-time-logging-fields") for your logs, choose **CMCD all
      keys**.
 
 7. For **Endpoint**, choose one or more Kinesis data
-   streams to receive real-time logs.
+   streams to receive real-time access logs.
 
 ###### Note
 
-CloudFront real-time logs are delivered to the data stream that you
-specify in Kinesis Data Streams. To read and analyze your real-time logs, you
+CloudFront real-time access logs are delivered to the data stream that you
+specify in Kinesis Data Streams. To read and analyze your real-time access logs, you
 can build your own Kinesis data stream consumer. You can also use
 Firehose to send the log data to Amazon S3, Amazon Redshift, Amazon OpenSearch Service, or a
 third-party log processing service. 8. For **IAM role**, choose **Create new
 service role** or choose an existing role. You must
 have permission to create IAM roles. 9. (Optional) For **Distribution**, choose a CloudFront
-distribution and cache behavior to attach to the real-time log
+distribution and cache behavior to attach to the real-time access log
 configuration. 10. Choose **Create configuration**.
 
-If successful, the console shows the details of the real-time log
+If successful, the console shows the details of the real-time access log
 configuration that you just created.
 
-For more information, see [Understand real-time log
+For more information, see [Understand real-time access log
 configurations](#understand-real-time-log-config "#understand-real-time-log-config").
 
 AWS CLI
-To create a real-time log configuration with the AWS CLI, use the
+To create a real-time access log configuration with the AWS CLI, use the
 **aws cloudfront create-realtime-log-config** command.
 You can use an input file to provide the command's input parameters, rather
 than specifying each individual parameter as command line input.
 
-###### To create a real-time log configuration (CLI with input file)
+###### To create a real-time access log configuration (CLI with input file)
 
 1. Use the following command to create a file named
    `rtl-config.yaml` that contains all of the
@@ -113,7 +113,7 @@ aws cloudfront create-realtime-log-config --generate-cli-skeleton yaml-input > r
 ```
 
 2.  Open the file named `rtl-config.yaml` that you
-    just created. Edit the file to specify the real-time log
+    just created. Edit the file to specify the real-time access log
     configuration settings that you want, then save the file. Note the
     following:
 
@@ -121,10 +121,10 @@ aws cloudfront create-realtime-log-config --generate-cli-skeleton yaml-input > r
          `Kinesis`.
 
     For more information about the real-time long configuration
-    settings, see [Understand real-time log
+    settings, see [Understand real-time access log
     configurations](#understand-real-time-log-config "#understand-real-time-log-config").
 
-3.  Use the following command to create the real-time log
+3.  Use the following command to create the real-time access log
     configuration using input parameters from the
     `rtl-config.yaml` file.
 
@@ -133,10 +133,10 @@ aws cloudfront create-realtime-log-config --generate-cli-skeleton yaml-input > r
 aws cloudfront create-realtime-log-config --cli-input-yaml file://rtl-config.yaml
 ```
 
-If successful, the command's output shows the details of the real-time log
+If successful, the command's output shows the details of the real-time access log
 configuration that you just created.
 
-###### To attach a real-time log configuration to an existing distribution
+###### To attach a real-time access log configuration to an existing distribution
 
 (CLI with input file)
 
@@ -152,12 +152,12 @@ aws cloudfront get-distribution-config --id `distribution_ID` --output yaml > di
 
 2.  Open the file named `dist-config.yaml` that you
     just created. Edit the file, making the following changes to each
-    cache behavior that you are updating to use a real-time log
+    cache behavior that you are updating to use a real-time access log
     configuration.
 
         * In the cache behavior, add a field named
          `RealtimeLogConfigArn`. For the field's
-         value, use the ARN of the real-time log configuration that
+         value, use the ARN of the real-time access log configuration that
          you want to attach to this cache behavior.
         * Rename the `ETag` field to
          `IfMatch`, but don't change the field's
@@ -166,7 +166,7 @@ aws cloudfront get-distribution-config --id `distribution_ID` --output yaml > di
     Save the file when finished.
 
 3.  Use the following command to update the distribution to use the
-    real-time log configuration. Replace
+    real-time access log configuration. Replace
     `distribution_ID` with the
     distribution's ID.
 
@@ -179,34 +179,34 @@ If successful, the command's output shows the details of the distribution
 that you just updated.
 
 API
-To create a real-time log configuration with the CloudFront API, use the [CreateRealtimeLogConfig](../../../cloudfront/latest/APIReference/API_CreateRealtimeLogConfig.md "../../../cloudfront/latest/APIReference/API_CreateRealtimeLogConfig.md") API operation. For more information
-about the parameters that you specify in this API call, see [Understand real-time log
+To create a real-time access log configuration with the CloudFront API, use the [CreateRealtimeLogConfig](../../../cloudfront/latest/APIReference/API_CreateRealtimeLogConfig.md "../../../cloudfront/latest/APIReference/API_CreateRealtimeLogConfig.md") API operation. For more information
+about the parameters that you specify in this API call, see [Understand real-time access log
 configurations](#understand-real-time-log-config "#understand-real-time-log-config") and the API reference
 documentation for your AWS SDK or other API client.
 
-After you create a real-time log configuration, you can attach it to a
+After you create a real-time access log configuration, you can attach it to a
 cache behavior, by using one of the following API operations:
 
 - To attach it to a cache behavior in an existing distribution, use
   [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md").
 - To attach it to a cache behavior in a new distribution, use [CreateDistribution](../../../cloudfront/latest/APIReference/API_CreateDistribution.md "../../../cloudfront/latest/APIReference/API_CreateDistribution.md").
 
-For both of these API operations, provide the ARN of the real-time log
+For both of these API operations, provide the ARN of the real-time access log
 configuration in the `RealtimeLogConfigArn` field, inside a cache
 behavior. For more information about the other fields that you specify in
 these API calls, see [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md") and the API reference
 documentation for your AWS SDK or other API client.
 
-## Understand real-time log
+## Understand real-time access log
 
 configurations
 
-To use CloudFront real-time logs, you start by creating a real-time log configuration. The
-real-time log configuration contains information about which log fields you want to
+To use CloudFront real-time access logs, you start by creating a real-time access log configuration. The
+real-time access log configuration contains information about which log fields you want to
 receive, the _sampling rate_ for log records, and the
 Kinesis data stream where you want to deliver the logs.
 
-Specifically, a real-time log configuration contains the following settings:
+Specifically, a real-time access log configuration contains the following settings:
 
 ###### Contents
 
@@ -218,19 +218,19 @@ Specifically, a real-time log configuration contains the following settings:
 
 ### Name
 
-A name to identify the real-time log configuration.
+A name to identify the real-time access log configuration.
 
 ### Sampling rate
 
 The sampling rate is a whole number between 1 and 100 (inclusive) that determines
-the percentage of viewer requests that are sent to Kinesis Data Streams as real-time log records.
-To include every viewer request in your real-time logs, specify 100 for the sampling
+the percentage of viewer requests that are sent to Kinesis Data Streams as real-time access log records.
+To include every viewer request in your real-time access logs, specify 100 for the sampling
 rate. You might choose a lower sampling rate to reduce costs while still receiving a
-representative sample of request data in your real-time logs.
+representative sample of request data in your real-time access logs.
 
 ### Fields
 
-A list of the fields that are included in each real-time log record. Each log
+A list of the fields that are included in each real-time access log record. Each log
 record can contain up to 40 fields, and you can choose to receive all of the
 available fields, or only the fields that you need for monitoring and analyzing
 performance.
@@ -243,7 +243,7 @@ Fields 46-63 are [common media client
 data (CMCD)](#CMCD-real-time-logging-fields "#CMCD-real-time-logging-fields") that media player clients can send to CDNs with each request.
 You can use this data to understand each request, such as the media type (audio,
 video), playback rate, and streaming length. These fields will only appear in your
-real-time logs if they're sent to CloudFront.
+real-time access logs if they're sent to CloudFront.
 
 1. **`timestamp`**
 
@@ -640,7 +640,7 @@ origin. 45. **`origin-lbl`**
 The number of seconds of last-byte latency between CloudFront and your
 origin. 46. **`asn`**
 
-The autonomous system number (ASN) of the viewer. 47. ###### CMCD fields in real-time logs
+The autonomous system number (ASN) of the viewer. 47. ###### CMCD fields in real-time access logs
 
 For more information about these fields, see the [CTA Specification Web Application Video Ecosystem - Common Media
 Client Data CTA-5004](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5004-final.pdf "https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5004-final.pdf") document. 48. **`cmcd-encoded-bitrate`**
@@ -712,7 +712,12 @@ If no origin failover occurs but media quality-aware resilience (MQAR) origin se
 This field indicates the Media Quality Confidence Score (MQCS) (range: 0 – 100) for media segments that CloudFront retrieved in the CMSD response headers from MediaPackage v2.
 This field is available for requests matching a cache behavior that has an MQAR-enabled origin group. CloudFront logs this field for media segments that are also served from its cache in addition to origin requests. For more information, see [Media quality-aware resiliency](media-quality-score.md "media-quality-score.md"). 69. **`distribution-tenant-id`**
 
-The ID of the distribution tenant.
+The ID of the distribution tenant. 70. **`connection-id`**
+
+A unique identifier for the TLS connection.
+
+You must enable mTLS for your distributions before you can get information
+for this field. For more information, see [Mutual TLS (mTLS) viewer](mtls-authentication.md "mtls-authentication.md").
 
 ### Endpoint (Kinesis Data Streams)
 
@@ -737,7 +742,7 @@ following information to help you estimate the number of shards you need.
 You can use the [CloudFront
 usage reports](https://console.aws.amazon.com/cloudfront/v4/home#/usage "https://console.aws.amazon.com/cloudfront/v4/home#/usage") (in the CloudFront console) and the [CloudFront metrics](viewing-cloudfront-metrics.md#monitoring-console.distributions "viewing-cloudfront-metrics.md#monitoring-console.distributions") (in the
 CloudFront and Amazon CloudWatch consoles) to help you calculate your requests per
-second. 2. Determine the typical size of a single real-time log record.
+second. 2. Determine the typical size of a single real-time access log record.
 
 In general, a single log record is around 500 bytes. A large record that
 includes all available fields is generally around 1 KB.
@@ -757,14 +762,14 @@ The pricing calculator shows you the number of shards you need and the estimated
 
 ### IAM role
 
-The AWS Identity and Access Management (IAM) role that gives CloudFront permission to deliver real-time logs to
+The AWS Identity and Access Management (IAM) role that gives CloudFront permission to deliver real-time access logs to
 your Kinesis data stream.
 
-When you create a real-time log configuration with the CloudFront console, you can
+When you create a real-time access log configuration with the CloudFront console, you can
 choose **Create new service role** to let the console create the
 IAM role for you.
 
-When you create a real-time log configuration with AWS CloudFormation or the CloudFront API
+When you create a real-time access log configuration with AWS CloudFormation or the CloudFront API
 (AWS CLI or SDK), you must create the IAM role yourself and provide the role ARN. To
 create the IAM role yourself, use the following policies.
 
@@ -872,42 +877,42 @@ JSON
 
 ## Create a Kinesis Data Streams consumer
 
-To read and analyze your real-time logs, you build or use a Kinesis Data Streams _consumer_. When you build a consumer for CloudFront real-time
-logs, it's important to know that the fields in every real-time log record are always
+To read and analyze your real-time access logs, you build or use a Kinesis Data Streams _consumer_. When you build a consumer for CloudFront real-time
+logs, it's important to know that the fields in every real-time access log record are always
 delivered in the same order, as listed in the [Fields](#real-time-logs-fields "#real-time-logs-fields") section. Make sure that you build your
 consumer to accommodate this fixed order.
 
-For example, consider a real-time log configuration that includes only these three
+For example, consider a real-time access log configuration that includes only these three
 fields: `time-to-first-byte`, `sc-status`, and
 `c-country`. In this scenario, the last field, `c-country`, is
 always field number 3 in every log record. However, if you later add fields to the
-real-time log configuration, the placement of each field in a record can change.
+real-time access log configuration, the placement of each field in a record can change.
 
 For example, if you add the fields `sc-bytes` and `time-taken`
-to the real-time log configuration, these fields are inserted into each log record
+to the real-time access log configuration, these fields are inserted into each log record
 according to the order shown in the [Fields](#real-time-logs-fields "#real-time-logs-fields") section. The resulting order of all five
 fields is `time-to-first-byte`, `sc-status`,
 `sc-bytes`, `time-taken`, and `c-country`. The
 `c-country` field was originally field number 3, but is now field number 5. Make sure that your consumer application can handle fields that change position in a
-log record, in case you add fields to your real-time log configuration.
+log record, in case you add fields to your real-time access log configuration.
 
-## Troubleshoot real-time logs
+## Troubleshoot real-time access logs
 
-After you create a real-time log configuration, you might find that no records (or not
+After you create a real-time access log configuration, you might find that no records (or not
 all records) are delivered to Kinesis Data Streams. In this case, you should first verify that your
 CloudFront distribution is receiving viewer requests. If it is, you can check the following
 setting to continue troubleshooting.
 
 **IAM role permissions**
 
-To deliver real-time log records to your Kinesis data stream, CloudFront uses
-the IAM role in the real-time log configuration. Make sure that the role
+To deliver real-time access log records to your Kinesis data stream, CloudFront uses
+the IAM role in the real-time access log configuration. Make sure that the role
 trust policy and the role permissions policy match the policies shown in
 [IAM role](#real-time-logs-IAM "#real-time-logs-IAM").
 
 **Kinesis Data Streams throttling**
 
-If CloudFront writes real-time log records to your Kinesis data stream faster
+If CloudFront writes real-time access log records to your Kinesis data stream faster
 than the stream can handle, Kinesis Data Streams might throttle the requests from CloudFront. In
 this case, you can increase the number of shards in your Kinesis data
 stream. Each shard can support writes up to 1,000 records per second, up to

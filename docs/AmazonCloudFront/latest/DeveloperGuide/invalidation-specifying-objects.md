@@ -87,7 +87,7 @@ For more information about query strings, see [Cache content based on query stri
 parameters](QueryStringParameters.md "QueryStringParameters.md").
 
 To determine which query strings are in use, you can enable CloudFront
-logging. For more information, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+logging. For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 **Maximum allowed**
 

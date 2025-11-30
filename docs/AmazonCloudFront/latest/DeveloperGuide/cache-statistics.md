@@ -246,7 +246,7 @@ data in the CloudFront standard logs (access logs)
 
 The following table shows how cache statistics charts in the CloudFront console
 correspond with values in CloudFront access logs. For more information about CloudFront access
-logs, see [Standard logging (access logs)](AccessLogs.md "AccessLogs.md").
+logs, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 **Total requests**
 

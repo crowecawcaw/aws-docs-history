@@ -84,8 +84,8 @@ To enable this feature for your distribution, complete the following steps:
 
 ## MQAR log fields
 
-CloudFront provides the following fields in real-time logs to reflect the quality score
-and the selected origin. You can enable these fields in your CloudFront real-time
+CloudFront provides the following fields in real-time access logs to reflect the quality score
+and the selected origin. You can enable these fields in your CloudFront real-time access logs
 logs:
 
 - `r-host`
