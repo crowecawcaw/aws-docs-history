@@ -29,44 +29,44 @@ Regional endpoints are active by default, but you must manually enable endpoints
 Regions, such as Asia Pacific (Hong Kong). You can deactivate STS endpoints for any Regions
 that are enabled by default if you do not intend to use those Regions.
 
-| Region Name                | Region         | Endpoint                                                        | Protocol       |
-| -------------------------- | -------------- | --------------------------------------------------------------- | -------------- |
-| US East (Ohio)             | us-east-2      | sts.us-east-2.amazonaws.com<br>sts-fips.us-east-2.amazonaws.com | HTTPS<br>HTTPS |
-| US East (N. Virginia)      | us-east-1      | sts.us-east-1.amazonaws.com<br>sts-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| US West (N. California)    | us-west-1      | sts.us-west-1.amazonaws.com<br>sts-fips.us-west-1.amazonaws.com | HTTPS<br>HTTPS |
-| US West (Oregon)           | us-west-2      | sts.us-west-2.amazonaws.com<br>sts-fips.us-west-2.amazonaws.com | HTTPS<br>HTTPS |
-| Africa (Cape Town)         | af-south-1     | sts.af-south-1.amazonaws.com                                    | HTTPS          |
-| Asia Pacific (Hong Kong)   | ap-east-1      | sts.ap-east-1.amazonaws.com                                     | HTTPS          |
-| Asia Pacific (Hyderabad)   | ap-south-2     | sts.ap-south-2.amazonaws.com                                    | HTTPS          |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | sts.ap-southeast-3.amazonaws.com                                | HTTPS          |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | sts.ap-southeast-5.amazonaws.com                                | HTTPS          |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | sts.ap-southeast-4.amazonaws.com                                | HTTPS          |
-| Asia Pacific (Mumbai)      | ap-south-1     | sts.ap-south-1.amazonaws.com                                    | HTTPS          |
-| Asia Pacific (New Zealand) | ap-southeast-6 | sts.ap-southeast-6.amazonaws.com                                | HTTPS          |
-| Asia Pacific (Osaka)       | ap-northeast-3 | sts.ap-northeast-3.amazonaws.com                                | HTTPS          |
-| Asia Pacific (Seoul)       | ap-northeast-2 | sts.ap-northeast-2.amazonaws.com                                | HTTPS          |
-| Asia Pacific (Singapore)   | ap-southeast-1 | sts.ap-southeast-1.amazonaws.com                                | HTTPS          |
-| Asia Pacific (Sydney)      | ap-southeast-2 | sts.ap-southeast-2.amazonaws.com                                | HTTPS          |
-| Asia Pacific (Taipei)      | ap-east-2      | sts.ap-east-2.amazonaws.com                                     | HTTPS          |
-| Asia Pacific (Thailand)    | ap-southeast-7 | sts.ap-southeast-7.amazonaws.com                                | HTTPS          |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | sts.ap-northeast-1.amazonaws.com                                | HTTPS          |
-| Canada (Central)           | ca-central-1   | sts.ca-central-1.amazonaws.com                                  | HTTPS          |
-| Canada West (Calgary)      | ca-west-1      | sts.ca-west-1.amazonaws.com                                     | HTTPS          |
-| Europe (Frankfurt)         | eu-central-1   | sts.eu-central-1.amazonaws.com                                  | HTTPS          |
-| Europe (Ireland)           | eu-west-1      | sts.eu-west-1.amazonaws.com                                     | HTTPS          |
-| Europe (London)            | eu-west-2      | sts.eu-west-2.amazonaws.com                                     | HTTPS          |
-| Europe (Milan)             | eu-south-1     | sts.eu-south-1.amazonaws.com                                    | HTTPS          |
-| Europe (Paris)             | eu-west-3      | sts.eu-west-3.amazonaws.com                                     | HTTPS          |
-| Europe (Spain)             | eu-south-2     | sts.eu-south-2.amazonaws.com                                    | HTTPS          |
-| Europe (Stockholm)         | eu-north-1     | sts.eu-north-1.amazonaws.com                                    | HTTPS          |
-| Europe (Zurich)            | eu-central-2   | sts.eu-central-2.amazonaws.com                                  | HTTPS          |
-| Israel (Tel Aviv)          | il-central-1   | sts.il-central-1.amazonaws.com                                  | HTTPS          |
-| Mexico (Central)           | mx-central-1   | sts.mx-central-1.amazonaws.com                                  | HTTPS          |
-| Middle East (Bahrain)      | me-south-1     | sts.me-south-1.amazonaws.com                                    | HTTPS          |
-| Middle East (UAE)          | me-central-1   | sts.me-central-1.amazonaws.com                                  | HTTPS          |
-| South America (São Paulo)  | sa-east-1      | sts.sa-east-1.amazonaws.com                                     | HTTPS          |
-| AWS GovCloud (US-East)     | us-gov-east-1  | sts.us-gov-east-1.amazonaws.com                                 | HTTPS          |
-| AWS GovCloud (US-West)     | us-gov-west-1  | sts.us-gov-west-1.amazonaws.com                                 | HTTPS          |
+| Region Name                | Region         | Endpoint                                                                                                                           | Protocol                         |
+| -------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| US East (Ohio)             | us-east-2      | sts.us-east-2.amazonaws.com<br>sts-fips.us-east-2.api.aws<br>sts.us-east-2.api.aws<br>sts-fips.us-east-2.amazonaws.com             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US East (N. Virginia)      | us-east-1      | sts.us-east-1.amazonaws.com<br>sts-fips.us-east-1.amazonaws.com<br>sts-fips.us-east-1.api.aws<br>sts.us-east-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US West (N. California)    | us-west-1      | sts.us-west-1.amazonaws.com<br>sts-fips.us-west-1.amazonaws.com<br>sts-fips.us-west-1.api.aws<br>sts.us-west-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US West (Oregon)           | us-west-2      | sts.us-west-2.amazonaws.com<br>sts-fips.us-west-2.api.aws<br>sts-fips.us-west-2.amazonaws.com<br>sts.us-west-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Africa (Cape Town)         | af-south-1     | sts.af-south-1.amazonaws.com<br>sts.af-south-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
+| Asia Pacific (Hong Kong)   | ap-east-1      | sts.ap-east-1.amazonaws.com<br>sts.ap-east-1.api.aws                                                                               | HTTPS<br>HTTPS                   |
+| Asia Pacific (Hyderabad)   | ap-south-2     | sts.ap-south-2.amazonaws.com<br>sts.ap-south-2.api.aws                                                                             | HTTPS<br>HTTPS                   |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | sts.ap-southeast-3.amazonaws.com<br>sts.ap-southeast-3.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | sts.ap-southeast-5.amazonaws.com<br>sts.ap-southeast-5.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | sts.ap-southeast-4.amazonaws.com<br>sts.ap-southeast-4.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Asia Pacific (Mumbai)      | ap-south-1     | sts.ap-south-1.amazonaws.com<br>sts.ap-south-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
+| Asia Pacific (New Zealand) | ap-southeast-6 | sts.ap-southeast-6.amazonaws.com<br>sts.ap-southeast-6.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Asia Pacific (Osaka)       | ap-northeast-3 | sts.ap-northeast-3.amazonaws.com<br>sts.ap-northeast-3.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Asia Pacific (Seoul)       | ap-northeast-2 | sts.ap-northeast-2.amazonaws.com<br>sts.ap-northeast-2.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Asia Pacific (Singapore)   | ap-southeast-1 | sts.ap-southeast-1.amazonaws.com<br>sts.ap-southeast-1.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Asia Pacific (Sydney)      | ap-southeast-2 | sts.ap-southeast-2.amazonaws.com<br>sts.ap-southeast-2.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Asia Pacific (Taipei)      | ap-east-2      | sts.ap-east-2.amazonaws.com<br>sts.ap-east-2.api.aws                                                                               | HTTPS<br>HTTPS                   |
+| Asia Pacific (Thailand)    | ap-southeast-7 | sts.ap-southeast-7.amazonaws.com<br>sts.ap-southeast-7.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | sts.ap-northeast-1.amazonaws.com<br>sts.ap-northeast-1.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Canada (Central)           | ca-central-1   | sts.ca-central-1.amazonaws.com<br>sts-fips.ca-central-1.api.aws<br>sts.ca-central-1.api.aws<br>sts-fips.ca-central-1.amazonaws.com | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Canada West (Calgary)      | ca-west-1      | sts.ca-west-1.amazonaws.com<br>sts-fips.ca-west-1.amazonaws.com<br>sts-fips.ca-west-1.api.aws<br>sts.ca-west-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Europe (Frankfurt)         | eu-central-1   | sts.eu-central-1.amazonaws.com<br>sts.eu-central-1.api.aws                                                                         | HTTPS<br>HTTPS                   |
+| Europe (Ireland)           | eu-west-1      | sts.eu-west-1.amazonaws.com<br>sts.eu-west-1.api.aws                                                                               | HTTPS<br>HTTPS                   |
+| Europe (London)            | eu-west-2      | sts.eu-west-2.amazonaws.com<br>sts.eu-west-2.api.aws                                                                               | HTTPS<br>HTTPS                   |
+| Europe (Milan)             | eu-south-1     | sts.eu-south-1.amazonaws.com<br>sts.eu-south-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
+| Europe (Paris)             | eu-west-3      | sts.eu-west-3.amazonaws.com<br>sts.eu-west-3.api.aws                                                                               | HTTPS<br>HTTPS                   |
+| Europe (Spain)             | eu-south-2     | sts.eu-south-2.amazonaws.com<br>sts.eu-south-2.api.aws                                                                             | HTTPS<br>HTTPS                   |
+| Europe (Stockholm)         | eu-north-1     | sts.eu-north-1.amazonaws.com<br>sts.eu-north-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
+| Europe (Zurich)            | eu-central-2   | sts.eu-central-2.amazonaws.com<br>sts.eu-central-2.api.aws                                                                         | HTTPS<br>HTTPS                   |
+| Israel (Tel Aviv)          | il-central-1   | sts.il-central-1.amazonaws.com<br>sts.il-central-1.api.aws                                                                         | HTTPS<br>HTTPS                   |
+| Mexico (Central)           | mx-central-1   | sts.mx-central-1.amazonaws.com<br>sts.mx-central-1.api.aws                                                                         | HTTPS<br>HTTPS                   |
+| Middle East (Bahrain)      | me-south-1     | sts.me-south-1.amazonaws.com<br>sts.me-south-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
+| Middle East (UAE)          | me-central-1   | sts.me-central-1.amazonaws.com<br>sts.me-central-1.api.aws                                                                         | HTTPS<br>HTTPS                   |
+| South America (São Paulo)  | sa-east-1      | sts.sa-east-1.amazonaws.com<br>sts.sa-east-1.api.aws                                                                               | HTTPS<br>HTTPS                   |
+| AWS GovCloud (US-East)     | us-gov-east-1  | sts.us-gov-east-1.amazonaws.com<br>sts.us-gov-east-1.api.aws                                                                       | HTTPS<br>HTTPS                   |
+| AWS GovCloud (US-West)     | us-gov-west-1  | sts.us-gov-west-1.amazonaws.com<br>sts.us-gov-west-1.api.aws                                                                       | HTTPS<br>HTTPS                   |
 
 ## Service quotas
 
