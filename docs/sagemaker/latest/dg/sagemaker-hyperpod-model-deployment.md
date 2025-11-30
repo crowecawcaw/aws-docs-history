@@ -15,6 +15,10 @@ automatically adjusts based on demand. Additionally, it includes comprehensive o
 and monitoring features that track critical metrics such as time-to-first-token, latency,
 and GPU utilization to help you optimize performance.
 
+###### Note
+
+When deploying on GPU-enabled instances, you can use GPU partitioning with Multi-Instance GPU (MIG) technology to run multiple inference workloads on a single GPU. This allows for better GPU utilization and cost optimization. For more information about configuring GPU partitioning, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md "sagemaker-hyperpod-eks-gpu-partitioning.md").
+
 **Unified infrastructure for training and inference**
 
 Maximize your GPU utilization by seamlessly transitioning compute resources between
@@ -26,6 +30,35 @@ operational continuity.
 Deploy models from multiple sources including open-weights and gated models from
 Amazon SageMaker JumpStart and custom models from Amazon S3 and Amazon FSx with support for both single-node
 and multi-node inference architectures.
+
+**Managed tiered Key-value (KV) caching and intelligent routing**
+
+KV caching saves the precomputed key-value vectors after processing previous tokens.
+When the next token is processed, the vectors don't need to be recalculated. Through a
+two-tier caching architecture, you can configure an L1 cache that uses CPU memory for
+low-latency local reuse, and an L2 cache that leverages Redis to enable scalable, node-level
+cache sharing.
+
+Intelligent routing analyzes incoming requests and directs them to the inference instance
+most likely to have relevant cached key-value pairs. The system examines the request and
+then routes it based on one of the following routing strategies:
+
+1. `prefixaware` — Subsequent requests with the same prompt prefix are routed to the same instance
+2. `kvaware` — Incoming requests are routed to the instance with the highest KV cache hit rate.
+3. `session` — Requests from the same user session are routed to the same instance.
+4. `roundrobin` — Even distribution of requests without considering the state of the KV cache.
+   For more information on how to enable this feature, see [Configure KV caching and intelligent routing for improved
+   performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+
+**Inbuilt L2 cache Tiered Storage Support for KV Caching**
+
+Building upon the existing KV cache infrastructure, HyperPod now integrates tiered
+storage as an additional L2 backend option alongside Redis. With the inbuilt SageMaker
+managed tiered storage, this offers improved performance. This enhancement provides
+customers with a more scalable and efficient option for cache offloading, particularly
+beneficial for high-throughput LLM inference workloads. The integration maintains
+compatibility with existing vLLM model servers and routing capabilities while offering
+better performance.
 
 ###### Topics
 

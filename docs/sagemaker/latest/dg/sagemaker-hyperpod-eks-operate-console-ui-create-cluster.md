@@ -95,7 +95,18 @@ User Guide_. 8. For **Instance deep health checks**, choose
 your option. Deep health checks monitor instance health during
 creation and after software updates, automatically recovering
 faulty instances through reboots or replacements when
-enabled. 9. Choose **Add instance group**.
+enabled. 9. If your instance type supports GPU partitioning with Multi-Instance GPU
+(MIG), you can enable GPU partition configuration for the instance group.
+GPU partitioning allows you to divide GPUs into smaller, isolated partitions
+for improved resource utilization. For more information, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md "sagemaker-hyperpod-eks-gpu-partitioning.md").
+
+    1. Toggle **Use GPU partition** to enable
+     GPU partitioning for this instance group.
+    2. Select a **GPU partition profile** from
+     the available options for your instance type. Each profile
+     defines the GPU slice configuration and memory allocation.
+
+10. Choose **Add instance group**.
 
 ### Quick setup defaults
 
@@ -235,7 +246,20 @@ your option. Deep health checks monitor instance health during
 creation and after software updates, automatically recovering
 faulty instances through reboots or replacements when enabled.
 To learn more, see [Deep health
-checks](sagemaker-hyperpod-eks-resiliency-deep-health-checks.md "sagemaker-hyperpod-eks-resiliency-deep-health-checks.md") 9. Choose **Add instance group**.
+checks](sagemaker-hyperpod-eks-resiliency-deep-health-checks.md "sagemaker-hyperpod-eks-resiliency-deep-health-checks.md") 9. For **Use GPU partition - optional**, if your
+instance type supports GPU partitioning with Multi-Instance GPU
+(MIG), you can enable this option to configure the GPU partition
+profile for the instance group. GPU partitioning allows you to
+divide GPUs into smaller, isolated partitions for improved resource
+utilization. For more information, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md "sagemaker-hyperpod-eks-gpu-partitioning.md").
+
+    1. Toggle **Use GPU partition** to enable
+     GPU partitioning for this instance group.
+    2. Select a **GPU partition profile** from
+     the available options for your instance type. Each profile
+     defines the GPU slice configuration and memory allocation.
+
+10. Choose **Add instance group**.
 
 ### Lifecycle scripts
 

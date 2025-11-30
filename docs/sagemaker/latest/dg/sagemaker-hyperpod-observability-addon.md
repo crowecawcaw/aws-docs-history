@@ -29,4 +29,4 @@ and SageMaker HyperPod task operators.
 - [Preconfigured
   alerts](hyperpod-observability-addon-alerts.md "hyperpod-observability-addon-alerts.md")
 - [Troubleshooting
-  the Amazon SageMaker HyperPod observability add-on](hyperpod-observability-addon-troubleshoting.md "hyperpod-observability-addon-troubleshoting.md")
+  the Amazon SageMaker HyperPod observability add-on](hyperpod-observability-addon-troubleshooting.md "hyperpod-observability-addon-troubleshooting.md")

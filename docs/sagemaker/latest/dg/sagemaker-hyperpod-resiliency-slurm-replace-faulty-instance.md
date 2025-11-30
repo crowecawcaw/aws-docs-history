@@ -1,27 +1,62 @@
 # Manually
 
-replace or reboot a node
+replace or reboot a node using Slurm
 
 This section talks about when you should manually reboot or replace a node, with
 instructions on how to do both.
+
+## When to manually reboot or replace a node
 
 The HyperPod auto-resume functionality monitors if the state of your Slurm
 nodes turns to `fail` or `down`. You can check the state of Slurm
 nodes by running `sinfo`.
 
-If you have a node stuck with an issue but not being fixed by the HyperPod
-auto-resume functionality, we recommend you to run one of the following commands to
-change the state of the node to `fail`.
+If a node remains stuck or unresponsive and the auto-resume process does not recover it,
+you can manually initiate recovery. The choice between rebooting and replacing a node depends on
+the nature of the issue. Consider rebooting when facing temporary or software-related problems,
+such as system hangs, memory leaks, GPU driver issues, kernel updates, or hung processes. However,
+if you encounter persistent or hardware-related problems like failing GPUs, memory or networking faults,
+repeated health check failures, or nodes that remain unresponsive after multiple reboot attempts,
+node replacement is the more appropriate solution.
 
-## Manully reboot a node
+## Ways to manually reboot or replace nodes
 
-**Reboot** should be your first approach for
-temporary or recoverable issues that don't indicate underlying hardware problems.
-Use rebooting when you encounter system hangs, performance degradation, memory
-leaks, GPU driver issues, or hung processes - essentially any situation where the
-hardware is functioning but the software stack needs a fresh start. Rebooting is
-also necessary after kernel updates or patches that require a restart to take
-effect.
+SageMaker SageMaker HyperPod offers two methods for manual node recovery. The preferred
+approach is using the SageMaker HyperPod Reboot and Replace APIs, which provides a faster and more transparent
+recovery process that works across all orchestrators. Alternatively, you can use traditional Slurm commands
+like `scontrol update`, though this legacy method requires direct access to the Slurm's controller node. Both
+methods activate the same SageMaker HyperPod recovery processes.
+
+## Manually reboot a node using reboot API
+
+You can use the **BatchRebootClusterNodes** to manually
+reboot a faulty node in your SageMaker HyperPod cluster.
+
+Here is an example of running the reboot operation on two Instances of a cluster using the AWS Command Line Interface:
+
+```
+ aws sagemaker-dev batch-reboot-cluster-nodes \
+                --cluster-name arn:aws:sagemaker:ap-northeast-1:123456789:cluster/test-cluster \
+                --node-ids i-abc123 i-def456
+```
+
+## Manually replace a node using replace API
+
+You can use the **BatchReplaceClusterNodes** to manually
+replace a faulty node in your SageMaker HyperPod cluster.
+
+Here is an example of running the replace operation on two Instances of a cluster using the AWS Command Line Interface:
+
+```
+ aws sagemaker-dev batch-replace-cluster-nodes \
+                --cluster-name arn:aws:sagemaker:ap-northeast-1:123456789:cluster/test-cluster \
+                --node-ids i-abc123 i-def456
+```
+
+## Manually reboot a node using Slurm
+
+You can also use the scontrol Slurm commands to trigger node recovery. These commands interact
+directly with the Slurm control plane and invoke the same underlying SageMaker HyperPod recovery mechanisms.
 
 In the following command , replace <ip-ipv4> with the Slurm node name (host
 name) of the faulty instance you want to reboot.
@@ -30,17 +65,12 @@ name) of the faulty instance you want to reboot.
 scontrol update node=`<ip-ipv4>` state=`fail` reason="Action:Reboot"
 ```
 
-## Manually replace a node
+This marks the node as FAIL with the specified reason. SageMaker HyperPod detects this and reboots the instance.
+Avoid changing the node state or restarting the Slurm controller during the operation.
 
-**Replace** the node when you're dealing with actual
-hardware failures or when the system has reached an unrecoverable state that
-rebooting cannot fix. This includes scenarios where hardware components (GPUs,
-memory, networking) are physically failing, when repeated reboots don't resolve
-persistent issues, or when the node consistently fails health checks even after
-restarts. Replacement involves the more complex process of provisioning a new
-instance and can take significantly longer than a simple reboot, so it should only
-be used when the underlying hardware or system state is fundamentally
-compromised.
+## Manually replace a node using Slurm
+
+You can use the scontrol update command as follows to replace a node.
 
 In the following command, replace
 `<ip-ipv4>` with the Slurm node name

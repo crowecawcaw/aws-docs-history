@@ -149,6 +149,11 @@ API server endpoint.
     "Orchestrator": {
         "Eks": {
             "ClusterArn": `"string"`,
+            "KubernetesConfig": {
+                "Labels": {
+                    `"nvidia.com/mig.config": "all-3g.40gb"`
+                }
+            }
         }
     },
     "NodeRecovery": "Automatic"
@@ -179,6 +184,13 @@ associating with an EKS cluster.
     * For the `VpcConfig` parameter, specify the information
      of the VPC used in the EKS cluster. The subnets must be
      private.
+    * For `Orchestrator.Eks.KubernetesConfig.Labels`, you can
+     optionally specify Kubernetes labels to apply to the nodes. To enable
+     GPU partitioning with Multi-Instance GPU (MIG), add the
+     `nvidia.com/mig.config` label with the desired MIG profile.
+     For example, `"nvidia.com/mig.config": "all-3g.40gb"`
+     configures all GPUs with the 3g.40gb partition profile. For more
+     information about GPU partitioning and available profiles, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md "sagemaker-hyperpod-eks-gpu-partitioning.md").
 
 4. Run the [create-cluster](../../../cli/latest/reference/sagemaker/create-cluster.md "../../../cli/latest/reference/sagemaker/create-cluster.md") command as follows.
 
@@ -211,3 +223,12 @@ the FSx for Lustre file system are fully synchronized to Amazon S3 before
 removal. We recommend waiting at least 30 minutes after job completion
 to ensure complete synchronization of all artifacts from the FSx for Lustre
 file system to the service-managed Amazon S3 bucket.
+
+###### Important
+
+When using an onboarded On-Demand Capacity Reservation (ODCR), you must map your instance group
+to the same Availability Zone ID (AZ ID) as the ODCR by setting `OverrideVpcConfig` with a subnet
+in the matching AZ ID.
+
+CRITICAL: Verify `OverrideVpcConfig` configuration before deployment to
+avoid incurring duplicate charges for both ODCR and On-Demand Capacity.

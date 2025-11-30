@@ -116,6 +116,16 @@ health.
 Use these metrics to monitor the performance, health, and utilization of
 individual accelerated compute devices in your cluster.
 
+###### Note
+
+When GPU partitioning with MIG (Multi-Instance GPU) is enabled on your cluster,
+DCGM metrics automatically provide partition-level granularity for monitoring individual
+MIG instances. Each MIG partition is exposed as a separate GPU device with its own
+metrics for temperature, power, memory utilization, and compute activity. This allows
+you to track resource usage and health for each GPU partition independently, enabling
+precise monitoring of workloads running on fractional GPU resources. For more information
+about configuring GPU partitioning, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md "sagemaker-hyperpod-eks-gpu-partitioning.md").
+
 | Metric name or type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                          | Enabled by default? | Metric source                         |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------------------- |
 | NVIDIA GPU            | DCGM metrics. See [https://github.com/NVIDIA/dcgm-exporter/blob/main/etc/dcp-metrics-included.csv](https://github.com/NVIDIA/dcgm-exporter/blob/main/etc/dcp-metrics-included.csv "https://github.com/NVIDIA/dcgm-exporter/blob/main/etc/dcp-metrics-included.csv").                                                                                                                                                                                 | Limited             | NVIDIA Data Center GPU Manager (DCGM) |

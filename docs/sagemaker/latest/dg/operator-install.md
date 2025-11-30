@@ -151,10 +151,6 @@ Create `addon-config.yaml`:
 
 ```
 jupyter-k8s:
-  controllerManager:
-    container:
-      env:
-        CLUSTER_ID: "<CLUSTER_ARN>"
   workspacePodWatching:
     enable: true
 
@@ -165,7 +161,6 @@ jupyter-k8s-aws-hyperpod:
     awsCertificateArn: "<ACM_CERTIFICATE_ARN>"
     kmsEncryptionContext:
       enabled: true
-      eksClusterArn: "<CLUSTER_ARN>"
     traefik:
       shouldInstall: true
     auth:
@@ -175,8 +170,6 @@ jupyter-k8s-aws-hyperpod:
 **Replace the following
 placeholders:**
 
-- <CLUSTER_ARN>: Your EKS cluster ARN (e.g.,
-  `arn:aws:eks:us-west-2:111122223333:cluster/my-cluster`)
 - <DOMAIN_NAME>: Your domain name (e.g.,
   `jupyter.example.com`)
 - <ACM_CERTIFICATE_ARN>: Your ACM certificate ARN (e.g. `arn:aws:acm:us-west-2:111122223333:certificate/12345678-1234-1234-1234-123456789012`,
@@ -198,7 +191,7 @@ aws eks create-addon \
 ```
 aws eks update-addon \
   --cluster-name <CLUSTER_NAME> \
-  --addon-name jupyter-k8s-aws-hyperpod \
+  --addon-name amazon-sagemaker-spaces \
   --configuration-values file://addon-config.yaml \
   --resolve-conflicts OVERWRITE \
   --region <AWS_REGION>
@@ -271,18 +264,10 @@ available annotations.
 
 ### Upgrade / versioning of add-on
 
-Currently we support a single version of Addon v1.0.0
-
-- This Addon is Compatible with both EKS and Hyperpod Clusters
-- K8’s supported versions are : 1.28, 1.29, 1.30, 1.31, 1.32, 1.33, 1.34
-- We do receive the notifications on the EKS Console to have the Addon updated to the latest version ,
-  please make sure that we update the addon by following the UI flow of updating
-- We can also update the addon using the [AWS eks cli](../../../cli/latest/reference/eks/update-addon.md "../../../cli/latest/reference/eks/update-addon.md") by using the following command
-
 ```
 aws eks update-addon \
   --cluster-name <CLUSTER_NAME> \
-  --addon-name jupyter-k8s-aws-hyperpod \
+  --addon-name amazon-sagemaker-spaces \
   --configuration-values file://addon-config.yaml \
   --resolve-conflicts OVERWRITE \
   --region <AWS_REGION>

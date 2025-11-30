@@ -42,6 +42,12 @@ if necessary.
      the exact namespace. Once a valid namespace is provided, the
      **Deploy** button should be
      enabled to deploy the model.
+    4. If your instance type is partitioned (MIG enabled), select a
+     **GPU partition type**.
+    5. If you want to enable L2 KVCache or Intelligent routing for
+     speeding up LLM inference, enable them. By default, only L1 KV
+     Cache is enabled. For more details on KVCache and Intelligent
+     routing, see [SageMaker HyperPod model deployment](sagemaker-hyperpod-model-deployment.md "sagemaker-hyperpod-model-deployment.md").
 
 5. Choose **Deploy** and wait for the
    **Endpoint** to be created.

@@ -34,7 +34,7 @@ progress of overall deep health checks.
 
 ## Fault type and reason labels
 
-The fallowing describes the `fault-type` and `fault-reason`
+The following describes the `fault-type` and `fault-reason`
 labels.
 
 - `fault-type` labels represent high-level fault categories when
@@ -61,7 +61,7 @@ The following topics cover how labeling is done depending on various cases.
 
 config disabled
 
-When a new node added into cluster, and if deep health check is not enabled
+When a new node is added into a cluster, and if deep health check is not enabled
 for the instance group, SageMaker HyperPod runs the same health checks as the [currently
 available SageMaker HyperPod health checks for Slurm clusters](sagemaker-hyperpod-resiliency-slurm.md "sagemaker-hyperpod-resiliency-slurm.md").
 

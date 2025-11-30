@@ -82,7 +82,7 @@ change.
 
 1. In the center of the notebook menu, choose the **Launch Terminal**
    icon (
-   ![Dollar sign icon representing currency or financial transactions.](images/studio/icons/notebook-launch-terminal.png)
+   ![Dollar sign icon representing currency or financial transactions.](/images/sagemaker/latest/dg/images/studio/icons/notebook-launch-terminal.png)
    ). This opens a terminal in the SageMaker image that the notebook runs
    in.
 2. Run the following commands to display the contents of the

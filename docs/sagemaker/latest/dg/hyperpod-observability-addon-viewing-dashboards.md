@@ -124,3 +124,23 @@ capacity planning. Additionally, through its comprehensive metrics
 coverage, the dashboard helps identify potential bottlenecks, optimize
 storage performance, and ensure reliable file system operations for
 SageMaker HyperPod workloads.
+
+### GPU partition
+
+dashboard
+
+To monitor GPU partition-specific metrics when using Multi-Instance GPU (MIG)
+configurations, you need to install or upgrade to the latest version of the
+SageMaker HyperPod Observability addon. This addon provides comprehensive monitoring
+capabilities, including MIG-specific metrics such as partition count, memory usage,
+and compute utilization per GPU partition.
+
+If you already have SageMaker HyperPod Observability installed but need MIG metrics
+support, simply update the addon to the latest version. This process is non-disruptive
+and maintains your existing monitoring configuration.
+
+SageMaker HyperPod automatically exposes MIG-specific metrics, including:
+
+- `nvidia_mig_instance_count`: Number of MIG instances per profile
+- `nvidia_mig_memory_usage`: Memory utilization per MIG instance
+- `nvidia_mig_compute_utilization`: Compute utilization per MIG instance

@@ -22,7 +22,7 @@ dialog box of the Studio Classic Launcher.
 
 To learn about all the available ways to open the Launcher, see [Use the Amazon SageMaker Studio Classic Launcher](studio-launcher.md "studio-launcher.md")
 
-![SageMaker Studio Classic launcher.](/images/sagemaker/latest/dg/images/studio/studio-new-launcher.png) 2. In the Launcher, in the **Notebooks and compute resources** section,
+![SageMaker Studio Classic launcher.](images/studio/studio-new-launcher.png) 2. In the Launcher, in the **Notebooks and compute resources** section,
 choose **Change environment**. 3. In the **Change environment** dialog, use the dropdown menus to select
 your **Image** from the **Custom Image** section, and your
 **Kernel**, then choose **Select**. 4. In the Launcher, choose **Create notebook** or **Open image

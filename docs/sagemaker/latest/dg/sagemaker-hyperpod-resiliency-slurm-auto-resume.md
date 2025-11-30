@@ -73,7 +73,7 @@ exclusive allocation acquired either by using `salloc` or
 make sure that all setup steps run in a single `srun` command when
 resuming the job. Through the entrypoint script, it is important to set up the
 environment on the replaced node to be consistent with the environment that the job
-step was running before it was stopped. The following precedure shows how to prepare
+step was running before it was stopped. The following procedure shows how to prepare
 an entrypoint script to keep the environment consistent and run it as a single
 `srun` command.
 
@@ -202,8 +202,8 @@ When both automatic node recovery and auto-resume systems are active, they follo
 a coordinated approach to handling failures. If the HMA detects a hardware fault,
 the node is marked for drain regardless of job-level status. With node automatic
 recovery enabled, the nodes are automatically replaced once all the jobs running in
-the nodes exit. In this scenario, for jobs with auto-resume enabled, if there is A
-non-zero status exit status in the step, the auto resume kicks in (the jobs resume
+the nodes exit. In this scenario, for jobs with auto-resume enabled, if there is a
+non-zero exit status in the step, the auto resume kicks in (the jobs resume
 once nodes are replaced). Jobs without auto-resume enabled will simply exit,
 requiring manual resubmission by administrators or users.
 

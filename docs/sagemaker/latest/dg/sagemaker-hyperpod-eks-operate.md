@@ -32,3 +32,4 @@ you prefer a visual interface or working with commands.
   SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-setup-storage.md "sagemaker-hyperpod-eks-setup-storage.md")
 - [Using the Amazon EBS CSI driver on SageMaker HyperPod EKS
   clusters](sagemaker-hyperpod-eks-ebs.md "sagemaker-hyperpod-eks-ebs.md")
+- [Configuring custom Kubernetes labels and taints in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-custom-labels-and-taints.md "sagemaker-hyperpod-eks-custom-labels-and-taints.md")

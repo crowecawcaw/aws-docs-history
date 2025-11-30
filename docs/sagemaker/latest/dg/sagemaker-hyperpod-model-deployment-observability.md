@@ -112,7 +112,7 @@ Use the following YAML configuration to deploy a JuJumpStartmpStart model with
 metrics enabled:
 
 ```
-apiVersion: inference.sagemaker.aws.amazon.com/v1alpha1
+apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: JumpStartModel
 metadata:
   name:mistral-model
@@ -140,7 +140,7 @@ Configure custom inference endpoints with detailed metrics settings using the
 following YAML:
 
 ```
-apiVersion: inference.sagemaker.aws.amazon.com/v1alpha1
+apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: JumpStartModel
 metadata:
   name:mistral-model
@@ -164,7 +164,7 @@ Deploy a custom inference endpoint
 
 Configure custom inference endpoints with detailed metrics settings using the following YAML:
 
-apiVersion: inference.sagemaker.aws.amazon.com/v1alpha1
+apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: InferenceEndpointConfig
 metadata:
   name: inferenceendpoint-deepseeks

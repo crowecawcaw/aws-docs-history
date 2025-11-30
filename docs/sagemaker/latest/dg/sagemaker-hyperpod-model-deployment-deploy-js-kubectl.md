@@ -91,10 +91,14 @@ export SAGEMAKER_ENDPOINT_NAME="deepsek-qwen-1-5b-test"
    Jumpstart. Create a similar deployment yaml file based on the model
    selected iin the above step.
 
+###### Note
+
+If your cluster uses GPU partitioning with MIG, you can request specific MIG profiles by adding the `acceleratorPartitionType` field to the server specification. For more information, see [Task Submission with MIG](sagemaker-hyperpod-eks-gpu-partitioning-task-submission.md "sagemaker-hyperpod-eks-gpu-partitioning-task-submission.md").
+
 ```
 cat << EOF > jumpstart_model.yaml
 ---
-apiVersion: inference.sagemaker.aws.amazon.com/v1alpha1
+apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: JumpStartModel
 metadata:
   name: $SAGEMAKER_ENDPOINT_NAME
@@ -108,6 +112,8 @@ spec:
     modelVersion: $MODEL_VERSION
   server:
     instanceType: $INSTANCE_TYPE
+    # Optional: Specify GPU partition profile for MIG-enabled instances
+    # acceleratorPartitionType: "1g.10gb"
   metrics:
     enabled: true
   environmentVariables:

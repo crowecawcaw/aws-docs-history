@@ -79,20 +79,25 @@ Using Amazon FSx as the model source
      an endpoint with Amazon FSx and a DeepSeek model.
 
 
+    ###### Note
+
+    For clusters with GPU partitioning enabled, replace `nvidia.com/gpu` with the appropriate MIG resource name such as `nvidia.com/mig-1g.10gb`. For more information, see [Task Submission with MIG](sagemaker-hyperpod-eks-gpu-partitioning-task-submission.md "sagemaker-hyperpod-eks-gpu-partitioning-task-submission.md").
+
+
 
     ```
     cat <<EOF> deploy_fsx_cluster_inference.yaml
     ---
-    apiVersion: inference.sagemaker.aws.amazon.com/v1alpha1
+    apiVersion: inference.sagemaker.aws.amazon.com/v1
     kind: InferenceEndpointConfig
     metadata:
-      name: $SAGEMAKER_ENDPOINT_NAME
-      namespace: $CLUSTER_NAMESPACE
+      name: lmcache-test
+      namespace: inf-update
     spec:
-      endpointName: $SAGEMAKER_ENDPOINT_NAME
-      instanceType: $INSTANCE_TYPE
-      invocationEndpoint: invocations
-      modelName: deepseek15b
+      modelName: Llama-3.1-8B-Instruct
+      instanceType: ml.g5.24xlarge
+      invocationEndpoint: v1/chat/completions
+      replicas: 2
       modelSourceConfig:
         fsxStorage:
           fileSystemId: $FSX_FILE_SYSTEM_ID
@@ -120,10 +125,12 @@ Using Amazon FSx as the model source
         resources:
           limits:
             nvidia.com/gpu: 1
+            # For MIG-enabled instances, use: nvidia.com/mig-1g.10gb: 1
           requests:
             cpu: 30000m
             memory: 100Gi
             nvidia.com/gpu: 1
+            # For MIG-enabled instances, use: nvidia.com/mig-1g.10gb: 1
     EOF
     ```
 
@@ -146,6 +153,11 @@ Using Amazon S3 as the model source
     ```
     3. The following is an example yaml file for creating
      an endpoint with Amazon S3 and a DeepSeek model.
+
+
+    ###### Note
+
+    For clusters with GPU partitioning enabled, replace `nvidia.com/gpu` with the appropriate MIG resource name such as `nvidia.com/mig-1g.10gb`. For more information, see [Task Submission with MIG](sagemaker-hyperpod-eks-gpu-partitioning-task-submission.md "sagemaker-hyperpod-eks-gpu-partitioning-task-submission.md").
 
 
 
@@ -173,18 +185,22 @@ Using Amazon S3 as the model source
         resources:
           limits:
             nvidia.com/gpu: 1
+            # For MIG-enabled instances, use: nvidia.com/mig-1g.10gb: 1
           requests:
             nvidia.com/gpu: 1
+            # For MIG-enabled instances, use: nvidia.com/mig-1g.10gb: 1
             cpu: 25600m
             memory: 102Gi
         image: 763104351884.dkr.ecr.us-east-2.amazonaws.com/djl-inference:0.32.0-lmi14.0.0-cu124
         modelInvocationPort:
-          containerPort: 8080
+          containerPort: 8000
           name: http
         modelVolumeMount:
           name: model-weights
           mountPath: /opt/ml/model
         environmentVariables:
+          - name: PYTHONHASHSEED
+            value: "123"
           - name: OPTION_ROLLING_BATCH
             value: "vllm"
           - name: SERVING_CHUNKED_READ_TIMEOUT
@@ -213,8 +229,170 @@ Using Amazon S3 as the model source
             value: "20"
           - name: SAGEMAKER_ENV
             value: "1"
+          - name: MODEL_SERVER_TYPE
+            value: "vllm"
+          - name: SESSION_KEY
+            value: "x-user-id"
     EOF
     ```
+
+Using Amazon S3 as the model source
+
+    1. Set up a SageMaker endpoint name.
+
+
+
+    ```
+    export SAGEMAKER_ENDPOINT_NAME="deepseek15b-s3"
+    ```
+    2. Configure the Amazon S3 bucket location where the model
+     is located.
+
+
+
+    ```
+    export S3_MODEL_LOCATION="deepseek-qwen-1-5b"
+    ```
+    3. The following is an example yaml file for creating
+     an endpoint with Amazon S3 and a DeepSeek model.
+
+
+
+    ```
+    cat <<EOF> deploy_s3_inference.yaml
+    ---
+    apiVersion: inference.sagemaker.aws.amazon.com/v1
+    kind: InferenceEndpointConfig
+    metadata:
+      name: lmcache-test
+      namespace: inf-update
+    spec:
+      modelName: Llama-3.1-8B-Instruct
+      instanceType: ml.g5.24xlarge
+      invocationEndpoint: v1/chat/completions
+      replicas: 2
+      modelSourceConfig:
+        modelSourceType: s3
+        s3Storage:
+          bucketName: bugbash-ada-resources
+          region: us-west-2
+        modelLocation: models/Llama-3.1-8B-Instruct
+        prefetchEnabled: false
+      kvCacheSpec:
+        enableL1Cache: true
+    #    enableL2Cache: true
+    #    l2CacheSpec:
+    #      l2CacheBackend: redis/sagemaker
+    #      l2CacheLocalUrl: redis://redis.redis-system.svc.cluster.local:6379
+      intelligentRoutingSpec:
+        enabled: true
+      tlsConfig:
+        tlsCertificateOutputS3Uri: s3://sagemaker-lmcache-fceb9062-tls-6f6ee470
+      metrics:
+        enabled: true
+        modelMetrics:
+          port: 8000
+      loadBalancer:
+        healthCheckPath: /health
+      worker:
+        resources:
+          limits:
+            nvidia.com/gpu: "4"
+          requests:
+            cpu: "6"
+            memory: 30Gi
+            nvidia.com/gpu: "4"
+        image: lmcache/vllm-openai:latest
+        args:
+          - "/opt/ml/model"
+          - "--max-model-len"
+          - "20000"
+          - "--tensor-parallel-size"
+          - "4"
+        modelInvocationPort:
+          containerPort: 8000
+          name: http
+        modelVolumeMount:
+          name: model-weights
+          mountPath: /opt/ml/model
+        environmentVariables:
+          - name: PYTHONHASHSEED
+            value: "123"
+          - name: OPTION_ROLLING_BATCH
+            value: "vllm"
+          - name: SERVING_CHUNKED_READ_TIMEOUT
+            value: "480"
+          - name: DJL_OFFLINE
+            value: "true"
+          - name: NUM_SHARD
+            value: "1"
+          - name: SAGEMAKER_PROGRAM
+            value: "inference.py"
+          - name: SAGEMAKER_SUBMIT_DIRECTORY
+            value: "/opt/ml/model/code"
+          - name: MODEL_CACHE_ROOT
+            value: "/opt/ml/model"
+          - name: SAGEMAKER_MODEL_SERVER_WORKERS
+            value: "1"
+          - name: SAGEMAKER_MODEL_SERVER_TIMEOUT
+            value: "3600"
+          - name: OPTION_TRUST_REMOTE_CODE
+            value: "true"
+          - name: OPTION_ENABLE_REASONING
+            value: "true"
+          - name: OPTION_REASONING_PARSER
+            value: "deepseek_r1"
+          - name: SAGEMAKER_CONTAINER_LOG_LEVEL
+            value: "20"
+          - name: SAGEMAKER_ENV
+            value: "1"
+          - name: MODEL_SERVER_TYPE
+            value: "vllm"
+          - name: SESSION_KEY
+            value: "x-user-id"
+    EOF
+    ```
+
+## Configure KV caching and intelligent routing for improved
+
+performance
+
+1. Enable KV caching by setting `enableL1Cache` and `enableL2Cache` to `true`.Then, set `l2CacheSpec` to `redis` and update `l2CacheLocalUrl` with the Redis cluster URL.
+
+```
+  kvCacheSpec:
+    enableL1Cache: true
+    enableL2Cache: true
+    l2CacheSpec:
+      l2CacheBackend: <redis | tieredstorage>
+      l2CacheLocalUrl: <redis cluster URL if l2CacheBackend is redis >
+```
+
+###### Note
+
+If the redis cluster is not within the same Amazon VPC as the HyperPod cluster, encryption for the data in transit is not guaranteed.
+
+###### Note
+
+Do not need l2CacheLocalUrl if tieredstorage is selected. 2. Enable intelligent routing by setting `enabled` to `true` under `intelligentRoutingSpec`. You can specify which routing strategy to use under `routingStrategy`. If no routing strategy is specified, it defaults to `prefixaware`.
+
+```
+intelligentRoutingSpec:
+    enabled: true
+    routingStrategy: <routing strategy to use>
+```
+
+3. Enable router metrics and caching metrics by setting `enabled` to `true` under `metrics`. The `port` value needs to be the same as the `containerPort` value under `modelInvocationPort`.
+
+```
+metrics:
+    enabled: true
+    modelMetrics:
+      port: <port value>
+    ...
+    modelInvocationPort:
+      containerPort: <port value>
+```
 
 ## Deploy your
 

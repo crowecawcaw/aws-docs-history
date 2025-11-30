@@ -33,7 +33,8 @@ their web browsers.
 
 ## Data scientist
 
-- [Create and manage spaces](browser-access.md "browser-access.md")
+- [Create and manage spaces](create-manage-spaces.md "create-manage-spaces.md")
+- [Web browser access](browser-access.md "browser-access.md")
 - [Remote access to SageMaker Spaces](vscode-access.md "vscode-access.md")
 
 ## SageMaker Spaces Managed Instance Pricing

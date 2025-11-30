@@ -10,12 +10,11 @@ machine and the development spaces.
 Before setting up remote access, ensure you have completed the following:
 
 - _SageMaker Spaces add-on installation_:
-  Follow the SageMaker Spaces add-on installation [guide](https://quip-amazon.com/9KRWAH7DheLp#OLS9BAfgwXu "https://quip-amazon.com/9KRWAH7DheLp#OLS9BAfgwXu") and
+  Follow [SageMaker Spaces add-on installation](operator-install.md "operator-install.md") and
   enable remote access during installation (either Quick install or Custom
   install with remote access configuration enabled).
 - _User access to EKS cluster_: Users need
-  EKS Access Entry configured with appropriate permissions. See Add users and
-  set up service accounts for EKS Access Entry setup details [here](https://quip-amazon.com/HU7zATyZkWwD#eIS9BAIcfJt "https://quip-amazon.com/HU7zATyZkWwD#eIS9BAIcfJt")
+  EKS Access Entry configured with appropriate permissions. See [Add users and set up service accounts for EKS Access Entry setup details](add-user.md "add-user.md")
 - _Development spaces_: Create and start
   development spaces on your HyperPod cluster
 - _kubectl access_: Ensure kubectl is

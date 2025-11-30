@@ -152,6 +152,14 @@ throttling
    **Request increase at resource level**
    .
 
+### Verify KV caching and intelligent routing are enabled
+
+If the `KVCache Metrics` dashboard is missing, feature is either not enabled or the port isn't mentioned in the `modelMetrics`. For more information on how to enable this, see steps 1 and 3 in [Configure KV caching and intelligent routing for improved
+performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+
+If the `Intelligent Router Metrics` dashboard is missing, enable the feature to have them show up. For more information on how to enable this, see [Configure KV caching and intelligent routing for improved
+performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+
 ## Troubleshooting add-on installation failures
 
 If the observability add-on fails to install, use the following steps to

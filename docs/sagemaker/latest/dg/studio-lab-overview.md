@@ -79,7 +79,7 @@ information, see [Use the Amazon SageMaker Studio Lab project runtime](studio-la
 The following screenshot shows a Studio Lab project with the file browser open and the
 Studio Lab Launcher displayed.
 
-![The layout of the project user interface.](/images/sagemaker/latest/dg/images/studio-lab-ui.png)
+![The layout of the project user interface.](images/studio-lab-ui.png)
 
 ## Compute instance type
 

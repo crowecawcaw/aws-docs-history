@@ -17,6 +17,18 @@ for Karpenter's autoscaling decisions.
 **Considerations for creating a node class**
 
 - You can specify up to 10 instance groups in a `NodeClass`.
+- When using GPU partitioning with MIG (Multi-Instance GPU), Karpenter can
+  automatically provision nodes with MIG-enabled instance groups. Ensure your
+  instance groups include MIG-supported instance types (ml.p4d.24xlarge,
+  ml.p5.48xlarge, or ml.p5e/p5en.48xlarge) and configure the appropriate MIG
+  labels during cluster creation. For more information about configuring GPU
+  partitioning, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md "sagemaker-hyperpod-eks-gpu-partitioning.md").
+- If custom labels are applied to instance groups, you can view them in the
+  `desiredLabels` field when querying the `HyperpodNodeClass`
+  status. This includes MIG configuration labels such as
+  `nvidia.com/mig.config`. When incoming jobs request MIG resources,
+  Karpenter will automatically scale instances with the appropriate MIG labels
+  applied.
 - If you choose to delete an instance group, we recommend removing it from your
   `NodeClass` before deleting it from your HyperPod
   cluster. If an instance group is deleted while it is used in a
@@ -107,7 +119,12 @@ status:
     status: "True"
     type: Ready
   instanceGroups:
-  - instanceTypes:
+  - desiredLabels:
+    - key: <custom_label_key>
+      value: <custom_label_value>
+    - key: nvidia.com/mig.config
+      value: all-1g.5gb
+    instanceTypes:
     - ml.c5.xlarge
     name: auto-c5-az1
     subnets:

@@ -21,7 +21,7 @@ following deployment YAML example includes an `autoScalingSpec` section
 that defines the configuration values for scaling your model deployment.
 
 ```
-apiVersion: inference.sagemaker.aws.amazon.com/v1alpha1
+apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: JumpStartModel
 metadata:
   name: deepseek-sample624

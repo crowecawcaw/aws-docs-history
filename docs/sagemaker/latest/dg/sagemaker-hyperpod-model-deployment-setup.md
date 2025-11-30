@@ -161,148 +161,169 @@ cat << EOF > permission-policy.json
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:PutObject",
-                "s3:GetObject",
-                "s3:DeleteObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::$BUCKET_NAME",
-                "arn:aws:s3:::$BUCKET_NAME/*"
-            ]
+        "Sid": "S3Access",
+        "Effect": "Allow",
+        "Action": [
+            "s3:Get*",
+            "s3:List*",
+            "s3:Describe*",
+            "s3:PutObject"
+        ],
+        "Resource": [
+            "*"
+        ]
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "ecr:GetAuthorizationToken"
-            ],
-            "Resource": "*"
+        "Sid": "ECRAccess",
+        "Effect": "Allow",
+        "Action": [
+            "ecr:GetAuthorizationToken",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:GetRepositoryPolicy",
+            "ecr:DescribeRepositories",
+            "ecr:ListImages",
+            "ecr:DescribeImages",
+            "ecr:BatchGetImage",
+            "ecr:GetLifecyclePolicy",
+            "ecr:GetLifecyclePolicyPreview",
+            "ecr:ListTagsForResource",
+            "ecr:DescribeImageScanFindings"
+        ],
+        "Resource": [
+            "*"
+        ]
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:GetRepositoryPolicy",
-                "ecr:DescribeRepositories",
-                "ecr:ListImages",
-                "ecr:DescribeImages",
-                "ecr:BatchGetImage",
-                "ecr:GetLifecyclePolicy",
-                "ecr:GetLifecyclePolicyPreview",
-                "ecr:ListTagsForResource",
-                "ecr:DescribeImageScanFindings"
-            ],
-            "Resource": "*"
+        "Sid": "EC2Access",
+        "Effect": "Allow",
+        "Action": [
+            "ec2:AssignPrivateIpAddresses",
+            "ec2:AttachNetworkInterface",
+            "ec2:CreateNetworkInterface",
+            "ec2:DeleteNetworkInterface",
+            "ec2:DescribeInstances",
+            "ec2:DescribeTags",
+            "ec2:DescribeNetworkInterfaces",
+            "ec2:DescribeInstanceTypes",
+            "ec2:DescribeSubnets",
+            "ec2:DetachNetworkInterface",
+            "ec2:ModifyNetworkInterfaceAttribute",
+            "ec2:UnassignPrivateIpAddresses",
+            "ec2:CreateTags",
+            "ec2:DescribeInstances",
+            "ec2:DescribeInstanceTypes",
+            "ec2:DescribeRouteTables",
+            "ec2:DescribeSecurityGroups",
+            "ec2:DescribeSubnets",
+            "ec2:DescribeVolumes",
+            "ec2:DescribeVolumesModifications",
+            "ec2:DescribeVpcs",
+            "ec2:CreateVpcEndpointServiceConfiguration",
+            "ec2:DeleteVpcEndpointServiceConfigurations",
+            "ec2:DescribeVpcEndpointServiceConfigurations",
+            "ec2:ModifyVpcEndpointServicePermissions"
+        ],
+        "Resource": [
+            "*"
+        ]
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:AssignPrivateIpAddresses",
-                "ec2:AttachNetworkInterface",
-                "ec2:CreateNetworkInterface",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DescribeInstances",
-                "ec2:DescribeTags",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DescribeInstanceTypes",
-                "ec2:DescribeSubnets",
-                "ec2:DetachNetworkInterface",
-                "ec2:DescribeDhcpOptions",
-                "ec2:ModifyNetworkInterfaceAttribute",
-                "ec2:UnassignPrivateIpAddresses",
-                "ec2:CreateTags",
-                "ec2:DescribeRouteTables",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeVolumes",
-                "ec2:DescribeVolumesModifications",
-                "ec2:DescribeVpcs"
-            ],
-            "Resource": "*"
+        "Sid": "EKSAuthAccess",
+        "Effect": "Allow",
+        "Action": [
+            "eks-auth:AssumeRoleForPodIdentity"
+        ],
+        "Resource": [
+            "*"
+        ]
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "eks:Describe*",
-                "eks:List*",
-                "eks:AssociateAccessPolicy",
-                "eks-auth:AssumeRoleForPodIdentity"
-            ],
-            "Resource": "*"
+        "Sid": "EKSAccess",
+        "Effect": "Allow",
+        "Action": [
+            "eks:AssociateAccessPolicy",
+            "eks:Describe*",
+            "eks:List*",
+            "eks:AccessKubernetesApi"
+        ],
+        "Resource": [
+            "*"
+        ]
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "elasticloadbalancing:Create*",
-                "elasticloadbalancing:Describe*"
-            ],
-            "Resource": "*"
+        "Sid": "ApiGatewayAccess",
+        "Effect": "Allow",
+        "Action": [
+            "apigateway:POST",
+            "apigateway:GET",
+            "apigateway:PUT",
+            "apigateway:PATCH",
+            "apigateway:DELETE",
+            "apigateway:UpdateRestApiPolicy"
+        ],
+        "Resource": [
+            "arn:aws:apigateway:*::/vpclinks",
+            "arn:aws:apigateway:*::/vpclinks/*",
+            "arn:aws:apigateway:*::/restapis",
+            "arn:aws:apigateway:*::/restapis/*"
+        ]
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:CreateModel",
-                "sagemaker:DescribeModel",
-                "sagemaker:DeleteModel",
-                "sagemaker:ListModels",
-                "sagemaker:CreateEndpointConfig",
-                "sagemaker:DescribeEndpointConfig",
-                "sagemaker:DeleteEndpointConfig",
-                "sagemaker:CreateEndpoint",
-                "sagemaker:DeleteEndpoint",
-                "sagemaker:DescribeEndpoint",
-                "sagemaker:UpdateEndpoint",
-                "sagemaker:ListTags",
-                "sagemaker:EnableClusterInference",
-                "sagemaker:DescribeClusterInference",
-                "sagemaker:DescribeHubContent",
-                "sagemaker:UpdateClusterInference",
-                "sagemaker:DescribeCluster"
-            ],
-            "Resource": "arn:aws:sagemaker:$REGION:*:*"
+        "Sid": "ElasticLoadBalancingAccess",
+        "Effect": "Allow",
+        "Action": [
+            "elasticloadbalancing:CreateLoadBalancer",
+            "elasticloadbalancing:DescribeLoadBalancers",
+            "elasticloadbalancing:DescribeLoadBalancerAttributes",
+            "elasticloadbalancing:DescribeListeners",
+            "elasticloadbalancing:DescribeListenerCertificates",
+            "elasticloadbalancing:DescribeSSLPolicies",
+            "elasticloadbalancing:DescribeRules",
+            "elasticloadbalancing:DescribeTargetGroups",
+            "elasticloadbalancing:DescribeTargetGroupAttributes",
+            "elasticloadbalancing:DescribeTargetHealth",
+            "elasticloadbalancing:DescribeTags",
+            "elasticloadbalancing:DescribeTrustStores",
+            "elasticloadbalancing:DescribeListenerAttributes"
+        ],
+        "Resource": [
+            "*"
+        ]
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "fsx:DescribeFileSystems"
-            ],
-            "Resource": "*"
+        "Sid": "SageMakerAccess",
+        "Effect": "Allow",
+        "Action": [
+            "sagemaker:*"
+        ],
+        "Resource": [
+            "*"
+        ]
         },
         {
-            "Effect": "Allow",
-            "Action": [
-                "acm:ImportCertificate",
-                "acm:DeleteCertificate"
-            ],
-            "Resource": "arn:aws:acm:$REGION:$ACCOUNT_ID:certificate/*"
-        },
-        {
-            "Sid": "AllowPassRoleToSageMaker",
-            "Effect": "Allow",
-            "Action": [
-                "iam:PassRole"
-            ],
-            "Resource": "arn:aws:iam::$ACCOUNT_ID:role/$HYPERPOD_INFERENCE_ROLE_NAME",
-            "Condition": {
-                "StringEquals": {
-                    "iam:PassedToService": "sagemaker.amazonaws.com"
-                }
+        "Sid": "AllowPassRoleToSageMaker",
+        "Effect": "Allow",
+        "Action": [
+            "iam:PassRole"
+        ],
+        "Resource": "arn:aws:iam::*:role/*",
+        "Condition": {
+            "StringEquals": {
+            "iam:PassedToService": "sagemaker.amazonaws.com"
             }
+        }
         },
         {
-            "Sid": "CloudWatchEMFPermissions",
-            "Effect": "Allow",
-            "Action": [
-                "cloudwatch:PutMetricData",
-                "logs:PutLogEvents",
-                "logs:DescribeLogStreams",
-                "logs:DescribeLogGroups",
-                "logs:CreateLogStream",
-                "logs:CreateLogGroup"
-            ],
-            "Resource": "*"
+        "Sid": "AcmAccess",
+        "Effect": "Allow",
+        "Action": [
+            "acm:ImportCertificate",
+            "acm:DeleteCertificate"
+        ],
+        "Resource": [
+            "*"
+        ]
         }
     ]
 }
@@ -784,7 +805,7 @@ inference operator is working
 ```
 cat <<EOF>> simple_model_install.yaml
 ---
-apiVersion: inference.sagemaker.aws.amazon.com/v1alpha1
+apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: JumpStartModel
 metadata:
   name: testing-deployment-bert
@@ -828,39 +849,25 @@ kubectl get serviceaccount -n hyperpod-inference-system
 kubectl describe serviceaccount hyperpod-inference-operator-controller-manager -n hyperpod-inference-system
 ```
 
-4. Write the model input file. This creates a JSON input file containing
-   sample data to test the deployed model's question-answering
-   capabilities.
-
-```
-%%writefile demo-input.json
-{"question" :"what is the name of the planet?","context" : "earth"}
-```
-
-5. Invoke the SageMaker endpoint to perform load testing to validate the inference
-   endpoint's performance and reliability.
-
-```
-%%bash
-
-#!/bin/bash
-
-for i in {1..1000}
-do
-    echo "Invocation #$i"
-    aws sagemaker-runtime invoke-endpoint \
-        --endpoint-name testing-deployment-jumpstart-9 \
-        --region {REGION} \
-        --body fileb://demo-input.json \
-        --content-type application/list-text \
-        --accept application/json \
-        "demoout_${i}.json"
-
-    # Add a small delay to prevent throttling (optional)
-    #sleep 0.5
-    rm -f "demoout_${i}.json"
-done
-```
+4. Under **Deployment settings**, JumpStart
+   will recommend an instance for deployment. You can modify these settings
+   if necessary.
+   1. If you modify **Instance type**,
+      ensure it's compatible with the chosen **HyperPod cluster**. If there aren't any
+      compatible instances, you'll need to select a new **HyperPod cluster** or contact
+      your admin to add compatible instances to the cluster.
+   2. If your selected instance type supports GPU partitioning and your cluster is configured with MIG, you can select a specific **GPU partition** from the available MIG profiles. This allows you to optimize GPU utilization by allocating only the required GPU resources for your model. For more information, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md "sagemaker-hyperpod-eks-gpu-partitioning.md").
+   3. To prioritize the model deployment, install the task
+      governance addon, create compute allocations, and set up task
+      rankings for the cluster policy. Once this is done, you should
+      see an option to select a priority for the model deployment
+      which can be used for preemption of other deployments and tasks
+      on the cluster.
+   4. Enter the namespace to which your admin has provided you
+      access. You may have to directly reach out to your admin to get
+      the exact namespace. Once a valid namespace is provided, the
+      **Deploy** button should be
+      enabled to deploy the model.
 
 ## (Optional)
 
