@@ -25,7 +25,7 @@ Wait until the billing transfer becomes active, which occurs on the 1st day of t
 
 Update the management account's billing information in the AWS Billing and Cost Management console to reflect your customer's details. 7. **Transfer root account ownership**
 
-Sign in to the Organization's root account and navigate to My Account in the AWS Management Console. Remove any partner MFA devices or other partner-specific security configurations. Update the root user email address to your customer's domain. The customer will receive an email to activate their root account access. Complete this step with 60 days of billing transfer going into effect. 8. **Verify transfer completion**
+Sign in to the Organization's root account and navigate to My Account in the AWS Management Console. Remove any partner MFA devices or other partner-specific security configurations. Update the root user email address to your customer's domain. The customer will receive an email to activate their root account access. Complete this step within 60 days of billing transfer going into effect. 8. **Verify transfer completion**
 
 After the customer accepts ownership, verify that billing transfer remains active and your organization continues receiving invoices. The customer should now have full root access to manage their organization while billing responsibility remains with your organization through the established billing transfer.
 
