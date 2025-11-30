@@ -34,11 +34,7 @@ provider. Additional details to setup an Identity Center based domain are availa
 - [Access the Domain Administration
   Page](access-domain-administration-page.md "access-domain-administration-page.md")
 - [Configure VPC Networking for
-  Amazon SageMaker Unified Studio Domain](configure-vpc-networking-iam-based-domains.md "configure-vpc-networking-iam-based-domains.md")
-- [Update Individual Projects with VPC
-  Configuration](update-individual-projects-vpc.md "update-individual-projects-vpc.md")
-- [View VPC Networking Details for Your
-  Domain](view-vpc-networking-details.md "view-vpc-networking-details.md")
+  Amazon SageMaker Unified Studio Domain](vpc-networking-iam-based-domains.md "vpc-networking-iam-based-domains.md")
 - [Manage Projects from Domain
   Administration](manage-projects-domain-administration.md "manage-projects-domain-administration.md")
 - [Configure Domain Settings](configure-domain-settings-iam-based.md "configure-domain-settings-iam-based.md")

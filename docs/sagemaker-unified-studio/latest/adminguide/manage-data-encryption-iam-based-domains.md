@@ -42,10 +42,376 @@ Prerequisites:
 
 6. If creating a new key, configure the key policy to allow access from your IAM
    roles.
-7. Add the inline policy to your Login and Execution IAM roles to enable KMS key
+7. Add the following inline policy to your Login and Execution IAM roles to enable KMS key
    usage.
-8. Replace the resource ARN with your actual KMS key ARN.
-9. Complete the domain setup process with your encryption configuration.
+
+```
+
+{
+    "Version": "2012-10-17",
+    "Id": "key-consolepolicy",
+    "Statement": [
+        {
+            "Sid": "ListAndDescribe",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:DescribeKey",
+                "kms:ListAliases",
+                "kms:ListGrants"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "CloudWatchLogs",
+            "Effect": "Allow",
+            "Principal": { "Service": "logs.<region>.amazonaws.com" },
+            "Action": [
+                "kms:Encrypt*",
+                "kms:Decrypt*",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*",
+                "kms:Describe*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ArnLike": {
+                    "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:*:*:log-group:/aws/mwaa-serverless/*"
+                }
+            }
+        },
+        {
+            "Sid": "S3Table",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "maintenance.s3tables.amazonaws.com"
+            },
+            "Action": [
+                "kms:GenerateDataKey",
+                "kms:Decrypt"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "DataZone",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
+                "kms:Encrypt",
+                "kms:GenerateDataKeyWithoutPlaintext",
+                "kms:ReEncryptTo",
+                "kms:ReEncryptFrom"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringEquals": {
+                    "kms:EncryptionContextKeys": "aws:datazone:domainId"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name<"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "S3Kms",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "s3.*.amazonaws.com"
+                },
+                "Null": {
+                    "kms:EncryptionContext:aws:s3:arn": "false"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "SchedulerKms",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "kms:EncryptionContext:aws:scheduler:schedule:arn": "false"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "SecretsKms",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:Encrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "secretsmanager.*.amazonaws.com"
+                },
+                "Null": {
+                    "kms:EncryptionContext:SecretARN": "false"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "SageMakerKms",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:Encrypt",
+                "kms:GenerateDataKey",
+                "kms:GenerateDataKeyWithoutPlaintext",
+                "kms:ReEncryptTo",
+                "kms:ReEncryptFrom"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "sagemaker.*.amazonaws.com"
+                },
+                "Null": {
+                    "kms:EncryptionContextKeys": "false"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "SageMakerCreateGrant",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:CreateGrant"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "sagemaker.*.amazonaws.com"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "DataZoneCreateGrant",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:CreateGrant"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "datazone.*.amazonaws.com"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                },
+                "ForAllValues:StringEquals": {
+                    "kms:GrantOperations": [
+                        "Encrypt",
+                        "Decrypt",
+                        "ReEncryptFrom",
+                        "ReEncryptTo",
+                        "GenerateDataKeyWithoutPlaintext",
+                        "GenerateDataKey",
+                        "DescribeKey",
+                        "RetireGrant",
+                        "CreateGrant"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "GlueKms",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:Encrypt",
+                "kms:GenerateDataKey",
+                "kms:GenerateDataKeyWithoutPlaintext"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "glue.*.amazonaws.com"
+                },
+                "Null": {
+                    "kms:EncryptionContextKeys": "false"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "BedrockKms",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "bedrock.*.amazonaws.com"
+                },
+                "Null": {
+                    "kms:EncryptionContextKeys": "false"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "WorkflowsCreateGrant",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:CreateGrant"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "airflow-serverless.*.amazonaws.com"
+                },
+                "ForAnyValue:StringEquals": {
+                    "kms:EncryptionContextKeys": "aws:airflow-serverless:workflow-arn"
+                },
+                "ForAllValues:StringEquals": {
+                    "kms:GrantOperations": [
+                        "Decrypt",
+                        "Encrypt",
+                        "GenerateDataKey",
+                        "GenerateDataKeyWithoutPlaintext",
+                        "RetireGrant"
+                    ]
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "WorkflowsKms",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::<account>:root"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:Encrypt",
+                "kms:GenerateDataKey",
+                "kms:GenerateDataKeyWithoutPlaintext"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringEquals": {
+                    "kms:EncryptionContextKeys": "aws:airflow-serverless:workflow-arn"
+                },
+                "ArnLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
+                        "arn:aws:iam::<account>:role/<role_name>"
+                    ]
+                }
+            }
+        }
+    ]
+}
+
+```
+
+5. Replace the resource ARN with your actual KMS key ARN.
+6. Complete the domain setup process with your encryption configuration.
 
 ###### Warning
 

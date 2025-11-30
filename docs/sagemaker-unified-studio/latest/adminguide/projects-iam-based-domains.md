@@ -12,7 +12,7 @@ Projects can be created in the following ways:
 1. The Amazon SageMaker Unified Studio admin creates the project on behalf of users from the Domain
    administration page.
 2. The Amazon SageMaker Unified Studio admin prepares IAM roles for self-setup of projects created
-   directly from AWS services - AWS Glue, Amazon Simple Storage Service (S3), and
+   directly from AWS services - Amazon Athena, Amazon S3 Tables, and
    Amazon Redshift.
    Projects within IAM-based domains require two IAM roles:
 

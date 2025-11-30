@@ -12,14 +12,14 @@ across AWS accounts and regions.
 
 **Member IAM role:**
 
-- SageMakerStudioUserIAMConsolePolicy must be attached or have the same
+- [SageMakerStudioUserIAMConsolePolicy](security-iam-awsmanpol-SageMakerStudioUserIAMConsolePolicy.md "security-iam-awsmanpol-SageMakerStudioUserIAMConsolePolicy.md") must be attached or have the same
   permissions added via another policy.
 
 **Execution IAM role:**
 
 - When Amazon SageMaker Unified Studio creates this role for you, this policy will be attached,
-  SageMakerStudioUserIAMDefaultExecutionPolicy.
-- When you provide your own role, SageMakerStudioUserIAMConsolePolicy must be
+  [SageMakerStudioUserIAMDefaultExecutionPolicy](security-iam-awsmanpol-SageMakerStudioUserIAMDefaultExecutionPolicy.md "security-iam-awsmanpol-SageMakerStudioUserIAMDefaultExecutionPolicy.md").
+- When you provide your own role, [SageMakerStudioUserIAMConsolePolicy](security-iam-awsmanpol-SageMakerStudioUserIAMConsolePolicy.md "security-iam-awsmanpol-SageMakerStudioUserIAMConsolePolicy.md") must be
   attached. An inline policy is needed to allow this role to pass itself to other
   services. A trust policy is needed to allow Amazon SageMaker Unified Studio and related services to
   assume this execution IAM role.
@@ -49,7 +49,7 @@ project within your IAM-based domain. You must add additional permissions and po
 to the existing IAM roles to allow them to setup their own project using the Member IAM
 role for login and Execution IAM role for accessing data and resources within the
 project. This enables users from AWS console to create projects using these roles from
-AWS Services - AWS Glue, Amazon Simple Storage Service (S3), and Amazon
+AWS Services - Amazon Athena, Amazon S3 Tables, and Amazon
 Redshift.
 
 **Member IAM role:**
@@ -69,7 +69,6 @@ Redshift.
 3. Choose Add permission followed by Attach policy and search for the managed
    policy [SageMakerStudioUserIAMDefaultExecutionPolicy](security-iam-awsmanpol-SageMakerStudioUserIAMDefaultExecutionPolicy.md "security-iam-awsmanpol-SageMakerStudioUserIAMDefaultExecutionPolicy.md"). Select it to add it to your
    existing role.
-
 4. Add the inline policy to allow this role to pass itself to other
    services.
 5. Add a trust policy: Allow Amazon SageMaker Unified Studio and related services to assume this

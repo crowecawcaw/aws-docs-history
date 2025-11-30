@@ -1,6 +1,4 @@
-# Configure VPC Networking for
-
-Amazon SageMaker Unified Studio Domain
+# Network settings in IAM-based domains
 
 Amazon Virtual Private Cloud (Amazon VPC) networking with subnets is required when using
 certain compute services within Amazon SageMaker Unified Studio. You configure VPC networking at the domain

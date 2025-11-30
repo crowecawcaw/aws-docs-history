@@ -7,8 +7,7 @@ management capabilities for domains, projects, and settings. Domain administrato
 create and manage projects, configure domain-level settings including networking, and
 oversee the overall domain configuration.
 
-Access to the domain administration page is restricted to users with appropriate
-administrative permissions and is designed for managing Amazon SageMaker Unified Studio IAM-based domains.
+Access to the domain administration page is restricted to the IAM role, specified as the domain login role, used to create the domain. This IAM role is the project member in the default admin project created for the domain.
 
 1. Log in to your Amazon SageMaker Unified Studio IAM-based domain.
 2. From the Amazon SageMaker Unified Studio left navigation, click **Domain
