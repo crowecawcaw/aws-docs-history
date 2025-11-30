@@ -1,145 +1,28 @@
-# Get started
+# Understand next steps
 
-Before you begin, you should familiarize yourself with the basic concepts in AWS Ground Station. For more information, see [How AWS Ground Station works](how-it-works.md "how-it-works.md").
+Now that you have an onboarded satellite and a valid mission profile, you are ready to
+schedule contacts and communicate with your satellite with AWS Ground Station.
 
-Below are the best practices for AWS Identity and Access Management (IAM) and what permissions you will need. After setting up the appropriate roles you can begin following the remainder of the steps.
+You can schedule a contact in one of the following ways:
 
-## Sign up for an AWS account
+- The [AWS Ground Station console](https://console.aws.amazon.com/groundstation "https://console.aws.amazon.com/groundstation").
+- The AWS CLI
+  [reserve-contact](../../../cli/latest/reference/groundstation/reserve-contact.md "../../../cli/latest/reference/groundstation/reserve-contact.md") command.
+- The AWS SDK.
+  [ReserveContact](../APIReference/API_ReserveContact.md "../APIReference/API_ReserveContact.md") API.
 
-If you do not have an AWS account, complete the following steps to create one.
+For information about how AWS Ground Station tracks the trajectory of your satellite and how that information
+is used, please reference [Understand how AWS Ground Station uses ephemerides](ephemeris.md "ephemeris.md").
 
-###### To sign up for an AWS account
+AWS Ground Station maintains a number of preconfigured CloudFormation templates to make getting started with the
+service easier. See [Example mission profile configurations](examples.md "examples.md") for examples of how
+AWS Ground Station can be used.
 
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
+Processing the digital intermediate frequency data, or the demodulated and decoded data provided
+to you from AWS Ground Station will depend on your specific use case. The following blog posts can help you
+to understand some of the options available to you:
 
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
-
-AWS sends you a confirmation email after the sign-up process is
-complete. At any time, you can view your current account activity and manage your account by
-going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
-Account**.
-
-## Create a user with administrative access
-
-After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you
-don't use the root user for everyday tasks.
-
-###### Secure your AWS account root user
-
-1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") as the account owner by choosing **Root user** and entering your AWS account email address. On the next page, enter your password.
-
-For help signing in by using root user, see [Signing in as the root user](../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial "../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial") in the _AWS Sign-In User Guide_. 2. Turn on multi-factor authentication (MFA) for your root user.
-
-For instructions, see [Enable a virtual MFA device for your AWS account root user (console)](../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md") in the _IAM User Guide_.
-
-###### Create a user with administrative access
-
-1. Enable IAM Identity Center.
-
-For instructions, see [Enabling
-AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md") in the
-_AWS IAM Identity Center User Guide_. 2. In IAM Identity Center, grant administrative access to a user.
-
-For a tutorial about using the IAM Identity Center directory as your identity source, see [Configure user access with the default IAM Identity Center directory](../../../singlesignon/latest/userguide/quick-start-default-idc.md "../../../singlesignon/latest/userguide/quick-start-default-idc.md") in the
-_AWS IAM Identity Center User Guide_.
-
-###### Sign in as the user with administrative access
-
-- To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email address when you created the IAM Identity Center user.
-
-For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md "../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md") in the _AWS Sign-In User Guide_.
-
-###### Assign access to additional users
-
-1. In IAM Identity Center, create a permission set that follows the best practice of applying least-privilege permissions.
-
-For instructions, see [Create a permission set](../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md "../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md") in the _AWS IAM Identity Center User Guide_. 2. Assign users to a group, and then assign single sign-on access to the group.
-
-For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
-
-## Add AWS Ground Station permissions to your AWS account
-
-To use AWS Ground Station without requiring an administrative user, you need to create a new policy and attach it to your AWS account.
-
-1. Sign in to the AWS Management Console and open the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
-2. Create a new policy. Use the following steps:
-   1. In the navigation pane, choose **Policies** and then choose **Create Policy**.
-   2. In the **JSON** tab, edit the JSON with one of the following values. Use the JSON that works best for your application.
-      - For Ground Station administrative privileges, set **Action** to **groundstation:\*** as follows:
-
-      JSON
-
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Effect": "Allow",
-       "Action": [
-       "groundstation:*"
-       ],
-       "Resource": [
-       "*"
-       ]
-       }
-       ]
-      }`
-
-      ```
-
-      - For Read-only privileges, set **Action** to **groundstation:Get\***, **groundstation:List\***, and **groundstation:Describe\*** as follows:
-
-      JSON
-
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Effect": "Allow",
-       "Action": [
-       "groundstation:Get*",
-       "groundstation:List*",
-       "groundstation:Describe*"
-       ],
-       "Resource": [
-       "*"
-       ]
-       }
-       ]
-      }`
-
-      ```
-
-      - For additional security through multifactor authentication, set **Action** to **groundstation:\***, and **Condition/Bool** to **aws:MultiFactorAuthPresent:true** as follows:
-
-      JSON
-
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Effect": "Allow",
-       "Action": "groundstation:*",
-       "Resource": "*",
-       "Condition": {
-       "Bool": {
-       "aws:MultiFactorAuthPresent": true
-       }
-       }
-       }
-       ]
-      }`
-
-      ```
-
-3. In the IAM console, attach the policy you created to the desired user.
-
-For more information about IAM users and attaching policies, see the [IAM User
-Guide](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md").
+- [Automated Earth observation using AWS Ground Station Amazon S3 data delivery](https://aws.amazon.com/blogs/publicsector/automated-earth-observation-aws-ground-station-amazon-s3-data-delivery "https://aws.amazon.com/blogs/publicsector/automated-earth-observation-aws-ground-station-amazon-s3-data-delivery") (and it's associated GitHub repository [awslabs/aws-groundstation-eos-pipeline](https://github.com/awslabs/aws-groundstation-eos-pipeline "https://github.com/awslabs/aws-groundstation-eos-pipeline"))
+- [Virtualizing the satellite ground segment with AWS](https://aws.amazon.com/blogs/publicsector/virtualizing-satellite-ground-segment-aws/ "https://aws.amazon.com/blogs/publicsector/virtualizing-satellite-ground-segment-aws/")
+- [Earth observation using AWS Ground Station: A how to guide](https://aws.amazon.com/blogs/publicsector/earth-observation-using-aws-ground-station/ "https://aws.amazon.com/blogs/publicsector/earth-observation-using-aws-ground-station/")
+- [Building high-throughput satellite data downlink architectures with AWS Ground Station WideBand DigIF and Amphinicy Blink SDR](https://aws.amazon.com/blogs/publicsector/building-high-throughput-satellite-data-downlink-architectures-aws-ground-station-wideband-digif-amphinicy-blink-sdr/ "https://aws.amazon.com/blogs/publicsector/building-high-throughput-satellite-data-downlink-architectures-aws-ground-station-wideband-digif-amphinicy-blink-sdr/") (and it's associated GitHub repository [aws-samples/aws-groundstation-wbdigif-snpp](https://github.com/aws-samples/aws-groundstation-wbdigif-snpp "https://github.com/aws-samples/aws-groundstation-wbdigif-snpp"))
