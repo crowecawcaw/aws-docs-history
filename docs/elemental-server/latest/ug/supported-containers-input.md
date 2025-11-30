@@ -14,7 +14,7 @@ input container.
 
 | Source Captions Are Inside the Input Container | Type of Input                          | Container | Captions Can Be Extracted from Container? |
 | ---------------------------------------------- | -------------------------------------- | --------- | ----------------------------------------- |
-| File                                           | Adobe Flash® container                | No        |
+| File                                           | Adobe Flash® container                 | No        |
 | File                                           | Audio Video Interleave (AVI) container | No        |
 | File                                           | HLS container                          | Yes       |
 | File                                           | Matroska container                     | No        |
