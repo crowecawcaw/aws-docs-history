@@ -42,7 +42,7 @@ alias to be redirected to the IAM user sign-in page for your account.
 To get your AWS account ID, contact your administrator. 2. In the navigation bar on the upper right, choose your user name, and then choose
 **Security credentials**.
 
-![AWS Management Console Security credentials link](/images/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png) 3. On the **AWS IAM credentials** tab, choose **Update
+![AWS Management Console Security credentials link](images/security-credentials-user.shared.console.png) 3. On the **AWS IAM credentials** tab, choose **Update
 password**. 4. For **Current password**, enter your current password. Enter a
 new password for **New password** and **Confirm new
 password**. Then choose **Update password**.
