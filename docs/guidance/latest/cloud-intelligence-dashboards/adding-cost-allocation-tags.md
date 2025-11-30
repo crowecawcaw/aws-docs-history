@@ -62,7 +62,7 @@ Legacy CUR
 8. Under Views, scroll down until you locate the **summary_view**.
 9. Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 
-![Athena Query editor highlighting the summary view query and its context menu to select show edit query](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_showedit_qry.png)
+![Athena Query editor highlighting the summary view query and its context menu to select show edit query](images/cust_showedit_qry.png)
 
 1. On the line after, `, "line_item_usage_account_id" "linked_account_id"` in the query add a blank line below that.
 
