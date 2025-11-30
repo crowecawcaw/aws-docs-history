@@ -3,7 +3,7 @@
 If you select the Amazon Chime meeting window while sharing your screen, you and others see an infinite number of
 meeting windows. For example:
 
-![Repeated instances of the Amazon Chime meetings window, out to infinity.](/images/chime/latest/ug/images/infinity-mirror.png)
+![Repeated instances of the Amazon Chime meetings window, out to infinity.](images/infinity-mirror.png)
 Hiding your screenshare view prevents that from happening.
 
 ###### To hide the view
