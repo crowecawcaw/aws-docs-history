@@ -51,7 +51,7 @@ operations:**
 - Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") request enables Amazon DataZone to decrypt stored data.
 - [RetireGrant](../../../kms/latest/APIReference/API_RetireGrant.md "../../../kms/latest/APIReference/API_RetireGrant.md") to retire the grant when domain is deleted.
 
-**One grant for search and discovery of your data:**
+**One grant for search, discovery, and [export](../../../sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md "../../../sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md") of your data:**
 
 - [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") - provides the customer managed key details that allow Amazon DataZone
   to validate the key.
