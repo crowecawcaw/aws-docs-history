@@ -1,56 +1,84 @@
-# Migrating from SQL Server to PostgreSQL with AWS Schema Conversion Tool
+# Converting SQL Server to MySQL
 
-You can use the SQL Server to PostgreSQL extension pack in AWS SCT. This extension pack
-emulates SQL Server database functions in the converted PostgreSQL code. Use the SQL Server to
-PostgreSQL extension pack to emulate SQL Server Agent and SQL Server Database Mail. For more
-information about extension packs, see [Using extension packs with AWS Schema Conversion Tool](CHAP_ExtensionPack.md "CHAP_ExtensionPack.md").
+To emulate Microsoft SQL Server database functions in your converted MySQL code, use
+the SQL Server to MySQL extension pack in AWS SCT. For more information about extension
+packs, see [Using extension packs with AWS Schema Conversion Tool](CHAP_ExtensionPack.md "CHAP_ExtensionPack.md").
 
 ###### Topics
 
-- [Privileges for PostgreSQL as a target database](#CHAP_Source.SQLServer.ToPostgreSQL.ConfigurePostgreSQL "#CHAP_Source.SQLServer.ToPostgreSQL.ConfigurePostgreSQL")
-- [SQL Server to PostgreSQL conversion settings](#CHAP_Source.SQLServer.ToPostgreSQL.ConversionSettings "#CHAP_Source.SQLServer.ToPostgreSQL.ConversionSettings")
-- [Converting SQL Server partitions to PostgreSQL version 10 partitions](#CHAP_Source.SQLServer.ToPostgreSQL.PG10Partitions "#CHAP_Source.SQLServer.ToPostgreSQL.PG10Partitions")
-- [Migration considerations](#CHAP_Source.SQLServer.ToPostgreSQL.MigrationConsiderations "#CHAP_Source.SQLServer.ToPostgreSQL.MigrationConsiderations")
-- [Using
-  an AWS SCT extension pack to emulate SQL Server Agent in PostgreSQL](CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.md "CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.md")
-- [Using an AWS SCT extension pack to
-  emulate SQL Server Database Mail in PostgreSQL](CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.md "CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.md")
+- [Privileges for MySQL as a target database](#CHAP_Source.SQLServer.ToMySQL.ConfigureTarget "#CHAP_Source.SQLServer.ToMySQL.ConfigureTarget")
+- [SQL Server to MySQL conversion settings](#CHAP_Source.SQLServer.ToMySQL.ConversionSettings "#CHAP_Source.SQLServer.ToMySQL.ConversionSettings")
+- [Migration considerations](#CHAP_Source.SQLServer.ToMySQL.MigrationConsiderations "#CHAP_Source.SQLServer.ToMySQL.MigrationConsiderations")
 
-## Privileges for PostgreSQL as a target database
+## Privileges for MySQL as a target database
 
-To use PostgreSQL as a target, AWS SCT requires the `CREATE ON DATABASE` privilege.
-Make sure that you grant this privilege for each target PostgreSQL database.
+The privileges required for MySQL as a target are as follows:
 
-To use the converted public synonyms, change the database default search path to
-`"$user", public_synonyms, public`.
+- CREATE ON \*.\*
+- ALTER ON \*.\*
+- DROP ON \*.\*
+- INDEX ON \*.\*
+- REFERENCES ON \*.\*
+- SELECT ON \*.\*
+- CREATE VIEW ON \*.\*
+- SHOW VIEW ON \*.\*
+- TRIGGER ON \*.\*
+- CREATE ROUTINE ON \*.\*
+- ALTER ROUTINE ON \*.\*
+- EXECUTE ON \*.\*
+- INSERT, UPDATE ON AWS_SQLSERVER_EXT.\*
+- INSERT, UPDATE, DELETE ON AWS_SQLSERVER_EXT_DATA.\*
+- CREATE TEMPORARY TABLES ON AWS_SQLSERVER_EXT_DATA.\*
 
 You can use the following code example to create a database user and grant the privileges.
 
 ```
-CREATE ROLE `user_name` LOGIN PASSWORD '`your_password`';
-GRANT CREATE ON DATABASE `db_name` TO `user_name`;
-ALTER DATABASE `db_name` SET SEARCH_PATH = "$user", public_synonyms, public;
+CREATE USER '`user_name`' IDENTIFIED BY '`your_password`';
+GRANT CREATE ON *.* TO '`user_name`';
+GRANT ALTER ON *.* TO '`user_name`';
+GRANT DROP ON *.* TO '`user_name`';
+GRANT INDEX ON *.* TO '`user_name`';
+GRANT REFERENCES ON *.* TO '`user_name`';
+GRANT SELECT ON *.* TO '`user_name`';
+GRANT CREATE VIEW ON *.* TO '`user_name`';
+GRANT SHOW VIEW ON *.* TO '`user_name`';
+GRANT TRIGGER ON *.* TO '`user_name`';
+GRANT CREATE ROUTINE ON *.* TO '`user_name`';
+GRANT ALTER ROUTINE ON *.* TO '`user_name`';
+GRANT EXECUTE ON *.* TO '`user_name`';
+GRANT INSERT, UPDATE ON AWS_SQLSERVER_EXT.* TO '`user_name`';
+GRANT INSERT, UPDATE, DELETE ON AWS_SQLSERVER_EXT_DATA.* TO '`user_name`';
+GRANT CREATE TEMPORARY TABLES ON AWS_SQLSERVER_EXT_DATA.* TO '`user_name`';
 ```
 
 In the preceding example, replace `user_name` with the name of your user.
-Then, replace `db_name` with the name of your target database.
-Finally, replace `your_password` with a secure password.
+Then, replace `your_password` with a secure password.
 
-In PostgreSQL, only the schema owner or a `superuser` can drop a schema. The owner can drop a schema
-and all objects that this schema includes even if the owner of the schema doesn't own some of its objects.
+If you use a MySQL database version 5.7 or lower as a target, then run the following command.
+For MySQL databases version 8.0 and higher, this command is deprecated.
 
-When you use different users to convert and apply different schemas to your target database,
-you can get an error message when AWS SCT can't drop a schema. To avoid this error message,
-use the `superuser` role.
+```
+GRANT SELECT ON mysql.proc TO '`user_name`';
+```
 
-## SQL Server to PostgreSQL conversion settings
+To use Amazon RDS for MySQL or Aurora MySQL as a target, set the `lower_case_table_names` parameter
+to `1`. This value means that the MySQL server handles identifiers of such object names as tables,
+indexes, triggers, and databases as case insensitive.
+If you have turned on binary logging in your target instance, then set the
+`log_bin_trust_function_creators` parameter to `1`.
+In this case, you don't need to use the `DETERMINISTIC`,
+`READS SQL DATA` or `NO SQL` characteristics to create stored functions.
+To configure these parameters, create a new DB parameter group or modify an existing DB parameter group.
 
-To edit SQL Server to PostgreSQL conversion settings, choose **Settings**,
-and then choose **Conversion settings**. From the upper list, choose
-**SQL Server**, and then choose **SQL Server – PostgreSQL**.
-AWS SCT displays all available settings for SQL Server to PostgreSQL conversion.
+## SQL Server to MySQL conversion settings
 
-SQL Server to PostgreSQL conversion settings in AWS SCT include options for the
+To edit SQL Server to MySQL conversion settings, in AWS SCT choose
+**Settings**, and then choose **Conversion
+settings**. From the upper list, choose **SQL
+Server**, and then choose **SQL Server – MySQL**.
+AWS SCT displays all available settings for SQL Server to MySQL conversion.
+
+SQL Server to MySQL conversion settings in AWS SCT include options for the
 following:
 
 - To limit the number of comments with action items in the converted
@@ -64,179 +92,42 @@ For example, to minimize the number of comments in your converted code, choose
 **Errors only**. To include comments for all action items in your
 converted code, choose **All messages**.
 
-- To allow to use indexes with the same name in different tables in SQL Server.
-
-In PostgreSQL, all index names that you use in the schema, must be unique. To make sure
-that AWS SCT generates unique names for all your indexes, select **Generate
-unique names for indexes**.
-
-- To convert SQL Server procedures to PostgreSQL functions.
-
-PostgreSQL version 10 and earlier doesn't support procedures. For customers who
-aren't familiar with using procedures in PostgreSQL, AWS SCT can convert procedures
-to functions. To do so, select **Convert procedures to functions**.
-
-- To emulate the output of `EXEC` in a table.
-
-Your source SQL Server database can store the output of `EXEC` in a table.
-AWS SCT creates temporary tables and an additional procedure to emulate this feature.
-To use this emulation, select **Create additional routines for handling open
-datasets**.
-
-- To define the template to use for the schema names in the converted code. For
-  **Schema name generation template**, choose one of the following options:
-  - **<source_db>** – Uses the SQL Server database name
-    as a schema name in PostgreSQL.
-  - **<source_schema>** – Uses the SQL Server schema name
-    as a schema name in PostgreSQL.
-  - **<source_db>\_<schema>** – Uses a combination
-    of the SQL Server database and schema names as a schema name in PostgreSQL.
-
-- To keep the letter case of your source object names.
-
-To avoid conversion of object names to lower case, select
-**Avoid casting to lower case for case sensitive
-operations**. This option applies only when you turn on case sensitivity
-option in your target database.
-
-- To keep the parameter names from your source database.
-
-To add double quotation marks to the names of parameters in the converted code,
-select **Keep original parameter names**.
-
-## Converting SQL Server partitions to PostgreSQL version 10 partitions
-
-When you convert a Microsoft SQL Server database to Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL)
-or Amazon Relational Database Service for PostgreSQL (Amazon RDS for PostgreSQL), be aware of the following.
-
-In SQL Server, you create partitions with partition functions. When converting
-from a SQL Server portioned table to a PostgreSQL version 10 partitioned table, be
-aware of several potential issues:
-
-- SQL Server allows you to partition a table using a column without
-  a NOT NULL constraint. In that case, all NULL values go to the leftmost
-  partition. PostgreSQL doesn’t support NULL values for RANGE partitioning.
-- SQL Server allows you to create primary and unique keys for partitioned tables.
-  For PostgreSQL, you create primary or unique keys for each partition directly.
-  Thus, PRIMARY or UNIQUE KEY constraint must be removed from their parent table
-  when migrating to PostgreSQL. The resulting key names take the format
-  `<original_key_name>_<partition_number>`.
-- SQL Server allows you to create foreign key constraint from and to partitioned
-  tables. PostgreSQL doesn’t support foreign keys referencing partitioned tables.
-  Also, PostgreSQL doesn’t support foreign key references from a partitioned table
-  to another table.
-- SQL Server allows you to create indexes for partitioned tables. For PostgreSQL,
-  an index should be created for each partition directly. Thus, indexes must be
-  removed from their parent tables when migrating to PostgreSQL. The resulting index
-  names take the format `<original_index_name>_<partition_number>`.
-- PostgreSQL doesn’t support partitioned indexes.
+- To allow your source SQL Server database to store the output of
+  `EXEC` in a table. AWS SCT creates temporary tables and an
+  additional procedure to emulate this feature. To use this emulation, select
+  **Create additional routines for handling open
+  datasets**.
 
 ## Migration considerations
 
-Some things to consider when migrating a SQL Server schema to PostgreSQL:
+Consider these things when migrating a SQL Server schema to MySQL:
 
-- In PostgreSQL, all object’s names in a schema must be unique,
-  including indexes. Index names must be unique in the schema of the base
-  table. In SQL Server, an index name can be the same for different
-  tables.
+- MySQL doesn’t support the `MERGE` statement. However, AWS SCT can emulate the
+  `MERGE` statement during conversion by using the `INSERT
+ON DUPLICATE KEY` clause and the `UPDATE FROM and DELETE
+FROM` statements.
 
-To ensure the uniqueness of index names, AWS SCT gives
-you the option to generate unique index names if your index names are not
-unique. To do this, choose the option **Generate unique
-index names** in the project properties. By default, this
-option is enabled. If this option is enabled, unique index names are created
-using the format IX_table_name_index_name. If this option is disabled, index
-names aren’t changed.
+For correct emulation using `INSERT ON DUPLICATE KEY`, make sure that a unique
+constraint or primary key exists on the target MySQL database.
 
-- A GOTO statement and a label can be used to change the order that statements are run in. Any
-  Transact-SQL statements that follow a GOTO statement are skipped and processing
-  continues at the label. GOTO statements and labels can be used anywhere within a
-  procedure, batch, or statement block. GOTO statements can also be nested.
+- You can use a `GOTO` statement and a label to change the order that statements are
+  run in. Any Transact-SQL statements that follow a `GOTO`
+  statement are skipped, and processing continues at the label. You can use
+  `GOTO` statements and labels anywhere within a procedure,
+  batch, or statement block. You can also nest `GOTO`
+  statements.
 
-PostgreSQL doesn’t use GOTO statements. When AWS SCT converts code that
-contains a GOTO statement, it converts the statement to use a BEGIN…END or
-LOOP…END LOOP statement. You can find examples of how AWS SCT converts GOTO
+MySQL doesn’t use `GOTO` statements. When AWS SCT converts code that contains a
+`GOTO` statement, it converts the statement to use a `BEGIN…END` or
+`LOOP…END LOOP` statement. You can find examples of how AWS SCT converts `GOTO`
 statements in the table following.
 
-| SQL Server GOTO statements and the converted PostgreSQL statements                                                                                    | SQL Server statement                                                                                                                                                                           | PostgreSQL statement |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>GOTO label1;<br>statement2;<br>....<br>label1:<br>Statement3;<br>....<br>END<br>`                        | `<br>BEGIN<br>label1:<br>BEGIN<br>....<br>statement1;<br>....<br>EXIT label1;<br>statement2;<br>....<br>END;<br>Statement3;<br>....<br>END<br>`                                                |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>GOTO label1;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>LOOP<br>statement2;<br>....<br>CONTINUE label1;<br>EXIT label1;<br>END LOOP;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` |
+| SQL Server statement                                                                                                                                  | MySQL statement                                                                                                                                                                                |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<br>BEGIN<br>....<br>statement1;<br>....<br>GOTO label1;<br>statement2;<br>....<br>label1:<br>Statement3;<br>....<br>END<br>`                        | `<br>BEGIN<br>label1:<br>BEGIN<br>....<br>statement1;<br>....<br>LEAVE label1;<br>statement2;<br>....<br>END;<br>Statement3;<br>....<br>END<br>`                                               |
+| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>GOTO label1;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>LOOP<br>statement2;<br>....<br>ITERATE label1;<br>LEAVE label1;<br>END LOOP;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` |
 | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END<br>`                 | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>BEGIN<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END;<br>END<br>`                                         |
 
-- PostgreSQL doesn't support a MERGE statement. AWS SCT emulates the behavior of
-  a MERGE statement in the following ways:
-  - By INSERT ON CONFLICT construction.
-  - By using the UPDATE FROM DML statement, such as MERGE without a
-    WHEN NOT MATCHED clause.
-  - By using CURSOR, such as with a MERGE with DELETE clause or by
-    using a complex MERGE ON condition statement.
-
-- AWS SCT can add database triggers to the object tree when Amazon RDS is the target.
-- AWS SCT can add server-level triggers to the object tree when Amazon RDS is the target.
-- SQL Server automatically creates and manages `deleted` and `inserted` tables.
-  You can use these temporary, memory-resident tables to test the effects of certain data modifications and to set
-  conditions for DML trigger actions. AWS SCT can convert the usage of these tables inside DML trigger statements.
-- AWS SCT can add linked servers to the object tree when Amazon RDS is the target.
-- When migrating from Microsoft SQL Server to PostgreSQL, the built-in SUSER_SNAME function is
-  converted as follows:
-  - SUSER_SNAME – Returns the login name associated with a security identification number
-    (SID).
-  - SUSER_SNAME(<server_user_sid>) – Not supported.
-  - SUSER_SNAME() CURRENT_USER – Returns the user name of the current execution context.
-  - SUSER_SNAME(NULL) – Returns NULL.
-
-- Converting table-valued functions is supported. Table-valued functions return a table and can
-  take the place of a table in a query.
-- PATINDEX returns the starting position of the first occurrence of a pattern in
-  a specified expression on all valid text and character data types. It returns
-  zeros if the pattern is not found. When converting from SQL Server to Amazon RDS
-  for PostgreSQL, AWS SCT replaces application code that uses PATINDEX with
-  aws_sqlserver_ext.patindex(<pattern character>, <expression character
-  varying>) .
-- In SQL Server, a user-defined table type is a type that represents the
-  definition of a table structure. You use a user-defined table type to declare
-  table-value parameters for stored procedures or functions. You can also use a
-  user-defined table type to declare table variables that you want to use in a
-  batch or in the body of a stored procedure or function. AWS SCT emulated this
-  type in PostgreSQL by creating a temporary table.
-
-When converting from SQL Server to PostgreSQL, AWS SCT converts SQL Server system
-objects into recognizable objects in PostgreSQL. The following table shows how the system
-objects are converted.
-
-| MS SQL Server use cases                    | PostgreSQL substitution                                      |
-| ------------------------------------------ | ------------------------------------------------------------ |
-| SYS.SCHEMAS                                | AWS_SQLSERVER_EXT.SYS_SCHEMAS                                |
-| SYS.TABLES                                 | AWS_SQLSERVER_EXT.SYS_TABLES                                 |
-| SYS.VIEWS                                  | AWS_SQLSERVER_EXT.SYS_VIEWS                                  |
-| SYS.ALL_VIEWS                              | AWS_SQLSERVER_EXT.SYS_ALL_VIEWS                              |
-| SYS.TYPES                                  | AWS_SQLSERVER_EXT.SYS_TYPES                                  |
-| SYS.COLUMNS                                | AWS_SQLSERVER_EXT.SYS_COLUMNS                                |
-| SYS.ALL_COLUMNS                            | AWS_SQLSERVER_EXT.SYS_ALL_COLUMNS                            |
-| SYS.FOREIGN_KEYS                           | AWS_SQLSERVER_EXT.SYS_FOREIGN_KEYS                           |
-| SYS.SYSFOREIGNKEYS                         | AWS_SQLSERVER_EXT.SYS_SYSFOREIGNKEYS                         |
-| SYS.FOREIGN_KEY_COLUMNS                    | AWS_SQLSERVER_EXT.SYS_FOREIGN_KEY_COLUMNS                    |
-| SYS.KEY_CONSTRAINTS                        | AWS_SQLSERVER_EXT.SYS_KEY_CONSTRAINTS                        |
-| SYS.IDENTITY_COLUMNS                       | AWS_SQLSERVER_EXT.SYS_IDENTITY_COLUMNS                       |
-| SYS.PROCEDURES                             | AWS_SQLSERVER_EXT.SYS_PROCEDURES                             |
-| SYS.INDEXES                                | AWS_SQLSERVER_EXT.SYS_INDEXES                                |
-| SYS.SYSINDEXES                             | AWS_SQLSERVER_EXT.SYS_SYSINDEXES                             |
-| SYS.OBJECTS                                | AWS_SQLSERVER_EXT.SYS_OBJECTS                                |
-| SYS.ALL_OBJECTS                            | AWS_SQLSERVER_EXT.SYS_ALL_OBJECTS                            |
-| SYS.SYSOBJECTS                             | AWS_SQLSERVER_EXT.SYS_SYSOBJECTS                             |
-| SYS.SQL_MODULES                            | AWS_SQLSERVER_EXT.SYS_SQL_MODULES                            |
-| SYS.DATABASES                              | AWS_SQLSERVER_EXT.SYS_DATABASES                              |
-| INFORMATION_SCHEMA.SCHEMATA                | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_SCHEMATA                |
-| INFORMATION_SCHEMA.VIEWS                   | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_VIEWS                   |
-| INFORMATION_SCHEMA.TABLES                  | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_TABLES                  |
-| INFORMATION_SCHEMA.COLUMNS                 | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_COLUMNS                 |
-| INFORMATION_SCHEMA.CHECK_CONSTRAINTS       | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_CHECK_CONSTRAINTS       |
-| INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_REFERENTIAL_CONSTRAINTS |
-| INFORMATION_SCHEMA.TABLE_CONSTRAINTS       | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_TABLE_CONSTRAINTS       |
-| INFORMATION_SCHEMA.KEY_COLUMN_USAGE        | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_KEY_COLUMN_USAGE        |
-| INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE  | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_CONSTRAINT_TABLE_USAGE  |
-| INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_CONSTRAINT_COLUMN_USAGE |
-| INFORMATION_SCHEMA.ROUTINES                | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_ROUTINES                |
-| SYS.SYSPROCESSES                           | AWS_SQLSERVER_EXT.SYS_SYSPROCESSES                           |
-| sys.system_objects                         | AWS_SQLSERVER_EXT.SYS_SYSTEM_OBJECTS                         |
+- MySQL doesn't support multistatement table-valued functions. AWS SCT simulates table-valued
+  functions during a conversion by creating temporary tables and rewriting
+  statements to use these temporary tables.

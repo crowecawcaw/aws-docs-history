@@ -1,30 +1,24 @@
-# Assessment report summary
+# Configuring an assessment report in AWS Schema Conversion Tool
 
-The **Summary** tab displays
-the summary information from the database migration assessment report.
-It shows items that were converted automatically,
-and items that were not converted automatically.
+You can configure the amount of details that AWS SCT includes into
+assessment reports.
 
-![Assessment report summary](images/summary_tab.png)
-For schema items that can't be converted automatically to the target database
-engine, the summary includes an estimate of the effort required to create schema
-items in your target DB instance that are equivalent to those in your source.
+###### To configure a database migration assessment report
 
-The report categorizes the estimated time to convert these schema items as
-follows:
-
-- **Simple** – Actions that can be
-  completed in less than two hours.
-- **Medium** – Actions that are more
-  complex and can be completed in two to six hours.
-- **Significant** – Actions that are
-  very complex and take more than six hours to complete.
-  The section **License Evaluation and Cloud Support**
-  contains information about
-  moving your existing on-premises database schema
-  to an Amazon RDS DB instance running the same engine.
-  For example, if you want to change license types,
-  this section of the report tells you which features
-  from your current database should be removed.
-
-![License evaluation and cloud support section](images/license-evaluation-and-cloud-support.png)
+1. On the **Settings** menu, choose
+   **Global settings**, and then choose
+   **Assessment report**.
+2. For **Action item occurrences**, choose
+   **First five issues only** to limit the number of
+   action items of a single type in the assessment report. Choose
+   **All issues** to include all action items of each
+   type in the assessment report.
+3. For **SQL script analyzed files**, choose
+   **List not more than `X` files**
+   to limit the number of SQL script files in the assessment report to
+   `X`. Enter the number of files. Choose
+   **List all analyzed files** to include all SQL script files
+   in the assessment report.
+4. Select **Open reports after saving** to automatically open
+   the file after you save a local copy of the database migration assessment report.
+   For more information, see .
