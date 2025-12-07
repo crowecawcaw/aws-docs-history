@@ -13,3 +13,8 @@ streamlining compliance data collection.
 Additionally, the manifest field becomes optional, enabling minimalist landing zone deployments focused solely on AWS Organizations
 integration and control enablement. These changes provide greater customization options while maintaining robust
 governance capabilities, allowing customers to tailor AWS Control Tower to their specific needs more effectively.
+
+###### Topics
+
+- [Key changes](key-changes-lz-v4.md "key-changes-lz-v4.md")
+- [AWS Config Updates](config-updates-v4.md "config-updates-v4.md")

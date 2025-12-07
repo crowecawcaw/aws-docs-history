@@ -16,6 +16,7 @@ descriptions of each release.
 
 | **Version** | Release date | Description                                                                                                                   |
 | ----------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| 4.0         | 11-17-2025   | [Landing zone version 4.0](2025-all.md#lz-40 "2025-all.md#lz-40")                                                             |
 | 3.3         | 12-12-2023   | [Landing zone version 3.3](2023-all.md#lz-3-3 "2023-all.md#lz-3-3")                                                           |
 | 3.2         | 6-09-2023    | [Landing zone version 3.2](2023-all.md#lz-3-2 "2023-all.md#lz-3-2")                                                           |
 | 3.1         | 2-09-2023    | [Landing zone version 3.1](2023-all.md#lz-3-1 "2023-all.md#lz-3-1")                                                           |
