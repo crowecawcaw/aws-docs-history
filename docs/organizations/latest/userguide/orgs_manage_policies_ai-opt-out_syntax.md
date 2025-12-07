@@ -118,6 +118,7 @@ elements:
     	- `q`
     	- `quicksightq`
     	- `rekognition`
+    	- `sagemakerunifiedstudiomcp`
     	- `securitylake`
     	- `textract`
     	- `transcribe`
