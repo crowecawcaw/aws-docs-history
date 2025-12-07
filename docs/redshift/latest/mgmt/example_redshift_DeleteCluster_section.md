@@ -7,6 +7,55 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 The following code examples show how to use `DeleteCluster`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+
+```
+    /// <summary>
+    /// Delete an Amazon Redshift cluster without a final snapshot.
+    /// </summary>
+    /// <param name="clusterIdentifier">The identifier for the cluster.</param>
+    /// <returns>True if successful.</returns>
+    public async Task<bool> DeleteClusterWithoutSnapshotAsync(string clusterIdentifier)
+    {
+        try
+        {
+            var request = new DeleteClusterRequest
+            {
+                ClusterIdentifier = clusterIdentifier,
+                SkipFinalClusterSnapshot = true
+            };
+
+            var response = await _redshiftClient.DeleteClusterAsync(request);
+            Console.WriteLine($"The {clusterIdentifier} was deleted");
+            return true;
+        }
+        catch (ClusterNotFoundException ex)
+        {
+            Console.WriteLine($"Cluster not found: {ex.Message}");
+            return false;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Couldn't delete cluster. Here's why: {ex.Message}");
+            return false;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [DeleteCluster](../../../goto/DotNetSDKV4/redshift-2012-12-01/DeleteCluster.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DeleteCluster.md")
+  in _AWS SDK for .NET API Reference_.
+
 CLI
 
 **AWS CLI**

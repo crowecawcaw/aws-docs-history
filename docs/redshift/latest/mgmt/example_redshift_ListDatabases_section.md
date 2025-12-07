@@ -5,7 +5,66 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 # Use `ListDatabases` with an AWS SDK
 
-The following code example shows how to use `ListDatabases`.
+The following code examples show how to use `ListDatabases`.
+
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+
+```
+    /// <summary>
+    /// List databases in a Redshift cluster.
+    /// </summary>
+    /// <param name="clusterIdentifier">The cluster identifier.</param>
+    /// <param name="dbUser">The database user.</param>
+    /// <param name="dbUser">The database name for authentication.</param>
+    /// <returns>A list of database names.</returns>
+    public async Task<List<string>> ListDatabasesAsync(string clusterIdentifier, string dbUser, string databaseName)
+    {
+        try
+        {
+            var request = new ListDatabasesRequest
+            {
+                ClusterIdentifier = clusterIdentifier,
+                DbUser = dbUser,
+                Database = databaseName
+            };
+
+            var response = await _redshiftDataClient.ListDatabasesAsync(request);
+            var databases = new List<string>();
+
+            foreach (var database in response.Databases)
+            {
+                Console.WriteLine($"The database name is : {database}");
+                databases.Add(database);
+            }
+
+            return databases;
+        }
+        catch (Amazon.RedshiftDataAPIService.Model.ValidationException ex)
+        {
+            Console.WriteLine($"Validation error: {ex.Message}");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Couldn't list databases. Here's why: {ex.Message}");
+            throw;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [ListDatabases](../../../goto/DotNetSDKV4/redshift-2012-12-01/ListDatabases.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/ListDatabases.md")
+  in _AWS SDK for .NET API Reference_.
 
 Java
 

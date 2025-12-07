@@ -12,6 +12,53 @@ context in the following code example:
 
 - [Learn the basics](example_redshift_Scenario_section.md "example_redshift_Scenario_section.md")
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+
+```
+    /// <summary>
+    /// Describe a statement execution.
+    /// </summary>
+    /// <param name="statementId">The statement ID.</param>
+    /// <returns>The statement description.</returns>
+    public async Task<DescribeStatementResponse> DescribeStatementAsync(string statementId)
+    {
+        try
+        {
+            var request = new DescribeStatementRequest
+            {
+                Id = statementId
+            };
+
+            var response = await _redshiftDataClient.DescribeStatementAsync(request);
+            return response;
+        }
+        catch (Amazon.RedshiftDataAPIService.Model.ResourceNotFoundException ex)
+        {
+            Console.WriteLine($"Statement not found: {ex.Message}");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Couldn't describe statement. Here's why: {ex.Message}");
+            throw;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [DescribeStatement](../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeStatement.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeStatement.md")
+  in _AWS SDK for .NET API Reference_.
+
 Java
 
 **SDK for Java 2.x**

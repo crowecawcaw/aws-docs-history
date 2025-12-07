@@ -21,6 +21,64 @@ This topic also includes information about getting started and details about pre
 
 The following code examples show how to get started using Amazon Redshift.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+
+```
+    /// <summary>
+    /// Main method to run the Hello Amazon Redshift example.
+    /// </summary>
+    /// <param name="args">Command line arguments (not used).</param>
+    public static async Task Main(string[] args)
+    {
+        var redshiftClient = new AmazonRedshiftClient();
+
+        Console.WriteLine("Hello, Amazon Redshift! Let's list available clusters:");
+
+        var clusters = new List<Cluster>();
+
+        try
+        {
+            // Use pagination to retrieve all clusters.
+            var clustersPaginator = redshiftClient.Paginators.DescribeClusters(new DescribeClustersRequest());
+
+            await foreach (var response in clustersPaginator.Responses)
+            {
+                if (response.Clusters != null)
+                    clusters.AddRange(response.Clusters);
+            }
+
+            Console.WriteLine($"{clusters.Count} cluster(s) retrieved.");
+
+            foreach (var cluster in clusters)
+            {
+                Console.WriteLine($"\t{cluster.ClusterIdentifier} (Status: {cluster.ClusterStatus})");
+            }
+        }
+        catch (AmazonRedshiftException ex)
+        {
+            Console.WriteLine($"Couldn't list clusters. Here's why: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+
+
+```
+
+- For API details, see
+  [DescribeClusters](../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md")
+  in _AWS SDK for .NET API Reference_.
+
 Go
 
 **SDK for Go V2**

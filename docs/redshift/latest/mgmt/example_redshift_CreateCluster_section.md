@@ -12,6 +12,65 @@ context in the following code example:
 
 - [Learn the basics](example_redshift_Scenario_section.md "example_redshift_Scenario_section.md")
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+
+```
+    /// <summary>
+    /// Create a new Amazon Redshift cluster.
+    /// </summary>
+    /// <param name="clusterIdentifier">The identifier for the cluster.</param>
+    /// <param name="databaseName">The name of the database.</param>
+    /// <param name="masterUsername">The master username.</param>
+    /// <param name="masterUserPassword">The master user password.</param>
+    /// <param name="nodeType">The node type for the cluster.</param>
+    /// <returns>The cluster that was created.</returns>
+    public async Task<Cluster> CreateClusterAsync(string clusterIdentifier, string databaseName,
+        string masterUsername, string masterUserPassword, string nodeType = "ra3.large")
+    {
+        try
+        {
+            var request = new CreateClusterRequest
+            {
+                ClusterIdentifier = clusterIdentifier,
+                DBName = databaseName,
+                MasterUsername = masterUsername,
+                MasterUserPassword = masterUserPassword,
+                NodeType = nodeType,
+                NumberOfNodes = 1,
+                ClusterType = "single-node"
+            };
+
+            var response = await _redshiftClient.CreateClusterAsync(request);
+            Console.WriteLine($"Created cluster {clusterIdentifier}");
+            return response.Cluster;
+        }
+        catch (ClusterAlreadyExistsException ex)
+        {
+            Console.WriteLine($"Cluster already exists: {ex.Message}");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Couldn't create cluster. Here's why: {ex.Message}");
+            throw;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [CreateCluster](../../../goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster.md")
+  in _AWS SDK for .NET API Reference_.
+
 CLI
 
 **AWS CLI**

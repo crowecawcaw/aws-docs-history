@@ -12,6 +12,56 @@ context in the following code example:
 
 - [Learn the basics](example_redshift_Scenario_section.md "example_redshift_Scenario_section.md")
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+
+```
+    /// <summary>
+    /// Modify an Amazon Redshift cluster.
+    /// </summary>
+    /// <param name="clusterIdentifier">The identifier for the cluster.</param>
+    /// <param name="preferredMaintenanceWindow">The preferred maintenance window.</param>
+    /// <returns>True if successful.</returns>
+    public async Task<bool> ModifyClusterAsync(string clusterIdentifier, string preferredMaintenanceWindow)
+    {
+        try
+        {
+            var request = new ModifyClusterRequest
+            {
+                ClusterIdentifier = clusterIdentifier,
+                PreferredMaintenanceWindow = preferredMaintenanceWindow
+            };
+
+            var response = await _redshiftClient.ModifyClusterAsync(request);
+            Console.WriteLine($"The modified cluster was successfully modified and has {response.Cluster.PreferredMaintenanceWindow} as the maintenance window");
+            return true;
+        }
+        catch (ClusterNotFoundException ex)
+        {
+            Console.WriteLine($"Cluster {clusterIdentifier} not found: {ex.Message}");
+            return false;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Couldn't modify cluster. Here's why: {ex.Message}");
+            return false;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [ModifyCluster](../../../goto/DotNetSDKV4/redshift-2012-12-01/ModifyCluster.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/ModifyCluster.md")
+  in _AWS SDK for .NET API Reference_.
+
 CLI
 
 **AWS CLI**

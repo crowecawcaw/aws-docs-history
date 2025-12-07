@@ -92,6 +92,9 @@ Consider the following when calling the Data API:
 - The maximum retention time for a client token used in
   `ExecuteStatement` or `BatchExecuteStatement` API
   operation is 8 hours.
+- If the Amazon Redshift provisioned clusters and Redshift Serverless workgroup is encrypted using a customer managed key
+  Redshift creates a grant that allows the Redshift Data API to use the key for its operations. For
+  for more information, see [Using AWS KMS with the Amazon Redshift Data API](data-api-kms.md "data-api-kms.md").
 - Each API in the Redshift Data API has a transactions per second quota before throttling
   requests. For the quota, see [Quotas for Amazon Redshift Data API](amazon-redshift-limits.md#data-api-quotas-account "amazon-redshift-limits.md#data-api-quotas-account"). If the rate of request exceeds
   the quota, a `ThrottlingException` with HTTP Status Code: 400 is

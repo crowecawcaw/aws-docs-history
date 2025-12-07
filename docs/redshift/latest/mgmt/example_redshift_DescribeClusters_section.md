@@ -12,6 +12,67 @@ context in the following code example:
 
 - [Learn the basics](example_redshift_Scenario_section.md "example_redshift_Scenario_section.md")
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+
+```
+    /// <summary>
+    /// Describe Amazon Redshift clusters.
+    /// </summary>
+    /// <param name="clusterIdentifier">Optional cluster identifier to describe a specific cluster.</param>
+    /// <returns>A list of clusters.</returns>
+    public async Task<List<Cluster>> DescribeClustersAsync(string? clusterIdentifier = null)
+    {
+        try
+        {
+            var clusters = new List<Cluster>();
+            var request = new DescribeClustersRequest();
+            if (!string.IsNullOrEmpty(clusterIdentifier))
+            {
+                request.ClusterIdentifier = clusterIdentifier;
+            }
+
+            var clustersPaginator = _redshiftClient.Paginators.DescribeClusters(request);
+            await foreach (var response in clustersPaginator.Responses)
+            {
+                if (response.Clusters != null)
+                    clusters.AddRange(response.Clusters);
+            }
+
+            Console.WriteLine($"{clusters.Count} cluster(s) retrieved.");
+            foreach (var cluster in clusters)
+            {
+                Console.WriteLine($"\t{cluster.ClusterIdentifier} (Status: {cluster.ClusterStatus})");
+            }
+
+            return clusters;
+        }
+        catch (ClusterNotFoundException ex)
+        {
+            Console.WriteLine($"Cluster {clusterIdentifier} not found: {ex.Message}");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Couldn't describe clusters. Here's why: {ex.Message}");
+            throw;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [DescribeClusters](../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md")
+  in _AWS SDK for .NET API Reference_.
+
 CLI
 
 **AWS CLI**
