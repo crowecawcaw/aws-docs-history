@@ -121,7 +121,7 @@ The `Assign` field takes a JSON object. Each top-level field names a variable to
 
 When using **JSONata** as the query language, the following diagram shows how **Assign** and **Output** fields are processed in parallel. Note the implication: _assigning variable values will not affect state Output._
 
-![Diagram showing a comparison of JSONPath and JSONata flow.](images/vars-jsonata.png)
+![Diagram showing a comparison of JSONPath and JSONata flow.](/images/step-functions/latest/dg/images/vars-jsonata.png)
 
 The following JSONata example retrieves `order.product` from the state input. The variable `currentPrice` is set to a value from the result of the task.
 

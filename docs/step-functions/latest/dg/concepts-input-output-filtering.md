@@ -50,7 +50,7 @@ is sent to your action in the `Parameters` field. Then, with
 to the output. `OutputPath` can filter the JSON output to further limit the
 information that's passed to the output.
 
-![Order of filters: InputPath, Parameters, ResultSelector, ResultPath, and OutputPath.](images/vars-jsonpath.png)
+![Order of filters: InputPath, Parameters, ResultSelector, ResultPath, and OutputPath.](/images/step-functions/latest/dg/images/vars-jsonpath.png)
 
 ###### Topics
 
