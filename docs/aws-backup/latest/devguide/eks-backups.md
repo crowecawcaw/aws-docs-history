@@ -170,7 +170,7 @@ Amazon EKS backups support all copy types:
 
 ## Limitations
 
-- Persistent Volumes not backed by CSI drivers (e.g. in-tree storage plugins or ACK controllers) are not supported as part of EKS backups
+- Persistent volumes using a CSI Driver via CSI migration, in-tree storage plugins or ACK controllers are not supported.
 - Amazon S3 buckets with specific prefixes attached to CSI Driver MountPoints cannot be backed up. Only Amazon S3 buckets as targets are supported, not specific prefixes
 - Amazon S3 bucket backups as part of an EKS cluster backup will only support snapshot backups.
 - Amazon FSx via CSI driver is not supported via EKS Backups

@@ -58,8 +58,8 @@ When that occurs, your newly supported resource will automatically start backing
 ###### Considerations and limitations:
 
 - **Same account and Region only** – Your logically air-gapped vault must be in the same AWS account and Region as your resources to use this feature.
-  You cannot create backups directly cross-account or cross-Region. To protect data cross-account or cross-Region, you still need to create copies.
-  If you are already required to maintain a separate copy cross-Region for Disaster Recovery (DR), then you should simply select logically air-gapped vault as a copy target in the second Region rather than the same workload account to reduce costs.
+  You cannot create backups directly cross-account or cross-Region. We recommend backing up to a logically air-gapped vault in the same Region to enable faster recovery without requiring a copy.
+  If you require a copy of your data in a second Region for Disaster Recovery (DR), we recommend either cross-Region replication of your primary resources for quick failover or cross-Region recovery point copies to a locked backup vault.
 - **Constraints with using AWS managed keys** – Resources not supporting full AWS Backup management and encrypted with AWS managed keys (for example, `aws/ebs`, `aws/rds`) cannot be copied to logically air-gapped vaults.
   These resources must be encrypted with a customer managed KMS key or be unencrypted. Resources supporting full AWS Backup management **do not have this constraint.**
 - **Backup frequency and concurrent copies** – For resources not supporting full AWS Backup management, ensure your backup frequency allows sufficient time for copies to complete.
