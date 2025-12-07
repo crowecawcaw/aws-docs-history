@@ -1,4 +1,8 @@
-# Creating support cases and case management
+# Case management
+
+###### Note
+
+You can revert to the legacy method of case management by choosing **Use the old experience** in the banner at the top of the Support Center console. For more information, see [Legacy experience: Creating support cases and case management](case-management-legacy.md "case-management-legacy.md").
 
 In the AWS Management Console, you can create three types of customer cases in Support:
 
@@ -33,103 +37,12 @@ In the AWS Management Console, you can create three types of customer cases in S
     	 plans in an organization](https://aws.amazon.com/blogs/mt/aws-partners-determine-aws-support-plans-in-organization/ "https://aws.amazon.com/blogs/mt/aws-partners-determine-aws-support-plans-in-organization/")
     	- [AWS Partner-Led Support](https://aws.amazon.com/premiumsupport/partner-led-support/ "https://aws.amazon.com/premiumsupport/partner-led-support/")
 
-## Creating a support case
-
-You can create a support case in the Support Center of the AWS Management Console.
-
-###### Notes
-
-- You can sign in to Support Center as an AWS Identity and Access Management (IAM) user. For more information, see
-  [Manage access to AWS Support Center](accessing-support.md "accessing-support.md").
-- If you can't sign in to Support Center and create a support case, you can use the
-  [Contact Us](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") page
-  instead. You can use this page to get help with billing and account
-  issues.
-
-###### To create a support case
-
-1. Sign in to the
-   [AWS Support Center Console](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
-
-###### Tip
-
-In the AWS Management Console, you can also choose the question mark icon (
-![Question mark icon representing help or information.](images/questionmark.png)
-) and then choose **Support Center**. 2. Choose **Create case**. 3. Choose one of the following options:
-
-    * **Account and billing**
-    * **Technical**
-    * For service quota increases, choose **Looking for service
-     quota increases?** and then follow the instructions for
-     [Request a service quota increase](create-service-quota-increase.md "create-service-quota-increase.md").
-
-4. Choose the **Service**, **Category**, and
-   **Severity**.
-
-###### Tip
-
-You can use the recommended solutions that appear for commonly asked
-questions. 5. Choose **Next step: Additional information** 6. On the **Additional information** page, for
-**Subject**, enter a title about your issue. 7. For **Description**, follow the prompts to describe your
-case, such as the following:
-
-    * Error messages that you received
-    * Troubleshooting steps that you followed
-    * How you're accessing the service:
-
-
-
-
-    	+ AWS Management Console
-    	+ AWS Command Line Interface (AWS CLI)
-    	+ API operations
-
-8. (Optional) Choose **Attach files** to add any relevant files
-   to your case, such as error logs or screenshots. You can attach up to three
-   files. Each file can be up to 5 MB.
-9. Choose **Next step: Solve now or contact us**.
-10. On the **Contact us** page, choose your preferred language.
-11. Choose your preferred contact method. You can choose one of the following
-    options:
-    1. **Web** – Receive a reply in Support Center.
-    2. **Chat** – Start a live chat with a support
-       agent. If you can't connect to a chat, see [Troubleshooting](troubleshooting-support-cases.md "troubleshooting-support-cases.md").
-    3. **Phone** – Receive a phone call from a
-       support agent. If you choose this option, enter the following
-       information:
-       - **Country or region**
-       - **Phone number**
-       - **(Optional) Extension**###### Notes
-    - The contact options that appear depend on the type of case and
-      your support plan.
-    - You can choose **Discard draft** to clear your
-      support case draft.
-
-12. (Optional) If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, the **Additional
-    contacts** option appears. You can enter the email addresses of
-    people to notify when the status of the case changes. If you're signed in as an
-    IAM user, include your email address. If you're signed in with your root
-    account email address and password, you don't need to include your email
-    address
-
-###### Note
-
-If you have the Basic Support plan, the **Additional
-contacts** option isn't available. However, the
-**Operations** contact specified in the
-**Alternate Contacts** section of the [My Account](https://console.aws.amazon.com/billing/home?#/account "https://console.aws.amazon.com/billing/home?#/account") page
-receives copies of the case correspondence, but only for the specific case
-types of account and billing, and technical. 13. Review your case details and then choose **Submit**. Your
-case ID number and summary appear.
-
 ## Describing your problem
 
 Make your description as detailed as possible. Include relevant resource information,
 along with anything else that might help us understand your issue. For example, to
 troubleshoot performance, include timestamps and logs. For feature requests or general
-guidance questions, include a description of your environment and purpose. In all cases,
-follow the **Description Guidance** that appears on your case
-submission form.
+guidance questions, include a description of your environment and purpose.
 
 When you provide as much detail as possible, you increase the chances that your case
 can be resolved quickly.
@@ -146,19 +59,18 @@ The following table lists the severity levels, response times, and example probl
 
 ###### Notes
 
-- If you have Enterprise Support or an Enterprise On-Ramp plan, you can reassign your support case severity level to reflect changes to urgency and business impact. For example, you can change your support case from **System impaired** to **Production system impaired**. When you change the case severity, AWS Support receives notification and routes the case according to the new severity level. For more information, see [Changing the severity level of your support case](#change-severity-for-support-cases "#change-severity-for-support-cases").
-- If you don't have Enterprise support or an Enterprise On-Ramp plan, then you can't change the severity level for a support case after you create
-  it. If your situation changes, work with the Support agent for your support
-  case.
+- If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, you can reassign your support case severity level to reflect changes to urgency and business impact. For example, you can change your support case from **System impaired** to **Production system impaired**. When you change the case severity, AWS Support receives notification and routes the case according to the new severity level. For more information, see [Changing the severity level of your support case](#change-severity-for-support-cases "#change-severity-for-support-cases").
+- If you don't have Basic Support plan, then you can't change the severity level for a support case after you create
+  it. If your situation changes, work with the Support agent.
 - For more information about the severity level, see the [AWS Support API Reference](../APIReference/API_SeverityLevel.md "../APIReference/API_SeverityLevel.md").
 
-| Severity                          | Severity level code | First-response time | Description and support plan                                                                                                                                                                         |
-| --------------------------------- | ------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **General guidance**              | `low`               | 24 hours            | You have a general development question, or you want to request a<br>feature. (\*Developer, Business, Enterprise On-Ramp, or Enterprise Support plan)                                                |
-| **System impaired**               | `normal`            | 12 hours            | Non-critical functions of your application are behaving<br>abnormally, or you have a time-sensitive development question.<br>(\*Developer, Business, Enterprise On-Ramp, or Enterprise Support plan) |
-| **Production system impaired**    | `high`              | 4 hours             | Important functions of your application are impaired or degraded.<br>(Business, Enterprise On-Ramp, or Enterprise Support plan)                                                                      |
-| **Production system down**        | `urgent`            | 1 hour              | Your business is significantly impacted. Important functions of<br>your application aren't available. (Business, Enterprise On-Ramp, or Enterprise Support plan)                                     |
-| **Business-critical system down** | `critical`          | 15 minutes          | Your business is at risk. Critical functions of your application<br>aren't available (Enterprise Support plan). Note that this is 30<br>minutes for the Enterprise On-Ramp Support plan.             |
+| Severity                          | Severity level code | First-response time                                                                                                                                                         | Description and support plan                                                                                                                                                                                 |
+| --------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **General guidance**              | `low`               | 24 hours                                                                                                                                                                    | You have a general development question, or you want to request a<br>feature. (AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan)                                                |
+| **System impaired**               | `normal`            | 12 hours                                                                                                                                                                    | Non-critical functions of your application are behaving<br>abnormally, or you have a time-sensitive development question.<br>(AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan) |
+| **Production system impaired**    | `high`              | 4 hours                                                                                                                                                                     | Important functions of your application are impaired or degraded.<br>(AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan)                                                         |
+| **Production system down**        | `urgent`            | 1 hour                                                                                                                                                                      | Your business is significantly impacted. Important functions of<br>your application aren't available. (AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan)                        |
+| **Business-critical system down** | `critical`          | • AWS Business Support+: Less than 30 minutes<br>• AWS Enterprise Support: Less than 15 minutes<br>• AWS Unified Operations: 5 minutes from an Incident Management Engineer | Your business is at risk. Critical functions of your application aren't available.                                                                                                                           |
 
 ## Understanding AWS Support response times
 
@@ -166,50 +78,35 @@ AWS Support makes every reasonable effort to respond to your initial request wit
 indicated timeframe. For information about the scope of support for each Support plan,
 see [AWS Support features](https://aws.amazon.com/premiumsupport/features/ "https://aws.amazon.com/premiumsupport/features/").
 
-If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, you have round-the-clock access for technical support.
-\*For Developer Support, response targets for support cases are calculated in
-business hours. Business hours are generally defined as 08:00 to 18:00 in the
-customer country, excluding holidays and weekends. These times can vary in countries
-with multiple time zones. The customer country information appears in the
-**Contact Information** section of the [My Account](https://console.aws.amazon.com/billing/home#/account "https://console.aws.amazon.com/billing/home#/account") page in the
-AWS Management Console.
+If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, you have round-the-clock access for technical support.
 
 ###### Note
 
 If you choose Japanese as your preferred contact language for support cases, support
 in Japanese may be available as follows:
 
-- If you need customer service for non-technical support cases, or if you have a
-  Developer Support plan and need technical support, support in Japanese is available during
+- If you need customer service for non-technical support cases, support in Japanese is available during
   business hours in Japan defined as 09:00 AM to 06:00 PM Japan Standard Time (GMT+9), excluding
   holidays and weekends.
-- If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, technical support is available
+- If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, technical support is available
   all day, every day in Japanese.
-  If you choose Chinese as your preferred contact language for support cases, support in Chinese may be available
+  If you choose Chinese as your preferred contact language for support cases, support in Chinese might be available
   as follows:
 
 - If you need customer service for non-technical support cases, support in Chinese is available
   09:00 AM to 06:00 PM (GMT+8), excluding holidays and weekends.
-- If you have a Developer Support plan, technical support in Chinese is available during business
-  hours generally defined as 8:00 AM to 6:00 PM in your country as set in
-  [My Account](https://console.aws.amazon.com/billing/home?#/account "https://console.aws.amazon.com/billing/home?#/account"), excluding
-  holidays and weekends. These times may vary in countries with multiple time zones.
-- If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, technical support is available all day, every day in Chinese.
+- If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, technical support is available all day, every day in Chinese.
   If you choose Korean as your preferred contact language for support cases, support in Korean may be
   available as follows:
 
 - If you need customer service for non-technical support cases, support in Korean is available
   during business hours in Korea defined as 09:00 AM to 06:00 PM Korean Standard Time (GMT+9),
   excluding holidays and weekends.
-- If you have a Developer Support plan, technical support in Korean is available during business
-  hours generally defined as 8:00 AM to 6:00 PM in your country as set in
-  [My Account](https://console.aws.amazon.com/billing/home?#/account "https://console.aws.amazon.com/billing/home?#/account"),
-  excluding holidays and weekends. These times may vary in countries with multiple time zones.
-- If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, technical support is available all day, every day in Korean.
+- If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, technical support is available all day, every day in Korean.
 
 ## Changing the severity level of your support case
 
-If you have Enterprise Support or an Enterprise On-Ramp plan, you can reassign your support case severity level to reflect changes to urgency and business impact. For example, you can change your support case from **System impaired** to **Production system impaired**. When you change the case severity, AWS Support receives notification and attends to the case according to the new severity level.
+If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, you can reassign your support case severity level to reflect changes to urgency and business impact. For example, you can change your support case from **System impaired** to **Production system impaired**. When you change the case severity, AWS Support receives notification and attends to the case according to the new severity level.
 
 ###### Note
 

@@ -73,7 +73,7 @@ in Japanese may be available as follows:
   Developer Support plan and need technical support, support in Japanese is available during
   business hours in Japan defined as 09:00 AM to 06:00 PM Japan Standard Time (GMT+9), excluding
   holidays and weekends.
-- If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, technical support is available
+- If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, technical support is available
   24/7 in Japanese.
   If you choose Chinese as your preferred contact language for support cases, support in Chinese may be available
   as follows:
@@ -84,7 +84,7 @@ in Japanese may be available as follows:
   hours generally defined as 8:00 AM to 6:00 PM in your country as set in
   [My Account](https://console.aws.amazon.com/billing/home?#/account "https://console.aws.amazon.com/billing/home?#/account"), excluding
   holidays and weekends. These times may vary in countries with multiple time zones.
-- If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, technical support is available 24/7 in Chinese.
+- If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, technical support is available 24/7 in Chinese.
   If you choose Korean as your preferred contact language for support cases, support in Korean may be
   available as follows:
 
@@ -95,4 +95,4 @@ in Japanese may be available as follows:
   hours generally defined as 8:00 AM to 6:00 PM in your country as set in
   [My Account](https://console.aws.amazon.com/billing/home?#/account "https://console.aws.amazon.com/billing/home?#/account"),
   excluding holidays and weekends. These times may vary in countries with multiple time zones.
-- If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, technical support is available 24/7 in Korean.
+- If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, technical support is available 24/7 in Korean.

@@ -1,4 +1,4 @@
-# Updating, resolving, and reopening your case
+# Legacy experience: Updating, resolving, and reopening your case
 
 After you create your support case, you can monitor the status of your case in Support Center. A new
 case begins in the **Unassigned** state. When a support agent begins work
@@ -7,7 +7,7 @@ might respond to your case to ask for more information (**Pending Customer
 Action**) or to let you know that the case is being investigated
 (**Pending Amazon Action**).
 
-When your case is updated, you receive email with the correspondence and a link to the
+When your case is updated, you receive an email with the correspondence and a link to the
 case in Support Center. Use the link in the email message to navigate to the support case. You can't
 respond to case correspondences by email.
 
@@ -38,7 +38,7 @@ recipients, and so on.
 
 ###### Note
 
-If you have Enterprise Support or an Enterprise On-Ramp plan, you can reassign your support case severity level to reflect changes to urgency and business impact. If you don't have one of these support plans, then you can't update the severity of your case.
+If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, you can reassign your support case severity level to reflect changes to urgency and business impact. If you don't have one of these support plans, then you can't update the severity of your case.
 For more information, see [Choosing an initial support case severity level](case-management.md#choosing-severity "case-management.md#choosing-severity") and [Changing the severity level of your support case](case-management.md#change-severity-for-support-cases "case-management.md#change-severity-for-support-cases").
 
 ###### To update an existing support case
@@ -164,7 +164,7 @@ support case that you want to reopen. 3. Choose **Reopen case**. 4. In the dialo
 previous case information will be automatically added to your related case. If
 you have a different issue, choose **Create new case**.
 
-![Screenshot of how to create a new case or a related case in Support Center.](images/open-related-case-support-center.png) 5. Follow the same steps to create your case. See [Creating a support case](case-management.md#creating-a-support-case "case-management.md#creating-a-support-case").
+![Screenshot of how to create a new case or a related case in Support Center.](images/open-related-case-support-center.png) 5. Follow the same steps to create your case. See [Creating a support case](case-management-legacy.md#creating-a-support-case-legacy "case-management-legacy.md#creating-a-support-case-legacy").
 
 ###### Note
 

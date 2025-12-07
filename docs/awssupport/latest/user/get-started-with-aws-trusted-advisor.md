@@ -2,6 +2,18 @@
 
 Trusted Advisor Recommendations
 
+###### Important
+
+End of Support Notice: Developer Support will be discontinued January 1, 2027. Customers with Developer Support can continue using their existing plan or choose to upgrade to Business Support+ anytime before January 1, 2027. Business Support+ delivers AI-powered assistance that understands the context of your operations, with 24/7 access to AWS experts at $29/month minimum per account. For more information, see [Business Support+ plan details](https://aws.amazon.com/premiumsupport/plans/business-plus/ "https://aws.amazon.com/premiumsupport/plans/business-plus/")
+
+End of Support Notice: Business Support will be discontinued January 1, 2027. Customers with Business Support can continue using their existing plan or choose to upgrade to Business Support+ anytime before January 1, 2027. Business Support+ delivers AI-powered assistance that understands the context of your operations, with 24/7 access to AWS experts at $29/month minimum per account. For more information see, [Business Support+ plan details](https://aws.amazon.com/premiumsupport/plans/business-plus/ "https://aws.amazon.com/premiumsupport/plans/business-plus/")
+
+End of Support Notice: On January 1, 2027, AWS will discontinue Enterprise On-Ramp. Throughout 2026, Enterprise On-Ramp customers will be automatically upgraded to AWS Enterprise Support during contract renewal or in periodic batches. Customers will receive an email notification a month before their upgrade. No further action is required. Enterprise Support provides designated TAM assignment, 15-minute response times, and AWS Security Incident Response available at no additional cost, all at a lower $5,000 minimum (reduced from $15,000). For more information, see [AWS Enterprise Support plan details](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/").
+
+For more information, see [Developer, Business, and Enterprise On-Ramp end of support](support-plans-eos.md "support-plans-eos.md").
+
+Developer Support, Business Support, and Enterprise On-Ramp will remain available in the AWS GovCloud (US) Region.
+
 You can use the Trusted Advisor Recommendations page of the Trusted Advisor console to review check results for
 your AWS account and then follow the recommended steps to fix any issues. For example, Trusted Advisor
 might recommend that you delete unused resources to reduce your monthly bill, such as an Amazon Elastic Compute Cloud
@@ -99,7 +111,7 @@ You can view the check descriptions and results for the following check categori
      have excluded items, such as resources that you want a check to ignore.
 
 4. For each check, choose the refresh icon (
-   ![Circular arrow icon representing a refresh or reload action.](/images/awssupport/latest/user/images/refresh.png)
+   ![Circular arrow icon representing a refresh or reload action.](images/refresh.png)
    ) to refresh this check.
 5. Choose the download icon (
    ![Icon representing the action to upload or share content, showing an arrow pointing upwards.](images/download.png)
@@ -200,7 +212,7 @@ For more information about tagging for Trusted Advisor, see the following topics
 
 You can refresh checks to get the latest results for your account. If you have a Developer
 or Basic Support plan, you can sign in to the Trusted Advisor console to refresh the checks. If you have
-a Business, Enterprise On-Ramp, or Enterprise Support plan, Trusted Advisor automatically refreshes the checks in your account on a weekly
+an AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, Trusted Advisor automatically refreshes the checks in your account on a weekly
 basis.
 
 ###### To refresh Trusted Advisor checks

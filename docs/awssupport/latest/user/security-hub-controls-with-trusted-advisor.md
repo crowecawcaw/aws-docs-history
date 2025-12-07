@@ -34,7 +34,7 @@ For more information about the Security Hub categories, see [Control categories]
 You must meet the following requirements to enable the Security Hub integration with
 Trusted Advisor:
 
-- You must have a Business, Enterprise On-Ramp, or Enterprise Support plan for this feature. You can find your
+- You must have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan for this feature. You can find your
   support plan from the [AWS Support
   Center](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support") or from the [Support
   plans](https://console.aws.amazon.com/support/plans "https://console.aws.amazon.com/support/plans") page. For more information, see [Compare AWS Support plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
@@ -194,7 +194,7 @@ the Trusted Advisor console
 
 Verify that you completed the following steps:
 
-- You have a Business, Enterprise On-Ramp, or Enterprise Support plan.
+- You have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan.
 - You enabled resource recording in AWS Config within the same Region as
   Security Hub.
 - You enabled Security Hub and selected the **AWS Foundational Security

@@ -8,7 +8,7 @@ from the support agent.
 ###### Note
 
 - You can also use the AWS Support Center Console to reply to support agents. For more
-  information, see [Updating, resolving, and reopening your case](monitoring-your-case.md "monitoring-your-case.md").
+  information, see [Legacy experience: Updating, resolving, and reopening your case](monitoring-your-case.md "monitoring-your-case.md").
 - You cannot add correspondences to cases from chat channels created by the AWS Support App.
   Live chat channels only send messages to agents during the live chat.
 

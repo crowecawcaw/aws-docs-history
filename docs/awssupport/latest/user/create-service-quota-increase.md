@@ -16,11 +16,11 @@ see the following documentation:
 
 In the AWS Management Console, you can also choose the question mark icon (
 ![Question mark icon representing help or information.](images/questionmark.png)
-) and then choose **Support Center**. 2. Choose **Create case**, **Account and Billing**. 3. Choose **Looking for service quota increases?** 4. Choose **Create a case**. 5. For **Service**, leave the default selection of **Service Quotas**. 6. From **Category**, select the type of increase that you're requesting, and then choose **Next step: Additional information**. 7. (Optional) From the **Preferred contact language** drop down, select the language that you want AWS Support to use when corresponding with you. 8. For **Region**, select the AWS Region where you're requesting the increase.
+) and then choose **Support Center**. 2. On the **Support interactions** page, enter details about this service limit increase. When prompted, choose **Create a case**. Many of the Support case fields will be pre-populated with the text that you entered during your interaction. You can edit these fields as needed. For additional details on creating a support interaction, see [Create a support interaction](create-support-interaction.md "create-support-interaction.md"). 3. For **Case type**, select **Service quotas**. 4. For **Service**, select **Service Limit increase**. 5. For **Category**, select the type of increase that you're requesting from the list. Only service limit increase requests available in Support Center are listed here. For other types of service limit requests, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_. 6. (Optional) From the **Preferred contact language** drop down, select the language that you want AWS Support to use when corresponding with you. 7. For **Region**, select the AWS Region where you're requesting the increase.
 
 ###### Note
 
-AWS Region selection isn't available if you selected **General** as the **Category**. 9. (Optional) To request multiple limit increases, choose **Add another limit** and then choose another AWS Region. 10. Enter a **Description** for this service quota increase or multiple increases. You can attach files, if necessary. 11. Choose **Next step: Solve now or contact us**. 12. For **Contact options**, choose one of the following options:
+AWS Region selection isn't available if you selected **General** as the **Category**. 8. (Optional) To request multiple limit increases, choose **Add another limit** and then choose another AWS Region. 9. Enter a **Description** for this service quota increase or multiple increases. You can attach files, if necessary. 10. Choose **Next step: Solve now or contact us**. 11. For **Contact options**, choose one of the following options:
 
     * **Web** – Receive a reply in Support Center.
     * **Chat** – Start a live chat with a support
@@ -36,4 +36,6 @@ AWS Region selection isn't available if you selected **General** as the **Catego
     	+ **Phone number**
     	+ **(Optional) Extension**
 
-13. Choose **Submit**. Your case ID number and summary appear.
+12. When you're ready to submit the support case, select **Submit**. You are directed to the **Case details** page where you can see your case details, the support interaction, and the case correspondences.
+
+Select **Case details** to view the information about your case, such as attachments, or severity level. Select **Support interactions** to see the support interactions associated with this case.

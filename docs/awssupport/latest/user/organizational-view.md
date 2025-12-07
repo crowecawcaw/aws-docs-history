@@ -1,5 +1,17 @@
 # Organizational view for AWS Trusted Advisor
 
+###### Important
+
+End of Support Notice: Developer Support will be discontinued January 1, 2027. Customers with Developer Support can continue using their existing plan or choose to upgrade to Business Support+ anytime before January 1, 2027. Business Support+ delivers AI-powered assistance that understands the context of your operations, with 24/7 access to AWS experts at $29/month minimum per account. For more information, see [Business Support+ plan details](https://aws.amazon.com/premiumsupport/plans/business-plus/ "https://aws.amazon.com/premiumsupport/plans/business-plus/")
+
+End of Support Notice: Business Support will be discontinued January 1, 2027. Customers with Business Support can continue using their existing plan or choose to upgrade to Business Support+ anytime before January 1, 2027. Business Support+ delivers AI-powered assistance that understands the context of your operations, with 24/7 access to AWS experts at $29/month minimum per account. For more information see, [Business Support+ plan details](https://aws.amazon.com/premiumsupport/plans/business-plus/ "https://aws.amazon.com/premiumsupport/plans/business-plus/")
+
+End of Support Notice: On January 1, 2027, AWS will discontinue Enterprise On-Ramp. Throughout 2026, Enterprise On-Ramp customers will be automatically upgraded to AWS Enterprise Support during contract renewal or in periodic batches. Customers will receive an email notification a month before their upgrade. No further action is required. Enterprise Support provides designated TAM assignment, 15-minute response times, and AWS Security Incident Response available at no additional cost, all at a lower $5,000 minimum (reduced from $15,000). For more information, see [AWS Enterprise Support plan details](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/").
+
+For more information, see [Developer, Business, and Enterprise On-Ramp end of support](support-plans-eos.md "support-plans-eos.md").
+
+Developer Support, Business Support, and Enterprise On-Ramp will remain available in the AWS GovCloud (US) Region.
+
 Organizational view lets you view Trusted Advisor checks for all accounts in your [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/"). After you enable this feature,
 you can create reports to aggregate the check results for all member accounts in your
 organization. The report includes a summary of check results and information about affected
@@ -32,7 +44,7 @@ You must meet the following requirements to enable organizational view:
 - Your organization must have all features enabled for Organizations. For more
   information, see [Enabling all features in your organization](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md") in the
   _AWS Organizations User Guide_.
-- The management account in your organization must have a Business, Enterprise On-Ramp, or Enterprise Support plan.
+- The management account in your organization must have an AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan.
   You can find your support plan from the AWS Support Center or from the [Support plans](https://console.aws.amazon.com/support/plans "https://console.aws.amazon.com/support/plans") page. See [Compare AWS Support
   plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
 - You must sign in as a user in the [management account](../../../organizations/latest/userguide/orgs_manage_accounts.md "../../../organizations/latest/userguide/orgs_manage_accounts.md") (or [assumed
@@ -80,7 +92,7 @@ Before you create a report for your organization, we recommend that you refresh 
 statuses of your Trusted Advisor checks. You can download a report without refreshing your
 Trusted Advisor checks, but your report might not have the latest information.
 
-If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, Trusted Advisor automatically refreshes the checks in
+If you have an AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, Trusted Advisor automatically refreshes the checks in
 your account on a weekly basis.
 
 ###### Note
@@ -146,7 +158,7 @@ deletes the earliest report. You can't recover deleted reports.
    such as **Warning**, or choose
    **All**.
 
-5. For **AWS Organization**, select the organizational units
+5. For **AWS Organizations**, select the organizational units
    (OUs) to include in your report. For more information about OUs, see [Managing organizational units](../../../organizations/latest/userguide/orgs_manage_ous.md "../../../organizations/latest/userguide/orgs_manage_ous.md") in the
    _AWS Organizations User Guide_.
 6. Choose **Create report**.
@@ -161,7 +173,7 @@ The following example creates a JSON report for the following:
 
 ![Screenshot of how to create an organizational view report in Trusted Advisor.](images/organizational-view-create-report-filters.png)
 In the following example, the report includes the
-**support-team** OU and one AWS account that are part of the
+**support-team** organizational unit and one AWS account that are part of the
 organization.
 
 ![Screenshot of the AWS organization filter options for organizational units (OUs).](images/organizational-units-reports-example.png)
@@ -368,7 +380,7 @@ level. You might not see checks in the report for the following reasons:
   Expiration check won't appear in your report.
 - The account hasn't refreshed check results. This might happen when users with
   a Basic or Developer support plan sign in to the Trusted Advisor console for the first
-  time. If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, it can take up to one week from
+  time. If you have an AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, it can take up to one week from
   account sign up for users to see check results. For more information, see [Refresh Trusted Advisor checks](#refresh-trusted-advisor-checks "#refresh-trusted-advisor-checks").
 - If only the organization's management account enabled recommendations for
   checks, the report won't include resources for other accounts in the

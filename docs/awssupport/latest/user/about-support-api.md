@@ -1,5 +1,17 @@
 # About the AWS Support API
 
+###### Important
+
+End of Support Notice: Developer Support will be discontinued January 1, 2027. Customers with Developer Support can continue using their existing plan or choose to upgrade to Business Support+ anytime before January 1, 2027. Business Support+ delivers AI-powered assistance that understands the context of your operations, with 24/7 access to AWS experts at $29/month minimum per account. For more information, see [Business Support+ plan details](https://aws.amazon.com/premiumsupport/plans/business-plus/ "https://aws.amazon.com/premiumsupport/plans/business-plus/")
+
+End of Support Notice: Business Support will be discontinued January 1, 2027. Customers with Business Support can continue using their existing plan or choose to upgrade to Business Support+ anytime before January 1, 2027. Business Support+ delivers AI-powered assistance that understands the context of your operations, with 24/7 access to AWS experts at $29/month minimum per account. For more information see, [Business Support+ plan details](https://aws.amazon.com/premiumsupport/plans/business-plus/ "https://aws.amazon.com/premiumsupport/plans/business-plus/")
+
+End of Support Notice: On January 1, 2027, AWS will discontinue Enterprise On-Ramp. Throughout 2026, Enterprise On-Ramp customers will be automatically upgraded to AWS Enterprise Support during contract renewal or in periodic batches. Customers will receive an email notification a month before their upgrade. No further action is required. Enterprise Support provides designated TAM assignment, 15-minute response times, and AWS Security Incident Response available at no additional cost, all at a lower $5,000 minimum (reduced from $15,000). For more information, see [AWS Enterprise Support plan details](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/").
+
+For more information, see [Developer, Business, and Enterprise On-Ramp end of support](support-plans-eos.md "support-plans-eos.md").
+
+Developer Support, Business Support, and Enterprise On-Ramp will remain available in the AWS GovCloud (US) Region.
+
 The AWS Support API provides access to some of the features in the [AWS Support Center](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
 
 The API provides two different groups of operations:
@@ -11,7 +23,7 @@ The API provides two different groups of operations:
 
 ###### Note
 
-You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the AWS Support API. For more
+You must have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan to use the AWS Support API. For more
 information, see [Support](https://aws.amazon.com/premiumsupport "https://aws.amazon.com/premiumsupport").
 
 For more information about the operations and data types provided by Support, see the

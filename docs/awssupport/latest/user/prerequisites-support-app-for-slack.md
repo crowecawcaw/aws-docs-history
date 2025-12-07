@@ -2,7 +2,7 @@
 
 You must meet the following requirements to use the AWS Support App in Slack:
 
-- You have a Business, Enterprise On-Ramp, or Enterprise Support plan. You can find your support plan from the
+- You have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan. You can find your support plan from the
   AWS Support Center Console or from the [Support
   plans](https://console.aws.amazon.com/support/plans "https://console.aws.amazon.com/support/plans") page. For more information, see [Compare AWS Support plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
 - You have a [Slack](https://slack.com/ "https://slack.com/") workspace and channel for

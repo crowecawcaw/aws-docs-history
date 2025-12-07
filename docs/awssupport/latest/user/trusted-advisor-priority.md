@@ -46,7 +46,7 @@ Trusted Advisor Priority recommendations come from these two sources:
 
 You must meet the following requirements to use Trusted Advisor Priority:
 
-- You must have an Enterprise Support plan.
+- You must have an AWS Unified Operations plan.
 - Your account must be part of an organization that has enabled all features in AWS Organizations.
   For more information, see [Enabling all features in your organization](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md") in the
   _AWS Organizations User Guide_.
@@ -66,7 +66,7 @@ You must meet the following requirements to use Trusted Advisor Priority:
 ## Enable Trusted Advisor Priority
 
 Ask your account team to enable this feature for you. You must have
-an Enterprise Support plan and be the management account owner for your organization. If
+an AWS Unified Operations plan and be the management account owner for your organization. If
 the Trusted Advisor Priority page in the console says that you need trusted access with AWS Organizations,
 then choose **Enable trusted access with AWS Organizations**. For more
 information, see the [Prerequisites](#prerequisites-trusted-advisor-priority "#prerequisites-trusted-advisor-priority") section.
