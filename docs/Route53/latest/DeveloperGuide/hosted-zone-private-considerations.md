@@ -8,7 +8,7 @@ When using private hosted zones, note the following considerations.
 - [Split-view DNS](#hosted-zone-private-considerations-split-view-dns "#hosted-zone-private-considerations-split-view-dns")
 - [Public and private hosted zones that have overlapping namespaces](#hosted-zone-private-considerations-public-private-overlapping "#hosted-zone-private-considerations-public-private-overlapping")
 - [Private hosted zones that have overlapping namespaces](#hosted-zone-private-considerations-private-overlapping "#hosted-zone-private-considerations-private-overlapping")
-- [Private hosted zones and Route 53 Resolver rules](#hosted-zone-private-considerations-resolver-rules "#hosted-zone-private-considerations-resolver-rules")
+- [Private hosted zones and Route 53 VPC Resolver rules](#hosted-zone-private-considerations-resolver-rules "#hosted-zone-private-considerations-resolver-rules")
 - [Delegating responsibility for a subdomain](#hosted-zone-private-considerations-delegating-subdomain "#hosted-zone-private-considerations-delegating-subdomain")
 - [Custom DNS servers](#hosted-zone-private-considerations-custom-dns "#hosted-zone-private-considerations-custom-dns")
 - [Required IAM permissions](#hosted-zone-private-considerations-required-permissions "#hosted-zone-private-considerations-required-permissions")
@@ -50,20 +50,20 @@ To configure split-view DNS, you perform the following steps:
 
 1. Create public and private hosted zones that have the same name. (Split-view DNS still works
    if you're using another DNS service for the public hosted zone.)
-2. Associate one or more Amazon VPCs with the private hosted zone. Route 53 Resolver uses the private hosted zone
+2. Associate one or more Amazon VPCs with the private hosted zone. Route 53 VPC Resolver uses the private hosted zone
    to route DNS queries in the specified VPCs.
 3. Create records in each hosted zone. Records in the public hosted zone control how internet traffic is routed,
    and records in the private hosted zone control how traffic is routed in your Amazon VPCs.
 
-If you need to perform name resolution of both your VPC and on-premises workloads, you can use Route 53 Resolver.
-For more information, see [What is Amazon Route 53 Resolver?](resolver.md "resolver.md").
+If you need to perform name resolution of both your VPC and on-premises workloads, you can use Route 53 VPC Resolver.
+For more information, see [What is Route 53 VPC Resolver?](resolver.md "resolver.md").
 
 **Public and private hosted zones that have overlapping namespaces**
 If you have private and public hosted zones that have overlapping namespaces, such as example.com and
-accounting.example.com, Resolver routes traffic based on the most specific match. When users are logged into an EC2 instance
-in an Amazon VPC that you have associated with the private hosted zone, here's how Route 53 Resolver handles DNS queries:
+accounting.example.com, VPC Resolver routes traffic based on the most specific match. When users are logged into an EC2 instance
+in an Amazon VPC that you have associated with the private hosted zone, here's how Route 53 VPC Resolver handles DNS queries:
 
-1.  Resolver evaluates whether the name of the private hosted zone matches the domain name in the request,
+1.  VPC Resolver evaluates whether the name of the private hosted zone matches the domain name in the request,
     such as accounting.example.com. A match is defined as either of the following:
 
         * An identical match
@@ -82,7 +82,7 @@ in an Amazon VPC that you have associated with the private hosted zone, here's h
         	+ **accounting.example.com**
         	+ **example.com**
 
-    If there's no matching private hosted zone, then Resolver forwards the request to a public DNS resolver,
+    If there's no matching private hosted zone, then VPC Resolver forwards the request to a public DNS resolver,
     and your request is resolved as a regular DNS query.
 
 2.  If there's a private hosted zone name that matches the domain name in the request, the hosted zone
@@ -92,25 +92,25 @@ in an Amazon VPC that you have associated with the private hosted zone, here's h
 ###### Note
 
 If there's a matching private hosted zone but there's no record that matches the domain name
-and type in the request, Resolver doesn't forward the request to a public DNS resolver. Instead, it returns
+and type in the request, VPC Resolver doesn't forward the request to a public DNS resolver. Instead, it returns
 NXDOMAIN (non-existent domain) to the client.
 
 **Private hosted zones that have overlapping namespaces**
 If you have two or more private hosted zones that have overlapping namespaces, such as example.com and
-accounting.example.com, Resolver routes traffic based on the most specific match.
+accounting.example.com, VPC Resolver routes traffic based on the most specific match.
 
 ###### Note
 
-If you have a private hosted zone (example.com) and a Route 53 Resolver rule that routes traffic to your network
-for the same domain name, the Resolver rule takes precedence. See
-[Private hosted zones and Route 53 Resolver rules](#hosted-zone-private-considerations-resolver-rules "#hosted-zone-private-considerations-resolver-rules").
+If you have a private hosted zone (example.com) and a Route 53 VPC Resolver rule that routes traffic to your network
+for the same domain name, the VPC Resolver rule takes precedence. See
+[Private hosted zones and Route 53 VPC Resolver rules](#hosted-zone-private-considerations-resolver-rules "#hosted-zone-private-considerations-resolver-rules").
 
 When users are logged into an EC2 instance in an Amazon VPC that you have associated with all of the private hosted zones,
-here's how Resolver handles DNS queries:
+here's how VPC Resolver handles DNS queries:
 
-1. Resolver evaluates whether the domain name in the request, such as accounting.example.com, matches the name of
+1. VPC Resolver evaluates whether the domain name in the request, such as accounting.example.com, matches the name of
    one of the private hosted zones.
-2. If there is no hosted zone that exactly matches the domain name in the request, Resolver checks for a hosted zone
+2. If there is no hosted zone that exactly matches the domain name in the request, VPC Resolver checks for a hosted zone
    that has a name that is the parent of the domain name in the request. For example, suppose the domain name in the request is
    the following:
 
@@ -121,24 +121,24 @@ The following hosted zones match because they're parents of `seattle.accounting.
     * `accounting.example.com`
     * `example.com`
 
-Resolver chooses `accounting.example.com` because it's more specific than `example.com`. 3. Resolver searches the `accounting.example.com` hosted zone for a record that matches the domain name and
+VPC Resolver chooses `accounting.example.com` because it's more specific than `example.com`. 3. VPC Resolver searches the `accounting.example.com` hosted zone for a record that matches the domain name and
 DNS type in the request, such as an A record for `seattle.accounting.example.com`.
 
-If there's no record that matches the domain name and type in the request, Resolver returns NXDOMAIN (non-existent domain)
+If there's no record that matches the domain name and type in the request, VPC Resolver returns NXDOMAIN (non-existent domain)
 to the client.
 
 **Private hosted zones
-and Route 53 Resolver rules**
-If you have a private hosted zone (example.com) and a Resolver rule that routes traffic to your network
-for the same domain name, the Resolver rule takes precedence.
+and Route 53 VPC Resolver rules**
+If you have a private hosted zone (example.com) and a VPC Resolver rule that routes traffic to your network
+for the same domain name, the VPC Resolver rule takes precedence.
 
 For example, suppose you have the following configuration:
 
 - You have a private hosted zone called example.com, and you associate it with a VPC.
-- You create a Route 53 Resolver rule that forwards traffic for example.com to your network, and you associate the
+- You create a Route 53 VPC Resolver rule that forwards traffic for example.com to your network, and you associate the
   rule with the same VPC.
 
-In this configuration, the Resolver rule takes precedence over the private hosted zone. DNS queries are forwarded
+In this configuration, the VPC Resolver rule takes precedence over the private hosted zone. DNS queries are forwarded
 to your network instead of being resolved based on the records in the private hosted zone.
 
 **Delegating
@@ -153,8 +153,8 @@ private DNS queries to the IP address of the Amazon-provided DNS servers for you
 at the base of the VPC network range "plus two." For example, if the CIDR range for your VPC is 10.0.0.0/16, the IP address of the
 DNS server is 10.0.0.2.
 
-If you want to route DNS queries between VPCs and your network, you can use Resolver. For more information, see
-[What is Amazon Route 53 Resolver?](resolver.md "resolver.md").
+If you want to route DNS queries between VPCs and your network, you can use VPC Resolver. For more information, see
+[What is Route 53 VPC Resolver?](resolver.md "resolver.md").
 
 **Required IAM permissions**
 To create private hosted zones, you need to grant IAM permissions for Amazon EC2 actions in addition to permissions for Route 53

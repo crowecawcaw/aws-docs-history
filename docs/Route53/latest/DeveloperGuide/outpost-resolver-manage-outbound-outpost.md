@@ -23,7 +23,7 @@ procedure.
    then navigate to **Outposts**.
 3. On the navigation bar, choose the Region where your AWS Outposts is
    located.
-4. Select the check box next to the Resolver that is in operation state and
+4. Select the check box next to the VPC Resolver that is in operation state and
    choose **View details**.
 5. In the **Outbound endpoints** list, choose the check box
    next to the endpoint that you want to view settings for or want to
@@ -48,7 +48,7 @@ procedure.
    then navigate to **Outposts**.
 3. On the navigation bar, choose the Region where your AWS Outposts is
    located.
-4. Select the check box next to the Resolver that is in operation state and
+4. Select the check box next to the VPC Resolver that is in operation state and
    choose **View details**.
 5. In the **Outbound endpoints** list, the
    **Status** column contains one of the following
@@ -56,14 +56,14 @@ procedure.
 
 **Creating**
 
-Resolver is creating and configuring one or more Amazon VPC
+VPC Resolver is creating and configuring one or more Amazon VPC
 network interfaces for this endpoint.
 
 **Operational**
 
 The Amazon VPC network interfaces for this endpoint are correctly
 configured and able to pass inbound or outbound DNS queries
-between your network and Resolver.
+between your network and VPC Resolver.
 
 **Updating**
 
@@ -72,15 +72,15 @@ interfaces with this endpoint.
 
 **Auto recovering**
 
-Resolver is trying to recover one or more of the network
+VPC Resolver is trying to recover one or more of the network
 interfaces that are associated with this endpoint. During the
 recovery process, the endpoint functions with limited capacity
 because of the limit on the number of DNS queries per IP address
-(per network interface). For the current limit, see [Quotas on Route 53 Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
+(per network interface). For the current limit, see [Quotas on Route 53 VPC Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
 
 **Action needed**
 
-This endpoint is unhealthy, and Resolver can't automatically
+This endpoint is unhealthy, and VPC Resolver can't automatically
 recover it. To resolve the problem, we recommend that you check
 each IP address that you associated with the endpoint. For each
 IP address that isn't available, add another IP address and then
@@ -93,7 +93,7 @@ causes. Here are two common causes:
      associated with the endpoint were deleted using
      Amazon VPC.
     * The network interface couldn't be created for some
-     reason that's outside the control of Resolver.
+     reason that's outside the control of VPC Resolver.
 
 **Deleting**
 
@@ -109,7 +109,7 @@ To delete an outbound endpoint, perform the following procedure.
 
 ###### Important
 
-If you delete an outbound endpoint, Resolver stops forwarding DNS queries from
+If you delete an outbound endpoint, VPC Resolver stops forwarding DNS queries from
 your VPC to your network for rules that specify the deleted outbound
 endpoint.
 
@@ -119,7 +119,7 @@ endpoint.
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 2. In the left navigation pane, expand **Resolver**, and
    then navigate to **Outposts**.
-3. Select the check box next to the Resolver that is in operation state and
+3. Select the check box next to the VPC Resolver that is in operation state and
    choose **View details**.
 4. In the **Outbound endpoints** list choose the option for
    the endpoint that you want to delete.

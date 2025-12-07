@@ -1,24 +1,24 @@
-# Getting started with Route 53 Resolver
+# Getting started with Route 53 VPC Resolver
 
-The Route 53 Resolver console includes a wizard that guides you through the following steps for getting started with Resolver:
+The Route 53 VPC Resolver console includes a wizard that guides you through the following steps for getting started with VPC Resolver:
 
 - Create endpoints: inbound, outbound, or both.
 - For outbound endpoints, create one or more forwarding rules, which specify the domain names for which
   you want to route DNS queries to your network.
 - If you created an outbound endpoint, choose the VPC that you want to associate the rules with.
 
-###### To configure Route 53 Resolver using the wizard
+###### To configure Route 53 VPC Resolver using the wizard
 
-1. Sign in to the AWS Management Console and open the Resolver console at
+1. Sign in to the AWS Management Console and open the VPC Resolver console at
    [https://console.aws.amazon.com/route53resolver/](https://console.aws.amazon.com/route53resolver/ "https://console.aws.amazon.com/route53resolver/").
-2. On the **Welcome to Route 53 Resolver** page, choose **Configure endpoints**.
+2. On the **Welcome to Route 53 VPC Resolver** page, choose **Configure endpoints**.
 3. On the navigation bar, choose the Region where you want to create a Resolver endpoint.
 4. Under **Basic configuration**, choose the direction that you want to forward DNS queries:
    - **Inbound and outbound**: The wizard guides you through settings that let you both
-     forward DNS queries from resolvers on your network to Resolver in a VPC, and forward specified queries (such as example.com or
+     forward DNS queries from resolvers on your network to VPC Resolver in a VPC, and forward specified queries (such as example.com or
      example.net) from a VPC to resolvers on your network.
    - **Inbound only**: The wizard guides you through settings that let you forward DNS queries
-     from resolvers on your network to Resolver in a VPC.
+     from resolvers on your network to VPC Resolver in a VPC.
    - **Outbound only**: The wizard guides you through settings that let you forward specified queries
      from a VPC to resolvers on your network.
 

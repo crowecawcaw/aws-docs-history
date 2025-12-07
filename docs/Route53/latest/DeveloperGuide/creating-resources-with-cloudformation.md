@@ -1,19 +1,19 @@
-# Creating Amazon Route 53 and Amazon Route 53 Resolver
+# Creating Amazon Route 53 and Route 53 VPC Resolver
 
 resources with AWS CloudFormation
 
-Amazon Route 53 and Amazon Route 53 Resolver are integrated with AWS CloudFormation, a service that helps you to model
+Amazon Route 53 and Route 53 VPC Resolver are integrated with AWS CloudFormation, a service that helps you to model
 and set up your AWS resources so that you can spend less time creating and managing your
 resources and infrastructure. You create a template that describes all the AWS resources
 that you want, and CloudFormation provisions and configures those resources for you.
 
-When you use CloudFormation, you can reuse your template to set up your Route 53 and Route 53 Resolver resources
+When you use CloudFormation, you can reuse your template to set up your Route 53 and VPC Resolver resources
 consistently and repeatedly. Describe your resources once, and then provision the same
 resources over and over in multiple AWS accounts and Regions.
 
-## Route 53, Route 53 Resolver, and CloudFormation templates
+## Route 53, VPC Resolver, and CloudFormation templates
 
-To provision and configure resources for Route 53, Route 53 Resolver, and related services, you must
+To provision and configure resources for Route 53, VPC Resolver, and related services, you must
 understand [CloudFormation
 templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates are formatted text files in JSON or YAML. These templates
 describe the resources that you want to provision in your CloudFormation stacks. If you're
@@ -34,7 +34,7 @@ For more information, including examples of JSON and YAML templates
 for Route 53 resources, see the [Amazon Route 53 resource type
 reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Route53.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Route53.md") in the _AWS CloudFormation User Guide_.
 
-Route 53 Resolver supports creating the following resource types in CloudFormation:
+VPC Resolver supports creating the following resource types in CloudFormation:
 
 - `AWS::Route53Resolver::FirewallDomainList`
 - `AWS::Route53Resolver::FirewallDomainList`
@@ -46,8 +46,8 @@ Route 53 Resolver supports creating the following resource types in CloudFormat
 - `AWS::Route53Resolver::ResolverRule`
 - `AWS::Route53Resolver::ResolverRuleAssociation`
 
-For more information, including examples of JSON and YAML templates for Route 53 Resolver
-resources, see the [Amazon Route 53 Resolver
+For more information, including examples of JSON and YAML templates for VPC Resolver
+resources, see the [Route 53 VPC Resolver
 resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Route53Resolver.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Route53Resolver.md") in the _AWS CloudFormation User Guide_.
 
 ## Best practices for Route 53 and

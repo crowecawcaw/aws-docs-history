@@ -1,4 +1,4 @@
-# Route 53 Resolver query log
+# Route 53 VPC Resolver query log
 
 example
 

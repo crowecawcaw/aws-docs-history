@@ -5,7 +5,7 @@ outbound endpoints
 When you create or edit an outbound endpoint, you specify the following values:
 
 **Outpost ID**
-If you are creating the endpoint for a Resolver on an AWS Outposts VPC, this is the AWS Outposts ID.
+If you are creating the endpoint for a VPC Resolver on an AWS Outposts VPC, this is the AWS Outposts ID.
 
 **Endpoint name**
 A friendly name that lets you easily find an outbound endpoint on the dashboard.
@@ -36,7 +36,7 @@ DNS resolver on your network can forward DNS query to.
 For security reasons, we are denying direct IPv6 traffic access to the public internet for all dual-stack and IPv6 IP addresses.
 
 **IP addresses**
-The IP addresses in your VPC that you want Resolver to forward DNS queries to on the way to resolvers
+The IP addresses in your VPC that you want VPC Resolver to forward DNS queries to on the way to resolvers
 on your network. These are not the IP addresses of the DNS resolvers on your network; you specify resolver
 IP addresses when you create the rules that you associate with one or more VPCs. We require you to specify
 a minimum of two IP addresses for redundancy.
@@ -53,14 +53,14 @@ We recommend that you specify IP addresses in at least two Availability Zones. Y
 additional IP addresses in those or other Availability Zones.
 
 **IP addresses and Amazon VPC elastic network interfaces**
-For each combination of Availability Zone, Subnet, and IP address that you specify, Resolver creates an
+For each combination of Availability Zone, Subnet, and IP address that you specify, VPC Resolver creates an
 Amazon VPC elastic network interface. For the current maximum number of DNS queries per second per IP address
-in an endpoint, see [Quotas on Route 53 Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
+in an endpoint, see [Quotas on Route 53 VPC Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
 For information about pricing for each elastic network interface, see "Amazon Route 53" on the
 [Amazon Route 53 pricing page](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/").
 
 **Order of IP addresses**
-You can specify IP addresses in any order. When forwarding DNS queries, Resolver doesn't choose IP addresses based on the order
+You can specify IP addresses in any order. When forwarding DNS queries, VPC Resolver doesn't choose IP addresses based on the order
 that the IP addresses are listed in.
 
 For each IP address, specify the following values. Each IP address must be in an Availability Zone in the VPC
@@ -79,7 +79,7 @@ The subnet IP address must match the **Endpoint type**.
 **IP address**
 The IP address that you want DNS queries to originate from on the way to your network.
 
-Choose whether you want Resolver to choose an IP address for you from among the available IP addresses
+Choose whether you want VPC Resolver to choose an IP address for you from among the available IP addresses
 in the specified subnet, or you want to specify the IP address yourself.
 
 If you choose to specify the IP address yourself, enter an IPv4 or IPv6 address, or
@@ -90,7 +90,7 @@ Endpoint protocol determines how data is transmitted from the outbound endpoint.
 protocol, or protocols, depending on the level of security
 needed.
 
-- **Do53:** (Default) The data is relayed using the Route 53 Resolver
+- **Do53:** (Default) The data is relayed using the Route 53 VPC Resolver
   without additional encryption. While the data cannot be read by
   external parties, it can be viewed within the AWS
   networks.

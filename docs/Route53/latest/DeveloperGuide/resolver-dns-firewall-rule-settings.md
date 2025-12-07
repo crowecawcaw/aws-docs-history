@@ -17,7 +17,7 @@ A short description that provides more information about the rule.
 
 The list of domains that the rule inspects for. You can create and
 manage your own domain list or you can subscribe to a domain list that
-AWS manages for you. For more information, see [Route 53 Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md").
+AWS manages for you. For more information, see [Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md").
 
 A rule can contain ether a domain list or a DNS Firewall Advanced protection, but
 not both.
@@ -29,7 +29,7 @@ or all (default) the domains in the DNS redirection chain, such as
 CNAME, DNAME, etc. If you choose to inspect all the domains, you must
 add the subsequent domains in the DNS redirection chain to the domain
 list and set to the action you want the rule to take, either ALLOW,
-BLOCK, or ALERT. For more information, see [Route 53 Resolver DNS Firewall components and
+BLOCK, or ALERT. For more information, see [Resolver DNS Firewall components and
 settings](resolver-dns-firewall-overview.md#resolver-dns-firewall-components "resolver-dns-firewall-overview.md#resolver-dns-firewall-components").
 
 **Query type (domain lists only)**
@@ -93,7 +93,7 @@ command-and-control communications.
 In a DNS Firewall Advanced rule you can choose to either block, or alert on a
 query that matches the threat.
 
-For more information, see For more information, see [Route 53 Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
+For more information, see For more information, see [Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
 
 A rule can contain ether a DNS Firewall Advanced protection or a domain list, but
 not both.

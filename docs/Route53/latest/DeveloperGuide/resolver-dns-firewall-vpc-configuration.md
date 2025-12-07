@@ -2,25 +2,25 @@
 
 configuration
 
-The DNS Firewall configuration for your VPC determines whether Route 53 Resolver allows
+The DNS Firewall configuration for your VPC determines whether Route 53 VPC Resolver allows
 queries
 through or blocks them during failures, for example when DNS Firewall is impaired,
-unresponsive, or not available in the zone. Resolver enforces a VPC's firewall
+unresponsive, or not available in the zone. VPC Resolver enforces a VPC's firewall
 configuration whenever you have one or more DNS Firewall rule groups associated with the
 VPC.
 
 You can configure a VPC to fail open or fail closed.
 
-- By default, the failure mode is closed, which means that Resolver blocks any
+- By default, the failure mode is closed, which means that VPC Resolver blocks any
   queries for which it doesn't receive a reply from DNS Firewall and sends a `SERVFAIL` DNS response. This approach favors security over
   availability.
-- If you enable fail open, Resolver allows queries through if it doesn't
+- If you enable fail open, VPC Resolver allows queries through if it doesn't
   receive a reply from DNS Firewall. This approach favors availability over
   security.
 
 ###### To change the DNS Firewall configuration for a VPC (console)
 
-1. Sign in to the AWS Management Console and open the Resolver console at [https://console.aws.amazon.com/route53resolver/](https://console.aws.amazon.com/route53resolver/ "https://console.aws.amazon.com/route53resolver/").
+1. Sign in to the AWS Management Console and open the VPC Resolver console at [https://console.aws.amazon.com/route53resolver/](https://console.aws.amazon.com/route53resolver/ "https://console.aws.amazon.com/route53resolver/").
 2. In the navigation pane under **Resolvers**, choose **VPCs**.
 3. In the **VPCs** page, locate and edit the VPC. Change the
    DNS Firewall configuration to fail open or fail closed as needed.

@@ -12,9 +12,9 @@ AWS Organizations.
 
 - You can associate a rule group with multiple VPCs, to provide consistent
   behavior across your organization. For information, see [Managing
-  associations between your VPC and Route 53 Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
+  associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
 - You can share rule groups between accounts, for consistent DNS query
-  management across your organization. For information, see [Sharing Route 53 Resolver DNS Firewall rule
+  management across your organization. For information, see [Sharing Resolver DNS Firewall rule
   groups between AWS accounts](resolver-dns-firewall-rule-group-sharing.md "resolver-dns-firewall-rule-group-sharing.md").
 - You can use rule groups across your organization in AWS Organizations by managing them
   in AWS Firewall Manager policies. For information about Firewall Manager, see [AWS Firewall Manager](../../../waf/latest/developerguide/fms-chapter.md "../../../waf/latest/developerguide/fms-chapter.md") in the _AWS WAF, AWS Firewall Manager, and AWS Shield Advanced

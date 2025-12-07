@@ -1,4 +1,4 @@
-# Route 53 Resolver DNS Firewall domain lists
+# Resolver DNS Firewall domain lists
 
 A _domain list_ is a reusable set of domain specifications that you
 use in a DNS Firewall rule, inside a rule group. When you associate a rule group with a VPC,

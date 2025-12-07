@@ -33,9 +33,9 @@ custom domain endpoints. For more information,
 see [Routing traffic to Amazon VPC Lattice service domain endpoint](routing-to-vpc-lattice-service.md "routing-to-vpc-lattice-service.md").
 
 **June 24, 2025**
-You can now use inbound and outbound delegation with Route 53 Resolver.
+You can now use inbound and outbound delegation with VPC Resolver.
 For more information, see [How DNS resolvers on your network
-forward DNS queries to Route 53 Resolver endpoints](resolver-overview-forward-network-to-vpc.md "resolver-overview-forward-network-to-vpc.md").
+forward DNS queries to Resolver endpoints](resolver-overview-forward-network-to-vpc.md "resolver-overview-forward-network-to-vpc.md").
 
 **June 01, 2025**
 Added permissions for `cloudwatch:GetMetricData` ,`tag:GetResources`, `es:ListDomainNames`,
@@ -64,14 +64,14 @@ Amazon Route 53 now supports alias records for OpenSearch Service custom domain
 see [Routing traffic to Amazon OpenSearch Service domain endpoint](routing-to-open-search-service.md "routing-to-open-search-service.md").
 
 **January 13, 2025**
-Added Route 53 Resolver DNS Firewall findings to the Security Hub. For more information, see [Sending findings from Route 53 Resolver DNS Firewall to Security Hub](securityhub-integration.md "securityhub-integration.md").
+Added Resolver DNS Firewall findings to the Security Hub. For more information, see [Sending findings from Resolver DNS Firewall to Security Hub](securityhub-integration.md "securityhub-integration.md").
 
 ## 2024 releases
 
 **November 15, 2024**
-Added Route 53 Resolver DNS Firewall Advanced, a new set of features on Route 53 Resolver DNS Firewall that allows you to identify and block DNS traffic associated with advanced DNS threats,
+Added Resolver DNS Firewall Advanced, a new set of features on Resolver DNS Firewall that allows you to identify and block DNS traffic associated with advanced DNS threats,
 such as DNS tunneling, Domain Generation Algorithm (DGA), and Dictionary DGA based threats.
-For more information, see [Route 53 Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
+For more information, see [Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
 
 **October 29, 2024**
 Added support for HTTPS, SSHFP, SVCB, and TLSA DNS record types.
@@ -109,7 +109,7 @@ health checks](health-checks-creating-deleting.md "health-checks-creating-deleti
 
 **April 30, 2024**
 You can now decide if a DNS Firewall rule will either inspect (default), or trust the DNS redirection chain. For more information, see
-[Route 53 Resolver DNS Firewall components and
+[Resolver DNS Firewall components and
 settings](resolver-dns-firewall-overview.md#resolver-dns-firewall-components "resolver-dns-firewall-overview.md#resolver-dns-firewall-components") and [Rule settings in
 DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
@@ -124,12 +124,12 @@ access to Amazon Route 53 Profiles. For more information, see [AWS managed polic
 
 **February 5, 2024**
 You can now use Amazon EventBridge for real time alerts with DNS Firewall. For more information, see
-[Managing Route 53 Resolver DNS Firewall events using Amazon EventBridge](dns-firewall-eventbridge-integration.md "dns-firewall-eventbridge-integration.md").
+[Managing Resolver DNS Firewall events using Amazon EventBridge](dns-firewall-eventbridge-integration.md "dns-firewall-eventbridge-integration.md").
 
 **January 9, 2024**
 You can now use the DNS query type as an optional value for DNS Firewall rule to differentiate the
 rule's response for a specific DNS query type. For more information, see
-[Route 53 Resolver DNS Firewall components and
+[Resolver DNS Firewall components and
 settings](resolver-dns-firewall-overview.md#resolver-dns-firewall-components "resolver-dns-firewall-overview.md#resolver-dns-firewall-components") and [Rule settings in
 DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
@@ -142,11 +142,11 @@ alias records](resource-record-sets-values-geoprox-alias.md "resource-record-set
 ## 2023 releases
 
 **December 20, 2023**
-You can now use DNS over HTTPS with Route 53 Resolver endpoints.
+You can now use DNS over HTTPS with Resolver endpoints.
 For more information, see [Choosing protocols for the endpoints](resolver-choose-vpc.md#resolver-endpoint-protocol-considerations "resolver-choose-vpc.md#resolver-endpoint-protocol-considerations").
 
 **July 20, 2023**
-Amazon Route 53 on Outposts is now available on AWS Outposts racks. It includes a Resolver that caches all DNS queries that originate from the AWS Outposts.
+Amazon Route 53 on Outposts is now available on AWS Outposts racks. It includes a VPC Resolver that caches all DNS queries that originate from the AWS Outposts.
 You can also set up hybrid connectivity between an Outpost and an on-premises DNS resolver when you deploy
 inbound and outbound endpoints.
 For more information, see [What is Amazon Route 53 on Outposts?](outpost-resolver.md "outpost-resolver.md").
@@ -163,7 +163,7 @@ For more information, see [Registering a new domain](domain-register.md "domain-
 
 **March 10, 2023**
 You can now connect to your resources by using IPv4, IPv6, or dual-stack endpoints with
-Amazon Route 53 Resolver. For more information, see [Values that you specify when you create or edit inbound endpoints](resolver-forwarding-inbound-queries-values.md "resolver-forwarding-inbound-queries-values.md") and [Values that you specify when you create or edit
+Route 53 VPC Resolver. For more information, see [Values that you specify when you create or edit inbound endpoints](resolver-forwarding-inbound-queries-values.md "resolver-forwarding-inbound-queries-values.md") and [Values that you specify when you create or edit
 outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md").
 
 ## 2022 releases
@@ -195,7 +195,7 @@ include filling in forms. For more information, see [.com.au (Australia)](com.md
 Added support for disabling default reverse DNS rules with Amazon Route 53. You can now disable the
 creation of these rules and instead forward queries for reverse DNS
 namespaces to external servers if desired. For more information, see [Forwarding rules for
-reverse DNS queries in Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns").
+reverse DNS queries in VPC Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns").
 
 **September 1, 2021**
 Added a new getting started topic that walks you through creating Amazon CloudFront distributions for
@@ -207,15 +207,15 @@ Started tracking AWS managed policies for Amazon Route 53.
 For more information, see [AWS managed policies for Amazon Route 53](security-iam-awsmanpol-route53.md "security-iam-awsmanpol-route53.md").
 
 **March 31, 2021**
-Added Route 53 Resolver DNS Firewall. With DNS Firewall you can provide protection for outbound DNS requests from your VPCs.
+Added Resolver DNS Firewall. With DNS Firewall you can provide protection for outbound DNS requests from your VPCs.
 For more information, see [Using DNS Firewall to filter outbound DNS traffic](resolver-dns-firewall.md "resolver-dns-firewall.md").
 
 ## 2020 releases
 
 **December 17, 2020**
-Added support for DNSSEC signing for Route 53 Resolver. For more information, see [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md").
+Added support for DNSSEC signing for Route 53 VPC Resolver. For more information, see [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md").
 
-Added support for DNSSEC validation for Route 53 Resolver. For more information, see [Enabling DNSSEC validation in
+Added support for DNSSEC validation for Route 53 VPC Resolver. For more information, see [Enabling DNSSEC validation in
 Amazon Route 53](resolver-dnssec-validation.md "resolver-dnssec-validation.md").
 
 **September 23, 2020**
@@ -239,7 +239,7 @@ You can use Route 53 Resolver to configure DNS resolution between your VPC and 
 (Resolver is the new name for the recursive DNS service that is provided to all customers by default in Amazon Virtual Private Cloud (Amazon VPC).)
 This lets you forward DNS queries from resolvers on your network to Route 53 Resolver. Resolver also lets you forward queries for
 selected domain names (example.com) and subdomain names (api.example.com) from a VPC to resolvers on your network. For more information, see
-[What is Amazon Route 53 Resolver?](resolver.md "resolver.md").
+[What is Route 53 VPC Resolver?](resolver.md "resolver.md").
 
 **November 7, 2018**
 When you're using Route 53 traffic flow and geoproximity routing, you can use an interactive map to visualize how your end users

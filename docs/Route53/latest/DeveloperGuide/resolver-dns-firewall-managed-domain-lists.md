@@ -2,7 +2,7 @@
 
 Managed Domain Lists contain domain names that are associated with malicious
 activity or
-other potential threats. AWS maintains these lists to enable Route 53 Resolver customers
+other potential threats. AWS maintains these lists to enable Route 53 VPC Resolver customers
 to check outbound DNS queries against them for free when using DNS Firewall.
 
 Keeping up to date on the constantly changing threat landscape can be time
@@ -22,7 +22,7 @@ select.
 
 As a best practice, before using a Managed Domain List in production, test it in a
 non-production environment, with the rule action set to `Alert`. Evaluate
-the rule using Amazon CloudWatch metrics combined with Route 53 Resolver DNS Firewall sampled requests or
+the rule using Amazon CloudWatch metrics combined with Resolver DNS Firewall sampled requests or
 DNS Firewall logs. When you're satisfied that the rule does what you want, change the
 action setting as needed.
 
@@ -35,7 +35,7 @@ rule. In the logs, the domain list is logged within the `firewall_domain_list_id
  field`.
 
 AWS provides the following Managed Domain Lists, in the Regions they are
-available, for all users of Route 53 Resolver DNS Firewall.
+available, for all users of Resolver DNS Firewall.
 
 - `AWSManagedDomainsMalwareDomainList` – – Domains
   associated with sending malware, hosting malware, or distributing malware.
@@ -153,11 +153,11 @@ Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-mo
 If you are encountering false-positive scenarios in rules that use Managed
 Domain Lists to block queries, perform the following steps:
 
-1. In the Resolver logs, identify the rule group and managed domain list that
+1. In the VPC Resolver logs, identify the rule group and managed domain list that
    are causing the false positive. You do this by finding the log for the query
    that DNS Firewall is blocking, but that you want to allow through. The log
    record lists the rule group, rule action, and the managed list. For
-   information about the logs, see [Values that appear in Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md").
+   information about the logs, see [Values that appear in VPC Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md").
 2. Create a new rule in the rule group that explicitly allows the blocked
    query through. When you create the rule, you can define your own domain list
    with just the domain specification that you want to allow. Follow the

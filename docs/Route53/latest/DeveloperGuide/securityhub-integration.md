@@ -1,4 +1,4 @@
-# Sending findings from Route 53 Resolver DNS Firewall to Security Hub
+# Sending findings from Resolver DNS Firewall to Security Hub
 
 [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") provides you with a comprehensive view of your security state in AWS and
 helps you to check your environment against security industry standards and best practices. Security Hub
@@ -6,7 +6,7 @@ collects security data from across AWS accounts, AWS services, and supported thi
 products, and helps you to analyze security trends and identify the highest priority security
 issues.
 
-By integrating Route 53 Resolver DNS Firewall with Security Hub, you can send findings from DNS Firewall to
+By integrating Resolver DNS Firewall with Security Hub, you can send findings from DNS Firewall to
 Security Hub. Security Hub then includes those findings in its analysis of your security posture.
 
 ###### Contents

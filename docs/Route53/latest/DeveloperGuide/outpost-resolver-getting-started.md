@@ -1,4 +1,4 @@
-# Getting started with Route 53 Resolver on
+# Getting started with VPC Resolver on
 
 AWS Outposts
 
@@ -16,7 +16,7 @@ You can also use APIs to manage Route 53 on Outposts. For more information, see 
 
 ###### Important
 
-It can take up to 30-150 minutes to create a Resolver cache on an AWS Outposts.
+It can take up to 30-150 minutes to create a VPC Resolver cache on an AWS Outposts.
 
 After you have your AWS Outposts racks delivered, you can opt in to Route 53 on Outposts.
 
@@ -28,25 +28,25 @@ After you have your AWS Outposts racks delivered, you can opt in to Route 53 on 
    navigate to **Outposts**.
 3. On the navigation bar, choose the Region where your AWS Outposts is located.
 4. On the **Resolver on Outpost** page, choose **Create
-   Resolver**.
-5. On the **Create Resolver** page:
+   VPC Resolver**.
+5. On the **Create VPC Resolver** page:
    - Under **AWS Outposts** select an AWS Outposts you want to create
-     the Resolver on.
-   - Type in a name for the Resolver in the **Resolver name**
+     the VPC Resolver on.
+   - Type in a name for the VPC Resolver in the **VPC Resolver name**
      text box.
-   - After the **Recommended instance types for Resolver**
+   - After the **Recommended instance types for VPC Resolver**
      populates with Amazon EC2 instances, choose one.
 
    For more information about the instance types, see [Quotas on
    Resolver on Outpost](DNSLimitations.md#limits-api-entities-resolver-on-outposts "DNSLimitations.md#limits-api-entities-resolver-on-outposts").
    - For **Number of instances**, choose the number of
-     elastic interface instances for the VPC Resolver. The default value is
+     elastic interface instances for the VPC VPC Resolver. The default value is
    4.
 
-   If your AWS Outposts doesn't have an instance type that supports Resolver, you
-   won't be able to create a Resolver.
+   If your AWS Outposts doesn't have an instance type that supports VPC Resolver, you
+   won't be able to create a VPC Resolver.
 
-6. Choose **Create Resolver**.
+6. Choose **Create VPC Resolver**.
 
-You can monitor the Resolver creation on the **Resolver on Outpost**
+You can monitor the VPC Resolver creation on the **Resolver on Outpost**
 page.

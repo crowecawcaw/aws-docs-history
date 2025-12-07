@@ -1,4 +1,4 @@
-# .org.uk (United Kingdom)
+# .org.nz (New Zealand)
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
@@ -8,33 +8,35 @@ One to ten years.
 
 **Restrictions**
 
-Open to the public, with no restrictions.
+Your can register the following second-level domains with Route 53:
+.co.nz, .net.nz, and .org.nz. You can't register .nz (first-level)
+domains with Route 53 or transfer .nz domains to Route 53.
+
+Open to the public, with some restrictions:
+
+- Individuals must be at least 18.
+- Organizations must be registered.
 
 **Privacy protection**
 
-All information is hidden.
+Not supported.
 
 **Domain locking to prevent unauthorized transfers**
 
-Supported
+Not supported. We recommend that you prevent unauthorized
+transfers by restricting access to the [RetrieveDomainAuthCode](../APIReference/API_domains_RetrieveDomainAuthCode.md "../APIReference/API_domains_RetrieveDomainAuthCode.md") API action. (When you restrict
+access to this Route 53 API, you also restrict who can generate an
+authorization code using the Route 53 console, AWS SDKs, and other
+programmatic methods.) For more information, see [Identity and access management in
+Amazon Route 53](auth-and-access-control.md "auth-and-access-control.md").
 
 **Internationalized domain names**
 
-Not supported.
+Supported.
 
 **Authorization code required for transfers**
 
-If you're transferring a .org.uk domain to Route 53, you don't need
-to get an authorization code. Instead, use the method provided by
-your current domain registrar to update the value of the IPS tag for
-the domain to **GANDI**, all uppercase. (An IPS tag
-is required by Nominet, the registry for .uk domain names.) If your
-registrar will not change the value of the IPS tag, [contact Nominet](http://www.nominet.org.uk/uk-domain-names/manage-your-domain/change-registrar "http://www.nominet.org.uk/uk-domain-names/manage-your-domain/change-registrar").
-
-###### Note
-
-When you register a .org.uk domain, Route 53 automatically sets
-the IPS tag for the domain to **GANDI**.
+Yes
 
 **DNSSEC**
 
@@ -42,18 +44,12 @@ Supported for domain registration. For more information, see [Configuring DNSSEC
 
 **Deadlines for renewing and restoring domains**
 
-- Renewal is possible: Between 180 days before and 30 days
-  after the expiration date
-- Late renewal with Route 53 is possible: Between 30 days and
-  90 days after expiration
-- Domain is deleted from Route 53: 90 days after
+- Renewal is possible: Until the expiration date
+- Late renewal with Route 53 is possible: Until 44 days after
   expiration
-- Restoration with the registry is possible: No
-- Domain is deleted from the registry: 92 days after
+- Domain is deleted from Route 53: 44 days after
   expiration
-
-**Deletion of domain registration**
-
-The registry for .org.uk domains doesn't allow you to delete
-domain registrations. Instead, you must disable automatic renewal
-and wait for the domain to expire. For more information, see [Deleting a domain name registration](domain-delete.md "domain-delete.md").
+- Restoration with the registry is possible: Between 44 days
+  and 134 days after expiration
+- Domain is deleted from the registry: 134 days after
+  expiration

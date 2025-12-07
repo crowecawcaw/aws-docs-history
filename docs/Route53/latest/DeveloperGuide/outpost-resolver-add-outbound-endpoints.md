@@ -2,12 +2,12 @@
 
 endpoints
 
-After you have opted in and configured a Route 53 Resolver, you can also add both inbound and
+After you have opted in and configured a VPC Resolver, you can also add both inbound and
 outbound endpoints to resolve DNS queries to your on-premises network.
 
 ###### Note
 
-When you configure outbound endpoints, Route 53 Resolver caches DNS responses so that queries
+When you configure outbound endpoints, VPC Resolver caches DNS responses so that queries
 can still be resolved if your Outpost becomes disconnected from the Region.
 Maintaining this cache might increase DNS requests to your on-premises
 resolvers.
@@ -19,7 +19,7 @@ resolvers.
 2. In the left navigation pane, expand **Resolver**, and then
    navigate to **Outposts**.
 3. On the navigation bar, choose the Region where your AWS Outposts is located.
-4. Select the checkmark next to the Resolver that is in operational state and
+4. Select the checkmark next to the VPC Resolver that is in operational state and
    choose **View details**.
 5. On the **Outbound endpoints** table, choose **Create
    outbound endpoint**.
@@ -37,7 +37,7 @@ values:
 
 **Outpost ID**
 
-If you are creating the endpoint for a Resolver on an AWS Outposts VPC,
+If you are creating the endpoint for a VPC Resolver on an AWS Outposts VPC,
 this is the AWS Outposts ID.
 
 **Endpoint name**
@@ -70,9 +70,9 @@ Note the following:
 **IP addresses and Amazon VPC elastic network interfaces**
 
 For each combination of Availability Zone, Subnet, and IP
-address that you specify, Resolver creates an Amazon VPC elastic
+address that you specify, VPC Resolver creates an Amazon VPC elastic
 network interface. For the current maximum number of DNS
-queries per second per IP address in an endpoint, see [Quotas on Route 53 Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver"). For
+queries per second per IP address in an endpoint, see [Quotas on Route 53 VPC Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver"). For
 information about pricing for each elastic network
 interface, see "Amazon Route 53" on the [Amazon Route 53 pricing
 page](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/").
@@ -107,7 +107,7 @@ supported.
 The IP address that you want to assign to the outbound
 endpoints.
 
-Choose whether you want Resolver to choose an IP address for
+Choose whether you want VPC Resolver to choose an IP address for
 you from among the available IP addresses in the specified
 subnet, or you want to specify the IP address
 yourself.

@@ -13,10 +13,10 @@ planes in Route 53, see [Control and data plane concepts](route-53-concepts.md#
 
 Route 53 is primarily a global service, but the following features support AWS Regions:
 
-- If you're using Route 53 Resolver to set up hybrid configurations, you create endpoints in AWS Regions that you choose, and you
+- If you're using Route 53 VPC Resolver to set up hybrid configurations, you create endpoints in AWS Regions that you choose, and you
   specify IP addresses in multiple Availability Zones. For outbound endpoints, you create rules in the same Region where you
   created the endpoint. For more information, see
-  [What is Amazon Route 53 Resolver?](resolver.md "resolver.md").
+  [What is Route 53 VPC Resolver?](resolver.md "resolver.md").
 - You can configure Route 53 health checks to check the health of resources that you create in specific Regions,
   such as Amazon EC2 instances and ELB load balancers.
 - When you create a health check that monitors an endpoint, you can optionally specify the Regions that you want

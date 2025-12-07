@@ -15,7 +15,7 @@ Before you create inbound and outbound Resolver endpoints in an AWS Region, cons
 - [When
   you share rules, you also share outbound endpoints](#resolver-considerations-share-rules-share-outbound-endpoints "#resolver-considerations-share-rules-share-outbound-endpoints")
 - [Choosing protocols for the endpoints](#resolver-endpoint-protocol-considerations "#resolver-endpoint-protocol-considerations")
-- [Using Resolver in VPCs that are configured for dedicated instance tenancy](#resolver-considerations-dedicated-instance-tenancy "#resolver-considerations-dedicated-instance-tenancy")
+- [Using VPC Resolver in VPCs that are configured for dedicated instance tenancy](#resolver-considerations-dedicated-instance-tenancy "#resolver-considerations-dedicated-instance-tenancy")
 
 ## Number of inbound and outbound endpoints in each Region
 
@@ -31,13 +31,13 @@ the following:
   different Availability Zones. Each IP address in an endpoint can
   handle a large number of DNS queries per second. (For the current
   maximum number of queries per second per IP address in an endpoint,
-  see [Quotas on Route 53 Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").) If you need
-  Resolver to handle more queries, you can add more IP addresses to your
+  see [Quotas on Route 53 VPC Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").) If you need
+  VPC Resolver to handle more queries, you can add more IP addresses to your
   existing endpoint instead of adding another endpoint.
-- Resolver pricing is based on the number of IP addresses in your
+- VPC Resolver pricing is based on the number of IP addresses in your
   endpoints and on the number of DNS queries that the endpoint
   processes. Each endpoint includes a minimum of two IP addresses. For
-  more information about Resolver pricing, see [Amazon Route 53
+  more information about VPC Resolver pricing, see [Amazon Route 53
   Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/").
 - Each rule specifies the outbound endpoint that DNS queries are
   forwarded from. If you create multiple outbound endpoints in an AWS
@@ -55,7 +55,7 @@ For more information, see [Best practices for Amazon Route 53](best-practices.m
 
 and private hosted zones
 
-If you want Resolver to resolve inbound DNS queries using records in a
+If you want VPC Resolver to resolve inbound DNS queries using records in a
 private hosted zone, associate the private hosted zone with the VPC that you
 created the inbound endpoint in. For information about associating private
 hosted zones with VPCs, see [Working with private hosted zones](hosted-zones-private.md "hosted-zones-private.md").
@@ -98,7 +98,7 @@ the VPCs that you create endpoints in:
 you share rules, you also share outbound endpoints
 
 When you create a rule, you specify the outbound endpoint that you want
-Resolver to use to forward DNS queries to your network. If you share the rule
+VPC Resolver to use to forward DNS queries to your network. If you share the rule
 with another AWS account, you also indirectly share the outbound endpoint
 that you specify in the rule. If you used more than one AWS account to
 create VPCs in an AWS Region, you can do the following:
@@ -124,7 +124,7 @@ If a packet is being routed to a destination without a rule that matches it, the
 The available protocols are:
 
 - **Do53:** DNS over port 53. The data is relayed by using the
-  Route 53 Resolver without additional encryption. While the data cannot be read by
+  VPC Resolver without additional encryption. While the data cannot be read by
   external parties, it can be viewed within the AWS networks. Uses
   either UDP or TCP to send the packets. Do53 is primarily used for
   traffic within and between Amazon VPCs. Currently, this is the only protocol
@@ -162,14 +162,14 @@ See also
 [Values that you specify when you create or edit
 outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md").
 
-## Using Resolver in VPCs that are configured for dedicated instance tenancy
+## Using VPC Resolver in VPCs that are configured for dedicated instance tenancy
 
 When you create a Resolver endpoint, you can't specify a VPC that has the
 [instance tenancy
-attribute](../../../AWSEC2/latest/UserGuide/dedicated-instance.md "../../../AWSEC2/latest/UserGuide/dedicated-instance.md") set to `dedicated`. Resolver doesn't run on
+attribute](../../../AWSEC2/latest/UserGuide/dedicated-instance.md "../../../AWSEC2/latest/UserGuide/dedicated-instance.md") set to `dedicated`. VPC Resolver doesn't run on
 single-tenant hardware.
 
-You can still use Resolver to resolve DNS queries that originate in a VPC.
+You can still use VPC Resolver to resolve DNS queries that originate in a VPC.
 Create at least one VPC that has the instance tenancy attribute set to
 `default`, and specify that VPC when you create inbound and
 outbound endpoints.

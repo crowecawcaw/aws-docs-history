@@ -9,7 +9,7 @@ own.
 
 In addition to the procedures described in this section, in the
 console, you can
-create a domain list in the context of Route 53 Resolver DNS Firewall rule management, when you create
+create a domain list in the context of Resolver DNS Firewall rule management, when you create
 or update a rule.
 
 Each domain specification in your domain list must
@@ -28,11 +28,11 @@ requirements:
 
 As a best practice, before using a domain list in production, test it in a
 non-production environment, with the rule action set to `Alert`. Evaluate the
-rule using Amazon CloudWatch metrics and the Resolver logs. The logs provide the domain list name
+rule using Amazon CloudWatch metrics and the VPC Resolver logs. The logs provide the domain list name
 for all alerts and blocking actions. When you're satisfied that the domain list is
 matching your DNS queries the way you want it to, change the rule action setting as
-needed. For information about CloudWatch metrics and the query logs, see [Monitoring Route 53 Resolver DNS Firewall rule
-groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md"), [Values that appear in Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md"), and [Managing Resolver query logging configurations](resolver-query-logging-configurations-managing.md "resolver-query-logging-configurations-managing.md").
+needed. For information about CloudWatch metrics and the query logs, see [Monitoring Resolver DNS Firewall rule
+groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md"), [Values that appear in VPC Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md"), and [Managing Resolver query logging configurations](resolver-query-logging-configurations-managing.md "resolver-query-logging-configurations-managing.md").
 
 ###### To add a domain list
 

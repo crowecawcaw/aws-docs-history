@@ -35,23 +35,23 @@ away from unhealthy resources.
 In addition to being a Domain Name System (DNS) web service, Route 53 offers the following
 features:
 
-**Route 53 Resolver**
+**VPC Resolver**
 Get recursive DNS for your Amazon VPCs in AWS Regions, VPCs in AWS Outposts racks, or any other on-premises networks.
 Create conditional forwarding rules and
 Route 53 endpoints to resolve custom names mastered in Route 53 private hosted zones or in your on-premises DNS servers.
 
-For more information , see [What is Amazon Route 53 Resolver?](resolver.md "resolver.md").
+For more information , see [What is Route 53 VPC Resolver?](resolver.md "resolver.md").
 
 **Amazon Route 53 Resolver on Outposts**
 
-Connect Route 53 Resolver on Outpost racks with DNS servers in your on-premises data
-centers through Route 53 Resolver endpoints. This enables resolution of DNS queries between
+Connect VPC Resolver on Outpost racks with DNS servers in your on-premises data
+centers through Resolver endpoints. This enables resolution of DNS queries between
 the Outposts racks and your other on-premises resources.
 
 For more information , see [What is Amazon Route 53 on Outposts?](outpost-resolver.md "outpost-resolver.md").
 
-**Route 53 Resolver DNS Firewall**
-Protect your recursive DNS queries within the Route 53 Resolver. Create domain lists and build firewall rules that filter outbound DNS traffic against these rules.
+**Resolver DNS Firewall**
+Protect your recursive DNS queries within the VPC Resolver. Create domain lists and build firewall rules that filter outbound DNS traffic against these rules.
 
 For more information , see [Using DNS Firewall to filter outbound DNS traffic](resolver-dns-firewall.md "resolver-dns-firewall.md").
 

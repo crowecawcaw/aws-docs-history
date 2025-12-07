@@ -12,12 +12,12 @@ Amazon Route 53 API requests and entities are subject to the following quotas (
 
 You can use the Service Quotas service to view quotas and to request quota increases for many
 AWS services. For more information, see the [Service Quotas User Guide](../../../servicequotas/latest/userguide.md "../../../servicequotas/latest/userguide.md"). (You can currently use
-Service Quotas to view and manage domains, Route 53 ,and Route 53 Resolver quotas.)
+Service Quotas to view and manage domains, Route 53 ,and Route 53 VPC Resolver quotas.)
 
 ###### Note
 
 To view quotas and request higher quotas for Route 53, you must change the Region to US East (N. Virginia). To view quotas and
-request higher quotas for Resolver, change to the applicable Region.
+request higher quotas for VPC Resolver, change to the applicable Region.
 
 ## Quotas on entities
 
@@ -39,7 +39,7 @@ following Route 53 actions:
 - [Quotas on domains](#limits-api-entities-domains "#limits-api-entities-domains")
 - [Quotas on hosted zones](#limits-api-entities-hosted-zones "#limits-api-entities-hosted-zones")
 - [Quotas on records](#limits-api-entities-records "#limits-api-entities-records")
-- [Quotas on Route 53 Resolver](#limits-api-entities-resolver "#limits-api-entities-resolver")
+- [Quotas on Route 53 VPC Resolver](#limits-api-entities-resolver "#limits-api-entities-resolver")
 - [Quotas on health checks](#limits-api-entities-health-checks "#limits-api-entities-health-checks")
 - [Quotas on query log
   configurations](#limits-api-entities-query-log-configs "#limits-api-entities-query-log-configs")
@@ -88,22 +88,22 @@ associate a VPC with all 1,500 private hosted zones.
 | CIDR collections                                                        | 5 per AWS account.<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas").                                                                                                                                                                                                                                          |
 | CIDR blocks                                                             | 1000 per CIDR collection.<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas").                                                                                                                                                                                                                                   |
 
-### Quotas on Route 53 Resolver
+### Quotas on Route 53 VPC Resolver
 
-This section includes all the Route 53 Resolver quotas
+This section includes all the Route 53 VPC Resolver quotas
 
-#### Quotas on Route 53 Resolver
+#### Quotas on Route 53 VPC Resolver
 
-Use the following procedure to increase quotas for Route 53 Resolver.
+Use the following procedure to increase quotas for Route 53 VPC Resolver.
 
 ###### To increase Resolver quotas
 
 1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas](https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas").
 2. Go to the region where you want to increase the limit.
-3. Select the Route 53 Resolver **Quota name** you want to increase.
+3. Select the Route 53 VPC Resolver **Quota name** you want to increase.
 4. Select **Request quota increase**, enter the quota value, and then select **Request**.
 
-#### Quotas on Route 53 Resolver
+#### Quotas on Route 53 VPC Resolver
 
 endpoints
 
@@ -124,9 +124,9 @@ target name server that is slow to respond can significantly reduce the capacity
 of the network interface. Additionally, to ensure high availability, Route 53
 Resolver generates redundant outbound queries for each DNS request that it
 receives. As a result, the QPS for each outbound network interface will not
-match the QPS sent to Route 53 Resolver. Use CloudWatch metrics to measure how
+match the QPS sent to Route 53 VPC Resolver. Use CloudWatch metrics to measure how
 many queries are being sent to each network interface. For more information, see
-[Metrics for Resolver IP addresses](monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-ip-address "monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-ip-address"). If your maximum
+[Metrics for VPC Resolver IP addresses](monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-ip-address "monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-ip-address"). If your maximum
 query rate exceeds 50% of the capacity for any network interface in the
 endpoint, you can add more network interfaces to increase the endpoint
 capacity.
@@ -138,7 +138,7 @@ if the security group configuration does not otherwise require tracking.
 If the connection tracking is enforced either by using restrictive security group rules or queries are routed through Network Load Balancer,
 the overall maximum queries per second per IP address for an inbound endpoint can be as low as 1500.
 
-#### Quotas on Route 53 Resolver
+#### Quotas on Route 53 VPC Resolver
 
 query logs
 
@@ -149,13 +149,13 @@ query logs
 | Query log configuration VPC associations per account per<br>AWS Region (including query long confgurations shared using RAM) for the account that the<br>configuration was shared to. | 100<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas").        |
 
 **\*** This is a Regional limit that applies cumulatively
-across all Resolver query log configurations within a single Region. Creating
+across all VPC Resolver query log configurations within a single Region. Creating
 additional query log configurations in the same Region does not provide
 additional VPC association capacity.
 
 #### Quotas on
 
-Route 53 Resolver DNS Firewall
+Resolver DNS Firewall
 
 | Entity                                                                                                                      | Quota                                                                                          |
 | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -272,14 +272,14 @@ delegation sets
 
 Route 53 Profiles
 
-| Entity                                                         | Quota                                                                                        |
-| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Number of Route 53 Profiles per AWS account in a Region        | 5<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").     |
-| Number of VPCs that can be associated to a Profile             | 1000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").  |
-| Number of DNS Firewall rule groups per Profile                 | 5                                                                                            |
-| Number of Resolver rules per Profile                           | 1000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").  |
-| Number of private hosted zones per a Profile                   | 1,000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure"). |
-| Number of Resolver query logging configurations per<br>Profile | 2                                                                                            |
+| Entity                                                             | Quota                                                                                        |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| Number of Route 53 Profiles per AWS account in a Region            | 5<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").     |
+| Number of VPCs that can be associated to a Profile                 | 1000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").  |
+| Number of DNS Firewall rule groups per Profile                     | 5                                                                                            |
+| Number of Resolver rules per Profile                               | 1000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").  |
+| Number of private hosted zones per a Profile                       | 1,000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure"). |
+| Number of VPC Resolver query logging configurations per<br>Profile | 2                                                                                            |
 
 ## Maximums on API requests
 
@@ -290,7 +290,7 @@ Amazon Route 53 API requests are subject to the following maximums.
 - [Number of elements and characters in
   ChangeResourceRecordSets requests](#limits-api-requests-changeresourcerecordsets "#limits-api-requests-changeresourcerecordsets")
 - [Frequency of Amazon Route 53 API requests](#limits-api-requests-route-53 "#limits-api-requests-route-53")
-- [Frequency of Route 53 Resolver API requests](#limits-api-requests-route-53-resolver "#limits-api-requests-route-53-resolver")
+- [Frequency of Route 53 VPC Resolver API requests](#limits-api-requests-route-53-resolver "#limits-api-requests-route-53-resolver")
 
 ### Number of elements and characters in
 
@@ -330,11 +330,11 @@ with a value of `The request was rejected because Route 53 was still processing
 **`CreateHealthCheck` requests**
 You can submit one `CreateHealthCheck` request every 2 seconds per AWS account.
 
-### Frequency of Route 53 Resolver API requests
+### Frequency of Route 53 VPC Resolver API requests
 
 **All requests**
 Five requests per second per AWS account per Region. If you submit more than five requests per second in a Region,
-Resolver returns an HTTP 400 error (`Bad request`). The response header also includes a `Code` element
+VPC Resolver returns an HTTP 400 error (`Bad request`). The response header also includes a `Code` element
 with a value of `Throttling` and a `Message` element with a value of `Rate exceeded`.
 
 ###### Note

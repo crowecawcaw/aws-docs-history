@@ -191,7 +191,7 @@ permissions to individual resources.
 
 **`route53resolver:*`**
 
-Lets you work with Route 53 Resolver.
+Lets you work with Route 53 VPC Resolver.
 
 **`ssm:GetParametersByPath`**
 
@@ -243,7 +243,7 @@ Let you work with private hosted zones.
 
 **All listed `ec2` permissions**
 
-Let you work with Route 53 Resolver.
+Let you work with Route 53 VPC Resolver.
 
 **`sns:ListTopics`, `sns:ListSubscriptionsByTopic`,
 `sns:CreateTopic`, `cloudwatch:DescribeAlarms`,
@@ -430,7 +430,7 @@ Amazon Route 53 console](#console-required-permissions "#console-required-permi
 - [Example 3:
   Allow full access to all domains (public hosted zones only)](#access-policy-example-allow-full-domain-access "#access-policy-example-allow-full-domain-access")
 - [Example 4:
-  Allow creation of inbound and outbound Route 53 Resolver endpoints](#access-policy-example-create-resolver-endpoints "#access-policy-example-create-resolver-endpoints")
+  Allow creation of inbound and outbound Route 53 VPC Resolver endpoints](#access-policy-example-create-resolver-endpoints "#access-policy-example-create-resolver-endpoints")
 
 ### Example 1: Allow
 
@@ -534,7 +534,7 @@ Amazon Route 53 console](#console-required-permissions "#console-required-permi
 
 ### Example 4:
 
-Allow creation of inbound and outbound Route 53 Resolver endpoints
+Allow creation of inbound and outbound Route 53 VPC Resolver endpoints
 
 The following permissions policy allows users to use the Route 53 console to
 create Resolver inbound and outbound endpoints.

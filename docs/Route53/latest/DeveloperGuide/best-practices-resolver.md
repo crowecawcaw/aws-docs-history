@@ -1,6 +1,6 @@
-# Best practices for Resolver
+# Best practices for VPC Resolver
 
-This section provides best practices for optimizing Amazon Route 53 Resolver, covering the following topics:
+This section provides best practices for optimizing Amazon Route 53 VPC Resolver, covering the following topics:
 
 1.  **Avoiding Loop Configurations with Resolver Endpoints:**
 
@@ -33,5 +33,5 @@ This section provides best practices for optimizing Amazon Route 53 Resolver, co
         * If your endpoints experience throttling due to suspected zone walking, contact AWS Support for assistance.
 
     For more information, see [DNS zone walking](best-practices-resolver-zone-walking.md "best-practices-resolver-zone-walking.md")
-    By following these best practices, you can optimize the performance, scalability, and security of your Route 53 Resolver deployments, ensuring reliable
+    By following these best practices, you can optimize the performance, scalability, and security of your VPC Resolver deployments, ensuring reliable
     and efficient DNS resolution for your applications and resources.

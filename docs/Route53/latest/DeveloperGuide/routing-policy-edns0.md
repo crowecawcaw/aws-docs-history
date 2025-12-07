@@ -12,7 +12,7 @@ To improve the accuracy of geolocation, geoproximity, IP-based, and latency rout
   this typically provides a more accurate estimate of the user's location. Route 53 then responds to
   geolocation queries with the DNS record for the user's location.
 - EDNS0 is not applicable to private hosted zones. For private hosted zones Route 53 uses data
-  from the Route 53 Resolvers in the AWS Region that the private hosted zone is in to
+  from the VPC Resolvers in the AWS Region that the private hosted zone is in to
   make geolocation and latency routing decisions.
   For more information about edns-client-subnet, see the EDNS Client Subnet RFC, [Client
   Subnet in DNS Requests](https://www.rfc-editor.org/rfc/rfc7871 "https://www.rfc-editor.org/rfc/rfc7871").

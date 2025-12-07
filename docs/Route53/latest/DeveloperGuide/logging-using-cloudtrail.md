@@ -66,7 +66,7 @@ that demonstrates the following actions:
 - Create two records
 - Delete a hosted zone
 - Update information for a registered domain
-- Create a Route 53 Resolver outbound endpoint
+- Create a Route 53 VPC Resolver outbound endpoint
 
 ```
 {

@@ -63,7 +63,7 @@ for the Profile, see the following procedures:
   Route 53 Profile](profile-associate-resolver-rules.md "profile-associate-resolver-rules.md")
 - [Associate interface VPC endpoints
   to a Route 53 Profile](profile-associate-vpc-endpoints.md "profile-associate-vpc-endpoints.md")
-- [Associate Resolver query logging
+- [Associate VPC Resolver query logging
   configurations to a Route 53 Profile](profile-associate-query-logging.md "profile-associate-query-logging.md")
 - [Edit Route 53 Profile configurations](profile-edit-configurations.md "profile-edit-configurations.md")
 - [Associate a Route 53 Profile to VPCs](profile-associate-vpcs.md "profile-associate-vpcs.md")

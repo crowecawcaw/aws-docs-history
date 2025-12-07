@@ -37,23 +37,23 @@ To view the status for an inbound endpoint, perform the following procedure.
    contains one of the following values:
 
 **Creating**
-Resolver is creating and configuring one or more Amazon VPC network interfaces for this endpoint.
+VPC Resolver is creating and configuring one or more Amazon VPC network interfaces for this endpoint.
 
 **Operational**
 The Amazon VPC network interfaces for this endpoint are correctly configured and able to pass
-inbound or outbound DNS queries between your network and Resolver.
+inbound or outbound DNS queries between your network and VPC Resolver.
 
 **Updating**
-Resolver is associating or disassociating one or more network interfaces with this endpoint.
+VPC Resolver is associating or disassociating one or more network interfaces with this endpoint.
 
 **Auto recovering**
-Resolver is trying to recover one or more of the network interfaces that are associated with this endpoint.
+VPC Resolver is trying to recover one or more of the network interfaces that are associated with this endpoint.
 During the recovery process, the endpoint functions with limited capacity because of the limit on the
 number of DNS queries per IP address (per network interface). For the current limit, see
-[Quotas on Route 53 Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
+[Quotas on Route 53 VPC Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
 
 **Action needed**
-This endpoint is unhealthy, and Resolver can't automatically recover it. To resolve the problem,
+This endpoint is unhealthy, and VPC Resolver can't automatically recover it. To resolve the problem,
 we recommend that you check each IP address that you associated with the endpoint. For each IP address
 that isn't available, add another IP address and then delete the IP address that isn't available.
 (An endpoint must always include at least two IP addresses.) A status of **Action needed**
@@ -62,10 +62,10 @@ can have a variety of causes. Here are two common causes:
     * One or more of the network interfaces that are associated with the endpoint were deleted
      using Amazon VPC.
     * The network interface couldn't be created for some reason that's
-     outside the control of Resolver.
+     outside the control of VPC Resolver.
 
 **Deleting**
-Resolver is deleting this endpoint and the associated network interfaces.
+VPC Resolver is deleting this endpoint and the associated network interfaces.
 
 ## Deleting inbound endpoints
 
@@ -73,7 +73,7 @@ To delete an inbound endpoint, perform the following procedure.
 
 ###### Important
 
-If you delete an inbound endpoint, DNS queries from your network are no longer forwarded to Resolver in the VPC
+If you delete an inbound endpoint, DNS queries from your network are no longer forwarded to VPC Resolver in the VPC
 that you specified in the endpoint.
 
 ###### To delete an inbound endpoint

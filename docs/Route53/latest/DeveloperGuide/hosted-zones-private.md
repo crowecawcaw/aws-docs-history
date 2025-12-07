@@ -27,13 +27,13 @@ When you create a private hosted zone, the following name servers are used:
 - ns-1536.awsdns-00.co.uk
   These name servers are used because the DNS protocol requires that every hosted zone must
   have an NS record set. These name servers are reserved and never used by Route 53 public hosted
-  zones. You can only query those zones via Route 53 Resolver in a VPC that has been associated to the
+  zones. You can only query those zones via VPC Resolver in a VPC that has been associated to the
   hosted zone by using an inbound endpoint connected to the VPCs specified in the private
   hosted zone.
 
-While the name servers are visible on the internet, Route 53 Resolver doesn't connect to the name
+While the name servers are visible on the internet, VPC Resolver doesn't connect to the name
 server addresses. Further, the private hosted zone information is not returned if you
-directly query the name servers over the internet. Instead, the Route 53 Resolver detects that queries
+directly query the name servers over the internet. Instead, the VPC Resolver detects that queries
 are within a private namespace based on VPC to hosted zone associations and uses direct,
 private connectivity to reach the private DNS servers.
 

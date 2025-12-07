@@ -1,4 +1,4 @@
-# Route 53 Resolver DNS Firewall Advanced
+# Resolver DNS Firewall Advanced
 
 DNS Firewall Advanced detects suspicious DNS queries based on known threat signatures in DNS
 queries. You can specify a threat type in a rule that you use in a DNS Firewall rule,
@@ -43,11 +43,11 @@ If you are encountering false-positive scenarios in rules that use DNS Firewall
 Advanced
 protections to block queries, perform the following steps:
 
-1. In the Resolver logs, identify the rule group and DNS Firewall Advanced
+1. In the VPC Resolver logs, identify the rule group and DNS Firewall Advanced
    protections that are causing the false positive. You do this by finding the log
    for the query that DNS Firewall is blocking, but that you want to allow through. The
    log record lists the rule group, rule action, and the DNS Firewall Advanced
-   protection. For information about the logs, see [Values that appear in Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md").
+   protection. For information about the logs, see [Values that appear in VPC Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md").
 2. Create a new rule in the rule group that explicitly allows the blocked query
    through. When you create the rule, you can define your own domain list with just
    the domain specification that you want to allow. Follow the guidance for rule

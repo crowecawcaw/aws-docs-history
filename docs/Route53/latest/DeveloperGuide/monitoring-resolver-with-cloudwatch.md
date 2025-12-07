@@ -1,6 +1,6 @@
-# Monitoring Route 53 Resolver endpoints with Amazon CloudWatch
+# Monitoring Route 53 VPC Resolver endpoints with Amazon CloudWatch
 
-You can use Amazon CloudWatch to monitor the number of DNS queries that are forwarded by Route 53 Resolver
+You can use Amazon CloudWatch to monitor the number of DNS queries that are forwarded by Route 53 VPC Resolver
 endpoints. Amazon CloudWatch collects and processes raw data into readable, near real-time
 metrics. These statistics are recorded for a period of two weeks, so that you can access
 historical information and gain a better perspective on how your resources are
@@ -8,19 +8,19 @@ performing. By default, metric data for Resolver endpoints is automatically sent
 at five-minute intervals. The five-minute interval is also the smallest interval at
 which the metric data can be sent.
 
-For more information about Resolver, see [What is Amazon Route 53 Resolver?](resolver.md "resolver.md"). For more information about CloudWatch, see
+For more information about VPC Resolver, see [What is Route 53 VPC Resolver?](resolver.md "resolver.md"). For more information about CloudWatch, see
 [What is Amazon CloudWatch?](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md") in the _Amazon CloudWatch User Guide_.
 
-## Metrics and dimensions for Route 53 Resolver
+## Metrics and dimensions for Route 53 VPC Resolver
 
-When you configure Resolver to forward DNS queries to your network or vice versa, Resolver starts to send
+When you configure VPC Resolver to forward DNS queries to your network or vice versa, VPC Resolver starts to send
 [metrics](monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver "monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver")
 and
 [dimensions](monitoring-resolver-with-cloudwatch.md#cloudwatch-dimensions-resolver "monitoring-resolver-with-cloudwatch.md#cloudwatch-dimensions-resolver")
 once every five minutes to CloudWatch about the number of queries that are forwarded. You can use the following procedures
 to view the metrics in the CloudWatch console or view them by using the AWS Command Line Interface (AWS CLI).
 
-###### To view Resolver metrics using the CloudWatch console
+###### To view VPC Resolver metrics using the CloudWatch console
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -44,21 +44,21 @@ to view the desired counts.
 
 ###### Topics
 
-- [CloudWatch metrics for Route 53 Resolver](#cloudwatch-metrics-resolver "#cloudwatch-metrics-resolver")
-- [Dimensions for Route 53 Resolver metrics](#cloudwatch-dimensions-resolver "#cloudwatch-dimensions-resolver")
+- [CloudWatch metrics for Route 53 VPC Resolver](#cloudwatch-metrics-resolver "#cloudwatch-metrics-resolver")
+- [Dimensions for Route 53 VPC Resolver metrics](#cloudwatch-dimensions-resolver "#cloudwatch-dimensions-resolver")
 
-### CloudWatch metrics for Route 53 Resolver
+### CloudWatch metrics for Route 53 VPC Resolver
 
-`AWS/Route53Resolver` namespace includes metrics for Route 53 Resolver endpoints and for IP addresses.
+`AWS/Route53Resolver` namespace includes metrics for Route 53 VPC Resolver endpoints and for IP addresses.
 
 ###### Topics
 
 - [Metrics for Resolver endpoints](#cloudwatch-metrics-resolver-endpoint "#cloudwatch-metrics-resolver-endpoint")
-- [Metrics for Resolver IP addresses](#cloudwatch-metrics-resolver-ip-address "#cloudwatch-metrics-resolver-ip-address")
+- [Metrics for VPC Resolver IP addresses](#cloudwatch-metrics-resolver-ip-address "#cloudwatch-metrics-resolver-ip-address")
 
 #### Metrics for Resolver endpoints
 
-The `AWS/Route53Resolver` namespace includes the following metrics for Route 53 Resolver endpoints.
+The `AWS/Route53Resolver` namespace includes the following metrics for Route 53 VPC Resolver endpoints.
 
 **EndpointHealthyENICount**
 The number of elastic network interfaces in the `OPERATIONAL` status. This means
@@ -136,7 +136,7 @@ In some cases, you might observe gaps in this metric. These gaps can
 occur when your network interfaces undergo consecutive scheduled
 maintenance or updates. After we return a network interface to service,
 it takes at least 1 minute for our service to collect operational data
-and publish this metric. These gaps do not indicate that your Resolver
+and publish this metric. These gaps do not indicate that your VPC Resolver
 endpoint is experiencing an outage. If you're configuring a CloudWatch Alarm
 for this metric, we recommend the following:
 
@@ -171,10 +171,10 @@ timeouts overwhelm the Resolver network interfaces.
 - In these cases, simply increasing the elastic network interfaces might not be effective, and
   we recommend fixing the target name server.
 
-#### Metrics for Resolver IP addresses
+#### Metrics for VPC Resolver IP addresses
 
 The `AWS/Route53Resolver` namespace includes the following metrics for each IP address that's associated
-with a Resolver inbound or outbound endpoint. (When you specify an endpoint, Resolver creates an
+with a Resolver inbound or outbound endpoint. (When you specify an endpoint, VPC Resolver creates an
 Amazon VPC [elastic network interface](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md").)
 
 **InboundQueryVolume**
@@ -209,9 +209,9 @@ Valid statistics: Sum
 
 Units: Count
 
-### Dimensions for Route 53 Resolver metrics
+### Dimensions for Route 53 VPC Resolver metrics
 
-Route 53 Resolver metrics for inbound and outbound endpoints use the `AWS/Route53Resolver` namespace and provide metrics for
+Route 53 VPC Resolver metrics for inbound and outbound endpoints use the `AWS/Route53Resolver` namespace and provide metrics for
 `EndpointId`. If you specify a value for the `EndpointId` dimension, CloudWatch returns the number of DNS queries
 for the specified endpoint. If you don't specify `EndpointId`, CloudWatch returns the number of DNS queries for all
 endpoints that were created by the current AWS account.

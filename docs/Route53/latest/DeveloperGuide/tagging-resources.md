@@ -15,7 +15,7 @@ For more information, see [Working with Tag Editor](../../../awsconsolehelpdocs/
 
 - **Health checks** – For more information, see
   [Naming and tagging health checks](health-checks-tagging.md "health-checks-tagging.md").
-- **Route 53 Resolver inbound endpoints** – For more information, see
+- **Route 53 VPC Resolver inbound endpoints** – For more information, see
   [Values that you specify when you create or edit inbound endpoints](resolver-forwarding-inbound-queries-values.md "resolver-forwarding-inbound-queries-values.md").
 - **Resolver outbound endpoints** – For more information, see
   [Values that you specify when you create or edit
@@ -27,9 +27,9 @@ For more information, see [Working with Tag Editor](../../../awsconsolehelpdocs/
 
 ###### Note
 
-Charges for Resolver endpoints are allocated per Resolver network interface. As it isn't
-currently possible to tag Resolver network interfaces, tag-based cost allocation isn't
-currently supported for Resolver endpoints. For information about pricing for Resolver,
+Charges for Resolver endpoints are allocated per VPC Resolver network interface. As it isn't
+currently possible to tag VPC Resolver network interfaces, tag-based cost allocation isn't
+currently supported for Resolver endpoints. For information about pricing for VPC Resolver,
 see [Amazon Route 53 pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/").
 
 You can also apply tags to resources by using the Route 53 API. For more information, see the actions related to tags

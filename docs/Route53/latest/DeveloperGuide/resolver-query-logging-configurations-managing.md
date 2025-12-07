@@ -1,16 +1,16 @@
 # Managing Resolver query logging configurations
 
-## Configuring (Resolver query
+## Configuring (VPC Resolver query
 
 logging)
 
-You can configure Resolver query logging in two ways:
+You can configure VPC Resolver query logging in two ways:
 
 - **Direct VPC association** - Associate VPCs
   directly to a query logging configuration.
 - **Profile association** - Associate a query
   logging configuration to a Route 53 Profile, which applies the logging to all VPCs
-  associated with that Profile. For more information, see [Associate Resolver query logging
+  associated with that Profile. For more information, see [Associate VPC Resolver query logging
   configurations to a Route 53 Profile](profile-associate-query-logging.md "profile-associate-query-logging.md").
 
 To start logging DNS queries that originate in your VPCs, you perform the
@@ -45,11 +45,11 @@ configuration later.
 
 **Query logs destination**
 
-Choose the type of AWS resource that you want Resolver to send
+Choose the type of AWS resource that you want VPC Resolver to send
 query logs to. For information about how to choose among the
 options (CloudWatch Logs log group, S3 bucket, and Firehose delivery stream),
 see [AWS resources that you
-can send Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md").
+can send VPC Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md").
 
 After you choose the type of resource, you can either create
 another resource of that type or choose an existing resource
@@ -67,13 +67,13 @@ created in the same Region.
 
 This query logging configuration will log DNS queries that
 originate in the VPCs that you choose. Check the check box for
-each VPC in the current Region that you want Resolver to log
+each VPC in the current Region that you want VPC Resolver to log
 queries for, then choose **Choose**.
 
 **Alternative**: Instead of
 associating VPCs directly, you can associate this query logging
 configuration to a Route 53 Profile, which will apply logging to all VPCs
-associated with that Profile. For more information, see [Associate Resolver query logging
+associated with that Profile. For more information, see [Associate VPC Resolver query logging
 configurations to a Route 53 Profile](profile-associate-query-logging.md "profile-associate-query-logging.md").
 
 ###### Note

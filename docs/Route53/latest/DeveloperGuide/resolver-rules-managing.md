@@ -1,6 +1,6 @@
 # Managing forwarding rules
 
-If you want Resolver to forward queries for specified domain names to your network, you create one forwarding rule
+If you want VPC Resolver to forward queries for specified domain names to your network, you create one forwarding rule
 for each domain name and specify the name of the domain for which you want to forward queries.
 
 ###### Topics
@@ -13,7 +13,7 @@ for each domain name and specify the name of the domain for which you want to fo
 - [Sharing Resolver rules with other AWS accounts and using shared rules](#resolver-rules-managing-sharing "#resolver-rules-managing-sharing")
 - [Deleting forwarding rules](#resolver-rules-managing-deleting "#resolver-rules-managing-deleting")
 - [Forwarding rules for
-  reverse DNS queries in Resolver](#resolver-automatic-forwarding-rules-reverse-dns "#resolver-automatic-forwarding-rules-reverse-dns")
+  reverse DNS queries in VPC Resolver](#resolver-automatic-forwarding-rules-reverse-dns "#resolver-automatic-forwarding-rules-reverse-dns")
 
 ## Viewing and editing forwarding rules
 
@@ -71,14 +71,14 @@ PTR records—for example, 10.0.1.161 will have a reverse lookup
 address of 161.1.0.10.in-addr.arpa, which is a subdomain of
 1.0.10.in-addra.arpa. 3. Specify the server to forward these lookups to. 4. Add these rules to your outbound resolver endpoint.
 
-Note that turning on `enableDNSHostNames` for your VPC automatically adds PTR records. See [What is Amazon Route 53 Resolver?](resolver.md "resolver.md"). The previous procedure is required only if you want to explicitly specify a resolver for given IP ranges—for example, when forwarding
+Note that turning on `enableDNSHostNames` for your VPC automatically adds PTR records. See [What is Route 53 VPC Resolver?](resolver.md "resolver.md"). The previous procedure is required only if you want to explicitly specify a resolver for given IP ranges—for example, when forwarding
 queries to an Active Directory server.
 
 ## Associating forwarding rules with a VPC
 
 After you create a forwarding rule, you must associate the rule with one or more VPCs. The rules will only work after they are
 associated with a VPC. When you associate a rule with
-a VPC, Resolver starts to forward DNS queries for the domain name that's specified in the rule to the DNS resolvers
+a VPC, VPC Resolver starts to forward DNS queries for the domain name that's specified in the rule to the DNS resolvers
 that you specified in the rule. The queries pass through the outbound endpoint that you specified when you created
 the rule.
 
@@ -97,7 +97,7 @@ the rule.
 
 You disassociate a forwarding rule from a VPC in the following circumstances:
 
-- For DNS queries that originate in this VPC, you want Resolver to stop forwarding queries
+- For DNS queries that originate in this VPC, you want VPC Resolver to stop forwarding queries
   for the domain name specified in the rule to your network.
 - You want to delete the forwarding rule. If a rule is currently associated with one or more VPCs, you must
   disassociate the rule from all VPCs before you can delete it.
@@ -119,7 +119,7 @@ If you want to disassociate a forwarding rule from one or more VPCs, perform the
 ## Sharing Resolver rules with other AWS accounts and using shared rules
 
 You can share the Resolver rules that you created using one AWS account with other AWS accounts. To share rules,
-the Route 53 Resolver console integrates with AWS Resource Access Manager. For more information about Resource Access Manager, see the
+the Route 53 VPC Resolver console integrates with AWS Resource Access Manager. For more information about Resource Access Manager, see the
 [Resource Access Manager User Guide](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md").
 
 Note the following:
@@ -131,12 +131,12 @@ with your VPCs the same way that you associate rules that you created with your 
 
 **Deleting or unsharing a rule**
 If you share a rule with other accounts and then either delete the rule or stop sharing it,
-and if the rule was associated with one or more VPCs, Route 53 Resolver starts to process DNS queries for those VPCs
+and if the rule was associated with one or more VPCs, Route 53 VPC Resolver starts to process DNS queries for those VPCs
 based on the remaining rules. The behavior is the same as if you disassociate the rule from the VPC.
 
 If a rule is shared to an Organizational Unit (OU) and an account in the OU is moved to a different OU,
 all associations with the shared rule to any VPC in the account will be deleted.
-However, if the Resolver rule was already shared with destination OU, then the VPC association will stay intact and will not be dissociated.
+However, if the VPC Resolver rule was already shared with destination OU, then the VPC association will stay intact and will not be dissociated.
 
 **Maximum number of rules and associations**
 When an account creates a rule and shares it with one or more other accounts, the maximum
@@ -145,8 +145,8 @@ number of rules per AWS Region applies to the account that created the rule.
 When an account that a rule is shared with associates the rule with one or more VPCs, the maximum
 number of associations between rules and VPCs per Region applies to the account that the rule is shared with.
 
-For current Resolver quotas, see
-[Quotas on Route 53 Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
+For current VPC Resolver quotas, see
+[Quotas on Route 53 VPC Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
 
 **Permissions**
 To share a rule with another AWS account, you must have permission to use the
@@ -230,8 +230,8 @@ Note the following:
   before you can delete the rule. For more information, see
   [Disassociating forwarding rules from a VPC](#resolver-rules-managing-disassociating-rules "#resolver-rules-managing-disassociating-rules").
 - You can't delete the default **Internet Resolver** rule, which has a value of **Recursive**
-  for **Type**. This rule causes Route 53 Resolver to act as a recursive resolver for any domain names that you didn't
-  create custom rules for and that Resolver didn't create autodefined rules for. For more information about how rules are categorized, see
+  for **Type**. This rule causes Route 53 VPC Resolver to act as a recursive resolver for any domain names that you didn't
+  create custom rules for and that VPC Resolver didn't create autodefined rules for. For more information about how rules are categorized, see
   [Using rules to control which queries are forwarded
   to your network](resolver-overview-forward-vpc-to-network-using-rules.md "resolver-overview-forward-vpc-to-network-using-rules.md").
 
@@ -247,10 +247,10 @@ Note the following:
 
 ## Forwarding rules for
 
-reverse DNS queries in Resolver
+reverse DNS queries in VPC Resolver
 
 When the `enableDnsHostnames` and `enableDnsSupport` are set to
-`true` for a virtual private cloud (VPC) from Amazon VPC, Resolver
+`true` for a virtual private cloud (VPC) from Amazon VPC, VPC Resolver
 automatically creates auto-defined system rules for reverse DNS queries. For more
 information about these settings, see [DNS attributes in your
 VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support") in the _Amazon VPC Developer Guide_.
@@ -258,7 +258,7 @@ VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support "../../../vpc/late
 Forwarding rules for reverse DNS queries are particularly useful for services like SSH
 or Active Directory, which have an option to authenticate users by performing a reverse
 DNS lookup for the IP address from which a customer is attempting to connect to a
-resource. For more information about auto-defined system rules, see [Domain names that Resolver creates autodefined system rules for](resolver-overview-forward-vpc-to-network-autodefined-rules.md "resolver-overview-forward-vpc-to-network-autodefined-rules.md").
+resource. For more information about auto-defined system rules, see [Domain names that VPC Resolver creates autodefined system rules for](resolver-overview-forward-vpc-to-network-autodefined-rules.md "resolver-overview-forward-vpc-to-network-autodefined-rules.md").
 
 You can turn off these rules and modify all reverse DNS queries so that they are, for
 example, forwarded to your on-premises name servers for resolution.
@@ -273,10 +273,10 @@ rules
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-2. In the navigation pane, under **Resolver** choose
+2. In the navigation pane, under **VPC Resolver** choose
    **VPCs**, and then choose a VPC ID.
 3. Under **Autodefined rules for reverse DNS resolution**, deselect the
    check box. If the check box is already deselected, you can select it to turn
    on auto-defined reverse DNS resolution.
 
-For the related APIs, see [Resolver configuration APIs](../APIReference/API-actions-by-function.md#actions-by-function-resolver-configuration "../APIReference/API-actions-by-function.md#actions-by-function-resolver-configuration").
+For the related APIs, see [VPC Resolver configuration APIs](../APIReference/API-actions-by-function.md#actions-by-function-resolver-configuration "../APIReference/API-actions-by-function.md#actions-by-function-resolver-configuration").

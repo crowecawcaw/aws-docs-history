@@ -1,4 +1,4 @@
-# Values that appear in Resolver query logs
+# Values that appear in VPC Resolver query logs
 
 Each log file contains one log entry for each DNS query that Amazon Route 53 received from DNS resolvers in the corresponding edge location. Each
 log entry includes the following values:
@@ -62,7 +62,7 @@ The class of the query.
 
 **rcode**
 
-The DNS response code that Resolver returned in response to the DNS
+The DNS response code that VPC Resolver returned in response to the DNS
 query. The response code indicates whether the query was valid or not.
 The most common response code is `NOERROR`, meaning that the
 query was valid. If the response is not valid, Resolver returns a
@@ -71,19 +71,19 @@ codes, see [DNS RCODEs](https://www.iana.org/assignments/dns-parameters/dns-para
 
 **answer_type**
 
-The DNS record type (such as A, MX, or CNAME) of the value that Resolver
+The DNS record type (such as A, MX, or CNAME) of the value that VPC Resolver
 is returning in response to the query. For information about the types
 that Route 53 supports, see [Supported DNS record types](ResourceRecordTypes.md "ResourceRecordTypes.md").
 
 **rdata**
 
-The value that Resolver returned in response to the query. For example,
+The value that VPC Resolver returned in response to the query. For example,
 for an A record, this is an IP address in IPv4 format. For a CNAME
 record, this is the domain name in the CNAME record.
 
 **answer_class**
 
-The class of the Resolver response to the query.
+The class of the VPC Resolver response to the query.
 
 **srcaddr**
 
@@ -109,7 +109,7 @@ The ID of the instance that the query originated from.
 
 ###### Note
 
-If you see an instance ID in Amazon Route 53 Resolver query logs which is not
+If you see an instance ID in Route 53 VPC Resolver query logs which is not
 visible in your account, it might be because the DNS query
 originated from either AWS CloudShell, AWS Lambda, Amazon EKS, or Fargate
 console, which was used by you.

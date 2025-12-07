@@ -3,7 +3,7 @@
 When you create or edit an inbound endpoint, you specify the following values:
 
 **Outpost ID**
-If you are creating the endpoint for a Resolver on an AWS Outposts VPC, this is the AWS Outposts ID.
+If you are creating the endpoint for a VPC Resolver on an AWS Outposts VPC, this is the AWS Outposts ID.
 
 **Endpoint name**
 A friendly name that lets you easily find an inbound endpoint on the dashboard.
@@ -11,10 +11,10 @@ A friendly name that lets you easily find an inbound endpoint on the dashboard.
 **Endpoint category**
 Choose either **Default** or **Delegation**. When the category is **Default**, the
 resolver on your network forwards the DNS requests to the IP address of the inbound endpoint. When the category is
-**Delegation**, the authority for a domain is delegated to the Route 53 Resolver.
+**Delegation**, the authority for a domain is delegated to the VPC Resolver.
 
 **VPC in the _region-name_ Region**
-All inbound DNS queries from your network pass through this VPC on the way to Resolver.
+All inbound DNS queries from your network pass through this VPC on the way to VPC Resolver.
 
 **Security group for this endpoint**
 The ID of one or more security groups that you want to use to control access to this VPC. The
@@ -48,17 +48,17 @@ The IP addresses that you want DNS resolvers on your network to forward DNS quer
 require you to specify a minimum of two IP addresses for redundancy. If
 you created a delegation inbound endpoint, use these IP addresses as the
 glue NS records for the subdomain for which you want to delegate the
-authority to Route 53 Resolver. Note the following:
+authority to VPC Resolver. Note the following:
 
 **Multiple Availability Zones**
 We recommend that you specify IP addresses in at least two Availability Zones. You can optionally specify
 additional IP addresses in those or other Availability Zones.
 
 **IP addresses and Amazon VPC elastic network interfaces**
-For each combination of Availability Zone, Subnet, and IP address that you specify, Resolver
+For each combination of Availability Zone, Subnet, and IP address that you specify, VPC Resolver
 creates an Amazon VPC elastic network interface. For the current
 maximum number of DNS queries per second per IP address in
-an endpoint, see [Quotas on Route 53 Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver"). For
+an endpoint, see [Quotas on Route 53 VPC Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver"). For
 information about pricing for each elastic network
 interface, see "Amazon Route 53" on the [Amazon Route 53 pricing
 page](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/").
@@ -87,7 +87,7 @@ The subnet IP address must match the **Endpoint type**.
 The IP address that you want to assign to the inbound
 endpoints.
 
-Choose whether you want Resolver to choose an IP address for
+Choose whether you want VPC Resolver to choose an IP address for
 you from among the available IP addresses in the specified
 subnet, or you want to specify the IP address
 yourself.
@@ -100,7 +100,7 @@ Endpoint protocol determines how data is transmitted to the inbound endpoint. Ch
 protocol, or protocols, depending on the level of security
 needed.
 
-- **Do53:** (Default) The data is relayed using the Route 53 Resolver
+- **Do53:** (Default) The data is relayed using the Route 53 VPC Resolver
   without additional encryption. While the data cannot be read by
   external parties, it can be viewed within the AWS networks.
   This is the only protocol currently available for the
@@ -118,7 +118,7 @@ needed.
 
 ###### Note
 
-For DoH/DoH-FIPS inbound endpoints, there is a known issue with incorrect source IP being published in the Route 53 Resolver query logging.
+For DoH/DoH-FIPS inbound endpoints, there is a known issue with incorrect source IP being published in the VPC Resolver query logging.
 
 For an inbound endpoint you can apply the protocols as follows:
 

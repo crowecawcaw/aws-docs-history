@@ -268,12 +268,12 @@ Amazon Route 53 is divided into control and data planes as follows:
   distributed service, which performs health checks, aggregates the results
   and delivers them to the data planes of Route 53 public and private DNS and
   [AWS Global Accelerator](https://aws.amazon.com/global-accelerator/ "https://aws.amazon.com/global-accelerator/").
-- For [Amazon Route 53 Resolver](resolver.md "resolver.md"), the control plane consists of the Route 53 Resolver APIs that allow you
+- For [Route 53 VPC Resolver](resolver.md "resolver.md"), the control plane consists of the VPC Resolver APIs that allow you
   to manage Amazon VPC settings, Resolver rules, query logging policies, and DNS Firewall
   policies. The data plane is the DNS resolver service, which answers DNS
   queries in your VPC, endpoints that forward queries to other resolvers, and
   the DNS Firewall data plane which applies policies to filter DNS queries.
-  Resolver is a regional service and its control and data planes run
+  VPC Resolver is a regional service and its control and data planes run
   independently in each AWS Region.
 - Route 53 domain registrations are managed only on the control plane in the us-east-1 AWS Region.
 

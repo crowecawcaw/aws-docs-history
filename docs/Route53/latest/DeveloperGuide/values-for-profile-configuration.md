@@ -73,6 +73,6 @@ For more information about the configurations, see
 - [Enabling DNSSEC validation in
   Amazon Route 53](resolver-dnssec-validation.md "resolver-dnssec-validation.md")
 - [Forwarding rules for
-  reverse DNS queries in Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns")
+  reverse DNS queries in VPC Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns")
 - [DNS Firewall VPC
   configuration](resolver-dns-firewall-vpc-configuration.md "resolver-dns-firewall-vpc-configuration.md")

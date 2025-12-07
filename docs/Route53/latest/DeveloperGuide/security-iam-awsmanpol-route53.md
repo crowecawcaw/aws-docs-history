@@ -23,7 +23,7 @@ You can attach the `AmazonRoute53FullAccess` policy to your IAM
 identities.
 
 This policy grants full access to Route 53 resources, including domain
-registration and health checking, but excluding Resolver.
+registration and health checking, but excluding VPC Resolver.
 
 **Permissions details**
 
@@ -156,7 +156,7 @@ JSON
 You can attach the `AmazonRoute53ReadOnlyAccess` policy to your IAM identities.
 
 This policy grants read-only access to Route 53 resources, including domain
-registration and health checking, but excluding Resolver.
+registration and health checking, but excluding VPC Resolver.
 
 **Permissions details**
 
@@ -272,13 +272,13 @@ JSON
 
 You can attach the `AmazonRoute53ResolverFullAccess` policy to your IAM identities.
 
-This policy grants full access to Route 53 Resolver resources.
+This policy grants full access to Route 53 VPC Resolver resources.
 
 **Permissions details**
 
 This policy includes the following permissions.
 
-- `route53resolver:*` – Lets you create and manage Resolver resources on the
+- `route53resolver:*` – Lets you create and manage VPC Resolver resources on the
   Route 53 console.
 - `ec2:DescribeSubnets` – Lets you list your Amazon VPC subnets.
 - `ec2:CreateNetworkInterface`, `ec2:DeleteNetworkInterface`, and
@@ -329,14 +329,14 @@ JSON
 
 You can attach the `AmazonRoute53ResolverReadOnlyAccess` policy to your IAM identities.
 
-This policy grants read-only access to Route 53 Resolver resources.
+This policy grants read-only access to Route 53 VPC Resolver resources.
 
 **Permissions details**
 
 This policy includes the following permissions.
 
-- `route53resolver:Get*` – Gets Resolver resources.
-- `route53resolver:List*` – Lets you display a list of Resolver
+- `route53resolver:Get*` – Gets VPC Resolver resources.
+- `route53resolver:List*` – Lets you display a list of VPC Resolver
   resources.
 - `ec2:DescribeNetworkInterfaces` – Lets you display a list of network
   interfaces.
@@ -375,8 +375,8 @@ JSON
 ## AWS managed policy: Route53ResolverServiceRolePolicy
 
 You can't attach `Route53ResolverServiceRolePolicy` to your IAM entities.
-This policy is attached to a service-linked role that allows Route 53 Resolver to access AWS
-services and resources that are used or managed by Resolver. For more information, see
+This policy is attached to a service-linked role that allows Route 53 VPC Resolver to access AWS
+services and resources that are used or managed by VPC Resolver. For more information, see
 [Using Service-Linked Roles for
 Amazon Route 53 Resolver](using-service-linked-roles.md "using-service-linked-roles.md").
 
@@ -502,9 +502,9 @@ the RSS feed on the Route 53 [Document history page](History.md "History.md").
 | [AmazonRoute53ResolverReadOnlyAccess](#security-iam-awsmanpol-AmazonRoute53ResolverReadOnlyAccess "#security-iam-awsmanpol-AmazonRoute53ResolverReadOnlyAccess")– Updated<br>policy  | Added a statement id (Sid) to uniquely identity the policy.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | August 5, 2024  |
 | [AmazonRoute53ProfilesFullAccess](#security-iam-awsmanpol-AmazonRoute53ProfilesFullAccess "#security-iam-awsmanpol-AmazonRoute53ProfilesFullAccess") – New<br>policy                 | Amazon Route 53 added a new policy to allow full access to Amazon Route<br>53 Profile resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | April 22, 2024  |
 | [AmazonRoute53ProfilesReadOnlyAccess](#security-iam-awsmanpol-AmazonRoute53ProfilesReadOnlyAccess "#security-iam-awsmanpol-AmazonRoute53ProfilesReadOnlyAccess") – New<br>policy     | Amazon Route 53 added a new policy to allow read-only access to Amazon<br>Route 53 Profile resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | April 22, 2024  |
-| [Route53ResolverServiceRolePolicy](#security-iam-awsmanpol-Route53ResolverServiceRolePolicy "#security-iam-awsmanpol-Route53ResolverServiceRolePolicy")– New policy                  | Amazon Route 53 added a new policy that is attached to a service-linked<br>role that allows Route 53 Resolver to access AWS services and resources that<br>are used or managed by Resolver.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | July 14, 2021   |
-| [AmazonRoute53ResolverReadOnlyAccess](#security-iam-awsmanpol-AmazonRoute53ResolverReadOnlyAccess "#security-iam-awsmanpol-AmazonRoute53ResolverReadOnlyAccess")– New policy         | Amazon Route 53 added a new policy to allow read-only access to Route 53 Resolver<br>resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | July 14, 2021   |
-| [AmazonRoute53ResolverFullAccess](#security-iam-awsmanpol-AmazonRoute53ResolverFullAccess "#security-iam-awsmanpol-AmazonRoute53ResolverFullAccess")– New policy                     | Amazon Route 53 added a new policy to allow full access to Route 53 Resolver<br>resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | July 14, 2021   |
+| [Route53ResolverServiceRolePolicy](#security-iam-awsmanpol-Route53ResolverServiceRolePolicy "#security-iam-awsmanpol-Route53ResolverServiceRolePolicy")– New policy                  | Amazon Route 53 added a new policy that is attached to a service-linked<br>role that allows VPC Resolver to access AWS services and resources that<br>are used or managed by Resolver.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | July 14, 2021   |
+| [AmazonRoute53ResolverReadOnlyAccess](#security-iam-awsmanpol-AmazonRoute53ResolverReadOnlyAccess "#security-iam-awsmanpol-AmazonRoute53ResolverReadOnlyAccess")– New policy         | Amazon Route 53 added a new policy to allow read-only access to VPC Resolver<br>resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | July 14, 2021   |
+| [AmazonRoute53ResolverFullAccess](#security-iam-awsmanpol-AmazonRoute53ResolverFullAccess "#security-iam-awsmanpol-AmazonRoute53ResolverFullAccess")– New policy                     | Amazon Route 53 added a new policy to allow full access to VPC Resolver<br>resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | July 14, 2021   |
 | [AmazonRoute53DomainsReadOnlyAccess](#security-iam-awsmanpol-AmazonRoute53DomainsReadOnlyAccess "#security-iam-awsmanpol-AmazonRoute53DomainsReadOnlyAccess")– New policy            | Amazon Route 53 added a new policy to allow read-only access to Route 53<br>domains resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | July 14, 2021   |
 | [AmazonRoute53DomainsFullAccess](#security-iam-awsmanpol-AmazonRoute53DomainsFullAccess "#security-iam-awsmanpol-AmazonRoute53DomainsFullAccess")– New policy                        | Amazon Route 53 added a new policy to allow full access to Route 53 domains<br>resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | July 14, 2021   |
 | [AmazonRoute53ReadOnlyAccess](#security-iam-awsmanpol-AmazonRoute53ReadOnlyAccess "#security-iam-awsmanpol-AmazonRoute53ReadOnlyAccess")– New policy                                 | Amazon Route 53 added a new policy to allow read-only access to Route 53<br>resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | July 14, 2021   |

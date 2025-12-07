@@ -27,10 +27,10 @@ raw data into readable, near real-time metrics.
 
 For more information, see [Monitoring your resources with Amazon Route 53 health checks and Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
-**Using Amazon CloudWatch to monitor Route 53 Resolver endpoints**
+**Using Amazon CloudWatch to monitor Route 53 VPC Resolver endpoints**
 You can use CloudWatch to monitor the number of DNS queries that are forwarded by Resolver endpoints.
 
-For more information, see [Monitoring Route 53 Resolver endpoints with Amazon CloudWatch](monitoring-resolver-with-cloudwatch.md "monitoring-resolver-with-cloudwatch.md").
+For more information, see [Monitoring Route 53 VPC Resolver endpoints with Amazon CloudWatch](monitoring-resolver-with-cloudwatch.md "monitoring-resolver-with-cloudwatch.md").
 
 **Using AWS Trusted Advisor**
 Trusted Advisor draws upon best practices learned from serving AWS customers. Trusted Advisor inspects your AWS environment and

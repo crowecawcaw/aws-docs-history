@@ -1,6 +1,6 @@
 # DNS zone walking
 
-A DNS zone walking attack attempts to get all content from DNSSEC-signed DNS zones. If Route 53 Resolver team detects a traffic pattern
+A DNS zone walking attack attempts to get all content from DNSSEC-signed DNS zones. If VPC Resolver team detects a traffic pattern
 that matches the ones generated when DNS zones are walked on your endpoint, the service team will throttle the traffic on your endpoint.
 As a consequence you might observe a high percentage of your DNS queries timing out.
 

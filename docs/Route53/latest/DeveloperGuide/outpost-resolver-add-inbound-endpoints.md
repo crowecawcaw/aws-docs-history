@@ -12,7 +12,7 @@ resolve DNS queries to and from your on-premises network.
 2. In the left navigation pane, expand **Resolver**, and then
    navigate to **Outposts**.
 3. On the navigation bar, choose the Region where your AWS Outposts is located.
-4. Select the check box next to the Resolver that is in operational state and
+4. Select the check box next to the VPC Resolver that is in operational state and
    choose **View details**.
 5. On the **Inbound endpoints** table, choose **Create
    inbound endpoint**.
@@ -30,7 +30,7 @@ values:
 
 **Outpost ID**
 
-If you are creating the endpoint for a Resolver on an AWS Outposts VPC,
+If you are creating the endpoint for a VPC Resolver on an AWS Outposts VPC,
 this is the AWS Outposts ID.
 
 **Endpoint name**
@@ -41,7 +41,7 @@ dashboard.
 **VPC in the _region-name_ Region**
 
 All inbound DNS queries from your network pass through this VPC on the
-way to Resolver.
+way to VPC Resolver.
 
 **Security group for this endpoint**
 
@@ -63,9 +63,9 @@ Note the following:
 **IP addresses and Amazon VPC elastic network interfaces**
 
 For each combination of Availability Zone, Subnet, and IP
-address that you specify, Resolver creates an Amazon VPC elastic
+address that you specify, VPC Resolver creates an Amazon VPC elastic
 network interface. For the current maximum number of DNS
-queries per second per IP address in an endpoint, see [Quotas on Route 53 Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver"). For
+queries per second per IP address in an endpoint, see [Quotas on Route 53 VPC Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver"). For
 information about pricing for each elastic network
 interface, see Amazon Route 53 on the [Amazon Route 53 pricing
 page](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/").
@@ -100,7 +100,7 @@ supported.
 The IP address that you want to forward DNS queries
 to.
 
-Choose whether you want Resolver to choose an IP address for
+Choose whether you want VPC Resolver to choose an IP address for
 you from among the available IP addresses in the specified
 subnet, or you want to specify the IP address
 yourself.

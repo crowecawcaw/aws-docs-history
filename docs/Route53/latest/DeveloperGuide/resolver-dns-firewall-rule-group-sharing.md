@@ -1,4 +1,4 @@
-# Sharing Route 53 Resolver DNS Firewall rule
+# Sharing Resolver DNS Firewall rule
 
 groups between AWS accounts
 
@@ -14,7 +14,7 @@ Note the following:
 If another AWS account has shared a rule group with your account, you
 can associate it with your VPCs the same way that you associate rule groups
 that you've created. For more information, see [Managing
-associations between your VPC and Route 53 Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
+associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
 
 **Deleting or unsharing a shared rule group**
 
@@ -28,7 +28,7 @@ Shared rule groups and their associations with VPCs are included in the
 counts for the accounts with which the rule groups are shared.
 
 For current DNS Firewall quotas, see [Quotas on
-Route 53 Resolver DNS Firewall](DNSLimitations.md#limits-api-entities-resolver-dns-firewall "DNSLimitations.md#limits-api-entities-resolver-dns-firewall").
+Resolver DNS Firewall](DNSLimitations.md#limits-api-entities-resolver-dns-firewall "DNSLimitations.md#limits-api-entities-resolver-dns-firewall").
 
 **Permissions**
 

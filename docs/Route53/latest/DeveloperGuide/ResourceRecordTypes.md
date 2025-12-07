@@ -497,7 +497,7 @@ An NS record identifies the name servers for the hosted zone. Note the following
   [Configuring white-label name servers](white-label-name-servers.md "white-label-name-servers.md").
 - Another use for an NS record is for private hosted zones when you create a delegate rule to delegate the authority for a subdomain
   to your on-premises resolver. You must create this NS record before you create a delegate rule. For more information, see
-  [How Route 53 Resolver endpoint forwards DNS
+  [How Resolver endpoints forward DNS
   queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md "resolver-overview-forward-vpc-to-network.md").
 
 For more information about NS records, see [NS and SOA records that Amazon Route 53 creates for a public hosted zone](SOA-NSrecords.md "SOA-NSrecords.md").

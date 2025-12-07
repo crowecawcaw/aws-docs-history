@@ -13,10 +13,10 @@ create:
   DNS Firewall Advanced.
 - **Alert** – Stop
   inspecting the query, permit it to go through, and log an alert for the
-  query in the Route 53 Resolver logs.
+  query in the Route 53 VPC Resolver logs.
 - **Block** –
   Discontinue inspection of the query, block it from going to its intended
-  destination, and log the block action for the query in the Route 53 Resolver logs.
+  destination, and log the block action for the query in the Route 53 VPC Resolver logs.
 
 Reply with the configured block response, from the following:
 
@@ -46,7 +46,7 @@ Reply with the configured block response, from the following:
     	 to this query, if it is received again. By default, this is
     	 zero, and the record isn't cached.
 
-For more information about the query logs configuration and the contents, see [Resolver query logging](resolver-query-logs.md "resolver-query-logs.md") and [Values that appear in Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md").
+For more information about the query logs configuration and the contents, see [Resolver query logging](resolver-query-logs.md "resolver-query-logs.md") and [Values that appear in VPC Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md").
 
 ###### Use Alert to test blocking rules
 

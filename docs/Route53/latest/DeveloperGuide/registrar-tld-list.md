@@ -79,8 +79,7 @@ TLD indicates any restrictions.
 
 **B**
 
-[.band](band.md "band.md"), [.bargains](bargains.md "bargains.md"), [.beer](beer.md "beer.md"),[.bet](bet.md "bet.md"), [.bid](bid.md "bid.md"), [.bike](bike.md "bike.md"), [.bingo](bingo.md "bingo.md"), [.bio](bio.md "bio.md"), [.biz](biz.md "biz.md"), [.black](black.md "black.md"), [.blue](blue.md "blue.md"), [.bot](bot.md "bot.md"),
-[.boutique](boutique.md "boutique.md"), [.builders](builders.md "builders.md"), [.business](business.md "business.md"), [.buzz](buzz.md "buzz.md")
+[.band](band.md "band.md"), [.bargains](bargains.md "bargains.md"), [.beer](beer.md "beer.md"),[.bet](bet.md "bet.md"), [.bid](bid.md "bid.md"), [.bike](bike.md "bike.md"), [.bingo](bingo.md "bingo.md"), [.bio](bio.md "bio.md"), [.biz](biz.md "biz.md"), [.black](black.md "black.md"), [.blue](blue.md "blue.md"), [.boutique](boutique.md "boutique.md"), [.builders](builders.md "builders.md"), [.business](business.md "business.md"), [.buzz](buzz.md "buzz.md")
 
 **C**
 
@@ -128,7 +127,7 @@ TLD indicates any restrictions.
 
 **M**
 
-[.maison](maison.md "maison.md"), [.management](management.md "management.md"), [.marketing](marketing.md "marketing.md"), [.mba](mba.md "mba.md"), [.media](media.md "media.md"), [.memorial](memorial.md "memorial.md"), [.mobi](mobi.md "mobi.md"), [.moda](moda.md "moda.md"), [.moi](moi.md "moi.md"), [.money](money.md "money.md"), [.mortgage](mortgage.md "mortgage.md"), [.movie](movie.md "movie.md")
+[.maison](maison.md "maison.md"), [.management](management.md "management.md"), [.marketing](marketing.md "marketing.md"), [.mba](mba.md "mba.md"), [.media](media.md "media.md"), [.memorial](memorial.md "memorial.md"), [.mobi](mobi.md "mobi.md"), [.moda](moda.md "moda.md"), [.money](money.md "money.md"), [.mortgage](mortgage.md "mortgage.md"), [.movie](movie.md "movie.md")
 
 **N**
 
@@ -152,16 +151,14 @@ TLD indicates any restrictions.
 
 **S**
 
-[.sale](sale.md "sale.md"), [.sarl](sarl.md "sarl.md"), [.school](school.md "school.md"), [.schule](schule.md "schule.md"), [.services](services.md "services.md"), [.sex](sex.md "sex.md"), [.sexy](sexy.md "sexy.md"), [.shiksha](shiksha.md "shiksha.md"), [.shoes](shoes.md "shoes.md"), [.shop](shop.md "shop.md"),
-[.shopping](shopping.md "shopping.md"), [.show](show.md "show.md"), [.singles](singles.md "singles.md"), [.site](site.md "site.md"),
+[.sale](sale.md "sale.md"), [.sarl](sarl.md "sarl.md"), [.school](school.md "school.md"), [.schule](schule.md "schule.md"), [.services](services.md "services.md"), [.sex](sex.md "sex.md"), [.sexy](sexy.md "sexy.md"), [.shiksha](shiksha.md "shiksha.md"), [.shoes](shoes.md "shoes.md"), [.shopping](shopping.md "shopping.md"), [.show](show.md "show.md"), [.singles](singles.md "singles.md"), [.site](site.md "site.md"),
 [.ski](ski.md "ski.md"), [.soccer](soccer.md "soccer.md"), [.social](social.md "social.md"), [.solar](solar.md "solar.md"), [.solutions](solutions.md "solutions.md"), [.software](software.md "software.md"), [.space](space.md "space.md"), [.store](store.md "store.md"), [.stream](stream.md "stream.md"),
 [.studio](studio.md "studio.md"), [.style](style.md "style.md"), [.sucks](sucks.md "sucks.md"), [.supplies](supplies.md "supplies.md"), [.supply](supply.md "supply.md"), [.support](support.md "support.md"), [.surgery](surgery.md "surgery.md"), [.systems](systems.md "systems.md")
 
 **T**
 
 [.tattoo](tattoo.md "tattoo.md"), [.tax](tax.md "tax.md"), [.taxi](taxi.md "taxi.md"),
-[.team](team.md "team.md"), [.tech](tech.md "tech.md"),[.technology](technology.md "technology.md"), [.tennis](tennis.md "tennis.md"), [.theater](theater.md "theater.md"), [.tienda](tienda.md "tienda.md"), [.tips](tips.md "tips.md"), [.tires](tires.md "tires.md"), [.today](today.md "today.md"), [.tools](tools.md "tools.md"), [.top](top.md "top.md"),
-[.tours](tours.md "tours.md"), [.town](town.md "town.md"), [.toys](toys.md "toys.md"),
+[.team](team.md "team.md"), [.tech](tech.md "tech.md"),[.technology](technology.md "technology.md"), [.tennis](tennis.md "tennis.md"), [.theater](theater.md "theater.md"), [.tienda](tienda.md "tienda.md"), [.tips](tips.md "tips.md"), [.tires](tires.md "tires.md"), [.today](today.md "today.md"), [.tools](tools.md "tools.md"), [.tours](tours.md "tours.md"), [.town](town.md "town.md"), [.toys](toys.md "toys.md"),
 [.trade](trade.md "trade.md"), [.training](training.md "training.md"), [.tv](tv.md "tv.md")
 
 **U**

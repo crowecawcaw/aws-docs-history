@@ -1,7 +1,7 @@
 # Sharing Resolver query logging configurations with other AWS accounts
 
 You can share the query logging configurations that you created using one AWS account with other AWS accounts. To share configurations, the
-Route 53 Resolver console integrates with AWS Resource Access Manager. For more information about Resource Access Manager, see the [Resource Access Manager User Guide](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md").
+Route 53 VPC Resolver console integrates with AWS Resource Access Manager. For more information about Resource Access Manager, see the [Resource Access Manager User Guide](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md").
 
 Note the following:
 
@@ -13,7 +13,7 @@ same way that you associate VPCs with configurations that you created.
 **Deleting or unsharing a configuration**
 
 If you share a configuration with other accounts and then either delete the configuration or stop sharing it, and if one or more
-VPCs were associated with the configuration, Route 53 Resolver stops logging DNS queries that originate in those VPCs.
+VPCs were associated with the configuration, Route 53 VPC Resolver stops logging DNS queries that originate in those VPCs.
 
 **Maximum number of query logging configurations and VPCs that can be associated with a config**
 
@@ -29,7 +29,7 @@ AWS Region limit of 100. However, if all the VPCs are in a single
 account, then the account’s service limits might be needed to
 increased.
 
-For current Resolver quotas, see [Quotas on Route 53 Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
+For current VPC Resolver quotas, see [Quotas on Route 53 VPC Resolver](DNSLimitations.md#limits-api-entities-resolver "DNSLimitations.md#limits-api-entities-resolver").
 
 **Permissions**
 

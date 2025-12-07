@@ -4,7 +4,7 @@ DNS Firewall
 
 You can evaluate your DNS Firewall rules by using Amazon CloudWatch metrics and the Resolver query
 logs. The logs provide the domain list name for all alerts and blocking actions. For
-more information about Amazon CloudWatch, see [Monitoring Route 53 Resolver DNS Firewall rule
+more information about Amazon CloudWatch, see [Monitoring Resolver DNS Firewall rule
 groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md").
 
 When you enable DNS Firewall, associate it to a VPC, and you have logging enabled, `firewall_rule_group_id`, `firewall_rule_action`, and `firewall_domain_list_id` are the DNS Firewall specific fields provided within your
@@ -50,10 +50,10 @@ configuration later.
 
 **Query logs destination**
 
-Choose the type of AWS resource that you want Resolver to send
+Choose the type of AWS resource that you want VPC Resolver to send
 query logs to. For information about how to choose among the options
 (CloudWatch Logs log group, S3 bucket, and Firehose delivery stream), see [AWS resources that you
-can send Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md").
+can send VPC Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md").
 
 After you choose the type of resource, you can either create
 another resource of that type or choose an existing resource
@@ -71,7 +71,7 @@ created in the same Region.
 
 This query logging configuration will log DNS queries that
 originate in the VPCs that you choose. Check the check box for each
-VPC in the current Region that you want Resolver to log queries for,
+VPC in the current Region that you want VPC Resolver to log queries for,
 then choose **Choose**.
 
 ###### Note

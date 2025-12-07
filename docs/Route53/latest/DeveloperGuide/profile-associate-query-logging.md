@@ -1,10 +1,10 @@
-# Associate Resolver query logging
+# Associate VPC Resolver query logging
 
 configurations to a Route 53 Profile
 
-For instructions on how to create a Resolver query logging configuration, see [Configuring (Resolver query
+For instructions on how to create a VPC Resolver query logging configuration, see [Configuring (VPC Resolver query
 logging)](resolver-query-logging-configurations-managing.md#resolver-query-logs-configuring "resolver-query-logging-configurations-managing.md#resolver-query-logs-configuring"), and then choose a tab to
-associate Resolver configuration to a Route 53 Profile by using the Route 53 console, or
+associate VPC Resolver configuration to a Route 53 Profile by using the Route 53 console, or
 AWS CLI.
 
 - [Console](#profile-query-log-config-console "#profile-query-log-config-console")
@@ -27,7 +27,7 @@ logging configurations
    up to three configurations that you previously created. If you want to
    associate more than three query logging configurations, use the API. For more
    information, see [AssociateResourceToProfile](../APIReference/API_route53profiles_AssociateResourceToProfile.md "../APIReference/API_route53profiles_AssociateResourceToProfile.md").
-5. To create new Resolver query logging configurations, see [Configuring (Resolver query
+5. To create new VPC Resolver query logging configurations, see [Configuring (VPC Resolver query
    logging)](resolver-query-logging-configurations-managing.md#resolver-query-logs-configuring "resolver-query-logging-configurations-managing.md#resolver-query-logs-configuring").
 6. Choose **Associate**
 7. The association progress is displayed in the **Status**

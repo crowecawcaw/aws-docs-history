@@ -18,5 +18,5 @@ You can use Amazon Route 53 to route traffic to a variety of AWS resources.
 - [Routing traffic to Amazon OpenSearch Service domain endpoint](routing-to-open-search-service.md "routing-to-open-search-service.md")
 - [Routing traffic to Amazon VPC Lattice service domain endpoint](routing-to-vpc-lattice-service.md "routing-to-vpc-lattice-service.md")
 - [Routing traffic to other AWS resources](routing-to-additional-aws-resources.md "routing-to-additional-aws-resources.md")
-- [Creating Amazon Route 53 and Amazon Route 53 Resolver
+- [Creating Amazon Route 53 and Route 53 VPC Resolver
   resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")

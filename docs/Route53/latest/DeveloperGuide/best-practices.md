@@ -25,5 +25,5 @@ This section provides best practices for various components of Amazon Route 53,
 ###### Topics
 
 - [Best practices for Amazon Route 53 DNS](best-practices-dns.md "best-practices-dns.md")
-- [Best practices for Resolver](best-practices-resolver.md "best-practices-resolver.md")
+- [Best practices for VPC Resolver](best-practices-resolver.md "best-practices-resolver.md")
 - [Best practices for Amazon Route 53 health checks](best-practices-healthchecks.md "best-practices-healthchecks.md")

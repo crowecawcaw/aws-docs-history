@@ -6,10 +6,10 @@ When you enable DNSSEC validation for a virtual private cloud (VPC) in Amazon Ro
 DNSSEC signatures are cryptographically checked to ensure that the response was not
 tampered with. You enable DNSSEC validation on your VPC detail page.
 
-DNSSEC validation is applied by Route 53 Resolver to public signed names when it is performing
+DNSSEC validation is applied by VPC Resolver to public signed names when it is performing
 recursive DNS resolution.
 
-However, if the Route 53 Resolver is forwarding to another DNS resolver, that resolver is performing
+However, if the VPC Resolver is forwarding to another DNS resolver, that resolver is performing
 recursive DNS resolution and, therefore, must also apply the DNSSEC validation.
 
 ###### Important
@@ -20,12 +20,12 @@ disabling DNSSEC validation can take several minutes.
 
 ###### Note
 
-At this time, the Amazon Route 53 Resolver in your VPC (aka AmazonProvidedDNS) ignores the DO
+At this time, the Route 53 VPC Resolver in your VPC (aka AmazonProvidedDNS) ignores the DO
 (DNSSEC OK) EDNS header bit and the CD (Checking Disabled) bit in the DNS query. If
-you have configured DNSSEC, this means that while the Route 53 Resolver does perform DNSSEC
+you have configured DNSSEC, this means that while the VPC Resolver does perform DNSSEC
 validation, it doesn't return DNSSEC records nor set the AD bit in the response.
 Therefore, performing your own DNSSEC validation is not currently supported by the
-Route 53 Resolver. If you need to do this you will have to perform your own recursive DNS
+VPC Resolver. If you need to do this you will have to perform your own recursive DNS
 resolution.
 
 ###### To enable DNSSEC validation for a
@@ -34,7 +34,7 @@ VPC
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-2. In the navigation pane, under **Resolver**, choose
+2. In the navigation pane, under **VPC Resolver**, choose
    **VPCs**.
 3. Under **DNSSEC validation**, select the check box. If the
    check box is already selected, you can clear it to disable DNSSEC

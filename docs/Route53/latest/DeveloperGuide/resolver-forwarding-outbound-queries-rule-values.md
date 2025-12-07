@@ -12,11 +12,11 @@ Choose the applicable value:
   you want to forward DNS queries for a specified domain name to resolvers on your network.
 - **Delegate** – Choose this option when you want to
   delegate authority for a subdomain, hosted in a private hosted
-  zone, to your on-premises resolver (or to a Resolver on another
+  zone, to your on-premises resolver (or to a VPC Resolver on another
   VPC).
 - **System** – Choose this option when
-  you want Resolver to selectively override the behavior that is defined in a forwarding rule. When you create a system rule,
-  Resolver resolves DNS queries for specified subdomains that would otherwise be resolved by DNS resolvers on your network.
+  you want VPC Resolver to selectively override the behavior that is defined in a forwarding rule. When you create a system rule,
+  VPC Resolver resolves DNS queries for specified subdomains that would otherwise be resolved by DNS resolvers on your network.
 
 By default, forwarding rules apply to a domain name and all its subdomains. If you want to forward queries for a domain
 to a resolver on your network but you don't want to forward queries for some subdomains, you create a system rule for the subdomains.
@@ -41,11 +41,11 @@ You can apply a rule to as many VPCs as you want.
 DNS queries for this domain name are forwarded to the IP addresses that you specify in
 **Target IP addresses**. For example, you can
 specify a specific domain (example.com), a top-level domain (com), or a
-dot (.) to forward all DNS queries. For more information, see [How Resolver determines whether the domain name
+dot (.) to forward all DNS queries. For more information, see [How VPC Resolver determines whether the domain name
 in a query matches any rules](resolver-overview-forward-vpc-to-network-domain-name-matches.md "resolver-overview-forward-vpc-to-network-domain-name-matches.md").
 
 **Outbound endpoint**
-Resolver forwards DNS queries through the outbound endpoint that you specify here to the
+VPC Resolver forwards DNS queries through the outbound endpoint that you specify here to the
 IP addresses that you specify in **Target IP addresses**.
 
 **Target IP addresses**

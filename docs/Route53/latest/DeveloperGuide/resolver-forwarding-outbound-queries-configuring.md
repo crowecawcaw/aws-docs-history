@@ -1,6 +1,6 @@
 # Configuring outbound forwarding
 
-To configure Resolver to forward DNS queries that originate in your VPC to your network, perform the following procedures.
+To configure VPC Resolver to forward DNS queries that originate in your VPC to your network, perform the following procedures.
 
 ###### Important
 

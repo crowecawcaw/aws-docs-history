@@ -1,6 +1,6 @@
 # Region availability for
 
-Route 53 Resolver DNS Firewall
+Resolver DNS Firewall
 
 The DNS Firewall is available in the following AWS Regions:
 

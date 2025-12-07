@@ -22,10 +22,10 @@ Resolver on Outpost
    then navigate to **Outposts**.
 3. On the navigation bar, choose the Region where your AWS Outposts is
    located.
-4. Select the checkmark next to the Resolver that is in operational state and
+4. Select the checkmark next to the VPC Resolver that is in operational state and
    choose **Edit**.
 5. You can edit the following information:
-   - The Resolver name
+   - The VPC Resolver name
    - The instance type
    - The number of instances
 
@@ -46,7 +46,7 @@ an inbound endpoint
    then navigate to **Outposts**.
 3. On the navigation bar, choose the Region where your AWS Outposts is
    located.
-4. Select the checkmark next to the Resolver that is in operational state and
+4. Select the checkmark next to the VPC Resolver that is in operational state and
    choose **View details**.
 5. The **Status** column in the
    **Resolver on Outpost** page, contains one of the following
@@ -66,7 +66,7 @@ The Resolver on Outpost is updating instance types.
 
 **Action needed**
 
-This Resolver is unhealthy and can't be automatically recovered.
+This VPC Resolver is unhealthy and can't be automatically recovered.
 To resolve the problem, we recommend that you make sure the
 instance AWS Outposts can support Resolver on Outpost.
 
@@ -100,8 +100,8 @@ To delete a Resolver on Outpost, perform the following procedure.
    then navigate to **Outposts**.
 3. On the navigation bar, choose the Region where your AWS Outposts is
    located.
-4. Select the check box next to the Resolver that is in operational state and
+4. Select the check box next to the VPC Resolver that is in operational state and
    choose **Delete**.
-5. In the **Delete Resolver** dialog box, enter
+5. In the **Delete VPC Resolver** dialog box, enter
    `delete` in the text box, and choose
    **Delete**.

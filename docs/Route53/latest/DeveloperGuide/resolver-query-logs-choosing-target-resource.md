@@ -1,6 +1,6 @@
 # AWS resources that you
 
-can send Resolver query logs to
+can send VPC Resolver query logs to
 
 ###### Note
 
@@ -11,7 +11,7 @@ for the `PutLogEvents` operation. To learn more about increasing your
 CloudWatch limits, see [CloudWatch Logs
 quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md") in the _Amazon CloudWatch User Guide_.
 
-You can send Resolver query logs to the following AWS resources:
+You can send VPC Resolver query logs to the following AWS resources:
 
 **Amazon CloudWatch Logs (Amazon CloudWatch Logs) log group**
 
@@ -97,6 +97,6 @@ For more information, see the [Amazon Data Firehose Developer Guide](../../../fi
 
 For information about the pricing for Resolver query logging, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-CloudWatch Vended Logs charges apply when using Resolver logs, even when logs are published
+CloudWatch Vended Logs charges apply when using VPC Resolver logs, even when logs are published
 directly to Amazon S3. For more information, see [_Logs pricing_ at Amazon
 CloudWatch pricing](https://aws.amazon.com//cloudwatch/pricing/#Vended_Logs "https://aws.amazon.com//cloudwatch/pricing/#Vended_Logs").

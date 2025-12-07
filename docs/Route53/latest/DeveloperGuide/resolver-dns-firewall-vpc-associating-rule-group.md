@@ -1,6 +1,6 @@
 # Managing
 
-associations between your VPC and Route 53 Resolver DNS Firewall rule group
+associations between your VPC and Resolver DNS Firewall rule group
 
 ###### To view a rule group's VPC associations
 
