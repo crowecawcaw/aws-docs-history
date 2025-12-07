@@ -38,7 +38,7 @@ following actions.
 
 
 
-    ![Deleting an environment from the environment details page](/images/cloud9/latest/user-guide/images/console-delete-env.png)
+    ![Deleting an environment from the environment details page](images/console-delete-env.png)
     * Select the card for the environment, and then choose the
      **Delete** button.
 
