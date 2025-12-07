@@ -148,7 +148,7 @@ JSON
  "Effect": "Allow",
  "Principal": "*",
  "Action": "acm-pca:IssueCertificate",
- "Resource":"arn:aws:acm-pca:`us-east-1`:`123456789012`:certificate-authority/`CA_ID`/certificate/`certificate_ID`",
+ "Resource":"arn:aws:acm-pca:`us-east-1`:`123456789012`:certificate-authority/`CA_ID`",
  "Condition": {
  "StringEquals": {
  "acm-pca:TemplateArn": "arn:aws:acm-pca:::template/EndEntityCertificate/V1",
@@ -170,7 +170,7 @@ JSON
  "acm-pca:ListPermissions",
  "acm-pca:ListTags"
  ],
- "Resource":"arn:aws:acm-pca:`us-east-1`:`123456789012`:certificate-authority/`CA_ID`/certificate/`certificate_ID`",
+ "Resource":"arn:aws:acm-pca:`us-east-1`:`123456789012`:certificate-authority/`CA_ID`",
  "Condition": {
  "StringEquals": {
  "aws:PrincipalOrgID": "`o-a1b2c3d4z5`"
