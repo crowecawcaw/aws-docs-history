@@ -1,25 +1,21 @@
-# Listing and connecting to server instances
+# Managing accounts
 
-You can view a list of Amazon EC2 instances running your Elastic Beanstalk application environment through
-the AWS Toolkit for Visual Studio or from the AWS Management Console. You can connect to these
-instances using Remote Desktop Connection. For information about listing and connecting to your
-server instances using the AWS Management Console, see [Listing and connecting to server instances](using-features.md "using-features.md"). The following section steps you through viewing
-and connecting you to your server instances using the AWS Toolkit for Visual Studio.
+##
 
-###### To view and connect to Amazon EC2 instances for an environment
+If you want to set up different AWS accounts to perform different tasks, such as testing,
+staging, and production, you can add, edit, and delete accounts using the AWS Toolkit for
+Visual Studio.
 
-1. In Visual Studio, in **AWS Explorer**, expand the **Amazon
-   EC2** node and double-click **Instances**.
-2. Right-click the instance ID for the Amazon EC2 instance running in your application's
-   load balancer in the **Instance** column and select **Open Remote
-   Desktop** from the context menu.
+###### To manage multiple accounts
 
-![Open remote desktop dialog box](images/aeb-vs-rdp-login.png) 3. Select **Use EC2 keypair to log on** and paste the contents of your
-private key file that you used to deploy your application in the **Private
-key** box. Alternatively, enter your user name and password in the **User
-name** and **Password** text boxes.
+1. In Visual Studio, on the **View** menu, click **AWS
+   Explorer**.
+2. Beside the **Account** list, click the **Add
+   Account** button.
 
-###### Note
+![AWS explorer tab](images/aeb-aws-explorer-tab.png)
 
-If the key pair is stored inside the Toolkit, the text box does not
-appear. 4. Click **OK**.
+The **Add Account** dialog box appears.
+
+![Add account dialog box](images/aeb-vs-add-account.png) 3. Fill in the requested information. 4. Your account information now appears on the **AWS Explorer** tab.
+When you publish to Elastic Beanstalk, you can select which account you would like to use.
