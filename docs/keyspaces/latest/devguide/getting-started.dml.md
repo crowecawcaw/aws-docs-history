@@ -1,103 +1,53 @@
-# Delete data from a table using the CQL `DELETE` statement
+# Update data in an Amazon Keyspaces
 
-To delete data in your `book_awards` table, use the `DELETE`
-statement.
+table using CQL
 
-You can delete data from a row or from a partition. Be careful when deleting data, because
-deletions are irreversible.
+To update the data in your `book_awards` table, use the
+`UPDATE` statement.
 
-Deleting one or all rows from a table doesn't delete the table. Thus you can
-repopulate it with data. Deleting a table deletes the table and all data in it. To use
-the table again, you must re-create it and add data to it. Deleting a keyspace deletes
-the keyspace and all tables within it. To use the keyspace and tables, you must
-re-create them, and then populate them with data. You can use Amazon Keyspaces Point-in-time (PITR) recovery to
-help restore deleted tables, to learn more see [Backup and restore data with point-in-time recovery for Amazon Keyspaces](PointInTimeRecovery.md "PointInTimeRecovery.md") .
-To learn how to restore a deleted table with PITR enabled, see [Restore a deleted table using Amazon Keyspaces PITR](restoredeleted.md "restoredeleted.md").
-
-## Delete cells
-
-Deleting a column from a row removes the data from the specified cell. When you
-display that column using a `SELECT` statement, the data is displayed as
-`null`, though a null value is not stored in that
-location.
-
-The general syntax to delete one or more specific columns is as follows.
+The general form of the `UPDATE` statement is as follows.
 
 ```
-DELETE column_name1[, column_name2...] FROM table_name WHERE condition ;
+UPDATE `table_name` SET `column_name`=`new_value` WHERE `primary_key`=`value` ;
 ```
 
-In your `book_awards` table, you can see that the title of the
-book that won the first price of the 2020 "Richard Roe" price is "Long Summer".
-Imagine that this title has been recalled, and you need to delete the data from this cell.
+###### Tip
 
-###### To delete a specific cell
-
-1. Open AWS CloudShell and connect to Amazon Keyspaces using the following command. Make sure to update `us-east-1`
-   with your own Region.
+- You can update multiple columns by using a comma-separated list of
+  `column_names` and values, as in the following example.
 
 ```
-cqlsh-expansion cassandra.`us-east-1`.amazonaws.com 9142 --ssl
+UPDATE my_table SET col1='new_value_1', col2='new_value2' WHERE col3='1' ;
 ```
 
-2. Run the following `DELETE` query.
+- If the primary key is composed of multiple columns, all primary key columns
+  and their values must be included in the `WHERE` clause.
+- You cannot update any column in the primary key because that would change the primary
+  key for the record.
+
+###### To update a single cell
+
+Using your `book_awards` table, change the name of a publisher the for winner of the non-fiction Wolf awards in 2020.
 
 ```
-DELETE book_title FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
+UPDATE book_awards SET publisher='new Books' WHERE year = 2020 AND award='Wolf' AND category='Non-Fiction' AND rank=1;
 ```
 
-3. Verify that the delete request was made as expected.
+Verify that the publisher is now `new Books`.
 
 ```
-SELECT * FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
+SELECT * FROM book_awards WHERE year = 2020 AND award='Wolf' AND category='Non-Fiction' AND rank=1;
 ```
 
-The output of this statement looks like this.
+The statement should return the following output.
 
 ```
  `year | award | category | rank | author | book_title | publisher
-------+-------------+----------+------+-------------------+------------+---------------
- 2020 | Richard Roe | Fiction | 1 | Alejandro Rosalez | null | SomePublisher`
+------+-------+-------------+------+-------------+------------------+-----------
+ 2020 | Wolf | Non-Fiction | 1 | Wang Xiulan | History of Ideas | new Books`
 ```
 
-## Delete rows
+## Try it
 
-There might be a time when you need to delete an entire row, for example to meet
-a data deletion request. The general syntax for deleting a row is as
-follows.
-
-```
-DELETE FROM table_name WHERE condition ;
-```
-
-###### To delete a row
-
-1. Open AWS CloudShell and connect to Amazon Keyspaces using the following command. Make sure to update `us-east-1`
-   with your own Region.
-
-```
-cqlsh-expansion cassandra.`us-east-1`.amazonaws.com 9142 --ssl
-```
-
-2. Run the following `DELETE` query.
-
-```
-DELETE FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
-```
-
-3. Verify that the delete was made as expected.
-
-```
-SELECT * FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
-```
-
-The output of this statement looks like this after the row has been deleted.
-
-```
- `year | award | category | rank | author | book_title | publisher
-------+-------+----------+------+--------+------------+-----------
-
-(0 rows)`
-```
-
-You can delete expired data automatically from your table using Amazon Keyspaces Time to Live, for more information, see [Expire data with Time to Live (TTL) for Amazon Keyspaces (for Apache Cassandra)](TTL.md "TTL.md").
+**Advanced:** The winner of the 2020 fiction "Kwezi Manu Prize" has changed their name. Update this record
+to change the name to `'Akua Mansa-House'`.

@@ -1,16 +1,16 @@
-# Create a new data model with NoSQL
+# Edit existing data models with NoSQL
 
 Workbench
 
-You can use the NoSQL Workbench data modeler to design new data models based on your
-application's data access patterns. To create a new data model for Amazon Keyspaces, you can use the NoSQL Workbench data modeler to
-create keyspaces, tables, and columns. Follow these steps to create a new data
-model.
+You can use the data modeler to import and modify existing data models created using NoSQL Workbench. The data modeler
+also includes a few sample data models to help you get started with data modeling.
+The data models you can edit with NoSQL Workbench can be data models that are imported from a file, the provided sample data models,
+or data models that you created previously.
 
-1. To create a new keyspace, choose the plus sign under
+1. To edit a keyspace, choose the edit symbol under
    **Keyspace**.
 
-In this step, choose the following properties and settings.
+In this step, you can edit the following properties and settings.
 
     * **Keyspace name** – Enter the name of the new
      keyspace.
@@ -25,12 +25,10 @@ In this step, choose the following properties and settings.
      ways—for example, by purpose, owner, environment, or other
      criteria. To learn more about tags for Amazon Keyspaces resources, see [Working with tags and labels for Amazon Keyspaces resources](tagging-keyspaces.md "tagging-keyspaces.md").
 
-2. Choose **Add keyspace definition** to create the
-   keyspace.
+2. Choose **Save edits** to update the keyspace.
 
-![Console screenshot that shows how to create a keyspace.](images/workbench/key_nosql_addkey.png) 3. To create a new table, choose the plus sign next to
-**Tables**. In this step, you define the following
-properties and settings.
+![Console screenshot that shows how to edit an existing table.](images/workbench/key_nosql_table.png) 3. To edit a table, choose **Edit** next to the table name. In
+this step, you can update the following properties and settings.
 
     * **Table name** – The name of the new
      table.
@@ -48,11 +46,7 @@ properties and settings.
      example, by purpose, owner, environment, or other criteria. To learn
      more about tags for Amazon Keyspaces resources, see [Working with tags and labels for Amazon Keyspaces resources](tagging-keyspaces.md "tagging-keyspaces.md").
 
-4. Choose **Add table definition** to create the new
-   table.
-5. Repeat these steps to create additional tables.
-6. Continue to [Visualizing data models with NoSQL
+4. Choose **Save edits** to update the table.
+5. Continue to [Visualizing data models with NoSQL
    Workbench](workbench.md#workbench.datamodel.visualize "workbench.md#workbench.datamodel.visualize") to visualize the
-   data model that you created.
-
-![Console screenshot that shows how to create a new table.](images/workbench/key_nosql_tableadd.png)
+   data model that you updated.
