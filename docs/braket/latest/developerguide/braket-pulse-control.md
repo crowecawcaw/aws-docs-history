@@ -11,7 +11,6 @@ concepts for pulse control in Braket.
 - [Frames](#braket-frame "#braket-frame")
 - [Ports](#braket-port "#braket-port")
 - [Waveforms](#braket-waveform "#braket-waveform")
-- [Roles of frames and ports](braket-roles-frames-ports.md "braket-roles-frames-ports.md")
 - [Working with Hello Pulse](braket-hello-pulse.md "braket-hello-pulse.md")
 - [Accessing native gates using pulses](braket-native-gate-pulse.md "braket-native-gate-pulse.md")
 

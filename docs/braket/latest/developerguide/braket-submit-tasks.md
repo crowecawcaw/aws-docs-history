@@ -150,8 +150,6 @@ frames of the following types for the Ankaa-3 system.
 `flux_tx`, `charge_tx`, `readout_rx`, `readout_tx`
 ```
 
-For more information about these frames, see [Roles of frames and ports](braket-roles-frames-ports.md "braket-roles-frames-ports.md").
-
 ## QuEra
 
 QuEra offers neutral-atom based devices that can run Analog Hamiltonian

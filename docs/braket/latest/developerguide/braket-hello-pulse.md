@@ -30,8 +30,7 @@ qubit. Pulse sequence can usually be applied to frames. With some exceptions suc
 and delay, which can be applied to qubits. Before constructing the pulse sequence you must
 retrieve the available frames. The drive frame is used for applying the pulse for Rabi oscillation,
 and the readout frame is for measuring the qubit state. This example, uses the frames of
-qubit 25. For more information about frames, see
-[Roles of frames and ports](braket-roles-frames-ports.md "braket-roles-frames-ports.md").
+qubit 25.
 
 ```
 drive_frame = device.frames["Transmon_25_charge_tx"]
