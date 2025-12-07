@@ -16,16 +16,15 @@ Image (AMI).
 
 Image Builder supports the following Windows operating system ISO disk images:
 
+- Windows 11 Enterprise version 25H2 (x64)
 - Windows 11 Enterprise version 24H2 (x64)
 - Windows 11 Enterprise version 23H2 (x64)
-- Windows 11 Enterprise version 22H2 (x64)
 
 Image Builder does not support the following Windows operating system ISO disk images:
 
 - Long-Term Servicing Channel (LTSC) images
 - ISO disk images created from the Windows Media Creation Tool
 - Evaluation images
-- Multi-edition ISO
 
 ## Prerequisites to import an ISO disk image
 
@@ -86,7 +85,7 @@ For more information, see [Manage Image Builder infrastructure configuration](ma
 Before you start the import process, make sure that you've met all of the
 [Prerequisites](#iso-import-prereq "#iso-import-prereq").
 
-The import process additionally installs the following software and drivers on your
+The import process installs the following software and drivers on your
 image:
 
 - EC2Launch v2
@@ -94,7 +93,13 @@ image:
 - AWS NVMe driver
 - AWS ENA network driver
 - AWS PCI Serial Driver
-- EC2 Windows utilities
+- EC2 Windows Utility Driver
+- Microsoft Defender Update Kit
+
+The import process makes the following configuration updates on your
+image:
+
+- Configures the system to use the Amazon Time server.
 
 Console
 To import an ISO disk image with the Image Builder console, follow these steps:
