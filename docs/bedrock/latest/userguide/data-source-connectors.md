@@ -4,6 +4,10 @@ After finishing the configurations for your knowledge base, you connect a suppor
 
 Amazon Bedrock Knowledge Bases supports connecting to unstructured data sources or to structured data stores through a query engine. Select a topic to learn how to connect to that type of data source:
 
+###### Multimodal content support
+
+Multimodal content (images, audio, and video files) is only supported with Amazon S3 and custom data sources. Other data source types will skip multimodal files during ingestion. For comprehensive guidance on working with multimodal content, see [Build a knowledge base for multimodal content](kb-multimodal.md "kb-multimodal.md").
+
 To learn how to connect to a data source using the Amazon Bedrock console, select the topic that corresponds to your data source type at the bottom of this page:
 
 To connect to a data source using the Amazon Bedrock API, send a [CreateDataSource](../APIReference/API_agent_CreateDataSource.md "../APIReference/API_agent_CreateDataSource.md") request with an [Agents for Amazon Bedrock runtime endpoint](../../../general/latest/gr/bedrock.md#bra-rt "../../../general/latest/gr/bedrock.md#bra-rt").

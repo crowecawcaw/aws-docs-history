@@ -19,7 +19,7 @@ Unstructured data refers to data that isn't forced into a predefined structure. 
 
 A data source contains the raw form of your documents. To optimize the query process, a knowledge base converts your raw data into _vector embeddings_, a numerical representation of the data, to quantify similarity to queries that are also converted into vector embeddings. Amazon Bedrock Knowledge Bases uses the following resources in the process of converting your data source:
 
-- Embedding model – A foundation model that converts your data into vector embeddings.
+- Embedding model – A foundation model that converts your data into vector embeddings. For multimodal data containing both text and images, you can use multimodal embedding models like Amazon Titan Multimodal Embeddings G1 or Cohere Embed v3.
 - Vector store – A service that stores the vector representation of your data. The following vector stores are supported:
   - Amazon OpenSearch Serverless
   - Amazon Neptune
@@ -34,7 +34,7 @@ The process of converting your data into vector embeddings is called _ingestion_
 
 1. The data is parsed by your chosen parser. For more information about parsing, see [Parsing options for your data source](kb-advanced-parsing.md "kb-advanced-parsing.md").
 2. Each document in your data source is split into _chunks_, subdivisions of the data that can be defined by the number of tokens and other parameters. For more information about chunking, see [How content chunking works for knowledge bases](kb-chunking.md "kb-chunking.md").
-3. Your chosen embedding model converts the data into vector embeddings.
+3. Your chosen embedding model converts the data into vector embeddings. For multimodal content, images are embedded as visual vectors while text is embedded as text vectors, enabling search across both modalities.
 4. The vector embeddings are written to a vector index in your chosen vector store.
 
 After the ingestion process is complete, your knowledge base is ready to be queried. For information about how to query and retrieve information from your knowledge base, see [Retrieving information from data sources using Amazon Bedrock Knowledge Bases](kb-how-retrieval.md "kb-how-retrieval.md").

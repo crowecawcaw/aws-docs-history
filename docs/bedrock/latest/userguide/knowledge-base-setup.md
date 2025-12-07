@@ -278,20 +278,15 @@ you took note of.
 
 Amazon S3 Vectors
 Amazon S3 Vectors provides cost-effective vector storage in Amazon S3 that can be used to store and query
-vector data. It provides durable and elastic storage of large vector datasets with
-sub-second query performance. Amazon S3 Vectors is best suited for infrequent query workloads, and can
-help reduce costs when used in retrieval augmented generation (RAG) and semantic search applications.
+vector data. It provides durable and elastic storage of large vector datasets with sub-second query performance.
+Amazon S3 Vectors is best suited for infrequent query workloads, and can help reduce costs when used in retrieval
+augmented generation (RAG) and semantic search applications.
 
-###### Important
-
-The Amazon S3 Vectors integration with Amazon Bedrock Knowledge Bases is in preview release
-and is subject to change.
-
-Amazon S3 Vectors introduces S3 vector buckets, which you can query based on semantic meaning and
+Amazon S3 Vectors introduces S3 vector buckets, which contain vector indexes that you can query based on semantic meaning and
 similarity. It can be used to deliver sub-second query response times and reduce costs while storing,
 accessing, and querying vector data at scale without provisioning any infrastructure. Inside a
 vector bucket, you can organize your vector data within vector indexes. Your vector bucket can have
-multiple vector indexes, and each vector index can hold millions of vectors. For more information,
+multiple vector indexes. For more information,
 see [Amazon S3 Vectors](../../../AmazonS3/latest/userguide/s3-vectors.md "../../../AmazonS3/latest/userguide/s3-vectors.md")
 in the _Amazon S3 User Guide_.
 
@@ -301,25 +296,17 @@ in the _Amazon S3 User Guide_.
   Amazon S3 Vectors are available. For information about regional availability of Amazon S3 Vectors, see
   [Amazon S3 Vectors](../../../AmazonS3/latest/userguide/s3-vectors.md "../../../AmazonS3/latest/userguide/s3-vectors.md")
   in the _Amazon S3 User Guide_.
-- When creating a knowledge base for Amazon S3 Vectors, hierarchical chunking is not supported. For information about chunking strategies, see [How content chunking works for knowledge bases](kb-chunking.md "kb-chunking.md").
+- When using very high token counts with hierarchical chunking in Amazon Bedrock Knowledge Bases, you can exceed the maximum metadata size limits as parent-child chunk relationships and hierarchical context are stored as non-filterable metadata in Amazon S3 Vectors. For more information about metadata size limits per vector, see [Limitations and restrictions](../../../AmazonS3/latest/userguide/s3-vectors-limitations.md "../../../AmazonS3/latest/userguide/s3-vectors-limitations.md") in the _Amazon S3 User Guide_. For information about chunking strategies, see [How content chunking works for knowledge bases](kb-chunking.md "kb-chunking.md").
 
 ###### Metadata support
 
-After creating a vector index, when adding vector data to the index, you can attach
-metadata as key-value pairs to each vector. By default, all metadata attached to a vector
-is filterable and can be used as filters in a similarity search query. The filterable metadata can
-be used to filter incoming queries based on a set of conditions, such as dates, categories,
-or user preferences.
+You can attach metadata as key-value pairs to each vector. By default, metadata is filterable and can be used in similarity search queries to filter by conditions such as dates, categories, or user preferences.
 
-You can also configure the metadata to be non-filterable when creating the vector index. Amazon S3 vector
-indexes support string, boolean, and number types. It can support up to a maximum of 40 KB of metadata
-for each vector. Within this 40 KB of metadata, the filterable metadata can be up to a maximum of 2 KB
-for each vector. By default, the filterable metadata also includes system metadata and chunk text so if you require additional space for the user metadata, you must configure it as non-filterable. The filterable metadata space can be used to store the embeddings after the knowledge
-base has been created.
+You can also configure metadata to be non-filterable when creating the vector index. Amazon S3 vector indexes support string, boolean, and number types.
 
-If the metadata exceeds any of these limits, it results in an error when creating the vector index.
-For more information, see [Amazon S3 Vectors](../../../AmazonS3/latest/userguide/s3-vectors.md "../../../AmazonS3/latest/userguide/s3-vectors.md") in the _Amazon S3 User
-Guide_.
+When using Amazon S3 Vectors with Amazon Bedrock Knowledge Bases, you can attach up to 1 KB of custom metadata (including both filterable and non-filterable metadata) and 35 metadata keys per vector. For more information about metadata size limits per vector, see [Limitations and restrictions](../../../AmazonS3/latest/userguide/s3-vectors-limitations.md "../../../AmazonS3/latest/userguide/s3-vectors-limitations.md") in the _Amazon S3 User Guide_.
+
+If the metadata exceeds these limits, the ingestion job will throw an exception when populating the vector index. For more information, see [Amazon S3 Vectors](../../../AmazonS3/latest/userguide/s3-vectors.md "../../../AmazonS3/latest/userguide/s3-vectors.md") in the _Amazon S3 User Guide_.
 
 ###### Required permissions
 
@@ -384,16 +371,9 @@ Note the following considerations when creating your vector bucket and index in 
    non-filterable metadata in the **Non-filterable metadata**
    field.
 
-###### Note
-
-If you expect your text chunks to exceed the 2 KB metadata space,
-we recommend that you add the text field `AMAZON_BEDROCK_TEXT`
-and `AMAZON_BEDROCK_METADATA` as non-filterable metadata keys. Your knowledge base will use these fields
-to store the text chunks and system metadata.
-
 You can configure up to a maximum of 10 non-filterable metadata keys.
 Choose **Add key** and then add `AMAZON_BEDROCK_TEXT`
-and `AMAZON_BEDROCK_METADATA` as keys. 5. Create the vector index and take note of the **Amazon Resource
+and `AMAZON_BEDROCK_METADATA` as keys. 5. Under **Encryption**, choose **Specify encryption type**. You have the option to **Use bucket settings for encryption** or override the encryption settings for the vector index. If you override the bucket-level settings, you have the option to specify encryption type for the vector index as **Server-side encryption with AWS Key Management Service keys (SSE-KMS)** or the default **Server-side encryption with Amazon S3 managed keys (SSE-S3)**. For more information about setting encryption configuration for vector indexes, see [Data protection and encryption in Amazon S3 Vectors](../../../AmazonS3/latest/userguide/s3-vectors-data-encryption.md "../../../AmazonS3/latest/userguide/s3-vectors-data-encryption.md"). 6. Under **Tags (Optional)**, you can add tags as key-value pairs to help track and organize vector index costs using AWS Billing and Cost Management. Enter a **Key** and a **Value**. To add another tag, choose **Add Tag**. You can enter up to 50 tags for a vector index. For more information see [Using tags with Amazon S3 vector indexes](../../../console/s3/vector-index-create-with-tag.md "../../../console/s3/vector-index-create-with-tag.md"). 7. Create the vector index and take note of the **Amazon Resource
 Name (ARN)** of the vector index for when you create the knowledge base.
 
 ###### Create knowledge base for S3 vector bucket

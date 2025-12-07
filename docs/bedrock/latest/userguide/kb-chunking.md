@@ -10,15 +10,28 @@ be quantitatively compared.
 - [Standard chunking](#kb-standard-chunking "#kb-standard-chunking")
 - [Hierarchical chunking](#kb-hiearchical-chunking "#kb-hiearchical-chunking")
 - [Semantic chunking](#kb-semantic-chunking "#kb-semantic-chunking")
+- [Multimodal content chunking](#kb-multimodal-chunking "#kb-multimodal-chunking")
 
 ## Standard chunking
 
 Amazon Bedrock supports the following standard approaches to chunking:
 
+###### Note
+
+Text chunking strategies apply only to text documents. For multimodal content (audio, video, images), chunking occurs at the embedding model level, not through these text-based strategies.
+
 - Fixed-size chunking: You can configure the desired chunk size by specifying the number of tokens per
   chunk, and an overlap percentage, providing flexibility to align with your specific requirements. You can
   set the maximum number of tokens that must not exceed for a chunk and the overlap percentage between consecutive
   chunks.
+
+###### Note
+
+For parsed content (such as content using advanced parsers or converted from HTML), Amazon Bedrock Knowledge Bases
+may chunk content to optimize for best results. The chunker respects logical document boundaries
+(such as pages or sections) and does not merge content across these boundaries, even when
+increasing the maximum token size would otherwise allow for larger chunks.
+
 - Default chunking: Splits content into text chunks of approximately 300 tokens. The chunking process honors
   sentence boundaries, ensuring that complete sentences are preserved within each chunk.
 
@@ -41,7 +54,7 @@ their parent chunks when appropriate.
 ###### Note
 
 - Since child chunks get replaced by parent chunks during retrieval, the returned number of results might be less than the requested amount.
-- Hierarchical chunking is not supported when using S3 vector bucket as your vector store.
+- Hierarchical chunking is not recommended when using S3 vector bucket as your vector store. When using high number of tokens for chunking (over 8000 tokens combined), you may run into metadata size limitations.
 
 For hierarchical chunking, Amazon Bedrock knowledge bases supports specifying two levels or the following depth for chunking:
 
@@ -80,3 +93,14 @@ There are additional costs to using semantic chunking due to its use of a
 foundation model. The cost depends on the amount of data you have. See
 [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") for more
 information on the cost of foundation models.
+
+## Multimodal content chunking
+
+For multimodal content (audio, video, images), chunking behavior differs from text documents:
+
+- **Nova multimodal embeddings:** Chunking occurs at the embedding model level. You can configure audio and video chunk duration from 1-30 seconds (default: 5 seconds). For video files, only the video chunk duration applies, even if the video contains audio. Audio chunk duration only applies to standalone audio files.
+- **Bedrock Data Automation (BDA) parser:** Content is first converted to text (transcripts and scene summaries), then standard text chunking strategies are applied to the converted text.
+
+###### Note
+
+When using Nova multimodal embeddings, the text chunking strategies configured in your knowledge base only affect text documents in your data source, not audio, video, or image files.

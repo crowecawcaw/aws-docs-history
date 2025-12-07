@@ -28,7 +28,9 @@ A policy cannot be shared between multiple roles when the service role is used.
 - [Trust relationship](#kb-permissions-trust "#kb-permissions-trust")
 - [Permissions to access Amazon Bedrock models](#kb-permissions-access-models "#kb-permissions-access-models")
 - [Permissions to access your data sources](#kb-permissions-access-ds "#kb-permissions-access-ds")
+- [Permissions to decrypt your AWS KMS key for encrypted data sources in Amazon S3](#kb-permissions-kms-datasource "#kb-permissions-kms-datasource")
 - [Permissions to chat with your document](#kb-permissions-chatdoc "#kb-permissions-chatdoc")
+- [Permissions for multimodal content](#kb-permissions-multimodal "#kb-permissions-multimodal")
 - [Permissions to access your Amazon Kendra
   GenAI index](#kb-permissions-kendra "#kb-permissions-kendra")
 - [Permissions to access your vector database in Amazon OpenSearch Serverless](#kb-permissions-oss "#kb-permissions-oss")
@@ -312,6 +314,32 @@ JSON
 
 ```
 
+## Permissions to decrypt your AWS KMS key for encrypted data sources in Amazon S3
+
+If you encrypted your data sources in Amazon S3 with a AWS KMS key, attach the following policy to your Amazon Bedrock Knowledge Bases service role to allow Amazon Bedrock to decrypt your key. Replace `${Region}` and `${AccountId}` with the Region and account ID to which the key belongs. Replace `${KeyId}` with the ID of your AWS KMS key.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": [
+            "kms:Decrypt"
+        ],
+        "Resource": [
+            "arn:aws:kms:`${Region}`:`${AccountId}`:key/`${KeyId}`"
+        ],
+        "Condition": {
+            "StringEquals": {
+                "kms:ViaService": [
+                    "s3.`${Region}`.amazonaws.com"
+                ]
+            }
+        }
+    }]
+}
+```
+
 ## Permissions to chat with your document
 
 Attach the following policy to provide permissions for the role to use Amazon Bedrock models to chat with your document:
@@ -386,6 +414,86 @@ JSON
  ]
 }`
 
+```
+
+## Permissions for multimodal content
+
+When working with multimodal content (images, audio, video), additional permissions are required depending on your processing approach.
+
+### Nova Multimodal Embeddings permissions
+
+When using Nova Multimodal Embeddings, attach the following policy to provide permissions for asynchronous model invocation:
+
+```
+{
+    "Sid": "BedrockInvokeModelStatement",
+    "Effect": "Allow",
+    "Action": ["bedrock:InvokeModel"],
+    "Resource": [
+        "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-*-multimodal-embeddings-*",
+        "arn:aws:bedrock:us-east-1::async-invoke/*"
+    ],
+    "Condition": {
+        "StringEquals": {
+            "aws:ResourceAccount": ""
+        }
+    }
+},
+{
+    "Sid": "BedrockGetAsyncInvokeStatement",
+    "Effect": "Allow",
+    "Action": ["bedrock:GetAsyncInvoke"],
+    "Resource": ["arn:aws:bedrock:us-east-1::async-invoke/*"],
+    "Condition": {
+        "StringEquals": {
+            "aws:ResourceAccount": ""
+        }
+    }
+}
+```
+
+### Bedrock Data Automation (BDA) permissions
+
+When using BDA to process multimodal content, attach the following policy:
+
+```
+{
+    "Sid": "BDAInvokeStatement",
+    "Effect": "Allow",
+    "Action": ["bedrock:InvokeDataAutomationAsync"],
+    "Resource": [
+        "arn:aws:bedrock:us-east-1:aws:data-automation-project/public-rag-default",
+        "arn:aws:bedrock:us-east-1::data-automation-profile/*"
+    ]
+},
+{
+    "Sid": "BDAGetStatement",
+    "Effect": "Allow",
+    "Action": ["bedrock:GetDataAutomationStatus"],
+    "Resource": "arn:aws:bedrock:us-east-1::data-automation-invocation/*"
+}
+```
+
+If you use customer-managed AWS KMS keys with BDA, also attach the following policy. Replace `account-id`, `region`, and `key-id` with your specific values:
+
+```
+{
+    "Sid": "KmsPermissionStatementForBDA",
+    "Effect": "Allow",
+    "Action": [
+        "kms:GenerateDataKey",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:CreateGrant"
+    ],
+    "Resource": ["arn:aws:kms:`region`:`account-id`:key/`key-id`"],
+    "Condition": {
+        "StringEquals": {
+            "aws:ResourceAccount": "`account-id`",
+            "kms:ViaService": "bedrock.`region`.amazonaws.com"
+        }
+    }
+}
 ```
 
 ## Permissions to access your Amazon Kendra
@@ -561,11 +669,6 @@ JSON
 
 If you choose to use Amazon S3 Vectors for your knowledge base, attach the following
 policy to your Amazon Bedrock Knowledge Bases service role to allow access to the vector index.
-
-###### Important
-
-The Amazon S3 Vectors integration with Amazon Bedrock Knowledge Bases is in preview release
-and is subject to change.
 
 In the policy, replace
 `${Region}` and `${AccountId}` with the Region and account

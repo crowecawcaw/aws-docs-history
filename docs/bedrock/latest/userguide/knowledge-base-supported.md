@@ -71,12 +71,14 @@ Amazon Bedrock Knowledge Bases supports vector embeddings using the following fo
 
 Embedding models support the following vector types.
 
-| Model name                           | Supported vector type  | Supported number of dimensions |
-| ------------------------------------ | ---------------------- | ------------------------------ |
-| Amazon Titan Embeddings G1<br>• Text | Floating-point         | 1536                           |
-| Amazon Titan Text Embeddings V2      | Floating-point, binary | 256, 512, 1024                 |
-| Cohere Embed (English)               | Floating-point, binary | 1024                           |
-| Cohere Embed (Multilingual)          | Floating-point, binary | 1024                           |
+| Model name                            | Supported vector type  | Supported number of dimensions |
+| ------------------------------------- | ---------------------- | ------------------------------ |
+| Amazon Titan Embeddings G1<br>• Text  | Floating-point         | 1536                           |
+| Amazon Titan Text Embeddings V2       | Floating-point, binary | 256, 512, 1024                 |
+| Cohere Embed (English)                | Floating-point, binary | 1024                           |
+| Cohere Embed (Multilingual)           | Floating-point, binary | 1024                           |
+| Amazon Titan Multimodal Embeddings G1 | Floating-point         | 1024                           |
+| Cohere Embed v3 (Multimodal)          | Floating-point, binary | 1024                           |
 
 ## Supported models and Regions for parsing
 

@@ -12,6 +12,7 @@ purchase Provisioned Throughput, the model ID to use when purchasing Provisioned
 
 | Provider  | Model                          | Model ID                                       | Single-region model support                                                                                                                |
 | --------- | ------------------------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Amazon    | Nova 2 Lite                    | amazon.nova-2-lite-v1:0:256k                   | us-east-1                                                                                                                                  |
 | Amazon    | Nova Canvas                    | amazon.nova-canvas-v1:0                        | us-east-1                                                                                                                                  |
 | Amazon    | Nova Lite                      | amazon.nova-lite-v1:0:24k                      | us-east-1                                                                                                                                  |
 | Amazon    | Nova Lite                      | amazon.nova-lite-v1:0:300k                     | us-east-1                                                                                                                                  |

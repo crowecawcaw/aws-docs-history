@@ -15,6 +15,17 @@ Amazon Bedrock offers the following playgrounds for you to experiment with:
 Speech-to-speech models such as Amazon Nova Sonic are only available in chat mode. Compare mode is not supported for speech-to-speech models.
 
 - **Image** – Submit a text prompt to generate an image. You can also submit an image prompt and specify whether to edit it or to generate variations of it.
+- **Multi-modal (preview)** – Submit text prompts and generate multi-modal content. It also supports chat and single prompt modes.
+
+- **Chat/text** – Submit text prompts and generate responses, or interact with speech. You can select one of the following modes:
+  - **Chat** – Submit a text prompt or interact with speech. For text prompts, you can also include images or documents to supplement the prompt. Subsequent prompts that you submit will include your previous prompts as context, such that the sequence of prompts and responses resembles a conversation.
+  - **Single prompt** – Submit a single text prompt and generate a response to it.
+
+###### Note
+
+Speech-to-speech models such as Amazon Nova Sonic are only available in chat mode. Compare mode is not supported for speech-to-speech models.
+
+- **Image** – Submit a text prompt to generate an image. You can also submit an image prompt and specify whether to edit it or to generate variations of it.
   The following procedure describes how to submit a prompt in the playground, the options that you can adjust, and the actions that you can take after the model generates a response.
 
 ###### To use a playground

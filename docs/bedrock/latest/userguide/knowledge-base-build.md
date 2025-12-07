@@ -7,11 +7,11 @@ the vector representations of a query to assess similarity and determine which s
 Connecting your knowledge base to a data source involves the following general steps:
 
 1. Connect the knowledge base to a supported data source.
-2. If your data source contains multimodal data, including tables, charts, diagrams, or other images, you must choose a parser that supports parsing multimodal data.
+2. If your data source contains multimodal data, including images, audio, and video files, you must choose an appropriate processing approach and embedding model that supports multimodal content.
 
 ###### Note
 
-Multimodal data is only supported with Amazon S3 and custom data sources. 3. Choose an embeddings model to convert the data in the data source into vector embeddings. 4. Choose a vector store to store the vector representation of your data. 5. Sync your data so it's converted to vector embeddings. 6. If you modify the data in the data source, you must resync the changes.
+Multimodal data is only supported with Amazon S3 and custom data sources. For comprehensive guidance on working with multimodal content, see [Build a knowledge base for multimodal content](kb-multimodal.md "kb-multimodal.md"). 3. Choose an embeddings model to convert the data in the data source into vector embeddings. 4. Choose a vector store to store the vector representation of your data. 5. Sync your data so it's converted to vector embeddings. 6. If you modify the data in the data source, you must resync the changes.
 
 ###### Topics
 

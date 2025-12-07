@@ -21,6 +21,6 @@ When selecting how to parse your data, consider the following:
 - Whether your data is purely textual or if it contains multimodal data, such as images, graphs, and charts, that you want the knowledge base to be able to query.
 - Whether you want the option to customize the prompt that is used to instruct the model on how to parse your data.
 - The cost of the parser. Amazon Bedrock Data Automation uses per-page pricing, while foundation model parsers charge based on input and output tokens. For more information, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
-- The file size limit. When you use foundation models as your parser, the file size must not be greater than
-  100 MB.
+- The total file size limit. When you use foundation models as your parser, the total file size across all files must not be greater than
+  100 GB.
   To learn how to configure how your knowledge base is parsed, see the connection configuration for your data source in [Connect a data source to your knowledge base](data-source-connectors.md "data-source-connectors.md").

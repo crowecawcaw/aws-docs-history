@@ -8,7 +8,12 @@ Instead of choosing a supported data source service, you can connect to a custom
 - The ability to upload documents into the data source directly in the AWS Management Console or to add them inline.
 - The ability to add metadata directly to each document for when adding or updating a document in the data source. For more information on how to use metadata for filtering when retrieving information from a data source, see the **Metadata and filtering** tab in [Configure and customize queries and response
   generation](kb-test-config.md "kb-test-config.md").
-  To connect a knowledge base to a custom data source, send a [CreateDataSource](../APIReference/API_agent_CreateDataSource.md "../APIReference/API_agent_CreateDataSource.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). Specify the `knowledgeBaseId` of the knowledge base to connect to, give a `name` to the data source, and specify the `type` field in the `dataSourceConfiguration` as `CUSTOM`. The following shows a minimal example to create this data source:
+
+###### Multimodal content support
+
+Custom data sources support multimodal content including images, audio, and video files up to 10MB base64 encoded. For comprehensive guidance on working with multimodal content, see [Build a knowledge base for multimodal content](kb-multimodal.md "kb-multimodal.md").
+
+To connect a knowledge base to a custom data source, send a [CreateDataSource](../APIReference/API_agent_CreateDataSource.md "../APIReference/API_agent_CreateDataSource.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). Specify the `knowledgeBaseId` of the knowledge base to connect to, give a `name` to the data source, and specify the `type` field in the `dataSourceConfiguration` as `CUSTOM`. The following shows a minimal example to create this data source:
 
 ```
 PUT /knowledgebases/`KB12345678`/datasources/ HTTP/1.1

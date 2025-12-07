@@ -10,7 +10,19 @@ To use distillation, you select a teacher model whose accuracy you want to achie
 
 For more information about using distillation see [Customize a model with distillation in Amazon Bedrock](model-distillation.md "model-distillation.md").
 
-- **Fine-tuning**
+- **Reinforcement fine-tuning**
+
+Reinforcement fine-tuning improves foundation model alignment with your specific use case through feedback-based
+learning. Instead of providing labeled input-output pairs, you define reward functions that evaluate response quality.
+The model learns iteratively by receiving feedback scores from these reward functions.
+
+You can use existing Bedrock invocation logs as training data or upload custom prompt datasets. You can define reward functions using
+AWS Lambda to evaluate response quality. Amazon Bedrock automates the training workflow and provides real-time metrics to monitor model learning progress.
+
+For more information about using reinforcement fine-tuning,
+see [Customize a model with reinforcement fine-tuning in Amazon Bedrock](reinforcement-fine-tuning.md "reinforcement-fine-tuning.md").
+
+- **Supervised fine-tuning**
 
 Provide _labeled_ data in order to train a model to improve performance on specific tasks. By providing a training dataset of labeled examples, the model learns to associate what types of outputs should be generated for certain types of inputs. The model parameters are adjusted in the process and the model's performance is improved for the tasks represented by the training dataset.
 

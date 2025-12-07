@@ -6,6 +6,7 @@ The following table shows the foundation models that you can fine-tune:
 
 | Provider  | Model                          | Model ID                                    | Single-region model support |
 | --------- | ------------------------------ | ------------------------------------------- | --------------------------- |
+| Amazon    | Nova 2 Lite                    | amazon.nova-2-lite-v1:0:256k                | us-east-1                   |
 | Amazon    | Nova Canvas                    | amazon.nova-canvas-v1:0                     | us-east-1                   |
 | Amazon    | Nova Lite                      | amazon.nova-lite-v1:0:300k                  | us-east-1                   |
 | Amazon    | Nova Micro                     | amazon.nova-micro-v1:0:128k                 | us-east-1                   |
@@ -30,7 +31,5 @@ The following table shows the foundation models that you can continuously pre-tr
 | -------- | -------------------------- | --------------------------------- | --------------------------- |
 | Amazon   | Titan Text G1<br>• Express | amazon.titan-text-express-v1:0:8k | us-east-1<br>us-west-2      |
 | Amazon   | Titan Text G1<br>• Lite    | amazon.titan-text-lite-v1:0:4k    | us-east-1<br>us-west-2      |
-
-For information about fine-tuning Amazon Nova models, see [Fine-tuning Amazon Nova models](../../../nova/latest/userguide/customize-fine-tune.md "../../../nova/latest/userguide/customize-fine-tune.md").
 
 For information about model customization hyperparameters for each model, see [Custom model hyperparameters](custom-models-hp.md "custom-models-hp.md").

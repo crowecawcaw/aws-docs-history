@@ -21,6 +21,7 @@ With Amazon Bedrock Knowledge Bases, you can:
   extracted and retrieved in responses to queries. If you generate a response based on
   the retrieved data, the model can deliver additional insights based on these
   images.
+- Search using images as queries to find visually similar content, or combine text and images in queries for more precise results using multimodal embedding models.
 - Convert natural language into queries (such as SQL queries) that are customized
   for structured databases. These queries are used to retrieve data from structured
   data stores.
@@ -55,6 +56,7 @@ With Amazon Bedrock Knowledge Bases, you can:
 - [Chat with your document with zero setup](knowledge-base-chatdoc.md "knowledge-base-chatdoc.md")
 - [Set up permissions to create and manage knowledge bases](knowledge-base-prereq-permissions-general.md "knowledge-base-prereq-permissions-general.md")
 - [Build a knowledge base by connecting to a data source](knowledge-base-build.md "knowledge-base-build.md")
+- [Build a knowledge base for multimodal content](kb-multimodal.md "kb-multimodal.md")
 - [Build a knowledge base by connecting to a structured data store](knowledge-base-build-structured.md "knowledge-base-build-structured.md")
 - [Build a knowledge base
   with an Amazon Kendra GenAI index](knowledge-base-build-kendra-genai-index.md "knowledge-base-build-kendra-genai-index.md")

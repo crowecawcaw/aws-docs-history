@@ -26,3 +26,4 @@ Amazon Bedrock offers a suite of foundation models that you can use to generate 
 - [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md")
 - [Use a computer use tool to complete an Amazon Bedrock model response](computer-use.md "computer-use.md")
 - [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md")
+- [Generate responses using OpenAI APIs](bedrock-mantle.md "bedrock-mantle.md")

@@ -30,6 +30,7 @@ and vector stores where the provider permits and supports TLS encryption in tran
 - [Permissions to decrypt your AWS KMS key for your data sources in
   Amazon S3](#encryption-kb-ds "#encryption-kb-ds")
 - [Permissions to decrypt an AWS Secrets Manager secret for the vector store containing your knowledge base](#encryption-kb-3p "#encryption-kb-3p")
+- [Permissions for Bedrock Data Automation (BDA) with AWS KMS encryption](#encryption-kb-bda "#encryption-kb-bda")
 
 ## Encryption of transient data storage during data ingestion
 
@@ -69,11 +70,6 @@ in Amazon OpenSearch Service, see [Encryption in Amazon OpenSearch Service](../.
 If you opt to let Amazon Bedrock create an S3 vector bucket and vector index in Amazon S3 Vectors for your
 knowledge base, Amazon Bedrock can pass a KMS key that you choose to Amazon S3 Vectors for encryption. To learn more
 about encryption in Amazon S3 Vectors, see [Encryption with Amazon S3 Vectors](../../../AmazonS3/latest/userguide/s3-vectors-bucket-encryption.md "../../../AmazonS3/latest/userguide/s3-vectors-bucket-encryption.md").
-
-###### Important
-
-The Amazon S3 Vectors integration with Amazon Bedrock Knowledge Bases is in preview release
-and is subject to change.
 
 ## Encryption of knowledge base retrieval
 
@@ -166,3 +162,31 @@ JSON
 }`
 
 ```
+
+## Permissions for Bedrock Data Automation (BDA) with AWS KMS encryption
+
+When using BDA to process multimodal content with customer-managed AWS KMS keys, additional permissions are required beyond the standard AWS KMS permissions.
+
+Attach the following policy to your Amazon Bedrock service role to allow BDA to work with encrypted multimedia files. Replace the example values with your own AWS Region, account ID, and AWS KMS key ID.
+
+```
+{
+    "Sid": "KmsPermissionStatementForBDA",
+    "Effect": "Allow",
+    "Action": [
+        "kms:GenerateDataKey",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:CreateGrant"
+    ],
+    "Resource": "arn:aws:kms:`region`:`account-id`:key/`key-id`",
+    "Condition": {
+        "StringEquals": {
+            "aws:ResourceAccount": "`account-id`",
+            "kms:ViaService": "bedrock.`region`.amazonaws.com"
+        }
+    }
+}
+```
+
+The BDA-specific permissions include `kms:DescribeKey` and `kms:CreateGrant` actions, which are required for BDA to process encrypted audio, video, and image files.

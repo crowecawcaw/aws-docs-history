@@ -29,10 +29,14 @@ Expand the section that corresponds to your use case:
 8.  (Optional) Configure services for which to deliver activity logs for your knowledge base.
 9.  Go to the next section and follow the steps at [Connect a data source to your knowledge base](data-source-connectors.md "data-source-connectors.md") to configure a data source.
 10. In the **Embeddings model** section, do the following:
-    1. Choose an embeddings model to convert your data into vector embeddings.
-    2. (Optional) Expand the **Additional configurations** section to see the following configuration options (not all models support all configurations):
-       - **Embeddings type** – Whether to convert the data to floating-point (float32) vector embeddings (more precise, but more costly) or binary vector embeddings (less precise, but less costly). To learn about which embeddings models support binary vectors, refer to [supported embeddings models](knowledge-base-supported.md "knowledge-base-supported.md").
-       - **Vector dimensions** – Higher values improve accuracy but increase cost and latency.
+    1. Choose an embeddings model to convert your data into vector embeddings. For multimodal data (images, audio, and video), select a multimodal embedding model such as Amazon Titan Multimodal Embeddings G1 or Cohere Embed v3.
+
+    ###### Note
+
+    When using Amazon Titan Multimodal Embeddings G1, you must provide an S3 content bucket and can only use the default parser. This model is optimized for image search use cases. For comprehensive guidance on choosing between multimodal approaches, see [Build a knowledge base for multimodal content](kb-multimodal.md "kb-multimodal.md"). 2. (Optional) Expand the **Additional configurations** section to see the following configuration options (not all models support all configurations):
+
+        * **Embeddings type** – Whether to convert the data to floating-point (float32) vector embeddings (more precise, but more costly) or binary vector embeddings (less precise, but less costly). To learn about which embeddings models support binary vectors, refer to [supported embeddings models](knowledge-base-supported.md "knowledge-base-supported.md").
+        * **Vector dimensions** – Higher values improve accuracy but increase cost and latency.
 
 11. In the **Vector database** section, do the following:
     1.  Choose a vector store to store the vector embeddings that will be used for query. You have the following options:
@@ -52,25 +56,14 @@ Expand the section that corresponds to your use case:
              generated from your data sources.
 
 
-            ###### Important
-
-            The Amazon S3 Vectors integration with Amazon Bedrock Knowledge Bases is in preview release
-             and is subject to change.
-
-
             You can create a knowledge base for Amazon S3 Vectors in all AWS Regions where both Amazon Bedrock and
              Amazon S3 Vectors are available. For region availability information, see [Amazon S3 Vectors](../../../AmazonS3/latest/userguide/s3-vectors.md "../../../AmazonS3/latest/userguide/s3-vectors.md") in the *Amazon S3 User Guide*.
 
 
             ###### Note
 
-            When Amazon Bedrock Knowledge Bases creates a vector index for you, it can attach up to a maximum of 40 KB of metadata for each
-             vector. Within this 40 KB, up to a maximum of 2 KB can be used as filterable metadata.
-
-            Amazon Bedrock will store the text in the non-filterable space as the `AMAZON_BEDROCK_TEXT`
-             key. The metadata added by Amazon Bedrock is stored in the filterable metadata space. For more information about
-             S3 vector bucket metadata limitations, see [Prerequisites for
-             using Amazon S3 Vectors with Amazon Bedrock Knowledge Bases](knowledge-base-setup.md#knowledge-base-setup-s3 "knowledge-base-setup.md#knowledge-base-setup-s3").
+            When using Amazon S3 Vectors with Amazon Bedrock Knowledge Bases, you can attach up to 1 KB of custom metadata (including both filterable and non-filterable metadata) and 35 metadata keys per vector. For detailed information about metadata limitations, see [Metadata support](knowledge-base-setup.md#metadata-support "knowledge-base-setup.md#metadata-support") in [Prerequisites for using a vector store you created for a
+             knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 
         - **Choose a vector store you have created** – Select a supported vector store and identify the vector field names and metadata
           field names in the vector index. For more information, see [Prerequisites for using a vector store you created for a
@@ -86,8 +79,19 @@ Expand the section that corresponds to your use case:
 
 ###### Note
 
-Multimodal data is only supported with Amazon S3 and custom data sources. 13. Choose **Next** and review the details of your knowledge base. You can edit any
-section before going ahead and creating your knowledge base.
+Multimodal data is only supported with Amazon S3 and custom data sources.
+
+###### Note
+
+When using multimodal embedding models:
+
+    * Amazon Titan Multimodal Embeddings G1 requires an S3 content bucket and works best with image-only datasets using the default parser
+    * Cohere Embed v3 supports mixed text and image datasets and can be used with any parser configuration
+    * For image search use cases, avoid using Bedrock Data Automation (BDA) or foundation model parsers with Titan G1 due to token limitations
+    * The multimodal storage destination creates file copies for retrieval purposes, which can incur additional storage charges
+
+13. Choose **Next** and review the details of your knowledge base. You can edit any
+    section before going ahead and creating your knowledge base.
 
 ###### Note
 

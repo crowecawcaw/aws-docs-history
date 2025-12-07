@@ -6,6 +6,10 @@ the [AWS Management Console for Amazon Bedrock](https://console.aws.amazon.com/b
 or the [CreateDataSource](../APIReference/API_agent_CreateDataSource.md "../APIReference/API_agent_CreateDataSource.md")
 API (see Amazon Bedrock [supported SDKs and AWS CLI](../APIReference/welcome.md "../APIReference/welcome.md")).
 
+###### Multimodal content support
+
+Amazon S3 data sources support multimodal content including images, audio, and video files. For comprehensive guidance on working with multimodal content, see [Build a knowledge base for multimodal content](kb-multimodal.md "kb-multimodal.md").
+
 You can upload a small batch of files to an Amazon S3 bucket using the Amazon S3 console or API.
 You can alternatively use [AWS DataSync](../../../datasync/latest/userguide/create-s3-location.md "../../../datasync/latest/userguide/create-s3-location.md") to upload
 multiple files to S3 continuously, and transfer files on a schedule from on-premises, edge,

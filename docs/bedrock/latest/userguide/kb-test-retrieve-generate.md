@@ -7,6 +7,10 @@ retrieved from Knowledge Bases at runtime.
 
 After your knowledge base is set up, you can query it and generate responses based on the chunks retrieved from your source data by using the [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") API operation. The responses are returned with citations to the original source data. You can also [use a reranking model](rerank.md "rerank.md") instead of the default Amazon Bedrock Knowledge Bases ranker to rank source chunks for relevance during retrieval.
 
+###### Multimodal content limitations
+
+`RetrieveAndGenerate` has limited support for multimodal content. When using Nova Multimodal Embeddings, RAG functionality is restricted to text content only. For full multimodal support including audio and video processing, use BDA with text embedding models. For details, see [Build a knowledge base for multimodal content](kb-multimodal.md "kb-multimodal.md").
+
 ###### Note
 
 Images returned from the `Retrieve` response during the `RetrieveAndGenerate` flow are included in the prompt for response generation. The `RetrieveAndGenerate` response can't include images, but it can cite the sources that contain the images.

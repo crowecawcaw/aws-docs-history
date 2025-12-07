@@ -111,6 +111,96 @@ If the retrieved data contains images, the response also returns the following r
 
 You can't filter on these metadata response headers when [configuring metadata filters](kb-test-config.md "kb-test-config.md").
 
+## Multimodal queries
+
+For knowledge bases using multimodal embedding models, you can query with images in addition to text. The `retrievalQuery` field supports a `multimodalInputList` field for image queries:
+
+###### Note
+
+For comprehensive guidance on setting up and working with multimodal knowledge bases, including choosing between Nova and BDA approaches, see [Build a knowledge base for multimodal content](kb-multimodal.md "kb-multimodal.md").
+
+```
+{
+    "knowledgeBaseId": "EXAMPLE123",
+    "retrievalQuery": {
+        "text": "Find similar shoes",
+        "multimodalInputList": [
+            {
+                "content": {
+                    "byteContent": "base64-encoded-image-data"
+                },
+                "modality": "IMAGE"
+            }
+        ]
+    }
+}
+```
+
+You can also query with images only by omitting the `text` field:
+
+```
+{
+    "knowledgeBaseId": "EXAMPLE123",
+    "retrievalQuery": {
+        "multimodalInputList": [
+            {
+                "content": {
+                    "byteContent": "base64-encoded-image-data"
+                },
+                "modality": "IMAGE"
+            }
+        ]
+    }
+}
+```
+
+### Common multimodal query patterns
+
+Image-to-image search
+
+Upload an image to find visually similar images. Example: Upload a photo of a red Nike shoe to find similar shoes in your product catalog.
+
+Text + image refinement
+
+Combine text and images for more precise results. Example: "Find similar shoes but with different colors" along with an uploaded shoe image.
+
+Visual document search
+
+Search for charts, diagrams, or visual elements within documents. Example: Upload a chart image to find similar charts in your document collection.
+
+### Choosing between Nova and BDA for multimodal content
+
+When working with multimodal content, choose your approach based on your content type and query patterns:
+
+| Nova vs BDA Decision Matrix | Content Type                                                                                                | Use Nova Multimodal Embeddings                                                                               | Use Bedrock Data Automation (BDA) Parser |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
+| Video Content               | Visual storytelling focus (sports, ads, demonstrations), queries on visual elements, minimal speech content | Important speech/narration (presentations, meetings, tutorials), queries on spoken content, need transcripts |
+| Audio Content               | Music or sound effects identification, non-speech audio analysis                                            | Podcasts, interviews, meetings, any content with speech requiring transcription                              |
+| Image Content               | Visual similarity searches, image-to-image retrieval, visual content analysis                               | Text extraction from images, document processing, OCR requirements                                           |
+
+###### Note
+
+Nova multimodal embeddings cannot process speech content directly. If your audio or video files contain important spoken information, use the BDA parser to convert speech to text first, or choose a text embedding model instead.
+
+### Multimodal query limitations
+
+- Maximum of one image per query in the current release
+- Image queries are only supported with multimodal embedding models (Titan G1 or Cohere Embed v3)
+- RetrieveAndGenerate API is not supported for knowledge bases with multimodal embedding models and S3 content buckets
+- If you provide an image query to a knowledge base using text-only embedding models, a 4xx error will be returned
+
+### Multimodal API response structure
+
+Retrieval responses for multimodal content include additional metadata:
+
+- **Source URI:** Points to your original S3 bucket location
+- **Supplemental URI:** Points to the copy in your multimodal storage bucket
+- **Timestamp metadata:** Included for video and audio chunks to enable precise playback positioning
+
+###### Note
+
+When using the API or SDK, you'll need to handle file retrieval and timestamp navigation in your application. The console handles this automatically with enhanced video playback and automatic timestamp navigation.
+
 ###### Note
 
 If you receive an error that the prompt exceeds the character limit while generating responses, you can shorten the prompt in the following ways:

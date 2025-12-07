@@ -76,6 +76,9 @@ limitations:
 - **Natural language dependency:** The accuracy of
   validation depends heavily on how well natural language in user prompts and model
   responses can be translated to your policy's formal logic variables.
+- **Non-linear arithmetic:**Automated Reasoning
+  checks might timeout or return TOO_COMPLEX if constraints involve reasoning with non-linear arithmentic
+  (for example, irrational numbers or exponents)
 
 ## Best practices
 
