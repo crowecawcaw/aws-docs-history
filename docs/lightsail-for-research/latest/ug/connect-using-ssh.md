@@ -155,7 +155,7 @@ the virtual computer as shown in the following example. Note these
 values, because you need them in the following step of this
 procedure.
 
-![The username and public IP address of an virtual computer.](images/scp-public-ip-address-and-user-windows.png) 3. Enter the following command to establish an SSH connection with
+![The username and public IP address of an virtual computer.](/images/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-windows.png) 3. Enter the following command to establish an SSH connection with
 your virtual computer. In the command, replace
 `user-name` with the
 sign-in in username, and replace
