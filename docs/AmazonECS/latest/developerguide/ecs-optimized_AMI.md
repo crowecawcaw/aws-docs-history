@@ -117,3 +117,34 @@ the _Amazon Linux User Guide_.
 *#cloud-config*
 repo_upgrade: security
 ```
+
+## Version-locked packages in Amazon ECS-optimized AL2023 GPU AMIs
+
+Certain packages are critical for correct, performant behavior of GPU functionality in Amazon ECS-optimized AL2023 GPU AMIs. These include:
+
+- NVIDIA drivers (`nvidia*`)
+- Kernel modules (`kmod*`)
+- NVIDIA libraries (`libnvidia*`)
+- Kernel packages (`kernel*`)
+
+###### Note
+
+This is not an exhaustive list. The complete list of locked packages are available with `dnf versionlock list`
+
+These packages are version-locked to ensure stability and prevent unintentional changes that could disrupt GPU workloads. As a result, these packages should generally be modified within the bounds of a managed process that gracefully handles potential issues and maintains GPU functionality.
+
+To prevent unintended modifications, the `dnf versionlock` plugin is used on these packages.
+
+If you wish to modify a locked package, you can:
+
+```
+# unlock a single package
+sudo dnf versionlock delete $PACKAGE_NAME
+
+# unlock all packages
+sudo dnf versionlock clear
+```
+
+###### Important
+
+When updates to these packages are necessary, customers should consider using the latest AMI version that includes the required updates. If updating existing instances is required, a careful approach involving unlocking, updating, and re-locking packages should be employed, always ensuring GPU functionality is maintained throughout the process.

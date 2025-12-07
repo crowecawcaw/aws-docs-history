@@ -410,6 +410,18 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | c7i-flex.8xlarge  | 7                               | 60                           |
 | c7i-flex.12xlarge | 7                               | 120                          |
 | c7i-flex.16xlarge | 14                              | 120                          |
+| c8a.medium        | 1                               | 4                            |
+| c8a.large         | 2                               | 10                           |
+| c8a.xlarge        | 3                               | 20                           |
+| c8a.2xlarge       | 3                               | 40                           |
+| c8a.4xlarge       | 7                               | 60                           |
+| c8a.8xlarge       | 9                               | 90                           |
+| c8a.12xlarge      | 11                              | 120                          |
+| c8a.16xlarge      | 15                              | 120                          |
+| c8a.24xlarge      | 15                              | 120                          |
+| c8a.48xlarge      | 23                              | 120                          |
+| c8a.metal-24xl    | 15                              | 120                          |
+| c8a.metal-48xl    | 23                              | 120                          |
 | c8g.medium        | 1                               | 4                            |
 | c8g.large         | 2                               | 10                           |
 | c8g.xlarge        | 3                               | 20                           |
@@ -754,6 +766,14 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | x8g.48xlarge         | 14                              | 120                          |
 | x8g.metal-24xl       | 14                              | 120                          |
 | x8g.metal-48xl       | 14                              | 120                          |
+| x8aedz.large         | 3                               | 10                           |
+| x8aedz.xlarge        | 3                               | 20                           |
+| x8aedz.3xlarge       | 7                               | 40                           |
+| x8aedz.6xlarge       | 7                               | 60                           |
+| x8aedz.12xlarge      | 15                              | 120                          |
+| x8aedz.24xlarge      | 15                              | 120                          |
+| x8aedz.metal-12xl    | 15                              | 120                          |
+| x8aedz.metal-24xl    | 15                              | 120                          |
 
 ## Storage optimized
 

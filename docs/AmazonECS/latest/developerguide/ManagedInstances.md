@@ -328,5 +328,3 @@ The following limitations apply to Amazon ECS Managed Instances:
 - SSH access - Not available for security
   reasons. Use Amazon ECS Exec for debugging and troubleshooting. Management operations
   through Amazon ECS APIs only.
-- Service Connect isn't available for services running on
-  Amazon ECS Managed Instances.
