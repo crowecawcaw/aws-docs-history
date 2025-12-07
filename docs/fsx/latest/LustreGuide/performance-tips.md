@@ -70,10 +70,10 @@ Amazon EC2 instances) and speed.
       ```
       sudo lctl set_param llite.*.statahead_max=512
       sudo lctl set_param llite.*.statahead_agl=1
-      if sudo lctl get_param llite.*.statahead_xattr > /dev/null 2>&1; then
+      if uname -r | grep -vq 'amzn' && sudo lctl get_param llite.*.statahead_xattr > /dev/null 2>&1; then
           sudo lctl set_param llite.*.statahead_xattr=1
       else
-          echo "Warning: Xattr statahead is not supported on this Lustre client. Please upgrade to the latest Lustre 2.15 client to apply this tuning"
+          echo "Warning: Xattr statahead is only supported on the latest Ubuntu and RHEL Amazon FSx for Lustre 2.15 clients"
       fi
       ```
 
