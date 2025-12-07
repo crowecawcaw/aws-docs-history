@@ -12,10 +12,9 @@ For examples, see [Examples for IMDSv2](#instance-metadata-retrieval-examples "#
 For examples, see [Examples for IMDSv1](#instance-metadata-retrieval-examples-imdsv1 "#instance-metadata-retrieval-examples-imdsv1").
 By default, you can use either IMDSv1 or IMDSv2, or both.
 
-You can configure the Instance Metadata Service (IMDS) on each instance so that local code
-or users must use IMDSv2. When you specify that IMDSv2 must be used,
-IMDSv1 no longer works. For information about how to configure your instance to
-use IMDSv2, see [Configure the Instance Metadata Service
+You can configure the Instance Metadata Service (IMDS) on each instance to only accept
+IMDSv2 calls, which will cause IMDSv1 calls to fail. For information
+about how to configure your instance to use IMDSv2, see [Configure the Instance Metadata Service
 options](configuring-instance-metadata-options.md "configuring-instance-metadata-options.md").
 
 The `PUT` or `GET` headers are unique to IMDSv2. If

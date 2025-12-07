@@ -349,7 +349,7 @@ these instances.
 
 ###### Note
 
-C8g, C8gd, C8i, C8i-flex instance types support configurable bandwidth weightings. With these instance types, you can optimize
+C8a, C8g, C8gd, C8i, C8i-flex instance types support configurable bandwidth weightings. With these instance types, you can optimize
 an instance's bandwidth for either networking performance or Amazon EBS performance. The following table shows the
 default Amazon EBS bandwidth performance for these instance types. For more information,
 see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighting.md "configure-bandwidth-weighting.md").
@@ -526,6 +526,18 @@ see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighti
 | c7i-flex.8xlarge 1  | 5000                      | 10000                    | 625.00                                  | 1250.00                                | 20000                      | 40000                     |
 | c7i-flex.12xlarge 1 | 7500                      | 15000                    | 937.50                                  | 1875.00                                | 30000                      | 60000                     |
 | c7i-flex.16xlarge 1 | 10000                     | 20000                    | 1250.00                                 | 2500.00                                | 40000                      | 80000                     |
+| c8a.medium 1        | 325                       | 10000                    | 40.62                                   | 1250.00                                | 2500                       | 40000                     |
+| c8a.large 1         | 650                       | 10000                    | 81.25                                   | 1250.00                                | 3600                       | 40000                     |
+| c8a.xlarge 1        | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
+| c8a.2xlarge 1       | 2500                      | 10000                    | 312.50                                  | 1250.00                                | 12000                      | 40000                     |
+| c8a.4xlarge 1       | 5000                      | 10000                    | 625.00                                  | 1250.00                                | 20000                      | 40000                     |
+| c8a.8xlarge 2       | 10000                     | 1250.0                   | 40000                                   |
+| c8a.12xlarge 2      | 15000                     | 1875.0                   | 60000                                   |
+| c8a.16xlarge 2      | 20000                     | 2500.0                   | 80000                                   |
+| c8a.24xlarge 2      | 30000                     | 3750.0                   | 120000                                  |
+| c8a.48xlarge 2      | 60000                     | 7500.0                   | 240000                                  |
+| c8a.metal-24xl 2    | 30000                     | 3750.0                   | 120000                                  |
+| c8a.metal-48xl 2    | 60000                     | 7500.0                   | 240000                                  |
 | c8g.medium 1        | 315                       | 10000                    | 39.38                                   | 1250.00                                | 2500                       | 40000                     |
 | c8g.large 1         | 630                       | 10000                    | 78.75                                   | 1250.00                                | 3600                       | 40000                     |
 | c8g.xlarge 1        | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
@@ -594,7 +606,7 @@ these instances.
 
 ###### Note
 
-- R8a, R8g, R8gd, R8i, R8i-flex, X8g instance types support configurable bandwidth weightings. With
+- R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz instance types support configurable bandwidth weightings. With
   these instance types, you can optimize an instance's bandwidth for either networking performance or
   Amazon EBS performance. The following table shows the default Amazon EBS bandwidth performance for these
   instance types. For more information, see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighting.md "configure-bandwidth-weighting.md").
@@ -934,6 +946,14 @@ these instances.
 | x8g.48xlarge 2         | 40000                     | 5000.0                   | 240000                                  |
 | x8g.metal-24xl 2       | 30000                     | 3750.0                   | 120000                                  |
 | x8g.metal-48xl 2       | 40000                     | 5000.0                   | 240000                                  |
+| x8aedz.large 1         | 1250                      | 15000                    | 156.25                                  | 1875.00                                | 5000                       | 60000                     |
+| x8aedz.xlarge 1        | 2500                      | 15000                    | 312.50                                  | 1875.00                                | 10000                      | 60000                     |
+| x8aedz.3xlarge 1       | 7500                      | 15000                    | 937.50                                  | 1875.00                                | 30000                      | 60000                     |
+| x8aedz.6xlarge 2       | 15000                     | 1875.0                   | 60000                                   |
+| x8aedz.12xlarge 2      | 30000                     | 3750.0                   | 120000                                  |
+| x8aedz.24xlarge 2      | 60000                     | 7500.0                   | 240000                                  |
+| x8aedz.metal-12xl 2    | 30000                     | 3750.0                   | 120000                                  |
+| x8aedz.metal-24xl 2    | 60000                     | 7500.0                   | 240000                                  |
 | z1d.large 1            | 800                       | 3170                     | 100.00                                  | 396.25                                 | 3333                       | 13333                     |
 | z1d.xlarge 1           | 1580                      | 3170                     | 197.50                                  | 396.25                                 | 6667                       | 13333                     |
 | z1d.2xlarge 2          | 3170                      | 396.25                   | 13333                                   |

@@ -142,6 +142,19 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `c6in.16xlarge`     | 16                               | 32                               | 240                             |
 | `c6in.24xlarge`     | 32                               | 32                               | 480                             |
 | `c6in.32xlarge`     | 32                               | 32                               | 512 \*                          |
+| **C8a**             |
+| `c8a.medium`        | 1                                | 1                                | 3                               |
+| `c8a.large`         | 2                                | 2                                | 6                               |
+| `c8a.xlarge`        | 4                                | 4                                | 16                              |
+| `c8a.2xlarge`       | 8                                | 8                                | 32                              |
+| `c8a.4xlarge`       | 8                                | 16                               | 64                              |
+| `c8a.8xlarge`       | 8                                | 32                               | 128                             |
+| `c8a.12xlarge`      | 16                               | 64                               | 192                             |
+| `c8a.16xlarge`      | 16                               | 64                               | 256                             |
+| `c8a.24xlarge`      | 16                               | 128                              | 384                             |
+| `c8a.48xlarge`      | 32                               | 128                              | 768                             |
+| `c8a.metal-24xl`    | 16                               | 128                              | 384                             |
+| `c8a.metal-48xl`    | 32                               | 128                              | 768                             |
 | **C8gn**            |
 | `c8gn.medium`       | 1                                | 1                                | 2                               |
 | `c8gn.large`        | 2                                | 2                                | 6                               |
@@ -286,6 +299,15 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `r8i-flex.8xlarge`  | 4                                | 16                               | 64                              |
 | `r8i-flex.12xlarge` | 8                                | 32                               | 96                              |
 | `r8i-flex.16xlarge` | 8                                | 32                               | 128                             |
+| **X8aedz**          |
+| `x8aedz.large`      | 2                                | 2                                | 8                               |
+| `x8aedz.xlarge`     | 4                                | 4                                | 16                              |
+| `x8aedz.3xlarge`    | 4                                | 16                               | 48                              |
+| `x8aedz.6xlarge`    | 8                                | 32                               | 96                              |
+| `x8aedz.12xlarge`   | 8                                | 64                               | 192                             |
+| `x8aedz.24xlarge`   | 16                               | 128                              | 384                             |
+| `x8aedz.metal-12xl` | 8                                | 64                               | 192                             |
+| `x8aedz.metal-24xl` | 16                               | 128                              | 384                             |
 
 ###### Note
 

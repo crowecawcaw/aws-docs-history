@@ -112,8 +112,25 @@ Use the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../.
 affinity, tenancy, and host in the `--placement`
 option.
 
+To launch onto a specific Dedicated Host with host affinity (instance
+always restarts on the same host if stopped):
+
 ```
---placement Affinity=Host,Tenancy=dedicated,HostId=`h-07879acf49EXAMPLE`
+--placement Affinity=host,Tenancy=host,HostId=`h-07879acf49EXAMPLE`
+```
+
+To launch onto a specific Dedicated Host without host affinity (instance
+can restart on any available host):
+
+```
+--placement Tenancy=host,HostId=`h-07879acf49EXAMPLE`
+```
+
+To launch onto any available
+Dedicated Host with auto-placement enabled and matching instance type:
+
+```
+--placement Tenancy=host
 ```
 
 PowerShell
@@ -124,8 +141,26 @@ Use the [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Inst
 affinity, tenancy, and host in the `-Placement`
 parameter.
 
+To launch onto a specific Dedicated Host with host affinity (instance
+always restarts on the same host if stopped):
+
 ```
--Placement_Affinity Host `
--Placement_Tenancy dedicated `
+-Placement_Affinity host `
+-Placement_Tenancy host `
 -Placement_HostId `h-07879acf49EXAMPLE`
+```
+
+To launch onto a specific Dedicated Host without host affinity (instance
+can restart on any available host):
+
+```
+-Placement_Tenancy host `
+-Placement_HostId `h-07879acf49EXAMPLE`
+```
+
+To launch onto any available
+Dedicated Host with auto-placement enabled and matching instance type:
+
+```
+-Placement_Tenancy host
 ```

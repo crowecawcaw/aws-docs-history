@@ -253,6 +253,11 @@ Compute optimized
 | `c7i.48xlarge`    | x86_64       |
 | `c7i.metal-24xl`  | x86_64       |
 | `c7i.metal-48xl`  | x86_64       |
+| `c8a.16xlarge`    | x86_64       |
+| `c8a.24xlarge`    | x86_64       |
+| `c8a.48xlarge`    | x86_64       |
+| `c8a.metal-24xl`  | x86_64       |
+| `c8a.metal-48xl`  | x86_64       |
 | `c8g.12xlarge`    | arm64        |
 | `c8g.16xlarge`    | arm64        |
 | `c8g.24xlarge`    | arm64        |
@@ -394,6 +399,8 @@ Memory optimized
 | `x8g.48xlarge`         | arm64        |
 | `x8g.metal-24xl`       | arm64        |
 | `x8g.metal-48xl`       | arm64        |
+| `x8aedz.24xlarge`      | x86_64       |
+| `x8aedz.metal-24xl`    | x86_64       |
 
 Accelerated computing
 

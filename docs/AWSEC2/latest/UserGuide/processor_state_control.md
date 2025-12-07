@@ -75,10 +75,14 @@ processor C-states:
   `c7a.48xlarge` | `c7i.large` | `c7i.xlarge` |
   `c7i.2xlarge` | `c7i.4xlarge` | `c7i.8xlarge` |
   `c7i.12xlarge` | `c7i.16xlarge` | `c7i.24xlarge` |
-  `c7i.48xlarge` | `c8i.large` | `c8i.xlarge` |
-  `c8i.2xlarge` | `c8i.4xlarge` | `c8i.8xlarge` |
-  `c8i.12xlarge` | `c8i.16xlarge` | `c8i.24xlarge` |
-  `c8i.32xlarge` | `c8i.48xlarge` | `c8i.96xlarge`
+  `c7i.48xlarge` | `c8a.medium` | `c8a.large` |
+  `c8a.xlarge` | `c8a.2xlarge` | `c8a.4xlarge` |
+  `c8a.8xlarge` | `c8a.12xlarge` | `c8a.16xlarge` |
+  `c8a.24xlarge` | `c8a.48xlarge` | `c8i.large` |
+  `c8i.xlarge` | `c8i.2xlarge` | `c8i.4xlarge` |
+  `c8i.8xlarge` | `c8i.12xlarge` | `c8i.16xlarge` |
+  `c8i.24xlarge` | `c8i.32xlarge` | `c8i.48xlarge` |
+  `c8i.96xlarge`
 - Memory optimized:
   `r5.12xlarge` | `r5.24xlarge` | `r5b.12xlarge` |
   `r5d.12xlarge` | `r5d.24xlarge` | `r5n.12xlarge` |
@@ -108,6 +112,8 @@ processor C-states:
   `u7i-12tb.224xlarge` | `u7in-16tb.224xlarge` | `u7in-24tb.224xlarge` |
   `u7in-32tb.224xlarge` | `u7inh-32tb.480xlarge` | `x2idn.32xlarge` |
   `x2iedn.16xlarge` | `x2iedn.32xlarge` | `x2iezn.12xlarge` |
+  `x8aedz.large` | `x8aedz.xlarge` | `x8aedz.3xlarge` |
+  `x8aedz.6xlarge` | `x8aedz.12xlarge` | `x8aedz.24xlarge` |
   `z1d.6xlarge` | `z1d.12xlarge`
 - Storage optimized:
   `d3en.12xlarge` | `dl1.24xlarge` | `i3en.12xlarge` |
