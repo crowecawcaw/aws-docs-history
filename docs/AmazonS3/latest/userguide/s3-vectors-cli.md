@@ -1,9 +1,5 @@
 # Creating vector embeddings and performing semantic searches with `s3vectors-embed-cli`
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 Amazon S3 Vectors provides a standalone open-source tool called Amazon S3 Vectors Embed CLI (`s3vectors-embed-cli`) that simplifies working with vector data by combining embedding generation with vector operations in single commands. This CLI tool helps you get started with S3 Vectors quickly by automating vector embedding generation with Amazon Bedrock foundation models and semantic search operations within your vector indexes.
 
 The S3 Vectors Embed CLI provides two main commands for integrating Amazon Bedrock embedding models with S3 Vectors operations:

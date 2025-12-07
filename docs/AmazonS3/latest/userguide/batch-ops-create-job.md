@@ -7,9 +7,9 @@ instructions for creating a Batch Operations job by using the Amazon S3 console,
 AWS SDK for Java.
 
 When you create an S3 Batch Operations job, you can request a completion report for all tasks or
-only for failed tasks. As long as at least one task has been invoked successfully,
-S3 Batch Operations generates a report for jobs that have been completed, have failed, or have been
-canceled. For more information, see [Examples: S3 Batch Operations completion reports](batch-ops-examples-reports.md "batch-ops-examples-reports.md").
+only failed tasks. As long as at least one task has been invoked successfully, S3 Batch Operations
+generates a report for jobs that have been completed, have failed, or have been canceled. For
+more information, see [Examples: S3 Batch Operations completion reports](batch-ops-examples-reports.md "batch-ops-examples-reports.md").
 
 The following video provides a brief demonstration of how
 to create a Batch Operations job by using the Amazon S3 console.
@@ -92,16 +92,19 @@ has finished before starting the next.
 **RoleArn**
 
 Specify an AWS Identity and Access Management (IAM) role to run the job. The IAM role that you use must
-have sufficient permissions to perform the operation that is specified in the job. For
-example, to run a `CopyObject` job, the IAM role must have the
+have sufficient permissions to perform the operation specified in the job. For example,
+to run a `CopyObject` job, the IAM role must have the
 `s3:GetObject` permission for the source bucket and the
 `s3:PutObject` permission for the destination bucket. The role also needs
 permissions to read the manifest and write the completion report.
 
-For more information about IAM roles, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the
-_IAM User Guide_.
+The IAM role can be an existing role. Or, if you use the Amazon S3 console to create
+the job, it can be an IAM role that Amazon S3 creates automatically for you. For more
+information, see [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md").
 
-For more information about Amazon S3 permissions, see [Policy actions
+For more information about IAM roles, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the
+_IAM User Guide_. For more information about Amazon S3 permissions,
+see [Policy actions
 for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions").
 
 ###### Note
@@ -394,28 +397,33 @@ permissions. For more information, see [Granting permissions for Batch Operation
 2. Choose **Batch Operations** on the left navigation pane of the Amazon S3
    console.
 3. Choose **Create job**.
-4. Under **Choose Region and scope**, choose and view the AWS Region where you want to create your job.
+4. Under **Choose Region and scope**, choose and view the AWS Region
+   where you want to create your job.
 
 ###### Note
 
-For copy operations, you must create the job in the same Region as the destination bucket. For all other operations, you must create the job in the same Region as the objects
-in the manifest. 5. For **Scope**, specify the list of objects that your Batch Operations
+For copy operations, you must create the job in the same Region as the destination
+bucket. For all other operations, you must create the job in the same Region as the
+objects in the manifest. 5. For **Scope**, specify the list of objects that your Batch Operations
 job will act upon.
 
 Under **Object list**, you can choose to generate a manifest using an
-object list, generate a manifest using a replication configuration, or to use an existing
+object list, generate a manifest using a replication configuration, or use an existing
 manifest.
 
-    * If you choose **Generate an object list**, an object list is automatically generated based on the source location
-     and metadata that you specify. You can save this list as a manifest and use it again for future jobs.
+    * If you choose **Generate an object list**, an object list is
+     automatically generated based on the source location and metadata that you specify. You
+     can save this list as a manifest and use it again for future jobs.
 
 
     ###### Note
 
-    Note: To generate an object list, you must have the `s3:PutInventoryConfiguration` permission.
-     The source bucket must be a general purpose bucket.
-    * If you choose **Use an existing manifest**, you can import an object list from an existing manifest.
-     A manifest is an S3 Inventory report or CV file that lists the specific objects that you want Batch Operations to act upon.
+    To generate an object list, you must have the
+     `s3:PutInventoryConfiguration` permission. The source bucket must be a
+     general purpose bucket.
+    * If you choose **Use an existing manifest**, you can import an
+     object list from an existing manifest. A manifest is an S3 Inventory report or CV file
+     that lists the specific objects that you want Batch Operations to act upon.
     * If you choose **Use a replication configuration**, you can generate
      an object list automatically based on an existing replication configuration. You can
      save this list as a manifest and use it again for future jobs.
@@ -425,23 +433,31 @@ manifest.
 
 6. For **Source account**, choose the account that owns the source
    objects.
-7. Under **Source**, enter the path to your source, for example, `s3://``amzn-s3-demo-bucket`.
-8. Under **Object filters**, you can use filters to filter
-   by any portion of the object key or to filter by the end of the object key. The **Object key filters** assist
-   in refining the list of objects to be used in the manifest. For **Object metadata filters**,
-   choose filters to further define the scope of objects to include in the manifest.
-9. Under **Choose operation**,
-   choose the operation type that you want to perform on all objects listed in the manifest.
-   If your manifest references objects stored in a directory bucket, only use the copy or invoke AWS Lambda function operations.
-   All other operations aren't supported
+7. Under **Source**, enter the path to your source, for example,
+   `s3://``amzn-s3-demo-bucket`.
+8. Under **Object filters**, you can use filters to filter by any portion
+   of the object key or to filter by the end of the object key. The **Object key
+   filters** assist in refining the list of objects to be used in the manifest. For
+   **Object metadata filters**, choose filters to further define the scope
+   of objects to include in the manifest.
+9. Under **Choose operation**, choose the operation type that you want to
+   perform on all objects listed in the manifest. If your manifest references objects stored in
+   a directory bucket, only use the copy or invoke AWS Lambda function operations. All other
+   operations aren't supported.
 10. After selecting your operation type, choose **Next**.
-11. Fill out the information for **Configure additional options** and then choose **Next**.
-12. For **Review**, verify the settings. If you need to make changes, choose
-    **Previous**.Otherwise, you can choose **Create
-    job**.
-    To create your Batch Operations job with the AWS CLI, choose one of the following examples,
-    depending on whether you're specifying an existing manifest or generating a manifest
-    automatically.
+11. Fill out the information for **Configure additional options**.
+
+For **Permissions**, specify the AWS Identity and Access Management (IAM) role that you want
+the job to use. This can be an existing role, or a role that Amazon S3 creates automatically for
+you. For more information, see [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md"). Amazon S3 can create the role for you if you
+configured the job to use an S3 generated object list with filters or an object list based
+on a replication configuration. 12. When you finish configuring the additional options, choose
+**Next**. 13. For **Review**, verify the settings. If you need to make changes,
+choose **Previous**. Otherwise, you can choose **Submit
+job**.
+To create your Batch Operations job with the AWS CLI, choose one of the following examples,
+depending on whether you're specifying an existing manifest or generating a manifest
+automatically.
 
 Specify manifest
 The following example shows how to use the AWS CLI to create an S3 Batch Operations

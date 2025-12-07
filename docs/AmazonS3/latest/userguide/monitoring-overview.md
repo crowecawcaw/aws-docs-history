@@ -154,6 +154,6 @@ The following security best practices also address logging and monitoring:
 - [Logging requests with server access logging](ServerLogs.md "ServerLogs.md")
 - [Monitoring metrics with Amazon CloudWatch](cloudwatch-monitoring.md "cloudwatch-monitoring.md")
 - [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md")
-- [Assessing your storage activity and usage with
+- [Monitoring your storage activity and usage with
   Amazon S3 Storage Lens](storage_lens.md "storage_lens.md")
 - [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md "storage-inventory.md")

@@ -110,13 +110,15 @@ structure of the objects that you are accessing.
 You can use the AWS SDKs to issue GET and PUT requests directly rather than employing
 the management of transfers in the AWS SDK. This approach lets you tune your workload more
 directly, while still benefiting from the SDK’s support for retries and its handling of any
-HTTP 503 responses that might occur. As a general rule, when you download large objects
-within a Region from Amazon S3 to [Amazon EC2](../../../ec2/index.md "../../../ec2/index.md"), we
-suggest making concurrent requests for byte ranges of an object at the granularity of
-8–16 MB. Make one concurrent request for each 85–90 MB/s of desired network
-throughput. To saturate a 10 Gb/s network interface card (NIC), you might use about 15
-concurrent requests over separate connections. You can scale up the concurrent requests over
-more connections to saturate faster NICs, such as 25 Gb/s or 100 Gb/s NICs.
+HTTP 503 responses that might occur. As a general rule, when you download large objects from
+Amazon S3, we suggest making concurrent requests to maximize network throughput and optimize
+download performance. You can achieve this by either requesting specific byte ranges of the
+object or downloading individual parts of a multipart object simultaneously. This parallel
+download approach helps fully utilize your network interface card (NIC) capacity. For
+objects that were uploaded using multipart upload, we recommend downloading them using the
+same part sizes or aligning requests to the original part boundaries for best performance.
+This method of concurrent downloading provides higher aggregate throughput compared to
+single whole-object requests.
 
 Measuring performance is important when you tune the number of requests to issue
 concurrently. We recommend starting with a single request at a time. Measure the network

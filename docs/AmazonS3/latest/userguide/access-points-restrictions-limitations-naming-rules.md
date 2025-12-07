@@ -99,8 +99,7 @@ The following are specific limitations when using access points attached to a vo
   access point attached to a volume on an Amazon FSx file system.
 - You can't list objects or use **Copy** or **Move**
   operations in the S3 console with access points attached to a volume on an Amazon FSx file system.
-- `CopyObject` is supported for access points attached to an
-  FSx for OpenZFS volume only if the source and destination are the same access point. For
+- `CopyObject` is supported for access points attached to an FSx for NetApp ONTAP or FSx for OpenZFS volume only if the source and destination are the same access point. For
   more information, about access point compatibility, see [Access point compatibility](access-points-service-api-support.md "access-points-service-api-support.md").
 - Multipart uploads are limited to 5GB.
 - FSx for OpenZFS deployment type and storage class support varies by AWS Region. For more information, see

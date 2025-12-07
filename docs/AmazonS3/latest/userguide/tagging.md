@@ -119,6 +119,10 @@ For more information, see [Using tags with S3 directory buckets](directory-bucke
 
 For more information, see [Using tags with S3 tables](table-tagging.md "table-tagging.md").
 
+- **S3 vector index**
+
+For more information, see [Using tags with S3 vector indexes](vector-index-tagging.md "vector-index-tagging.md")
+
 ### Using tags for attribute-based access control (ABAC)
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes, i.e., tags. You can attach tags to AWS Identity and Access Management (IAM) entities (users or roles) and to AWS resources, such as Amazon S3 Access Points and directory buckets. Then, you control permissions to these resources using tag-based conditions in access control policies to allow or deny operations when these conditions are met.
@@ -174,6 +178,10 @@ Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags
 
 For more information, see [Using tags with S3 table buckets](table-bucket-tagging.md "table-bucket-tagging.md") and [Using tags with S3 tables](table-tagging.md "table-tagging.md").
 
+- **S3 Vector buckets and indexes**
+
+For more information, see [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md") and [Using tags with S3 vector indexes](vector-index-tagging.md "vector-index-tagging.md").
+
 ## Planning your tagging strategy
 
 We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. For more information about how to implement an effective resource tagging strategy, see the [Tagging Best Practices AWS Whitepaper](../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md "../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md").
@@ -197,13 +205,15 @@ Do not store personally identifiable information (PII) or other confidential or 
 
 For more information on how to manage tags for Amazon S3 resources, see the following:
 
-- [Managing tags for Access Points for general purpose buckets](access-points-tagging.md#working-with-tags-access-points "access-points-tagging.md#working-with-tags-access-points")
-- [Managing tags for Access Points for directory buckets](access-points-db-tagging.md#working-with-tags-access-points-db "access-points-db-tagging.md#working-with-tags-access-points-db")
+- [Using tags with S3 Access Points for general purpose buckets](access-points-tagging.md "access-points-tagging.md")
+- [Using tags with S3 Access Points for directory buckets](access-points-db-tagging.md "access-points-db-tagging.md")
 - [Controlling access and labeling jobs using tags](batch-ops-job-tags.md "batch-ops-job-tags.md")
-- [Managing tags for directory buckets](directory-buckets-tagging.md#working-with-tags "directory-buckets-tagging.md#working-with-tags")
-- [Managing tags for general purpose buckets](CostAllocTagging.md#working-with-tags-gpb "CostAllocTagging.md#working-with-tags-gpb")
+- [Using tags with S3 directory buckets](directory-buckets-tagging.md "directory-buckets-tagging.md")
+- [Using cost allocation S3 bucket tags](CostAllocTagging.md "CostAllocTagging.md")
 - [Categorizing your objects using tags](object-tagging.md "object-tagging.md")
 - [Managing tags for S3 Access Grants](access-grants-tagging.md "access-grants-tagging.md")
 - [Managing AWS resource tags with Storage
   Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags.md")
 - [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
+- [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md")
+- [Using tags with S3 vector indexes](vector-index-tagging.md "vector-index-tagging.md")

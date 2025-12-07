@@ -1,9 +1,5 @@
 # Vector buckets
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 Vector buckets are a type of Amazon S3 bucket designed specifically for storing and querying
 vector data. Vector buckets use dedicated APIs to manage vector data efficiently and
 reduce costs of upload, storing, and querying vector embeddings. Vector buckets provide
@@ -46,3 +42,4 @@ Key characteristics of vector buckets:
 - [Viewing vector bucket attributes](s3-vectors-buckets-details.md "s3-vectors-buckets-details.md")
 - [Deleting an empty vector bucket](s3-vectors-buckets-delete.md "s3-vectors-buckets-delete.md")
 - [Managing vector bucket policies](s3-vectors-bucket-policy.md "s3-vectors-bucket-policy.md")
+- [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md")

@@ -159,7 +159,7 @@ SigV2 deprecation period extended & modified](https://aws.amazon.com/blogs/aws/a
 To see **All unsupported signature requests** in your S3 Storage Lens
 dashboard, you must enable S3 Storage Lens **Advanced metrics and
 recommendations** and then select **Advanced data protection
-metrics**. For more information, see [Using the S3 console](storage_lens_console_editing.md "storage_lens_console_editing.md").
+metrics**. For more information, see [Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
 ### Step 1: Examine SigV2
 
@@ -244,7 +244,7 @@ includes replication rules within and across buckets and Regions.
 To see replication rule count metrics in your S3 Storage Lens dashboard, you must enable
 S3 Storage Lens **Advanced metrics and recommendations** and then select
 **Advanced data protection metrics**. For more information, see
-[Using the S3 console](storage_lens_console_editing.md "storage_lens_console_editing.md").
+[Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
 ### Step 1: Count
 

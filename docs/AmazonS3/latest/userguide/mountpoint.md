@@ -11,7 +11,7 @@ applications](https://aws.amazon.com/blogs/aws/mountpoint-for-amazon-s3-generall
 simulation, extract, transform, and load (ETL), and more.
 
 Mountpoint supports basic file system operations, and can read
-files up to 5 TB in size. It can list and read existing files, and it can create new ones. It
+files up to 50 TB in size. It can list and read existing files, and it can create new ones. It
 cannot modify existing files or delete directories, and it does not support symbolic links or
 file locking. Mountpoint is ideal for applications that do not need all of the features
 of a shared file system and POSIX-style permissions but require Amazon S3's elastic throughput to

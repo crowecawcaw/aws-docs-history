@@ -15,7 +15,12 @@ You can filter objects based on one or more tags. Each tag must match both the k
 If you specify only a `Key` element and no `Value` element, the rule will apply only to objects that match the tag key and that do not have a value specified.
 
 **Minimum or maximum object size**
-You can filter objects based on size. You can specify a minimum size (`ObjectSizeGreaterThan`) or a maximum size (`ObjectSizeLessThan`), or you can specify a range of object sizes in the same filter. Object size values are in bytes. Maximum filter size is 5 TB. Amazon S3 applies a default minimum object size to lifecycle configuration. For more information, see [Example: Allowing objects smaller than 128 KB to be transitioned](lifecycle-configuration-examples.md#lc-small-objects "lifecycle-configuration-examples.md#lc-small-objects").
+You can filter objects based on size. You can specify a minimum size
+(`ObjectSizeGreaterThan`) or a maximum size
+(`ObjectSizeLessThan`), or you can specify a range of object
+sizes in the same filter. Object size values are in bytes. Maximum filter size
+is 50 TB. Amazon S3 applies a default minimum object size to lifecycle configuration.
+For more information, see [Example: Allowing objects smaller than 128 KB to be transitioned](lifecycle-configuration-examples.md#lc-small-objects "lifecycle-configuration-examples.md#lc-small-objects").
 
 You can combine different filter elements in which case Amazon S3 uses a logical `AND`.
 
@@ -201,7 +206,7 @@ specified tags. A filter can have only one prefix, and zero or more tags.
   (`ObjectSizeLessThan`), or you can specify a range of object
   sizes.
 
-Object size values are in bytes. Maximum filter size is 5 TB. Some storage
+Object size values are in bytes. Maximum filter size is 50 TB. Some storage
 classes have minimum object size limitations. For more information, see [Comparing the Amazon S3 storage classes](storage-class-intro.md#sc-compare "storage-class-intro.md#sc-compare").
 
 ```

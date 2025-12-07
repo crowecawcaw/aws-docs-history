@@ -1,9 +1,5 @@
 # Tutorial: Getting started with S3 Vectors
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 In this tutorial, you create an S3 vector bucket and a vector index in an AWS Region in the Amazon S3 console. Next, you
 use an Amazon Bedrock embedding model to generate vector embeddings of your data and store them in your vector index to perform semantic searches.
 
@@ -64,7 +60,7 @@ For more information about setting encryption configuration for vector buckets, 
 ###### Note
 
 The encryption type
-can't be changed after the vector bucket is created. 6. Choose **Create vector bucket**.
+can't be changed after the vector bucket is created. 6. Under **Tags (Optional)**, you can add tags as key-value pairs to help organize and specify permissions for your vector buckets. Enter a **Key** and a **Value**. To add another tag, choose **Add Tag**. You can enter up to 50 tags for a vector bucket. For more information, see [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md"). 7. Choose **Create vector bucket**.
 
 ## Step 2: Create a vector index in a
 
@@ -113,7 +109,7 @@ Each non-filterable metadata key must be between 1 to 63 characters and unique w
 For example, when working with text embeddings, you might want to preserve the original text chunks for reference purposes.
 In this tutorial, we add a non-filterable metadata key that's named `source_text` to store the text data that we want to create vector embeddings for.
 
-You can't update non-filterable metadata keys after index creation. Plan your metadata structure carefully. 7. Choose **Create vector index**.
+You can't update non-filterable metadata keys after index creation. Plan your metadata structure carefully. 7. Under **Encryption**, choose **Specify encryption type**. You have the option to use the bucket level encryption settings or override the encryption settings for the vector index. If you override the bucket-level settings, you have the option to specify encryption type for the vector index as **Server-side encryption with AWS Key Management Service keys (SSE-KMS)** or the **Server-side encryption with Amazon S3 managed keys (SSE-S3)**. In this tutorial, we choose to **Use bucket settings for encryption**. For more information about setting encryption configuration for vector buckets and indexes, see [Data protection and encryption in S3 Vectors](s3-vectors-data-encryption.md "s3-vectors-data-encryption.md"). 8. Under **Tags (Optional)**, you can add tags as key-value pairs to help track and organize vector index costs using AWS Billing and Cost Management. Enter a **Key** and a **Value**. To add another tag, choose **Add Tag**. You can enter up to 50 tags for a vector index. For more information, see [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md"). 9. Choose **Create vector index**.
 
 Verify that your new vector index appears inside the bucket.
 

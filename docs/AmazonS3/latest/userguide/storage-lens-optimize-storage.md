@@ -106,7 +106,7 @@ multiple times during the day.
 
 To see activity metrics in your S3 Storage Lens dashboard, you must enable S3 Storage Lens
 **Advanced metrics and recommendations** and then select
-**Activity metrics**. For more information, see [Using the S3 console](storage_lens_console_editing.md "storage_lens_console_editing.md").
+**Activity metrics**. For more information, see [Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
 ### Step 1: Identify active
 
@@ -174,7 +174,7 @@ and cost.
 
 ## Locate incomplete multipart uploads
 
-You can use multipart uploads to upload very large objects (up to 5 TB) as a set of
+You can use multipart uploads to upload very large objects (up to 50 TB) as a set of
 parts for improved throughput and quicker recovery from network issues. In cases where
 the multipart upload process doesn't finish, the incomplete parts remain in the bucket
 (in an unusable state). These incomplete parts incur storage costs until the upload
@@ -229,7 +229,7 @@ To see the **Abort incomplete multipart upload lifecycle rule
 count** metric in your S3 Storage Lens dashboard, you must enable S3 Storage Lens
 **Advanced metrics and recommendations**, and then select
 **Advanced cost optimization metrics**. For more
-information, see [Using the S3 console](storage_lens_console_editing.md "storage_lens_console_editing.md").
+information, see [Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -377,7 +377,7 @@ count** and **Noncurrent version expiration lifecycle rule
 count** metrics in your S3 Storage Lens dashboard, you must enable
 S3 Storage Lens **Advanced metrics and recommendations**, and then
 select **Advanced cost optimization metrics**. For more
-information, see [Using the S3 console](storage_lens_console_editing.md "storage_lens_console_editing.md").
+information, see [Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -444,7 +444,7 @@ To see lifecycle rule count metrics and the **Total buckets
 without lifecycle rules** metric in your S3 Storage Lens dashboard, you must
 enable S3 Storage Lens **Advanced metrics and recommendations**, and then
 select **Advanced cost optimization metrics**. For more
-information, see [Using the S3 console](storage_lens_console_editing.md "storage_lens_console_editing.md").
+information, see [Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
 ### Step 1: Identify buckets
 

@@ -9,9 +9,9 @@ providers, to access your S3 Storage Lens metrics. For more information about Cl
 see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md").
 
 S3 Storage Lens metrics are published to CloudWatch in the account that owns the S3 Storage Lens configuration.
-After you enable the CloudWatch publishing option within advanced metrics and recommendations,
-you can access organization, account, and bucket-level metrics in CloudWatch.
-Prefix-level metrics are not available in CloudWatch.
+After you enable the CloudWatch publishing option within advanced metrics, you can access account-level and
+bucket-level metrics by configuration ID, account, bucket (for bucket-level metrics only), Region, and
+storage class in CloudWatch. Prefix-level metrics are not available in CloudWatch.
 
 You can enable CloudWatch support for new or existing dashboard configurations by using the
 S3 console, Amazon S3 REST APIs, AWS CLI, and AWS SDKs. The CloudWatch publishing option is
@@ -159,7 +159,7 @@ display in your S3 Storage Lens dashboard:
 For more information about metrics categories, see [Metrics categories](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types"). For a complete
 list of metrics, see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md"). 10. (Optional) Configure your metrics export.
 
-For more information about how to configure a metrics export, see step [Using the S3 console](storage_lens_console_creating.md "storage_lens_console_creating.md"). 11. Choose **Create dashboard**.
+For more information about how to configure a metrics export, see step [Using the S3 console](storage_lens_creating_dashboard.md#storage_lens_console_creating "storage_lens_creating_dashboard.md#storage_lens_console_creating"). 11. Choose **Create dashboard**.
 The following AWS CLI example enables the CloudWatch publishing option by using a
 S3 Storage Lens organization-level advanced metrics and recommendations configuration.
 To use this example, replace the `user input

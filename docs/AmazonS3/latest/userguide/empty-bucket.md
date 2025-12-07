@@ -13,10 +13,10 @@ information, see [Working with objects in a
 versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md").
 
 While emptying your bucket, we recommend that you also remove all incomplete multipart
-uploads. You can use multipart uploads to upload very large objects (up to 5 TB) as a set of
-parts for improved throughput and quicker recovery from network issues. In cases where the
-multipart upload process doesn't finish, the incomplete parts remain in the bucket (in an
-unusable state). These incomplete parts incur storage costs until the upload process is
+uploads. You can use multipart uploads to upload very large objects (up to 50 TB) as a set
+of parts for improved throughput and quicker recovery from network issues. In cases where
+the multipart upload process doesn't finish, the incomplete parts remain in the bucket (in
+an unusable state). These incomplete parts incur storage costs until the upload process is
 finished, or until the incomplete parts are removed. For more information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
 
 As a best practice, we recommend configuring lifecycle rules to expire objects and incomplete

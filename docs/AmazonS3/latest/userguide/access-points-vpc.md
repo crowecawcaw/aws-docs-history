@@ -25,7 +25,7 @@ You can retrieve an access point's network origin using the AWS CLI, AWS SDKs, o
 access point has a VPC configuration specified, its network origin is `VPC`. Otherwise,
 the access point's network origin is `Internet`.
 
-## Example: Create and restrict an access point to an VPC ID
+## Example: Create and restrict an access point to a VPC ID
 
 The following example creates an access point named `example-vpc-ap` for bucket
 `amzn-s3-demo-bucket` in account `123456789012` that allows
@@ -109,12 +109,23 @@ For a tutorial on creating access points with VPC endpoints, see [Managing Amazo
 
 ## Example: Create and restrict an access point
 
-attached to an FSx for OpenZFS volume to an VPC ID
+attached to an FSx for OpenZFS volume to a VPC ID
 
 You can create an access point that is attached it to an FSx for OpenZFS volume using the Amazon FSx
 console, AWS CLI, or API. Once attached, you can use the S3 object APIs to access your file
 data from a specified VPC.
 
-For instructions on creating and restricting an access point attached to an FSx for OpenZFS volume see,
+For instructions on creating and restricting an access point attached to an FSx for OpenZFS volume see, the
 [Creating access points restricted to a virtual private cloud (VPC)](../../../fsx/latest/OpenZFSGuide/create-access-points.md "../../../fsx/latest/OpenZFSGuide/create-access-points.md") in the
 _FSx for OpenZFS User Guide_.
+
+## Example: Create and restrict an access point
+
+attached to an FSX for ONTAP volume to a VPC ID
+
+You can create an access point that is attached it to an FSx for ONTAP volume using the Amazon FSx
+console, AWS CLI, or API. Once attached, you can use the S3 object APIs to access your file
+data from a specified VPC.
+
+For instructions on creating and restricting an access point attached to an FSx for ONTAP volume see, the
+[_FSx for ONTAP User Guide_](../../../fsx/latest/ONTAPGuide/access-points-for-fsxn-vpc.md "../../../fsx/latest/ONTAPGuide/access-points-for-fsxn-vpc.md").

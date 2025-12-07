@@ -1,9 +1,5 @@
 # Querying vectors
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 You can run a similarity query with the [QueryVectors](../API/API_S3VectorBuckets_QueryVectors.md "../API/API_S3VectorBuckets_QueryVectors.md") API operation, where you
 specify the query vector, the number of relevant results to return (the top K nearest
 neighbors), and the index ARN. Additionally, you can use metadata filters in a query, to
@@ -32,8 +28,9 @@ query process by handling both the vector embedding generation with Amazon Bedro
 executing semantic search operations against your S3 vector indexes. For more information
 about using this tool for querying your vector data, see [Creating vector embeddings and performing semantic searches with s3vectors-embed-cli](s3-vectors-cli.md "s3-vectors-cli.md").
 
-S3 Vectors delivers sub-second query latency times. S3 Vectors uses elastic throughput
-of Amazon S3 to handle searches across millions of vectors and is ideal for workloads where queries are less frequent. For performing similarity queries for your vector embeddings, several factors can
+S3 Vectors delivers sub-second response times for cold queries, leveraging Amazon S3 elastic throughput to efficiently search across millions of vectors. This makes it highly cost-effective for workloads with infrequent queries. For warm queries, S3 Vectors can deliver response times as low as 100ms, benefiting workloads with repeated or frequent query patterns.
+
+For performing similarity queries for your vector embeddings, several factors can
 affect average recall performance, including the vector embedding model, the size of the
 vector dataset (the number of vectors and dimensions), and the distribution of queries.
 S3 Vectors delivers 90%+ average recall for most datasets. Average recall measures the

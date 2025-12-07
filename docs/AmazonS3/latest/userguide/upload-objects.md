@@ -23,12 +23,24 @@ Depending on the size of the data that you're uploading, Amazon S3 offers the fo
   to 160 GB in size.
 - Upload an object in parts by using the AWS SDKs, REST API, or
   AWS CLI – Using the multipart upload API
-  operation, you can upload a single large object, up to 5 TB in size.
+  operation, you can upload a single large object, up to 50 TB in size.
 
 The multipart upload API operation is designed to improve the upload experience for
 larger objects. You can upload an object in parts. These object parts can be uploaded
 independently, in any order, and in parallel. You can use a multipart upload for objects
-from 5 MB to 5 TB in size. For more information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
+from 5 MB to 50 TB in size. For more information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
+To upload files greater than 5 TB, use the S3 Transfer Manager in the Java v1/v2, Python, or
+AWS CLI SDKs. For the best performance, use the latest AWS Common Runtime (CRT) with these SDKs,
+which has been optimized for better resource utilization.
+
+When uploading large objects from memory stream, CRT buffers each part up to 5 GB in memory,
+limiting overall throughput by allocated memory. You can adjust the CRT memory limit using
+configuration options such as `maxNativeMemoryLimitInBytes` for Java SDK. For uploads
+from disk, CRT automatically switches to direct disk streaming instead of intermediate part
+buffering, improving memory usage. This behavior is automatically enabled for large objects, but
+can also be enabled for smaller files via request parameters such as `should_stream`
+for AWS CLI and `CRT_MEMORY_BUFFER_DISABLED` for Java SDK.
+
 When you upload an object, the object is automatically encrypted using server-side
 encryption with Amazon S3 managed keys (SSE-S3) by default. When you download it, the object is
 decrypted. For more information, see [Setting default server-side encryption behavior for Amazon S3
@@ -217,293 +229,10 @@ in the _AWS CLI Command Reference_.
 You can send REST requests to upload an object. You can send a `PUT`
 request to upload data in a single operation. For more information, see [PUT Object](../API/RESTObjectPUT.md "../API/RESTObjectPUT.md").
 
-You can use the AWS SDKs to upload objects in Amazon S3. The SDKs provide wrapper
-libraries for you to upload data easily. For information, see the [List of supported SDKs](../API/API_PutObject.md#API_PutObject_SeeAlso "../API/API_PutObject.md#API_PutObject_SeeAlso").
+For examples of how to upload an object with the AWS SDKs, see [Code
+Examples](../API/s3_example_s3_PutObject_section.md "../API/s3_example_s3_PutObject_section.md") in the _Amazon Simple Storage Service API Reference_.
 
-Here are some examples with a few select SDKs:
-
-.NET
-The following C# code example creates two objects with two
-`PutObjectRequest` requests:
-
-- The first `PutObjectRequest` request saves a text string as
-  sample object data. It also specifies the bucket and object key names.
-- The second `PutObjectRequest` request uploads a file by
-  specifying the file name. This request also specifies the
-  `ContentType` header and optional object metadata (a title).
-
-For information about setting up and running the code examples, see [Getting
-Started with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET
-Developer Guide_.
-
-```
-using Amazon;
-using Amazon.S3;
-using Amazon.S3.Model;
-using System;
-using System.Threading.Tasks;
-
-namespace Amazon.DocSamples.S3
-{
-    class UploadObjectTest
-    {
-        private const string bucketName = "*** bucket name ***";
-        // For simplicity the example creates two objects from the same file.
-        // You specify key names for these objects.
-        private const string keyName1 = "*** key name for first object created ***";
-        private const string keyName2 = "*** key name for second object created ***";
-        private const string filePath = @"*** file path ***";
-        private static readonly RegionEndpoint bucketRegion = RegionEndpoint.EUWest1;
-
-        private static IAmazonS3 client;
-
-        public static void Main()
-        {
-            client = new AmazonS3Client(bucketRegion);
-            WritingAnObjectAsync().Wait();
-        }
-
-        static async Task WritingAnObjectAsync()
-        {
-            try
-            {
-                // 1. Put object-specify only key name for the new object.
-                var putRequest1 = new PutObjectRequest
-                {
-                    BucketName = bucketName,
-                    Key = keyName1,
-                    ContentBody = "sample text"
-                };
-
-                PutObjectResponse response1 = await client.PutObjectAsync(putRequest1);
-
-                // 2. Put the object-set ContentType and add metadata.
-                var putRequest2 = new PutObjectRequest
-                {
-                    BucketName = bucketName,
-                    Key = keyName2,
-                    FilePath = filePath,
-                    ContentType = "text/plain"
-                };
-
-                putRequest2.Metadata.Add("x-amz-meta-title", "someTitle");
-                PutObjectResponse response2 = await client.PutObjectAsync(putRequest2);
-            }
-            catch (AmazonS3Exception e)
-            {
-                Console.WriteLine(
-                        "Error encountered ***. Message:'{0}' when writing an object"
-                        , e.Message);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(
-                    "Unknown encountered on server. Message:'{0}' when writing an object"
-                    , e.Message);
-            }
-        }
-    }
-}
-
-```
-
-Java
-For information about uploading objects with the AWS SDK for Java, see [Use PutObject with an AWS SDK or CLI](../API/s3_example_s3_PutObject_section.md "../API/s3_example_s3_PutObject_section.md") and [Recursively upload a local directory to an Amazon Simple Storage Service (Amazon S3) bucket](../API/s3_example_s3_Scenario_UploadDirToS3_section.md "../API/s3_example_s3_Scenario_UploadDirToS3_section.md") in the _Amazon S3 API Reference_.
-
-JavaScript
-The following example uploads an existing file to an Amazon S3 bucket in a specific
-Region.
-
-```
-import { readFile } from "node:fs/promises";
-
-import {
-  PutObjectCommand,
-  S3Client,
-  S3ServiceException,
-} from "@aws-sdk/client-s3";
-
-/**
- * Upload a file to an S3 bucket.
- * @param {{ bucketName: string, key: string, filePath: string }}
- */
-export const main = async ({ bucketName, key, filePath }) => {
-  const client = new S3Client({});
-  const command = new PutObjectCommand({
-    Bucket: bucketName,
-    Key: key,
-    Body: await readFile(filePath),
-  });
-
-  try {
-    const response = await client.send(command);
-    console.log(response);
-  } catch (caught) {
-    if (
-      caught instanceof S3ServiceException &&
-      caught.name === "EntityTooLarge"
-    ) {
-      console.error(
-        `Error from S3 while uploading object to ${bucketName}. \
-The object was too large. To upload objects larger than 5GB, use the S3 console (160GB max) \
-or the multipart upload API (5TB max).`,
-      );
-    } else if (caught instanceof S3ServiceException) {
-      console.error(
-        `Error from S3 while uploading object to ${bucketName}.  ${caught.name}: ${caught.message}`,
-      );
-    } else {
-      throw caught;
-    }
-  }
-};
-
-```
-
-PHP
-This example guides you through using classes from the AWS SDK for PHP to upload an
-object of up to 5 GB in size. For larger files, you must use the multipart upload
-API operation. For more information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
-
-For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version
-2](../../../sdkforruby/api/index.md "../../../sdkforruby/api/index.md").
-
-###### Example — Creating an object in an Amazon S3 bucket by uploading data
-
-The following PHP example creates an object in a specified bucket by uploading
-data using the `putObject()` method.
-
-```
- require 'vendor/autoload.php';
-
-use Aws\S3\Exception\S3Exception;
-use Aws\S3\S3Client;
-
-$bucket = '*** Your Bucket Name ***';
-$keyname = '*** Your Object Key ***';
-
-$s3 = new S3Client([
-    'version' => 'latest',
-    'region'  => 'us-east-1'
-]);
-
-try {
-    // Upload data.
-    $result = $s3->putObject([
-        'Bucket' => $bucket,
-        'Key'    => $keyname,
-        'Body'   => 'Hello, world!',
-        'ACL'    => 'public-read'
-    ]);
-
-    // Print the URL to the object.
-    echo $result['ObjectURL'] . PHP_EOL;
-} catch (S3Exception $e) {
-    echo $e->getMessage() . PHP_EOL;
-}
-
-
-```
-
-Ruby
-The AWS SDK for Ruby - Version 3 has two ways of uploading an object to Amazon S3. The
-first uses a managed file uploader, which makes it easier to upload files of any
-size from disk. To use the managed file uploader method:
-
-1. Create an instance of the `Aws::S3::Resource` class.
-2. Reference the target object by bucket name and key. Objects live in a bucket
-   and have unique keys that identify each object.
-3. Call`#upload_file` on the object.
-
-```
-require 'aws-sdk-s3'
-
-# Wraps Amazon S3 object actions.
-class ObjectUploadFileWrapper
-  attr_reader :object
-
-  # @param object [Aws::S3::Object] An existing Amazon S3 object.
-  def initialize(object)
-    @object = object
-  end
-
-  # Uploads a file to an Amazon S3 object by using a managed uploader.
-  #
-  # @param file_path [String] The path to the file to upload.
-  # @return [Boolean] True when the file is uploaded; otherwise false.
-  def upload_file(file_path)
-    @object.upload_file(file_path)
-    true
-  rescue Aws::Errors::ServiceError => e
-    puts "Couldn't upload file #{file_path} to #{@object.key}. Here's why: #{e.message}"
-    false
-  end
-end
-
-# Example usage:
-def run_demo
-  bucket_name = "amzn-s3-demo-bucket"
-  object_key = "my-uploaded-file"
-  file_path = "object_upload_file.rb"
-
-  wrapper = ObjectUploadFileWrapper.new(Aws::S3::Object.new(bucket_name, object_key))
-  return unless wrapper.upload_file(file_path)
-
-  puts "File #{file_path} successfully uploaded to #{bucket_name}:#{object_key}."
-end
-
-run_demo if $PROGRAM_NAME == __FILE__
-
-```
-
-The second way that the AWS SDK for Ruby - Version 3 can upload an object uses the
-`#put` method of `Aws::S3::Object`. This is useful if the
-object is a string or an I/O object that is not a file on disk. To use this
-method:
-
-1. Create an instance of the `Aws::S3::Resource` class.
-2. Reference the target object by bucket name and key.
-3. Call`#put`, passing in the string or I/O object.
-
-```
-require 'aws-sdk-s3'
-
-# Wraps Amazon S3 object actions.
-class ObjectPutWrapper
-  attr_reader :object
-
-  # @param object [Aws::S3::Object] An existing Amazon S3 object.
-  def initialize(object)
-    @object = object
-  end
-
-  def put_object(source_file_path)
-    File.open(source_file_path, 'rb') do |file|
-      @object.put(body: file)
-    end
-    true
-  rescue Aws::Errors::ServiceError => e
-    puts "Couldn't put #{source_file_path} to #{object.key}. Here's why: #{e.message}"
-    false
-  end
-end
-
-# Example usage:
-def run_demo
-  bucket_name = "amzn-s3-demo-bucket"
-  object_key = "my-object-key"
-  file_path = "my-local-file.txt"
-
-  wrapper = ObjectPutWrapper.new(Aws::S3::Object.new(bucket_name, object_key))
-  success = wrapper.put_object(file_path)
-  return unless success
-
-  puts "Put file #{file_path} into #{object_key} in #{bucket_name}."
-end
-
-run_demo if $PROGRAM_NAME == __FILE__
-
-```
+For general information about using different AWS SDKs, see [Developing with Amazon S3 using the AWS SDKs](../API/sdk-general-information-section.md "../API/sdk-general-information-section.md") in the _Amazon Simple Storage Service API Reference_.
 
 ## Prevent uploading objects with identical key names
 

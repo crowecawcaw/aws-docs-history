@@ -1,9 +1,5 @@
 # Metadata filtering
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 Metadata filtering allows you to filter query results based on specific attributes
 attached to your vectors. You can use metadata filters with query operations to find
 vectors that match both similarity criteria and specific metadata conditions.

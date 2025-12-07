@@ -202,9 +202,9 @@ You can use the following filters in an S3 Storage Lens group:
   other objects that also have empty tag values.
 - **Age** – Specifies the object age
   range of included objects in days. Only integers are supported.
-- **Size** – Specifies the object size
-  range of included objects in bytes. Only integers are supported. The maximum
-  allowable value is 5 TB.
+- **Size** – Specifies the object size range of
+  included objects in bytes. Only integers are supported. The maximum
+  allowable value is 50 TB.
 
 ### Storage Lens group object
 

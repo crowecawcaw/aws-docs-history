@@ -19,6 +19,7 @@ S3 Batch Operations jobs
 Using the console, you can manage your S3 Batch Operations jobs. For example, you can:
 
 - View active and queued jobs
+- Check the status of a job
 - Change a job's priority
 - Confirm and run a job
 - Clone a job
@@ -29,4 +30,4 @@ Using the console, you can manage your S3 Batch Operations jobs. For example, yo
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. In the left navigation pane, choose **Batch Operations**.
-3. Choose the specific job that you would like to manage.
+3. Choose the job that you want to manage.

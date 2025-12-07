@@ -1,9 +1,5 @@
 # Vectors
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 Each vector consists of a key, which uniquely identifies each vector in a vector
 index. Additionally, you can
 attach metadata (for example, year, author, genre, location) as key value pairs to each

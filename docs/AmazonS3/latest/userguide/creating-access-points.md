@@ -2,7 +2,7 @@
 
 You can create S3 access points by using the AWS Management Console, AWS Command Line Interface (AWS CLI), AWS SDKs, or Amazon S3
 REST API. Access points are named network endpoints that are attached to a data source such
-as a bucket or Amazon FSx for OpenZFS volume.
+as a bucket, Amazon FSx for ONTAP volume, or Amazon FSx for OpenZFS volume.
 
 By default, you can create up to 10,000 access points per Region for each of your AWS accounts.
 If you need more than 10,000 access points for a single account in a single Region, you can request

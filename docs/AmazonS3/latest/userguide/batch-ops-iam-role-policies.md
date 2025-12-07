@@ -5,9 +5,9 @@ create an Amazon S3 Batch Operations job, the `s3:CreateJob` user permission is 
 same entity that creates the job must also have the `iam:PassRole` permission to pass
 the AWS Identity and Access Management (IAM) role that's specified for the job to Batch Operations.
 
-For general information about specifying IAM resources, see [IAM JSON policy,
-Resource elements](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md") in the _IAM User Guide_. The following sections
-provide information about creating an IAM role and attaching policies.
+The following sections provide information about creating an IAM role and attaching
+policies. For general information about specifying IAM resources, see [IAM JSON policy elements: Resource](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md") in the
+_IAM User Guide_.
 
 ###### Topics
 
@@ -20,19 +20,38 @@ provide information about creating an IAM role and attaching policies.
 role
 
 Amazon S3 must have permissions to perform S3 Batch Operations on your behalf. You grant these
-permissions through an AWS Identity and Access Management (IAM) role. This section provides examples of the trust and
-permissions policies you use when creating an IAM role. For more information, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the _IAM User Guide_. For examples, see [Controlling permissions for Batch Operations using job
-tags](batch-ops-job-tags-examples.md "batch-ops-job-tags-examples.md") and [Copying objects using S3 Batch Operations](batch-ops-examples-copy.md "batch-ops-examples-copy.md").
+permissions through an AWS Identity and Access Management (IAM) role. When you create an S3 Batch Operations job, you
+specify the IAM role that you want the job to use. This can be an existing IAM role. Or,
+if you use the Amazon S3 console to create the job, it can be an IAM role that Amazon S3 creates for
+you.
+
+If you choose to let Amazon S3 create the IAM role for you, it automatically creates and
+attaches trust and permissions policies to the role. The trust policy allows the
+S3 Batch Operations service principal (`batchoperations.s3.amazonaws.com`) to assume the
+role. The permissions policy allows all the requisite actions for running the job, based on
+the settings that you specify for the job. For example, if you configure a job to copy objects
+from one bucket to another bucket in your AWS account, the permissions policy allows actions
+such as `s3:GetObject` and `s3:PutObject`. You can review the trust and
+permissions policies for the role before you submit the job. This option is available only if
+you use the Amazon S3 console to create a job, and you configure the job to use an S3 generated
+object list that uses filters or is based on a replication configuration. After you submit the
+job, the IAM role persists in your account. You can then use it again for subsequent jobs
+that perform the same operation, or delete it when the job finishes running.
+
+If you prefer to create the IAM role manually, the policy examples in this section can
+help you create the role. For more information about creating and configuring roles, see
+[IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the _IAM User Guide_. For information about permissions for S3 API operations by S3
+resource type, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md"). For additional examples, see [Controlling permissions for Batch Operations using job
+tags](batch-ops-job-tags-examples.md "batch-ops-job-tags-examples.md") and
+[Copying objects using S3 Batch Operations](batch-ops-examples-copy.md "batch-ops-examples-copy.md").
 
 In your IAM policies, you can also use condition keys to filter access permissions for
-S3 Batch Operations jobs. For more information and a complete list of Amazon S3 specific condition keys,
-see [Actions, resources, and condition keys for Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md") in the _Service Authorization
-Reference_.
+S3 Batch Operations jobs. For more information and a complete list of condition keys that are
+specific to Amazon S3, see [Actions, resources, and
+condition keys for Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md") in the _Service Authorization Reference_.
 
-For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md").
-
-The following video includes how to set up IAM permissions for Batch Operations jobs using the
-AWS Management Console.
+The following video includes how to set up IAM
+permissions for Batch Operations jobs by using the AWS Management Console.
 
 ### Trust policy
 

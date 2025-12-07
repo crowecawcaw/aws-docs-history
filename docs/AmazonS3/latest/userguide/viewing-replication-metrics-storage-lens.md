@@ -32,7 +32,7 @@ an [S3 Batch Replication job](s3-batch-replication-batch.md "s3-batch-replicatio
 
 ###### To view replication metrics in Amazon S3 Storage Lens
 
-1. Create an S3 Storage Lens dashboard. For step-by-step instructions, see [Using the S3 console](storage_lens_console_creating.md "storage_lens_console_creating.md").
+1. Create an S3 Storage Lens dashboard. For step-by-step instructions, see [Using the S3 console](storage_lens_creating_dashboard.md#storage_lens_console_creating "storage_lens_creating_dashboard.md#storage_lens_console_creating").
 2. (Optional) During your dashboard setup, if you want to see all S3 Storage Lens replication
    metrics, select **Advanced metrics and recommendations** and then select
    **Advanced data protection metrics**. For a complete list of metrics,

@@ -1,9 +1,5 @@
 # Listing vectors
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 You can list vectors in a vector index with the [ListVectors](../API/API_S3VectorBuckets_ListVectors.md "../API/API_S3VectorBuckets_ListVectors.md") API operation.
 For more information about the maximum number of vectors that can be returned per page, see
 [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md"). The
@@ -91,4 +87,66 @@ Example response:
         }
     ]
 }
+```
+
+SDK for Python
+Example: List vectors in a vector index
+
+```
+import boto3
+
+# Create a S3 Vectors client in the AWS Region of your choice.
+s3vectors = boto3.client("s3vectors", region_name="us-west-2")
+
+#List vectors in your vector index
+
+response = s3vectors.list_vectors(
+    vectorBucketName="media-embeddings",
+    indexName="movies",
+    maxResults = 600,
+    returnData = True,
+    returnMetadata = True
+)
+
+vectors = response["vectors"]
+
+print(vectors)
+```
+
+Example: List all vectors in a vector index in parallel
+
+```
+import boto3
+
+# Create a S3 Vectors client in the AWS Region of your choice.
+s3vectors = boto3.client("s3vectors", region_name="us-west-2")
+
+#List vectors in the 1st half of vectors in the index.
+response = s3vectors.list_vectors(
+    vectorBucketName="media-embeddings",
+    indexName="movies",
+    segmentCount=2,
+    segmentIndex=1,
+    maxResults = 600,
+    returnData = True,
+    returnMetadata = True
+)
+
+vectors = response["vectors"]
+
+#List vectors starting from the 2nd half of vectors in the index.
+# This can be ran in parallel with the first `list_vectors` call.
+response = s3vectors.list_vectors(
+    vectorBucketName="media-embeddings",
+    indexName="movies",
+    segmentCount=2,
+    segmentIndex=1,
+    maxResults = 600,
+    returnData = True,
+    returnMetadata = True
+)
+
+vectors = response["vectors"]
+
+print(vectors)
 ```

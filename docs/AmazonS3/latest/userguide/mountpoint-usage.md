@@ -33,7 +33,7 @@ Use Mountpoint for Amazon S3 to do the following:
 
    Because the Mountpoint client runs in the background by default, the
    `~/mnt` directory now gives you access to the
-   objects in your Amazon S3 bucket. 2. Alternatively, you can configure automatic mounting of Amazon S3 buckets when an instance starts up or reboots.
+   objects in your Amazon S3 bucket. 2. Alternatively, since Mountpoint v1.18, you can configure automatic mounting of Amazon S3 buckets when an instance starts up or reboots.
 
    For existing or running Amazon EC2 instances, find the `fstab` file in the `/etc/fstab` directory of your Linux system. Then, add a line to your `fstab` file. For example, to mount `amzn-s3-demo-bucket` using the prefix `example-prefix/` to your sytem path `/mnt/mountpoint`, see the following. To use the following example, replace the `user input
  placeholders` with your own information.

@@ -18,9 +18,9 @@ more information, see [Amazon CloudWatch
 pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
 S3 Storage Lens metrics are published to CloudWatch in the account that owns the S3 Storage Lens configuration.
-After you enable the CloudWatch publishing option within advanced metrics and recommendations,
-you can access organization, account, and bucket-level metrics in CloudWatch.
-Prefix-level metrics are not available in CloudWatch.
+After you enable the CloudWatch publishing option within advanced metrics, you can access account-level and
+bucket-level metrics by configuration ID, account, bucket (for bucket-level metrics only), Region, and
+storage class in CloudWatch. Prefix-level metrics are not available in CloudWatch.
 
 ###### Note
 

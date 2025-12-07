@@ -24,7 +24,7 @@ marker differs from other objects in the following ways:
   storage class.
 
 If you want to find out how many delete markers you have and what storage class they're
-stored in, you can use Amazon S3 Storage Lens. For more information, see [Assessing your storage activity and usage with
+stored in, you can use Amazon S3 Storage Lens. For more information, see [Monitoring your storage activity and usage with
 Amazon S3 Storage Lens](storage_lens.md "storage_lens.md") and [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md").
 
 For more information about key names, see [Naming Amazon S3 objects](object-keys.md "object-keys.md"). For information about deleting a delete marker, see [Managing delete markers](ManagingDelMarkers.md "ManagingDelMarkers.md").

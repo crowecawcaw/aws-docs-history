@@ -150,7 +150,7 @@ The name must be unique within the bucket. 6. Choose the scope of the lifecycle 
     size**, **Specify maximum object size**, or both options.
     - When you're specifying a value for **Minimum object size** or
       **Maximum object size**, the value must be larger than 0 bytes and up
-      to 5 TB. You can specify this value in bytes, KB, MB, or GB.
+      to 50 TB. You can specify this value in bytes, KB, MB, or GB.
     - When you're specifying both values, the maximum object size must be larger than the
       minimum object size.
 

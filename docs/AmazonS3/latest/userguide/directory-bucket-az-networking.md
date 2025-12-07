@@ -43,7 +43,7 @@ Amazon S3 Express One Zone storage class objects and directory buckets.
    **com.amazonaws.`region`.s3express**.
 7. For **VPC**, choose the VPC in which to create the
    endpoint.
-8. For **Route tables**, choose the route table on your Local Zone to be used by the endpoint. After the endpoint is created, a route record will be added to the route table that you select in this step.
+8. For **Route tables**, choose the route table in your VPC to be used by the endpoint. After the endpoint is created, a route record will be added to the route table that you select in this step.
 9. For **Policy**, choose **Full access** to
    allow all operations by all principals on all resources over the VPC endpoint.
    Otherwise, choose **Custom** to attach a VPC endpoint policy

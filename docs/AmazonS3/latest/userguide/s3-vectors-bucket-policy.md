@@ -1,11 +1,7 @@
 # Managing vector bucket policies
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 Vector bucket policies are resource-based policies that you attach directly to vector buckets to control access to the bucket and its contents. You can add, view, edit, delete
-vector bucket policies. Bucket policies for vector buckets can grant permissions to
+vector bucket policies by using the Amazon S3 REST API, AWS SDKs, S3 Console, or the AWS Command Line Interface (AWS CLI). Bucket policies for vector buckets can grant permissions to
 principals from other AWS accounts, making them useful for cross-account access
 scenarios.
 
@@ -16,6 +12,15 @@ scenarios.
 - [DeleteVectorBucketPolicy](../API/API_S3VectorBuckets_DeleteVectorBucketPolicy.md "../API/API_S3VectorBuckets_DeleteVectorBucketPolicy.md") – Remove the bucket policy.
 
 ## Adding a vector bucket policy
+
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **Amazon S3**.
+3. Choose **Vector buckets** and select the vector bucket name that you want to add a policy to.
+4. Choose the **Permissions** tab.
+5. Under **Vector bucket policy**, choose **Edit**.
+6. In the policy editor, enter your policy JSON.
+7. (Optional) Choose **Policy examples** to see sample policies that you can adapt to your needs.
+8. After entering your policy, choose **Save changes**.
 
 To add or update a bucket policy, use the following example command and
 replace the `user input placeholders` with your own
@@ -29,6 +34,11 @@ aws s3vectors put-vector-bucket-policy \
 
 ## Viewing a vector bucket policy
 
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **Amazon S3**.
+3. Choose **Vector buckets** and select the vector bucket name that you want to view the policy for.
+4. Choose the **Permissions** tab.
+
 To retrieve a bucket policy, use the following example command and replace the
 `user input placeholders` with your own
 information.
@@ -39,6 +49,12 @@ aws s3vectors get-vector-bucket-policy \
 ```
 
 ## Deleting a vector bucket policy
+
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **Amazon S3**.
+3. Choose **Vector buckets** and select the vector bucket name that you want to delete the policy for.
+4. Choose the **Permissions** tab.
+5. Under the **Vector bucket policy**, choose **Delete**.
 
 To delete a bucket policy, use the following example command and replace the
 `user input placeholders` with your own information.

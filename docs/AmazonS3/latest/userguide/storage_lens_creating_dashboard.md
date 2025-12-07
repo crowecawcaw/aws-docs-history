@@ -1,29 +1,29 @@
-# Create an Amazon S3 Storage Lens
+# Create an Amazon S3 Storage Lens dashboard
 
-dashboard
-
-You can create additional S3 Storage Lens custom dashboards that can be scoped to your
-organization in AWS Organizations or to specific AWS Regions or buckets within an account.
+You can create additional S3 Storage Lens custom dashboards that can be scoped to your organization
+in AWS Organizations or to specific AWS Regions or buckets within an account.
 
 ###### Note
 
-Any updates to your dashboard configuration can take up to 48 hours to accurately display or visualize.
+Any updates to your dashboard configuration can take up to 48 hours to accurately display
+or visualize.
 
 Use the following steps to create an Amazon S3 Storage Lens dashboard on the Amazon S3 console.
 
-###### Step 1: Define the dashboard scope
+###### Step 1: Configure general settings
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation bar on the top of the page, choose the name of the currently displayed
-   AWS Region. Next, choose the Region that you want to switch to.
+2. In the navigation bar on the top of the page, choose the name of the currently
+   displayed AWS Region. Next, choose the Region that you want to switch to.
 3. In the left navigation pane, under **S3 Storage Lens**, choose
    **Dashboards**.
 4. Choose **Create dashboard**.
 5. On the **Dashboard** page, in the **General**
    section, do the following:
-   1. View the **Home Region** for your dashboard. The
-      home Region is the AWS Region where the configuration and metrics for this Storage Lens dashboard are stored.
+   1. View the **Home Region** for your dashboard. The home Region is
+      the AWS Region where the configuration and metrics for this Storage Lens dashboard
+      are stored.
    2. Enter a dashboard name.
 
    Dashboard names must be fewer than 65 characters and must not contain special
@@ -31,121 +31,178 @@ Use the following steps to create an Amazon S3 Storage Lens dashboard on the Ama
 
    ###### Note
 
-   You can't change this dashboard name after the dashboard is created. 3. You can optionally choose to add **Tags** to your dashboard.
+   You can't change this dashboard name after the dashboard is created. 3. Choose **Enabled** to display updated daily metrics in your
+   dashboard. 4. (Optional) You can choose to add **Tags** to your dashboard.
    You can use tags to manage permissions for your dashboard and track costs for
-   S3 Storage Lens.
-
-   For more information, see [Controlling access using resource
-   tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User Guide_ and [AWS-Generated Cost Allocation Tags](../../../awsaccountbilling/latest/aboutv2/aws-tags.md "../../../awsaccountbilling/latest/aboutv2/aws-tags.md") in the _AWS Billing User Guide_.
+   S3 Storage Lens. For more information, see [Controlling access to AWS resources
+   using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User Guide_ and
+   [Using AWS-generated tags](../../../awsaccountbilling/latest/aboutv2/aws-tags.md "../../../awsaccountbilling/latest/aboutv2/aws-tags.md") in the _AWS Billing User Guide_.
 
    ###### Note
 
    You can add up to 50 tags to your dashboard configuration.
 
-6. In the **Dashboard scope** section, do the following:
-   1. Choose the Regions and buckets that you want S3 Storage Lens to include or exclude in
-      the dashboard.
-   2. Choose the buckets in your selected Regions that you want S3 Storage Lens to include or
-      exclude. You can either include or exclude buckets, but not both. This option is not
-      available when you create organization-level dashboards.###### Note
-   - You can either include or exclude Regions and buckets. This option is limited to
+6. Choose **Next** to save your changes and proceed.
+
+###### Step 2: Define the dashboard scope
+
+1. In the **Dashboard scope** section, choose the Regions and buckets
+   that you want S3 Storage Lens to include or exclude in the dashboard.
+2. Choose the buckets in your selected Regions that you want S3 Storage Lens to include or
+   exclude. You can either include or exclude buckets, but not both. This option isn't
+   available when you create organization-level dashboards.
+
+###### Note
+
+    * You can either include or exclude Regions and buckets. This option is limited to
      Regions only when creating organization-level dashboards across member accounts in
      your organization.
-   - You can choose up to 50 buckets to include or exclude.
+    * You can choose up to 50 buckets to include or exclude.
 
-###### Step 2: Configure the metrics selection
+3. Choose **Next** to save your changes and proceed.
 
-1. In the **Metrics selection** section, choose the type of metrics
-   that you want to aggregate for this dashboard.
-   - To include free metrics aggregated at the bucket level and available for queries
-     for 14 days, choose **Free metrics**.
-   - To enable advanced metrics and other advanced options, choose **Advanced
-     metrics and recommendations**. These options include advanced prefix
-     aggregation, Amazon CloudWatch publishing, and contextual recommendations. Data is available
-     for queries for 15 months. Advanced metrics and recommendations have an additional
-     cost. For more information, see [Amazon S3
-     pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+###### Step 3: Choose your Storage Lens tier
 
-   For more information about advanced metrics and free metrics, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection").
+1.  In the **Storage Lens tier** section, choose the tier of features
+    that you want to aggregate for this dashboard.
+    1. To include free metrics aggregated at the bucket level and available for queries
+       for 14 days, choose **Free tier**.
+    2. To enable advanced metrics, choose **Advanced tier**. These
+       options include prefix or Storage Lens groups aggregation, Amazon CloudWatch publishing, the
+       expanded prefixes report, and contextual recommendations. Data is available for
+       queries for 15 months. Advanced metrics and recommendations have an additional cost.
+       For more information, see [Amazon S3
+       pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-2. Under **Advanced metrics and recommendations features**, select the
-   options that you want to enable:
-   - **Advanced metrics**
-   - **CloudWatch publishing**
-   - **Prefix aggregation**
+    For more information about advanced metrics and free metrics, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection").
 
-###### Important
+2.  Under **Advanced metric categories**, select the category of
+    metrics that you want to enable:
 
-If you enable prefix aggregation for your S3 Storage Lens configuration, prefix-level
-metrics will not be published to CloudWatch. Only bucket, account, and organization-level
-S3 Storage Lens metrics are published to CloudWatch. 3. If you enabled **Advanced metrics**, select the **Advanced
-metrics categories** that you want to display in your S3 Storage Lens
-dashboard:
+        * **Activity metrics**
+        * **Detailed status code metrics**
+        * **Cost optimization metrics**
+        * **Data protection metrics**
+        * **Performance metrics**
 
-    * **Activity metrics**
-    * **Detailed status code metrics**
-    * **Advanced cost optimization metrics**
-    * **Advanced data protection metrics**
+    To preview which metrics are included in each category, use the drop-down arrow
+    button below the metrics category checkbox list. For more information about metrics
+    categories, see [Metrics categories](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types"). For a complete list of metrics,
+    see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md").
 
-For more information about metrics categories, see [Metrics categories](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types"). For a complete list of metrics,
-see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md"). 4. If you chose to enable prefix aggregation, configure the following:
+3.  Choose or specify a **Prefix delimiter** to distinguish levels
+    within each prefix. This value is used to identify each prefix level. The default value
+    in Amazon S3 is the "`/`" character, but your storage structure might use other
+    delimiter characters.
+4.  Choose **Next** to save your changes and proceed.
 
-    1. Choose the minimum prefix threshold size for this dashboard.
+###### Step 4: (Optional) Choose your metrics aggregation
 
+1. Under **Additional metrics aggregation**, choose which metrics you
+   want to aggregate:
+   - Prefix aggregation
+   - Storage Lens group aggregation
 
-    For example, a prefix threshold of 5 percent indicates that prefixes that make
-     up 5 percent or more of the bucket's total storage size will be aggregated.
-    2. Choose the prefix depth.
+2. If you've enabled **Prefix aggregation**, specify the minimum
+   **Prefix threshold** for your dashboard and **Prefix
+   depth**. Then, choose **Next** to save and proceed.
 
+###### Note
 
-    This setting indicates the maximum number of levels up to which the prefixes are
-     evaluated. The prefix depth must be less than 10.
-    3. Enter a prefix delimiter character.
+The **Prefix depth** setting determines how many hierarchical
+levels deep S3 Storage Lens will analyze your object prefixes, with a maximum limit of 10
+levels. The **Prefix threshold** specifies the minimum percentage of
+total storage that a prefix must represent before it's included in Storage Lens
+metrics. 3. If you've enabled **Storage Lens group aggregation**, choose one of
+the following:
 
+    * **Include Storage Lens groups**
+    * **Exclude Storage Lens groups**
 
-    This value is used to identify each prefix level. The default value in Amazon S3 is
-     the `/` character, but your storage structure might use other delimiter
-     characters.
+4. When you include Storage Lens groups in your aggregation, you can either
+   **Include all Storage Lens groups in your home Region** or specify
+   Storage Lens groups to include.
+5. Choose **Next** to save your changes and proceed.
 
-###### (Optional) Step 3: Export metrics for the dashboard
+###### Step 5: (Optional) Choose your metrics export and publishing settings
 
-1. In the **Metrics export** section, to create a metrics export that
-   will be placed daily in a destination bucket of your choice, choose
-   **Enable**.
-2. If you enabled the metrics export, choose the output format of your daily metrics
-   export: **CSV** or **Apache Parquet**.
+1. Under **Metrics publishing**, choose **CloudWatch
+   publishing** if you want to access your Storage Lens metrics in your CloudWatch
+   dashboard.
 
-Parquet is an open source file format for Hadoop that stores nested
-data in a flat columnar format. 3. Choose the destination S3 bucket for your metrics export. 4. Choose the destination S3 bucket (format:
-`s3://`bucket-name`/`prefix``).
+###### Note
 
-The bucket must be in the home Region of your S3 Storage Lens dashboard. The S3 console
-shows you the **Destination bucket permission** that will be added by
-Amazon S3 to the destination bucket policy. Amazon S3 updates the bucket policy on the destination
-bucket to allow S3 to place data in that bucket. 5. (Optional) To enable server-side encryption for your metrics export, choose
-**Specify an encryption key**. Then, choose the **Encryption
-type**: **Amazon S3 managed keys (SSE-S3)** or
-**AWS Key Management Service key (SSE-KMS)**.
+Prefix-level metrics aren't available in CloudWatch. 2. Under **Metrics export**, choose which Storage Lens dashboard data
+you want exported daily:
 
-You can choose between an [Amazon S3 managed
-key](UsingServerSideEncryption.md "UsingServerSideEncryption.md") (SSE-S3) and an [AWS Key Management Service (AWS KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md") key
-(SSE-KMS). 6. (Optional) To specify an AWS KMS key, you must choose a KMS key or enter a key
-Amazon Resource Name (ARN).
+    * **Default metrics report**
+    * **Expanded prefixes metrics report**
 
-If you choose a customer managed key, you must grant S3 Storage Lens permission to encrypt in the
-AWS KMS key policy. For more information, see [Using an AWS KMS key to encrypt your
-metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md"). 7. Choose **Create dashboard**.
-The following example command creates a Amazon S3 Storage Lens configuration with tags. To use these
-examples, replace the `user input placeholders` with
-your own information.
+3. (Optional) If you chose **Default metrics report**, in the
+   **Default metrics report** settings, choose the bucket type. You can
+   export the report to either a general purpose Amazon S3 bucket or AWS-managed S3 table
+   bucket. Based on the selected bucket type, update the **General purpose bucket
+   destination settings** or **Table bucket destination
+   settings** options.
+
+###### Note
+
+The **default metrics report** only includes prefixes within the
+set threshold and depth set in prefix aggregation settings.
+
+If you choose to specify an encryption key, you must choose an AWS KMS key (SSE-KMS)
+or Amazon S3 managed key (SSE-S3). If your destination bucket policy requires encryption,
+you must provide an encryption key for your metrics export. Without the encryption
+key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your
+metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md"). 4. (Optional) If you chose **Expanded prefixes metrics report**, in
+the **Expanded prefixes metrics report** settings, choose the bucket
+type. You can export the report to either a general purpose Amazon S3 bucket or a read-only
+S3 table bucket. Based on the selected bucket type, update the **General purpose
+bucket destination settings** or **Table bucket destination
+settings**.
+
+###### Note
+
+The **Expanded prefixes metrics report** includes all prefixes up
+to prefix depth 50 in all selected buckets that are specified in your dashboard
+scope.
+
+If you choose to specify an encryption key, you must choose an AWS KMS key (SSE-KMS)
+or Amazon S3 managed key (SSE-S3). If your destination bucket policy requires encryption,
+you must provide an encryption key for your metrics export. Without the encryption
+key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your
+metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md"). 5. Choose **Next** to save your changes and proceed. 6. Review everything on the **Review and Create** page. If there are
+no additional changes, choose **Next** to save your changes and to
+create your dashboard.
+
+###### Step 6: Review your dashboard configuration and create your dashboard
+
+1. In the **General** section, review your settings. Choose
+   **Edit** to make any changes.
+2. In the **Dashboard scope** section, review your settings. Choose
+   **Edit** to make any changes.
+3. In the **Storage Lens tier** section, review your settings. Choose
+   **Edit** to make any changes.
+4. In the **Metrics aggregation** section, review your settings.
+   Choose **Edit** to make any changes.
+5. In the **Metrics export** section, review your settings. Choose
+   **Edit** to make any changes.
+6. After reviewing and confirming all your dashboard configuration settings, choose
+   **Submit** to create your dashboard.
+   After you've successfully created your new Storage Lens dashboard, you can view your new
+   dashboard listed under your Storage Lens **Dashboard** page.
+
+The following example command creates a Amazon S3 Storage Lens configuration with tags. To use
+these examples, replace the `user input
+ placeholders` with your own information.
 
 ```
 aws s3control put-storage-lens-configuration --account-id=`111122223333` --config-id=`example-dashboard-configuration-id` --region=`us-east-1` --storage-lens-configuration=`file://./config.json` --tags=`file://./tags.json`
 ```
 
-The following example command creates a Amazon S3 Storage Lens configuration without tags. To use these
-examples, replace the `user input placeholders` with
-your own information.
+The following example command creates a Amazon S3 Storage Lens configuration without tags. To
+use these examples, replace the `user input
+ placeholders` with your own information.
 
 ```
 aws s3control put-storage-lens-configuration --account-id=`222222222222` --config-id=`your-configuration-id` --region=`us-east-1` --storage-lens-configuration=`file://./config.json`
@@ -153,39 +210,44 @@ aws s3control put-storage-lens-configuration --account-id=`222222222222` --confi
 
 ###### Example – Create and update an Amazon S3 Storage Lens configuration
 
-The following example creates and updates an Amazon S3 Storage Lens configuration in SDK for Java:
+The following example creates and updates an Amazon S3 Storage Lens configuration in
+SDK for Java:
 
 ```
 package aws.example.s3control;
 
-import com.amazonaws.AmazonServiceException;
-import com.amazonaws.SdkClientException;
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
-import com.amazonaws.services.s3control.AWSS3Control;
-import com.amazonaws.services.s3control.AWSS3ControlClient;
-import com.amazonaws.services.s3control.model.AccountLevel;
-import com.amazonaws.services.s3control.model.ActivityMetrics;
-import com.amazonaws.services.s3control.model.BucketLevel;
-import com.amazonaws.services.s3control.model.CloudWatchMetrics;
-import com.amazonaws.services.s3control.model.Format;
-import com.amazonaws.services.s3control.model.Include;
-import com.amazonaws.services.s3control.model.OutputSchemaVersion;
-import com.amazonaws.services.s3control.model.PrefixLevel;
-import com.amazonaws.services.s3control.model.PrefixLevelStorageMetrics;
-import com.amazonaws.services.s3control.model.PutStorageLensConfigurationRequest;
-import com.amazonaws.services.s3control.model.S3BucketDestination;
-import com.amazonaws.services.s3control.model.SSES3;
-import com.amazonaws.services.s3control.model.SelectionCriteria;
-import com.amazonaws.services.s3control.model.StorageLensAwsOrg;
-import com.amazonaws.services.s3control.model.StorageLensConfiguration;
-import com.amazonaws.services.s3control.model.StorageLensDataExport;
-import com.amazonaws.services.s3control.model.StorageLensDataExportEncryption;
-import com.amazonaws.services.s3control.model.StorageLensTag;
+import software.amazon.awssdk.awscore.exception.AwsServiceException;
+import software.amazon.awssdk.core.exception.SdkClientException;
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3control.S3ControlClient;
+import software.amazon.awssdk.services.s3control.model.AccountLevel;
+import software.amazon.awssdk.services.s3control.model.ActivityMetrics;
+import software.amazon.awssdk.services.s3control.model.AdvancedCostOptimizationMetrics;
+import software.amazon.awssdk.services.s3control.model.AdvancedDataProtectionMetrics;
+import software.amazon.awssdk.services.s3control.model.AdvancedPerformanceMetrics;
+import software.amazon.awssdk.services.s3control.model.BucketLevel;
+import software.amazon.awssdk.services.s3control.model.CloudWatchMetrics;
+import software.amazon.awssdk.services.s3control.model.DetailedStatusCodesMetrics;
+import software.amazon.awssdk.services.s3control.model.Format;
+import software.amazon.awssdk.services.s3control.model.Include;
+import software.amazon.awssdk.services.s3control.model.OutputSchemaVersion;
+import software.amazon.awssdk.services.s3control.model.PrefixLevel;
+import software.amazon.awssdk.services.s3control.model.PrefixLevelStorageMetrics;
+import software.amazon.awssdk.services.s3control.model.PutStorageLensConfigurationRequest;
+import software.amazon.awssdk.services.s3control.model.S3BucketDestination;
+import software.amazon.awssdk.services.s3control.model.SSES3;
+import software.amazon.awssdk.services.s3control.model.SelectionCriteria;
+import software.amazon.awssdk.services.s3control.model.StorageLensAwsOrg;
+import software.amazon.awssdk.services.s3control.model.StorageLensConfiguration;
+import software.amazon.awssdk.services.s3control.model.StorageLensDataExport;
+import software.amazon.awssdk.services.s3control.model.StorageLensDataExportEncryption;
+import software.amazon.awssdk.services.s3control.model.StorageLensExpandedPrefixesDataExport;
+import software.amazon.awssdk.services.s3control.model.StorageLensTableDestination;
+import software.amazon.awssdk.services.s3control.model.StorageLensTag;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static com.amazonaws.regions.Regions.`US_WEST_2`;
 
 public class CreateAndUpdateDashboard {
 
@@ -198,73 +260,107 @@ public class CreateAndUpdateDashboard {
         Format exportFormat = Format.CSV;
 
         try {
-            SelectionCriteria selectionCriteria = new SelectionCriteria()
-                    .withDelimiter("`/`")
-                    .withMaxDepth(`5`)
-                    .withMinStorageBytesPercentage(`10.0`);
-            PrefixLevelStorageMetrics prefixStorageMetrics = new PrefixLevelStorageMetrics()
-                    .withIsEnabled(`true`)
-                    .withSelectionCriteria(selectionCriteria);
-            BucketLevel bucketLevel = new BucketLevel()
-                    .withActivityMetrics(new ActivityMetrics().withIsEnabled(`true`))
-                    .withAdvancedCostOptimizationMetrics(new AdvancedCostOptimizationMetrics().withIsEnabled(`true`))
-                    .withAdvancedDataProtectionMetrics(new AdvancedDataProtectionMetrics().withIsEnabled(`true`))
-                    .withDetailedStatusCodesMetrics(new DetailedStatusCodesMetrics().withIsEnabled(`true`))
-                    .withPrefixLevel(new PrefixLevel().withStorageMetrics(prefixStorageMetrics));
-            AccountLevel accountLevel = new AccountLevel()
-                    .withActivityMetrics(new ActivityMetrics().withIsEnabled(`true`))
-                    .withAdvancedCostOptimizationMetrics(new AdvancedCostOptimizationMetrics().withIsEnabled(`true`))
-                    .withAdvancedDataProtectionMetrics(new AdvancedDataProtectionMetrics().withIsEnabled(`true`))
-                    .withDetailedStatusCodesMetrics(new DetailedStatusCodesMetrics().withIsEnabled(`true`))
-                    .withBucketLevel(bucketLevel);
-
-            Include include = new Include()
-                    .withBuckets(Arrays.asList("arn:aws:s3:::`bucketName`"))
-                    .withRegions(Arrays.asList("`us-west-2`"));
-
-            StorageLensDataExportEncryption exportEncryption = new StorageLensDataExportEncryption()
-                    .withSSES3(new SSES3());
-            S3BucketDestination s3BucketDestination = new S3BucketDestination()
-                    .withAccountId(exportAccountId)
-                    .withArn(exportBucketArn)
-                    .withEncryption(exportEncryption)
-                    .withFormat(exportFormat)
-                    .withOutputSchemaVersion(OutputSchemaVersion.V_1)
-                    .withPrefix("Prefix");
-            CloudWatchMetrics cloudWatchMetrics = new CloudWatchMetrics()
-                    .withIsEnabled(`true`);
-            StorageLensDataExport dataExport = new StorageLensDataExport()
-                    .withCloudWatchMetrics(cloudWatchMetrics)
-                    .withS3BucketDestination(s3BucketDestination);
-
-            StorageLensAwsOrg awsOrg = new StorageLensAwsOrg()
-                    .withArn(`awsOrgARN`);
-
-            StorageLensConfiguration configuration = new StorageLensConfiguration()
-                    .withId(configurationId)
-                    .withAccountLevel(accountLevel)
-                    .withInclude(include)
-                    .withDataExport(dataExport)
-                    .withAwsOrg(awsOrg)
-                    .withIsEnabled(`true`);
-
-            List<StorageLensTag> tags = Arrays.asList(
-                    new StorageLensTag().withKey("`key-1`").withValue("`value-1`"),
-                    new StorageLensTag().withKey("`key-2`").withValue("`value-2`")
-            );
-
-            AWSS3Control s3ControlClient = AWSS3ControlClient.builder()
-                    .withCredentials(new ProfileCredentialsProvider())
-                    .withRegion(`US_WEST_2`)
+            SelectionCriteria selectionCriteria = SelectionCriteria.builder()
+                    .delimiter("`/`")
+                    .maxDepth(`5`)
+                    .minStorageBytesPercentage(`10.0`)
                     .build();
 
-            s3ControlClient.putStorageLensConfiguration(new PutStorageLensConfigurationRequest()
-                    .withAccountId(sourceAccountId)
-                    .withConfigId(configurationId)
-                    .withStorageLensConfiguration(configuration)
-                    .withTags(tags)
+            PrefixLevelStorageMetrics prefixStorageMetrics = PrefixLevelStorageMetrics.builder()
+                    .isEnabled(`true`)
+                    .selectionCriteria(selectionCriteria)
+                    .build();
+
+            BucketLevel bucketLevel = BucketLevel.builder()
+                    .activityMetrics(ActivityMetrics.builder().isEnabled(`true`).build())
+                    .advancedCostOptimizationMetrics(AdvancedCostOptimizationMetrics.builder().isEnabled(`true`).build())
+                    .advancedDataProtectionMetrics(AdvancedDataProtectionMetrics.builder().isEnabled(`true`).build())
+                    .advancedPerformanceMetrics(AdvancedPerformanceMetrics.builder().isEnabled(`true`).build())
+                    .detailedStatusCodesMetrics(DetailedStatusCodesMetrics.builder().isEnabled(`true`).build())
+                    .prefixLevel(PrefixLevel.builder().storageMetrics(prefixStorageMetrics).build())
+                    .build();
+
+            AccountLevel accountLevel = AccountLevel.builder()
+                    .activityMetrics(ActivityMetrics.builder().isEnabled(`true`).build())
+                    .advancedCostOptimizationMetrics(AdvancedCostOptimizationMetrics.builder().isEnabled(`true`).build())
+                    .advancedPerformanceMetrics(AdvancedPerformanceMetrics.builder().isEnabled(`true`).build())
+                    .advancedDataProtectionMetrics(AdvancedDataProtectionMetrics.builder().isEnabled(`true`).build())
+                    .detailedStatusCodesMetrics(DetailedStatusCodesMetrics.builder().isEnabled(`true`).build())
+                    .bucketLevel(bucketLevel)
+                    .build();
+
+            Include include = Include.builder()
+                    .buckets(Arrays.asList("arn:aws:s3:::`bucketName`"))
+                    .regions(Arrays.asList("`us-west-2`"))
+                    .build();
+
+            StorageLensDataExportEncryption exportEncryption = StorageLensDataExportEncryption.builder()
+                    .sses3(SSES3.builder().build())
+                    .build();
+
+            S3BucketDestination s3BucketDestination = S3BucketDestination.builder()
+                    .accountId(exportAccountId)
+                    .arn(exportBucketArn)
+                    .encryption(exportEncryption)
+                    .format(exportFormat)
+                    .outputSchemaVersion(OutputSchemaVersion.V_1)
+                    .prefix("`Prefix`")
+                    .build();
+
+            StorageLensTableDestination s3TablesDestination = StorageLensTableDestination.builder()
+                    .encryption(exportEncryption)
+                    .isEnabled(`true`)
+                    .build();
+
+            CloudWatchMetrics cloudWatchMetrics = CloudWatchMetrics.builder()
+                    .isEnabled(`true`)
+                    .build();
+
+            StorageLensDataExport dataExport = StorageLensDataExport.builder()
+                    .cloudWatchMetrics(cloudWatchMetrics)
+                    .s3BucketDestination(s3BucketDestination)
+                    .storageLensTableDestination(s3TablesDestination)
+                    .build();
+
+            StorageLensAwsOrg awsOrg = StorageLensAwsOrg.builder()
+                    .arn(awsOrgARN)
+                    .build();
+
+            StorageLensExpandedPrefixesDataExport expandedPrefixesDataExport = StorageLensExpandedPrefixesDataExport.builder()
+                    .s3BucketDestination(s3BucketDestination)
+                    .storageLensTableDestination(s3TablesDestination)
+                    .build();
+
+            StorageLensConfiguration configuration = StorageLensConfiguration.builder()
+                    .id(configurationId)
+                    .accountLevel(accountLevel)
+                    .include(include)
+                    .dataExport(dataExport)
+                    .awsOrg(awsOrg)
+                    .expandedPrefixesDataExport(expandedPrefixesDataExport)
+                    .prefixDelimiter("`/`")
+                    .isEnabled(`true`)
+                    .build();
+
+            List<StorageLensTag> tags = Arrays.asList(
+                    StorageLensTag.builder().key("`key-1`").value("`value-1`").build(),
+                    StorageLensTag.builder().key("`key-2`").value("`value-2`").build()
             );
-        } catch (AmazonServiceException e) {
+
+            S3ControlClient s3ControlClient = S3ControlClient.builder()
+                    .region(Region.`US_WEST_2`)
+                    .credentialsProvider(ProfileCredentialsProvider.create())
+                    .build();
+
+            s3ControlClient.putStorageLensConfiguration(PutStorageLensConfigurationRequest.builder()
+                    .accountId(sourceAccountId)
+                    .configId(configurationId)
+                    .storageLensConfiguration(configuration)
+                    .tags(tags)
+                    .build()
+            );
+
+        } catch (AwsServiceException e) {
             // The call was transmitted successfully, but Amazon S3 couldn't process
             // it and returned an error response.
             e.printStackTrace();
@@ -275,19 +371,9 @@ public class CreateAndUpdateDashboard {
         }
     }
 }
-
 ```
 
-To gain further visibility into your storage, you can create one or more S3 Storage Lens groups
-and attach them to your dashboard. An S3 Storage Lens group is a custom defined filter for objects based
-on prefixes, suffixes, object tags, object size, object age, or a combination of these
-filters.
-
-You can use S3 Storage Lens groups to gain granular visibility into large shared buckets, such
-as data lakes, to make better-informed business decisions. For example, you can streamline
-storage allocation and optimize cost reporting by breaking down storage usage to specific
-groups of objects for individual projects and cost centers within a bucket or across
-multiple buckets.
-
-To use S3 Storage Lens groups, you must upgrade your dashboard to use advanced metrics and
-recommendations. For more information about S3 Storage Lens groups, see [Working with S3 Storage Lens groups to filter and aggregate metrics](storage-lens-groups-overview.md "storage-lens-groups-overview.md").
+For access to S3 Storage Lens groups or expanded prefixes, you must upgrade your dashboard to use
+the advanced tier. Additional charges apply. For more information about the
+free and advanced tiers, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection"). For more information about S3 Storage Lens
+groups, see [Working with S3 Storage Lens groups to filter and aggregate metrics](storage-lens-groups-overview.md "storage-lens-groups-overview.md").

@@ -12,7 +12,7 @@ limit on the last part of your multipart upload.
 
 | Item                                                                                | Specification                                                                                |
 | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Maximum object size                                                                 | 5 TiB                                                                                        |
+| Maximum object size                                                                 | 48.8 TiB                                                                                     |
 | Maximum number of parts per upload                                                  | 10,000                                                                                       |
 | Part numbers                                                                        | 1 to 10,000 (inclusive)                                                                      |
 | Part size                                                                           | 5 MiB to 5 GiB. There is no minimum size limit on the last part of your multipart<br>upload. |

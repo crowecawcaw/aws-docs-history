@@ -3,7 +3,7 @@
 Amazon S3 Vectors delivers purpose-built, cost-optimized vector storage for use by
 AI-enabled applications and semantic search of your content stored in Amazon S3. Designed to
 provide S3 level elasticity and durability for storing vector datasets with sub-second query
-performance, S3 Vectors is ideal for applications that need to build and grow
+performance for cold queries and as low as 100 milliseconds for warm queries, S3 Vectors is ideal for applications that need to build and grow
 vector indexes. With S3 Vectors you can use a dedicated set of API operations to store,
 access, and perform similarity queries on vector data without provisioning any
 infrastructure. For more information, see [Working with S3 Vectors and vector buckets](s3-vectors.md "s3-vectors.md").
@@ -12,13 +12,12 @@ To ensure the maximum benefit from S3 Vectors, we recommend that you perform the
 
 **Inserting and deleting vectors**
 
-Your application can achieve at least five [PutVectors](../API/API_S3VectorBuckets_PutVectors.md "../API/API_S3VectorBuckets_PutVectors.md") and
-[DeleteVectors](../API/API_S3VectorBuckets_GetVectors.md "../API/API_S3VectorBuckets_GetVectors.md") requests per second per vector index. If you
+Your application can achieve up to one thousand [PutVectors](../API/API_S3VectorBuckets_PutVectors.md "../API/API_S3VectorBuckets_PutVectors.md") or
+[DeleteVectors](../API/API_S3VectorBuckets_GetVectors.md "../API/API_S3VectorBuckets_GetVectors.md") requests per second per vector index, or can insert or delete up to two thousand five hundred vectors per second per vector index — whichever limit is reached first. If you
 exceed the request rates, you might receive a `429
- TooManyRequestsException` error. To maximize request throughput and
-optimize for speed and efficiency, we recommend that you insert and delete
-vectors in large batches, up to the maximum of 500 vectors per API request.
-For more information, see [Vector indexes](s3-vectors-indexes.md "s3-vectors-indexes.md").
+ TooManyRequestsException` error.
+
+To optimize costs, we recommend inserting and deleting vectors in large batches, up to the maximum batch size of 500 vectors per API request. If your workload requires smaller batches, you can send concurrent requests up to the 1,000 requests per second limit. To reach maximum throughput of 2,500 vectors per second, you can send 5 batches per second with 500 vectors each, or 1,000 batches per second with an average of 2.5 vectors each.
 
 **Accessing and
 querying vectors in an S3 vector index**

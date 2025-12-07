@@ -1,9 +1,5 @@
 # CloudTrail log file example for S3 Vectors
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 The following examples show CloudTrail log entries for S3 Vectors data events. Data events are logged when you perform operations on vector data within your vector indexes.
 
 ## Example: CloudTrail log file for `GetVectors` data event

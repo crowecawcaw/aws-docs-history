@@ -13,9 +13,9 @@ You can create a presigned URL for sharing an object without writing any code by
 console, AWS Explorer for Visual Studio (Windows), or AWS Toolkit for Visual Studio Code. You can also generate a presigned URL programmatically
 by using the AWS Command Line Interface (AWS CLI) or the AWS SDKs.
 
-You can use the Amazon S3 console to generate a presigned URL for sharing an object by following
-these steps. When using the console the maximum expiration time for a presigned URL is 12 hours
-from the time of creation.
+You can use the Amazon S3 console to generate a presigned URL for sharing an object up to 5 TB
+by following these steps. When using the console the maximum expiration time for a presigned URL
+is 12 hours from the time of creation.
 
 ###### To generate a presigned URL by using the Amazon S3 console
 

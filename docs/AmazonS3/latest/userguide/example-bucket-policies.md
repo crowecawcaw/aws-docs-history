@@ -805,16 +805,17 @@ JSON
 
 ### Grant permissions for Amazon S3 Storage Lens
 
-S3 Storage Lens aggregates your metrics and displays the information in
-the **Account snapshot** section on the Amazon S3 console **Buckets** page. S3 Storage Lens also provides an interactive dashboard
-that you can use to visualize insights and trends, flag outliers, and receive recommendations for optimizing storage costs and
-applying data-protection best practices. Your dashboard has drill-down options to generate and visualize insights at the organization, account,
-AWS Region, storage class, bucket, prefix, or Storage Lens group level. You can also send a daily metrics export in CSV or Parquet format to an S3 bucket.
+S3 Storage Lens aggregates your metrics and displays the information in the **Account snapshot** section on the
+Amazon S3 console **Buckets** page. S3 Storage Lens also provides an interactive dashboard that you can use to visualize insights and
+trends, flag outliers, and receive recommendations for optimizing storage costs and applying data protection best practices. Your dashboard has
+drill-down options to generate and visualize insights at the organization, account, AWS Region, storage class, bucket, prefix, or
+Storage Lens group level. You can also send a daily metrics report in CSV or Parquet format to a general purpose S3 bucket or export
+the metrics directly to an AWS-managed S3 table bucket.
 
 S3 Storage Lens can export your aggregated storage usage metrics to an Amazon S3 bucket for further
 analysis. The bucket where S3 Storage Lens places its metrics exports is known as the
 _destination bucket_. When setting up your S3 Storage Lens metrics export, you
-must have a bucket policy for the destination bucket. For more information, see [Assessing your storage activity and usage with
+must have a bucket policy for the destination bucket. For more information, see [Monitoring your storage activity and usage with
 Amazon S3 Storage Lens](storage_lens.md "storage_lens.md").
 
 The following example bucket policy grants Amazon S3 permission to write objects

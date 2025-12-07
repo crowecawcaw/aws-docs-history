@@ -1,7 +1,7 @@
 # S3 Storage Lens metrics and dimensions
 
 To send S3 Storage Lens metrics to CloudWatch, you must enable the CloudWatch publishing option within
-S3 Storage Lens advanced metrics and recommendations. After advanced metrics are enabled, you
+S3 Storage Lens advanced metrics. After advanced metrics are enabled, you
 can use [CloudWatch
 dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") to monitor S3 Storage Lens metrics alongside other application metrics
 and create a unified view of your operational health. You can use dimensions to filter
@@ -9,9 +9,9 @@ your S3 Storage Lens metrics in CloudWatch by organization, account, bucket, sto
 and metrics configuration ID.
 
 S3 Storage Lens metrics are published to CloudWatch in the account that owns the S3 Storage Lens configuration.
-After you enable the CloudWatch publishing option within advanced metrics and recommendations,
-you can access organization, account, and bucket-level metrics in CloudWatch.
-Prefix-level metrics are not available in CloudWatch.
+After you enable the CloudWatch publishing option within advanced metrics, you can access account-level and
+bucket-level metrics by configuration ID, account, bucket (for bucket-level metrics only), Region, and
+storage class in CloudWatch. Prefix-level metrics are not available in CloudWatch.
 
 ###### Note
 
@@ -37,9 +37,9 @@ for S3 Storage Lens metrics. Amazon S3 bucket, request, and replication metrics 
 the `AWS/S3` namespace.
 
 S3 Storage Lens metrics are published to CloudWatch in the account that owns the S3 Storage Lens configuration.
-After you enable the CloudWatch publishing option within advanced metrics and recommendations,
-you can access organization, account, and bucket-level metrics in CloudWatch.
-Prefix-level metrics are not available in CloudWatch.
+After you enable the CloudWatch publishing option within advanced metrics, you can access account-level and
+bucket-level metrics by configuration ID, account, bucket (for bucket-level metrics only), Region, and
+storage class in CloudWatch. Prefix-level metrics are not available in CloudWatch.
 
 In S3 Storage Lens, metrics are aggregated and stored only in the designated home
 Region. S3 Storage Lens metrics are also published to CloudWatch in the home Region

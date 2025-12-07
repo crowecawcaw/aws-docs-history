@@ -2,10 +2,6 @@
 
 ###### Note
 
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
-###### Note
-
 Choose your vector index configuration parameters carefully. After you create a vector index, you can't update the vector index name, dimension, distance metric, or non-filterable metadata keys. To change any of these values, you must create a new vector index.
 
 Vector indexes are resources within vector buckets that store and organize vector data
@@ -90,3 +86,4 @@ metadata](s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-fil
 - [Creating a vector index in a vector bucket](s3-vectors-create-index.md "s3-vectors-create-index.md")
 - [Listing vector indexes](s3-vectors-index-list.md "s3-vectors-index-list.md")
 - [Deleting a vector index](s3-vectors-index-delete.md "s3-vectors-index-delete.md")
+- [Using tags with S3 vector indexes](vector-index-tagging.md "vector-index-tagging.md")

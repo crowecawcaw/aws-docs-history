@@ -2,10 +2,6 @@
 
 S3 Vectors
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 Access management in S3 Vectors follows AWS security best practices, providing multiple
 layers of control to ensure that only authorized users and applications can access your
 vector data. The service integrates with IAM and supports both identity-based and

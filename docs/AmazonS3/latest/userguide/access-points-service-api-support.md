@@ -11,12 +11,10 @@ operations
 
 The following table is a partial list of Amazon S3 operations and if they are compatible with access points.
 All operations below are supported by access points using an S3 bucket as its data source, while only
-some operations are supported by access points using an FSx for OpenZFS volume as a data
+some operations are supported by access points using an FSx for ONTAP or FSx for OpenZFS volume as a data
 source.
 
-For more information see,
-[Access point compatibility](../../../fsx/latest/OpenZFSGuide/access-points-object-api-support.md "../../../fsx/latest/OpenZFSGuide/access-points-object-api-support.md") in the
-_FSx for OpenZFS User Guide_.
+For more information see, access point compatibility in the [_FSx for ONTAP User Guide_](../../../fsx/latest/ONTAPGuide/access-points-for-fsxn-object-api-support.md "../../../fsx/latest/ONTAPGuide/access-points-for-fsxn-object-api-support.md") or the [_FSx for OpenZFS User Guide_](../../../fsx/latest/OpenZFSGuide/access-points-object-api-support.md "../../../fsx/latest/OpenZFSGuide/access-points-object-api-support.md").
 
 | S3 operation                               | Access point attached to an S3 bucket | Access point attached to an FSx for OpenZFS volume             |
 | ------------------------------------------ | ------------------------------------- | -------------------------------------------------------------- |

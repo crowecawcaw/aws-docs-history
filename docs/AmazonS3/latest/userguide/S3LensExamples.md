@@ -12,24 +12,25 @@ S3 Replication or S3 Versioning. S3 Storage Lens also analyzes metrics to delive
 recommendations that you can use to optimize storage costs and apply best practices for
 protecting your data.
 
-S3 Storage Lens aggregates your metrics and displays the information in
-the **Account snapshot** section on the Amazon S3 console **Buckets** page. S3 Storage Lens also provides an interactive dashboard
-that you can use to visualize insights and trends, flag outliers, and receive recommendations for optimizing storage costs and
-applying data-protection best practices. Your dashboard has drill-down options to generate and visualize insights at the organization, account,
-AWS Region, storage class, bucket, prefix, or Storage Lens group level. You can also send a daily metrics export in CSV or Parquet format to an S3 bucket.
+S3 Storage Lens aggregates your metrics and displays the information in the **Account snapshot** section on the
+Amazon S3 console **Buckets** page. S3 Storage Lens also provides an interactive dashboard that you can use to visualize insights and
+trends, flag outliers, and receive recommendations for optimizing storage costs and applying data protection best practices. Your dashboard has
+drill-down options to generate and visualize insights at the organization, account, AWS Region, storage class, bucket, prefix, or
+Storage Lens group level. You can also send a daily metrics report in CSV or Parquet format to a general purpose S3 bucket or export
+the metrics directly to an AWS-managed S3 table bucket.
 
-The following video shows a brief demonstration of how to
-use S3 Storage Lens on the Amazon S3 console.
+###### Note
+
+Storage Lens only aggregates metrics for [S3 general purpose buckets](UsingBucket.md "UsingBucket.md").
 
 The following sections contain examples of creating, updating, and viewing S3 Storage Lens
 configurations and performing operations related to the feature. If you are using S3 Storage Lens
 with AWS Organizations, these examples also cover those use cases. In the examples, replace any
-variable values with those that are specific to you.
+placeholder values.
 
 ###### Topics
 
-- [Create an Amazon S3 Storage Lens
-  dashboard](storage_lens_creating_dashboard.md "storage_lens_creating_dashboard.md")
+- [Create an Amazon S3 Storage Lens dashboard](storage_lens_creating_dashboard.md "storage_lens_creating_dashboard.md")
 - [Update an Amazon S3 Storage Lens dashboard](storage_lens_editing.md "storage_lens_editing.md")
 - [Disable an Amazon S3 Storage Lens dashboard](storage_lens_disabling.md "storage_lens_disabling.md")
 - [Delete an Amazon S3 Storage Lens dashboard](storage_lens_deleting.md "storage_lens_deleting.md")

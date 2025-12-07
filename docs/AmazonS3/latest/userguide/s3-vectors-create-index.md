@@ -2,18 +2,14 @@
 
 ###### Note
 
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
-###### Note
-
 Choose your vector index configuration parameters carefully. After you create a vector index, you can't update the vector index name, dimension, distance metric, or non-filterable metadata keys. To change any of these values, you must create a new vector index.
 
 A vector index is a resource within a vector bucket that stores and organizes vector
 data for efficient similarity search. When you create a vector index, you define the
 characteristics that all vectors in that index must share, such as the dimension, the distance
-metric used for similarity calculations, and optionally non-filterable metadata keys. For more
+metric used for similarity calculations, and optionally non-filterable metadata keys. You can also optionally configure dedicated encryption settings and tags for the vector index at the time of index creation. For more
 information about vector index naming requirements, dimension requirements, distance metric
-options, and non-filterable metadata keys, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
+options, and non-filterable metadata keys, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md"). For more information about setting encryption configuration for vector indexes, see [Data protection and encryption in S3 Vectors](s3-vectors-data-encryption.md "s3-vectors-data-encryption.md"). For more information about setting tags, see [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md").
 
 Vector indexes must be created within an existing vector bucket and require specific
 configuration parameters that can't be modified after creation.
@@ -73,7 +69,7 @@ per vector, including both total and filterable metadata constraints, see [Limit
 
 ###### Note
 
-These settings can't be changed after creation. 10. Choose **Create vector index**.
+These settings can't be changed after creation. 10. Under **Encryption**, choose **Specify encryption type**. You have the option to **Use bucket settings for encryption** or override the encryption settings for the vector index. If you override the bucket-level settings, you have the option to specify encryption type for the vector index as **Server-side encryption with AWS Key Management Service keys (SSE-KMS)** or the **Server-side encryption with Amazon S3 managed keys (SSE-S3)**. For more information about setting encryption configuration for vector indexes, see [Data protection and encryption in S3 Vectors](s3-vectors-data-encryption.md "s3-vectors-data-encryption.md"). 11. Under **Tags (Optional)**, you can add tags as key-value pairs to help track and organize vector index costs using AWS Billing and Cost Management. Enter a **Key** and a **Value**. To add another tag, choose **Add Tag**. You can enter up to 50 tags for a vector index. For more information, see [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md"). 12. Choose **Create vector index**.
 To create a vector index in a vector bucket, use the following example commands and
 replace the `user input placeholders` with your own information.
 
@@ -160,3 +156,32 @@ Example response:
 ```
 
 The response will include all metadata associated with the vector, regardless of whether it was specified as filterable or non-filterable during index creation.
+
+SDK for Python
+
+```
+import boto3
+
+# Create a S3 Vectors client in the AWS Region of your choice.
+s3vectors = boto3.client("s3vectors", region_name="us-west-2")
+
+#Create a vector index "movies" in the vector bucket "media-embeddings" without non-filterable metadata keys
+s3vectors.create_index(
+    vectorBucketName="media-embeddings",
+    indexName="movies",
+    dimension=3,
+    distanceMetric="cosine",
+    dataType = "float32"
+)
+
+
+#Create a vector index "movies" in the vector bucket "media-embeddings" with non-filterable metadata keys
+s3vectors.create_index(
+    vectorBucketName="media-embeddings",
+    indexName="movies",
+    dimension=3,
+    distanceMetric="cosine",
+    dataType = "float32",
+    metadataConfiguration= {"nonFilterableMetadataKeys": ["nonFilterableMetadataKey1"]}
+)
+```

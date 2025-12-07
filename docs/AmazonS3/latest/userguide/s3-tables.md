@@ -19,10 +19,12 @@ Iceberg, such as Amazon Athena, Amazon Redshift, and Apache Spark.
 - [Tutorial: Getting started with S3 Tables](s3-tables-getting-started.md "s3-tables-getting-started.md")
 - [Table buckets](s3-tables-buckets.md "s3-tables-buckets.md")
 - [S3 Tables maintenance](s3-tables-maintenance-overview.md "s3-tables-maintenance-overview.md")
+- [Cost optimization for tables with Intelligent-Tiering](tables-intelligent-tiering.md "tables-intelligent-tiering.md")
 - [Table namespaces](s3-tables-namespace.md "s3-tables-namespace.md")
 - [Tables in S3 table buckets](s3-tables-tables.md "s3-tables-tables.md")
 - [Accessing table data](s3-tables-access.md "s3-tables-access.md")
 - [Working with Apache Iceberg V3](working-with-apache-iceberg-v3.md "working-with-apache-iceberg-v3.md")
+- [Replicating S3 tables](s3-tables-replication-tables.md "s3-tables-replication-tables.md")
 - [S3 Tables AWS Regions, endpoints, and service
   quotas](s3-tables-regions-quotas.md "s3-tables-regions-quotas.md")
 - [Making requests to S3 Tables over IPv6](s3-tables-ipv6.md "s3-tables-ipv6.md")

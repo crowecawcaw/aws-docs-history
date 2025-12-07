@@ -156,8 +156,6 @@ In this IAM policy, the condition statement allows access to the `aws-s3-demo` b
 
 ```
 
-## Managing tags for buckets
-
 You can add or manage tags for S3 buckets using the Amazon S3 Console, the AWS Command Line Interface (CLI), the AWS SDKs, or using the S3 APIs: [TagResource](../API/API_control_TagResource.md "../API/API_control_TagResource.md"), [UntagResource](../API/API_control_UntagResource.md "../API/API_control_UntagResource.md"), and [ListTagsForResource](../API/API_control_ListTagsForResource.md "../API/API_control_ListTagsForResource.md"). For more information, see:
 
 ###### Topics

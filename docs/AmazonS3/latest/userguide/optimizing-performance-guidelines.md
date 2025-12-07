@@ -69,10 +69,9 @@ you achieve higher aggregate throughput versus a single whole-object request. Fe
 smaller ranges of a large object also allows your application to improve retry times when
 requests are interrupted. For more information, see [Downloading objects](download-objects.md "download-objects.md").
 
-Typical sizes for byte-range requests are 8 MB or 16 MB. If objects are PUT using a
-multipart upload, it’s a good practice to GET them in the same part sizes (or at least
-aligned to part boundaries) for best performance. GET requests can directly address
-individual parts; for example, `GET ?partNumber=N.`
+If objects are PUT using a multipart upload, it’s a good practice to GET them in the
+same part sizes (or at least aligned to part boundaries) for best performance. GET requests
+can directly address individual parts; for example, `GET ?partNumber=N.`
 
 ## Retry requests for
 

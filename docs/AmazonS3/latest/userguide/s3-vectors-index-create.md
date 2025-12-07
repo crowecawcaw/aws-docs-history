@@ -1,18 +1,15 @@
 # Inserting vectors into a vector index
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 You can add vectors to a vector index with the [PutVectors](../API/API_S3VectorBuckets_PutVectors.md "../API/API_S3VectorBuckets_PutVectors.md") API operation. Each
 vector consists of a key, which uniquely identifies each vector in a vector
 index. If you put a vector with a key that already
 exists in the index, it will overwrite the existing vector completely, which makes the
-previous vector no longer searchable. To maximize write throughput, it's recommended that
+previous vector no longer searchable. To maximize write throughput and optimize for costs, it's recommended that
 you insert vectors in large batches, up to the maximum batch size for
-`PutVectors`. For more information about the maximum batch size for
+`PutVectors`. However, for workloads that need to use smaller batches - such as when live, incoming vector data must become immediately searchable - you can achieve higher write throughput by using a higher number of concurrent `PutVectors` requests, up to the maximum allowed requests per second limit.
+For more information about the maximum batch size for
 `PutVectors`, which is the limit of vectors per `PutVectors` API
-call, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
+call, and the maximum requests and vectors per second limit, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
 Additionally, you can attach metadata (for example, year, author, genre, location) as
 key-value pairs to each vector. By default, all metadata keys that are attached to vectors
 are filterable and can be used as filters in a similarity query. Only metadata keys that are

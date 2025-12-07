@@ -1,9 +1,5 @@
 # Logging with AWS CloudTrail for S3 Vectors
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 Amazon S3 Vectors is integrated with AWS CloudTrail, a service that provides a record of actions that are
 taken by a user, role, or an AWS service. CloudTrail captures all API calls for S3 Vectors as
 events. Using the information that's collected by CloudTrail, you can determine the request that

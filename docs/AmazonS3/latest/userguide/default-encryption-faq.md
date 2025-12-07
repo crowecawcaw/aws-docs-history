@@ -52,7 +52,7 @@ AWS Command Line Interface (AWS CLI) and the AWS SDKs.
 - To view the automatic encryption status for new object uploads in S3 Storage Lens,
   configure an S3 Storage Lens dashboard and see the **Encrypted bytes** and
   **Encrypted object count** metrics in the **Data
-  protection** category of the dashboard. For more information, see [Using the S3 console](storage_lens_console_creating.md "storage_lens_console_creating.md") and [Viewing S3 Storage Lens metrics on the
+  protection** category of the dashboard. For more information, see [Using the S3 console](storage_lens_creating_dashboard.md#storage_lens_console_creating "storage_lens_creating_dashboard.md#storage_lens_console_creating") and [Viewing S3 Storage Lens metrics on the
   dashboards](storage_lens_view_metrics_dashboard.md "storage_lens_view_metrics_dashboard.md").
 - To view the automatic bucket-level encryption status in the Amazon S3 console,
   check the **Default encryption** of your Amazon S3 buckets in the Amazon S3 console.

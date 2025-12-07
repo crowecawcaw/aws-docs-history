@@ -61,6 +61,9 @@ pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws
 | S3 Glacier Flexible Retrieval or S3 Intelligent-Tiering Archive Access | 1–5 minutes   | Minutes–5 hours                  | 3–5 hours                           | 5–12 hours      |
 | S3 Glacier Deep Archive or S3 Intelligent-Tiering Deep Archive Access  | Not available | 9-12 hours                       | Within 12 hours                     | Within 48 hours |
 
+For any retrieval option, objects larger than 5 TB typically finish within 48 hours
+with up to 300 megabytes per second (MBps) of retrieval throughput.
+
 To make an `Expedited`, `Standard`, or `Bulk`
 retrieval, set the `Tier` request element in the [RestoreObject](../API/RESTObjectPOSTrestore.md "../API/RESTObjectPOSTrestore.md")
 REST API operation request to the option that you want, or the equivalent in the

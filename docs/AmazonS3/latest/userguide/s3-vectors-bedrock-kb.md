@@ -1,9 +1,5 @@
 # Using S3 Vectors with Amazon Bedrock Knowledge Bases
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 S3 Vectors integrates with [Amazon Bedrock Knowledge Bases](https://aws.amazon.com/bedrock/knowledge-bases/ "https://aws.amazon.com/bedrock/knowledge-bases/") and [Amazon SageMaker AI Unified Studio](https://aws.amazon.com/sagemaker/unified-studio/ "https://aws.amazon.com/sagemaker/unified-studio/") to
 simplify and reduce the cost of vector storage for retrieval augmented generation (RAG)
 applications.
@@ -34,7 +30,7 @@ This integration provides the following:
   workflow of Amazon Bedrock.
 - **Automatic vector management** handled by the Amazon Bedrock
   service.
-- **Sub-second query latency** for knowledge base retrieval
+- **Sub-second cold query latency and as low as 100 millisecond warm query latency** for knowledge base retrieval
   operations.
 
 Amazon Bedrock Knowledge Bases provides a fully managed end-to-end RAG workflow. When you create a
@@ -65,15 +61,7 @@ S3 Vectors align with acceptable query performance requirements.
 
 ## Supported embedding models
 
-The S3 Vectors integration with Amazon Bedrock Knowledge Bases supports the following embedding
-models:
-
-- **amazon.titan-embed-text-v2:0** - For text-based
-  embeddings
-- **amazon.titan-embed-image-v1** - For image and
-  multimodal embeddings
-- **cohere.embed-english-v3** - For multilingual and
-  specialized text embeddings
+Refer to [supported models for vector embeddings](../../../bedrock/latest/userguide/knowledge-base-supported.md#knowledge-base-supported-embeddings "../../../bedrock/latest/userguide/knowledge-base-supported.md#knowledge-base-supported-embeddings") in the _Amazon Bedrock User Guide_.
 
 ## Prerequisites and permissions
 
@@ -186,10 +174,8 @@ When using S3 Vectors with Amazon Bedrock Knowledge Bases, you should know the f
   search but not hybrid search capabilities.
 - **S3 Vectors size limits**: Each vector has a total
   metadata size limit and a size limit for filterable metadata, which may limit custom
-  metadata and filtering options. For more information about metadata and filterable
-  metadata size limits per vector, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
-- **Chunking strategy constraints**: Limited to models that
-  split content into chunks of up to 500 tokens due to metadata size restrictions.
+  metadata and filtering options. When using S3 Vectors as your vector store with Amazon Bedrock Knowledge Bases, you can attach up to 1KB of custom metadata and 35 metadata keys per vector.
+- **Chunking strategy constraints**: When using very high token counts with hierarchical chunking in Amazon Bedrock Knowledge Bases, you can exceed the maximum metadata size limits as parent-child chunk relationships and hierarchical context are stored as non-filterable metadata in S3 Vectors. For more information about metadata size limits per vector, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
 - **Floating-point vectors only**: Binary vector embeddings
   aren't supported.
 

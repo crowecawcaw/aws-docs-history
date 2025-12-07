@@ -1,7 +1,7 @@
 # Amazon S3 objects overview
 
 Amazon S3 is an object store that uses unique key-values to store as many objects as you want.
-You store these objects in one or more buckets, and each object can be up to 5 TB in size. An
+You store these objects in one or more buckets, and each object can be up to 50 TB in size. An
 object consists of the following:
 
 Key
@@ -20,8 +20,14 @@ Value
 
 The content that you are storing.
 
-An object value can be any sequence of bytes. Objects can range in size from zero to 5
-TB. For more information, see [Uploading objects](upload-objects.md "upload-objects.md").
+An object value can be any sequence of bytes. Objects can range in size from zero to
+50 TB. For more information, see [Uploading objects](upload-objects.md "upload-objects.md").
+
+###### Note
+
+While Amazon S3 documentation commonly references 50 TB object size limit, the actual
+maximum object size is 53.7 TB (48.8 TiB). This limit is determined by multipart upload
+constraints: 10,000 maximum parts x 5 GiB per part = 50,000 GiB (53.7 TB)
 
 Metadata
 

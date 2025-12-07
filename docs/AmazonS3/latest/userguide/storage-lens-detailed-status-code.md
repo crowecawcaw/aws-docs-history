@@ -28,7 +28,7 @@ information, see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_
 To see **Detailed status code metrics** in your S3 Storage Lens dashboard,
 you must enable S3 Storage Lens **Advanced metrics and recommendations**, and
 then select **Detailed status code metrics**. For more information, see
-[Using the S3 console](storage_lens_console_editing.md "storage_lens_console_editing.md").
+[Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
 ###### Topics
 

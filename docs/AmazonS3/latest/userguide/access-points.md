@@ -2,9 +2,11 @@
 
 Amazon S3 access points simplify data access for any AWS service or customer application that stores
 data in S3. Access points are named network endpoints that are attached to a data source such
-as a bucket or Amazon FSx for OpenZFS volume. For information about working with buckets, see
+as a bucket, Amazon FSx for NetApp ONTAP volume, or Amazon FSx for OpenZFS volume. For information about working with buckets, see
 [General purpose buckets overview](UsingBucket.md "UsingBucket.md"). For information about working
-with FSx for OpenZFS, see [What is Amazon FSx for OpenZFS](../../../fsx/latest/OpenZFSGuide/what-is-fsx.md "../../../fsx/latest/OpenZFSGuide/what-is-fsx.md") in the _OpenZFS User
+with FSx for NetApp ONTAP, see [What is Amazon FSx for NetApp ONTAP](../../../fsx/latest/ONTAPGuide/what-is-fsx-ontap.md "../../../fsx/latest/ONTAPGuide/what-is-fsx-ontap.md") in the _FSx for ONTAP User
+Guide_. For information about working
+with FSx for OpenZFS, see [What is Amazon FSx for OpenZFS](../../../fsx/latest/OpenZFSGuide/what-is-fsx.md "../../../fsx/latest/OpenZFSGuide/what-is-fsx.md") in the _FSx for OpenZFS User
 Guide_.
 
 You can use access points to perform S3 object operations, such as `GetObject` and

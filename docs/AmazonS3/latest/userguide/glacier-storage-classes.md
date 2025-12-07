@@ -70,6 +70,10 @@ The following retrieval tiers are available for S3 Glacier Flexible Retrieval:
 - **Standard retrieval** – Typically restores the object in 3–5 hours, or within 1 minute to 5 hours when you use S3 Batch Operations. For more information, see [Restore objects with Batch Operations](batch-ops-initiate-restore-object.md "batch-ops-initiate-restore-object.md").
 - **Bulk retrieval** – Typically restores the object within 5–12 hours. Bulk retrievals are free.
 
+For any retrieval option, objects larger than 5 TB typically finish within 48 hours
+with up to 300 megabytes per second (MBps) of retrieval throughput. For more
+information, see [Understanding archive retrieval options](restoring-objects-retrieval-options.md "restoring-objects-retrieval-options.md").
+
 The minimum storage duration for objects in S3 Glacier Flexible Retrieval storage class is 90 days.
 
 S3 Glacier Flexible Retrieval requires 40 KB of additional metadata for each object. This includes 32 KB of metadata required to identify and retrieve your data, which is charged at the default rate for S3 Glacier Flexible Retrieval. An additional 8 KB data is required to maintain the user-defined name and metadata for archived objects, and is charged at the S3 Standard rate.

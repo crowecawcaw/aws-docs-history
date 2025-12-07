@@ -10,16 +10,17 @@ disabled. For more information, see [Using the S3 console](storage_lens_console_
 
 Use the following steps to update an Amazon S3 Storage Lens dashboard on the Amazon S3 console.
 
-###### Step 1: Update the dashboard scope
+###### Step 1: Update your dashboard and configure your general settings
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. In the left navigation pane, choose **Storage Lens,
    Dashboards**.
-3. Choose the dashboard that you want to edit, and then choose
-   **Edit**.
-
-The **Edit dashboard** page opens.
+3. Choose the dashboard that you want to edit.
+4. Choose **View dashboard configuration**.
+5. Choose **Edit**. You can now review the dashboard configuration,
+   step by step. To make changes to any of the steps, you can click directly on the step
+   using the left navigation. For instructions on how to update those steps,
 
 ###### Note
 
@@ -27,166 +28,183 @@ You can't change the following:
 
     * The dashboard name
     * The home Region
-    * The dashboard scope of the default dashboard, which is scoped to your
-     entire account's storage
 
-4. (Optional) On the dashboard configuration page, in the **General**
-   section, update and add tags to your dashboard.
-
-You can use tags to manage permissions for your dashboard and to track costs for
-S3 Storage Lens. For more information, see [Controlling access using resource tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md")
-in the _IAM User Guide_ and [AWS-Generated Cost Allocation
-Tags](../../../awsaccountbilling/latest/aboutv2/aws-tags.md "../../../awsaccountbilling/latest/aboutv2/aws-tags.md") in the _AWS Billing User Guide_.
+6. On the **Dashboard** page, in the **General**
+   section, you can make changes to the following:
+   - Choose **Enabled** or **Disabled** to update
+     whether you're receiving daily metrics in your dashboard.
+   - (Optional) You can choose to add **Tags** to your dashboard.
+     You can use tags to manage permissions for your dashboard and track costs for
+     S3 Storage Lens. For more information, see [Controlling access to AWS resources
+     using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User Guide_ and
+     [Using AWS-generated tags](../../../awsaccountbilling/latest/aboutv2/aws-tags.md "../../../awsaccountbilling/latest/aboutv2/aws-tags.md") in the _AWS Billing User Guide_.
 
 ###### Note
 
-You can add up to 50 tags to your dashboard configuration. 5. In the **Dashboard scope** section, do the following:
+You can add up to 50 tags to your dashboard configuration. 7. Choose **Next** to save your changes and proceed.
 
-    1. Update the Regions and buckets that you want S3 Storage Lens to include or exclude in the
-     dashboard.
+###### Step 2: Update the dashboard scope
 
+1. In the **Dashboard scope** section, update the Regions and buckets
+   that you want S3 Storage Lens to include or exclude in the dashboard.
 
-    ###### Note
+###### Note
 
+    * You can either include or exclude Regions and buckets. This option is limited to
+     Regions only when creating organization-level dashboards across member accounts in
+     your organization.
+    * You can choose up to 50 buckets to include or exclude.
 
+2. Choose the buckets in your selected Regions that you want S3 Storage Lens to include or
+   exclude. You can either include or exclude buckets, but not both. This option isn't
+   available when you create organization-level dashboards.
 
-    	* You can either include or exclude Regions and buckets. This option is limited to
-    	 Regions only when creating organization-level dashboards across member accounts in
-    	 your organization.
-    	* You can choose up to 50 buckets to include or exclude.
-    2. Update the buckets in your selected Regions that you want S3 Storage Lens to include
-     or exclude. You can either include or exclude buckets, but not both. This option is not
-     present when creating organization-level dashboards.
+###### Note
 
-###### Step 2: Update the metrics selection
+    * You can either include or exclude Regions and buckets. This option is limited
+     to Regions only when creating organization-level dashboards across member accounts
+     in your organization.
+    * You can choose up to 50 buckets to include or exclude.
 
-1. In the **Metrics selection** section, choose the type of metrics that
-   you want to aggregate for this dashboard.
-   - To include free metrics aggregated at the bucket level and available for queries for
-     14 days, choose **Free metrics**.
-   - To enable advanced metrics and other advanced options, choose **Advanced
-     metrics and recommendations**. These options include advanced prefix
-     aggregation, Amazon CloudWatch publishing, and contextual recommendations. Data is available for
-     queries for 15 months. Advanced metrics and recommendations have an additional cost. For
-     more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+3. Choose **Next** to save your changes and proceed.
 
-   For more information about advanced metrics and free metrics, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection").
+###### Step 3: Update your Storage Lens tier Configure the metrics selection
 
-2. Under **Advanced metrics and recommendations features**, select the
-   options that you want to enable:
-   - **Advanced metrics**
-   - **CloudWatch publishing**
-   - **Prefix aggregation**
+1. In the **Storage Lens tier**
+   **Metrics selection** section, update the tier of metrics that you want
+   to aggregate for this dashboard.
 
-###### Important
+###### Note
 
-If you enable prefix aggregation for your S3 Storage Lens configuration, prefix-level metrics
-will not be published to CloudWatch. Only bucket, account, and organization-level S3 Storage Lens
-metrics are published to CloudWatch. 3. If you enabled **Advanced metrics**, select the **Advanced
-metrics categories** that you want to display in your S3 Storage Lens dashboard:
+    * If you're updating from the **Free tier** to the
+     **Advanced tier**, you'll need to update your **Metrics
+     aggregation** settings. To update your **Metrics aggregation
+     settings**, see **Step 4: Update your metrics
+     aggregation**.
+    * If you're updating your Storage Lens tier from the **Advanced
+     tier** to the **Free tier**, you won't need to update
+     any **Metrics aggregation** settings. The **Metrics
+     aggregation** feature only applies to **Advanced
+     tier** metric categories.
+
+2. To include free metrics aggregated at the bucket level and available for queries for
+   14 days, choose **Free tier**.
+3. To enable advanced metrics, choose **Advanced tier**. These options
+   include prefix aggregation, Amazon CloudWatch publishing, and contextual recommendations. Data is
+   available for queries for 15 months. Advanced metrics and recommendations have an
+   additional cost. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+
+For more information about advanced metrics and free metrics, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection"). 4. Under **Advanced metric categories**, choose the category of
+metrics that you want to enable:
 
     * **Activity metrics**
     * **Detailed status code metrics**
-    * **Advanced cost optimization metrics**
-    * **Advanced data protection metrics**
+    * **Cost optimization metrics**
+    * **Data protection metrics**
+    * **Performance metrics**
 
-For more information metrics categories, see [Metrics categories](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types"). For a complete list of metrics, see
-[Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md"). 4. If you chose to enable prefix aggregation, configure the following:
+To preview which metrics are included in each category, use the drop-down arrow
+button below the metrics category checkbox list. For more information about metrics
+categories, see [Metrics categories](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types"). For a complete list of metrics,
+see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md"). 5. Choose or specify a **Prefix delimiter** to distinguish levels
+within each prefix. This value is used to identify each prefix level. The default value
+in Amazon S3 is the "`/`" character, but your storage structure might use other
+delimiter characters. 6. Choose **Next** to save your changes and proceed.
 
-    1. Choose the minimum prefix threshold size for this dashboard.
+###### Step 4: (Optional) Update your metrics aggregation
 
+1. Under **Additional metrics aggregation**, update which metrics you
+   want to aggregate by choosing one of the following:
+   - Prefix aggregation
+   - Storage Lens group aggregation
 
-    For example, a prefix threshold of 5 percent indicates that prefixes that make up 5
-     percent or more of the bucket's total storage size will be aggregated.
-    2. Choose the prefix depth.
+2. If you've enabled **Prefix aggregation**, specify the minimum
+   **Prefix threshold** for your dashboard and **Prefix
+   depth**. Then, choose **Next** to save and proceed.
+3. If you've enabled **Storage Lens group aggregation**, choose one of
+   the following:
+   - **Include Storage Lens groups**
+   - **Exclude Storage Lens groups**
 
+4. When you include Storage Lens groups in your aggregation, you can either
+   **Include all Storage Lens groups in your home Region** or specify
+   Storage Lens groups to include.
+5. Choose **Next** to save your changes and proceed.
 
-    This setting indicates the maximum number of levels up to which the prefixes are
-     evaluated. The prefix depth must be less than 10.
-    3. Enter a prefix delimiter character.
+###### Step 5: (Optional) Update your metrics export and publishing settings
 
+1. Under **Metrics publishing**, choose **CloudWatch
+   publishing** if you want to access your Storage Lens metrics in your CloudWatch
+   dashboard.
 
-    This is the value used to identify each prefix level. The default value in Amazon S3 is
-     the `/` character, but your storage structure might use other delimiter
-     characters.
+###### Note
 
-###### (Optional) Step 3: Export metrics for the dashboard
+Prefix-level metrics aren't available in CloudWatch. 2. Under **Metrics export**, choose which Storage Lens dashboard data
+you want exported daily:
 
-1. In the **Metrics export** section, to create a metrics export that will
-   be placed daily in a destination bucket of your choice, choose **Enable**.
-   To disable the metrics export, choose **Disable**.
+    * **Default metrics report**
+    * **Expanded prefixes metrics report**
 
-The metrics export is in CSV or Apache Parquet format. It represents the
-same scope of data as your S3 Storage Lens dashboard data without the recommendations. 2. If enabled, choose the output format of your daily metrics export:
-**CSV** or **Apache Parquet**.
+3. (Optional) If you chose **Default metrics report**, in the
+   **Default metrics report** settings, choose the bucket type. You can
+   export the report to either a general purpose S3 bucket or a read-only S3 table bucket.
+   Based on the selected bucket type, update the **General purpose bucket
+   destination settings** or **Table bucket destination
+   settings** options.
 
-Parquet is an open source file format for Hadoop that stores nested data
-in a flat columnar format. 3. Choose the destination S3 bucket for your metrics export.
+###### Note
 
-You can choose a bucket in the current account of the S3 Storage Lens dashboard. Or you can
-choose another AWS account if you have the destination bucket permissions and the
-destination bucket owner's account ID. 4. Choose the destination S3 bucket (format:
-`s3://`bucket-name`/`prefix``).
-
-The bucket must be in the home Region of your S3 Storage Lens dashboard. The S3 console shows
-you the **Destination bucket permission** that will be added by Amazon S3 to the
-destination bucket policy. Amazon S3 updates the bucket policy on the destination bucket to allow
-S3 to place data in that bucket. 5. (Optional) To enable server-side encryption for your metrics export, choose
-**Specify an encryption key**. Then, choose the **Encryption
-type**: **Amazon S3 managed keys (SSE-S3)** or **AWS Key Management Service
-key (SSE-KMS)**.
-
-You can choose between an [Amazon S3 managed key](UsingServerSideEncryption.md "UsingServerSideEncryption.md")
-(SSE-S3) and an [AWS Key Management Service (AWS KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md") key
-(SSE-KMS). 6. (Optional) To specify an AWS KMS key, you must choose a KMS key or enter a key Amazon
-Resource Name (ARN). Under **AWS KMS key**, specify your KMS key in one of
-the following ways:
-
-    * To choose from a list of available KMS keys, choose **Choose from your
-     AWS KMS keys**, and choose your **KMS key** from the
-     list of available keys.
-
-
-    Both the AWS managed key (`aws/s3`) and your customer managed keys appear in this
-     list. For more information about customer managed keys, see [Customer keys and AWS
-     keys](../../../kms/latest/developerguide/concepts.md#key-mgmt "../../../kms/latest/developerguide/concepts.md#key-mgmt") in the *AWS Key Management Service Developer Guide*.
-
-
-    ###### Note
-
-    The AWS managed key (`aws/S3`) is not supported for SSE-KMS
-     encryption with S3 Storage Lens.
-    * To enter the KMS key ARN, choose **Enter AWS KMS key ARN**,
-     and enter your KMS key ARN in the field that appears.
-    * To create a new customer managed key in the AWS KMS console, choose **Create a
-     KMS key**.
-
-
-    If you choose a customer managed key, you must grant S3 Storage Lens permission to encrypt in the
-     AWS KMS key policy. For more information, see [Using an AWS KMS key to encrypt your
+    * The **default metrics report** only includes prefixes within
+     the set threshold and depth set in prefix aggregation settings. If your prefix
+     aggregation isn't already configured, the threshold includes up to the 100 largest
+     prefixes by size.
+    * If you choose to specify an encryption key, you must choose an AWS KMS key
+     (SSE-KMS) or Amazon S3 managed key (SSE-S3). If your destination bucket policy requires
+     encryption, you must provide an encryption key for your metrics export. Without
+     the encryption key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your
      metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md").
 
+4. Choose **Next** to save your changes and proceed.
+5. (Optional) If you chose **Expanded prefixes metrics report**, in
+   the **Expanded prefixes metrics report** settings, choose the bucket
+   type. You can export the report to either a general purpose S3 bucket or a read-only S3
+   table bucket. Based on the selected bucket type, update the **General purpose
+   bucket destination settings** or **Table bucket destination
+   settings**.
 
-    For more information about creating an AWS KMS key, see [Creating
-     Keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the *AWS Key Management Service Developer Guide*.
+###### Note
 
-7. Choose **Save changes**.
-   To gain further visibility into your storage, you can create one or more S3 Storage Lens groups and
-   attach them to your dashboard. An S3 Storage Lens group is a custom defined filter for objects based on
-   prefixes, suffixes, object tags, object size, object age, or a combination of these
-   filters.
+    * The **Expanded prefixes metrics report** includes prefixes in
+     all buckets that are specified in your dashboard scope.
+    * If you choose to specify an encryption key, you must choose an AWS KMS key
+     (SSE-KMS) or Amazon S3 managed key (SSE-S3). If your destination bucket policy requires
+     encryption, you must provide an encryption key for your metrics export. Without
+     the encryption key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your
+     metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md").
 
-You can use S3 Storage Lens groups to gain granular visibility into large shared buckets, such as
-data lakes, to make better-informed business decisions. For example, you can streamline storage
-allocation and optimize cost reporting by breaking down storage usage to specific groups of
-objects for individual projects and cost centers within a bucket or across multiple buckets.
+6. Choose **Next** to save your changes and proceed.
 
-To use S3 Storage Lens groups, you must upgrade your dashboard to use advanced metrics and
-recommendations. For more information about S3 Storage Lens groups, see [Working with S3 Storage Lens groups to filter and aggregate metrics](storage-lens-groups-overview.md "storage-lens-groups-overview.md").
+###### Step 6: Review and update your dashboard configuration
 
-The following example command updates a Amazon S3 Storage Lens dashboard configuration. To use these
-examples, replace the `user input placeholders` with
-your own information.
+1. In the **General** section, review your settings. Choose
+   **Edit** to make any changes.
+2. In the **Dashboard scope** section, review your settings. Choose
+   **Edit** to make any changes.
+3. In the **Storage Lens tier** section, review your settings. Choose
+   **Edit** to make any changes.
+4. In the **Metrics aggregation** section, review your settings.
+   Choose **Edit** to make any changes.
+5. In the **Metrics export** section, review your settings. Choose
+   **Edit** to make any changes.
+6. After reviewing and confirming all your dashboard configuration settings, choose
+   **Submit** to update your dashboard.
+   After you've successfully updated your new Storage Lens dashboard, you can view your
+   updated dashboard configuration listed under your Storage Lens
+   **Dashboard** page.
+
+The following example command updates a Amazon S3 Storage Lens dashboard configuration. To use
+these examples, replace the `user input
+ placeholders` with your own information.
 
 ```
 aws s3control put-storage-lens-configuration --account-id=`111122223333` --config-id=`example-dashboard-configuration-id` --region=`us-east-1` --storage-lens-configuration=`file://./config.json` --tags=`file://./tags.json`
@@ -194,7 +212,8 @@ aws s3control put-storage-lens-configuration --account-id=`111122223333` --confi
 
 ###### Example – Update a Amazon S3 Storage Lens configuration with advanced metrics and recommendations
 
-The following examples shows you how to update the default S3 Storage Lens configuration with advanced metrics and recommendations in SDK for Java:
+The following examples shows you how to update the default S3 Storage Lens configuration with
+advanced metrics and recommendations in SDK for Java:
 
 ```
 package aws.example.s3control;
@@ -235,23 +254,23 @@ public class UpdateDefaultConfigWithPaidFeatures {
 
         try {
             SelectionCriteria selectionCriteria = new SelectionCriteria()
-                    .withDelimiter("`/"`)
+                    .withDelimiter("`/`")
                     .withMaxDepth(`5`)
                     .withMinStorageBytesPercentage(`10.0`);
             PrefixLevelStorageMetrics prefixStorageMetrics = new PrefixLevelStorageMetrics()
-                    .withIsEnabled(true)
+                    .withIsEnabled(`true`)
                     .withSelectionCriteria(selectionCriteria);
             BucketLevel bucketLevel = new BucketLevel()
                     .withActivityMetrics(new ActivityMetrics().withIsEnabled(`true`))
                     .withPrefixLevel(new PrefixLevel().withStorageMetrics(prefixStorageMetrics));
             AccountLevel accountLevel = new AccountLevel()
-                    .withActivityMetrics(new ActivityMetrics().withIsEnabled(true))
+                    .withActivityMetrics(new ActivityMetrics().withIsEnabled(`true`))
                     .withBucketLevel(bucketLevel);
 
             StorageLensConfiguration configuration = new StorageLensConfiguration()
                     .withId(configurationId)
                     .withAccountLevel(accountLevel)
-                    .withIsEnabled(true);
+                    .withIsEnabled(`true`);
 
             AWSS3Control s3ControlClient = AWSS3ControlClient.builder()
                     .withCredentials(new ProfileCredentialsProvider())
@@ -277,6 +296,7 @@ public class UpdateDefaultConfigWithPaidFeatures {
 }
 ```
 
-###### Note
-
-Additional charges apply for advanced metrics and recommendations. For more information, see [advanced metrics and recommendations](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection").
+For access to S3 Storage Lens groups or expanded prefixes, you must upgrade your dashboard to use
+the advanced tier. Additional charges apply. For more information about the free and advanced
+tiers, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection"). For more information about S3 Storage Lens
+groups, see [Working with S3 Storage Lens groups to filter and aggregate metrics](storage-lens-groups-overview.md "storage-lens-groups-overview.md").

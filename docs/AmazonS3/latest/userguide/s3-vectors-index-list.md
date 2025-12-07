@@ -1,9 +1,5 @@
 # Listing vector indexes
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 You can view all vector indexes within a vector bucket. The listing operation supports prefix-based filtering to help you find
 specific indexes when you have many indexes in a bucket. For more information about `ListIndexes`, prefix limits, and response limits, see [ListIndexes](../API/API_S3VectorBuckets_ListIndexes.md "../API/API_S3VectorBuckets_ListIndexes.md") in the Amazon Simple Storage Service API Reference.
 
@@ -86,4 +82,18 @@ Example response:
         }
     ]
 }
+```
+
+SDK for Python
+
+```
+import boto3
+
+# Create a S3 Vectors client in the AWS Region of your choice.
+s3vectors = boto3.client("s3vectors", region_name="us-west-2")
+
+#List vector indexes in your vector bucket
+response = s3vectors.list_indexes(vectorBucketName="media-embeddings")
+indexes = response["indexes"]
+print(indexes)
 ```

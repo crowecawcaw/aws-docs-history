@@ -41,6 +41,7 @@ The following are requirements for using Amazon S3 Select:
 The following limits apply when using Amazon S3 Select:
 
 - S3 Select can query only one object per request.
+- S3 Select supports querying files up to 5 TB in size.
 - The maximum length of a SQL expression is 256 KB.
 - The maximum length of a record in the input or result is 1 MB.
 - Amazon S3 Select can only emit nested data by using the JSON output format.

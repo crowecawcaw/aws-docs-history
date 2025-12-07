@@ -1,14 +1,28 @@
 # Downloading objects
 
 This section explains how to download objects from an Amazon S3 bucket. With Amazon S3, you can store
-objects in one or more buckets, and each single object can be up to 5 TB in size. Any Amazon S3
+objects in one or more buckets, and each single object can be up to 50 TB in size. Any Amazon S3
 object that is not archived is accessible in real time. Archived objects, however, must be
 restored before they can be downloaded. For information about downloading archived objects, see
 [Downloading archived objects](#download-archived-objects "#download-archived-objects").
 
 You can download a single object by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), AWS SDKs,
-or Amazon S3 REST API. To download an object from S3 without writing any code or running any
-commands, use the S3 console. For more information, see [Downloading an object](#download-an-object "#download-an-object").
+or Amazon S3 REST API. To download an object up to 5 TB from S3 without writing any code or running
+any commands, use the S3 console. For more information, see [Downloading an object](#download-an-object "#download-an-object").
+
+To download objects larger than 5 TB, use concurrent `GetObject` requests with
+either `Range` HTTP header to read specific byte ranges or `partNumber` to
+download specific part of an object. Single GET requests are limited to 5 TB, and you will
+receive a `405 - Method Not Allowed` error for GET requests beyond 5 TB.
+
+For large object downloads, use the S3 Transfer Manager in the Java v1/v2, Python, or AWS CLI
+SDKs. For the best performance, use the latest AWS Common Runtime (CRT) with these SDKs, which
+has been optimized for better resource utilization. CRT automatically scales the size of
+individual GETs to optimize throughput. You can improve overall transfer throughput by
+allocating more memory using memory limit parameters such as
+`maxNativeMemoryLimitInBytes` for Java SDK. You can opt out of this behavior by
+setting an explicit part size using request parameters such as `multipart_chunksize`
+for AWS CLI and `minimumPartSizeInBytes` for Java SDK in your download request.
 
 To download multiple objects, use AWS CloudShell, the AWS CLI, or the AWS SDKs. For more
 information, see [Downloading multiple objects](#download-multiple-objects "#download-multiple-objects").
@@ -85,7 +99,7 @@ aws s3api get-object --bucket ``amzn-s3-demo-bucket1`` --key `folder/my_image` `
 
 For more information and examples, see [get-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object.html") in the _AWS CLI Command Reference_.
 
-For examples of how to download an object with the AWS SDKs, see [Code examples](../API/s3_example_s3_GetObjectLockConfiguration_section.md "../API/s3_example_s3_GetObjectLockConfiguration_section.md") in the _Amazon S3 API Reference_.
+For examples of how to download an object with the AWS SDKs, see [Code examples](../API/s3_example_s3_GetObject_section.md "../API/s3_example_s3_GetObject_section.md") in the _Amazon S3 API Reference_.
 
 For general information about using different AWS SDKs, see [Developing with Amazon S3 using the AWS SDKs](../API/sdk-general-information-section.md "../API/sdk-general-information-section.md") in the _Amazon S3 API Reference_.
 

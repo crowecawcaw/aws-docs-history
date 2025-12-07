@@ -1,9 +1,5 @@
 # S3 Vectors resource-based policy examples
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 Resource-based policies are attached to a resource. You can create resource-based policies
 for vector buckets. Resource-based policies for S3 Vectors use the standard AWS policy
 format in JSON that you attach directly to vector buckets to control access to the bucket

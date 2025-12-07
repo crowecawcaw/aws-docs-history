@@ -223,9 +223,8 @@ appears:
   enabled), and **Storage Lens groups** (for dashboards that have
   **Advanced metrics** and **Storage Lens group
   aggregation** enabled).
-
-With **Analyze by**, you can view
-the data in the context of the new dimension for deeper analysis.
+  With **Analyze by**, you can view
+  the data in the context of the new dimension for deeper analysis.
 
 The **Drill down** and **Analyze by** actions might be
 disabled if the outcome would yield illogical results or would not have any value. Both the

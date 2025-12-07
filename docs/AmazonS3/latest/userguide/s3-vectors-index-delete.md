@@ -1,9 +1,5 @@
 # Deleting a vector index
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 You can delete a vector index when you no longer need it. This operation permanently removes the index and all vectors that are stored within it.
 
 ###### Important
@@ -27,3 +23,17 @@ aws s3vectors delete-index --vector-bucket-name "`amzn-s3-demo-vector-bucket`" \
 ```
 
 For more information about how to verify whether the index is deleted, see [Listing vector indexes](s3-vectors-index-list.md "s3-vectors-index-list.md").
+
+SDK for Python
+
+```
+import boto3
+
+# Create a S3 Vectors client in the AWS Region of your choice.
+s3vectors = boto3.client("s3vectors", region_name="us-west-2")
+
+#Delete a vector index
+response = s3vectors.delete_index(
+    vectorBucketName="media-embeddings",
+    indexName="movies")
+```

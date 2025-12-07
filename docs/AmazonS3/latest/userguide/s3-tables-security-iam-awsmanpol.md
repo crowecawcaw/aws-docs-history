@@ -21,25 +21,8 @@ AmazonS3TablesFullAccess
 
 You can attach the `AmazonS3TablesFullAccess` policy to your IAM
 identities. This policy grants permissions that allow full access to Amazon S3
-Tables.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3tables:*"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+Tables. For more information about this policy, see
+[AmazonS3TablesFullAccess](../../../aws-managed-policy/latest/reference/AmazonS3TablesFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonS3TablesFullAccess.md").
 
 ## AWS managed policy:
 
@@ -47,127 +30,17 @@ AmazonS3TablesReadOnlyAccess
 
 You can attach the `AmazonS3TablesReadOnlyAccess` policy to your IAM
 identities. This policy grants permissions that allow read-only access to Amazon S3
-Tables.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3tables:Get*",
- "s3tables:List*"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+Tables. For more information about this policy, see
+[AmazonS3TablesReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonS3TablesReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonS3TablesReadOnlyAccess.md").
 
 ## AWS managed policy:
 
 AmazonS3TablesLakeFormationServiceRole
 
 You can attach the `AmazonS3TablesLakeFormationServiceRole` policy to your IAM
-identities. This policy grants permissions that allow the AWS Lake Formation service role access to S3 Tables. AWS KMS permissions are used to allow Lake Formation to access encrypted tables.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "PermissionsForS3ListTableBuckets",
- "Effect": "Allow",
- "Action": [
- "s3tables:ListTableBuckets"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "StringEquals": {
- "aws:ResourceAccount": "111122223333"
- }
- }
- },
- {
- "Sid": "DataAccessPermissionsForS3TablesResources",
- "Effect": "Allow",
- "Action": [
- "s3tables:CreateTableBucket",
- "s3tables:GetTableBucket",
- "s3tables:CreateNamespace",
- "s3tables:GetNamespace",
- "s3tables:ListNamespaces",
- "s3tables:DeleteNamespace",
- "s3tables:DeleteTableBucket",
- "s3tables:CreateTable",
- "s3tables:DeleteTable",
- "s3tables:GetTable",
- "s3tables:ListTables",
- "s3tables:RenameTable",
- "s3tables:UpdateTableMetadataLocation",
- "s3tables:GetTableMetadataLocation",
- "s3tables:GetTableData",
- "s3tables:PutTableData"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "StringEquals": {
- "aws:ResourceAccount": "111122223333"
- }
- }
- },
- {
- "Sid": "KMSDataAccessPermissionsForS3TablesResources",
- "Effect": "Allow",
- "Action": [
- "kms:GenerateDataKey",
- "kms:Decrypt"
- ],
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "kms:ViaService": [
- "s3.*.amazonaws.com"
- ],
- "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:*:*:bucket/*/table/*"
- },
- "StringEquals": {
- "aws:ResourceAccount": "111122223333"
- }
- }
- },
- {
- "Sid": "KMSDescribeKeyAccessPermissionsForS3TablesResources",
- "Effect": "Allow",
- "Action": [
- "kms:DescribeKey"
- ],
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "kms:ViaService": [
- "s3tables.*.amazonaws.com"
- ]
- },
- "StringEquals": {
- "aws:ResourceAccount": "111122223333"
- }
- }
- }
- ]
-}`
-
-```
+identities. This policy grants permissions that allow the AWS Lake Formation service role access to S3 Tables. AWS KMS permissions are used to allow Lake Formation to access
+encrypted tables. For more information about this policy, see
+[AmazonS3TablesLakeFormationServiceRole](../../../aws-managed-policy/latest/reference/AmazonS3TablesLakeFormationServiceRole.md "../../../aws-managed-policy/latest/reference/AmazonS3TablesLakeFormationServiceRole.md").
 
 ## Amazon S3 Tables updates to AWS
 
@@ -177,6 +50,7 @@ View details about updates to AWS managed policies for Amazon S3 Tables since S3
 
 | Change                                                           | Description                                                                                                                                                                                  | Date              |
 | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Amazon S3 Tables updated `AmazonS3TablesFullAccess`.             | S3 Tables updated the AWS-managed policy called `AmazonS3TablesFullAccess`. This update grants permission to pass a role to the S3 Tables Replication service.                               | December 2, 2025  |
 | Amazon S3 Tables added `AmazonS3TablesLakeFormationServiceRole`. | S3 Tables added a new AWS-managed policy called `AmazonS3TablesLakeFormationServiceRole`.<br>This policy grants permissions that allows the Lake Formation service role access to S3 Tables. | May 19, 2025      |
 | Amazon S3 Tables added `AmazonS3TablesFullAccess`.               | S3 Tables added a new AWS-managed policy called `AmazonS3TablesFullAccess`.<br>This policy grants permissions that allow full access to Amazon S3<br>Tables.                                 | December 03, 2024 |
 | Amazon S3 Tables added `AmazonS3TablesReadOnlyAccess`.           | S3 Tables added a new AWS-managed policy called `AmazonS3TablesReadOnlyAccess`.<br>This policy grants permissions to allow read-only access to Amazon S3<br>Tables.                          | December 03, 2024 |

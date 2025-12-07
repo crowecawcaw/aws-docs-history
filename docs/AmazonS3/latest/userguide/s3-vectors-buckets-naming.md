@@ -1,9 +1,5 @@
 # Vector bucket naming rules
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 Vector bucket names must follow specific naming conventions to ensure uniqueness
 within an AWS Region. Amazon S3 enforces the following bucket naming requirements, and you
 can't create a vector bucket if these rules aren't followed. Additionally, there are

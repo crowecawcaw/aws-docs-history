@@ -1,16 +1,9 @@
 # Working with S3 Vectors and vector buckets
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
 ## What is Amazon S3 Vectors?
 
-Amazon S3 Vectors delivers purpose-built, cost-optimized vector storage for your semantic search and AI applications. With Amazon S3 level
-elasticity and durability for storing vector datasets with sub-second query performance,
-S3 Vectors is ideal for applications that need to build and grow vector indexes. You get
-a dedicated set of API operations to store, access, and perform similarity queries on
-vector data without provisioning any infrastructure. S3 Vectors consists of several key
+Amazon S3 Vectors delivers purpose-built, cost-optimized vector storage for AI agents, inference, RAG, and semantic search. S3 Vectors is designed to provide the same elasticity, durability, and availability as Amazon S3 and delivers subsecond latency for infrequent queries and as low as 100 milliseconds for more frequent queries. You get
+a dedicated set of API operations to store, access, and query vector data without provisioning any infrastructure. S3 Vectors consists of several key
 components that work together:
 
 - **Vector buckets** – A new bucket type
@@ -96,8 +89,8 @@ limits per index, see [Limitations and restrictions](s3-vectors-limitations.md "
 
 ### Perform similarity queries
 
-With S3 Vectors, you can perform efficient similarity queries to find the most
-similar vectors to a query vector, with sub-second response times. S3 Vectors is
+With S3 Vectors, you can perform queries to find the most
+similar vectors to a query vector, with sub-second response times for infrequent queries and as low as 100 milliseconds for more frequent queries. S3 Vectors is
 ideal for workloads where queries are less frequent.
 
 ### Metadata filtering

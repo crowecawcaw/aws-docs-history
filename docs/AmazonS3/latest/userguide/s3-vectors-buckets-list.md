@@ -1,10 +1,6 @@
 # Listing vector buckets
 
-###### Note
-
-Amazon S3 Vectors is in preview release for Amazon Simple Storage Service and is subject to change.
-
-You can view all your vector buckets using the Amazon S3 console or the AWS CLI. The listing
+You can view all your vector buckets using the Amazon S3 console, AWS CLI, or AWS SDKs. The listing
 operations support prefix-based filtering to help you find specific buckets when you have
 many vector buckets in your account. For more information about `ListVectorBuckets`, prefix
 limits, and response limits, see [ListVectorBuckets](../API/API_S3VectorBuckets_ListVectorBuckets.md "../API/API_S3VectorBuckets_ListVectorBuckets.md") in the _Amazon S3 API Reference_.
@@ -46,3 +42,21 @@ To filter the list:
   to find all production buckets)
 
 The list updates in real-time as you type
+
+```
+aws s3vectors list-vector-buckets
+```
+
+SDK for Python
+
+```
+import boto3
+
+# Create a S3 Vectors client in the AWS Region of your choice.
+s3vectors = boto3.client("s3vectors", region_name="us-west-2")
+
+#List vector buckets
+response = s3vectors.list_vector_buckets()
+buckets = response["vectorBuckets"]
+print(buckets)
+```
