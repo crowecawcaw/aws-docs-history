@@ -21,7 +21,7 @@ several basic rules:
 ![In the previous diagram, number one.](images/number-1-red.png)
 The decision starts with a **default-deny**.
 
-![In the previous diagram, number two.](images/number-2-red.png)
+![In the previous diagram, number two.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-2-red.png)
 The enforcement code evaluates all the policies that are
 applicable to the request (based on the resource, principal, action, and
 conditions). The order in which the enforcement code evaluates the policies
@@ -31,7 +31,7 @@ isn't important.
 The enforcement code looks for an **explicit-deny** instruction that can apply to the request. If it
 finds even one, the enforcement code returns a decision of **deny** and the process finishes.
 
-![In the previous diagram, number four.](images/number-4-red.png)
+![In the previous diagram, number four.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-4-red.png)
 If no **explicit-deny**
 instruction is found, the enforcement code looks for any **allow** instructions that can apply to the request. If it finds
 even one, the enforcement code returns a decision of **allow** and the process finishes (the service continues to process

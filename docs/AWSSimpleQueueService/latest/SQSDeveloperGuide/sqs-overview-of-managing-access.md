@@ -220,7 +220,7 @@ different accounts, see [Tutorial:
 Delegate Access Across AWS Accounts Using IAM Roles](../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md "../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md") in the
 _IAM User Guide_.
 
-![Number two in the diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-2-red.png)
+![Number two in the diagram.](images/number-2-red.png)
 The subset of actions included in `*` has
 expanded. For a list of allowed actions, see [Amazon SQS API permissions:
 Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").

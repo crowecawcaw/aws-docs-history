@@ -460,13 +460,15 @@ import AWSSQS
 import Foundation
 
 struct ExampleCommand: ParsableCommand {
+    @Argument(help: "The URL of the Amazon SQS queue to delete")
+    var queueUrl: String
     @Option(help: "Name of the Amazon Region to use (default: us-east-1)")
     var region = "us-east-1"
 
     static var configuration = CommandConfiguration(
-        commandName: "sqs-basics",
+        commandName: "deletequeue",
         abstract: """
-        This example shows how to list all of your available Amazon SQS queues.
+        This example shows how to delete an Amazon SQS queue.
         """,
         discussion: """
         """
@@ -477,30 +479,15 @@ struct ExampleCommand: ParsableCommand {
         let config = try await SQSClient.SQSClientConfiguration(region: region)
         let sqsClient = SQSClient(config: config)
 
-        var queues: [String] = []
-        let outputPages = sqsClient.listQueuesPaginated(
-            input: ListQueuesInput()
-        )
-
-        // Each time a page of results arrives, process its contents.
-
-        for try await output in outputPages {
-            guard let urls = output.queueUrls else {
-                print("No queues found.")
-                return
-            }
-
-            // Iterate over the queue URLs listed on this page, adding them
-            // to the `queues` array.
-
-            for queueUrl in urls {
-                queues.append(queueUrl)
-            }
-        }
-
-        print("You have \(queues.count) queues:")
-        for queue in queues {
-            print("   \(queue)")
+        do {
+            _ = try await sqsClient.deleteQueue(
+                input: DeleteQueueInput(
+                    queueUrl: queueUrl
+                )
+            )
+        } catch _ as AWSSQS.QueueDoesNotExist {
+            print("Error: The specified queue doesn't exist.")
+            return
         }
     }
 }

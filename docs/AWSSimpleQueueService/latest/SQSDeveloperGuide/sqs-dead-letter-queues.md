@@ -39,6 +39,11 @@ value such as 1, one failure to receive a message would cause the message to mov
 dead-letter queue. To ensure that your system is resilient against errors, set the
 `maxReceiveCount` high enough to allow for sufficient retries.
 
+For standard queues with a redrive policy where `maxReceiveCount` is greater
+than 3, if a message is received 3 or more times without being deleted, SQS moves it to
+the back of the queue. The `ApproximateAgeOfOldestMessage` metric then reflects
+the age of the next message that hasn’t exceeded this threshold.
+
 The **redrive allow policy** specifies which source
 queues can access the dead-letter queue. You can choose whether to allow all source
 queues, allow specific source queues, or deny all source queues use of the dead-letter
