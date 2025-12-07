@@ -103,6 +103,7 @@ Nitro Enclaves has the following requirements:
   | C7g             | All instance types, **except**: `c7g.medium`  | `c7g.metal`       |
   | C7gd            | All instance types, **except**: `c7gd.medium` | `c7gd.metal`      |
   | C7i             | All instance types, **except**: `c7i.large`   | `c7i.metal-24xl`  | `c7i.metal-48xl`  |
+  | C8a             | All instance types, **except**: `c8a.medium`  | `c8a.metal-24xl`  | `c8a.metal-48xl`  |
   | C8g             | All instance types, **except**: `c8g.medium`  | `c8g.metal-24xl`  | `c8g.metal-48xl`  |
   | C8gd            | All instance types, **except**: `c8gd.medium` | `c8gd.metal-24xl` | `c8gd.metal-48xl` |
   | C8gn            | All instance types, **except**: `c8gn.medium` | `c8gn.metal-24xl` | `c8gn.metal-48xl` |
@@ -110,39 +111,40 @@ Nitro Enclaves has the following requirements:
 
   Memory optimized
 
-  | Instance family | Instance types                                 |
-  | --------------- | ---------------------------------------------- | ----------------- | ----------------- |
-  | R5              | All instance types, **except**: `r5.large`     | `r5.metal`        |
-  | R5a             | All instance types, **except**: `r5a.large`    |
-  | R5ad            | All instance types, **except**: `r5ad.large`   |
-  | R5b             | All instance types, **except**: `r5b.large`    | `r5b.metal`       |
-  | R5d             | All instance types, **except**: `r5d.large`    | `r5d.metal`       |
-  | R5dn            | All instance types, **except**: `r5dn.large`   | `r5dn.metal`      |
-  | R5n             | All instance types, **except**: `r5n.large`    | `r5n.metal`       |
-  | R6a             | All instance types, **except**: `r6a.large`    | `r6a.metal`       |
-  | R6g             | All instance types, **except**: `r6g.medium`   | `r6g.metal`       |
-  | R6gd            | All instance types, **except**: `r6gd.medium`  | `r6gd.metal`      |
-  | R6i             | All instance types, **except**: `r6i.large`    | `r6i.metal`       |
-  | R6id            | All instance types, **except**: `r6id.large`   | `r6id.metal`      |
-  | R6idn           | All instance types, **except**: `r6idn.large`  | `r6idn.metal`     |
-  | R6in            | All instance types, **except**: `r6in.large`   | `r6in.metal`      |
-  | R7a             | All instance types, **except**: `r7a.medium`   | `r7a.large`       | `r7a.metal-48xl`  |
-  | R7g             | All instance types, **except**: `r7g.medium`   | `r7g.metal`       |
-  | R7gd            | All instance types, **except**: `r7gd.medium`  | `r7gd.metal`      |
-  | R7i             | All instance types, **except**: `r7i.large`    | `r7i.metal-24xl`  | `r7i.metal-48xl`  |
-  | R7iz            | All instance types, **except**: `r7iz.large`   | `r7iz.metal-16xl` | `r7iz.metal-32xl` |
-  | R8a             | All instance types, **except**: `r8a.medium`   | `r8a.metal-24xl`  | `r8a.metal-48xl`  |
-  | R8g             | All instance types, **except**: `r8g.medium`   | `r8g.metal-24xl`  | `r8g.metal-48xl`  |
-  | R8gb            | All instance types, **except**: `r8gb.medium`  | `r8gb.metal-24xl` |
-  | R8gd            | All instance types, **except**: `r8gd.medium`  | `r8gd.metal-24xl` | `r8gd.metal-48xl` |
-  | R8gn            | All instance types, **except**: `r8gn.medium`  | `r8gn.metal-24xl` | `r8gn.metal-48xl` |
-  | R8i             | All instance types, **except**: `r8i.large`    | `r8i.metal-48xl`  | `r8i.metal-96xl`  |
-  | X2gd            | All instance types, **except**: `x2gd.medium`  | `x2gd.metal`      |
-  | X2idn           | All instance types, **except**: `x2idn.metal`  |
-  | X2iedn          | All instance types, **except**: `x2iedn.metal` |
-  | X2iezn          | All instance types, **except**: `x2iezn.metal` |
-  | X8g             | All instance types, **except**: `x8g.medium`   | `x8g.metal-24xl`  | `x8g.metal-48xl`  |
-  | z1d             | All instance types, **except**: `z1d.large`    | `z1d.metal`       |
+  | Instance family | Instance types                                      |
+  | --------------- | --------------------------------------------------- | ------------------- | ----------------- |
+  | R5              | All instance types, **except**: `r5.large`          | `r5.metal`          |
+  | R5a             | All instance types, **except**: `r5a.large`         |
+  | R5ad            | All instance types, **except**: `r5ad.large`        |
+  | R5b             | All instance types, **except**: `r5b.large`         | `r5b.metal`         |
+  | R5d             | All instance types, **except**: `r5d.large`         | `r5d.metal`         |
+  | R5dn            | All instance types, **except**: `r5dn.large`        | `r5dn.metal`        |
+  | R5n             | All instance types, **except**: `r5n.large`         | `r5n.metal`         |
+  | R6a             | All instance types, **except**: `r6a.large`         | `r6a.metal`         |
+  | R6g             | All instance types, **except**: `r6g.medium`        | `r6g.metal`         |
+  | R6gd            | All instance types, **except**: `r6gd.medium`       | `r6gd.metal`        |
+  | R6i             | All instance types, **except**: `r6i.large`         | `r6i.metal`         |
+  | R6id            | All instance types, **except**: `r6id.large`        | `r6id.metal`        |
+  | R6idn           | All instance types, **except**: `r6idn.large`       | `r6idn.metal`       |
+  | R6in            | All instance types, **except**: `r6in.large`        | `r6in.metal`        |
+  | R7a             | All instance types, **except**: `r7a.medium`        | `r7a.large`         | `r7a.metal-48xl`  |
+  | R7g             | All instance types, **except**: `r7g.medium`        | `r7g.metal`         |
+  | R7gd            | All instance types, **except**: `r7gd.medium`       | `r7gd.metal`        |
+  | R7i             | All instance types, **except**: `r7i.large`         | `r7i.metal-24xl`    | `r7i.metal-48xl`  |
+  | R7iz            | All instance types, **except**: `r7iz.large`        | `r7iz.metal-16xl`   | `r7iz.metal-32xl` |
+  | R8a             | All instance types, **except**: `r8a.medium`        | `r8a.metal-24xl`    | `r8a.metal-48xl`  |
+  | R8g             | All instance types, **except**: `r8g.medium`        | `r8g.metal-24xl`    | `r8g.metal-48xl`  |
+  | R8gb            | All instance types, **except**: `r8gb.medium`       | `r8gb.metal-24xl`   |
+  | R8gd            | All instance types, **except**: `r8gd.medium`       | `r8gd.metal-24xl`   | `r8gd.metal-48xl` |
+  | R8gn            | All instance types, **except**: `r8gn.medium`       | `r8gn.metal-24xl`   | `r8gn.metal-48xl` |
+  | R8i             | All instance types, **except**: `r8i.large`         | `r8i.metal-48xl`    | `r8i.metal-96xl`  |
+  | X2gd            | All instance types, **except**: `x2gd.medium`       | `x2gd.metal`        |
+  | X2idn           | All instance types, **except**: `x2idn.metal`       |
+  | X2iedn          | All instance types, **except**: `x2iedn.metal`      |
+  | X2iezn          | All instance types, **except**: `x2iezn.metal`      |
+  | X8g             | All instance types, **except**: `x8g.medium`        | `x8g.metal-24xl`    | `x8g.metal-48xl`  |
+  | X8aedz          | All instance types, **except**: `x8aedz.metal-12xl` | `x8aedz.metal-24xl` |
+  | z1d             | All instance types, **except**: `z1d.large`         | `z1d.metal`         |
 
   Storage optimized
 
