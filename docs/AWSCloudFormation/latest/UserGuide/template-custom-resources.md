@@ -8,11 +8,11 @@ the custom resource), or delete a stack. This can be useful when your provisioni
 requirements involve complex logic or workflows that can't be expressed with CloudFormation's
 built-in resource types.
 
-For example, you might want to include resources that aren't available as CloudFormation resource types. You can include those
-resources by using custom resources. That way, you can still manage all your related
-resources in a single stack.
+For example, you might want to include resources that aren't available as CloudFormation
+resource types. You can include those resources by using custom resources. That way, you can
+still manage all your related resources in a single stack.
 
-To define a custom resource in your CloudFormation template, you use the [`AWS::CloudFormation::CustomResource`](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md") or [`Custom::`MyCustomResourceTypeName``](../TemplateReference/aws-resource-cloudformation-customresource.md#aws-resource-cloudformation-customresource--remarks "../TemplateReference/aws-resource-cloudformation-customresource.md#aws-resource-cloudformation-customresource--remarks")
+To define a custom resource in your CloudFormation template, you use the [AWS::CloudFormation::CustomResource](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md") or [Custom::MyCustomResourceTypeName](../TemplateReference/aws-resource-cloudformation-customresource.md#aws-resource-cloudformation-customresource--remarks "../TemplateReference/aws-resource-cloudformation-customresource.md#aws-resource-cloudformation-customresource--remarks")
 resource type. Custom resources require one property, the service token, which specifies
 where CloudFormation sends requests to, such as an Amazon SNS topic or a Lambda function.
 
@@ -22,9 +22,9 @@ The following topics provide information on how to use custom resources.
 
 - [How custom resources work](#how-custom-resources-work "#how-custom-resources-work")
 - [Response timeout](#response-timeout "#response-timeout")
+- [CloudFormation custom resource request and response reference](crpg-ref.md "crpg-ref.md")
 - [Amazon SNS-backed custom resources](template-custom-resources-sns.md "template-custom-resources-sns.md")
 - [Lambda-backed custom resources](template-custom-resources-lambda.md "template-custom-resources-lambda.md")
-- [Custom resource reference](crpg-ref.md "crpg-ref.md")
 
 ###### Note
 
@@ -77,9 +77,9 @@ a response before proceeding with the stack operation.
 The following summarizes the flow for creating a stack from the template:
 
 1. CloudFormation sends a request to the specified service token. The request
-   includes information such as the request type and a pre-signed Amazon Simple Storage Service URL,
+   includes information such as the request type and a pre-signed Amazon S3 bucket URL,
    where the custom resource sends responses to. For more information about what's
-   included in the request, see [Custom resource request objects](crpg-ref-requests.md "crpg-ref-requests.md").
+   included in the request, see [CloudFormation custom resource request and response reference](crpg-ref.md "crpg-ref.md").
 
 The following sample data shows what CloudFormation includes in a
 `Create` request. In this example,
@@ -104,12 +104,14 @@ to send to the Lambda function.
 2. The custom resource provider processes the CloudFormation request and returns a response of
    `SUCCESS` or `FAILED` to the pre-signed URL. The
    custom resource provider provides the response in a JSON-formatted file and uploads it to the
-   pre-signed S3 URL. For more information, see [Uploading objects with presigned URLs](../../../AmazonS3/latest/userguide/PresignedUrlUploadObject.md "../../../AmazonS3/latest/userguide/PresignedUrlUploadObject.md") in the _Amazon Simple Storage Service User Guide_.
+   pre-signed S3 URL. For more information, see [Uploading
+   objects with presigned URLs](../../../AmazonS3/latest/userguide/PresignedUrlUploadObject.md "../../../AmazonS3/latest/userguide/PresignedUrlUploadObject.md") in the
+   _Amazon Simple Storage Service User Guide_.
 
 In the response, the custom resource provider can also include name-value pairs that the
 template developer can access. For example, the response can include output data if
 the request succeeded or an error message if the request failed. For more
-information about responses, see [Custom resource response objects](crpg-ref-responses.md "crpg-ref-responses.md").
+information about responses, see [CloudFormation custom resource request and response reference](crpg-ref.md "crpg-ref.md").
 
 ###### Important
 
@@ -146,14 +148,15 @@ response:
    stack operation. If a `FAILED` response or no response is returned,
    the operation fails. Any output data from the custom resource is stored in the
    pre-signed URL location. The template developer can retrieve that data by using the
-   [Fn::GetAtt](resources-section-structure.md#resource-properties-getatt "resources-section-structure.md#resource-properties-getatt") function.
+   [Fn::GetAtt](resources-section-structure.md#resource-properties-getatt "resources-section-structure.md#resource-properties-getatt")
+   function.
 
 ###### Note
 
-If you use AWS PrivateLink, custom resources in the VPC must have access to CloudFormation-specific S3
-buckets. Custom resources must send responses to a pre-signed Amazon S3 URL. If they
-can't send responses to Amazon S3, CloudFormation won't receive a response and the stack
-operation fails. For more information, see [Access CloudFormation using an interface endpoint
+If you use AWS PrivateLink, custom resources in the VPC must have access to
+CloudFormation-specific S3 buckets. Custom resources must send responses to a pre-signed
+Amazon S3 URL. If they can't send responses to Amazon S3, CloudFormation won't receive a response
+and the stack operation fails. For more information, see [Access CloudFormation using an interface endpoint
 (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
 ## Response timeout
@@ -165,9 +168,10 @@ You can adjust the timeout value based on how long you expect the response from 
 custom resource will take. For example, when provisioning a custom resource that invokes
 a Lambda function that's expected to respond within five minutes, you can set a timeout
 of five minutes in the stack template by specifying the `ServiceTimeout`
-property. For more information, see [Custom resource request objects](crpg-ref-requests.md "crpg-ref-requests.md"). This way, if there's an error in the Lambda
-function that causes it to get stuck, CloudFormation will fail the stack operation after
-five minutes instead of waiting the full hour.
+property. For more information, see [CloudFormation custom resource request and response reference](crpg-ref.md "crpg-ref.md").
+This way, if there's an error in the Lambda function that causes it to get stuck,
+CloudFormation will fail the stack operation after five minutes instead of waiting the full
+hour.
 
 However, be careful not to set the timeout value too low. To avoid unexpected
 timeouts, make sure that your custom resource has enough time to perform the necessary

@@ -128,7 +128,7 @@ Resources:
             yum:
               httpd: []
           services:                 # Start Apache and enable it to start on boot
-            sysvinit:
+            systemd:
               httpd:
                 enabled: true
                 ensureRunning: true
@@ -272,7 +272,7 @@ Resources:
             createWelcomeLog:
               command: "echo 'cfn-init ran successfully!' > /var/log/welcome.txt"
           services:
-            sysvinit:
+            systemd:
               httpd:
                 enabled: true
                 ensureRunning: true
@@ -421,6 +421,8 @@ CloudFormation. You now understand:
 
 To continue learning:
 
+- Learn how to update a running stack and use the `cfn-hup` helper script.
+  For more information, see [Update a CloudFormation stack](updating.stacks.md "updating.stacks.md").
 - Learn how to bootstrap a Windows stack. For more information, see [Bootstrapping Windows-based
   CloudFormation stacks](cfn-windows-stacks-bootstrapping.md "cfn-windows-stacks-bootstrapping.md").
 - Explore more complex bootstrap scenarios with multiple configuration sets. For more

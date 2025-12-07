@@ -132,19 +132,19 @@ template](using-cfn-waitcondition.md "using-cfn-waitcondition.md").
     "Mappings" : {
         "RegionMap" : {
             "us-east-1" : {
-                "AMI" : "ami-0ff8a91507f77f867"
+                "AMI" : "ami-0123456789abcdef0"
             },
             "us-west-1" : {
-                "AMI" : "ami-0bdb828fd58c52235"
+                "AMI" : "ami-0987654321fedcba0"
             },
             "eu-west-1" : {
-                "AMI" : "ami-047bb4163c506cd98"
+                "AMI" : "ami-0abcdef123456789a"
             },
             "ap-northeast-1" : {
-                "AMI" : "ami-06cd52961ce9f0d85"
+                "AMI" : "ami-0fedcba987654321b"
             },
             "ap-southeast-1" : {
-                "AMI" : "ami-08569b978cc4dfa10"
+                "AMI" : "ami-0c1d2e3f4a5b6c7d8"
             }
         }
     },
@@ -186,15 +186,15 @@ AWSTemplateFormatVersion: '2010-09-09'
 Mappings:
   RegionMap:
     us-east-1:
-      AMI: ami-0ff8a91507f77f867
+      AMI: ami-0123456789abcdef0
     us-west-1:
-      AMI: ami-0bdb828fd58c52235
+      AMI: ami-0987654321fedcba0
     eu-west-1:
-      AMI: ami-047bb4163c506cd98
+      AMI: ami-0abcdef123456789a
     ap-northeast-1:
-      AMI: ami-06cd52961ce9f0d85
+      AMI: ami-0fedcba987654321b
     ap-southeast-1:
-      AMI: ami-08569b978cc4dfa10
+      AMI: ami-0c1d2e3f4a5b6c7d8
 Resources:
   Ec2Instance:
     Type: AWS::EC2::Instance

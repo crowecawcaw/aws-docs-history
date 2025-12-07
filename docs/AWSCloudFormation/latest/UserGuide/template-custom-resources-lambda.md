@@ -9,8 +9,7 @@ of Lambda functions in combination with CloudFormation enable a wide range of sc
 dynamically looking up AMI IDs during stack creation, or implementing and using utility
 functions, such as string reversal functions.
 
-For an introduction to custom resources and how they work, see [Create custom provisioning logic with custom
-resources](template-custom-resources.md "template-custom-resources.md").
+For an introduction to custom resources and how they work, see [How custom resources work](template-custom-resources.md#how-custom-resources-work "template-custom-resources.md#how-custom-resources-work").
 
 ###### Topics
 

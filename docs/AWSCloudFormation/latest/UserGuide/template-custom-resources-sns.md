@@ -18,8 +18,7 @@ messages to the specified SNS topic during stack operations involving the custom
 process these messages and perform the necessary actions, you must have a supported endpoint
 subscribed to the SNS topic.
 
-For an introduction to custom resources and how they work, see [Create custom provisioning logic with custom
-resources](template-custom-resources.md "template-custom-resources.md"). For
+For an introduction to custom resources and how they work, see [How custom resources work](template-custom-resources.md#how-custom-resources-work "template-custom-resources.md#how-custom-resources-work"). For
 information about Amazon SNS and how it works, see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg.md "../../../sns/latest/dg.md").
 
 ## Using Amazon SNS to
@@ -97,9 +96,9 @@ with a `LogicalResourceId` of `MySeleniumTester`:
 ```
 {
    "RequestType" : "Create",
-   "ResponseURL" : "http://pre-signed-S3-url-for-response",
+   "RequestId" : "unique-request-id",
    "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
-   "RequestId" : "unique id for this create request",
+   "ResponseURL" : "http://pre-signed-S3-url-for-response",
    "ResourceType" : "Custom::SeleniumTester",
    "LogicalResourceId" : "MySeleniumTester",
    "ResourceProperties" : {
@@ -111,20 +110,19 @@ with a `LogicalResourceId` of `MySeleniumTester`:
 ```
 
 For detailed information about the request object for `Create`
-requests, see the [Create request for CloudFormation custom
-resources](crpg-ref-requesttypes-create.md "crpg-ref-requesttypes-create.md") topic. 3. The custom resource provider processes the data sent by the template developer and determines
+requests, see the [Request and response reference](crpg-ref.md "crpg-ref.md")
+topic. 3. The custom resource provider processes the data sent by the template developer and determines
 whether the `Create` request was successful. The resource provider then
 uses the S3 URL sent by CloudFormation to send a response of either
 `SUCCESS` or `FAILED`.
 
 Depending on the response type, different response fields will be expected by
 CloudFormation. For information about the response fields for a particular request
-type, see the documentation for that request type in the [Custom resource request types](crpg-ref-requesttypes.md "crpg-ref-requesttypes.md")
-section.
+type, see the documentation for that request type in the [Request and response reference](crpg-ref.md "crpg-ref.md") section.
 
 In response to a create or update request, the custom resource provider can return data
-elements in the [Data](crpg-ref-responses.md#crpg-ref-responses-data "crpg-ref-responses.md#crpg-ref-responses-data") field of the response. These are name
-value pairs, and the _names_ correspond to the
+elements in the `Data` field of the response. These are name value
+pairs, and the _names_ correspond to the
 `Fn::GetAtt` attributes used with the custom
 resource in the stack template. The _values_ are the data
 that's returned when the template developer calls `Fn::GetAtt`
@@ -135,10 +133,10 @@ The following is an example of a custom resource response:
 ```
 {
    "Status" : "SUCCESS",
-   "PhysicalResourceId" : "Tester1",
+   "RequestId" : "unique-request-id",
    "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
-   "RequestId" : "unique id for this create request",
    "LogicalResourceId" : "MySeleniumTester",
+   "PhysicalResourceId" : "Tester1",
    "Data" : {
       "resultsPage" : "http://www.myexampledomain/test-results/guid",
       "lastUpdate" : "2012-11-14T03:30Z"
@@ -147,8 +145,8 @@ The following is an example of a custom resource response:
 ```
 
 For detailed information about the response object for `Create`
-requests, see the [Create request for CloudFormation custom
-resources](crpg-ref-requesttypes-create.md "crpg-ref-requesttypes-create.md") topic.
+requests, see the [Request and response reference](crpg-ref.md "crpg-ref.md")
+topic.
 
 The `StackId`, `RequestId`, and
 `LogicalResourceId` fields must be copied verbatim from the request. 4. CloudFormation declares the stack status as `CREATE_COMPLETE` or
@@ -237,11 +235,11 @@ The following is an example of an `Update` request:
 ```
 {
    "RequestType" : "Update",
-   "ResponseURL" : "http://pre-signed-S3-url-for-response",
+   "RequestId" : "unique-request-id",
    "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
-   "RequestId" : "uniqueid for this update request",
-   "LogicalResourceId" : "MySeleniumTester",
+   "ResponseURL" : "http://pre-signed-S3-url-for-response",
    "ResourceType" : "Custom::SeleniumTester",
+   "LogicalResourceId" : "MySeleniumTester",
    "PhysicalResourceId" : "Tester1",
    "ResourceProperties" : {
       "seleniumTester" : "SeleniumTest()",
@@ -258,8 +256,8 @@ The following is an example of an `Update` request:
 ```
 
 For detailed information about the request object for `Update`
-requests, see the [Update request for CloudFormation custom
-resources](crpg-ref-requesttypes-update.md "crpg-ref-requesttypes-update.md") topic. 3. The custom resource provider processes the data sent by CloudFormation. The custom resource
+requests, see the [Request and response reference](crpg-ref.md "crpg-ref.md")
+topic. 3. The custom resource provider processes the data sent by CloudFormation. The custom resource
 performs the update and sends a response of either `SUCCESS` or
 `FAILED` to the S3 URL. CloudFormation then compares the
 `PhysicalResourceIDs` of old and new custom resources. If they're
@@ -270,16 +268,16 @@ custom resource provider response to an `Update` request.
 ```
 {
    "Status" : "SUCCESS",
+   "RequestId" : "unique-request-id",
    "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
-   "RequestId" : "uniqueid for this update request",
    "LogicalResourceId" : "MySeleniumTester",
    "PhysicalResourceId" : "Tester2"
 }
 ```
 
 For detailed information about the response object for `Update`
-requests, see the [Update request for CloudFormation custom
-resources](crpg-ref-requesttypes-update.md "crpg-ref-requesttypes-update.md") topic.
+requests, see the [Request and response reference](crpg-ref.md "crpg-ref.md")
+topic.
 
 The `StackId`, `RequestId`, and
 `LogicalResourceId` fields must be copied verbatim from the request. 4. CloudFormation declares the stack status as `UPDATE_COMPLETE` or
@@ -307,9 +305,9 @@ update as a replacement and sends a delete request for the old resource
 ```
 {
    "RequestType" : "Delete",
-   "ResponseURL" : "http://pre-signed-S3-url-for-response",
+   "RequestId" : "unique-request-id",
    "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
-   "RequestId" : "unique id for this delete request",
+   "ResponseURL" : "http://pre-signed-S3-url-for-response",
    "ResourceType" : "Custom::SeleniumTester",
    "LogicalResourceId" : "MySeleniumTester",
    "PhysicalResourceId" : "Tester1",
@@ -323,8 +321,8 @@ update as a replacement and sends a delete request for the old resource
 ```
 
 For detailed information about the request object for `Delete`
-requests, see the [Delete request for CloudFormation custom
-resources](crpg-ref-requesttypes-delete.md "crpg-ref-requesttypes-delete.md") topic.
+requests, see the [Request and response reference](crpg-ref.md "crpg-ref.md")
+topic.
 
 `DescribeStackResource`, `DescribeStackResources`, and
 `ListStackResources` display the user-defined name if it has been
@@ -340,16 +338,16 @@ request:
 ```
 {
    "Status" : "SUCCESS",
+   "RequestId" : "unique-request-id",
    "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
-   "RequestId" : "unique id for this delete request",
    "LogicalResourceId" : "MySeleniumTester",
    "PhysicalResourceId" : "Tester1"
 }
 ```
 
 For detailed information about the response object for `Delete`
-requests, see the [Delete request for CloudFormation custom
-resources](crpg-ref-requesttypes-delete.md "crpg-ref-requesttypes-delete.md") topic.
+requests, see the [Request and response reference](crpg-ref.md "crpg-ref.md")
+topic.
 
 The `StackId`, `RequestId`, and
 `LogicalResourceId` fields must be copied verbatim from the request. 4. CloudFormation declares the stack status as `DELETE_COMPLETE` or

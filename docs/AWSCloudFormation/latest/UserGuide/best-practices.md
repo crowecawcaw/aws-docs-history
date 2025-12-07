@@ -406,7 +406,7 @@ the configuration in the template.
 
 For more information on drift, see [What is drift?](using-cfn-stack-drift.md#what-is-drift "using-cfn-stack-drift.md#what-is-drift").
 
-For more information on updating stacks, see [Updating a stack](updating.stacks.md "updating.stacks.md").
+For more information on updating stacks, see [Update a CloudFormation stack](updating.stacks.md "updating.stacks.md").
 
 ## Create change sets before updating your
 

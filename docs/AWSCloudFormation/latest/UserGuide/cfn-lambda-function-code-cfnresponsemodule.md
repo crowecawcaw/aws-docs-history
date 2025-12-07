@@ -8,7 +8,7 @@ source code, you can load the `cfn-response` module to send responses from your 
 function to a custom resource. The `cfn-response` module is a library that simplifies
 sending responses to the custom resource that invoked your Lambda function. The module has a
 `send` method that sends a [response
-object](crpg-ref-responses.md "crpg-ref-responses.md") to a custom resource by way of an Amazon S3 presigned URL (the
+object](crpg-ref.md#crpg-ref-responses "crpg-ref.md#crpg-ref-responses") to a custom resource by way of an Amazon S3 presigned URL (the
 `ResponseURL`).
 
 The `cfn-response` module is available only when you use the `ZipFile`
@@ -53,7 +53,7 @@ You can use the following parameters with the `send` method.
 `event`
 
 The fields in a [custom resource
-request](crpg-ref-requesttypes.md "crpg-ref-requesttypes.md").
+request](crpg-ref.md#crpg-ref-requesttypes "crpg-ref.md#crpg-ref-requesttypes").
 
 `context`
 
@@ -70,7 +70,7 @@ constants to specify the status: `SUCCESS` for successful executions and
 
 `responseData`
 
-The `Data` field of a custom resource [response object](crpg-ref-responses.md "crpg-ref-responses.md"). The data is a list of name-value pairs.
+The `Data` field of a custom resource [response object](crpg-ref.md#crpg-ref-responses "crpg-ref.md#crpg-ref-responses"). The data is a list of name-value pairs.
 
 `physicalResourceId`
 
@@ -81,7 +81,7 @@ Lambda function.
 The value returned for a `PhysicalResourceId` can change custom resource
 update operations. If the value returned is the same, it's considered a normal update.
 If the value returned is different, CloudFormation recognizes the update as a replacement
-and sends a delete request to the old resource. For more information, see [`AWS::CloudFormation::CustomResource`](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md").
+and sends a delete request to the old resource. For more information, see [AWS::CloudFormation::CustomResource](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md").
 
 `noEcho`
 
