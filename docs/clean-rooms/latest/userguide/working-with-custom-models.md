@@ -43,21 +43,3 @@ Here's how custom ML modeling works in Clean Rooms ML:
     Before you get started, see the [Custom ML modeling
     prerequisites](custom-model-prerequisites.md "custom-model-prerequisites.md") and [Model authoring guidelines for the
     training container](custom-model-guidelines.md "custom-model-guidelines.md") for more information.
-
-###### Topics
-
-- [Creating and joining the collaboration
-  in AWS Clean Rooms ML](create-custom-ml-collaboration.md "create-custom-ml-collaboration.md")
-- [Contributing training data in
-  AWS Clean Rooms ML](custom-model-training-data.md "custom-model-training-data.md")
-- [Configuring a model algorithm in
-  AWS Clean Rooms ML](configure-model-algorithm.md "configure-model-algorithm.md")
-- [Associating the configured model algorithm
-  in AWS Clean Rooms ML](associate-model-algorithm.md "associate-model-algorithm.md")
-- [Creating an ML input channel in
-  AWS Clean Rooms ML](create-ml-input-channel.md "create-ml-input-channel.md")
-- [Creating a trained model in AWS Clean Rooms ML](create-trained-model.md "create-trained-model.md")
-- [Exporting model artifacts from
-  AWS Clean Rooms ML](export-model-artifacts.md "export-model-artifacts.md")
-- [Running inference on a trained model in
-  AWS Clean Rooms ML](run-inference-jobs.md "run-inference-jobs.md")

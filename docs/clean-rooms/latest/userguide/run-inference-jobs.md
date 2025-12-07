@@ -32,25 +32,25 @@ Console
 
 Enter the following information:
 
-    * **Associated model algorithm** - The
-     associated model algorithm that is used during the inference
-     job.
-    * **ML input channel details** - The ML
-     input channel that will provide the data for this inference
-     job.
-    * **Transform resources** - The compute
-     instance that is used to perform the transform function of
-     the inference job.
-    * **Output configuration** - Who will
-     receive the inference job output and the MIME type of the
-     output.
-    * **Encryption** - choose the
+    * **Associated model algorithm** –
+     The associated model algorithm that is used during the
+     inference job.
+    * **ML input channel details** – The
+     ML input channel that will provide the data for this
+     inference job.
+    * **Transform resources** – The
+     compute instance that is used to perform the transform
+     function of the inference job.
+    * **Output configuration** – Who
+     will receive the inference job output and the MIME type of
+     the output.
+    * **Encryption** – Choose the
      **Customize encryption settings** to
      specify your own KMS key and related information.
      Otherwise, Clean Rooms ML will manage the encryption.
-    * **Transform job details** - The maximum
-     payload of the inference job, in MB.
-    * **Environment variables** - Any
+    * **Transform job details** – The
+     maximum payload of the inference job, in MB.
+    * **Environment variables** – Any
      environment variables necessary to access the inference job
      container image.
 

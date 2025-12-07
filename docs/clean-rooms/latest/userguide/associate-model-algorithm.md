@@ -48,8 +48,7 @@ new one.
       exported data. The value must be between 0.01 and 10.
 
 9. (Optional) If you want to send either full error logs or shorter
-   error summaries to members, under **Trained model
-   inference
+   error summaries to members, under **Trained model inference
    job privacy configuration**,
    1. Under **Full logs**, select one or more
       **Account IDs** from the dropdown
@@ -63,9 +62,8 @@ new one.
       more **Account IDs** from the dropdown
       list.
    5. (Optional) Select one or more **Entities to
-      redact**
-      to specify which entities will be redacted
-      from the error log or error summaries.
+      redact** to specify which entities will be
+      redacted from the error log or error summaries.
       - **PII** – redact
         Personally Identifiable Information
       - **Numbers** – redact

@@ -240,15 +240,18 @@ Yes, join by creating membership now
     	4. (Optional) For **Service access**, if you want to
     	 deliver queries that take up to 24 hours to your S3 destination, select the
     	 **Add a service role to support queries that take up to 24 hours
-    	 to complete** check box.
+    	 to complete**
+    	 checkbox.
 
 
     	Large queries that take up to 24 hours to complete will be delivered to
     	 your S3 destination.
 
 
-    	If you don't select the check box, only queries that complete within 12
-    	 hours will be delivered to your S3 location.
+    	If you don't select the
+    	 checkbox,
+    	 only queries that complete within 12 hours will be delivered to your S3
+    	 location.
     	5. Specify the **Service access** permissions by selecting
     	 either **Create and use a new service role** or
     	 **Use an existing service role**.

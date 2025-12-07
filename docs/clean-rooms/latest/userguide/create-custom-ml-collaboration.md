@@ -44,35 +44,44 @@ Console
      the model inference results.
 
 4. For **Configure payment**, specify the
-   members who will pay for query compute, model training, and
-   model inference costs. Each of these costs can be assigned to
-   the same or different members. If an invited member is the
-   member who is responsible to pay for payment costs, they must
-   accept their payment responsibilities before joining the
-   collaboration.
-5. For **Configure membership**, the
-   collaboration creator can decide to join the membership now or
-   create a membership later. The collaboration creator must then
-   set up the ML configuration.
-   1. If the collaboration creator is also the results
-      receiver, they must also specify the query results
-      destination and format in the **Results settings
-      defaults**.
-   2. The ML configuration provides a role for Clean Rooms ML to
-      publish metrics to an AWS account. If the
-      collaboration creator is also receiving trained model
-      artifacts, they can specify the Amazon S3 bucket used to
-      receive results.
-   3. In the **ML configurations** section,
-      select **Create ML configuration** and
-      then specify the **Model output destination on
-      Amazon S3** and the **Service access
-      role** needed to access this
-      location.
-   4. If the collaboration creator is the member who is
-      responsible to pay for payment costs, they must accept
-      their payment responsibilities before creating the
-      collaboration.
+   members who will pay for query compute, model training, model
+   inference, and synthetic dataset generation costs.
+
+A synthetic dataset has similar statistical properties to the
+original dataset it's based on, but doesn't contain the
+real-world observations present in the original dataset. By
+using privacy-enhanced synthetic datasets you can unlock new ML
+model training use cases that data privacy concerns previously
+prevented. For more information, see [Privacy-enhanced
+synthetic data generation](synthetic-data-generation.md "synthetic-data-generation.md").
+
+Each of these costs can be assigned to the same or different
+members. If an invited member is the member who is responsible
+to pay for payment costs, they must accept their payment
+responsibilities before joining the collaboration. 5. For **Configure membership**, the
+collaboration creator can decide to join the membership now or
+create a membership later. The collaboration creator must then
+set up the ML configuration.
+
+    1. If the collaboration creator is also the results
+     receiver, they must also specify the query results
+     destination and format in the **Results settings
+     defaults**.
+    2. The ML configuration provides a role for Clean Rooms ML to
+     publish metrics to an AWS account. If the
+     collaboration creator is also receiving trained model
+     artifacts, they can specify the Amazon S3 bucket used to
+     receive results.
+    3. In the **ML configurations** section,
+     select **Create ML configuration** and
+     then specify the **Model output destination on
+     Amazon S3** and the **Service access
+     role** needed to access this
+     location.
+    4. If the collaboration creator is the member who is
+     responsible to pay for payment costs, they must accept
+     their payment responsibilities before creating the
+     collaboration.
 
 API
 To create a collaboration for machine learning (API)

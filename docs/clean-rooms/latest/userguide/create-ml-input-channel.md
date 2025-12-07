@@ -2,7 +2,7 @@
 
 AWS Clean Rooms ML
 
-Prerequisites:
+**Prerequisites:**
 
 - An AWS account with access to AWS Clean Rooms
 - A collaboration set up in AWS Clean Rooms where you want to create the ML input
@@ -42,7 +42,7 @@ Console
 3. On the **Collaborations** page, choose the
    collaboration where you want to create an ML input channel.
 4. After the collaboration opens, choose the **ML
-   models** tab..
+   models** tab.
 5. Under **Custom ML models**, in the **ML
    input channels** section, choose **Create ML
    input channel**.
@@ -72,8 +72,26 @@ Console
      results of an analysis template as the training
      dataset.
 
-   If you chose **Analysis template**,
-   specify the analysis template that you want.
+   ###### Warning
+
+   Synthetic data generation protects against inferring
+   individual attributes whether specific individuals are
+   present in the original dataset or learning attributes
+   of those individuals are present. However, it doesn't
+   prevent literal values from the original dataset,
+   including personally identifiable information (PII) from
+   appearing in the synthetic dataset.
+
+   We recommend avoiding values in the input dataset that
+   are associated with only one data subject because these
+   may re-identify a data subject. For example, if only one
+   user lives in a zip code, the presence of that zip code
+   in the synthetic dataset would confirm that user was in
+   the original dataset. Techniques like truncating high
+   precision values or replacing uncommon catalogues with
+   _other_ can be used
+   to mitigate this risk. These transformations can be part
+   of the query used to create the ML input channel.
    1. If no tables are associated, choose **Associate
       table** to add tables with an analysis rule
       that can be run for the specified model.
@@ -99,8 +117,8 @@ Console
 10. Choose **Create ML input channel**.
 
 It will take a few minutes to create the ML input channel. You can
-see a list of ML input channels on the **ML input**
-tab.
+see a list of ML input channels on the **ML
+models** tab.
 
 ###### Note
 

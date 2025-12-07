@@ -8,10 +8,7 @@ functionality of your PySpark analysis.
 
 **Prerequisites**
 
-- PySpark 1.0 (corresponds to
-  Python
-  3.11 and Spark
-  3.5.3)
+- PySpark 1.0 (corresponds to Python 3.11 and Spark 3.5.3)
 - Datasets in Amazon S3 can only be read as configured table associations in the Spark
   session you define.
 - Your code can't directly call Amazon S3 and AWS Glue

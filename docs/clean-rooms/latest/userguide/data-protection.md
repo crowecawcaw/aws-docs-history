@@ -82,7 +82,107 @@ To use your customer managed key with your AWS Clean Rooms Custom ML models, the
 The following are policy statement examples you can add for AWS Clean Rooms for the following
 resources:
 
-**ML input channel**
+**ML input channel with synthetic data**
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Allow access to principals authorized to use AWS Clean Rooms ML",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`666666666666`:role/`ExampleRole`"
+ },
+ "Action": [
+ "kms:GenerateDataKey",
+ "kms:CreateGrant",
+ "kms:Decrypt"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:ViaService": "cleanrooms-ml.`us-east-1`.amazonaws.com"
+ },
+ "ForAllValues:StringEquals": {
+ "kms:GrantOperations": [
+ "Decrypt",
+ "Encrypt",
+ "GenerateDataKeyWithoutPlaintext",
+ "ReEncryptFrom",
+ "ReEncryptTo",
+ "CreateGrant",
+ "DescribeKey",
+ "RetireGrant",
+ "GenerateDataKey"
+ ]
+ },
+ "BoolIfExists": {
+ "kms:GrantIsForAWSResource": true
+ }
+ }
+ },
+ {
+ "Sid": "Allow describe key for principals authorized to use AWS Clean Rooms ML",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`444455556666`:role/`ExampleRole`"
+ },
+ "Action": [
+ "kms:DescribeKey"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:ViaService": "cleanrooms-ml.`us-east-1`.amazonaws.com"
+ }
+ }
+ },
+ {
+ "Sid": "Allow grant operations for AWS Clean Rooms ML service principal",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "cleanrooms-ml.amazonaws.com"
+ },
+ "Action": [
+ "kms:GenerateDataKey",
+ "kms:CreateGrant",
+ "kms:Decrypt"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "ForAllValues:StringEquals": {
+ "kms:GrantOperations": [
+ "Decrypt",
+ "Encrypt",
+ "GenerateDataKeyWithoutPlaintext",
+ "ReEncryptFrom",
+ "ReEncryptTo",
+ "CreateGrant",
+ "DescribeKey",
+ "RetireGrant",
+ "GenerateDataKey"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "Allow describe key for AWS Clean Rooms ML service principal",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "cleanrooms-ml.amazonaws.com"
+ },
+ "Action": [
+ "kms:DescribeKey"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+**ML input channel without synthetic data**
 
 JSON
 

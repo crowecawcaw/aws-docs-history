@@ -188,22 +188,32 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     5. View the member abilities under **ID resolution using
        AWS Entity Resolution**.
 
-6.  For **Step 3: Configure payment**, for **Analysis using
-    queries**, take one of the following actions based on your goal.
+6.  For **Step 3: Configure payment**,
+    1. Under **Analysis using queries**, for **Pay for
+       queries**, do one of the following actions:
+       - To have the same member pay for and run queries, select the same member you
+         chose for **Run queries**.
+       - To have a different member pay for query costs, select your member
+         account.
 
-| Your goal                                                                                               | Recommended action                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Assign the member who can \*_Run queries_<br>• to be the member<br>who pays for the query compute costs | 1. Choose the member who will **Pay for queries\*<br>• to be<br>the same as the member who can **Run queries**.<br>2. Choose **Next\*\*. |
-| Assign a different member to pay for the query compute costs                                            | 1. Choose yourself as the member who will **Pay for<br>queries**.<br>2. Choose **Next**.                                                 |
+    2. For **ML modeling using purpose-built workflows**,
+       1. Choose the member who will **Pay for model training**.
 
-For **ML modeling using purpose-built workflows**, the
-**Creator of the configured lookalike model** is the member who will
-**Pay for lookalike modeling**.
+    3. Choose the member who will **Pay for inference job**.
+    4. For **Pay for lookalike modeling**, no action is needed. The
+       **Creator of the configured lookalike model** is the member who
+       will pay for lookalike modeling.
+    5. (Optional) Choose the member who will **Pay for Synthetic data
+       generation**.
+    6. For **ID resolution with AWS Entity Resolution**, no action is needed. The
+       **Creator of the ID mapping table** is the member who will
+       **Pay for ID mapping table**.
 
-For **ID resolution with AWS Entity Resolution**, the **Creator of the ID
-mapping table** is the member who will **Pay for ID mapping
-table**. 7. For **Step 4: Configure membership**, choose one of the following
-options:
+7.  Choose **Next**.
+8.  For **Step 4: Configure membership**,
+    under
+    **Collaboration membership**, choose one of the
+    following options:
 
 Yes, join by creating membership now
 
@@ -214,26 +224,31 @@ Yes, join by creating membership now
 
 
 
-    	1. For the **Results destination in Amazon S3**, enter the Amazon S3
+    	1. Select the **Set default settings for queries**
+    	 checkbox.
+    	2. For the **Results destination in Amazon S3**, enter the Amazon S3
     	 destination or choose **Browse S3** to select an S3
     	 bucket.
-    	2. For the query **Result format**, choose either
+    	3. For the query **Result format**, choose either
     	 **CSV** or **PARQUET**.
-    	3. (Spark only) For the **Result files**, choose either
+    	4. (Spark only) For the **Result files**, choose either
     	 **Multiple** or **Single**.
-    	4. (Optional) For **Service access**, if you want to
-    	 deliver queries that take up to 24 hours to your S3 destination, select the
-    	 **Add a service role to support queries that take up to 24 hours
-    	 to complete** checkbox.
+    	5. (Optional)
+    	 If
+    	 you want to deliver queries that take up to 24 hours to your S3 destination,
+    	 select the **Add a service role to support queries that take up to
+    	 24 hours to complete** checkbox.
 
 
     	Large queries that take up to 24 hours to complete will be delivered to
     	 your S3 destination.
 
 
-    	If you don't select the check box, only queries that complete within 12
-    	 hours will be delivered to your S3 location.
-    	5. Specify the **Service access** permissions by selecting
+    	If you don't select the
+    	 checkbox,
+    	 only queries that complete within 12 hours will be delivered to your S3
+    	 location.
+    	6. Specify the **Service access** permissions by selecting
     	 either **Create and use a new service role** or
     	 **Use an existing service role**.
 
@@ -259,65 +274,37 @@ Yes, join by creating membership now
     		* If you can’t modify the role policy, you receive an error message
     		 stating that AWS Clean Rooms couldn't find the policy for the service
     		 role.
-    2. For **Job results**,
+    2. For
+     **ML
+     configuration**,
 
 
-    For example: `s3://bucket/prefix`
 
 
-
-
-    	1. Choose the **Set default settings for jobs** checkbox,
-    	 and then specify the **Results destination in Amazon S3** by
-    	 entering the S3 destination or choose **Browse S3** to
-    	 select from a list of available S3 buckets.
+    	1. Choose the
+    	 **Create
+    	 ML configuration** checkbox, and then specify
+    	 the
+    	 **Model
+    	 output destination
+    	 on
+    	 Amazon S3** by entering the S3 destination or choose **Browse
+    	 S3** to select from a list of available S3 buckets.
     	2. Specify the **Service access** permissions by choosing
-    	 an **Existing service role name** from the dropdown
-    	 list.
-    3. For **Logs settings**, choose one of the following options
-     for **Log storage in Amazon CloudWatch Logs**:
-
-
-    ###### Note
-
-    The **Logs settings** section appears if you chose to
-     enable **Query logging**.
-
-
-
-
-    	1. Choose **Turn on** and the query logs relevant to you
-    	 will be stored in your Amazon CloudWatch Logs account.
-
-
-    	Each member can receive only logs for queries that they initiated or
-    	 that contain their data.
-
-
-    	The member who can receive results also receives logs for all queries
-    	 run in a collaboration, even if their data isn't accessed in a query.
-
-
-    	Under **Supported log types**, choose from the log
-    	 types the collaboration creator has chosen to support:
-
-
-    	Under **Supported log types**, the **Query
-    	 logs** checkbox is turned on by default.
-
-
-    	###### Note
-
-    	After you turn on **Analysis logging**, it can take a
-    	 few minutes for log storage to be set up and start receiving logs in
-    	 Amazon CloudWatch Logs. During this brief period, the member who can query might run
-    	 queries that don’t actually send logs.
-    	2. Choose **Turn off** and the query logs relevant to you
-    	 won't be stored in your Amazon CloudWatch Logs account.
-    4. If you want to enable **Tags** for the membership resource,
-     choose **Add new tag** and then enter the
-     **Key** and **Value** pair.
-    5. If you are the member who is paying for **Query compute**,
+    	 to
+    	 either **Create and use a new service role** or
+    	 **Use an existing service
+    	 role**.
+    	3. If the S3 bucket is encrypted, select the **The destination
+    	 bucket is encrypted with a KMS key** checkbox and then enter the
+    	 **AWS KMS key** or select **Create an
+    	 AWS KMS key** to create a new KMS key.
+    3. If you want to enable
+     **Membership
+     tags**
+     for the membership resource, choose **Add new tag** and then
+     enter the **Key** and **Value** pair.
+    4. If you are the member who is paying for **Query compute**,
      indicate your acceptance by selecting the **I agree to pay for the
      compute costs in this collaboration** checkbox.
 
@@ -341,7 +328,7 @@ Yes, join by creating membership now
      contact the member who can run queries or [leave the collaboration](leave-collab.md "leave-collab.md"). If you leave the
      collaboration, no more queries will be allowed to run, and therefore you will no
      longer be billed for query compute costs.
-    6. Choose **Next**.
+    5. Choose **Next**.
 
 Both the collaboration and your membership are created.
 
@@ -357,7 +344,7 @@ No, I will create a membership later
 
     Your status in the collaboration is inactive.
 
-8. For **Step 5: Review and create**, do the following:
+9. For **Step 5: Review and create**, do the following:
    1. Review the selections that you made for the previous steps and edit if necessary.
    2. Choose one of the options.
 

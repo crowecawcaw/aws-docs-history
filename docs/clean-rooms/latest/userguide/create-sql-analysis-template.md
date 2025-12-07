@@ -50,9 +50,83 @@ API Reference](../apireference/Welcome.md "../apireference/Welcome.md").
 9. If you added parameters previously, under **Parameters –
    optional**, for each **Parameter name**, choose the
    **Type** and **Default value** (optional).
-10. If you want to enable **Tags** for the conﬁgured table resource,
-    choose **Add new tag** and then enter the **Key** and
-    **Value** pair.
-11. Choose **Create**.
-12. You are now ready to inform your collaboration member that they can [Review an analysis template](review-analysis-template.md "review-analysis-template.md"). (Optional if
-    you want to query your own data.)
+10. For **Synthetic data**, if you want to generate synthetic data for
+    model training, select the **Require analysis template output to be
+    synthetic** checkbox.
+
+For more information, see [Privacy-enhanced
+synthetic dataset generation](synthetic-data-generation.md "synthetic-data-generation.md").
+
+    1. For **Column classification**, choose a
+     **Column** from the dropdown list. At least five columns are
+     required.
+
+
+    	1. Choose a **Classification** from the dropdown list. This
+    	 identifies the data type for each column.
+
+
+    	Classification types include:
+
+
+
+
+    		* **Numerical** – Continuous numerical values such
+    		 as measurements or counts
+    		* **Categorical** – Discrete values or categories
+    		 such as labels or types
+    	2. To remove a column, select **Remove**.
+    	3. To add another column, select **Add another column**.
+    	 Choose the **Column** and **Classification**
+    	 from the dropdown lists.
+    	4. For **Predictive value**, choose a
+    	 **Column** from the dropdown list. This is the column the
+    	 custom model uses for prediction after it's trained on the synthetic
+    	 dataset.
+    2. **Advanced settings** allow you to set the **Privacy
+     level** and **Privacy threshold**. Adjust the settings
+     to fit your needs.
+
+
+    	1. For **Privacy level**, enter an epsilon value to determine
+    	 how much noise the synthetic model adds to protect privacy in your generated
+    	 dataset. The value must be between 0.0001 and 10.
+
+
+
+
+    		* Lower values add more noise, providing stronger privacy protection but
+    		 potentially reducing utility for downstream custom model trained on this
+    		 data.
+    		* Higher values add less noise, providing more accuracy but potentially
+    		 reducing privacy protection.
+    	For **Privacy threshold**, enter the highest allowed
+    	 probability that a membership inference attack could identify members of the
+    	 original dataset. The value must be between 50.0 and 100.
+
+
+
+
+    		* Scores of 50% indicate that a membership inference attack can't
+    		 successfully distinguish members from non-members better than a random
+    		 guess.
+    		* For no privacy limit, enter 100%.
+    	The optimal value depends on your specific use case and privacy
+    	 requirements. If the privacy threshold is exceeded, the ML input channel
+    	 creation fails, and you can't use the synthetic dataset to train a model.###### Warning
+
+Synthetic data generation protects against inferring individual attributes whether
+specific individuals are present in the original dataset or learning attributes of
+those individuals are present. However, it doesn't prevent literal values from the
+original dataset, including personally identifiable information (PII) from appearing
+in the synthetic dataset.
+
+We recommend avoiding values in the input dataset that are associated with only
+one data subject because these may re-identify a data subject. For example, if only
+one user lives in a zip code, the presence of that zip code in the synthetic dataset
+would confirm that user was in the original dataset. Techniques like truncating high
+precision values or replacing uncommon catalogues with _other_ can be used to mitigate this risk. These transformations can be
+part of the query used to create the ML input channel. 11. If you want to enable **Tags** for the resource, choose
+**Add new tag** and then enter the **Key** and
+**Value** pair. 12. Choose **Create**. 13. You are now ready to inform your collaboration member that they can [Review an analysis template](review-analysis-template.md "review-analysis-template.md"). (Optional if
+you want to query your own data.)

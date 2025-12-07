@@ -10,6 +10,8 @@ With SQL analysis templates, you can:
 - Add parameters to make your queries dynamic
 - Control access to specific columns and tables
 - Set aggregation requirements for sensitive data
+- Define input data for the generation of privacy-enhanced synthetic datasets for custom
+  machine learning (ML) models
 
 ###### Topics
 

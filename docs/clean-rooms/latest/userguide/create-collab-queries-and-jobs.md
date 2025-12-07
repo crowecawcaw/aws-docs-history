@@ -256,8 +256,10 @@ Yes, join by creating membership now
     	 your S3 destination.
 
 
-    	If you don't select the check box, only queries that complete within 12
-    	 hours will be delivered to your S3 location.
+    	If you don't select the
+    	 checkbox,
+    	 only queries that complete within 12 hours will be delivered to your S3
+    	 location.
     	5. Specify the **Service access** permissions by selecting
     	 either **Create and use a new service role** or
     	 **Use an existing service role**.
