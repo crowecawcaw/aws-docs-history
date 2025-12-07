@@ -12,6 +12,7 @@ for each type of application that is available on EMR Serverless.
 - [Running jobs from the AWS CLI](jobs-cli.md "jobs-cli.md")
 - [Execution IAM policy](jobs-cli-execution.md "jobs-cli-execution.md")
 - [Using shuffle-optimized disks](jobs-shuffle-optimized-disks.md "jobs-shuffle-optimized-disks.md")
+- [Using serverless storage for Amazon EMR Serverless](jobs-serverless-storage.md "jobs-serverless-storage.md")
 - [Streaming jobs for processing continuously streamed data](jobs-streaming.md "jobs-streaming.md")
 - [Using Spark configurations when you run EMR Serverless jobs](jobs-spark.md "jobs-spark.md")
 - [Using Hive configurations when you run EMR Serverless jobs](jobs-hive.md "jobs-hive.md")

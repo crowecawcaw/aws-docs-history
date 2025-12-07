@@ -182,23 +182,16 @@ examples](jobs-spark.md#spark-examples "jobs-spark.md#spark-examples").
 
 After you finish setting up the Lake Formation grants, you can [submit Spark jobs on EMR Serverless.](jobs-spark.md#spark-examples "jobs-spark.md#spark-examples") The section that follows shows examples of how to configure and submit job run properties.
 
-## Open-table format support
-
-EMR Serverless supports SELECT queries on Apache Hive, Apache Iceberg, Delta Lake (7.6.0+),
-and Apache Hudi (7.6.0+). Starting with EMR 7.12, DML and DDL operations that modify
-table data are supported for Apache Hive, Apache Iceberg, and Delta Lake tables using
-Lake Formation vended credentials.
-
 ### Permission
 
 requirements
 
 #### Tables not registered in AWS Lake Formation
 
-For tables not registered with AWS Lake Formation, the job runtime role accesses
-both the AWS Glue Data Catalog and the underlying table data in Amazon S3. This
-requires the job runtime role to have appropriate IAM permissions for both AWS Glue
-and Amazon S3 operations.
+For tables not registered with AWS Lake Formation, the job runtime role accesses both the
+AWS Glue Data Catalog and the underlying table data in Amazon S3. This requires the job
+runtime role to have appropriate IAM permissions for both AWS Glue and Amazon S3
+operations.
 
 #### Tables registered in
 
@@ -226,11 +219,11 @@ initiates and can be summarized as follows:
 
 ###### Note
 
-Lake Formation evaluates permissions lazily when a Spark job calls AWS Glue
-to retrieve table metadata and Amazon S3 to retrieve table data.
+Lake Formation evaluates permissions lazily when a Spark job calls
+AWS Glue to retrieve table metadata and Amazon S3 to retrieve table data.
 Jobs that use a runtime role with insufficient permissions will not fail
-until Spark makes an AWS Glue or Amazon S3 call that requires the
-missing permission.
+until Spark makes an AWS Glue or Amazon S3 call that requires the missing
+permission.
 
 ###### Note
 
@@ -303,7 +296,9 @@ Iceberg
 | Metadata tables                  | SELECT                              | Supported. Certain tables are hidden.<br>Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more<br>information.                                                                                                                                         |
 | Stored procedures                | -                                   | Supported for tables that meet the<br>following conditions:<br>• Tables not registered in AWS Lake Formation<br>• Tables that do not use<br>`register_table` and<br>`migrate`<br>Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more<br>information. |
 
-**Spark configuration for Iceberg:** The following sample shows how to configure Spark with Iceberg. To run Iceberg jobs, provide the following `spark-submit` properties.
+**Spark configuration for Iceberg:** The
+following sample shows how to configure Spark with Iceberg. To run Iceberg
+jobs, provide the following `spark-submit` properties.
 
 ```
 --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog
@@ -337,10 +332,13 @@ Hudi
 | Metadata tables                           | -                                   | Not supported                                           |
 | Table maintenance and utility<br>features | -                                   | Not supported                                           |
 
-The following samples configure Spark with Hudi, specifying file locations and other properties necessary for use.
+The following samples configure Spark with Hudi, specifying file locations
+and other properties necessary for use.
 
-**Spark config for Hudi:** This snippet when used in a notebook specifies the path to the Hudi Spark bundle JAR file, which enables Hudi functionality in Spark. It also configures Spark to
-use the AWS Glue Data Catalog as the metastore.
+**Spark config for Hudi:** This snippet when
+used in a notebook specifies the path to the Hudi Spark bundle JAR file,
+which enables Hudi functionality in Spark. It also configures Spark to use
+the AWS Glue Data Catalog as the metastore.
 
 ```
 %%configure -f
@@ -355,7 +353,8 @@ use the AWS Glue Data Catalog as the metastore.
 }
 ```
 
-**Spark config for Hudi with AWS Glue:** This snippet when used in a notebook enables Hudi as a supported data-lake format
+**Spark config for Hudi with AWS Glue:** This
+snippet when used in a notebook enables Hudi as a supported data-lake format
 and ensures that Hudi libraries and dependencies are available.
 
 ```
@@ -398,7 +397,8 @@ Delta Lake
 | DataFrame Writer V2                        | Same as corresponding SQL operation | Supported                                               |
 | Table maintenance and utility<br>features  | -                                   | Not supported                                           |
 
-**EMR Serverless with Delta Lake:** To use Delta Lake with Lake Formation on EMR Serverless, run the following command:
+**EMR Serverless with Delta Lake:** To use
+Delta Lake with Lake Formation on EMR Serverless, run the following command:
 
 ```
 spark-sql \
