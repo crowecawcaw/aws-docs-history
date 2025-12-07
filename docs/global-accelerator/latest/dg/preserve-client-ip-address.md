@@ -1,48 +1,67 @@
-# How the client IP address is preserved in AWS Global Accelerator
+#
 
-AWS Global Accelerator preserves the source IP address of the client differently for
-Amazon EC2 instances, Network Load Balancers, and Application Load Balancers:
+Guidelines and restrictions for client IP address preservation in Global Accelerator
 
-- For an EC2 instance endpoint, the client’s IP address is preserved
-  for all traffic.
-- For a Network Load Balancer endpoint with client IP address preservation, Global Accelerator works together
-  with the Network Load Balancer to include the IP address of the original client in the IP header of the packet
-  so that your application can access it.
-- For an Application Load Balancer endpoint with client IP
-  address preservation, Global Accelerator works together with the Application Load Balancer to provide an
-  `X-Forwarded` header, `X-Forwarded-For`, that includes the
-  IP address of the original client so that your web tier can access it.
-  HTTP requests and HTTP responses use header fields to send information about the HTTP
-  messages. Header fields are colon-separated name-value pairs that are separated by a
-  carriage return (CR) and a line feed (LF). A standard set of HTTP header fields is
-  defined in RFC 2616, [Message Headers](https://tools.ietf.org/html/rfc2616#section-4.2 "https://tools.ietf.org/html/rfc2616#section-4.2"). There are also non-standard HTTP headers available that
-  are widely used by the applications. Some of the non-standard HTTP headers have an
-  `X-Forwarded` prefix.
+As you prepare for and use client IP address preservation in AWS Global Accelerator, be aware of the following guidelines
+and restrictions.
 
-Because an Application Load Balancer terminates incoming TCP connections and creates new connections to
-your backend targets, it does not preserve client IP addresses all the way to your target
-code (such as instances, containers, or Lambda code). The source IP address that your targets
-see in the TCP packet is the IP address of the Application Load Balancer. However, an Application Load Balancer does preserve the
-original client IP address by removing it from the original packet’s reply address and
-inserting it into an HTTP header before it sends the request to your backend over a new
-TCP connection.
+**General caveats**
+When you plan for adding client IP address preservation, be aware of the following. Make sure
+that you also review the overall requirements for endpoints in Global Accelerator. For more information, see
+[Requirements for resources you add as accelerator endpoints](about-endpoints-caveats.md "about-endpoints-caveats.md").
 
-The `X-Forwarded-For` request header is formatted like this:
+- Global Accelerator does not support Gateway Load Balancer inspection between Global Accelerator and an endpoint when client IP
+  address preservation is enabled.
+- Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure
+  that all your required security configurations, for example, security groups, are updated to include the user client
+  IP address on allow lists.
+- You might see client IP addresses in AWS WAF, instead of Global Accelerator IP addresses. Client IP addresses appear in
+  AWS WAF when you configure Global Accelerator for client IP address preservation and you enable AWS WAF to block connections from your
+  Application Load Balancers that don't come from Global Accelerator.
+- Client IP address preservation is supported in all AWS Regions where Global Accelerator is supported. For a list of
+  supported Regions, see [AWS Region availability for AWS Global Accelerator](preserve-client-ip-address.md "preserve-client-ip-address.md").
 
-```
-X-Forwarded-For: `client-ip-address`
-```
+**Defaults for client IP address preservation**
+When you create a new accelerator using the console, client IP address preservation is enabled, by default,
+for supported endpoints. You can choose to disable the option for some endpoints, depending on the endpoint type:
 
-The following example shows an `X-Forwarded-For` request header for a client
-with an IP address of 203.0.113.7.
+- When you use an internet-facing Application Load Balancer or a Network Load Balancer with security groups as an endpoint with Global Accelerator, client IP address
+  preservation is enabled by default for new accelerators. You can choose to disable
+  the option when you create the accelerator or by editing the accelerator later.
+- When you use an internal Application Load Balancer or an EC2 instance with Global Accelerator, the endpoint always has client IP
+  address preservation enabled.
 
-```
-X-Forwarded-For: 203.0.113.7
-```
+Be aware of the following:
 
-The following example shows an `X-Forwarded-For` request header for a client
-with an IPv6 address of 2001:DB8::21f:5bff:febf:ce22:8a2e.
+- Internal Application Load Balancers and EC2 instances always have client IP address preservation
+  enabled. You can't disable the option for these endpoints.
+- When you use the AWS console to create a new accelerator, the option for
+  client IP address preservation is enabled by default for Application Load Balancer endpoints.
+  The option is not enabled by default for Network Load Balancer with security groups endpoints.
+  You can update the option for client IP address preservation for these endpoints at any time
+  after you add it.
+- When you use the AWS CLI or an API action to create a new accelerator and
+  you don't specify the option for client IP address preservation, the following is the
+  default setting for client IP address preservation:
+  - Internet-facing Application Load Balancer endpoints have client IP address preservation enabled by default.
+  - Network Load Balancer with security group endpoints do _not_ have client IP address
+    preservation enabled by default.
 
-```
-X-Forwarded-For: 2001:DB8::21f:5bff:febf:ce22:8a2e
-```
+**Transitioning endpoints without client IP address preservation**
+For existing accelerators, you can transition endpoints without client IP address preservation
+to endpoints that do preserve the client IP address. For example, existing Application Load Balancer endpoints can be transitioned to
+new Application Load Balancer endpoints. To transition to the new endpoints,
+we recommend that you move traffic slowly from an existing endpoint to a new endpoint that has client
+IP address preservation by doing the following:
+
+- For existing Application Load Balancer or Network Load Balancer with security groups endpoints, first add to Global Accelerator a duplicate load balancer
+  endpoint that targets the same backends, and make sure that client IP address preservation is enabled for it.
+  Then adjust the weights on the endpoints to slowly move traffic from the load balancer that does
+  _not_ have client IP address preservation enabled to the load balancer _with_
+  client IP address preservation.
+- For an existing Elastic IP address endpoint, you can move traffic to an EC2 instance endpoint
+  with client IP address preservation.
+  First add an EC2 instance endpoint to Global Accelerator, and then adjust the weights on the endpoints to slowly move traffic
+  from the Elastic IP address endpoint to the EC2 instance endpoint.
+
+For step-by-step transition guidance, see [Transitioning endpoints to use client IP address preservation](about-endpoints.md#about-endpoints.transition-to-IP-preservation "about-endpoints.md#about-endpoints.transition-to-IP-preservation").

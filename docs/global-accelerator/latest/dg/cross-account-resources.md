@@ -1,25 +1,42 @@
 #
 
-How cross-account works in Global Accelerator
+Add a cross-account BYOIP address in Global Accelerator
 
-With cross-account support in Global Accelerator, resource owners control whether their resources are shared with accelerators
-owned by other accounts. To enable resource sharing for your resources, you—as a resource owner—create a Global Accelerator
-_cross-account attachment_ to authorize resources in your account to be added
-to an accelerator by another account.
+Follow the steps in this section to configure cross-account bring your own IP (BYOIP) ID addresses using
+the Global Accelerator console.
 
-You create the cross-account attachment in Global Accelerator. The attachment lists the _resources_
-that you want to share, and the _principals_—other accounts or specific accelerator ARNs—
-that are authorized to use the resources. Resources can be AWS resources, like Network Load Balancers, that you add as endpoints to accelerator
-endpoint groups, or resources can be IP address ranges that you've brought to Global Accelerator with the bring your own IP address
-(BYOIP) process.
+This section explains how to use a BYOIP IP address by using
+the AWS Global Accelerator console. To learn about using API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
 
-###### Important
+You can change the BYOIP addresses that you use for your accelerator, but some restrictions apply. For more
+information, see [How to update an accelerator to change an IP address](using-byoip.md#using-byoip.update-accelerator.how-to "using-byoip.md#using-byoip.update-accelerator.how-to").
 
-Before you can add a BYOIP IP address range to a cross-account attachment to share with principals, you
-must complete the process to _provision_ and _advertise_ the address range.
-For more information, see [Bring your own IP addresses (BYOIP) in Global Accelerator](using-byoip.md "using-byoip.md").
+# To use a cross-account BYOIP
 
-After you, as a resource owner, create an attachment, principals listed in the attachment can work with resources that are
-listed in the attachment. That is, they can add as endpoints AWS resources that are listed, or select as a static
-IP address a BYOIP address from CIDR prefixes that are listed. When a principal wants to add a cross-account resource for an accelerator,
-they must specify the cross-account attachment that authorizes them as a principal with permission to use the resource.
+IP address
+
+1. Open the Global Accelerator console at [https://console.aws.amazon.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home "https://console.aws.amazon.com/globalaccelerator/home").
+2. Choose **Create accelerator**.
+3. Provide a name for your accelerator.
+4. Select an **Accelerator type**.
+5. For **IP address type**, select **IPv4**.
+6. Select the **Use a static IP address from a CIDR authorized for cross-account** check box.
+7. Select the account ID for the owner of the cross-account attachment that specifies you as a principal and that
+   includes the BYOIP address block that has been shared with you.
+
+Note that because you must choose one account to select addresses from, if you select two BYOIP IP addresses
+when you create an accelerator, the IP addresses must have the same owner and be authorized in the same cross-
+account attachment. 8. Specify one or both static IP addresses for your accelerator.
+
+    * For each static IP address, choose the IP address pool to use.
+
+
+    ###### Note
+
+    You must choose a different IP address pool for each static IP address. This restriction is because Global Accelerator
+     assigns each address range to a different network zone, for high availability.
+    * If you chose your own IP address pool, also choose a specific IP address from the pool. If you
+     choose the default Amazon IP address pool, Global Accelerator assigns a specific IP address to your accelerator.
+
+9. Optionally, add one or more tags to help you identify your accelerator resources.
+10. Choose **Next** to add listeners, endpoint groups, and endpoints.
