@@ -1,33 +1,19 @@
-# Amazon Neptune Engine Version 1.0.2.1.R4 (2019-12-20)
-
-## Improvements in This Engine Release
-
-- Neptune now tries always to place any full-text-search call first in the
-  execution pipeline. This reduces the volume of calls to OpenSearch, which
-  can significantly improve performance. See [Full-text-search query execution](full-text-search-query-execution.md "full-text-search-query-execution.md").
-- Neptune now raises an `IllegalArgumentException` if you try to
-  access a non-existent property, vertex, or edge. Previously, Neptune raised
-  an `UnsupportedOperationException` in that situation.
-
-For example, if you try to add an edge referencing a nonexistent vertex,
-you will now raise an `IllegalArgumentException`.
+# Amazon Neptune Engine Version 1.0.2.1.R2 (2019-11-25)
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where a `union` traversal inside a
-  `project-by` does not return results or returns incorrect results.
-- Fixed a Gremlin bug that caused nested `.project().by()`
-  steps to return incorrect results.
+- Fixed a bug affecting all `project().by()` queries
+  with non round-robin by-traversals and non `path()` by-traversals.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.1.R4, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.1.R2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.1`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.1.R4
+## Upgrade Paths to Engine Release 1.0.2.1.R2
 
 You can manually upgrade any previous Neptune engine release to this release.
 
@@ -36,7 +22,7 @@ supported**.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.1.R4 is now generally available.
+Amazon Neptune 1.0.2.1.R2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

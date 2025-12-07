@@ -1,34 +1,25 @@
-# Amazon Neptune Engine Version 1.0.2.2.R2 (2020-04-02)
+# Amazon Neptune Engine Version 1.0.2.2.R6 (2021-02-19)
 
-As of 2020-04-02, engine version 1.0.2.2.R2 is being generally deployed. Please note
+As of 2021-02-19, engine version 1.0.2.2.R6 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
-
-## Improvements in This Engine Release
-
-- You can now queue up to 64 bulk-load jobs, rather than having to
-  wait for one to finish before initiating the next one. You can also make execution of a
-  queued load request contingent on the successful completion of one or more previously
-  queued load jobs using the `dependencies` parameter of the `load`
-  command. See [Neptune Loader Command](load-api-reference-load.md "load-api-reference-load.md").
-- Full-text-search output can now be sorted (see [Full-text search parameters](full-text-search-parameters.md "full-text-search-parameters.md")).
-- There is now a DB cluster parameter for invoking Neptune streams,
-  and the feature has been moved out of Lab Mode. See [Enabling Neptune Streams](streams-using-enabling.md "streams-using-enabling.md").
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a stochastic failure in server startup which delayed instance creation.
-- Fixed an optimizer issue where `BIND` statements in the query
-  made the optimizer start out with unselective patterns in join-order planning.
+- Fixed a Gremlin bug where `InternalFailureException`
+  was set as the response code in certain circumstances when a
+  `ConcurrentModificationException` occurred.
+- Fixed a Gremlin bug where under certain conditions updating
+  edges or vertices could cause a transient `InternalFailureException`.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.2.R2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.2.R6, make sure that your project is compatible
 with these query-language versions:
 
-- _Gremlin version:_ `3.4.3`
+- _Gremlin version:_ `3.4.8`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.2.R2
+## Upgrade Paths to Engine Release 1.0.2.2.R6
 
 Your cluster will be upgraded to this patch release automatically during your next
 maintenance window if you are running engine version `1.0.2.2`.
@@ -37,7 +28,7 @@ You can manually upgrade any previous Neptune engine release to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.2.R2 is now generally available.
+Amazon Neptune 1.0.2.2.R6 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
