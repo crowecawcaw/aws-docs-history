@@ -1,223 +1,117 @@
-# Oracle and Aurora for PostgreSQL upgrades
+# Oracle SGA and PGA memory sizing and PostgreSQL memory buffers
 
-With AWS DMS, you can upgrade your Oracle and Aurora PostgreSQL databases to newer versions with minimal downtime. The Oracle and Aurora PostgreSQL upgrades feature facilitates seamless database upgrades by creating a new database instance with the desired version, migrating data from the old instance, and redirecting applications to the new instance. This capability is crucial for organizations that need to stay current with the latest database software releases for security, performance, and compatibility reasons.
+With AWS DMS, you can optimize database performance by properly sizing memory components like Oracle’s System Global Area (SGA) and Program Global Area (PGA), as well as PostgreSQL’s memory buffers.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| --------------------- | ---------------------------------- | ------------------------- | --------------- |
-| N/A                   | N/A                                | N/A                       | N/A             |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                      |
+| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------ |
+| Two star feature compatibility | N/A                                | N/A                       | Different cache names, similar usage |
 
 ## Oracle usage
 
-As a Database Administrator, from time to time a database upgrade is required, it can be either for security fix, but, or a new database feature.
+An Oracle instance allocates several individual “pools” of server RAM used as various caches for the database. These include the Buffer Cache, Redo Buffer, Java Pool, Shared Pool, Large Pool, and others. The caches reside in the System Global Area (SGA) and are shared across all Oracle sessions.
 
-The Oracle upgrades are divided into two different types of upgrades, minor and major.
+In addition to the SGA, each Oracle session is granted an additional area of memory for session-private operations (sorting, private SQL cursors elements, and so on) called the Private Global Area (PGA).
 
-This topic will outline the differences between the procedure to run upgrades on your Oracle databases today and how you will run those upgrades post migrating to Amazon RDS running Aurora.
+Cache size can be controlled for individual caches or globally, and automatically, by an Oracle database. Setting a unified “memory size” parameter enables Oracle to automatically manage individual cache sizes.
 
-The regular presentation of Oracle versions is combined of 4 numbers divided by dots (sometimes you will see the fifth number).
+- All Oracle memory parameters are set using the `ALTER SYSTEM` command.
+- Some changes to memory parameters require an instance restart.
 
-Either way, major or minor upgrades, the first step to initiate the processes mentioned above would be to install the new Oracle software on the database server, and of course before upgrading a production database to have an extensive amount of testing with the applications using the database to upgrade.
+Some of the common Oracle parameters that control memory allocations include:
 
-Oracle 18c introduces Zero-Downtime Database Upgrade to automate database upgrade and potentially eliminate application downtime during this process.
+- `db_cache_size` — The size of the cache used for database data.
+- `log_buffer` — The cache used to store Oracle redo log buffers until they are written to disk.
+- `shared_pool_size` — The cache used to store shared cursors, stored procedures, control structures, and other structures.
+- `large_pool_size` — The cache used for parallel queries and RMAN backup/restore operations.
+- `Java_pool_size` — The cache used to store Java code and JVM context.
 
-To understand the versions, let us use the following example 11.2.0.4.0.
+While these parameters can be configured individually, most database administrators choose to let Oracle automatically manage RAM. Database administrators configure the overall size of the SGA, and Oracle sizes individual caches based on workload characteristics.
 
-These digits have the following meaning:
+- `sga_max_size` — Specifies the hard-limit maximum size of the SGA.
+- `sga_target` — Sets the required soft-limit for the SGA and the individual caches within it.
 
-- 11 — is the major database version.
-- 2 — is the database maintenance version.
-- 0 — application server version.
-- 4 — component specific version.
-- 0 — platform specific version.
+Oracle also allows control over how much private memory is dedicated for each session. Database Administrators configure the total size of memory available for all connecting sessions, and Oracle allocates individual dedicated chunks from the total amount of available memory for each session.
 
-For more information, see [About Oracle Database Release Numbers](https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/oracle-database-release-numbers.html#GUID-1E2F3945-C0EE-4EB2-A933-8D1862D8ECE2 "https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/oracle-database-release-numbers.html#GUID-1E2F3945-C0EE-4EB2-A933-8D1862D8ECE2") in the _Oracle documentation_.
+- `pga_aggregate_target` — A soft-limit controlling the total amount of memory available for all sessions combined.
+- `pga_aggregate_limit` — A hard-limit for the total amount of memory available for all sessions combined (Oracle 12c only).
 
-In Oracle, the users can set the compatibility level of the database to control the features and some behaviors.
+In addition, instead of manually configuring the SGA and PGA memory areas, you can also configure one overall memory limit for both the SGA and PGA and let Oracle automatically balance memory between the various memory pools. This behavior is enabled using the `memory_target` and `memory_max_target` parameters.
 
-This is being done using the `COMPATIBLE` parameter, the value for this parameter can be fetched using the following query.
+For more information, see [Memory Architecture](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/memory-architecture.html#GUID-913335DF-050A-479A-A653-68A064DCCA41 "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/memory-architecture.html#GUID-913335DF-050A-479A-A653-68A064DCCA41") and [Database Memory Allocation](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/database-memory-allocation.html#GUID-E9265077-B296-485A-BC2C-0AF55762D1EC "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/database-memory-allocation.html#GUID-E9265077-B296-485A-BC2C-0AF55762D1EC") in the _Oracle documentation_.
 
-```
-SELECT NAME, VALUE FROM V$PARAMETER WHERE NAME = 'compatible';
-```
+## PostgreSQL usage
 
-## Upgrade process
+PostgreSQL provides us with control over how server RAM is allocated. The following table includes some of the most important PostgreSQL memory parameters.
 
-In general, the process for major or minor upgrades is the same, minor version upgrade has less steps but overall the process is very similar.
+| Memory pool parameter                         | Description                                                                                                                          |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `shared_buffers`                              | Used to cache database data read from disk. Approximate Oracle Database Buffer Cache equivalent.                                     |
+| `wal_buffers`                                 | Used to store WAL (Write-Ahead-Log) records before they are written to disk. Approximate Oracle Redo Log Buffer equivalent.          |
+| `work_mem`                                    | Used for parallel queries and SQL sort operations. Approximate Oracle PGA equivalent and/or the Large Pool (for parallel workloads). |
+| `maintenance_work_mem`                        | Memory used for certain backend database operations such as `VACUUM`, `CREATE INDEX`, `ALTER TABLE ADD FOREIGN KEY`.                 |
+| `temp_buffers`                                | Memory buffers used by each database session for reading data from temporary tables.                                                 |
+| Total memory available for PostgreSQL cluster | Controlled by choosing the \*_DB Instance Class_<br>• during instance creation.<br>Instance creation                                 |
 
-Major upgrade referring to upgrades of the version number in the Oracle version, in the preceding example "11", the minor upgrade refers to any of the following numbers in the Oracle version, in the preceding example these will be "2.0.4.0".
+Cluster level parameters, such as `shared_buffers` and `wal_buffers`, are configured using parameter groups in the Amazon RDS Management Console.
 
-Major upgrades are mostly being done in order to gain many new useful features being released between those versions, while minor upgrades are focused on bug and security fixes.
+**Examples**
 
-You can perform upgrades using the Oracle upgrade tools or manually.
-
-Oracle tools will perform the following steps and might ask for some inputs or fixes from the user during the process.
-
-- **Upgrade operation type** — the user chooses either Oracle database upgrade or move database between Oracle software installations.
-- **Database selection** — the user selects the database to upgrade and the Oracle software to use for this database.
-- **Prerequisite checks** — Oracle tools will let the use choose what to do with all issues found and their severity.
-- **Upgrade options** — Oracle will let the use to pick his practices to do the upgrade, options such as recompilation and parallelism for those, time zone upgrade, statistics gathering, and more.
-- **Management options** — the user chooses to connect and configure Oracle management solutions to the database.
-- **Move database files** — the user chooses if a data file movement is required to a new devices or path.
-- **Network configuration** — Oracle listener configurations.
-- **Recovery options** — the user defines Oracle backup solutions or using his own.
-- **Summary** — a report of all options that were selected in previous steps to present before the upgrade.
-- **Progress** — monitor and present the upgrade status.
-- **Results** — a post upgrade summary.
-
-For the manual process, we won’t cover all actions in this topic, as there are many steps and commands to run.
-
-In overall, the preceding steps will be divided into many sub-steps and tasks to run.
-
-For more information, see [Example of Manual Upgrade of Windows Non-CDB Oracle Database 11.2.0.3](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/upgrd/example-manual-upgrade-windows-non-cdb-11203-to-122.html#GUID-30F3DC9C-141A-47DC-9B83-6D0C395E565C "https://docs.oracle.com/en/database/oracle/oracle-database/12.2/upgrd/example-manual-upgrade-windows-non-cdb-11203-to-122.html#GUID-30F3DC9C-141A-47DC-9B83-6D0C395E565C") in the _Oracle documentation_.
-
-## Aurora for PostgreSQL usage
-
-After migrating your databases to Amazon RDS running Aurora for PostgreSQL, you will still need to upgrade your database instances from time to time, for the same reasons you have done in the past, new features, bugs and security fixes.
-
-In a managed service such as Amazon RDS, the upgrade process is much easier and simpler compare to the on-prem Oracle process.
-
-To determine the current Aurora for PostgreSQL version being used, you can use the following AWS CLI command.
+View the configured values for database parameters.
 
 ```
-aws rds describe-db-engine-versions
-  --engine aurora-postgresql
-  --query '*[].[EngineVersion]'
-  --output text
-  --region your-AWS-Region
+show shared_buffers
+
+show work_mem
+
+show temp_buffers
 ```
 
-This can also be queried from the database, using the following queries.
+View the configured values for all database parameters.
 
 ```
-SELECT AURORA_VERSION();
-
-aurora_version
-4.0.0
-
-SHOW SERVER_VERSION;
-
-server_version
-12.4
+select * from pg_settings;
 ```
 
-For Aurora and PostgreSQL versions mapping, see [Amazon Aurora PostgreSQL releases and engine versions](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.md") in the _Amazon RDS user guide_.
-
-AWS doesn’t apply major version upgrades on Amazon RDS and Aurora automatically. Major version upgrades contain new features and functionality which often involves system table and other code changes. These changes may not be backward-compatible with previous versions of the database so application testing is highly recommended.
-
-Applying automatic minor upgrades can be set by configuring the Amazon RDS instance to allow it.
-
-You can use the following AWS CLI command on Linux to determine the current automatic upgrade minor versions.
+Use of the `SET SESSION` command to modify the value of parameters that support session-specific settings. Changing the value using the `SET SESSION` command for one session will have no effect on other sessions.
 
 ```
-aws rds describe-db-engine-versions
-  --engine aurora-postgresql
-  | grep -A 1 AutoUpgrade
-  | grep -A 2 true
-  | grep PostgreSQL
-  | sort --unique
-  | sed -e 's/"Description":"//g'
+SET SESSION work_mem='100MB';
 ```
 
-If no results are returned, there is no automatic minor version upgrade available and scheduled.
+If a `SET SESSION` command is issued within a transaction that is aborted or rolled back, the effects of the `SET SESSION` command disappear. Once the transaction is committed, the effects will become persistent until the end of the session, unless overridden by another execution of `SET SESSION`.
 
-When enabled, the instance will be automatically upgraded during the scheduled maintenance window.
-
-For major upgrades, this is the recommended process:
-
-- Have a version-compatible parameter group ready. If you are using a custom DB instance or DB cluster parameter group, you have two options:
-  - Specify the default DB instance, DB cluster parameter group, or both for the new DB engine version.
-  - Create your own custom parameter group for the new DB engine version.
-
-  If you associate a new DB instance or DB cluster parameter group as a part of the upgrade request, make sure to reboot the database after the upgrade completes to apply the parameters. If a DB instance needs to be rebooted to apply the parameter group changes, the instance’s parameter group status shows pending-reboot. You can view an instance’s parameter group status in the console or by using a CLI command such as `describe-db-instances` or `describe-db-clusters`.
-
-- Check for unsupported usage.
-  - Commit or roll back all open prepared transactions before attempting an upgrade. You can use the following query to verify that there are no open prepared transactions on your instance
-
-  ```
-  SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
-  ```
-
-  - Remove all uses of the `reg*` data types before attempting an upgrade. Except for `regtype` and `regclass`, you can’t upgrade the `reg*` data types. The `pg_upgrade` utility can’t persist this data type, which is used by Amazon Aurora to do the upgrade. To verify that there are no uses of unsupported `reg*` data types, use the following query for each database.
-
-  ```
-  SELECT count(*)
-    FROM pg_catalog.pg_class c,
-    pg_catalog.pg_namespace n,
-    pg_catalog.pg_attribute a
-      WHERE c.oid = a.attrelid
-      AND NOT a.attisdropped
-      AND a.atttypid IN ('pg_catalog.regproc'::pg_catalog.regtype,
-        'pg_catalog.regprocedure'::pg_catalog.regtype,
-        'pg_catalog.regoper'::pg_catalog.regtype,
-        'pg_catalog.regoperator'::pg_catalog.regtype,
-        'pg_catalog.regconfig'::pg_catalog.regtype,
-        'pg_catalog.regdictionary'::pg_catalog.regtype)
-      AND c.relnamespace = n.oid
-      AND n.nspname NOT IN ('pg_catalog', 'information_schema');
-  ```
-
-- Perform a backup. The upgrade process creates a DB cluster snapshot of your DB cluster during upgrading. If you also want to do a manual backup before the upgrade process.
-- Upgrade `pgRouting` and `postGIS` extensions to the latest available version before performing the major version upgrade. Run the following command for each extension that you use.
+Use of the `SET LOCAL` command to modify the current value of those parameters that can be set locally to a single transaction. Changing the value using the `SET LOCAL` command for one transaction will have no subsequent effect on other transactions from the same session. After issuing a `COMMIT` or `ROLLBACK`, the session-level settings will take effect.
 
 ```
-ALTER EXTENSION PostgreSQL-extension UPDATE TO 'new-version'
+SET LOCAL work_mem='100MB';
 ```
 
-An upgrade from versions older than 12, requires additional steps. For more information, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon RDS user guide_.
-
-After meeting all preceding prerequisites, you can perform the actual upgrade through the AWS console or AWS CLI.
-
-**AWS Console**
-
-1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Databases** and select the database cluster that you want to upgrade.
-3. Choose **Modify**.
-4. For **DB engine version**, choose the new version.
-5. Choose **Continue** and check the summary of modifications.
-6. To apply the changes immediately, choose **Apply immediately**. Choosing this option can cause an outage in some cases. For more information, see [Modifying an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") in the _Amazon RDS user guide_.
-7. On the confirmation page, review your changes. If they are correct, choose **Modify cluster** to save your changes. Or choose **Back** to edit your changes or **Cancel** to cancel your changes.
-
-**AWS CLI**
-
-For Linux, macOS, or Unix, use the following query.
+Reset a value of a run-time parameter to its default value.
 
 ```
-aws rds modify-db-cluster \
-  --db-cluster-identifier mydbcluster \
-  --engine-version new_version \
-  --allow-major-version-upgrade \
-  --no-apply-immediately
+RESET work_mem;
 ```
 
-For Windows, use the following query.
+Changing parameter values can also be done with a direct update to the `pg_settings` table.
 
 ```
-aws rds modify-db-cluster ^
-  --db-cluster-identifier mydbcluster ^
-  --engine-version new_version ^
-  --allow-major-version-upgrade ^
-  --no-apply-immediately
+UPDATE pg_settings SET setting = '100MB' WHERE name = 'work_mem';
 ```
 
 ## Summary
 
-| Phase                 | Oracle Step                                         | Aurora for PostgreSQL                                                                                                                                                                               |
-| --------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Prerequisite          | Install new Oracle software                         | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Upgrade operation type                              | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Database selection                                  | Select the right Amazon RDS instance                                                                                                                                                                |
-| Prerequisite          | Prerequisite checks                                 | 1. Remove all uses of the reg data types.<br>2. Upgrade certain extensions<br>3. Commit or roll back all open prepared transactions<br>`<br>SELECT count(*) FROM pg_catalog.pg_prepared_xacts;<br>` |
-| Prerequisite          | Upgrade options                                     | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Management options (optional)                       | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Move database files (optional)                      | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Network configuration (optional)                    | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Recovery options                                    | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Summary                                             | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Perform a database backup                           | Run Amazon RDS instance backup                                                                                                                                                                      |
-| Prerequisite          | Stop application and connection                     | Same                                                                                                                                                                                                |
-| Run                   | Progress                                            | Review status from the console                                                                                                                                                                      |
-| Post-upgrade          | Results                                             | Review status from the console                                                                                                                                                                      |
-| Post-upgrade          | Test applications against the new upgraded database | Same                                                                                                                                                                                                |
-| Production deployment | Re-run all steps in a production environment        | Same                                                                                                                                                                                                |
+Use the following table as a general reference only. Functionality may not be identical across Oracle and PostgreSQL.
 
-For more information, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon RDS user guide_.
+| Description                                                  | Oracle                                       | PostgreSQL                                                                                                                   |
+| ------------------------------------------------------------ | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Memory for caching table data                                | db_cache_size                                | shared_buffers                                                                                                               |
+| Memory for transaction log records                           | log_buffer                                   | wal_buffers                                                                                                                  |
+| Memory for parallel queries                                  | large_pool_size                              | work_mem                                                                                                                     |
+| Java code and JVM                                            | Java_pool_size                               | N/A                                                                                                                          |
+| Maximum amount of physical memory available for the instance | sga_max_size or memory_max_size              | Configured by the Amazon RDS/Aurora instance class<br>For example:<br>`<br>db.r3.large: 15.25GB<br>db.r3.xlarge: 30.5GB<br>` |
+| Total amount of private memory for all sessions              | pga_aggregate_target and pga_aggregate_limit | temp_buffers (for reading data from temp tables), work_mem (for sorts)                                                       |
+| View values for all database parameters                      | `<br>SELECT<br>• FROM v$parameter;<br>`      | `<br>Select<br>• from pg_settings;<br>`                                                                                      |
+| Configure a session-level parameter                          | `<br>ALTER SESSION SET ...<br>`              | `<br>SET SESSION ...<br>`                                                                                                    |
+| Configure instance-level parameter                           | `<br>ALTER SYSTEM SET ...<br>`               | Configured by parameter groups in the Amazon RDS Management Console.                                                         |
+
+For more information, see [Write Ahead Log](https://www.postgresql.org/docs/13/runtime-config-wal.html "https://www.postgresql.org/docs/13/runtime-config-wal.html") and [Resource Consumption](https://www.postgresql.org/docs/13/runtime-config-resource.html "https://www.postgresql.org/docs/13/runtime-config-resource.html") in the _PostgreSQL documentation_.

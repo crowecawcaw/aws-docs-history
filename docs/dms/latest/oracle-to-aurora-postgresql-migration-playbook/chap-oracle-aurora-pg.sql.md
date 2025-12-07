@@ -1,192 +1,286 @@
-# Oracle transaction model and PostgreSQL transactions
+# Oracle UTL_MAIL or UTL_SMTP and PostgreSQL Scheduled Lambda with Amazon SES
 
-Transactions are logical units of work that allow multiple database operations to be executed as a single atomic unit. The Oracle transaction model and PostgreSQL transactions define how transactions are handled, including features like atomicity, consistency, isolation, and durability (ACID properties).
+With AWS DMS, you can configure email notifications for migration tasks using Oracle `UTL_MAIL` or `UTL_SMTP` and PostgreSQL scheduled Lambda with Amazon Simple Email Service (Amazon SES). `UTL_MAIL` and `UTL_SMTP` are Oracle database packages that provide an interface to send emails, while scheduled Lambda with Amazon SES allows sending emails from a PostgreSQL database using AWS Lambda and Amazon SES.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                      | Key differences                                                                     |
-| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [Transaction Isolation](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.transaction "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.transaction") | PostgreSQL doesn’t support `SAVEPOINT`, `ROLLBACK TO SAVEPOINT` inside of functions |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences         |
+| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------- |
+| Three star feature compatibility | No automation                      | N/A                       | Use Lambda integration. |
 
-## Oracle usage
+## Oracle UTL_MAIL usage
 
-Database transactions are a logical, atomic units of processing containing one or more SQL statements that may run concurrently alongside other transactions. The primary purpose of a transaction is to ensure the ACID model is enforced.
-
-- **Atomicity** — All statements in a transaction are processed as one logical unit, or none are processed. If a single part of a transaction fails, the entire transaction is aborted and no changes are persisted (all or nothing).
-- **Consistency** — All data integrity constraints are checked and all triggers are processed before a transaction is processed. If any of the constraints are violated, the entire transaction fails.
-- **Isolation** — One transaction isn’t affected by the behavior of other concurrentl transactions. The effect of a transaction isn’t visible to other transactions until the transaction is committed.
-- **Durability** — Once a transaction commits, its results will not be lost regardless of subsequent failures. After a transaction completes, changes made by committed transactions are permanent. The database ensures that committed transactions can’t be lost.
-
-### Database transaction isolation levels
-
-The ANSI/ISO SQL standard (SQL92) defines four levels of isolation. Each level provides a different approach for handling concurrent run of database transactions. Transaction isolation levels manage the visibility of changed data as seen by other running transactions. In addition, when accessing the same data with several concurrent transactions, the selected level of transaction isolation affects the way different transactions interact. For example, if a bank account is shared by two individuals, what will happen if both parties attempt to perform a transaction on the shared account at the same time? One checks the account balance while the other withdraws money. Oracle supports the following isolation levels:
-
-- **Read-uncommitted** — A currently processed transaction can see uncommitted data made by the other transaction. If a rollback is performed, all data is restored to its previous state.
-- **Read-committed** — A transaction only sees data changes that were committed. Uncommitted changes(“dirty reads”) aren’t possible.
-- **Repeatable read** — A transaction can view changes made by the other transaction only after both transactions issue a COMMIT or both are rolled-back.
-- **Serializable** — Any concurrent run of a set of serializable transactions is guaranteed to produce the same effect as running them sequentially in the same order.
-
-Isolation levels affect the following database behavior.
-
-- **Dirty reads** — A transaction can read data that was written by another transaction, but isn’t yet committed.
-- **Non-repeatable (fuzzy) reads** — When reading the same data several times, a transaction can find that the data has been modified by another transaction that has just committed. The same query executed twice can return different values for the same rows.
-- **Phantom reads** — Similar to a non-repeatable read, but it is related to new data created by another transaction. The same query run twice can return a different numbers of records.
-
-| Isolation level  | Dirty reads   | Non-repeatable reads | Phantom reads |
-| ---------------- | ------------- | -------------------- | ------------- |
-| Read-uncommitted | Permitted     | Permitted            | Permitted     |
-| Read-committed   | Not permitted | Permitted            | Permitted     |
-| Repeatable read  | Not permitted | Not permitted        | Permitted     |
-| Serializable     | Not permitted | Not permitted        | Not permitted |
-
-### Oracle isolation levels
-
-Oracle supports the read-committed and serializable isolation levels. It also provides a Read-Only isolation level which isn’t a part of the ANSI/ISO SQL standard (SQL92). Read-committed is the default.
-
-- **Read-committed (default)** — Each query that you run within a transaction only sees data that was committed before the query itself. The Oracle database nevers allow reading “dirty pages” and uncommitted data.
-- **Serializable** — Serializable transactions don’t experience non-repeatable reads or phantom reads because they are only able to “see” changes that were committed at the time the transaction began (in addition to the changes made by the transaction itself performing DML operations).
-- **Read-only** — The read-only isolation level doesn’t allow any DML operations during the transaction and
-  only sees data committed at the time the transaction began.
-
-### Oracle Multiversion Concurrency Controls
-
-Oracle uses the Oracle Multiversion Concurrency Controls (MVCC) mechanism to provide automatic read consistency across the entire database and all sessions. Using MVCC, database sessions see data based on a single point in time ensuring only committed changes are viewable. Oracle relies on the System Change Number (SCN) of the current transaction to obtain a consistent view of the database. Therefore, all database queries only return data committed with respect to the SCN at the time of query run.
-
-### Setting isolation levels
-
-Isolation levels can be changed at the transaction and session levels.
+The Oracle `UTL_MAIL` package provides functionality for sending email messages. Unlike `UTL_SMTP`, which is more complex and provided in earlier versions of Oracle, `UTL_MAIL` supports attachments. For most cases, `UTL_MAIL` is a better choice.
 
 **Examples**
 
-Change the isolation level at the transaction-level.
+Install the required mail packages.
 
 ```
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-SET TRANSACTION READ ONLY;
+@{ORACLE_HOME}/rdbms/admin/utlmail.sql
+@{ORACLE_HOME}/rdbms/admin/prvtmail.plb
 ```
 
-Change the isolation-level at a session-level.
+Set the smtp_out_server parameter.
 
 ```
-ALTER SESSION SET ISOLATION_LEVEL = SERIALIZABLE;
-ALTER SESSION SET ISOLATION_LEVEL = READ COMMITTED;
+ALTER SYSTEM SET smtp_out_server = 'smtp.domain.com' SCOPE=BOTH;
 ```
 
-For more information, see [Transactions](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/transactions.html#GUID-B97790CB-DF82-442D-B9D5-50CCE6BF9FBD "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/transactions.html#GUID-B97790CB-DF82-442D-B9D5-50CCE6BF9FBD") in the _Oracle documentation_.
+Send an email message.
+
+```
+exec utl_mail.send('Sender@mailserver.com', 'recipient@mailserver.com', NULL, NULL, 'This is the subject', 'This is the message body', NULL, 3, NULL);
+```
+
+For more information, see [UTL_MAIL](https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384 "https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384") in the _Oracle documentation_.
+
+## Oracle UTL_SMTP usage
+
+The Oracle `UTL_SMTP` package provides functionality for sending email messages and is useful for sending alerts about database events. Unlike `UTL_MAIL`, UTL `SMTP` is more complex and doesn’t support attachments. For most cases, `UTL_MAIL` is a better choice.
+
+**Examples**
+
+The following example demonstrates using `UTL_SMTP` procedures to send email messages.
+
+Install the required scripts.
+
+```
+In oracle 12c:
+@{ORACLE_HOME}/rdbms/admin/utlsmtp.sql
+
+In oracle 11g:
+@{ORACLE_HOME}/javavm/install/initjvm.sql
+@{ORACLE_HOME}/rdbms/admin/initplsj.sql
+```
+
+Create and send an email message.
+
+- `UTL_SMTP.OPEN_CONNECTION` opens a connection to the smtp server.
+- `UTL_SMTP.HELO` initiates a handshake with the smtp server.
+- `UTL_SMTP.MAIL` Initiates a mail transaction that obtains the senders details.
+- `UTL_SMTP.RCPT` adds a recipient to the mail transaction.
+- `UTL_SMTP.DATA` adds the message content.
+- `UTL_SMTP.QUIT` terminates the SMTP transaction.
+
+```
+DECLARE
+smtpconn utl_smtp.connection;
+BEGIN
+smtpconn := UTL_SMTP.OPEN_CONNECTION('smtp.mailserver.com', 25);
+UTL_SMTP.HELO(smtpconn, 'smtp.mailserver.com');
+UTL_SMTP.MAIL(smtpconn, 'sender@mailserver.com');
+UTL_SMTP.RCPT(smtpconn, 'recipient@mailserver.com');
+UTL_SMTP.DATA(smtpconn,'Message body');
+UTL_SMTP.QUIT(smtpconn);
+END;
+/
+```
+
+For more information, see [Managing Resources with Oracle Database Resource Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-The same ANSI/ISO SQL (SQL92) isolation levels apply to PostgreSQL, with several similarities and some differences:
+Amazon Aurora PostgreSQL doesn’t provide native support for sending email message from the database. For alerting purposes, use the Event Notification Subscription feature to send email notifications to operators.
 
-| Isolation level  | Dirty reads                                 | Non-repeatable reads | Phantom reads                               |
-| ---------------- | ------------------------------------------- | -------------------- | ------------------------------------------- |
-| Read-uncommitted | Permitted but not implemented in PostgreSQL | Permitted            | Permitted                                   |
-| Read-committed   | Not permitted                               | Permitted            | Permitted                                   |
-| Repeatable read  | Not permitted                               | Not permitted        | Permitted but not implemented in PostgreSQL |
-| Serializable     | Not permitted                               | Not permitted        | Not permitted                               |
-
-PostgreSQL technically supports the use of any of the above four transaction isolation levels, but only three can practically be used. The read-uncommitted isolation level serves as read-committed.
-
-The way the Repeatable-Read isolation-level is implemented doesn’t allow for phantom reads, which is similar to the serializable isolation level. The primary difference between repeatable read and serializable is that serializable guarantees that the result of concurrent transactions will be precisely the same as if they were run serially, which isn’t always true for repeatable reads.
-
-Starting with PostgreSQL 12, you can add the `AND CHAIN` option to `COMMIT` or `ROLLBACK` commands to immediately start another transaction with the same parameters as preceding transaction.
-
-### Isolation levels supported by PostgreSQL
-
-PostgreSQL supports the read-committed, repeatable reads, and serializable isolation levels. Read-committed is the default isolation level (similar to the default isolation level in the Oracle database).
-
-- **Read-committed** — The default PostgreSQL transaction isolation level. Preventing sessions from “seeing” data from concurrent transactions until it is committed. Dirty reads aren’t permitted.
-- **Repeatable read** — Queries can only see rows committed before the first query or DML statement was run in the transaction.
-- **Serializable** — Provides the strictest transaction isolation level. The Serializable isolation level assures that the result of the concurrent transactions will be the same as if they were executed serially. This isn’t always the case for the Repeatable-Read isolation level.
-
-### Multiversion Concurrency Control
-
-PostgreSQL implements a similar Multiversion Concurrency Control (MVCC) mechanism when compared to Oracle. In PostgreSQL, the MVCC mechanism allows transactions to work with a consistent snapshot of data ignoring changes made by other transactions which have not yet committed or rolled back. Each transaction “sees” a snapshot of accessed data accurate to its run start time, regardless of what other transactions are doing concurrently.
-
-### Setting isolation levels in Aurora PostgreSQL
-
-You can configure isolation levels at several levels:
-
-- Session level.
-- Transaction level.
-- Instance level using Aurora Parameter Groups.
+The only way to send Email from the database is to use the AWS Lambda integration. For more information, see [AWS Lambda](https://aws.amazon.com/lambda "https://aws.amazon.com/lambda").
 
 **Examples**
 
-Configure the isolation level for a specific transaction.
+Sending an Email from Aurora PostgreSQL using Lambda integration.
+
+First, configure [Amazon Simple Email Service (Amazon SES)](../../../ses/latest/dg/Welcome.md "../../../ses/latest/dg/Welcome.md").
+
+In the AWS console, choose **SES**, **SMTP Settings**, and choose **Create My SMTP Credentials**. Note the SMTP server name; you will use it in the Lambda function.
+
+Enter a name for IAM User Name (SMTP user) and choose **Create**.
+
+Note the credentials; you will use them to authenticate with the SMTP server.
+
+###### Note
+
+After you leave this page, you can’t retrieve the credentials.
+
+On the SES page, choose **Email addresses** on the left, and choose **Verify a new email address**. Before sending email, they must be verified.
+
+The next page indicates that the email is pending verification.
+
+After you verified the email, create a table to store messages to be sent by the Lambda fuction.
 
 ```
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+CREATE TABLE emails (title varchar(600), body varchar(600), recipients varchar(600));
 ```
 
-Configure the isolation level for a specific session.
+To create the Lambda function, navigate to the [Lambda page](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home") in the AWS Console, and choose **Create function**.
+
+Choose **Author from scratch**, enter a name for your project, and select Python 2.7 as the runtime. Make sure that you use a role with the correct permissions. Choose **Create function**.
+
+Download this [GitHub project](https://github.com/alexcasalboni/awslambda-psycopg2 "https://github.com/alexcasalboni/awslambda-psycopg2").
+
+In your local environment, create two files: main.py and db_util.py. Cut and paste the following content into `main.py` and `db_util.py` respectively. Replace the placeholders in the code with values for your environment.
+
+main.py:
 
 ```
-SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL READ COMMITTED;
-SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+#!/usr/bin/python
+import sys
+import logging
+import psycopg2
+
+from db_util import make_conn, fetch_data
+def lambda_handler(event, context):
+  query_cmd = "select * from mails"
+  print query_cmd
+
+  # get a connection, if a connect can't be made an exception will be raised here
+  conn = make_conn()
+
+  result = fetch_data(conn, query_cmd)
+  conn.close()
+
+  return result
 ```
 
-View the current isolation level.
+db_util.py:
 
 ```
-SELECT CURRENT_SETTING('TRANSACTION_ISOLATION'); -- Session
-SHOW DEFAULT_TRANSACTION_ISOLATION;              -- Instance
+#!/usr/bin/python
+import psycopg2
+import smtplib
+import email.utils
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+db_host = 'YOUR_RDS_HOST'
+db_port = 'YOUR_RDS_PORT'
+db_name = 'YOUR_RDS_DBNAME'
+db_user = 'YOUR_RDS_USER'
+db_pass = 'YOUR_RDS_PASSWORD'
+
+def sendEmail(recp, sub, message):
+  # Replace sender@example.com with your "From" address.
+  # This address must be verified.
+  SENDER = 'PUT HERE THE VERIFIED EMAIL'
+  SENDERNAME = 'Lambda
+
+  # Replace recipient@example.com with a "To" address. If your account
+  # is still in the sandbox, this address must be verified.
+  RECIPIENT = recp
+
+  # Replace smtp_username with your Amazon SES SMTP user name.
+  USERNAME_SMTP = "YOUR_SMTP_USERNAME"
+
+  # Replace smtp_password with your Amazon SES SMTP password.
+  PASSWORD_SMTP = "YOUR_SMTP PASSWORD"
+
+  # (Optional) the name of a configuration set to use for this message.
+  # If you comment out this line, you also need to remove or comment out
+  # the "X-SES-CONFIGURATION-SET:" header below.
+  CONFIGURATION_SET = "ConfigSet"
+
+  # If you're using Amazon SES in a region other than US West (Oregon),
+  # replace email-smtp.us-west-2.amazonaws.com with the Amazon SES SMTP
+  # endpoint in the appropriate region.
+  HOST = "YOUR_SMTP_SERVERNAME"
+  PORT = 587
+
+  # The subject line of the email.
+  SUBJECT = sub
+
+  # The email body for recipients with non-HTML email clients.
+  BODY_TEXT = ("Amazon SES Test\r\n"
+    "This email was sent through the Amazon SES SMTP "
+    "Interface using the Python smtplib package."
+    )
+
+  # The HTML body of the email.
+  BODY_HTML = """<html>
+  <head></head>
+  <body>
+  <h1>Amazon SES SMTP Email Test</h1>""" + message + """</body>
+  </html>
+    """
+
+  # Create message container - the correct MIME type is multipart/alternative.
+  msg = MIMEMultipart('alternative')
+  msg['Subject'] = SUBJECT
+  msg['From'] = email.utils.formataddr((SENDERNAME, SENDER))
+  msg['To'] = RECIPIENT
+  # Comment or delete the next line if you aren't using a configuration set
+  #msg.add_header('X-SES-CONFIGURATION-SET',CONFIGURATION_SET)
+
+  # Record the MIME types of both parts - text/plain and text/html.
+  part1 = MIMEText(BODY_TEXT, 'plain')
+  part2 = MIMEText(BODY_HTML, 'html')
+
+  # Attach parts into message container.
+  # According to RFC 2046, the last part of a multipart message, in this case
+  # the HTML message, is best and preferred.
+  msg.attach(part1)
+  msg.attach(part2)
+
+  # Try to send the message.
+  try:
+    server = smtplib.SMTP(HOST, PORT)
+    server.ehlo()
+    server.starttls()
+    #stmplib docs recommend calling ehlo() before & after starttls()
+    server.ehlo()
+    server.login(USERNAME_SMTP, PASSWORD_SMTP)
+    server.sendmail(SENDER, RECIPIENT, msg.as_string())
+    server.close()
+  # Display an error message if something goes wrong.
+  except Exception as e:
+    print ("Error: ", e)
+  else:
+    print ("Email sent!")
+
+  def make_conn():
+    conn = None
+    try:
+      conn = psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" %
+      (db_name, db_user, db_host, db_pass))
+    except:
+      print "I am unable to connect to the database"
+    return conn
+
+  def fetch_data(conn, query):
+    result = []
+    print "Now running: %s" % (query)
+    cursor = conn.cursor()
+    cursor.execute(query)
+
+    print("Number of new mails to be sent: ", cursor.rowcount)
+
+    raw = cursor.fetchall()
+
+    for line in raw:
+      print(line[0])
+      sendEmail(line[2],line[0],line[1])
+      result.append(line)
+
+    cursor.execute('delete from mails')
+    cursor.execute('commit')
+
+    return result
 ```
 
-You can modify instance-level parameters for Aurora PostgreSQL by using parameter groups. For example, you can alter the `default_transaction_isolation` parameter using the AWS Console or the AWS CLI.
+###### Note
 
-For more information, see [Modifying parameters in a DB parameter group](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md#USER_WorkingWithParamGroups.Modifying "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md#USER_WorkingWithParamGroups.Modifying") in the _Amazon RDS documentation_.
+In the body of db_util.py, Lambda deletes the content of the mails table.
 
-### PostgreSQL Transaction Synopsis
+Place the `main.py` and `db_util.py` files inside the Github extracted folder and create a new zipfile that includes your two new files.
 
-```
-SET TRANSACTION transaction_mode [...]
-SET TRANSACTION SNAPSHOT snapshot_id
-SET SESSION CHARACTERISTICS AS TRANSACTION transaction_mode [...]
+Return to your Lambda project and change the **Code entry type** to **Upload a .ZIP file**, change the **Handler** to **mail.lambda_handler**, and upload the file. Then choose **Save**.
 
-where transaction_mode is one of:
+To test the Lambda function, choose **Test** and enter the **Event name**.
 
-ISOLATION LEVEL {
-SERIALIZABLE | REPEATABLE READ | READ COMMITTED | READ UNCOMMITTED
-}
-READ WRITE | READ ONLY [ NOT ] DEFERRABLE
-```
+###### Note
 
-| Database feature                       | Oracle                  | PostgreSQL                                                                                                                                                                                                                                                  |
-| -------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AutoCommit                             | Off                     | Depends. Autocommit is turned off by default, however, some client tools such as psql and more are setting this to ON by default. Check your client tool defaults or run the following command to check current configuration in psql: `\echo :AUTOCOMMIT`. |
-| MVCC                                   | Yes                     | Yes                                                                                                                                                                                                                                                         |
-| Default Isolation Level                | Read-committed          | Read-committed                                                                                                                                                                                                                                              |
-| Supported Isolation Levels             | Serializable, Read-only | Repeatable Reads, Serializable, Read-only                                                                                                                                                                                                                   |
-| Configure Session Isolation Levels     | Yes                     | Yes                                                                                                                                                                                                                                                         |
-| Configure Transaction Isolation Levels | Yes                     | Yes                                                                                                                                                                                                                                                         |
-| Nested Transaction Support             | Yes                     | No. Consider using `SAVEPOINT` instead.                                                                                                                                                                                                                     |
-| Support for transaction `SAVEPOINT`s   | Yes                     | Yes                                                                                                                                                                                                                                                         |
+The Lambda function can be triggered by multiple options. This walkthrough demonstrates how to schedule it to run every minute. Remember, you are paying for each Lambda execution.
 
-**Read-committed isolation level.**
+To create a scheduled trigger, use Amazon CloudWatch, enter all details, and choose **Add**.
 
-| TX1                                                                                                                              | TX2                                                                                                                              | Comment                                                                                                     |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | `<br>select employee_id, salary<br>from EMPLOYEES<br>where employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | Same results returned from both sessions                                                                    |
-| `<br>begin;<br>UPDATE employees<br>SET salary=27000<br>WHERE employee_id=100;<br>`                                               | `<br>begin;<br>set transaction isolation<br>level read committed;<br>`                                                           | TX1 starts a transaction; performs an update. TX2 starts a transaction with read-committed isolation level. |
-| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          27000.00<br>` | `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | TX1 will “see” the modified results (27000.00) while TX2 “sees” the original data (24000.00).               |
-|                                                                                                                                  | `<br>UPDATE employees<br>SET salary=29000<br>WHERE employee_id=100;<br>`                                                         | Waits because TX2 is blocked by TX1.                                                                        |
-| `<br>Commit;<br>`                                                                                                                |                                                                                                                                  | TX1 issues a commit, and the lock is released.                                                              |
-|                                                                                                                                  | `<br>Commit;<br>`                                                                                                                | TX2 issues a commit.                                                                                        |
-| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          29000.00<br>` | `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          29000.00<br>` | Both queries return the value<br>• 29000.00.                                                                |
+###### Note
 
-**Serializable isolation level.**
+This example runs every minute, but you can use a different interval. For more information, see [Schedule expressions using rate or cron](../../../lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.md "../../../lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.md").
 
-| TX1                                                                                                                              | TX2                                                                                                                              | Comment                                                                                                                       |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | `<br>select employee_id, salary<br>from EMPLOYEES<br>where employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | Same results returned from both sessions                                                                                      |
-| `<br>begin;<br>UPDATE employees<br>SET salary=27000<br>WHERE employee_id=100;<br>`                                               | `<br>begin;<br>set transaction isolation<br>level serializable;<br>`                                                             | TX1 starts a transaction and performs an update. TX2 starts a transaction with serializable isolation level.                  |
-| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          27000.00<br>` | `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | TX1 will “see” the modified results (27000.00) while TX2 “sees” the original data (24000.00).                                 |
-|                                                                                                                                  | `<br>UPDATE employees<br>SET salary=29000<br>WHERE employee_id=100;<br>`                                                         | Waits because TX2 is blocked by TX1.                                                                                          |
-| `<br>Commit;<br>`                                                                                                                |                                                                                                                                  | TX1 issues a commit, and the lock is released.                                                                                |
-|                                                                                                                                  | ERROR: could not serialize access due to concurrent update.                                                                      | TX2 received an error message.                                                                                                |
-|                                                                                                                                  | `<br>Commit;<br>ROLLBACK<br>`                                                                                                    | TX2 trying to issue a commit but receives a rollback message, the transaction failed due to the serializable isolation level. |
-| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          27000.00<br>` | `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          27000.00<br>` | Both queries will return the data updated according to TX1.                                                                   |
-
-For more information, see [Transactions](https://www.postgresql.org/docs/13/tutorial-transactions.html "https://www.postgresql.org/docs/13/tutorial-transactions.html"), [Transaction Isolation](https://www.postgresql.org/docs/13/transaction-iso.html "https://www.postgresql.org/docs/13/transaction-iso.html"), and [SET TRANSACTION](https://www.postgresql.org/docs/13/sql-set-transaction.html "https://www.postgresql.org/docs/13/sql-set-transaction.html") in the _PostgreSQL documentation_.
+Choose **Save**.
