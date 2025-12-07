@@ -12,7 +12,7 @@ Savings Plans** page.
 2. In the navigation pane, under **Savings Plans**, choose
    **Purchase Savings Plans**.
 3. Under **Savings Plans type**, choose **Compute
-   Savings Plans**, **EC2 Instance Savings Plans**, or **SageMaker AI
+   Savings Plans**, **Database Savings Plans**, **EC2 Instance Savings Plans**, or **SageMaker AI
    Savings Plans**.
 4. For **EC2 Instance Savings Plans**, choose a
    **Region** and **Instance family**.

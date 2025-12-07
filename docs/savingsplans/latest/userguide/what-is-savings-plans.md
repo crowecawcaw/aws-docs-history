@@ -8,7 +8,7 @@ specified amount of compute power (measured per hour) for a one or three year pe
 - **Three years:** Three years is defined as 1,095 days
   (94,608,000 seconds).
   Savings Plans offer a flexible pricing model that provides savings on AWS usage. You
-  can save up to 72 percent on your AWS compute workloads. Compute Savings Plans provide lower prices on
+  can save up to 72% on your AWS compute workloads. Compute Savings Plans provide lower prices on
   Amazon EC2 instance usage regardless of instance family, instance size, OS, tenancy, or AWS Region.
   This also applies to AWS Fargate and AWS Lambda usage. SageMaker AI Savings Plans provide you with lower prices
   for your Amazon SageMaker AI instance usage, regardless of your instance family, instance size, component, or

@@ -8,9 +8,8 @@ purchase analysis.
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, under **Savings Plans**, choose
    **Purchase Analyzer**.
-3. Choose **Compute Savings Plans**, **EC2 Instance
-   Savings Plans**, or **SageMaker Savings
-   Plans**.
+3. Choose **Compute Savings Plans**, **Database Savings Plans**, **EC2 Instance
+   Savings Plans**, or **SageMaker AI Savings Plans**.
 4. For **EC2 Instance Savings Plans**, choose a
    **Region** and **Instance family**.
 5. Under **Analysis level**, choose **Payer**

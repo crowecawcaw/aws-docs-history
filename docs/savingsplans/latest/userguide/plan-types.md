@@ -1,9 +1,10 @@
 # Savings Plans types
 
-AWS offers three types of Savings Plans: Compute Savings Plans, EC2 Instance Savings Plans, and SageMaker AI Savings Plans.
+AWS offers four types of Savings Plans: Compute Savings Plans, Database Savings Plans, EC2 Instance Savings Plans, and SageMaker AI
+Savings Plans.
 
 - **Compute Savings Plans** provide the most flexibility and prices that are up to
-  66 percent off of On-Demand rates. These plans automatically apply to your EC2 instance usage,
+  66% off of On-Demand rates. These plans automatically apply to your EC2 instance usage,
   regardless of instance family (for example, m5, c5, etc.), instance size (for example,
   c5.large, c5.xlarge, etc.), Region (for example, us-east-1, us-east-2, etc.), operating system
   (for example, Windows, Linux, etc.), or tenancy (for example, Dedicated, default, Dedicated
@@ -11,7 +12,15 @@ AWS offers three types of Savings Plans: Compute Savings Plans, EC2 Instance Sav
   workload from c5 to m5, shift your usage from EU (Ireland) to EU (London), or migrate your
   application from Amazon EC2 to Amazon ECS using Fargate at any time. You can continue to benefit from
   the low prices provided by Compute Savings Plans as you make these changes.
-- **EC2 Instance Savings Plans** provide savings up to 72 percent off
+- **Database Savings Plans** provide flexibility to use AWS database services
+  while reducing costs by up to 35% on Aurora, RDS, DynamoDB, ElastiCache, DocumentDB,
+  Timestream, Neptune, Keyspaces, and DMS. These plans automatically apply to the latest
+  provisioned instance generations regardless of engine, instance family, size, Availability Zone
+  (AZ), or Region, and also apply to serverless usage. For example, with Database Savings Plans, you can
+  change between Aurora db.r7g and db.r8g instances, shift a workload from EU (Ireland) to EU
+  (London), modernize from RDS for Oracle to Aurora PostgreSQL-Compatible Edition, or move a
+  workload from RDS to DynamoDB while maintaining your discounted rates.
+- **EC2 Instance Savings Plans** provide savings up to 72% off
   On-Demand, in exchange for a commitment to a specific instance family in a chosen AWS Region
   (for example, m5 in Virginia). These plans automatically apply to usage regardless of instance
   size (for example, m5.xlarge, m5.2xlarge, etc.), OS (for example, Windows, Linux, etc.), and
@@ -22,8 +31,8 @@ type (for example, from c5.xlarge to c5.2xlarge) or the operating system (for ex
 Windows to Linux), or move from Dedicated tenancy to Default and continue to receive the
 discounted rate provided by your EC2 Instance Savings Plan.
 
-- **SageMaker AI Savings Plans** provide savings up to 64 percent off of On-Demand rates.
-  These plans automatically apply to your SageMaker AI instance usage regardless of instance family (for
+- **SageMaker AI Savings Plans** provide savings up to 64% off of On-Demand rates. These
+  plans automatically apply to your SageMaker AI instance usage regardless of instance family (for
   example, ml.m5, ml.c5, etc.), instance sizes (for example ml.c5.large, ml.c5.xlarge, etc.),
   Region (for example, us-east-1, us-east-2, etc.), and component (for example, Notebook,
   Training, etc.).

@@ -9,7 +9,7 @@ You can customize your Savings Plans recommendations using parameters shown on t
 2. In the navigation pane, under **Savings Plans**, choose
    **Recommendations**.
 3. For **Savings Plan type**, choose **Compute
-   Savings Plans**, **EC2 Instance Savings Plans**, or **SageMaker AI
+   Savings Plans**, **Database Savings Plans**, **EC2 Instance Savings Plans**, or **SageMaker AI
    Savings Plans**.
 4. Choose a **Savings Plans term**.
 5. Choose a **Payment option**.
