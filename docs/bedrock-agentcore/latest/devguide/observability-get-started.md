@@ -93,14 +93,15 @@ search in the CloudWatch console
 ###### To enable transaction search in the CloudWatch console
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. From the navigation pane, under **Application Signals**, choose **Transaction
-   Search**.
-3. Choose **Enable Transaction Search**.
-4. Select the box to ingest spans as structured logs, and enter a percentage
-   of spans to be indexed. You can index spans at 1% for free and change the
-   percentage later based on your requirements.
+2. In the navigation pane under **Setup**, choose **Settings**.
+3. Select **Account** and choose **X-Ray traces** tab.
+4. In the **Transaction Search** section, choose **View settings**.
+5. On the page that opens, choose **Edit**.
+6. Choose **Enable Transaction Search**.
+7. Select **For X-Ray users** and enter the percentage of traces to index. You can index 1% of traces at no cost and adjust this percentage later based on your needs.
+8. Choose **Save**. Wait till **Ingest OpenTelemetry spans** shows **Enabled** before sending traces.
 
-Now proceed to exploring the two ways to configure observability.
+Let's now proceed to exploring the two ways to configure observability.
 
 ## Step 2: Enable observability for
 

@@ -35,6 +35,8 @@ pip install bedrock-agentcore
 pip install bedrock-agentcore-starter-toolkit
 ```
 
+The starter toolkit includes a CLI (`agentcore`) for memory resource management. The CLI provides commands for creating, listing, getting, and deleting memory resources. For event operations and session management, use the starter toolkit Python API or AWS SDK.
+
 ###### Note
 
 The Amazon Bedrock AgentCore Starter Toolkit is intended to help developers get started
@@ -56,6 +58,25 @@ preferences, or summaries).
 In this step, you create an AgentCore Memory with a semantic strategy so that both short
 term and long term memory can be utilized. This will take 2-3 minutes. You can also
 create AgentCore Memory resources in the AWS console.
+
+Starter toolkit CLI
+Create memory with semantic strategy:
+
+```
+agentcore memory create CustomerSupportSemantic \
+  --region us-west-2 \
+  --description "Customer support memory store" \
+  --strategies '[{"semanticMemoryStrategy": {"name": "semanticLongTermMemory", "namespaces": ["/strategies/{memoryStrategyId}/actors/{actorId}"]}}]' \
+  --wait
+```
+
+List memories to verify creation:
+
+```
+agentcore memory list --region us-west-2
+```
+
+Starter toolkit
 
 ```
 from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
@@ -187,6 +208,14 @@ not overloaded with context.
 ## Cleanup
 
 When you're done with the memory resource, you can delete it:
+
+Starter toolkit CLI
+
+```
+agentcore memory delete <memory-id> --region us-west-2 --wait
+```
+
+Starter toolkit
 
 ```
 # Delete the memory resource

@@ -19,6 +19,12 @@
      - **Discovery URL** – Enter the discovery URL from your identity provider.
      - **Allowed audiences** – Enter the audience value that your gateway will accept. To add more audiences, choose **Add audience**.
      - **Allowed clients** – Enter the public identifier of the client that your gateway will accept. To add more clients, choose **Add client**.
+     - **Allowed scopes** – Enter a list of permitted scopes
+       that will be validated against the scope claim in the JWT token. The `allowedScopes`
+       authorization field will be configured as a list of strings.
+     - **Required custom claims** – Enter a list of required
+       claims that will be validated against the claim name and value contained in the
+       incoming JWT token. For details on configuring the authorizer, see [Configure inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md")
 
 6. In the **Permissions** section, do the following:
    1. To use an IAM service role to invoke the gateway on the user's behalf, select **Use an IAM service role**.

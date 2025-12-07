@@ -19,20 +19,7 @@ Amazon Bedrock, Anthropic Claude, Google Gemini, and OpenAI.
 Protocol support
 
 AgentCore Runtime lets agents communicate with other agents and tools via Model
-Context Protocol (MCP).
-
-Extended execution time
-
-AgentCore Runtime supports both real-time interactions and long-running workloads up
-to 8 hours, enabling complex agent reasoning and asynchronous workloads that
-may involve multi-agent collaboration or extended problem-solving
-sessions.
-
-Enhanced payload handling
-
-AgentCore Runtime can process 100MB payloads enabling seamless processing of
-multiple modalities (text, images, audio, video), with rich media content or
-large datasets.
+Context Protocol (MCP) or Agent to Agent (A2A).
 
 Session isolation
 
@@ -43,6 +30,13 @@ helps prevent cross-session data contamination. After session completion,
 the entire microVM is terminated and memory is sanitized, delivering
 deterministic security even when working with non-deterministic AI
 processes.
+
+Extended execution time
+
+AgentCore Runtime supports both real-time interactions and long-running workloads up
+to 8 hours, enabling complex agent reasoning and asynchronous workloads that
+may involve multi-agent collaboration or extended problem-solving
+sessions.
 
 Consumption-based pricing model
 
@@ -71,6 +65,18 @@ AgentCore Runtime provides specialized built-in tracing that captures agent
 reasoning steps, tool invocations, and model interactions, providing clear
 visibility into agent decision-making processes, a critical capability for
 debugging and auditing AI agent behaviors.
+
+Enhanced payload handling
+
+AgentCore Runtime can process 100MB payloads enabling seamless processing of
+multiple modalities (text, images, audio, video), with rich media content or
+large datasets.
+
+Bidirectional streaming
+
+AgentCore Runtime supports both HTTP API calls and persistent WebSocket connections
+for real-time bidirectional streaming, enabling interactive applications with
+immediate response feedback and maintained conversation context.
 
 Unified set of agent-specific capabilities
 

@@ -49,6 +49,13 @@ pip install strands-agents
 
 ## Step 2: Create gateway setup script
 
+You can create a gateway using either the AgentCore starter toolkit Python SDK or the AgentCore starter toolkit CLI. Choose your preferred approach:
+
+###### Note
+
+The AgentCore starter toolkit CLI is separate from the AWS CLI. For a complete CLI reference, see the [AgentCore starter toolkit CLI reference](https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html "https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html").
+
+Python SDK
 Create a new file called `setup_gateway.py` and insert the following complete code into it:
 
 ```
@@ -141,6 +148,29 @@ def setup_gateway():
 
 if __name__ == "__main__":
     setup_gateway()
+```
+
+CLI
+Use the CLI commands to create your gateway directly:
+
+```
+# Create a gateway with semantic search enabled
+bedrock-agentcore-starter-toolkit gateway create-mcp-gateway \
+  --name TestGateway \
+  --region us-east-1 \
+  --enable_semantic_search
+```
+
+Replace the placeholders with the actual values returned from the first command.
+
+```
+# Create a Lambda target for the gateway
+bedrock-agentcore-starter-toolkit gateway create-mcp-gateway-target \
+  --gateway-arn <GATEWAY_ARN_FROM_PREVIOUS_COMMAND> \
+  --gateway-url <GATEWAY_URL_FROM_PREVIOUS_COMMAND> \
+  --role-arn <ROLE_ARN_FROM_PREVIOUS_COMMAND> \
+  --name TestLambdaTarget \
+  --target-type lambda
 ```
 
 Expand the following section for a step-by-step understanding of each component.
@@ -444,6 +474,9 @@ aws logs tail /aws/bedrock-agentcore/gateways/YOUR_GATEWAY_ID --follow
 
 ## Cleanup
 
+You can clean up the resources using either the Python SDK or CLI:
+
+Python SDK
 Create a `cleanup_gateway.py` file and insert the following contents:
 
 ```
@@ -463,6 +496,19 @@ Run the following in a terminal:
 ```
 python cleanup_gateway.py
 ```
+
+CLI
+Use the CLI to delete the gateway and its targets:
+
+```
+# Delete the gateway (this will also delete all targets)
+bedrock-agentcore-starter-toolkit gateway delete-mcp-gateway \
+  --name TestGateway \
+  --region us-east-1 \
+  --force
+```
+
+The `--force` flag automatically deletes all targets before deleting the gateway.
 
 ## Next steps
 

@@ -9,7 +9,7 @@ In this case, you should wait until traffic is lower and manually redrive the im
 
 You can call `ListMemoryExtractionJobs` to see any failed jobs and look at the failure reason code
 to see the reason for the failure. Call `StartMemoryExtractionJobs` to re-ingest the job into long-term memory.
-We recommend monitoring the vended metric `FAILED_EXTRACTIONS` to be notified of any issues.
+We recommend monitoring the vended metric `FailedExtraction` to be notified of any issues.
 This metric also has dimensions on StrategyId, Resource (the memory ARN), and StrategyType.
 AgentCore Memory emits a count of this metric whenever a extraction job fails and is written to the extraction jobs storage.
 

@@ -217,6 +217,13 @@ complete processing. This lets you provide a more responsive user experience,
 especially for operations that generate large amounts of content or take significant
 time to complete. For more information, see [Stream agent responses](response-streaming.md "response-streaming.md").
 
+### WebSocket API
+
+The AgentCore Runtime provides [WebSocket](runtime-http-protocol-contract.md#ws-endpoint "runtime-http-protocol-contract.md#ws-endpoint")
+support for real-time bidirectional streaming connections for interactive agent communication.
+This enables more responsive and interactive agent experiences. For more information, see
+[Get started with WebSocket streaming in AgentCore Runtime](runtime-get-started-websocket.md "runtime-get-started-websocket.md").
+
 ### Protocol support
 
 AgentCore Runtime supports multiple communication protocols:
@@ -254,7 +261,7 @@ toolkit](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
 ### Invoke your agent or tool
 
 - Generate a unique session ID for each user conversation
-- Call the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") operation with your agent's ARN and session
+- Call the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") or [InvokeAgentRuntimeWithWebSocketStream](runtime-get-started-websocket.md "runtime-get-started-websocket.md") operation with your agent's ARN and session
   ID
 - Pass user input in the request payload
 

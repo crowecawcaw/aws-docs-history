@@ -5,6 +5,7 @@ To use Amazon Bedrock AgentCore Gateway and its capabilities, you'll need to con
 1. **Gateway builder/user permissions** – Permissions provided to a gateway builder or user to allow it to create, manage, and or use AgentCore gateways.
 2. **Gateway service role permissions** – Permissions provided to a service role that you'll create for your gateway. These permissions allow the Amazon Bedrock AgentCore service to perform actions on behalf of the identity that invokes the gateway.
 3. **Resource-based permissions** – Permissions attached to resources to allow the gateway service role to access it. You'll include the Amazon Resource Name (ARN) of the gateway service role as the `Principal` in the resource-based policy.
+4. **Gateway resource-based policies** – Policies attached directly to your gateway resources to control which principals can invoke them. For more information, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
 
 ###### Note
 

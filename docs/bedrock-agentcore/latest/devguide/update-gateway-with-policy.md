@@ -1,0 +1,67 @@
+# Update existing gateway with AgentCore Policy
+
+Engine
+
+Associate a policy engine with an existing gateway:
+
+AWS CLI
+Run the following code in a terminal to update a gateway with a Policy
+Engine using the AWS CLI:
+
+```
+
+aws bedrock-agentcore-control update-gateway \
+  --gateway-id my-gateway-id \
+  --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
+  --protocol-type MCP \
+  --authorizer-type CUSTOM_JWT \
+  --authorizer-configuration '{
+    "customJWTAuthorizer": {
+      "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
+      "allowedClients": ["clientId"]
+    }
+  }' \
+  --policy-engine-configuration '{
+    "mode": "ENFORCE",
+    "arn": "arn:aws:policy-registry:us-west-2:123456789012:policy-engine/my-policy-engine"
+  }'
+
+```
+
+The gatewayUrl in the response is the endpoint to use when you invoke the
+gateway.
+
+AWS Python SDK (Boto3)
+The following Python code shows how to update a gateway with a Policy
+Engine using the AWS Python SDK (Boto3):
+
+```
+
+import boto3
+
+gateway_client = boto3.client('bedrock-agentcore-control')
+
+response = gateway_client.update_gateway(
+    gatewayId='my-gateway-id',
+    protocolType='MCP',
+    authorizerType='CUSTOM_JWT',
+    authorizerConfiguration={
+        'customJWTAuthorizer': {
+            'allowedClients': ['clientId'],
+            'discoveryUrl': 'https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration'
+        }
+    },
+    roleArn='arn:aws:iam::123456789012:role/my-gateway-service-role',
+    policyEngineConfiguration={
+        'mode': 'ENFORCE',
+        'arn': 'arn:aws:policy-registry:us-west-2:123456789012:policy-engine/my-policy-engine'
+    }
+)
+
+print(f"GATEWAY ARN: {response['gatewayArn']}")
+print(f"GATEWAY URL: {response['gatewayUrl']}")
+
+```
+
+The gatewayUrl in the response is the endpoint to use when you invoke the
+gateway.

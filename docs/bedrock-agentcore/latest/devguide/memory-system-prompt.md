@@ -2,14 +2,7 @@
 
 strategy
 
-A system prompt is a combination of:
-
-- A set of instructions that guide the LLM's behavior. It can
-  include step-by-step processing guidelines (how the model should
-  reason and extract or consolidate information).
-- Output Schema - how the model should present the result.
-  This system prompt is sent to the LLM during memory extraction and
-  consolidation step.
+The semantic strategy includes instructions and output schemas in the default prompts for the extraction and consolidation steps.
 
 ## Extraction
 

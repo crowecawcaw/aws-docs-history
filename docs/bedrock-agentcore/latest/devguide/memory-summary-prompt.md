@@ -1,15 +1,6 @@
 # System prompt for summary strategy
 
-A system prompt is a combination of:
-
-- A set of instructions that guide the LLM's behavior. It can include
-  step-by-step processing guidelines (how the model should reason and extract or
-  consolidate information).
-- Output Schema - how the model should present the result.
-  This system prompt is sent to the LLM during memory consolidation step.
-
-There is no extraction step for summary strategy. Summary generation happens in a
-single consolidation step.
+The semantic strategy includes instructions and an output schema in the default system prompt for a single consolidation step.
 
 ## Consolidation instructions
 

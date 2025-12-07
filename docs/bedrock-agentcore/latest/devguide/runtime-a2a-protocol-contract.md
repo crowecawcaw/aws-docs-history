@@ -14,6 +14,7 @@ For example code, see [Deploy A2A servers in AgentCore Runtime](runtime-a2a.md "
 - [Path requirements](#path-requirements "#path-requirements")
 - [Authentication requirements](#authentication-requirements "#authentication-requirements")
 - [Error handling](#error-handling "#error-handling")
+- [OAuth Authentication Responses](#a2a-oauth-authentication-responses "#a2a-oauth-authentication-responses")
 
 ## Protocol implementation
 
@@ -225,3 +226,18 @@ Example error response:
   }
 }
 ```
+
+## OAuth Authentication Responses
+
+OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235")), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
+
+### 401 Unauthorized - Missing Authentication
+
+```
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Bearer resource_metadata="https://bedrock-agentcore.{region}.amazonaws.com/runtimes/{ESCAPED_ARN}/invocations/.well-known/oauth-protected-resource?qualifier={QUALIFIER}"
+```
+
+###### Note
+
+SigV4-configured agents return 403 for missing authentication and do NOT include WWW-Authenticate headers.

@@ -16,8 +16,7 @@ toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://githu
   organization with namespaces](specify-long-term-memory-organization.md "specify-long-term-memory-organization.md")
 - [Configure built-in
   strategies](long-term-configuring-built-in-strategies.md "long-term-configuring-built-in-strategies.md")
-- [Configure built-in with
-  overrides strategies](long-term-configuring-custom-strategies.md "long-term-configuring-custom-strategies.md")
+- [Configure a custom strategy](long-term-configuring-custom-strategies.md "long-term-configuring-custom-strategies.md")
 - [Save and retrieve
   insights](long-term-saving-and-retrieving-insights.md "long-term-saving-and-retrieving-insights.md")
 - [Retrieve memory records](long-term-retrieve-records.md "long-term-retrieve-records.md")

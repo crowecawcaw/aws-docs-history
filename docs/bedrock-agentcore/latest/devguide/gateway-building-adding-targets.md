@@ -17,4 +17,5 @@ When you add a target, you provide the following required fields:
 ###### Topics
 
 - [Add a target using the AWS Management Console](gateway-add-target-console.md "gateway-add-target-console.md")
+- [Add a target using the CLI](gateway-add-target-cli.md "gateway-add-target-cli.md")
 - [Add a target using the API](gateway-add-target-api.md "gateway-add-target-api.md")

@@ -160,7 +160,7 @@ following sequence:
 5. AgentCore Identity service stores the Google access token in the Token Vault under the
    agent identity ID and user ID. This creates a binding among the agent identity,
    user identity, and the Google access token.
-6. The [session binding flow](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") must be completed before the Google access token is returned to the caller by AgentCore Identity.
+6. The [session binding flow](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") must be completed before the Google access token is returned to the caller by AgentCore Identity.
 
 ## Step 4: Use OAuth2 Access Token to
 
@@ -239,6 +239,10 @@ if __name__ == "__main__":
 
     asyncio.run(read_from_google_drive(access_token=""))
 ```
+
+###### Note
+
+For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md"), refer to [https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py")
 
 ## What's Next?
 

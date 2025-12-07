@@ -1,4 +1,4 @@
-# Built-in with overrides strategy
+# Customize a built-in strategy or create your own strategy
 
 For advanced or domain-specific use cases, you can create a built-in with overrides
 strategy to gain fine-grained control over the long-term memory process. Built-in with
@@ -26,33 +26,26 @@ your specific requirements. Common use cases include:
 
 ## How to customize a strategy
 
-You can configure a Built-in with overrides strategy by providing a model ID and your
-own set of instructions that will be added to the system prompt for both extraction and
-consolidation.
+To override a built-in strategy with a custom configuration, you specify the configuration when you use the [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") operation or the [UpdateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md") operation. You can override the following:
 
-**Pre-requisite:** Since built-in with overrides
-strategies override the behavior of the built-in strategies - to effectively override a
-strategy you should first understand its [built-in](built-in-strategies.md "built-in-strategies.md") (default) behavior.
+- The instructions in the system prompt (however, the output schema remains the same). To create an effective custom prompt, you should first understand the default prompts. For more information, see the system prompt section for each [built-in strategy](built-in-strategies.md "built-in-strategies.md").
+- The Amazon Bedrock model with which to invoke the prompt. For more information, see [Add or remove access to Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access-modify.md "../../../bedrock/latest/userguide/model-access-modify.md"). For more information about obtaining sufficient Amazon Bedrock capacity, see [Amazon Bedrock capacity for built-in
+  with overrides strategies](bedrock-capacity.md "bedrock-capacity.md").
 
-To use a built-in with overrides strategy, use the [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") operation or the [UpdateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md") operation.
+The following table shows the steps you can override for each memory strategy:
 
-The model ID can be provided `modelId` field when you configure a built-in
-with overrides strategy. To use a model, first enable access for that model in your
-AWS account. For more information, see [Add or remove access to
-Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access-modify.md "../../../bedrock/latest/userguide/model-access-modify.md"). Also, obtain sufficient Amazon Bedrock capacity. For
-more information, see [Amazon Bedrock capacity for built-in
-with overrides strategies](bedrock-capacity.md "bedrock-capacity.md").
+| Strategy        | Steps you can override                    |
+| --------------- | ----------------------------------------- |
+| Semantic        | Extraction<br>Consolidation               |
+| Summary         | Consolidation                             |
+| User preference | Extraction<br>Consolidation               |
+| Episodic        | Extraction<br>Consolidation<br>Reflection |
 
-The instructions are passed in the `appendToPrompt` field when you
-configure the strategy via the API. This field replaces the default instructions part of
-the system prompt in the built-in strategies, letting you guide the model's behavior,
-while the Output Schema remains unchanged.
+###### Note
 
-You set the `modelId` and `appendToPrompt` fields in the
-`semanticOverride`, `summaryOverride`, or
-`userPreferenceOverride` fields found through the
-`memoryStrategies` (`MemoryStrategyInput`) field of
-`CreateMemory` and `UpdateMemory`.
+You can also override with a self-managed strategy. For more information, see [Self-managed strategy](memory-self-managed-strategies.md "memory-self-managed-strategies.md").
+
+## How to customize a strategy
 
 For example, you can modify the extraction instruction for semantic memory strategy to
 add new instructions when customizing it.
@@ -103,25 +96,6 @@ or edit an existing rule such as:
 IMPORTANT: Always extract memories in English irrespective of the original language of the user's conversation.
 
 ```
-
-###### All instructions you can update
-
-You can update the following instructions:
-
-- [Semantic memory
-  strategy extraction instructions](memory-system-prompt.md#semantic-memory-extraction-instructions "memory-system-prompt.md#semantic-memory-extraction-instructions")
-- [Semantic memory
-  strategy consolidation instructions](memory-system-prompt.md#semantic-memory-consolidation-instructions "memory-system-prompt.md#semantic-memory-consolidation-instructions")
-- [User preference
-  memory strategy extraction instructions](memory-user-prompt.md#user-preference-memory-extraction-instructions "memory-user-prompt.md#user-preference-memory-extraction-instructions")
-- [User
-  preference memory strategy consolidation instructions](memory-user-prompt.md#user-preference-memory-consolidation-instructions "memory-user-prompt.md#user-preference-memory-consolidation-instructions")
-- Summary Memory Strategy Consolidation Instructions
-
-There are no default instructions for built-in Summary memory strategy. You
-can add your own instructions to `appendToPrompt` input in the API.
-To understand how built-in Summary memory strategy generates and updates the
-summary, summary memory strategy Consolidation output schemas in [Built-in strategies](built-in-strategies.md "built-in-strategies.md").
 
 ## Best practices for customization
 

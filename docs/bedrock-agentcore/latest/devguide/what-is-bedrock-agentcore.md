@@ -1,97 +1,48 @@
-# What is Amazon Bedrock AgentCore?
+# Overview
 
-Amazon Bedrock AgentCore enables you to deploy and operate highly effective agents securely,
-at scale using any framework and model. With Amazon Bedrock AgentCore, developers can accelerate
-AI agents into production with the scale, reliability, and security, critical to real-world
-deployment. AgentCore provides tools and capabilities to make agents more effective and capable,
-purpose-built infrastructure to securely scale agents, and controls to operate trustworthy agents.
-Amazon Bedrock AgentCore services are composable and work with popular open-source frameworks and any model, so
-you don’t have to choose between open-source flexibility and enterprise-grade security and
-reliability.
+## What is Amazon Bedrock AgentCore?
 
-## Services in Amazon Bedrock AgentCore
+Amazon Bedrock AgentCore is an agentic platform for building, deploying, and operating highly effective agents securely at scale using any framework and foundation model. With AgentCore, you can enable agents to take actions across tools and data with the right permissions and governance, run agents securely at scale, and monitor agent performance and quality in production - all without any infrastructure management. AgentCore services work together or independently with any open-source framework such as CrewAI, LangGraph, LlamaIndex, and Strands Agents and with any foundation model, so you don’t have to choose between open-source flexibility and enterprise-grade security and reliability.
 
-Amazon Bedrock AgentCore includes the following modular Services that you can use together or
-independently:
+![What is AgentCore?](images/agentcore_all_components_final.png)
 
-### Amazon Bedrock AgentCore Runtime
+## Core services in Amazon Bedrock AgentCore
 
-AgentCore Runtime is a secure, serverless runtime purpose-built for deploying and scaling
-dynamic AI agents and tools using any open-source framework including LangGraph, CrewAI, and
-Strands Agents, any protocol, and any model. Runtime was built to work for agentic workloads with
-industry-leading extended runtime support, fast cold starts, true session isolation, built-in
-identity, and support for multi-modal payloads. Developers can focus on innovation while
-Amazon Bedrock AgentCore Runtime handles infrastructure and security—accelerating time-to-market.
+Amazon Bedrock AgentCore includes the following modular services and capabilities that you can use together or independently:
 
-### Amazon Bedrock AgentCore Identity
+| Service                                                                 | Description                                                                                                                                                                                                                                                                                                                             | Integrations                                                                                                                                                                                                                                                                                                                                                               |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Runtime](agents-tools-runtime.md "agents-tools-runtime.md")            | A secure, serverless runtime environment purpose-built for deploying and scaling dynamic AI agents and tools. Runtime provides fast cold starts for real-time interactions, extended runtime support for asynchronous agents, true session isolation, built-in identity, and support for multi-modal and multi-agent agentic workloads. | AgentCore Runtime works with custom frameworks and any open-source framework, including CrewAI, LangGraph, LlamaIndex, Google ADK, OpenAI Agents SDK, and Strands Agents, any foundation model in or outside of Amazon Bedrock including OpenAI, Google's Gemini, Anthropic's Claude, Amazon Nova, Meta Llama, and Mistral models, and popular protocols like MCP and A2A. |
+| [Memory](memory.md "memory.md")                                         | A way to build context-aware agents with complete control over what the agent remembers and learns. Supports for both short-term memory for multi-turn conversations and long-term memory that persists across sessions, with the ability to not only share memory stores across agents but also learn from experiences.                | AgentCore Memory works with LangGraph, LangChain, Strands, LlamaIndex                                                                                                                                                                                                                                                                                                      |
+| [Gateway](gateway.md "gateway.md")                                      | A secure way to convert your APIs, Lambda functions, and existing services into Model Context Protocol (MCP)-compatible tools and also connect to pre-existing MCP servers, making them available to AI agents through Gateway endpoints with just a few lines of code.                                                                 | Any APIs, MCP tools, Lamda, and popular integrations including Salesfore, Zoom, JIRA, Slack etc.                                                                                                                                                                                                                                                                           |
+| [Identity](identity.md "identity.md")                                   | A secure, scalable agent identity, access and authentication management service which is compatible with existing identity providers, eliminating needs for user migration or rebuilding authentication flows.                                                                                                                          | Any IdP and credential providers such as Amazon Cognito, Okta, Microsoft Azure Entra ID, Auth0 etc.                                                                                                                                                                                                                                                                        |
+| [Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md") | An isolated sandbox environment for agents to execute code enhancing their accuracy and expanding their ability to solve complex end-to-end tasks.                                                                                                                                                                                      | Multiple languages including Python, JavaScript and TypeScript                                                                                                                                                                                                                                                                                                             |
+| [Browser](browser-tool.md "browser-tool.md")                            | A fast and secure cloud-based browser runtime environment to enable AI agents to interact with web applications, fill forms, navigate websites, and extract information in a fully managed environment.                                                                                                                                 | Any foundation model or popular browser automation frameworks including Playwright and BrowserUse                                                                                                                                                                                                                                                                          |
+| [Observability](observability.md "observability.md")                    | A unified view to trace, debug and monitor agent performance in production. It offers detailed visualizations of each step in the agent workflow, enabling you to inspect an agent's execution path, audit intermediate outputs, and debug performance bottlenecks and failures.                                                        | Any monitoring and observability stack that integrate with telemetry data emitted in standardized OpenTelemetry (OTEL)-compatible format                                                                                                                                                                                                                                   |
+| [Evaluations](evaluations.md "evaluations.md")                          | An evaluation system that continuously inspects agent quality based on real-world behavior. With AgentCore Evaluations, you can either use thirteen built-in evaluators for common quality dimensions or use custom evaluators for specific business requirements.                                                                      | All results integrated into AgentCore Observability powered by Amazon CloudWatch for unified monitoring.                                                                                                                                                                                                                                                                   |
+| [Policy](policy.md "policy.md")                                         | A capability that provides deterministic control to ensure agents operate within defined boundaries and business rules without slowing them down. Easily author fine-grained rules using natural language or [Cedar](https://www.cedarpolicy.com/en "https://www.cedarpolicy.com/en") (AWS's open-source policy language).              | Integrates with AgentCore Gateway, to intercept every tool call before execution. You can define which tools agents can access, what actions they can perform, and under what conditions.                                                                                                                                                                                  |
 
-AgentCore Identity provides a secure, scalable agent identity and access management
-capability accelerating AI agent development. It is compatible with existing identity providers,
-eliminating needs for user migration or rebuilding authentication flows. AgentCore Identity's
-helps to minimize consent fatigue with a secure token vault and allows you to build streamlined
-AI agent experiences. Just-enough access and secure permission delegation allow agents to
-securely access AWS resources and third-party tools and services.
+## What can you build with Amazon Bedrock AgentCore?
 
-### Amazon Bedrock AgentCore Memory
+With Amazon Bedrock AgentCore, developers can accelerate AI agents into production with the scale, reliability, and security, critical to real-world deployment. Some common use cases for which you must consider leveraging AgentCore are:
 
-AgentCore Memory makes it easy for developers to build context aware agents by eliminating
-complex memory infrastructure management while providing full control over what the AI agent
-remembers. Memory provides industry-leading accuracy along with support for both short-term
-memory for multi-turn conversations and long-term memory that can be shared across agents and
-sessions.
+- **Agents**
 
-### Amazon Bedrock AgentCore Code Interpreter
+Build autonomous AI apps that reason, use tools, and maintain context. Deploy agents for customer support, workflow automation, data analysis, or coding assistance. Your agent runs serverless with isolated sessions, persistent memory, and built-in observability.
 
-AgentCore Code Interpreter tool enables agents to securely execute code in isolated sandbox
-environments. It offers advanced configuration support and seamless integration with popular
-frameworks. Developers can build powerful agents for complex workflows and data analysis while
-meeting enterprise security requirements.
+- **Tools and Model Context Protocol (MCP) Servers**
 
-### Amazon Bedrock AgentCore Browser
+Transform existing APIs, databases, or services into tools that any MCP-compatible agent can use. Deploy a gateway that wraps your Lambda functions or OpenAPI specs making your backend instantly accessible to agents without rewriting code.
 
-AgentCore Browser tool provides a fast, secure, cloud-based browser runtime to enable AI
-agents to interact with websites at scale. It provides enterprise-grade security, comprehensive
-observability features, and automatically scales— all without infrastructure management
-overhead.
+- **Agent Platforms**
 
-### Amazon Bedrock AgentCore Gateway
+Provide your internal developers or customers with a paved path to build and deploy agents using approved tools, shared memory stores, and governed access to enterprise services. Centralize observability, authentication, and compliance while enabling teams to ship agent-powered features faster.
 
-Amazon Bedrock AgentCore Gateway provides a secure way for agents to discover and use tools
-along with easy transformation of APIs, Lambda functions, and existing services into
-agent-compatible tools. Gateway eliminates weeks of custom code development, infrastructure
-provisioning, and security implementation so developers can focus on building innovative agent
-applications.
+## Pricing for Amazon Bedrock AgentCore
 
-### Amazon Bedrock AgentCore Observability
+AgentCore offers flexible, consumption-based pricing with no upfront commitments or minimum fees. For more information, see [AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/ "https://aws.amazon.com/bedrock/agentcore/pricing/"). AgentCore may use and store your content to improve your service experience or performance. Such improvements would be for your use of AgentCore and not for other customers.
 
-AgentCore Observability helps developers trace, debug, and monitor agent performance in
-production through unified operational dashboards. With support for OpenTelemetry compatible
-telemetry and detailed visualizations of each step of the agent workflow, AgentCore enables
-developers to easily gain visibility into agent behavior and maintain quality standards at
-scale.
-
-## Common use cases for Amazon Bedrock AgentCore
-
-- **Equip agents with built-in tools and
-  capabilities**
-
-Leverage built-in tools (browser
-automation and code interpretation) in your agent. Enable agents to
-seamlessly integrate with internal and external tools and resources. Create agents that
-can remember interactions with your agent users.
-
-- **Deploy securely at scale**
-
-Securely deploy and scale dynamic AI agents and tools, regardless of framework, protocol,
-or model choice without managing any underlying resources with seamless agent identity and
-access management.
-
-- **Test and monitor agents**
-
-Gain deep operational insights with real-time visibility into agents' usage and
-operational metrics such as token usage, latency, session duration, and error rates.
-
-## Are you a first-time Amazon Bedrock AgentCore user?
+## Next Steps
 
 If you are a first-time user of Amazon Bedrock AgentCore, we recommend that you begin by reading the
 following sections:
@@ -99,22 +50,3 @@ following sections:
 - [Get started with Amazon Bedrock AgentCore](agentcore-get-started-toolkit.md "agentcore-get-started-toolkit.md")
 - [Understand the available interfaces for using
   Amazon Bedrock AgentCore](develop-agents.md "develop-agents.md")
-- [Host agent or tools with Amazon Bedrock AgentCore Runtime](agents-tools-runtime.md "agents-tools-runtime.md")
-- [Add memory to your Amazon Bedrock AgentCore agent](memory.md "memory.md")
-- [Use Amazon Bedrock AgentCore built-in tools to interact with your applications](built-in-tools.md "built-in-tools.md")
-- [Amazon Bedrock AgentCore Gateway: Securely connect tools and other resources to your
-  Gateway](gateway.md "gateway.md")
-
-For code examples, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/](https://github.com/awslabs/amazon-bedrock-agentcore-samples/ "https://github.com/awslabs/amazon-bedrock-agentcore-samples/").
-
-## Learn more about AgentCore
-
-Watch this video to learn more about AgentCore:
-
-## Pricing for Amazon Bedrock AgentCore
-
-AgentCore offers flexible, consumption-based pricing with no upfront commitments or
-minimum fees. For more information, see [AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/ "https://aws.amazon.com/bedrock/agentcore/pricing/").
-
-AgentCore may use and store your content to improve your service experience or performance.
-Such improvements would be for your use of AgentCore and not for other customers.

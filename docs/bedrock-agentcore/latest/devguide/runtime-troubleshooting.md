@@ -26,6 +26,7 @@ with your agent runtimes.
 - [I need recommendations for testing my agent](#testing-recommendations "#testing-recommendations")
 - [I need help debugging container issues](#debugging-container-issues "#debugging-container-issues")
 - [I need help troubleshooting MCP protocol agents](#troubleshooting-mcp-protocol "#troubleshooting-mcp-protocol")
+- [I need help troubleshooting WebSocket streaming agents](#troubleshooting-websocket-protocol "#troubleshooting-websocket-protocol")
 - [Best practices](#best-practices "#best-practices")
 
 ## My agent invocations fail with 504 Gateway Timeout errors
@@ -440,6 +441,40 @@ Check authentication configuration:
 
 - Ensure bearer token is correctly set in the headers
 - Verify your Cognito user pool is correctly set up
+
+## I need help troubleshooting WebSocket streaming agents
+
+For WebSocket streaming agents, follow these specific troubleshooting steps:
+
+###### Verify endpoint configuration
+
+WebSocket agents must run on port 8080 and serve WebSocket connections at `/ws` path
+
+###### Test locally with incremental complexity
+
+Start with simple local testing before deploying:
+
+1. Test basic connection: Verify your agent accepts WebSocket connections at `ws://localhost:8080/ws`
+2. Test message handling: Send simple text messages and verify responses
+3. Test session management: Verify persistent conversations work as expected
+4. Test error handling: Ensure your agent gracefully handles connection drops and malformed messages
+
+###### Authentication issues
+
+Check authentication configuration for deployed agents:
+
+- For OAuth: Ensure bearer token is valid and not expired
+- For SigV4: Make sure input to the signing algorithm is correct, including the WebSocket URL, headers, and request method
+- Use the correct authentication method that matches your agent's configuration
+
+###### Common connection issues
+
+Address frequent WebSocket connection problems:
+
+- Ensure your agent properly handles WebSocket upgrade requests
+- Check that your agent maintains the WebSocket connection loop correctly
+- Verify message format compatibility between your agent and client expectations
+- Monitor connection timing and implement appropriate timeout handling
 
 ## Best practices
 

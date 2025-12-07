@@ -5,7 +5,22 @@ extract user preferences, choices, and styles from conversational data. This let
 to learn from interactions and builds a persistent, dynamic profile of each user over
 time.
 
-Examples of insights captured by this strategy include:
+###### Steps in the strategy
+
+The user preference strategy includes the following steps:
+
+- **Extraction** – Identifies useful insights from short-term memory to place into long-term memory as memory records.
+- **Consolidation** – Determines whether to write useful information to a new record or an existing record.
+
+###### Note
+
+The user preference strategy processes only `USER` and `ASSISTANT` role messages during extraction. For more information about roles in agent conversations, see [Conversational](../APIReference/API_Conversational.md "../APIReference/API_Conversational.md").
+
+###### Strategy output
+
+The user preference strategy returns JSON objects with context, preference, and categories, making it easier to capture user choices and decision patterns.
+
+###### Examples of insights captured by this strategy include:
 
 - A customer's preferred shipping carrier or shopping brand.
 - A developer's preferred coding style or programming language.
@@ -15,6 +30,6 @@ Examples of insights captured by this strategy include:
   anticipating needs based on past choices. This creates a more relevant and effective
   conversational experience.
 
-**Default namespace**
+###### Default namespace
 
-`/strategies/{memoryStrategyId}/actors/{actorId}`
+`/strategy/{memoryStrategyId}/actors/{actorId}`

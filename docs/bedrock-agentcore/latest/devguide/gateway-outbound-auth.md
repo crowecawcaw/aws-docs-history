@@ -7,16 +7,20 @@ AgentCore Gateway supports the following types of outbound authorization:
 
 - **No authorization (not recommended)** – Some target types provide you the option to bypass outbound authorization. This less secure option is not recommended.
 - **IAM-based outbound authorization** – Use the [gateway service role](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions") to authenticate access to the gateway target with [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md").
-- **2-legged OAuth (OAuth 2LO)** – An open authorization framework that allows a client application to access resources on the application's behalf, rather than on behalf of the user. For more information, see [OAuth 2.0](https://oauth.net/2/ "https://oauth.net/2/"). You can use OAuth 2LO with a [built-in identity provider](identity-idps.md "identity-idps.md") or with a custom one.
+- **OAuth** – An open authorization framework that allows a client application to access resources. You can use OAuth with a [built-in identity provider](identity-idps.md "identity-idps.md") or with a custom one. For more information, see [OAuth 2.0](https://oauth.net/2/ "https://oauth.net/2/"). You can use the following types of OAuth authorization grants:
+  - **Client credentials grant** – Machine-to-machine authentication (also known as 2-legged OAuth). The client application access resources on the application's behalf, rather than on behalf of the user.
+  - **Authorization code grant** – User-delegated access (also known as 3-legged OAuth). The user provides consent for the client application to access resources on behalf of the user.
+
 - **API key** – Use the AgentCore service to generate an API key to authenticate access to the gateway target.
   The type of outbound authorization that you can set up is dependent on the gateway target type to which you authorize access:
 
-| Target type     | No authorization | Gateway service role | OAuth client | API key |
-| --------------- | ---------------- | -------------------- | ------------ | ------- |
-| Lambda function | No               | Yes                  | No           | No      |
-| MCP server      | Yes              | No                   | Yes          | No      |
-| OpenAPI schema  | No               | No                   | Yes          | Yes     |
-| Smithy schema   | No               | Yes                  | No           | No      |
+| Target type       | No authorization | Gateway service role | OAuth (client credentials) | OAuth (authorization code) | API key |
+| ----------------- | ---------------- | -------------------- | -------------------------- | -------------------------- | ------- |
+| API Gateway stage | No               | Yes                  | No                         | No                         | Yes     |
+| Lambda function   | No               | Yes                  | No                         | No                         | No      |
+| MCP server        | Yes              | No                   | Yes                        | No                         | No      |
+| OpenAPI schema    | No               | No                   | Yes                        | Yes                        | Yes     |
+| Smithy schema     | No               | Yes                  | Yes                        | Yes                        | No      |
 
 ###### Note
 

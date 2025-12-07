@@ -4,6 +4,16 @@ The `SummaryStrategy` is responsible for generating condensed, real-time
 summaries of conversations within a single session. It captures key topics, main tasks, and
 decisions, providing a high-level overview of the dialogue.
 
+###### Steps in the strategy
+
+The summary strategy includes the following steps:
+
+- **Consolidation** – Determines whether to write useful information to a new record or an existing record.
+
+###### Strategy output
+
+The summary strategy returns XML-formatted output, where each `<topic>` tag represents a distinct area of the user's memory. XML lets multiple topics to be captured and organized in a single summary while preserving clarity.
+
 A single session can have multiple summary chunks, each representing a portion of the
 conversation. Together, these chunks form the complete summary for the entire
 session.
@@ -12,7 +22,7 @@ These summary chunks can be retrieved using the [ListMemoryRecords](../APIRefere
 semantic search over the summary chunks using the [RetrieveMemoryRecords](../APIReference/API_RetrieveMemoryRecords.md "../APIReference/API_RetrieveMemoryRecords.md") operation to retrieve only the relevant summary chunks
 for your query.
 
-Examples of insights captured by this strategy include:
+###### Examples of insights captured by this strategy include:
 
 - A summary of a support interaction, such as "The user reported an issue with order
   `#XYZ-123`, and the agent initiated a replacement."
@@ -23,9 +33,9 @@ Examples of insights captured by this strategy include:
   maintaining conversational flow and for efficiently managing the context window of the
   foundation model.
 
-**Default namespace**
+###### Default namespace
 
-`/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`
+`/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}`
 
 ###### Note
 

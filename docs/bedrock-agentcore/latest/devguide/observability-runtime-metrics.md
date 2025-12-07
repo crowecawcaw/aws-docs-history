@@ -80,6 +80,18 @@ Sessions (aggregated)
 
 Shows the total number of sessions across all resources.
 
+ActiveStreamingConnections
+
+**(WebSocket only)** Shows the current number of active WebSocket connections per customer. Monitor this metric to understand concurrency levels and detect connection drops or spikes for capacity planning.
+
+InboundStreamingBytesProcessed
+
+**(WebSocket only)** Displays the total number of bytes successfully processed in WebSocket frames received from clients to agent containers. Use this metric to monitor data throughput and identify usage patterns.
+
+OutboundStreamingBytesProcessed
+
+**(WebSocket only)** Shows the total number of bytes successfully processed in WebSocket frames sent from agent containers to clients. Monitor this metric to understand agent response patterns and ensure successful data transmission.
+
 ## Resource usage
 
 metrics and logs

@@ -31,6 +31,27 @@ First, you create a memory resource with both short-term and long-term memory
 capabilities, configuring the strategies for what long-term information to
 extract.
 
+Starter toolkit CLI
+Create memory with summary and user preference strategies:
+
+```
+agentcore memory create ShoppingSupportAgentMemory \
+  --region us-west-2 \
+  --description "Memory for a customer support agent." \
+  --strategies '[{"summaryMemoryStrategy": {"name": "SessionSummarizer", "namespaces": ["/summaries/{actorId}/{sessionId}"]}}, {"userPreferenceMemoryStrategy": {"name": "PreferenceLearner", "namespaces": ["/users/{actorId}/preferences"]}}]' \
+  --wait
+```
+
+Get memory details:
+
+```
+agentcore memory get <memory-id> --region us-west-2
+```
+
+###### Note
+
+The starter toolkit CLI provides memory resource management. For event operations (creating events, listing events, etc.), use the starter toolkit Python API or AWS SDK.
+
 Starter toolkit
 
 ```

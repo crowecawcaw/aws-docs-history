@@ -14,6 +14,17 @@ it.
 
 ###### Example Create a new AgentCore Memory
 
+Starter toolkit CLI
+
+```
+agentcore memory create PersonalizedShoppingAgentMemory \
+  --region us-west-2 \
+  --strategies '[{"userPreferenceMemoryStrategy": {"name": "UserShoppingPreferences", "namespaces": ["/users/{actorId}/preferences"]}}]' \
+  --wait
+```
+
+Starter toolkit
+
 ```
 from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
 from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import UserPreferenceStrategy
@@ -46,6 +57,10 @@ strategies to an existing AgentCore Memory
 To add long-term capabilities to an existing AgentCore Memory, you use the
 `update_memory_strategies` operation. You can add, modify or delete
 strategies for an existing memory.
+
+###### Note
+
+The starter toolkit CLI currently supports creating and managing memory resources. To update memory strategies on an existing memory, use the starter toolkit Python API or AWS SDK.
 
 ###### Example Add a Session Summary strategy to an existing AgentCore Memory
 

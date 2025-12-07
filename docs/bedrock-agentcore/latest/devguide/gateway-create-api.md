@@ -2,6 +2,107 @@
 
 To create a AgentCore gateway using the API, make a [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") request with one of the [AgentCore control plane endpoints](../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp "../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp").
 
+Minimally, you must specify the following fields:
+
+- `name` – The name of the gateway.
+- `roleArn` – The ARN of the gateway service role. For more information, see [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
+- `authorizerType` – The type of authorizer to use for the gateway. Depends on the inbound authorization that you set up. For more information, see [Set up inbound authorization for your gateway](gateway-inbound-auth.md "gateway-inbound-auth.md").
+- `protocolType` – The protocol type for the gateway.
+  The following optional fields add metadata to your gateway:
+
+- `description` – A description of the gateway.
+- `tags` – A dictionary of key-value pairs specifying tags that you can use to label your gateway for monitoring purposes.
+  The remaining fields depend on your gateway configuration and whether you want to toggle custom features for your gateway:
+
+- `clientToken` – A client token value to ensure that a request completes no more than once. If you don't include this token, one is randomly generated for you. If you don't include a value, one is randomly generated for you. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").
+- `authorizerConfiguration` – If your authorizer type is `CUSTOM_JWT`, you must include this field to specify the gateway authorization and authentication parameters. For more information, see [The authorizer configuration](#gateway-create-api-authorizer-config "#gateway-create-api-authorizer-config").
+- `kmsKeyArn` – To encrypt your gateway with a KMS key include the ARN of the key in this field. For more information, see [Encrypt your AgentCore gateway with a customer-managed
+  KMS key](gateway-encryption.md "gateway-encryption.md").
+- `exceptionLevel` – To turn on debugging messages when invoking the gateway, set this value to `DEBUG`. For more information, see [Turn on debugging messages](gateway-debug-messages.md "gateway-debug-messages.md"). For examples of creating a gateway with this setting, see [Create a gateway with debugging messages](#gateway-create-ex-debug "#gateway-create-ex-debug").
+- `interceptorConfigurations` – To turn on custom code that is run when invoking your gateway, include this field. For more information, see [Using interceptors with Gateway](gateway-interceptors.md "gateway-interceptors.md"). For examples of creating a gateway with interceptors, see [Create a gateway with interceptor configurations](#gateway-create-ex-basic-interceptors "#gateway-create-ex-basic-interceptors").
+- `protocolConfiguration` – To include customizations for the gateway protocol, configure the settings in this field. For options in this configuration, see [GatewayProtocolConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_GatewayProtocolConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_GatewayProtocolConfiguration.md").
+  - One example option is the addition of a tool search tool in your gateway. For more information, see [Search for tools in your AgentCore gateway with a natural language query](gateway-using-mcp-semantic-search.md "gateway-using-mcp-semantic-search.md"). For examples of creating a gateway with this search tool, see [Create a gateway with semantic search](#gateway-create-ex-semantic "#gateway-create-ex-semantic").
+
+## The authorizer configuration
+
+If your authorizer type is `CUSTOM_JWT`, you must also include an authorizer configuration in the `authorizerConfiguration` field. The basic structure of the authorizer configuration is as follows:
+
+```
+{
+  "customJWTAuthorizer": {
+    "discoveryUrl": "`string`",
+    "allowedAudience": ["`string`"],
+    "allowedClients": ["`string`"],
+    "allowedScopes": ["`string`"],
+    "customClaims:" see below
+  }
+}
+```
+
+You must provide the discovery URL for the authentication token. The remaining fields define restrictions for the authentication claims:
+
+- `allowedAudience` – The audiences or services that can handle the JWT.
+- `allowedClients` – The clients that are allowed to create a JWT.
+- `allowedScopes` – The scopes of that limit the set of claims.
+- `customClaims` – An array of objects that allows you to define custom fields and values that limit the claims to be authenticated. Each object is a `CustomClaimValidationsType` object contains the following fields:
+  - `inboundTokenClaimName` – The name of the custom claim field to check.
+  - `inboundTokenClaimValueType` – The data type of the claim value to check for.
+  - `authorizingClaimMatchValue` – Defines the value to match the claim value to. Contains the following fields:
+    - `claimMatchOperator` – Defines the relationship to look for between the match value and claim value.
+    - `claimMatchValue` – An object that contains only one of the following fields:
+      - matchValueString – Used in the following situations:
+        - If the `inboundTokenClaimValueType` is `STRING` and the `claimMatchOperator` is `EQUALS`, specify a string that you want the claim value to match with for authentication.
+        - If the `inboundTokenClaimValueType` is `STRING_ARRAY` and the `claimMatchOperator` is `CONTAINS`, specify a string that you want the claim value array to contain for authentication.
+
+      - `matchValueArray` – If the `inboundTokenClaimValueType` is `STRING_ARRAY` and the `claimMatchOperator` is `CONTAINS_ANY`, specify an array of values that you want to check for authentication. If any of the values in the claim value array matches any of the values in the `matchValueArray`, the claim can be authenticated.
+
+The following examples show the structure of the CustomClaimValidationsType objects that you can specify:
+
+String matches string
+
+```
+{
+  "inboundTokenClaimName": "`string`",
+  "inboundTokenClaimValueType": "STRING",
+  "authorizingClaimMatchValue": {
+    "claimMatchValue": {
+      "matchValueString": "`string`"
+    },
+    "claimMatchOperator": "EQUALS"
+  }
+}
+```
+
+Array contains string
+
+```
+{
+  "inboundTokenClaimName": "`string`",
+  "inboundTokenClaimValueType": "STRING_ARRAY",
+  "authorizingClaimMatchValue": {
+    "claimMatchValue": {
+      "matchValueString": "`string`"
+    },
+    "claimMatchOperator": "CONTAINS"
+  }
+}
+```
+
+Array contains any value in array
+
+```
+{
+  "inboundTokenClaimName": "`string`",
+  "inboundTokenClaimValueType": "STRING_ARRAY",
+  "authorizingClaimMatchValue": {
+    "claimMatchValue": {
+      "matchValueStringList": ["`string`"]
+    },
+    "claimMatchOperator": "CONTAINS_ANY"
+  }
+}
+```
+
 To see examples of how to create a gateway, expand the section that corresponds to your use case:
 
 ###### Topics
@@ -14,6 +115,7 @@ To see examples of how to create a gateway, expand the section that corresponds 
 - [Create a gateway with semantic search](#gateway-create-ex-semantic "#gateway-create-ex-semantic")
 - [Create a gateway with debugging messages](#gateway-create-ex-debug "#gateway-create-ex-debug")
 - [Create a gateway with interceptor configurations](#gateway-create-ex-basic-interceptors "#gateway-create-ex-basic-interceptors")
+- [Create a gateway with a policy engine configuration](#gateway-create-ex-policy-engine "#gateway-create-ex-policy-engine")
 
 ## Create a gateway: basic example (Custom JWT
 
@@ -598,3 +700,32 @@ gateway = client.create_gateway(
 
 print(f"MCP Endpoint: {gateway['gatewayUrl']}")
 ```
+
+## Create a gateway with a policy engine configuration
+
+You can create a gateway with a policy engine configuration. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. The enforcement `mode` specifies whether to test policies (`LOG_ONLY`) or enforce them (`ENFORCE`).
+
+AWS CLI
+Run the following code in a terminal to create a gateway with a policy engine configuration using the AWS CLI:
+
+```
+aws bedrock-agentcore-control create-gateway \
+  --name my-gateway \
+  --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
+  --protocol-type MCP \
+  --authorizer-type CUSTOM_JWT \
+  --authorizer-configuration '{
+    "customJWTAuthorizer": {
+      "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/pool-id/.well-known/openid-configuration",
+      "allowedClients": ["clientId"]
+    }
+  }' \
+  --policy-engine-configuration '{
+    "arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:policy-engine/policy-id",
+    "mode": "LOG_ONLY"
+  }' \
+  --exception-level DEBUG
+```
+
+The `gatewayUrl` in the response is the endpoint to use when you invoke the
+gateway.

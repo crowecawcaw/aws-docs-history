@@ -1,7 +1,9 @@
 # IAM Permissions for AgentCore Runtime
 
 The following are IAM permissions you need to create an agent in an AgentCore Runtime and the
-execution role permissions that an agent needs to run in an AgentCore Runtime
+execution role permissions that an agent needs to run in an AgentCore Runtime. You can also use resource-based policies to control access to your runtime resources.
+
+For information about using resource-based policies to control access to your AgentCore Runtime resources, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
 
 ###### Topics
 

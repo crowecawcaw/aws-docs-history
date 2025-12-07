@@ -1,39 +1,26 @@
 # Built-in strategies
 
-AgentCore Memory lets you add the following built-in memory strategies:
+AgentCore Memory provides built-in strategies to create memories. Each built-in strategy consists of steps to handle memory creation, including the following (different strategies employ different steps):
 
-- Semantic memory strategy
-- User preference memory strategy
-- Summary strategy
+- **Extraction** – Identifies useful insights from short-term memory to place into long-term memory as memory records.
+- **Consolidation** – Determines whether to write useful information to a new record or an existing record.
+- **Reflection** – Insights are generated across episodes.
+  Each step is defined by a system prompt, which is a combination of the following:
 
-###### Note
+- **Instructions** – Guide the LLM's behavior. Can
+  include step-by-step processing guidelines (how the model should
+  reason and extract or consolidate information).
+- **Output schema** – How the model should present the result.
+  Each memory strategy provides a structured output format tailored to its purpose. The
+  output is not uniform across strategies, because the type of information being stored
+  and retrieved differs. This maintains that each memory type exposes only the fields most relevant to its
+  strategy. You can find the output formats in the system prompts for each strategy.
 
-For semantic and user preference memory strategy, only [USER and
-ASSISTANT role messages](../APIReference/API_Conversational.md "../APIReference/API_Conversational.md") are processed for long term memory extraction
-and messages with rest of the role types are skipped. For summary strategy all roles
-are processed.
-
-Each memory strategy provides a structured output format tailored to its purpose. The
-output is not uniform across strategies, because the type of information being stored
-and retrieved differs:
-
-- **Semantic memory strategy** returns facts as
-  JSON objects, each representing a standalone personal fact about the
-  user.
-- **User preference memory strategy** returns JSON
-  objects with context, preference, and categories, making it easier to capture
-  user choices and decision patterns.
-- **Summary strategy** returns XML-formatted
-  output, where each `<topic>` tag represents a distinct area of
-  the user's memory. XML lets multiple topics to be captured and organized in a
-  single summary while preserving clarity.
-  This maintains that each memory type exposes only the fields most relevant to its
-  strategy. You can find the output format for semantic and user preference strategy in
-  the extraction output schema and for summary strategy in the consolidation output
-  schema.
+You can combine multiple strategies when creating memories.
 
 ###### Topics
 
 - [Semantic memory strategy](semantic-memory-strategy.md "semantic-memory-strategy.md")
 - [User preference memory strategy](user-preference-memory-strategy.md "user-preference-memory-strategy.md")
 - [Summary strategy](summary-strategy.md "summary-strategy.md")
+- [Episodic memory strategy](episodic-memory-strategy.md "episodic-memory-strategy.md")

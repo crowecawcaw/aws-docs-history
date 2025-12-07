@@ -48,7 +48,7 @@ Okta by default does not include `client_id` as a standard claim in their tokens
 
 1. In the left navigation bar, choose **Security**. Go to **API** and choose the authorization server that you intend to use for your application.
 2. In the details page for the authorization server, choose the **Claims** tab and choose **Add Claim**.
-3. Name the new claim **client_id** and set the value to **app.clientid**.
+3. Name the new claim **client_id** and set the value to **app.clientId**.
 4. Set **Include in token type** to **Access Token**.
 5. Choose **Save**.
 

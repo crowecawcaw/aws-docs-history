@@ -28,9 +28,8 @@ The AgentCore Code Interpreter supports the following network modes:
 
 Sandbox mode
 
-Provides complete isolation with no external network access. This is the most
-secure option but limits the tool's ability to access external resources. S3 access
-is available in Sandbox mode.
+Provides limited external network access. In Sandbox mode, the code interpreter
+can access Amazon S3 for data operations and perform DNS resolution.
 
 Public network mode
 

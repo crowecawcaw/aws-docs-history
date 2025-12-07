@@ -27,5 +27,6 @@ custom span metrics, error breakdowns, and more. To learn more about viewing you
 - [Add observability to your Amazon Bedrock AgentCore
   resources](observability-configure.md "observability-configure.md")
 - [Understand observability for agentic resources in AgentCore](observability-telemetry.md "observability-telemetry.md")
-- [Amazon Bedrock AgentCore generated observability data](observability-service-provided.md "observability-service-provided.md")
+- [Amazon Bedrock AgentCore generated observability
+  data](observability-service-provided.md "observability-service-provided.md")
 - [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md")

@@ -18,6 +18,7 @@ Gateway](gateway.md "gateway.md").
 - [Using the AgentCore Identity console](identity-how-to.md "identity-how-to.md")
 - [Manage workload identities with
   AgentCore Identity](identity-manage-agent-ids.md "identity-manage-agent-ids.md")
+- [Configure inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md")
 - [Manage credential providers with
   AgentCore Identity](identity-outbound-credential-provider.md "identity-outbound-credential-provider.md")
 - [Provider setup and configuration](identity-idps.md "identity-idps.md")

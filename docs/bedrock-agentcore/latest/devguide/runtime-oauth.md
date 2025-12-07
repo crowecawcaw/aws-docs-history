@@ -55,7 +55,7 @@ users and their corresponding `user-id` values.
 You can configure your agent runtime to accept JWT bearer tokens by providing
 authorizer configuration during agent creation.
 
-This configuration requires:
+This configuration includes:
 
 - Discovery URL - A string that must match the pattern
   `^.+/\.well-known/openid-configuration$` for OpenID
@@ -64,6 +64,12 @@ This configuration requires:
   validated against the aud claim in the JWT token
 - Allowed clients - A list of permitted client identifiers that will be
   validated against the client_id claim in the JWT token
+- Allowed scopes - A list of permitted scopes that will be validated
+  against the scope claim in the JWT token. The `allowedScopes`
+  authorization field will be configured as a list of strings.
+- Required custom claims - A list of required claims that will be
+  validated against the claim name and value contained in the incoming JWT
+  token. For details on configuring the authorizer, see [Configure inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md")
 
 ###### Note
 
@@ -82,6 +88,7 @@ automatically for your runtime with AgentCore Identity service.
 - [Step 2: Set up AWS Cognito user pool and add a user](#setup-cognito "#setup-cognito")
 - [Step 3: Deploy your agent](#deploy-agent "#deploy-agent")
 - [Step 4: Use bearer token to invoke your agent](#invoke-agent "#invoke-agent")
+- [OAuth Error Responses](#oauth-error-responses "#oauth-error-responses")
 - [Step 5: Set up your agent to access tools using OAuth](#oauth-outbound-access "#oauth-outbound-access")
 - [Step 6: (Optional) Propagate a JWT token to AgentCore Runtime](#oauth-propagate-jwt-token "#oauth-propagate-jwt-token")
 - [Troubleshooting](#troubleshooting "#troubleshooting")
@@ -500,6 +507,25 @@ REplace `ADD_TOKEN_HERE` with your bearer token.
 agentcore invoke '{"prompt": "Hello what is 1+1?"}' --bearer-token `ADD_TOKEN_HERE`
 ```
 
+## OAuth Error Responses
+
+OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235")), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
+
+### 401 Unauthorized - Missing Authentication
+
+When no Bearer token is provided in the Authorization header, the response is:
+
+```
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Bearer resource_metadata="https://bedrock-agentcore.{region}.amazonaws.com/runtimes/{ESCAPED_ARN}/invocations/.well-known/oauth-protected-resource?qualifier={QUALIFIER}"
+```
+
+The `resource_metadata` URL in the WWW-Authenticate header points to the Protected Resource Metadata (PRM) API. The PRM API enables clients to discover which authorization servers protect this agent and their OAuth endpoint URLs.
+
+###### Note
+
+You must pre-register your OAuth client in Cognito (via AWS Console or CLI) to obtain a `client_id` before using the discovered endpoints. Amazon Cognito does not support Dynamic Client Registration (RFC 7591).
+
 ## Step 5: Set up your agent to access tools using OAuth
 
 In this section, you'll learn how to connect your agent code with AgentCore Credential
@@ -561,7 +587,7 @@ from bedrock_agentcore.identity.auth import requires_access_token, requires_api_
     provider_name="google-provider",
     scopes=["https://www.googleapis.com/auth/drive.metadata.readonly"], # Google OAuth2 scopes
     auth_flow="USER_FEDERATION", # 3LO flow
-    on_auth_url=lambda x: print("Copy and paste this authorization url to your browser", x), # prints authorization URL to console
+    on_auth_url=lambda x: print("Copy and paste this authorization url to your browser: ", x), # prints authorization URL to console
     force_authentication=True,
     callback_url='insert_oauth2_callback_url_for_session_binding'
 )
@@ -572,6 +598,10 @@ async def read_from_google_drive(*, access_token: str):
 
 asyncio.run(read_from_google_drive(access_token=""))
 ```
+
+###### Note
+
+For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md"), refer to [https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py")
 
 ###### What happens behind the scenes
 

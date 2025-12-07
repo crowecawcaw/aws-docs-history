@@ -316,7 +316,8 @@ but you can output your own logs from your code. If you supply your own log outp
 need to manually configure log destinations to store this data.
 
 To see what observability data AgentCore provides by default for each resource type,
-see [Amazon Bedrock AgentCore generated observability data](observability-service-provided.md "observability-service-provided.md").
+see [Amazon Bedrock AgentCore generated observability
+data](observability-service-provided.md "observability-service-provided.md").
 
 ### Configure log
 

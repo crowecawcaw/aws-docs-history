@@ -36,7 +36,7 @@ The following primitive uses a separate endpoint:
 AWS PrivateLink is currently not supported for AgentCore control plane endpoints.
 
 For a list of AWS Regions in which AgentCore interface endpoints are available, see
-[AWS Regions](agentcore-regions.md "agentcore-regions.md").
+[Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
 
 ###### Authorization considerations for data plane APIs
 

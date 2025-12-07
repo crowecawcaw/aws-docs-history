@@ -56,5 +56,5 @@ simultaneously, providing flexibility to address diverse memory requirements.
 ###### Topics
 
 - [Built-in strategies](built-in-strategies.md "built-in-strategies.md")
-- [Built-in with overrides strategy](memory-custom-strategy.md "memory-custom-strategy.md")
+- [Customize a built-in strategy or create your own strategy](memory-custom-strategy.md "memory-custom-strategy.md")
 - [Self-managed strategy](memory-self-managed-strategies.md "memory-self-managed-strategies.md")

@@ -6,7 +6,7 @@ available to use with AgentCore.
 | IAM feature                                                                                                                                              | AgentCore support |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | Yes               |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | No                |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | Partial           |
 | [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                    | Yes               |
 | [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")              | Yes               |
 | [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes               |
@@ -53,7 +53,7 @@ policies within AgentCore
 
 **Supports resource-based policies:**
 
-No
+Partial
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are
 IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service
@@ -64,6 +64,14 @@ can include accounts, users, roles, federated users, or AWS services.
 To enable cross-account access, you can specify an entire account or IAM entities
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
+
+Amazon Bedrock AgentCore supports resource-based policies for Agent Runtime and Gateway resources. These policies are attached directly to your resources and define which principals can perform actions on them.
+
+To learn how to create and manage resource-based policies for Amazon Bedrock AgentCore resources, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
+
+### Resource-based policy examples within AgentCore
+
+To view examples of AgentCore resource-based policies, see [Common use cases and examples](resource-based-policies.md#resource-based-policies-examples "resource-based-policies.md#resource-based-policies-examples").
 
 ## Policy actions
 

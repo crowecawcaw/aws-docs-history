@@ -2,13 +2,14 @@
 
 strategies
 
-AgentCore Memory provides three pre-configured, [built-in memory strategies](built-in-strategies.md "built-in-strategies.md") for common use cases.
+AgentCore Memory provides pre-configured, [built-in memory strategies](built-in-strategies.md "built-in-strategies.md") for common use cases.
 
 ###### Topics
 
 - [User preferences](#long-term-user-preferences-strategy "#long-term-user-preferences-strategy")
 - [Semantic](#long-term-semantic-facts-strategy "#long-term-semantic-facts-strategy")
 - [Session summaries](#long-term-session-summaries-strategy "#long-term-session-summaries-strategy")
+- [Episodic](#long-term-session-episodic-strategy "#long-term-session-episodic-strategy")
 
 ## User preferences
 
@@ -41,7 +42,6 @@ memory = memory_manager.get_or_create_memory(
         )
     ]
 )
-
 ```
 
 ## Semantic
@@ -76,7 +76,6 @@ memory = memory_manager.get_or_create_memory(
         )
     ]
 )
-
 ```
 
 ## Session summaries
@@ -112,4 +111,35 @@ memory = memory_manager.get_or_create_memory(
     ]
 )
 
+```
+
+## Episodic
+
+The [episodic](episodic-memory-strategy.md "episodic-memory-strategy.md")
+(`EpisodicStrategy`) memory strategy captures interactions as structured episodes consisting of scenarios, intents, thoughts, actions taken, outcomes, and artifacts. With this strategy, reflections are also made across episodes to extract broader insights, letting an agent learn and apply successful patterns from prior interactions to new interactions.
+
+- **Example use case:** A customer support agent logs interactions as episodes. The system captures which phrases and actions lead to successful interactions
+
+###### Configuration example:
+
+```
+from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
+from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import SummaryStrategy
+
+# Create memory manager
+memory_manager = MemoryManager(region_name="us-west-2")
+
+# Create memory resource with summary strategy
+memory_manager.get_or_create_memory(
+    name="MyMemory",
+    strategies=[
+        EpisodicStrategy(
+            name="EpisodicStrategy",
+            namespaces=["strategy/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
+            reflection={
+                "namespaces": ["strategy/{memoryStrategyId}/actors/{actorId}/"]
+            }
+        )
+    ]
+)
 ```

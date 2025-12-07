@@ -28,7 +28,7 @@ Before you start, ensure you have:
   with the Strands Agents see the _Model Providers_ section in the
   [Strands Agents SDK
   documentation](https://strandsagents.com/latest/documentation/docs/ "https://strandsagents.com/latest/documentation/docs/").
-- AWS Region where Amazon Bedrock AgentCore is available. See [AWS Regions](agentcore-regions.md "agentcore-regions.md").
+- AWS Region where Amazon Bedrock AgentCore is available. See [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
 - Your network allows secure WebSocket connections
 
 ### Configuring your credentials

@@ -24,14 +24,14 @@ protocols:
 Compare the A2A, HTTP, and MCP protocols to understand the differences and use
 cases.
 
-| Protocol Comparison | Feature          | HTTP Protocol    | MCP Protocol                 | A2A Protocol |
-| ------------------- | ---------------- | ---------------- | ---------------------------- | ------------ |
-| **Port**            | 8080             | 8000             | 9000                         |
-| **Mount Path**      | /invocations     | /mcp             | / (root)                     |
-| **Message Format**  | REST JSON/SSE    | JSON-RPC         | JSON-RPC 2.0                 |
-| **Discovery**       | N/A              | Tool listing     | Agent Cards                  |
-| **Authentication**  | SigV4, OAuth 2.0 | SigV4, OAuth 2.0 | SigV4, OAuth 2.0             |
-| **Use Case**        | Direct API calls | Tool servers     | Agent-to-agent communication |
+| Protocol Comparison | Feature                                                                | HTTP Protocol    | MCP Protocol                 | A2A Protocol |
+| ------------------- | ---------------------------------------------------------------------- | ---------------- | ---------------------------- | ------------ |
+| **Port**            | 8080                                                                   | 8000             | 9000                         |
+| **Mount Path**      | /invocations (HTTP), /ws (WebSocket)                                   | /mcp             | / (root)                     |
+| **Message Format**  | REST JSON/SSE, WebSocket (text/binary)                                 | JSON-RPC         | JSON-RPC 2.0                 |
+| **Discovery**       | N/A                                                                    | Tool listing     | Agent Cards                  |
+| **Authentication**  | SigV4, OAuth 2.0; WebSocket supports SigV4 by headers and query params | SigV4, OAuth 2.0 | SigV4, OAuth 2.0             |
+| **Use Case**        | Direct API calls, real-time streaming                                  | Tool servers     | Agent-to-agent communication |
 
 ###### Topics
 

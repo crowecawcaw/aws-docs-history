@@ -25,6 +25,41 @@ more information, see [Use long-term memory](long-term-memory-long-term.md "long
 help identify the purpose of each AgentCore Memory, especially if your application uses
 multiple stores.
 
+Starter toolkit CLI
+**Create** a basic memory (short-term only):
+
+```
+agentcore memory create my_agent_memory --region us-west-2
+```
+
+**Create** memory with long-term strategies:
+
+```
+agentcore memory create ShoppingSupportAgentMemory \
+  --region us-west-2 \
+  --description "Memory for a customer support agent." \
+  --strategies '[{"summaryMemoryStrategy": {"name": "SessionSummarizer", "namespaces": ["/summaries/{actorId}/{sessionId}"]}}, {"userPreferenceMemoryStrategy": {"name": "PreferenceLearner", "namespaces": ["/users/{actorId}/preferences"]}}]' \
+  --wait
+```
+
+**List** all memories:
+
+```
+agentcore memory list --region us-west-2
+```
+
+**Get** memory details:
+
+```
+agentcore memory get <memory-id> --region us-west-2
+```
+
+**Check** memory status:
+
+```
+agentcore memory status <memory-id> --region us-west-2
+```
+
 Starter toolkit
 for the full example, see [Get started with AgentCore Memory](memory-get-started.md "memory-get-started.md").
 
@@ -165,7 +200,7 @@ Console
    strategies** choose one or more [memory strategies](memory-strategies.md "memory-strategies.md"). For more
    information:
    - [Built-in strategies](built-in-strategies.md "built-in-strategies.md")
-   - [Built-in with overrides strategy](memory-custom-strategy.md "memory-custom-strategy.md")
+   - [Customize a built-in strategy or create your own strategy](memory-custom-strategy.md "memory-custom-strategy.md")
    - [Self-managed strategy](memory-self-managed-strategies.md "memory-self-managed-strategies.md")
 
 8. Choose **Create memory** to create the

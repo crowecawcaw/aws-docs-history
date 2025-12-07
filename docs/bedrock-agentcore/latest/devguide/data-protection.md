@@ -41,4 +41,5 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 - [Data encryption](data-encryption.md "data-encryption.md")
 - [Protecting your data using VPC and AWS PrivateLink](vpc.md "vpc.md")
-- [Cross-region inference in Amazon Bedrock AgentCore Memory](cross-region-inference.md "cross-region-inference.md")
+- [Cross-region inference in Amazon Bedrock AgentCore Memory,
+  Amazon Bedrock AgentCore Policy, and AgentCore Evaluations](cross-region-inference.md "cross-region-inference.md")

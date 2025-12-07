@@ -2,7 +2,7 @@
 
 with overrides strategies
 
-When configuring [built-in with overrides](memory-custom-strategy.md "memory-custom-strategy.md") strategies with [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") or [UpdateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md"), you must provide an IAM exeecution role
+When configuring [built-in with overrides](memory-custom-strategy.md "memory-custom-strategy.md") strategies with [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") or [UpdateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md"), you must provide an IAM execution role
 (`memoryExecutionRoleArn`). The AgentCore Memory service assumes this role
 to perform Amazon Bedrock operations (such as LLM calls for memory extraction and/or
 consolidation) within your AWS account.

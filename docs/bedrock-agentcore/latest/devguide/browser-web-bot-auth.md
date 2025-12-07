@@ -113,9 +113,36 @@ Console
 
 ###### Important
 
-Web Bot Auth requires an execution role with appropriate permissions. The
-feature is disabled by default and must be explicitly enabled during browser
-creation.
+Web Bot Auth requires an execution role with a trust policy, but does not require any
+managed or inline policies. The feature is disabled by default and must be explicitly enabled during
+browser creation.
+
+You should add the following trust policy to the execution role:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [{
+ "Sid": "BedrockAgentCoreBuiltInTools",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "bedrock-agentcore.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`111122223333`"
+ },
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:bedrock-agentcore:`us-east-1`:`111122223333`:*"
+ }
+ }
+ }]
+}`
+
+```
 
 ## Supported Bot Control
 

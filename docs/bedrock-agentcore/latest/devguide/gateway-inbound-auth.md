@@ -102,12 +102,14 @@ The `cognito_result` contains authentication and authorization information:
 
 Amazon Bedrock AgentCore supports JWTs from all identity providers. You can see some examples at [Provider setup and configuration](identity-idps.md "identity-idps.md").
 
-In the process of creating the JWT, you should record the following values that will be created:
+In the process of creating the JWT, take note of the following values, which you'll fill out in the [CustomJWTAuthorizerConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_CustomJWTAuthorizerConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_CustomJWTAuthorizerConfiguration.md") when you create a gateway, if they're applicable to your use case:
 
 - **Discovery URL** – The URL from which login credentials and the token endpoint can be retrieved.
 - **Client ID** – The public identifier of a client application that requests a token, validated against the `client_id` claim.
 - **Client secret** – The private key that authenticates access for the client application to retrieve a token.
 - **Allowed audience** – The identifier that validates the intended recipients or consumers of a token via the `aud` claim.
+- **Allowed scopes** – The scopes that define the limitations of an application's access to a user's account. For more information, see [OAuth Scopes](https://oauth.net/2/scope/ "https://oauth.net/2/scope/").
+- **Other required claim values** – Depending on the authorizer you use, you might need to specify required custom claim fields and rules to match the claim field value to for authentication.
 
 You'll need these values to do the following:
 

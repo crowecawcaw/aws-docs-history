@@ -2,7 +2,11 @@
 
 Understand the requirements for implementing the HTTP protocol in your agent
 application. Use the HTTP protocol to create direct REST API endpoints for traditional
-request/response patterns.
+request/response patterns and WebSocket endpoints for real-time bidirectional streaming connections.
+
+###### Note
+
+Both HTTP (`/invocations`) and WebSocket (`/ws`) endpoints can be deployed on the same container using port 8080, allowing a single agent implementation to support both traditional API interactions and real-time bidirectional streaming.
 
 For example code, see [Get started with the Amazon Bedrock AgentCore starter
 toolkit](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
@@ -11,6 +15,7 @@ toolkit](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
 
 - [Container requirements](#container-requirements-http "#container-requirements-http")
 - [Path requirements](#path-requirements-http "#path-requirements-http")
+- [OAuth Authentication Responses](#http-oauth-authentication-responses "#http-oauth-authentication-responses")
 
 ## Container requirements
 
@@ -115,6 +120,145 @@ data: {"event": "partial response 2"}
 data: {"event": "final response"}
 ```
 
+### /ws - WebSocket (Optional)
+
+This is the primary WebSocket connection endpoint for real-time bidirectional
+communication.
+
+###### Purpose
+
+Accepts WebSocket upgrade requests and maintains persistent connections for
+streaming agent interactions
+
+###### Use cases
+
+The `/ws` endpoint serves several key purposes:
+
+- Real-time conversational interfaces
+- Interactive agent sessions with immediate feedback
+- Streaming data processing with bidirectional communication
+
+###### Connection establishment
+
+WebSocket connections begin with an HTTP upgrade request:
+
+###### Example HTTP Upgrade Request
+
+```
+GET /ws HTTP/1.1
+Host: agent-endpoint
+Connection: Upgrade
+Upgrade: websocket
+Sec-WebSocket-Version: 13
+Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
+X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: session-uuid
+```
+
+###### Example WebSocket Upgrade Response
+
+```
+HTTP/1.1 101 Switching Protocols
+Connection: Upgrade
+Upgrade: websocket
+Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
+```
+
+###### Message handling requirements
+
+Your WebSocket endpoint must handle:
+
+- **Connection acceptance**: Call
+  `await websocket.accept()` to establish the connection
+- **Message reception**: Support text or binary
+  message types based on your application requirement
+- **Message processing**: Handle incoming messages
+  according to your agent's business logic
+- **Response sending**: Send appropriate responses
+  using `send_text()` or `send_bytes()`
+- **Connection lifecycle**: Manage connection
+  establishment, maintenance, and termination
+
+#### Message formats
+
+##### Text Messages
+
+##### JSON Format (Recommended)
+
+###### Purpose
+
+Structured data exchange for agent interactions
+
+###### Example message
+
+```
+{
+  "prompt": "Hello, can you help me with this question?",
+  "session_id": "session-uuid",
+  "message_type": "user_message"
+}
+```
+
+###### Example response
+
+```
+{
+  "response": "I'd be happy to help you with your question!",
+  "session_id": "session-uuid",
+  "message_type": "agent_response"
+}
+```
+
+##### Plain Text Format
+
+###### Purpose
+
+Simple text-based communication
+
+###### Example
+
+```
+Hello, can you help me with this question?
+```
+
+##### Binary Messages
+
+###### Purpose
+
+Support for non-text data such as images, audio, or other binary formats
+
+###### Use cases
+
+Binary messages support several scenarios:
+
+- Multi-modal agent interactions
+- File uploads and downloads
+- Compressed data transmission
+- Binary protocol data
+
+###### Handling requirements
+
+Binary message handling requires:
+
+- Use `receive_bytes()` and `send_bytes()` methods
+- Implement appropriate binary data processing
+- Consider message size limitations
+
+#### Connection lifecycle
+
+##### Connection Establishment
+
+1. **HTTP Handshake**: Client sends WebSocket upgrade request
+2. **Upgrade Response**: Agent accepts and returns 101 Switching Protocols
+3. **WebSocket Active**: Bidirectional communication begins
+4. **Session Binding**: Associate connection with session identifier
+
+##### Message Exchange
+
+1. **Continuous Loop**: Implement message listening loop
+2. **Message Processing**: Handle incoming messages asynchronously
+3. **Response Generation**: Send appropriate responses
+4. **Error Handling**: Manage exceptions and connection issues
+
 ### /ping - GET
 
 ###### Purpose
@@ -162,3 +306,21 @@ busy with async tasks
 
 Used to determine how long the system has been in its current
 state
+
+## OAuth Authentication Responses
+
+OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235")), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
+
+### 401 Unauthorized
+
+Returned when Authorization header is missing.
+
+Includes WWW-Authenticate header:
+
+```
+WWW-Authenticate: Bearer resource_metadata="https://bedrock-agentcore.{region}.amazonaws.com/runtimes/{ESCAPED_ARN}/invocations/.well-known/oauth-protected-resource?qualifier={QUALIFIER}"
+```
+
+###### Note
+
+SigV4-configured agents return 403 for missing authentication and do NOT include WWW-Authenticate headers.

@@ -7,6 +7,7 @@ The following topics explain the target types that are supported for AgentCore G
 ###### Topics
 
 - [AWS Lambda function targets](gateway-add-target-lambda.md "gateway-add-target-lambda.md")
+- [Amazon API Gateway REST API stages as targets](gateway-target-api-gateway.md "gateway-target-api-gateway.md")
 - [OpenAPI schema targets](gateway-schema-openapi.md "gateway-schema-openapi.md")
 - [Smithy model targets](gateway-building-smithy-targets.md "gateway-building-smithy-targets.md")
 - [MCP servers targets](gateway-target-MCPservers.md "gateway-target-MCPservers.md")

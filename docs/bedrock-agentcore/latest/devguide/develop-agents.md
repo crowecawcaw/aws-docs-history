@@ -33,12 +33,15 @@ abstractions for:
   infrastructure
 - _Import Agent_: Migrate existing Bedrock Agents to
   AgentCore with framework conversion
-- _Gateway Integration_: Transform existing APIs into agent
-  tools
+- _Gateway Integration_: Create and manage gateways for agent
+  tools using the CLI
+- _Memory Management_: Create and manage memory for
+  agents
 - _Configuration Management_: Manage environment and
   deployment settings
 - _Observability_: Monitor agents in production
   environments
+- _AgentCore Evaluations_: Assess agent performance and quality
 
 The getting started instructions in this guide use the AgentCore starter
 toolkit.
@@ -57,6 +60,7 @@ development with built-in support for:
   browser automation
 - _Identity_: Secure authentication and access
   management
+- _AgentCore Evaluations_: Automated assessment tools for measuring agent performance
 
 The AgentCore Python SDK supports multiple frameworks, such as Strands Agents and
 LangGraph. If you are using other AWS services, you'll need to use

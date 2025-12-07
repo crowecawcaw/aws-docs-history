@@ -14,8 +14,8 @@ Console
    **Description**.
 5. Under **Network settings**, choose one of the following
    options:
-   - **Sandbox** - Isolated environment with no external
-     network access (most secure)
+   - **Sandbox** - Environment with limited external
+     network access
    - **Public network** - Allows access to public internet
      resources
 

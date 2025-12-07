@@ -10,18 +10,8 @@ To create a gateway, you set up inbound authorization and configure invocable ta
 You can create a gateway in the following ways:
 
 - **AWS Management Console** – With the console, you can configure authorization, create the gateway, and add targets all on one page.
+- **Amazon Bedrock AgentCore starter toolkit CLI** – Use the CLI commands to create gateways and targets with simplified commands that handle common configurations automatically.
 - **Amazon Bedrock AgentCore API** – You can directly invoke the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API or through the help of a supported tool. If you use the API, you will add targets to your gateway in a separate step.
-  When creating a gateway, you provide the following required fields:
-
-- A name for the gateway.
-- The Amazon Resource Name (ARN) of an [AgentCore service role](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions") with permissions to create and make requests to the gateway on your behalf.
-- The type of authorizer to use for [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md") to the gateway.
-- (If you use JWT authentication) An authorizer configuration that specifies how incoming requests to the gateway should be authenticated.
-- The protocol type for the gateway.
-  You can optionally provide the following fields:
-
-- A description of the gateway.
-- A client token value to ensure that a request completes no more than once. If you don't include this token, one is randomly generated for you. If you don't include a value, one is randomly generated for you. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").
 
 ###### Note
 
@@ -44,9 +34,12 @@ Note the following for semantic search:
     + You can only enable semantic search when creating a gateway. After you've created a gateway, you can't change its configuration to enable semantic search.
     + For an identity to create a gateway with semantic search, ensure that it has permissions to use the `bedrock-agentcore:SynchronizeGatewayTargets` IAM action.
 
-Select a topic to learn how to create a gateway using that method:
+- **Policy engine configuration** – Attach a policy engine to control what actions agents can perform when calling tools through the gateway. Policy engines use Cedar policies to define authorization rules with enforcement modes for logging only or actively enforcing access decisions.
+- **Gateway interceptors** – Allow you to run custom code during each invocation of your gateway. For more information, see [Using interceptors with Gateway](gateway-interceptors.md "gateway-interceptors.md").
+  Select a topic to learn how to create a gateway using that method:
 
 ###### Topics
 
 - [Create an AgentCore gateway using the AWS Management Console](gateway-create-console.md "gateway-create-console.md")
+- [Create an AgentCore gateway using the CLI](gateway-create-cli.md "gateway-create-cli.md")
 - [Create an AgentCore gateway using the API](gateway-create-api.md "gateway-create-api.md")

@@ -28,6 +28,13 @@ due to their unique operational characteristics:
   delivering the predictable security properties required for enterprise
   deployments.
 
+###### Note
+
+AgentCore does not enforce session-to-user mappings - your client backend should
+maintain the relationship between users and their session IDs.
+Additionally, your client backend should implement logic for user to session
+lifecycle management like maximum number of sessions per user.
+
 ## Understanding ephemeral context
 
 While AgentCore provides strong session isolation, these sessions are

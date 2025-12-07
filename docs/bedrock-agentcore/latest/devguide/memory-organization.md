@@ -52,7 +52,7 @@ For example, if you define the following namespace as the input to your strategy
 creating an AgentCore Memory:
 
 ```
-/strategy/{strategyId}/actor/{actorId}/session/{sessionId}
+/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}
 ```
 
 After memory creation, this namespace might look like:
@@ -65,15 +65,15 @@ A namespace can have different levels of granularity:
 
 ###### Most granular Level of organization
 
-`/strategy/{strategyId}/actor/{actorId}/session/{sessionId}`
+`/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}`
 
 ###### Granular at the actor Level across sessions
 
-`/strategy/{strategyId}/actor/{actorId}`
+`/strategy/{memoryStrategyId}/actor/{actorId}`
 
 ###### Granular at the strategy Level across actors
 
-`/strategy/{strategyId}`
+`/strategy/{memoryStrategyId}`
 
 ###### Global across all strategies
 

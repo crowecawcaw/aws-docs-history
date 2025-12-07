@@ -1,6 +1,4 @@
-# Configure built-in with
-
-overrides strategies
+# Configure a custom strategy
 
 For advanced use cases, [built-in with
 overrides](memory-custom-strategy.md "memory-custom-strategy.md") strategies give you fine-grained control over the memory extraction
@@ -14,10 +12,21 @@ your own prompts and selecting a specific foundation model.
 
 ###### Topics
 
+- [Prerequisites](#long-term-creating-memory-prerequisites "#long-term-creating-memory-prerequisites")
 - [Creating the memory
   execution role](#long-term-creating-memory-execution-role "#long-term-creating-memory-execution-role")
+- [Override a built-in strategy with the API](#long-term-custom-strategy-configuration-api "#long-term-custom-strategy-configuration-api")
 - [Configuration
   example](#long-term-custom-strategy-configuration-example "#long-term-custom-strategy-configuration-example")
+
+## Prerequisites
+
+To override a built-in memory strategy, you must fulfill the following prerequisites:
+
+- Have an AgentCore Memory service role. For more information, see [Creating the memory
+  execution role](#long-term-creating-memory-execution-role "#long-term-creating-memory-execution-role").
+- If you plan to override the model for the prompt, you must have access to the model you choose to override with. For more information, see [Access Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md") and [Amazon Bedrock capacity for built-in
+  with overrides strategies](bedrock-capacity.md "bedrock-capacity.md").
 
 ## Creating the memory
 
@@ -69,7 +78,6 @@ Use the trust policy below when creating the role or when using the managed
 policy:
 
 ```
-
 {
     "Version": "2012-10-17"		 	 	 ,
     "Statement": [
@@ -93,10 +101,49 @@ policy:
         }
     ]
 }
-
 ```
 
 For information about creating an IAM role, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md").
+
+## Override a built-in strategy with the API
+
+To override a built-in strategy, use the `customMemoryStrategy` field when sending a [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") or [UpdateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md") request. In the [CustomConfigurationInput](../../../bedrock-agentcore-control/latest/APIReference/API_CustomConfigurationInput.md "../../../bedrock-agentcore-control/latest/APIReference/API_CustomConfigurationInput.md") object, you can specify a step in the strategy to override.
+
+Within the configuration for the step to override (for example, [UserPreferenceOverrideExtractionConfigurationInput](../../../bedrock-agentcore-control/latest/APIReference/API_UserPreferenceOverrideExtractionConfigurationInput.md "../../../bedrock-agentcore-control/latest/APIReference/API_UserPreferenceOverrideExtractionConfigurationInput.md")), specify the following:
+
+- `appendToPrompt` – The prompt with which to replace the instructions in the system prompt (the output schema remains the same).
+- `modelId` – The ID of the Amazon Bedrock model to invoke with the prompt.
+
+For example, you can send the following request body to override the user preference memory strategy with your own extraction and consolidation prompts, using the anthropic.claude-3-sonnet-20240229-v1:0 model):
+
+```
+{
+    "memoryExecutionRoleArn": "arn:aws:iam::`123456789012`:role/`my-memory-service-role`",
+    "name": "CustomTravelAgentMemory",
+    "memoryStrategies": [
+        {
+            "customMemoryStrategy": {
+                "name": "CustomTravelPreferenceExtractor",
+                "configuration": {
+                    "userPreferenceOverride": {
+                        "extraction": {
+                            "appendToPrompt": `your prompt`,
+                            "modelId": anthropic.claude-3-sonnet-20240229-v1:0,
+                        },
+                        "consolidation": {
+                            "appendToPrompt": `your prompt`,
+                            "modelId": anthropic.claude-3-sonnet-20240229-v1:0
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+For example custom prompts, see [Configuration
+example](#long-term-custom-strategy-configuration-example "#long-term-custom-strategy-configuration-example").
 
 ## Configuration
 
