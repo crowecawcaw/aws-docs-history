@@ -9,6 +9,7 @@ The following table contains possible message statuses.
 
 | Status name | Description                                                                                                      |
 | ----------- | ---------------------------------------------------------------------------------------------------------------- |
+| accepted    | The message has been accepted by WhatsApp for processing.                                                        |
 | deleted     | The customer deleted the message, and you should also delete the<br>message if it was downloaded to your server. |
 | delivered   | The message was successfully delivered to the customer.                                                          |
 | failed      | The message failed to send.                                                                                      |
