@@ -14,11 +14,11 @@ this document. The SDK supports the following operations:
 - Manage and monitor video and audio published to the stage
 - Get WebRTC statistics for each peer connection
 - All operations from the IVS low-latency streaming Android broadcast SDK
-  **Latest version of Android broadcast SDK:** 1.36.0 ([Release Notes](release-notes.md#oct30-25-broadcast-android-rt "release-notes.md#oct30-25-broadcast-android-rt"))
+  **Latest version of Android broadcast SDK:** 1.37.0 ([Release Notes](release-notes.md#dec05-25-broadcast-android-rt "release-notes.md#dec05-25-broadcast-android-rt"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS Android broadcast SDK, see the reference
-documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/android/").
+documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/android/").
 
 **Sample code:** See the Android sample repository on GitHub:
 [https://github.com/aws-samples/amazon-ivs-real-time-streaming-android-samples](https://github.com/aws-samples/amazon-ivs-real-time-streaming-android-samples "https://github.com/aws-samples/amazon-ivs-real-time-streaming-android-samples").
