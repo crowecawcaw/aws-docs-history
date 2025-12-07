@@ -218,7 +218,6 @@ Resource type identifiers always take the following form:
 - [AWS Proton](AWS_Proton.md "AWS_Proton.md")
 - [Amazon Managed Service for Prometheus](AWS_APS.md "AWS_APS.md")
 - [Amazon Q Business](AWS_QBusiness.md "AWS_QBusiness.md")
-- [Amazon QLDB](AWS_QLDB.md "AWS_QLDB.md")
 - [Quick Sight](AWS_QuickSight.md "AWS_QuickSight.md")
 - [AWS Resource Access Manager](AWS_RAM.md "AWS_RAM.md")
 - [Recycle Bin](AWS_Rbin.md "AWS_Rbin.md")

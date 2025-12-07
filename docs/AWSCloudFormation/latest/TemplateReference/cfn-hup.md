@@ -9,6 +9,9 @@ and runs user-specified actions when a change is detected. This allows you to ma
 configuration updates on your running Amazon EC2 instances through the `UpdateStack`
 API action.
 
+For more information, see the [Updating a CloudFormation stack](../UserGuide/updating.stacks.md "../UserGuide/updating.stacks.md") tutorial in the
+_AWS CloudFormation User Guide_.
+
 ###### Topics
 
 - [Syntax](#cfn-hup-Syntax "#cfn-hup-Syntax")
@@ -122,7 +125,6 @@ In the following examples, CloudFormation triggers the
     "LaunchConfig": {
       "Type" : "AWS::AutoScaling::LaunchConfiguration",
       "Metadata" : {
-        "QBVersion": {"Ref": "paramQBVersion"},
         "AWS::CloudFormation::Init" : {
 ...
               "/etc/cfn/hooks.d/cfn-auto-reloader.conf": {
@@ -151,7 +153,6 @@ In the following examples, CloudFormation triggers the
   LaunchConfig:
     Type: "AWS::AutoScaling::LaunchConfiguration"
     Metadata:
-      QBVersion: !Ref paramQBVersion
       AWS::CloudFormation::Init:
 ...
             /etc/cfn/hooks.d/cfn-auto-reloader.conf:
