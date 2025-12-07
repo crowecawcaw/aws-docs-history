@@ -111,4 +111,4 @@ The following table shows the mapping of protection types, `dataSources`, and
 | [Lambda Protection](lambda-protection.md "lambda-protection.md")                                                         | `LAMBDA_NETWORK_LOGS`                                                                                                                      |
 
 \*GetUsageStatistics uses its own `dataSource` names. For more
-information, see [Estimating GuardDuty usage cost](monitoring_costs.md "monitoring_costs.md") or [GetUsageStatistics](../APIReference/API_GetUsageStatistics.md "../APIReference/API_GetUsageStatistics.md").
+information, see [Monitoring GuardDuty Usage and Estimating Costs](monitoring_costs.md "monitoring_costs.md") or [GetUsageStatistics](../APIReference/API_GetUsageStatistics.md "../APIReference/API_GetUsageStatistics.md").

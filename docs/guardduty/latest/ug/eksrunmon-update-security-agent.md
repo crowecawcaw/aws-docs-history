@@ -65,7 +65,7 @@ placeholder values highlighted in red and the associated
 `Example.json` with the configured values.
 
 ```
-aws eks update-addon --region `us-east-1` --cluster-name `myClusterName` --addon-name aws-guardduty-agent --addon-version `v1.11.0-eksbuild.2` --configuration-values `'file://example.json'`
+aws eks update-addon --region `us-east-1` --cluster-name `myClusterName` --addon-name aws-guardduty-agent --addon-version `v1.12.1-eksbuild.2` --configuration-values `'file://example.json'`
 ```
 
 ###### Example.json

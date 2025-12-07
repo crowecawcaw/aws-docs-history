@@ -1,97 +1,118 @@
-# Estimating GuardDuty usage cost
+# Monitoring GuardDuty Usage and Estimating Costs
 
-During the 30-day free trial, you can use the GuardDuty console or API operations to estimate
-the daily average usage costs for GuardDuty. The cost estimation projects what your estimated
-costs will be after the trial period. However, to review an accurate cost estimate during
-free trial, GuardDuty recommends using AWS Billing at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
+GuardDuty provides usage metrics that track the processing of protection plans data sources logs/events and GuardDuty Runtime monitored VCPUs over time.
 
-When you operate in a multiple-account environment, the GuardDuty administrator account can monitor cost
-metrics for all of the member accounts.
+In this page:
 
-###### Note about Malware Protection for S3 usage cost
+- [Amazon CloudWatch Usage Metrics](#cloudwatch_usage_metrics "#cloudwatch_usage_metrics")
+- [Understanding GuardDuty Usage](#understanding_guardduty_usage "#understanding_guardduty_usage")
+- [Estimating GuardDuty cost](#estimating_guardduty_cost "#estimating_guardduty_cost")
 
-The usage cost for Malware Protection for S3 is not included under **Usage** in the
-GuardDuty console. For more information, see [Reviewing usage cost for Malware Protection for S3](usage-cost-malware-protection-s3-gdu.md "usage-cost-malware-protection-s3-gdu.md").
+## Amazon CloudWatch Usage Metrics
 
-**You can view cost estimation based on the following
-metrics:**
+GuardDuty publishes usage metrics to Amazon Amazon CloudWatch, enabling you to:
 
-- **Account ID** – Lists the estimated cost for
-  your account, or for your member accounts if you are operating as a GuardDuty administrator account.
-- **Data sources** – Lists the estimated cost
-  for all the [Foundational data sources](guardduty_data-sources.md "guardduty_data-sources.md") – AWS CloudTrail management
-  events, VPC flow logs, and Route53 Resolver DNS query logs.
-- **Features** – Lists the estimated cost for
-  the [GuardDuty features](guardduty-feature-object-api-changes-march2023.md#guardduty-feature-enablement-datasource-relation "guardduty-feature-object-api-changes-march2023.md#guardduty-feature-enablement-datasource-relation") – CloudTrail data events for S3, EKS Audit Log Monitoring, EBS
-  volume data, RDS login activity, EKS Runtime Monitoring, Fargate Runtime Monitoring, EC2 Runtime Monitoring, or
-  Lambda Network Activity Monitoring.
-- **S3 buckets** – Lists the estimated cost for
-  S3 data events on a specified bucket or the most expensive buckets for accounts in
-  your environment. This statistic is available only when you enable [S3 Protection](s3-protection.md "s3-protection.md") for an
-  AWS account.
+- Track actual usage over time
+- Create custom dashboards and alarms
+- Export usage data for cost estimation in AWS Cost Calculator
 
-## Understanding how GuardDuty calculates usage
+GuardDuty usage metrics are published based on your account configuration:
 
-costs
+- For standalone accounts (not part of an organization), you can view your account usage metrics in Amazon CloudWatch
+- For accounts that are part of an organization, metrics are published to the delegated administrator account (organization's GuardDuty administrator), presenting aggregated usage for the entire organization
 
-The estimates displayed in the GuardDuty console may differ slightly than those in your
-AWS Billing and Cost Management console. The following list explains how GuardDuty estimates usage costs:
+GuardDuty usage metrics are published in Amazon CloudWatch within 24 hours.
 
-- The GuardDuty usage estimate is for the current Region only.
-- The GuardDuty usage cost is based on the last 30 days of usage.
-- The trial usage cost estimate includes the estimate for foundational data
-  sources and features that are currently in the trial period. Each feature and
-  data source within GuardDuty has its own trial period but it may overlap with the
-  trial period of GuardDuty or another feature that was enabled at the same
-  time.
-- The GuardDuty usage estimate includes GuardDuty volume pricing discounts per Region,
-  as detailed on the [Amazon GuardDuty
-  Pricing](https://aws.amazon.com/guardduty/pricing/ "https://aws.amazon.com/guardduty/pricing/") page, but only for individual accounts meeting the volume
-  pricing tiers. Volume pricing discounts are not included in estimates for
-  combined total usage between accounts within an organization. For information
-  about combined usage volume discount pricing, see [AWS Billing: Volume Discounts](../../../awsaccountbilling/latest/aboutv2/useconsolidatedbilling-discounts.md "../../../awsaccountbilling/latest/aboutv2/useconsolidatedbilling-discounts.md").
-- The sum of the usage cost for each AWS account in your organization may not
-  always be the same as the last 30-day estimated cost for the selected data
-  source. The pricing tier may change as GuardDuty processes more events or data. For
-  more information, see [Pricing Tiers](../../../awsaccountbilling/latest/aboutv2/con-bill-blended-rates.md#Blended_Rate_Overview "../../../awsaccountbilling/latest/aboutv2/con-bill-blended-rates.md#Blended_Rate_Overview") in the _AWS Billing User
-  Guide_.
+### Metric Details
 
-###
+GuardDuty publishes the following usage metrics `Hourly` to Amazon CloudWatch under the `AWS/GuardDuty` namespace:
 
-This scenario explains that to stop incurring usage cost for Runtime Monitoring, you must
-have both the Runtime Monitoring and EKS Runtime Monitoring features disabled.
+|                               |                          |                    |                    |                                                       |
+| ----------------------------- | ------------------------ | ------------------ | ------------------ | ----------------------------------------------------- |
+| **Protection Plan**           | **Data Source**          | **Metric Name**    | **Unit**           | **Description**                                       |
+| Foundational Threat Detection | CloudTrailEvents         | AnalyzedCount      | Count              | Number of CloudTrail management events analyzed       |
+| Foundational Threat Detection | VPCFlowLogDNSLogEvents   | AnalyzedBytes      | Bytes              | Volume of VPC flow logs and DNS logs analyzed         |
+| S3 Protection                 | S3DataEvents             | AnalyzedCount      | Count              | Number of S3 data events analyzed                     |
+| Amazon EKS Protection         | KubernetesAuditLogs      | AnalyzedCount      | Count              | Number of Amazon EKS audit log events analyzed        |
+| Lambda Protection             | LambdaNetworkLogs        | AnalyzedBytes      | Bytes              | Volume of Lambda network logs analyzed                |
+| Runtime Monitoring            | RuntimeMonitoringEC2     | MonitoredVcpuHours | Count (vCPU-Hours) | EC2 vCPU hours monitored by Runtime Monitoring        |
+| Runtime Monitoring            | RuntimeMonitoringEKS     | MonitoredVcpuHours | Count (vCPU-Hours) | Amazon EKS vCPU hours monitored by Runtime Monitoring |
+| Runtime Monitoring            | RuntimeMonitoringFargate | MonitoredVcpuHours | Count (vCPU-Hours) | Fargate vCPU hours monitored by Runtime Monitoring    |
+| Malware Protection for EC2    | OnDemandEBSSnapshot      | ScannedBytes       | Bytes              | Volume of on-demand EBS snapshot data scanned         |
+| Malware Protection for EC2    | OnDemandEBSVolume        | ScannedBytes       | Bytes              | Volume of on-demand EBS volume data scanned           |
+| Malware Protection for EC2    | MalwareProtectionEBS     | ScannedBytes       | Bytes              | Volume of EBS data scanned by Malware Protection      |
+| Amazon RDS Protection         | RDS                      | MonitoredAcuHours  | Count (ACU-Hours)  | Amazon RDS Aurora Capacity Units monitored            |
+| Amazon RDS Protection         | RDSLimitless             | MonitoredAcuHours  | Count (ACU-Hours)  | Amazon RDS Aurora Limitless ACU hours monitored       |
+| Amazon RDS Protection         | AuroraScaleout           | MonitoredAcuHours  | Count (ACU-Hours)  | Aurora Scaleout ACU hours monitored                   |
+| Amazon RDS Protection         | RDS                      | MonitoredVcpuHours | Count (vCPU-Hours) | Amazon RDS vCPU hours monitored                       |
 
-GuardDuty has consolidated the console experience for EKS Runtime Monitoring into Runtime Monitoring.
-GuardDuty recommends [Checking EKS Runtime Monitoring configuration
-status](checking-eks-runtime-monitoring-enable-status.md "checking-eks-runtime-monitoring-enable-status.md") and
-[Migrating from EKS Runtime Monitoring to
-Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md "migrating-from-eksrunmon-to-runtime-monitoring.md").
+**Metrics Dimensions**
 
-As a part of migrating to Runtime Monitoring, ensure to [Disable
-EKS Runtime Monitoring](disabling-eks-runtime-monitoring.md "disabling-eks-runtime-monitoring.md"). This is important
-because if you later choose to disable Runtime Monitoring and you do not disable EKS Runtime Monitoring,
-you will continue incurring usage cost for EKS Runtime Monitoring.
+- Standalone GuardDuty accounts: Metrics include `AccountId, DataSource` dimensions
+- Organization-level (Delegated Administrator): Metrics include `DataSource` dimension
 
-### Runtime Monitoring – How VPC
+### Malware Protection for S3
 
-flow logs from EC2 instances impact usage cost
+GuardDuty `Malware Protection for S3` protection plan publishes the following usage metrics to Amazon CloudWatch under the `AWS/GuardDuty/MalwareProtection` namespace:
 
-When you manage the security agent (either manually or through GuardDuty) in EKS Runtime Monitoring
-or Runtime Monitoring for EC2 instances, and
-GuardDuty is presently deployed on an Amazon EC2 instance and receives
-the [Collected runtime event
-types](runtime-monitoring-collected-events.md "runtime-monitoring-collected-events.md") from this instance, GuardDuty will not charge
-your AWS account for the analysis of VPC flow logs from this Amazon EC2 instance. This helps GuardDuty avoid double usage cost in the account.
+|                    |          |                                                                                                         |
+| ------------------ | -------- | ------------------------------------------------------------------------------------------------------- |
+| **Metric Name**    | **Unit** | **Description**                                                                                         |
+| CompletedScanCount | Count    | The number of S3 object malware scans that completed in a given time frame.                             |
+| FailedScanCount    | Count    | The number of S3 object malware scans that failed in a given time frame.                                |
+| SkippedScanCount   | Count    | The number of S3 object malware scans that were skipped in a given time frame.                          |
+| InfectedScanCount  | Count    | The number of S3 object malware scans that detected potentially malicious object in a given time frame. |
+| CompletedScanBytes | Count    | The number of S3 object bytes scanned in a given time frame.                                            |
 
-### How GuardDuty estimates usage
+**Metrics Dimensions**
 
-cost for CloudTrail events
+- All metrics include `Malware Protection Plan Id, Resource Name` dimensions
+- SkippedScanCount metric includes `Skipped Reason` as an additional dimension
 
-When you enable GuardDuty, it automatically starts consuming AWS CloudTrail event logs
-recorded for your account in the selected AWS Region. GuardDuty replicates [Global service events](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-global-service-events "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-global-service-events") logs and then processes these events
-independently in each Region where you have GuardDuty enabled. This helps GuardDuty maintain
-user and role profiles in each Region to identify anomalies.
+## Understanding GuardDuty Usage
 
-Your CloudTrail configuration does not impact GuardDuty usage cost or the way GuardDuty
-processes your event logs. Your GuardDuty usage cost is affected by your usage of AWS
-APIs which log to CloudTrail. For more information, see [AWS CloudTrail management events](guardduty_data-sources.md#guardduty_controlplane "guardduty_data-sources.md#guardduty_controlplane").
+### GuardDuty Event Processing
+
+When enabled, GuardDuty automatically consumes events and logs directly from the log sources in your selected AWS Region. GuardDuty ingests events from separate, independent data sources to provide comprehensive security value.
+
+###### Important
+
+Your individual service log configuration or filtering rules (for VPC Flow Logs, DNS Logs, CloudTrail Events, S3 Data Events, Kubernetes Audit Logs, and Lambda Network Logs) do not impact the logs/events processed by GuardDuty.
+
+### GuardDuty VPC Flow Logs processing charges for instances monitored by GuardDuty Runtime Monitoring
+
+For instances monitored by GuardDuty Runtime Monitoring (via either EC2 Runtime agent or Amazon EKS Runtime agent), GuardDuty will not charge for VPC Flow Logs processing as long as the agent actively sends [runtime event data](runtime-monitoring-collected-events.md "runtime-monitoring-collected-events.md"). If the agent stops transmitting event data, GuardDuty reverts to charging via VPC Flow Logs.
+
+Enabling Runtime Monitoring decreases VPC Flow Logs usage in GuardDuty Amazon CloudWatch usage metrics. Disabling Runtime Monitoring restores VPC Flow Logs usage.
+
+## Estimating GuardDuty cost
+
+GuardDuty offers a 30-day free trial per AWS account for most protection plans. During this trial period, you can:
+
+- Monitor your actual usage through GuardDuty Usage metrics
+- Estimate your monthly costs using AWS Pricing Calculator based on your observed usage patterns
+
+The following protection plans include a 30-day free trial:
+
+- Foundational GuardDuty
+- GuardDuty S3 Protection
+- GuardDuty Amazon EKS Protection
+- GuardDuty Runtime Monitoring
+- GuardDuty Amazon RDS Protection
+- GuardDuty Lambda Protection
+- GuardDuty Malware Protection for EC2 (only for GuardDuty-initiated scans when enabled with Foundational GuardDuty)
+
+### Security Hub Customers
+
+Security Hub offers a simplified pricing model for GuardDuty Threat Detection with its add-on Threat Analytics plan, consolidating metering of multiple GuardDuty DataSources. When using Security Hub Threat Analytics plan (Security Hub with GuardDuty):
+
+- Multiple GuardDuty DataSources are consolidated
+- Notably, for simplicity, Amazon EKS Audit Logs events and S3 Data events are converted to GB using a fixed conversion rate
+
+To create Security Hub cost estimate, please refer to [AWS Security Hub Documentation](../../../securityhub.md "../../../securityhub.md").
+
+**Note:** GuardDuty's 30-day free trial status is independent of Security Hub integration. Enabling or disabling Security Hub:
+
+- Does not grant a new free trial if you've already used GuardDuty's trial period
+- Does not interrupt or restart an ongoing free trial
+- Does not extend existing trial periods

@@ -8,7 +8,6 @@ archive incoming findings, see [Suppression rules in GuardDuty](findings_suppres
 
 When you create filters, take the following list into consideration:
 
-- GuardDuty **doesn't support** wild cards for filter criteria.
 - You can specify a minimum of one attribute and up to a maximum of 50
   attributes as the criteria for a particular filter.
 - When you use the **Equals** or **Does not equals**

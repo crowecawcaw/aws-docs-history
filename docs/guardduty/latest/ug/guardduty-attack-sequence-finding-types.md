@@ -10,12 +10,15 @@ threat, GuardDuty generates an attack sequence finding. GuardDuty considers indi
 themselves as potential threat.
 
 The attack sequence detections focus on potential compromise of Amazon S3 data (that can be a part
-of a broader ransomware attack), compromised AWS credentials, and compromised Amazon EKS clusters.
+of a broader ransomware attack), compromised AWS credentials, compromised Amazon EKS clusters,
+compromised Amazon ECS clusters, and compromised Amazon EC2 instance groups.
 The following sections provide details about each of the attack sequences.
 
 ###### Topics
 
 - [AttackSequence:EKS/CompromisedCluster](#attack-sequence-eks-compromised-cluster "#attack-sequence-eks-compromised-cluster")
+- [AttackSequence:ECS/CompromisedCluster](#attack-sequence-ecs-compromised-cluster "#attack-sequence-ecs-compromised-cluster")
+- [AttackSequence:EC2/CompromisedInstanceGroup](#attack-sequence-ec2-compromised-instance-group "#attack-sequence-ec2-compromised-instance-group")
 - [AttackSequence:IAM/CompromisedCredentials](#attack-sequence-iam-compromised-credentials "#attack-sequence-iam-compromised-credentials")
 - [AttackSequence:S3/CompromisedData](#attack-sequence-s3-compromised-data "#attack-sequence-s3-compromised-data")
 
@@ -56,6 +59,73 @@ Additionally, since AWS credentials may have been compromised through the EKS cl
 [Remediating potentially compromised AWS
 credentials](compromised-creds.md "compromised-creds.md"). For steps to remediate other
 resources that may have been potentially impacted, see [Remediating detected GuardDuty security findings](guardduty_remediate.md "guardduty_remediate.md").
+
+## AttackSequence:ECS/CompromisedCluster
+
+### A sequence of suspicious
+
+actions performed by potentially compromised Amazon ECS cluster.
+
+- Default severity: Critical
+- Data sources:
+  - [Runtime Monitoring for Amazon ECS Fargate](how-runtime-monitoring-works-ecs-fargate.md "how-runtime-monitoring-works-ecs-fargate.md")
+  - [Runtime Monitoring for EC2 Instances in Amazon ECS](how-runtime-monitoring-works-ec2.md "how-runtime-monitoring-works-ec2.md")
+  - [GuardDuty Malware Protection for Amazon EC2](malware-protection.md "malware-protection.md")
+
+This finding informs you that GuardDuty detected a sequence of suspicious signals indicating a potentially compromised
+Amazon ECS cluster in your environment. These signals may include malicious processes, communications with malicious endpoints,
+or cryptocurrency mining behaviors.
+
+GuardDuty uses proprietary correlation algorithms and multiple detection factors to identify sequences of
+suspicious actions within Amazon ECS clusters. Through analysis across protection plans and various signal sources,
+GuardDuty identifies common and emerging attack patterns, providing high-confidence detection of potential compromises.
+
+**Remediation actions**: If this behavior is unexpected in your
+environment, your Amazon ECS cluster may be compromised. For threat containment recommendations, see
+[Remediating a potentially compromised ECS
+cluster](compromised-ecs.md "compromised-ecs.md"). Note that the compromise may extend to one or more
+ECS tasks or container workloads, which could have been used to create or modify AWS resources.
+For comprehensive remediation guidance covering potentially impacted resources, see [Remediating detected GuardDuty security findings](guardduty_remediate.md "guardduty_remediate.md").
+
+## AttackSequence:EC2/CompromisedInstanceGroup
+
+### A sequence of suspicious
+
+actions indicating potentially compromised Amazon EC2 instances.
+
+- Default severity: Critical
+- Data sources:
+  - [Runtime Monitoring for Amazon EC2](how-runtime-monitoring-works-ec2.md "how-runtime-monitoring-works-ec2.md")
+  - [Malware detection for Amazon EC2](malware-protection.md "malware-protection.md")
+  - [VPC Flow Logs](guardduty_data-sources.md#guardduty_vpc "guardduty_data-sources.md#guardduty_vpc")
+  - [Route53 Resolver DNS query logs](guardduty_data-sources.md#guardduty_dns "guardduty_data-sources.md#guardduty_dns")
+
+This finding indicates GuardDuty detected a sequence of suspicious actions suggesting potential compromise across
+a group of Amazon EC2 instances in your environment. Instance groups typically represent applications managed through
+infrastructure-as-code, sharing similar configurations such as Auto-scaling group, IAM instance profile role,
+AWS CloudFormation stack, Amazon EC2 launch template, AMI or VPC ID. GuardDuty observed multiple suspicious behaviors across one or more instances, including:
+
+- Malicious processes
+- Malicious files
+- Suspicious network connections
+- Cryptocurrency mining activities
+- Suspicious usage of Amazon EC2 instance credentials
+
+**Detection Method**: GuardDuty employs proprietary correlation algorithms to identify
+suspicious action sequences within Amazon EC2 instances. By evaluating findings across protection plans and various signal sources,
+GuardDuty identifies attack patterns using multiple factors such as IP and domain reputation and suspicious running processes.
+
+**Remediation actions**: If this behavior is unexpected in your
+environment, your Amazon EC2 instances may be compromised. The compromise could involve:
+
+- Multiple processes
+- Instance credentials that may have been used to modify Amazon EC2 instances or other AWS resources
+
+For threat containment recommendations, see [Remediating a potentially compromised Amazon EC2
+instance](compromised-ec2.md "compromised-ec2.md").
+Note that the compromise may extend to one or more Amazon EC2 instances and involve compromised processes or instance credentials
+that could have been used to create or modify Amazon EC2 instances or other AWS resources.
+For comprehensive remediation guidance covering potentially impacted resources, see [Remediating detected GuardDuty security findings](guardduty_remediate.md "guardduty_remediate.md").
 
 ## AttackSequence:IAM/CompromisedCredentials
 

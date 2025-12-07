@@ -59,7 +59,7 @@ with each protection plan.
 – During 30-day free trial of GuardDuty and potentially a protection plan, GuardDuty
 provides estimated usage cost for your account. If you're a delegated GuardDuty administrator account, you can view
 the total estimated usage cost and account-level breakdown for all the member
-accounts that have enabled GuardDuty. For more information, see [Estimating GuardDuty usage cost](monitoring_costs.md "monitoring_costs.md").
+accounts that have enabled GuardDuty. For more information, see [Monitoring GuardDuty Usage and Estimating Costs](monitoring_costs.md "monitoring_costs.md").
 
 **Usage cost after free trial ends** – When
 you continue using GuardDuty or any of its protection plans after the free trial ends,

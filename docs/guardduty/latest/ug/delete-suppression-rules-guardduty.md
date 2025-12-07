@@ -19,12 +19,10 @@ types.
 Console
 
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
-2. On the **Findings** page, choose
-   **Suppress Findings** to open the suppression
-   rule panel.
-3. From the **Saved rules** drop down, choose a
-   saved filter.
-4. Choose **Delete rule**.
+2. On the **Suppression rules** page, select the suppression rule to delete.
+3. From the **Actions** dropdown, select **Delete suppression rule**.
+4. It prompts a confirmation pop-up. Select **Delete** to proceed with the deletion.
+   Or select **Cancel** to cancel the operation.
 
 API/CLI
 Run the [DeleteFilter](../APIReference/API_DeleteFilter.md "../APIReference/API_DeleteFilter.md") API. Specify the filter name
@@ -34,7 +32,12 @@ Alternatively, you can use the following AWS CLI example by replacing the
 values formatted in `red`:
 
 ```
-aws guardduty delete-filter --region `us-east-1` --detector-id `12abc34d567e8fa901bc2d34e56789f0` --filter-name `filterName`
+
+aws guardduty delete-filter \
+--detector-id `12abc34d567e8fa901bc2d34e56789f0` \
+--filter-name `filterName` \
+--region `us-east-1`
+
 ```
 
 To find the `detectorId` for your account and current Region, see the

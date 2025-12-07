@@ -36,7 +36,7 @@ account:
 - During the 30-day free trial, you can get an estimate of your usage
   costs in that account and Region. After the 30-day free trial ends,
   S3 Protection doesn't get disabled automatically. Your account in this
-  Region will start incurring usage cost. For more information, see [Estimating GuardDuty usage cost](monitoring_costs.md "monitoring_costs.md").
+  Region will start incurring usage cost. For more information, see [Monitoring GuardDuty Usage and Estimating Costs](monitoring_costs.md "monitoring_costs.md").
 
 ## AWS CloudTrail data events for S3
 

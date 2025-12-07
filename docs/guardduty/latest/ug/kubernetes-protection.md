@@ -34,7 +34,7 @@ security monitoring capability in GuardDuty.
 - During the 30-day free trial, you can get an estimate of your usage costs in that
   account and Region. After the 30-day free trial ends, GuardDuty doesn't
   automatically disable EKS Protection. Your account in this Region will start incurring
-  usage cost. For more information, see [Estimating usage cost](monitoring_costs.md "monitoring_costs.md").
+  usage cost. For more information, see [Monitoring usage and estimating costs](monitoring_costs.md "monitoring_costs.md").
   When you disable EKS Protection, GuardDuty immediately stops monitoring and analyzing the EKS audit
   logs for your Amazon EKS resources.
 

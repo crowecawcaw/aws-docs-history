@@ -48,7 +48,7 @@ database.
 - During the 30-day free trial, you can get an estimate of your usage costs in that
   account and Region. After the 30-day free trial ends, RDS Protection doesn't get
   disabled automatically. Your account in this Region will start incurring usage cost.
-  For more information, see [Estimating GuardDuty usage cost](monitoring_costs.md "monitoring_costs.md").
+  For more information, see [Monitoring GuardDuty Usage and Estimating Costs](monitoring_costs.md "monitoring_costs.md").
 
 When the RDS Protection feature is not enabled, GuardDuty does't detect anomalous or suspicious
 login behavior. If you disable RDS Protection, GuardDuty immediately stops

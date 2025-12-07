@@ -2,30 +2,21 @@
 
 cluster
 
-When GuardDuty generates [finding
-types that indicate potentially compromised Amazon ECS resources](guardduty_finding-types-active.md#findings-table "guardduty_finding-types-active.md#findings-table"), then your
-**Resource** will be **ECSCluster**. Potential finding types
-could be [GuardDuty Runtime Monitoring finding types](findings-runtime-monitoring.md "findings-runtime-monitoring.md") or
-[Malware Protection for EC2 finding types](findings-malware-protection.md "findings-malware-protection.md").
-If the behavior that caused the finding was
-expected in your environment, then consider using [Suppression rules](findings_suppression-rule.md "findings_suppression-rule.md").
+A potentially compromised ECS cluster finding indicates suspicious or malicious activity has been detected within your Amazon ECS environment.
+This could include unauthorized access, malware execution, or other malicious behavior that puts your container workloads at risk.
 
-Follow these recommended steps to remediate a potentially compromised Amazon ECS cluster in
-your AWS environment:
+Follow these steps to remediate a potentially compromised Amazon ECS cluster:
 
-1. **Identify the potentially compromised ECS
-   cluster.**
+1. **Identify the potentially compromised ECS cluster and the detected threat (findings)**
 
-The GuardDuty Malware Protection for EC2 finding for ECS provides the **ECS cluster
-details** in the finding's details panel. 2. **Evaluate the source of malware**
+Impacted ECS cluster details are listed in the GuardDuty finding details panel. 2. **Evaluate the source of threat/malware**
 
-Evaluate if the detected malware was in the container's image. If malware was
-in the image, identify all other tasks which are running using this image. For
-information about running tasks, see [ListTasks](../../../AmazonECS/latest/APIReference/API_ListTasks.md "../../../AmazonECS/latest/APIReference/API_ListTasks.md"). 3. **Isolate the potentially impacted tasks**
+Check for malware in container images. If malware is detected, review the container image being used.
+Use [ListTasks](../../../AmazonECS/latest/APIReference/API_ListTasks.md "../../../AmazonECS/latest/APIReference/API_ListTasks.md")
+to identify all other running tasks that use the same potentially compromised image. 3. **Isolate impacted tasks**
 
-Isolate the impacted tasks by denying all ingress and egress traffic to the
-task. A deny all traffic rule may help you stop an attack that is already
-underway, by severing all the connections to the task.
-If the access was authorized, you can ignore the finding. The [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/")
-console allows you to set up rules to entirely suppress individual findings so that they
-no longer appear. For more information, see [Suppression rules in GuardDuty](findings_suppression-rule.md "findings_suppression-rule.md").
+Stop the threat by blocking all network traffic (both incoming and outgoing) to the affected tasks.
+This network isolation helps prevent any ongoing attacks by cutting off all connections to the compromised task.
+**Note**: If you determine this finding was triggered by expected/legitimate activity in your environment,
+you can set up a suppression rule to prevent similar findings from appearing. For additional information, see
+[Suppression rules in GuardDuty](findings_suppression-rule.md "findings_suppression-rule.md").
