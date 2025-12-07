@@ -11,18 +11,10 @@ comprehensive monitoring across multiple areas:
 - Track error rates and retry patterns for external service integrations
 
 ![Gateways view](images/Gateways.png)
-Choose **View details** to view the gateway metrics in graphs.
+Expand the **View details** section to view the gateway metrics in graphs.
 
 ![Gateways metrics view](images/Gateway_metrics.png)
 Under **Gateways**, choose a gateway **Name** to view the dashboard.
+You can also sort the list of gateways by click the column headers in the table.
 
-![Gateways details view](images/Gateway_name.png)
-
-- **Overview** – Displays the sampled spans after transaction search is enabled.
-- **Traces** – Displays the traces for agents. Under **Traces**,
-  choose **Trace ID** to view the traces for a specific gateway and use the dashboard to deep dive into the agent and gateway responses.
-
-###### Note
-
-The **Traces** tab experience and fields are similar across **Built-in tools**, **Gateways**,
-**Memory**, and **Identity** observability. For more information on the fields, see [Code interpreter tool](Built-in-tools.md#Code-interpreter-tool "Built-in-tools.md#Code-interpreter-tool").
+![Gateways details view](images/Gateways_tile.png)

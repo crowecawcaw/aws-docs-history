@@ -20,14 +20,15 @@ you create an enablement rule, the telemetry configuration creates a correspondi
 recorder. This recorder includes configuration items for the specific resource types you define
 in the enablement rule.
 
-You can enable **Telemetry config** at no additional cost.
-When you use enablement rules to automatically manage telemetry, AWS Config charges apply based on the number of configuration
-items recorded for the resource types you specify in the enablement rule. For more information, see [AWS Config pricing](https://aws.amazon.com/config/pricing/ "https://aws.amazon.com/config/pricing/").
+Amazon CloudWatch uses AWS Config Internal service linked recorder.
+You are not charged for CIs that CloudWatch uses as part of the Internal Service Linked Recorders.
 
 ###### Note
 
-If you have AWS Config already enabled for configuration item recording for the specific
-resource type, you are not charged again.
+When you create an enablement rule, we discover non-compliant resources (those without
+telemetry enabled) through AWS Config Configuration Items (CIs) before turning them on based
+on your enablement rule scope. The initial discovery of the resources may take upto 24 hours to
+complete in some cases.
 
 Telemetry config uses AWS Config to:
 
@@ -137,13 +138,89 @@ Check:
 - Rule scope configuration
 - Tag filters
 
+###### Note
+
+When you create an enablement rule, we discover non-compliant resources (those without
+telemetry enabled) through AWS Config Configuration Items (CIs) before turning them on based
+on your enablement rule scope. The initial discovery of the resources may take upto 24 hours
+to complete in some cases.
+
 ### Service-specific considerations
 
-Amazon VPC Flow Logs
+**Amazon VPC Flow Logs**
 
 When creating flow logs:
 
-- Uses default pattern /aws/vpc/`vpc-id` if none
-  specified
+- Uses default pattern /aws/vpc/vpc-id if none specified
 - Existing customer-created flow logs are preserved
 - Rule updates only affect new flow logs
+- You can use <vpc-id>, <account-id> macros to split log groups.
+- CloudWatch does not create flow logs for VPCs that already are ingesting logs to CloudWatch
+  Logs
+
+**Amazon EKS Control Plane Logging**
+
+When enabling control plane logging:
+
+- Uses default CloudWatch log group pattern /aws/eks/<cluster-name>/cluster. Amazon EKS
+  creates Log Group per Cluster automatically.
+- Rule updates only affect new clusters or only clusters that do not have the scoped
+  log types enabled
+- Can enable specific log types: api, audit, authenticator, controllerManager,
+  scheduler
+
+**AWS WAF Web ACL Logs**
+
+When creating WAF logs:
+
+- Uses default CloudWatch log group pattern and always prefixes with aws-waf-logs-
+- Rule updates only affect new Web ACLs or existing Web ACLs that do not have logging
+  enabled to CloudWatch Logs
+- CloudWatch does not enable logs for Web ACLs that already are ingesting logs to CloudWatch
+  Logs
+
+**Amazon Route 53 Resolver Logs**
+
+When enabling resolver query logging:
+
+- Uses default CloudWatch log group pattern /aws/route53resolver if none specified
+- CloudWatch does not create resolver query logs for VPCs that already are ingesting logs to
+  CloudWatch Logs
+- Enablement rules configure Route 53 query logging for the your VPCs based on rule
+  scope. CloudWatch does not discover Route 53 profiles and related configurations.
+
+**NLB Access Logs**
+
+When enabling access logs:
+
+- Uses default CloudWatch log group pattern pattern with prefix /aws/nlb/access-logs if none
+  specified
+- CloudWatch does not enable log deliveries for NLBs that already are ingesting logs to CloudWatch
+  Logs
+
+**Amazon Bedrock AgentCore Telemetry**
+
+- Enable both logs and traces emitted from all available Bedrock AgentCore primitives such as Runtime, Browser Tools, Code Interpreter Tools, etc.
+  Follow the Telemetry Configure console experience for creating a logs delivery rule then followed by creating a traces delivery rule.
+- When creating a trace delivery rule, Transaction Search will be enabled and additional permission policy will be created to allow
+  for CloudWatch X-Ray to send correlated trace to managed log group in your account.
+  In addition, X-Ray resource policy will be created to allow for current and new Bedrock AgentCore primitives to deliver traces to your account.
+
+**CloudTrail Logs using service-linked channel**
+
+When enabling CloudTrail logs using the SLC path:
+
+- Uses managed CloudWatch log groups aws/cloudtrail/<event-types>
+- Existing customer-created CloudTrail Trail forwarding configurations are
+  preserved
+- CloudWatch Enablement Rules only uses service-linked channel to ingest logs
+- Events use the retention period configured for the log group
+- For CloudTrail events, as part of the enablement wizard, you can choose at least one
+  event type to ingest to CloudWatch.
+- If events are delivered with delay (indicated by addendum reason DELIVERY_DELAY) and
+  you previously configured a shorter retention period, delayed events might only be
+  available for the duration of the shorter retention period.
+- **Important**: For multi-region deployments: CloudWatch Enablement
+  rules requires separate configuration in each AWS region and is not yet available in all
+  regions. For comprehensive multi-region coverage, consider continuing to use CloudTrail
+  trails sending events to CloudWatch until regional availability expands.

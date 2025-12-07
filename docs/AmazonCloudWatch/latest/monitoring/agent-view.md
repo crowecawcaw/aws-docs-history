@@ -78,7 +78,21 @@ The Overview tab displays automatic dashboards for your agent metrics. These
 metrics come from sampled spans and Runtime metrics (when the agent uses AgentCore
 Runtime).
 
-The _Agent metrics_ dashboard include metrics which are derived
+The **Evaluators** dashboard includes insights derived
+from spans with evaluations enabled.
+
+- Top deltas in evaluator scores — Shows the agent evaluators that experienced
+  the most change since the last period based on the time period you selected.
+- Evaluation configuration metrics — Show the operational status metrics for
+  the agent evaluators, including the number of times the evaluations were executed and
+  the number of errors encountered.
+  To edit an evaluation configuration using the Amazon Bedrock AgentCore console, click the link in
+  the **Evaluator** or **Evaluation configuration** column. To
+  review the evaluator results, click a score in the **Avg. score** column. To
+  view all evaluations for the agent, choose the **Evaluations** tab. For more
+  information, see [Agent details - Evaluations](session-traces-evaluations.md "session-traces-evaluations.md").
+
+The **Agent metrics** dashboard include metrics which are derived
 from sampled spans:
 
 - Sessions and Traces – Count of sessions and traces for this
@@ -95,10 +109,14 @@ from sampled spans:
   particular span. Note that a span can appear in many agents
 - Throttles – Number of requests throttled by the service due to
   exceeding allowed TPS (Transactions Per Second)
-- Inbound Auth:Authorization and access token calls – Number of incoming authentication requests processed by the agent, including authorization checks and access token validations from external clients or services
-- Outbound Auth:Usage distribution – Distribution pattern of outbound authentication methods used by the agent, showing the frequency and types of authentication mechanisms employed when accessing external services
-  The _Runtime metrics_ dashboard includes metrics that AgentCore
-  Runtime automatically generates:
+- Inbound Auth:Authorization and access token calls – Number of incoming
+  authentication requests processed by the agent, including authorization checks
+  and access token validations from external clients or services
+- Outbound Auth:Usage distribution – Distribution pattern of outbound
+  authentication methods used by the agent, showing the frequency and types of
+  authentication mechanisms employed when accessing external services
+  The **Runtime metrics** dashboard includes metrics
+  that AgentCore Runtime automatically generates:
 
 - Runtime sessions and invocations – Count of sessions and
   invocations that this particular agent has generated while being hosted on

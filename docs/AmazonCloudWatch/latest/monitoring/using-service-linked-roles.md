@@ -208,7 +208,8 @@ resources based on telemetry rules.
 This policy grants permissions for:
 
 - Basic telemetry operations including describing VPCs, flow logs, log
-  groups, and managing EC2 instance monitoring
+  groups. It also includes permissions to enable logging configuration for EKS cluster logging,
+  WAF put logging configuration, enabling NLB logs as well as Route53 Resolver query logging.
 - Resource tagging operations with the
   `CloudWatchTelemetryRuleManaged` tag for tracking managed
   resources
@@ -225,113 +226,8 @@ The policy enforces security boundaries through conditions that:
 - Limit configuration recorder access to those associated with telemetry
   enablement
 
-The complete contents of the
-AWSObservabilityAdminTelemetryEnablementServiceRolePolicy are as follows:
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "organizations:ListAccounts",
- "organizations:ListAccountsForParent",
- "organizations:ListChildren",
- "organizations:ListParents",
- "organizations:DescribeOrganization",
- "organizations:DescribeOrganizationalUnit"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "config:PutServiceLinkedConfigurationRecorder",
- "config:DeleteServiceLinkedConfigurationRecorder"
- ],
- "Resource": [
- "arn:aws:config:*:*:configuration-recorder/AWSConfigurationRecorderForObservabilityAdmin/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "config:PutConfigurationAggregator",
- "config:DeleteConfigurationAggregator",
- "config:SelectAggregateResourceConfig"
- ],
- "Resource": [
- "arn:aws:config:*:*:config-aggregator/aws-service-config-aggregator/observabilityadmin.amazonaws.com/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:CreateServiceLinkedRole"
- ],
- "Resource": [
- "arn:aws:iam::*:role/aws-service-role/config.amazonaws.com/AWSServiceRoleForConfig"
- ],
- "Condition": {
- "StringEquals": {
- "iam:AWSServiceName": [
- "config.amazonaws.com"
- ]
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::*:role/aws-service-role/config.amazonaws.com/AWSServiceRoleForConfig"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": [
- "config.amazonaws.com"
- ]
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "organizations:EnableAWSServiceAccess"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "organizations:ServicePrincipal": [
- "config.amazonaws.com"
- ]
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "organizations:ListDelegatedAdministrators"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "organizations:ServicePrincipal": [
- "observabilityadmin.amazonaws.com",
- "config.amazonaws.com"
- ]
- }
- }
- }
- ]
-}`
-
-```
+The complete contents of the AWSObservabilityAdminTelemetryEnablementServiceRolePolicy policy can be found
+here: [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy.md").
 
 ## Service-linked role permissions for
 
@@ -852,15 +748,16 @@ View details about updates to AWS managed policies for CloudWatch since this ser
 began tracking these changes. For automatic alerts about changes to this page,
 subscribe to the RSS feed on the CloudWatch Document history page.
 
-| Change                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                  | Date               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– Update to permissions of service-linked role<br>policy                   | Updated the [CloudWatchApplicationSignalsServiceRolePolicy](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals")<br>to include `resource-explorer-2:Search` and<br>`cloudtrail:CreateServiceLinkedChannel`<br>to enable new Application Signals features.                                  | November 12, 2025  |
-| [AWSObservabilityAdminLogsCentralizationServiceRolePolicy](#service-linked-role-logscentralization "#service-linked-role-logscentralization") – New service-linked role policy.            | Added information about the [AWSObservabilityAdminLogsCentralizationServiceRolePolicy](#service-linked-role-logscentralization "#service-linked-role-logscentralization")<br>that grants CloudWatch the permissions necessary to enable and manage<br>telemetry configurations for AWS resources based on telemetry<br>rules.                                | September 5, 2025  |
-| [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](#service-linked-role-telemetry-enablement "#service-linked-role-telemetry-enablement")<br>– New service-linked role policy.    | Added information about the [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](#service-linked-role-telemetry-enablement "#service-linked-role-telemetry-enablement")<br>that grants CloudWatch the permissions necessary to enable and manage<br>telemetry configurations for AWS resources based on telemetry<br>rules.                           | July 17, 2025      |
-| [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– Update to permissions of service-linked role<br>policy                   | Updated the [CloudWatchApplicationSignalsServiceRolePolicy](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals") to<br>exclude time windows from impacting the SLO attainment rate,<br>error budget, and burn rate metrics. CloudWatch can retrieve exclusion<br>windows on behalf of you. | March 13, 2025     |
-| [AWSServiceRoleForObservabilityAdmin](#service-linked-role-telemetry-config "#service-linked-role-telemetry-config") – New<br>service-linked role                                          | CloudWatch added this new service-linked role and corresponding<br>managed policy, AWSObservabilityAdminServiceRolePolicy, to<br>support resource and telemetry config discovery for AWS<br>Organizations.                                                                                                                                                   | November 26, 2024  |
-| [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– Update to permissions of service-linked role<br>policy                   | CloudWatch add more log groups to the scope of the<br>`logs:StartQuery` and<br>`logs:GetQueryResults` permissions granted by<br>this role.                                                                                                                                                                                                                   | April 24, 2024     |
-| [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– New service-linked role                                                  | CloudWatch added this new service-linked role to allow CloudWatch<br>Application Signals to collect CloudWatch Logs data, X-Ray trace data,<br>CloudWatch metrics data, and tagging data from applications that you<br>have enabled for CloudWatch Application Signals.                                                                                      | November 9, 2023   |
-| [AWSServiceRoleForCloudWatchMetrics_DbPerfInsights](#service-linked-role-permissions-dbperfinsights "#service-linked-role-permissions-dbperfinsights")<br>– New service-linked role        | CloudWatch added this new service-linked role to allow CloudWatch to fetch<br>Performance Insights metrics for alarming and snapshotting. An<br>IAM policy is attached to this role, and the policy grants<br>permission to CloudWatch to fetch Performance Insights metrics on your<br>behalf.                                                              | September 13, 2023 |
-| [AWSServiceRoleForCloudWatchAlarms_ActionSSMIncidents](#service-linked-role-permissions-incident-manager "#service-linked-role-permissions-incident-manager")<br>– New service-linked role | CloudWatch added a new service-linked role to allow CloudWatch to create<br>incidents in AWS Systems Manager Incident Manager.                                                                                                                                                                                                                               | April 26, 2021     |
-| CloudWatch started tracking<br>changes                                                                                                                                                     | CloudWatch started tracking changes for its service-linked<br>roles.                                                                                                                                                                                                                                                                                         | April 26, 2021     |
+| Change                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                  | Date               |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](#service-linked-role-telemetry-enablement "#service-linked-role-telemetry-enablement")<br>– Update to service-linked role policy. | Updated information about the [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](#service-linked-role-telemetry-enablement "#service-linked-role-telemetry-enablement")<br>that grants CloudWatch the permissions necessary to enable and manage<br>telemetry configurations for the additional AWS resources based on telemetry<br>rules.          | December 2, 2025   |
+| [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– Update to permissions of service-linked role<br>policy                      | Updated the [CloudWatchApplicationSignalsServiceRolePolicy](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals")<br>to include `resource-explorer-2:Search` and<br>`cloudtrail:CreateServiceLinkedChannel`<br>to enable new Application Signals features.                                  | November 12, 2025  |
+| [AWSObservabilityAdminLogsCentralizationServiceRolePolicy](#service-linked-role-logscentralization "#service-linked-role-logscentralization") – New service-linked role policy.               | Added information about the [AWSObservabilityAdminLogsCentralizationServiceRolePolicy](#service-linked-role-logscentralization "#service-linked-role-logscentralization")<br>that grants CloudWatch the permissions necessary to enable and manage<br>telemetry configurations for AWS resources based on telemetry<br>rules.                                | September 5, 2025  |
+| [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](#service-linked-role-telemetry-enablement "#service-linked-role-telemetry-enablement")<br>– New service-linked role policy.       | Added information about the [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](#service-linked-role-telemetry-enablement "#service-linked-role-telemetry-enablement")<br>that grants CloudWatch the permissions necessary to enable and manage<br>telemetry configurations for AWS resources based on telemetry<br>rules.                           | July 17, 2025      |
+| [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– Update to permissions of service-linked role<br>policy                      | Updated the [CloudWatchApplicationSignalsServiceRolePolicy](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals") to<br>exclude time windows from impacting the SLO attainment rate,<br>error budget, and burn rate metrics. CloudWatch can retrieve exclusion<br>windows on behalf of you. | March 13, 2025     |
+| [AWSServiceRoleForObservabilityAdmin](#service-linked-role-telemetry-config "#service-linked-role-telemetry-config") – New<br>service-linked role                                             | CloudWatch added this new service-linked role and corresponding<br>managed policy, AWSObservabilityAdminServiceRolePolicy, to<br>support resource and telemetry config discovery for AWS<br>Organizations.                                                                                                                                                   | November 26, 2024  |
+| [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– Update to permissions of service-linked role<br>policy                      | CloudWatch add more log groups to the scope of the<br>`logs:StartQuery` and<br>`logs:GetQueryResults` permissions granted by<br>this role.                                                                                                                                                                                                                   | April 24, 2024     |
+| [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– New service-linked role                                                     | CloudWatch added this new service-linked role to allow CloudWatch<br>Application Signals to collect CloudWatch Logs data, X-Ray trace data,<br>CloudWatch metrics data, and tagging data from applications that you<br>have enabled for CloudWatch Application Signals.                                                                                      | November 9, 2023   |
+| [AWSServiceRoleForCloudWatchMetrics_DbPerfInsights](#service-linked-role-permissions-dbperfinsights "#service-linked-role-permissions-dbperfinsights")<br>– New service-linked role           | CloudWatch added this new service-linked role to allow CloudWatch to fetch<br>Performance Insights metrics for alarming and snapshotting. An<br>IAM policy is attached to this role, and the policy grants<br>permission to CloudWatch to fetch Performance Insights metrics on your<br>behalf.                                                              | September 13, 2023 |
+| [AWSServiceRoleForCloudWatchAlarms_ActionSSMIncidents](#service-linked-role-permissions-incident-manager "#service-linked-role-permissions-incident-manager")<br>– New service-linked role    | CloudWatch added a new service-linked role to allow CloudWatch to create<br>incidents in AWS Systems Manager Incident Manager.                                                                                                                                                                                                                               | April 26, 2021     |
+| CloudWatch started tracking<br>changes                                                                                                                                                        | CloudWatch started tracking changes for its service-linked<br>roles.                                                                                                                                                                                                                                                                                         | April 26, 2021     |

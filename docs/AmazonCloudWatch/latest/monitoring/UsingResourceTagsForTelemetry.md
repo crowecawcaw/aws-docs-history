@@ -5,10 +5,10 @@ automatically adapt to resource changes, and gain insights into your AWS environ
 organization.
 
 - **Creating tag-based Metrics Insights queries** – After you enable resource tags for telemetry in your account, you can create tag-based Metrics Insights queries to discover and visualize your AWS infrastructure metrics by tag. Example queries using tags can be seen in the
-  [CloudWatch Metrics Insights query builder documentation](cloudwatch-metrics-insights-buildquery.md "cloudwatch-metrics-insights-buildquery.md"). _Monitoring accounts_ can also make tag based queries for
+  [CloudWatch Metrics Insights query builder documentation](cloudwatch-metrics-insights-buildquery.md "cloudwatch-metrics-insights-buildquery.md"). _Monitoring accounts_ can also make tag-based queries for
   metrics in _source accounts_ which have enabled resource tags on their telemetry.
-- **Creating tag based CloudWatch alarms** – After you enable resource tags for telemetry in your account, you can create CloudWatch alarms on tag-based Metrics Insights queries to alert on your AWS infrastructure metrics by tag.
-  Example alarms using tag based queries can be seen in the [CloudWatch Metric Insights alarms documentation](cloudwatch-metrics-insights-alarms.md "cloudwatch-metrics-insights-alarms.md").
+- **Creating tag-based CloudWatch alarms** – After you enable resource tags for telemetry in your account, you can create CloudWatch alarms on tag-based Metrics Insights queries to alert on your AWS infrastructure metrics by tag.
+  Example alarms using tag-based queries can be seen in the [CloudWatch Metric Insights alarms documentation](cloudwatch-metrics-insights-alarms.md "cloudwatch-metrics-insights-alarms.md").
 
 ## Supported AWS infrastructure metrics
 

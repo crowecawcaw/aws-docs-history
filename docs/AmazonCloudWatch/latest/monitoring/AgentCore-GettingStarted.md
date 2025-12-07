@@ -28,3 +28,9 @@ For a step-by-step tutorial, see [Enabling observability for non-AgentCore hoste
 ### Enable observability for AgentCore memory, gateway, and built-in tool resources
 
 You can gain visibility into the metrics and traces of AgentCore modular services. For more information, see [Configure CloudWatch observability](../../../bedrock-agentcore/latest/devguide/observability-configure.md#observability-configure-cloudwatch "../../../bedrock-agentcore/latest/devguide/observability-configure.md#observability-configure-cloudwatch").
+
+### Enable AgentCore Evaluations
+
+You can gain visibility into AgentCore Evaluations. AgentCore Evaluations provide capabilities to monitor
+and assess the performance, quality, and reliability of your AI agents. To enable observability for AgentCore
+Evaluations, see [AgentCore evaluations](../../../bedrock-agentcore/latest/devguide/evaluations.md "../../../bedrock-agentcore/latest/devguide/evaluations.md").

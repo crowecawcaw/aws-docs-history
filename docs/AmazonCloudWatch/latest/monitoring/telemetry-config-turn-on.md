@@ -1,68 +1,32 @@
-# Turning on telemetry auditing
+# Turning on telemetry auditing and
 
-Use the CloudWatch console to configure telemetry for your AWS account or organization. For an
-organization, CloudWatch uses a management account or a delegated administrator account to discover
-AWS resources and configure telemetry for all of the member accounts in the
-organization.
+configuration
+
+Use the CloudWatch console to audit and configure telemetry for your AWS account or
+organization. For an organization, as a AWS organization management account or a CloudWatch delegated
+administrator account, CloudWatch discovers AWS resources and provides visibility into the telemetry
+configurations across all the member accounts in the organization.
 
 Telemetry config remains active until you turn it off. For more information, see [Turning off CloudWatch telemetry configuration](telemetry-config-turn-off.md "telemetry-config-turn-off.md").
 
 ###### Topics
 
-- [Create a telemetry configuration](#configure-telemetry-collection "#configure-telemetry-collection")
-- [Configuring telemetry for your
+- [Configuring Telemetry Auditing Feature for your
   organization](#telemetry-config-organization "#telemetry-config-organization")
-- [Configuring telemetry for your
+- [Configuring Telemetry Auditing Feature for your
   account](#telemetry-config-turn-on-account "#telemetry-config-turn-on-account")
-- [Enable telemetry for resources](#enable-telemetry-for-resources "#enable-telemetry-for-resources")
 - [Deregistering a delegated
   administrator account](#telemetry-config-deregister-administrator "#telemetry-config-deregister-administrator")
 - [Turning off trusted access for
   AWS Organizations](#telemetry-config-turn-off-trusted-access "#telemetry-config-turn-off-trusted-access")
 
-## Create a telemetry configuration
-
-Configure telemetry collection to monitor your AWS resources.
-
-### Prerequisites
-
-- You have permissions to configure CloudWatch telemetry
-- You've identified the AWS resources you want to monitor
-
-###### To create a telemetry configuration
-
-1. Open the AWS Management Console.
-2. In the navigation pane, choose **CloudWatch**, then choose **Telemetry
-   Config**.
-3. Choose **Configure telemetry**.
-4. On the **Specify scope** page:
-   1. Choose the scope for your configuration (account or organization).
-   2. (Optional) Add tags to your configuration.
-
-5. Choose **Next**.
-6. On the **Specify telemetry destination** page:
-   1. Choose a destination for your telemetry data (for example, CloudWatch Logs).
-   2. Enter a prefix for your log group names.
-   3. (Optional) Configure additional settings:
-      - Enable evaluation metrics
-      - Set sample percentage
-
-   4. Choose data identifiers to mask sensitive information.
-
-7. Choose **Next**.
-8. Review your configuration settings.
-9. Choose **Create telemetry configuration**.
-
-After you complete these steps, CloudWatch begins collecting telemetry based on your
-configuration.
-
-## Configuring telemetry for your
+## Configuring Telemetry Auditing Feature for your
 
 organization
 
-To configure telemetry for your organization, you must use a management account or a
-delegated administrator account. CloudWatch uses this account to discover your organization's AWS
-resources and configure their telemetry.
+To turn on telemetry auditing and configuration experience for your organization, you must
+use a AWS Organization management account or a delegated administrator account. CloudWatch uses this
+account to discover your organization's AWS resources and configure their telemetry.
 
 Before you can configure telemetry for your organization, you need to enable trusted access
 between AWS Organizations and CloudWatch. When you enable trusted access, CloudWatch creates a service-linked role
@@ -73,31 +37,30 @@ permissions for CloudWatch telemetry config](using-service-linked-roles.md#servi
 see [Amazon CloudWatch and
 AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-cloudwatch.md "../../../organizations/latest/userguide/services-that-can-integrate-cloudwatch.md") in the AWS Organizations User Guide.
 
-To use a management account with Telemetry config, log in with the account, enable trusted
-access, and then configure telemetry. For more information, see [Configuring telemetry for your
-organization](#telemetry-config-turn-on-organization "#telemetry-config-turn-on-organization").
-
-###### To configure telemetry for your organization
+###### To turn on telemetry auditing for your organization
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pain, choose **Settings**.
 3. Choose the **Organizations** tab.
 4. On the **CloudWatch** settings page, in the **Organizational settings
-   management** pane, choose **Enable trusted access**. The **Enable trusted
-   access** page appears.
+   management** pane, choose **Enable trusted access**. The
+   **Enable trusted access** page appears.
 
 To review the role policy, choose **View permission details** and the
-role policy appears in a window. Confirm that you want to provide these permissions to the management account by choosing **Enable trusted access**. 5. Under **Manage Settings**, in the **CloudWatch Telemetry
-config** pane choose **Turn on**. 6. After Telemtry config is turned on for the organization a notification appears. On the notification, choose Go to Telemetry config. The
-The **Telemetry config** page appears and CloudWatch begins discovering
-AWS resources in the organization. As CloudWatch discovers resources, it updates information on
-the **Telemetry config** page.
+role policy appears in a window. Confirm that you want to provide these permissions to the
+management account by choosing **Enable trusted access**. 5. Under **Manage Settings**, in the **Organizations tab**
+in the **CloudWatch Telemetry Config** block choose **Turn on**. 6. After Telemetry config is turned on for the organization, a notification appears. On the
+notification, choose Go to Telemetry config. The Telemetry Configuration experience can be
+accessed in the **Ingestion** page and CloudWatch begins discovering AWS
+resources in the organization. As CloudWatch discovers resources, it updates information on the
+**Telemetry config** page.
 
 ###### Note
 
-The time delay before resources appear on the **Telemetry config** page depends
-on the number of member accounts and resources in your organization or account.
+The time delay before resources appear on the **Telemetry config** page
+depends on the number of member accounts and resources in your organization or
+account.
 
 ### Registering a delegated administrator
 
@@ -120,50 +83,51 @@ administrator account](#telemetry-config-deregister-administrator "#telemetry-co
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Settings**.
 3. Choose the **Organization** tab.
-4. In the **Organizational settings management** pane, choose **Register delegated administrator**.
+4. In the **Organizational settings management** pane, choose
+   **Register delegated administrator**.
 5. In the **Register delegated administrator** dialog, for
    **Delegated administrator account ID**, enter the 12-digit account ID for
    an organization member account.
-6. Choose **Register delegated administrator**. At the top of the **CloudWatch seettings** page, a
-   message appears indicating the account was registered successfully. To see information about the
-   delegated administrator account, select the number below **Delegated
-   administrators**.
+6. Choose **Register delegated administrator**. At the top of the
+   **CloudWatch settings** page, a message appears indicating the account was
+   registered successfully. To see information about the delegated administrator account, select
+   the number below **Delegated administrators**.
 
-### Configuring telemetry for your
+### Configuring Telemetry Auditing Feature for your
 
 organization
 
 Configure telemetry for AWS Organizations to monitor the telemetry for the AWS resources across
 all your member accounts. This also configures the telemetry for individual accounts. You can
-also configure telemetry for only your account. For more information, see [Configuring telemetry for your
+also configure telemetry for only your account. For more information, see [Configuring Telemetry Auditing Feature for your
 account](#telemetry-config-turn-on-account "#telemetry-config-turn-on-account").
 
 You can disable trusted access across all your member accounts. For more information, see
 [Turning off trusted access for
 AWS Organizations](#telemetry-config-turn-off-trusted-access "#telemetry-config-turn-off-trusted-access").
 
-###### To configure telemetry for your organization
+###### To configure telemetry auditing for your organization
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Telemetry config**.
-3. Choose **Configure**, and then choose the
-   **Organization** tab. The telemetry conﬁg **Overview**
-   page appears and CloudWatch begins discovering AWS resources in your organization. As CloudWatch
-   discovers resources, it updates information in the **Overview** page.
+2. In the navigation pane, choose **Ingestion**.
+3. Choose **Data Sources Tab**, and then choose the
+   **Enable Resources Discovery Button**. CloudWatch begins discovering AWS
+   resources in your organization. As CloudWatch discovers resources, it updates information in the
+   **Overview** page.
 
 ###### Note
 
 The delay before resources appear on the **Overview** page depends on
 the number of member accounts and resources in your organization.
 
-## Configuring telemetry for your
+## Configuring Telemetry Auditing Feature for your
 
 account
 
 Configure telemetry for your AWS account to monitor telemetry for the AWS resources in
 that account. If you have an organization in AWS Organizations, configure telemetry for your organization
-instead. For more information, see [Configuring telemetry for your
+instead. For more information, see [Configuring Telemetry Auditing Feature for your
 organization](#telemetry-config-turn-on-organization "#telemetry-config-turn-on-organization").
 
 ###### To configure telemetry for your AWS account
@@ -171,53 +135,15 @@ organization](#telemetry-config-turn-on-organization "#telemetry-config-turn-on-
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Telemetry config**.
-3. Choose **Configure**, then **This account**, if you are
-   using a management account or a delegated administrator account. The telemetry configuration
-   **Overview** page appears and CloudWatch begins discovering AWS resources in
-   your account. As CloudWatch discovers resources, it updates information on the
-   **Overview** page.
+3. Choose the **Data Source** tab, and then select **Enable
+   Resource Discovery**. CloudWatch begins discovering AWS resources in your account. As
+   CloudWatch discovers resources, it updates information on the **Overview**
+   page.
 
 ###### Note
 
 The delay before resources appear on the **Overview** page depends on
 the number of resources in your account.
-
-## Enable telemetry for resources
-
-After configuring telemetry for your account or organization, you can enable telemetry
-collection for specific AWS resources.
-
-### Prerequisites
-
-- You have completed the initial telemetry configuration
-- You have identified the specific resources you want to monitor
-
-###### To enable telemetry for resources
-
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Telemetry config**.
-3. Choose **Enable telemetry**.
-4. On the **Select resources** page:
-   1. Choose the resource types you want to monitor (for example, Amazon EC2, Lambda,
-      Amazon VPC).
-   2. (Optional) Use filters to narrow down the resources displayed.
-
-5. Choose **Next**.
-6. On the **Configure data events** page:
-   1. For each resource type, select the data events you want to collect.
-   2. (Optional) Review existing trails to avoid duplicate logging.
-
-7. Choose **Next**.
-8. On the **Set sampling rates** page:
-   1. Use the slider or enter a percentage to set the sampling rate.
-   2. (Optional) Adjust rates for individual resource types if needed.
-
-9. Review your settings.
-10. Choose **Enable telemetry**.
-
-After completing these steps, CloudWatch begins collecting telemetry for the selected
-resources.
 
 ## Deregistering a delegated
 

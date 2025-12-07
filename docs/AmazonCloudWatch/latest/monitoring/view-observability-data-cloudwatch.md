@@ -7,7 +7,8 @@ After you enable observability for your agentic resources, you can view the coll
 1. Open the CloudWatch console.
 2. Under the GenAI Observability dashboard, view data related to model invocations and agents on Amazon Bedrock AgentCore.
 3. In the Amazon Bedrock AgentCore sub-menu, you can choose the following views:
-   - **Agents View** – Lists all your agents, both on and off runtime. Choose an agent to view runtime metrics, sessions, and traces specific to that agent
+   - **Agents View** – Lists all your agents, both on and off runtime. Choose an agent to view runtime metrics, sessions, traces,
+     and evaluations specific to that agent
    - **Sessions View** – Navigate across all sessions associated with agents
    - **Traces View** – View traces and span information for agents. Choose a trace to explore the trace trajectory and timeline
 

@@ -2,15 +2,6 @@
 
 Amazon CloudWatch Observability EKS add-on or the Helm chart
 
-###### Note
-
-We recommend using Amazon Linux 2 nodes for full compatibility when using the Amazon CloudWatch
-Observability Add-on. When using Amazon Linux 2023 nodes, dataplane and host logs vended by
-Container Insights will not be available by default due to the change in the system
-logging mechanism introduced in Amazon Linux 2023. Application logs will continue to work as
-expected. For more information about Amazon Linux 2023 changes, see the [Amazon Linux 2023 User
-Guide](../../../linux/al2023/ug/journald.md "../../../linux/al2023/ug/journald.md").
-
 You can use either the Amazon CloudWatch Observability EKS add-on or the Amazon CloudWatch Observability
 Helm chart to install the CloudWatch Agent and the Fluent-bit agent on an Amazon EKS cluster. You can
 also use the Helm chart to install the CloudWatch Agent and the Fluent-bit agent on a Kubernetes

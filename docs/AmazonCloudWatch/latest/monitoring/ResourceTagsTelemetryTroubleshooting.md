@@ -8,6 +8,10 @@ To enable resource tags on telemetry, you must be signed in to an IAM principal 
 
 To disable resource tags on telemetry, you must be signed in to an IAM principal that has the `observabilityadmin:StopTelemetryEnrichment` and `resource-explorer-2:DeleteStreamingAccessForService` permissions.
 
+###### Note
+
+In the CloudWatch console, you must be signed in to an IAM principal that has the `observabilityadmin:GetTelemetryEnrichmentStatus` permission.
+
 ## Telemetry enrichment status is `Impaired`
 
 When the status shows as Impaired, the enable/disable request failed to complete. Retry your request to achieve the desired Running or Stopped status.

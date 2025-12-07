@@ -1,0 +1,932 @@
+# Source configuration for Microsoft 365
+
+## Integrating with Microsoft 365
+
+Microsoft 365 is a product family of productivity software, collaboration, and cloud-based services owned by Microsoft. CloudWatch Pipeline uses the Office 365 Management Activity API to retrieve information about user, admin, system, and policy actions and events from Office 365 and Microsoft Entra activity logs. Office 365 Management Activity API (also known as the Unified Auditing API) is a part of Office 365 security and compliance offerings. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.
+
+## Authenticating with Office 365 Management Activity API
+
+To retrieve the activities Office 365, pipelines needs to authenticate with your account. Follow the instructions in Office 365 Management APIs:
+
+- Register an application in Azure with Supported account types, Accounts in this organizational directory only (Single tenant). After registration is complete, note down the Application (client) ID and Directory (tenant) ID.
+- Generate a new key for your application. Key is also known as client secret, which are used when exchanging an authorization code for an access token.
+- In the AWS Secrets Manager, create a secret and store the Application (client) ID under the key `client_id` and the client secret under the key `client_secret`
+- Specify the permissions your application requires to access the Office 365 Management APIs. The permissions you need are:
+  - ActivityFeed.Read: Required for all the audit content types you listed, including Audit.AzureActiveDirectory, Audit.Exchange, Audit.SharePoint, and Audit.General.
+  - ActivityFeed.ReadDlp: Required specifically for the DLP.All content type
+
+- Before you can access data through the Office 365 Management Activity API, you must enable unified audit logging for your Office 365 organization. You do this by turning on the Office 365 audit log. For instructions, see Turn Office 365 audit log search on or off.
+
+## Configuring the CloudWatch Pipeline
+
+When configuring the pipeline to read activities from Office 365, choose Microsoft 365 as the data source. Fill in the required information like Tenant Id using Directory (tenant) ID and the secret where `client_id` and `client_secret` are stored. Once you create the pipeline, data will be available in the selected CloudWatch Logs log group.
+
+## Supported Open Cybersecurity Schema Framework Event Classes
+
+This integration supports OCSF schema version v1.5.0 and the actions from various workloads like Exchange, SharePoint, Teams, and Azure Active Directory are mapped to Account Change (3001), Authentication (3002), User Access Management (3005), Group Management (3006), Email Activity (4009), Web Resources Activity (6001), File Hosting Activity (6006), Application Lifecycle (6002), (2003), Detection Finding (2004), Incident Finding (2005), Vulnerability Finding (2002) and Unknown (0).
+
+### Compliance Finding
+
+Compliance Finding contains the following actions:
+
+- ApplyRecordLabel
+- ComplianceSettingChanged
+- ExclusionConfigurationDeleted
+- NewComplianceTag
+- NewRetentionCompliancePolicy
+- NewRetentionComplianceRule
+- CreateRulePackage
+- CreateSuppressionRule
+- ApproveDisposal
+- RemoveComplianceTag
+- SetComplianceTag
+- SetRestrictiveRetentionUI
+- SupervisionPolicyCreated
+- SupervisionPolicyUpdated
+- SupervisionPolicyDeleted
+- HoldUpdated
+- HoldCreated
+- HoldRemoved
+- DlpInfo
+
+[Show moreShow less](# "#")
+
+### Detection Finding
+
+Detection Finding contains the following actions:
+
+- FileMalwareDetected
+- DocumentSensitivityMismatchDetected
+- TIMailData
+- DeviceOffBoarding
+- AddIndicator
+- ChangeCustomDetectionRuleStatus
+- CreateCustomDetection
+- DeleteIndicator
+- EditIndicator
+- MonitoringAlertUpdated
+- RunCustomDetection
+- Trigger CMD Agent Canary check.
+- DlpRuleMatch
+- AlertEntityGenerated
+- AlertTriggered
+
+[Show moreShow less](# "#")
+
+### Incident Finding
+
+Incident Finding contains the following actions:
+
+- AddCommentToIncident
+- AddTagsToIncident
+- AssignUserToIncident
+- CollectInvestigationPackage
+- EditIncidentClassification
+- RemediationActionAdded
+- RemediationActionUpdated
+- RemoveTagsFromIncident
+- UnAssignUserFromIncident
+- UpdateIncidentStatus
+- CaseUpdated
+- CaseAdded
+- CaseRemoved
+
+[Show moreShow less](# "#")
+
+### Account Change
+
+Account Change contains the following actions:
+
+- Add member to role
+- Add service principal
+- Add user
+- Added role
+- Change user license
+- Change user password
+- Delete user
+- Deleted app permission
+- Deleted role
+- Edited global role assignment
+- Edited role
+- NetworkUserSuspended
+- Remove member from role
+- Remove delegation entry
+- Reset user password
+- Set force change user password
+- AdministratorAddedToTermStore
+- AdministratorDeletedFromTermStore
+- AlertNotificationsRecipientDeleted
+- CaseAdminUpdated
+- CaseAdminAdded
+- CaseAdminRemoved
+- User added
+
+[Show moreShow less](# "#")
+
+### Authentication
+
+Authentication contains the following actions:
+
+- MailboxLogin
+- ClockedIn
+- ClockedOut
+- TeamsSessionStarted
+- Logon
+- SignInEvent
+- SSOUserCredentialsSet
+- User logged in
+- UserLoggedIn
+- UserLoggedOff
+- UserLoginFailed
+
+### User Access Management
+
+User Access Management contains the following actions:
+
+- Add-MailboxPermission
+- ModifyFolderPermissions
+- Remove-MailboxPermission
+- ApplicableAdaptiveScopeChange
+- CaseMemberAdded
+
+### Group Management
+
+Group Management contains the following actions:
+
+- RemovedFromSecureLink
+- BotAddedToTeam
+- BotRemovedFromTeam
+- MemberAdded
+- MemberRemoved
+- MemberRoleChanged
+- ScheduleGroupAdded
+- ScheduleGroupEdited
+- ScheduleGroupDeleted
+- TeamCreated
+- TeamDeleted
+- Add group
+- Add member to group
+- Created group
+- Delete group
+- Deleted group
+- Edited group memberships
+- Edited group
+- GroupCreation
+- GroupDeletion
+- GroupRemoved
+- GroupAdded
+- GroupUpdated
+- RemovedFromGroup
+- AddedToGroup
+- Remove member from group
+- RemoveSpecificResponder
+- RosterMemberAdded
+- RosterMemberDeleted
+- CaseMemberUpdated
+- CaseMemberRemoved
+- Team added
+- Team deleted
+- UserAddedToGroup
+- UserRemovedFromGroup
+
+[Show moreShow less](# "#")
+
+### Email Activity
+
+Email Activity contains the following actions:
+
+- Send
+- SendAs
+- SendOnBehalf
+- MessageDeletedNotification
+- QuarantineDelete
+- QuarantineExport
+- QuarantinePreview
+- QuarantineRelease
+- QuarantineReleaseRequest
+- QuarantineReleaseRequestDeny
+- QuarantineViewHeader
+- SupervisionRuleMatch
+- SupervisoryReviewTag
+- SupervisoryReviewOLAudit
+
+[Show moreShow less](# "#")
+
+### Web Resources Activity
+
+Web Resources Activity contains the following actions:
+
+- UpdateCalendarDelegation
+- AddFolderPermissions
+- Copy
+- Create
+- New-InboxRule
+- SoftDelete
+- Move
+- MailItemsAccessed
+- MoveToDeletedItems
+- Set-InboxRule
+- HardDelete
+- UpdateInboxRules
+- Update
+- LockRecord
+- UnlockRecord
+- SearchQueryPerformed
+- PageViewed
+- PageViewedExtended
+- FolderCreated
+- ClientViewSignaled
+- PagePrefetched
+- FolderModified
+- ListColumnCreated
+- ListContentTypeCreated
+- ListItemCreated
+- Site ContentType Created
+- List Column Deleted
+- ListCreated
+- List Item Deleted
+- SiteColumnDeleted
+- ListDeleted
+- ListContentTypeDeleted
+- ListRestored
+- SiteColumnCreated
+- ListItemRecycled
+- ListItemDeleted
+- ListItemRestored
+- ListContentTypeUpdated
+- ListUpdated
+- ListViewed
+- SiteContentTypeDeleted
+- ListItemUpdated
+- SiteColumnUpdated
+- AccessRequestAccepted
+- ListColumnUpdated
+- SiteContentTypeUpdated
+- AccessRequestCreated
+- PermissionLevelAdded
+- CompanyLinkCreated
+- AnonymousLinkCreated
+- SharingInvitationAccepted
+- SecureLinkCreated
+- SharingInvitationCreated
+- SecureLinkDeleted
+- CompanyLinkRemoved
+- AccessRequestDenied
+- AnonymousLinkRemoved
+- AccessRequestUpdated
+- SharingSet
+- AnonymousLinkUpdated
+- SharingInvitationBlocked
+- AnonymousLinkUsed
+- SecureLinkUsed
+- CompanyLinkUsed
+- SharingRevoked
+- AddedToSecureLink
+- SharingInvitationUpdated
+- SharingInvitationRevoked
+- ExemptUserAgentSet
+- AllowedDataLocationAdded
+- SiteGeoMoveCancelled
+- AllowGroupCreationSet
+- CustomizeExemptUsers
+- DeviceAccessPolicyChanged
+- NetworkAccessPolicyChanged
+- SiteCollectionCreated
+- SiteDeleted
+- SendToConnectionRemoved
+- SiteGeoMoveCompleted
+- SharingPolicyChanged
+- PreviewModeEnabledSet
+- HubSiteOrphanHubDeleted
+- SendToConnectionAdded
+- HubSiteJoined
+- SiteCollectionQuotaModified
+- LegacyWorkflowEnabledSet
+- OfficeOnDemandSet
+- NewsFeedEnabledSet
+- PeopleResultsScopeSet
+- AllowedDataLocationDeleted
+- SiteRenamed
+- HubSiteRegistered
+- HostSiteSet
+- GeoQuotaAllocated
+- HubSiteUnjoined
+- HubSiteUnregistered
+- SiteCollectionAdminAdded
+- PermissionLevelsInheritanceBroken
+- SharingInheritanceBroken
+- SiteGeoMoveScheduled
+- WebRequestAccessModified
+- WebMembersCanShareModified
+- PermissionLevelModified
+- PermissionLevelRemoved
+- SitePermissionsModified
+- SiteCollectionAdminRemoved
+- SiteAdminChangeRequest
+- SharingInheritanceReset
+- BreakEnded
+- ChannelAdded
+- BreakStarted
+- ChannelDeleted
+- ChannelOwnerResponded
+- ChatRetrieved
+- ChannelSettingChanged
+- ChatCreated
+- ChatUpdated
+- ConnectorAdded
+- ConnectorRemoved
+- ConnectorUpdated
+- CreateUpdateRequest
+- EditUpdateRequest
+- FailedValidation
+- InviteeResponded
+- InviteSent
+- MeetingDetail
+- MeetingParticipantDetail
+- MessageCreatedHasLink
+- MessageDeleted
+- MessageCreatedNotification
+- MessageEditedHasLink
+- MessageHostedContentRead
+- MessageRead
+- MessageReadReceiptReceived
+- MessageHostedContentsListed
+- MessageSent
+- MessagesExported
+- MessageUpdated
+- MessageUpdatedNotification
+- OffShiftDialogAccepted
+- MessagesListed
+- OpenShiftAdded
+- OpenShiftDeleted
+- OpenShiftEdited
+- PerformedCardAction
+- RequestAdded
+- RequestRespondedTo
+- RequestCancelled
+- ScheduleSettingChanged
+- ScheduleShared
+- SensitivityLabelApplied
+- ScheduleWithdrawn
+- SensitivityLabelChanged
+- SensitivityLabelRemoved
+- SharingRestored
+- ShiftAdded
+- ShiftDeleted
+- ShiftEdited
+- SubscribedToMessages
+- TabAdded
+- SubmitUpdate
+- TabRemoved
+- TabUpdated
+- TeamSettingChanged
+- TeamsTenantSettingChanged
+- TerminatedSharing
+- TimeClockEntryDeleted
+- TimeClockEntryAdded
+- TimeClockEntryEdited
+- TimeOffAdded
+- TimeOffEdited
+- ViewUpdate
+- TimeOffDeleted
+- TranscriptsExported
+- AccessedOdataLink
+- AcceptedSharingLinkOnFolder
+- Add delegation entry.
+- Add domain to company.
+- Add service principal credentials.
+- Add partner to company.
+- Update service principal.
+- AddedDataLossPreventionEvaluationResult
+- AddFormCoauthor
+- AddReviewer
+- AddSpecificResponder
+- Admin allowed third party apps
+- Admin modified app owner
+- Admin modified app permissions
+- Admin set app as featured
+- Admin set bypass consent state
+- Admin set conditional access
+- Admin set desired logical name
+- Admin set quarantine state
+- AlertExcelDownloaded
+- AlertNotificationsRecipientAdded
+- AllowAnonymousResponse
+- AllowShareFormForCopy
+- AppBypassInformationBarrier
+- CanceledQuery
+- Check PowerShell Execution Policy
+- ClassificationDefinitionDeleted
+- ClassificationAdded
+- ClassificationDefinitionUpdated
+- ClassificationDeleted
+- ClassificationDefinitionCreated
+- CollectionHardDeleted
+- CollectionCreated
+- CollectionRenamed
+- CollectionSoftDeleted
+- Commented on video
+- CommunityAccessFailure
+- CollectionUpdated
+- Consented to the app's APIs
+- ConnectToExcelWorkbook
+- Create LogCollection Request
+- Create new work items (Scheduler)
+- ConsentModificationRequest
+- Create Remote Action Operation in Acti...
+- CreateComment
+- CreateForm
+- CreateResponse
+- Dashboard created
+- Dashboard deleted
+- Dashboard updated
+- Data exported
+- DataAccessRequestOperation
+- DataExport
+- DataShareCreated
+- DeleteAllResponses
+- DeleteCustomDetection
+- Deleted video
+- DeletedResult
+- DeleteSummaryLink
+- DisableCollaboration
+- DisableSpecificResponse
+- DisallowShareFormForCopy
+- DisableSuppressionRule
+- DisallowAnonymousResponse
+- EditCustomDetection
+- Edited app
+- Edited app permission
+- Edited global role assignment
+- Edited channel
+- Edited tenant settings
+- Edited group
+- Edited user settings
+- Edited role
+- Edited video permission
+- EditForm
+- Edited video
+- EditRulePackage
+- EnableSameOrgCollaboration
+- EditSuppressionRule
+- EnableSpecificCollaboaration
+- EnableSpecificResponse
+- EnableSuppressionRule
+- EnableWorkOrSchoolCollaboration
+- EntityCreated
+- EntityDeleted
+- EntityRemediatorConfigurationUpdated
+- EntityUpdated
+- ExclusionConfigurationAdded
+- ExclusionConfigurationUpdated
+- ExecutedQuery
+- ExportForm
+- ExtendRetention
+- FileUpdateDescription
+- FileUpdateName
+- FileVisited
+- FolderSharingLinkShared
+- SharingLinkUsed
+- SharingLinkCreated
+- GenerateCopyOfLakeData
+- Get text track
+- Get transcript
+- Get video
+- GetSummaryLink
+- GlossaryTermAssigned
+- GlossaryTermCreated
+- GlossaryTermDisassociated
+- GlossaryTermDeleted
+- GlossaryTermUpdated
+- Goals policy updated
+- Group view
+- InformationBarriersInsightsReportOneDr...
+- InformationBarriersInsightsReportSched...
+- InformationBarriersInsightsReportShare...
+- InformationBarriersInsightsReportCompl...
+- Liked video
+- Linked on Video
+- LinkedEntityCreated
+- LinkedEntityDeleted
+- LinkedEntityUpdated
+- ListForms
+- Marked app as Featured
+- Marked app as Hero
+- MarkedMessageChanged
+- ReactedToMessage
+- MeetingExclusionCreated
+- MessageCreated
+- MessageAccessFailure
+- MessageViewed
+- MonitoringAlertNotificationRecipientAd...
+- MonitoringAlertNotificationRecipientDe...
+- MovedFormIntoCollection
+- MovedFormOutofCollection
+- NetworkConfigurationUpdated
+- NetworkSecurityConfigurationUpdated
+- MoveForm
+- NewAdaptiveScope
+- NotificationConfigurationUpdated
+- OCE Run Commands on VM
+- OKR or Project created
+- OKR or Project deleted
+- OKR or Project updated
+- Organization created
+- Organization integrations updated
+- Organization settings updated
+- PlanCreated
+- PlanCopied
+- PlanDeleted
+- PlanRead
+- Post Remote Action Operation
+- PlanListRead
+- PreviewForm
+- PlanModified
+- ProcessProfileFields
+- ProjectCreated
+- ProjectAccessed
+- ProInvitation
+- ProjectDeleted
+- ProjectForTheWebRoadmaptSettings
+- ProjectForTheWebProjectSettings
+- ProjectListAccessed
+- ProjectUpdated
+- RelabelItem
+- ReleaseFromIsolation
+- Remove domain from company.
+- Remove partner from company.
+- Remove service principal credentials.
+- RemoveAdaptiveScope
+- RemoveAppRestrictions
+- RemoveFormCoauthor
+- RemoveRetentionComplianceRule
+- RemoveRetentionCompliancePolicy
+- ReporterConfigurationUpdated
+- RestrictAppExecution
+- RoadmapAccessed
+- RoadmapCreated
+- RoadmapDeleted
+- RoadmapItemAccessed
+- RoadmapItemCreated
+- RoadmapItemDeleted
+- RoadmapItemUpdated
+- RoadmapUpdated
+- RosterCreated
+- RosterDeleted
+- RosterSensitivityLabelUpdated
+- Run hybrid AADJ extension
+- RunLiveResponseApi
+- SensorCreated
+- SensorConfigurationUpdated
+- SensorDeleted
+- SensorDeploymentAccessKeyUpdated
+- SensorDeploymentAccessKeyReceived
+- Set company contact information
+- Set channel thumbnail
+- Set delegation entry
+- Set company information
+- Set domain authentication
+- Set federation settings on domain
+- Set DirSyncEnabled flag
+- Set license properties
+- Set password policy
+- SetAdaptiveScope
+- SetAdvancedFeatures
+- SetRetentionCompliancePolicy
+- SiteIBModeChanged
+- Shared video
+- SiteIBModeSet
+- SetRetentionComplianceRule
+- SiteIBSegmentsChanged
+- SiteIBSegmentsRemoved
+- SiteIBSegmentsSet
+- SiteSensitivityLabelApplied
+- SensitivityLabelUpdated
+- SiteSensitivityLabelChanged
+- SiteSensitivityLabelRemoved
+- SoftDeleteSettingsUpdated
+- SPOIBIsDisabled
+- SPOIBIsEnabled
+- SubmitResponse
+- SubTaskCreated
+- SubTaskDeleted
+- SubTaskUpdated
+- SupervisorAdminToggled
+- SyslogServiceConfigurationUpdated
+- TaggingConfigurationUpdated
+- TaskAccessed
+- TaskAssigned
+- TaskCompleted
+- TaskDeleted
+- TaskCreated
+- TaskListCreated
+- TaskListRead
+- TaskListUpdated
+- TaskModified
+- TaskRead
+- TaskUpdated
+- Team updated
+- TenantSettingsUpdated
+- Trigger device remediation
+- Trigger generic action by SaaF
+- Trigger generic action
+- Trigger generic action with options
+- Unliked video
+- Trigger orchestrator
+- Update group.
+- Update user.
+- UpdatedDataAccessSetting
+- UpdatedOrganizationBriefingSettings
+- UpdatedOrganizationMyAnalyticsSettings
+- Update domain.
+- UpdatedPrivacySetting
+- UpdatedUserBriefingSettings
+- UpdatedUserMyAnalyticsSettings
+- UpdateFormSetting
+- UpdatePhishingStatus
+- UpdateResponse
+- UpdateUsageReportsPrivacySetting
+- UpdateUserSetting
+- URbacAuthorizationStatusChanged
+- UserInvited
+- UserSuspension
+- Viewed video
+- Verify domain
+- Verify email verified domain
+- ViewedExplore
+- ViewForm
+- ViewResponses
+- ViewRuntimeForm
+- ViewResponse
+- VpnConfigurationUpdated
+- WorkspaceCreated
+- WorkspaceDeleted
+- WorkspaceAlertThresholdLevelUpdated
+- SearchUpdated
+- SearchPermissionUpdated
+- PreviewItemListed
+- SearchCreated
+- SearchPermissionCreated
+- SearchRemoved
+- SearchExportDownloaded
+- SearchPreviewed
+- SearchPermissionRemoved
+- SearchResultsPurged
+- RemovedSearchResultsSentToZoom
+- RemovedSearchPreviewed
+- RemovedSearchExported
+- RemovedSearchResultsPurged
+- SearchResultsSentToZoom
+- SearchReportRemoved
+- SearchStarted
+- SearchReport
+- ThreadViewed
+- CaseViewed
+- SearchViewed
+- ViewedSearchExported
+- SearchStopped
+- ViewedSearchPreviewed
+- AddWorkingSetQueryToWorkingSet
+- AddQueryToWorkingSet
+- AddNonOffice365DataToWorkingSet
+- AnnotateDocument
+- LoadComparisonJob
+- RunAlgo
+- CreateWorkingSet
+- CreateWorkingSetSearch
+- CreateTag
+- DeleteTag
+- UpdateTag
+- DeleteWorkingSetSearch
+- UpdateCaseSettings
+- UpdateWorkingSetSearch
+- PreviewWorkingSetSearch
+- TagJob
+- LabelContentExplorerAccessedItem
+- AccessInvitationAccepted
+- AccessInvitationCreated
+- AccessInvitationExpired
+- AccessInvitationRevoked
+- AccessInvitationUpdated
+- AccessRequestApproved
+- AccessRequestRejected
+- AppCatalogCreated
+- AuditPolicyUpdate
+- ActivationEnabled
+- AuditPolicyRemoved
+- AzureStreamingEnabledSet
+- CollaborationTypeModified
+- CreateSSOApplication
+- ConnectedSiteSettingModified
+- CustomFieldOrLookupTableCreated
+- CustomFieldOrLookupTableDeleted
+- CustomFieldOrLookupTableModified
+- DelegateModified
+- DelegateRemoved
+- DefaultLanguageChangedInTermStore\*
+- eDiscoveryHoldApplied
+- eDiscoveryHoldRemoved
+- eDiscoverySearchPerformed
+- EngagementAccepted
+- EngagementModified
+- EnterpriseCalendarModified
+- EngagementRejected
+- EntityForceCheckedIn
+- LanguageAddedToTermStore
+- LookAndFeelModified
+- LanguageRemovedFromTermStore
+- MaxQuotaModified
+- MaxResourceUsageModified
+- MySitePublicEnabledSet
+- ODBNextUXSettings
+- PermissionSyncSettingModified
+- PermissionTemplateModified
+- PortfolioDataAccessed
+- PortfolioDataModified
+- ProjectCheckedOut
+- ProjectCheckedIn
+- ProjectModified
+- ProjectPublished
+- ProjectWorkflowRestarted
+- PWASettingsAccessed
+- ProjectForceCheckedIn
+- PWASettingsModified
+- QueueJobStateModified
+- QuotaWarningEnabledModified
+- RenderingEnabled
+- ReportingAccessed
+- ResourceCheckedIn
+- ResourceAccessed
+- ReportingSettingModified
+- ResourceCreated
+- ResourceCheckedOut
+- ResourceModified
+- ResourcePlanCheckedInOrOut
+- ResourceDeleted
+- ResourcePlanModified
+- ResourcePlanPublished
+- ResourceForceCheckedIn
+- ResourceWarningEnabledModified
+- ResourceRedacted
+- SSOGroupCredentialsSet
+- SearchCenterUrlSet
+- SecondaryMySiteOwnerSet
+- SecurityCategoryModified
+- SecurityGroupModified
+- SiteCollectionAdminAdded\*
+- StatusReportModified
+- SyntexBillingSubscriptionSettingsChang...
+- TaskStatusAccessed
+- TaskStatusApproved
+- TaskStatusRejected
+- TaskStatusSubmitted
+- TaskStatusSaved
+- TimesheetRejected
+- TimesheetApproved
+- TimesheetSaved
+- TimesheetSubmitted
+- TimesheetAccessed
+- UpdateSSOApplication
+- WorkflowModified
+- DlpRuleUndo
+- AlertUpdated
+- SensitivityLabelPolicyMatched
+- CopilotInteraction
+- Channel view
+- Deleted video comment
+- Deleted channel
+- Created channel
+- Created video
+- User deactivated
+- User deleted
+
+[Show moreShow less](# "#")
+
+### Application Lifecycle
+
+Application Lifecycle contains the following actions:
+
+- AppDeletedFromCatalog
+- AppPublishedToCatalog
+- AppInstalled
+- AppUninstalled
+- AppUpdatedInCatalog
+- AppUpgraded
+- DeletedAllOrganizationApps
+- WorkforceIntegrationAdded
+- AddDevicesToBackfill Operation
+- AddDevicesToReinstall Operation
+- Admin deleted app
+- Admin restored deleted app
+- Create VmExtention Request
+- Created app
+- Deleted app
+- Deleted app version
+- Execute AppHealthPlugin
+- Install RD agent
+- Update device.
+- MigrationJobCompleted
+- Patched app
+- Published app
+- Remove service principal.
+- Removed app as Featured
+- Removed app as Hero
+- TriggerClientAgentCheckBulkAction Opera...
+- Launched app
+- LaunchPowerApp
+- DeleteSSOApplication
+
+[Show moreShow less](# "#")
+
+### File Hosting Activity
+
+File Hosting Activity contains the following actions:
+
+- UpdateFolderPermissions
+- FileCheckedIn
+- FileCheckedOut
+- FileCopied
+- FileAccessedExtended
+- FileDeletedSecondStageRecycleBin
+- FileDeleted
+- FileAccessed
+- FileDeletedFirstStageRecycleBin
+- RecordDelete
+- FileDownloaded
+- FileCheckOutDiscarded
+- FileModified
+- FileModifiedExtended
+- FilePreviewed
+- FileRecycled
+- FolderRecycled
+- FileVersionsAllMinorsRecycled
+- FileMoved
+- FileVersionRecycled
+- FileUploaded
+- FileRenamed
+- FileVersionsAllRecycled
+- FileRestored
+- FolderDeleted
+- FolderDeletedFirstStageRecycleBin
+- FolderMoved
+- FolderCopied
+- FolderDeletedSecondStageRecycleBin
+- FolderRenamed
+- FolderRestored
+- RecordingExported
+- ManagedSyncClientAllowed
+- FileSyncDownloadedFull
+- FileSyncDownloadedPartial
+- FileSyncUploadedFull
+- UnmanagedSyncClientBlocked
+- FileSyncUploadedPartial
+- AttachmentDeleted
+- AttachmentUpdated
+- AttachmentCreated
+- DataShareDeleted
+- Deleted text track
+- Deleted thumbnail
+- DomainControllerCoverageExcelDownloaded
+- DownloadCopyOfLakeData
+- Downloaded video
+- DownloadedReport
+- DownloadOffboardingPkg
+- DownloadFile
+- DownloadOnboardingPkg
+- FileAccessFailure
+- FileCreated
+- FileSensitivityLabelChanged
+- FileSensitivityLabelApplied
+- FileSensitivityLabelRemoved
+- FileShared
+- WACTokenShared
+- LiveResponseGetFile
+- LogsCollection
+- AddRemediatedData
+- BurnJob
+- DownloadDocument
+- ExportJob
+- ErrorRemediationJob
+- TagFiles
+- PreviewItemRendered
+- ViewDocument
+- FileFetched
+- FileViewed
+- SharedLinkCreated
+- SharedLinkDisabled
+- SharingInvitationAccepted\*
+- SyncGetChanges
+- Restored app version
+- RunAntiVirusScan
+- StopAndQuarantineFile
+- Uploaded text track
+- Upload folder to blob
+- Uploaded thumbnail
+- Uploaded video
+- UploadedOrgData
+- ReportDownloaded
+- PreviewItemDownloaded
+- SearchExported
+- Published solution canvas app version
+
+[Show moreShow less](# "#")

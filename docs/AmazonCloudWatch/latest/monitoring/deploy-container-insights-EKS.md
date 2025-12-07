@@ -2,15 +2,6 @@
 
 Kubernetes
 
-###### Note
-
-We recommend using Amazon Linux 2 nodes for full compatibility when using the Amazon CloudWatch
-Observability Add-on. When using Amazon Linux 2023 nodes, dataplane and host logs vended by
-Container Insights will not be available by default due to the change in the system
-logging mechanism introduced in Amazon Linux 2023. Application logs will continue to work
-as expected. For more information about Amazon Linux 2023 changes, see the [Amazon Linux 2023 User
-Guide](../../../linux/al2023/ug/journald.md "../../../linux/al2023/ug/journald.md").
-
 Container Insights is supported on Amazon EKS versions 1.23 and later. The quick start method
 of installation is supported only on versions 1.24 and later.
 

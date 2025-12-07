@@ -6,23 +6,22 @@ learn from the incident and take actions to prevent future such occurrences. The
 of the report is based on industry standards for these types of reports and can be copied
 into other repositories for long-term retention.
 
-When you use the AWS Management Console to create an `investigation group` resource in CloudWatch investigations, an
-IAM role is created for the group to give it access to resources during the investigation.
-Generating CloudWatch investigations incident reports requires additional permissions be granted to your
-investigation group. The new managed policy `AIOpsAssistantIncidentReportPolicy`
-provides the required permissions and is automatically added to investigation groups created
-using the AWS Management Console after October 10, 2025. For more information, see [AIOpsAssistantIncidentReportPolicy](managed-policies-cloudwatch.md#managed-policies-QInvestigations-AIOpsAssistantIncidentReportPolicy "managed-policies-cloudwatch.md#managed-policies-QInvestigations-AIOpsAssistantIncidentReportPolicy").
+When you use the AWS Management Console to create an `investigation group`
+resource in CloudWatch investigations, an IAM role is created for the group to give it access to resources
+during the investigation. Generating CloudWatch investigations incident reports requires additional permissions
+be granted to your investigation group. The new managed policy
+`AIOpsAssistantIncidentReportPolicy` provides the required permissions and is
+automatically added to investigation groups created using the AWS Management Console after October 10, 2025. For more information, see [AIOpsAssistantIncidentReportPolicy](managed-policies-cloudwatch.md#managed-policies-QInvestigations-AIOpsAssistantIncidentReportPolicy "managed-policies-cloudwatch.md#managed-policies-QInvestigations-AIOpsAssistantIncidentReportPolicy").
 
 ###### Note
 
-If you are using the CDK or SDK, you must explicitly add the investigation group role and specify the role policy or equivalent inline
-permissions on the role. For more details about permissions, see
-[Security in CloudWatch investigations](Investigations-Security.md "Investigations-Security.md")
+If you are using the CDK or SDK, you must explicitly add the investigation group role
+and specify the role policy or equivalent inline permissions on the role. For more
+details about permissions, see [Security in CloudWatch investigations](Investigations-Security.md "Investigations-Security.md")
 
-These
-reports capture investigation findings, root causes, timeline events, and recommended
-corrective actions in a structured format that can be easily shared with stakeholders and
-used for organizational learning.
+These reports capture investigation findings, root causes, timeline events, and
+recommended corrective actions in a structured format that can be easily shared with
+stakeholders and used for organizational learning.
 
 Incident report generation is included at no additional charge for all CloudWatch investigations users and
 integrates seamlessly with your investigation workflow.
@@ -72,10 +71,9 @@ integrates seamlessly with your investigation workflow.
        method) to input additional text-based content such as incident
        tickets or custom narratives. The AI will analyze this content to
        augment existing facts or infer new ones.
-     - Edit facts directly (use sparingly) - Note that manually edited
-       facts cannot be reverted to AI-inferred status and may create
-       inconsistencies with the investigation timeline. This should be used
-       only as a last resort when **Add
+     - Edit facts directly (use sparingly) - Manually edited facts may
+       create inconsistencies with the investigation timeline. This should
+       be used only as a last resort when **Add
        facts** doesn't achieve the desired result.
 
    - Choose **Regenerate report** to produce a new
@@ -83,7 +81,11 @@ integrates seamlessly with your investigation workflow.
 
 ###### Topics
 
+- [Understanding AI-derived facts
+  in incident reports](Investigations-IncidentReports-ai-facts.md "Investigations-IncidentReports-ai-facts.md")
 - [Incident report
   terminology](Investigations-IncidentReports-terms.md "Investigations-IncidentReports-terms.md")
 - [Generate a report from an
   investigation](Investigations-IncidentReports-Generate.md "Investigations-IncidentReports-Generate.md")
+- [Using 5 Whys analysis in incident
+  reports](incident-report-5whys.md "incident-report-5whys.md")
