@@ -52,7 +52,7 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
 
 
 
-    ![Adding a comment on a file in a pull request.](/images/codecommit/latest/userguide/images/codecommit-commenting-addfilecomment.png)
+    ![Adding a comment on a file in a pull request.](images/codecommit-commenting-addfilecomment.png)
     * To add a comment to a changed line in the pull request, in
      **Changes**, go to the line you want to comment on.
      Choose the comment icon
@@ -108,7 +108,7 @@ Java or Python code.
      Amazon CodeGuru Reviewer recommendations, only thumbs up and thumbs down emoji
      reactions are used to evaluate the usefulness of the recommendation.
 
-![A recommendation created by Amazon CodeGuru Reviewer with a review job in progress.](/images/codecommit/latest/userguide/images/codecommit-pull-request-reply-bot.png) 9. To approve the changes made in a pull request, choose
+![A recommendation created by Amazon CodeGuru Reviewer with a review job in progress.](images/codecommit-pull-request-reply-bot.png) 9. To approve the changes made in a pull request, choose
 **Approve**.
 
 ###### Note
