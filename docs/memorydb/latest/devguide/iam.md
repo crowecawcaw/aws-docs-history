@@ -1,251 +1,111 @@
-# Using identity-based policies (IAM policies) for MemoryDB
+# Identity and access management in MemoryDB
 
-This topic provides examples of identity-based policies in which an account
-administrator can attach permissions policies to IAM identities (that is, users, groups,
-and roles).
+AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
+to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
+(have permissions) to use MemoryDB resources. IAM is an AWS service that you can
+use with no additional charge.
 
-###### Important
+###### Topics
 
-We recommend that you first read the topics that explain the basic concepts and options to
-manage access to MemoryDB resources. For more information, see [Overview of managing access permissions to your MemoryDB resources](iam.md "iam.md").
+- [Audience](#security_iam_audience "#security_iam_audience")
+- [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
+- [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
+- [How MemoryDB works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Troubleshooting MemoryDB identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Access control](#iam.accesscontrol "#iam.accesscontrol")
+- [Overview of managing access permissions to your MemoryDB resources](iam.md "iam.md")
 
-The sections in this topic cover the following:
+## Audience
 
-- [Permissions required to use the MemoryDB console](#iam.identitybasedpolicies.minconpolicies "#iam.identitybasedpolicies.minconpolicies")
-- [AWS-managed (predefined) policies
-  for MemoryDB](security-iam-awsmanpol.md#iam.identitybasedpolicies.predefinedpolicies "security-iam-awsmanpol.md#iam.identitybasedpolicies.predefinedpolicies")
-- [Customer-managed policy
-  examples](#iam.identitybasedpolicies.customermanagedpolicies "#iam.identitybasedpolicies.customermanagedpolicies")
-  The following shows an example of a permissions policy.
+How you use AWS Identity and Access Management (IAM) differs based on your role:
 
-JSON
+- **Service user** - request permissions from your
+  administrator if you cannot access features (see [Troubleshooting MemoryDB identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+- **Service administrator** - determine user access and
+  submit permission requests (see [How MemoryDB works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
+- **IAM administrator** - write policies to manage
+  access (see [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Sid": "AllowClusterPermissions",
- "Effect": "Allow",
- "Action": [
- "memorydb:CreateCluster",
- "memorydb:DescribeClusters",
- "memorydb:UpdateCluster"],
- "Resource": "*"
- },
- {
- "Sid": "AllowUserToPassRole",
- "Effect": "Allow",
- "Action": [ "iam:PassRole" ],
- "Resource": "arn:aws:iam::123456789012:role/EC2-roles-for-cluster"
- }
- ]
-}`
+## Authenticating with identities
 
-```
+Authentication is how you sign in to AWS using your identity credentials. You must be authenticated as the AWS account root user, an IAM user, or by assuming an IAM role.
 
-The policy has two statements:
+You can sign in as a federated identity using credentials from an identity source like AWS IAM Identity Center (IAM Identity Center), single sign-on authentication, or Google/Facebook credentials. For more information about signing in, see [How to sign in to your AWS account](../../../signin/latest/userguide/how-to-sign-in.md "../../../signin/latest/userguide/how-to-sign-in.md") in the _AWS Sign-In User Guide_.
 
-- The first statement grants permissions for the MemoryDB actions
-  (`memorydb:CreateCluster`,
-  `memorydb:DescribeClusters`, and
-  `memorydb:UpdateCluster`) on any cluster owned by
-  the account.
-- The second statement grants permissions for the IAM action
-  (`iam:PassRole`) on the IAM role name specified at the
-  end of the `Resource` value.
-  The policy doesn't specify the `Principal` element because in an
-  identity-based policy you don't specify the principal who gets the
-  permission. When you attach policy to a user, the user is the implicit principal. When
-  you attach a permissions policy to an IAM role, the principal identified in the role's
-  trust policy gets the permissions.
+For programmatic access, AWS provides an SDK and CLI to cryptographically sign requests. For more information, see [AWS Signature Version 4 for API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") in the _IAM User Guide_.
 
-For a table showing all of the MemoryDB API actions and the resources that they apply
-to, see [MemoryDB API permissions: Actions, resources, and conditions reference](iam.md "iam.md").
+### AWS account root user
 
-## Permissions required to use the MemoryDB console
+When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
 
-The permissions reference table lists the MemoryDB API operations and shows the required permissions
-for each operation. For more information about MemoryDB API operations, see [MemoryDB API permissions: Actions, resources, and conditions reference](iam.md "iam.md").
+### Federated identity
 
-To use the MemoryDB console, first grant permissions for additional actions as shown in
-the following permissions policy.
+As a best practice, require human users to use federation with an identity provider to access AWS services using temporary credentials.
 
-JSON
+A _federated identity_ is a user from your enterprise directory, web identity provider, or Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Sid": "MinPermsForMemDBConsole",
- "Effect": "Allow",
- "Action": [
- "memorydb:Describe*",
- "memorydb:List*",
- "ec2:DescribeAvailabilityZones",
- "ec2:DescribeVpcs",
- "ec2:DescribeAccountAttributes",
- "ec2:DescribeSecurityGroups",
- "cloudwatch:GetMetricStatistics",
- "cloudwatch:DescribeAlarms",
- "s3:ListAllMyBuckets",
- "sns:ListTopics",
- "sns:ListSubscriptions" ],
- "Resource": "*"
- }
- ]
-}`
+For centralized access management, we recommend AWS IAM Identity Center. For more information, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the _AWS IAM Identity Center User Guide_.
 
-```
+### IAM users and groups
 
-The MemoryDB console needs these additional permissions for the following reasons:
+An _[IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
 
-- Permissions for the MemoryDB actions enable the console to display MemoryDB
-  resources in the account.
-- The console needs permissions for the `ec2` actions to query Amazon EC2 so it
-  can display Availability Zones, VPCs, security groups, and account
-  attributes.
-- The permissions for `cloudwatch` actions enable the console to retrieve Amazon CloudWatch metrics
-  and alarms, and display them in the console.
-- The permissions for `sns` actions enable the console to retrieve Amazon Simple Notification Service (Amazon SNS) topics and
-  subscriptions, and display them in the console.
+An [_IAM group_](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md") specifies a collection of IAM users and makes permissions easier to manage for large sets of users. For more information, see [Use cases for IAM users](../../../IAM/latest/UserGuide/gs-identities-iam-users.md "../../../IAM/latest/UserGuide/gs-identities-iam-users.md") in the _IAM User Guide_.
 
-## Customer-managed policy
+### IAM roles
 
-examples
+An _[IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")_ is an identity with specific permissions that provides temporary credentials. You can assume a role by [switching from a user to an IAM role (console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md") or by calling an AWS CLI or AWS API operation. For more information, see [Methods to assume a role](../../../IAM/latest/UserGuide/id_roles_manage-assume.md "../../../IAM/latest/UserGuide/id_roles_manage-assume.md") in the _IAM User Guide_.
 
-If you are not using a default policy and choose to use a custom-managed policy, ensure one
-of two things. Either you should have permissions to call
-`iam:createServiceLinkedRole` (for more information, see [Example 4: Allow a user to call IAM CreateServiceLinkedRole API](#create-service-linked-role-policy "#create-service-linked-role-policy")). Or you should have created
-a MemoryDB service-linked role.
+IAM roles are useful for federated user access, temporary IAM user permissions, cross-account access, cross-service access, and applications running on Amazon EC2. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the _IAM User Guide_.
 
-When combined with the minimum permissions needed to use the MemoryDB console,
-the example policies in this section grant additional permissions. The examples are
-also relevant to the AWS SDKs and the AWS CLI. For more information about what
-permissions are needed to use the MemoryDB console, see
-[Permissions required to use the MemoryDB console](#iam.identitybasedpolicies.minconpolicies "#iam.identitybasedpolicies.minconpolicies").
+## Managing access using policies
 
-For instructions on setting up IAM users and groups, see [Creating Your First IAM User and Administrators Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the _IAM User Guide_.
+You control access in AWS by creating policies and attaching them to AWS identities or resources. A policy defines permissions when associated with an identity or resource. AWS evaluates these policies when a principal makes a request. Most policies are stored in AWS as JSON documents. For more information about JSON policy documents, see [Overview of JSON policies](../../../IAM/latest/UserGuide/access_policies.md#access_policies-json "../../../IAM/latest/UserGuide/access_policies.md#access_policies-json") in the _IAM User Guide_.
 
-###### Important
+Using policies, administrators specify who has access to what by defining which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Always test your IAM policies thoroughly before using them in production. Some
-MemoryDB actions that appear simple can require other actions to support them
-when you are using the MemoryDB console. For example,
-`memorydb:CreateCluster` grants permissions to create
-MemoryDB clusters. However, to perform this operation, the MemoryDB console uses
-a number of `Describe` and `List` actions to populate
-console lists.
+By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-###### Examples
+### Identity-based
 
-- [Example 1: Allow a user read-only access to MemoryDB resources](#example-allow-list-current-memorydb-resources "#example-allow-list-current-memorydb-resources")
-- [Example 2: Allow a user to perform common MemoryDB system administrator tasks](#example-allow-specific-memorydb-actions "#example-allow-specific-memorydb-actions")
-- [Example 3: Allow a user to access all MemoryDB API actions](#allow-unrestricted-access "#allow-unrestricted-access")
-- [Example 4: Allow a user to call IAM CreateServiceLinkedRole API](#create-service-linked-role-policy "#create-service-linked-role-policy")
+policies
 
-### Example 1: Allow a user read-only access to MemoryDB resources
+Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
-The following policy grants permissions for MemoryDB actions that allow a user to list
-resources. Typically, you attach this type of permissions policy to a managers group.
+Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-JSON
+### Resource-based
 
-```
-`{
- "Version":"2012-10-17",
- "Statement":[{
- "Sid": "MemDBUnrestricted",
- "Effect":"Allow",
- "Action": [
- "memorydb:Describe*",
- "memorydb:List*"],
- "Resource":"*"
- }
- ]
-}`
+policies
 
-```
+Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
-### Example 2: Allow a user to perform common MemoryDB system administrator tasks
+Resource-based policies are inline policies that are located in that service. You can't use AWS managed policies from IAM in a resource-based policy.
 
-Common system administrator tasks include modifying clusters, parameters, and
-parameter groups. A system administrator may also want to get information about the
-MemoryDB events. The following policy grants a user permissions to perform MemoryDB actions for
-these common system administrator tasks. Typically, you attach this type of permissions
-policy to the system administrators group.
+### Other policy types
 
-JSON
+AWS supports additional policy types that can set the maximum permissions granted by more common policy types:
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "MDBAllowSpecific",
- "Effect": "Allow",
- "Action": [
- "memorydb:UpdateCluster",
- "memorydb:DescribeClusters",
- "memorydb:DescribeEvents",
- "memorydb:UpdateParameterGroup",
- "memorydb:DescribeParameterGroups",
- "memorydb:DescribeParameters",
- "memorydb:ResetParameterGroup"
- ],
- "Resource": "*"
- }
- ]
-}`
+- **Permissions boundaries** – Set the maximum permissions that an identity-based policy can grant to an IAM entity. For more information, see [Permissions boundaries for IAM entities](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md") in the _IAM User Guide_.
+- **Service control policies (SCPs)** – Specify the maximum permissions for an organization or organizational unit in AWS Organizations. For more information, see [Service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the _AWS Organizations User Guide_.
+- **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
+- **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-```
+### Multiple policy
 
-### Example 3: Allow a user to access all MemoryDB API actions
+types
 
-The following policy allows a user to access all MemoryDB actions. We recommend that
-you grant this type of permissions policy only to an administrator user.
+When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
 
-JSON
+## Access control
 
-```
-`{
- "Version":"2012-10-17",
- "Statement":[{
- "Sid": "MDBAllowAll",
- "Effect":"Allow",
- "Action":[
- "memorydb:*" ],
- "Resource":"*"
- }
- ]
-}`
+You can have valid credentials to authenticate your requests, but unless you have
+permissions you cannot create or access MemoryDB resources. For example, you must have
+permissions to create a MemoryDB cluster.
 
-```
+The following sections describe how to manage permissions for MemoryDB. We recommend
+that you read the overview first.
 
-### Example 4: Allow a user to call IAM CreateServiceLinkedRole API
-
-The following policy allows user to call the IAM `CreateServiceLinkedRole` API.
-We recommend that you grant this type of permissions policy to the user who invokes mutative MemoryDB operations.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"CreateSLRAllows",
- "Effect":"Allow",
- "Action":[
- "iam:CreateServiceLinkedRole"
- ],
- "Resource":"*",
- "Condition":{
- "StringLike":{
- "iam:AWSServiceName":"memorydb.amazonaws.com"
- }
- }
- }
- ]
-}`
-
-```
+- [Overview of managing access permissions to your MemoryDB resources](iam.md "iam.md")
+- [Using identity-based policies (IAM policies) for MemoryDB](iam.md "iam.md")

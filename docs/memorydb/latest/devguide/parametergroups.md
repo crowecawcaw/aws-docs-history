@@ -1,20 +1,33 @@
-# Parameter management
+# Parameter group tiers
 
-Parameters are grouped together into named parameter groups for easier parameter management.
-A parameter group represents a combination of specific values for the parameters that
-are passed to the engine software during startup. These values determine how the engine
-processes on each node behave at runtime. The parameter values on a specific parameter
-group apply to all nodes that are associated with the group, regardless of which cluster
-they belong to.
+_MemoryDB parameter group tiers_
 
-To fine-tune your cluster's performance, you can modify some parameter values or change the cluster's parameter group.
+**Global Default**
 
-- You cannot modify or delete the default parameter groups.
-  If you need custom parameter values, you must create a custom parameter group.
-- The parameter group family and the cluster you're assigning it to must be compatible.
-  For example, if your cluster is running Redis OSS version 6, you can only use parameter groups, default
-  or custom, from the memorydb_redis6 family.
-- When you change a cluster's parameters, the change is applied to the cluster
-  immediately. This is true whether you change the
-  cluster's parameter group itself or a parameter value within the cluster's
-  parameter group.
+The top-level root parameter group for all MemoryDB customers in the region.
+
+The global default parameter group:
+
+- Is reserved for MemoryDB and not available to the customer.
+  **Customer Default**
+
+A copy of the Global Default parameter group which is created for the customer's use.
+
+The Customer Default parameter group:
+
+- Is created and owned by MemoryDB.
+- Is available to the customer for use as a parameter group for any clusters
+  running an engine version supported by this parameter group.
+- Cannot be edited by the customer.
+  **Customer Owned**
+
+A copy of the Customer Default parameter group.
+A Customer Owned parameter group is created whenever the customer creates a parameter group.
+
+The Customer Owned parameter group:
+
+- Is created and owned by the customer.
+- Can be assigned to any of the customer's compatible clusters.
+- Can be modified by the customer to create a custom parameter group. ‡
+
+‡ Not all parameter values can be modified. For more information, see [Engine specific parameters](parametergroups.md "parametergroups.md").
