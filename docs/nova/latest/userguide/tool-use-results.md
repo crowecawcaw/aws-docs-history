@@ -14,7 +14,7 @@ Once the tool has been invoked by the application, the final step is to provide 
 
 The contents of the `ToolResultBlock` should be either a single JSON or a mix of text and images.
 
-The status field can be used to indicate to the model the status of the tool execution. If the tool execution failed you can indicate the failure, and Amazon Nova will attempt the modify it's original tool call.
+The status field can be used to indicate to the model the status of the tool execution. If the tool execution failed you can indicate the failure, and Amazon Nova will attempt the modify its original tool call.
 
 Refer to the [ToolResultContentBlock](../../../bedrock/latest/APIReference/API_runtime_ToolResultContentBlock.md "../../../bedrock/latest/APIReference/API_runtime_ToolResultContentBlock.md") documentation for more details on the schema.
 

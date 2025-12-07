@@ -52,4 +52,4 @@ if stop_reason == "tool_use":
  song, artist = get_top_song(tool["input"]["sign"])`
 ```
 
-It is important to keep security in mind when you are defining and invoking tools. LLMs like Amazon Nova don't have access to the session details so permissions should be validated when necessary before invoking a tool. Rely on user details from your session instead of augmenting the prompt and allowing Amazon Nova to inject it into the tool call.
+It is important to keep security in mind when you are defining and invoking tools. LLMs like Amazon Nova do not have access to the session details so permissions should be validated when necessary before invoking a tool. Rely on user details from your session instead of augmenting the prompt and allowing Amazon Nova to inject it into the tool call.

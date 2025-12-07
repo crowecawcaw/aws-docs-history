@@ -65,3 +65,12 @@ length for Amazon Nova Premier:
 | frames_to_sample      | 10     | 30     | 960     | 1200    | 1800    | 2700    |      |        |
 | sample_rate_fps       | 1      | 1      | 1       | 1       | 1       | 1       |      |        |
 | Estimated token count | 2,880  | 8,640  | 276,480 | 345,600 | 518,400 | 777,600 |      |        |
+
+The following table provides some approximations of frame sampling and token utilization per video length for
+Amazon Nova Lite 1.5
+
+| video_duration        | 10 sec | 30 sec | 16 min  | 20 min  | 30 min  | 45 min  | 1 hr | 1.5 hr |
+| --------------------- | ------ | ------ | ------- | ------- | ------- | ------- | ---- | ------ |
+| frames_to_sample      | 10     | 30     | 960     | 1200    | 1800    | 2700    |      |        |
+| sample_rate_fps       | 1      | 1      | 1       | 1       | 1       | 1       |      |        |
+| Estimated token count | 2,880  | 8,640  | 276,480 | 345,600 | 518,400 | 777,600 |      |        |

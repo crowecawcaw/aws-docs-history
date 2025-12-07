@@ -1,6 +1,8 @@
 # Image understanding
 
-Amazon Nova models allow you to include multiple images in the payload with a total payload limit of 25 MB. However, you can specify an Amazon S3 URI that contains your images for image understanding. This approach allows you to leverage the model for larger images and more images without being constrained by the 25 MB payload limitation. Amazon Nova models can analyze the passed images and answer questions, classify images, and summarize images based on your provided instructions.
+Amazon Nova models allow you to include multiple images in the payload with a total payload limit of 25 MB. However, you can specify an Amazon S3 URI that contains your images for image understanding.
+This approach allows you to leverage the model for larger images and more images without being constrained by the 25 MB payload limitation. Amazon Nova models can analyze the passed images and answer
+questions, classify images, and summarize images based on your provided instructions.
 
 ## Image size information
 
@@ -14,7 +16,10 @@ of 8,000x8,000 pixels
 
 ## Bounding box detection
 
-The Amazon Nova Lite and Amazon Nova Pro models are trained to precisely detect bounding boxes within images. This capability can be valuable when the objective is to obtain the coordinates of a specific object of interest. The bounding box detection functionality of the Amazon Nova model makes it a suitable candidate for image grounding tasks, thereby enabling enhanced understanding of screen shots. The Amazon Nova model outputs bounding boxes on a scale of [0, 1000), and after these coordinates are obtained, they can be resized based on the image dimensions as a post-processing step.
+The Amazon Nova Lite and Amazon Nova Pro models are trained to precisely detect bounding boxes within images. This capability can be valuable when the
+objective is to obtain the coordinates of a specific object of interest. The bounding box detection functionality of the Amazon Nova model makes it a
+suitable candidate for image grounding tasks, thereby enabling enhanced understanding of screen shots. The Amazon Nova model outputs bounding boxes on
+a scale of [0, 1000), and after these coordinates are obtained, they can be resized based on the image dimensions as a post-processing step.
 
 ## Image to tokens conversion
 

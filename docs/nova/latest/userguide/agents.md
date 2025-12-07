@@ -29,7 +29,59 @@ Agents perform the following tasks:
 
 - [Using Amazon Nova as a foundation model in an AI
   agent](agents-use-nova.md "agents-use-nova.md")
+- [Using Amazon Nova with AgentCore](#agents-agentcore "#agents-agentcore")
+- [Using Amazon Nova with Strands](#agents-strands "#agents-strands")
 - [Additional Resources](#agents-resources "#agents-resources")
+
+## Using Amazon Nova with AgentCore
+
+Amazon Nova models can be used with all Bedrock AgentCore services, enabling you to deploy
+and operate highly effective agents securely, at scale. Key Services include Runtime, Identity,
+Memory, Gateway, and Observability. See Amazon Bedrock AgentCore for additional details and
+{placeholder} for sample code.
+
+The following is an example of using Amazon Nova with AgentCore:
+
+```
+
+import boto3
+from strands.models import BedrockModel
+
+# Create a Bedrock model with the custom session
+bedrock_model = BedrockModel(
+model_id="model_id",
+boto_session=session
+)
+
+```
+
+## Using Amazon Nova with Strands
+
+Strands provides native support for Amazon Bedrock, allowing you to use these
+Nova models in your agents with minimal configuration. See Strands Amazon Bedrock
+for more details.
+
+The following is a code example showing how to use Strands with Amazon Nova:
+
+```
+
+from strands import Agent
+from strands.models import BedrockModel
+
+# Create a Bedrock model instance
+bedrock_model = BedrockModel(
+    model_id="us.amazon.nova-premier-v1:0",
+    temperature=0.3,
+    top_p=0.8,
+)
+
+# Create an agent using the BedrockModel instance
+agent = Agent(model=bedrock_model)
+
+# Use the agent
+response = agent("Tell me about Amazon Bedrock.")
+
+```
 
 ## Additional Resources
 

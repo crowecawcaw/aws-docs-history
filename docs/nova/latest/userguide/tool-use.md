@@ -108,6 +108,7 @@ Amazon Nova allows tool use in both the Invoke and Converse API however, for ful
 - [Invoking a tool](tool-use-invocation.md "tool-use-invocation.md")
 - [Choosing a tool](tool-choice.md "tool-choice.md")
 - [Returning tool results](tool-use-results.md "tool-use-results.md")
+- [Using built-in tools](tool-built-in.md "tool-built-in.md")
 - [Reporting an error](tool-use-error.md "tool-use-error.md")
 - [Additional references](#tool-use-resources "#tool-use-resources")
 

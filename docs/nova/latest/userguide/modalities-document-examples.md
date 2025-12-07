@@ -1,67 +1,25 @@
-# Document understanding examples
+# Using Nova's Document Understanding via API
 
-The following example demonstrates how to invoke document understanding. Note that this example includes a question about projected growth that the model will attempt to answer regardless of what content is in your document.
+To illustrate how to use Amazon Nova for document QA (Question-Answering) or analysis, here’s a simplified example in Python.
+We’ll use the AWS Bedrock API (via Boto3 SDK) to send a PDF document along with a question for the model to answer.
 
 ```
-`import base64
+
+            `import base64
+import base64
 import json
 import boto3
 
-client = boto3.client(
- "bedrock-runtime",
- region_name="us-east-1",
-)
-MODEL_ID = "us.amazon.nova-lite-v1:0"
+# Initialize Bedrock runtime client (adjust region as needed)
+client = boto3.client("bedrock-runtime", region_name="us-east-1")
 
-with open('`my_document.pdf`', "rb") as file:
+MODEL_ID = "us.amazon.nova-lite-v1:5" # using Nova Lite model in this example
+
+# Read the document file (PDF) in binary mode
+with open("my_document.pdf", "rb") as file:
  doc_bytes = file.read()
-messages =[
- {
- "role": "user",
- "content": [
- {
- "document": {
- "format": "pdf",
- "name": "DocumentPDFmessages",
- "source": {
- "bytes": doc_bytes
- }
- }
- },
- {
- "text": """`How many qubits of growth is projected by 2026 by the industry, and how does the actual trajectory differ?`"""
- }
- ]
-}
 
-]
-
-inf_params = {"maxTokens": 300, "topP": 0.1, "temperature": 0.3}
-
-model_response = client.converse(modelId=MODEL_ID, messages=messages, inferenceConfig=inf_params)
-
-print("\n[Full Response]")
-print(json.dumps(model_response, indent=2))
-
-print("\n[Response Content Text]")
-print(model_response['output']['message']['content'][0]['text'])`
-```
-
-For passing large document files or multiple document files, where the overall payload is greater than 25 MB, you can use Amazon S3. The following example demonstrates how to use Amazon S3 to upload documents to Amazon Nova:
-
-```
-`import boto3
-import json
-import base64
-# Create a Bedrock Runtime client
-client = boto3.client("bedrock-runtime",
- region_name="us-east-1",
- )
-PRO_MODEL_ID = "us.amazon.nova-pro-v1:0"
-LITE_MODEL_ID = "us.amazon.nova-lite-v1:0"
-MICRO_MODEL_ID = "us.amazon.nova-micro-v1:0"
-PREMIER_MODEL_ID = "us.amazon.nova-premier-v1:0"
-
+# Construct the conversation messages with document + question
 messages = [
  {
  "role": "user",
@@ -69,28 +27,57 @@ messages = [
  {
  "document": {
  "format": "pdf",
- "name": "sample_doc",
+ "name": "Document1", # neutral name for the document
+ "source": {
+ "bytes": doc_bytes # embedding the PDF content directly
+ }
+ }
+ },
+ {
+ "text": "Here is a question about the document: ... (your question) ... ?"
+ }
+ ]
+ }
+]
+
+# Set inference parameters (optional)
+inf_params = {"maxTokens": 4000, "topP": 0.1, "temperature": 0.3}
+
+# Invoke the model
+response = client.converse(modelId=MODEL_ID, messages=messages, inferenceConfig=inf_params)
+
+# Extract and print the answer
+answer_text = response["output"]["message"]["content"][0]["text"]
+print(answer_text)`
+```
+
+If your input files are large (exceeding the 25 MB direct upload limit) or you have many files, you can store them in Amazon S3 and reference them.
+This avoids sending the raw bytes over the request. When using S3, ensure the Bedrock service has permission to access the bucket/object. For example,
+to reference a PDF in S3, your document source would use "s3Location" instead of "bytes", like so:
+
+```
+`messages = [
+ {
+ "role": "user",
+ "content": [
+ {
+ "document": {
+ "format": "pdf",
+ "name": "Report2023",
  "source": {
  "s3Location": {
- #Replace the s3 bucket URI
- "uri": "`s3://demo-bucket/document1.pdf`",
- "bucketOwner" : "`123456789012`"
+ "uri": "s3://your-bucket/path/to/document1.pdf",
+ "bucketOwner": "123456789012"
  }
  }
  }
  },
- {"text": "Describe the following document"}
+ {
+ "text": "Summarize the key findings from the Q3 2023 report."
+ }
  ]
  }
-]
-inf_params = {"maxTokens": 300, "topP": 0.1, "temperature": 0.3}
-model_response = client.converse(
- modelId=LITE_MODEL_ID, messages=messages, inferenceConfig=inf_params
-)
-print("\n[Full Response]")
-print(json.dumps(model_response, indent=2))
-print("\n[Response Content Text]")
-print(model_response["output"]["message"]["content"][0]["text"])`
+]`
 ```
 
 ###### Note
