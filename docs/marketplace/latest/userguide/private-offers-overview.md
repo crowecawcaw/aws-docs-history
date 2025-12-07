@@ -26,10 +26,12 @@ Sellers in India can create private offers in USD and INR, and can extend these 
 - [How private offers work](#how-private-offers-work "#how-private-offers-work")
 - [Private offer considerations](#private-offer-considerations "#private-offer-considerations")
 - [Private offer experience for buyers](#private-offer-experience-buyers "#private-offer-experience-buyers")
+- [Automatically create private offers](#streamline-private-offers "#streamline-private-offers")
 - [Reporting for private offers](#reporting-for-seller-private-offers "#reporting-for-seller-private-offers")
 - [Supported product types for AWS Marketplace private offers](private-offers-supported-product-types.md "private-offers-supported-product-types.md")
 - [Creating and managing private offers](creating-private-offer.md "creating-private-offer.md")
 - [Creating private offers as an AWS Marketplace Channel Partner](channel-partner-offers.md "channel-partner-offers.md")
+- [Express private offers](express-private-offers.md "express-private-offers.md")
 - [Private offer installment plans](installment-plans.md "installment-plans.md")
 - [Creating future
   dated agreements for private offers](private-offers-seller-future-dated-private-offers-and-agreements.md "private-offers-seller-future-dated-private-offers-and-agreements.md")
@@ -112,6 +114,12 @@ moved to the **Accepted and expired offers** tab.
 | From the AWS Marketplace console   | Navigate to **Private offers\*<br>• in the AWS Marketplace console and select<br>the offer ID from the **Available offers*<br>• tab.For more<br>information about the buyer experience for private offers, see [Private offers](../buyerguide/buyer-private-offers.md "../buyerguide/buyer-private-offers.md") in the<br>*AWS Marketplace Buyer Guide\*. |
 | Using a seller-provided link       | Follow the link sent by the seller to directly access the private offer.<br>For more information, see [Sending a private<br>offer to a buyer](creating-private-offer.md#send-private-offer "creating-private-offer.md#send-private-offer").                                                                                                              |
 | From your product page             | Navigate to the product page for the product, and choose the link in the banner<br>to view the private offer. For more information about the buyer experience for<br>private offers, see [Private<br>offers](../buyerguide/buyer-private-offers.md "../buyerguide/buyer-private-offers.md") in the _AWS Marketplace Buyer Guide_.                        |
+
+## Automatically create private offers
+
+AWS Marketplace provides _express private offers_ to automate the private offer creation process. Express private offers enable you to configure predefined pricing and qualification criteria through rate cards, allowing buyers to receive instant private offers for standard deals without manual intervention from your sales team.
+
+For more information, see [Express private offers](express-private-offers.md "express-private-offers.md").
 
 ## Reporting for private offers
 

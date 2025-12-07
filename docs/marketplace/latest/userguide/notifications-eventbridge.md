@@ -23,6 +23,8 @@ console.
 | Independent software vendor (ISV) creates an offer and makes it available for<br>purchase | `Offer Released`                   | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
 | ISV's product is used by a channel partner to create an offer                             | `Offer Released`                   | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
 | Channel partner creates an offer                                                          | `Offer Released`                   | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
+| ISV creates a new offer set                                                               | `OfferSet Released`                | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
+| Channel partner creates a new offer set                                                   | `OfferSet Released`                | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
 | Change set succeeds                                                                       | `Change Set Succeeded`             | [Events for change sets](#events-changesets "#events-changesets")                       |
 | Change set fails                                                                          | `Change Set Failed`                | [Events for change sets](#events-changesets "#events-changesets")                       |
 | Change set is cancelled                                                                   | `Change Set Cancelled`             | [Events for change sets](#events-changesets "#events-changesets")                       |
@@ -169,6 +171,44 @@ The following is an example event body for when a channel partner creates an off
     },
     "targetedBuyerAccountIds": ["999988887777", "111122223333"],
     }
+  }
+}
+
+```
+
+The following is an example event body for a new offer set published by a partners (ISV or Channel partner).
+
+```
+
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "OfferSet Released",
+  "source": "aws.marketplacecatalog",
+  "account": "123456789012",
+  "time": "2023-08-26T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace:us-east-1:987654321098:AWSMarketplace/OfferSet/offerset-1234567890123"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "offerSet": {
+      "id": "offerset-1234567890123",
+      "arn": "arn:aws:catalog:us-east-1:987654321098:OfferSet/offerset-1234567890123",
+      "name": "Offer Set Name",
+    },
+    "associatedOffers": [
+      {
+        "offer": {
+          "id": "offer-1234567890123",
+          "arn": "arn:aws:catalog:us-east-1:987654321098:Offer/offer-1234567890123",
+          "name": "Offer Name",
+        }
+      },
+      ...
+    ]
   }
 }
 

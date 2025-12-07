@@ -4,12 +4,12 @@ products in AWS Marketplace
 
 As a seller, you can offer professional services to AWS Marketplace buyers. Professional services
 include services to assess, migrate, support, manage, and train others in how to use AWS
-services and products in AWS Marketplace. Your product definition tells buyers about the services
-that you offer and explains why they should select your company for those services. AWS Marketplace
-allows buyers to contact you. You agree on a contract, and then you create a private offer
-that allows the buyer to purchase your services for a fixed cost. The following sections
-show you how to get started with a professional services product, providing the steps that
-you need to create your first product and offer it to your customers.
+services and products in AWS Marketplace. Your product definition tells buyers about the services that
+you offer and explains why they should select your company for those services. AWS Marketplace allows
+buyers to contact you. You agree on a contract, and then you create a private offer that
+allows the buyer to purchase your services for a fixed cost. The following sections show you
+how to get started with a professional services product, providing the steps that you need
+to create your first product and offer it to your customers.
 
 The following video explains more about listing professional services products in
 AWS Marketplace.
@@ -36,9 +36,10 @@ prerequisites:
 - Register as an AWS Marketplace seller and submit your tax and banking information. You
   must provide a non-UK bank account to receive disbursements. To learn more about
   becoming an seller, see [Getting started as an AWS Marketplace seller](user-guide-for-sellers.md "user-guide-for-sellers.md").
-- You must have a professional services product to offer that is related to an AWS service or at
-  least one public product in AWS Marketplace. Your product must either directly support
-  those products, or offer services that drive subscriptions to those products.
+- You must have a professional services product to offer that is related to an
+  AWS service or at least one public product in AWS Marketplace. Your product must either
+  directly support those products, or offer services that drive subscriptions to
+  those products.
 
 ###### Note
 
@@ -110,71 +111,54 @@ the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/manag
    is not obligated to purchase your product, so it makes sense to agree before
    creating the offer.
 2. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-3. Select **Offers** from the menu, then select **Create
-   private offer**.
-4. On the **Create private offer** page, select the
-   product that you want to create a private offer for. Only currently available
-   products are included.
-5. Enter the **Buyer account Ids** that you want to extend a
-   private offer to. You can include up to 25 accounts in a single private offer.
-   If the buyer used the request an offer feature, the email message that you
-   received includes the buyer account Id for the requesting account.
-6. Choose whether to allow buyers to pay for the product in installments.
-   Typically, short contracts are paid in one payment. Longer contracts may have
-   the option to pay in installments, but this is part of the agreement that you
-   come to with the buyer. Select **Next**.
-7. Complete the offer details, including the following information:
-   - **Custom offer name** – Provide enough detail
-     that you and the customers will recognize the offer. Include your
-     company or product name and a description of the product. Do not include
-     any personally identifiable information, including names, phone numbers,
-     or addresses.
-   - **Agreement end date** – The date that the
-     agreed-to services end. For example, if you are offering support for 1
-     year, enter a date that is 1 year away from the date that the service
-     will be available.
-   - **Product dimensions** – The prices and units
-     for the service that you are offering, as follows:
-     - Lump sum payment offers – You can list each of the
-       dimensions with their associated price (for example, you could
-       have dimensions called _Silver_,
-       _Gold_, and
-       _Platinum_). The buyer can choose and pay for
-       their preference.
-     - Offers that include a payment schedule – You must
-       choose a single dimension and provide a payment schedule with
-       amounts and dates for each payment.
-
-   ###### Note
-
-   If you want to create a zero dollar offer, you must select
-   **I want to enable zero dollar prices** for
-   confirmation. This precaution helps to prevent you from accidentally
-   creating a free offer.
-   - **Service agreement** – Documents that define
-     your service agreement with the customer. The documents that you upload
-     (in text or PDF formats) are appended together into a single PDF
-     document, so make sure that the file name is not required to understand
-     the content.
-   - **Offer expiration date** – The date the offer
-     expires. This determines how long the buyer has to accept the offer and
-     is unrelated to when the professional service will be available. You can
-     extend the offer expiration date after your offer has been
-     created.
-
-8. Select **Next** when you're done editing the options.
-9. On the **Review offer** page, make sure that the offer
-   details are correct, and then choose **Create offer**.
+3. Select **Offers** from the menu, and then select
+   **Create private offer**.
+4. On the **Create private offer** page, select the product that
+   you want to create a private offer for. Only currently available products are
+   included.
+5. Choose the **Offer Type**.
+6. From the **Product type** drop-down menu, choose
+   **Professional service product**, select the product you
+   wish to create a private offer for, and then choose **Continue to offer
+   details**.
+7. Add **Offer information** such as offer name and offer
+   description. In addition, choose if this private offer is for a renewal. The
+   default selection will be **No**.
+8. Enter the **Offer expiration date** and choose
+   **Next**. This date dictates how long the buyer has to
+   subscribe to this private offer. After 23:59:59 UTC on this date, the buyer will
+   no longer be able to access the private offer.
+9. Choose **Next**.
+10. On the **Configure offer pricing and duration** page, choose
+    the pricing model, contract duration, offer currency, and product dimension (if
+    relevant). You can choose from contract pricing with upfront payment,
+    installment plan, and variable payments. For the variable payment pricing, see
+    [Pricing professional service products in AWS Marketplace](proserv-variable-payments.md "proserv-variable-payments.md").
+11. On the **Add buyers** page, provide an AWS account ID for
+    each AWS Marketplace buyer you are extending the private offer to. Each selected buyer
+    must have an AWS account in an AWS Region where the selected offer currency
+    is supported. To add another AWS account ID, choose **Add another
+    buyer**. You can add up to 24 buyers to each private offer.
+12. Choose **Next**.
+13. On the **Configure legal terms and offer documents** page,
+    add custom legal terms. Upload up to five files related to your private offer,
+    including legal terms, a statement of work, a bill of materials, a pricing
+    sheet, or other addendums. These files will be merged into one document when the
+    offer is created.
+14. On the **Review and create** page, review the details of your
+    private offer. After you review and confirm, choose **Create
+    offer** to publish the offer and extend it to the buyers you
+    chose.
 
 ###### Note
 
-Your offer may take some time to be published. After it's published, you
-can view the offer on the **Manage offers** page. If you
-need to edit an offer (that has not yet been accepted), you can do so from
-that page. 10. After the offer is published, and available on the **Manage private
-offers** page, from the **Actions** menu for that
-offer, select **Copy offer URL**, and then send it in an email
-message to the buyer to accept.
+Your offer may take some time to be published. After it's published, you can view
+the offer on the **Manage offers** page. If you need to edit an offer (that has not yet
+been accepted), you can do so from that page.
+
+After the offer is published it will be available on the **Manage private offers** page.
+From this page, you can use the **Actions** menu for that offer, select **Copy offer URL**, and
+then send it in an email message to the buyer to accept.
 
 ## Edit product information
 
@@ -242,13 +226,17 @@ errors.
 ## Edit product visibility
 
 By default, products are created with limited visibility—a new product is only
-visible from your account. You can make the product publicly
-visible in the AWS Marketplace. The following procedure describes how to edit the visibility of an
-existing professional services product in the AWS Marketplace Management Portal.
+visible from your account. You can make the product publicly visible in the AWS Marketplace. The
+following procedure describes how to edit the visibility of an existing professional
+services product in the AWS Marketplace Management Portal.
 
 ###### Note
 
-For Professional Services products in the limited state, there is no allowlist and as long as you have 1 other product in the public state, you can proceed to create private offers. Private offers on professional services products in the limited state can be accepted by specified buyers without adding them to the product's allowlist.
+For Professional Services products in the limited state, there is no allowlist and
+as long as you have 1 other product in the public state, you can proceed to create
+private offers. Private offers on professional services products in the limited
+state can be accepted by specified buyers without adding them to the product's
+allowlist.
 
 ###### To edit product visibility
 
@@ -259,11 +247,10 @@ For Professional Services products in the limited state, there is no allowlist a
 3. Select an existing product that you would like to edit or update the
    visibility. Then, from the **Request changes** menu, select
    **Update product visibility**.
-4. Select an option to update your product visibility and choose **Submit** to submit
-   your request for review.
+4. Select an option to update your product visibility and choose
+   **Submit** to submit your request for review.
 5. Verify that the **Requests** tab shows the **Request** status as **Under
-   review**. When the request completes, the status becomes **Succeeded**. If the status is **Failed**,
-   select the request name to view the **Issues Found**.
+   review**. When the request completes, the status becomes **Succeeded**. If the status is **Failed**, select the request name to view the **Issues Found**.
 
 ###### Note
 
@@ -279,7 +266,8 @@ product from the AWS Marketplace Management Portal.
 
 ###### Note
 
-Removing a professional services product would not affect active private offers.
+Removing a professional services product would not affect active private
+offers.
 
 ###### To remove a product
 
@@ -290,8 +278,8 @@ Removing a professional services product would not affect active private offers.
 3. Select an existing product that you would like to remove. Then, from the
    **Request changes** menu, select **Update product
    visibility**.
-4. Select **Restricted** as the visibility option to update your product visibility
-   and choose **Submit**.
+4. Select **Restricted** as the visibility option to update your
+   product visibility and choose **Submit**.
 5. Verify that the **Requests** tab shows the **Request** status as **Under
    review**. When the request completes, the status becomes **Succeeded**.
 

@@ -96,6 +96,8 @@ to manually upgrade to higher contract tiers when needed. The contract duration 
 offer can match the public product listing, or it can be a custom duration in months (up to 60
 months).
 
+Express private offers are available for SaaS contracts and SaaS contracts with pay-as-you-go products. Complex opportunities that don't meet your predefined criteria are automatically routed to your sales team for manual processing. For more information, see [Express private offers](express-private-offers.md "express-private-offers.md").
+
 ## Private offers for ML products
 
 Machine Learning (ML) private offer products give specific buyers a different price than
