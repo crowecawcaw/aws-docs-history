@@ -11,7 +11,10 @@ AWS Management Console to create the AWS Glue connection.
 
 ###### Note
 
-If the view definer role and the role calling `CreateTable` or `UpdateTable` are different, then both of them require `glue:PassConnection` permission in their IAM policy statement.
+If the view definer role and the role calling `CreateTable` or
+`UpdateTable` are different, then both of them require
+`glue:PassConnection` permission in their IAM policy
+statement.
 
 For more information, see the [create-connection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/create-connection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/create-connection.html") AWS CLI documentation.
 

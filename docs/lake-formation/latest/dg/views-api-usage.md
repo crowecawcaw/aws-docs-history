@@ -11,22 +11,24 @@ a new `Status` field in the `GetTable` API output.
 Two new AWS Glue connections are available for validating the SQL dialect for each
 supported query engine, Amazon Athena and Amazon Redshift.
 
-The `CreateTable` and `UpdateTable` APIs are asynchronous when used
-with views. When these APIs are called with multiple SQL dialects, the call are
+The `CreateTable` and `UpdateTable` APIs are asynchronous when
+used with views. When these APIs are called with multiple SQL dialects, the call are
 validated with each engine to determine whether the dialect can be run on that engine,
-and if the resulting schema of the view from each dialect matches.
-The AWS Glue service uses these connections to make internal calls to the analytical engines.
-These calls simulates what the engine does to validate if a `CREATE VIEW` or
-`ALTER VIEW` SQL DDL were executed on the engine.
+and if the resulting schema of the view from each dialect matches. The AWS Glue service
+uses these connections to make internal calls to the analytical engines. These calls
+simulates what the engine does to validate if a `CREATE VIEW` or `ALTER
+ VIEW` SQL DDL were executed on the engine.
 
-If the SQL provided is valid, and the schemas match between view dialects, the AWS Glue API atomically commits the result.
-Atomicity allows views with multiple dialects to be created or altered without any downtime.
+If the SQL provided is valid, and the schemas match between view dialects, the AWS Glue
+API atomically commits the result. Atomicity allows views with multiple dialects to be
+created or altered without any downtime.
 
 ###### Topics
 
 - [Creating AWS Glue connections to validate
   status](views-api-usage-connection.md "views-api-usage-connection.md")
 - [Validating the view generation status](views-api-usage-get-table.md "views-api-usage-get-table.md")
-- [Asynchronous states and operations](views-api-usage-async-states.md "views-api-usage-async-states.md")
-- [View creation failure scenarios during asynchronous
-  operations](views-api-usage-errors.md "views-api-usage-errors.md")
+- [Asynchronous states and
+  operations](views-api-usage-async-states.md "views-api-usage-async-states.md")
+- [View creation failure scenarios during
+  asynchronous operations](views-api-usage-errors.md "views-api-usage-errors.md")
