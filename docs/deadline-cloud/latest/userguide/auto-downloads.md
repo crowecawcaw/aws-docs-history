@@ -142,14 +142,14 @@ JSON
 
 ###### Store the user access keys
 
-1.  Store the user access keys in the AWS credentials file on your system:
+- Store the user access keys in the AWS credentials file on your system:
 
-        * On Linux, the file is located at
-         `~/.aws/credentials`
-        * On Windows, the file is located at
-         `%USERPROFILE\.aws\credentials`
+      + On Linux, the file is located at
+       `~/.aws/credentials`
+      + On Windows, the file is located at
+       `%USERPROFILE\.aws\credentials`
 
-    Replace the following keys:
+  Replace the following keys:
 
 ```
 [deadline-downloader]
@@ -157,9 +157,6 @@ aws_access_key_id=`ACCESS_KEY_ID`
 aws_secret_access_key=`SECRET_ACCESS_KEY`
 region=`YOUR_AWS_REGION`
 ```
-
-2. To use these credentials at all times, set the env variables `AWS_PROFILE`
-   to `deadline-downloader`.
 
 ###### Important
 
@@ -213,6 +210,7 @@ PS C:\> Get-Command deadline
 
 ```
   /path/to/deadline queue sync-output \
+  --profile deadline-downloader \
   --farm-id YOUR_FARM_ID \
   --queue-id YOUR_QUEUE_ID \
   --storage-profile-id YOUR_PROFILE_ID \
@@ -254,6 +252,7 @@ PS C:\> Get-Command deadline
 
 ```
  /path/to/deadline queue sync-output \
+  --profile deadline-downloader \
   --farm-id YOUR_FARM_ID \
   --queue-id YOUR_QUEUE_ID \
   --storage-profile-id YOUR_PROFILE_ID \
@@ -315,7 +314,7 @@ If this is your first time, you may be prompted to choose an editor (nano, vim, 
 Add the following line to run the job every 5 minutes (replace paths with actual values from steps 1 and 2):
 
 ```
-*/5 * * * * AWS_PROFILE=deadline-downloader /path/to/deadline queue sync-output --farm-id YOUR_FARM_ID --queue-id YOUR_QUEUE_ID --storage-profile-id YOUR_PROFILE_ID --checkpoint-dir /path/to/checkpoint/directory >> /path/to/logs/deadline_sync.log 2>&1
+*/5 * * * * /path/to/deadline queue sync-output --profile deadline-downloader --farm-id YOUR_FARM_ID --queue-id YOUR_QUEUE_ID --storage-profile-id YOUR_PROFILE_ID --checkpoint-dir /path/to/checkpoint/directory >> /path/to/logs/deadline_sync.log 2>&1
 ```
 
 7. **Verify Cron Job Installation**
@@ -382,6 +381,8 @@ Create a configuration file at `~/Library/LaunchAgents/com.user.deadlinesync.pli
         <string>/path/to/deadline</string>
         <string>queue</string>
         <string>sync-output</string>
+        <string>--profile</string>
+        <string>deadline-downloader</string>
         <string>--farm-id</string>
         <string>YOUR_FARM_ID</string>
         <string>--queue-id</string>
@@ -391,11 +392,6 @@ Create a configuration file at `~/Library/LaunchAgents/com.user.deadlinesync.pli
         <string>--checkpoint-dir</string>
         <string>/path/to/checkpoint/dir</string>
     </array>
-    <key>EnvironmentVariables</key>
-    <dict>
-    <key>AWS_PROFILE</key>
-    <string>deadline-downloader</string>
-    </dict>
     <key>RunAtLoad</key>
     <true/>
     <key>UserName</key>
@@ -543,7 +539,7 @@ C:\> notepad C:\path\to\deadline_sync.bat
 ```
 
 ```
-YOUR_PATH_TO_DEADLINE.EXE queue sync-output --farm-id `YOUR_FARM_ID` --queue-id `YOUR_QUEUE_ID` --storage-profile-id `YOUR_PROFILE_ID` --checkpoint-dir path\to\checkpoint\checkpoints > path\to\logs\deadline.log 2>&1
+YOUR_PATH_TO_DEADLINE.EXE queue sync-output --profile deadline-downloader --farm-id `YOUR_FARM_ID` --queue-id `YOUR_QUEUE_ID` --storage-profile-id `YOUR_PROFILE_ID` --checkpoint-dir path\to\checkpoint\checkpoints > path\to\logs\deadline.log 2>&1
 ```
 
 5. **Test Batch File**
