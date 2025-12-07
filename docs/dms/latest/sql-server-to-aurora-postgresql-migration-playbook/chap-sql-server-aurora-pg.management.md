@@ -1,183 +1,117 @@
-# Export and import features
+# Monitoring features
 
-This topic provides reference information on data export and import capabilities in Microsoft SQL Server and PostgreSQL, with a focus on migration scenarios. You can use various tools and utilities to export data from SQL Server and import it into PostgreSQL, which is particularly useful when migrating to Amazon Aurora PostgreSQL.
+This topic provides reference information about monitoring capabilities in Microsoft SQL Server and Amazon Aurora PostgreSQL. You can use various tools and services to monitor and maintain the performance of your database systems.
 
-| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences      |
-| ------------------------ | ---------------------------------- | ------------------------- | -------------------- |
-| No feature compatibility | N/A                                | N/A                       | Non-compatible tool. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                                                                                                                                                                  |
+| -------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Use Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md") in the _Amazon Relational Database Service User Guide_. |
 
 ## SQL Server Usage
 
-SQL Server provides many options for exporting and importing text files. These operations are commonly used for data migration, scripting, and backup.
+Monitoring server performance and behavior is a critical aspect of maintaining service quality and includes ad-hoc data collection, ongoing data collection, root cause analysis, preventative actions, and reactive actions. SQL Server provides an array of interfaces to monitor and collect server data.
 
-- Save results to a file in SQL Server Management Studio (SSMS). For more information, see [KB - How to create .csv or .rpt files from an SQL statement in Microsoft SQL Server](https://support.microsoft.com/en-us/topic/kb-how-to-create-csv-or-rpt-files-from-an-sql-statement-in-microsoft-sql-server-baaccba6-a3d9-b77d-7f4e-107ae4dd739b "https://support.microsoft.com/en-us/topic/kb-how-to-create-csv-or-rpt-files-from-an-sql-statement-in-microsoft-sql-server-baaccba6-a3d9-b77d-7f4e-107ae4dd739b") in the _SQL Server documentation_.
-  l SQLCMD. For more information, see [Run the script file](https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-run-transact-sql-script-files?view=sql-server-ver15#save-the-output-to-a-text-file "https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-run-transact-sql-script-files?view=sql-server-ver15#save-the-output-to-a-text-file") in the _SQL Server documentation_.
-  l PowerShell wrapper for SQLCMD
-  l SSMS Import/Export Wizard. For more information, see [Start the SQL Server Import and Export Wizard](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard?view=sql-server-ver15") in the _SQL Server documentation_.
-  l SQL Server Reporting Services (SSRS)
-  l Bulk Copy Program (BCP). For more information, see [Import and export bulk data using bcp (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+SQL Server 2017 introduces several new dynamic management views:
 
-All of the options described before required additional tools to export data. Most of the tools are open source and provide support for a variety of databases.
+- `sys.dm_db_log_stats` exposes summary level attributes and information on transaction log files, helpful for monitoring transaction log health.
+- `sys.dm_tran_version_store_space_usage` tracks version store usage for each database, useful for proactively planning `tempdb` sizing based on the version store usage for each database.
+- `sys.dm_db_log_info` exposes VLF information to monitor, alert, and avert potential transaction log issues.
+- `sys.dm_db_stats_histogram` is a new dynamic management view for examining statistics.
+- `sys.dm_os_host_info` provides operating system information for both Windows and Linux.
 
-SQLCMD is a command line utility for running T-SQL statements, system procedures, and script files. It uses ODBC to run T-SQL batches. For example:
+SQL Server 2019 adds new configuration parameter, `LIGHTWEIGHT_QUERY_PROFILING`. It turns on or turns off the lightweight query profiling infrastructure. The lightweight query profiling infrastructure (LWP) provides query performance data more efficiently than standard profiling mechanisms and is enabled by default. For more information, see [Query Profiling Infrastructure](https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-profiling-infrastructure?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-profiling-infrastructure?view=sql-server-ver15") in the _SQL Server documentation_.
 
-```
-SQLCMD -i C:\sql\myquery.sql -o C:\sql\output.txt
-```
+### Windows Operating System Level Tools
 
-SQLCMD utility syntax:
+You can use the Windows Scheduler to trigger run of script files such as CMD, PowerShell, and so on to collect, store, and process performance data.
 
-```
-sqlcmd
-    -a packet_size
-    -A (dedicated administrator connection)
-    -b (terminate batch job if there is an error)
-    -c batch_terminator
-    -C (trust the server certificate)
-    -d db_name
-    -e (echo input)
-    -E (use trusted connection)
-    -f codepage | i:codepage[,o:codepage] | o:codepage[,i:codepage]
-    -g (enable column encryption)
-    -G (use Azure Active Directory for authentication)
-    -h rows_per_header
-    -H workstation_name
-    -i input_file
-    -I (enable quoted identifiers)
-    -j (Print raw error messages)
-    -k[1 | 2] (remove or replace control characters)
-    -K application_intent
-    -l login_timeout
-    -L[c] (list servers, optional clean output)
-    -m error_level
-    -M multisubnet_failover
-    -N (encrypt connection)
-    -o output_file
-    -p[1] (print statistics, optional colon format)
-    -P password
-    -q "cmdline query"
-    -Q "cmdline query" (and exit)
-    -r[0 | 1] (msgs to stderr)
-    -R (use client regional settings)
-    -s col_separator
-    -S [protocol:]server[instance_name][,port]
-    -t query_timeout
-    -u (unicode output file)
-    -U login_id
-    -v var = "value"
-    -V error_severity_level
-    -w column_width
-    -W (remove trailing spaces)
-    -x (disable variable substitution)
-    -X[1] (disable commands, startup script, environment variables, optional exit)
-    -y variable_length_type_display_width
-    -Y fixed_length_type_display_width
-    -z new_password
-    -Z new_password (and exit)
-    -? (usage)
-```
+System Monitor is a graphical tool for measuring and recording performance of SQL Server and other Windows-related metrics using the Windows Management Interface (WMI) performance objects.
 
-### Examples
+###### Note
 
-Connect to a named instance using Windows Authentication and specify input and output files.
+Performance objects can also be accessed directly from T-SQL using the SQL Server Operating System Related DMVs. For a full list of the DMVs, see [SQL Server Operating System Related Dynamic Management Views (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+
+Performance counters exist for real-time measurements such as CPU Utilization and for aggregated history such as average active transactions. For a full list of the object hierarchy, see: [Use SQL Server Objects](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-ver15") in the _SQL Server documentation_.
+
+### SQL Server Extended Events
+
+SQL Server’s latest tracing framework provides very lightweight and robust event collection and storage. SQL Server Management Studio features the New Session Wizard and New Session graphic user interfaces for managing and analyzing captured data. SQL Server Extended Events consists of the following items:
+
+- SQL Server Extended Events Package is a logical container for Extended Events objects.
+- SQL Server Extended Events Targets are consumers of events. Targets include Event File, which writes data to the file Ring Buffer for retention in memory, or for processing aggregates such as Event Counters and Histograms.
+- SQL Server Extended Events Engine is a collection of services and tools that comprise the framework.
+- SQL Server Extended Events Sessions are logical containers mapped many-to-many with packages, events, and filters.
+
+The following example creates a session that logs lock escalations and lock timeouts to a file.
 
 ```
-sqlcmd -S MyMSSQLServer\MyMSSQLInstance -i query.sql -o outputfile.txt
+CREATE EVENT SESSION Locking_Demo
+ON SERVER
+    ADD EVENT sqlserver.lock_escalation,
+    ADD EVENT sqlserver.lock_timeout
+    ADD TARGET package0.etw_classic_sync_target
+        (SET default_etw_session_logfile_path = N'C:\ExtendedEvents\Locking\Demo_20180502.etl')
+    WITH (MAX_MEMORY=8MB, MAX_EVENT_SIZE=8MB);
+GO
 ```
 
-If the file is needed for import to another database, query the data as `INSERT` commands and `CREATE` for the object.
+### SQL Server Tracing Framework and the SQL Server Profiler Tool
 
-You can export data with SQLCMD and import with the Export/Import wizard.
+The SQL Server trace framework is the predecessor to the Extended Events framework and remains popular among database administrators. The lighter and more flexible Extended Events Framework is recommended for development of new monitoring functionality. For more information, see [SQL Server Profiler](https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15") in the _SQL Server documentation_.
 
-For more information, see [sqlcmd Utility](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15") in the _SQL Server documentation_.
+### SQL Server Management Studio
+
+SQL Server Management Studio (SSMS) provides several monitoring extensions:
+
+- **SQL Server Activity Monitor** is an in-process, real-time, basic high-level information graphical tool.
+- **Query Graphical Show Plan** provides easy exploration of estimated and actual query run plans.
+- **Query Live Statistics** displays query run progress in real time.
+- **Replication Monitor** presents a publisher-focused view or distributor-focused view of all replication activity. For more information, see [Overview of the Replication Monitor Interface](https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/overview-of-the-replication-monitor-interface?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/overview-of-the-replication-monitor-interface?view=sql-server-ver15") in the _SQL Server documentation_.
+- **Log Shipping Monitor** displays the status of any log shipping activity whose status is available from the server instance to which you are connected. For more information, see [View the Log Shipping Report (SQL Server Management Studio)](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/view-the-log-shipping-report-sql-server-management-studio?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/view-the-log-shipping-report-sql-server-management-studio?view=sql-server-ver15") in the _SQL Server documentation_.
+- **Standard Performance Reports** is set of reports that show the most important performance metrics such as change history, memory usage, activity, transactions, HA, and more.
+
+### T-SQL
+
+From the T-SQL interface, SQL Server provides many system stored procedures, system views, and functions for monitoring data.
+
+System stored procedures such as `sp_who` and `sp_lock` provide real-time information. The `sp_monitor` procedure provides aggregated data.
+
+Built in functions such as `@@CONNECTIONS`, `@@IO_BUSY`, `@@TOTAL_ERRORS`, and others provide high level server information.
+
+A rich set of System Dynamic Management functions and views are provided for monitoring almost every aspect of the server. These functions reside in the sys schema and are prefixed with `dm_string`. For more information, see [System Dynamic Management Views](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views?view=sql-server-ver15") in the _SQL Server documentation_.
+
+### Trace Flags
+
+You can set trace flags to log events. For example, set trace flag 1204 to log deadlock information. For more information, see [DBCC TRACEON - Trace Flags (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+
+### SQL Server Query Store
+
+Query Store is a database-level framework supporting automatic collection of queries, run plans, and run time statistics. This data is stored in system tables. You can use this data to diagnose performance issues, understand patterns, and understand trends. It can also be set to automatically revert plans when a performance regression is detected.
+
+For more information, see [Monitoring performance by using the Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-PostgreSQL provides the native utilities `pg_dump` and `pg_restore` to perform logical database exports and imports with comparable functionality to the SQl Server SQLCMD utility. For example, moving data between two databases and creating logical database backups.
+Amazon Relational Database Service (Amazon RDS) provides a rich monitoring infrastructure for Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) clusters and instances with the Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md") and [Monitoring OS metrics with Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md") in the _Amazon Relational Database Service User Guide_.
 
-- **pg_dump** to export data.
-- **pg_restore** to import data.
+You can also use the AWS Performance Insights tool to monitor PostgreSQL.
 
-The binaries for both utilities must be installed on your local workstation or on an Amazon EC2 server as part of the PostgreSQL client binaries.
+PostgreSQL can also be monitored by querying system catalog table and views.
 
-You can export and copy PostgreSQL dump files created using `pg_dump` to an Amazon S3 bucket as cloud backup storage or for maintaining the desired backup retention policy. Later, when you need the dump files for database restore, you can copy them copied back to a desktop or server that has a PostgreSQL client, such as your workstation or an Amazon EC2 server. Then you can issue the `pg_restore` command.
+Starting with PostgreSQL 12, you can monitor progress of `CREATE INDEX`, `REINDEX`, `CLUSTER`, and `VACUUM FULL` operations by querying system views `pg_stat_progress_create_index` and `pg_stat_progress_cluster`.
 
-Starting with PostgreSQL 10, these capabilities were added:
+Starting with PostgreSQL 13, you can monitor progress of `ANALYZE` operations by querying system view `pg_stat_progress_analyze`. Also, you can monitor shared memory usage with system view `pg_shmem_allocations`.
 
-- You can exclude a schema in `pg_dump` and `pg_restore` commands.
-- Can create dumps with no blobs.
-- Allow to run `pg_dumpall` by non-superusers, using the `--no-role-passwords` option.
-- Create additional integrity option to ensure that the data is stored in disk using `fsync()` method.
+### Example
 
-Starting with PostgreSQL 11, the following capabilities were added: \* `pg_dump` and `pg_restore` now export or import relationships between extensions and database objects established with `ALTER …​ DEPENDS ON EXTENSION`, which allows these objects to be dropped when extension is dropped with `CASCADE` option.
+The following walkthrough demonstrates how to access the Amazon Aurora Performance Insights Console.
 
-### Notes
+1. In the AWS console, choose **RDS**, and then choose **Performance insights**.
+2. The web page displays a dashboard containing current and past database performance metrics. You can choose the period of the displayed performance data (5 minutes, 1 hour, 6 hours, or 24 hours) as well as different criteria to filter and slice the information such as waits, SQL, hosts, users, and so on.
 
-- `pg_dump` creates consistent backups even if the database is being used concurrently.
-- `pg_dump` doesn’t block other users accessing the database (readers or writers).
-- `pg_dump` only exports a single database. To backup global objects common to all databases in a cluster (such as roles and tablespaces), use `pg_dumpall`.
-- PostgreSQL dump files can be plain-text and custom format files.
+![Performance insights](images/pb-sql-server-aurora-pg-performance-insights.png)
 
-Another option to export and import data from PostgreSQL database is to use `COPY TO/COPY FROM` commands. Starting with PostgreSQL 12, you can use the `COPY FROM` command to load data into DB. This command has support for filtering incoming rows with the `WHERE` condition.
+### Turning on Performance Insights
 
-```
-CREATE TABLE tst_copy(v TEXT);
+Performance insights are turned on by default for Amazon Aurora clusters. If you have more than one database in your Amazon Aurora cluster, performance data for all databases is aggregated. Database performance data is retained for 24 hours.
 
-COPY tst_copy FROM '/home/postgres/file.csv' WITH (FORMAT CSV) WHERE v LIKE '%apple%';
-```
-
-### Examples
-
-Export data using `pg_dump`. Use a workstation or server with the PostgreSQL client installed to connect to the Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) instance. Issue the `pg_dump` command providing the hostname (-h), database user name (-U), and database name (-d).
-
-```
-$ pg_dump -h hostname.rds.amazonaws.com -U username -d db_name -f dump_file_name.sql
-```
-
-The output `dump_file_name.sql` file is stored on the server where the `pg_dump` command runs. You can copy the output file to an Amazon S3 bucket if needed.
-
-Run `pg_dump` and copy the backup file to an Amazon S3 bucket using a pipe and the AWS CLI.
-
-```
-$ pg_dump -h hostname.rds.amazonaws.com -U username -d db_name -f dump_file_name.sql | aws s3 cp - s3://pg-backup/pg_bck-$(date"+%Y-%m-%d-%H-%M-%S")
-```
-
-Restore data using `pg_restore`. Use a workstation or server with the PostgreSQL client installed to connect to the Aurora PostgreSQL instance. Issue the `pg_restore` command providing the hostname (-h), database user name (-U), database name (-d), and the dump file.
-
-```
-$ pg_restore -h hostname.rds.amazonaws.com -U username -d dbname_restore dump_file_name.sql
-```
-
-Copy the output file from the local server to an Amazon S3 Bucket using the AWS CLI. Upload the dump file to an Amazon S3 bucket.
-
-```
-$ aws s3 cp /usr/Exports/hr.dmp s3://my-bucket/backup-$(date "+%Y-%m-%d-%H-%M-%S")
-```
-
-###### Note
-
-The `{-$(date "+%Y-%m-%d-%H-%M-%S")}` format is valid on Linux servers only.
-
-Download the output file from the Amazon S3 bucket.
-
-```
-$ aws s3 cp s3://my-bucket/backup-2017-09-10-01-10-10 /usr/Exports/hr.dmp
-```
-
-###### Note
-
-You can create a copy of an existing database without having to use `pg_dump` or `pg_restore`. Instead, use the template keyword to specify the source database.
-
-```
-CREATE DATABASE mydb_copy TEPLATE mydb;
-```
-
-## Summary
-
-| Description                                                                                         | SQL Server export / import                                                                           |
-| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| PostgreSQL Dump                                                                                     | Export data to a file                                                                                |
-| Using SQLCMD or Export/Import Wizard<br>`<br>SQLCMD -i C:\sql\myquery.sql -o C:\sql\output.txt<br>` | `<br>pg_dump -F c -h hostname.rds.amazonaws.com<br>-U username -d hr -p 5432 > c:\Export\hr.dmp<br>` |
-| Import data to a new database with a new name                                                       | Run SQLCMD with objects and data creation script<br>`<br>SQLCMD -i C:\sql\myquery.sql<br>`           |
-
-For more information, see [SQL Dump](https://www.postgresql.org/docs/13/backup-dump.html "https://www.postgresql.org/docs/13/backup-dump.html") and [pg_restore](https://www.postgresql.org/docs/13/app-pgrestore.html "https://www.postgresql.org/docs/13/app-pgrestore.html") in the _PostgreSQL documentation_.
+For more information, see [Monitoring DB load with Performance Insights on Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md") in the _Amazon Relational Database Service User Guide_.
