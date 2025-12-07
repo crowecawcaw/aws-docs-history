@@ -164,7 +164,7 @@ SAP ABAP
 
 There's more on GitHub. Find the complete example and learn how to set up and run in the
 [AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/translate#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/translate#code-examples").
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples").
 
 ```
     "Translates input text from the source language to the target language."
