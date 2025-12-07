@@ -59,10 +59,85 @@ Postgres => grant rds_extension to `user_name`;
 
 ###### Note
 
-You need not restart the database after changing the `rds.allowed_delegated_extensions` dynamic parameter. 3. Allow access to the delegated user to objects created during the extension creation process – Certain extensions create objects
-that require additional permissions to be granted before the user with `rds_extension` role can access them. The `rds_superuser` must
-grant the delegated user access to those objects. One of the options is to use an event trigger to automatically grant permission to the delegated user. For more information,
-refer to the event trigger example in [Turning off the support for the delegated extension](#AuroraPostgreSQL.delegated_ext_disable "#AuroraPostgreSQL.delegated_ext_disable").
+You need not restart the database after changing the `rds.allowed_delegated_extensions` dynamic parameter. 3. Allow access to the delegated user to objects created
+during the extension creation process – Certain extensions
+create objects that require additional permissions to be granted before the user
+with `rds_extension` role can access them. The
+`rds_superuser` must grant the delegated user access to those
+objects. One of the options is to use an event trigger to automatically grant
+permission to the delegated user.
+
+Example of event trigger
+
+If you want to allow a delegated user with `rds_extension` to use
+extensions that require setting permissions on their objects created by the
+extension creation, you can customize the below example of an event trigger and add
+only the extensions for which you want the delegated users to have access to the
+full functionality. This event trigger can be created on template1 (the default
+template), therefore all database created from template1 will have that event
+trigger. When a delegated user installs the extension, this trigger will
+automatically grant ownership on the objects created by the extension.
+
+```
+
+CREATE OR REPLACE FUNCTION create_ext()
+
+  RETURNS event_trigger AS $$
+
+DECLARE
+
+  schemaname TEXT;
+  databaseowner TEXT;
+
+  r RECORD;
+
+BEGIN
+
+  IF tg_tag = 'CREATE EXTENSION' and current_user != 'rds_superuser' THEN
+    RAISE NOTICE 'SECURITY INVOKER';
+    RAISE NOTICE 'user: %', current_user;
+    FOR r IN SELECT * FROM pg_catalog.pg_event_trigger_ddl_commands()
+    LOOP
+        CONTINUE WHEN r.command_tag != 'CREATE EXTENSION' OR r.object_type != 'extension';
+
+        schemaname = (
+            SELECT n.nspname
+            FROM pg_catalog.pg_extension AS e
+            INNER JOIN pg_catalog.pg_namespace AS n
+            ON e.extnamespace = n.oid
+            WHERE e.oid = r.objid
+        );
+
+        databaseowner = (
+            SELECT pg_catalog.pg_get_userbyid(d.datdba)
+            FROM pg_catalog.pg_database d
+            WHERE d.datname = current_database()
+        );
+        RAISE NOTICE 'Record for event trigger %, objid: %,tag: %, current_user: %, schema: %, database_owenr: %', r.object_identity, r.objid, tg_tag, current_user, schemaname, databaseowner;
+        IF r.object_identity = 'address_standardizer_data_us' THEN
+            EXECUTE pg_catalog.format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.us_gaz TO %I WITH GRANT OPTION;', schemaname, databaseowner);
+            EXECUTE pg_catalog.format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.us_lex TO %I WITH GRANT OPTION;', schemaname, databaseowner);
+            EXECUTE pg_catalog.format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.us_rules TO %I WITH GRANT OPTION;', schemaname, databaseowner);
+        ELSIF r.object_identity = 'dict_int' THEN
+            EXECUTE pg_catalog.format('ALTER TEXT SEARCH DICTIONARY %I.intdict OWNER TO %I;', schemaname, databaseowner);
+        ELSIF r.object_identity = 'pg_partman' THEN
+            EXECUTE pg_catalog.format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.part_config TO %I WITH GRANT OPTION;', schemaname, databaseowner);
+            EXECUTE pg_catalog.format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.part_config_sub TO %I WITH GRANT OPTION;', schemaname, databaseowner);
+            EXECUTE pg_catalog.format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.custom_time_partitions TO %I WITH GRANT OPTION;', schemaname, databaseowner);
+        ELSIF r.object_identity = 'postgis_topology' THEN
+            EXECUTE pg_catalog.format('GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA topology TO %I WITH GRANT OPTION;', databaseowner);
+            EXECUTE pg_catalog.format('GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA topology TO %I WITH GRANT OPTION;', databaseowner);
+            EXECUTE pg_catalog.format('GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA topology TO %I WITH GRANT OPTION;', databaseowner);
+            EXECUTE pg_catalog.format('GRANT USAGE ON SCHEMA topology TO %I WITH GRANT OPTION;', databaseowner);
+        END IF;
+    END LOOP;
+  END IF;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+CREATE EVENT TRIGGER log_create_ext ON ddl_command_end EXECUTE PROCEDURE create_ext();
+
+```
 
 ## Configuration used in Aurora delegated extension support for PostgreSQL
 
@@ -97,75 +172,6 @@ Revoking `rds_extension` role from a user will revert the user to standard permi
 
 ```
 postgres => revoke rds_extension from `user_name`;
-```
-
-###### Example of event trigger
-
-If you want to allow a delegated user with `rds_extension` to use extensions that require setting permissions on their objects created by the extension creation, you can
-customize the below example of an event trigger and add only the extensions for which you want the delegated users to have access to the full functionality. This event trigger can be
-created on template1 (the default template), therefore all database created from template1 will have that event trigger. When a delegated user installs the extension,
-this trigger will automatically grant ownership on the objects created by the extension.
-
-```
-
-CREATE OR REPLACE FUNCTION create_ext()
-
-  RETURNS event_trigger AS $$
-
-DECLARE
-
-  schemaname TEXT;
-  databaseowner TEXT;
-
-  r RECORD;
-
-BEGIN
-
-  IF tg_tag = 'CREATE EXTENSION' and current_user != 'rds_superuser' THEN
-    RAISE NOTICE 'SECURITY INVOKER';
-    RAISE NOTICE 'user: %', current_user;
-    FOR r IN SELECT * FROM pg_event_trigger_ddl_commands()
-    LOOP
-        CONTINUE WHEN r.command_tag != 'CREATE EXTENSION' OR r.object_type != 'extension';
-
-        schemaname = (
-            SELECT n.nspname
-            FROM pg_catalog.pg_extension AS e
-            INNER JOIN pg_catalog.pg_namespace AS n
-            ON e.extnamespace = n.oid
-            WHERE e.oid = r.objid
-        );
-
-        databaseowner = (
-            SELECT pg_catalog.pg_get_userbyid(d.datdba)
-            FROM pg_catalog.pg_database d
-            WHERE d.datname = current_database()
-        );
-        RAISE NOTICE 'Record for event trigger %, objid: %,tag: %, current_user: %, schema: %, database_owenr: %', r.object_identity, r.objid, tg_tag, current_user, schemaname, databaseowner;
-        IF r.object_identity = 'address_standardizer_data_us' THEN
-            EXECUTE format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.us_gaz TO %I WITH GRANT OPTION;', schemaname, databaseowner);
-            EXECUTE format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.us_lex TO %I WITH GRANT OPTION;', schemaname, databaseowner);
-            EXECUTE format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.us_rules TO %I WITH GRANT OPTION;', schemaname, databaseowner);
-        ELSIF r.object_identity = 'dict_int' THEN
-            EXECUTE format('ALTER TEXT SEARCH DICTIONARY %I.intdict OWNER TO %I;', schemaname, databaseowner);
-        ELSIF r.object_identity = 'pg_partman' THEN
-            EXECUTE format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.part_config TO %I WITH GRANT OPTION;', schemaname, databaseowner);
-            EXECUTE format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.part_config_sub TO %I WITH GRANT OPTION;', schemaname, databaseowner);
-            EXECUTE format('GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE %I.custom_time_partitions TO %I WITH GRANT OPTION;', schemaname, databaseowner);
-        ELSIF r.object_identity = 'postgis_topology' THEN
-            EXECUTE format('GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA topology TO %I WITH GRANT OPTION;', databaseowner);
-            EXECUTE format('GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA topology TO %I WITH GRANT OPTION;', databaseowner);
-            EXECUTE format('GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA topology TO %I WITH GRANT OPTION;', databaseowner);
-            EXECUTE format('GRANT USAGE ON SCHEMA topology TO %I WITH GRANT OPTION;', databaseowner);
-        END IF;
-    END LOOP;
-  END IF;
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
-
-CREATE EVENT TRIGGER log_create_ext ON ddl_command_end EXECUTE PROCEDURE create_ext();
-
-
 ```
 
 ## Benefits of using Amazon Aurora delegated extension support

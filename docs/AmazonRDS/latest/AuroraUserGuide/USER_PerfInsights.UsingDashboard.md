@@ -1,33 +1,36 @@
-# Adding tags to a performance
+# Analyzing database performance for a period of time
 
-analysis report in Performance Insights
+Analyze database performance with on-demand analysis by creating a performance analysis report for a period of time. View performance analysis reports to find
+performance issues, such as resource bottlenecks or changes in a query in your DB instance.
+The Performance Insights dashboard allows you to select a time period and create a performance analysis
+report. You can also add one or more tags to the report.
 
-You can add a tag when you create or view a report. You can add up to 50 tags for a report.
+To use this feature, you must be using the paid tier retention period. For more information, see
+[Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
 
-You need permissions to add the tags. For more information about the access policies for Performance Insights, see
-[Configuring access policies for Performance Insights](USER_PerfInsights.md "USER_PerfInsights.md")
+The report is available in the **Performance analysis reports - new** tab
+to select and view. The report contains the insights, related metrics, and recommendations
+to resolve the performance issue. The report is available to view for the duration of Performance Insights retention period.
 
-To add one or more tags while creating a report, see step 6 in the procedure
-[Creating a
-performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
+The report is deleted if the start time of the report analysis period is outside of the
+retention period. You can also delete the report before the retention period ends.
 
-###### To add one or more tags when viewing a report
+To detect the performance issues and generate the analysis report for your DB instance, you must turn on Performance Insights. For more information about
+turning on Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance.
+For the region, DB engine, and instance class support information for this feature, see
+[Amazon Aurora DB engine, Region, and instance class support
+for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport")
 
-The Performance Insights dashboard appears for the DB instance. 4. Scroll down and choose **Performance analysis reports - new** tab. 5. Choose the report for which you want to add the tags.
+In the following sections, you can create, view, add tags, and delete a performance analysis report.
 
-The dashboard displays the report. 6. Scroll down to **Tags** and choose **Manage tags**. 7. Choose **Add new tag**. 8. Enter the **Key** and **Value - _optional_**,
-and choose **Add new tag**.
+###### Topics
 
-The following example provides the option to add a new tag for the selected report.
-
-![Manage Tags window to add new tags to the report](images/PI_AddTag_ManageTags.png)
-
-A new tag is created for the report.
-
-The list of tags for the report is displayed in the **Tags** section on the dashboard.
-If you want to remove a tag from the report, choose **Remove** next to the tag.
+- [Creating a
+  performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
+- [Viewing a performance analysis
+  report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
+- [Adding tags to a performance
+  analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
+- [Deleting a performance analysis
+  report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")

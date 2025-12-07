@@ -1,98 +1,199 @@
-# Creating a secret access policy and role
+# Creating IAM resources for homogeneous migrations
 
-Follow the procedures below to create your secret access policy and role which allow DMS to access the user credentials for your
-source and target databases.
+Aurora uses AWS DMS to migrate your data.
+To access your databases and to migrate data, AWS DMS creates a serverless environment for homogeneous data migrations.
+In this environment, AWS DMS requires access to VPC peering, route tables, security groups, and other AWS resources.
+Also, AWS DMS stores logs, metrics, and progress for each data migration in Amazon CloudWatch.
+To create a data migration project, AWS DMS needs access to these services.
 
-###### To create the secret access policy and role, which allows Amazon RDS
-
-to access AWS Secrets Manager to access your appropriate secret
-
-1. Sign in to the AWS Management Console and open the AWS Identity and Access Management (IAM) console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. Choose **Policies**, then choose **Create
-   policy**.
-3. Choose **JSON** and enter the following policy to enable
-   access to and decryption of your secret.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "secretsmanager:GetSecretValue",
- "Resource": "arn:aws:secretsmanager:`us-east-1`:`111122223333`:secret:SecretName-ABCDEF"
- },
- {
- "Effect": "Allow",
- "Action": [
- "kms:Decrypt",
- "kms:DescribeKey"
- ],
- "Resource": "arn:aws:kms:`us-east-1`:111122223333:key/`1234abcd-12ab-34cd-56ef-1234567890ab`"
- }
- ]
-}`
-
-```
-
-Here, `secret_arn` is the ARN of your
-secret, which you can get from either `SecretsManagerSecretId`
-as appropriate, and `kms_key_arn`
-is the ARN of the AWS KMS key that you are using to encrypt your secret,
-as in the following example.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "secretsmanager:GetSecretValue",
- "Resource": "arn:aws:secretsmanager:us-east-2:123456789012:secret:MySQLTestSecret-qeHamH"
- },
- {
- "Effect": "Allow",
- "Action": [
- "kms:Decrypt",
- "kms:DescribeKey"
- ],
- "Resource": "arn:aws:kms:us-east-2:123456789012:key/761138dc-0542-4e58-947f-4a3a8458d0fd"
- }
- ]
-}`
-
-```
+Also, AWS DMS requires access to the secrets that respresent a set of user credentials to authenticate
+the database connection for the source and target connection.
 
 ###### Note
 
-If you use the default encryption key created by
-AWS Secrets Manager, you do not have to specify the AWS KMS permissions
-for `kms_key_arn`.
+By using the **Migrate data from EC2 instance** action, you can use the
+Aurora console to generate these IAM resources.
+Skip this step if you use the console generated IAM resources.
 
-If you want your policy to provide access to both secrets, simply specify an
-additional JSON resource object for the other
-`secret_arn`. 4. Review and create the policy with a friendly name and optional
-description. 5. Choose **Roles**, then choose **Create
-role**. 6. Choose **AWS service** as the type of trusted entity. 7. Choose **DMS** from the list of services as the trusted
-service, then choose **Next: Permissions**. 8. Look up and attach the policy you created in step 4, then proceed through
-adding any tags and review your role. At this point, edit the trust relationships
-for the role to use your Amazon RDS regional service principal as the
-trusted entity. This principal has the following format.
+You need the following IAM resources for this process:
+
+###### Topics
+
+- [Creating an IAM policy for homogeneous data migrations](#USER_DMS_migration-IAM.iam-policy "#USER_DMS_migration-IAM.iam-policy")
+- [Creating an IAM role for homogeneous data migrations](#USER_DMS_migration-IAM.iam-role "#USER_DMS_migration-IAM.iam-role")
+- [Creating a secret access policy and role](USER_DMS_migration-IAM.md "USER_DMS_migration-IAM.md")
+- [Creating an IAM role for AWS DMS to manage Amazon VPC](USER_DMS_migration-IAM.md "USER_DMS_migration-IAM.md")
+
+## Creating an IAM policy for homogeneous data migrations
+
+In this step, you create an IAM policy that provides AWS DMS with access to Amazon EC2 and CloudWatch
+resources. Next, create an IAM role and attach this policy.
+
+###### To create an IAM policy for data migration
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Policies**.
+3. Choose **Create policy**.
+4. In the **Create policy** page, choose the **JSON**
+   tab.
+5. Paste the following JSON into the editor.
+
+JSON
 
 ```
-dms.`region-name`.amazonaws.com
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ec2:DescribeRouteTables",
+ "ec2:DescribeSecurityGroups",
+ "ec2:DescribeVpcPeeringConnections",
+ "ec2:DescribeVpcs",
+ "ec2:DescribePrefixLists",
+ "logs:DescribeLogGroups"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "servicequotas:GetServiceQuota"
+ ],
+ "Resource": "arn:aws:servicequotas:*:*:vpc/L-0EA8095F"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogGroup",
+ "logs:DescribeLogStreams"
+ ],
+ "Resource": "arn:aws:logs:*:*:log-group:dms-data-migration-*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogStream",
+ "logs:PutLogEvents"
+ ],
+ "Resource": "arn:aws:logs:*:*:log-group:dms-data-migration-*:log-stream:dms-data-migration-*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "cloudwatch:PutMetricData",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ec2:CreateRoute",
+ "ec2:DeleteRoute"
+ ],
+ "Resource": "arn:aws:ec2:*:*:route-table/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ec2:CreateTags"
+ ],
+ "Resource": [
+ "arn:aws:ec2:*:*:security-group/*",
+ "arn:aws:ec2:*:*:security-group-rule/*",
+ "arn:aws:ec2:*:*:route-table/*",
+ "arn:aws:ec2:*:*:vpc-peering-connection/*",
+ "arn:aws:ec2:*:*:vpc/*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ec2:AuthorizeSecurityGroupEgress",
+ "ec2:AuthorizeSecurityGroupIngress"
+ ],
+ "Resource": "arn:aws:ec2:*:*:security-group-rule/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ec2:AuthorizeSecurityGroupEgress",
+ "ec2:AuthorizeSecurityGroupIngress",
+ "ec2:RevokeSecurityGroupEgress",
+ "ec2:RevokeSecurityGroupIngress"
+ ],
+ "Resource": "arn:aws:ec2:*:*:security-group/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ec2:AcceptVpcPeeringConnection",
+ "ec2:ModifyVpcPeeringConnectionOptions"
+ ],
+ "Resource": "arn:aws:ec2:*:*:vpc-peering-connection/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "ec2:AcceptVpcPeeringConnection",
+ "Resource": "arn:aws:ec2:*:*:vpc/*"
+ }
+ ]
+}`
+
 ```
 
-Here, `region-name` is the name of your
-region, such as `us-east-1`. Thus, an Amazon RDS regional service
-principal for this region follows.
+6. Choose **Next: Tags** and **Next: Review.**
+7. Enter `HomogeneousDataMigrationsPolicy` for **Name\***,
+   and choose **Create policy**.
+
+## Creating an IAM role for homogeneous data migrations
+
+In this step, you create an IAM role that provides access to AWS Secrets Manager, Amazon EC2, and CloudWatch.
+
+###### To create an IAM role for data migrations
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Roles**.
+3. Choose **Create role**.
+4. On the **Select trusted entity** page, for **Trusted entity
+   type**, choose **AWS Service**. For **Use cases for other
+   AWS services**, choose **DMS**.
+5. Select the **DMS** check box and choose **Next**.
+6. On the **Add permissions** page, choose **HomogeneousDataMigrationsPolicy**
+   that you created before. Choose **Next**.
+7. On the **Name, review, and create** page, enter
+   `HomogeneousDataMigrationsRole` for **Role name**, and
+   choose **Create role**.
+8. On the **Roles** page, enter `HomogeneousDataMigrationsRole`
+   for **Role name**. Choose **HomogeneousDataMigrationsRole**.
+9. On the **HomogeneousDataMigrationsRole** page, choose the **Trust relationships**
+   tab. Choose **Edit trust policy**.
+10. On the **Edit trust policy** page, paste the following JSON into the editor,
+    replacing the existing text.
+
+JSON
 
 ```
-dms.us-east-1.amazonaws.com
-dms-data-migrations.amazonaws.com
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "dms-data-migrations.amazonaws.com",
+ "dms.`your_region`.amazonaws.com"
+ ]
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
 ```
+
+In the preceding example, replace `your_region` with the name of
+your AWS Region.
+
+The preceding resource-based policy provides AWS DMS service principals with permissions to perform tasks
+according to the customer managed **HomogeneousDataMigrationsPolicy** policy. 11. Choose **Update policy**.

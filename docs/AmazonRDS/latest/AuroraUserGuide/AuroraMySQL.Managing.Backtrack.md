@@ -1,62 +1,100 @@
-# Performing a backtrack for an Aurora MySQL DB cluster
+# Monitoring backtracking for an Aurora MySQL DB cluster
 
-You can backtrack a DB cluster to a specified backtrack time stamp. If the
-backtrack time stamp isn't earlier than the earliest possible backtrack time, and
-isn't in the future, the DB cluster is backtracked to that time stamp.
+You can view backtracking information and monitor backtracking metrics for a DB
+cluster.
 
-Otherwise, an error typically occurs. Also, if you try to backtrack a DB cluster for which
-binary logging is enabled, an error typically occurs unless you've chosen to force the backtrack
-to occur. Forcing a backtrack to occur can interfere with other operations that use binary logging.
+###### To view backtracking information and monitor backtracking metrics using
 
-###### Important
-
-Backtracking doesn't generate binlog entries for the changes that it makes. If
-you have binary logging enabled for the DB cluster, backtracking might not be
-compatible with your binlog implementation.
-
-###### Note
-
-For database clones, you can't backtrack the DB cluster earlier than the
-date and time when the clone was created. For more information about database
-cloning, see [Cloning a volume for an Amazon Aurora DB cluster](Aurora.Managing.md "Aurora.Managing.md").
-
-The following procedure describes how to perform a backtrack operation for a DB cluster
-using the console.
-
-###### To perform a backtrack operation using the console
+the console
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Instances**.
-3. Choose the primary instance for the DB cluster that you
-   want to backtrack.
-4. For **Actions**, choose **Backtrack DB cluster**.
-5. On the **Backtrack DB cluster** page, enter the
-   backtrack time stamp to backtrack the DB cluster to.
+2. Choose **Databases**.
+3. Choose the DB cluster name to open information about it.
 
-![Backtrack DB cluster](images/aurora-backtrack-db-cluster.png) 6. Choose **Backtrack DB cluster**.
-The following procedure describes how to backtrack a DB cluster using the AWS CLI.
+The backtrack information is in the **Backtrack** section.
 
-###### To backtrack a DB cluster using the AWS CLI
+![Backtrack details for a DB cluster](images/aurora-backtrack-details.png)
 
-- Call the [backtrack-db-cluster](../../../cli/latest/reference/rds/backtrack-db-cluster.md "../../../cli/latest/reference/rds/backtrack-db-cluster.md") AWS CLI command and supply
+When backtracking is enabled, the following information is available:
+
+    * **Target window** – The current amount
+     of time specified for the target backtrack window. The
+     target is the maximum amount of time that you can
+     backtrack if there is sufficient storage.
+    * **Actual window** – The actual amount of time you can backtrack,
+     which can be smaller than the target backtrack window. The actual backtrack window is based on
+     your workload and the storage available for retaining backtrack change records.
+    * **Earliest backtrack time** – The
+     earliest possible backtrack time for the DB cluster. You can't
+     backtrack the DB cluster to a time before the displayed
+     time.
+
+4.  Do the following to view backtracking metrics for the DB
+    cluster:
+
+        1. In the navigation pane, choose **Instances**.
+        2. Choose the name of the primary instance for the DB cluster to
+         display its details.
+        3. In the **CloudWatch** section, type `Backtrack` into the **CloudWatch** box to
+         show only the Backtrack metrics.
+
+
+
+        ![Backtrack metrics](images/aurora-backtrack-metrics.png)
+
+        The following metrics are displayed:
+
+
+
+
+        	* **Backtrack Change Records Creation Rate
+        	 (Count)** – This metric shows the
+        	 number of backtrack change records created over five
+        	 minutes for your DB cluster. You can use this metric
+        	 to estimate the backtrack cost for your target
+        	 backtrack window.
+        	* **[Billed] Backtrack Change Records Stored
+        	 (Count)** – This metric shows the
+        	 actual number of backtrack change records used by
+        	 your DB cluster.
+        	* **Backtrack Window Actual (Minutes)** –
+        	 This metric shows whether there is a difference between the target backtrack window and the
+        	 actual backtrack window. For example, if your target backtrack window is 2 hours (120 minutes),
+        	 and this metric shows that the actual backtrack window is 100 minutes, then the actual backtrack
+        	 window is smaller than the target.
+        	* **Backtrack Window Alert (Count)** –
+        	 This metric shows how often the actual backtrack window is smaller than the target backtrack
+        	 window for a given period of time.
+        ###### Note
+
+        The following metrics might lag behind the current time:
+
+
+
+        	* **Backtrack Change Records Creation Rate (Count)**
+        	* **[Billed] Backtrack Change Records Stored (Count)**
+
+    The following procedure describes how to view backtrack information for a DB
+    cluster using the AWS CLI.
+
+###### To view backtrack information for a DB cluster using the AWS CLI
+
+- Call the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") AWS CLI command and supply
   the following values:
 
       + `--db-cluster-identifier` – The name of the
        DB cluster.
-      + `--backtrack-to` – The backtrack time stamp to backtrack the DB cluster to,
-       specified in ISO 8601 format.
 
-  The following example backtracks the DB cluster
-  `sample-cluster` to March 19, 2018, at 10 a.m.
+  The following example lists backtrack information for
+  `sample-cluster`.
 
 For Linux, macOS, or Unix:
 
 ```
 
-aws rds backtrack-db-cluster \
-    --db-cluster-identifier sample-cluster \
-    --backtrack-to 2018-03-19T10:00:00+00:00
+aws rds describe-db-clusters \
+    --db-cluster-identifier sample-cluster
 
 ```
 
@@ -64,12 +102,12 @@ For Windows:
 
 ```
 
-aws rds backtrack-db-cluster ^
-    --db-cluster-identifier sample-cluster ^
-    --backtrack-to 2018-03-19T10:00:00+00:00
+aws rds describe-db-clusters ^
+    --db-cluster-identifier sample-cluster
 
 ```
 
-To backtrack a DB cluster using the Amazon RDS API, use the
-[BacktrackDBCluster](../APIReference/API_BacktrackDBCluster.md "../APIReference/API_BacktrackDBCluster.md") operation. This operation backtracks the DB
-cluster specified in the `DBClusterIdentifier` value to the specified time.
+To view backtrack information for a DB cluster using the Amazon RDS API, use the
+[DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md") operation.
+This operation returns backtrack information for the DB cluster specified in
+the `DBClusterIdentifier` value.

@@ -1,350 +1,524 @@
-# Tuning memory parameters for
+# Fast failover with
 
-Aurora PostgreSQL
+Amazon Aurora PostgreSQL
 
-In Amazon Aurora PostgreSQL, you can use several parameters that control the amount of memory used
-for various processing tasks. If a task takes more memory than the amount set for a given
-parameter, Aurora PostgreSQL uses other resources for processing, such as by writing to disk. This
-can cause your Aurora PostgreSQL DB cluster to slow or potentially halt, with an out-of-memory
-error.
+Following, you can learn how to make sure that failover occurs as fast as possible. To
+recover quickly after failover, you can use cluster cache management for your
+Aurora PostgreSQL DB cluster. For more information, see [Fast recovery after failover with
+cluster cache management for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
 
-The default setting for each memory parameter can usually handle its intended processing
-tasks. However, you can also tune your Aurora PostgreSQL DB
-cluster's
-memory-related
-parameters. You do this tuning to ensure that enough memory is allocated for processing your
-specific workload.
+Some of the steps that you can take to make failover perform fast include the
+following:
 
-Following, you can find information about parameters that control memory management. You can
-also learn how to assess memory utilization.
+- Set Transmission Control Protocol (TCP) keepalives with short time frames, to
+  stop longer running queries before the read timeout expires if there's a
+  failure.
+- Set timeouts for Java Domain Name System (DNS) caching aggressively. Doing
+  this helps ensure the Aurora read-only endpoint can properly cycle through
+  read-only nodes on later connection attempts.
+- Set the timeout variables used in the JDBC connection string as low as
+  possible. Use separate connection objects for short- and long-running
+  queries.
+- Use the read and write Aurora endpoints that are provided to connect to the
+  cluster.
+- Use RDS API operations to test application response on server-side failures.
+  Also, use a packet dropping tool to test application response for client-side
+  failures.
+- Use the AWS JDBC Driver to take full advantage of the failover capabilities of
+  Aurora PostgreSQL. For more information about the AWS JDBC Driver and complete
+  instructions for using it, see the [Amazon Web Services (AWS) JDBC Driver
+  GitHub repository](https://github.com/aws/aws-advanced-jdbc-wrapper "https://github.com/aws/aws-advanced-jdbc-wrapper").
+  These are covered in more detail following.
 
-## Checking and setting parameter values
+###### Topics
 
-The parameters that you can set to manage memory and assess your Aurora PostgreSQL DB
-cluster's memory usage include the following:
+- [Setting
+  TCP keepalives parameters](#AuroraPostgreSQL.BestPractices.FastFailover.TCPKeepalives "#AuroraPostgreSQL.BestPractices.FastFailover.TCPKeepalives")
+- [Configuring your application for fast failover](#AuroraPostgreSQL.BestPractices.FastFailover.Configuring "#AuroraPostgreSQL.BestPractices.FastFailover.Configuring")
+- [Testing
+  failover](#AuroraPostgreSQL.BestPracticesFastFailover.Testing "#AuroraPostgreSQL.BestPracticesFastFailover.Testing")
+- [Fast failover
+  example in Java](#AuroraPostgreSQL.BestPractices.FastFailover.Example "#AuroraPostgreSQL.BestPractices.FastFailover.Example")
 
-- `work_mem` – Specifies the amount of memory that the Aurora PostgreSQL DB cluster uses for
-  internal sort operations and hash tables before it writes to temporary disk files.
-- `log_temp_files` – Logs temporary file creation, file names, and sizes. When
-  this parameter is turned on, a log entry is stored for each temporary file that gets
-  created. Turn this on to see how frequently your Aurora PostgreSQL DB cluster needs to write to disk. Turn it off
-  again after you've gathered information about your Aurora PostgreSQL DB cluster's temporary file generation, to avoid
-  excessive logging.
-- `logical_decoding_work_mem` – Specifies the amount of memory (in kilobytes) to be used by each internal reorder buffer before spilling to disk.
-  This memory is used for _Logical decoding_, which is the process to create a replica. It is done by converting data from the
-  write-ahead log (WAL) file to the logical streaming output needed by the target.
+## Setting
 
-The value of this parameter creates a single buffer of the size specified for each
-replication connection. By default, it's 65536 KB. After this buffer is filled,
-the excess is written to disk as a file. To minimize disk activity, you can set the value
-of this parameter to a much higher value than that of `work_mem`.
+TCP keepalives parameters
 
-These are all dynamic parameters, so you can change them for the current session. To do this,
-connect to the Aurora PostgreSQL DB cluster
-with psql and using the
-`SET` statement, as shown following.
+When you set up a TCP connection, a set of timers is associated with the
+connection. When the keepalive timer reaches zero, a keepalive probe packet is sent
+to the connection endpoint. If the probe receives a reply, you can assume that the
+connection is still up and running.
 
-```
-SET `parameter_name` TO `parameter_value`;
-```
+Turning on TCP keepalive parameters and setting them aggressively ensures that if
+your client can't connect to the database, any active connections are quickly
+closed. The application can then connect to a new endpoint.
 
-Session settings last for the duration of the session only. When the session ends, the
-parameter reverts to its setting in the DB cluster parameter
-group.
-Before changing any parameters,
-first check the current values by querying the `pg_settings` table, as
-follows.
+Make sure to set the following TCP keepalive parameters:
 
-```
-SELECT unit, setting, max_val
-   FROM pg_settings WHERE name='`parameter_name`';
-```
+- `tcp_keepalives_idle` controls the time, in seconds, after
+  which a keepalive packet is sent when no data has been sent by the socket.
+  ACKs aren't considered data. We recommend the following setting:
 
-For example, to find the value of the `work_mem` parameter, connect to the
-Aurora PostgreSQL DB cluster's writer instance and run the following query.
+`tcp_keepalives_idle = 1`
 
-```
-SELECT unit, setting, max_val, pg_size_pretty(max_val::numeric)
-  FROM pg_settings WHERE name='work_mem';
-`unit | setting | max_val | pg_size_pretty
-------+----------+-----------+----------------
- kB | 1024 | 2147483647| 2048 MB
-(1 row)`
-```
+- `tcp_keepalives_interval` controls the time, in seconds,
+  between sending subsequent keepalive packets after the initial packet is
+  sent. Set this time by using the `tcp_keepalives_idle` parameter.
+  We recommend the following setting:
 
-Changing parameter settings so that they persist requires using a custom DB cluster parameter group.
-After exercising your Aurora PostgreSQL DB cluster
-with different values for these parameters using the `SET` statement,
-you can create a custom parameter group and apply to your Aurora PostgreSQL DB cluster.
-For more information, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+`tcp_keepalives_interval = 1`
 
-## Understanding the
+- `tcp_keepalives_count` is the number of unacknowledged
+  keepalive probes that occur before the application is notified. We recommend
+  the following setting:
 
-working memory parameter
+`tcp_keepalives_count = 5`
 
-The working memory parameter (`work_mem`) specifies the maximum amount of memory that Aurora PostgreSQL can use
-to process complex queries. Complex queries include those that involve sorting or grouping operations—in other words, queries that
-use the following clauses:
+These settings should notify the application within five seconds when the database
+stops responding. If keepalive packets are often dropped within the application's
+network, you can set a higher `tcp_keepalives_count` value. Doing this
+allows for more buffer in less reliable networks, although it increases the time
+that it takes to detect an actual failure.
 
-- ORDER BY
-- DISTINCT
-- GROUP BY
-- JOIN (MERGE and HASH)
+###### To set TCP keepalive parameters on Linux
 
-The query planner indirectly affects how your Aurora PostgreSQL DB cluster uses working memory.
-The query planner generates execution plans for processing SQL statements. A given plan might
-break up a complex query into multiple units of work that can be run in parallel. When
-possible, Aurora PostgreSQL uses the amount of memory specified in the `work_mem`
-parameter for each session before writing to disk for each parallel process.
+1. Test how to configure your TCP keepalive parameters.
 
-Multiple database users running multiple operations concurrently and generating multiple
-units of work in parallel can exhaust your Aurora PostgreSQL DB cluster's allocated working
-memory. This can lead to excessive temporary file creation and disk I/O, or worse, it can lead
-to an out-of-memory error.
-
-### Identifying temporary file use
-
-Whenever the memory required to process queries exceeds the value specified in the
-`work_mem` parameter, the working data is offloaded to disk
-in a temporary file. You can see how often this occurs by turning on the
-`log_temp_files` parameter. By default, this parameter is off (it's set to
--1). To capture all temporary file information, set this parameter to 0. Set `log_temp_files`
-to any other positive integer to capture temporary file information for files equal to or greater than that
-amount of data (in kilobytes). In the following image, you can see an example from AWS Management Console.
-
-![Image of custom parameter group with log_temp_files set to 1024kB.](images/postgres_tuning_custom_parameter.png)
-
-After configuring temporary file logging, you can test with your own workload to see if your
-working memory setting is sufficient. You can also simulate a workload by using pgbench, a
-simple benchmarking application from the PostgreSQL community.
-
-The following example initializes (`-i`) `pgbench` by creating the
-necessary tables and rows for running the tests. In this example, the scaling factor
-(`-s` 50) creates 50 rows in the `pgbench_branches` table, 500 rows
-in `pgbench_tellers`, and 5,000,000 rows in the `pgbench_accounts`
-table in the `labdb` database.
+We recommend doing so by using the command line with the following
+commands. This suggested configuration is system-wide. In other words, it
+also affects all other applications that create sockets with the
+`SO_KEEPALIVE` option on.
 
 ```
-pgbench -U postgres -h `your-cluster-`instance-1.111122223333.`aws-region`rds.amazonaws.com -p 5432 -i -s `50` `labdb`
-`Password:
-dropping old tables...
-NOTICE: table "pgbench_accounts" does not exist, skipping
-NOTICE: table "pgbench_branches" does not exist, skipping
-NOTICE: table "pgbench_history" does not exist, skipping
-NOTICE: table "pgbench_tellers" does not exist, skipping
-creating tables...
-generating data (client-side)...
-5000000 of 5000000 tuples (100%) done (elapsed 15.46 s, remaining 0.00 s)
-vacuuming...
-creating primary keys...
-done in 61.13 s (drop tables 0.08 s, create tables 0.39 s, client-side generate 54.85 s, vacuum 2.30 s, primary keys 3.51 s)`
+sudo sysctl net.ipv4.tcp_keepalive_time=1
+sudo sysctl net.ipv4.tcp_keepalive_intvl=1
+sudo sysctl net.ipv4.tcp_keepalive_probes=5
 ```
 
-After initializing the environment, you can run the benchmark for a specific time (`-T`) and the number of
-clients (`-c`). This example also uses the `-d` option to output debugging information as the transactions are processed by
-the Aurora PostgreSQL DB cluster.
+2. After you've found a configuration that works for your application,
+   persist these settings by adding the following lines to
+   `/etc/sysctl.conf`, including any changes you made:
 
 ```
-pgbench -h -U postgres `your-cluster-`instance-1.111122223333.`aws-region`rds.amazonaws.com -p 5432 -d -T 60 -c 10 `labdb`
-`Password:`*******`
-pgbench (14.3)
-starting vacuum...end.
-transaction type: <builtin: TPC-B (sort of)>
-scaling factor: 50
-query mode: simple
-number of clients: 10
-number of threads: 1
-duration: 60 s
-number of transactions actually processed: 1408
-latency average = 398.467 ms
-initial connection time = 4280.846 ms
-tps = 25.096201 (without initial connection time)`
+tcp_keepalive_time = 1
+tcp_keepalive_intvl = 1
+tcp_keepalive_probes = 5
 ```
 
-For more information about pgbench, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html") in the
-PostgreSQL documentation.
+## Configuring your application for fast failover
 
-You can use the psql metacommand command (`\d`) to list the relations such as
-tables, views, and indexes created by pgbench.
+Following, you can find a discussion of several configuration changes for
+Aurora PostgreSQL that you can make for fast failover. To learn more about PostgreSQL
+JDBC driver setup and configuration, see the [PostgreSQL JDBC
+Driver](https://jdbc.postgresql.org/documentation/head/index.html "https://jdbc.postgresql.org/documentation/head/index.html") documentation.
 
-```
-`labdb=>`  \d pgbench_accounts
- `Table "public.pgbench_accounts"
- Column | Type | Collation | Nullable | Default
-----------+---------------+-----------+----------+---------
- aid | integer | | not null |
- bid | integer | | |
- abalance | integer | | |
- filler | character(84) | | |
-Indexes:
- "pgbench_accounts_pkey" PRIMARY KEY, btree (aid)`
-```
+###### Topics
 
-As shown in the output, the `pgbench_accounts` table is indexed on the
-`aid` column. To ensure that this next query uses working memory, query any
-nonindexed column, such as that shown in the following example.
+- [Reducing DNS cache timeouts](#AuroraPostgreSQL.BestPractices.FastFailover.Configuring.Timeouts "#AuroraPostgreSQL.BestPractices.FastFailover.Configuring.Timeouts")
+- [Setting an Aurora PostgreSQL connection string for fast failover](#AuroraPostgreSQL.BestPractices.FastFailover.Configuring.ConnectionString "#AuroraPostgreSQL.BestPractices.FastFailover.Configuring.ConnectionString")
+- [Other options for obtaining the host string](#AuroraPostgreSQL.BestPractices.FastFailover.Configuring.HostString "#AuroraPostgreSQL.BestPractices.FastFailover.Configuring.HostString")
+
+### Reducing DNS cache timeouts
+
+When your application tries to establish a connection after a failover, the
+new Aurora PostgreSQL writer will be a previous reader. You can find it by using the
+Aurora read-only endpoint before DNS updates have fully propagated. Setting the
+java DNS time to live (TTL) to a low value, such as under 30 seconds, helps
+cycle between reader nodes on later connection attempts.
 
 ```
-`postgres=>` SELECT * FROM pgbench_accounts ORDER BY bid;
+// Sets internal TTL to match the Aurora RO Endpoint TTL
+java.security.Security.setProperty("networkaddress.cache.ttl" , "1");
+// If the lookup fails, default to something like small to retry
+java.security.Security.setProperty("networkaddress.cache.negative.ttl" , "3");
 ```
 
-Check the log for the temporary files. To do so, open the AWS Management Console, choose the Aurora PostgreSQL
-DB cluster instance, and then choose the **Logs & Events** tab. View
-the logs in the console or download for further analysis. As shown in the following image,
-the size of the temporary files needed to process the query indicates that you should
-consider increasing the amount specified for the `work_mem` parameter.
+### Setting an Aurora PostgreSQL connection string for fast failover
 
-![Image of the log file from AWS Management Console showing the temporary files.](images/postgres_tuning_log_temp_files.png)
-
-You can configure this parameter differently for individuals and groups, based on your
-operational needs. For example, you can set the `work_mem` parameter to 8 GB for
-the role named `dev_team`.
+To use Aurora PostgreSQL fast failover, make sure that your application's
+connection string has a list of hosts instead of just a single host. Following
+is an example connection string that you can use to connect to an Aurora PostgreSQL
+cluster. In this example, the hosts are in bold.
 
 ```
-`postgres=>` ALTER ROLE `dev_team` SET work_mem=‘8GB';
+jdbc:postgresql://**myauroracluster.cluster-c9bfei4hjlrd.us-east-1-beta.rds.amazonaws.com:5432,
+myauroracluster.cluster-ro-c9bfei4hjlrd.us-east-1-beta.rds.amazonaws.com:5432**
+/postgres?user=<primaryuser>&password=<primarypw>&loginTimeout=2
+&connectTimeout=2&cancelSignalTimeout=2&socketTimeout=60
+&tcpKeepAlive=true&targetServerType=primary
 ```
 
-With this setting for `work_mem`, any role that's a member of the `dev_team` role is allotted up to 8 GB of working memory.
+For best availability and to avoid a dependency on the RDS API, we recommend
+that you maintain a file to connect with. This file contains a host string that
+your application reads from when you establish a connection to the database.
+This host string has all the Aurora endpoints available for the cluster. For more
+information about Aurora endpoints, see [Amazon Aurora endpoint connections](Aurora.Overview.md "Aurora.Overview.md").
 
-## Using indexes for faster response time
-
-If your queries are taking too long to return results, you can verify that your indexes are being used as expected. First,
-turn on `\timing`, the psql metacommand, as follows.
-
-```
-`postgres=>`  \timing on
-```
-
-After turning on timing, use a simple SELECT statement.
+For example, you might store your endpoints in a local file as shown
+following.
 
 ```
-`postgres=>` SELECT COUNT(*) FROM
-  (SELECT * FROM pgbench_accounts
-  ORDER BY bid)
-  AS accounts;
-`count
--------
-5000000
-(1 row)
-Time: 3119.049 ms (00:03.119)`
+myauroracluster.cluster-c9bfei4hjlrd.us-east-1-beta.rds.amazonaws.com:5432,
+myauroracluster.cluster-ro-c9bfei4hjlrd.us-east-1-beta.rds.amazonaws.com:5432
 ```
 
-As shown in the output, this query took just over 3 seconds to complete. To improve the
-response time, create an index on `pgbench_accounts`, as follows.
+Your application reads from this file to populate the host section of the JDBC
+connection string. Renaming the DB cluster causes these endpoints to change.
+Make sure that your application handles this event if it occurs.
+
+Another option is to use a list of DB instance nodes, as follows.
 
 ```
-`postgres=>` CREATE INDEX ON pgbench_accounts(bid);
-`CREATE INDEX`
+my-node1.cksc6xlmwcyw.us-east-1-beta.rds.amazonaws.com:5432,
+my-node2.cksc6xlmwcyw.us-east-1-beta.rds.amazonaws.com:5432,
+my-node3.cksc6xlmwcyw.us-east-1-beta.rds.amazonaws.com:5432,
+my-node4.cksc6xlmwcyw.us-east-1-beta.rds.amazonaws.com:5432
 ```
 
-Rerun the query, and notice the faster response time. In this example, the query completed
-about 5 times faster, in about half a second.
+The benefit of this approach is that the PostgreSQL JDBC connection driver
+loops through all nodes on this list to find a valid connection. In contrast,
+when you use the Aurora endpoints only two nodes are tried in each connection
+attempt. However, there's a downside to using DB instance nodes. If you add or
+remove nodes from your cluster and the list of instance endpoints becomes stale,
+the connection driver might never find the correct host to connect to.
+
+To help ensure that your application doesn't wait too long to connect to
+any one host, set the following parameters aggressively:
+
+- `targetServerType` – Controls whether the driver
+  connects to a write or read node. To ensure that your applications
+  reconnect only to a write node, set the `targetServerType`
+  value to `primary`.
+
+Values for the `targetServerType` parameter include
+`primary`, `secondary`, `any`, and
+`preferSecondary`. The `preferSecondary` value
+attempts to establish a connection to a reader first. It connects to the
+writer if no reader connection can be established.
+
+- `loginTimeout` – Controls how long your application
+  waits to log in to the database after a socket connection has been
+  established.
+- `connectTimeout` – Controls how long the socket
+  waits to establish a connection to the database.
+
+You can modify other application parameters to speed up the connection
+process, depending on how aggressive you want your application to be:
+
+- `cancelSignalTimeout` – In some applications, you
+  might want to send a "best effort" cancel signal on a query that has
+  timed out. If this cancel signal is in your failover path, consider
+  setting it aggressively to avoid sending this signal to a dead
+  host.
+- `socketTimeout` – This parameter controls how long
+  the socket waits for read operations. This parameter can be used as a
+  global "query timeout" to ensure no query waits longer than this value.
+  A good practice is to have two connection handlers. One connection
+  handler runs short-lived queries and sets this value lower. Another
+  connection handler, for long-running queries, has this value set much
+  higher. With this approach, you can rely on TCP keepalive parameters to
+  stop long-running queries if the server goes down.
+- `tcpKeepAlive` – Turn on this parameter to ensure
+  the TCP keepalive parameters that you set are respected.
+- `loadBalanceHosts` – When set to `true`,
+  this parameter has the application connect to a random host chosen from
+  a list of candidate hosts.
+
+### Other options for obtaining the host string
+
+You can get the host string from several sources, including the
+`aurora_replica_status` function and by using the Amazon RDS
+API.
+
+In many cases, you need to determine who the writer of the cluster is or to
+find other reader nodes in the cluster. To do this, your application can connect
+to any DB instance in the DB cluster and query the
+`aurora_replica_status` function. You can use this function to
+reduce the amount of time it takes to find a host to connect to. However, in
+certain network failure scenarios the `aurora_replica_status`
+function might show out-of-date or incomplete information.
+
+A good way to ensure that your application can find a node to connect to is to
+try to connect to the cluster writer endpoint and then the cluster reader
+endpoint. You do this until you can establish a readable connection. These
+endpoints don't change unless you rename your DB cluster. Thus, you can
+generally leave them as static members of your application or store them in a
+resource file that your application reads from.
+
+After you establish a connection using one of these endpoints, you can get
+information about the rest of the cluster. To do this, call the
+`aurora_replica_status` function. For example, the following
+command retrieves information with `aurora_replica_status`.
 
 ```
-`postgres=>`  SELECT COUNT(*) FROM (SELECT * FROM pgbench_accounts ORDER BY bid) AS accounts;
- `count
--------
- 5000000
-(1 row)
-Time: 567.095 ms`
-```
+postgres=> SELECT server_id, session_id, highest_lsn_rcvd, cur_replay_latency_in_usec, now(), last_update_timestamp
+FROM aurora_replica_status();
 
-## Adjusting working memory for logical decoding
-
-Logical replication has been available in all versions of Aurora PostgreSQL
-since its introduction in PostgreSQL version 10. When you configure logical replication,
-you can also set the `logical_decoding_work_mem` parameter to specify the amount of memory that the
-logical decoding process can use for the decoding and streaming process.
-
-During logical decoding, write-ahead log (WAL) records are converted to SQL statements that
-are then sent to another target for logical replication or another task. When a transaction is
-written to the WAL and then converted, the entire transaction must fit into the value
-specified for `logical_decoding_work_mem`. By default, this parameter is set to 65536 KB.
-Any overflow is written to disk. This means that it must be reread from the disk before it
-can be sent to its destination, thus slowing the overall process.
-
-You can assess the amount of transaction overflow in your current workload at a specific point
-in time by using the `aurora_stat_file` function as shown in the following example.
+server_id | session_id | highest_lsn_rcvd | cur_replay_latency_in_usec | now | last_update_timestamp
+-----------+--------------------------------------+------------------+----------------------------+-------------------------------+------------------------
+mynode-1 | 3e3c5044-02e2-11e7-b70d-95172646d6ca | 594221001 | 201421 | 2017-03-07 19:50:24.695322+00 | 2017-03-07 19:50:23+00
+mynode-2 | 1efdd188-02e4-11e7-becd-f12d7c88a28a | 594221001 | 201350 | 2017-03-07 19:50:24.695322+00 | 2017-03-07 19:50:23+00
+mynode-3 | MASTER_SESSION_ID | | | 2017-03-07 19:50:24.695322+00 | 2017-03-07 19:50:23+00
+(3 rows)
 
 ```
-SELECT split_part (filename, '/', 2)
-   AS slot_name, count(1) AS num_spill_files,
-   sum(used_bytes) AS slot_total_bytes,
-   pg_size_pretty(sum(used_bytes)) AS slot_total_size
-   FROM aurora_stat_file()
-   WHERE filename like '%spill%'
-   GROUP BY 1;
- `slot_name | num_spill_files | slot_total_bytes | slot_total_size
-------------+-----------------+------------------+-----------------
- slot_name | 590 | 411600000 | 393 MB
-(1 row)`
-```
 
-This query returns the count and size of spill files on your Aurora PostgreSQL DB cluster when the
-query is invoked. Longer running workloads might not have any spill files on disk yet. To
-profile long-running workloads, we recommend that you create a table to capture the spill file
-information as the workload runs. You can create the table as follows.
+For example, the hosts section of your connection string might start with both
+the writer and reader cluster endpoints, as shown following.
 
 ```
-CREATE TABLE spill_file_tracking AS
-    SELECT now() AS spill_time,*
-    FROM aurora_stat_file()
-    WHERE filename LIKE '%spill%';
+myauroracluster.cluster-c9bfei4hjlrd.us-east-1-beta.rds.amazonaws.com:5432,
+myauroracluster.cluster-ro-c9bfei4hjlrd.us-east-1-beta.rds.amazonaws.com:5432
 ```
 
-To see how spill files are used during logical replication, set up a publisher and subscriber
-and then start a simple replication. For more information, see [Setting up logical
-replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md"). With replication under
-way, you can create a job that captures the result set from the
-`aurora_stat_file()` spill file function, as follows.
+In this scenario, your application attempts to establish a connection to any
+node type, primary or secondary. When your application is connected, a good
+practice is to first examine the read/write status of the node. To do this,
+query for the result of the command `SHOW
+ transaction_read_only`.
+
+If the return value of the query is `OFF`, then you successfully
+connected to the primary node. However, suppose that the return value is
+`ON` and your application requires a read/write connection. In
+this case, you can call the `aurora_replica_status` function to
+determine the `server_id` that has
+`session_id='MASTER_SESSION_ID'`. This function gives you the
+name of the primary node. You can use this with the `endpointPostfix`
+described following.
+
+Make sure that you're aware when you connect to a replica that has stale data.
+When this happens, the `aurora_replica_status` function might show
+out-of-date information. You can set a threshold for staleness at the
+application level. To check this, you can look at the difference between the
+server time and the `last_update_timestamp` value. In general, your
+application should avoid flipping between two hosts due to conflicting
+information returned by the `aurora_replica_status` function. Your
+application should try all known hosts first instead of following the data
+returned by `aurora_replica_status`.
+
+#### Listing instances using the DescribeDBClusters API operation, example
+
+in Java
+
+You can programmatically find the list of instances by using the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"), specifically
+the [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md") API operation.
+
+Following is a small example of how you might do this in Java 8.
 
 ```
-INSERT INTO spill_file_tracking
-  SELECT now(),*
-  FROM aurora_stat_file()
-  WHERE filename LIKE '%spill%';
-```
+AmazonRDS client = AmazonRDSClientBuilder.defaultClient();
+DescribeDBClustersRequest request = new DescribeDBClustersRequest()
+   .withDBClusterIdentifier(clusterName);
+DescribeDBClustersResult result =
+rdsClient.describeDBClusters(request);
 
-Use the following psql command to run the job once per second.
+DBCluster singleClusterResult = result.getDBClusters().get(0);
 
-```
-\watch 0.5
-```
-
-As the job is running, connect to the writer instance from another psql session.
-Use the following series of statements to run a workload that exceeds the memory configuration and causes Aurora PostgreSQL to create a spill file.
-
-```
-`labdb=>` `CREATE TABLE my_table (a int PRIMARY KEY, b int);`
-`CREATE TABLE`
-`labdb=>` `INSERT INTO my_table SELECT x,x FROM generate_series(0,10000000) x;`
-`INSERT 0 10000001`
-`labdb=>` `UPDATE my_table SET b=b+1;`
-`UPDATE 10000001`
-```
-
-These statements take several minutes to complete. When finished, press the Ctrl key and the C
-key together to stop the monitoring function. Then use the following command to create a table
-to hold the information about the Aurora PostgreSQL DB cluster's spill file usage.
+String pgJDBCEndpointStr =
+singleClusterResult.getDBClusterMembers().stream()
+   .sorted(Comparator.comparing(DBClusterMember::getIsClusterWriter)
+   .reversed()) // This puts the writer at the front of the list
+   .map(m -> m.getDBInstanceIdentifier() + endpointPostfix + ":" + singleClusterResult.getPort()))
+   .collect(Collectors.joining(","));
 
 ```
-SELECT spill_time, split_part (filename, '/', 2)
-    AS slot_name, count(1)
-    AS spills, sum(used_bytes)
-    AS slot_total_bytes, pg_size_pretty(sum(used_bytes))
-    AS slot_total_size FROM spill_file_tracking
-  GROUP BY 1,2 ORDER BY 1;
- `spill_time | slot_name | spills | slot_total_bytes | slot_total_size
-------------------------------+-----------------------+--------+------------------+-----------------
-2022-04-15 13:42:52.528272+00 | replication_slot_name | 1 | 142352280 | 136 MB
-2022-04-15 14:11:33.962216+00 | replication_slot_name | 4 | 467637996 | 446 MB
-2022-04-15 14:12:00.997636+00 | replication_slot_name | 4 | 569409176 | 543 MB
-2022-04-15 14:12:03.030245+00 | replication_slot_name | 4 | 569409176 | 543 MB
-2022-04-15 14:12:05.059761+00 | replication_slot_name | 5 | 618410996 | 590 MB
-2022-04-15 14:12:07.22905+00 | replication_slot_name | 5 | 640585316 | 611 MB
-(6 rows)`
+
+Here, `pgJDBCEndpointStr` contains a formatted list of
+endpoints, as shown following.
+
+```
+my-node1.cksc6xlmwcyw.us-east-1-beta.rds.amazonaws.com:5432,
+my-node2.cksc6xlmwcyw.us-east-1-beta.rds.amazonaws.com:5432
 ```
 
-The output shows that running the example created five spill files that used 611 MB of memory. To avoid
-writing to disk, we recommend setting the `logical_decoding_work_mem` parameter to the next highest
-memory size, 1024.
+The variable `endpointPostfix` can be a constant that your
+application sets. Or your application can get it by querying the
+`DescribeDBInstances` API operation for a single instance in
+your cluster. This value remains constant within an AWS Region and for an
+individual customer. So it saves an API call to simply keep this constant in
+a resource file that your application reads from. In the example preceding,
+it's set to the following.
+
+```
+.cksc6xlmwcyw.us-east-1-beta.rds.amazonaws.com
+```
+
+For availability purposes, a good practice is to default to using the
+Aurora endpoints of your DB cluster if the API isn't responding or takes
+too long to respond. The endpoints are guaranteed to be up to date within
+the time it takes to update the DNS record. Updating the DNS record with an
+endpoint typically takes less than 30 seconds. You can store the endpoint in
+a resource file that your application consumes.
+
+## Testing
+
+failover
+
+In all cases you must have a DB cluster with two or more DB instances in
+it.
+
+From the server side, certain API operations can cause an outage that can be used
+to test how your applications responds:
+
+- [FailoverDBCluster](../APIReference/API_FailoverDBCluster.md "../APIReference/API_FailoverDBCluster.md") – This operation attempts to promote a
+  new DB instance in your DB cluster to writer.
+
+The following code example shows how you can use
+`failoverDBCluster` to cause an outage. For more details
+about setting up an Amazon RDS client, see [Using the AWS SDK
+for Java](../../../sdk-for-java/v1/developer-guide/basics.md "../../../sdk-for-java/v1/developer-guide/basics.md").
+
+```
+public void causeFailover() {
+
+    final AmazonRDS rdsClient = AmazonRDSClientBuilder.defaultClient();
+
+    FailoverDBClusterRequest request = new FailoverDBClusterRequest();
+    request.setDBClusterIdentifier("cluster-identifier");
+
+    rdsClient.failoverDBCluster(request);
+}
+
+```
+
+- [RebootDBInstance](../APIReference/API_RebootDBInstance.md "../APIReference/API_RebootDBInstance.md") – Failover isn't guaranteed with this
+  API operation. It shuts down the database on the writer, however. You can
+  use it to test how your application responds to connections dropping. The
+  `ForceFailover` parameter doesn't apply for Aurora engines.
+  Instead, use the `FailoverDBCluster` API operation.
+- [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md")
+  – Modifying the `Port` parameter causes an outage when the
+  nodes in the cluster begin listening on a new port. In general, your
+  application can respond to this failure first by ensuring that only your
+  application controls port changes. Also, ensure that it can appropriately
+  update the endpoints it depends on. You can do this by having someone
+  manually update the port when they make modifications at the API level. Or
+  you can do this by using the RDS API in your application to determine if the
+  port has changed.
+- [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") – Modifying the
+  `DBInstanceClass` parameter causes an outage.
+- [DeleteDBInstance](../APIReference/API_DeleteDBInstance.md "../APIReference/API_DeleteDBInstance.md") – Deleting the primary (writer) causes
+  a new DB instance to be promoted to writer in your DB cluster.
+
+From the application or client side, if you use Linux, you can test how the
+application responds to sudden packet drops. You can do this based on whether port,
+host, or if TCP keepalive packets are sent or received by using the iptables
+command.
+
+## Fast failover
+
+example in Java
+
+The following code example shows how an application might set up an Aurora PostgreSQL
+driver manager.
+
+The application calls the `getConnection` function when it needs a
+connection. A call to `getConnection` can fail to find a valid host. An
+example is when no writer is found but the `targetServerType` parameter
+is set to `primary`. In this case, the calling application should simply
+retry calling the function.
+
+To avoid pushing the retry behavior onto the application, you can wrap this retry
+call into a connection pooler. With most connection poolers, you can specify a JDBC
+connection string. So your application can call into
+`getJdbcConnectionString` and pass that to the connection pooler.
+Doing this means you can use faster failover with Aurora PostgreSQL.
+
+```
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import org.joda.time.Duration;
+
+public class FastFailoverDriverManager {
+   private static Duration LOGIN_TIMEOUT = Duration.standardSeconds(2);
+   private static Duration CONNECT_TIMEOUT = Duration.standardSeconds(2);
+   private static Duration CANCEL_SIGNAL_TIMEOUT = Duration.standardSeconds(1);
+   private static Duration DEFAULT_SOCKET_TIMEOUT = Duration.standardSeconds(5);
+
+   public FastFailoverDriverManager() {
+       try {
+            Class.forName("org.postgresql.Driver");
+       } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+       }
+
+       /*
+         * RO endpoint has a TTL of 1s, we should honor that here. Setting this aggressively makes sure that when
+         * the PG JDBC driver creates a new connection, it will resolve a new different RO endpoint on subsequent attempts
+         * (assuming there is > 1 read node in your cluster)
+         */
+        java.security.Security.setProperty("networkaddress.cache.ttl" , "1");
+       // If the lookup fails, default to something like small to retry
+       java.security.Security.setProperty("networkaddress.cache.negative.ttl" , "3");
+   }
+
+   public Connection getConnection(String targetServerType) throws SQLException {
+       return getConnection(targetServerType, DEFAULT_SOCKET_TIMEOUT);
+   }
+
+   public Connection getConnection(String targetServerType, Duration queryTimeout) throws SQLException {
+        Connection conn = DriverManager.getConnection(getJdbcConnectionString(targetServerType, queryTimeout));
+
+       /*
+         * A good practice is to set socket and statement timeout to be the same thing since both
+         * the client AND server will stop the query at the same time, leaving no running queries
+         * on the backend
+         */
+        Statement st = conn.createStatement();
+        st.execute("set statement_timeout to " + queryTimeout.getMillis());
+        st.close();
+
+       return conn;
+   }
+
+   private static String urlFormat = "jdbc:postgresql://%s"
+           + "/postgres"
+           + "?user=%s"
+           + "&password=%s"
+           + "&loginTimeout=%d"
+           + "&connectTimeout=%d"
+           + "&cancelSignalTimeout=%d"
+           + "&socketTimeout=%d"
+           + "&targetServerType=%s"
+           + "&tcpKeepAlive=true"
+           + "&ssl=true"
+           + "&loadBalanceHosts=true";
+   public String getJdbcConnectionString(String targetServerType, Duration queryTimeout) {
+       return String.format(urlFormat,
+                getFormattedEndpointList(getLocalEndpointList()),
+                CredentialManager.getUsername(),
+                CredentialManager.getPassword(),
+                LOGIN_TIMEOUT.getStandardSeconds(),
+                CONNECT_TIMEOUT.getStandardSeconds(),
+                CANCEL_SIGNAL_TIMEOUT.getStandardSeconds(),
+                queryTimeout.getStandardSeconds(),
+                targetServerType
+       );
+   }
+
+   private List<String> getLocalEndpointList() {
+       /*
+         * As mentioned in the best practices doc, a good idea is to read a local resource file and parse the cluster endpoints.
+         * For illustration purposes, the endpoint list is hardcoded here
+         */
+        List<String> newEndpointList = new ArrayList<>();
+        newEndpointList.add("myauroracluster.cluster-c9bfei4hjlrd.us-east-1-beta.rds.amazonaws.com:5432");
+        newEndpointList.add("myauroracluster.cluster-ro-c9bfei4hjlrd.us-east-1-beta.rds.amazonaws.com:5432");
+
+       return newEndpointList;
+   }
+
+   private static String getFormattedEndpointList(List<String> endpoints) {
+       return IntStream.range(0, endpoints.size())
+               .mapToObj(i -> endpoints.get(i).toString())
+               .collect(Collectors.joining(","));
+   }
+}
+```

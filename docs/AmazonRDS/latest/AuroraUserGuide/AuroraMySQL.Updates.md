@@ -1,27 +1,39 @@
-# Upgrading Amazon Aurora MySQL DB clusters
+# Amazon Aurora MySQL lab mode
 
-You can upgrade an Aurora MySQL DB cluster to get bug fixes, new Aurora MySQL features, or to
-change to an entirely new version of the underlying database engine. The following sections
-show how.
+###### Important
 
-###### Note
+Lab mode was introduced in Aurora MySQL version 2 to enable the [Fast DDL](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md") optimization, which improved
+the efficiency of certain DDL operations. In Aurora MySQL version 3, lab mode has been
+removed, and Fast DDL has been replaced by the MySQL 8.0 feature called [Instant DDL](https://dev.mysql.com/doc/refman/8.4/en/innodb-online-ddl-operations.html "https://dev.mysql.com/doc/refman/8.4/en/innodb-online-ddl-operations.html").
 
-The type of upgrade that you do depends on how much downtime you can afford for your cluster,
-how much verification testing you plan to do, how important the specific bug fixes or new
-features are for your use case, and whether you plan to do frequent small upgrades or
-occasional upgrades that skip several intermediate versions.
-For each upgrade, you can change the major version, the minor version, and the patch level
-for your cluster.
-If you aren't familiar with the distinction between Aurora MySQL major versions, minor versions, and patch levels,
-you can read the background information at [Checking Aurora MySQL version numbers](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md").
+Aurora lab mode is used to enable Aurora features that are available in the current
+Aurora database version, but are not enabled by default. While Aurora lab mode features
+are not recommended for use in production DB clusters, you can use Aurora lab mode to
+enable these features for DB clusters in your development and test environments. For
+more information about Aurora features available when Aurora lab mode is enabled, see
+[Aurora lab mode features](#AuroraMySQL.Updates.LabModeFeatures "#AuroraMySQL.Updates.LabModeFeatures").
 
-###### Tip
+The `aurora_lab_mode` parameter is an instance-level parameter that is in the
+default parameter group. The parameter is set to `0`
+(disabled) in the default parameter group. To enable Aurora lab mode, create a custom parameter
+group, set the `aurora_lab_mode` parameter to `1` (enabled) in the custom
+parameter group, and modify one or more DB instances in your Aurora cluster to use the custom parameter
+group. Then connect to the appropriate instance endpoint to try the lab mode features. For information
+on modifying a DB parameter group, see [Modifying parameters in a DB parameter group
+in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For information on
+parameter groups and Amazon Aurora, see [Aurora MySQL configuration parameters](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").
 
-You can minimize the downtime required for a DB cluster upgrade by using a blue/green deployment. For more information,
-see [Using Amazon Aurora Blue/Green Deployments
-for database updates](blue-green-deployments.md "blue-green-deployments.md").
+## Aurora lab mode features
 
-###### Topics
+The following Aurora feature is currently available when Aurora lab mode is enabled. You must enable Aurora lab mode before any of these features can
+be used.
 
-- [Upgrading the minor version or patch level of an Aurora MySQL DB cluster](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [Upgrading the major version of an Amazon Aurora MySQL DB cluster](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
+**Fast DDL**
+
+This feature allows you to run an `ALTER TABLE `tbl_name`ADD COLUMN`col_name`
+`column_definition`` operation nearly instantaneously. The operation completes without requiring the
+table to be copied and without materially impacting other DML statements. Because it doesn't consume temporary storage for a table copy,
+it makes DDL statements practical even for large tables on small instance classes.
+
+Fast DDL is currently only supported for adding a nullable column, without a default value, at the end of a table. For more
+information about using this feature, see [Altering tables in Amazon Aurora using Fast DDL](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").

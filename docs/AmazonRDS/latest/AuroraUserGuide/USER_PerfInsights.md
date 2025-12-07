@@ -1,111 +1,101 @@
-# Logging Performance Insights calls using AWS CloudTrail
+# Amazon CloudWatch metrics for Amazon RDS Performance Insights
 
-Performance Insights runs with AWS CloudTrail, a service that provides a record of
-actions taken by a user, role, or an AWS service in Performance Insights. CloudTrail
-captures all API calls for Performance Insights as events. This capture includes calls
-from the Amazon RDS console and from code calls to the Performance Insights API operations.
+Performance Insights automatically publishes some metrics to Amazon CloudWatch. The same data can be
+queried from Performance Insights, but having the metrics in CloudWatch makes it easy to add CloudWatch
+alarms. It also makes it easy to add the metrics to existing CloudWatch Dashboards.
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket,
-including events for Performance Insights. If you don't configure a trail, you can still
-view the most recent events in the CloudTrail console in **Event history**.
-Using the data collected by CloudTrail, you can determine certain information. This
-information includes the request that was made to Performance Insights, the IP address
-the request was made from, who made the request, and when it was made. It also includes
-additional details.
+| Metric                   | Description                                                                                                                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| DBLoad                   | The number of active sessions for the database. Typically, you want the data for the average number of active sessions.<br>In Performance Insights, this data is queried as `db.load.avg`. |
+| DBLoadCPU                | The number of active sessions where the wait event type is CPU. In Performance Insights, this data is queried as `db.load.avg`,<br>filtered by the wait event type `CPU`.                  |
+| DBLoadNonCPU             | The number of active sessions where the wait event type is not CPU.                                                                                                                        |
+| DBLoadRelativeToNumVCPUs | The ratio of the DB load to the number of virtual CPUs for the database.                                                                                                                   |
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+###### Note
 
-## Working with Performance Insights information in CloudTrail
+These metrics are published to CloudWatch only if there is load on the DB instance.
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
-Performance Insights, that activity is recorded in a CloudTrail event along with other
-AWS service events in the CloudTrail console in **Event history**. You
-can view, search, and download recent events in your AWS account. For more
-information, see [Viewing
-Events with CloudTrail Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in _AWS CloudTrail User Guide._
+You can examine these metrics using the CloudWatch console, the AWS CLI, or the CloudWatch API. You can
+also examine other Performance Insights counter metrics using a special metric math
+function. For more information, see [Querying other Performance Insights counter metrics in CloudWatch](#USER_PerfInsights.Cloudwatch.ExtraMetrics "#USER_PerfInsights.Cloudwatch.ExtraMetrics").
 
-For an ongoing record of events in your AWS account, including events for Performance
-Insights, create a trail. A _trail_ enables CloudTrail to
-deliver log files to an Amazon S3 bucket. By default, when you create a trail in the
-console, the trail applies to all AWS Regions. The trail logs events from all AWS
-Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that
-you specify. Additionally, you can configure other AWS services to further analyze
-and act upon the event data collected in CloudTrail logs. For more information, see the
-following topics in _AWS CloudTrail User Guide:_
+For example, you can get the statistics for the `DBLoad` metric by running the [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md") command.
 
-- [Overview for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS Notifications
-  for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log
-  Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log
-  Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+```
+aws cloudwatch get-metric-statistics \
+    --region us-west-2 \
+    --namespace AWS/RDS \
+    --metric-name DBLoad  \
+    --period 60 \
+    --statistics Average \
+    --start-time 1532035185 \
+    --end-time 1532036185 \
+    --dimensions Name=DBInstanceIdentifier,Value=db-loadtest-0
+```
 
-All Performance Insights operations are logged by CloudTrail and are documented in the [Performance Insights API
-Reference](../../../performance-insights/latest/APIReference/Welcome.md "../../../performance-insights/latest/APIReference/Welcome.md"). For example, calls to the
-`DescribeDimensionKeys` and `GetResourceMetrics`
-operations generate entries in the CloudTrail log files.
-
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or IAM user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
-
-## Performance Insights log file entries
-
-A _trail_ is a configuration that enables delivery of
-events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one
-or more log entries. An _event_ represents a single
-request from any source. Each event includes information about the requested
-operation, the date and time of the operation, request parameters, and so on. CloudTrail
-log files aren't an ordered stack trace of the public API calls, so they
-don't appear in any specific order.
-
-The following example shows a CloudTrail log entry that demonstrates the
-`GetResourceMetrics` operation.
+This example generates output similar to the following.
 
 ```
 {
-    "eventVersion": "1.05",
-    "userIdentity": {
-        "type": "IAMUser",
-         "principalId": "AKIAIOSFODNN7EXAMPLE",
-        "arn": "arn:aws:iam::123456789012:user/johndoe",
-        "accountId": "123456789012",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
-        "userName": "johndoe"
-    },
-    "eventTime": "2019-12-18T19:28:46Z",
-    "eventSource": "pi.amazonaws.com",
-    "eventName": "GetResourceMetrics",
-    "awsRegion": "us-east-1",
-    "sourceIPAddress": "72.21.198.67",
-    "userAgent": "aws-cli/1.16.240 Python/3.7.4 Darwin/18.7.0 botocore/1.12.230",
-    "requestParameters": {
-        "identifier": "db-YTDU5J5V66X7CXSCVDFD2V3SZM",
-        "metricQueries": [
-            {
-                "metric": "os.cpuUtilization.user.avg"
-            },
-            {
-                "metric": "os.cpuUtilization.idle.avg"
-            }
-        ],
-        "startTime": "Dec 18, 2019 5:28:46 PM",
-        "periodInSeconds": 60,
-        "endTime": "Dec 18, 2019 7:28:46 PM",
-        "serviceType": "RDS"
-    },
-    "responseElements": null,
-    "requestID": "9ffbe15c-96b5-4fe6-bed9-9fccff1a0525",
-    "eventID": "08908de0-2431-4e2e-ba7b-f5424f908433",
-    "eventType": "AwsApiCall",
-    "recipientAccountId": "123456789012"
-}
+		"Datapoints": [
+		{
+		"Timestamp": "2021-07-19T21:30:00Z",
+		"Unit": "None",
+		"Average": 2.1
+		},
+		{
+		"Timestamp": "2021-07-19T21:34:00Z",
+		"Unit": "None",
+		"Average": 1.7
+		},
+		{
+		"Timestamp": "2021-07-19T21:35:00Z",
+		"Unit": "None",
+		"Average": 2.8
+		},
+		{
+		"Timestamp": "2021-07-19T21:31:00Z",
+		"Unit": "None",
+		"Average": 1.5
+		},
+		{
+		"Timestamp": "2021-07-19T21:32:00Z",
+		"Unit": "None",
+		"Average": 1.8
+		},
+		{
+		"Timestamp": "2021-07-19T21:29:00Z",
+		"Unit": "None",
+		"Average": 3.0
+		},
+		{
+		"Timestamp": "2021-07-19T21:33:00Z",
+		"Unit": "None",
+		"Average": 2.4
+		}
+		],
+		"Label": "DBLoad"
+		}
+
 ```
+
+For more information about CloudWatch, see [What is Amazon CloudWatch?](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md") in the _Amazon CloudWatch User Guide_.
+
+## Querying other Performance Insights counter metrics in CloudWatch
+
+###### Note
+
+If you enable the Advanced mode of Database Insights, Amazon RDS publishes Performance Insights counter metrics to Amazon CloudWatch. With Database Insights, you don't need to use the `DB_PERF_INSIGHTS` metric math function. You can use the CloudWatch Database Insights dashboard to search, query, and set alarms for Performance Insights counter metrics.
+
+You can query, alarm, and graphs on RDS Performance Insights metrics from CloudWatch.
+You can access information about your DB cluster
+by using the `DB_PERF_INSIGHTS` metric math function for CloudWatch.
+This function allows you to use the Performance Insights metrics
+that are not directly reported to CloudWatch to create a new time series.
+
+You can use the new Metric Math function by clicking on the **Add Math** drop-down menu in the **Select metric** screen in the CloudWatch console.
+You can use it to create alarms and graphs on Performance Insights metrics or on combinations of CloudWatch and Performance Insights metrics,
+including high-resolution alarms for sub-minute metrics.
+You can also use the function programmatically by including the Metric Math expression in a [`get-metric-data`](../../../cli/latest/reference/cloudwatch/get-metric-data.md "../../../cli/latest/reference/cloudwatch/get-metric-data.md") request.
+For more information, see [Metric math syntax and functions](../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md#metric-math-syntax-functions-list "../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md#metric-math-syntax-functions-list") and
+[Create an alarm on Performance Insights counter metrics from an AWS database](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_alarm_database_performance_insights.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_alarm_database_performance_insights.md").

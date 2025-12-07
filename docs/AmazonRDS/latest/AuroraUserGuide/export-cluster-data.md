@@ -1,37 +1,73 @@
-# Canceling a DB cluster export task
+# Monitoring DB cluster export tasks
 
-You can cancel a DB cluster export task using the AWS Management Console, the AWS CLI, or the RDS API.
+You can monitor DB cluster exports using the AWS Management Console, the AWS CLI, or the RDS API.
 
-###### Note
-
-Canceling an export task doesn't remove any data that was exported to Amazon S3. For information about how to delete the
-data using the console, see [How do I
-delete objects from an S3 bucket?](../../../AmazonS3/latest/user-guide/delete-objects.md "../../../AmazonS3/latest/user-guide/delete-objects.md") To delete the data using the CLI, use the [delete-object](../../../cli/latest/reference/s3api/delete-object.md "../../../cli/latest/reference/s3api/delete-object.md") command.
-
-###### To cancel a DB cluster export task
+###### To monitor DB cluster exports
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Exports in Amazon S3**.
 
 DB cluster exports are indicated in the **Source type** column. Export status is displayed in
-the **Status** column. 3. Choose the export task that you want to cancel. 4. Choose **Cancel**. 5. Choose **Cancel export task** on the confirmation page.
+the **Status** column. 3. To view detailed information about a specific DB cluster export, choose the export task.
+To monitor DB cluster export tasks using the AWS CLI, use the [describe-export-tasks](../../../cli/latest/reference/rds/describe-export-tasks.md "../../../cli/latest/reference/rds/describe-export-tasks.md") command.
 
-To cancel an export task using the AWS CLI, use the [cancel-export-task](../../../cli/latest/reference/rds/cancel-export-task.md "../../../cli/latest/reference/rds/cancel-export-task.md") command. The command requires the `--export-task-identifier` option.
+The following example shows how to display current information about all of your DB cluster exports.
 
 ```
-aws rds cancel-export-task --export-task-identifier my-export
+aws rds describe-export-tasks
+
 {
-    "Status": "CANCELING",
-    "S3Prefix": "",
-    "S3Bucket": "`amzn-s3-demo-bucket`",
-    "PercentProgress": 0,
-    "KmsKeyId": "arn:aws:kms:`us-west-2`:123456789012:key/K7MDENG/bPxRfiCYEXAMPLEKEY",
-    "ExportTaskIdentifier": "my-export",
-    "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
-    "TotalExtractedDataInGB": 0,
-    "SourceArn": "arn:aws:rds:`us-west-2`:123456789012:cluster:export-example-1"
+    "ExportTasks": [
+        {
+            "Status": "CANCELED",
+            "TaskEndTime": "2022-11-01T17:36:46.961Z",
+            "S3Prefix": "something",
+            "S3Bucket": "`amzn-s3-demo-bucket`",
+            "PercentProgress": 0,
+            "KmsKeyId": "arn:aws:kms:`us-west-2`:123456789012:key/K7MDENG/bPxRfiCYEXAMPLEKEY",
+            "ExportTaskIdentifier": "anewtest",
+            "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
+            "TotalExtractedDataInGB": 0,
+            "SourceArn": "arn:aws:rds:`us-west-2`:123456789012:cluster:parameter-groups-test"
+        },
+{
+            "Status": "COMPLETE",
+            "TaskStartTime": "2022-10-31T20:58:06.998Z",
+            "TaskEndTime": "2022-10-31T21:37:28.312Z",
+            "WarningMessage": "{\"skippedTables\":[],\"skippedObjectives\":[],\"general\":[{\"reason\":\"FAILED_TO_EXTRACT_TABLES_LIST_FOR_DATABASE\"}]}",
+            "S3Prefix": "",
+            "S3Bucket": "`amzn-s3-demo-bucket1`",
+            "PercentProgress": 100,
+            "KmsKeyId": "arn:aws:kms:`us-west-2`:123456789012:key/2Zp9Utk/h3yCo8nvbEXAMPLEKEY",
+            "ExportTaskIdentifier": "thursday-events-test",
+            "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
+            "TotalExtractedDataInGB": 263,
+            "SourceArn": "arn:aws:rds:`us-west-2`:123456789012:cluster:example-1-2019-10-31-06-44"
+        },
+        {
+            "Status": "FAILED",
+            "TaskEndTime": "2022-10-31T02:12:36.409Z",
+            "FailureCause": "The S3 bucket `amzn-s3-demo-bucket2` isn't located in the current AWS Region. Please, review your S3 bucket name and retry the export.",
+            "S3Prefix": "",
+            "S3Bucket": "`amzn-s3-demo-bucket2`",
+            "PercentProgress": 0,
+            "KmsKeyId": "arn:aws:kms:`us-west-2`:123456789012:key/2Zp9Utk/h3yCo8nvbEXAMPLEKEY",
+            "ExportTaskIdentifier": "wednesday-afternoon-test",
+            "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
+            "TotalExtractedDataInGB": 0,
+            "SourceArn": "arn:aws:rds:`us-west-2`:123456789012:cluster:example-1-2019-10-30-06-45"
+        }
+    ]
 }
 ```
 
-To cancel an export task using the Amazon RDS API, use the [CancelExportTask](../APIReference/API_CancelExportTask.md "../APIReference/API_CancelExportTask.md") operation with the `ExportTaskIdentifier` parameter.
+To display information about a specific export task, include the `--export-task-identifier` option with
+the `describe-export-tasks` command. To filter the output, include the `--Filters` option. For
+more options, see the [describe-export-tasks](../../../cli/latest/reference/rds/describe-export-tasks.md "../../../cli/latest/reference/rds/describe-export-tasks.md")
+command.
+
+To display information about DB cluster exports using the Amazon RDS API, use the [DescribeExportTasks](../APIReference/API_DescribeExportTasks.md "../APIReference/API_DescribeExportTasks.md") operation.
+
+To track completion of the export workflow or to initiate another workflow, you can subscribe to Amazon Simple Notification Service topics. For more
+information on Amazon SNS, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").

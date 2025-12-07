@@ -1,12 +1,21 @@
-# Supported Regions Aurora PostgreSQL Limitless Database
+# Supported
 
-Amazon Aurora PostgreSQL Limitless Database provides automated horizontal scaling to process millions of write
-transactions per second and manages petabytes of data while
-maintaining the simplicity of operating inside a single database. With Aurora PostgreSQL Limitless Database,
-you can focus on building high-scale applications without having to
-build and maintain complex solutions for scaling your data across
-multiple DB instances to support your workloads.
+Regions and Aurora DB engines for cluster storage
+configurations
 
-For more information, see [Using Amazon Aurora PostgreSQL Limitless Database](limitless.md "limitless.md").
+Amazon Aurora has two DB cluster storage configurations, Aurora I/O-Optimized and Aurora Standard. For more
+information, see [Storage configurations for Amazon Aurora DB
+clusters](Aurora.Overview.md#aurora-storage-type "Aurora.Overview.md#aurora-storage-type").
 
-Aurora PostgreSQL Limitless Database is available in all AWS Regions except Asia Pacific (Taipei).
+## Aurora I/O-Optimized
+
+Aurora I/O-Optimized is available in all AWS Regions for the following Amazon Aurora versions:
+
+- Aurora MySQL version 3.03.1 and higher
+- Aurora PostgreSQL versions 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, and
+  13.10 and higher
+
+## Aurora Standard
+
+Aurora Standard is available in all AWS Regions for all Aurora MySQL and Aurora PostgreSQL
+versions.

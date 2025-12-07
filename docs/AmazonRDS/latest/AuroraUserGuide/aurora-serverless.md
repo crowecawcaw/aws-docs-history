@@ -1,4 +1,4 @@
-# Viewing Aurora Serverless v1 DB clusters
+# Restoring an Aurora Serverless v1 DB cluster
 
 ###### Important
 
@@ -7,63 +7,128 @@ not migrated by March 31, 2025 will be migrated to Aurora Serverless v2 during t
 cluster to a provisioned cluster with the equivalent engine version during the maintenance window. If applicable, Amazon Aurora will enroll the
 converted provisioned cluster in Amazon RDS Extended Support. For more information, see [Amazon RDS Extended Support with Amazon Aurora](extended-support.md "extended-support.md").
 
-After you create one or more Aurora Serverless v1 DB clusters, you can view which DB clusters are type
-**Serverless** and which are type **Instance**. You can also view the
-current number of Aurora capacity units (ACUs) each Aurora Serverless v1 DB cluster is using. Each ACU is a
-combination of processing (CPU) and memory (RAM) capacity.
+You can configure an Aurora Serverless v1 DB cluster when you restore a provisioned DB cluster snapshot with the
+the AWS CLI or the RDS API.
 
-###### To view your Aurora Serverless v1 DB clusters
+When you restore a snapshot to an Aurora Serverless v1 DB cluster, you can set the following specific values:
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region in which you created the
-   Aurora Serverless v1 DB clusters.
-3. In the navigation pane, choose **Databases**.
+- **Minimum Aurora capacity unit** – Aurora Serverless v1 can reduce capacity down to
+  this capacity unit.
+- **Maximum Aurora capacity unit** – Aurora Serverless v1 can increase capacity up to
+  this capacity unit.
+- **Timeout action** – The action to take when a capacity modification times out
+  because it can't find a scaling point. Aurora Serverless v1 DB cluster can force your DB cluster to the
+  new capacity settings if set the **Force scaling the capacity to the specified values...** option. Or, it can roll back the capacity change to cancel it if you don't choose the
+  option. For more information, see
+  [Timeout action for capacity changes](aurora-serverless-v1.md#aurora-serverless.how-it-works.timeout-action "aurora-serverless-v1.md#aurora-serverless.how-it-works.timeout-action").
+- **Pause after inactivity** – The amount of time with no database traffic to scale
+  to zero processing capacity. When database traffic resumes, Aurora automatically resumes processing
+  capacity and scales to handle the traffic.
 
-For each DB cluster, the DB cluster type is shown under **Role**. The Aurora Serverless v1
-DB clusters show **Serverless** for the type. You can view an Aurora Serverless v1 DB
-cluster's current capacity under **Size**.
+For general information about restoring a DB cluster from a snapshot, see
+[Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md").
 
-![Viewing Aurora Serverless v1 DB clusters](images/aurora-serverless-viewing.png) 4. Choose the name of an Aurora Serverless v1 DB cluster to display its details.
+You can configure an Aurora Serverless DB cluster when you restore a provisioned DB
+cluster snapshot with the AWS Management Console, the AWS CLI, or the RDS API.
 
-On the **Connectivity & security** tab, note the database endpoint. Use this endpoint
-to connect to your Aurora Serverless v1 DB cluster.
+When you restore a snapshot to an Aurora Serverless DB cluster, you can set the following specific values:
 
-![Viewing Aurora Serverless v1 DB cluster database endpoint](images/aurora-serverless-endpoint.png)
-
-Choose the **Configuration** tab to view the capacity settings.
-
-![Viewing Aurora Serverless v1 DB cluster capacity settings](images/aurora-serverless-capacity-settings.png)
-
-A _scaling event_ is generated when the DB cluster scales up, scales
-down, pauses, or resumes. Choose the **Logs & events** tab to see recent events. The
-following image shows examples of these events.
-
-![Viewing Aurora Serverless v1 DB cluster capacity settings](images/aurora-serverless-scaling.png)
-
-## Monitoring capacity and scaling events for your Aurora Serverless v1 DB cluster
-
-You can view your Aurora Serverless v1 DB cluster in CloudWatch to monitor the capacity allocated to the DB cluster
-with the `ServerlessDatabaseCapacity` metric. You can also monitor all of the standard Aurora CloudWatch
-metrics, such as `CPUUtilization`, `DatabaseConnections`, `Queries`, and so
-on.
-
-You can have Aurora publish some or all database logs to CloudWatch. You select the logs to publish by enabling the
-[configuration parameters such as general_log
-and slow_query_log in the DB cluster parameter group](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups") associated with
-theAurora Serverless v1 cluster. Unlike provisioned clusters, Aurora Serverless v1 clusters don't require
-you to specify in the DB cluster settings which log types to upload to CloudWatch. Aurora Serverless v1 clusters
-automatically upload all the available logs. When you disable a log configuration parameter, publishing of
-the log to CloudWatch stops. You can also delete the logs in CloudWatch if they are no longer needed.
-
-To get started with Amazon CloudWatch for your Aurora Serverless v1 DB cluster, see
-[Viewing Aurora Serverless v1 logs with Amazon CloudWatch](aurora-serverless-v1.md#aurora-serverless.logging.monitoring "aurora-serverless-v1.md#aurora-serverless.logging.monitoring").
-To learn more about how to monitor Aurora DB clusters through CloudWatch, see
-[Monitoring log events in Amazon CloudWatch](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor").
-
-To connect to an Aurora Serverless v1 DB cluster, use the database endpoint. For more information, see
-[Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+- **Minimum Aurora capacity unit** – Aurora Serverless can reduce
+  capacity down to this capacity unit.
+- **Maximum Aurora capacity unit** – Aurora Serverless can increase
+  capacity up to this capacity unit.
+- **Timeout action** – The action to take when a
+  capacity modification times out because it can't find a scaling point.
+  Aurora Serverless v1 DB cluster can force your DB cluster to the new capacity settings if set the
+  **Force scaling the capacity to the specified values...** option.
+  Or, it can roll back the capacity change to cancel it if you don't choose the option. For
+  more information, see [Timeout action for capacity changes](aurora-serverless-v1.md#aurora-serverless.how-it-works.timeout-action "aurora-serverless-v1.md#aurora-serverless.how-it-works.timeout-action").
+- **Pause after inactivity** – The amount of time with
+  no database traffic to scale to zero processing capacity. When database traffic
+  resumes, Aurora automatically resumes processing capacity and scales to handle
+  the traffic.
 
 ###### Note
 
-You can't connect directly to specific DB instances in your Aurora Serverless v1 DB clusters.
+The version of the DB cluster snapshot must be compatible with Aurora Serverless v1. For the list of supported versions, see
+[Aurora Serverless v1](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+
+To restore a snapshot to an Aurora Serverless v1 cluster with MySQL 5.7 compatibility, include the following
+additional parameters:
+
+- `--engine **aurora-mysql**`
+- `--engine-version **5.7**`
+
+The `--engine` and `--engine-version` parameters let you create a MySQL
+5.7-compatible Aurora Serverless v1 cluster from a MySQL 5.6-compatible Aurora or Aurora Serverless v1
+snapshot. The following example restores a snapshot from a MySQL 5.6-compatible cluster named
+`mydbclustersnapshot` to a MySQL 5.7-compatible Aurora Serverless v1 cluster named
+`mynewdbcluster`.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds restore-db-cluster-from-snapshot \
+    --db-cluster-identifier `mynewdbcluster` \
+    --snapshot-identifier `mydbclustersnapshot` \
+    --engine-mode serverless \
+    --engine aurora-mysql \
+    --engine-version 5.7
+```
+
+For Windows:
+
+```
+aws rds restore-db-cluster-from-snapshot ^
+    --db-instance-identifier `mynewdbcluster` ^
+    --db-snapshot-identifier `mydbclustersnapshot` ^
+    --engine aurora-mysql ^
+    --engine-version 5.7
+```
+
+You can optionally specify the `--scaling-configuration` option to configure the minimum
+capacity, maximum capacity, and automatic pause when there are no connections. Valid capacity values
+include the following:
+
+- Aurora MySQL: `1`, `2`, `4`, `8`, `16`,
+  `32`, `64`, `128`, and `256`.
+- Aurora PostgreSQL: `2`, `4`, `8`, `16`, `32`,
+  `64`, `192`, and `384`.
+
+In the following example, you restore from a previously created DB cluster snapshot named
+`mydbclustersnapshot` to a new DB cluster named
+`mynewdbcluster`. You set the `--scaling-configuration` so that the
+new Aurora Serverless v1 DB cluster can scale from 8 ACUs to 64 ACUs (Aurora capacity units) as needed to
+process the workload. After processing completes and after 1000 seconds with no connections to support,
+the cluster shuts down until connection requests prompt it to restart.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds restore-db-cluster-from-snapshot \
+    --db-cluster-identifier `mynewdbcluster` \
+    --snapshot-identifier `mydbclustersnapshot` \
+    --engine-mode serverless --scaling-configuration MinCapacity=8,MaxCapacity=64,TimeoutAction='ForceApplyCapacityChange',SecondsUntilAutoPause=1000,AutoPause=true
+```
+
+For Windows:
+
+```
+aws rds restore-db-cluster-from-snapshot ^
+    --db-instance-identifier `mynewdbcluster` ^
+    --db-snapshot-identifier `mydbclustersnapshot` ^
+    --engine-mode serverless --scaling-configuration MinCapacity=8,MaxCapacity=64,TimeoutAction='ForceApplyCapacityChange',SecondsUntilAutoPause=1000,AutoPause=true
+```
+
+To configure an Aurora Serverless v1 DB cluster when you restore from a DB cluster using the RDS API, run
+the [RestoreDBClusterFromSnapshot](../APIReference/API_RestoreDBClusterFromSnapshot.md "../APIReference/API_RestoreDBClusterFromSnapshot.md")
+operation and specify `serverless` for the `EngineMode` parameter.
+
+You can optionally specify the `ScalingConfiguration` parameter to configure the minimum
+capacity, maximum capacity, and automatic pause when there are no connections. Valid capacity values
+include the following:
+
+- Aurora MySQL: `1`, `2`, `4`, `8`, `16`,
+  `32`, `64`, `128`, and `256`.
+- Aurora PostgreSQL: `2`, `4`, `8`, `16`, `32`,
+  `64`, `192`, and `384`.

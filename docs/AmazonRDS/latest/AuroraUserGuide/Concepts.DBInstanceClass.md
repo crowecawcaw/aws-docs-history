@@ -95,7 +95,7 @@ Graviton4 processors and SSD storage**
 | db.r8gd.4xlarge  | 16   | —   | 128          | 1 x 950 NVMe SSD       | Up to 10,000              | Up to 15                 |
 | db.r8gd.2xlarge  | 8    | —   | 64           | 1 x 474 NVMe SSD       | Up to 10,000              | Up to 15                 |
 | db.r8gd.xlarge   | 4    | —   | 32           | 1 x 237 NVMe SSD       | Up to 10,000              | Up to 12.5               |
-| db.r8gd.xlarge   | 2    | —   | 16           | 1 x 118 NVMe SSD       | Up to 10,000              | Up to 12.5               |
+| db.r8gd.large    | 2    | —   | 16           | 1 x 118 NVMe SSD       | Up to 10,000              | Up to 12.5               |
 
 **db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors**
 

@@ -1,58 +1,36 @@
-# synch/mutex/innodb/trx_sys_mutex
+# synch/mutex/innodb/buf_pool_mutex
 
-The `synch/mutex/innodb/trx_sys_mutex` event occurs when there is high
-database activity with a large number of transactions.
+The `synch/mutex/innodb/buf_pool_mutex` event occurs when a thread has
+acquired a lock on the InnoDB buffer pool to access a page in memory.
 
 ###### Topics
 
-- [Relevant engine versions](#ams-waits.trxsysmutex.context.supported "#ams-waits.trxsysmutex.context.supported")
-- [Context](#ams-waits.trxsysmutex.context "#ams-waits.trxsysmutex.context")
-- [Likely causes of increased waits](#ams-waits.trxsysmutex.causes "#ams-waits.trxsysmutex.causes")
-- [Actions](#ams-waits.trxsysmutex.actions "#ams-waits.trxsysmutex.actions")
+- [Relevant engine versions](#ams-waits.bufpoolmutex.context.supported "#ams-waits.bufpoolmutex.context.supported")
+- [Context](#ams-waits.bufpoolmutex.context "#ams-waits.bufpoolmutex.context")
+- [Likely causes of increased waits](#ams-waits.bufpoolmutex.causes "#ams-waits.bufpoolmutex.causes")
+- [Actions](#ams-waits.bufpoolmutex.actions "#ams-waits.bufpoolmutex.actions")
 
 ## Relevant engine versions
 
 This wait event information is supported for the following engine versions:
 
-- Aurora MySQL versions 2 and 3
+- Aurora MySQL version 2
 
 ## Context
 
-Internally, the InnoDB database engine uses the repeatable read isolation level with snapshots to provide read
-consistency. This gives you a point-in-time view of the database at the time the snapshot was created.
+The `buf_pool` mutex is a single mutex that protects the control data structures of the buffer pool.
 
-In InnoDB, all changes are applied to the database as soon as they arrive,
-regardless of whether they're committed. This approach means that without multiversion
-concurrency control (MVCC), all users connected to the database see all of the changes
-and the latest rows. Therefore, InnoDB requires a way to track the changes to understand
-what to roll back when necessary.
-
-To do this, InnoDB uses a transaction system (`trx_sys`) to track snapshots. The transaction system does
-the following:
-
-- Tracks the transaction ID for each row in the undo logs.
-- Uses an internal InnoDB structure called `ReadView` that
-  helps to identify which transaction IDs are visible for a snapshot.
+For more information, see [Monitoring
+InnoDB Mutex Waits Using Performance Schema](https://dev.mysql.com/doc/refman/5.7/en/monitor-innodb-mutex-waits-performance-schema.html "https://dev.mysql.com/doc/refman/5.7/en/monitor-innodb-mutex-waits-performance-schema.html") in the MySQL documentation.
 
 ## Likely causes of increased waits
 
-Any database operation that requires the consistent and controlled handling (creating, reading, updating, and deleting) of
-transactions IDs generates a call from `trx_sys` to the mutex.
+This is a workload-specific wait event. Common causes for `synch/mutex/innodb/buf_pool_mutex` to appear
+among the top wait events include the following:
 
-These calls happen inside three functions:
-
-- `trx_sys_mutex_enter` – Creates the mutex.
-- `trx_sys_mutex_exit` – Releases the mutex.
-- `trx_sys_mutex_own` – Tests whether the mutex is
-  owned.
-
-The InnoDB Performance Schema instrumentation tracks all `trx_sys` mutex calls. Tracking includes, but isn't
-limited to, management of `trx_sys` on database startup or shutdown, rollback operations, undo cleanups, row read
-access, and buffer pool loads. High database activity with a large number of transactions results in
-`synch/mutex/innodb/trx_sys_mutex` appearing among the top wait events.
-
-For more information, see [Monitoring InnoDB Mutex
-Waits Using Performance Schema](https://dev.mysql.com/doc/refman/5.7/en/monitor-innodb-mutex-waits-performance-schema.html "https://dev.mysql.com/doc/refman/5.7/en/monitor-innodb-mutex-waits-performance-schema.html") in the MySQL documentation.
+- The buffer pool size isn't large enough to hold the working set of data.
+- The workload is more specific to certain pages from a specific table in the database, leading to contention in the
+  buffer pool.
 
 ## Actions
 
@@ -60,16 +38,18 @@ We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Identify the sessions and queries causing the events](#ams-waits.trxsysmutex.actions.identify "#ams-waits.trxsysmutex.actions.identify")
-- [Examine other wait events](#ams-waits.trxsysmutex.actions.action1 "#ams-waits.trxsysmutex.actions.action1")
+- [Identify the sessions and queries causing the events](#ams-waits.bufpoolmutex.actions.identify "#ams-waits.bufpoolmutex.actions.identify")
+- [Use Performance Insights](#ams-waits.bufpoolmutex.actions.action1 "#ams-waits.bufpoolmutex.actions.action1")
+- [Create Aurora Replicas](#ams-waits.bufpoolmutex.actions.action2 "#ams-waits.bufpoolmutex.actions.action2")
+- [Examine the buffer pool size](#ams-waits.bufpoolmutex.actions.action3 "#ams-waits.bufpoolmutex.actions.action3")
+- [Monitor the global status history](#ams-waits.bufpoolmutex.actions.action4 "#ams-waits.bufpoolmutex.actions.action4")
 
 ### Identify the sessions and queries causing the events
 
-Typically, databases with moderate to significant load have wait events. The wait
-events might be acceptable if performance is optimal. If performance isn't
-optimal, then examine where the database is spending the most time. Look at the wait
-events that contribute to the highest load. Find out whether you can optimize the
-database and application to reduce those events.
+Typically, databases with moderate to significant load have wait events. The wait events might be acceptable if
+performance is optimal. If performance isn't optimal, then examine where the database is spending the most time. Look
+at the wait events that contribute to the highest load, and find out whether you can optimize the database and application
+to reduce those events.
 
 ###### To view the Top SQL chart in the AWS Management Console
 
@@ -78,8 +58,7 @@ database and application to reduce those events.
 2. In the navigation pane, choose **Performance Insights**.
 3. Choose a DB instance. The Performance Insights dashboard is shown for that DB instance.
 4. In the **Database load** chart, choose **Slice by wait**.
-5. Under the **Database load** chart, choose **Top
-   SQL**.
+5. Underneath the **Database load** chart, choose **Top SQL**.
 
 The chart lists the SQL queries that are responsible for the load. Those at the top of the list are most
 responsible. To resolve a bottleneck, focus on these statements.
@@ -87,12 +66,49 @@ responsible. To resolve a bottleneck, focus on these statements.
 For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze
 Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 
-### Examine other wait events
+### Use Performance Insights
 
-Examine the other wait events associated with the
-`synch/mutex/innodb/trx_sys_mutex` wait event. Doing this can provide
-more information about the nature of the workload. A large number of transactions
-might reduce throughput, but the workload might also make this necessary.
+This event is related to workload. You can use Performance Insights to do the following:
 
-For more information on how to optimize transactions, see [Optimizing InnoDB Transaction Management](https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-transaction-management.html "https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-transaction-management.html")
-in the MySQL documentation.
+- Identify when wait events start, and whether there's any change in the workload around that time from the
+  application logs or related sources.
+- Identify the SQL statements responsible for this wait event. Examine the execution plan of the queries to make
+  sure that these queries are optimized and using appropriate indexes.
+
+If the top queries responsible for the wait event are related to the same database object or table, then consider
+partitioning that object or table.
+
+### Create Aurora Replicas
+
+You can create Aurora Replicas to serve read-only traffic. You can also use Aurora
+Auto Scaling to handle surges in read traffic. Make sure to run scheduled read-only
+tasks and logical backups on Aurora Replicas.
+
+For more information, see [Amazon Aurora Auto Scaling with Aurora Replicas](Aurora.Integrating.md "Aurora.Integrating.md").
+
+### Examine the buffer pool size
+
+Check whether the buffer pool size is sufficient for the workload by looking at the metric
+`innodb_buffer_pool_wait_free`. If the value of this metric is high and increasing continuously, that
+indicates that the size of the buffer pool isn't sufficient to handle the workload. If
+`innodb_buffer_pool_size` has been set properly, the value of `innodb_buffer_pool_wait_free`
+should be small. For more information, see [Innodb_buffer_pool_wait_free](https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free") in the MySQL documentation.
+
+Increase the buffer pool size if the DB instance has enough memory for session
+buffers and operating-system tasks. If it doesn't, change the DB instance to a
+larger DB instance class to get additional memory that can be allocated to the
+buffer pool.
+
+###### Note
+
+Aurora MySQL automatically adjusts the value of `innodb_buffer_pool_instances` based on the configured
+`innodb_buffer_pool_size`.
+
+### Monitor the global status history
+
+By monitoring the change rates of status variables, you can detect locking or
+memory issues on your DB instance. Turn on Global Status History (GoSH) if it
+isn't already turned on. For more information on GoSH, see [Managing the global status history](../UserGuide/Appendix.MySQL.md#Appendix.MySQL.CommonDBATasks.GoSH "../UserGuide/Appendix.MySQL.md#Appendix.MySQL.CommonDBATasks.GoSH").
+
+You can also create custom Amazon CloudWatch metrics to monitor status variables. For more information, see [Publishing custom
+metrics](../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md "../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md").
