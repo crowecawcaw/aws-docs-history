@@ -20,6 +20,7 @@ Quick Suite chat provides you with the following capabilities.
 - [Upload files and chat](#file-uploads "#file-uploads")
 - [Actions](#chat-actions "#chat-actions")
 - [Flows](#chat-flows "#chat-flows")
+- [Memory and response personalization](#chat-memory "#chat-memory")
 - [Source citations](#review-source-citation "#review-source-citation")
 - [Copy responses](#copy-responses "#copy-responses")
 - [Provide feedback](#provide-feedback "#provide-feedback")
@@ -190,6 +191,33 @@ You can run a flow directly from chat within a conversation. Within a single
 conversation, you can talk to a chat agent as well as run a flow.
 
 To learn more about flows, see [Flows in Amazon Quick Suite](using-amazon-quick-flows.md "using-amazon-quick-flows.md").
+
+## Memory and response personalization
+
+Memory in Amazon Quick Suite chat helps personalize your conversations by remembering your preferences, context, and past interactions. Chat agents can reference this stored information to provide more personalized and contextually relevant responses without you needing to repeat information in every conversation, enabling more relevant and tailored responses over time.
+
+When you interact with chat agents in Amazon Quick Suite, you can provide your preferences including:
+
+- Response style and format
+- Frequently accessed Dashboards, Spaces, integrations, and other Amazon Quick Suite assets
+- Context about your role and responsibilities
+- Common tasks and workflows you perform
+
+This information is securely stored and fetched to enhance your future interactions with chat agents. Memories are specific to you and are not shared with other users. To get the most value from memory in chat, follow the best practices below:
+
+- **Be explicit about your preferences** – Clearly state your preferences, priorities, and context when you want the chat agent to remember them. For example, "I prefer reports in table format" or "I work on the marketing team".
+- **Provide relevant context** – Share information about your role, responsibilities, and common tasks to help chat agents understand your needs better.
+- **Update your preferences** – As your priorities change, inform the chat agent about updates to ensure the stored information remains current and relevant.
+- **Review and refine** – If responses don't align with your expectations, provide feedback and clarify your preferences to improve future interactions.
+
+You maintain control over your memory data. You can review chat memory by going to **Conversation History** and clicking on **View Memories**.
+
+###### Note
+
+Chat memory has the following limitations:
+
+- Chat memory isn't supported for accounts configured with [AWS KMS customer managed keys](customer-managed-keys.md "customer-managed-keys.md").
+- Chat memory is currently only available in the US East (N. Virginia) (`us-east-1`) and US West (Oregon) (`us-west-2`) Regions.
 
 ## Source citations
 
