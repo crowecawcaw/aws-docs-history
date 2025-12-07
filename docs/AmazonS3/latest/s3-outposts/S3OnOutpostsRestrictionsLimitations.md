@@ -25,6 +25,7 @@ For more information about how S3 on Outposts is unique, see the following topic
 ## S3 on Outposts specifications
 
 - The maximum Outposts bucket size is 50 TB.
+- The maximum object size is 5 TB in Outposts buckets.
 - The maximum number of Outposts buckets is 100 per AWS account.
 - Outposts buckets can be accessed only by using access points and endpoints.
 - The maximum number of access points per Outposts bucket is 10.
