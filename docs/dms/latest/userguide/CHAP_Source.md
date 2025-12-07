@@ -1,51 +1,44 @@
-# Using MongoDB as a source for AWS DMS
+# Using Amazon DocumentDB (with MongoDB compatibility) as a source for AWS DMS
 
-For information about versions of MongoDB that AWS DMS supports as a source, see
+For information about versions of Amazon DocumentDB (with MongoDB compatibility) that AWS DMS
+supports as a source, see
 [Sources for AWS DMS](CHAP_Introduction.md "CHAP_Introduction.md").
 
-Note the following about MongoDB version support:
+Using Amazon DocumentDB as
+a source, you can migrate data from one Amazon DocumentDB cluster to another Amazon DocumentDB cluster. You
+can also migrate data from an Amazon DocumentDB cluster to one of the other target endpoints
+supported by AWS DMS.
 
-- Versions of AWS DMS 3.4.5 and later support MongoDB versions 4.2 and 4.4.
-- Versions of AWS DMS 3.4.5 and later
-  and versions of MongoDB 4.2 and later support distributed transactions. For more information on MongoDB
-  distributed transactions, see [Transactions](https://docs.mongodb.com/manual/core/transactions/ "https://docs.mongodb.com/manual/core/transactions/") in the [MongoDB documentation](https://www.mongodb.com/docs/ "https://www.mongodb.com/docs/").
-- Versions of AWS DMS 3.5.0 and later don't support versions of MongoDB prior to 3.6.
-- Versions of AWS DMS 3.5.1 and later support MongoDB version 5.0.
-- Versions of AWS DMS 3.5.2 and later support MongoDB version 6.0.
-- Versions of AWS DMS 3.5.4 and later support MongoDB version 7.0.
-  If you are new to MongoDB, be aware of the following important MongoDB database
-  concepts:
+If you are new to Amazon DocumentDB, be aware of the following important concepts for
+Amazon DocumentDB databases:
 
-- A record in MongoDB is a _document_, which is
-  a data structure composed of field and value pairs. The value of a field can
+- A record in Amazon DocumentDB is a _document_, a
+  data structure composed of field and value pairs. The value of a field can
   include other documents, arrays, and arrays of documents. A document is roughly
   equivalent to a row in a relational database table.
-- A _collection_ in MongoDB is a group of documents, and is
-  roughly equivalent to a relational database table.
-- A _database_ in MongoDB is a set of collections, and is
+- A _collection_ in Amazon DocumentDB is a group of
+  documents, and is roughly equivalent to a relational database table.
+- A _database_ in Amazon DocumentDB is a set of collections, and is
   roughly equivalent to a schema in a relational database.
-- Internally, a MongoDB document is stored as a binary JSON (BSON) file in a
-  compressed format that includes a type for each field in the document. Each
-  document has a unique ID.
-  AWS DMS supports two migration modes when using MongoDB as a source, _Document mode_ or _Table
-  mode_. You specify which migration mode to use when you create the MongoDB
-  endpoint or by setting the **Metadata mode** parameter from the AWS DMS
-  console. Optionally, you can create a second column named `_id` that acts as
-  the primary key by selecting the check mark button for **\_id as a separate
-  column** in the endpoint configuration panel.
-
-Your choice of migration mode affects the resulting format of the target data, as
-explained following.
+  AWS DMS supports two migration modes when using Amazon DocumentDB as a source, document mode
+  and table mode. You specify the migration mode when you create the Amazon DocumentDB source
+  endpoint in the AWS DMS console, using either the **Metadata mode**
+  option or the extra connection attribute `nestingLevel`. Following, you can
+  find an explanation how the choice of migration mode affects the resulting format of the
+  target data.
 
 **Document mode**
 
-In document mode, the MongoDB document is migrated as is, meaning that the
-document data is consolidated into a single column named `_doc`
-in a target table. Document mode is the default setting when you use MongoDB
-as a source endpoint.
+In _document mode,_ the JSON document is
+migrated as is. That means the document data is consolidated into one of two
+items. When you use a relational database as a target, the data is a single
+column named `_doc` in a target table. When you use a
+nonrelational database as a target, the data is a single JSON document.
+Document mode is the default mode, which we recommend when migrating to an
+Amazon DocumentDB target.
 
-For example, consider the following documents in a MongoDB collection
-called myCollection.
+For example, consider the following documents in a Amazon DocumentDB collection
+called `myCollection`.
 
 ```
 > db.myCollection.find()
@@ -54,8 +47,8 @@ called myCollection.
 ```
 
 After migrating the data to a relational database table using document
-mode, the data is structured as follows. The data fields in the MongoDB
-document are consolidated into the `_doc` column.
+mode, the data is structured as follows. The data fields in the document are
+consolidated into the `_doc` column.
 
 |                          |                                 |
 | ------------------------ | ------------------------------- |
@@ -64,29 +57,25 @@ document are consolidated into the `_doc` column.
 | 5a94815f40bd44d1b02bdfe1 | `{ "a" : 4, "b" : 5, "c" : 6 }` |
 
 You can optionally set the extra connection attribute
-`extractDocID` to _true_ to
-create a second column named `"_id"` that acts as the primary
-key. If you are going to use CDC, set this parameter to _true_.
+`extractDocID` to `true` to create a second column
+named `"_id"` that acts as the primary key. If you are going to
+use change data capture (CDC), set this parameter to `true`
+except when using Amazon DocumentDB as the target.
 
-In document mode, AWS DMS manages the creation and renaming of collections
-like this:
+###### Note
 
-- If you add a new collection to the source database, AWS DMS creates
-  a new target table for the collection and replicates any documents.
-- If you rename an existing collection on the source database, AWS DMS
-  doesn't rename the target table.
-
-If the target endpoint is Amazon DocumentDB, run the migration in **Document
-mode**.
+If you add a new collection to the source database, AWS DMS creates a
+new target table for the collection and replicates any documents.
 
 **Table mode**
 
-In table mode, AWS DMS transforms each top-level field in a MongoDB document
-into a column in the target table. If a field is nested, AWS DMS flattens the
-nested values into a single column. AWS DMS then adds a key field and data
-types to the target table's column set.
+In _table mode,_ AWS DMS transforms each
+top-level field in a Amazon DocumentDB document into a column in the target table.
+If a field is nested, AWS DMS flattens the nested values into a single column.
+AWS DMS then adds a key field and data types to the target table's column
+set.
 
-For each MongoDB document, AWS DMS adds each key and type to the target
+For each Amazon DocumentDB document, AWS DMS adds each key and type to the target
 table's column set. For example, using table mode, AWS DMS migrates the
 previous example into the following table.
 
@@ -97,17 +86,17 @@ previous example into the following table.
 | 5a94815f40bd44d1b02bdfe1 | 4   | 5   | 6   |
 
 Nested values are flattened into a column containing dot-separated key
-names. The column is named the concatenation of the flattened field names
-separated by periods. For example, AWS DMS migrates a JSON document with a
-field of nested values such as `{"a" : {"b" : {"c": 1}}}` into a
-column named `a.b.c.`
+names. The column is named using the concatenation of the flattened field
+names separated by periods. For example, AWS DMS migrates a JSON document with
+a field of nested values such as `{"a" : {"b" : {"c": 1}}}` into
+a column named `a.b.c.`
 
-To create the target columns, AWS DMS scans a specified number of MongoDB
+To create the target columns, AWS DMS scans a specified number of Amazon DocumentDB
 documents and creates a set of all the fields and their types. AWS DMS then
 uses this set to create the columns of the target table. If you create or
-modify your MongoDB source endpoint using the console, you can specify the
-number of documents to scan. The default value is 1000 documents. If you use
-the AWS CLI, you can use the extra connection attribute
+modify your Amazon DocumentDB source endpoint using the console, you can specify
+the number of documents to scan. The default value is 1,000 documents. If
+you use the AWS CLI, you can use the extra connection attribute
 `docsToInvestigate`.
 
 In table mode, AWS DMS manages documents and collections like this:
@@ -125,31 +114,33 @@ In table mode, AWS DMS manages documents and collections like this:
 
 ###### Topics
 
-- [Permissions needed when using
-  MongoDB as a source for AWS DMS](#CHAP_Source.MongoDB.PrerequisitesCDC "#CHAP_Source.MongoDB.PrerequisitesCDC")
-- [Configuring a
-  MongoDB replica set for CDC](#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet "#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet")
-- [Security requirements when using
-  MongoDB as a source for AWS DMS](#CHAP_Source.MongoDB.Security "#CHAP_Source.MongoDB.Security")
-- [Segmenting MongoDB collections
-  and migrating in parallel](#CHAP_Source.MongoDB.ParallelLoad "#CHAP_Source.MongoDB.ParallelLoad")
+- [Setting permissions to use
+  Amazon DocumentDB as a source](#CHAP_Source.DocumentDB.Permissions "#CHAP_Source.DocumentDB.Permissions")
+- [Configuring CDC for an Amazon DocumentDB
+  cluster](#CHAP_Source.DocumentDB.ConfigureCDC "#CHAP_Source.DocumentDB.ConfigureCDC")
+- [Connecting to Amazon DocumentDB using TLS](#CHAP_Source.DocumentDB.TLS "#CHAP_Source.DocumentDB.TLS")
+- [Creating an Amazon DocumentDB
+  source endpoint](#CHAP_Source.DocumentDB.ConfigureEndpoint "#CHAP_Source.DocumentDB.ConfigureEndpoint")
+- [Segmenting Amazon DocumentDB collections
+  and migrating in parallel](#CHAP_Source.DocumentDB.ParallelLoad "#CHAP_Source.DocumentDB.ParallelLoad")
 - [Migrating multiple databases
-  when using MongoDB as a source for AWS DMS](#CHAP_Source.MongoDB.Multidatabase "#CHAP_Source.MongoDB.Multidatabase")
-- [Limitations when using MongoDB as
-  a source for AWS DMS](#CHAP_Source.MongoDB.Limitations "#CHAP_Source.MongoDB.Limitations")
-- [Endpoint configuration settings
-  when using MongoDB as a source for AWS DMS](#CHAP_Source.MongoDB.Configuration "#CHAP_Source.MongoDB.Configuration")
+  when using Amazon DocumentDB as a source for AWS DMS](#CHAP_Source.DocumentDB.Multidatabase "#CHAP_Source.DocumentDB.Multidatabase")
+- [Limitations when using Amazon DocumentDB as
+  a source for AWS DMS](#CHAP_Source.DocumentDB.Limitations "#CHAP_Source.DocumentDB.Limitations")
+- [Using endpoint settings
+  with Amazon DocumentDB as a source](#CHAP_Source.DocumentDB.ECAs "#CHAP_Source.DocumentDB.ECAs")
 - [Source data types for
-  MongoDB](#CHAP_Source.MongoDB.DataTypes "#CHAP_Source.MongoDB.DataTypes")
+  Amazon DocumentDB](#CHAP_Source.DocumentDB.DataTypes "#CHAP_Source.DocumentDB.DataTypes")
 
-## Permissions needed when using
+## Setting permissions to use
 
-MongoDB as a source for AWS DMS
+Amazon DocumentDB as a source
 
-For an AWS DMS migration with a MongoDB source, you can create either a user account
-with root privileges, or a user with permissions only on the database to migrate.
+When using Amazon DocumentDB source for an AWS DMS migration, you can create a user account
+with root privileges. Or you can create a user with permissions only for the
+database to be migrated.
 
-The following code creates a user to be the root account.
+The following code creates a user as the root account.
 
 ```
 use admin
@@ -158,160 +149,197 @@ db.createUser(
     user: "root",
     pwd: "`password`",
     roles: [ { role: "root", db: "admin" } ]
-  }
+  })
+
+```
+
+For Amazon DocumentDB 3.6, the code following creates a user with minimal privileges on
+the database to be migrated.
+
+```
+use db_name
+db.createUser(
+    {
+        user: "dms-user",
+        pwd: "password",
+        roles: [{ role: "read", db: "db_name" }]
+    }
 )
 ```
 
-For a MongoDB 3.x source, the following code creates a user with minimal
-privileges on the database to be migrated.
+For Amazon DocumentDB 4.0 and higher, AWS DMS uses a deployment-wide change stream. Here,
+the code following creates a user with minimal privileges.
 
 ```
-use `database_to_migrate`
 db.createUser(
 {
-    user: "`dms-user`",
-    pwd: "`password`",
-    roles: [ { role: "read", db: "local" }, "read"]
+    user: "dms-user",
+    pwd: "password",
+    roles: [ { role: "readAnyDatabase", db: "admin" }]
 })
-```
-
-For a MongoDB 4.x source, the following code creates a user with minimal
-privileges.
 
 ```
-{ resource: { db: "", collection: "" }, actions: [ "find", "changeStream" ] }
-```
 
-For example, create the following role in the "admin" database.
+## Configuring CDC for an Amazon DocumentDB
 
-```
-use admin
-db.createRole(
-{
-role: "changestreamrole",
-privileges: [
-{ resource: { db: "", collection: "" }, actions: [ "find","changeStream" ] }
-],
-roles: []
-}
-)
-```
+cluster
 
-And once the role is created, create a user in the database to be migrated.
+To use ongoing replication or CDC with Amazon DocumentDB, AWS DMS requires access to the
+Amazon DocumentDB cluster's change streams. For a description of the time-ordered sequence
+of update events in your cluster's collections and databases, see [Using change streams](../../../documentdb/latest/developerguide/change_streams.md "../../../documentdb/latest/developerguide/change_streams.md") in the _Amazon DocumentDB Developer
+Guide_.
+
+Authenticate to your Amazon DocumentDB cluster using the MongoDB shell. Then run the
+following command to enable change streams.
 
 ```
-> use test
-> db.createUser(
-{
-user: "dms-user12345",
-pwd: "password",
-roles: [ { role: "changestreamrole", db: "admin" }, "read"]
-})
-```
-
-## Configuring a
-
-MongoDB replica set for CDC
-
-To use ongoing replication or CDC with MongoDB, AWS DMS requires access to the
-MongoDB operations log (oplog). To create the oplog, you need to deploy a replica
-set if one doesn't exist. For more information, see [the MongoDB
-documentation](https://docs.mongodb.com/manual/tutorial/deploy-replica-set/ "https://docs.mongodb.com/manual/tutorial/deploy-replica-set/").
-
-You can use CDC with either the primary or secondary node of a MongoDB replica set
-as the source endpoint.
-
-###### To convert a standalone instance to a replica set
-
-1. Using the command line, connect to `mongo`.
+db.adminCommand({modifyChangeStreams: 1,
+    database: "DB_NAME",
+    collection: "",
+    enable: true});
 
 ```
-mongo localhost
-```
 
-2. Stop the `mongod` service.
-
-```
-service mongod stop
-```
-
-3. Restart `mongod` using the following command:
-
-```
-mongod --replSet "rs0" --auth -port `port_number`
-```
-
-4. Test the connection to the replica set using the following
-   commands:
-
-```
-mongo -u root -p `password` --host rs0/localhost:`port_number`
-  --authenticationDatabase "admin"
-```
-
-If you plan to perform a document mode migration, select option `_id as a
- separate column` when you create the MongoDB endpoint. Selecting this
-option creates a second column named `_id` that acts as the primary key.
-This second column is required by AWS DMS to support data manipulation language (DML)
-operations.
+This approach enables the change stream for all collections in your database.
+After change streams are enabled, you can create a migration task that migrates
+existing data and at the same time replicates ongoing changes. AWS DMS continues to
+capture and apply changes even after the bulk data is loaded. Eventually, the source
+and target databases synchronize, minimizing downtime for a migration.
 
 ###### Note
 
 AWS DMS uses the operations log (oplog) to capture changes during ongoing replication.
-If MongoDB flushes out the records from the oplog before AWS DMS reads them, your tasks fail.
+If Amazon DocumentDB flushes out the records from the oplog before AWS DMS reads them, your tasks will fail.
 We recommend sizing the oplog to retain changes for at least 24 hours.
 
-## Security requirements when using
+## Connecting to Amazon DocumentDB using TLS
 
-MongoDB as a source for AWS DMS
+By default, a newly created Amazon DocumentDB cluster accepts secure connections only using
+Transport Layer Security (TLS). When TLS is enabled, every connection to Amazon DocumentDB
+requires a public key.
 
-AWS DMS supports two authentication methods for MongoDB. The two authentication
-methods are used to encrypt the password, so they are only used when the
-`authType` parameter is set to _PASSWORD_.
+You can retrieve the public key for Amazon DocumentDB by downloading the file
+`rds-combined-ca-bundle.pem` from an AWS-hosted Amazon S3
+bucket. For more information on downloading this file, see [Encrypting
+connections using TLS](../../../documentdb/latest/developerguide/security.encryption.md "../../../documentdb/latest/developerguide/security.encryption.md") in the _Amazon DocumentDB Developer
+Guide._
 
-The MongoDB authentication methods are as follows:
+After you download the `rds-combined-ca-bundle.pem` file, you
+can import the public key that it contains into AWS DMS. The following steps describe
+how to do so.
 
-- **MONGODB-CR** – For backward compatibility
-- **SCRAM-SHA-1** – The default when using MongoDB
-  version 3.x and 4.0
+###### To import your public key using the AWS DMS console
 
-If an authentication method isn't specified, AWS DMS uses the default
-method for the version of the MongoDB source.
+1. Sign in to the AWS Management Console and choose AWS DMS.
+2. In the navigation pane, choose **Certificates**.
+3. Choose **Import certificate**. The **Import new
+   CA certificate** page appears.
+4. In the **Certificate configuration** section, do one of
+   the following:
+   - For **Certificate identifier**, enter a unique
+     name for the certificate, such as
+     `docdb-cert`.
+   - Choose **Choose file**, navigate to the location
+     where you saved the `rds-combined-ca-bundle.pem`
+     file, and select it.
 
-## Segmenting MongoDB collections
+5. Choose **Add new CA certificate**.
+
+The AWS CLI following example uses the AWS DMS `import-certificate` command
+to import the public key `rds-combined-ca-bundle.pem`
+file.
+
+```
+aws dms import-certificate \
+    --certificate-identifier docdb-cert \
+    --certificate-pem file://./rds-combined-ca-bundle.pem
+
+```
+
+## Creating an Amazon DocumentDB
+
+source endpoint
+
+You can create an Amazon DocumentDB source endpoint using either the console or AWS CLI. Use
+the procedure following with the console.
+
+###### To configure an Amazon DocumentDB source endpoint using the AWS DMS console
+
+1. Sign in to the AWS Management Console and choose AWS DMS.
+2. Choose **Endpoints** from the navigation pane, then
+   choose **Create Endpoint**.
+3. For **Endpoint identifier**, provide a name that helps
+   you easily identify it, such as `docdb-source`.
+4. For **Source engine**, choose **Amazon DocumentDB (with
+   MongoDB compatibility)**.
+5. For **Server name**, enter the name of the server where
+   your Amazon DocumentDB database endpoint resides. For example, you might enter the
+   public DNS name of your Amazon EC2 instance, such as
+   `democluster.cluster-cjf6q8nxfefi.us-east-2.docdb.amazonaws.com`.
+6. For **Port**, enter 27017.
+7. For **SSL mode**, choose
+   **verify-full**. If you have disabled SSL on your Amazon DocumentDB
+   cluster, you can skip this step.
+8. For **CA certificate**, choose the Amazon DocumentDB certificate,
+   `rds-combined-ca-bundle.pem`. For instructions on adding this
+   certificate, see [Connecting to Amazon DocumentDB using TLS](#CHAP_Source.DocumentDB.TLS "#CHAP_Source.DocumentDB.TLS").
+9. For **Database name**, enter the name of the database to
+   be migrated.
+
+Use the following procedure with the CLI.
+
+###### To configure an Amazon DocumentDB source endpoint using the AWS CLI
+
+- Run the following AWS DMS `create-endpoint` command to configure
+  an Amazon DocumentDB source endpoint, replacing placeholders with your own
+  values.
+
+```
+aws dms create-endpoint \
+           --endpoint-identifier `a_memorable_name` \
+           --endpoint-type source \
+           --engine-name docdb \
+           --username `value` \
+           --password `value` \
+           --server-name `servername_where_database_endpoint_resides` \
+           --port 27017 \
+           --database-name `name_of_endpoint_database`
+
+```
+
+## Segmenting Amazon DocumentDB collections
 
 and migrating in parallel
 
-To improve performance of a migration task, MongoDB source endpoints support two
-options for parallel full load in table mapping.
+To improve performance of a migration task, Amazon DocumentDB source endpoints support two
+options of the parallel full load feature in table mapping. In other words, you can
+migrate a collection in parallel by using either the autosegmentation or the range
+segmentation options of table mapping for a parallel full load in JSON settings. The
+auto-segmenting options allow you to specify the criteria for AWS DMS to automatically
+segment your source for migration in each thread. The range segmentation options
+allow you to tell AWS DMS the specific range of each segment for DMS to migrate in
+each thread. For more information on these settings, see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
-In other words, you can migrate a collection in parallel by using either
-autosegmentation or range segmentation with table mapping for a parallel full load
-in JSON settings. With autosegmentation, you can specify the criteria for AWS DMS to
-automatically segment your source for migration in each thread. With range
-segmentation, you can tell AWS DMS the specific range of each segment for DMS to
-migrate in each thread. For more information on these settings, see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+### Migrating
 
-### Migrating a
-
-MongoDB database in parallel using autosegmentation ranges
+an Amazon DocumentDB database in parallel using autosegmentation ranges
 
 You can migrate your documents in parallel by specifying the criteria for
-AWS DMS to automatically partition (segment) your data for each thread. In
-particular, you specify the number of documents to migrate per thread. Using
-this approach, AWS DMS attempts to optimize segment boundaries for maximum
-performance per thread.
+AWS DMS to automatically partition (segment) your data for each thread, especially
+the number of documents to migrate per thread. Using this approach, AWS DMS
+attempts to optimize segment boundaries for maximum performance per
+thread.
 
 You can specify the segmentation criteria using the table-settings options
-following in table mapping.
+following in table-mapping:
 
-| Table-settings option              | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"type"`                           | (Required) Set to `"partitions-auto"` for<br>MongoDB as a source.                                                                                                                                                                                                                                                                                                                                                    |
-| `"number-of-partitions"`           | (Optional) Total number of partitions (segments) used for<br>migration. The default is 16.                                                                                                                                                                                                                                                                                                                           |
-| `"collection-count-from-metadata"` | (Optional) If this option is set to `true`,<br>AWS DMS uses an estimated collection count for determining the<br>number of partitions. If this option is set to<br>`false`, AWS DMS uses the actual collection<br>count. The default is `true`.                                                                                                                                                                      |
-| `"max-records-skip-per-page"`      | (Optional) The number of records to skip at once when<br>determining the boundaries for each partition. AWS DMS uses a<br>paginated skip approach to determine the minimum boundary<br>for a partition. The default is 10,000.<br>Setting a relatively large value can result in cursor<br>timeouts and task failures. Setting a relatively low value<br>results in more operations per page and a slower full load. |
-| `"batch-size"`                     | (Optional) Limits the number of documents returned in one<br>batch. Each batch requires a round trip to the server. If<br>the batch size is zero (0), the cursor uses the<br>server-defined maximum batch size. The default is 0.                                                                                                                                                                                    |
+| Table-settings option              | Description                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"type"`                           | (Required) Set to `"partitions-auto"` for<br>Amazon DocumentDB as a source.                                                                                                                                                                                                                                                                                                                                           |
+| `"number-of-partitions"`           | (Optional) Total number of partitions (segments) used for<br>migration. The default is 16.                                                                                                                                                                                                                                                                                                                            |
+| `"collection-count-from-metadata"` | (Optional) If set to `true`, AWS DMS uses an<br>estimated collection count for determining the number of<br>partitions. If set to `false`, AWS DMS uses the<br>actual collection count. The default is<br>`true`.                                                                                                                                                                                                     |
+| `"max-records-skip-per-page"`      | (Optional) The number of records to skip at once when<br>determining the boundaries for each partition. AWS DMS uses a<br>paginated skip approach to determine the minimum boundary<br>for a partition. The default is 10000. Setting a relatively<br>large value might result in curser timeouts and task<br>failures. Setting a relatively low value results in more<br>operations per page and a slower full load. |
+| `"batch-size"`                     | (Optional) Limits the number of documents returned in one<br>batch. Each batch requires a round trip to the server. If<br>the batch size is zero (0), the cursor uses the<br>server-defined maximum batch size. The default is 0.                                                                                                                                                                                     |
 
 The example following shows a table mapping for autosegmentation.
 
@@ -349,34 +377,27 @@ The example following shows a table mapping for autosegmentation.
 }
 ```
 
-Autosegmentation has the limitation following. The migration for each segment
+Auto-segmentation has the limitation following. The migration for each segment
 fetches the collection count and the minimum `_id` for the collection
 separately. It then uses a paginated skip to calculate the minimum boundary for
-that segment.
+that segment. Therefore, ensure that the minimum `_id` value for each
+collection remains constant until all the segment boundaries in the collection
+are calculated. If you change the minimum `_id` value for a
+collection during its segment boundary calculation, this might cause data loss
+or duplicate row errors.
 
-Therefore, ensure that the minimum `_id` value for each collection
-remains constant until all the segment boundaries in the collection are
-calculated. If you change the minimum `_id` value for a collection
-during its segment boundary calculation, it can cause data loss or duplicate row
-errors.
+### Migrating an Amazon DocumentDB database in parallel
 
-### Migrating a MongoDB
+using specific segment ranges
 
-database in parallel using range segmentation
-
-You can migrate your documents in parallel by specifying the ranges for each
-segment in a thread. Using this approach, you tell AWS DMS the specific documents
-to migrate in each thread according to your choice of document ranges per
-thread.
-
-The image following shows a MongoDB collection that has seven items, and
+The following example shows an Amazon DocumentDB collection that has seven items, and
 `_id` as the primary key.
 
-![MongoDB collection with seven items.](images/datarep-docdb-collection.png)
+![Amazon DocumentDB collection with seven items.](images/datarep-docdb-collection.png)
 
-To split the collection into three specific segments for AWS DMS to migrate in
-parallel, you can add table mapping rules to your migration task. This approach
-is shown in the following JSON example.
+To split the collection into three segments and migrate in parallel, you can
+add table mapping rules to your migration task as shown in the following JSON
+example.
 
 ```
 { // Task table mappings:
@@ -434,14 +455,14 @@ and migrates in parallel. The following are the segmentation boundaries.
 ```
 
 Data with _id less-than-or-equal-to "5f805c97873173399a278d79" and num less-than-or-equal-to 2 (2 records)
-Data with _id > "5f805c97873173399a278d79" and num > 2 and _id  less-than-or-equal-to "5f805cc5873173399a278d7c" and num less-than-or-equal-to 5 (3 records)
-Data with _id > "5f805cc5873173399a278d7c" and num > 5 (2 records)
+Data with _id less-than-or-equal-to "5f805cc5873173399a278d7c" and num less-than-or-equal-to 5 and not in (_id less-than-or-equal-to  "5f805c97873173399a278d79" and num less-than-or-equal-to 2) (3 records)
+Data not in (_id less-than-or-equal-to "5f805cc5873173399a278d7c" and num less-than-or-equal-to 5) (2 records)
 
 ```
 
 After the migration task is complete, you can verify from the task logs that
 the tables loaded in parallel, as shown in the following example. You can also
-verify the MongoDB `find` clause used to unload each segment from the
+verify the Amazon DocumentDB `find` clause used to unload each segment from the
 source table.
 
 ```
@@ -468,7 +489,7 @@ source table.
 
 ```
 
-Currently, AWS DMS supports the following MongoDB data types as a segment key
+Currently, AWS DMS supports the following Amazon DocumentDB data types as a segment key
 column:
 
 - Double
@@ -479,35 +500,39 @@ column:
 
 ## Migrating multiple databases
 
-when using MongoDB as a source for AWS DMS
+when using Amazon DocumentDB as a source for AWS DMS
 
 AWS DMS versions 3.4.5 and higher support migrating multiple databases in a single
-task for all supported MongoDB versions. If you want to migrate multiple databases,
-take these steps:
+task only for Amazon DocumentDB versions 4.0 and higher. If you want to migrate multiple
+databases, do the following:
 
-1. When you create the MongoDB source endpoint, do one of the
-   following:
-   - On the DMS console's **Create
-     endpoint** page, make sure that **Database name** is empty under **Endpoint configuration**.
-   - Using the AWS CLI `CreateEndpoint` command, assign an
-     empty string value to the `DatabaseName` parameter in
-     `MongoDBSettings`.
+1. When you create the Amazon DocumentDB source endpoint:
+   - In the AWS Management Console for AWS DMS, leave **Database
+     name** empty under **Endpoint
+     configuration** on the **Create
+     endpoint** page.
+   - In the AWS Command Line Interface (AWS CLI), assign an empty string value to the
+     **DatabaseName** parameter in
+     **DocumentDBSettings** that you
+     specify for the **CreateEndpoint**
+     action.
 
-2. For each database that you want to migrate from a MongoDB source, specify
-   the database name as a schema name in the table mapping for the task. You
-   can do this using either the guided input in the console or directly in
-   JSON. For more information on the guided input, see [Specifying table
+2. For each database that you want to migrate from this Amazon DocumentDB source
+   endpoint, specify the name of each database as the name of a schema in the
+   table-mapping for the task using either the guided input in the console or
+   directly in JSON. For more information on the guided input, see the
+   description of the [Specifying table
    selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md"). For
    more information on the JSON, see [Selection rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
-For example, you might specify the JSON following to migrate three MongoDB
+For example, you might specify the JSON following to migrate three Amazon DocumentDB
 databases.
 
 ###### Example Migrate all tables in a schema
 
 The JSON following migrates all tables from the `Customers`,
 `Orders`, and `Suppliers` databases in your source
-endpoint to your target endpoint.
+enpoint to your target endpoint.
 
 ```
 {
@@ -520,47 +545,26 @@ endpoint to your target endpoint.
                 "schema-name": "Customers",
                 "table-name": "%"
             },
-            "rule-action": "include",
-            "filters": []
-        },
-        {
-            "rule-type": "selection",
-            "rule-id": "2",
-            "rule-name": "2",
             "object-locator": {
                 "schema-name": "Orders",
                 "table-name": "%"
             },
-            "rule-action": "include",
-            "filters": []
-        },
-        {
-            "rule-type": "selection",
-            "rule-id": "3",
-            "rule-name": "3",
             "object-locator": {
                 "schema-name": "Inventory",
                 "table-name": "%"
             },
-            "rule-action": "include",
-            "filters": []
+            "rule-action": "include"
         }
     ]
 }
 ```
 
-## Limitations when using MongoDB as
+## Limitations when using Amazon DocumentDB as
 
 a source for AWS DMS
 
-The following are limitations when using MongoDB as a source for AWS DMS:
+The following are limitations when using Amazon DocumentDB as a source for AWS DMS:
 
-- In table mode, the documents in a collection must be consistent in the data type
-  that they use for the value in the same field. For example, if a document in a collection
-  includes `'{ a:{ b:*value* ... }'`, all documents in the
-  collection that reference the `*value*` of the `a.b`
-  field must use the same data type for `*value*`, wherever it
-  appears in the collection.
 - When the `_id` option is set as a separate column, the ID
   string can't exceed 200 characters.
 - Object ID and array type keys are converted to columns that are prefixed
@@ -568,90 +572,69 @@ The following are limitations when using MongoDB as a source for AWS DMS:
 
 Internally, these columns are referenced with the prefixed names. If you
 use transformation rules in AWS DMS that reference these columns, make sure to
-specify the prefixed column. For example, you specify
-`${oid__id}` and not `${_id}`, or
-`${array__addresses}` and not `${_addresses}`.
+specify the prefixed column. For example, specify `${oid__id}`
+and not `${_id}`, or `${array__addresses}` and not
+`${_addresses}`.
 
 - Collection names and key names can't include the dollar symbol ($).
-- AWS DMS doesn't support collections containing the same field with different case (upper, lower)
-  in table mode with a RDBMS target. For example, AWS DMS does not support having two collections
-  named `Field1` and `field1`.
-- Table mode and document mode have the limitations described
+- Table mode and document mode have the limitations discussed
   preceding.
 - Migrating in parallel using autosegmentation has the limitations described
   preceding.
-- Source filters aren't supported for MongoDB.
-- AWS DMS doesn't support documents where the nesting level is greater than 97.
-- AWS DMS requires UTF-8 encoded source data when migrating to non-DocumentDB targets. For sources
-  with non-UTF-8 characters, convert them to UTF-8 before migration or migrate to Amazon DocumentDB instead.
-- AWS DMS doesn't support the following features of MongoDB version 5.0:
-  - Live resharding
-  - Client-Side Field Level Encryption (CSFLE)
-  - Timeseries collection migration
+- An Amazon DocumentDB (MongoDB compatible) source doesn’t support using a specific
+  timestamp as a start position for change data capture (CDC). An ongoing
+  replication task starts capturing changes regardless of the
+  timestamp.
+- AWS DMS doesn't support documents where the nesting level is greater than 97 for
+  AWS DMS versions lower than 3.5.2.
+- Source filters aren't supported for DocumentDB.
+- AWS DMS doesn’t support CDC (change data capture) replication for DocumentDB as a source
+  in elastic cluster mode.
 
-  ###### Note
+## Using endpoint settings
 
-  A timeseries collection migrated in the full-load phase will be converted to a normal
-  collection in Amazon DocumentDB, because DocumentDB doesn't support timeseries collections.
+with Amazon DocumentDB as a source
 
-## Endpoint configuration settings
+You can use endpoint settings to configure your Amazon DocumentDB source database similar to using
+extra connection attributes. You specify the settings when you create the source
+endpoint using the AWS DMS console, or by using the `create-endpoint` command in the
+[AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the
+`--doc-db-settings '{"`EndpointSetting"`:
+ `"value"`, `...`}'` JSON syntax.
 
-when using MongoDB as a source for AWS DMS
+The following table shows the endpoint settings that you can use with
+Amazon DocumentDB as a source.
 
-When you set up your MongoDB source endpoint, you can specify multiple endpoint
-configuration settings using the AWS DMS console.
-
-The following table describes the configuration settings available when using
-MongoDB databases as an AWS DMS source.
-
-| Setting (attribute)                                      | Valid values                                     | Default value and description                                                                                                                                                                                                                                                                                                     |
-| -------------------------------------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Authentication mode**                                  | `"none"`<br>`"password"`                         | The value `"password"` prompts for a user name and<br>password. When `"none"` is specified, user name and<br>password parameters aren't used.                                                                                                                                                                                     |
-| **Authentication source**                                | A valid MongoDB database name.                   | The name of the MongoDB database that you want to use to validate<br>your credentials for authentication. The default value is<br>`"admin"`.                                                                                                                                                                                      |
-| **Authentication mechanism**                             | `"default"`<br>`"mongodb_cr"`<br>`"scram_sha_1"` | The authentication mechanism. The value `"default"` is<br>`"scram_sha_1"`. This setting isn't used when<br>`authType` is set to `"no"`.                                                                                                                                                                                           |
-| **Metadata mode**                                        | Document and table                               | Chooses document mode or table mode.                                                                                                                                                                                                                                                                                              |
-| **Number of documents to scan**<br>(`docsToInvestigate`) | A positive integer greater than `0`.             | Use this option in table mode only to define the target table<br>definition.                                                                                                                                                                                                                                                      |
-| **\_id as a separate column**                            | Check mark in box                                | Optional check mark box that creates a second column named<br>`_id` that acts as the primary key.                                                                                                                                                                                                                                 |
-| `socketTimeoutMS`                                        | NUMBER<br>Extra Connection Attribute (ECA) only. | This setting is in units of milliseconds and configures the<br>connection timeout for MongoDB clients. If the value is less than or<br>equal to zero, then the MongoDB client default is used.                                                                                                                                    |
-| `UseUpdateLookUp`                                        | boolean<br>`true`<br>`false`                     | When true, during CDC update events, AWS DMS copies over the entire<br>updated document to the target. When set to false, AWS DMS uses the<br>MongoDB update command to only update modified fields in the<br>document on the target.                                                                                             |
-| `ReplicateShardCollections`                              | boolean<br>`true`<br>`false`                     | When true, AWS DMS replicates data to shard collections. AWS DMS only<br>uses this setting if the target endpoint is a DocumentDB elastic<br>cluster.<br>When this setting is true, note the following:<br>• You must set `TargetTablePrepMode` to<br>`nothing`.<br>• AWS DMS automatically sets `useUpdateLookup` to<br>`false`. |
-| `useTransactionVerification`                             | `true`<br>`false`                                | When `false`, disables the verification between the<br>change stream and oplogs.<br>NoteYou can miss operations if discrepancies between change<br>streams and oplog entries occur, as the default DMS behavior is<br>to fail the task in such scenarios. Default:<br>`true`.                                                     |
-| `useOplog`                                               | `true`<br>`false`                                | When `true`, enables DMS task to read directly from<br>'oplog' rather than using the change stream. Default:<br>`false`.                                                                                                                                                                                                          |
-
-If you choose **Document** as **Metadata mode**,
-different options are available.
-
-If the target endpoint is DocumentDB, make sure to run the migration in
-**Document mode** Also, modify your source endpoint and select the
-option **\_id as separate column**. This is a mandatory prerequisite if
-your source MongoDB workload involves transactions.
+| Attribute name              | Valid values                         | Default value and description                                                                                                                                                                                                                                                                                         |
+| --------------------------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NestingLevel`              | `"none"`<br>`"one"`                  | `"none"` – Specify `"none"` to<br>use document mode. Specify `"one"` to use table<br>mode.                                                                                                                                                                                                                            |
+| `ExtractDocID`              | boolean<br>`true`<br>`false`         | `false` – Use this attribute when<br>`NestingLevel` is set to `"none"`.<br>If your target database is Amazon DocumentDB, set<br>`'{"ExtractDocID": true}'`.                                                                                                                                                           |
+| `DocsToInvestigate`         | A positive integer greater than `0`. | `1000` – Use this attribute when<br>`NestingLevel` is set to `"one"`.                                                                                                                                                                                                                                                 |
+| `ReplicateShardCollections` | boolean<br>`true`<br>`false`         | When true, AWS DMS replicates data to shard collections. AWS DMS only uses this setting if the target endpoint is a DocumentDB elastic cluster.<br>When this setting is true, note the following:<br>• You must set `TargetTablePrepMode` to `nothing`.<br>• AWS DMS automatically sets `useUpdateLookup` to `false`. |
 
 ## Source data types for
 
-MongoDB
+Amazon DocumentDB
 
-Data migration that uses MongoDB as a source for AWS DMS supports most MongoDB data
-types. In the following table, you can find the MongoDB source data types that are
-supported when using AWS DMS and the default mapping from AWS DMS data types. For more
-information about MongoDB data types, see [BSON types](https://docs.mongodb.com/manual/reference/bson-types "https://docs.mongodb.com/manual/reference/bson-types")
-in the MongoDB documentation.
+In the following table, you can find the Amazon DocumentDB source data types that are
+supported when using AWS DMS. You can also find the default mapping from AWS DMS data
+types in this table. For more information about data types, see [BSON types](https://docs.mongodb.com/manual/reference/bson-types "https://docs.mongodb.com/manual/reference/bson-types") in
+the MongoDB documentation.
 
 For information on how to view the data type that is mapped in the target, see the
 section for the target endpoint that you are using.
 
 For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.md "CHAP_Reference.md").
 
-| MongoDB data types | AWS DMS data types |
-| ------------------ | ------------------ |
-| Boolean            | Bool               |
-| Binary             | BLOB               |
-| Date               | Date               |
-| Timestamp          | Date               |
-| Int                | INT4               |
-| Long               | INT8               |
-| Double             | REAL8              |
-| String (UTF-8)     | CLOB               |
-| Array              | CLOB               |
-| OID                | String             |
-| REGEX              | CLOB               |
-| CODE               | CLOB               |
+| Amazon DocumentDB data types | AWS DMS data types |
+| ---------------------------- | ------------------ |
+| Boolean                      | Bool               |
+| Binary                       | BLOB               |
+| Date                         | Date               |
+| Timestamp                    | Date               |
+| Int                          | INT4               |
+| Long                         | INT8               |
+| Double                       | REAL8              |
+| String (UTF-8)               | CLOB               |
+| Array                        | CLOB               |
+| OID                          | String             |

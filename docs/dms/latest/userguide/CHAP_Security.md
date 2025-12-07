@@ -1,205 +1,337 @@
-# Using Kerberos Authentication with AWS Database Migration Service
+# Security in AWS Database Migration Service
 
-Starting with DMS v3.5.3, you can configure your Oracle or SQL Server source endpoint to connect to your
-database instance using Kerberos authentication. DMS supports Directory Service for Microsoft Active Directory and
-Kerberos authentication. For more information about AWS-managed access to Microsoft Active Directory Services, see
-[What is Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md").
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
+data center and network architecture that are built to meet the requirements of the most
+security-sensitive organizations.
 
-## AWS DMS Kerberos Authentication Architecture Overview
+Security is a shared responsibility between AWS and you. The [shared responsibility
+model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security _of_ the cloud and security
+_in_ the cloud:
 
-The following diagram provides a high level overview of the AWS DMS Kerberos authentication workflow.
+- **Security of the cloud** – AWS is
+  responsible for protecting the infrastructure that runs AWS services in the AWS
+  Cloud. AWS also provides you with services that you can use securely. Third-party
+  auditors regularly test and verify the effectiveness of our security as part of the
+  [AWS compliance
+  programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to AWS DMS,
+  see [AWS services in
+  scope by compliance program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
+- **Security in the cloud** – Your responsibility
+  is determined by the AWS service that you use. You are also responsible for other
+  factors including the sensitivity of your data, your organization's requirements,
+  and applicable laws and regulations.
+  This documentation helps you understand how to apply the shared responsibility model when
+  using AWS DMS. The following topics show you how to configure AWS DMS to meet your security and
+  compliance objectives. You also learn how to use other AWS services that help you monitor
+  and secure your AWS DMS resources.
 
-![Kerberos Authentication Architecture](images/datarep-kerberos-architecture.jpg)
+You can manage access to your AWS DMS resources and your databases (DBs). The method you use
+to manage access depends on the replication task you need to perform with AWS DMS:
 
-## Limitations on using Kerberos authentication
+- Use AWS Identity and Access Management (IAM) policies to assign permissions that determine who is allowed
+  to manage AWS DMS resources. AWS DMS requires that you have the appropriate permissions
+  if you sign in as an IAM user. For example, you can use IAM to determine who is
+  allowed to create, describe, modify, and delete DB instances and clusters, tag
+  resources, or modify security groups. For more information about IAM and using it
+  with AWS DMS, see [Identity and access management for AWS Database Migration Service](security-iam.md "security-iam.md").
+- AWS DMS uses Secure Sockets Layer (SSL) for your endpoint connections with Transport
+  Layer Security (TLS). For more information about using SSL/TLS with AWS DMS, see [Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md").
+- AWS DMS uses AWS Key Management Service (AWS KMS) encryption keys to encrypt the storage used by your
+  replication instance and its endpoint connection information. AWS DMS also uses AWS KMS
+  encryption keys to secure your target data at rest for Amazon S3 and Amazon Redshift target
+  endpoints. For more information, see [Setting an encryption key and
+  specifying AWS KMS permissions](#CHAP_Security.EncryptionKey "#CHAP_Security.EncryptionKey").
+- AWS DMS always creates your replication instance in a virtual private cloud (VPC)
+  based on the Amazon VPC service for the greatest possible network access
+  control. For your DB instances and instance clusters, use the same VPC as your
+  replication instance, or additional VPCs to match this level of access control. Each
+  Amazon VPC that you use must be associated with a security group that has rules that
+  allow all traffic on all ports to leave (egress) the VPC. This approach allows
+  communication from the replication instance to your source and target database
+  endpoints, as long as correct ingress is enabled on those endpoints.
 
-with AWS DMS
+For more information about available network configurations for AWS DMS, see [Setting up a network for a replication
+instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md"). For more information about
+creating a DB instance or instance cluster in a VPC, see the security and cluster
+management documentation for your Amazon databases at [AWS
+documentation](../../../index.md "../../../index.md"). For more information about network configurations that
+AWS DMS supports, see [Setting up a network for a replication
+instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
 
-The following limitations apply when using Kerberos authentication with AWS DMS:
+- To view database migration logs, you need the appropriate Amazon CloudWatch Logs
+  permissions for the IAM role you are using. For more information about logging for
+  AWS DMS, see [Monitoring replication tasks using Amazon CloudWatch](CHAP_Monitoring.md#CHAP_Monitoring.CloudWatch "CHAP_Monitoring.md#CHAP_Monitoring.CloudWatch").
 
-- DMS replication instances support one Kerberos `krb5.conf` file and one keycache file.
-- You must update the Kerberos keycache file in Secrets Manager at least 30 minutes prior to
-  the ticket expiring.
-- A Kerberos-enabled DMS endpoint only works with a Kerberos-enabled DMS replication instance.
+###### Topics
 
-## Prerequisites
+- [Data protection in AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md")
+- [Identity and access management for AWS Database Migration Service](security-iam.md "security-iam.md")
+- [Compliance validation for AWS Database Migration Service](dms-compliance.md "dms-compliance.md")
+- [Resilience in AWS Database Migration Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure security in
+  AWS Database Migration Service](infrastructure-security.md "infrastructure-security.md")
+- [Fine-grained access control
+  using resource names and tags](CHAP_Security.md "CHAP_Security.md")
+- [Encryption for AWS DMS homogeneous migrations](#CHAP_Security.Migrations "#CHAP_Security.Migrations")
+- [Setting an encryption key and
+  specifying AWS KMS permissions](#CHAP_Security.EncryptionKey "#CHAP_Security.EncryptionKey")
+- [Network security for AWS Database Migration Service](#CHAP_Security.Network "#CHAP_Security.Network")
+- [Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md")
+- [Changing the database
+  password](#CHAP_Security.ChangingDBPassword "#CHAP_Security.ChangingDBPassword")
+- [Using Kerberos Authentication with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md")
 
-To start, you must complete the following prerequisites from an existing Active Directory or Kerberos-authenticated host:
+## Encryption for AWS DMS homogeneous migrations
 
-- Establish an Active Directory trust relationship with your on-premise AD. For more information,
-  see [Tutorial: Create a trust relationship between your AWS Managed Microsoft AD and your self-managed Active Directory domain](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md").
-- Prepare a simplified version of the Kerberos `krb5.conf` configuration file. Include information about the realm, the location of the domain admin servers, and mappings of hostnames onto a Kerberos realm. You need to verify that the `krb5.conf` content is formatted with the correct mixed casing for the realms and domain realm names. For example:
+AWS DMS homogeneous migrations also encrypt resources used for your data migrations, including storage and other components. If you don't specify a customer managed key, AWS DMS homogeneous migrations automatically use an AWS owned key to encrypt your resources.
+
+When you use a customer managed key, AWS DMS homogeneous migrations create grants on your key to allow the service to encrypt and decrypt resources as needed. These grants are managed automatically as part of the migration lifecycle.
+
+**Using a customer managed key with homogeneous migrations**
+
+To use a customer managed key for your homogeneous migration, add the following permissions to the IAM permissions that you must grant to the IAM user account to use AWS DMS homogeneous migrations:
 
 ```
-[libdefaults]
- dns_lookup_realm = true
- dns_lookup_kdc = true
- forwardable = true
- default_realm = MYDOMAIN.ORG
-[realms]
-MYDOMAIN.ORG = {
-kdc = mydomain.org
-admin_server = mydomain.org
+{
+    "Effect": "Allow",
+    "Action": [
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKeyWithoutPlaintext"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "kms:ViaService": [
+                "dms.us-west-2.amazonaws.com",
+                "elasticfilesystem.us-west-2.amazonaws.com"
+            ]
+        }
+    }
 }
-[domain_realm]
-.mydomain.org = MYDOMAIN.ORG
-mydomain.org = MYDOMAIN.ORG
 ```
 
-- Prepare a Kerberos keycache file. The file contains a temporary Kerberos credential of the client
-  principal information. The file does not store the client's password. Your DMS task uses this cache ticket
-  information to get additional credentials without a password. Run the following steps on an existing Active
-  Directory or Kerberos-authenticated host to generate a keycache file.
-  - Create a Kerberos keytab file. You can generate a keytab file using the
-    **kutil** or **ktpass** utility.
-
-  For more information about the Microsoft **ktpass** utility, see
-  [ktpass](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass")
-  in the _Windows Server documentation_.
-
-  For more information about the MIT **kutil** utility, see
-  [kutil](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html")
-  in the _MIT Kerberos Documentation_.
-  - Create a Kerberos keycache file from keytab file using the **kinit** utility. For more information about the **kinit** utility, see [kinit](https://web.mit.edu/kerberos/krb5-1.12/doc/user/user_commands/kinit.html "https://web.mit.edu/kerberos/krb5-1.12/doc/user/user_commands/kinit.html")
-    in the _MIT Kerberos Documentation_.
-
-- Store the Kerberos keycache file in Secrets Manager using the `SecretBinary` parameter. When you upload the
-  keycache file to Secrets Manager, DMS retrieves it, and then updates the local cache file about
-  every 30 minutes. When the local keycache file exceeds the predefined expiration timestamp, DMS
-  gracefully stops the task. To avoid authentication failures during an ongoing replication task,
-  update the keycache file in Secrets Manager at least 30 minutes before the ticket expiration. For more information,
-  see
-  [createsecret](../../../secretsmanager/latest/apireference/API_CreateSecret.md "../../../secretsmanager/latest/apireference/API_CreateSecret.md")
-  in the _Secrets Manager API Reference_. The following AWS CLI sample shows how to store the keycache file
-  in binary format in Secrets Manager:
+DMS will be creating an internal grant for accessing and managing the encryption keys during the migration process. In order to further scope down the CreateGrant operation, the following limitations can be applied to your customer managed key policy:
 
 ```
-aws secretsmanager create-secret —name keycache —secret-binary fileb:`//keycachefile`
+{
+  "Effect": "Allow",
+  "Principal": {
+    "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
+  },
+  "Action": "kms:CreateGrant",
+  "Resource": "*",
+  "Condition": {
+    "ForAllValues:StringEquals": {
+      "kms:GrantOperations": [
+        "CreateGrant",
+        "DescribeKey",
+        "Encrypt",
+        "Decrypt",
+        "RetireGrant",
+        "GenerateDataKeyWithoutPlaintext"
+      ]
+    },
+    "StringEquals": {
+      "kms:ViaService": [
+            "dms.us-west-2.amazonaws.com",
+            "elasticfilesystem.us-west-2.amazonaws.com"
+      ]
+    }
+  }
+}
+```
+
+###### Important
+
+Additional encryption context constraints are not supported at this time. Including such constraints will cause the migration to fail.
+
+## Setting an encryption key and
+
+specifying AWS KMS permissions
+
+AWS DMS encrypts the storage used by a replication instance and the endpoint connection
+information. To encrypt the storage used by a replication instance, AWS DMS uses an
+AWS Key Management Service (AWS KMS) key that is unique to your AWS account. You can view and manage this
+key with AWS KMS. You can use the default KMS key in your account (`aws/dms`)
+or you can create a custom KMS key. If you have an existing KMS key, you can also
+use that key for encryption.
+
+###### Note
+
+Any custom or existing AWS KMS key that you use as an encryption key must be a
+symmetric key. AWS DMS does not support the use of asymmetric encryption keys. For
+more information on symmetric and asymmetric encryption keys, see [https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html](../../../kms/latest/developerguide/symmetric-asymmetric.md "../../../kms/latest/developerguide/symmetric-asymmetric.md")
+in the _AWS Key Management Service Developer Guide_.
+
+The default KMS key (`aws/dms`) is created when you first launch a
+replication instance, if you haven't selected a custom KMS key from the
+**Advanced** section of the **Create Replication
+Instance** page. If you use the default KMS key, the only permissions you
+need to grant to the IAM user account you are using for migration are
+`kms:ListAliases` and `kms:DescribeKey`. For more information
+about using the default KMS key, see [IAM permissions needed to use
+AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions").
+
+To use a custom KMS key, assign permissions for the custom KMS key using one of
+the following options:
+
+- Add the IAM user account used for the migration as a key administrator or key
+  user for the AWS KMS custom key. Doing this ensures that necessary AWS KMS
+  permissions are granted to the IAM user account. This action is in addition to
+  the IAM permissions that you grant to the IAM user account to use AWS DMS. For
+  more information about granting permissions to a key user, see [Allows
+  key users to use the KMS key](../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users "../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users") in the _AWS Key Management Service Developer Guide._
+- If you don't want to add the IAM user account as a key administrator or key
+  user for your custom KMS key, then add the following additional permissions to
+  the IAM permissions that you must grant to the IAM user account to use AWS DMS.
 
 ```
 
-- Grant an IAM role the `GetSecretValue` and `DescribeSecret` permissions to get
-  the keycache file from Secrets Manager. Ensure that the IAM role includes the `dms-vpc-role` trust policy. For
-  more information about the `dms-vpc-role` trust policy, see
-  [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole "security-iam.md#CHAP_Security.APIRole").
-
-The following example shows an IAM role policy with the Secrets Manager `GetSecretValue` and
-`DescribeSecret` permissions. The `<keycache_secretsmanager_arn>`
-value is the Keycache Secrets Manager ARN you created in the previous step.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "secretsmanager:GetSecretValue",
- "secretsmanager:DescribeSecret"
- ],
- "Resource": "*"
- }
- ]
-}`
+{
+            "Effect": "Allow",
+            "Action": [
+                "kms:ListAliases",
+                "kms:DescribeKey",
+                "kms:CreateGrant",
+                "kms:Encrypt",
+                "kms:ReEncrypt*"
+            ],
+            "Resource": "*"
+        },
 
 ```
 
-## Enabling Kerberos support on an AWS DMS
+AWS DMS also works with KMS key aliases. For more information about creating your own
+AWS KMS keys and giving users access to a KMS key, see the _[AWS KMS Developer Guide](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md")_.
 
-replication instance
+If you don't specify a KMS key identifier, then AWS DMS uses your default encryption
+key. AWS KMS creates the default encryption key for AWS DMS for your AWS account. Your AWS
+account has a different default encryption key for each AWS Region.
 
-Kerberos realms are identical to domains in Windows. In order to resolve a principle realm, Kerberos relies
-on a Domain Name Service (DNS). When you set the `dns-name-servers` parameter, your replication instance
-will use your predefined custom set of DNS servers to resolve the Kerberos domain realms. Another alternative
-option to resolve Kerberos realm queries is to configure Amazon Route 53 on the replication instance
-virtual private cloud (VPC). For more information, see [Route 53](../../../route53.md "../../../route53.md").
+To manage the AWS KMS keys used for encrypting your AWS DMS resources, use the AWS Key Management Service.
+AWS KMS combines secure, highly available hardware and software to provide a key
+management system scaled for the cloud. Using AWS KMS, you can create encryption keys and
+define the policies that control how these keys can be used.
 
-### Enabling Kerberos support on a DMS
+###### You can find AWS KMS in the AWS Management Console
 
-replication instance using the AWS Management Console
+1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
+2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
+3. Choose one of the following options to work with AWS KMS keys:
+   - To view the keys in your account that AWS creates and manages for you, in the navigation pane, choose **AWS managed keys**.
+   - To view the keys in your account that you create and manage, in the navigation
+     pane choose **Customer managed keys**.
 
-To enable Kerberos support using the console, enter the following information in the
-**Kerberos authentication** section of the **Create Replication Instance**
-or **Modify Replication Instance** page:
+AWS KMS supports AWS CloudTrail, so you can audit key usage to verify that keys are being used
+appropriately. Your AWS KMS keys can be used in combination with AWS DMS and supported AWS
+services such as Amazon RDS, Amazon S3, Amazon Redshift, and Amazon EBS.
 
-- The content from your `krb5.conf` file
-- The ARN of the Secrets Manager secret that contains the keycache file
-- The ARN of the IAM role that has access to the secret manager ARN and permissions to
-  retrieve the keycache file
+You can also create custom AWS KMS keys specifically to encrypt target data for the
+following AWS DMS endpoints:
 
-### Enabling Kerberos support on a DMS
+- Amazon Redshift – For more information, see [Creating and using AWS KMS keys to
+  encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys").
+- Amazon S3 – For more information, see [Creating AWS KMS keys to encrypt Amazon S3 target
+  objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
 
-replication instance using the AWS CLI
+After you have created your AWS DMS resources with a KMS key, you can't change
+the encryption key for those resources. Make sure to determine your encryption key
+requirements before you create your AWS DMS resources.
 
-The following AWS CLI sample call creates a private DMS replication instance with Kerberos support.
-The replication instance uses a custom DNS to resolve the Kerberos realm. For more information,
-see [create-replication-instance](../../../cli/latest/reference/dms/create-replication-instance.md "../../../cli/latest/reference/dms/create-replication-instance.md").
+## Network security for AWS Database Migration Service
 
-```
-aws dms create-replication-instance
---replication-instance-identifier my-replication-instance
---replication-instance-class dms.t2.micro
---allocated-storage 50
---vpc-security-group-ids sg-12345678
---engine-version 3.5.4
---no-auto-minor-version-upgrade
---kerberos-authentication-settings'{"KeyCacheSecretId":<secret-id>,"KeyCacheSecretIamArn":<secret-iam-role-arn>,"Krb5FileContents":<krb5.conf file contents>}'
---dns-name-servers `<custom dns server>`
---no-publicly-accessible
-```
+The security requirements for the network you create when using AWS Database Migration Service depend on
+how you configure the network. The general rules for network security for AWS DMS are
+as follows:
 
-## Enabling Kerberos support on a source endpoint
+- The replication instance must have access to the source and target endpoints.
+  The security group for the replication instance must have network ACLs or rules
+  that allow egress from the instance out on the database port to the database
+  endpoints.
+- Database endpoints must include network ACLs and security group rules that
+  allow incoming access from the replication instance. You can achieve this using
+  the replication instance's security group, the private IP address, the public IP
+  address, or the NAT gateway's public address, depending on your configuration.
+- If your network uses a VPN tunnel, the Amazon EC2 instance acting as the NAT
+  gateway must use a security group that has rules that allow the replication
+  instance to send traffic through it.
 
-Before enabling Kerberos authentication on a DMS Oracle or SQL server source endpoint, make sure
-you can authenticate to the source database using the Kerberos protocol from a client machine.
-You can use the AWS DMS Diagnostic AMI to launch an Amazon EC2 instance on the same VPC as the replication
-instance, and then test the kerberos authentication. For more information about the AMI, see
-[Working with the AWS DMS diagnostic support AMI](CHAP_SupportAmi.md "CHAP_SupportAmi.md").
+By default, the VPC security group used by the AWS DMS replication instance has rules
+that allow egress to 0.0.0.0/0 on all ports. If you modify this security group or use
+your own security group, egress must, at a minimum, be permitted to the source and
+target endpoints on the respective database ports.
 
-### Using the AWS DMS console
+The network configurations that you can use for database migration each require
+specific security considerations:
 
-Under **Access to endpoint database**, choose **Kerberos authentication**.
+- [Configuration with all database migration
+  components in one VPC](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioAllVPC "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioAllVPC")
+  – The security group used by the endpoints must allow ingress on the
+  database port from the replication instance. Ensure that the security group used
+  by the replication instance has ingress to the endpoints, or you can create a
+  rule in the security group used by the endpoints that allows the private IP
+  address of the replication instance access.
+- [Configuration with
+  multiple VPCs](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioVPCPeer "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioVPCPeer") – The security group used by the replication instance must have a rule
+  for the VPC range and the DB port on the database.
+- [Configuration for a network to a VPC using Direct Connect or a VPN](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioDirect "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioDirect")
+  – a VPN tunnel allowing traffic to tunnel from the VPC into an on-
+  premises VPN. In this configuration, the VPC includes a routing rule that sends
+  traffic destined for a specific IP address or range to a host that can bridge
+  traffic from the VPC into the on-premises VPN. If this case, the NAT host
+  includes its own Security Group settings that must allow traffic from the
+  Replication Instance's private IP address or security group into the NAT
+  instance.
+- [Configuration for a network to a VPC using the internet](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioInternet "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioInternet") – The VPC security group must include routing rules that send traffic
+  not destined for the VPC to the Internet gateway. In this configuration, the
+  connection to the endpoint appears to come from the public IP address on the
+  replication instance.
+- [Configuration with an RDS DB instance not in a VPC to a DB instance in a
+  VPC using ClassicLink](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ClassicLink "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ClassicLink")
+  – When the source or target Amazon RDS DB instance is not in a VPC and
+  does not share a security group with the VPC where the replication instance is
+  located, you can setup a proxy server and use ClassicLink to connect the source
+  and target databases.
+- **Source endpoint is outside the VPC used by the replication
+  instance and uses a NAT gateway** – You can configure a
+  network address translation (NAT) gateway using a single Elastic IP address
+  bound to a single Elastic network interface. This Elastic network interface then
+  receives a NAT identifier (nat-#####). If the VPC includes a default route to
+  that NAT gateway instead of the internet gateway, the replication instance
+  instead appears to contact the database endpoint using the public IP address of
+  the internet gateway. In this case, the ingress to the database endpoint outside
+  the VPC needs to allow ingress from the NAT address instead of the replication
+  instance's public IP address.
+- **VPC endpoints for non-RDBMS engines** –
+  AWS DMS doesn’t support VPC endpoints for non-RDBMS engines.
 
-### Using the AWS CLI
+## Changing the database
 
-Specify the endpoint setting parameter and set `AuthenticationMethod` option as kerberos. For example:
+password
 
-**Oracle**
+In most situations, changing the database password for your source or target endpoint
+is straightforward. If you need to change the database password for an endpoint that you
+are currently using in a migration or replication task, the process needs a few
+additional steps. The procedure following shows how to do this.
 
-```
-aws dms create-endpoint
---endpoint-identifier my-endpoint
---endpoint-type source
---engine-name oracle
---username dmsuser@MYDOMAIN.ORG
---server-name `mydatabaseserver`
---port 1521
---database-name `mydatabase`
---oracle-settings "{\"AuthenticationMethod\": \"kerberos\"}"
-```
+###### To change the database password for an endpoint in a migration or replication
 
-**SQL Server**
+task
 
-```
-aws dms create-endpoint
---endpoint-identifier my-endpoint
---endpoint-type source
---engine-name sqlserver
---username dmsuser@MYDOMAIN.ORG
---server-name `mydatabaseserver`
---port 1433
---database-name `mydatabase`
---microsoft-sql-server-settings "{\"AuthenticationMethod\": \"kerberos\"}"
-```
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 
-## Testing a source
-
-endpoint
-
-You must test the Kerberos-enabled endpoint against a Kerberos-enabled replication instance.
-When you don't properly confiugure the replication instance or source endpoint for Kerberos
-authentication, the endpoint `test-connection` action will fail, and might return Kerberos-related
-errors. For more information, see
-[test-connection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dms/test-connection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dms/test-connection.html").
+If you're signed in as an IAM user, make sure that you have the
+appropriate permissions to access AWS DMS. For more information about the
+permissions required, see [IAM permissions needed to use
+AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. In the navigation pane, choose **Database migration tasks**. 3. Choose the task that uses the endpoint you want to change the database
+password for, and then choose **Stop**. 4. While the task is stopped, you can change the password of the database for the
+endpoint using the native tools you use to work with the database. 5. Return to the DMS Management Console and choose **Endpoints**
+from the navigation pane. 6. Choose the endpoint for the database you changed the password for, and then
+choose **Modify**. 7. Type the new password in the **Password** box, and then
+choose **Save**. 8. Choose **Database migration tasks** from the navigation pane. 9. Choose the task that you stopped previously, and choose
+**Restart/Resume**. 10. Choose either **Restart** or **Resume**,
+depending on how you want to continue the task, and then choose **Start
+task**.

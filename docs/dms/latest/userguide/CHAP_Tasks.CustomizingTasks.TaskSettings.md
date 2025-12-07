@@ -1,191 +1,95 @@
-# Saving task
+# Data
 
-settings
+resync settings
 
-You can save task settings as a JSON file in case you want to reuse the
-settings for another task. You can find tasks settings to copy to a JSON file
-under the **Overview details** section of a task.
+The Data resync feature allows you to resync target database with your source
+database based on data validation report. For more information, see [AWS DMS data
+validation](CHAP_Validating.md "CHAP_Validating.md").
+
+You can add additional parameters for `ResyncSettings` in the
+`ReplicationTaskSettings` endpoint that configures the resync
+process. For more information, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example") in the [Specifying task settings for AWS Database Migration Service
+tasks](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
 
 ###### Note
 
-While reusing task settings for other tasks, remove any
-`CloudWatchLogGroup` and `CloudWatchLogStream`
-attributes. Otherwise, the following error is given: **`SYSTEM ERROR
- MESSAGE:Task Settings CloudWatchLogGroup or CloudWatchLogStream cannot
- be set on create.`**
+`ResyncSchedule` and `MaxResyncTime` parameters are
+required if the resync process is enabled and the task has a CDC component. They
+are not valid for full-load only tasks.
 
-For example, the following JSON file contains settings saved for a
-task.
+The Data resync parameter settings and values are as follows:
+
+`**EnableResync**`
+
+Enables Data resync feature when set to `true`. By default,
+Data resync is disabled.
+
+**Datatype**: Boolean
+
+**Required**: No
+
+**Default**: `false`
+
+**Validation**: Should not be null if
+`ResyncSettings` parameter is present in
+`TaskSettings`.
+
+`**ResyncSchedule**`
+
+Time window for the Data resync feature to be in effect. Must be
+present in Cron format. For more information, see [Cron expression rules](CHAP_Validating.md#CHAP_DataResync.cron "CHAP_Validating.md#CHAP_DataResync.cron").
+
+**Datatype**: String
+
+**Required**: No
+
+**Validation**:
+
+- Must be present in Cron expression format.
+- Should not be null for tasks with CDC that has
+  `EnableResync` set to `true`.
+- Cannot be set for tasks without CDC component.
+
+`**MaxResyncTime**`
+
+Maximum time limit in minutes for the Data resync feature to be in
+effect.
+
+**Datatype**: Integer
+
+**Required**: No
+
+**Validation**:
+
+- Should not be null for tasks with CDC.
+- Not required for tasks without CDC.
+- Minimum value: `5 minutes`, Maximum value:
+  `14400 minutes` (10 days).
+
+`**Validation onlyTaskID**`
+
+Unique ID of the validation task. The validation only task ID is
+appended at the end of an ARN. For example:
+
+- Validation only task ARN:
+  `arn:aws:dms:us-west-2:123456789012:task:6DG4CLGJ5JSJR67CFD7UDXFY7KV6CYGRICL6KWI`
+- Validation only task ID:
+  `6DG4CLGJ5JSJR67CFD7UDXFY7KV6CYGRICL6KWI`
+
+**Datatype**: String
+
+**Required**: No
+
+**Validation**: Should not be null for
+tasks with Data resync feature enabled and validation disabled.
+
+Example:
 
 ```
-
-{
-    "TargetMetadata": {
-        "TargetSchema": "",
-        "SupportLobs": true,
-        "FullLobMode": false,
-        "LobChunkSize": 0,
-        "LimitedSizeLobMode": true,
-        "LobMaxSize": 32,
-        "InlineLobMaxSize": 0,
-        "LoadMaxFileSize": 0,
-        "ParallelLoadThreads": 0,
-        "ParallelLoadBufferSize": 0,
-        "BatchApplyEnabled": false,
-        "TaskRecoveryTableEnabled": false,
-        "ParallelLoadQueuesPerThread": 0,
-        "ParallelApplyThreads": 0,
-        "ParallelApplyBufferSize": 0,
-        "ParallelApplyQueuesPerThread": 0
-    },
-    "FullLoadSettings": {
-        "TargetTablePrepMode": "DO_NOTHING",
-        "CreatePkAfterFullLoad": false,
-        "StopTaskCachedChangesApplied": false,
-        "StopTaskCachedChangesNotApplied": false,
-        "MaxFullLoadSubTasks": 8,
-        "TransactionConsistencyTimeout": 600,
-        "CommitRate": 10000
-    },
-    "Logging": {
-        "EnableLogging": true,
-        "LogComponents": [
-            {
-                "Id": "TRANSFORMATION",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "SOURCE_UNLOAD",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "IO",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "TARGET_LOAD",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "PERFORMANCE",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "SOURCE_CAPTURE",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "SORTER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "REST_SERVER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "VALIDATOR_EXT",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "TARGET_APPLY",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "TASK_MANAGER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "TABLES_MANAGER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "METADATA_MANAGER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "FILE_FACTORY",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "COMMON",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "ADDONS",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "DATA_STRUCTURE",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "COMMUNICATION",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "FILE_TRANSFER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            }
-        ]
-    },
-    "ControlTablesSettings": {
-        "ControlSchema": "",
-        "HistoryTimeslotInMinutes": 5,
-        "HistoryTableEnabled": false,
-        "SuspendedTablesTableEnabled": false,
-        "StatusTableEnabled": false,
-        "FullLoadExceptionTableEnabled": false
-    },
-    "StreamBufferSettings": {
-        "StreamBufferCount": 3,
-        "StreamBufferSizeInMB": 8,
-        "CtrlStreamBufferSizeInMB": 5
-    },
-    "ChangeProcessingDdlHandlingPolicy": {
-        "HandleSourceTableDropped": true,
-        "HandleSourceTableTruncated": true,
-        "HandleSourceTableAltered": true
-    },
-    "ErrorBehavior": {
-        "DataErrorPolicy": "LOG_ERROR",
-        "DataTruncationErrorPolicy": "LOG_ERROR",
-        "DataErrorEscalationPolicy": "SUSPEND_TABLE",
-        "DataErrorEscalationCount": 0,
-        "TableErrorPolicy": "SUSPEND_TABLE",
-        "TableErrorEscalationPolicy": "STOP_TASK",
-        "TableErrorEscalationCount": 0,
-        "RecoverableErrorCount": -1,
-        "RecoverableErrorInterval": 5,
-        "RecoverableErrorThrottling": true,
-        "RecoverableErrorThrottlingMax": 1800,
-        "RecoverableErrorStopRetryAfterThrottlingMax": true,
-        "ApplyErrorDeletePolicy": "IGNORE_RECORD",
-        "ApplyErrorInsertPolicy": "LOG_ERROR",
-        "ApplyErrorUpdatePolicy": "LOG_ERROR",
-        "ApplyErrorEscalationPolicy": "LOG_ERROR",
-        "ApplyErrorEscalationCount": 0,
-        "ApplyErrorFailOnTruncationDdl": false,
-        "FullLoadIgnoreConflicts": true,
-        "FailOnTransactionConsistencyBreached": false,
-        "FailOnNoTablesCaptured": true
-    },
-    "ChangeProcessingTuning": {
-        "BatchApplyPreserveTransaction": true,
-        "BatchApplyTimeoutMin": 1,
-        "BatchApplyTimeoutMax": 30,
-        "BatchApplyMemoryLimit": 500,
-        "BatchSplitSize": 0,
-        "MinTransactionSize": 1000,
-        "CommitTimeout": 1,
-        "MemoryLimitTotal": 1024,
-        "MemoryKeepTime": 60,
-        "StatementCacheSize": 50
-    },
-    "PostProcessingRules": null,
-    "CharacterSetSettings": null,
-    "LoopbackPreventionSettings": null,
-    "BeforeImageSettings": null,
-    "FailTaskWhenCleanTaskResourceFailed": false
-}
-
+"ResyncSettings": {
+    "EnableResync": true,
+    "ResyncSchedule": "30 9 ? * MON-FRI",
+    "MaxResyncTime": 400,
+    "ValidationTaskId": "JXPP94804DJOEWIJD9348R3049"
+},
 ```
