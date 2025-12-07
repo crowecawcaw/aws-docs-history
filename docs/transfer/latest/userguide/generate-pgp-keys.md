@@ -33,9 +33,8 @@ pair.
 
 If you're using `GnuPG` version 2.3.0 or newer, you
 must run `gpg --full-gen-key`. When prompted for the type of key
-to create, choose RSA or ECC. However, if you choose ECC, make sure to choose either
-NIST or BrainPool for the elliptic curve.
-**Do not** choose Curve 25519.
+to create, choose RSA or ECC. If you choose **ECC**, you can choose from
+NIST, BrainPool and Curve25519 for the elliptic curve.
 
 Useful `gpg` subcommands
 

@@ -29,8 +29,7 @@ You can store a maximum of 3 PGP private keys, per Transfer Family server, per u
 ###### To configure PGP keys for use with decryption
 
 1. Depending on the version of GPG that you are using, run one of the following
-   commands to generate a PGP key pair that doesn't use a Curve 25519 encryption
-   algorithm.
+   commands to generate a PGP key pair.
    - If you are using `GnuPG` version 2.3.0 or newer,
      run the following command:
 
@@ -40,10 +39,9 @@ You can store a maximum of 3 PGP private keys, per Transfer Family server, per u
 
    You can choose `RSA`, or, if you choose
    `ECC`, you can choose either
-   `NIST` or `BrainPool` for
+   `NIST`, `BrainPool` or `Curve25519` for
    the elliptic curve. If you run `gpg --gen-key` instead, you
-   create a key pair that uses the ECC Curve 25519 encryption algorithm,
-   which we don't currently support for PGP keys.
+   create a key pair that uses the ECC Curve 25519 encryption algorithm.
    - For versions of `GnuPG` prior to 2.3.0, you can
      use the following command, since RSA is the default encryption
      type.

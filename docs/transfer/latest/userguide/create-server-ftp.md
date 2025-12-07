@@ -104,7 +104,7 @@ following:
 
 
 
-    ![The Managed workflows console section.](/images/transfer/latest/userguide/images/workflows-addtoserver.png)
+    ![The Managed workflows console section.](images/workflows-addtoserver.png)
     3. For **Cryptographic algorithm options**, choose a
      security policy that contains the cryptographic algorithms enabled
      for use by your server.

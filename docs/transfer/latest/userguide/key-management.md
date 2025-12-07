@@ -107,16 +107,14 @@ key sizes while maintaining strong security:
   widely supported and FIPS-compliant
 - **BrainPool curves** -
   Alternative curves for specific compliance requirements
+- **Curve25519** -
+  Modern high-performance curve offering strong security with efficient computation
 
 ElGamal
 
 **Legacy algorithm.** Supported for
 compatibility with older systems. Use RSA or ECC for new
 implementations.
-
-###### Important
-
-Curve25519 keys are not supported.
 
 For detailed instructions on generating PGP keys, see [Generate PGP keys](generate-pgp-keys.md "generate-pgp-keys.md").
 
