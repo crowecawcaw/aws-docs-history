@@ -16,6 +16,14 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 ## Athena release notes for 2025
 
+### November 30, 2025
+
+Published on 2025-11-30
+
+Athena announces the following features and improvements.
+
+Amazon Athena now supports AWS Glue Data Catalog materialized views, a new type of pre-computed query result table that automatically updates as your data changes. Glue Data Catalog materialized views are stored as Apache Iceberg tables and can be queried with Athena SQL `SELECT` statements and Apache Spark version 3.5. To learn more, see [Query AWS Glue Data Catalog materialized views](querying-iceberg-gdc-mv.md "querying-iceberg-gdc-mv.md") and [Using materialized views](../../../emr/latest/ReleaseGuide/emr-spark-materialized-views.md "../../../emr/latest/ReleaseGuide/emr-spark-materialized-views.md").
+
 ### November 21, 2025
 
 Published on 2025-11-21
@@ -32,7 +40,7 @@ Athena announces the following features and improvements.
 - **Optimization with Iceberg statistics** –
   Athena has enhanced how it uses Iceberg statistics to make intelligent decisions about join ordering, filters, and aggregation behavior that can improve query performance and reduce costs. To learn more, see [Use Iceberg table statistics](querying-iceberg-data-optimization.md#querying-iceberg-data-optimization-statistics "querying-iceberg-data-optimization.md#querying-iceberg-data-optimization-statistics").
 - **Iceberg Parquet column indexing** –
-  Athena now supports Parquet column indexing on Iceberg tables for precise data pruning during query execution. It leverages page-level min/max statistics to reduce the amount of data scanned, improving query performance and lowering costs, particularly for queries with selective filter predicates on sorted columns. To learn more, see [Use Parquet column indexing](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md").
+  Athena now supports Parquet column indexing on Iceberg tables for precise data pruning during query execution. It leverages page-level min/max statistics to reduce the amount of data scanned, improving query performance and lowering costs, particularly for queries with selective filter predicates on sorted columns. To learn more, see [Use Parquet column indexing](querying-iceberg-data-optimization.md#querying-iceberg-data-optimization-parquet-column-indexing "querying-iceberg-data-optimization.md#querying-iceberg-data-optimization-parquet-column-indexing").
 - **Iceberg performance enhancements with Lake Formation** –
   Athena has added new partition pruning behaviors for Iceberg tables that have Lake Formation row filters and column masks, and additional predicate pushdown behaviors for all other table types that have Lake Formation row filters and column masks. This update enhances query performance while maintaining security protections.
 - **Query result reuse** –
@@ -99,7 +107,7 @@ Athena releases JDBC driver version 3.6.0. For more information about
 this version of
 the driver, see [Amazon Athena JDBC 3.x release notes](jdbc-v3-driver-release-notes.md "jdbc-v3-driver-release-notes.md"). To download the
 latest JDBC driver, see
-.
+[JDBC 3.x driver download](jdbc-v3-driver.md#jdbc-v3-driver-download "jdbc-v3-driver.md#jdbc-v3-driver-download").
 
 ### September 05, 2025
 

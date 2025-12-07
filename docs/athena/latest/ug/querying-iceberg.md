@@ -119,6 +119,7 @@ If you would like Athena to support a particular feature, send feedback to [athe
 - [Perform other DDL operations on
   Iceberg tables](querying-iceberg-additional-operations.md "querying-iceberg-additional-operations.md")
 - [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md")
+- [Query AWS Glue Data Catalog materialized views](querying-iceberg-gdc-mv.md "querying-iceberg-gdc-mv.md")
 - [Supported data types for Iceberg
   tables in Athena](querying-iceberg-supported-data-types.md "querying-iceberg-supported-data-types.md")
 - [Additional resources](querying-iceberg-additional-resources.md "querying-iceberg-additional-resources.md")
