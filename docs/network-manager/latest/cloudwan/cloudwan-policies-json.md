@@ -892,25 +892,43 @@ The following parameters are used in `routing-policies`:
       - `type` — The type of action to take for
         the condition logic. Supported actions
         include:
-        - `drop` — Drop matched routes
-        - `allow` — Allow only matched
-          routes
-        - `summarize` — Summarize routes
-          (outbound only)
-        - `prepend-asn-list` — Add ASNs to
-          the beginning of the AS path to influence route
-          selection
-        - `remove-asn-list` — Remove specific
-          ASNs in the AS path
-        - `replace-asn-list` — Replace
-          specific ASNs in the AS path with different
-          values
-        - `add-community` — Add BGP community values to routes
-        - `remove-community` — Remove BGP community values from routes
-        - `set-med` — Set the MED
-          value
-        - `set-local-preference` — Set
-          local preference
+
+      ###### Important
+
+      drop and allow result in terminal states, this means if a route matches a policy with a drop/allow action then no other
+      routing poliy rules after that rule will be evaluated. For example, if you have a routing policy with the following rules:
+
+          + Rule 1: drop, prefix-in-cidr 0.0.0.0/0
+          + Rule 2: allow, prefix-in-cidr 10.0.0.0/8
+          + Rule 3: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
+
+      The rule 1 drop rule would be terminal meaning all routes would be dropped and rule 2 and 3 will do nothing. If Rule 1 and 2 are reversed,
+      then 10.0.0.0/8 will be allowed and not dropped but the local preference rule 3 will not work because allow is also terminal. The proper order would be as follows
+
+          + Rule 1: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
+          + Rule 2: allow, prefix-in-cidr 10.0.0.0/8
+          + Rule 3: drop, prefix-in-cidr 0.0.0.0/0
+
+
+          + `drop` — Drop matched routes
+          + `allow` — Allow only matched
+           routes
+          + `summarize` — Summarize routes
+           (outbound only)
+          + `prepend-asn-list` — Add ASNs to
+           the beginning of the AS path to influence route
+           selection
+          + `remove-asn-list` — Remove specific
+           ASNs in the AS path
+          + `replace-asn-list` — Replace
+           specific ASNs in the AS path with different
+           values
+          + `add-community` — Add BGP community values to routes
+          + `remove-community` — Remove BGP community values from routes
+          + `set-med` — Set the MED
+           value
+          + `set-local-preference` — Set
+           local preference
 
 The following example shows two inbound routing policies: `RP1` is a
 routing policy that matches on the prefix list alias `prefixListAlias`,
