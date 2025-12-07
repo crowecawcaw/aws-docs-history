@@ -6,7 +6,7 @@ requests made to the server. When a request is made, the schema acts as the sing
 with the client. The schema will access, process, and relay data from the data source back to the client.
 See the infographic below:
 
-![GraphQL schema integrating multiple AWS services for a single endpoint API architecture.](images/aws-flow-infographic.png)
+![GraphQL schema integrating multiple AWS services for a single endpoint API architecture.](/images/appsync/latest/devguide/images/aws-flow-infographic.png)
 AWS AppSync and GraphQL superbly implement Backend For Frontend (BFF) solutions. They work in tandem to reduce
 complexity at scale by abstracting the backend. If your service uses different data sources and/or
 microservices, you can essentially abstract some of the complexity away by defining the shape of the data of

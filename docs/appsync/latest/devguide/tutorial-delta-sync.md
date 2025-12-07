@@ -43,7 +43,7 @@ operations to work with the Delta Sync client for optimal data access.
 To automatically set up the GraphQL endpoint in AWS AppSync with all the resolvers
 configured and the necessary AWS resources, use this AWS CloudFormation template:
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/deltasync/deltasync-v2-full.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/deltasync/deltasync-v2-full.yaml")
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](/images/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/deltasync/deltasync-v2-full.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/deltasync/deltasync-v2-full.yaml")
 
 This stack creates the following resources in your account:
 
