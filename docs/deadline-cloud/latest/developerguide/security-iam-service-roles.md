@@ -126,7 +126,7 @@ When creating a fleet, a CloudWatch Logs log group is created for that fleet. Th
 
 ### Modifying the fleet role
 
-Permissions for the fleet role are not customizable. The described permissions are always required and adding additional permissions will have no effect or use.
+Permissions for the fleet role are not customizable. The described permissions are always required and adding additional permissions has no effect.
 
 ## Customer-managed fleet host role
 
@@ -207,7 +207,7 @@ As a best practice, the trust policy should include security conditions for Conf
 
 ### Understand queue role permissions
 
-The queue role doesn't use a single managed policy. Instead, the Deadline Cloud console creates a custom policy for your queue based on your configuration.
+The queue role doesn't use a single managed policy. Instead, when you configure your queue in the console, Deadline Cloud creates a custom policy for your queue based on your configuration.
 
 This automatically created policy provides access to:
 
@@ -291,7 +291,7 @@ Deadline Cloud provides queue role credentials to:
 - Workers during job execution
 - Users via Deadline Cloud CLI and monitor when interacting with job attachments and logs
 
-Deadline Cloud creates separate CloudWatch Logs log groups for each queue. Jobs use queue role credentials to write logs to their queue's log group. The Deadline Cloud CLI and monitor use the queue role (via `deadline:AssumeQueueRoleForRead`) to read job logs from the queue's log group. The Deadline Cloud CLI and monitor use the queue role (via `deadline:AssumeQueueRoleForUser`) to upload or download job attachments data.
+Deadline Cloud creates separate CloudWatch Logs log groups for each queue. Jobs use queue role credentials to write logs to their queue's log group. The Deadline Cloud CLI and monitor use the queue role (through `deadline:AssumeQueueRoleForRead`) to read job logs from the queue's log group. The Deadline Cloud CLI and monitor use the queue role (through `deadline:AssumeQueueRoleForUser`) to upload or download job attachments data.
 
 ## Monitor role
 
@@ -356,7 +356,7 @@ This named profile is how the Deadline CLI and submitters access Deadline Cloud 
 Follow these guidelines when modifying your monitor role:
 
 - Don't remove any of the managed policies. This will break monitor functionality.
-- You may add additional permissions for advanced scripting workflows.
+- You can add additional permissions for advanced scripting workflows.
 
 ### How Deadline Cloud monitor uses monitor role credentials
 
