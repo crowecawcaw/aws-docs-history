@@ -3,7 +3,7 @@
 target account
 
 The target account is where your network will be deployed and where your migrated
-servers and applications will reside in AWS. For more information, see [Target account connector](transform-app-vmware-acct-connections.md#transform-app-vmware-target-acct "transform-app-vmware-acct-connections.md#transform-app-vmware-target-acct").
+servers and applications will reside in AWS.
 
 ###### Important
 
@@ -40,9 +40,9 @@ transferring your data across AWS Regions. 3. Choose **Continue**.
 
 ###### Important
 
-If you specify a target AWS Region that is different from the
-discovery AWS Region, that means AWS Transform will be transferring your
-data across AWS Regions. 3. Choose whether you want to use Amazon S3 managed keys for encryption. If you
+If you specify a connector with a target AWS Region that is
+different from the discovery AWS Region, that means AWS Transform will be
+transferring your data across AWS Regions. 3. Choose whether you want to use Amazon S3 managed keys for encryption. If you
 specify your own KMS key, you can use the default key policy. However, if
 you want a less permissive key policy, the following is an example. For
 information about how to create a KMS key, see [Create a KMS

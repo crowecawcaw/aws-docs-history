@@ -19,7 +19,7 @@ Detailed permissions for each role:
 | Get    | Workspace        | ✓     | ✓        | ✓           | ✓        |
 | Update | Workspace        | ✓     | ✗        | ✗           | ✗        |
 | Delete | Workspace        | ✓     | ✗        | ✗           | ✗        |
-| Create | ChatMessage      | ✓     | ✓        | ✓           | ✓        |
+| Create | ChatMessage      | ✓     | ✓        | ✓           | ✗        |
 | Read   | ChatMessage      | ✓     | ✓        | ✓           | ✓        |
 | Create | RoleAssociation  | ✓     | ✗        | ✗           | ✗        |
 | Read   | RoleAssociation  | ✓     | ✓        | ✓           | ✓        |

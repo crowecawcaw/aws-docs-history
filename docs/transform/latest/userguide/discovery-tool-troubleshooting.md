@@ -103,18 +103,11 @@ Enter-PSSession -ComputerName <HOST> -Credential $cred -Port 5985 -SessionOption
 
 ###### Install SNMP Tools (if needed)
 
-- ```
-  sudo yum install net-snmp-utils -y
-  ```
-
-````
+- `sudo yum install net-snmp-utils -y`
 
 ###### Test SNMP Connection to Linux Servers
 
-1. ```
-snmptable -v 2c -c <COMMUNITY_STRING> <REMOTE_SERVER_IP> .1.3.6.1.2.1.6.13.1
-````
-
+1. `snmptable -v 2c -c <COMMUNITY_STRING> <REMOTE_SERVER_IP> .1.3.6.1.2.1.6.13.1`
 2. Example:
 
 ```

@@ -28,13 +28,96 @@ where data is stored when you use AWS Transform, see
 
 ### Supported regions for AWS Transform cross-region inference
 
-The following table describes what Regions your requests may be routed to
-depending on the geography where the request originated.
+Certain requests you make to AWS Transform might require cross-region calls.
+The following table describes what Regions your requests may be routed to depending on the geography where the request originated.
 
-| **Source Region**                        | **Destination Regions**                                                                                                            |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| US East (N. Virginia) (us-east-1)        | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                    |
-| Europe (Frankfurt) Region (eu-central-1) | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3) |
+| Source Region                          | Destination Regions                                                                                                                                                                                                                                                                                            |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)US East (Ohio) (us-east-2)US West (Oregon) (us-west-2)                                                                                                                                                                                                                        |
+| Europe (Frankfurt) (eu-central-1)      | Europe (Frankfurt) (eu-central-1)Europe (Stockholm) (eu-north-1)Europe (Milan) (eu-south-1)Europe (Spain) (eu-south-2)Europe (Ireland) (eu-west-1)Europe (Paris) (eu-west-3)                                                                                                                                   |
+| Asia Pacific (Mumbai) (ap-south-1)     | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Seoul) (ap-northeast-2)Asia Pacific (Osaka) (ap-northeast-3)Asia Pacific (Mumbai) (ap-south-1)Asia Pacific (Hyderabad) (ap-south-2)Asia Pacific (Singapore) (ap-southeast-1)Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4) |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Seoul) (ap-northeast-2)Asia Pacific (Osaka) (ap-northeast-3)Asia Pacific (Mumbai) (ap-south-1)Asia Pacific (Hyderabad) (ap-south-2)Asia Pacific (Singapore) (ap-southeast-1)Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4) |
+| Asia Pacific (Seoul) (ap-northeast-2)  | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Seoul) (ap-northeast-2)Asia Pacific (Osaka) (ap-northeast-3)Asia Pacific (Mumbai) (ap-south-1)Asia Pacific (Hyderabad) (ap-south-2)Asia Pacific (Singapore) (ap-southeast-1)Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4) |
+| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Seoul) (ap-northeast-2)Asia Pacific (Osaka) (ap-northeast-3)Asia Pacific (Mumbai) (ap-south-1)Asia Pacific (Hyderabad) (ap-south-2)Asia Pacific (Singapore) (ap-southeast-1)Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4) |
+| Europe (London) (eu-west-2)            | Europe (Frankfurt) (eu-central-1)Europe (Stockholm) (eu-north-1)Europe (Milan) (eu-south-1)Europe (Spain) (eu-south-2)Europe (Ireland) (eu-west-1)Europe (London) (eu-west-2)Europe (Paris) (eu-west-3)                                                                                                        |
+| Canada (Central) (ca-central-1)        | Commercial AWS Regions + Canada (Central) (ca-central-1)                                                                                                                                                                                                                                                       |
 
 For a complete list of Regions where you can use AWS Transform, see
 [Supported Regions for AWS Transform](regions.md "regions.md").
+
+## Cross-Region knowledge
+
+When you ask a general question about AWS Transform services, transformation workflows,
+or related AWS documentation, AWS Transform might make cross-region requests to US East
+(Virginia) (us-east-1) for US regions or Europe (Frankfurt) (eu-central-1) for all other regions
+to retrieve documentation and fulfill your request. For example, when you ask questions about
+how to use other AWS services such as Lambda, AWS Transform might make a cross-region call
+to retrieve relevant AWS documentation to respond to your question. The following table
+describes what Regions your requests may be routed to depending on the geography where the
+request originated.
+
+| Source Region                          | Destination Regions               |
+| -------------------------------------- | --------------------------------- |
+| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1) |
+| Europe (Frankfurt) (eu-central-1)      | Europe (Frankfurt) (eu-central-1) |
+| Europe (London) (eu-west-2)            | Europe (Frankfurt) (eu-central-1) |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | Europe (Frankfurt) (eu-central-1) |
+| Asia Pacific (Sydney) (ap-southeast-2) | Europe (Frankfurt) (eu-central-1) |
+| Asia Pacific (Seoul) (ap-northeast-2)  | Europe (Frankfurt) (eu-central-1) |
+| Asia Pacific (Mumbai) (ap-south-1)     | Europe (Frankfurt) (eu-central-1) |
+| Canada (Central) (ca-central-1)        | Europe (Frankfurt) (eu-central-1) |
+
+This setting is enabled by default. An account administrator can modify this setting. Disabling this feature results in the loss of access to
+features that require AWS Transform to retrieve knowledge from other regions. This might result in less accurate responses.
+
+To disable cross-region
+calls made by AWS Transform:
+
+1. When first setting up AWS Transform, navigate to the **Get Started**
+   page and complete the configuration. For for an existing AWS Transform configuration,
+   navigate to the **Settings** page.
+2. Toggle **Enable cross-region calls to answer general AWS related questions** to the _off_ position.
+
+## AWS Transform for Windows cross-region inference
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Region                          | Inference Destination Regions                                                                                                                                                |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)US East (Ohio) (us-east-2)US West (Oregon) (us-west-2)                                                                                      |
+| Europe (Frankfurt) (eu-central-1)      | Europe (Frankfurt) (eu-central-1)Europe (Stockholm) (eu-north-1)Europe (Milan) (eu-south-1)Europe (Spain) (eu-south-2)Europe (Ireland) (eu-west-1)Europe (Paris) (eu-west-3) |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | All commercial regions                                                                                                                                                       |
+| Asia Pacific (Sydney) (ap-southeast-2) | All commercial regions                                                                                                                                                       |
+| Asia Pacific (Seoul) (ap-northeast-2)  | All commercial regions                                                                                                                                                       |
+| Asia Pacific (Mumbai) (ap-south-1)     | All commercial regions                                                                                                                                                       |
+| Canada (Central) (ca-central-1)        | All commercial regions                                                                                                                                                       |
+
+## AWS Transform for Migrations cross-region inference
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Region                          | Inference Destination Regions |
+| -------------------------------------- | ----------------------------- |
+| US East (N. Virginia) (us-east-1)      | All commercial regions        |
+| Europe (Frankfurt) (eu-central-1)      | All commercial regions        |
+| Europe (London) (eu-west-2)            | All commercial regions        |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | All commercial regions        |
+| Asia Pacific (Sydney) (ap-southeast-2) | All commercial regions        |
+| Asia Pacific (Seoul) (ap-northeast-2)  | All commercial regions        |
+| Asia Pacific (Mumbai) (ap-south-1)     | All commercial regions        |
+| Canada (Central) (ca-central-1)        | All commercial regions        |
+
+## AWS Transform Custom
+
+AWS Transform custom is only available in US East (N. Virginia) (us-east-1) and uses Amazon Bedrock geographic cross-region inference. This means that some of your calls might be routed to AWS Regions outside of US East in the same geographic region. You can access AWS Transform custom features only from workspaces deployed in US East.
+
+| Source Region                          | Inference Destination Regions                                                           |
+| -------------------------------------- | --------------------------------------------------------------------------------------- |
+| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)US East (Ohio) (us-east-2)US West (Oregon) (us-west-2) |
+| Europe (Frankfurt) (eu-central-1)      | n/a                                                                                     |
+| Europe (London) (eu-west-2)            | n/a                                                                                     |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | n/a                                                                                     |
+| Asia Pacific (Sydney) (ap-southeast-2) | n/a                                                                                     |
+| Asia Pacific (Seoul) (ap-northeast-2)  | n/a                                                                                     |
+| Asia Pacific (Mumbai) (ap-south-1)     | n/a                                                                                     |
+| Canada (Central) (ca-central-1)        | n/a                                                                                     |

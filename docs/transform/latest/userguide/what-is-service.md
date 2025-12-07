@@ -6,7 +6,7 @@ tools to streamline modernization and migration efforts across various workloads
 
 With AWS Transform, you can:
 
-- Modernize IBM z/OS migrations to AWS
+- Modernize and migrate IBM z/OS and Fujitsu GS21 to AWS
 - Migrate VMware workloads to Amazon EC2
 - Modernize .NET applications to Linux-ready cross-platform .NET
 - Assess workloads for migration readiness

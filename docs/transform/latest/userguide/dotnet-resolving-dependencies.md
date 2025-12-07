@@ -4,12 +4,22 @@ transformation
 
 After [Confirming your repositories to prepare for transformation](dotnet-confirming-repos.md "dotnet-confirming-repos.md"), if AWS Transform finds missing package dependencies, you must complete this step. You can run a Windows PowerShell script to get the missing package dependencies from the same device as your Visual Studio development environment, or you can retrieve the missing packages manually. Then, upload the missing packages.
 
-AWS Transform lists the missing packages in the _Missing package dependencies_ table. You can search for a missing package by name in the search box. This table includes the following details about the missing packages:
+The Missing Package Dependencies can be updated in two ways:
 
-- Name
-- Associated repositories
-- Framework version status
-- Core version status
+- **Resolve using Artifact Connector:** Resolve by configuring an
+  Artifact Repository (ADO NuGet Connector) through a dedicated Connect Artifact
+  Repository HITL workflow, which is displayed when an Artifact Connector is not
+  configured and packages are missing.
+- **Update missing package:** AWS Transform lists the missing packages in
+  the Missing package dependencies table. You can search for a missing package by name in
+  the search box. This table includes the following details about the missing
+  packages:
+
+      + Name
+      + Associated repositories
+      + Framework version status
+      + Core version status
+
   To resolve the missing package dependencies, [Upload the missing packages](#upload-missing-packages "#upload-missing-packages").
 
 ## Upload the missing packages

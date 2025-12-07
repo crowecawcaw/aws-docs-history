@@ -21,7 +21,8 @@ and recommendations is determined by your AWS Transform administrator, you can s
 different AWS Region as your target for the migration. In other words, you can run
 discovery and receive AWS Transform recommendations in one AWS Region, but then create
 your target environment in a different AWS Region. If you do that, you will be
-transferring your data across AWS Regions. For more information, see [Target account connector](transform-app-vmware-acct-connections.md#transform-app-vmware-target-acct "transform-app-vmware-acct-connections.md#transform-app-vmware-target-acct").
+transferring your data across AWS Regions. For more information, see [AWS account connectors for
+VMware migrations](transform-app-vmware-acct-connections.md "transform-app-vmware-acct-connections.md").
 
 ## Job types
 

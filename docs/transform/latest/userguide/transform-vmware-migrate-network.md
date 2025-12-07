@@ -1,90 +1,84 @@
 # Migrate network
 
-AWS Transform can migrate your VMware networks to AWS. The migration process
-translates your source environment configuration to an AWS-equivalent network.
-AWS Transform analyzes your source network data and translates your source network to
-these AWS networking resources as needed: VPCs, subnets, security groups, NAT
-gateways, transit gateways, elastic IPs, routes, and route tables. AWS Transform then
-creates AWS CloudFormation templates, AWS Cloud Development Kit (AWS CDK) templates, and and Hashicorp Terraform templates. You'll be able to review the
-generated network configuration, and then either deploy it on your own or ask
-AWS Transform to deploy it for you.
+AWS Transform migrates VMware networks to AWS by translating your source environment configuration into AWS-equivalent network resources. AWS Transform
+analyzes your source network data and creates VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables as needed. You can review and modify the generated network configuration before deployment. For deployment, you can either have AWS Transform deploy the configuration for you and analyze deployed network connectivity, or choose self-deployment—in which case AWS Transform generates Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK) (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
 
-The translation process
-requires you to upload a configuration file from your source environment. You can use [RVTools](https://www.dell.com/en-us/shop/vmware/sl/rvtools "https://www.dell.com/en-us/shop/vmware/sl/rvtools"), [Export for vCenter](https://github.com/awslabs/export-for-vcenter "https://github.com/awslabs/export-for-vcenter"),
-or [Import/Export for
-NSX](https://github.com/awslabs/import-export-for-nsx/ "https://github.com/awslabs/import-export-for-nsx/") to capture on-premises-network data, and then import that file to AWS Transform. The
-choice of tool depends on the type of source network that you have:
+## Source Network Mapping
 
-- If you have an NSX-defined network, upload an NSX configuration file using Import/Export for
-  NSX.
-- If you have a vSphere-constructs-defined network, you can upload an [RVTools](https://www.dell.com/en-us/shop/vmware/sl/rvtools "https://www.dell.com/en-us/shop/vmware/sl/rvtools") file. AWS Transform will use
-  that data to generate Amazon VPC configurations for you to review and deploy in
-  your target AWS account. If you upload an [RVTools](https://www.dell.com/en-us/shop/vmware/sl/rvtools "https://www.dell.com/en-us/shop/vmware/sl/rvtools") file, AWS Transform won't
+The network mapping process requires uploading a configuration file from your source environment. You can use RVTools, Export for vCenter, or Import/Export for NSX to capture on-premises network data and import it to AWS Transform. The tool you choose depends on your source network type:
 
-create security groups because **RVTools**
-files don't include the information required to generate security
-groups.
-If your administrative workstation does not run Windows, RVTools is not approved in your
-organization, or you want more granular control over the export file's
-contents, use an [Export for vCenter](https://github.com/awslabs/export-for-vcenter "https://github.com/awslabs/export-for-vcenter") file, which generates a file in the same
-format as RVTools.
-
-Ensure that the target account has the required quotas.
+- **NSX-defined network:** Upload an NSX configuration file using Import/Export for NSX.
+- **vSphere-defined network:** Upload an RVTools file or Export for vCenter file. When using RVTools files, AWS Transform will focus on generate Amazon VPC configurations,
+  while security group configurations require additional input. For network security settings, you may upload configuration files from additional sources like firewalls and software-defined networks. See [Additional Configuration Files](#transform-vmware-additional-config-files "#transform-vmware-additional-config-files") for more details.
+- **Non-Windows workstation or need granular control:** Use Export for vCenter, which generates files in the same format as RVTools.
 
 ###### Warning
 
-The official RVTools site is [https://www.dell.com/en-us/shop/vmware/sl/rvtools](https://www.dell.com/en-us/shop/vmware/sl/rvtools " https://www.dell.com/en-us/shop/vmware/sl/rvtools"), which
-is the site that this guide links to in steps that mention RVTools. Beware of
-the scam site (rvtools)(dot)(org).
+The official RVTools site is [https://www.dell.com/en-us/shop/vmware/sl/rvtools](https://www.dell.com/en-us/shop/vmware/sl/rvtools "https://www.dell.com/en-us/shop/vmware/sl/rvtools"), which is the site that this guide links to in steps that mention RVTools. Beware of the scam site (rvtools)(dot)(org).
 
-AWS Transform analyzes your source network data and translates your source
-network to these AWS networking resources as needed: VPCs, subnets, security groups,
-NAT gateways, transit gateways, internet
-gateways, elastic IPs, routes, and route tables.
+AWS Transform creates VPCs from all source network segments, with each detected segment becoming its own distinct VPC. Network segmentation varies by source type:
 
-If you want the target network to contain different IP ranges than your source
-network you can modify your VPC CIDR ranges during migration. AWS Transform
-automatically propagates changes to subnets, route tables, and security groups, and
-then assigns static IPs based on the CIDR. This is best for applications requiring
-predictable network behavior, DNS management, or IP-based access control. IP
-addresses persist across instance restarts using Elastic Network Interfaces
-(ENIs).
+- **vNetwork:** AWS Transform groups VMs by vSwitch and VLAN. VLANs can appear under multiple vSwitches (except VLAN 0).
+- **NSX networks:** AWS Transform segments the network based on Tier-1 routers, grouping the routers and collecting their segments.
 
-For NSX environments, you can choose to have AWS Transform automatically convert security
-policies and gateway policies to Security Groups, associating them with network
-interfaces based on VM external IDs and IP addresses. In this case you will not have the option to use dynamic IP assignment (DHCP)
-for your target instances because IP
-addresses aren't known until instance launch.
+The network mapping process generates these key resources:
 
-AWS Transform then creates CloudFormation templates and AWS Cloud Development Kit (AWS CDK) templates.
+- **Network topology:** Network deployment best practice for implementation. See the Network topologies section for more details.
+- **Workload segment configuration:** Amazon VPC segments with CIDR block definitions for organizing workloads and managing network traffic flow.
+- **Security configuration:** Pre-configured access rules for different network segments, supporting ingress and egress traffic control.
 
-Once the target network is generated, review the generated network configuration.
-You can either deploy it on your own or ask AWS Transform to deploy it for you. If
-you choose to let AWS Transform deploy the network for you, it also uses tools
-such as [Reachability Analyzer](../../../vpc/latest/reachability/what-is-reachability-analyzer.md "../../../vpc/latest/reachability/what-is-reachability-analyzer.md") to run an analysis to check connectivity
-between subnets across multiple VPCs and under the same VPC. If you choose to make
-changes to the generated configuration, you must deploy the modified configuration
-yourself.
+###### Note
 
-## Source Network Convergence
+AWS Transform tags all generated resources with "CreatedBy": "AWSApplicationMigrationService" along with definition and execution IDs for tracking and management purposes.
 
-During end-to-end migration or network-only migration jobs, AWS Transform
-creates AWS Virtual Private Clouds (VPCs) from all source network segments in
-the **Generate VPC Configuration** stage. Each
-detected network segment becomes its own distinct VPC.
+## Additional Configuration Files
 
-Network segmentation by source type:
+AWS Transform supports additional configuration files that enable automated security group generation when combined with RVTools files. You can upload configuration files from the following enterprise solutions:
 
-- For vNetwork: AWS Transform groups VMs by vSwitch and VLAN, with VLAN presented under multiple vSwitches (except for VLAN 0).
-- For NSX networks: AWS Transform segments the network based on Tier-1 routers by grouping the routers and collecting the segments.
+- Cisco Application Centric Infrastructure (ACI): Network policy configurations
+- Palo Alto Networks: Firewall security policies
+- Fortinet FortiGate: Firewall security policies
+
+When you upload a combination of RVTools and one or more of these configuration files, AWS Transform generates both the target VPC network infrastructure and corresponding security groups based on your existing security policies. This preserves your security investments and ensures consistent policy enforcement in AWS.
+
+To extract configuration files from firewall and network environments, follow these procedures. Consult vendor documentation for the latest information.
+
+### Fortinet FortiGate
+
+- Firmware: 7.0 - 7.6
+- Requirements: super_admin or super_admin_readonly privileges
+- Steps: Connect via SSH, run `show | grep ""` (| grep "", save output to file
+
+### Palo Alto Networks
+
+- Firmware: 10.1.X
+- Requirements: superadmin role
+- Steps: Connect via SSH, run commands below, save outputs to palo-conf.txt and palo-default.txt:
+  - `set cli pager off`
+  - `set cli config-output-format set`
+  - `configure`
+  - `show` # Save as palo-conf.txt
+  - `show predefined` # Save as palo-default.txt
+
+### Cisco ACI
+
+- Firmware: 6.3+
+- Requirements: Admin role with all privileges; SCP/SFTP/FTP destination configured
+- Steps:
+  - Connect to APIC controller via browser
+  - Go to Admin and Config Rollbacks
+  - Select remote location and select "Create a snapshot now" option
+  - Retrieve .gz file after "Transfer successful" message.
 
 ## Network Topologies
 
-During the migration to the target network you can choose the Isolated VPCs topology or the Hub and Spoke topology.
+During the migration to the target network you can choose the **Isolated VPCs** topology or the **Hub and Spoke** topology.
 
 ###### Important
 
-For both topologies, AWS Transform does not open the communication to the internet. You must open it manually after taking appropriate security precautions.
+For both topologies AWS Transform does not open the communication to the internet.
+You must open it manually after taking appropriate security
+precautions.
 
 ### Isolated VPCs
 
@@ -105,75 +99,6 @@ AWS Transform automatically associates all spoke VPCs with the default associati
 If you want fine-grained control over the communication between the VPCs, choose the
 **Isolated VPCs** option and modify the generated network to create the specific communication
 paths your require.
-
-## Network configuration generators
-
-AWS Transform provides multiple generators for creating network infrastructure
-code from your migrated network configuration. These are available to you in the
-**Migrate Network** task, after you **Generate VPC
-configuration** and **Review generated VPC
-configuration**. When you choose the **Deploy on my
-own** option AWS Transform for VMware gives you the option to generate Infrastructure-as-Code (IaC) templates in four formats:
-
-- **CloudFormation** templates that you can use to provision your network
-  resources.
-- **CDK project** - AWS Cloud Development Kit (AWS CDK) templates generated in TypeScript for programmatic infrastructure deployment
-- **HashiCorp Terraform** - Infrastructure as Code (IaC) templates generated in HashiCorp Configuration Language (HCL) for managing network resources
-- **Landing Zone Accelerator by AWS** - A
-  `network-config.yaml` file that works with LZA network
-  configuration. Learn more about the Landing Zone Accelerator solution
-  and how to deploy the network configuration YAML in [Using configuration files](../../../solutions/latest/landing-zone-accelerator-on-aws/using-configuration-files.md "../../../solutions/latest/landing-zone-accelerator-on-aws/using-configuration-files.md") in the _Landing Zone
-  Accelerator on AWS Implementation Guide_.
-
-###### Note
-
-When deploying this network configuration via the Landing Zone Accelerator (LZA) pipeline,
-ensure that your AWS Transform account and LZA installation are in the same AWS Organization. Deployment will fail if there is a mismatch between the Organizations IDs
-used in AWS Transform and LZA. To learn how to set up your LZA installation
-using Organizations see [AWS Organizations based installation (without AWS Control Tower)](../../../solutions/latest/landing-zone-accelerator-on-aws/prerequisites.md#for-aws-organizations-based-installation-without-aws-control-tower "../../../solutions/latest/landing-zone-accelerator-on-aws/prerequisites.md#for-aws-organizations-based-installation-without-aws-control-tower").
-
-After you select a network configuration format, use the link provided on the
-**Download and deploy networks** -
-**Collaboration** tab to download a zip file containing the
-generated templates. The zip folder includes a README.md file that explains how
-to use the generated templates.
-
-###### Note
-
-To ensure that the downloaded file hasn’t been corrupted or tampered with during transfer,
-generate and download a checksum from **Optional tasks**
-and compare the hash to a locally generated hash. Generate the local hash
-using the `openssl dgst -sha256 -binary <file.zip> |
- base64` command.
-
-The network configuration generators generate these key components:
-
-### Hub and Spoke Network Architecture
-
-For details see [Hub and spoke](#hub-and-spoke "#hub-and-spoke") in
-the [Network topologies](#network-topologies "#network-topologies")
-section.
-
-### Network Segments Configuration
-
-The infrastructure creates VPC segments for organizing workloads and managing network traffic flow.
-
-### Security Configuration
-
-- **Comprehensive Security Groups:** Pre-configured rules for different network segments
-- **Network Definitions:** CIDR block definitions for consistent referencing
-- **Rule Templates:** Modular security rules supporting ingress/egress traffic control
-
-### Application Migration Service Integration
-
-- **Automatic Tagging:** All resources tagged with MGN definition and execution IDs
-- **Migration Tracking:** Resources tagged for Application Migration Service tracking
-- **Execution Context:** Unique execution ID for deployment correlation
-
-### Reusable Modules
-
-The generated configuration includes a modular structure for
-maintainability and reusability
 
 ## IP migration approaches
 
@@ -207,113 +132,82 @@ You can combine either range selection with either IP assignment method.
 
 ###### Note
 
-IP strategy is set at the wave level. You can assign different strategies to specific servers
+IP addresses assignment strategy is set at the wave level. You can assign different strategies to specific servers
 by customizing the wave file. For example if you chose a static IP address
 approach for the wave, but want to assign a dynamic approach to a specific
 server, you would use `[RESET_VALUE]` as described in [Editing your configuration](../../../mgn/latest/ug/configuration-editing.md "../../../mgn/latest/ug/configuration-editing.md") In the _Application Migration Service user
 guide_.
 
-## Generate VPC configuration
+###### Important
 
-###### To import network data
+When you choose to create security groups, you cannot use Dynamic Host Configuration Protocol (DHCP) for server migrations.
+Security groups use Classless Inter-Domain Routing (CIDR) configurations, and enabling DHCP could compromise your network's security posture.
 
-1. In the **Job Plan** pane, choose **Migrate
-   network**.
-2. Expand **Generate VPC configuration**.
-3. Choose **Import network data**.
-4. In the **Network source data** section, either select
-   an existing import, or choose **Upload file** to
-   import a new file to add to the list, and then select the file that you
-   uploaded.
-5. In the **Network topology** section, the topology
-   that you want AWS Transform to generate.
-6. Choose **Generate VPC configuration**.
-7. After AWS Transform generates a Amazon VPC configuration, choose
-   **Review generated VPC configuration**.
+## Review VPC Configurations
 
-In this step you can choose to either
-**use the current configuation** or **Modify your VPC CIDRs**. You cannot
-modify the prefix length, which comes after the "/".
+After AWS Transform generates Amazon VPC configurations, it displays the generated VPC networks. You can either use the current configuration or modify VPC CIDRs. Note: You cannot modify the prefix length (the value after the "/") or any other resources.
 
-To modify your VPC CIDRs:
+To modify VPC CIDRs:
 
-    1. In the **Generated VPCs** list provide your modified CIDRs.
-    2. Choose the **Regenerate network** button.
+1. In the Generated VPCs list, provide your modified CIDRs.
+2. Choose **Submit** to apply the changes
+   and rerun the mapping process.
+3. Review the results, then either continue with network deployment or repeat the modification steps.
 
+## Deploy Network
 
-    Review the results and then choose to continue with network
-     deployment or to repeat the **Modify your VPC CIDRs** and **Regenerate network** steps.
+After reviewing and approving the generated network configuration, choose to deploy using AWS Transform or on your own.
 
-8. Review the generated
-   network configuration, and then choose **Deploy using AWS Transform** or **Deploy on my own**. If you make changes to the generated configuration
-   you have to deploy the modified configuration yourself. If you choose to let
-   AWS Transform deploy the network for you, it uses tools such as
-   [Reachability Analyzer](../../../vpc/latest/reachability/what-is-reachability-analyzer.md "../../../vpc/latest/reachability/what-is-reachability-analyzer.md") to run an analysis
-   to check connectivity between subnets across multiple VPCs and under the same VPC.
+###### Note
 
-## Tag network resources
+Ensure your target account has the required quotas before beginning deployment.
 
-For AWS Transform to launch Amazon EC2 instances within your existing AWS network
-resources which were not created by AWS Transform, the target network resources, including VPCs and subnets, must
-be tagged. You can ask AWS Transform to do the tagging for you, in which case it
-tags **all** network resources that it finds in
-the target AWS account and AWS Region. You can also manually tag target
-network resources that you’ve created on your own with the following tags:
+Deployment Options:
 
-Key: `CreatedFor` Value: `AWSTransform`
+- **AWS Transform-managed deployment:** AWS Transform uses CloudFormation templates to deploy your network and runs Reachability Analyzer to check connectivity between subnets across multiple VPCs and within the same VPC.
 
-Key: `ATWorkspace` Value: `workspace ID`
+###### Note
 
-Find your workspace ID in the AWS Transform web app URL, https:// ... /workspace/`workspace-id`/job/job-id
+Network deployment requests require explicit approval before execution. See [Deployment approvals process](#transform-vmware-deployment-approvals "#transform-vmware-deployment-approvals") for more details.
 
-Learn more about how to tag network resources in [Tag your VPCs and subnets](transform-vmware-migrate-waves.md#transform-tag-vpc-subnets "transform-vmware-migrate-waves.md#transform-tag-vpc-subnets") .
+- **Self-deployment:** AWS Transform generates Infrastructure as Code (IaC) templates in the following formats:
+  - CloudFormation: Templates for provisioning network resources
+  - AWS CDK: TypeScript project for programmatic infrastructure deployment
+  - HashiCorp Terraform: HCL templates for managing network resources
+  - Landing Zone Accelerator (LZA): A network-config.yaml file for LZA network configuration. See Using configuration files in the Landing Zone Accelerator on AWS Implementation Guide.
 
-## Security group
+###### Note
 
-association
+When deploying this network configuration via the Landing Zone Accelerator (LZA) pipeline, ensure that your AWS Transform account and LZA installation are in the same AWS Organization. Deployment will fail if there is a mismatch between the Organizations IDs used in AWS Transform and LZA. To learn how to set up your LZA installation using Organizations see AWS Organizations based installation (without AWS CloudTrail).
 
-When you migrate networks from an NSX source environment, AWS Transform creates
-security groups based on your source environment configurations.
+After you select a network configuration format, use the link provided to download a zip file containing the generated templates. The zip folder includes a README.md file that explains how to use the generated templates.
+
+To verify the downloaded file hasn't been corrupted or tampered with, generate and download a checksum, then compare it to a locally generated hash using `openssl dgst -sha256 -binary <file.zip> | base64` command.
+
+## Deployment approvals process
+
+Network deployment requests require explicit approval before execution. When you submit a deployment request, it automatically routes to authorized approvers through the AWS Transform Approvals tab. Approvers validate both CloudFormation templates and network configurations to ensure compliance with security standards and architectural requirements. Each submission triggers a new review cycle, and deployments proceed only after receiving confirmation. If an approver denies your request, contact them directly to discuss necessary modifications. The system tracks all approval decisions for audit purposes and maintains deployment history.
+
+## Security group association
+
+AWS Transform creates security groups based on your source environment configurations when migrating from NSX environments. AWS Transform can generate security groups from RVTools files when combined with Additional configuration files from sources such as firewalls and software-defined networks.
 
 ###### Important
 
-AWS Transform makes a best effort to create security groups that match
-your source environment. It is your responsibility to review and, if necessary, modify the security
-groups to ensure that they meet your company's needs and security policies.
+AWS Transform makes a best effort to create security groups that match your source environment. It is your responsibility to review and, if necessary, modify the security groups to ensure that they meet your company's needs and security policies.
 
-AWS Transform converts the following NSX configurations to security groups:
+AWS Transform converts the following configurations to security groups:
 
 - Security policies and security policy rules
 - Gateway policies and gateway policy rules
 
-The association is based on the `source_groups` for outbound
-communication, and on the `destination_groups` for inbound
-communication. During server migration (import inventory), AWS Transform uses the
-following logic to associate these security groups with the appropriate network
-interfaces:
+## Tag network resources
 
-- Rules associated to a VM external ID are attached to all of the
-  elastic network interfaces of the given VM.
-- Rules associated to an IP are attached to the network interface with
-  the specific IP.
-- _Exclude_ rules are ignored. However, you can
-  manually create replacements for them.
+To use existing AWS network resources not created by AWS Transform, you must tag the resources (including VPCs and subnets). AWS Transform can tag resources during migration wave execution—it will tag all network resources in the target AWS account and Region. Alternatively, you can manually tag network resources you've created with the following tags:
 
-The association maintains the security rules specified in the inventory
-import. The migration process creates encoded mapping files, one per VPC in your
-Amazon S3 bucket, that link VM external identifiers and IP addresses to the security
-groups they should be bound to. Follow AWS best practices to secure these
-files because they contain sensitive information about mappings. For guidance,
-see [Data protection in AWS Transform](data-protection.md "data-protection.md").
+- Key: CreatedFor Value: AWSTransform
+- Key: ATWorkspace Value: workspace ID
 
-###### Important
+Find your workspace ID in the AWS Transform web app URL, https:// ... /workspace/`workspace-id`/job/job-id
 
-Do not modify these mapping files, as they are essential for proper
-security group association. Modifying these files will cause a failure
-during the import inventory phase.
-
-Security groups removed from the VPC after network deployment will not be
-associated with migrated servers.
-
-During import, AWS Transform automatically deduplicates security groups based on
-their ID so as to remove redundant assignments.
+Learn more about how to tag network resources in [VPC and subnet tags](transform-vmware-migrate-waves.md#transform-tag-vpc-subnets "transform-vmware-migrate-waves.md#transform-tag-vpc-subnets").

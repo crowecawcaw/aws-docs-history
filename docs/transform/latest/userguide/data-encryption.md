@@ -8,7 +8,52 @@ encryption using AWS owned keys.
 
 ## Encryption types
 
-### AWS Owned Keys (Default)
+### Encryption in transit
+
+Communication between customers and AWS Transform and between AWS Transform and its downstream
+dependencies is protected using TLS 1.2 or higher connections.
+
+###### Important
+
+When you [Connect a discovery account](../../../transform-vmware-connect-discovery-account.md "../../../transform-vmware-connect-discovery-account.md"), AWS Transform creates an Amazon S3 bucket on your behalf in that
+account. That bucket does not have `SecureTransport` enabled by
+default. If you want the bucket policy to include secure transport you must
+update the policy. For more information, see [Security best
+practices for Amazon S3](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md").
+
+### Encryption at rest
+
+AWS Transform stores data at rest using Amazon DynamoDB and Amazon Simple Storage Service (Amazon S3). The data at rest is
+encrypted using AWS encryption solutions by default. AWS Transform encrypts your data with
+encryption using AWS owned keys from AWS Key Management Service (AWS KMS). You don’t have to take any
+action to protect the AWS managed keys that encrypt your data. For more information,
+see [AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk")
+in the _AWS Key Management Service Developer Guide_.
+
+| Data type                                                                                                                                    | AWS-owned key encryption | Customer managed key encryption (Optional) |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------ |
+| Customer bucket data<br>Customer inputs and outputs such as code and documentation stored in<br>an Amazon S3 bucket                          | Enabled                  | Enabled                                    |
+| Artifact Store<br>Intermediate artifacts as part of code transformation stored in an S3<br>bucket                                            | Enabled                  | Enabled                                    |
+| Job Objective<br>The customer's intent for the job stored in an Amazon S3 bucket                                                             | Enabled                  | Enabled                                    |
+| Chat messages<br>Messages between the customer and AWS Transform stored in an Amazon S3<br>bucket                                            | Enabled                  | Enabled                                    |
+| Chat Knowledge Base<br>Indexed data relevant to AWS Transform and customer chat stored in Amazon<br>OpenSearch and processed via AWS Bedrock | Enabled                  | Enabled                                    |
+
+Note: The customer can register their own Customer Managed Key (CMK) to be used for
+encrypting all of the above data types.
+
+Customer managed keys are KMS keys in your AWS account that you create, own, and
+manage to directly control access to your data by controlling access to the KMS key.
+Only symmetric keys are supported. For information on creating your own KMS key, see
+[Creating
+keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
+
+When you use a customer managed key, AWS Transform makes use of KMS grants, allowing
+authorized users, roles, or applications to use a KMS key. When an AWS Transform administrator
+chooses to use a customer managed key for encryption during configuration, a grant is
+created for them. This grant is what allows the end user to use the encryption key for
+data encryption at rest. For more information on grants, see [Grants in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md").
+
+#### AWS Owned Keys (Default)
 
 ###### Note
 
@@ -29,7 +74,7 @@ type, you can add a second layer of encryption over the existing AWS owned
 encryption keys by choosing a customer managed key when you create your
 transformation:
 
-### Customer managed keys (Optional)
+#### Customer managed keys (Optional)
 
 **Customer managed keys** — AWS Transform supports the use of
 a symmetric customer managed key that you create, own, and manage to add a second
@@ -94,14 +139,6 @@ To create a symmetric customer managed key, follow the steps for [Creating
 symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer
 Guide_.
 
-### Key policy
-
-Key policies control access to your customer managed key. Every customer managed
-key must have exactly one key policy, which contains statements that determine who
-can use the key and how they can use it. When you create your customer managed key,
-you can specify a key policy. For more information, see [Managing access to customer managed keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the _AWS Key Management Service
-Developer Guide_.
-
 To use your customer managed key with your AWS Transform resources, the following API
 operations must be permitted in the key policy:
 
@@ -112,59 +149,122 @@ _AWS Key Management Service Developer Guide_.
 
 This allows AWS Transform to do the following:
 
-- Call [KMS API (GenerateDataKeyWithoutPlainText/GenerateDatakey) to generate
+- Call [KMS API ([GenerateDataKeyWithoutPlainText](../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md "../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md")/[GenerateDatakey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md")) to generate
   an encrypted data key and store it, because the data key isn't immediately used
   to encrypt.
-- Call [KMS API (Decrypt)] to use the stored encrypted data key to access
+- Call [KMS API ([Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md"))] to use the stored encrypted data key to access
   encrypted data.
-- Set up a retiring principal to allow the service to RetireGrant.
-- kms:DescribeKey – Provides the customer managed key details to allow
+- Set up a retiring principal to allow the service to [RetireGrant](../../../kms/latest/APIReference/API_RetireGrant.md "../../../kms/latest/APIReference/API_RetireGrant.md").
+- [kms:DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") – Provides the customer managed key details to allow
   [Service Name] to validate the key.
 
-## Encryption in transit
+### Encryption for SQL modernization
 
-Communication between customers and AWS Transform and between AWS Transform and its downstream
-dependencies is protected using TLS 1.2 or higher connections.
+During the [SQL Server
+modernization](sql-server-modernization.md "sql-server-modernization.md") process AWS Transform creates resources in your account, such as EC2
+instances, ECS clusters, ECR images and S3 objects. You have the option of providing
+a customer managed key to encrypt data in your account. You will need to tag your KMS
+key with key **CreatedFor** and value **AWSTransform** . This example policy lists the minimum
+permissions required in your key policy if you don’t have a default key policy. If
+you have a default key policy, you still need to manually update the KMS key in
+addition to your default key policy to allow ECS to use your key.
 
-###### Important
-
-When you [Connect a discovery account](../../../transform-vmware-connect-discovery-account.md "../../../transform-vmware-connect-discovery-account.md"), AWS Transform creates an Amazon S3 bucket on your behalf in that
-account. That bucket does not have `SecureTransport` enabled by
-default. If you want the bucket policy to include secure transport you must
-update the policy. For more information, see [Security best
-practices for Amazon S3](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md").
-
-## Encryption at rest
-
-AWS Transform stores data at rest using Amazon DynamoDB and Amazon Simple Storage Service (Amazon S3). The data at rest is
-encrypted using AWS encryption solutions by default. AWS Transform encrypts your data with
-encryption using AWS owned keys from AWS Key Management Service (AWS KMS). You don’t have to take any
-action to protect the AWS managed keys that encrypt your data. For more information,
-see [AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk")
-in the _AWS Key Management Service Developer Guide_.
-
-| Data type                                                                                                                                    | AWS-owned key encryption | Customer managed key encryption (Optional) |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------ |
-| Customer bucket data<br>Customer inputs and outputs such as code and documentation stored in<br>an Amazon S3 bucket                          | Enabled                  | Enabled                                    |
-| Artifact Store<br>Intermediate artifacts as part of code transformation stored in an S3<br>bucket                                            | Enabled                  | Enabled                                    |
-| Job Objective<br>The customer's intent for the job stored in an Amazon S3 bucket                                                             | Enabled                  | Enabled                                    |
-| Chat messages<br>Messages between the customer and AWS Transform stored in an Amazon S3<br>bucket                                            | Enabled                  | Enabled                                    |
-| Chat Knowledge Base<br>Indexed data relevant to AWS Transform and customer chat stored in Amazon<br>OpenSearch and processed via AWS Bedrock | Enabled                  | Enabled                                    |
-
-Note: The customer can register their own Customer Managed Key (CMK) to be used for
-encrypting all of the above data types.
-
-Customer managed keys are KMS keys in your AWS account that you create, own, and
-manage to directly control access to your data by controlling access to the KMS key.
-Only symmetric keys are supported. For information on creating your own KMS key, see
-[Creating
-keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
-
-When you use a customer managed key, AWS Transform makes use of KMS grants, allowing
-authorized users, roles, or applications to use a KMS key. When an AWS Transform administrator
-chooses to use a customer managed key for encryption during configuration, a grant is
-created for them. This grant is what allows the end user to use the encryption key for
-data encryption at rest. For more information on grants, see [Grants in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md").
+```
+ "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:root"
+      },
+      "Action": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": "s3.*.amazonaws.com",
+          "kms:EncryptionContext:aws-transform": "*"
+        },
+        "ArnLike": {
+          "aws:PrincipalArn": "arn:aws:iam::*:role/*AWSTransform*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:root"
+      },
+      "Action": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncrypt*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": "ec2.*.amazonaws.com"
+        },
+        "ArnLike": {
+          "aws:PrincipalArn": "arn:aws:iam::*:role/*AWSTransform*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:root"
+      },
+      "Action": "kms:CreateGrant",
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": [
+            "ec2.*.amazonaws.com",
+            "ecr.*.amazonaws.com"
+          ]
+        },
+        "Bool": {
+          "kms:GrantIsForAWSResource": "true"
+        },
+        "ArnLike": {
+          "aws:PrincipalArn": "arn:aws:iam::*:role/*AWSTransform*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "fargate.amazonaws.com"
+      },
+      "Action": "kms:GenerateDataKeyWithoutPlaintext",
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:EncryptionContext:aws:ecs:clusterName": "AWSTransform*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "fargate.amazonaws.com"
+      },
+      "Action": "kms:CreateGrant",
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:EncryptionContext:aws:ecs:clusterName": "AWSTransform*"
+        },
+        "ForAllValues:StringEquals": {
+          "kms:GrantOperations": "Decrypt"
+        }
+      }
+    }
+  ]
+```
 
 ## Using customer managed KMS keys
 
@@ -174,7 +274,7 @@ key in the AWS Transform console to use it to encrypt data.
 To set up a customer managed key to encrypt data in AWS Transform, administrators need
 permissions to use AWS KMS.
 
-To use features that are encrypted with a customer managed key, users need
+To use functionality that is encrypted with a customer managed key, users need
 permissions to allow AWS Transform to access the customer managed key.
 
 If you see an error related to KMS grants while using AWS Transform, you likely need to
@@ -187,7 +287,38 @@ to create grants, you need to update the permissions on the AWS Transform consol
 
 access to customer managed keys
 
-The following example policy grants users permissions to access features encrypted
+The following example policy statement grants users permissions to access features encrypted
 with a customer managed key by allowing AWS Transform access to the key. This policy is
 required to use AWS Transform if an administrator has set up a customer managed key for
 encryption.
+
+###### Note
+
+This information does not apply to SQL Server modernization
+deployment workflow using CMK.
+
+```
+ "Statement": [
+    {
+      "Sid": "QKMSDecryptGenerateDataKeyPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptFrom",
+        "kms:ReEncryptTo"
+      ],
+      "Resource": [
+        "arn:aws:kms:`arn:aws:`:`111122223333`:key/[[key_id]]"
+      ],
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": [
+            "q.`us-east-1`.amazonaws.com"
+          ]
+        }
+      }
+    }
+  ]
+```

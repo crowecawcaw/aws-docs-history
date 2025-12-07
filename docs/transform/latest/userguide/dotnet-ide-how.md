@@ -4,10 +4,11 @@ Review the following sections for details about how .NET transformation with AWS
 
 ## Analyzing your application and generating a transformation plan
 
-Before a transformation begins, AWS Transform builds your code locally to verify if it is
-buildable and configured correctly for transformation. AWS Transform then uploads your code
-to a secure and encrypted build environment on AWS, analyzes your codebase, and
-determines the necessary updates to port your application.
+Before a transformation begins, AWS Transform builds your code locally to verify
+that it is buildable and configured correctly for transformation. If the code does not build,
+AWS Transform will prompt whether to continue with transformation. AWS Transform then
+uploads your code to a secure and encrypted build environment on AWS, analyzes your codebase, and
+determines the necessary updates to port your application
 
 During this analysis, AWS Transform divides your .NET solution or project into code
 groups. A code group is a project and all its dependencies that together generate a
@@ -45,16 +46,16 @@ The transformation includes the following updates to your application:
 
 ## Reviewing transformation
 
-summary and accepting changes
+report and accepting changes
 
-After the transformation is complete, AWS Transform provides a transformation summary with
+After the transformation is complete, AWS Transform provides a transformation report with
 information about the proposed updates it made to your application, including the number
 of files changed, packages updated, and APIs changed. It flags any unsuccessful
 transformations, including affected files or portions of files and the errors
 encountered during an attempted build. You can also view a build summary with build logs
 to learn more about what changes were made.
 
-The transformation summary also provides a Linux porting status, which indicates
+The transformation report also provides a Linux porting status, which indicates
 whether or not additional user input is needed to make the application Linux
 compatible. If any of the items in a code group require input from you, you download
 a Linux readiness report that contains Windows-specific considerations that AWS Transform
@@ -67,3 +68,8 @@ You can review the proposed changes AWS Transform made in a diff view before acc
 as in-place updates to your files. After updating your files and addressing any items in
 the Linux readiness report, your application is ready to run on cross-platform
 .NET.
+
+You can download a _Next Steps_ markdown file
+with prompts for continued transformation with AWS Transform or an AI code companion. To
+download the file, choose the **Download Next Steps** button at the top
+right of the report.

@@ -17,11 +17,17 @@ during processing, see [Data protection](data-protection.md "data-protection.md"
 ## Supported AWS Regions (enabled by default)
 
 You can create AWS Transform workspaces in the following AWS Regions. These Regions are
-enabled by default, meaning you don't need to enable them before use. For more information,
+enabled by default - you don't need to enable them before use. For more information,
 see [Regions that are enabled by default](../../../glossary/latest/reference/glos-chap.md#regionthat "../../../glossary/latest/reference/glos-chap.md#regionthat").
 
 - US East (N. Virginia)
 - Europe (Frankfurt)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Europe (London)
+- Asia Pacific (Seoul)
+- Canada (Central)
 
 The workspace in which you create a job determines the AWS Region of the job. To
 create a job in a different Region, you must use a different workspace that is in your

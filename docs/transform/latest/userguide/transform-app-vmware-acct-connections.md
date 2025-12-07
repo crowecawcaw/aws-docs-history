@@ -2,43 +2,9 @@
 
 VMware migrations
 
-To perform a VMware migration, you need two types of AWS account connectors.
+To perform a VMware migration, you need an AWS account target account connector.
 
-## Discovery account connector
-
-This AWS account connector is for discovery and planning purposes. It gives
-AWS Transform permissions to perform discovery-related actions within the AWS account
-that you specify. AWS Transform performs these actions in the AWS Region of the
-workspace that has the VMware migration job. To use another AWS Region for
-discovery, ask your administrator to provide you a workspace in that AWS Region. A
-workspace can be in one of the following AWS Regions:
-
-- US East (N. Virginia)
-- Europe (Frankfurt)
-
-After you create this connector, AWS Transform creates an Amazon S3 bucket for you in the
-discovery account and Region. It uses that bucket for storing data that is
-discovered from your source VMware environment. This discovery data is crucial for
-planning and performing the migration. This data includes information about your
-source servers, applications, networks, and dependencies.
-
-AWS Transform uses the discovery data for the following purposes:
-
-- To analyze your source environment, which is essential for planning the
-  migration strategy.
-- To understand your current network setup, which is crucial for planning
-  the network configuration in AWS.
-- To assess security requirements and compliance needs based on your current
-  setup.
-- To understand application dependencies, which is critical for planning the
-  migration waves and ensuring all necessary components are moved
-  together.
-- To determine the appropriate Amazon EC2 instance types and sizes for your
-  migrated VMs based on the discovery data.
-
-## Target account connector
-
-This AWS account connector connects your migration job to your new AWS
+The target AWS account connector connects your migration job to your new AWS
 environment where your workloads will reside after the migration. It's important to
 ensure that the target AWS account that you specify for this connector is properly
 set up with the necessary permissions, quotas, and configurations to support your
@@ -68,7 +34,7 @@ following AWS Regions for the target account connector:
 
 ###### Important
 
-If you specify a target AWS Region that is different from the discovery
+If you specify a target AWS Region that is different from the AWS Transform
 AWS Region, that means AWS Transform will be transferring your data across
 AWS Regions.
 

@@ -2,7 +2,7 @@
 
 AWS Transform for .NET is a new generative AI-powered agent designed to modernize legacy .NET applications. You can modernize your legacy .NET code by using the AWS Transform web application or the Visual Studio AWS Toolkit extension.
 
-To modernize your .NET code using the AWS Transform web application, navigate to the web application, then see our [Modernizing .NET with AWS Transform quick start guide](dotnet-quick-start.md "dotnet-quick-start.md") or follow these detailed steps:
+To modernize your .NET code using the AWS Transform web application, navigate to the web application follow these detailed steps:
 
 1. [Creating the AWS Transform .NET job plan](dotnet-creating-job-plan.md "dotnet-creating-job-plan.md")
 2. [Creating a source code repository connector](dotnet-creating-repo-connector.md "dotnet-creating-repo-connector.md")

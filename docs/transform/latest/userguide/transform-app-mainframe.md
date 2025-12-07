@@ -23,16 +23,16 @@ transformation process.
 - [Transformation of mainframe
   applications](transform-app-mainframe-workflow.md "transform-app-mainframe-workflow.md")
 - [Build and deploy your modernized application post-refactoring](transform-app-mainframe-workflow-build-deploy.md "transform-app-mainframe-workflow-build-deploy.md")
+- [Tutorial: Reimagining mainframe applications with exported artifacts from AWS Transform for mainframe](transform-forward-engineering-tutorial.md "transform-forward-engineering-tutorial.md")
 
 ## Capabilities and key features
 
 AWS Transform provides the following capabilities for mainframe modernization:
 
-- Supports modernization of mainframe applications written in COBOL (Common
-  Business-Oriented Language) with associated JCL (Job Control Language), CICS
-  (Customer Information Control System) transactions, BMS (Basic Mapping Support)
-  screens, Db2 databases, and VSAM (Virtual Storage Access Method) data
-  files.
+- Supports modernization of zOS mainframe applications written in COBOL (Common Business-Oriented Language) with associated JCL (Job Control Language),
+  CICS (Customer Information Control System) transactions, BMS (Basic Mapping Support) screens, Db2 databases, and VSAM (Virtual Storage Access Method) data files.
+- Supports refactoring of Fujitsu GS21 mainframe applications with PSAM (Presentation Service Access Method), Japanese character sets,
+  and NDB (Network Data Base) data files.
 - Performs goal-driven reasoning, analysis, decomposition, planning,
   documentation generation, and code refactoring.
 - Automatically refactors COBOL-based mainframe workloads into modern,
@@ -46,8 +46,8 @@ AWS Transform provides the following capabilities for mainframe modernization:
 
 walkthrough
 
-The following steps provide a high-level walkthrough of AWS Transform for modernizing and
-migrating mainframe applications.
+Here's a high-level walkthrough of AWS Transform for modernizing and migrating mainframe
+applications.
 
 1. Start a chat with AWS Transform, and enter an objective.
 2. Based on your objective, AWS Transform proposes a modernization plan––breaking down
@@ -63,8 +63,8 @@ migrating mainframe applications.
      the quality of refactored code
    - Re-run your jobs as needed
 
-4. Along the way, AWS Transform might request information from you to execute the
-   tasks.
+Along the way, AWS Transform might request information from you to execute the
+tasks.
 
 ## Human in the loop (HITL)
 
@@ -82,7 +82,7 @@ AWS Transform will gather additional information from you in the following scena
 
 transformation of mainframe applications
 
-The supported file types include:
+The supported file types for zOS include:
 
 - COBOL artifacts and related CPY (Copybooks)
 - JCL (Job Control Language) and JCL Procedure (PROC)
@@ -90,6 +90,18 @@ The supported file types include:
 - BMS (Basic Mapping Support)
 - Db2 databases
 - VSAM (Virtual Storage Access Method)
+
+The supported file types for Fujitsu GS21 include:
+
+- PSAM (Presentation Service Access Method)
+- ADL (AIM Definition Language)
+- NDB (Network Data Base)
+
+For more information about Fujitsu GS21 see these topics in the _AWS Blu Insights_ migration guide:
+
+- [GS21](https://bluinsights.aws/docs/codebase-dependencies-languages-gs21 "https://bluinsights.aws/docs/codebase-dependencies-languages-gs21")
+- [Capture & Replay - GS21 Terminals](https://bluinsights.aws/docs/terminals-gs21 "https://bluinsights.aws/docs/terminals-gs21")
+- [Mainframe, AS400, Open VMS and GS21](https://bluinsights.aws/languages/mainframe-as400-and-open-vms "https://bluinsights.aws/languages/mainframe-as400-and-open-vms")
 
 ## Supported Regions and quotas for AWS Transform
 

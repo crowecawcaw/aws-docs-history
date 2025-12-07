@@ -57,7 +57,7 @@ The first step of a migration project is to create an AWS Transform job.
      template. You can download the AWS Transform Assessment data template from AWS Transform.
 
 3. To include a storage assessment, upload a NetApp Data Infrastructure Insights (DII) file or an
-   Excel file created from the AWS Transform Assessment data template. See [Preparing DII files](transform-app-assessments.md#transform-assessment-workflow-dii "transform-app-assessments.md#transform-assessment-workflow-dii") to learn more about DII files.
+   Excel file created from the AWS Transform Assessment data template. See [Preparing DII files](transform-app-assessments.md#transform-app-assessments-workflow-dii "transform-app-assessments.md#transform-app-assessments-workflow-dii") to learn more about DII files.
    You can download the AWS Transform Assessment Data template from AWS Transform.
 4. Specify the AWS Region where you want to host your migrated workloads. All
    commercial AWS Regions are supported.

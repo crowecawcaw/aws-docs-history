@@ -41,11 +41,11 @@ that you ask AWS Transform and its responses to improve our services, see [AWS T
 In AWS Transform, your data is stored in the AWS Region where your AWS Transform profile was
 created.
 
-With cross- inferencing, your requests to AWS Transform may be processed in a different Region
+With cross-inferencing, your requests to AWS Transform may be processed in a different Region
 within the geography where your data is stored. For more information, see [Cross-Region inference](cross-region-processing.md#cross-region-inference "cross-region-processing.md#cross-region-inference").
 
 ###### Topics
 
+- [Cross-region processing in AWS Transform](cross-region-processing.md "cross-region-processing.md")
 - [Data encryption in AWS Transform](data-encryption.md "data-encryption.md")
 - [AWS Transform service improvement](service-improvement.md "service-improvement.md")
-- [Cross-region processing in AWS Transform](cross-region-processing.md "cross-region-processing.md")

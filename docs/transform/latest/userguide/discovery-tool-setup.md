@@ -2,6 +2,23 @@
 
 ## Installing the discovery tool
 
+### Prerequisites
+
+These are the prerequisites for using AWS Transform discovery tool:
+
+- VMware vCenter Server version 6.5, 6.7, 7.0 or 8.0
+- You should have permissions to deploy an OVA into your VMware vCenter
+- For VMware vCenter Server setup, make sure that you can provide vCenter credentials with Read and View permissions set for the System group
+- The tool requires 4 vCPU, 16GB of RAM, and a 35GB hard disk
+- DHCP must be available in the network for the discovery tool VM
+- The tool collects data using a centralized approach. VMs that are in scope must allow inbound connectivity from the discovery tool VM (default ports, custom port configuration is supported):
+  - Linux – SSH TCP/22
+  - Windows – TCP/5985 for HTTP, TCP/5986 for HTTPS
+  - SNMP – UDP/161
+
+- For Linux, user accounts that can SSH into the server. For SSH discovery, the tool uses ss -tnap.
+- The SSH user must be able to execute the ss command using sudo. If ss is not available, the tool will fall back to netstat.
+
 ### Download the discovery tool
 
 1. Sign in to vCenter as a VMware administrator and switch to the directory where you want to download the discovery tool OVA file.

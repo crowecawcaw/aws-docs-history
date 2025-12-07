@@ -21,7 +21,7 @@ Each wave includes a **Set up migration wave** task. On its **Collaboration** ta
 2. In the **Staging area subnet** section, you can choose a staging area subnet from the dropdown menu of the available subnets.
 
 Only subnets that are tagged in VPCs _that are also tagged_ with these tag key-value pairs appear in the list.
-Learn more in [Tag your VPCs and subnets](#transform-tag-vpc-subnets "#transform-tag-vpc-subnets"). 3. For each wave, choose your [IP assigment approach](../../../AWSQT/flexible_ip/transform-vmware-migrate-network.md#vmware-migration-ip "../../../AWSQT/flexible_ip/transform-vmware-migrate-network.md#vmware-migration-ip"):
+Learn more in [VPC and subnet tags](#transform-tag-vpc-subnets "#transform-tag-vpc-subnets"). 3. For each wave, choose your [IP assigment approach](../../../AWSQT/flexible_ip/transform-vmware-migrate-network.md#vmware-migration-ip "../../../AWSQT/flexible_ip/transform-vmware-migrate-network.md#vmware-migration-ip"):
 
     * **Use source IP or the converted IP from the new CIDR**
     * **Use new IP using DHCP**
@@ -43,33 +43,22 @@ specification of your source VMs. You can modify the suggested Amazon EC2 instan
 types to include recommendations from the [Migration
 Evaluator](https://aws.amazon.com/migration-evaluator/ "https://aws.amazon.com/migration-evaluator/"), [AWS Optimization and Licensing Assessment (OLA)](../../../prescriptive-guidance/latest/optimize-costs-microsoft-workloads/aws-ola.md "../../../prescriptive-guidance/latest/optimize-costs-microsoft-workloads/aws-ola.md"), or a [Migration assessment](transform-app-assessments.md "transform-app-assessments.md") job.
 
-### Tag your VPCs and subnets
+### VPC and subnet tags
 
-Your VPCs and their subnets must be tagged with these tags so that their subnets appear in AWS Transform's list of available subnets:
+Your VPCs and their subnets are automatically tagged with these tags so that their subnets appear in AWS Transform's list of available subnets:
 
 - Key: `CreatedFor` Value:
   `AWSTransform`
 - Key: `ATWorkspace` Value:
   `workspace ID`
 
-Find your workspace ID in the AWS Transform web app URL, https:// ... /workspace/`workspace-id`/job/job-id
-
-**To tag your VPCs:**
-
-1. In the AWS console, open **VPC**.
-2. Select a VPC.
-3. In VPC details choose **Tags** > **Manage Tags** >
-   **Add new tag**, and add each tag. To tag each
-   subnet:
-
-**To tag a VPC's subnets:**
-
-1. Choose a subnet from the VPC.
-2. In the subnet, select the **Tags** tab.
-3. Select the **Add new tag** and add each tag.
-4. **Save** your changes.
-
 ## Migrate waves
+
+When you migrate a wave, AWS Transform keeps you informed of the progress by providing a table in the **Collaboration** pane. You can also ask AWS Transform about the status of the migration in natural language, for example:
+
+- What is the status of my servers?
+- What's the status of my wave?
+- What's the status of the step that I'm currently in?
 
 ###### Deploy replication agents
 
@@ -234,3 +223,27 @@ source servers whose lifecycle state is `DISCONNECTED`.
    cannot fix any connectivity issues, or anything else, and you cannot revert
    the cutover.
 3. Choose **Finalize cutover**.
+
+### Manage server status
+
+During wave migration you can ask AWS Transform to update or change the status of a server. For example, if 9 out of 10 of the servers in
+your wave passed the test phase but one failed, you can allow AWS Transform to continue to move the 9 into the next phase, and ask to put re-run the test on the tenth.
+
+Lifecycle states include:
+
+- **Not ready** – The server is undergoing the initial sync process
+  and is not yet ready for testing. Data replication can only commence
+  once all of the initial sync steps have been completed.
+- **Ready for testing** – The server has been successfully added
+  and data replication has started. test
+  or cutover instances can now be launched for this server.
+- **Test in progress** – A Test instance is currently being
+  launched for this server.
+- **Ready for cutover** – This server has been tested and is now
+  ready for a cutover instance to be launched.
+- **Cutover in progress** – A cutover instance is currently being
+  launched for this server.
+- **Cutover complete** – This server has been cutover. All of the
+  data on this server has been migrated to the AWS cutover
+  instance.
+- **Disconnected** – This server has been disconnected.

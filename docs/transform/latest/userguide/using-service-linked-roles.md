@@ -61,6 +61,15 @@ following actions on the specified resources:
 
 - Enables decryption of KMS-encrypted data when accessed through IAM Identity Center. Only works when the encryption context contains a valid IAM Identity Center instance ARN and must be accessed via IAM Identity Center service endpoints.
 - Allows decryption of KMS-encrypted data when accessed through Identity Store. Only works when the encryption context contains a valid Identity Store ARN and must be accessed via Identity Store service endpoints.
+- secretsmanager:GetSecretValue
+  - Access AWS Transform service-linked secrets used to store client secrets for external identity providers
+  - Resource: arn:aws:secretsmanager:\*:\*:secret:transform-preprod!\*
+  - Condition: Must be owned by transform-preprod service and accessed from same account
+
+- support:CreateCase, support:DescribeCases, support:DescribeCommunications, support:AddCommunicationToCase, support:ResolveCase
+  - Create and manage premium support cases from the AWS Transform web application
+  - View case details and communications
+  - Add communications and resolve support cases
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the

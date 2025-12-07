@@ -1,7 +1,12 @@
 # Creating a source code repository connector
 
-After [Creating the AWS Transform .NET job plan](dotnet-creating-job-plan.md "dotnet-creating-job-plan.md"), the left pane of the AWS Transform window lists the phases of the transformation job. The first phase is _Get resources to be transformed_.
-In this phase, you can _Invite collaborators_ and _Connect a source code repository_. The right pane of the AWS Transform window shows the _Collaboration_ tab.
+After [Creating the AWS Transform .NET job plan](dotnet-creating-job-plan.md "dotnet-creating-job-plan.md"),
+on the **Tasks** tab, the left pane of the AWS Transform window lists the phases of
+the transformation job. The first phase is _Get resources to be
+transformed_. In this phase, you can _Invite
+collaborators_ and _Connect a source code
+repository_. The right pane of the AWS Transform window is where you specify the
+details.
 
 Each transformation job is required to have only one source code repository connector.
 The AWS Transform agent uses this connector to download your .NET codebase from GitHub, GitLab, or Bitbucket by using [AWS CodeConnections](../../../dtconsole/latest/userguide/welcome-connections.md "../../../dtconsole/latest/userguide/welcome-connections.md").

@@ -20,10 +20,8 @@ The following screenshot shows an example of the outputs AWS Transform generates
 
 ## Why are some projects not selected for transformation?
 
-AWS Transform can only transform supported project types in the C# language. Currently,
-AWS Transform does not support porting all UI layer components or projects written in the
-VB.NET or F# languages. For a list of supported project types and other
-prerequisites for transforming your .NET projects, see
+AWS Transform can only transform supported .NET project types. For a list of
+supported project types and other prerequisites for transforming your .NET projects, see
 [Step 1: Prerequisites](dotnet-ide-vs.md#transform-dotnet-prerequisites "dotnet-ide-vs.md#transform-dotnet-prerequisites").
 
 ## How can I get support if my project or solution isn't transforming?

@@ -14,16 +14,18 @@ preparing for transformation. You can:
 
 In the **Job details** section of the **Collaboration** tab, you can set the following:
 
-- Exclude .NET Standard projects from the transformation plan
+On the Tasks tab, in the Prepare for transformation - Confirm the repositories to transform step, you can set the following:
 
-This setting is selected by default. When selected, AWS Transform excludes any .NET Standard projects from the transformation plan. If you deselect this setting, .NET Standard projects will be transformed, which will make them no longer compatible with the .NET Framework.
+- Set the target branch name where the transformed code is written to your repository.
+- Set the target .NET version:
+  - **.NET 8**: transform all projects to .NET 8
+  - **.NET 10**: transform all projects to .NET 10
 
-- Transform UI Model-View Controller (MVC) Razor Views to
-  ASP.NET Core Razor
-
-This setting is selected by default. When selected, AWS Transform handles the transformation of any MVC Razor View UI layers into ASP.NET Core Razor Views. If you deselect this option, you must transform these UI layers manually.
-
-For the UI layer, only the transformation of MVC Razor Views to ASP.NET core is supported. UI Layers for WebForms (.aspx), MVC Views (.cshtml), Windows Presentation Foundation (WPF), WinForms, and Blazor UI components must be transformed manually.
+- You can update the default Job Settings, or leave them as-is. These include:
+  - **Exclude .NET Standard projects from the transformation plan**
+    This setting is selected by default. When selected, AWS Transform excludes any .NET Standard projects from the transformation plan. If you deselect this setting, .NET Standard projects will be transformed, which will make them no longer compatible with the .NET Framework.
+  - **Check the NuGet sources and get .NET compatible package versions**
+    Allow AWS Transform to search for and get .NET compatible package versions for the code that you would like to transform.
 
 ## Review the repository assessment report
 
