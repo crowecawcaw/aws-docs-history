@@ -9,56 +9,167 @@ The following sections describe the feature releases for Amazon SageMaker Unifie
 **Introducing one-click onboarding of existing datasets to Amazon
 SageMaker**
 
-Amazon SageMaker Unified Studio now offers one-click onboarding that helps customers start
-working with their existing AWS data in minutes. Customers can start directly from Amazon
-SageMaker, Amazon Athena, Amazon Redshift, or Amazon S3 Tables, giving them a fast path from
-their existing tools and data to the simple experience in SageMaker Unified Studio. After
-clicking "Get Started" and specifying an AWS IAM role, SageMaker automatically creates a
-project with all existing data permissions intact from AWS Glue Data Catalog, AWS Lake
-Formation, and Amazon S3. A notebook and serverless compute are pre-configured to accelerate
-first use. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-one-click-onboarding-existing-datasets/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-one-click-onboarding-existing-datasets/").
+Amazon SageMaker Unified Studio now offers one-click onboarding that helps customers
+start working with their existing AWS data in minutes. Customers can start directly from
+Amazon SageMaker, Amazon Athena, Amazon Redshift, or Amazon S3 Tables, giving them a fast
+path from their existing tools and data to the simple experience in SageMaker Unified
+Studio. After clicking "Get Started" and specifying an AWS IAM role, SageMaker
+automatically creates a project with all existing data permissions intact from AWS Glue
+Data Catalog, AWS Lake Formation, and Amazon S3. A notebook and serverless compute are
+pre-configured to accelerate first use. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-one-click-onboarding-existing-datasets/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-one-click-onboarding-existing-datasets/").
 
 **Announcing notebooks with a built-in AI agent in Amazon
 SageMaker**
 
 The new SageMaker notebooks provide data and AI teams a high-performance, serverless
 programming environment for analytics and machine learning jobs. Customers can quickly get
-started working with data without pre-provisioning data processing infrastructure. The notebook
-gives data engineers, analysts, and data scientists one place to perform SQL queries, execute
-Python code, process large-scale data jobs, run machine learning workloads and create
-visualizations, without having to switch between tools. It is powered by Amazon Athena for
-Apache Spark, automatically scaling from interactive queries to petabyte-scale processing. A
-built-in AI agent accelerates development by generating code and SQL statements from natural
-language prompts while guiding users through their tasks. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/notebooks-built-in-ai-agent-amazon-sagemaker/ "https://aws.amazon.com/about-aws/whats-new/2025/11/notebooks-built-in-ai-agent-amazon-sagemaker/").
+started working with data without pre-provisioning data processing infrastructure. The
+notebook gives data engineers, analysts, and data scientists one place to perform SQL
+queries, execute Python code, process large-scale data jobs, run machine learning workloads
+and create visualizations, without having to switch between tools. It is powered by Amazon
+Athena for Apache Spark, automatically scaling from interactive queries to petabyte-scale
+processing. A built-in AI agent accelerates development by generating code and SQL
+statements from natural language prompts while guiding users through their tasks. For more
+information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/notebooks-built-in-ai-agent-amazon-sagemaker/ "https://aws.amazon.com/about-aws/whats-new/2025/11/notebooks-built-in-ai-agent-amazon-sagemaker/").
 
 **Introducing Amazon SageMaker Data Agent for analytics and AI/ML
 development**
 
-SageMaker Data Agent works within new SageMaker notebooks to break down complex analytics
-and ML tasks into manageable steps. Customers can describe objectives in natural language and
-the agent creates a detailed execution plan and generates the required SQL and Python code. The
-agent maintains awareness of the notebook context, including available data sources, schemas,
-and catalog information, managing common tasks including data transformation, statistical
-analysis, and model development. This helps data engineers, analysts, and data scientists who
-spend significant time on manual setup tasks and boilerplate code build analytics and ML
-applications faster. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-data-agent-analytics-ai-ml-development/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-data-agent-analytics-ai-ml-development/").
+SageMaker Data Agent works within new SageMaker notebooks to break down complex
+analytics and ML tasks into manageable steps. Customers can describe objectives in natural
+language and the agent creates a detailed execution plan and generates the required SQL and
+Python code. The agent maintains awareness of the notebook context, including available data
+sources, schemas, and catalog information, managing common tasks including data
+transformation, statistical analysis, and model development. This helps data engineers,
+analysts, and data scientists who spend significant time on manual setup tasks and
+boilerplate code build analytics and ML applications faster. For more information, see
+[What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-data-agent-analytics-ai-ml-development/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-data-agent-analytics-ai-ml-development/").
 
-**Amazon Athena for Apache Spark is now available in Amazon SageMaker
-notebooks**
+**Amazon Athena for Apache Spark is now available in Amazon
+SageMaker notebooks**
 
 Amazon SageMaker now supports Amazon Athena for Apache Spark, bringing a new notebook
-experience and fast serverless Spark experience together within a unified workspace. Now, data
-engineers, analysts, and data scientists can easily query data, run Python code, develop jobs,
-train models, visualize data, and work with AI from one place, with no infrastructure to manage
-and second-level billing. Athena for Apache Spark scales in seconds to support any workload,
-from interactive queries to petabyte-scale jobs. Athena for Apache Spark now runs on Spark
-3.5.6, the same high-performance Spark engine available across AWS, optimized for open table
-formats including Apache Iceberg and Delta Lake. It brings you new debugging features, real-time
-monitoring in the Spark UI, and secure interactive cluster communication through Spark Connect.
-As you use these capabilities to work with your data, Athena for Spark now enforces table-level
-access controls defined in AWS Lake Formation. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-athena-apache-spark-sagemaker-notebooks/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-athena-apache-spark-sagemaker-notebooks/").
+experience and fast serverless Spark experience together within a unified workspace. Now,
+data engineers, analysts, and data scientists can easily query data, run Python code,
+develop jobs, train models, visualize data, and work with AI from one place, with no
+infrastructure to manage and second-level billing. Athena for Apache Spark scales in seconds
+to support any workload, from interactive queries to petabyte-scale jobs. Athena for Apache
+Spark now runs on Spark 3.5.6, the same high-performance Spark engine available across
+AWS, optimized for open table formats including Apache Iceberg and Delta Lake. It brings
+you new debugging features, real-time monitoring in the Spark UI, and secure interactive
+cluster communication through Spark Connect. As you use these capabilities to work with your
+data, Athena for Spark now enforces table-level access controls defined in AWS Lake
+Formation. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-athena-apache-spark-sagemaker-notebooks/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-athena-apache-spark-sagemaker-notebooks/").
+
+**Visual Workflows now supports Amazon MWAA Serverless for IAM-based
+domains in Amazon SageMaker Unified Studio**
+
+Visual Workflows now supports Amazon MWAA Serverless for IAM-based domains in SageMaker
+unified studio. Visual Workflows is a drag-and-drop interface for creating and managing
+workflows. This low-code feature allows users to visually represent a series of tasks, such
+as data processing and analysis, with the option to customize further by switching from
+visual to code. Leveraging Amazon Managed Workflows for Apache Airflow (MWAA) Serverless, it
+enables users to create, modify, schedule, and monitor workflows without writing code or
+managing infrastructure. This addition simplifies workflow management and enhances usability
+for data engineers and scientists. For more information, see [User Guide](workflows-iam-domains.md "workflows-iam-domains.md"), [Blog Post](https://aws.amazon.com/blogs/big-data/orchestrating-data-processing-tasks-with-a-serverless-visual-workflow-in-amazon-sagemaker-unified-studio/)) "https://aws.amazon.com/blogs/big-data/orchestrating-data-processing-tasks-with-a-serverless-visual-workflow-in-amazon-sagemaker-unified-studio/))"), and [IAM-based domains and projects](../adminguide/iam-based-domains.md "../adminguide/iam-based-domains.md").
+
+### November 14, 2025
+
+**Amazon SageMaker Catalog now supports read and write access to
+Amazon S3**
+
+Amazon SageMaker Catalog now supports read and write access to Amazon S3 general purpose
+buckets. This capability helps data scientists and analysts search for unstructured data,
+process it alongside structured datasets, and share transformed datasets with other teams.
+Data publishers gain additional controls to support analytics and generative AI workflows
+within SageMaker Unified Studio while maintaining security and governance controls over
+shared data. For more information, see [What’s New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-catalog-read-write-access-amazon-s3/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-catalog-read-write-access-amazon-s3/").
+
+### November 10, 2025
+
+**Amazon SageMaker Unified Studio adds support for catalog
+notifications**
+
+Amazon SageMaker Unified Studio now provides real-time notifications for data catalog
+activities, enabling data teams to stay informed of subscription requests, dataset updates,
+and access approvals. With this launch, customers receive real-time notifications for
+catalog events including new dataset publications, metadata changes, and access approvals
+directly within the SageMaker Unified Studio notification center. This launch streamlines
+collaboration by keeping teams updated as datasets are published or modified. For more
+information, see [What’s New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-unified-studio-catalog-notifications/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-unified-studio-catalog-notifications/").
+
+### November 6, 2025
+
+**Custom tags for Project resources in Amazon SageMaker Unified
+Studio**
+
+Amazon SageMaker Unified Studio announced new capability of adding custom tags to resources created through
+the Amazon SageMaker Unified Studio projects. This helps customers enforce tagging standards that conform to
+Service Control Policies (SCP) and helps enable cost tracking reporting practices on
+resources created across the organization. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-custom-tags-project-resources/ "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-sagemaker-custom-tags-project-resources/") and [or the API
+Reference documentation](../../../datazone/latest/APIReference/Welcome.md "../../../datazone/latest/APIReference/Welcome.md").
+
+## October 2025
+
+### October 27, 2025
+
+**Amazon SageMaker adds additional search context for search
+results**
+
+Amazon SageMaker enhances search results in Amazon SageMaker Unified Studio with
+additional context that improves transparency and interpretability. Users can see which
+metadata fields matched their query and understand why each result appears, increasing
+clarity and trust in data discovery. The capability introduces inline highlighting for
+matched terms and an explanation panel that details where and how each match occurred across
+metadata fields such as name, description, glossary, schema, and other metadata. The
+enhancement reduces time spent evaluating irrelevant assets by presenting match evidence
+directly in search results. Users can quickly validate relevance without opening individual
+assets. For more information, see [What’s New Post](https://aws.amazon.com/blogs/big-data/enhanced-search-with-match-highlights-and-explanations-in-amazon-sagemaker/ "https://aws.amazon.com/blogs/big-data/enhanced-search-with-match-highlights-and-explanations-in-amazon-sagemaker/") and [AWS Big Data Blog](https://aws.amazon.com/blogs/big-data/enhanced-search-with-match-highlights-and-explanations-in-amazon-sagemaker/ "https://aws.amazon.com/blogs/big-data/enhanced-search-with-match-highlights-and-explanations-in-amazon-sagemaker/").
+
+### October 12, 2025
+
+**Continuous real-time ingestion of metadata from AWS Glue Data
+Catalog to SageMaker Catalog**
+
+We have launched a new capability within SageMaker Catalog that enables continuous
+real-time ingestion of metadata from AWS Glue Data Catalog to SageMaker Catalog. With this
+launch, once you onboard your tables and views in AWS Glue Data Catalog to SageMaker
+Catalog, SageMaker Catalog continuously keeps metadata current via real-time ingestion. Any
+changes, such as new tables or schema updates made in AWS Glue Data Catalog, are
+automatically reflected in the SageMaker Catalog. This eliminates the need for periodic
+ingestion jobs, reduces stale metadata risk, and lowers operational costs for you while
+ensuring access to the freshest metadata. For more information, see [Onboarding data in Amazon SageMaker Unified Studio](../adminguide/data-onboarding.md "../adminguide/data-onboarding.md").
+
+### October 11, 2025
+
+**Amazon SageMaker Unified Studio now supports remote connections
+from Visual Studio Code**
+
+Amazon SageMaker Unified Studio now supports remote connections from Visual Studio Code.
+Use your familiar VS Code environment with SageMaker's scalable compute resources. This
+integration lets you keep your development workflows while accessing AWS analytics and
+AI/ML services in a unified environment. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/09/sagemaker-unified-studio-vs-code/ "https://aws.amazon.com/about-aws/whats-new/2025/09/sagemaker-unified-studio-vs-code/"), [User Guide](local-ide-support.md "local-ide-support.md"), [Admin Guide](../adminguide/local-ide-support.md "../adminguide/local-ide-support.md"), and [Blog post](https://aws.amazon.com/blogs/big-data/accelerate-your-data-and-ai-workflows-by-connecting-to-amazon-sagemaker-unified-studio-from-visual-studio-code/ "https://aws.amazon.com/blogs/big-data/accelerate-your-data-and-ai-workflows-by-connecting-to-amazon-sagemaker-unified-studio-from-visual-studio-code/").
+
+**Command Palette for Amazon SageMaker Unified
+Studio**
+
+TUse the Command Palette to navigate Unified Studio and perform actions with your
+keyboard. Press Cmd + K (macOS) or Ctrl + K (Windows/Linux) to open the Command Palette. The
+popup dialog lets you execute commands, navigate through Unified Studio, and discover
+keyboard shortcuts.
 
 ## September 2025
+
+### Septemeber 18, 2025
+
+**Format change for Amazon SageMaker Unified Studio
+domain**
+
+New Amazon SageMaker Unified Studio domain identifiers now contain a hyphen character
+instead of an underscore. This change aligns with established host naming standards.
+Existing domains with the underscore character in the domain identifier will continue to
+work without any changes needed. Domain identifiers for newly created domains will have a
+hyphen. New format example, dzd-123456789abcde.
 
 ### September 12, 2025
 
@@ -67,12 +178,56 @@ Catalog to SageMaker Catalog**
 
 We have launched a new capability within SageMaker Catalog that enables continuous
 real-time ingestion of metadata from AWS Glue Data Catalog to SageMaker Catalog. With this
-launch, once you onboard your tables and views in AWS Glue Data Catalog to SageMaker Catalog,
-SageMaker Catalog continuously keeps metadata current via real-time ingestion. Any changes, such
-as new tables or schema updates made in AWS Glue Data Catalog, are automatically reflected in
-the SageMaker Catalog. This eliminates the need for periodic ingestion jobs, reduces stale
-metadata risk, and lowers operational costs for you while ensuring access to the freshest
-metadata. For more information, see [Onboarding data in Amazon SageMaker Unified Studio](../adminguide/data-onboarding.md "../adminguide/data-onboarding.md").
+launch, once you onboard your tables and views in AWS Glue Data Catalog to SageMaker
+Catalog, SageMaker Catalog continuously keeps metadata current via real-time ingestion. Any
+changes, such as new tables or schema updates made in AWS Glue Data Catalog, are
+automatically reflected in the SageMaker Catalog. This eliminates the need for periodic
+ingestion jobs, reduces stale metadata risk, and lowers operational costs for you while
+ensuring access to the freshest metadata. For more information, see [Onboarding data in Amazon SageMaker Unified Studio](../adminguide/data-onboarding.md "../adminguide/data-onboarding.md").
+
+### Septemeber 08, 2025
+
+**Enhanced AI assistance through improved Amazon Q Developer chat
+and integrations with Amazon Q CLI**
+
+Amazon SageMaker Unified Studio now offers enhanced AI assistance through improved
+Amazon Q Developer chat and integrations with Amazon Q CLI. By integrating with Model
+Context Protocol (MCP) servers, Amazon Q Developer is aware of your SageMaker Unified Studio
+project resources, including data, compute, and code, and provides personalized, relevant
+responses for data engineering and machine learning development. Users can now receive AI
+assistance for tasks such as code refactoring, file modification, and more with full
+transparency into the AI's reasoning and actions. These new capabilities are included at no
+additional cost with the Amazon Q Developer Free Tier and are available in all AWS Regions
+where SageMaker Unified Studio is supported. To make even more use of these features, users
+can enable Amazon Q Developer Pro. For more information, see [What’s New Post](https://aws.amazon.com/about-aws/whats-new/2025/09/improved-ai-assistance-amazon-sagemaker-unified-studio/ "https://aws.amazon.com/about-aws/whats-new/2025/09/improved-ai-assistance-amazon-sagemaker-unified-studio/"), [Admin Guide](../adminguide/amazonq.md "../adminguide/amazonq.md"), and [Blog Post](https://aws.amazon.com/blogs/big-data/introducing-enhanced-ai-assistance-in-amazon-sagemaker-unified-studio-agentic-chat-amazon-q-developer-cli-and-mcp-integration/ "https://aws.amazon.com/blogs/big-data/introducing-enhanced-ai-assistance-in-amazon-sagemaker-unified-studio-agentic-chat-amazon-q-developer-cli-and-mcp-integration/").
+
+**Custom blueprints in Amazon SageMaker Unified
+Studio**
+
+Custom blueprint capability in Amazon SageMaker Unified Studio, allows customers to use
+their own managed policies or roles as per their corporate security policies for creating
+the project in SageMaker Unified Studio. Organizations can incorporate their specific
+dependencies, security controls using their own managed AWS Identity and Access Management
+(https://aws.amazon.com/iam/) (IAM) policies, and best practices, making it straightforward
+for them to align with internal standards. Because Custom Blueprints are defined through
+infrastructure as code (IaC), they are straightforward to version control, share across
+teams, and evolve over time. This speeds up onboarding and keeps projects consistent and
+governed, no matter how big or distributed customers’ data organization becomes. For
+enterprises, this means more time focusing on insights, models, and innovation. The custom
+blueprints feature is designed to help teams move faster and stay consistent while
+maintaining their organization’s security controls and best practices. Sample templates can
+be found here([https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/custom-blueprints.html](../adminguide/custom-blueprints.md "../adminguide/custom-blueprints.md")).
+For more information, see [What’s New Post](https://aws.amazon.com/about-aws/whats-new/2025/09/amazon-sagemaker-unified-studio-custom-blueprints/ "https://aws.amazon.com/about-aws/whats-new/2025/09/amazon-sagemaker-unified-studio-custom-blueprints/"), [Admin Guide](../adminguide/custom-blueprint.md "../adminguide/custom-blueprint.md"), and [Blog Post](https://aws.amazon.com/blogs/big-data/tailor-amazon-sagemaker-unified-studio-project-environments-to-your-needs-using-custom-blueprints/ "https://aws.amazon.com/blogs/big-data/tailor-amazon-sagemaker-unified-studio-project-environments-to-your-needs-using-custom-blueprints/").
+
+**Introducing restricted classification terms for governed
+classification in Amazon SageMaker Catalog**
+
+AWS announced restricted classification terms in SageMaker Catalog. This new
+capability allows domain administrators to define governance-controlled terms and enforce
+which teams and users are authorized to apply them. Restricted classification terms are
+designed to allow organizations to set standards for consistent classification of sensitive
+data, help prevent misuse of regulatory tags, and enable downstream workflows such as
+automatic access grants across the enterprise. For more information, see [Blog Post](https://aws.amazon.com/blogs/big-data/introducing-restricted-classification-terms-for-governed-classification-in-amazon-sagemaker-catalog/) "https://aws.amazon.com/blogs/big-data/introducing-restricted-classification-terms-for-governed-classification-in-amazon-sagemaker-catalog/)").
 
 ## August 2025
 
@@ -82,16 +237,15 @@ metadata. For more information, see [Onboarding data in Amazon SageMaker Unified
 projects experience**
 
 Amazon SageMaker Unified Studio now supports Trusted Identity Propagation (TIP) for SQL
-analytics use cases with Amazon Redshift and Amazon Athena. This feature enables administrators
-to grant permissions based on user attributes from their corporate identity center. Users can
-single-sign into databases with permissions based on their identity or group membership, while
-auditors can track access across Unified Studio query editor and services like Redshift, Athena,
-and Lake Formation. To implement, create or update your domain with TIP enabled in the project
-profile. TIP automatically enables for Amazon Athena workgroup, while Amazon Redshift requires
-creating a connection with IAM Identity Center connection type. For more information, see User
-Guide.For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-sagemaker-unified-studio-s3-file-sharing-options/ "https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-sagemaker-unified-studio-s3-file-sharing-options/")
-[User
-Guide](storage.md "storage.md") and [Admin
+analytics use cases with Amazon Redshift and Amazon Athena. This feature enables
+administrators to grant permissions based on user attributes from their corporate identity
+center. Users can single-sign into databases with permissions based on their identity or
+group membership, while auditors can track access across Unified Studio query editor and
+services like Redshift, Athena, and Lake Formation. To implement, create or update your
+domain with TIP enabled in the project profile. TIP automatically enables for Amazon Athena
+workgroup, while Amazon Redshift requires creating a connection with IAM Identity Center
+connection type. For more information, see User Guide.For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-sagemaker-unified-studio-s3-file-sharing-options/ "https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-sagemaker-unified-studio-s3-file-sharing-options/")
+[User Guide](storage.md "storage.md") and [Admin
 Guide](../../../ssagemaker-unified-studio/latest/adminguide/smus-admin-storage-guide.md "../../../ssagemaker-unified-studio/latest/adminguide/smus-admin-storage-guide.md").
 
 ### August 7, 2025
@@ -99,21 +253,21 @@ Guide](../../../ssagemaker-unified-studio/latest/adminguide/smus-admin-storage-g
 **Amazon SageMaker Unified Studio Redshift Managed Workgroup
 experience**
 
-Amazon SageMaker Unified Studio launched Redshift Managed Workgroup, a collection of Amazon
-Redshift compute resources that AWS Glue manages. It becomes visible as a managed workgroup in
-Amazon Redshift when users register a serverless namespace to AWS Glue Data Catalog and create
-a Lake Formation catalog. All management of these workgroups must be done through the AWS Glue
-Data Catalog interface. This eliminates the need for dedicated Redshift compute resources when
-querying Lakehouse catalogs, reducing costs, preserving data continuity, and accelerating
-project setup time.
+Amazon SageMaker Unified Studio launched Redshift Managed Workgroup, a collection of
+Amazon Redshift compute resources that AWS Glue manages. It becomes visible as a managed
+workgroup in Amazon Redshift when users register a serverless namespace to AWS Glue Data
+Catalog and create a Lake Formation catalog. All management of these workgroups must be done
+through the AWS Glue Data Catalog interface. This eliminates the need for dedicated
+Redshift compute resources when querying Lakehouse catalogs, reducing costs, preserving data
+continuity, and accelerating project setup time.
 
 ### August 5, 2025
 
 **Project deletion progress experience**
 
-Users can now track project deletion progress through a visual interface, providing clear
-visibility and status updates until the process is complete, enhancing the project management
-experience.
+Users can now track project deletion progress through a visual interface, providing
+clear visibility and status updates until the process is complete, enhancing the project
+management experience.
 
 ## July 2025
 
@@ -123,11 +277,11 @@ experience.
 experience**
 
 This update simplifies table creation and management by eliminating the need to navigate
-multiple AWS consoles. Users can now create tables, load data, and run queries directly within
-Amazon SageMaker Unified Studio using either Query Editor or Jupyter Notebook. The update enables administrators to
-configure analytics integration with Amazon S3 and create custom profiles, allowing project
-owners to set up pre-configured catalogs and S3 Tables support more efficiently. For more
-information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-streamlines-s3-tables-workflow/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-streamlines-s3-tables-workflow/") and [User
+multiple AWS consoles. Users can now create tables, load data, and run queries directly
+within Amazon SageMaker Unified Studio using either Query Editor or Jupyter Notebook. The update enables
+administrators to configure analytics integration with Amazon S3 and create custom profiles,
+allowing project owners to set up pre-configured catalogs and S3 Tables support more
+efficiently. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-streamlines-s3-tables-workflow/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-streamlines-s3-tables-workflow/") and [User
 Guide](s3-tables-integration.md "s3-tables-integration.md").
 
 ### July 15, 2025
@@ -135,27 +289,27 @@ Guide](s3-tables-integration.md "s3-tables-integration.md").
 **Automatic approval of subscription requests based on project
 membership**
 
-A subscription request is now automatically approved if the requester is already authorized
-to approve it manually. Specifically, if they are a member of both the project that published
-the asset and the project requesting access. To qualify for auto-approval, the requester must be
-listed as an owner or contributor in the project where the asset was originally published. And
-the requester must also be listed as an owner or contributor in the project making the
-subscription request. For more information, see [User
+A subscription request is now automatically approved if the requester is already
+authorized to approve it manually. Specifically, if they are a member of both the project
+that published the asset and the project requesting access. To qualify for auto-approval,
+the requester must be listed as an owner or contributor in the project where the asset was
+originally published. And the requester must also be listed as an owner or contributor in
+the project making the subscription request. For more information, see [User
 Guide](s3-tables-integration.md "s3-tables-integration.md").
 
 ### July 16, 2025
 
 **Data lineage enhancements**
 
-Amazon SageMaker Unified Studio has now contributed a 'custom transport' to the OpenLineage community that allows
-builders to download the transport along with OpenLineage plugins to augment and automate
-lineage events captured from OpenLineage-enabled systems. With this, customers can automate
-lineage capture and send these lineage events to the Amazon SageMaker unified domain, enhancing
-data governance and traceability within their data workflows. Additionally lineage enhancements
-include automated lineage events capture for additional data sources using AWS Glue crawlers,
-improved its SQL lineage support for stored procedures and materialized views in Amazon
-Redshift, and from tools such as vETL processes and notebooks (interactive executions and remote
-workflows). For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-sagemaker-custom-transport-openlineage-community-lineage-capabilities/ "https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-sagemaker-custom-transport-openlineage-community-lineage-capabilities/") and [User
+Amazon SageMaker Unified Studio has now contributed a 'custom transport' to the OpenLineage community that
+allows builders to download the transport along with OpenLineage plugins to augment and
+automate lineage events captured from OpenLineage-enabled systems. With this, customers can
+automate lineage capture and send these lineage events to the Amazon SageMaker unified
+domain, enhancing data governance and traceability within their data workflows. Additionally
+lineage enhancements include automated lineage events capture for additional data sources
+using AWS Glue crawlers, improved its SQL lineage support for stored procedures and
+materialized views in Amazon Redshift, and from tools such as vETL processes and notebooks
+(interactive executions and remote workflows). For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-sagemaker-custom-transport-openlineage-community-lineage-capabilities/ "https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-sagemaker-custom-transport-openlineage-community-lineage-capabilities/") and [User
 Guide](datazone-support-matrix.md "datazone-support-matrix.md").
 
 ### July 15, 2025
@@ -163,13 +317,13 @@ Guide](datazone-support-matrix.md "datazone-support-matrix.md").
 **Amazon QuickSight Integration**
 
 Amazon QuickSight Integration is now available, enabling users to seamlessly build and
-visualize dashboards using project data directly from Amazon SageMaker Unified Studio. The integration automatically
-creates secured QuickSight datasets, organizes dashboards within project folders, and allows
-publishing to the SageMaker Catalog for broader discovery and reuse. This keeps your dashboards
-organized, discoverable, shareable, and governed, making cross-team collaboration and asset
-reuse much easier. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-integration-quicksight/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-integration-quicksight/"), [User Guide](quicksight-integration.md "quicksight-integration.md"),
-[Admin Guide](../adminguide/amazon-quicksight.md "../adminguide/amazon-quicksight.md"),
-[AWS News Blog](https://aws.amazon.com/blogs/aws/streamline-the-path-from-data-to-insights-with-new-amazon-sagemaker-capabilities/ "https://aws.amazon.com/blogs/aws/streamline-the-path-from-data-to-insights-with-new-amazon-sagemaker-capabilities/"), and the [AWS Big Data Blog](https://aws.amazon.com/blogs/big-data/unifying-data-insights-with-amazon-quicksight-and-amazon-sagemaker/ "https://aws.amazon.com/blogs/big-data/unifying-data-insights-with-amazon-quicksight-and-amazon-sagemaker/").
+visualize dashboards using project data directly from Amazon SageMaker Unified Studio. The integration
+automatically creates secured QuickSight datasets, organizes dashboards within project
+folders, and allows publishing to the SageMaker Catalog for broader discovery and reuse.
+This keeps your dashboards organized, discoverable, shareable, and governed, making
+cross-team collaboration and asset reuse much easier. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-integration-quicksight/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-integration-quicksight/"), [User
+Guide](quicksight-integration.md "quicksight-integration.md"), [Admin
+Guide](../adminguide/amazon-quicksight.md "../adminguide/amazon-quicksight.md"), [AWS News Blog](https://aws.amazon.com/blogs/aws/streamline-the-path-from-data-to-insights-with-new-amazon-sagemaker-capabilities/ "https://aws.amazon.com/blogs/aws/streamline-the-path-from-data-to-insights-with-new-amazon-sagemaker-capabilities/"), and the [AWS Big Data Blog](https://aws.amazon.com/blogs/big-data/unifying-data-insights-with-amazon-quicksight-and-amazon-sagemaker/ "https://aws.amazon.com/blogs/big-data/unifying-data-insights-with-amazon-quicksight-and-amazon-sagemaker/").
 
 ### July 15, 2025
 
@@ -177,25 +331,27 @@ reuse much easier. For more information, see [What's New](https://aws.amazon.com
 ingestion**
 
 Data management is simplified with the introduction of two key capabilities in Amazon
-SageMaker. First, automated metadata ingestion for datasets into SageMaker Catalog during domain
-creation or updates, and direct sharing of assets between projects. The automated onboarding
-eliminates manual IAM configuration and metadata ingestion tasks, making datasets immediately
-available for governance and analysis. Second, direct sharing enables seamless cross-team
-collaboration while maintaining governance controls, reducing administrative overhead and
-accelerating project timelines. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-data-management-lakehouse-onboarding/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-data-management-lakehouse-onboarding/"), [Admin Guide](../adminguide/data-onboarding.md "../adminguide/data-onboarding.md"), and
-[AWS News Blog](https://aws.amazon.com/blogs/aws/streamline-the-path-from-data-to-insights-with-new-amazon-sagemaker-capabilities/ "https://aws.amazon.com/blogs/aws/streamline-the-path-from-data-to-insights-with-new-amazon-sagemaker-capabilities/").
+SageMaker. First, automated metadata ingestion for datasets into SageMaker Catalog during
+domain creation or updates, and direct sharing of assets between projects. The automated
+onboarding eliminates manual IAM configuration and metadata ingestion tasks, making datasets
+immediately available for governance and analysis. Second, direct sharing enables seamless
+cross-team collaboration while maintaining governance controls, reducing administrative
+overhead and accelerating project timelines. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-data-management-lakehouse-onboarding/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-data-management-lakehouse-onboarding/"), [Admin Guide](../adminguide/data-onboarding.md "../adminguide/data-onboarding.md"),
+and [AWS News Blog](https://aws.amazon.com/blogs/aws/streamline-the-path-from-data-to-insights-with-new-amazon-sagemaker-capabilities/ "https://aws.amazon.com/blogs/aws/streamline-the-path-from-data-to-insights-with-new-amazon-sagemaker-capabilities/").
 
 ### July 15, 2025
 
-**Amazon SageMaker Catalog adds support for Amazon S3 general purpose
-buckets**
+**Amazon SageMaker Catalog adds support for Amazon S3 general
+purpose buckets**
 
 Amazon SageMaker Catalog now supports Amazon S3 general purpose buckets to enable data
-producers to share unstructured data as "S3 Object Collections" within the SageMaker Catalog.
-Users can curate these assets with business metadata, making them discoverable and accessible to
-data scientists, engineers, and analysts while maintaining granular security controls. This
-feature streamlines cross-team data sharing, enhances data governance, and allows consumers to
-subscribe to assets for ongoing access and updates. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-catalog-s3-general-purpose-buckets/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-catalog-s3-general-purpose-buckets/") and [User Guide](data-s3-publish.md "data-s3-publish.md").
+producers to share unstructured data as "S3 Object Collections" within the SageMaker
+Catalog. Users can curate these assets with business metadata, making them discoverable and
+accessible to data scientists, engineers, and analysts while maintaining granular security
+controls. This feature streamlines cross-team data sharing, enhances data governance, and
+allows consumers to subscribe to assets for ongoing access and updates. For more
+information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-catalog-s3-general-purpose-buckets/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-catalog-s3-general-purpose-buckets/") and [User
+Guide](data-s3-publish.md "data-s3-publish.md").
 
 ### July 15, 2025
 
@@ -203,35 +359,35 @@ subscribe to assets for ongoing access and updates. For more information, see [W
 solution**
 
 Unified Metadata Governance with SageMaker-Collibra solution addresses organizational
-challenges by connecting Amazon SageMaker Catalog with Collibra, enabling centralized metadata
-management and streamlined access workflows. This integration reduces metadata duplication,
-enhances governance controls, and builds data trust across analytics and AI platforms. For more
-information, see [AWS Big Data Blog](https://aws.amazon.com/blogs/big-data/unifying-metadata-governance-across-amazon-sagemaker-and-collibra/ "https://aws.amazon.com/blogs/big-data/unifying-metadata-governance-across-amazon-sagemaker-and-collibra/").
+challenges by connecting Amazon SageMaker Catalog with Collibra, enabling centralized
+metadata management and streamlined access workflows. This integration reduces metadata
+duplication, enhances governance controls, and builds data trust across analytics and AI
+platforms. For more information, see [AWS Big Data Blog](https://aws.amazon.com/blogs/big-data/unifying-metadata-governance-across-amazon-sagemaker-and-collibra/ "https://aws.amazon.com/blogs/big-data/unifying-metadata-governance-across-amazon-sagemaker-and-collibra/").
 
 ### July 15, 2025
 
 **Visual Workflows**
 
-Visual Workflows introduces a drag-and-drop interface for creating and managing workflows
-within Amazon SageMaker Unified Studio. This low-code feature allows users to visually represent a series of tasks,
-such as data processing and analysis, with the option to customize further by switching from
-visual to code. Leveraging Amazon Managed Workflows for Apache Airflow (MWAA), it enables users
-to create, modify, schedule, and monitor workflows easily. This addition simplifies workflow
-management and enhances usability for data engineers and scientists. For more information, see
-[What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-visual-workflows-builder/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-visual-workflows-builder/"), [User Guide](workflow-orchestration.md "workflow-orchestration.md"),
-and [Blog Post](https://aws.amazon.com/blogs/big-data/orchestrate-data-processing-jobs-querybooks-and-notebooks-using-visual-workflow-experience-in-amazon-sagemaker/ "https://aws.amazon.com/blogs/big-data/orchestrate-data-processing-jobs-querybooks-and-notebooks-using-visual-workflow-experience-in-amazon-sagemaker/").
+Visual Workflows introduces a drag-and-drop interface for creating and managing
+workflows within Amazon SageMaker Unified Studio. This low-code feature allows users to visually represent a
+series of tasks, such as data processing and analysis, with the option to customize further
+by switching from visual to code. Leveraging Amazon Managed Workflows for Apache Airflow
+(MWAA), it enables users to create, modify, schedule, and monitor workflows easily. This
+addition simplifies workflow management and enhances usability for data engineers and
+scientists. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-visual-workflows-builder/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-visual-workflows-builder/"), [User
+Guide](workflow-orchestration.md "workflow-orchestration.md"), and [Blog Post](https://aws.amazon.com/blogs/big-data/orchestrate-data-processing-jobs-querybooks-and-notebooks-using-visual-workflow-experience-in-amazon-sagemaker/ "https://aws.amazon.com/blogs/big-data/orchestrate-data-processing-jobs-querybooks-and-notebooks-using-visual-workflow-experience-in-amazon-sagemaker/").
 
 ### July 15, 2025
 
 **Data processing jobs experience**
 
-A new data processing jobs experience is available within Amazon SageMaker Unified Studio. Jobs enables users to
-author, manage, monitor and troubleshoot data processing workloads across their organization and
-collaborate in projects to securely build and share data processing jobs and workflows. Users
-can create jobs through multiple methods including ETL scripts, interactive notebooks, or the
-Visual ETL editor, with options for on-demand execution, scheduling, or workflow orchestration.
-The feature includes monitoring capabilities and AI-powered troubleshooting for failed jobs. For
-more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-data-processing-jobs/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-data-processing-jobs/"), [User
+A new data processing jobs experience is available within Amazon SageMaker Unified Studio. Jobs enables users
+to author, manage, monitor and troubleshoot data processing workloads across their
+organization and collaborate in projects to securely build and share data processing jobs
+and workflows. Users can create jobs through multiple methods including ETL scripts,
+interactive notebooks, or the Visual ETL editor, with options for on-demand execution,
+scheduling, or workflow orchestration. The feature includes monitoring capabilities and
+AI-powered troubleshooting for failed jobs. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-data-processing-jobs/ "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-data-processing-jobs/"), [User
 Guide](sagemaker-unified-studio-jobs.md "sagemaker-unified-studio-jobs.md"), and [Blog
 Post](https://aws.amazon.com/blogs/big-data/introducing-jobs-in-amazon-sagemaker/ "https://aws.amazon.com/blogs/big-data/introducing-jobs-in-amazon-sagemaker/").
 
@@ -249,9 +405,10 @@ reduce the need for manual query writing and boost overall productivity.
 **Bring S3 buckets to your project**
 
 To bring in Amazon S3 data either in the same account or a different account to your
-project, you must first gain access to the data and then add the data to your project. You can
-gain access to the data by using the project role or an access role. Then you have to create a
-S3 connection using the Add Data option from data explorer. For more information, see [User
+project, you must first gain access to the data and then add the data to your project. You
+can gain access to the data by using the project role or an access role. Then you have to
+create a S3 connection using the Add Data option from data explorer. For more information,
+see [User
 Guide](adding-existing-s3-data.md "adding-existing-s3-data.md").
 
 ### July 3, 2025
@@ -266,27 +423,28 @@ Guide](getting-started-sagemaker-gdc-s3.md "getting-started-sagemaker-gdc-s3.md"
 
 ### July 25, 2025
 
-**Text search capability of Query history experience**
+**Text search capability of Query history
+experience**
 
-Amazon SageMaker Unified Studio introduces text search capability for query history in both
-Athena and Redshift engines. This enhancement enables users to efficiently search through their
-historical queries, improving workflow productivity and query reusability. For more information,
-see User Guide.
+Amazon SageMaker Unified Studio introduces text search capability for query history in
+both Athena and Redshift engines. This enhancement enables users to efficiently search
+through their historical queries, improving workflow productivity and query reusability. For
+more information, see User Guide.
 
 ### July 23, 2025
 
 **Trusted identity propagation experience**
 
 Amazon SageMaker Unified Studio now supports Trusted Identity Propagation (TIP) for SQL
-analytics use cases with Amazon Redshift and Amazon Athena. This feature enables administrators
-to grant permissions based on user attributes from their corporate identity center. Users can
-single-sign into databases with permissions based on their identity or group membership, while
-auditors can track access across Unified Studio query editor and services like Redshift, Athena,
-and Lake Formation. To implement, create or update your domain with TIP enabled in the project
-profile. TIP automatically enables for Amazon Athena workgroup, while Amazon Redshift requires
-creating a connection with IAM Identity Center connection type. For more information, see User
-Guide.For more information, see [User Guide](using-project-tip.md "using-project-tip.md") and
-[Admin
+analytics use cases with Amazon Redshift and Amazon Athena. This feature enables
+administrators to grant permissions based on user attributes from their corporate identity
+center. Users can single-sign into databases with permissions based on their identity or
+group membership, while auditors can track access across Unified Studio query editor and
+services like Redshift, Athena, and Lake Formation. To implement, create or update your
+domain with TIP enabled in the project profile. TIP automatically enables for Amazon Athena
+workgroup, while Amazon Redshift requires creating a connection with IAM Identity Center
+connection type. For more information, see User Guide.For more information, see [User Guide](using-project-tip.md "using-project-tip.md")
+and [Admin
 Guide](../adminguide/trusted-identity-propagation.md "../adminguide/trusted-identity-propagation.md").
 
 ### July 2, 2025
@@ -297,8 +455,8 @@ experience**
 Amazon SageMaker Unified Studio now supports SQL generation actions in Data Explorer,
 introducing automated generation of table definitions and common SQL queries
 (INSERT/UPDATE/SELECT/DROP). The feature includes a quick actions menu for frequently used
-operations and direct object manipulation capabilities. These enhancements significantly reduce
-manual query writing effort and improve overall productivity for data analysts and
+operations and direct object manipulation capabilities. These enhancements significantly
+reduce manual query writing effort and improve overall productivity for data analysts and
 scientists.
 
 ## June 2025 (Additional)
@@ -307,20 +465,20 @@ scientists.
 
 **Next Generation Amazon SageMaker user guide**
 
-Next Generation Amazon SageMaker user guide was launched on 6/30 and it introduces the main
-components of Next Generation Amazon SageMaker and includes 7 new use case-based tutorials to
-help customers get started. For more information, see [Next Generation Amazon
-SageMaker user guide](../../../next-generation-sagemaker/latest/userguide/what-is-sagemaker.md "../../../next-generation-sagemaker/latest/userguide/what-is-sagemaker.md").
+Next Generation Amazon SageMaker user guide was launched on 6/30 and it introduces the
+main components of Next Generation Amazon SageMaker and includes 7 new use case-based
+tutorials to help customers get started. For more information, see [Next Generation
+Amazon SageMaker user guide](../../../next-generation-sagemaker/latest/userguide/what-is-sagemaker.md "../../../next-generation-sagemaker/latest/userguide/what-is-sagemaker.md").
 
 ### June 25, 2025
 
-**Automatic file synchronization between project Git repositories and
-Amazon S3 buckets**
+**Automatic file synchronization between project Git repositories
+and Amazon S3 buckets**
 
 Amazon SageMaker Unified Studio now offers automatic file synchronization between project Git repositories and
-Amazon S3 buckets. This new capability streamlines data and AI development workflows by ensuring
-your Git repository files are automatically mirrored to S3. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-sagemaker-automatic-synchronization-git-s3/ "https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-sagemaker-automatic-synchronization-git-s3/"), [Admin
-Guide](../adminguide/blueprints.md#manage-tooling-blueprint "../adminguide/blueprints.md#manage-tooling-blueprint"), and [AWS Big Data Blog](https://aws.amazon.com/blogs/big-data/unified-scheduling-for-visual-etl-flows-and-query-books-in-amazon-sagemaker-unified-studio/ "https://aws.amazon.com/blogs/big-data/unified-scheduling-for-visual-etl-flows-and-query-books-in-amazon-sagemaker-unified-studio/").
+Amazon S3 buckets. This new capability streamlines data and AI development workflows by
+ensuring your Git repository files are automatically mirrored to S3. For more information,
+see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-sagemaker-automatic-synchronization-git-s3/ "https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-sagemaker-automatic-synchronization-git-s3/"), [Admin Guide](../adminguide/blueprints.md#manage-tooling-blueprint "../adminguide/blueprints.md#manage-tooling-blueprint"), and [AWS Big Data Blog](https://aws.amazon.com/blogs/big-data/unified-scheduling-for-visual-etl-flows-and-query-books-in-amazon-sagemaker-unified-studio/ "https://aws.amazon.com/blogs/big-data/unified-scheduling-for-visual-etl-flows-and-query-books-in-amazon-sagemaker-unified-studio/").
 
 ## June 2025
 
@@ -328,12 +486,12 @@ Guide](../adminguide/blueprints.md#manage-tooling-blueprint "../adminguide/bluep
 
 **Workflow Improvements**
 
-Enhanced default workflow template: The default start_date now uses a static date instead
-of a relative date. This prevents potential workflow trigger failures, improves workflow
-reliability and predictability.
+Enhanced default workflow template: The default start_date now uses a static date
+instead of a relative date. This prevents potential workflow trigger failures, improves
+workflow reliability and predictability.
 
-Notebook output capabilities: Download notebook output directly, export results for offline
-analysis and share findings more easily with your team.
+Notebook output capabilities: Download notebook output directly, export results for
+offline analysis and share findings more easily with your team.
 
 ### June 19, 2025
 
@@ -342,33 +500,33 @@ experience**
 
 Amazon SageMaker Unified Studio now delivers enhanced autocomplete capabilities for
 enterprise-scale Amazon Redshift databases. The feature supports seamless autocomplete
-functionality for massive databases containing up to 200,000 tables, while eliminating previous
-restrictions on the number of schemas or columns that can be indexed and suggested. Using
-real-time database metadata, it provides comprehensive coverage across your entire Redshift
-environment, including both user-defined native tables and critical system tables. This enables
-data analysts, engineers, and scientists working with complex, large-scale data warehouses to
-navigate their database structures effortlessly, dramatically reducing query development time
-and minimizing syntax errors.
+functionality for massive databases containing up to 200,000 tables, while eliminating
+previous restrictions on the number of schemas or columns that can be indexed and suggested.
+Using real-time database metadata, it provides comprehensive coverage across your entire
+Redshift environment, including both user-defined native tables and critical system tables.
+This enables data analysts, engineers, and scientists working with complex, large-scale data
+warehouses to navigate their database structures effortlessly, dramatically reducing query
+development time and minimizing syntax errors.
 
 ### June 5, 2025
 
 **CloudFormation template**
 
-Amazon SageMaker Unified Studio now provides an [CloudFormation
-template](https://github.com/aws/Unified-Studio-for-Amazon-Sagemaker/tree/main/cloudformation "https://github.com/aws/Unified-Studio-for-Amazon-Sagemaker/tree/main/cloudformation") to setup and create a new Amazon SageMaker Unified domain and project.
+Amazon SageMaker Unified Studio now provides an [CloudFormation template](https://github.com/aws/Unified-Studio-for-Amazon-Sagemaker/tree/main/cloudformation "https://github.com/aws/Unified-Studio-for-Amazon-Sagemaker/tree/main/cloudformation") to setup and create a new Amazon SageMaker Unified domain and
+project.
 
 ### June 2, 2025
 
 **Amazon DataZone and Amazon SageMaker integration**
 
 Amazon DataZone and Amazon SageMaker introduced a new UI feature that enables DataZone
-domains to be upgraded and utilized within the next generation of Amazon SageMaker. This update
-preserves customers' Amazon DataZone investments when transferring to Amazon SageMaker. The
-integration allows all content and assets created in DataZone, including metadata forms,
-glossaries, and subscriptions, to remain accessible through Amazon SageMaker Unified Studio post-upgrade. This upgrade
-pathway demonstrates Amazon's commitment to providing continuity and value preservation for
-customers using their machine learning and data management services. For more information, see
-[What's New](https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-datazone-upgrade-domain-sagemaker/ "https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-datazone-upgrade-domain-sagemaker/") and [Upgrade Amazon DataZone domains to
+domains to be upgraded and utilized within the next generation of Amazon SageMaker. This
+update preserves customers' Amazon DataZone investments when transferring to Amazon
+SageMaker. The integration allows all content and assets created in DataZone, including
+metadata forms, glossaries, and subscriptions, to remain accessible through Amazon SageMaker Unified Studio
+post-upgrade. This upgrade pathway demonstrates Amazon's commitment to providing continuity
+and value preservation for customers using their machine learning and data management
+services. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-datazone-upgrade-domain-sagemaker/ "https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-datazone-upgrade-domain-sagemaker/") and [Upgrade Amazon DataZone domains to
 Amazon SageMaker unified domains](../../../datazone/latest/userguide/upgrade-domain.md "../../../datazone/latest/userguide/upgrade-domain.md").
 
 ## May 2025
@@ -377,8 +535,8 @@ Amazon SageMaker unified domains](../../../datazone/latest/userguide/upgrade-dom
 
 **Increased concurrent spaces support**
 
-Amazon SageMaker Unified Studio now supports up to 6,000 concurrent spaces per customer account, representing a
-2.4x increase from the previous limit. This significant scaling improvement enables
+Amazon SageMaker Unified Studio now supports up to 6,000 concurrent spaces per customer account, representing
+a 2.4x increase from the previous limit. This significant scaling improvement enables
 organizations to support larger teams and more concurrent workloads within their Amazon SageMaker Unified Studio
 environment.
 
@@ -386,22 +544,23 @@ environment.
 
 **Visual ETL improvements**
 
-Amazon SageMaker Unified Studio visual ETL now supports cloning a visual ETL flow as a Jupyter notebook, allowing
-users to continue editing the flow with code. This streamlines the workflow for users who prefer
-to start authoring ETL pipelines visually and then transition to a code-based approach. Visual
-ETL also added support for automatically inferring schemas from CSV files within S3 nodes,
-improving the authoring process and reducing manual work needed.
+Amazon SageMaker Unified Studio visual ETL now supports cloning a visual ETL flow as a Jupyter notebook,
+allowing users to continue editing the flow with code. This streamlines the workflow for
+users who prefer to start authoring ETL pipelines visually and then transition to a
+code-based approach. Visual ETL also added support for automatically inferring schemas from
+CSV files within S3 nodes, improving the authoring process and reducing manual work
+needed.
 
 ### May 29, 2025
 
 **Native Redshift table creation enhancements**
 
-You can now create native Redshift tables directly through local file uploads, supporting
-multiple file formats (CSV, JSON, PARQUET) with various compression options and increased file
-size limit to 100MB. The enhancement includes automatic schema inference with preview
-capabilities and adds PARQUET support in Glue upload flow. This eliminates the previous
-multi-step process that required manual S3 file copying, table creation, and data insertion,
-making the workflow more efficient and less error-prone.
+You can now create native Redshift tables directly through local file uploads,
+supporting multiple file formats (CSV, JSON, PARQUET) with various compression options and
+increased file size limit to 100MB. The enhancement includes automatic schema inference with
+preview capabilities and adds PARQUET support in Glue upload flow. This eliminates the
+previous multi-step process that required manual S3 file copying, table creation, and data
+insertion, making the workflow more efficient and less error-prone.
 
 ### May 23, 2025
 
@@ -409,10 +568,10 @@ making the workflow more efficient and less error-prone.
 UI**
 
 Customer Managed Custom Master (CM-CMK) support for Persistent App UI, an essential tool
-for debugging big data applications. This feature extends SSE encryption applied to logs managed
-in the EMR service bucket to honor Customer Managed Custom Master Key (CM-CMK). This feature
-enables customers to manage accessibility of logs after their clusters terminate. For more
-information, see [About Amazon EMR
+for debugging big data applications. This feature extends SSE encryption applied to logs
+managed in the EMR service bucket to honor Customer Managed Custom Master Key (CM-CMK). This
+feature enables customers to manage accessibility of logs after their clusters terminate.
+For more information, see [About Amazon EMR
 Releases](../../../emr/latest/ReleaseGuide/emr-790-release.md#emr-790-relnotes "../../../emr/latest/ReleaseGuide/emr-790-release.md#emr-790-relnotes") and [Configure Amazon EMR cluster logging and debugging](../../../emr/latest/ManagementGuide/emr-plan-debugging.md#emr-plan-debugging-logs-archive "../../../emr/latest/ManagementGuide/emr-plan-debugging.md#emr-plan-debugging-logs-archive").
 
 ### May 22, 2025
@@ -421,26 +580,27 @@ Releases](../../../emr/latest/ReleaseGuide/emr-790-release.md#emr-790-relnotes "
 
 Amazon SageMaker Unified Studio introduced a new Global Search Bar, providing a persistent search interface in
 the top navigation and landing page, simplifying discover and access data without navigating
-through multiple menus. The intuitive search functionality currently supports business catalog
-data and projects, offering clear visual indicators for search result scope. This user-centric
-enhancement represents AWS's commitment to improving the overall SageMaker Studio experience,
-making data and resources more accessible to users.
+through multiple menus. The intuitive search functionality currently supports business
+catalog data and projects, offering clear visual indicators for search result scope. This
+user-centric enhancement represents AWS's commitment to improving the overall SageMaker
+Studio experience, making data and resources more accessible to users.
 
 ### May 12, 2025
 
 **Code Editor and Multiple Spaces support**
 
 AWS launched two complementary capabilities in the next generation of Amazon SageMaker
-that enhance the development experience for analytics, machine learning (ML), and GenAI teams:
-Code Editor and Multiple Spaces support. The Code Editor, based on Code-OSS (Open Source
-Software) like VS Code, offers a powerful IDE experience with familiar shortcuts, terminal
-access, and advanced development tools, while supporting thousands of VS Code-compatible
-extensions from Open VSX. It enables seamless version control through major Git platforms and
-comes preconfigured with Amazon SageMaker distribution for ML frameworks. To maximize the
-benefits of Code Editor alongside other coding interfaces in Unified Studio, including
-JupyterLab, SageMaker now supports multiple spaces per user per project, allowing users to
-manage parallel workstreams with different computational needs. For more information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/05/code-editor-vs-code-open-source-sagemaker-unified-studio/ "https://aws.amazon.com/about-aws/whats-new/2025/05/code-editor-vs-code-open-source-sagemaker-unified-studio/") and [Using the Code Editor IDE in
-Amazon SageMaker Unified Studio](code-editor.md "code-editor.md").
+that enhance the development experience for analytics, machine learning (ML), and GenAI
+teams: Code Editor and Multiple Spaces support. The Code Editor, based on Code-OSS (Open
+Source Software) like VS Code, offers a powerful IDE experience with familiar shortcuts,
+terminal access, and advanced development tools, while supporting thousands of VS
+Code-compatible extensions from Open VSX. It enables seamless version control through major
+Git platforms and comes preconfigured with Amazon SageMaker distribution for ML frameworks.
+To maximize the benefits of Code Editor alongside other coding interfaces in Unified Studio,
+including JupyterLab, SageMaker now supports multiple spaces per user per project, allowing
+users to manage parallel workstreams with different computational needs. For more
+information, see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/05/code-editor-vs-code-open-source-sagemaker-unified-studio/ "https://aws.amazon.com/about-aws/whats-new/2025/05/code-editor-vs-code-open-source-sagemaker-unified-studio/") and [Using the Code Editor IDE
+in Amazon SageMaker Unified Studio](code-editor.md "code-editor.md").
 
 ### May 12, 2025
 
@@ -448,6 +608,6 @@ Amazon SageMaker Unified Studio](code-editor.md "code-editor.md").
 
 Amazon SageMaker Unified Studio now allows you to bring your own image (BYOI). This feature benefits customers
 who have regulatory and compliance requirements or who prefer not to use the framework
-containers that come with the default SageMaker Distribution image. For more information, see
-[What's New](https://aws.amazon.com/about-aws/whats-new/2025/05/amazon-sagemaker-unified-studio-byoi/ "https://aws.amazon.com/about-aws/whats-new/2025/05/amazon-sagemaker-unified-studio-byoi/") and [Bring your own image
+containers that come with the default SageMaker Distribution image. For more information,
+see [What's New](https://aws.amazon.com/about-aws/whats-new/2025/05/amazon-sagemaker-unified-studio-byoi/ "https://aws.amazon.com/about-aws/whats-new/2025/05/amazon-sagemaker-unified-studio-byoi/") and [Bring your own image
 (BYOI)](byoi.md "byoi.md").

@@ -32,8 +32,9 @@ and add glossary terms at column level.
 4. Make sure you are on the **Inventory** tab, then choose the
    name of the asset that you want to publish. You are then brought to the asset
    details page.
-5. Choose the **Schema** tab and then on the schema details page, choose the
-   **View/Edit** link of the column that you'd like to curate.
+5. Choose the **Schema** tab and then on the schema details
+   page, choose the **View/Edit** link of the column that you'd
+   like to curate.
 
 In the right-hand pane that opens, you can edit the details, ReadMe, glossary
 terms, and metadata forms of the column.

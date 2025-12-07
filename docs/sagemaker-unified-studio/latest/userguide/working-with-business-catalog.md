@@ -29,3 +29,4 @@ For more information, see [Amazon SageMaker Unified Studio terminology and conce
 - [Data inventory and publishing](data-publishing.md "data-publishing.md")
 - [Data discovery, subscription, and consumption](discover-data.md "discover-data.md")
 - [Fine-grained access control to data](fine-grained-access-control.md "fine-grained-access-control.md")
+- [Exporting asset metadata](export-asset-metadata.md "export-asset-metadata.md")

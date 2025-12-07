@@ -3,25 +3,36 @@
 ###### Note
 
 Powered by Amazon Bedrock: AWS implements automated abuse detection. Because the
-AI recommendations for descriptions functionality in Amazon SageMaker Unified Studio is built on Amazon
+AI recommendations for assets in Amazon SageMaker Unified Studio is built on Amazon
 Bedrock, users inherit the controls implemented in Amazon Bedrock to enforce safety,
 security, and the responsible use of AI.
 
-In the current release of Amazon SageMaker Unified Studio, you can use the AI recommendations for names
-& descriptions functionality to automate data discovery and cataloging. Support for
-generative AI in Amazon SageMaker Unified Studio creates business names and descriptions for assets and
-columns. You can use these names and descriptions to add business context for your data
-and recommend analysis for datasets, which can help boost data discovery results.
+In the current release of Amazon SageMaker Unified Studio, you can use the AI recommendations for names,
+descriptions, and glossary terms functionality to automate data discovery and
+cataloging.
 
 Powered by Amazon Bedrock's large language models, the AI recommendations for data
-asset names & descriptions in Amazon SageMaker Unified Studio help you to ensure that your data is
-comprehensible and easily discoverable. The AI recommendations also suggest the most
-pertinent analytical applications for datasets. By reducing manual documentation tasks
-and advising on appropriate data usage, auto-generated names and descriptions can help
-you to enhance the trustworthiness of your data and minimize overlooking valuable data
-to accelerate informed decision making.
+asset names, descriptions, and glossary terms in Amazon SageMaker Unified Studio help you to ensure that your
+data is comprehensible and easily discoverable. The AI recommendations also suggest the
+most pertinent analytical applications for datasets. By reducing manual documentation
+tasks and advising on appropriate data usage, auto-generated names and descriptions can
+help you to enhance the trustworthiness of your data and minimize overlooking valuable
+data to accelerate informed decision making.
 
-## Supported Regions
+AI recommendations for glossary terms is a feature that automatically analyzes asset
+metadata and context to determine the most relevant business glossary terms for each
+asset and its columns. Instead of relying on manual tagging or static rules, it reasons
+about the data and performs iterative searches across what already exists in the
+customer’s environment to identify the best-fit glossary term concepts. Because the
+system suggests terms only from glossaries and definitions already present in the
+system, customers are encouraged to maintain high-quality, well-described glossary
+entries so the AI can return accurate and meaningful suggestions. This improves metadata
+quality, strengthens governance, accelerates data onboarding, and reduces manual
+stewardship effort at scale.
+
+## Supported Regions for the AI recommendations for
+
+names and descriptions
 
 In the current Amazon SageMaker Unified Studio release, the AI recommendations for names and
 descriptions feature is supported in the following regions:
@@ -55,10 +66,37 @@ Amazon SageMaker Unified Studio leverages Amazon Bedrock's Cross Region inferenc
 recommendations for the US East (Ohio) region. All other regions use in-region
 endpoint.
 
+## Supported Regions for the AI
+
+recommendations for glossary terms
+
+In the current Amazon SageMaker Unified Studio release, the AI recommendations for glossary terms
+feature is supported in the following regions:
+
+- US East (N. Virginia)
+- US West (Oregon)
+- Asia Pacific (Tokyo)
+- Europe (Frankfurt)
+- Asia Pacific (Sydney)
+- Europe (London)
+- Europe (Ireland)
+- Asia Pacific (Singapore)
+- US East (Ohio)
+- Asia Pacific (Seoul)
+- Asia Pacific (Mumbai)
+- Europe (Paris)
+- Europe (Stockholm)
+
+###### Bedrock Cross Region Inference
+
+Amazon SageMaker Unified Studio leverages Amazon Bedrock's Cross Region inference endpoint to serve
+recommendations for all of the supported regions for AI recommendations for
+glossary terms.
+
 ## Steps to use GenAI
 
-The following procedure describes how to generate AI recommendations for names and
-descriptions in Amazon SageMaker Unified Studio:
+The following procedure describes how to generate AI recommendations for names,
+descriptions, and glossary terms in Amazon SageMaker Unified Studio:
 
 - Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
   using your SSO or AWS credentials.
@@ -77,6 +115,16 @@ Descriptions and Summaries
   metadata** tab, choose **Generate
   descriptions**.
 
+### Generating glossary terms
+
+- Navigate to the **Data** tab for the project.
+- From **Project catalog**, choose
+  **Assets** and chose the asset for which you want
+  to generate AI recommendations for glossary terms.
+- On the asset's details page, in the **Business
+  metadata** tab, choose **Generate
+  terms**.
+
 ### Generating Business Names
 
 - Navigate to the **Data** tab for the project.
@@ -94,12 +142,13 @@ Descriptions and Summaries
 
 Predictions
 
-- Once the descriptions are generated, you can either edit, accept, or
-  reject them.
-- Green icons are displayed next to each automatically generated
-  metadata description for the data asset. In the **Business
-  metadata** tab, you can choose the green icon next to the
-  automatically generated **Summary**, and then choose
+- Once the metadata (name, description or terms) suggestions, are
+  generated, you can either edit, accept, or reject them.
+- Sparkle icons are displayed next to each automatically generated
+  metadata (name, description or terms), for the data asset. In the
+  **Business metadata** tab, you can choose the
+  sparkle icon next to the automatically generated
+  **Summary**, and then choose
   **Edit**, **Accept**, or
   **Reject** to address the generated
   description.
@@ -107,15 +156,16 @@ Predictions
   **Reject all** options that are displayed at the
   top of the page when the **Business metadata** tab is
   selected, and thus perform the selected action on all automatically
-  generated descriptions.
+  generated metadata (name, description or terms).
 - Or you can choose the **Schema** tab, and then
-  address automatically generated descriptions individually by choosing
-  the green icon for one column description at a time and then choosing
-  **Accept** or **Reject**.
+  address automatically generated metadata (name, description or terms)
+  individually by choosing the sparkle icon for one suggested metadata change at
+  a time and then choosing **Accept** or
+  **Reject**.
 - In the **Schema** tab, you can also choose
   **Accept all** or **Reject all**
   and thus perform the selected action on all automatically generated
-  descriptions.
+  metadata.
 
 To publish the asset to the catalog with the generated descriptions, choose
 **Publish asset**, and then confirm this action by choosing
@@ -124,7 +174,7 @@ asset** pop up window.
 
 ###### Note
 
-If you don't accept or reject the generated descriptions for an asset, and
+If you don't accept or reject the generated metadata for an asset, and
 then you publish this asset, this unreviewed automatically generated
 metadata is not included in the published data asset.
 
@@ -140,8 +190,9 @@ In order to enable this feature, create your own asset type definition and attac
 `RelationalTableFormType` as one of the forms. Amazon SageMaker Unified Studio
 automatically detects the presence of such forms and enables GenAI capabilities for
 these assets. The overall experience remains the same for generating business names
-(via predictionConfiguration in the CreateAsset API) and businessDescription (via
-Generate Description button click on the asset details page).
+(via predictionConfiguration in the CreateAsset API), business description (via
+Generate Description button click on the asset details page), and glossary
+terms.
 
 For more information about creating custom asset types see [Create custom asset types in Amazon SageMaker Unified Studio](create-asset-types.md "create-asset-types.md").
 
@@ -153,3 +204,4 @@ in these quotas.
 
 - BusinessDescriptionGeneration: 10K invocations/month
 - BusinessNameGeneration: 50K invocations/month
+- GlossaryTermGeneration - 10k invocations/month

@@ -76,12 +76,18 @@ a knowledge base component.
 
         * **Vector engine for Amazon OpenSearch Serverless** ‐ Provides contextually relevant responses across billions of vectors in milliseconds.
          Supports searches combined with text-based keywords for hybrid requests.
-        * **Amazon S3 vectors** ‐ Optimizes cost-effectiveness, durability, and latency for storage of large, long-term vector data sets. Amazon S3 vector buckets do not support web crawler data sources.
+        * **Amazon S3 vectors** ‐ Optimizes cost-effectiveness, durability, and latency for storage of large, long-term vector data sets. Amazon S3 vector buckets do not support web crawler data sources. Supports metadata for enhanced search and filtering capabilities.
         * **Amazon Neptune Analytics (GraphRAG)** ‐ Provides high-performance graph analytics and graph-based Retrieval Augmented Generation (GraphRAG) solutions. You must have access to Claude 3 Haiku in order to use this vector store. Contact your administrator if you do not have the necessary permissions.
 
     ###### Note
 
-    Support for Amazon S3 vectors is in preview release for Amazon Bedrock in SageMaker Unified Studio and is subject to change.
+    Amazon S3 vectors for Amazon Bedrock in SageMaker Unified Studio is available in the following regions:
+
+        * US East (N. Virginia) (us-east-1)
+        * US East (Ohio) (us-east-2)
+        * US West (Oregon) (us-west-2)
+        * Europe (Frankfurt) (eu-central-1)
+        * Asia Pacific (Sydney) (ap-southeast-2)
 
     Once you select an option for your vector store, Amazon Bedrock in SageMaker Unified Studio will create the vector store on your behalf. 4. For **Chunking strategy**, choose either **Default**, **Fixed sized**, **Hierarchical**, **Semantic**, or **None**.
     These options represent different methods for breaking down data into smaller segments before embedding. 5. For **Parsing strategy**, choose either **Bedrock default parser** or **Foundation model as a parser**. If you choose **Foundation model as a parser**, do the following:
