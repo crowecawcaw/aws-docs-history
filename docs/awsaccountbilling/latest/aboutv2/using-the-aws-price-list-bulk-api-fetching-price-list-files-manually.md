@@ -79,16 +79,11 @@ https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/`<savingsPlanCode>`
 ```
 
 For example, the current version of
-`AWSComputeSavingsPlan` and
-`AWSMachineLearningSavingsPlans` appears like the following
-URLs.
+`AWSComputeSavingsPlan` appears like the following
+URL.
 
 ```
 https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/current/index.json
-```
-
-```
-https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSMachineLearningSavingsPlans/current/index.json
 ```
 
 For more information, see [Reading the service version index file](using-the-aws-price-list-bulk-api-reading-price-list-files-reading-service-version-index-file.md "using-the-aws-price-list-bulk-api-reading-price-list-files-reading-service-version-index-file.md").

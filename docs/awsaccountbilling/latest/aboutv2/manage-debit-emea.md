@@ -30,7 +30,7 @@ your AWS Europe payment methods
 
 ###### Note
 
-To use this feature, you must have a billing address in Germany, Netherlands, Spain, United Kingdom, or Belgium. To
+To use this feature, you must have a billing address in Germany, Netherlands, Spain, United Kingdom, France, Italy, Finland, Ireland, Austria, or Belgium. To
 change your billing address, see [Update your direct
 debit account information](#update-your-direct-debit-account-information "#update-your-direct-debit-account-information").
 

@@ -73,6 +73,18 @@ aren't related to product or service attributes.
 For more information about this API operation, see [DescribeServices](../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md "../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md") and [language-specific AWS SDKs](../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md#API_pricing_DescribeServices_SeeAlso "../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md#API_pricing_DescribeServices_SeeAlso") in the
 _AWS Billing and Cost Management API Reference_
 
+###### Note
+
+While the `DescribeServices` API currently doesn't return `serviceCodes` for Savings Plans, you will need the following `serviceCodes` to use Savings Plans in subsequent API calls:
+
+| ServiceCode                 | SavingsPlanCode                |
+| --------------------------- | ------------------------------ |
+| ComputeSavingsPlans         | AWSComputeSavingsPlan          |
+| MachineLearningSavingsPlans | AWSMachineLearningSavingsPlans |
+| DatabaseSavingsPlans        | AWSDatabaseSavingsPlans        |
+
+Use the `ServiceCode` values when working with the `ListPriceLists` and `GetPriceListFileUrl` API operations. The `SavingsPlanCode` is only needed if you are downloading price list files manually instead of using the APIs.
+
 Use the `ListPriceLists` API operation to get a list of price list
 references that you have permission to view. To filter your results, you can specify the
 `ServiceCode`, `CurrencyCode`, and `EffectiveDate`
