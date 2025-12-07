@@ -15,12 +15,12 @@ web service. Every web service request contains an endpoint. Most AWS services p
 endpoints for specific Regions to enable faster connectivity. The following table lists
 the service endpoints for AWS HealthImaging.
 
-| Region Name           | Region         | Endpoint                                     | Protocol |
-| --------------------- | -------------- | -------------------------------------------- | -------- |
-| US East (N. Virginia) | us-east-1      | medical-imaging.us-east-1.amazonaws.com      | HTTPS    |
-| US West (Oregon)      | us-west-2      | medical-imaging.us-west-2.amazonaws.com      | HTTPS    |
-| Asia Pacific (Sydney) | ap-southeast-2 | medical-imaging.ap-southeast-2.amazonaws.com | HTTPS    |
-| Europe (Ireland)      | eu-west-1      | medical-imaging.eu-west-1.amazonaws.com      | HTTPS    |
+| Region Name           | Region         | Endpoint                                                                                | Protocol       |
+| --------------------- | -------------- | --------------------------------------------------------------------------------------- | -------------- |
+| US East (N. Virginia) | us-east-1      | medical-imaging.us-east-1.amazonaws.com<br>medical-imaging-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| US West (Oregon)      | us-west-2      | medical-imaging.us-west-2.amazonaws.com<br>medical-imaging-fips.us-west-2.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Sydney) | ap-southeast-2 | medical-imaging.ap-southeast-2.amazonaws.com                                            | HTTPS          |
+| Europe (Ireland)      | eu-west-1      | medical-imaging.eu-west-1.amazonaws.com                                                 | HTTPS          |
 
 If you are using HTTP requests to call AWS HealthImaging actions, you must use different
 endpoints depending on the actions being called. The following menu lists the available

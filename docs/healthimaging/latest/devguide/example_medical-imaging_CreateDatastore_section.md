@@ -102,7 +102,7 @@ CLI
 
 **To create a data store**
 
-The following `create-datastore` code example creates a data store with the name `my-datastore`.
+The following `create-datastore` code example creates a data store with the name `my-datastore`. When you create a datastore without specifying a `--lossless-storage-format`, AWS HealthImaging defaults to HTJ2K (High Throughput JPEG 2000).
 
 ```
 `aws medical-imaging create-datastore \
