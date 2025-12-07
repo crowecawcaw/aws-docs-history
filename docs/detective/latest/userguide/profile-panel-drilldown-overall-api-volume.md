@@ -190,7 +190,7 @@ to default scope time**. 3. Choose **Update time window**.
 
 The time range for the activity details is highlighted on the profile panel charts.
 
-![Highlighted time window for the Overall API call volume profile panel](/images/detective/latest/userguide/images/screen_profile_panel_drilldown_api_timehighlight.png)
+![Highlighted time window for the Overall API call volume profile panel](images/screen_profile_panel_drilldown_api_timehighlight.png)
 
 ## Querying raw logs
 
