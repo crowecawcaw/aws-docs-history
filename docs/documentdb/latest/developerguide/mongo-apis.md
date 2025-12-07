@@ -361,8 +361,8 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 | $geoWithin     | Yes | Yes | Yes | Yes | Yes             |
 | $near          | Yes | Yes | Yes | Yes | Yes             |
 | $nearSphere    | Yes | Yes | Yes | Yes | Yes             |
-| $polygon       | No  | No  | No  | Yes | No              |
-| $uniqueDocs    | No  | No  | No  | Yes | No              |
+| $polygon       | No  | No  | No  | No  | No              |
+| $uniqueDocs    | No  | No  | No  | No  | No              |
 
 ## Cursor methods
 

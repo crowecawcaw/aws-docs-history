@@ -1,37 +1,40 @@
-# Resilience in Amazon DocumentDB
+# Compliance validation in Amazon DocumentDB
 
-The AWS global infrastructure is built around AWS Regions and Availability Zones. AWS Regions provide multiple
-physically separated and isolated Availability Zones, which are connected with low-latency, high-throughput, and
-highly redundant networking. With Availability Zones, you can design and operate applications and databases that
-automatically fail over between Availability Zones without interruption. Availability Zones are more highly
-available, fault tolerant, and scalable than traditional single or multiple data center infrastructures.
+The security and compliance of Amazon DocumentDB is assessed by third-party auditors as part of multiple
+AWS compliance programs, including the following:
 
-An Amazon DocumentDB cluster can only be created in an Amazon VPC that has at least two subnets in at least two Availability
-Zones. By distributing your cluster instances across at least two Availability Zones, Amazon DocumentDB helps ensure that
-there are instances available in your cluster in the unlikely event of an Availability Zone failure. The cluster
-volume for your Amazon DocumentDB cluster always spans three Availability Zones to provide durable storage with less
-possibility of data loss.
+- System and Organization Controls (SOC) 1, 2, and 3. For more information, see
+  [SOC](https://aws.amazon.com/compliance/soc-faqs/ "https://aws.amazon.com/compliance/soc-faqs/").
+- Federal Risk and Authorization Management Program (FedRAMP).
+  For more information, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/ "https://aws.amazon.com/compliance/services-in-scope/FedRAMP/").
+- Payment Card Industry Data Security Standard (PCI DSS). For more information, see
+  [PCI DSS](https://aws.amazon.com/compliance/pci-dss-level-1-faqs/ "https://aws.amazon.com/compliance/pci-dss-level-1-faqs/").
+- ISO 9001, 27001, 27017, and 27018. For more information, see [ISO Certified](https://aws.amazon.com/compliance/iso-certified/ "https://aws.amazon.com/compliance/iso-certified/").
+- Health Insurance Portability and Accountability Act Business Associate Agreement
+  (HIPAA BAA). For more information, see [HIPAA Compliance](../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md "../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md")
+  AWS provides a frequently updated list of AWS services in scope of specific compliance programs at [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 
-For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
+Third-party audit reports are available for you to download using AWS Artifact. For more
+information, see [Downloading
+Reports in AWS Artifact](../../../artifact/latest/ug/downloading-documents.md "../../../artifact/latest/ug/downloading-documents.md").
 
-In addition to the AWS global infrastructure, Amazon DocumentDB offers several features to help support your data
-resiliency and backup needs.
+For more information about AWS compliance programs, see [AWS
+Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/").
 
-**Fault-tolerant and self-healing storage**
-Each 10 GB portion of your storage volume is replicated six ways, across three Availability
-Zones. Amazon DocumentDB uses fault-tolerant storage that transparently handles the loss of up
-to two copies of data without affecting database write availability, and up to three
-copies without affecting read availability. Amazon DocumentDB storage is also self-healing;
-data blocks and disks are continuously scanned for errors and replaced
-automatically.
+Your compliance responsibility when using Amazon DocumentDB is determined by the sensitivity of your data, your organization’s
+compliance objectives, and applicable laws and regulations. If your use of Amazon DocumentDB is subject to compliance with
+standards like HIPAA or PCI, AWS provides resources to help:
 
-**Manual backups and restore**
-
-Amazon DocumentDB provides the capability to create full backups of your cluster for
-long-term retention and recovery. For more information, see [Backing up and restoring in Amazon DocumentDB](backup_restore.md "backup_restore.md").
-
-**Point-in-time recovery**
-
-Point-in-time recovery helps protect your Amazon DocumentDB clusters from accidental write or delete operations. With
-point-in-time recovery, you don't have to worry about creating, maintaining, or scheduling on-demand backups.
-For more information, see [Restoring to a point in time](backup_restore-point_in_time_recovery.md "backup_restore-point_in_time_recovery.md").
+- [AWS Compliance Resources](https://aws.amazon.com/compliance/resources/ "https://aws.amazon.com/compliance/resources/") – A collection of
+  workbooks and guides that might apply to your industry and location.
+- [Security and Compliance Quick Start Guides](https://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance "https://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance") – Deployment guides that discuss architectural considerations and
+  provide steps for deploying security- and compliance-focused baseline environments on AWS.
+- [AWS Config](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md")
+  – A service that assesses how well your resource configurations comply with internal practices, industry guidelines,
+  and regulations.
+- [AWS Security
+  Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – A comprehensive view of your security state within AWS that helps you check your compliance with
+  security industry standards and best practices.
+- [Architecting
+  for HIPAA Security and Compliance Whitepaper](../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md "../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md") – A whitepaper that describes how companies can use AWS to
+  create HIPAA-compliant applications.

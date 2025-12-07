@@ -44,7 +44,7 @@ If you do have an Amazon EC2 key pair:
 
 For security purposes, we highly recommend using a key-pair for both SSH and internet connectivity to your EC2 instance. 6. In the **Network settings section**, under **Firewall (security groups)**, choose either **Create security group** or **Select existing security group**.
 
-![The Network settings interface showing options for creating a security group.](/images/documentdb/latest/developerguide/images/ec2/firewall.png)
+![The Network settings interface showing options for creating a security group.](images/ec2/firewall.png)
 
 If you chose to select an existing security group, select one from the **Common security groups** drop-down list.
 
@@ -125,12 +125,12 @@ Complete the following steps:
 1. On the Amazon EC2 console, navigate to your instances and see if the instance you just created is running.
    If it is, select the instance by clicking the instance ID.
 
-![Instances table listing two instances on the Amazon EC2 console.](/images/documentdb/latest/developerguide/images/ec2/ec2-instance-table.png) 2. Choose **Connect**.
+![Instances table listing two instances on the Amazon EC2 console.](images/ec2/ec2-instance-table.png) 2. Choose **Connect**.
 
 ![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](images/ec2/ec2-instance-summary.png) 3. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console.
 You must choose one and follow its instructions. When complete, choose **Connect**.
 
-![Interface showing configuration options for the EC2 Instance Connect connection method.](/images/documentdb/latest/developerguide/images/ec2/connect-options.png)
+![Interface showing configuration options for the EC2 Instance Connect connection method.](images/ec2/connect-options.png)
 
 ###### Note
 
