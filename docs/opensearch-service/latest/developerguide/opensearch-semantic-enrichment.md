@@ -15,6 +15,11 @@ and the contextual meaning behind searches. This feature understands search inte
 improves search relevance by up to 20%. Enable this feature for text fields in your index to
 enhance search results.
 
+###### Note
+
+Automatic semantic enrichment is available for Amazon OpenSearch Service domains running version 2.19
+or later with the latest service software version update.
+
 ## How it works
 
 The enrichment process analyzes designated text fields and generates semantic

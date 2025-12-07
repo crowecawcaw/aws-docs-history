@@ -180,17 +180,20 @@ authentication. For guidance on creating these resources, see [Configuring Amazo
 Dashboards](cognito-auth.md "cognito-auth.md"). 23. (Optional) If you want to use IAM Identity Center (IDC) authentication
 to connect your existing identity source and give your AWS applications a
 common view of your users, choose **Enable API access authenticated
-with IAM Identity Center**. For more information, see [Trusted identity propagation overview](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md") in the _IAM
-Identity Center User Guide._ 24. (Optional) In the **Advanced features** section, leave
+with IAM Identity Center** . For more information, see [Trusted identity propagation overview](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md") in the _IAM Identity Center User Guide._ 24. (Optional) In the **Advanced features** section, leave
 **Enable Natural Language Query Generation and Amazon Q Developer
 features** selected, if you want to use these features.
 
-Choose **Enable S3 Vectors as an engine option** for
-enhanced vector search options. For more information, see [(Preview) Advanced search
-capabilities with an Amazon S3 vector engine](s3-vector-opensearch-integration-engine.md "s3-vector-opensearch-integration-engine.md"). 25. For **Access policy**, choose an access policy or
-configure one of your own. If you choose to create a custom policy, you can
-configure it yourself or import one from another domain. For more
-information, see [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md").
+    1. Choose **Enable S3 Vectors as an engine option**
+     for enhanced vector search options. For more information, see [Advanced search
+     capabilities with an Amazon S3 vector engine](s3-vector-opensearch-integration-engine.md "s3-vector-opensearch-integration-engine.md").
+    2. Choose **Enable GPU acceleration for enhanced vector
+     search options. For more information, see [GPU-acceleration for vector indexing](gpu-acceleration-vector-index.md "gpu-acceleration-vector-index.md").**
+
+25. For **Access policy**, choose an access policy or
+    configure one of your own. If you choose to create a custom policy, you can
+    configure it yourself or import one from another domain. For more
+    information, see [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md").
 
 ###### Note
 

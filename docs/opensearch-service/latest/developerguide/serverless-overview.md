@@ -148,7 +148,7 @@ AWS charges you for the following OpenSearch Serverless components:
 
 One OCU comprises 6 GB of RAM, corresponding vCPU, GP3 storage, and data transfer
 to Amazon S3. The smallest unit you can be billed for is 0.5 OCU. AWS bills OCU on
-an hourly basis, with per-second granularity. In your account statement, you see an
+an hourly basis, with second-level granularity. In your account statement, you see an
 entry for compute in OCU-hours with a label for data ingestion and a label for
 search. AWS also bills you on a monthly basis for data stored in Amazon S3. It doesn't
 charge you for using OpenSearch Dashboards.

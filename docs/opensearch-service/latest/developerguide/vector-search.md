@@ -55,5 +55,5 @@ OpenSearch integrates with the following machine learning services and models:
   models
 - **Custom models**: Your own trained embedding
   models
-  Vector search enables you to build sophisticated AI-powered applications that understand
+  With vector search, you can build sophisticated AI-powered applications that understand
   context and meaning, going far beyond traditional text matching capabilities.

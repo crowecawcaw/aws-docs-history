@@ -1,11 +1,6 @@
-# (Preview) Import from Amazon S3
+# Import from Amazon S3
 
 Vectors to OpenSearch Serverless
-
-###### Important
-
-The Amazon S3 Vectors integration with OpenSearch Service is in preview release and is subject to
-change.
 
 Amazon S3 Vectors delivers the first cloud object store with native support to store
 and query vectors. S3 Vectors provides cost-effective, elastic, and durable vector
@@ -72,7 +67,7 @@ it into OpenSearch Serverless vector collections for high-performance search ope
 After export, your data is still present in the S3 vector index. You have
 two copies of the data.
 
-Each vector index maps to a corresponding index in the OpenSearch Service collection. The
+Each vector index maps to a corresponding index in the OpenSearch Serverless collection. The
 integration:
 
 - Preserves vector dimensions
