@@ -41,18 +41,15 @@ df = sql_context.read \
 connect to Amazon Redshift
 
 You can use the Amazon Redshift-provided JDBC version 2 driver to connect to Amazon Redshift with
-the Spark connector. To use AWS Identity and Access Management (IAM), [configure your JDBC URL to use
-IAM authentication](../../../redshift/latest/mgmt/generating-iam-credentials-configure-jdbc-odbc.md "../../../redshift/latest/mgmt/generating-iam-credentials-configure-jdbc-odbc.md"). To connect to a Redshift cluster from Amazon EMR, you must
-give your IAM role permission to retrieve temporary IAM credentials. Assign
-the following permissions to your IAM role so that it can retrieve credentials
-and run Amazon S3 operations.
+the Spark connector. To use AWS Identity and Access Management (IAM), [configure your JDBC URL to use IAM authentication](../../../redshift/latest/mgmt/generating-iam-credentials-configure-jdbc-odbc.md "../../../redshift/latest/mgmt/generating-iam-credentials-configure-jdbc-odbc.md"). To connect to
+a Redshift cluster from Amazon EMR, you must give your IAM role permission to
+retrieve temporary IAM credentials. Assign the following permissions to your
+IAM role so that it can retrieve credentials and run Amazon S3 operations.
 
 - [Redshift:GetClusterCredentials](../../../redshift/latest/APIReference/API_GetClusterCredentials.md "../../../redshift/latest/APIReference/API_GetClusterCredentials.md") (for provisioned Amazon Redshift
   clusters)
-- [Redshift:DescribeClusters](../../../redshift/latest/APIReference/API_DescribeClusters.md "../../../redshift/latest/APIReference/API_DescribeClusters.md") (for provisioned Amazon Redshift
-  clusters)
-- [Redshift:GetWorkgroup](../../../redshift-serverless/latest/APIReference/API_GetWorkgroup.md "../../../redshift-serverless/latest/APIReference/API_GetWorkgroup.md") (for Amazon Redshift Serverless
-  workgroups)
+- [Redshift:DescribeClusters](../../../redshift/latest/APIReference/API_DescribeClusters.md "../../../redshift/latest/APIReference/API_DescribeClusters.md") (for provisioned Amazon Redshift clusters)
+- [Redshift:GetWorkgroup](../../../redshift-serverless/latest/APIReference/API_GetWorkgroup.md "../../../redshift-serverless/latest/APIReference/API_GetWorkgroup.md") (for Amazon Redshift Serverless workgroups)
 - [Redshift:GetCredentials](../../../redshift-serverless/latest/APIReference/API_GetCredentials.md "../../../redshift-serverless/latest/APIReference/API_GetCredentials.md") (for Amazon Redshift Serverless workgroups)
 - [s3:GetBucket](../../../AmazonS3/latest/API/API_control_GetBucket.md "../../../AmazonS3/latest/API/API_control_GetBucket.md")
 - [s3:GetBucketLocation](../../../AmazonS3/latest/API/API_GetBucketLocation.md "../../../AmazonS3/latest/API/API_GetBucketLocation.md")

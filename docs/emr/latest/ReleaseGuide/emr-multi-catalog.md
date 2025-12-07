@@ -1,41 +1,59 @@
-# Working with a multi-catalog hierarchy in AWS Glue Data Catalog with Spark on Amazon EMR
+# Working with a multi-catalog hierarchy in
 
-You can register your Amazon EMR cluster to access the AWS Glue Data Catalog, which makes tables and other catalog resources available to
-various consumers. AWS Glue Data Catalog supports a multi-catalog hierarchy, which unifies your data across Amazon S3 data lakes. It also provides both a Hive metastore API and an
-open-source Apache Iceberg REST API for accessing the data. These features are available to Amazon EMR and other services like Amazon Athena and Amazon Redshift.
+AWS Glue Data Catalog with Spark on Amazon EMR
+
+You can register your Amazon EMR cluster to access the AWS Glue Data Catalog, which makes tables and
+other catalog resources available to various consumers. AWS Glue Data Catalog supports a
+multi-catalog hierarchy, which unifies your data across Amazon S3 data lakes. It also
+provides both a Hive metastore API and an open-source Apache Iceberg REST API for
+accessing the data. These features are available to Amazon EMR and other services like
+Amazon Athena and Amazon Redshift.
 
 ## How catalog resources are organized
 
-When you create
-resources in the AWS Glue Data Catalog, you can access them from any SQL engine that supports the Apache Iceberg REST API or Hive metastore. AWS Lake Formation manages
+When you create resources in the AWS Glue Data Catalog, you can access them from any SQL
+engine that supports the Apache Iceberg REST API or Hive metastore. AWS Lake Formation
+manages
 permissions.
 
-In AWS Glue Data Catalog, data is organized in a logical hierarchy of catalogs, databases and tables:
+In AWS Glue Data Catalog, data is organized in a logical hierarchy of catalogs, databases
+and tables:
 
-- **Catalog** – A logical container that holds objects from a data store, such as schemas or tables.
-- **Catalog to store Redshift Managed Storage (RMS) tables** – When you manage catalogs to store RMS tables, you can access
-  these tables using Iceberg.
-- **Database** – Organizes data objects such as tables and views in a catalog.
-- **Tables and views** – Data objects in a database that provide an abstraction layer with an understandable schema. They provide a layer to access underlying data, which
-  can be in various formats and in different locations.
+- **Catalog** – A logical container that
+  holds objects from a data store, such as schemas or tables.
+- **Catalog to store Redshift Managed Storage (RMS)
+  tables** – When you manage catalogs to store RMS tables,
+  you can access these tables using Iceberg.
+- **Database** – Organizes data objects
+  such as tables and views in a catalog.
+- **Tables and views** – Data objects in
+  a database that provide an abstraction layer with an understandable schema.
+  They provide a layer to access underlying data, which can be in various
+  formats and in different locations.
 
-## Configuring a data catalog for use with Amazon EMR
+## Configuring a data catalog for use
 
-To get started, you configure the catalog to support Amazon EMR tools. The AWS Glue Data Catalog provides Hive metastore compatibility and Iceberg REST compatible APIs.
+with Amazon EMR
+
+To get started, you configure the catalog to support Amazon EMR tools. The AWS Glue Data Catalog
+provides Hive metastore compatibility and Iceberg REST compatible APIs.
 
 **Configuring Amazon EMR with a Hive metastore**
 
-For information about how to set this up,
-see [AWS Glue Data Catalog support for Spark jobs](../../../glue/latest/dg/aws-glue-programming-etl-glue-data-catalog-hive.md "../../../glue/latest/dg/aws-glue-programming-etl-glue-data-catalog-hive.md") in the AWS Glue User Guide. This topic describes
-how to configure AWS Glue Data Catalog as a Hive metastore and make it available as an endpoint. Additionally, there is Amazon EMR documentation available that shows you
-how to specify AWS Glue Data Catalog as a Spark metastore,
-in [Use the AWS Glue Data Catalog as the Apache Hive metastore for Spark](emr-spark-glue.md "emr-spark-glue.md").
+For information about how to set this up, see [AWS Glue Data Catalog support for Spark jobs](../../../glue/latest/dg/aws-glue-programming-etl-glue-data-catalog-hive.md "../../../glue/latest/dg/aws-glue-programming-etl-glue-data-catalog-hive.md") in the AWS Glue User Guide. This topic
+describes how to configure AWS Glue Data Catalog as a Hive metastore and make it available as
+an endpoint. Additionally, there is Amazon EMR documentation available that shows you how
+to specify AWS Glue Data Catalog as a Spark metastore, in [Use the AWS Glue Data Catalog as the Apache Hive
+metastore for Spark](emr-spark-glue.md "emr-spark-glue.md").
 
-## Permissions for accessing resources in AWS Glue Data Catalog
+## Permissions for accessing
 
-This section describes the IAM policy requirements for using Amazon EMR tools with catalog data.
+resources in AWS Glue Data Catalog
 
-After you register your cluster with the AWS Glue Data Catalog, you need the following permissions to discover the creation of and changes to the subsequently created data catalog:
+This section describes the IAM policy requirements for using Amazon EMR tools with
+catalog data. After you register your
+cluster with the AWS Glue Data Catalog, you need the following permissions to discover the
+creation of and changes to the subsequently created data catalog:
 
 - **glue:GetCatalog**
 - **glue:GetCatalogs**
@@ -44,28 +62,38 @@ After you register your cluster with the AWS Glue Data Catalog, you need the fol
 - **sts:SetContext**
 - **sts:SetSourceIdentity**
 
-In most cases, when you assign permissions, we
-recommend creating an IAM role and assigning permissions to it.
+In most cases, when you assign permissions, we recommend creating an IAM role
+and assigning permissions to it.
 
-Additionally, to query catalog data, you must set permissions for the data catalog using AWS Lake Formation. For more information on setting permissions for data catalogs in AWS Lake Formation,
-see [Granting and revoking permissions on Data Catalog resources](../../../lake-formation/latest/dg/granting-catalog-permissions.md "../../../lake-formation/latest/dg/granting-catalog-permissions.md").
+Additionally, to query catalog data, you must set permissions for the data catalog
+using AWS Lake Formation. For more information on setting permissions for data catalogs in
+AWS Lake Formation, see [Granting and
+revoking permissions on Data Catalog resources](../../../lake-formation/latest/dg/granting-catalog-permissions.md "../../../lake-formation/latest/dg/granting-catalog-permissions.md").
 
-After you create and configure your cluster, and set permissions on your catalog objects, you can submit jobs to query and process data.
+After you create and configure your cluster, and set permissions on your catalog
+objects, you can submit jobs to query and process data.
 
-## Configure Spark to access a multi-catalog hierarchy in AWS Glue Data Catalog
+## Configure Spark to access a
 
-With EMR 7.5, you can configure Spark to use AWS Glue's multi-catalog heirarchy. A multi-catalog hierarchy allows you to:
+multi-catalog hierarchy in AWS Glue Data Catalog
 
-- Bring your Redshift Managed Storage (RMS) data, such as tables, views, and materialized views from existing Amazon Redshift data warehouses to AWS Glue Data Catalog. You can query these objects
-  using EMR on EC2 and EMR Serverless.
-- Create RMS catalogs, AWS Glue Data Catalog and store data in RMS using ZeroETL and query the data with Iceberg-compatible query engines.
-- Create managed Iceberg tables in AWS Glue Data Catalog with full-featured storage management that includes compaction, snapshots, and retention.
+With EMR 7.5, you can configure Spark to use AWS Glue's multi-catalog heirarchy. A
+multi-catalog hierarchy allows you to:
 
-### Connecting to multi-catalog when you initialize a Spark
+- Bring your Redshift Managed Storage (RMS) data, such as tables, views, and
+  materialized views from existing Amazon Redshift data warehouses to AWS Glue Data Catalog. You
+  can query these objects using EMR on EC2 and EMR Serverless.
+- Create RMS catalogs, AWS Glue Data Catalog and store data in RMS using ZeroETL and
+  query the data with Iceberg-compatible query engines.
+- Create managed Iceberg tables in AWS Glue Data Catalog with full-featured storage
+  management that includes compaction, snapshots, and retention.
 
-session
+### Connecting to
 
-The following examples demonstrate how to use interactive Spark shell, Spark submit, or Amazon EMR Notebooks to work with AWS Glue’s multi-catalog hierarchy.
+multi-catalog when you initialize a Spark session
+
+The following examples demonstrate how to use interactive Spark shell, Spark
+submit, or Amazon EMR Notebooks to work with AWS Glue’s multi-catalog hierarchy.
 
 spark-shell
 
@@ -127,8 +155,10 @@ _Amazon EMR Management Guide_.
 ```
 
 CLI
-To initialize a Spark session using the CLI, run the following sample. For more information about
-specifying a configuration classification using the AWS CLI and Amazon EMR API, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
+To initialize a Spark session using the CLI, run the following
+sample. For more information about specifying a configuration
+classification using the AWS CLI and Amazon EMR API, see [Configure
+applications](emr-configure-apps.md "emr-configure-apps.md").
 
 ```
 [
@@ -146,9 +176,12 @@ specifying a configuration classification using the AWS CLI and Amazon EMR API, 
 ]
 ```
 
-#### Initialize a Spark session to Redshift Managed Storage with AWS Glue Data Catalog
+#### Initialize a
 
-The following sample command initializes a Spark session with the AWS Glue Data Catalog.
+Spark session to Redshift Managed Storage with AWS Glue Data Catalog
+
+The following sample command initializes a Spark session with the
+AWS Glue Data Catalog.
 
 ```
 spark-sql \
@@ -159,7 +192,8 @@ spark-sql \
   --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
 ```
 
-The following sample initializes a Spark session using the Iceberg REST API and Redshift Managed Storage with AWS Glue Data Catalog.
+The following sample initializes a Spark session using the Iceberg REST
+API and Redshift Managed Storage with AWS Glue Data Catalog.
 
 ```
 spark-sql \
@@ -173,13 +207,20 @@ spark-sql \
   --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
 ```
 
-For more information about using an AWS Glue multi-catalog hierarchy with Spark Iceberg,
-see [Use an Iceberg cluster with Spark](emr-iceberg-use-spark-cluster.md "emr-iceberg-use-spark-cluster.md").
+For more information about using an AWS Glue multi-catalog hierarchy with Spark
+Iceberg, see [Use an
+Iceberg cluster with Spark](emr-iceberg-use-spark-cluster.md "emr-iceberg-use-spark-cluster.md").
 
-## Considerations and limitations for a multi-catalog configuration
+## Considerations and limitations for a
 
-- Using a multi-catalog hierarchy with Apache Hive metastore is not supported.
-- Using a multi-catalog hierarchy with Apache Iceberg cannot support fallback to Apache Hive metastore, when
-  using `SparkSessionCatalog`.
-- EMR on EC2 clusters with Runtime role don't support multi-catalog hierarchy.
-- EMR on EC2 clusters enabled with AWS Lake Formation don't support multi-catalog hierarchy.
+multi-catalog configuration
+
+- Using a multi-catalog hierarchy with Apache Hive metastore is not
+  supported.
+- Using a multi-catalog hierarchy with Apache Iceberg cannot support
+  fallback to Apache Hive metastore, when using
+  `SparkSessionCatalog`.
+- EMR on EC2 clusters with Runtime role don't support multi-catalog
+  hierarchy.
+- EMR on EC2 clusters enabled with AWS Lake Formation don't support multi-catalog
+  hierarchy.

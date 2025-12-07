@@ -149,6 +149,8 @@ spark.sql.subResultCache.maxBufferSize (default: 16MB, max: 64MB)
   cache results written by different releases of Amazon EMR .
 - Result Fragment Caching will be disabled automatically for Spark Streaming
   use cases or when RecordServer, Apache Ranger, or AWS Lake Formation is used.
-- The result fragment cache read/writes use EMRFS / S3A and Amazon S3 buckets. CSE (only with EMRFS)/ SSE S3/ SSE KMS
-  encryption are supported. For context, S3A provides a Hadoop implementation
-  to enable a cluster to read and write data to and from Amazon S3. Note that support for S3A is available with EMR-7.4.0 and higher.
+- The result fragment cache read/writes use EMRFS / S3A and Amazon S3 buckets.
+  CSE (only with EMRFS)/ SSE S3/ SSE KMS encryption are supported. For
+  context, S3A provides a Hadoop implementation to enable a cluster to read
+  and write data to and from Amazon S3. Note that support for S3A is available with
+  EMR-7.4.0 and higher.

@@ -14,8 +14,8 @@ AWS Glue as your Spark SQL metastore. See [Use AWS Glue Data Catalog catalog wit
    [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr/ "https://console.aws.amazon.com/emr/").
 2. Choose **Create cluster** to use **Quick
    Options**.
-3. Enter a **Cluster name**. Your cluster name can't
-   contain the characters <, >, $, |, or ` (backtick).
+3. Enter a **Cluster name**. Your cluster name can't contain the
+   characters <, >, $, |, or ` (backtick).
 4. For **Software Configuration**, choose a
    **Release** option.
 5. For **Applications**, choose the **Spark**

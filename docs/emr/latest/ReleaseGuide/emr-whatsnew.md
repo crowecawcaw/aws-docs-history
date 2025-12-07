@@ -20,6 +20,20 @@ SigV4 so that you can access new S3 buckets and avoid interruption to
 your workloads. For more information and a list of Amazon EMR releases that support
 SigV4, see [Amazon EMR and AWS Signature Version 4](#emr-sigv4 "#emr-sigv4").
 
+## Apache Spark Upgrade and Troubleshooting Agents
+
+**Apache Spark Upgrade Agent**
+
+The Apache Spark Upgrade Agent for Amazon EMR is a conversational AI capability that accelerates Apache Spark version upgrades for your EMR applications. Traditional Spark upgrades require months of engineering effort to analyze API changes, resolve dependency conflicts, and validate functional correctness. The agent simplifies the upgrade process through natural language prompts, automated code transformation, and data quality validation.
+
+You can use the agent to upgrade PySpark and Scala applications running on Amazon EMR on EC2 and Amazon EMR Serverless. The agent analyzes your code, identifies required changes, and performs automated transformations while maintaining your approval control over all modifications. For more details refer to [What is Apache Spark Upgrade Agent for Amazon EMR](spark-upgrades.md "spark-upgrades.md").
+
+**Apache Spark Troubleshooting Agent**
+
+The Apache Spark troubleshooting agent for Amazon EMR is a conversational AI capability that simplifies the troubleshooting of Apache Spark applications on Amazon EMR, AWS Glue and Amazon SageMaker Notebooks. Traditional Spark troubleshooting requires extensive manual analysis of logs, performance metrics, and error patterns to identify root causes and code fixes. The agent simplifies this process through natural language prompts, automated workload analysis, and intelligent code recommendations.
+
+You can use the agent to troubleshoot PySpark and Scala applications failures. The agent analyzes your failed jobs, identifies performance bottlenecks, and provides actionable recommendations and code fixes while giving you full control over implementation decisions. For more details refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR](spark-troubleshoot.md "spark-troubleshoot.md").
+
 ## Amazon EMR
 
 7.12.0 (latest release of 7.x series)

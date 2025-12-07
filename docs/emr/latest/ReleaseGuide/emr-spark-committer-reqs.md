@@ -5,11 +5,11 @@ S3-optimized committer
 The EMRFS S3-optimized committer is used when the following conditions are
 met:
 
-- You run Spark jobs that use Spark, DataFrames, or Datasets to
-  write files to Amazon S3. Starting with Amazon EMR 6.4.0, this committer can be
-  used for all common formats including parquet, ORC, and text-based
-  formats (including CSV and JSON). For releases prior to Amazon EMR 6.4.0,
-  only the Parquet format is supported.
+- You run Spark jobs that use Spark, DataFrames, or Datasets to write
+  files to Amazon S3. Starting with Amazon EMR 6.4.0, this committer can be used for
+  all common formats including parquet, ORC, and text-based formats
+  (including CSV and JSON). For releases prior to Amazon EMR 6.4.0, only the
+  Parquet format is supported.
 - Multipart uploads are enabled in Amazon EMR . This is the default. For more
   information, see [The EMRFS S3-optimized committer
   and multipart uploads](emr-spark-committer-multipart.md "emr-spark-committer-multipart.md").

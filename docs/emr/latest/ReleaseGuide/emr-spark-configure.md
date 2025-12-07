@@ -89,11 +89,12 @@ and memory resources available for an executor on an instance in the core instan
 group. It then sets the corresponding `spark-defaults` settings based on
 the calculated maximum values.
 
-Amazon EMR calculates the maximum compute and memory resources available for
-an executor based on an instance type from the core instance fleet. Since each instance fleet
-can have different instance types and sizes within a fleet, the executor configuration that
-Amazon EMR uses might not be the best for your clusters, so we don't recommend using the default settings when using
-maximum resource allocation. Configure custom settings for your instance fleet clusters.
+Amazon EMR calculates the maximum compute and memory resources available for an
+executor based on an instance type from the core instance fleet. Since each instance
+fleet can have different instance types and sizes within a fleet, the executor
+configuration that Amazon EMR uses might not be the best for your clusters, so we don't
+recommend using the default settings when using maximum resource allocation.
+Configure custom settings for your instance fleet clusters.
 
 ###### Note
 

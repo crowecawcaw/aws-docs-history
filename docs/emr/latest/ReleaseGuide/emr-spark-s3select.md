@@ -4,8 +4,9 @@ performance
 
 ###### Important
 
-Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use
-the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/ "https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/")
+Amazon S3 Select is no longer available to new customers. Existing customers of
+Amazon S3 Select can continue to use the feature as usual. [Learn
+more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/ "https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/")
 
 With Amazon EMR release 5.17.0 and later, you can use [S3 Select](https://aws.amazon.com/blogs/aws/s3-glacier-select/ "https://aws.amazon.com/blogs/aws/s3-glacier-select/") with Spark
 on Amazon EMR . _S3 Select_ allows applications to retrieve only a

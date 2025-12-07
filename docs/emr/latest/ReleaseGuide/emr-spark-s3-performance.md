@@ -15,7 +15,8 @@ Datasets.
 
 - [Use S3 Select with Spark to improve query
   performance](emr-spark-s3select.md "emr-spark-s3select.md")
-- [EMR Spark MagicCommitProtocol](emr-spark-magic-commit-protocol.md "emr-spark-magic-commit-protocol.md")
+- [EMR Spark
+  MagicCommitProtocol](emr-spark-magic-commit-protocol.md "emr-spark-magic-commit-protocol.md")
 - [Use the EMRFS S3-optimized
   committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md")
 - [Use the EMRFS S3-optimized

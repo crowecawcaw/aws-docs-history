@@ -1,14 +1,15 @@
 # Use AWS Glue Data Catalog catalog with Spark on Amazon EMR
 
-Using Amazon EMR release 5.8.0 or later, you can configure Spark to use the AWS Glue Data Catalog
-as its Apache Hive metastore. We recommend this configuration when you require a persistent
-Hive metastore or a Hive metastore shared by different clusters, services, applications, or AWS
-accounts.
+Using Amazon EMR release 5.8.0 or later, you can configure Spark to use the AWS Glue Data Catalog as
+its Apache Hive metastore. We recommend this configuration when you require a persistent
+Hive metastore or a Hive metastore shared by different clusters, services, applications,
+or AWS accounts.
 
-Using Amazon EMR release 6.5.0 or later, you can configure Spark to use the AWS Glue Data Catalog with Apache Iceberg.
+Using Amazon EMR release 6.5.0 or later, you can configure Spark to use the AWS Glue Data Catalog
+with Apache Iceberg.
 
-Using Amazon EMR release 7.5.0 or later, you can configure Spark to use the AWS Glue Data Catalog
-as its Iceberg REST catalog.
+Using Amazon EMR release 7.5.0 or later, you can configure Spark to use the AWS Glue Data Catalog as
+its Iceberg REST catalog.
 
 AWS Glue is a fully managed extract, transform, and load (ETL) service that makes it simple and cost-effective to categorize your data, clean it, enrich it, and move it reliably between various data stores. The AWS Glue Data Catalog provides a unified metadata repository across a variety of data sources and data formats, integrating with Amazon EMR as well as Amazon RDS, Amazon Redshift, Redshift Spectrum, Athena, and any application compatible with the Apache Hive metastore. AWS Glue crawlers can automatically infer schema from source data in Amazon S3 and store the associated metadata in the Data Catalog. For more information about the Data Catalog, see [Populating the AWS Glue Data Catalog](../../../glue/latest/dg/populate-data-catalog.md "../../../glue/latest/dg/populate-data-catalog.md") in the _AWS Glue Developer Guide_.
 
@@ -18,9 +19,9 @@ Separate charges apply for AWS Glue. There is a monthly rate for storing and acc
 
 If you created tables using Amazon Athena or Amazon Redshift Spectrum before August 14, 2017, databases and tables are stored in an Athena-managed catalog, which is separate from the AWS Glue Data Catalog. To integrate Amazon EMR with these tables, you must upgrade to the AWS Glue Data Catalog. For more information, see [Upgrading to the AWS Glue Data Catalog](../../../athena/latest/ug/glue-upgrade.md "../../../athena/latest/ug/glue-upgrade.md") in the _Amazon Athena User Guide_.
 
-## Specifying AWS Glue Data Catalog as the
+## Specifying AWS Glue Data Catalog as the Apache Hive
 
-Apache Hive metastore
+metastore
 
 You can specify the AWS Glue Data Catalog as the metastore using the AWS Management Console, AWS CLI, or Amazon EMR API. When you use the CLI or API, you use the configuration classification for Spark to specify the Data Catalog. In addition, with Amazon EMR 5.16.0 and later, you can use the configuration classification to specify a Data Catalog in a different AWS account. When you use the console, you can specify the Data Catalog using **Advanced Options** or **Quick Options**.
 
@@ -96,12 +97,15 @@ AWS account of the Data Catalog.
 
 ```
 
-## Specifying AWS Glue Data Catalog as the Apache Iceberg catalog
+## Specifying AWS Glue Data Catalog as the
 
-You can specify the AWS Glue Data Catalog as the Apache Iceberg catalog implementation, or the Apache Iceberg REST catalog
-endpoint, using the AWS Management Console, the AWS CLI, or the Amazon EMR API, or at Spark session runtime configuration. When you use the CLI or API, you
-use the configuration classification for Spark to specify the Data Catalog. For more details,
-see [Specifying AWS Glue Data Catalog as the Apache Iceberg catalog](emr-spark-glue.md#emr-spark-glue-configure-iceberg "emr-spark-glue.md#emr-spark-glue-configure-iceberg").
+Apache Iceberg catalog
+
+You can specify the AWS Glue Data Catalog as the Apache Iceberg catalog implementation, or
+the Apache Iceberg REST catalog endpoint, using the AWS Management Console, the AWS CLI, or the
+Amazon EMR API, or at Spark session runtime configuration. When you use the CLI or API,
+you use the configuration classification for Spark to specify the Data Catalog. For
+more details, see [Specifying AWS Glue Data Catalog as the Apache Iceberg catalog](emr-spark-glue.md#emr-spark-glue-configure-iceberg "emr-spark-glue.md#emr-spark-glue-configure-iceberg").
 
 ## IAM permissions
 
@@ -152,8 +156,8 @@ The `acct-id` can be different from the AWS Glue account ID. This enables access
 
 AWS Glue Data Catalog
 
-Consider the following items when using AWS Glue Data Catalog as an Apache Hive metastore with
-Spark:
+Consider the following items when using AWS Glue Data Catalog as an Apache Hive metastore
+with Spark:
 
 - Having a default database without a location URI causes failures when you
   create a table. As a workaround, use the `LOCATION` clause to
@@ -167,10 +171,16 @@ when you use `CREATE TABLE`. Alternatively create tables within a
 - [Column statistics](https://cwiki.apache.org/confluence/display/Hive/StatsDev#StatsDev-ColumnStatistics "https://cwiki.apache.org/confluence/display/Hive/StatsDev#StatsDev-ColumnStatistics") are supported for emr-5.31.0 and later.
 - Using [Hive authorization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization") is not supported. As an alternative, consider using [AWS Glue Resource-Based Policies](../../../glue/latest/dg/glue-resource-policies.md "../../../glue/latest/dg/glue-resource-policies.md"). For more information, see [Use Resource-Based Policies for Amazon EMR Access to AWS Glue Data Catalog](../ManagementGuide/emr-iam-roles-glue.md "../ManagementGuide/emr-iam-roles-glue.md").
 
-Consider the following when using AWS Glue Data Catalog as Apache Iceberg REST Catalog with Spark:
+Consider the following when using AWS Glue Data Catalog as Apache Iceberg REST Catalog with
+Spark:
 
-- If you use the Spark session catalog with Iceberg, which is described in [Configuration differences when you use Iceberg SparkCatalog versus SparkSessionCatalog](emr-iceberg-use-spark-cluster.md#emr-iceberg-spark-catalog "emr-iceberg-use-spark-cluster.md#emr-iceberg-spark-catalog"), you must configure the AWS Glue Data Catalog as the Apache Hive metastore, in addition to configuring the AWS Glue Data Catalog as
-  the Apache Iceberg REST catalog.
-- The AWS Glue Data Catalog IRC endpoint supports only the Amazon SigV4 authentication scheme. OAuth is not supported. For OAuth users, please use IAM Identity Center to
-  configure access. See [Connecting Lake Formation with IAM Identity Center](../../../lake-formation/latest/dg/connect-lf-identity-center.md "../../../lake-formation/latest/dg/connect-lf-identity-center.md").
-- The AWS Glue Iceberg REST catalog does not support all operations in open source.
+- If you use the Spark session catalog with Iceberg, which is described in
+  [Configuration differences when you use Iceberg SparkCatalog versus SparkSessionCatalog](emr-iceberg-use-spark-cluster.md#emr-iceberg-spark-catalog "emr-iceberg-use-spark-cluster.md#emr-iceberg-spark-catalog"), you must configure the
+  AWS Glue Data Catalog as the Apache Hive metastore, in addition to configuring the
+  AWS Glue Data Catalog as the Apache Iceberg REST catalog.
+- The AWS Glue Data Catalog IRC endpoint supports only the Amazon SigV4 authentication
+  scheme. OAuth is not supported. For OAuth users, please use IAM Identity Center to
+  configure access. See [Connecting Lake Formation with
+  IAM Identity Center](../../../lake-formation/latest/dg/connect-lf-identity-center.md "../../../lake-formation/latest/dg/connect-lf-identity-center.md").
+- The AWS Glue Iceberg REST catalog does not support all operations in open
+  source.

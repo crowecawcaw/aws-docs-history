@@ -115,6 +115,8 @@ The following table shows the support status for all existing Amazon EMR release
 
 Dates for bridge support have been extended to April 30, 2026, for all releases.
 
+You can use Apache Spark Upgrade Agent to upgrade your Apache Spark existing applications on EMR on EC2 and EMR Serverless from older EMR versions to latest EMR version. To learn more, see [What is Apache Spark Upgrade Agent for Amazon EMR](spark-upgrades.md "spark-upgrades.md").
+
 ## Considerations
 
 Standard Support is available for all Amazon EMR deployment models (EMR on EC2, Amazon EMR on EKS, and EMR Serverless), in all Regions where Amazon EMR is available, at no additional cost. Clusters

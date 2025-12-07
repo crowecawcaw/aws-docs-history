@@ -2,11 +2,11 @@
 
 Spark
 
-With Amazon EMR release 6.2.0 and later, you can use the [RAPIDS Accelerator for Apache
-Spark](https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html "https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html") plugin by Nvidia to accelerate Spark using EC2 graphics processing
-unit (GPU) instance types. RAPIDS Accelerator will GPU-accelerate your Apache Spark 3.0
-data science pipelines without code changes, and speed up data processing and model
-training while substantially lowering infrastructure costs.
+With Amazon EMR release 6.2.0 and later, you can use the [RAPIDS
+Accelerator for Apache Spark](https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html "https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html") plugin by Nvidia to accelerate Spark using EC2
+graphics processing unit (GPU) instance types. RAPIDS Accelerator will GPU-accelerate
+your Apache Spark 3.0 data science pipelines without code changes, and speed up data
+processing and model training while substantially lowering infrastructure costs.
 
 The following sections guide you through configuring your EMR cluster to use the
 Spark-RAPIDS Plugin for Spark.
@@ -154,8 +154,7 @@ configuration to integrate XGBoost with you Spark job:
 ```
 
 For additional Spark configurations that you can use to tune a GPU-accelerated
-EMR cluster, please refer to the [Rapids
-Accelerator for Apache Spark tuning guide](https://docs.nvidia.com/spark-rapids/user-guide/latest/tuning-guide.html "https://docs.nvidia.com/spark-rapids/user-guide/latest/tuning-guide.html") in Nvidia.github.io
+EMR cluster, please refer to the [Rapids Accelerator for Apache Spark tuning guide](https://docs.nvidia.com/spark-rapids/user-guide/latest/tuning-guide.html "https://docs.nvidia.com/spark-rapids/user-guide/latest/tuning-guide.html") in Nvidia.github.io
 documentation.
 
 **4. Configure YARN Capacity Scheduler**
@@ -187,7 +186,8 @@ Use the following sample files as templates to build your own
 configurations.
 
 Amazon EMR 7.x
-**Example `my-configurations.json` file for Amazon EMR
+**Example
+`my-configurations.json` file for Amazon EMR
 7.x**
 
 ```
@@ -261,7 +261,8 @@ Amazon EMR 7.x
 ```
 
 Amazon EMR 6.x
-**Example `my-configurations.json` file for Amazon EMR
+**Example
+`my-configurations.json` file for Amazon EMR
 6.x**
 
 ```

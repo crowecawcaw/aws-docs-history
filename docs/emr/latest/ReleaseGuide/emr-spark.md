@@ -20,6 +20,8 @@ Spark. A Hive context is included in the spark-shell as `sqlContext`.
 For an example tutorial on setting up an EMR cluster with Spark and analyzing a sample
 data set, see [Tutorial: Getting started with Amazon EMR](../ManagementGuide/emr-gs.md "../ManagementGuide/emr-gs.md") on the AWS News blog.
 
+You can use Apache Spark Troubleshooting Agent to troubleshoot your Apache Spark applications on EMR on EC2 and EMR Serverless. To learn more, please refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR](spark-troubleshoot.md "spark-troubleshoot.md").
+
 ###### Important
 
 Apache Spark version 2.3.1, available beginning with Amazon EMR release 5.16.0, addresses [CVE-2018-8024](https://nvd.nist.gov/vuln/detail/CVE-2018-8024 "https://nvd.nist.gov/vuln/detail/CVE-2018-8024") and [CVE-2018-1334](https://nvd.nist.gov/vuln/detail/CVE-2018-1334 "https://nvd.nist.gov/vuln/detail/CVE-2018-1334"). We recommend that you migrate earlier versions of Spark to Spark version 2.3.1 or later.
@@ -59,8 +61,10 @@ For the version of components installed with Spark in this release, see [Release
 - [Run Spark applications with Docker on Amazon EMR
   6.x](emr-spark-docker.md "emr-spark-docker.md")
 - [Use AWS Glue Data Catalog catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md")
-- [Working with a multi-catalog hierarchy in AWS Glue Data Catalog with Spark on Amazon EMR](emr-multi-catalog.md "emr-multi-catalog.md")
+- [Working with a multi-catalog hierarchy in
+  AWS Glue Data Catalog with Spark on Amazon EMR](emr-multi-catalog.md "emr-multi-catalog.md")
 - [Configure Spark](emr-spark-configure.md "emr-spark-configure.md")
+- [What is Apache Spark Troubleshooting Agent for Amazon EMR](spark-troubleshoot.md "spark-troubleshoot.md")
 - [Optimize Spark performance](emr-spark-performance.md "emr-spark-performance.md")
 - [Spark Result Fragment
   Caching](emr-spark-fragment-result-caching.md "emr-spark-fragment-result-caching.md")
@@ -73,6 +77,9 @@ For the version of components installed with Spark in this release, see [Release
 - [Add a Spark step](emr-spark-submit-step.md "emr-spark-submit-step.md")
 - [View Spark application history](emr-spark-application-history.md "emr-spark-application-history.md")
 - [Access the Spark web UIs](emr-spark-webui.md "emr-spark-webui.md")
-- [Using the Spark structured streaming Amazon Kinesis Data Streams connector](emr-spark-structured-streaming-kinesis.md "emr-spark-structured-streaming-kinesis.md")
+- [Using the Spark structured
+  streaming Amazon Kinesis Data Streams connector](emr-spark-structured-streaming-kinesis.md "emr-spark-structured-streaming-kinesis.md")
 - [Using Amazon Redshift integration for Apache Spark with Amazon EMR](emr-spark-redshift.md "emr-spark-redshift.md")
 - [Spark release history](Spark-release-history.md "Spark-release-history.md")
+- [Using materialized views with
+  Amazon EMR](emr-spark-materialized-views.md "emr-spark-materialized-views.md")
