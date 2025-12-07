@@ -1,190 +1,177 @@
-# Version Management for ElastiCache
+# Upgrading engine versions including cross engine
 
-Manage how you would like to update your ElastiCache caches and node-based clusters updated for the Valkey, Memcached, and Redis OSS engines.
+upgrades
 
-## Version management for ElastiCache Serverless Cache
+**Valkey and Redis OSS**
 
-Manage if and when the ElastiCache Serverless cache is upgraded and perform version upgrades on
-your own terms and timelines.
+With Valkey and Redis OSS, you initiate version upgrades to your cluster or replication
+group by modifying it using the ElastiCache console, the AWS CLI, or the ElastiCache API and
+specifying a newer engine version.
 
-ElastiCache Serverless automatically applies the latest minor and patch software version to your cache,
-without any impact or downtime to your application. No action is required on your end.
+You can also cross upgrade from Redis OSS to Valkey. For more information on cross upgrades, see [How to upgrade from Redis OSS to Valkey](#VersionManagement.HowTo.cross-engine-upgrade "#VersionManagement.HowTo.cross-engine-upgrade").
 
-When a new major version is available, ElastiCache Serverless will send you a notification in the console and an event in EventBridge. You can choose to upgrade your cache to the latest major version by modifying your cache using the Console, CLI, or API and selecting the latest engine version. Similar to minor and patch upgrades, major version upgrades are performed without downtime to your application.
+###### Topics
 
-## Version management for node-based ElastiCache clusters
+- [How to upgrade from Redis OSS to Valkey](#VersionManagement.HowTo.cross-engine-upgrade "#VersionManagement.HowTo.cross-engine-upgrade")
+- [Resolving blocked Valkey or Redis OSS engine
+  upgrades](#resolving-blocked-engine-upgrades "#resolving-blocked-engine-upgrades")
 
-When working with node-based ElastiCache clusters, you can control when the software powering your cluster
-is upgraded to new versions that are supported by ElastiCache. You can control when to upgrade your cache to the
-latest available major, minor, and patch versions. You initiate engine version upgrades to your cluster or replication group by modifying it and specifying a new engine version.
-
-You can control if and when the protocol-compliant software powering your cluster is
-upgraded to new versions that are supported by ElastiCache. This level of control enables you
-to maintain compatibility with specific versions, test new versions
-with your application before deploying in production, and perform version upgrades on
-your own terms and timelines.
-
-Because version upgrades might involve some compatibility risk, they don't occur
-automatically. You must initiate them.
-
-**Valkey and Redis OSS clusters**
-
-###### Note
-
-- If a Valkey or Redis OSS cluster is replicated across one or more Regions, the engine version is upgraded for secondary Regions
-  and then for the primary Region.
-- ElastiCache for Redis OSS versions are identified with a semantic version which comprise a major and minor component.
-  For example, in Redis OSS 6.2, the major version is 6, and the minor version 2.
-  When operating node-based clusters, ElastiCache for Redis OSS also exposes the patch component, e.g. Redis OSS 6.2.1, and the patch version is 1.
-
-Major versions are for API incompatible changes and minor versions are for new functionality added in a backwards-compatible way. Patch versions are for backwards-compatible bug fixes and non-functional changes.
-
-With Valkey and Redis OSS, you initiate engine version upgrades to your cluster or replication group by modifying it
-and specifying a new engine version. For more information, see [Modifying a replication group](Replication.md "Replication.md").
+| How to modify clusters and<br>replication groups                                                                  |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Caches                                                                                                            | Replication groups                                                                                                |
+| [Using the ElastiCache AWS Management Console](Clusters.md#Clusters.Modify.CON "Clusters.md#Clusters.Modify.CON") | [Using the AWS Management Console](Replication.md#Replication.Modify.CON "Replication.md#Replication.Modify.CON") |
+| [Using the AWS CLI with ElastiCache](Clusters.md#Clusters.Modify.CLI "Clusters.md#Clusters.Modify.CLI")           | [Using the AWS CLI](Replication.md#Replication.Modify.CLI "Replication.md#Replication.Modify.CLI")                |
+| [Using the ElastiCache API](Clusters.md#Clusters.Modify.API "Clusters.md#Clusters.Modify.API")                    | [Using the ElastiCache API](Replication.md#Replication.Modify.API "Replication.md#Replication.Modify.API")        |
 
 **Memcached**
 
-With Memcached, to upgrade to a newer version you must modify your cluster and specify the new engine version
-you want to use.
-Upgrading to a newer Memcached version is a destructive process – you lose your
-data and start with a cold cache.
-For more information, see [Modifying an ElastiCache cluster](Clusters.md "Clusters.md").
+With Memcached, to start version upgrades to your cluster, you modify it and
+specify a newer engine version. You can do this by using the ElastiCache console, the
+AWS CLI, or the ElastiCache API:
 
-You should be aware of the following requirements when upgrading from an older version of
-Memcached to Memcached version 1.4.33 or newer. `CreateCacheCluster` and
-`ModifyCacheCluster` fails under the following conditions:
+- To use the AWS Management Console, see – [Using the ElastiCache AWS Management Console](Clusters.md#Clusters.Modify.CON "Clusters.md#Clusters.Modify.CON").
+- To use the AWS CLI, see [Using the AWS CLI with ElastiCache](Clusters.md#Clusters.Modify.CLI "Clusters.md#Clusters.Modify.CLI").
+- To use the ElastiCache API, see [Using the ElastiCache API](Clusters.md#Clusters.Modify.API "Clusters.md#Clusters.Modify.API").
 
-- If `slab_chunk_max > max_item_size`.
-- If `max_item_size modulo slab_chunk_max != 0`.
-- If `max_item_size > ((max_cache_memory - memcached_connections_overhead) / 4)`.
+## How to upgrade from Redis OSS to Valkey
 
-The value `(max_cache_memory - memcached_connections_overhead)` is the node's
-memory useable for data.
-For more information, see [Memcached connection
-overhead](ParameterGroups.md#ParameterGroups.Memcached.Overhead "ParameterGroups.md#ParameterGroups.Memcached.Overhead").
+Valkey is designed as a drop-in replacement for Redis OSS 7. You can upgrade from Redis OSS to Valkey using the Console, API, or CLI, by specifying the new engine and major engine version. The endpoint IP address and all other aspects of the application will not be changed by the upgrade. When upgrading from Redis OSS 5.0.6 and higher you will experience no downtime.
 
-## Supported engines and versions
+###### Note
 
-ElastiCache serverless caches support ElastiCache version 7.2 for Valkey and above, ElastiCache version 1.6 for Memcached and above, and ElastiCache 7.0 for Redis OSS and above.
+**AWS CLI version requirements for Redis OSS to Valkey upgrades:**
 
-Node-based ElastiCache clusters support ElastiCache version 7.2 for Valkey and above, ElastiCache version 1.4.5 for Memcached and above, and ElastiCache 4.0.10 for Redis OSS and above.
+- For AWSCLI v1: Minimum required version 1.35.2 (Current version: 1.40.22)
+- For AWS CLI v2: Minimum required version 2.18.2 (Current version: 2.27.22)
 
-###### Node-based ElastiCache clusters support the following Valkey versions:
+###### Note
 
-- [Supported Valkey versions](#supported-engine-versions.valkey "#supported-engine-versions.valkey")
-- [Valkey 8.2](#valkey-version-8.2 "#valkey-version-8.2")
-- [Valkey 8.1](#valkey-version-8.1 "#valkey-version-8.1")
-- [Valkey 8.0](#valkey-version-8 "#valkey-version-8")
-- [ElastiCache version 7.2.6 for Valkey](#valkey-version-7.2.6 "#valkey-version-7.2.6")
+- When upgrading from earlier Redis OSS versions than 5.0.6, you may experience a failover time of 30 to 60 seconds during the DNS propagation.
+- To upgrade an existing Redis OSS (cluster mode disabled) single-node cluster to the Valkey engine, first follow these steps: [Creating a replication group using an existing cluster](Replication.CreatingReplGroup.md "Replication.CreatingReplGroup.md"). Once the Redis OSS (cluster mode disabled) single-node cluster has been added to a replication group, you can cross-engine upgrade to Valkey.
 
-### Supported Valkey versions
+### Upgrading a replication group from Redis OSS to Valkey
 
-Supported Valkey versions below. Note that Valkey supports most features available in ElastiCache version 7.2 for Redis OSS by default.
+If you have an existing Redis OSS replication group that is using the default cache parameter group, you can upgrade to Valkey by specifying the new engine and engine version with modify-replication-group API.
 
-- You can also upgrade your ElastiCache clusters with versions earlier than 5.0.6. The process involved is the same but may incur longer failover time during DNS propagation (30s-1m).
-- Beginning with Redis OSS 7, ElastiCache supports switching between Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled).
-- The Amazon ElastiCache for Redis OSS engine upgrade process is designed to make a best effort to retain your existing data
-  and requires successful Redis OSS replication.
-- When upgrading the engine, ElastiCache will terminate existing client connections. To minimize downtime during engine upgrades,
-  we recommend you implement [best practices for Redis OSS clients](BestPractices.Clients.md "BestPractices.Clients.md")
-  with error retries and exponential backoff and the best practices for
-  [minimizing downtime during maintenance](BestPractices.md "BestPractices.md").
-- You can't upgrade directly from Valkey or Redis OSS (cluster mode disabled) to Valkey or Redis OSS (cluster mode enabled) when you upgrade your
-  engine. The following procedure shows you how to upgrade from Valkey or Redis OSS (cluster mode disabled)
-  to Valkey or Redis OSS (cluster mode enabled).
+For Linux, macOS, or Unix:
 
-###### To upgrade from a Valkey or Redis OSS (cluster mode disabled) to Valkey or Redis OSS (cluster mode enabled) engine version
+```
+aws elasticache modify-replication-group \
+   --replication-group-id myReplGroup \
+   --engine valkey \
+   --engine-version 8.0
+```
 
-    1. Make a backup of your Valkey or Redis OSS (cluster mode disabled) cluster or replication group. For more information,
-     see [Taking manual backups](backups-manual.md "backups-manual.md").
-    2. Use the backup to create and seed a Valkey or Redis OSS (cluster mode enabled) cluster with one shard (node group).
-     Specify the new engine version and enable cluster mode when creating the cluster or
-     replication group. For more information, see [Tutorial: Seeding a new node-based cluster with an externally created backup](backups-seeding-redis.md "backups-seeding-redis.md").
-    3. Delete the old Valkey or Redis OSS (cluster mode disabled) cluster or replication group. For more information,
-     see [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md") or [Deleting a replication group](Replication.md "Replication.md").
-    4. Scale the new Valkey or Redis OSS (cluster mode enabled) cluster or replication group to the number of shards (node groups)
-     that you need. For more information, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md")
+For Windows:
 
-- When upgrading major engine versions, for example from 5.0.6 to 6.0, you need to also choose a new parameter group that is compatible with the new engine version.
-- For single Redis OSS clusters and clusters with Multi-AZ disabled, we recommend that
-  sufficient memory be made available to Redis OSS as described in [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.md "BestPractices.md").
-  In these cases, the primary is unavailable to service requests during the
-  upgrade process.
-- For Redis OSS clusters with Multi-AZ enabled, we also recommend that you schedule engine
-  upgrades during periods of low incoming write traffic. When upgrading to Redis OSS 5.0.6 or above, the primary cluster continues to be available to service requests during the upgrade process.
+```
+aws elasticache modify-replication-group ^
+   --replication-group-id myReplGroup ^
+   --engine valkey ^
+   --engine-version 8.0
+```
 
-Clusters and replication groups with multiple shards are processed and patched as follows:
+If you have a custom cache parameter group applied to the existing Redis OSS replication group you wish to upgrade, you will need to pass a custom Valkey cache parameter group in the request as well. The input Valkey custom parameter group must have the same Redis OSS static parameter values as the existing Redis OSS custom parameter group.
 
-    + All shards are processed in parallel. Only one upgrade operation is performed
-     on a shard at any time.
-    + In each shard, all replicas are processed before the primary is processed. If there are
-     fewer replicas in a shard, the primary in that shard might be
-     processed before the replicas in other shards are finished
-     processing.
-    + Across all the shards, primary nodes are processed in series.
-     Only one primary node is upgraded at a time.
+For Linux, macOS, or Unix:
 
-- If encryption is enabled on your current cluster or replication group, you cannot upgrade to
-  an engine version that does not support encryption, such as from 3.2.6 to 3.2.10.
+```
+aws elasticache modify-replication-group \
+   --replication-group-id myReplGroup \
+   --engine valkey \
+   --engine-version 8.0 \
+   --cache-parameter-group-name myParamGroup
+```
 
-**Memcached considerations**
+For Windows:
 
-When upgrading a node-based Memcached cluster, consider the following.
+```
+aws elasticache modify-replication-group ^
+   --replication-group-id myReplGroup ^
+   --engine valkey ^
+   --engine-version 8.0 ^
+   --cache-parameter-group-name myParamGroup
+```
 
-- Engine version management is designed so that you can have as much control as possible over
-  how patching occurs. However, ElastiCache reserves the right to patch your cluster
-  on your behalf in the unlikely event of a critical security vulnerability in
-  the system or cache software.
-- Because the Memcached engine does not support persistence, Memcached engine version
-  upgrades are always a disruptive process that clears all cache data in the
-  cluster.
+### Upgrading a Redis OSS serverless cache to Valkey with the CLI
 
-### ElastiCache version 8.2 for Valkey
+For Linux, macOS, or Unix:
 
-Here are some of the new features introduced in Valkey 8.2 (compared to ElastiCache Valkey 8.1):
+```
+aws elasticache modify-serverless-cache \
+   --serverless-cache-name myCluster \
+   --engine valkey \
+   --major-engine-version 8
+```
 
-- Native support for [Vector Search](vector-search.md "vector-search.md"), enabling you to store, index, search, and update billions of high-dimensional vector embeddings in-memory with latencies as low as microseconds.
+For Windows:
 
-For more information on Valkey, see [Valkey](https://valkey.io/ "https://valkey.io/").
+```
+aws elasticache modify-serverless-cache ^
+   --serverless-cache-name myCluster ^
+   --engine valkey ^
+   --major-engine-version 8
+```
 
-For more information on the Valkey 8.2 release, introducing vector search, see [Valkey Search](https://github.com/valkey-io/valkey-search "https://github.com/valkey-io/valkey-search").
+### Upgrading Redis OSS to Valkey with the Console
 
-### ElastiCache version 8.1 for Valkey
+**Upgrading from Redis OSS 5 to Valkey**
 
-Here are some of the new features introduced in Valkey 8.1 (compared to ElastiCache Valkey 8.0):
+1. Select the Redis OSS cache to upgrade.
+2. An **Upgrade to Valkey** window should appear. Select the **Upgrade to Valkey** button.
+3. Go to **Cache settings**, and then select **Engine version**. The most recent version of Valkey is recommended.
+4. If this cache is serverless, then you will need to update the parameter group. Go to the **Parameter groups** area of **Cache settings**, select an appropriate parameter group such as _default.valkey8_.
+5. Select **Upgrade**.
 
-- A [new hash table](https://valkey.io/blog/new-hash-table/ "https://valkey.io/blog/new-hash-table/") implementation that reduces memory overhead to lower memory usage by as much as 20% for common key/value patterns.
-- Native support for [Bloom filters](https://valkey.io/topics/bloomfilters/ "https://valkey.io/topics/bloomfilters/"), a new data type allowing you to perform lookups using as much as 98% less memory compared to using the Set data type.
-- New command [COMMANDLOG](https://valkey.io/commands/commandlog-get/ "https://valkey.io/commands/commandlog-get/") that records slow executions, large requests, and large replies.
-- New conditional update support to the SET command using IFEQ argument.
-- Performance improvements, including up to 45% lower latency for the ZRANK command, up to 12x faster performance for PFMERGE and PFCOUNT, and up to 514% higher throughput for BITCOUNT.
+This cache will now be listed in the Valkey area of the console.
 
-For more information on Valkey, see [Valkey](https://valkey.io/ "https://valkey.io/")
+###### Note
 
-For more information on the Valkey 8.1 release, see [Valkey 8.1 Release Notes](https://github.com/valkey-io/valkey/blob/8.1/00-RELEASENOTES "https://github.com/valkey-io/valkey/blob/8.1/00-RELEASENOTES")
+Upgrading directly from Redis OSS 4 or lower to Valkey may include a longer failover time of 30 to 60 seconds during the DNS propagation.
 
-### ElastiCache version 8.0 for Valkey
+### How to downgrade from Valkey to Redis OSS
 
-Here are some of the new features introduced in Valkey 8.0 (compared to ElastiCache Valkey 7.2.6):
+If for any reason you wish to rollback your upgraded cluster, Amazon ElastiCache supports rolling back a
+Valkey 7.2 cache to Redis OSS 7.1. You can perform a rollback using the same console, API, or CLI steps
+as an engine upgrade and specifying Redis OSS 7.1 as the target engine version. Rollbacks use the same
+processes as an upgrade. The endpoint IP address and all other aspects of the application will not be
+changed by the rollback and you will experience no downtime.
 
-- Memory efficiency improvements, allowing users to store up to 20% more data per node without any application changes.
-- Newly-introduced per-slot metrics infrastructure for node-based clusters, providing detailed visibility into the performance and resource usage of individual slots.
-- ElastiCache Serverless for Valkey 8.0 can double the supported requests per second (RPS) every 2-3 minutes, reaching 5M RPS per cache from zero in under 13 minutes, with consistent sub-millisecond p50 read latency.
+Additionally, you can restore a snapshot created from your Valkey 7.2 cache as a Redis OSS 7.1 cache.
+When you restore from a snapshot, you can specify Redis OSS 7.1 as the target engine version. When
+using this option, a new cache will be created from the snapshot. Restoring from a snapshot has no effect
+on the Valkey cache that the snapshot was created from.
 
-For more information on Valkey, see [Valkey](https://valkey.io/ "https://valkey.io/")
+The following requirements and limitations apply when performing a rollback:
 
-For more information on the Valkey 8 release, see [Valkey 8 Release Notes](https://github.com/valkey-io/valkey/blob/8.0/00-RELEASENOTES "https://github.com/valkey-io/valkey/blob/8.0/00-RELEASENOTES")
+- ElastiCache only supports rolling back from Valkey 7.2 to Redis OSS 7.1. This is true even if you
+  upgraded to Valkey 7.2 from an earlier version than Redis OSS 7.1.
+- Any user group and user associated with the replication group or serverless cache being rolled back
+  must be configured with engine type `REDIS`.
 
-### ElastiCache version 7.2.6 for Valkey
+## Resolving blocked Valkey or Redis OSS engine
 
-On October 10 2024, ElastiCache version 7.2.6 for Valkey was released. Here are some of the new features introduced in 7.2 (compared to ElastiCache version 7.1 for Redis OSS):
+upgrades
 
-- Performance and memory optimizations for various data types: memory optimization for list and set type keys, speed optimization for sorted sets commands, performance optimization for commands with multiple keys in cluster mode, pub/sub performance improvements, performance optimization for SCAN, SSCAN, HSCAN, ZSCAN commands and numerous other smaller optimizations.
-- New WITHSCORE option for ZRANK and ZREVRANK commands
-- CLIENT NO-TOUCH for clients to run commands without affecting LRU/LFU of keys.
-- New command CLUSTER MYSHARDID that returns the Shard ID of the node to logically group nodes in cluster mode based on replication.
+As shown in the following table, your Valkey or Redis OSS engine upgrade operation is blocked if
+you have a pending scale up operation.
 
-For more information on Valkey, see [Valkey](https://valkey.io/ "https://valkey.io/")
+| Pending operations          | Blocked operations       |
+| --------------------------- | ------------------------ |
+| Scale up                    | Immediate engine upgrade |
+| Engine upgrade              | Immediate scale up       |
+| Scale up and engine upgrade | Immediate scale up       |
+| Immediate engine upgrade    |
 
-For more information on the ElastiCache version 7.2 for Valkey release, see [Redis OSS 7.2.4 Release Notes](https://github.com/valkey-io/valkey/blob/d2c8a4b91e8c0e6aefd1f5bc0bf582cddbe046b7/00-RELEASENOTES "https://github.com/valkey-io/valkey/blob/d2c8a4b91e8c0e6aefd1f5bc0bf582cddbe046b7/00-RELEASENOTES")
-(ElastiCache version 7.2 for Valkey includes all changes from ElastiCache version 7.1 for Redis OSS up to ElastiCache version 7.2.4 for Redis OSS). [Valkey 7.2 release notes](https://github.com/valkey-io/valkey/blob/7.2/00-RELEASENOTES "https://github.com/valkey-io/valkey/blob/7.2/00-RELEASENOTES") at Valkey on GitHub.
+###### To resolve a blocked Valkey or Redis OSS engine upgrade
+
+- Do one of the following:
+  - Schedule your Redis OSS or Valkey engine upgrade operation for the next maintenance window by clearing the **Apply immediately** check box.
+
+  With the CLI, use `--no-apply-immediately`. With the API, use `ApplyImmediately=false`.
+  - Wait until your next maintenance window (or after) to perform your Redis OSS engine upgrade operation.
+  - Add the Redis OSS scale up operation to this cluster modification with the **Apply Immediately** check box chosen.
+
+  With the CLI, use `--apply-immediately`. With the API, use `ApplyImmediately=true`.
+
+  This approach effectively cancels the engine upgrade during the next maintenance window by performing it immediately.

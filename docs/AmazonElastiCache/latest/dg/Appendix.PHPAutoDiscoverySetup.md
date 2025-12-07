@@ -1,51 +1,34 @@
-# Downloading the installation package
+# Removing the PHP cluster client
 
-To ensure that you use the correct version of the ElastiCache Cluster Client for PHP, you will
-need to know what version of PHP is installed on your Amazon EC2 instance. You will also need to know whether your Amazon EC2 instance is running a 64-bit or 32-bit version of Linux.
+###### Topics
 
-###### To determine the PHP version installed on your Amazon EC2 instance
+- [Removing an earlier version of PHP 7](#Appendix.PHPAutoDiscoverySetup.Removing.PHP7x "#Appendix.PHPAutoDiscoverySetup.Removing.PHP7x")
+- [Removing an earlier version of PHP 5](#Appendix.PHPAutoDiscoverySetup.Removing.PHP5x "#Appendix.PHPAutoDiscoverySetup.Removing.PHP5x")
 
-- At the command prompt, run the following command:
+## Removing an earlier version of PHP 7
 
-```
-`php -v`
-```
+###### To remove an earlier version of PHP 7
 
-The PHP version will be shown in the output, as in this example:
-
-```
-PHP **5.4.10** (cli) (built: Jan 11 2013 14:48:57)
-Copyright (c) 1997-2012 The PHP Group
-Zend Engine v2.4.0, Copyright (c) 1998-2012 Zend Technologies
-```
-
-###### Note
-
-If your PHP and Memcached versions are incompatible, you will get an error message something like the following:
+1. Remove the `amazon-elasticache-cluster-client.so` file
+   from the appropriate PHP lib directory as previously indicated in the installation instructions.
+   See the section for your installation at [For users who already have php-memcached extension installed](Appendix.md#Appendix.PHPAutoDiscoverySetup.InstallingExisting "Appendix.md#Appendix.PHPAutoDiscoverySetup.InstallingExisting").
+2. Remove the line `extension=amazon-elasticache-cluster-client.so`
+   from the `php.ini` file.
+3. Start or restart your Apache server.
 
 ```
-PHP Warning: PHP Startup: memcached: Unable to initialize module
-Module compiled with module API=20100525
-PHP compiled with module API=20131226
-These options need to match
-in Unknown on line 0
+sudo /etc/init.d/httpd start
 ```
 
-If this happens, you need to compile the module from the source code.
-For more information, see [Compiling the source code for the ElastiCache cluster client for PHP](Appendix.md "Appendix.md").
+## Removing an earlier version of PHP 5
 
-###### To determine your Amazon EC2 AMI architecture (64-bit or 32-bit)
+###### To remove an earlier version of PHP 5
 
-1. Sign in to the AWS Management Console and open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the **Instances** list, click your Amazon EC2 instance.
-3. In the **Description** tab, look for the **AMI:** field. A 64-bit instance should have `x86_64` as part of the description; for a 32-bit instance, look for `i386` or `i686` in this field.
-   You are now ready to download the ElastiCache Cluster Client.
+1. Remove the `php-memcached` extension:
 
-###### To download the ElastiCache cluster client for PHP
+```
+`sudo pecl uninstall __uri/AmazonElastiCacheClusterClient`
+```
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. From the ElastiCache console, choose **ElastiCache Cluster Client**.
-3. From the **Download ElastiCache Memcached Cluster Client** list, choose the ElastiCache Cluster Client that matches
-   your PHP version and AMI architecture, then choose the **Download** button.
+2. Remove the `memcached.ini` file added in the
+   appropriate directory as indicated in the previous installation steps.

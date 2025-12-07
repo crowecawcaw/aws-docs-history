@@ -1,23 +1,76 @@
-# Installing the ElastiCache cluster client for PHP
+# Installing the ElastiCache cluster client for .NET
 
-This section describes how to install, update, and remove the PHP components for the ElastiCache Cluster Client on Amazon EC2 instances.
-For more information about Auto Discovery,
-see [Automatically identify nodes in your cluster (Memcached)](AutoDiscovery.md "AutoDiscovery.md"). For
-sample PHP code to use the client.
-see [Using the ElastiCache Cluster Client for PHP](AutoDiscovery.Using.ModifyApp.md "AutoDiscovery.Using.ModifyApp.md").
+You can find the ElastiCache .NET Cluster Client code as open source at [https://github.com/awslabs/elasticache-cluster-config-net](https://github.com/awslabs/elasticache-cluster-config-net "https://github.com/awslabs/elasticache-cluster-config-net").
+
+This section describes how to install, update, and remove the .NET components for the ElastiCache
+Cluster Client on Amazon EC2 instances.
+For more information about auto discovery, see [Automatically identify nodes in your cluster (Memcached)](AutoDiscovery.md "AutoDiscovery.md").
+For sample .NET code to use the
+client, see [Using the ElastiCache Cluster Client for .NET](AutoDiscovery.Using.ModifyApp.md "AutoDiscovery.Using.ModifyApp.md").
 
 ###### Topics
 
-- [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md")
-- [For users who already have php-memcached extension installed](#Appendix.PHPAutoDiscoverySetup.InstallingExisting "#Appendix.PHPAutoDiscoverySetup.InstallingExisting")
-- [Installation steps for new users](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md")
-- [Removing the PHP cluster client](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md")
+- [Installing .NET](#Appendix.DotNETAutoDiscoverySetup.DotNET "#Appendix.DotNETAutoDiscoverySetup.DotNET")
+- [Download the ElastiCache .NET cluster client for ElastiCache](#Appendix.DotNETAutoDiscoverySetup.Downloading "#Appendix.DotNETAutoDiscoverySetup.Downloading")
+- [Install AWS assemblies with NuGet](#Appendix.DotNETAutoDiscoverySetup.Installing "#Appendix.DotNETAutoDiscoverySetup.Installing")
 
-## For users who already have _php-memcached_ extension installed
+## Installing .NET
 
-###### To update the `php-memcached` installation
+You must have .NET 3.5 or later installed to use the AWS .NET SDK for ElastiCache.
+If you don't have .NET 3.5 or later, you can download and install the latest version from
+[http://www.microsoft.com/net](http://www.microsoft.com/net "http://www.microsoft.com/net").
 
-1. Remove the previous installation of the Memcached extension for PHP
-   as described by the topic [Removing the PHP cluster client](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md").
-2. Install the new ElastiCache `php-memcached` extension as described previously in
-   [Installation steps for new users](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md").
+## Download the ElastiCache .NET cluster client for ElastiCache
+
+###### To download the ElastiCache .NET cluster client
+
+1. Sign in to the AWS Management Console and open the ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. On the navigation pane, click **ElastiCache Cluster Client**.
+3. In the **Download ElastiCache Memcached Cluster Client** list, select
+   **.NET**, and then click
+   **Download.**
+
+## Install AWS assemblies with NuGet
+
+NuGet is a package management system for the .NET platform.
+NuGet is aware of assembly dependencies and installs all required files
+automatically. NuGet installed assemblies are stored with your solution, rather than in
+a central location such as `Program Files`, so you can install versions
+specific to an application without creating compatibility issues.
+
+### Installing NuGet
+
+NuGet can be installed from the Installation Gallery on MSDN; see [https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c "https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c").
+If you are using Visual Studio 2010 or later, NuGet is automatically
+installed.
+
+You can use NuGet from either **Solution Explorer** or **Package Manager Console**.
+
+### Using NuGet from Solution Explorer
+
+###### To use NuGet from Solution Explorer in Visual Studio 2010
+
+1. From the **Tools** menu, select **Library Package Manager**.
+2. Click **Package Manager Console**.
+
+###### To use NuGet from Solution Explorer in Visual Studio 2012 or Visual Studio 2013
+
+1. From the **Tools** menu, select **NuGet Package
+   Manager**.
+2. Click **Package Manager Console**.
+
+From the command line, you can install the assemblies using `Install-Package`,
+as shown following.
+
+```
+Install-Package Amazon.ElastiCacheCluster
+```
+
+To see a page for every package that is available through NuGet, such as the AWSSDK and
+AWS.Extensions assemblies, see the NuGet website at [http://www.nuget.org](http://www.nuget.org "http://www.nuget.org"). The page for each
+package includes a sample command line for installing the package using the console
+and a list of the previous versions of the package that are available through
+NuGet.
+
+For more information on **Package Manager Console** commands, see [http://nuget.codeplex.com/wikipage?title=Package%20Manager%20Console%20Command%20Reference%20%28v1.3%29](http://nuget.codeplex.com/wikipage?title=Package%20Manager%20Console%20Command%20Reference%20%28v1.3%29 "http://nuget.codeplex.com/wikipage?title=Package%20Manager%20Console%20Command%20Reference%20%28v1.3%29").

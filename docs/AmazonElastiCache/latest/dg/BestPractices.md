@@ -1,76 +1,256 @@
-# Configuring your ElastiCache client for efficient load balancing (Memcached)
+# Lettuce client configuration (Valkey and Redis OSS)
+
+This section describes the recommended Java and Lettuce configuration options, and how they
+apply to ElastiCache clusters.
+
+The recommendations in this section were tested with Lettuce version 6.2.2.
+
+###### Topics
+
+- [Example: Lettuce config for cluster mode, TLS enabled](BestPractices.md "BestPractices.md")
+- [Example: Lettuce config for cluster mode disabled, TLS enabled](BestPractices.md "BestPractices.md")
+  **Java DNS cache TTL**
+
+The Java virtual machine (JVM) caches DNS name lookups. When the JVM resolves a hostname to an IP address, it caches the IP address for a specified period of time, known as the
+_time-to-live_ (TTL).
+
+The choice of TTL value is a trade-off between latency and responsiveness to change. With
+shorter TTLs, DNS resolvers notice updates in the cluster's DNS faster. This can
+make your application respond faster to replacements or other workflows that your
+cluster undergoes. However, if the TTL is too low, it increases the query volume,
+which can increase the latency of your application. While there is no correct TTL
+value, it's worth considering the length of time that you can afford to wait for a
+change to take effect when setting your TTL value.
+
+Because ElastiCache nodes use DNS name entries that might change, we recommend
+that you configure your JVM with a low TTL of 5 to 10 seconds. This ensures that
+when a node's IP address changes, your application will be able to receive and use
+the resource's new IP address by requerying the DNS entry.
+
+On some Java configurations, the JVM default TTL is set so that it will never refresh DNS entries until the JVM is restarted.
+
+For details on how to set your JVM TTL, see [How to set the JVM TTL](../../../sdk-for-java/v1/developer-guide/java-dg-jvm-ttl.md#how-to-set-the-jvm-ttl "../../../sdk-for-java/v1/developer-guide/java-dg-jvm-ttl.md#how-to-set-the-jvm-ttl").
+
+**Lettuce version**
+
+We recommend using Lettuce version 6.2.2 or later.
+
+**Endpoints**
+
+When you're using cluster mode enabled clusters, set the `redisUri` to the
+cluster configuration endpoint. The DNS lookup for this URI returns a list of all
+available nodes in the cluster, and is randomly resolved to one of them during the
+cluster initialization. For more details about how topology refresh works, see
+_dynamicRefreshResources_ later in this topic.
+
+**SocketOption**
+
+Enable [KeepAlive](https://lettuce.io/core/release/api/io/lettuce/core/SocketOptions.KeepAliveOptions.html "https://lettuce.io/core/release/api/io/lettuce/core/SocketOptions.KeepAliveOptions.html"). Enabling this option reduces the need to handle failed
+connections during command runtime.
+
+Ensure that you set the [Connection timeout](https://lettuce.io/core/release/api/io/lettuce/core/SocketOptions.Builder.html#connectTimeout-java.time.Duration- "https://lettuce.io/core/release/api/io/lettuce/core/SocketOptions.Builder.html#connectTimeout-java.time.Duration-") based on your application requirements and workload.
+For more information, see the Timeouts section later in this topic.
+
+**ClusterClientOption: Cluster Mode Enabled client options**
+
+Enable [AutoReconnect](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#autoReconnect-boolean- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#autoReconnect-boolean-") when connection is lost.
+
+Set [CommandTimeout](https://lettuce.io/core/release/api/io/lettuPrce/core/RedisURI.html#getTimeout-- "https://lettuce.io/core/release/api/io/lettuPrce/core/RedisURI.html#getTimeout--").
+For more details, see the Timeouts section later in this topic.
+
+Set [nodeFilter](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#nodeFilter-java.util.function.Predicate- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#nodeFilter-java.util.function.Predicate-") to filter out failed nodes
+from the topology. Lettuce saves all nodes
+that are found in the 'cluster nodes' output (including nodes with PFAIL/FAIL
+status) in the client's 'partitions' (also known as shards). During the process of
+creating the cluster topology, it attempts to connect to all the partition nodes.
+This Lettuce behavior of adding failed nodes can cause connection errors (or
+warnings) when nodes are getting replaced for any reason.
+
+For example, after a failover is finished and the cluster starts the recovery
+process, while the clusterTopology is getting refreshed, the cluster bus nodes map
+has a short period of time that the down node is listed as a FAIL node, before it's
+completely removed from the topology. During this period, the Lettuce client
+considers it a healthy node and continually connects to it. This causes a failure
+after retrying is exhausted.
+
+For example:
+
+```
+final ClusterClientOptions clusterClientOptions =
+    ClusterClientOptions.builder()
+    ... // other options
+    .nodeFilter(it ->
+        ! (it.is(RedisClusterNode.NodeFlag.FAIL)
+        || it.is(RedisClusterNode.NodeFlag.EVENTUAL_FAIL)
+        || it.is(RedisClusterNode.NodeFlag.HANDSHAKE)
+        || it.is(RedisClusterNode.NodeFlag.NOADDR)))
+    .validateClusterNodeMembership(false)
+    .build();
+redisClusterClient.setOptions(clusterClientOptions);
+```
 
 ###### Note
 
-This section applies to node-based multi-node Memcached clusters.
+Node filtering is best used with DynamicRefreshSources set to true. Otherwise, if the topology view is taken from a single problematic seed node, that sees a primary node of some shard as failing, it will filter out this primary node, which will result in slots not being covered. Having multiple seed nodes (when DynamicRefreshSources is true) reduces the likelihood of this issue, since at least some of the seed nodes should have an updated topology view after a failover with the newly promoted primary.
 
-To effectively use multiple ElastiCache Memcached nodes, you need to be able to spread your cache
-keys across the nodes. A simple way to load balance a cluster with
-_n_ nodes is to calculate the hash of the object's key and mod
-the result by _n_: `hash(key) mod n`. The resulting value
-(0 through _n_–1) is the number of the node where you place the object.
+**ClusterTopologyRefreshOptions: Options to control the cluster
+topology refreshing of the Cluster Mode Enabled client**
 
-This approach is simple and works well as long as the number of nodes
-(_n_) is constant. However, whenever you add or remove a node
-from the cluster, the number of keys that need to be moved is _(n - 1) /
-n_ (where _n_ is the new number of nodes). Thus, this
-approach results in a large number of keys being moved, which translates to a large
-number of initial cache misses, especially as the number of nodes gets large. Scaling
-from 1 to 2 nodes results in (2-1) / 2 (50 percent) of the keys being moved,
-the best case. Scaling from 9 to 10 nodes results in (10–1)/10 (90 percent) of the
-keys being moved. If you're scaling up due to a spike in traffic, you don't want to
-have a large number of cache misses. A large number of cache misses results in hits to
-the database, which is already overloaded due to the spike in traffic.
+###### Note
 
-The solution to this dilemma is consistent hashing. Consistent hashing uses an algorithm
-such that whenever a node is added or removed from a cluster, the number of keys that
-must be moved is roughly _1 / n_ (where _n_ is the
-new number of nodes). Scaling from 1 to 2 nodes results in 1/2 (50 percent) of the keys
-being moved, the worst case. Scaling from 9 to 10 nodes results in 1/10 (10 percent) of
-the keys being moved.
+Cluster mode disabled clusters don't support the cluster discovery commands and aren't compatible with all clients dynamic
+topology discovery functionality.
 
-As the user, you control which hashing algorithm is used for multi-node clusters. We
-recommend that you configure your clients to use consistent hashing. Fortunately, there
-are many Memcached client libraries in most popular languages that implement consistent
-hashing. Check the documentation for the library you are using to see if it supports
-consistent hashing and how to implement it.
+Cluster mode disabled with ElastiCache isn't compatible with Lettuce's `MasterSlaveTopologyRefresh`. Instead, for cluster mode disabled
+you can configure a `StaticMasterReplicaTopologyProvider` and provide the cluster read and write endpoints.
 
-If you are working in Java, PHP, or .NET, we recommend you use one of the Amazon ElastiCache
-client libraries.
+For more information on connecting to cluster mode disabled clusters, see [Finding a Valkey or Redis OSS (Cluster Mode Disabled) Cluster's Endpoints (Console)](Endpoints.md#Endpoints.Find.Redis "Endpoints.md#Endpoints.Find.Redis").
 
-## Consistent Hashing Using Java
+If you wish to use Lettuce's dynamic topology discovery functionality, then you can create a cluster mode enabled cluster with the same shard configuration as your existing cluster. However, for cluster mode enabled clusters we recommend configuring at least 3 shards with at least one 1 replica to support fast failover.
 
-The ElastiCache Memcached Java client is based on the open-source spymemcached Java client, which
-has consistent hashing capabilities built in. The library includes a
-KetamaConnectionFactory class that implements consistent hashing. By default,
-consistent hashing is turned off in spymemcached.
+Enable [enablePeriodicRefresh](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enablePeriodicRefresh-java.time.Duration- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enablePeriodicRefresh-java.time.Duration-"). This enables periodic cluster topology updates
+so that the client updates the cluster topology in the intervals of the
+refreshPeriod (default: 60 seconds). When it's disabled, the client updates the
+cluster topology only when errors occur when it attempts to run commands against the
+cluster.
 
-For more information, see the KetamaConnectionFactory documentation at
-[KetamaConnectionFactory](https://github.com/RTBHOUSE/spymemcached/blob/master/src/main/java/net/spy/memcached/KetamaConnectionFactory.java "https://github.com/RTBHOUSE/spymemcached/blob/master/src/main/java/net/spy/memcached/KetamaConnectionFactory.java").
+With this option enabled, you can reduce the latency that's associated with
+refreshing the cluster topology by adding this job to a background task. While
+topology refreshment is performed in a background job, it can be somewhat slow for
+clusters with many nodes. This is because all nodes are being queried for their
+views to get the most updated cluster view. If you run a large cluster, you might
+want to increase the period.
 
-## Consistent hashing using PHP with Memcached
+Enable [enableAllAdaptiveRefreshTriggers](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enableAllAdaptiveRefreshTriggers-- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enableAllAdaptiveRefreshTriggers--"). This enables adaptive topology
+refreshing that uses all [triggers](https://lettuce.io/core/6.1.6.RELEASE/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html "https://lettuce.io/core/6.1.6.RELEASE/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html"): MOVED_REDIRECT, ASK_REDIRECT, PERSISTENT_RECONNECTS,
+UNCOVERED_SLOT, UNKNOWN_NODE. Adaptive refresh triggers initiate topology view
+updates based on events that happen during Valkey or Redis OSS cluster operations. Enabling this
+option leads to an immediate topology refresh when one of the preceding triggers
+occur. Adaptive triggered refreshes are rate-limited using a timeout because events
+can happen on a large scale (default timeout between updates: 30).
 
-The ElastiCache Memcached PHP client is a wrapper around the built-in Memcached PHP library.
-By default, consistent hashing is turned off by the Memcached PHP library.
+Enable [closeStaleConnections](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#closeStaleConnections-boolean- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#closeStaleConnections-boolean-"). This enables closing stale connections when
+refreshing the cluster topology. It only comes into effect if [ClusterTopologyRefreshOptions.isPeriodicRefreshEnabled()](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.html#isPeriodicRefreshEnabled-- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.html#isPeriodicRefreshEnabled--") is true. When
+it's enabled, the client can close stale connections and create new ones in the
+background. This reduces the need to handle failed connections during command
+runtime.
 
-Use the following code to turn on consistent hashing.
+Enable [dynamicRefreshResources](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#dynamicRefreshSources-boolean- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#dynamicRefreshSources-boolean-"). We recommend enabling dynamicRefreshResources
+for small clusters, and disabling it for large clusters. dynamicRefreshResources
+enables discovering cluster nodes from the provided seed node (for example, cluster
+configuration endpoint). It uses all the discovered nodes as sources for refreshing
+the cluster topology.
+
+Using dynamic refresh queries all discovered nodes for the cluster topology and
+attempts to choose the most accurate cluster view. If it's set to false, only the
+initial seed nodes are used as sources for topology discovery, and the number of
+clients are obtained only for the initial seed nodes. When it's disabled, if the
+cluster configuration endpoint is resolved to a failed node, trying to refresh the
+cluster view fails and leads to exceptions. This scenario can happen because it
+takes some time until a failed node's entry is removed from the cluster
+configuration endpoint. Therefore, the configuration endpoint can still be randomly
+resolved to a failed node for a short period of time.
+
+When it's enabled, however, we use all of the cluster nodes that are received from
+the cluster view to query for their current view. Because we filter out failed nodes
+from that view, the topology refresh will be successful. However, when
+dynamicRefreshSources is true, Lettuce queries all nodes to get the cluster view,
+and then compares the results. So it can be expensive for clusters with a lot of
+nodes. We suggest that you turn off this feature for clusters with many nodes.
 
 ```
-$m = new Memcached();
-$m->setOption(Memcached::OPT_DISTRIBUTION, Memcached::DISTRIBUTION_CONSISTENT);
+final ClusterTopologyRefreshOptions topologyOptions =
+    ClusterTopologyRefreshOptions.builder()
+    .enableAllAdaptiveRefreshTriggers()
+    .enablePeriodicRefresh()
+    .dynamicRefreshSources(true)
+    .build();
 ```
 
-In addition to the preceding code,
-we recommend that you also turn `memcached.sess_consistent_hash`
-on in your php.ini file.
+**ClientResources**
 
-For more information, see the run-time configuration documentation for Memcached PHP at
-[http://php.net/manual/en/memcached.configuration.php](http://php.net/manual/en/memcached.configuration.php "http://php.net/manual/en/memcached.configuration.php").
-Note specifically the `memcached.sess_consistent_hash` parameter.
+Configure [DnsResolver](https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#dnsResolver-io.lettuce.core.resource.DnsResolver- "https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#dnsResolver-io.lettuce.core.resource.DnsResolver-") with [DirContextDnsResolver](https://lettuce.io/core/release/api/io/lettuce/core/resource/DirContextDnsResolver.html "https://lettuce.io/core/release/api/io/lettuce/core/resource/DirContextDnsResolver.html"). The DNS resolver is based on Java's
+com.sun.jndi.dns.DnsContextFactory.
 
-## Consistent hashing using .NET with Memcached
+Configure [reconnectDelay](https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#reconnectDelay-io.lettuce.core.resource.Delay- "https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#reconnectDelay-io.lettuce.core.resource.Delay-") with exponential backoff and full jitter. Lettuce has
+built-in retry mechanisms based on the exponential backoff strategies.. For details,
+see [Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter") on the AWS Architecture Blog. For more
+information about the importance of having a retry backoff strategy, see the backoff
+logic sections of the [Best practices blog post](https://aws.amazon.com/blogs/database/best-practices-redis-clients-and-amazon-elasticache-for-redis/ "https://aws.amazon.com/blogs/database/best-practices-redis-clients-and-amazon-elasticache-for-redis/") on the AWS Database Blog.
 
-The ElastiCache Memcached .NET client is a wrapper around Enyim Memcached.
-By default, consistent hashing is turned on by the Enyim Memcached client.
+```
+ClientResources clientResources = DefaultClientResources.builder()
+   .dnsResolver(new DirContextDnsResolver())
+    .reconnectDelay(
+        Delay.fullJitter(
+            Duration.ofMillis(100),     // minimum 100 millisecond delay
+            Duration.ofSeconds(10),      // maximum 10 second delay
+            100, TimeUnit.MILLISECONDS)) // 100 millisecond base
+    .build();
+```
 
-For more information, see the `memcached/locator` documentation at [https://github.com/enyim/EnyimMemcached/wiki/MemcachedClient-Configuration#user-content-memcachedlocator](https://github.com/enyim/EnyimMemcached/wiki/MemcachedClient-Configuration#user-content-memcachedlocator "https://github.com/enyim/EnyimMemcached/wiki/MemcachedClient-Configuration#user-content-memcachedlocator").
+**Timeouts**
+
+Use a lower connect timeout value than your command timeout. Lettuce uses lazy connection
+establishment. So if the connect timeout is higher than the command timeout, you can
+have a period of persistent failure after a topology refresh if Lettuce tries to
+connect to an unhealthy node and the command timeout is always exceeded.
+
+Use a dynamic command timeout for different commands. We recommend that you set the
+command timeout based on the command expected duration. For example, use a longer
+timeout for commands that iterate over several keys, such as FLUSHDB, FLUSHALL,
+KEYS, SMEMBERS, or Lua scripts. Use shorter timeouts for single key commands, such
+as SET, GET, and HSET.
+
+###### Note
+
+Timeouts that are configured in the following example are for tests that ran
+SET/GET commands with keys and values up to 20 bytes long. The processing time can
+be longer when the commands are complex or the keys and values are larger. You
+should set the timeouts based on the use case of your application.
+
+```
+private static final Duration META_COMMAND_TIMEOUT = Duration.ofMillis(1000);
+private static final Duration DEFAULT_COMMAND_TIMEOUT = Duration.ofMillis(250);
+// Socket connect timeout should be lower than command timeout for Lettuce
+private static final Duration CONNECT_TIMEOUT = Duration.ofMillis(100);
+
+SocketOptions socketOptions = SocketOptions.builder()
+    .connectTimeout(CONNECT_TIMEOUT)
+    .build();
+
+
+class DynamicClusterTimeout extends TimeoutSource {
+     private static final Set<ProtocolKeyword> META_COMMAND_TYPES = ImmutableSet.<ProtocolKeyword>builder()
+          .add(CommandType.FLUSHDB)
+          .add(CommandType.FLUSHALL)
+          .add(CommandType.CLUSTER)
+          .add(CommandType.INFO)
+          .add(CommandType.KEYS)
+          .build();
+
+    private final Duration defaultCommandTimeout;
+    private final Duration metaCommandTimeout;
+
+    DynamicClusterTimeout(Duration defaultTimeout, Duration metaTimeout)
+    {
+        defaultCommandTimeout = defaultTimeout;
+        metaCommandTimeout = metaTimeout;
+    }
+
+    @Override
+    public long getTimeout(RedisCommand<?, ?, ?> command) {
+        if (META_COMMAND_TYPES.contains(command.getType())) {
+            return metaCommandTimeout.toMillis();
+        }
+        return defaultCommandTimeout.toMillis();
+    }
+}
+
+// Use a dynamic timeout for commands, to avoid timeouts during
+// cluster management and slow operations.
+TimeoutOptions timeoutOptions = TimeoutOptions.builder()
+.timeoutSource(
+    new DynamicClusterTimeout(DEFAULT_COMMAND_TIMEOUT, META_COMMAND_TIMEOUT))
+.build();
+```
