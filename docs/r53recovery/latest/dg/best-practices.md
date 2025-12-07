@@ -56,3 +56,9 @@ the correct resources in your stack, and that everything works as you expect it 
 this after you set up Region switch for your environment, and continue to test periodically, so that you validate
 that your recovery processes work correctly. Do this testing regularly, before you experience a failure
 situation, to help avoid downtime for your users.
+
+**ARC Region switch DNS failover versus Route 53 Accelerated recovery**
+
+Accelerated recovery provides a target RTO of 60-minutes for APIs used to update your public hosted zone records that are enabled for this capability.
+If you need to maintain control over your RTO and not wait for AWS to complete recovery of the APIs needed,
+you should use ARC Routing control or ARC Region switch Route 53 health check execution block.
