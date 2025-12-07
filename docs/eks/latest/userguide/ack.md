@@ -1,0 +1,89 @@
+**Help improve this page**
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Deploy AWS resources from Kubernetes with AWS Controllers for Kubernetes (ACK)
+
+AWS Controllers for Kubernetes (ACK) lets you define and manage AWS service resources directly from Kubernetes.
+With AWS Controllers for Kubernetes (ACK), you can manage workload resources and cloud infrastructure using Kubernetes custom resources, right alongside your application workloads using familiar Kubernetes APIs and tools.
+
+With EKS Capabilities, ACK is fully managed by AWS, eliminating the need to install, maintain, and scale ACK controllers on your clusters.
+
+## How ACK Works
+
+ACK translates Kubernetes custom resource specifications into AWS API calls.
+When you create, update, or delete a Kubernetes custom resource representing an AWS service resource, ACK makes the required AWS API calls to create, update, or delete the AWS resource.
+
+Each AWS resource supported by ACK has its own custom resource definition (CRD) that defines the Kubernetes API schema for specifying its configuration.
+For example, ACK provides CRDs for S3 including buckets, bucket policies, and other S3 resources.
+
+ACK continuously reconciles the state of your AWS resources with the desired state defined in your Kubernetes custom resources.
+If a resource drifts from its desired state, ACK detects this and takes corrective action to bring it back into alignment.
+Changes to Kubernetes resources are immediately reflected in AWS resource state, while passive drift detection and remediation of upstream AWS resource changes can take as long as 10 hours (the resync period), but will typically occur much sooner.
+
+**Example S3 Bucket resource manifest**
+
+```
+apiVersion: s3.services.k8s.aws/v1alpha1
+kind: Bucket
+metadata:
+  name: my-ack-bucket
+spec:
+  name: `my-unique-bucket-name`
+
+```
+
+When you apply this custom resource to your cluster, ACK creates an Amazon S3 bucket in your account if it does not yet exist.
+Subsequent changes to this resource, for example specifying a non-default storage tier or adding a policy, will be applied to the S3 resource in AWS.
+When this resource is deleted from the cluster, the S3 bucket in AWS is deleted by default.
+
+## Benefits of ACK
+
+ACK provides Kubernetes-native AWS resource management, allowing you to manage AWS resources using the same Kubernetes APIs and tools you use for your applications.
+This unified approach simplifies your infrastructure management workflow by eliminating the need to switch between different tools or learn separate infrastructure-as-code systems.
+You define your AWS resources declaratively in Kubernetes manifests, enabling GitOps workflows and infrastructure as code practices that integrate seamlessly with your existing development processes.
+
+ACK continuously reconciles the desired state of your AWS resources with their actual state, correcting drift and ensuring consistency across your infrastructure.
+This continuous reconciliation means that imperative out-of-band changes to AWS resources are automatically reverted to match your declared configuration, maintaining the integrity of your infrastructure as code.
+You can configure ACK to manage resources across multiple AWS accounts and regions, enabling complex multi-account architectures with no additional tooling.
+
+For organizations migrating from other infrastructure management tools, ACK supports resource adoption, allowing you to bring existing AWS resources under ACK management without recreating them.
+ACK also provides read-only resources for AWS resource observation without modification access, and annotations to optionally retain AWS resources even when the Kubernetes resource is deleted from the cluster.
+
+To learn more and get started with the EKS Capability for ACK, see [ACK concepts](ack-concepts.md "ack-concepts.md") and [ACK considerations for EKS](ack-considerations.md "ack-considerations.md").
+
+## Supported AWS Services
+
+ACK supports a wide range of AWS services, including but not limited to:
+
+- Amazon EC2
+- Amazon S3
+- Amazon RDS
+- Amazon DynamoDB
+- Amazon ElastiCache
+- Amazon EKS
+- Amazon SQS
+- Amazon SNS
+- AWS Lambda
+- AWS IAM
+
+All AWS services listed as Generally Available upstream are supported by the EKS Capability for ACK.
+Refer to the [full list of AWS services supported](https://aws-controllers-k8s.github.io/community/docs/community/services/ "https://aws-controllers-k8s.github.io/community/docs/community/services/") for details.
+
+## Integration with Other EKS Managed Capabilities
+
+ACK integrates with other EKS Managed Capabilities.
+
+- **Argo CD**: Use Argo CD to manage the deployment of ACK resources across multiple clusters, enabling GitOps workflows for your AWS infrastructure.
+  - ACK extends the benefits of GitOps when paired with ArgoCD, but ACK does not require integration with git.
+
+- **kro (Kube Resource Orchestrator)**: Use kro to compose complex resources from ACK resources, creating higher-level abstractions that simplify resource management.
+  - You can create composite custom resources with kro that define both Kubernetes resources and AWS resources. Team members can use these custom resources to quickly deploy complex applications.
+
+## Getting Started with ACK
+
+To get started with the EKS Capability for ACK:
+
+1. Create and configure an IAM Capability Role with the necessary permissions for ACK to manage AWS resources on your behalf.
+2. [Create an ACK capability resource](create-ack-capability.md "create-ack-capability.md") on your EKS cluster through the AWS Console, AWS CLI, or your preferred infrastructure as code tool.
+3. Apply Kubernetes custom resources to your cluster to start managing your AWS resources in Kubernetes.

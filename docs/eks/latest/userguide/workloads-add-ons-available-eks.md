@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # AWS add-ons
 
-The following Amazon EKS add-ons are available to create on your cluster. You can view the most current list of available add-ons using `eksctl`, the AWS Management Console, or the AWS CLI. To see all available add-ons or to install an add-on, see [Create an Amazon EKS add-on](creating-an-add-on.md "creating-an-add-on.md"). If an add-on requires IAM permissions, then you must have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md"). You can an create or delete an add-on after you’ve installed it. For more information, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md") or [Remove an Amazon EKS add-on from a cluster](removing-an-add-on.md "removing-an-add-on.md"). For more information about considerations specific to running EKS add-ons with Amazon EKS Hybrid Nodes, see [Configure add-ons for hybrid nodes](hybrid-nodes-add-ons.md "hybrid-nodes-add-ons.md").
+The following Amazon EKS add-ons are available to create on your cluster. You can view the most current list of available add-ons using `eksctl`, the AWS Management Console, or the AWS CLI. To see all available add-ons or to install an add-on, see [Create an Amazon EKS add-on](creating-an-add-on.md "creating-an-add-on.md"). If an add-on requires IAM permissions, then you must have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md"). You can create or delete an add-on after you’ve installed it. For more information, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md") or [Remove an Amazon EKS add-on from a cluster](removing-an-add-on.md "removing-an-add-on.md"). For more information about considerations specific to running EKS add-ons with Amazon EKS Hybrid Nodes, see [Configure add-ons for hybrid nodes](hybrid-nodes-add-ons.md "hybrid-nodes-add-ons.md").
 
 You can use any of the following Amazon EKS add-ons.
 
@@ -30,6 +30,7 @@ You can use any of the following Amazon EKS add-ons.
 | Enable cert-manager to issue X.509 certificates from AWS Private CA. Requires cert-manager.                                                                                                                                                           | [AWS Private CA Connector for Kubernetes](#add-ons-aws-privateca-connector "#add-ons-aws-privateca-connector")                           | EC2, Fargate, EKS Auto Mode, EKS Hybrid Nodes |
 | Generate Prometheus metrics about SR-IOV network device performance                                                                                                                                                                                   | [SR-IOV Network Metrics Exporter](#add-ons-sriov-network-metrics-exporter "#add-ons-sriov-network-metrics-exporter")                     | EC2                                           |
 | Retrieve secrets from AWS Secrets Manager and parameters from AWS Systems Manager Parameter Store and mount them as files in Kubernetes pods.                                                                                                         | [AWS Secrets Store CSI Driver provider](#add-ons-aws-secrets-store-csi-driver-provider "#add-ons-aws-secrets-store-csi-driver-provider") | EC2, EKS Auto Mode, EKS Hybrid Nodes          |
+| With Spaces, you can create and manage JupyterLab and Code Editor applications to run interactive ML workloads.                                                                                                                                       | [Amazon SageMaker Spaces](#add-ons-amazon-sagemaker-spaces "#add-ons-amazon-sagemaker-spaces")                                           | Hyperpod                                      |
 
 ## Amazon VPC CNI plugin for Kubernetes
 
@@ -293,7 +294,7 @@ The operator also works with HyperPod’s health monitoring and observability fu
 
 The Amazon EKS add-on name is `amazon-sagemaker-hyperpod-training-operator`.
 
-For more information, see [Using the HyperPod training operatorr](../../../sagemaker/latest/dg/sagemaker-eks-operator.md "../../../sagemaker/latest/dg/sagemaker-eks-operator.md") in the _Amazon SageMaker Developer Guide_.
+For more information, see [Using the HyperPod training operator](../../../sagemaker/latest/dg/sagemaker-eks-operator.md "../../../sagemaker/latest/dg/sagemaker-eks-operator.md") in the _Amazon SageMaker Developer Guide_.
 
 ### Required IAM permissions
 
@@ -484,3 +485,19 @@ For more information about the required permissions, see `AWSSecretsManagerClien
 For more information, please see the secrets-store-csi-driver-provider-aws [GitHub repository](https://github.com/aws/secrets-store-csi-driver-provider-aws "https://github.com/aws/secrets-store-csi-driver-provider-aws").
 
 To learn more about the add-on, please refer to the [AWS Secrets Manager documentation for the add-on](../../../secretsmanager/latest/userguide/ascp-eks-installation.md "../../../secretsmanager/latest/userguide/ascp-eks-installation.md").
+
+## Amazon SageMaker Spaces
+
+The Amazon SageMaker Spaces Add-on provides ability to run IDEs and Notebooks on EKS or HyperPod-EKS clusters. Administrators can use EKS Console to install the add-on on their cluster, and define default space configurations such as images, compute resources, local storage for notebook settings (additional storage to be attached to their spaces), file systems, and initialization scripts. Admins can use the kubectl to install the operator, create default settings, and manage all spaces in a centralized location.
+
+AI developers can use kubectl to create, update, and delete spaces. They have the flexibility to use default configurations provided by admins or customize settings. AI developers can access their spaces on EKS or HyperPod-EKS using their local VS Code IDEs, and/or their web browser that hosts their JupyterLab or CodeEditor IDE on custom DNS domain configured by their admins. They can also use kubernetes’ port forwarding feature to access spaces in their web browsers.
+
+The Amazon EKS add-on name is `amazon-sagemaker-spaces`.
+
+### Required IAM permissions
+
+This add-on requires IAM permissions. For more information about the required IAM setup, see [IAM Permissions Setup](../../../sagemaker/latest/dg/permission-setup.md "../../../sagemaker/latest/dg/permission-setup.md") in the _Amazon SageMaker Developer Guide_.
+
+### Additional information
+
+To learn more about the add-on and its capabilities, see [SageMaker AI Notebooks on HyperPod](../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-cluster-ide.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-cluster-ide.md") in the _Amazon SageMaker Developer Guide_.

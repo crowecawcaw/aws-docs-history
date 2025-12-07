@@ -6,7 +6,8 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 This quickstart tutorial guides you through the steps to deploy the 2048 game sample application and persist its data on an Amazon EKS Auto Mode cluster using [eksctl](https://eksctl.io/ "https://eksctl.io/").
 
-[Amazon EKS Auto Mode](automode.md "automode.md") simplifies cluster management by automating routine tasks like block storage, networking, load balancing, and compute autoscaling. During setup, it handles creating nodes with EC2 managed instances, application load balancers, and EBS volumes.
+[Amazon EKS Auto Mode](automode.md "automode.md") simplifies cluster management by automating routine tasks like block storage, networking, load balancing, and compute autoscaling.
+During setup, it handles creating nodes with EC2 managed instances, application load balancers, and EBS volumes.
 
 In summary, you’ll deploy a sample workload with the custom annotations needed for seamless integration with AWS services.
 
@@ -14,7 +15,8 @@ In summary, you’ll deploy a sample workload with the custom annotations needed
 
 Using the `eksctl` cluster template that follows, you’ll build a cluster with EKS Auto Mode for automated node provisioning.
 
-- **VPC Configuration**: When using the eksctl cluster template that follows, eksctl automatically creates an IPv4 Virtual Private Cloud (VPC) for the cluster. By default, eksctl configures a VPC that addresses all networking requirements, in addition to creating both public and private endpoints.
+- **VPC Configuration**: When using the eksctl cluster template that follows, eksctl automatically creates an IPv4 Virtual Private Cloud (VPC) for the cluster.
+  By default, eksctl configures a VPC that addresses all networking requirements, in addition to creating both public and private endpoints.
 - **Instance Management**: EKS Auto Mode dynamically adds or removes nodes in your EKS cluster based on the demands of your Kubernetes applications.
 - **Data Persistence**: Use the block storage capability of EKS Auto Mode to ensure the persistence of application data, even in scenarios involving pod restarts or failures.
 - **External App Access**: Use the load balancing capability of EKS Auto Mode to dynamically provision an Application Load Balancer (ALB).
@@ -30,7 +32,8 @@ Before you start, make sure you have performed the following tasks:
 
 In this section, you’ll create a cluster using EKS Auto Mode for dynamic node provisioning.
 
-Create a `cluster-config.yaml` file and paste the following contents into it. Replace `region-code` with a valid Region (e.g., `us-east-1`).
+Create a `cluster-config.yaml` file and paste the following contents into it.
+Replace `region-code` with a valid Region (e.g., `us-east-1`).
 
 ```
 apiVersion: eksctl.io/v1alpha5
@@ -58,7 +61,10 @@ If you do not use eksctl to create the cluster, you need to manually tag the VPC
 
 ## Create IngressClass
 
-Create a Kubernetes `IngressClass` for EKS Auto Mode. The IngressClass defines how EKS Auto Mode handles Ingress resources. This step configures the load balancing capability of EKS Auto Mode. When you create Ingress resources for your applications, EKS Auto Mode uses this IngressClass to automatically provision and manage load balancers, integrating your Kubernetes applications with AWS load balancing services.
+Create a Kubernetes `IngressClass` for EKS Auto Mode.
+The IngressClass defines how EKS Auto Mode handles Ingress resources.
+This step configures the load balancing capability of EKS Auto Mode.
+When you create Ingress resources for your applications, EKS Auto Mode uses this IngressClass to automatically provision and manage load balancers, integrating your Kubernetes applications with AWS load balancing services.
 
 Save the following yaml file as `ingressclass.yaml`:
 
@@ -81,7 +87,9 @@ kubectl apply -f ingressclass.yaml
 
 ## Deploy the 2048 game sample application
 
-In this section, we walk you through the steps to deploy the popular "2048 game" as a sample application within the cluster. The provided manifest includes custom annotations for the Application Load Balancer (ALB). These annotations integrate with and instruct the EKS to handle incoming HTTP traffic as "internet-facing" and route it to the appropriate service in the `game-2048` namespace using the target type "ip".
+In this section, we walk you through the steps to deploy the popular "2048 game" as a sample application within the cluster.
+The provided manifest includes custom annotations for the Application Load Balancer (ALB).
+These annotations integrate with and instruct EKS to handle incoming HTTP traffic as "internet-facing" and route it to the appropriate service in the `game-2048` namespace using the target type "ip".
 
 ###### Note
 
@@ -105,7 +113,9 @@ namespace/game-2048 created
 kubectl apply -n game-2048 -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.8.0/docs/examples/2048/2048_full.yaml
 ```
 
-This manifest sets up a Kubernetes Deployment, Service, and Ingress for the `game-2048` namespace, creating the necessary resources to deploy and expose the `game-2048` application within the cluster. It includes the creation of a service named `service-2048` that exposes the deployment on port `80`, and an Ingress resource named `ingress-2048` that defines routing rules for incoming HTTP traffic and annotations for an internet-facing Application Load Balancer (ALB). You should see the following response output:
+This manifest sets up a Kubernetes Deployment, Service, and Ingress for the `game-2048` namespace, creating the necessary resources to deploy and expose the `game-2048` application within the cluster.
+It includes the creation of a service named `service-2048` that exposes the deployment on port `80`, and an Ingress resource named `ingress-2048` that defines routing rules for incoming HTTP traffic and annotations for an internet-facing Application Load Balancer (ALB).
+You should see the following response output:
 
 ```
 namespace/game-2048 configured
@@ -237,7 +247,8 @@ You should see the following response output:
 deployment.apps/deployment-2048 configured
 ```
 
-With these steps, your 2048 game on the cluster is now set up to persist data using the block storage capability of Amazon EKS Auto Mode. This ensures that your game progress and data are safe even in the event of pod or node failures.
+With these steps, your 2048 game on the cluster is now set up to persist data using the block storage capability of Amazon EKS Auto Mode.
+This ensures that your game progress and data are safe even in the event of pod or node failures.
 
 If you liked this tutorial, let us know by providing feedback so we’re able to provide you with more use case-specific quickstart tutorials like this one.
 

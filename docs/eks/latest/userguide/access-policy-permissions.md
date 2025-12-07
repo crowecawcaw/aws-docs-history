@@ -170,7 +170,7 @@ This policy includes the following permissions that allow Amazon EKS components 
 
 Each component uses a dedicated service account and is restricted to only the permissions required for its specific function.
 
-If you manually specifiy a Node IAM role in a NodeClass, you need to create an Access Entry that associates the new Node IAM role with this Access Policy.
+If you manually specify a Node IAM role in a NodeClass, you need to create an Access Entry that associates the new Node IAM role with this Access Policy.
 
 ## AmazonEKSBlockStoragePolicy
 
@@ -440,15 +440,151 @@ This policy grants the permissions necessary for AWS Backup to manage and restor
 | --------------------- | -------------------- | ------------------------------ |
 | `*`                   | `*`                  | `list`, `get`, `create`        |
 
+## AmazonEKSACKPolicy
+
+**ARN** – `arn:aws:eks::aws:cluster-access-policy/AmazonEKSACKPolicy`
+
+This policy grants permissions necessary for the AWS Controllers for Kubernetes (ACK) capability to manage AWS resources from Kubernetes.
+The policy includes the following permissions:
+
+ACK Custom Resource Management:
+
+- Full access to all ACK service custom resources across 50+ AWS services including S3, RDS, DynamoDB, Lambda, EC2, and more.
+- Create, read, update, and delete ACK custom resource definitions.
+
+Namespace Access:
+
+- Read access to namespaces for resource organization.
+
+Leader Election:
+
+- Create and read coordination leases for leader election.
+- Update and delete specific ACK service controller leases.
+
+Event Management:
+
+- Create and patch events for ACK operations.
+
+This policy is designed to support comprehensive AWS resource management through Kubernetes APIs.
+Amazon EKS automatically creates an access entry with this access policy for the capability IAM role that you supply when the ACK capability is created.
+
+| Kubernetes API groups                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Kubernetes resources                                   | Kubernetes verbs (permissions)   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------- |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `namespaces`                                           | `get`, `watch`, `list`           |
+| `services.k8s.aws`, `acm.services.k8s.aws`, `acmpca.services.k8s.aws`, `apigateway.services.k8s.aws`, `apigatewayv2.services.k8s.aws`, `applicationautoscaling.services.k8s.aws`, `athena.services.k8s.aws`, `bedrock.services.k8s.aws`, `bedrockagent.services.k8s.aws`, `bedrockagentcorecontrol.services.k8s.aws`, `cloudfront.services.k8s.aws`, `cloudtrail.services.k8s.aws`, `cloudwatch.services.k8s.aws`, `cloudwatchlogs.services.k8s.aws`, `codeartifact.services.k8s.aws`, `cognitoidentityprovider.services.k8s.aws`, `documentdb.services.k8s.aws`, `dynamodb.services.k8s.aws`, `ec2.services.k8s.aws`, `ecr.services.k8s.aws`, `ecrpublic.services.k8s.aws`, `ecs.services.k8s.aws`, `efs.services.k8s.aws`, `eks.services.k8s.aws`, `elasticache.services.k8s.aws`, `elbv2.services.k8s.aws`, `emrcontainers.services.k8s.aws`, `eventbridge.services.k8s.aws`, `iam.services.k8s.aws`, `kafka.services.k8s.aws`, `keyspaces.services.k8s.aws`, `kinesis.services.k8s.aws`, `kms.services.k8s.aws`, `lambda.services.k8s.aws`, `memorydb.services.k8s.aws`, `mq.services.k8s.aws`, `networkfirewall.services.k8s.aws`, `opensearchservice.services.k8s.aws`, `organizations.services.k8s.aws`, `pipes.services.k8s.aws`, `prometheusservice.services.k8s.aws`, `ram.services.k8s.aws`, `rds.services.k8s.aws`, `recyclebin.services.k8s.aws`, `route53.services.k8s.aws`, `route53resolver.services.k8s.aws`, `s3.services.k8s.aws`, `s3control.services.k8s.aws`, `sagemaker.services.k8s.aws`, `secretsmanager.services.k8s.aws`, `ses.services.k8s.aws`, `sfn.services.k8s.aws`, `sns.services.k8s.aws`, `sqs.services.k8s.aws`, `ssm.services.k8s.aws`, `wafv2.services.k8s.aws` | `*`                                                    | `*`                              |
+| `coordination.k8s.io`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `leases`                                               | `create`, `get`, `list`, `watch` |
+| `coordination.k8s.io`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `leases` (specific ACK service controller leases only) | `delete`, `update`, `patch`      |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `events`                                               | `create`, `patch`                |
+| `apiextensions.k8s.io`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `customresourcedefinitions`                            | `*`                              |
+
+## AmazonEKSArgoCDClusterPolicy
+
+**ARN** – `arn:aws:eks::aws:cluster-access-policy/AmazonEKSArgoCDClusterPolicy`
+
+This policy grants cluster-level permissions necessary for the Argo CD capability to discover resources and manage cluster-scoped objects.
+The policy includes the following permissions:
+
+Namespace Management:
+
+- Create, read, update, and delete namespaces for application namespace management.
+
+Custom Resource Definition Management:
+
+- Manage Argo CD-specific CRDs (Applications, AppProjects, ApplicationSets).
+
+API Discovery:
+
+- Read access to Kubernetes API endpoints for resource discovery.
+
+This policy is designed to support cluster-level Argo CD operations including namespace management and CRD installation.
+Amazon EKS automatically creates an access entry with this access policy for the capability IAM role that you supply when the Argo CD capability is created.
+
+| Kubernetes API groups  | Kubernetes nonResourceURLs           | Kubernetes resources                            | Kubernetes verbs (permissions)               |
+| ---------------------- | ------------------------------------ | ----------------------------------------------- | -------------------------------------------- |
+|                        |                                      | `namespaces`                                    | `create`, `get`, `update`, `patch`, `delete` |
+| `apiextensions.k8s.io` |                                      | `customresourcedefinitions`                     | `create`                                     |
+| `apiextensions.k8s.io` |                                      | `customresourcedefinitions` (Argo CD CRDs only) | `get`, `update`, `patch`, `delete`           |
+|                        | `/api`, `/api/*`, `/apis`, `/apis/*` |                                                 | `get`                                        |
+
+## AmazonEKSArgoCDPolicy
+
+**ARN** – `arn:aws:eks::aws:cluster-access-policy/AmazonEKSArgoCDPolicy`
+
+This policy grants namespace-level permissions necessary for the Argo CD capability to deploy and manage applications.
+The policy includes the following permissions:
+
+Secret Management:
+
+- Full access to secrets for Git credentials and cluster secrets.
+
+ConfigMap Access:
+
+- Read access to ConfigMaps to send warnings if customers try to use unsupported Argo CD ConfigMaps.
+
+Event Management:
+
+- Read and create events for application lifecycle tracking.
+
+Argo CD Resource Management:
+
+- Full access to Applications, ApplicationSets, and AppProjects.
+- Manage finalizers and status for Argo CD resources.
+
+This policy is designed to support namespace-level Argo CD operations including application deployment and management.
+Amazon EKS automatically creates an access entry with this access policy for the capability IAM role that you supply when the Argo CD capability is created, scoped to the Argo CD namespace.
+
+| Kubernetes API groups | Kubernetes resources                                                                                                                                                                                       | Kubernetes verbs (permissions)            |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+|                       | `secrets`                                                                                                                                                                                                  | `*`                                       |
+|                       | `configmaps`                                                                                                                                                                                               | `get`, `list`, `watch`                    |
+|                       | `events`                                                                                                                                                                                                   | `get`, `list`, `watch`, `patch`, `create` |
+| `argoproj.io`         | `applications`, `applications/finalizers`, `applications/status`, `applicationsets`, `applicationsets/finalizers`, `applicationsets/status`, `appprojects`, `appprojects/finalizers`, `appprojects/status` | `*`                                       |
+
+## AmazonEKSKROPolicy
+
+**ARN** – `arn:aws:eks::aws:cluster-access-policy/AmazonEKSKROPolicy`
+
+This policy grants permissions necessary for the kro (Kube Resource Orchestrator) capability to create and manage custom Kubernetes APIs.
+The policy includes the following permissions:
+
+kro Resource Management:
+
+- Full access to all kro resources including ResourceGraphDefinitions and custom resource instances.
+
+Custom Resource Definition Management:
+
+- Create, read, update, and delete CRDs for custom APIs defined by ResourceGraphDefinitions.
+
+Leader Election:
+
+- Create and read coordination leases for leader election.
+- Update and delete the kro controller lease.
+
+Event Management:
+
+- Create and patch events for kro operations.
+
+This policy is designed to support comprehensive resource composition and custom API management through kro.
+Amazon EKS automatically creates an access entry with this access policy for the capability IAM role that you supply when the kro capability is created.
+
+| Kubernetes API groups  | Kubernetes resources                 | Kubernetes verbs (permissions)   |
+| ---------------------- | ------------------------------------ | -------------------------------- |
+| `kro.run`              | `*`                                  | `*`                              |
+| `apiextensions.k8s.io` | `customresourcedefinitions`          | `*`                              |
+| `coordination.k8s.io`  | `leases`                             | `create`, `get`, `list`, `watch` |
+| `coordination.k8s.io`  | `leases` (kro controller lease only) | `delete`, `update`, `patch`      |
+|                        | `events`                             | `create`, `patch`                |
+
 ## Access policy updates
 
 View details about updates to access policies, since they were introduced. For automatic alerts about changes to this page, subscribe to the RSS feed in [Document history](doc-history.md "doc-history.md").
 
-| Change                                | Description                                                                                                                                                                                    | Date             |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Add `AmazonEKSSecretReaderPolicy`     | Add a new policy for read-only access to secrets                                                                                                                                               | November 6, 2025 |
-| Add policy for EKS Cluster Insights   | Publish `AmazonEKSClusterInsightsPolicy`                                                                                                                                                       | December 2, 2024 |
-| Add policies for Amazon EKS Hybrid    | Publish `AmazonEKSHybridPolicy`                                                                                                                                                                | December 2, 2024 |
-| Add policies for Amazon EKS Auto Mode | These access policies give the Cluster IAM Role and Node IAM Role permission to call Kubernetes APIs. AWS uses these to automate routine tasks for storage, compute, and networking resources. | December 2, 2024 |
-| Add `AmazonEKSAdminViewPolicy`        | Add a new policy for expanded view access, including resources like Secrets.                                                                                                                   | April 23, 2024   |
-| Access policies introduced.           | Amazon EKS introduced access policies.                                                                                                                                                         | May 29, 2023     |
+| Change                                | Description                                                                                                                                                                                    | Date              |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Add policies for EKS Capabilities     | Publish `AmazonEKSACKPolicy`, `AmazonEKSArgoCDClusterPolicy`, `AmazonEKSArgoCDPolicy`, and `AmazonEKSKROPolicy` for managing EKS Capabilities                                                  | November 22, 2025 |
+| Add `AmazonEKSSecretReaderPolicy`     | Add a new policy for read-only access to secrets                                                                                                                                               | November 6, 2025  |
+| Add policy for EKS Cluster Insights   | Publish `AmazonEKSClusterInsightsPolicy`                                                                                                                                                       | December 2, 2024  |
+| Add policies for Amazon EKS Hybrid    | Publish `AmazonEKSHybridPolicy`                                                                                                                                                                | December 2, 2024  |
+| Add policies for Amazon EKS Auto Mode | These access policies give the Cluster IAM Role and Node IAM Role permission to call Kubernetes APIs. AWS uses these to automate routine tasks for storage, compute, and networking resources. | December 2, 2024  |
+| Add `AmazonEKSAdminViewPolicy`        | Add a new policy for expanded view access, including resources like Secrets.                                                                                                                   | April 23, 2024    |
+| Access policies introduced.           | Amazon EKS introduced access policies.                                                                                                                                                         | May 29, 2023      |

@@ -42,7 +42,7 @@ When using Network Flow Monitor in EKS, you can maintain your existing observabi
 ## Prerequisites and important notes
 
 1. As mentioned above, if you enable Container Network Observability from the EKS console, the underlying NFM resource dependencies (Scope and Monitor) will be automatically created on your behalf, and you will be guided through the installation process of the EKS add-on for NFM.
-2. If you want to enable this feature using Infrastructure as Code (IaC) like Terraform, you will have to define the following dependencies in your IaC: NFM Scope, NFM Monitor, EKS add-on for NFM. In addition, you’ll have to grant the [relevant permissions](../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md") to the EKS add-on using [Pod Identity](pod-id-agent-setup.md "pod-id-agent-setup.md").
+2. If you want to enable this feature using Infrastructure as Code (IaC) like Terraform, you will have to define the following dependencies in your IaC: NFM Scope, NFM Monitor, EKS add-on for NFM. In addition, you’ll have to grant the [relevant permissions](../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md") to the EKS add-on using [Pod Identity](pod-id-agent-setup.md "pod-id-agent-setup.md") or [IAM roles for service accounts (IRSA)](iam-roles-for-service-accounts.md "iam-roles-for-service-accounts.md").
 3. You must be running a minimum version of 1.1.0 for the NFM agent’s EKS add-on.
 
 ### Required IAM permissions

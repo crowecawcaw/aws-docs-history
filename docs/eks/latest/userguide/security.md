@@ -39,4 +39,5 @@ Linux containers are made up of control groups (cgroups) and namespaces that hel
 - [Security considerations for Amazon Elastic Kubernetes Service](security-eks.md "security-eks.md")
 - [Security considerations for Kubernetes](security-k8s.md "security-k8s.md")
 - [Security considerations for Amazon EKS Auto Mode](auto-security.md "auto-security.md")
+- [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md")
 - [Identity and access management for Amazon EKS](security-iam.md "security-iam.md")

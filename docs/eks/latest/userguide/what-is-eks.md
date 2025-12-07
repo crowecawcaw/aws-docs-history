@@ -25,8 +25,21 @@ The following diagram illustrates how Amazon EKS integrates your Kubernetes clus
 
 ![Amazon EKS standard and EKS Auto Mode](images/whatis.png)
 
-Amazon EKS helps you accelerate time to production, improve performance, availability and resiliency, and enhance system security.
+Amazon EKS helps you remove friction and accelerate time to production, improve performance, availability and resiliency, and enhance system security.
 For more information, see [Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/ "https://aws.amazon.com/eks/").
+
+## Building and scaling with Kubernetes: Amazon EKS Capabilities
+
+Amazon EKS not only helps you build and manage clusters, it helps you build and scale application systems with Kubernetes.
+[Amazon EKS Capabilities](capabilities.md "capabilities.md") are fully managed cluster services that extend your cluster’s functionality with hands-free Kubernetes-native tools, including:
+
+- **Argo CD**: Argo CD provides declarative, GitOps-based continuous deployment for your workloads, AWS resources, and cloud infrastructure.
+- **AWS Controllers for Kubernetes (ACK)**: ACK enables Kubernetes-native creation and lifecycle management of AWS resources, unifying workload orchestration and Infrastructure-as-code workflows.
+- **kro (Kube Resource Orchestrator)**: kro extends native Kubernetes features to simplify custom resource creation, orchestration, and compositions, giving you the tools to create your own customized cloud building blocks.
+
+EKS Capabilities are cloud resources that minimize the operational burden of installing, maintaining, and scaling these foundational platform components in your clusters, letting you focus on building software rather than cluster platform operations.
+
+To learn more, see [EKS Capabilities](capabilities.md "capabilities.md").
 
 ## Features of Amazon EKS
 
@@ -64,6 +77,12 @@ Use the [observability dashboard](observability-dashboard.md "observability-dash
 Monitoring tools include [Prometheus](prometheus.md "prometheus.md"), [CloudWatch](cloudwatch.md "cloudwatch.md"), [Cloudtrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md"),
 and [ADOT Operator](opentelemetry.md "opentelemetry.md").
 For more information on dashboards, metrics servers, and other tools, see [EKS cluster costs](cost-monitoring.md "cost-monitoring.md") and [Kubernetes Metrics Server](metrics-server.md "metrics-server.md").
+
+**Cluster capabilities**
+
+EKS provides managed cluster capabilities for continuous deployment, cloud resource management, and resource composition based on open source innovations.
+EKS installs Kubernetes APIs in your clusters, but controllers and other components run in EKS and are fully managed, providing automated patching, scaling, and monitoring.
+For more information, see [EKS Capabilities](capabilities.md "capabilities.md").
 
 **Kubernetes compatibility and support**
 
@@ -117,7 +136,7 @@ When using Amazon EKS, you pay separately for the AWS resources you use to run y
 
 Visit the respective pricing pages of the AWS services you are using with your Kubernetes applications for detailed pricing information.
 
-- For Amazon EKS cluster, Amazon EKS Auto Mode, and Amazon EKS Hybrid Nodes pricing, see [Amazon EKS Pricing](https://aws.amazon.com/eks/pricing/ "https://aws.amazon.com/eks/pricing/").
+- For Amazon EKS cluster, Amazon EKS Auto Mode, Amazon EKS Capabilities, and Amazon EKS Hybrid Nodes pricing, see [Amazon EKS Pricing](https://aws.amazon.com/eks/pricing/ "https://aws.amazon.com/eks/pricing/").
 - For Amazon EC2 pricing, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand/ "https://aws.amazon.com/ec2/pricing/on-demand/") and [Amazon EC2 Spot Pricing](https://aws.amazon.com/ec2/spot/pricing/ "https://aws.amazon.com/ec2/spot/pricing/").
 - For AWS Fargate pricing, see [AWS Fargate Pricing](https://aws.amazon.com/fargate/pricing "https://aws.amazon.com/fargate/pricing").
 - You can use your savings plans for compute used in Amazon EKS clusters. For more information, see [Pricing with Savings Plans](https://aws.amazon.com/savingsplans/pricing/ "https://aws.amazon.com/savingsplans/pricing/").

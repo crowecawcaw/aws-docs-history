@@ -20,7 +20,7 @@ Amazon EKS actively monitors and adjusts control plane instances to maintain pea
 
 **Resilience**
 
-If a control plane instance falters, Amazon EKS quickly replaces it, using different Availability Zone if needed.
+If a control plane instance falters, Amazon EKS quickly replaces it, using a different Availability Zone if needed.
 
 **Consistent uptime**
 
@@ -55,3 +55,26 @@ In addition to the control plane, an Amazon EKS cluster has a set of worker mach
 **Amazon EKS Hybrid Nodes**
 
 With [Amazon EKS Hybrid Nodes](hybrid-nodes-overview.md "hybrid-nodes-overview.md"), you can use your on-premises and edge infrastructure as nodes in Amazon EKS clusters. Amazon EKS Hybrid Nodes unifies Kubernetes management across environments and offloads Kubernetes control plane management to AWS for your on-premises and edge applications.
+
+## EKS Capabilities
+
+Amazon EKS provides fully managed cluster capabilities, installing and managing Kubernetes APIs (with Kubernetes Custom Resource Definitions) in your cluster while operating controllers and other components in AWS-owned infrastructure, separate from your cluster.
+EKS provides automated patching, scaling, and monitoring of these capabilities, fully managing their lifecycle to reduce the burden of operating in-cluster services for workload orchestration, AWS resource management, and more.
+
+EKS provides the following capability types:
+
+**AWS Controllers for Kubernetes (ACK)**
+
+[AWS Controllers for Kubernetes (ACK)](ack.md "ack.md") enables you to manage AWS resources using Kubernetes APIs, allowing you to define S3 buckets, RDS databases, IAM roles, and other AWS resources as Kubernetes custom resources.
+You can manage AWS resources alongside your Kubernetes workloads using the same tools and workflows, with support for 50+ AWS services including S3, RDS, DynamoDB, and Lambda.
+
+**Argo CD**
+
+[Argo CD](argocd.md "argocd.md") implements GitOps-based continuous deployment for your application workloads, AWS resources, and cluster configuration, using Git repositories as the source of truth.
+Argo CD automatically syncs your clusters with your Git repositories and detects drift, continuously reconciling to ensure your deployed applications and resources match your desired state in version control.
+You can use Argo CD to manage applications on a given cluster, or deploy and manage applications across multiple clusters from a single Argo CD resource, with automated deployment from Git repositories whenever changes are committed.
+
+**kro (Kube Resource Orchestrator)**
+
+[kro (Kube Resource Orchestrator)](kro.md "kro.md") enables you to create custom Kubernetes APIs that compose multiple resources into higher-level abstractions, allowing platform teams to define reusable patterns for common resource combinations.
+This enables platform teams to provide self-service capabilities with appropriate guardrails, allowing developers to provision complex infrastructure using simple, purpose-built APIs while maintaining organizational standards and best practices.
