@@ -259,12 +259,13 @@ This feature is useful for following use cases:
 - Customers that have large and complex setups with existing local warehouse user in addition to users with global identity.
 - Customers who use IdC, but who wish to be able to log in automatically without interactive browser action to log in.
 
-Requirements:
+Requirements and limitations:
 
 - Only super user can set the IAM role by `ALTER USER`.
 - IAM role must be attached to the cluster.
 - IAM role must have permissions to access resources needed to run queries on Redshift warehouses with federated permissions.
   We recommend using `AmazonRedshiftFederatedAuthorization` AWS managed policy.
+- The users authenticating via GLOBAL IDENTITY IAM role can query views in Redshift Warehouses with Federated Permissions, but cannot CREATE, ALTER, REFRESH or DROP them.
 
 ### Syntax
 

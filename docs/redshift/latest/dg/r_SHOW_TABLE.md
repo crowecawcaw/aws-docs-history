@@ -90,14 +90,14 @@ b integer ENCODE az64, PRIMARY KEY (a)
 DISTSTYLE AUTO;
 ```
 
-In this example, we create a table where columns `a` and `b` are explicitly set to CASE_INSENSITIVE collation, while column
-`c` inherits the database's default CASE_SENSITIVE collation.
+In this example, we create a table where column `a` inherits the database's default
+CASE_SENSITIVE collation, while `b` and `c` are explicitly set to CASE_INSENSITIVE collation.
 
 ```
 CREATE TABLE public.foo (
-a CHAR COLLATE CASE_INSENSITIVE,
+a CHAR,
 b VARCHAR(10) COLLATE CASE_INSENSITIVE,
-c SUPER
+c SUPER COLLATE CASE_INSENSITIVE
 );
 ```
 
@@ -110,9 +110,9 @@ show table public.foo;
 
 ```
 CREATE TABLE public.foo (
-a character(1) ENCODE lzo COLLATE case_insensitive,
+a character(1) ENCODE lzo COLLATE case_sensitive,
 b character varying(10) ENCODE lzo COLLATE case_insensitive,
-c super COLLATE case_sensitive
+c super COLLATE case_insensitive
 )
 DISTSTYLE AUTO;
 ```

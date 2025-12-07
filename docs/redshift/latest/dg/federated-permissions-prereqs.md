@@ -89,7 +89,7 @@ Your IAM role used in your Redshift IdC Applications should have the following t
 
 And below permissions for your IdC IAM role to support IdC identity propagation.
 
-- AmazonRedshiftFederatedAuthorization – This policy enables Amazon Redshift to query AWS Glue Data Catalog databases through federated permissions.
+- [AmazonRedshiftFederatedAuthorization](../../../aws-managed-policy/latest/reference/AmazonRedshiftFederatedAuthorization.md "../../../aws-managed-policy/latest/reference/AmazonRedshiftFederatedAuthorization.md") – This policy enables Amazon Redshift to query AWS Glue Data Catalog databases through federated permissions.
 - AWSIDC Set Context Policy
 
 ```
