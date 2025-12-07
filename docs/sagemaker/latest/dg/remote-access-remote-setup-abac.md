@@ -34,7 +34,10 @@ JSON
  {
  "Sid": "DenyCreateSpaceRemoteAccessEnabled",
  "Effect": "Deny",
- "Action": "sagemaker:CreateSpace",
+ "Action": [
+ "sagemaker:CreateSpace",
+ "sagemaker:UpdateSpace"
+ ],
  "Resource": "arn:aws:sagemaker:*:*:space/*",
  "Condition": {
  "StringEquals": {
@@ -47,7 +50,10 @@ JSON
  {
  "Sid": "AllowCreateSpace",
  "Effect": "Allow",
- "Action": "sagemaker:CreateSpace",
+ "Action": [
+ "sagemaker:CreateSpace",
+ "sagemaker:UpdateSpace"
+ ],
  "Resource": "arn:aws:sagemaker:*:*:space/*"
  }
  ]
@@ -96,7 +102,8 @@ JSON
  "StringEquals": {
  "aws:ResourceTag/Team": "${aws:PrincipalTag/Team}",
  "aws:ResourceTag/Environment": "${aws:PrincipalTag/Environment}",
- "aws:ResourceTag/CostCenter": "${aws:PrincipalTag/CostCenter}"
+ "aws:ResourceTag/CostCenter": "${aws:PrincipalTag/CostCenter}",
+ "aws:ResourceTag/IDC_UserName": "${aws:PrincipalTag/IDC_UserName}"
  }
  }
  }

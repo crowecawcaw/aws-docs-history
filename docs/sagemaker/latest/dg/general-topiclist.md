@@ -4402,27 +4402,27 @@ in [CodePen](https://codepen.io/sagemaker_crowd_html_elements_2/pen/ZYGqBPQ "htt
 </crowd-form>
 ```
 
-### Attributes
+#### Attributes
 
 The following are attributes supported by this element.
 
-#### text
+##### text
 
 The text or S3 reference to the text to reference when ranking the responses.
 
-#### ordinal-ranking-dimensions
+##### ordinal-ranking-dimensions
 
 A required array of the `ordinal-ranking-dimensions` object, which specify the dimension on which to rank the responses.
 This dimension contains a **name** and a property named **allowTie**, which determines whether
 a worker can give responses the same ranking.
 
-#### responses
+##### responses
 
 A required array of the `ordinal-ranking-dimensions` object, which specify the dimension on which to rank the responses.
 This dimension contains a **name** and a property named **allowTie**, which determines whether
 a worker can give responses the same ranking.
 
-#### name
+##### name
 
 A required string field that identifies the answer submitted that the worker submits. It matches a key in the output data contract of the worker submission.
 
@@ -4469,48 +4469,48 @@ Crowd HTML Element in [CodePen](https://codepen.io/sagemaker_crowd_html_elements
 </crowd-form>
 ```
 
-### Attributes
+#### Attributes
 
 The following are attributes supported by this element.
 
-#### text
+##### text
 
 The text or S3 reference to the text to reference when ranking the responses.
 
-#### min-questions
+##### min-questions
 
 Optional integer that specifies the minimum amount of questions that a worker would have to create during the task. If not provided,
 you will be asked to write at least one question and answer pair.
 
-#### max-questions
+##### max-questions
 
 Optional integer that specifies the maximum amount of questions a worker can create during the task.
 
-#### question-min-words
+##### question-min-words
 
 Optional integer that specifies the minimum amount of words allowed in an question. If not provided, you will be asked to provide at least one word in the question.
 
-#### question-max-words
+##### question-max-words
 
 Optional integer that specifies the maximum amount of words allowed in an question.
 
-#### answer-min-words
+##### answer-min-words
 
 Optional integer that specifies the minimum amount of words allowed in an answer. If not provided, you will be asked to write at least one word in the answer.
 
-#### answer-max-words
+##### answer-max-words
 
 Optional integer that specifies the maximum amount of words allowed in an answer.
 
-#### question-tags
+##### question-tags
 
 A required array of strings that specifies the possible tags a worker can assign to a question-answer pair. If this array is empty, then question-tags field isn't visible.
 
-#### allow-custom-question-tags
+##### allow-custom-question-tags
 
 Required Boolean field that indicates whether a worker can specify a custom question tag.
 
-#### name
+##### name
 
 A required string field that identifies the answer submitted that the worker submits. It matches a key in the output data contract of the worker submission.
 

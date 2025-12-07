@@ -14,7 +14,11 @@ Currently remote IDE connections are authenticated using IAM credentials, not
 IAM Identity Center. This applies for domains that use the IAM Identity Center [authentication method](onboard-custom.md#onboard-custom-authentication-details "onboard-custom.md#onboard-custom-authentication-details") for your users to access the domain. If you
 prefer not to use IAM authentication for remote connections, you can opt-out by
 disabling this feature using the `RemoteAccess` conditional key in your
-IAM policies. For more information, see [Remote access enforcement](remote-access-remote-setup-abac.md#remote-access-remote-setup-abac-remote-access-enforcement "remote-access-remote-setup-abac.md#remote-access-remote-setup-abac-remote-access-enforcement").
+IAM policies. For more information, see [Remote access enforcement](remote-access-remote-setup-abac.md#remote-access-remote-setup-abac-remote-access-enforcement "remote-access-remote-setup-abac.md#remote-access-remote-setup-abac-remote-access-enforcement"). When using IAM credentials, Local IDE (Visual Studio Code) connection may maintain
+active sessions even after you log out of your IAM Identity Center session. Sometimes, these Local
+IDE (Visual Studio Code) connection can persist for up to 12 hours. To ensure the
+security of your environment, administrators must review session duration settings
+where possible and be cautious when using shared workstations or public networks.
 
 1. Choose one of the following connection method permissions that align with your
    users’ [Connection methods](remote-access.md#remote-access-connection-methods "remote-access.md#remote-access-connection-methods").
@@ -42,6 +46,18 @@ and permissions
 - [Method 1: Deep link permissions](#remote-access-remote-setup-method-1-deep-link-permissions "#remote-access-remote-setup-method-1-deep-link-permissions")
 - [Method 2: AWS Toolkit permissions](#remote-access-remote-setup-method-2-aws-toolkit-permissions "#remote-access-remote-setup-method-2-aws-toolkit-permissions")
 - [Method 3: SSH terminal permissions](#remote-access-remote-setup-method-3-ssh-terminal-permissions "#remote-access-remote-setup-method-3-ssh-terminal-permissions")
+
+###### Important
+
+Using broad permissions for `sagemaker:StartSession`, especially
+with a wildcard resource `*` creates the risk that any user with
+this permission can initiate a session against any SageMaker Space app in
+the account. This can lead to the impact of data scientists unintentionally
+accessing other users’ SageMaker Spaces. For production environments,
+you should scope down these permissions to specific space ARNs to enforce
+the principle of least privilege. See [Advanced access control](remote-access-remote-setup-abac.md "remote-access-remote-setup-abac.md") for examples of more
+granular permission policies using resource ARNs, tags, and network-based
+constraints.
 
 ### Method 1: Deep link permissions
 

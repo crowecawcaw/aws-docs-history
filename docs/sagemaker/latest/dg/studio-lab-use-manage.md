@@ -54,7 +54,7 @@ following command will be for a Studio Lab terminal. If you wish to run the corr
 commands in a Jupyter notebook, see [Manage your environment](studio-lab-use-manage.md "studio-lab-use-manage.md").
 
 Open the Studio Lab terminal by opening the **File Browser** panel (
-![Black square icon representing a placeholder or empty image.](/images/sagemaker/latest/dg/images/studio/icons/folder.png)
+![Black square icon representing a placeholder or empty image.](images/studio/icons/folder.png)
 ), choose the plus (**+**) sign on the menu at the top of
 the file browser to open the **Launcher**, then choose
 **Terminal**. From the Studio Lab terminal, list the conda environments by
@@ -153,7 +153,7 @@ The following shows how to clone and build these environments.
 1. Clone the SageMaker Studio Lab Examples GitHub repository by following the instructions in
    [Use GitHub resources](studio-lab-use-external.md#studio-lab-use-external-clone-github "studio-lab-use-external.md#studio-lab-use-external-clone-github").
 2. In Studio Lab choose the **File Browser** icon (
-   ![Black square icon representing a placeholder or empty image.](/images/sagemaker/latest/dg/images/studio/icons/folder.png)
+   ![Black square icon representing a placeholder or empty image.](images/studio/icons/folder.png)
    ) on the left menu, so that the **File Browser**
    panel shows on the left.
 3. Navigate to the `studio-lab-examples/custom-environments` directory in the

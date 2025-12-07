@@ -3,25 +3,23 @@
 Proximal policy optimization (PPO) is the process of using several machine learning models
 to train and score a model. The following models are part of the PPO process:
 
-- **Actor train or policy model**: A supervised
-  fine-tuning (SFT) model that gets fine-tuned and updated every epoch. The updates are made
-  by sampling prompts, generating completions, and updating weights using a
-  clipped-surrogate objective. This limits the per-token log-profitability change so that
-  each policy step is _proximal_ to the previous one, preserving training
-  stability.
-- **Actor generation model**: A model that generates
-  prompt completions or responses to be judged by the reward model and critic model. The
-  weights of this model are updated from the actor train or policy model each epoch.
-- **Reward model**: A model with frozen weights that's
-  used to score the actor generation model.
-- **Critic model**: A model with unfrozen weights
-  that's used to score the actor generation model. This score is often viewed as an
-  estimate of the total reward the actor receives when generating the remaining
-  tokens.
-- **Anchor model**: An SFT model with frozen weights
-  that is used to calculate the KL divergence between the actor train model and the base
-  model. The anchor model ensures that the updates to the actor model are not too drastic
-  compared to the base model. Drastic changes can lead to instability or performance
+- **Actor train or policy model**: A supervised fine-tuning
+  (SFT) model that gets fine-tuned and updated every epoch. The updates are made by sampling
+  prompts, generating completions, and updating weights using a clipped-surrogate objective.
+  This limits the per-token log-profitability change so that each policy step is
+  _proximal_ to the previous one, preserving training stability.
+- **Actor generation model**: A model that generates prompt
+  completions or responses to be judged by the reward model and critic model. The weights of
+  this model are updated from the actor train or policy model each epoch.
+- **Reward model**: A model with frozen weights that's used
+  to score the actor generation model.
+- **Critic model**: A model with unfrozen weights that's
+  used to score the actor generation model. This score is often viewed as an estimate of the
+  total reward the actor receives when generating the remaining tokens.
+- **Anchor model**: An SFT model with frozen weights that
+  is used to calculate the KL divergence between the actor train model and the base model.
+  The anchor model ensures that the updates to the actor model are not too drastic compared
+  to the base model. Drastic changes can lead to instability or performance
   degradation.
   The training data must be in JSONL format where each line contains a single JSON object
   that represents a training example. Here is an example:
@@ -35,22 +33,22 @@ to train and score a model. The following models are part of the PPO process:
 }
 ```
 
-- `turns` is an array of conversation string arrays that represent the
-  dialog sequence. This line contains system prompts, user messages, and bot
-  responses. User messages typically end with "Bot: " to indicate where the model
-  output begins. For example, `[["System prompt"], ["User: Question Bot:"], ["Bot
+- `turns` is an array of conversation string arrays that represent the dialog
+  sequence. This line contains system prompts, user messages, and bot responses. User
+  messages typically end with "Bot: " to indicate where the model output begins. For
+  example, `[["System prompt"], ["User: Question Bot:"], ["Bot
 response"]]`.
-- `turns_to_mask` is an array of 0-based indices that identify which
-  turns should not receive gradient updates. The masked turns are typically system
-  prompts and user turns. For example, `[0, 1, 3]` masks the system prompt
-  and user messages (the first and third messages).
+- `turns_to_mask` is an array of 0-based indices that identify which turns
+  should not receive gradient updates. The masked turns are typically system prompts and
+  user turns. For example, `[0, 1, 3]` masks the system prompt and user messages
+  (the first and third messages).
 - `reward_category` is a string that identifies what aspects of model
-  performance to evaluate. It's used to select the appropriate reward model category
-  during training. The reward category is available for the following reward
-  categories: `default`, `math`, `coding`, `if`,
+  performance to evaluate. It's used to select the appropriate reward model category during
+  training. The reward category is available for the following reward categories:
+  `default`, `math`, `coding`, `if`,
   `rag`, and `rai`.
-- `meta_data` is an optional object that contains additional contextual
-  or ground-truth information. This can include identifiers, source information, or
+- `meta_data` is an optional object that contains additional contextual or
+  ground-truth information. This can include identifiers, source information, or
   conversation context. The structure is flexible based on your dataset needs.
   Here is an example record:
 
@@ -96,9 +94,9 @@ selected based on the task that the model must be optimized for.
 We recommend the following guidelines for selecting the right framework for your
 tasks:
 
-- `default`: A general purpose optimizer for standard conversational
-  tasks and basic interactions. Used for general conversations and discussions, basic
-  writing tasks, simple question answering, and non-specialized knowledge queries.
+- `default`: A general purpose optimizer for standard conversational tasks
+  and basic interactions. Used for general conversations and discussions, basic writing
+  tasks, simple question answering, and non-specialized knowledge queries.
 
 Here is an example:
 
@@ -110,10 +108,9 @@ Here is an example:
 }
 ```
 
-- `math`: A specialized optimizer for mathematical computations and
-  numerical reasoning tasks. Used for mathematical problem-solving, arithmetic
-  calculations, algebraic equations, geometric problems, and statistical
-  analysis.
+- `math`: A specialized optimizer for mathematical computations and numerical
+  reasoning tasks. Used for mathematical problem-solving, arithmetic calculations, algebraic
+  equations, geometric problems, and statistical analysis.
 
 Here is an example:
 
@@ -126,8 +123,8 @@ Here is an example:
 ```
 
 - `coding`: A dedicated category for programming and software
-  development-related queries. Used for code implementation, debugging assistance,
-  algorithm design, technical documentation, and system architecture questions.
+  development-related queries. Used for code implementation, debugging assistance, algorithm
+  design, technical documentation, and system architecture questions.
 
 Here is an example:
 
@@ -139,9 +136,9 @@ Here is an example:
 }
 ```
 
-- `if`: A category for tasks that require precise procedural execution
-  and step-by-step guidance. Used for multi-step procedures, sequential instructions,
-  complex task decomposition, and process documentation.
+- `if`: A category for tasks that require precise procedural execution and
+  step-by-step guidance. Used for multi-step procedures, sequential instructions, complex
+  task decomposition, and process documentation.
 
 Here is an example:
 
@@ -154,10 +151,10 @@ Here is an example:
 ```
 
 - `rag`: A reward category for tasks that require answering queries based
-  specifically on retrieved contextual information. Used when responses should be
-  derived directly from provided reference materials, synthesizing factual content
-  without going beyond the scope of retrieved information, ensuring answers are
-  grounded in the supplied context rather than general knowledge.
+  specifically on retrieved contextual information. Used when responses should be derived
+  directly from provided reference materials, synthesizing factual content without going
+  beyond the scope of retrieved information, ensuring answers are grounded in the supplied
+  context rather than general knowledge.
 
 Here is an example:
 
@@ -172,8 +169,8 @@ Here is an example:
 
 - `rai`: A reward category for tasks that require applying responsible AI
   principles such as fairness, transparency, and ethics. Used for evaluating potential
-  biases in AI systems, ensuring privacy considerations, addressing ethical dilemmas,
-  and promoting inclusive design principles.
+  biases in AI systems, ensuring privacy considerations, addressing ethical dilemmas, and
+  promoting inclusive design principles.
 
 Here is an example:
 
@@ -188,11 +185,11 @@ Here is an example:
 ###### Masking turns
 
 In training datasets, the `turns_to_mask` parameter is crucial for
-controlling which conversation turns receive gradient updates during training. This
-array of indices determines which parts of the dialogue the model should learn to
-generate versus which parts should be treated as context only. Proper masking ensures
-the model learns appropriate response patterns while avoiding training on system prompts
-or user inputs that could degrade performance.
+controlling which conversation turns receive gradient updates during training. This array of
+indices determines which parts of the dialogue the model should learn to generate versus
+which parts should be treated as context only. Proper masking ensures the model learns
+appropriate response patterns while avoiding training on system prompts or user inputs that
+could degrade performance.
 
 We recommend the following guidance for masking:
 
@@ -200,13 +197,12 @@ We recommend the following guidance for masking:
   receive gradient updates.
 - **Always mask user turns** - Prevent the model from
   learning to generate user inputs.
-- **Pattern consistency** - Use identical masking
-  patterns for similar conversation structures, such as (0, 1, 3, 5) for multi-turn
-  dialogues.
+- **Pattern consistency** - Use identical masking patterns
+  for similar conversation structures, such as (0, 1, 3, 5) for multi-turn dialogues.
 - **Selective training** - Mask early bot responses to
   focus training on improved final responses.
-- **Chain-of-thought preservation** - Only mask system
-  and user turns when training on reasoning sequences.
+- **Chain-of-thought preservation** - Only mask system and
+  user turns when training on reasoning sequences.
 - **Quality filtering** - Mask low-quality assistant
   responses to prevent performance degradation.
 - **Context optimization** - Ensure masked turns don't
@@ -220,11 +216,11 @@ We recommend the following guidance for masking:
 For enabling KL-divergence loss, the anchor
 server
 needs to be enabled to compute the divergence of the current policy from the original
-distribution. The KL loss type needs to be specified, and coefficients need to be a
-value other than zero. Higher coefficient values help the model not deviate much from
-the original policy which results in lesser changes to general performance. Lower
-coefficient values allow larger deviations from previous policy, leading to better
-performance of target metrics but impacting the general performance.
+distribution. The KL loss type needs to be specified, and coefficients need to be a value
+other than zero. Higher coefficient values help the model not deviate much from the original
+policy which results in lesser changes to general performance. Lower coefficient values
+allow larger deviations from previous policy, leading to better performance of target
+metrics but impacting the general performance.
 
 ```
 ppo_anchor:
@@ -246,13 +242,12 @@ ppo_actor_train:
 
 ###### Learning rate
 
-The learning rate for the critic and policy models can be adjusted, with 3e-6 being
-the default balanced choice. Higher learning rates typically lead to training
-instabilities, which can be identified through KL divergence spikes and erratic policy
-behavior. Lower learning rates may cause convergence issues and slow learning, indicated
-by stagnant rewards and minimal policy updates. Regular monitoring of KL divergence,
-reward score, and value loss helps in determining whether to adjust the learning rate
-during training.
+The learning rate for the critic and policy models can be adjusted, with 3e-6 being the
+default balanced choice. Higher learning rates typically lead to training instabilities,
+which can be identified through KL divergence spikes and erratic policy behavior. Lower
+learning rates may cause convergence issues and slow learning, indicated by stagnant rewards
+and minimal policy updates. Regular monitoring of KL divergence, reward score, and value
+loss helps in determining whether to adjust the learning rate during training.
 
 ```
 ppo_critic:
@@ -283,114 +278,103 @@ ppo_actor_train:
 The Amazon Nova parameters that are available for tuning with PPO include:
 
 - **Run configuration**
-  - `actor_train_replicas`: The number of compute instances to be
-    used for the actor train model. Available values vary based on the model
-    chosen. Amazon Nova Micro supports 1 or 2 replicas. Amazon Nova Lite supports 1, 2, or 4
-    replicas. Amazon Nova Pro supports 3, 6, or 12 replicas.
-  - `rm_replicas`: The number of compute instances used for the
-    reward model. We recommend that you use one replica for any model
-    size.
-  - `cm_replicas`: The number of compute instances used for the
-    critic model. We recommend that you use one replica for any model
-    size.
-  - `actor_generation_replicas`: The number of compute instances
-    used for the actor generation. Available values vary based on the model
-    chosen. Amazon Nova Micro supports 1 replica. Amazon Nova Lite supports 1 or 2 replicas.
-    Amazon Nova Pro supports 1 or 2 replicas.
-  - `am_replicas`: The number of compute instances used for the
-    anchor model. We recommend that you use one replica for any model
-    size.
+  - `actor_train_replicas`: The number of compute instances to be used for
+    the actor train model. Available values vary based on the model chosen. Amazon Nova Micro
+    supports 1 or 2 replicas. Amazon Nova Lite supports 1, 2, or 4 replicas. Amazon Nova Pro supports
+    3, 6, or 12 replicas.
+  - `rm_replicas`: The number of compute instances used for the reward
+    model. We recommend that you use one replica for any model size.
+  - `cm_replicas`: The number of compute instances used for the critic
+    model. We recommend that you use one replica for any model size.
+  - `actor_generation_replicas`: The number of compute instances used for
+    the actor generation. Available values vary based on the model chosen. Amazon Nova Micro
+    supports 1 replica. Amazon Nova Lite supports 1 or 2 replicas. Amazon Nova Pro supports 1 or 2
+    replicas.
+  - `am_replicas`: The number of compute instances used for the anchor
+    model. We recommend that you use one replica for any model size.
 
 - **Actor train configuration (policy config)**
-  - `max_steps`: The maximum number of steps to fine-tune or train
-    the actor train model. Here, one step is defined as rollout, followed by training the
+  - `max_steps`: The maximum number of steps to fine-tune or train the
+    actor train model. Here, one step is defined as rollout, followed by training the
     actor train model with `global_batch_size` number of samples. One epoch is
     defined as `global_batch_size * trajectory_buffer_scale`.
 
-  The value chosen here will vary based on your use case and dataset
-  complexity. We recommend starting with 65 epochs or 520 steps, which is the
-  number of epochs multiplied by the value of the
-  `trajectory_buffer_scale`. However, some tasks require a
-  longer PPO training time to achieve the same performance.
+  The value chosen here will vary based on your use case and dataset complexity. We
+  recommend starting with 65 epochs or 520 steps, which is the number of epochs
+  multiplied by the value of the `trajectory_buffer_scale`. However, some
+  tasks require a longer PPO training time to achieve the same performance.
 
-  For PPO, the training metrics, such as saturating reward model score and
-  average action length from the [ml-flow](mlflow-create-tracking-server.md "mlflow-create-tracking-server.md")
+  For PPO, the training metrics, such as saturating reward model score and average
+  action length from the [ml-flow](mlflow-create-tracking-server.md "mlflow-create-tracking-server.md")
   console, can help in identifying the optimal points for evaluation.
-  - `actor_model_max_length`: The maximum length of the input data
-    that is sent to the actor generation component to generate
-    completions.
-  - `reward_model_max_length`: The maximum length of the input data
-    that is sent to the reward server to score completions.
+  - `actor_model_max_length`: The maximum length of the input data that is
+    sent to the actor generation component to generate completions.
+  - `reward_model_max_length`: The maximum length of the input data that is
+    sent to the reward server to score completions.
   - `trajectory_buffer_scale`: This buffer represents the number of
     rollouts generated using the old actor train (policy) model before updating the
     weights and generating the new rollouts. The supported values are 1, 2, 4, 8, and
   16.
 
-  If `trajectory_buffer_scale` is 1, then the training is on
-  policy. That means the rollouts are generated with the most updated model
-  weights, but throughput suffers. If it's 16, then the model is slightly
-  off-policy but throughput is higher. We recommend starting with 8 for each
-  model.
-  - `kl_reward_penalty_coeff`: This is the KL divergence term that
-    ensures updates are not too drastic and the policy does not draft from the
-    base or SFT model.
-  - `kl_loss_coeff`: This value controls how much the KL divergence
-    penalty influences the overall training objective in PPO.
-  - `kl_loss_type`: This value specifies how to compute the
-    divergence between current and reference policy distributions. The
-    `kl_loss_types` available are `kl` (Standard KL
-    divergence), `mse` (Mean squared error), `abs`
-    (Absolute difference between log probabilities), and `low_var_kl`
-    (low-variance KL approximation).
-  - `model.clip_ratio`: The actor clip ratio (ε) in PPO is a
-    hyperparameter that limits how much the policy can change during each update.
-  - `model.optim.lr`: The learning rate used for surrogate model
-    loss training in the actor model.
-  - `model.lam`: Part of the advantage estimation process. Higher λ
-    gives more weight to longer-term rewards but with higher variance, while a
-    lower λ focuses more on immediate rewards with lower variance but more
-    bias.
-  - `model.ent_coeff`: Entropy loss in PPO encourages exploration
-    by penalizing the policy when it becomes too deterministic (that is, always
-    picking the same actions with high confidence).
+  If `trajectory_buffer_scale` is 1, then the training is on policy. That
+  means the rollouts are generated with the most updated model weights, but throughput
+  suffers. If it's 16, then the model is slightly off-policy but throughput is higher.
+  We recommend starting with 8 for each model.
+  - `kl_reward_penalty_coeff`: This is the KL divergence term that ensures
+    updates are not too drastic and the policy does not draft from the base or SFT
+    model.
+  - `kl_loss_coeff`: This value controls how much the KL divergence penalty
+    influences the overall training objective in PPO.
+  - `kl_loss_type`: This value specifies how to compute the divergence
+    between current and reference policy distributions. The `kl_loss_types`
+    available are `kl` (Standard KL divergence), `mse` (Mean squared
+    error), `abs` (Absolute difference between log probabilities), and
+    `low_var_kl` (low-variance KL approximation).
+  - `model.clip_ratio`: The actor clip ratio (ε) in PPO is a hyperparameter
+    that limits how much the policy can change during each update.
+  - `model.optim.lr`: The learning rate used for surrogate model loss
+    training in the actor model.
+  - `model.lam`: Part of the advantage estimation process. Higher λ gives
+    more weight to longer-term rewards but with higher variance, while a lower λ focuses
+    more on immediate rewards with lower variance but more bias.
+  - `model.ent_coeff`: Entropy loss in PPO encourages exploration by
+    penalizing the policy when it becomes too deterministic (that is, always picking the
+    same actions with high confidence).
 
 - **Reward model configuration**
-  - `global_batch_size`: The batch size for scoring the completions
-    using the reward model. If
-    `ppo_actor_train.model.global_batch_size` is greater than
-    `ppo_reward.model.global_batch_size`, they are processed in
-    multiple batches. Note that `ppo_actor_train.model.global_batch_size %
+  - `global_batch_size`: The batch size for scoring the completions using
+    the reward model. If `ppo_actor_train.model.global_batch_size` is greater
+    than `ppo_reward.model.global_batch_size`, they are processed in multiple
+    batches. Note that `ppo_actor_train.model.global_batch_size %
 ppo_reward.model.global_batch_size` must equal 0.
-  - `max_length`: The maximum context length of the reward model.
-    This should be same as `ppo_actor_train.model.max_length`.
+  - `max_length`: The maximum context length of the reward model. This
+    should be same as `ppo_actor_train.model.max_length`.
 
 - **Critic model configuration**
-  - `global_batch_size`: The batch size of the critic model value.
-    The critic model will provide value estimates for each token in the
-    responses provided by the actor model. The batch size is used for both
-    inference and training.
+  - `global_batch_size`: The batch size of the critic model value. The
+    critic model will provide value estimates for each token in the responses provided by
+    the actor model. The batch size is used for both inference and training.
 
   Note that `ppo_actor_train.model.global_batch_size %
  ppo_critic.model.global_batch_size` must equal 0 and
   `ppo_actor_train.model.global_batch_size *
- ppo_actor_train.model.trajectory_buffer_size %
- ppo_critic.model.global_batch_size == 0`.
-  - `max_length`: The maximum context length of the critic model.
-    This should be same as `ppo_actor_train.model.max_length`.
-  - `model.optim.lr`: The learning rate used for surrogate model
-    loss training in the actor model.
+ ppo_actor_train.model.trajectory_buffer_size % ppo_critic.model.global_batch_size ==
+ 0`.
+  - `max_length`: The maximum context length of the critic model. This
+    should be same as `ppo_actor_train.model.max_length`.
+  - `model.optim.lr`: The learning rate used for surrogate model loss
+    training in the actor model.
 
 - **Anchor model configuration**
-  - `global_batch_size`: The batch size for generating the logp of
-    the frozen SFT or anchor model. Note that
-    `ppo_actor_train.model.global_batch_size %
+  - `global_batch_size`: The batch size for generating the logp of the
+    frozen SFT or anchor model. Note that `ppo_actor_train.model.global_batch_size %
 ppo_anchor.model.global_batch_size` must equal 0.
-  - `max_length`: The maximum context length of the reward model.
-    This should be same as `ppo_actor_train.model.max_length`.
+  - `max_length`: The maximum context length of the reward model. This
+    should be same as `ppo_actor_train.model.max_length`.
 
 - **Actor generation model configuration**
-  - `actor_model_max_length`: The maximum context length of the
-    actor model generation component. This should be the same as
+  - `actor_model_max_length`: The maximum context length of the actor model
+    generation component. This should be the same as
     `ppo_actor_train.model.max_length`.
 
 ###### PPO recipe
@@ -486,7 +470,6 @@ PPO has the following limitations:
 - Multimodal datasets aren't supported.
 - Training jobs aren't automatically stopped. You have to stop the job using the
   HyperPod CLI.
-- MLflow logging isn't supported.
 - Critic training metrics are not supported on TensorBoard.
 - To adjust the hyperparameters, follow the guidance in [Selecting
   hyperparameters](../../../nova/latest/userguide/customize-fine-tune-hyperparameters.md "../../../nova/latest/userguide/customize-fine-tune-hyperparameters.md").

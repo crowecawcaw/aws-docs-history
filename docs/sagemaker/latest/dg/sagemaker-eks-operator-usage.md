@@ -77,21 +77,22 @@ logging.basicConfig(format="%(asctime)s [%(levelname)s] %(name)s: %(message)s", 
 
 The following table describes all of the possible log monitoring configurations:
 
-| Parameter                                     | Usage                                                                                                                                                                                   |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| jobMaxRetryCount                              | Maximum number of restarts at the process level.                                                                                                                                        |
-| restartPolicy: numRestartBeforeFullJobRestart | Maximum number of restarts at the process level before the operator restarts at the job level.                                                                                          |
-| restartPolicy: evalPeriodSeconds              | The period of evaluating the restart limit in seconds                                                                                                                                   |
-| restartPolicy: maxFullJobRestarts             | Maximum number of full job restarts before the job fails.                                                                                                                               |
-| cleanPodPolicy                                | Specifies the pods that the operator should clean. Accepted values are<br>`All`, `OnlyComplete`, and `None`.                                                                            |
-| logMonitoringConfiguration                    | The log monitoring rules for slow and hanging job detection                                                                                                                             |
-| expectedRecurringFrequencyInSeconds           | Time interval between two consecutive LogPattern matches after which the rule evaluates to HANGING. If not specified, no time constraint exists between consecutive LogPattern matches. |
-| expectedStartCutOffInSeconds                  | Time to first LogPattern match after which the rule evaluates to HANGING. If not specified, no time constraint exists for the first LogPattern match.                                   |
-| logPattern                                    | Regular expression that identifies log lines that the rule applies to when the rule is active                                                                                           |
-| metricEvaluationDataPoints                    | Number of consecutive times a rule must evaluate to SLOW before marking a job as SLOW. If not specified, the default is 1.                                                              |
-| metricThreshold                               | Threshold for value extracted by LogPattern with a capturing group. If not specified, metric evaluation is not performed.                                                               |
-| operator                                      | The inequality to apply to the monitoring configuration. Accepted values are<br>`gt`, `gteq`, `lt`, `lteq`, and `eq`.                                                                   |
-| stopPattern                                   | Regular expresion to identify the log line at which to deactivate the rule. If not specified, the rule will always be active.                                                           |
+| Parameter                                     | Usage                                                                                                                                                                                                                                                                                                        |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| jobMaxRetryCount                              | Maximum number of restarts at the process level.                                                                                                                                                                                                                                                             |
+| restartPolicy: numRestartBeforeFullJobRestart | Maximum number of restarts at the process level before the operator restarts at the job level.                                                                                                                                                                                                               |
+| restartPolicy: evalPeriodSeconds              | The period of evaluating the restart limit in seconds                                                                                                                                                                                                                                                        |
+| restartPolicy: maxFullJobRestarts             | Maximum number of full job restarts before the job fails.                                                                                                                                                                                                                                                    |
+| cleanPodPolicy                                | Specifies the pods that the operator should clean. Accepted values are<br>`All`, `OnlyComplete`, and `None`.                                                                                                                                                                                                 |
+| logMonitoringConfiguration                    | The log monitoring rules for slow and hanging job detection                                                                                                                                                                                                                                                  |
+| expectedRecurringFrequencyInSeconds           | Time interval between two consecutive LogPattern matches after which the rule evaluates to HANGING. If not specified, no time constraint exists between consecutive LogPattern matches.                                                                                                                      |
+| expectedStartCutOffInSeconds                  | Time to first LogPattern match after which the rule evaluates to HANGING. If not specified, no time constraint exists for the first LogPattern match.                                                                                                                                                        |
+| logPattern                                    | Regular expression that identifies log lines that the rule applies to when the rule is active                                                                                                                                                                                                                |
+| metricEvaluationDataPoints                    | Number of consecutive times a rule must evaluate to SLOW before marking a job as SLOW. If not specified, the default is 1.                                                                                                                                                                                   |
+| metricThreshold                               | Threshold for value extracted by LogPattern with a capturing group. If not specified, metric evaluation is not performed.                                                                                                                                                                                    |
+| operator                                      | The inequality to apply to the monitoring configuration. Accepted values are<br>`gt`, `gteq`, `lt`, `lteq`, and `eq`.                                                                                                                                                                                        |
+| stopPattern                                   | Regular expresion to identify the log line at which to deactivate the rule. If not specified, the rule will always be active.                                                                                                                                                                                |
+| faultOnMatch                                  | Indicates whether a match of LogPattern should immediately trigger a job fault. When true, the job will be marked as faulted as soon as the LogPattern is matched,<br>regardless of other rule parameters. When false or not specified, the rule will evaluate to SLOW or HANGING based on other parameters. |
 
 For more training resiliency, specify spare node configuration details.
 If your job fails, the operator works with Kueue to use nodes reserved in advance to continue running the job.
@@ -243,4 +244,19 @@ runPolicy:
       metricThreshold: 100       # if Tflops is less than 100 for 5 data points, restart the job
       operator: "lt"
       metricEvaluationDataPoints: 5
+```
+
+**Training script error log detection**
+
+The following monitoring configuration detects if the pattern specified in `logPattern` is present in the training logs. As soon as the training operator encounters
+the error pattern, the training operator treats it as a fault and restarts the job.
+
+```
+runPolicy:
+  jobMaxRetryCount: 10
+  cleanPodPolicy: "None"
+  logMonitoringConfiguration:
+    - name: "GPU Error"
+      logPattern: ".*RuntimeError.*out of memory.*"
+      faultOnMatch: true
 ```

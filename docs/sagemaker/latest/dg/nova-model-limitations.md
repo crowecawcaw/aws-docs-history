@@ -1,4 +1,4 @@
-# Limitations
+# Limitations of customizing Amazon Nova models
 
 Amazon Nova customization doesn't support the following capabilities on SageMaker AI.
 

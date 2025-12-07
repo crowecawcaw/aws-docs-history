@@ -6,56 +6,54 @@ supervised fine-tuning (SFT) on SageMaker AI.
 ###### Topics
 
 - [Concepts](#nova-distillation-training-job-concepts "#nova-distillation-training-job-concepts")
-- [Prerequisites](#nova-distillation-training-job-prerequisites "#nova-distillation-training-job-prerequisites")
-- [Setting up data
-  augmentation](#nova-distillation-training-job-data-augment "#nova-distillation-training-job-data-augment")
-- [Starting a SageMaker training
-  job](#nova-distillation-training-job-start "#nova-distillation-training-job-start")
-- [CloudWatch logs](#nova-distillation-logs "#nova-distillation-logs")
-- [Successful training](#nova-distillation-successful-training "#nova-distillation-successful-training")
-- [Validating augmented data quality](#nova-distillation-training-job-validate "#nova-distillation-training-job-validate")
 
 ## Concepts
 
 Model distillation is a method that transfers knowledge from large, advanced
 models to smaller, efficient ones. With Amazon Nova models, a larger "teacher" model
-(like Amazon Nova Pro or Amazon Nova Premier) passes its capabilities to a smaller "student"
-model (like Amazon Nova Lite or Amazon Nova Micro). This creates a customized model that
-maintains high performance while using fewer resources.
+(like Amazon Nova Pro or Amazon Nova Premier) passes its capabilities to a smaller "student" model
+(like Amazon Nova Lite or Amazon Nova Micro). This creates a customized model that maintains
+high performance while using fewer resources.
 
-### Key components
+### Key
+
+components
 
 The distillation process primarily involves two types of models:
 
-**Teacher models** serve as the knowledge
-source and include:
+**Teacher models** serve as the knowledge source
+and include:
 
 - Amazon Nova Pro (amazon.nova-pro-v1:0)
 - Amazon Nova Premier (amazon.nova-premier-v1:0)
 
-**Student models** receive and implement the knowledge:
+**Student models** receive and implement the
+knowledge:
 
 - Amazon Nova Lite (amazon.nova-lite-v1:0:300k)
 - Amazon Nova Micro (amazon.nova-micro-v1:0:128k)
-- Amazon Nova Pro (amazon.nova-pro-v1:0:300k) - Available only when using Amazon Nova Premier
-  as teacher
+- Amazon Nova Pro (amazon.nova-pro-v1:0:300k) - Available only when using
+  Amazon Nova Premier as teacher
 
 ### Use cases
 
 Mode distillation is particularly beneficial when:
 
-- Your application has strict latency, cost, and accuracy requirements.
-- You need a custom model for specific tasks but lack sufficient high-quality labeled training data.
-- You want to match the performance of advanced models while maintaining the efficiency of smaller models.
+- Your application has strict latency, cost, and accuracy
+  requirements.
+- You need a custom model for specific tasks but lack sufficient
+  high-quality labeled training data.
+- You want to match the performance of advanced models while maintaining
+  the efficiency of smaller models.
 
-## Prerequisites
+### Prerequisites
 
 - AWS account with access to Amazon Nova models and appropriate service
   quotas (min. 6 P5 and 1 R5 instances).
 - IAM role with permissions for SageMaker training jobs.
 - Amazon S3 bucket to store training data and outputs.
 
-## Setting up data
+### Setting up data
 
 augmentation
 
@@ -63,12 +61,14 @@ The data augmentation phase uses SageMaker training jobs to generate high-qualit
 training data using the teacher model. This section details the setup process
 and requirements.
 
-### IAM
+#### IAM
 
 role
 
 To create IAM roles and attach policies, see [Creating roles and attaching policies (console)](../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md "../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md"). If you use
-AWS CLI, follow instructions in [create-role](../../../cli/latest/reference/iam/create-role.md "../../../cli/latest/reference/iam/create-role.md") and [attach-role-policy](../../../cli/latest/reference/iam/attach-role-policy.md "../../../cli/latest/reference/iam/attach-role-policy.md"). For more information, see [How to use SageMaker AI execution roles](sagemaker-roles.md "sagemaker-roles.md") from the _SageMaker AI Developer Guide_.
+AWS CLI, follow instructions in [create-role](../../../cli/latest/reference/iam/create-role.md "../../../cli/latest/reference/iam/create-role.md") and
+[attach-role-policy](../../../cli/latest/reference/iam/attach-role-policy.md "../../../cli/latest/reference/iam/attach-role-policy.md"). For more information, see [How
+to use SageMaker AI execution roles](sagemaker-roles.md "sagemaker-roles.md") from the _SageMaker AI Developer Guide_.
 
 The following are example commands for your reference.
 
@@ -165,11 +165,13 @@ aws iam put-role-policy \
 }
 ```
 
-### Amazon VPC configuration
+#### Amazon VPC
+
+configuration
 
 To create Amazon VPC configuration for SageMaker AI training jobs using the AWS Management Console,
-follow instructions in [Configure Your private VPC for SageMaker training
-(console)](train-vpc.md "train-vpc.md").
+follow instructions in [Configure Your private VPC for
+SageMaker training (console)](train-vpc.md "train-vpc.md").
 
 **Create a new Amazon VPC**
 
@@ -212,7 +214,9 @@ For each endpoint:
 - Choose the private subnets
 - Select the Distillation-SG security group
 
-### AWS KMS keys
+#### AWS KMS
+
+keys
 
 When working with Amazon Bedrock batch inference, a AWS KMS key is required for data
 security and compliance. Amazon Bedrock batch inference jobs require input and output
@@ -242,27 +246,30 @@ output:
 
 ###### Note
 
-Save the KMS key ARN from the output as you'll need it for the Amazon S3 bucket creation in the next section.
+Save the KMS key ARN from the output as you'll need it for the Amazon S3
+bucket creation in the next section.
 
-### Amazon S3 bucket
+#### Amazon S3
+
+bucket
 
 You need two types of Amazon S3 storage. Customer-managed Amazon S3 bucket stores
-your input data and output `manifest.json` files. You create and manage this
-bucket and can use a single bucket for both input and output. This bucket
-must be configured with KMS encryption since it will store sensitive output
-data and will be used by Amazon Bedrock batch inference jobs - Amazon Bedrock requires
-KMS-encrypted buckets for processing batch inference tasks.
+your input data and output `manifest.json` files. You create and
+manage this bucket and can use a single bucket for both input and output.
+This bucket must be configured with KMS encryption since it will store
+sensitive output data and will be used by Amazon Bedrock batch inference jobs - Amazon Bedrock
+requires KMS-encrypted buckets for processing batch inference tasks.
 
-Service-managed Amazon S3 bucket stores model weights. A service-managed Amazon S3 bucket is
-created automatically during your first training job. It has restricted
-access controls with specific paths accessible via manifest files
+Service-managed Amazon S3 bucket stores model weights. A service-managed Amazon S3
+bucket is created automatically during your first training job. It has
+restricted access controls with specific paths accessible via manifest files
 only.
 
 To create a bucket in a specific AWS Region, use the [create-bucket](../../../cli/latest/reference/s3api/create-bucket.md "../../../cli/latest/reference/s3api/create-bucket.md") CLI command.
 
 Example command to create an Amazon S3 bucket with AWS KMS encryption. Replace
-`{kms_key_arn}` with your AWS KMS key ARN. You'll need to create a AWS KMS key first
-if you haven't already done so.
+`{kms_key_arn}` with your AWS KMS key ARN. You'll need to
+create a AWS KMS key first if you haven't already done so.
 
 ```
 aws s3api create-bucket \
@@ -282,14 +289,16 @@ aws s3api create-bucket \
 }'
 ```
 
-## Starting a SageMaker training
+### Starting a SageMaker training
 
 job
 
 Before you start a training job, prepare your data.
 
-**Data format requirement -** Your input dataset must be in JSONL format with each line
-containing a sample in converse format for more information follow [Preparing data for distilling understanding models](../../../nova/latest/userguide/custom-distill-prepare.md "../../../nova/latest/userguide/custom-distill-prepare.md").
+**Data format requirement -** Your input dataset
+must be in JSONL format with each line containing a sample in converse format
+for more information follow [Preparing data for
+distilling understanding models](../../../nova/latest/userguide/custom-distill-prepare.md "../../../nova/latest/userguide/custom-distill-prepare.md").
 
 **Dataset constraints**
 
@@ -320,16 +329,17 @@ detailed explanation of each parameter. All are required fields.
 | maxInputFileSizeInGB                           | The Maximum size of the input file (in GB).                                                                                                                                                                                                                                                          |
 | maxLineLengthInKB                              | The Maximum size of a single line in the input file (in<br>KB).                                                                                                                                                                                                                                      |
 | maxStudentModelFineTuningContextLengthInTokens | The Maximum context window size (tokens) for student<br>model. The is value must not exceed student model capacity.<br>You can set this value to 32k or 64k based on student model<br>capacity.                                                                                                      |
-| teacherModelId                                 | When you set Teacher Model Id, select from two:<br>• For Amazon Nova Premier:<br>"us.amazon.nova-premier-v1:0" for IAD region. Note:<br>This is only available in IAD region.<br>• For Amazon Nova Pro: "us.amazon.nova-pro-v1:0" for<br>IAD region and "eu.amazon.nova-pro-v1:0" for ARN<br>region. |
+| teacherModelId                                 | When you set Teacher Model Id, select from two:<br>• For Amazon Nova Premier: "us.amazon.nova-premier-v1:0"<br>for IAD region. Note: This is only available in IAD<br>region.<br>• For Amazon Nova Pro: "us.amazon.nova-pro-v1:0" for IAD<br>region and "eu.amazon.nova-pro-v1:0" for ARN<br>region. |
 | temperature                                    | Controls response randomness (0.7 recommended for<br>balance).                                                                                                                                                                                                                                       |
 | top_p                                          | Cumulative probability threshold for token sampling (0.9<br>is recommended).                                                                                                                                                                                                                         |
 | customer_bucket                                | Amazon S3 bucket for input/output data.                                                                                                                                                                                                                                                              |
-| kms_key                                        | AWS KMS key to encrypt output in S3, This needed by Bedrock batch<br>inference to store output returned by inference job.                                                                                                                                                                            |
+| kms_key                                        | AWS KMS key to encrypt output in S3, This needed by Bedrock<br>batch inference to store output returned by inference<br>job.                                                                                                                                                                         |
 
 **Limitation**
 
-For Teacher Model as Nova Premier - Only supported in IAD region (`us-east-1`)
-due to Amazon Bedrock batch inference is not available in ARN (`eu-north-1`) region.
+For Teacher Model as Nova Premier - Only supported in IAD region
+(`us-east-1`) due to Amazon Bedrock batch inference is not available in ARN
+(`eu-north-1`) region.
 
 **Best Practices**
 
@@ -409,13 +419,15 @@ trainingInput = TrainingInput(
 estimator.fit(inputs={"train": trainingInput})
 ```
 
-## CloudWatch logs
+### CloudWatch logs
 
 Logs are available in Amazon CloudWatch under the
 `/aws/sagemaker/TrainingJobs` log group in your AWS account.
 You will see one log file per host used for your training job.
 
-## Successful training
+### Successful
+
+training
 
 For a successful training job, you will see the log message "Training is
 complete" at the end of the log.
@@ -448,13 +460,16 @@ The output bucket contains the following files:
 }
 ```
 
-## Validating augmented data quality
+### Validating augmented
+
+data quality
 
 Before proceeding to fine-tuning, it's crucial to validate the quality of the
 augmented data:
 
-1. Review the `sample_training_data.jsonl` file in your output bucket. This
-   file contains 50 random samples from the augmented dataset.
+1. Review the `sample_training_data.jsonl` file in your output
+   bucket. This file contains 50 random samples from the augmented
+   dataset.
 2. Manually inspect these samples for relevance, coherence, and alignment
    with your use case.
 3. If the quality doesn't meet your expectations, you may need to adjust
@@ -462,7 +477,7 @@ augmented data:
    augmentation process.
 
 After data augmentation completes, the second phase involves fine-tuning the
-student model using Amazon SageMaker HyperPod. For more information, see [Full-rank supervised fine-tuning (SFT)](nova-fine-tune.md#nova-fine-tune-sft "nova-fine-tune.md#nova-fine-tune-sft").
+student model using Amazon SageMaker HyperPod. For more information, see [Supervised fine-tuning (SFT)](nova-fine-tune.md "nova-fine-tune.md").
 
 In SFT training recipe you can pass the dataset path returned form previous
 job.

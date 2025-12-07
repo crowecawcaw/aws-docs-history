@@ -144,6 +144,45 @@ aws eks create-addon \
   --resolve-conflicts OVERWRITE
 ```
 
+If you already have the training operator installed on your HyperPod cluster, you can update the EKS add-on to the version that you want.
+If you want to use [checkpointless training](sagemaker-eks-checkpointless.md "sagemaker-eks-checkpointless.md") or
+[elastic training](sagemaker-eks-elastic-training.md "sagemaker-eks-elastic-training.md"), consider the following:
+
+- Both checkpointless training and elastic training require the EKS add-on to be on version 1.2.0 or above.
+- The Amazon SageMaker HyperPod training operator maintains backwards compatibility for any EKS add-on version, so you can upgrade from any add-on version to 1.2.0 or above.
+- If you downgrade from versions 1.2.0 or above to a lower version, you must first
+  delete the existing jobs before the downgrade and resubmit the jobs after the downgrade
+  is complete.
+
+Amazon EKS Console
+
+1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+2. Go to your EKS cluster, and choose **Add-ons**. Then,
+   choose the Amazon SageMaker HyperPod training operator add-on and choose **Edit**.
+3. In the **Version** menu, choose the version of the add-on that you want, then choose **Save changes**.
+
+CLI
+
+1. First get the list of the supported versions of the add-on for your cluster.
+
+```
+aws eks describe-addon-versions \
+  --kubernetes-version $(aws eks describe-cluster --name `my-eks-cluster` --query 'cluster.version' --output text) \
+  --addon-name amazon-sagemaker-hyperpod-training-operator \
+  --query 'addons[0].addonVersions[].addonVersion' \
+  --output table
+```
+
+2. Then update the add-on to the version that you want.
+
+```
+aws eks update-addon \
+  --cluster-name my-eks-cluster \
+  --addon-name amazon-sagemaker-hyperpod-training-operator \
+  --addon-version target-version
+  --resolve-conflicts OVERWRITE
+```
+
 The training operator comes with a number of options with default values that might fit your use case.
 We recommend that you try out the training operator with default values before changing them.
 The table below describes all parameters and examples of when you might want to configure each parameter.
@@ -164,6 +203,11 @@ To use the HyperPod training operator, you must first install the HyperPod elast
 before you can submit and run jobs using the operator. The following is a docker file that installs elastic agent and uses
 `hyperpodrun` to create the job launcher.
 
+###### Note
+
+Both [checkpointless training](sagemaker-eks-checkpointless.md "sagemaker-eks-checkpointless.md") and
+[elastic training](sagemaker-eks-elastic-training.md "sagemaker-eks-elastic-training.md") require that you use HyperPod elastic agent version 1.1.0 or above.
+
 ```
 RUN pip install hyperpod-elastic-agent
 
@@ -172,6 +216,7 @@ ENTRYPOINT ["entrypoint.sh"]
 ...
 hyperpodrun --nnodes=`node_count` --nproc-per-node=`proc_count` \
             --rdzv-backend hyperpod \ # Optional
+            --inprocess-restart \ # Optional (in-process fault recovery with checkpointless training)
             ... # Other torchrun args
             # pre-traing arg_group
             --pre-train-script pre.sh --pre-train-args "pre_1 pre_2 pre_3" \
@@ -188,18 +233,20 @@ The HyperPod elastic agent supports all of the original arguments and adds some 
 The following is all of the arguments available in the HyperPod elastic agent. For more information about
 PyTorch's Elastic Agent, see their [official documentation](https://docs.pytorch.org/docs/stable/elastic/agent.html "https://docs.pytorch.org/docs/stable/elastic/agent.html").
 
-| Argument                  | Description                                                 | Default Value |
-| ------------------------- | ----------------------------------------------------------- | ------------- |
-| --shutdown-signal         | Signal to send to workers for shutdown (SIGTERM or SIGKILL) | "SIGKILL"     |
-| --shutdown-timeout        | Timeout in seconds between SIGTERM and SIGKILL signals      | 30            |
-| --server-host             | Agent server address                                        | "0.0.0.0"     |
-| --server-port             | Agent server port                                           | 8080          |
-| --server-log-level        | Agent server log level                                      | "info"        |
-| --server-shutdown-timeout | Server shutdown timeout in seconds                          | 300           |
-| --pre-train-script        | Path to pre-training script                                 | None          |
-| --pre-train-args          | Arguments for pre-training script                           | None          |
-| --post-train-script       | Path to post-training script                                | None          |
-| --post-train-args         | Arguments for post-training script                          | None          |
+| Argument                  | Description                                                                                                                    | Default Value |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| --shutdown-signal         | Signal to send to workers for shutdown (SIGTERM or SIGKILL)                                                                    | "SIGKILL"     |
+| --shutdown-timeout        | Timeout in seconds between shutdown-signal and SIGKILL signals                                                                 | 15            |
+| --server-host             | Agent server address                                                                                                           | "0.0.0.0"     |
+| --server-port             | Agent server port                                                                                                              | 8080          |
+| --server-log-level        | Agent server log level                                                                                                         | "info"        |
+| --server-shutdown-timeout | Server shutdown timeout in seconds                                                                                             | 300           |
+| --pre-train-script        | Path to pre-training script                                                                                                    | None          |
+| --pre-train-args          | Arguments for pre-training script                                                                                              | None          |
+| --post-train-script       | Path to post-training script                                                                                                   | None          |
+| --post-train-args         | Arguments for post-training script                                                                                             | None          |
+| --inprocess-restart       | Flag specifying whether to use the inprocess_restart feature                                                                   | FALSE         |
+| --inprocess-timeout       | Time in seconds that the agent waits for workers to reach a synchronization barrier before triggering a process-level restart. | None          |
 
 ## Task governance (optional)
 

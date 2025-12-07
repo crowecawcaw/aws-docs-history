@@ -114,6 +114,19 @@ information, see [Artifact Stores](https://mlflow.org/docs/latest/tracking.html#
 
 SageMaker AI MLflow has a 200 MB download size limit.
 
+### MLflow app versions
+
+The following MLflow versions are available to use with SageMaker AI MLflow Apps:
+
+| MLflow version                                                                                       | Python version                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| [MLflow 3.4](https://mlflow.org/releases/3.4.0 "https://mlflow.org/releases/3.4.0") (latest version) | [Python<br>3.9](https://www.python.org/downloads/release/python-390/ "https://www.python.org/downloads/release/python-390/") or later |
+
+The latest version of the MLflow App has the latest features, security patches, and bug fixes.
+When you create a new MLflow App it will be automatically updated to the latest supported version. For more information about creating an MLflow App, see [MLflow App Setup](mlflow-app-setup.md "mlflow-app-setup.md").
+
+MLflow Apps use semantic versioning. Versions are in the following format: ``major-version`.`minor-version`.`patch-version``.
+
 ### MLflow Tracking Server sizes
 
 You can optionally specify the size of your tracking server in the Studio UI or with
@@ -263,6 +276,7 @@ For more information about EventBridge, see the _[Amazon EventBridge User Guide]
 
 ###### Topics
 
+- [MLflow App Setup](mlflow-app-setup.md "mlflow-app-setup.md")
 - [MLflow Tracking Servers](mlflow-create-tracking-server.md "mlflow-create-tracking-server.md")
 - [Launch the MLflow UI using a presigned URL](mlflow-launch-ui.md "mlflow-launch-ui.md")
 - [Integrate MLflow with your environment](mlflow-track-experiments.md "mlflow-track-experiments.md")

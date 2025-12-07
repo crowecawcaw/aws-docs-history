@@ -1,8 +1,8 @@
 # Amazon Nova customization on Amazon SageMaker HyperPod
 
-You can customize Amazon Nova models using [Amazon Nova
-recipes](nova-model-recipes.md "nova-model-recipes.md") and train them on Amazon SageMaker HyperPod. A recipe is a YAML configuration file
-that provides details to SageMaker AI on how to run your model customization job.
+You can customize Amazon Nova models, including the enhanced Nova 2.0 models, using [Amazon Nova recipes](nova-model-recipes.md "nova-model-recipes.md") and train them on Amazon SageMaker HyperPod. A
+recipe is a YAML configuration file that provides details to SageMaker AI on how to run your model
+customization job. Amazon SageMaker HyperPod supports two types of services: Forge and Non-forge.
 
 Amazon SageMaker HyperPod offers high-performance computing with optimized GPU instances and
 Amazon FSx for Lustre storage, robust monitoring through integration with tools like TensorBoard,
@@ -14,22 +14,24 @@ to their specific business requirements.
 Amazon Nova customization on Amazon SageMaker HyperPod stores model artifacts including model checkpoints
 in a service-managed Amazon S3 bucket. Artifacts in the service-managed bucket are encrypted with
 SageMaker-managed AWS KMS keys. Service-managed Amazon S3 buckets don't currently support data encryption
-using customer-managed KMS keys. You can use this checkpoint location for evaluation jobs or Amazon Bedrock
-inference.
+using customer-managed KMS keys. You can use this checkpoint location for evaluation jobs or
+Amazon Bedrock inference.
 
 Standard pricing can apply for compute instances, Amazon S3 storage, and FSx for Lustre. For pricing
-details, see [SageMaker HyperPod pricing](https://aws.amazon.com/sagemaker-ai/pricing/ "https://aws.amazon.com/sagemaker-ai/pricing/"), [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"), and [FSx for Lustre pricing](https://aws.amazon.com/fsx/lustre/pricing/ "https://aws.amazon.com/fsx/lustre/pricing/").
+details, see [SageMaker HyperPod
+pricing](https://aws.amazon.com/sagemaker-ai/pricing/ "https://aws.amazon.com/sagemaker-ai/pricing/"), [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"), and
+[FSx for Lustre pricing](https://aws.amazon.com/fsx/lustre/pricing/ "https://aws.amazon.com/fsx/lustre/pricing/").
 
-###### Compute requirements
+## Compute requirements for Amazon Nova 1 models
 
-The following tables summarize the computational requirements for SageMaker HyperPod
-training.
+The following tables summarize the computational requirements for SageMaker HyperPod and SageMaker AI
+training jobs training for Nova 1.0 models.
 
-| Pre-training      | Model | Sequence length | Nodes          | Instance | Accelerator |
-| ----------------- | ----- | --------------- | -------------- | -------- | ----------- |
-| Amazon Nova Micro | 8,192 | 8               | ml.p5.48xlarge | GPU H100 |
-| Amazon Nova Lite  | 8,192 | 16              | ml.p5.48xlarge | GPU H100 |
-| Amazon Nova Pro   | 8,192 | 24              | ml.p5.48xlarge | GPU H100 |
+| Pre-training         | Model | Sequence length | Nodes          | Instance | Accelerator |
+| -------------------- | ----- | --------------- | -------------- | -------- | ----------- |
+| Amazon Nova Micro    | 8,192 | 8               | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova Lite     | 8,192 | 16              | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova Lite 2.0 | 8,192 | 12              | ml.p5.48xlarge | GPU H100 |
 
 | Direct preference optimization (DPO)  | Model  | Sequence length | Number of nodes | Instance | Accelerator |
 | ------------------------------------- | ------ | --------------- | --------------- | -------- | ----------- |
@@ -64,13 +66,28 @@ training.
 | Amazon Nova Lite             | 1     | 1                           | 1                           | 2                           | 2           | 7                | 16                  | 112                 | ml.p5.48xlarge |
 | Amazon Nova Pro              | 1     | 1                           | 1                           | 6                           | 2           | 11               | 26                  | 260                 | ml.p5.48xlarge |
 
+## Compute requirements for Amazon Nova 2 models
+
+The following tables summarize the computational requirements for SageMaker HyperPod and SageMaker AI
+training jobs training for Nova 2 models.
+
+| Nova 2 Training Requirements                  | Training Technique | Minimum Instances | Instance Type | GPU Count                                       | Notes               | Supported Models |
+| --------------------------------------------- | ------------------ | ----------------- | ------------- | ----------------------------------------------- | ------------------- | ---------------- |
+| SFT (LoRA)                                    | 2                  | P5.48xlarge       | 16            | Parameter-efficient fine-tuning                 | Nova 1, Nova 2 Lite |
+| SFT (Full Rank)                               | 4                  | P5.48xlarge       | 32            | Full model fine-tuning                          | Nova 1, Nova 2 Lite |
+| RFT on SageMaker AI Training Jobs (LoRA)      | 2                  | P5.48xlarge       | 16            | Custom Reward Functions in your AWS Environment | Nova 2 Lite         |
+| RFT on SageMaker AI Training Jobs (Full Rank) | 4                  | P5.48xlarge       | 32            | 32K context length                              | Nova 2 Lite         |
+| RFT on SageMaker HyperPod                     | 8                  | P5.48xlarge       | 64            | Default 8192 context length                     | Nova 1              |
+| CPT                                           | 2                  | P5.48xlarge       | 16            | Processes approximately 1.25B tokens per day    | Nova 1              |
+
 ###### Topics
 
-- [Creating a HyperPod EKS cluster with restricted instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md")
-- [Continued pre-training (CPT)](nova-cpt.md "nova-cpt.md")
-- [Supervised fine-tuning (SFT)](nova-fine-tune.md "nova-fine-tune.md")
-- [Direct preference optimization (DPO)](nova-dpo.md "nova-dpo.md")
-- [Proximal policy optimization (PPO)](nova-ppo.md "nova-ppo.md")
-- [Starting a training job using the HyperPod
-  CLI](nova-hp-train.md "nova-hp-train.md")
+- [Nova Customization SDK](nova-hp-customization-sdk.md "nova-hp-customization-sdk.md")
+- [Amazon HyperPod Essential Commands
+  Guide](nova-hp-essential-commands-guide.md "nova-hp-essential-commands-guide.md")
+- [Creating a HyperPod EKS cluster with restricted
+  instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md")
+- [Nova Forge access and setup for SageMaker AI HyperPod](nova-forge-hp-access.md "nova-forge-hp-access.md")
+- [Training for Amazon Nova models](nova-hp-training.md "nova-hp-training.md")
+- [Fine-tuning Amazon Nova models on Amazon SageMaker HyperPod](nova-hp-fine-tune.md "nova-hp-fine-tune.md")
 - [Evaluating your trained model](nova-hp-evaluate.md "nova-hp-evaluate.md")

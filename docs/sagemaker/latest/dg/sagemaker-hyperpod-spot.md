@@ -76,8 +76,12 @@ export SUBNET3="subnet-xxxxx"
 #### Service quotas for the Spot instances
 
 Verify you have the required quotas for the instances you will create in the
-SageMaker HyperPod cluster. To review your quotas, on the Service Quotas
-console, choose AWS services in the navigation pane, then choose SageMaker.
+SageMaker HyperPod cluster. To review your quotas, on the Service Quotas console,
+choose AWS services in the navigation pane, then choose SageMaker. For
+example, the following screenshot shows the available quota for c5
+instances.
+
+![An image containing cost region information.](images/Screenshot-cluster-quota.png)
 
 #### Check Spot Availability
 

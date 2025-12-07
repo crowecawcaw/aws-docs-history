@@ -1293,8 +1293,6 @@ demonstrating both methods.
   permissions. Attach the [AWS managed policy: `AmazonSageMakerPipelinesIntegrations`](security-iam-awsmanpol-pipelines.md#security-iam-awsmanpol-AmazonSageMakerPipelinesIntegrations "security-iam-awsmanpol-pipelines.md#security-iam-awsmanpol-AmazonSageMakerPipelinesIntegrations") to
   your pipeline role, or ensure that the role includes the permissions in that
   policy.
-- EMR step is not supported on EMR serverless. It is also not supported on
-  Amazon EMR on EKS.
 - If you process an EMR step on a running cluster, you can only use a cluster that
   is in one of the following states:
   - `STARTING`
@@ -1313,6 +1311,19 @@ demonstrating both methods.
   uses the `SageMakerPipelineExecutionEMRClusterStatusRule` rule to monitor
   changes in cluster state. If you see either of these EventBridge rules in your AWS account,
   do not delete them or else your EMR step may not complete.
+  **Add an Amazon EMR step to your pipeline**
+
+To add an EMR step to your pipeline, do the following:
+
+- Open the Studio console by following the instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
+- In the left navigation pane, select **Pipelines**.
+- Choose **Create**.
+- Choose **Blank**.
+- In the left sidebar, choose **Process data** and drag it to the canvas.
+- In the canvas, choose the **Process data** step you added.
+- In the right sidebar, under mode, choose **EMR (managed)**.
+- In the right sidebar, complete the forms in the **Setting and
+  Details** tabs. For information about the fields in these tabs, see [sagemaker.workflow.fail_step.EMRstep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.emr_step.EMRStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.emr_step.EMRStep").
   **Launch a new job on a running Amazon EMR cluster**
 
 To launch a new job on a running Amazon EMR cluster, pass the cluster ID as a string to the
@@ -1436,9 +1447,20 @@ emr_step = EMRStep(
 
 For a sample notebook that guides you through a complete example, see [Pipelines EMR Step With Cluster Lifecycle Management](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/emr-step/sagemaker-pipelines-emr-step-with-cluster-lifecycle-management.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/emr-step/sagemaker-pipelines-emr-step-with-cluster-lifecycle-management.ipynb").
 
-Use a `NotebookJobStep` to run your SageMaker Notebook Job non-interactively as a
-pipeline step. If you build your pipeline in the Pipelines drag-and-drop UI, use the [Execute code step](#step-type-executecode "#step-type-executecode") to run your
-notebook. For more information about SageMaker Notebook Jobs, see [SageMaker Notebook Jobs](notebook-auto-run.md "notebook-auto-run.md").
+To add an EMR serverless step to your pipeline, do the following:
+
+- Open the Studio console by following the instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
+- In the left navigation pane, select **Pipelines**.
+- Choose **Create**.
+- Choose **Blank**.
+- In the left sidebar, choose **Process data** and drag it to the canvas.
+- In the canvas, choose the **Process data** step you added.
+- In the right sidebar, under mode, choose **EMR (serverless)**.
+- In the right sidebar, complete the forms in the **Setting and
+  Details** tabs.
+  Use a `NotebookJobStep` to run your SageMaker Notebook Job non-interactively as a
+  pipeline step. If you build your pipeline in the Pipelines drag-and-drop UI, use the [Execute code step](#step-type-executecode "#step-type-executecode") to run your
+  notebook. For more information about SageMaker Notebook Jobs, see [SageMaker Notebook Jobs](notebook-auto-run.md "notebook-auto-run.md").
 
 A `NotebookJobStep` requires at minimum an input notebook, image URI and
 kernel name. For more information about Notebook Job step requirements and other parameters

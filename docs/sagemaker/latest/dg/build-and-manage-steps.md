@@ -7,6 +7,7 @@ their properties, and the relationships between them.
 ###### Topics
 
 - [Add a step](build-and-manage-steps-types.md "build-and-manage-steps-types.md")
+- [Add integration](build-and-manage-steps-integration.md "build-and-manage-steps-integration.md")
 - [Step properties](#build-and-manage-properties "#build-and-manage-properties")
 - [Step parallelism](#build-and-manage-parallelism "#build-and-manage-parallelism")
 - [Data dependency between steps](#build-and-manage-data-dependency "#build-and-manage-data-dependency")
