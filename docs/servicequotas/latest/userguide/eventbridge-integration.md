@@ -12,6 +12,15 @@ Amazon EventBridge is a serverless service that uses events to connect applicati
 together, making it easier for you to integrate AWS services like Service Quotas into
 event-driven architectures without additional code and operations.
 
+###### Topics
+
+- [How EventBridge routes Service Quotas
+  events](#eventbridge-routes-service-events "#eventbridge-routes-service-events")
+- [Service Quotas events](#eventbridge-service-events "#eventbridge-service-events")
+- [Creating event patterns that match
+  Service Quotas events](#eventbridge-event-delivery-filter "#eventbridge-event-delivery-filter")
+- [Receiving events from EventBridge](#eventbridge-service-as-target "#eventbridge-service-as-target")
+
 ## How EventBridge routes Service Quotas
 
 events
@@ -81,6 +90,7 @@ Each event pattern is a JSON object that contains:
   - An `eventTypeCode` field that matches one or more of these
     values:
     - `AWS_SERVICEQUOTAS_APPROACHING_THRESHOLD`
+    - `AWS_SERVICEQUOTAS_INCREASE_REQUEST_FAILED`
     - `AWS_SERVICEQUOTAS_THRESHOLD_BREACH`
 
   - An `eventTypeCategory` field set to
@@ -97,6 +107,7 @@ Service Quotas:
         "service": ["SERVICEQUOTAS"],
         "eventTypeCode": [
             "AWS_SERVICEQUOTAS_THRESHOLD_BREACH",
+            "AWS_SERVICEQUOTAS_INCREASE_REQUEST_FAILED",
             "AWS_SERVICEQUOTAS_APPROACHING_THRESHOLD"
         ],
         "eventTypeCategory": ["accountNotification"]
@@ -106,11 +117,9 @@ Service Quotas:
 
 The following describes the different event type codes.
 
-- `AWS_SERVICEQUOTAS_THRESHOLD_BREACH` - Monitors Service Quotas that cannot be
-  adjusted. You'll need to optimize your quota utilization to mitigate further Service Quotas
-  threshold breach.
-- `AWS_SERVICEQUOTAS_APPROACHING_THRESHOLD` - Monitors Service Quotas that can
-  be adjusted. You can optimize your quota utilization or [Requesting a quota increase](request-quota-increase.md "request-quota-increase.md") to mitigate further Service Quotas approaching threshold.
+- `AWS_SERVICEQUOTAS_THRESHOLD_BREACH` - Tracks Service Quotas that cannot be adjusted. You'll need to optimize your quota utilization to mitigate further Service Quota threshold breach.
+- `AWS_SERVICEQUOTAS_INCREASE_REQUEST_FAILED` - Tracks failed attempts to automatically increase service quotas when usage thresholds are exceeded.
+- `AWS_SERVICEQUOTAS_APPROACHING_THRESHOLD` - Tracks Service Quotas that can be adjusted. You can optimize your quota utilization or request a quota increase to mitigate further Service Quota approaching threshold.
 
 For more information on writing event patterns, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in
 the _EventBridge User Guide_.

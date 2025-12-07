@@ -1,9 +1,10 @@
 # Getting started with Service Quotas Automatic Management
 
 Service Quotas Automatic Management monitors service quotas usage patterns and sends you notifications when your usage
-approach your allocated quotas. To allow AWS to monitor quotas in your AWS account, you
-need to start the Automatic Management. The following procedures walks through how you can start
-Automatic Management with either the AWS Management Console or AWS CLI.
+approach your usage approach your [utilization thresholds](automatic-management.md#notification-thresholds "automatic-management.md#notification-thresholds"). To
+allow AWS to monitor quotas in your AWS account, you need to start the Automatic Management. The
+following procedures walks through how you can start Automatic Management with either the AWS Management Console
+or AWS CLI.
 
 AWS Management Console
 Use the following steps to start Automatic Management using the AWS Management Console.
@@ -20,9 +21,9 @@ Use the following steps to start Automatic Management using the AWS Management C
    This starts Automatic Management for all available Service Quotas and only
    sends notifications to the AWS Health Dashboard.
 
-3. Under **Automatic Management Mode**, Select **Notify Only**.
-   There are two modes: Notify Only and Notify and Auto-Adjust. Currently, only
-   Notify Only is available.
+3. Under **Automatic Management Mode**, Select
+   **Notify Only**. There are two modes: Notify Only and Notify and Auto-Adjust. To learn
+   more, see [Service Quotas Automatic Management modes](automatic-management.md#automatic-management-modes "automatic-management.md#automatic-management-modes")..
 
 ###### Note
 
@@ -38,8 +39,8 @@ continue.
      preferred notification method and then choose
      **Next**.
     2. (Optional) You can select exceptions for service quotas you do not want
-     AWS to monitor and notify you about in your AWS account. Select your
-     preferred exceptions and then choose
+     AWS to monitor and notify you about in your AWS account.
+     Select your preferred exceptions and then choose
      **Next**.
 
 4. Review your options on the **Review and Confirm**
@@ -49,8 +50,8 @@ continue.
 AWS CLI
 Using Automatic Management with the AWS CLI requires you to provide Service Quotas with the
 necessary permission to create a AWS Support case on your behalf. You can provide
-this permission by attaching the AWS managed policy [ServiceQuotasFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-POLICYNAME "security-iam-awsmanpol.md#security-iam-awsmanpol-POLICYNAME") to
-your IAM principal.
+this permission by attaching the AWS managed policy [ServiceQuotasFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-POLICYNAME "security-iam-awsmanpol.md#security-iam-awsmanpol-POLICYNAME") to your IAM
+principal.
 
 ###### Example Start Automatic Management for your account
 

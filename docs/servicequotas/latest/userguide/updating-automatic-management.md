@@ -12,7 +12,7 @@ AWS Management Console
 2. In the navigation pane, choose
    **Automatic Management**.
 3. Make the changes to your Automatic Management configuration.
-   1. **Exclusion list update** - You can add service quotas
+   1. **Exclusion list update** - you can add service quotas
       from the exclusion list. See [Excluding service quotas from Service Quotas Automatic Management](excluding-quotas.md "excluding-quotas.md").
    2. **Notification configuration update** - Under
       **Notification configuration**, choose
