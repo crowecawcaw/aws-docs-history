@@ -1,28 +1,24 @@
-# WEEK_DAY
+# MODE
 
-Creates a new column containing the day of the week, from a string that represents a
-date.
+Returns the mode, the number that appears most often, from the selected source columns
+in a new column. Any non-number is ignored. For multiple modes, the mode is calculated
+with the modal function.
 
 ###### Parameters
 
-- `sourceColumn` – The name of an existing column.
-- `value` – A character string to evaluate.
+- `sourceColumns` – A JSON-encoded string representing a list of existing columns.
 - `targetColumn` – A name for the newly created column.
-
-###### Note
-
-You can specify either `sourceColumn` or `value`, but not
-both.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "WEEK_DAY",
+        "Operation": "MODE",
         "Parameters": {
-            "sourceColumn": "DATETIME Column 1",
-            "targetColumn": "DATETIME Column 1_WEEKDAY"
+            "modeType": "MINIMUM",
+            "sourceColumns": "[\"years_in_service\",\"age\"]",
+            "targetColumn": "MODE Column 1"
         }
     }
 }
