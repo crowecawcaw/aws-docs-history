@@ -3,6 +3,44 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## December 5, 2025
+
+### IVS Broadcast SDK: Web 1.31.0
+
+(Low-Latency Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.31.0](broadcast-web.md "broadcast-web.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference/](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Bug fixes and stability improvements. |
+
+## December 5, 2025
+
+### Amazon IVS Broadcast SDK:
+
+Android 1.37.0, iOS 1.37.0 (Low-Latency Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Android Broadcast SDK<br>1.37.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                            |
+| [iOS Broadcast SDK<br>1.37.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/ios/")<br>• Bug fixes and stability improvements. |
+
+#### Broadcast SDK Size:
+
+Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 1.953 MB        | 5.316 MB          |
+| armeabi-v7a  | 1.713 MB        | 3.678 MB          |
+| x86_64       | 2.036 MB        | 5.661 MB          |
+| x86          | 2.062 MB        | 5.450 MB          |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 0.941 MB        | 2.279 MB          |
+
 ## November 20, 2025
 
 ### IVS Player SDK: Web 1.47.0
