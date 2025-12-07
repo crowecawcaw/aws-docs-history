@@ -8,11 +8,11 @@ This includes the following APIs:
 
 - [Places](../APIReference/API_Operations_Amazon_Location_Service_Places_V2.md "../APIReference/API_Operations_Amazon_Location_Service_Places_V2.md")
 - [Routes](../APIReference/API_Operations_Amazon_Location_Service_Routes_V2.md "../APIReference/API_Operations_Amazon_Location_Service_Routes_V2.md")
-- [Authentication](../../previous/APIReference/API_Operations-Keys.md "../../previous/APIReference/API_Operations-Keys.md")
+- [Authentication](../APIReference/API_Operations_Amazon_Location_Service_Tagging.md "../APIReference/API_Operations_Amazon_Location_Service_Tagging.md")
 - [Maps](../APIReference/API_Operations_Amazon_Location_Service_Maps_V2.md "../APIReference/API_Operations_Amazon_Location_Service_Maps_V2.md")
-- [Geofences](../../previous/APIReference/API_Operations-Geofences.md "../../previous/APIReference/API_Operations-Geofences.md")
+- [Geofences](../APIReference/API_Operations_Amazon_Location_Service_Geofences.md "../APIReference/API_Operations_Amazon_Location_Service_Geofences.md")
 - [Trackers](../APIReference/API_Operations-Trackers.md "../APIReference/API_Operations-Trackers.md")
-- [Tags](../../previous/APIReference/API_Operations-Tags.md "../../previous/APIReference/API_Operations-Tags.md")
+- [Tags](../APIReference/API_Operations_Amazon_Location_Service_Tagging.md "../APIReference/API_Operations_Amazon_Location_Service_Tagging.md")
 
 ## Amazon Location Service CLI
 

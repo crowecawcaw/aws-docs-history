@@ -27,13 +27,15 @@ map styles, because they are pre-validated.
 Example
 
 ```
- const map = new maplibregl.Map({
-        container: 'map', // ID of the div where the map will render
-        style: 'https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}', // Map style URL
-        center: [0, 0], // Starting position [lng, lat]
-        zoom: 2, // Starting zoom
-        validateStyle: false, // Disable style validation for faster map load
-    });
+
+const map = new maplibregl.Map({
+    container: 'map', // ID of the div where the map will render
+    style: 'https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}', // Map style URL
+    center: [0, 0], // Starting position [lng, lat]
+    zoom: 2, // Starting zoom
+    validateStyle: false, // Disable style validation for faster map load
+});
+
 ```
 
 Explanation

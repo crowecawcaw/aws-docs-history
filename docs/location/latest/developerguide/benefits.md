@@ -70,9 +70,9 @@ request your application makes to the service.
 See the following case studies:
 
 - [Halodoc, a digital health system, reduced 88% cost using
-  Amazon Location Service](https://aws.amazon.com//solutions/case-studies/halodoc-amazon-location-case-study/ "https://aws.amazon.com//solutions/case-studies/halodoc-amazon-location-case-study/")
+  Amazon Location Service](https://aws.amazon.com/solutions/case-studies/halodoc-amazon-location-case-study/ "https://aws.amazon.com/solutions/case-studies/halodoc-amazon-location-case-study/")
 - [Geo.me, a web services provider, reduced 90% geospatial cost using
-  Amazon Location Service](https://aws.amazon.com//solutions/case-studies/geo-me-case-study/ "https://aws.amazon.com//solutions/case-studies/geo-me-case-study/")
+  Amazon Location Service](https://aws.amazon.com/solutions/case-studies/geo-me-case-study/ "https://aws.amazon.com/solutions/case-studies/geo-me-case-study/")
 
 ## Rapid development
 

@@ -32,10 +32,10 @@ For a list of CloudTrail supported services and integrations, see [CloudTrail Su
 You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no
 charge from CloudTrail by creating a trail. However, there are Amazon S3 storage charges.
 
-For more information about CloudTrail pricing, see [AWS CloudTrail pricing](https://aws.amazon.com//cloudtrail/pricing/ "https://aws.amazon.com//cloudtrail/pricing/").
+For more information about CloudTrail pricing, see [AWS CloudTrail pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
 For information about Amazon S3 pricing, see [Amazon S3
-pricing](https://aws.amazon.com//s3/pricing/ "https://aws.amazon.com//s3/pricing/").
+pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 **CloudTrail Lake event data stores**
 
@@ -52,7 +52,7 @@ you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtra
 determines the cost for ingesting and storing events, and the default and maximum retention
 period for the event data store.
 
-For more information about CloudTrail pricing, see [AWS CloudTrail pricing](https://aws.amazon.com//cloudtrail/pricing/ "https://aws.amazon.com//cloudtrail/pricing/").
+For more information about CloudTrail pricing, see [AWS CloudTrail pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
 ###### Topics
 
@@ -69,7 +69,7 @@ CloudTrail
 
 You can view Amazon Location management events in your CloudTrail event history. These events
 include all API calls that manage Amazon Location resources and configurations. For a complete
-list of supported actions, refer to the [Amazon Location Service API references](../../previous/APIReference/index.md "../../previous/APIReference/index.md").
+list of supported actions, refer to the [Amazon Location Service API references](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
 ## Amazon Location data events in CloudTrail
 

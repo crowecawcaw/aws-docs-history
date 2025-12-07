@@ -1,6 +1,6 @@
 # Geofences pricing
 
-For pricing information for tracking and geofencing APIs, see the [Amazon Location Service pricing page](https://aws.amazon.com//location/pricing/ "https://aws.amazon.com//location/pricing/").
+For pricing information for tracking and geofencing APIs, see the [Amazon Location Service pricing page](https://aws.amazon.com/location/pricing/ "https://aws.amazon.com/location/pricing/").
 
 **Position Evaluation**
 
@@ -10,7 +10,7 @@ evaluate up to ten device positions against all geofences in a single geofence
 collection. Price is based on the number of device positions in your API requests.
 Unit price per device position evaluated is based on the total monthly usage volume.
 See the [Amazon Location Service pricing
-page](https://aws.amazon.com//location/pricing/ "https://aws.amazon.com//location/pricing/") for details on unit price and volume tiers.
+page](https://aws.amazon.com/location/pricing/ "https://aws.amazon.com/location/pricing/") for details on unit price and volume tiers.
 
 You can optimize your Position Evaluation cost by configuring the device position
 update frequency (also known as ping rate) from your tracking devices, and

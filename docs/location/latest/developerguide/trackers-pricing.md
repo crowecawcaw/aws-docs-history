@@ -1,13 +1,13 @@
 # Trackers pricing
 
-For pricing information for tracking and geofencing APIs, see the [Amazon Location Service pricing page](https://aws.amazon.com//location/pricing/ "https://aws.amazon.com//location/pricing/").
+For pricing information for tracking and geofencing APIs, see the [Amazon Location Service pricing page](https://aws.amazon.com/location/pricing/ "https://aws.amazon.com/location/pricing/").
 
 **Position Written**
 
 You can use `BatchUpdateDevicePosition` to upload position update data
 for one or more devices to a tracker resource (up to ten devices per batch). Price
 is based on the number of device positions in your API request. Unit price per
-device position update is based on the total monthly usage volume. See the [Amazon Location Service pricing page](https://aws.amazon.com//location/pricing/ "https://aws.amazon.com//location/pricing/") for
+device position update is based on the total monthly usage volume. See the [Amazon Location Service pricing page](https://aws.amazon.com/location/pricing/ "https://aws.amazon.com/location/pricing/") for
 details on unit price and volume tiers.
 
 You can optimize your Position Written cost by configuring the device position

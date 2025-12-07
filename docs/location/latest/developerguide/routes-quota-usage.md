@@ -9,7 +9,7 @@ the self-service console or contact support.
 | Service Quota Limits                                                                | API Name | Default | Max Adjustable Limit                                                                                                                                                                                                                            | More than Adjustable Max Limit |
 | ----------------------------------------------------------------------------------- | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
 | [Calculate routes](calculate-routes.md "calculate-routes.md")                       | 20       | 40      | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support team |
-| [CalculateIsoline](calculate-isoline.md "calculate-isoline.md")                     | 20       | 40      | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support team |
+| [CalculateIsolines](calculate-isolines.md "calculate-isolines.md")                  | 20       | 40      | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support team |
 | [Snap to Roads](snap-to-roads.md "snap-to-roads.md")                                | 20       | 40      | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support team |
 | [Calculate route matrix](calculate-route-matrix.md "calculate-route-matrix.md")     | 5        | 10      | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support team |
 | [Optimize waypoints](actions-optimize-waypoints.md "actions-optimize-waypoints.md") | 5        | 10      | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support team |
@@ -35,7 +35,7 @@ In addition to service quotas, the following API usage limits apply:
 
 Please check the following for further details:
 
-- [Attribution](data-attribution.md "data-attribution.md"): Information on data attribution requirements for
+- [Attribution](location/latest/developerguide/data-attribution.md "location/latest/developerguide/data-attribution.md"): Information on data attribution requirements for
   Amazon Location Service.
 - [SLA](https://aws.amazon.com/location/sla/ "https://aws.amazon.com/location/sla/"): The service
   level agreement for Amazon Location Service, including uptime commitments

@@ -22,25 +22,25 @@ index.html
 
 ```
 
-    <html>
-    <head>
-      <link href="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css" rel="stylesheet" />
-      <script src="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js"></script>
-      <link href="style.css" rel="stylesheet" />
-      <script src="main.js"></script>
-    </head>
-    <body>
-      <div id="map" />
-      <script>
+<html>
+<head>
+    <link href="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="map" />
+    <script>
         const apiKey = "Add Your Api Key";
         const mapStyle = "Standard";
         const awsRegion = "eu-central-1";
         const initialLocation = [139.76694, 35.68085]; //Japan
 
         async function initializeMap() {
-           // get updated style object for preferred language.
+            // get updated style object for preferred language.
             const styleObject = await getStyleWithPreferredLanguage("ja");
-           // Initialize the MapLibre map with the fetched style object
+            // Initialize the MapLibre map with the fetched style object
             const map = new maplibregl.Map({
                 container: 'map',
                 style: styleObject,
@@ -54,9 +54,9 @@ index.html
         }
 
         initializeMap();
-      </script>
-    </body>
-    </html>
+    </script>
+</body>
+</html>
 
 ```
 
@@ -64,8 +64,8 @@ style.css
 
 ```
 
-    body { margin: 0; }
-    #map { height: 100vh; }
+body { margin: 0; }
+#map { height: 100vh; }
 
 ```
 
@@ -73,82 +73,82 @@ main.js
 
 ```
 
-    async function getStyleWithPreferredLanguage(preferredLanguage) {
-      const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
+async function getStyleWithPreferredLanguage(preferredLanguage) {
+    const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
-      return fetch(styleUrl)
+    return fetch(styleUrl)
         .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.json();
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
         })
         .then(styleObject => {
-          if (preferredLanguage !== "en") {
-            styleObject = setPreferredLanguage(styleObject, preferredLanguage);
-          }
+            if (preferredLanguage !== "en") {
+                styleObject = setPreferredLanguage(styleObject, preferredLanguage);
+            }
 
-          return styleObject;
+            return styleObject;
         })
         .catch(error => {
-          console.error('Error fetching style:', error);
+            console.error('Error fetching style:', error);
         });
-    }
+}
 
-    const setPreferredLanguage = (style, language) => {
-      let nextStyle = { ...style };
+const setPreferredLanguage = (style, language) => {
+    let nextStyle = { ...style };
 
-      nextStyle.layers = nextStyle.layers.map(l => {
+    nextStyle.layers = nextStyle.layers.map(l => {
         if (l.type !== 'symbol' || !l?.layout?.['text-field']) return l;
         return updateLayer(l, /^name:([A-Za-z\-\_]+)$/g, `name:${language}`);
-      });
+    });
 
-      return nextStyle;
-    };
+    return nextStyle;
+};
 
-    const updateLayer = (layer, prevPropertyRegex, nextProperty) => {
-      const nextLayer = {
+const updateLayer = (layer, prevPropertyRegex, nextProperty) => {
+    const nextLayer = {
         ...layer,
         layout: {
-          ...layer.layout,
-          'text-field': recurseExpression(
-            layer.layout['text-field'],
-            prevPropertyRegex,
-            nextProperty
-          )
+            ...layer.layout,
+            'text-field': recurseExpression(
+                layer.layout['text-field'],
+                prevPropertyRegex,
+                nextProperty
+            )
         }
-      };
-      return nextLayer;
     };
+    return nextLayer;
+};
 
-    const recurseExpression = (exp, prevPropertyRegex, nextProperty) => {
-      if (!Array.isArray(exp)) return exp;
-      if (exp[0] !== 'coalesce') return exp.map(v =>
+const recurseExpression = (exp, prevPropertyRegex, nextProperty) => {
+    if (!Array.isArray(exp)) return exp;
+    if (exp[0] !== 'coalesce') return exp.map(v =>
         recurseExpression(v, prevPropertyRegex, nextProperty)
-      );
+    );
 
-      const first = exp[1];
-      const second = exp[2];
+    const first = exp[1];
+    const second = exp[2];
 
-      let isMatch =
-      Array.isArray(first) &&
-      first[0] === 'get' &&
-      !!first[1].match(prevPropertyRegex)?.[0];
+    let isMatch =
+    Array.isArray(first) &&
+    first[0] === 'get' &&
+    !!first[1].match(prevPropertyRegex)?.[0];
 
-      isMatch = isMatch && Array.isArray(second) && second[0] === 'get';
-      isMatch = isMatch && !exp?.[4];
+    isMatch = isMatch && Array.isArray(second) && second[0] === 'get';
+    isMatch = isMatch && !exp?.[4];
 
-      if (!isMatch) return exp.map(v =>
+    if (!isMatch) return exp.map(v =>
         recurseExpression(v, prevPropertyRegex, nextProperty)
-      );
+    );
 
-      return [
+    return [
         'coalesce',
         ['get', nextProperty],
         ['get', 'name:en'],
         ['get', 'name']
-      ];
-    };
+    ];
+};
 
 ```
 
@@ -163,16 +163,16 @@ index.html
 
 ```
 
-    <html>
-    <head>
-      <link href="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css" rel="stylesheet" />
-      <script src="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js"></script>
-      <link href="style.css" rel="stylesheet" />
-      <script src="main.js"></script>
-    </head>
-    <body>
-      <div id="map" />
-      <script>
+<html>
+<head>
+    <link href="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="map" />
+    <script>
         const apiKey = "Add Your Api Key";
         const mapStyle = "Standard";
         const awsRegion = "eu-central-1";
@@ -181,22 +181,22 @@ index.html
         const languageCode = userLanguage.split('-')[0];
 
         async function initializeMap() {
-           const styleObject = await getStyleWithPreferredLanguage(languageCode);
-           const map = new maplibregl.Map({
-                container: 'map',
-                style: styleObject,
-                center: initialLocation,
-                zoom: 15,
-                hash:true,
-           });
-           map.addControl(new maplibregl.NavigationControl(), "top-left");
-           return map;
+             const styleObject = await getStyleWithPreferredLanguage(languageCode);
+             const map = new maplibregl.Map({
+                 container: 'map',
+                 style: styleObject,
+                 center: initialLocation,
+                 zoom: 15,
+                 hash:true,
+             });
+             map.addControl(new maplibregl.NavigationControl(), "top-left");
+             return map;
         }
 
         initializeMap();
-      </script>
-    </body>
-    </html>
+    </script>
+</body>
+</html>
 
 ```
 
@@ -204,8 +204,8 @@ style.css
 
 ```
 
-    body { margin: 0; }
-    #map { height: 100vh; }
+body { margin: 0; }
+#map { height: 100vh; }
 
 ```
 
@@ -213,81 +213,81 @@ main.js
 
 ```
 
-    async function getStyleWithPreferredLanguage(preferredLanguage) {
-      const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
+async function getStyleWithPreferredLanguage(preferredLanguage) {
+    const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
-      return fetch(styleUrl)
+    return fetch(styleUrl)
         .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.json();
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
         })
         .then(styleObject => {
-          if (preferredLanguage !== "en") {
-            styleObject = setPreferredLanguage(styleObject, preferredLanguage);
-          }
+            if (preferredLanguage !== "en") {
+                styleObject = setPreferredLanguage(styleObject, preferredLanguage);
+            }
 
-          return styleObject;
+            return styleObject;
         })
         .catch(error => {
-          console.error('Error fetching style:', error);
+            console.error('Error fetching style:', error);
         });
-    }
+}
 
-    const setPreferredLanguage = (style, language) => {
-      let nextStyle = { ...style };
+const setPreferredLanguage = (style, language) => {
+    let nextStyle = { ...style };
 
-      nextStyle.layers = nextStyle.layers.map(l => {
+    nextStyle.layers = nextStyle.layers.map(l => {
         if (l.type !== 'symbol' || !l?.layout?.['text-field']) return l;
         return updateLayer(l, /^name:([A-Za-z\-\_]+)$/g, `name:${language}`);
-      });
+    });
 
-      return nextStyle;
-    };
+    return nextStyle;
+};
 
-    const updateLayer = (layer, prevPropertyRegex, nextProperty) => {
-      const nextLayer = {
+const updateLayer = (layer, prevPropertyRegex, nextProperty) => {
+    const nextLayer = {
         ...layer,
         layout: {
-          ...layer.layout,
-          'text-field': recurseExpression(
-            layer.layout['text-field'],
-            prevPropertyRegex,
-            nextProperty
-          )
+            ...layer.layout,
+            'text-field': recurseExpression(
+                layer.layout['text-field'],
+                prevPropertyRegex,
+                nextProperty
+            )
         }
-      };
-      return nextLayer;
     };
+    return nextLayer;
+};
 
-    const recurseExpression = (exp, prevPropertyRegex, nextProperty) => {
-      if (!Array.isArray(exp)) return exp;
-      if (exp[0] !== 'coalesce') return exp.map(v =>
+const recurseExpression = (exp, prevPropertyRegex, nextProperty) => {
+    if (!Array.isArray(exp)) return exp;
+    if (exp[0] !== 'coalesce') return exp.map(v =>
         recurseExpression(v, prevPropertyRegex, nextProperty)
-      );
+    );
 
-      const first = exp[1];
-      const second = exp[2];
+    const first = exp[1];
+    const second = exp[2];
 
-      let isMatch =
-      Array.isArray(first) &&
-      first[0] === 'get' &&
-      !!first[1].match(prevPropertyRegex)?.[0];
+    let isMatch =
+    Array.isArray(first) &&
+    first[0] === 'get' &&
+    !!first[1].match(prevPropertyRegex)?.[0];
 
-      isMatch = isMatch && Array.isArray(second) && second[0] === 'get';
-      isMatch = isMatch && !exp?.[4];
+    isMatch = isMatch && Array.isArray(second) && second[0] === 'get';
+    isMatch = isMatch && !exp?.[4];
 
-      if (!isMatch) return exp.map(v =>
+    if (!isMatch) return exp.map(v =>
         recurseExpression(v, prevPropertyRegex, nextProperty)
-      );
+    );
 
-      return [
+    return [
         'coalesce',
         ['get', nextProperty],
         ['get', 'name:en'],
         ['get', 'name']
-      ];
-    };
+    ];
+};
 
 ```

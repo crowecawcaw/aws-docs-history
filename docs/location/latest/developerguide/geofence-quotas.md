@@ -31,13 +31,13 @@ Region. Amazon Location Service denies additional requests that exceed the servi
 
 If you need a higher limit for any of these APIs, [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact the support team.
 
-| API name                                                                                                                                                    | Default | Max adjustable limit |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |
-| [CreateGeofenceCollection](../../previous/APIReference/API_CreateGeofenceCollection.md "../../previous/APIReference/API_CreateGeofenceCollection.md")       | 10      | 20                   |
-| [DeleteGeofenceCollection](../../previous/APIReference/API_DeleteGeofenceCollection.md "../../previous/APIReference/API_DeleteGeofenceCollection.md")       | 10      | 20                   |
-| [DescribeGeofenceCollection](../../previous/APIReference/API_DescribeGeofenceCollection.md "../../previous/APIReference/API_DescribeGeofenceCollection.md") | 10      | 20                   |
-| [ListGeofenceCollections](../../previous/APIReference/API_ListGeofenceCollections.md "../../previous/APIReference/API_ListGeofenceCollections.md")          | 10      | 20                   |
-| [UpdateGeofenceCollection](../../previous/APIReference/API_UpdateGeofenceCollection.md "../../previous/APIReference/API_UpdateGeofenceCollection.md")       | 10      | 20                   |
+| API name                                                                                                                                                                  | Default | Max adjustable limit |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |
+| [CreateGeofenceCollection](../APIReference/API_WaypointGeofencing_CreateGeofenceCollection.md "../APIReference/API_WaypointGeofencing_CreateGeofenceCollection.md")       | 10      | 20                   |
+| [DeleteGeofenceCollection](../APIReference/API_WaypointGeofencing_DeleteGeofenceCollection.md "../APIReference/API_WaypointGeofencing_DeleteGeofenceCollection.md")       | 10      | 20                   |
+| [DescribeGeofenceCollection](../APIReference/API_WaypointGeofencing_DescribeGeofenceCollection.md "../APIReference/API_WaypointGeofencing_DescribeGeofenceCollection.md") | 10      | 20                   |
+| [ListGeofenceCollections](../APIReference/API_WaypointGeofencing_ListGeofenceCollections.md "../APIReference/API_WaypointGeofencing_ListGeofenceCollections.md")          | 10      | 20                   |
+| [UpdateGeofenceCollection](../APIReference/API_WaypointGeofencing_UpdateGeofenceCollection.md "../APIReference/API_WaypointGeofencing_UpdateGeofenceCollection.md")       | 10      | 20                   |
 
 ## Data API
 
@@ -45,13 +45,13 @@ If you need a higher limit for any of these APIs, [request quota increases](http
 
 If you need a higher limit for any of these APIs, [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact the support team.
 
-| API name                                                                                                                                        | Default | Max adjustable limit |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |
-| [BatchEvaluateGeofences](../../previous/APIReference/API_BatchEvaluateGeofences.md "../../previous/APIReference/API_BatchEvaluateGeofences.md") | 50      | 100                  |
-| [PutGeofence](../../previous/APIReference/API_PutGeofence.md "../../previous/APIReference/API_PutGeofence.md")                                  | 50      | 100                  |
-| [BatchPutGeofence](../../previous/APIReference/API_BatchPutGeofence.md "../../previous/APIReference/API_BatchPutGeofence.md")                   | 50      | 100                  |
-| [ListGeofences](../../previous/APIReference/API_ListGeofences.md "../../previous/APIReference/API_ListGeofences.md")                            | 50      | 100                  |
-| [GetGeofence](../../previous/APIReference/API_GetGeofence.md "../../previous/APIReference/API_GetGeofence.md")                                  | 50      | 100                  |
-| [BatchDeleteGeofence](../../previous/APIReference/API_BatchDeleteGeofence.md "../../previous/APIReference/API_BatchDeleteGeofence.md")          | 50      | 100                  |
+| API name                                                                                                                                                      | Default | Max adjustable limit |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |
+| [BatchEvaluateGeofences](../APIReference/API_WaypointGeofencing_BatchEvaluateGeofences.md "../APIReference/API_WaypointGeofencing_BatchEvaluateGeofences.md") | 50      | 100                  |
+| [PutGeofence](../APIReference/API_WaypointGeofencing_PutGeofence.md "../APIReference/API_WaypointGeofencing_PutGeofence.md")                                  | 50      | 100                  |
+| [BatchPutGeofence](../APIReference/API_WaypointGeofencing_BatchPutGeofence.md "../APIReference/API_WaypointGeofencing_BatchPutGeofence.md")                   | 50      | 100                  |
+| [ListGeofences](../APIReference/API_WaypointGeofencing_ListGeofences.md "../APIReference/API_WaypointGeofencing_ListGeofences.md")                            | 50      | 100                  |
+| [GetGeofence](../APIReference/API_WaypointGeofencing_GetGeofence.md "../APIReference/API_WaypointGeofencing_GetGeofence.md")                                  | 50      | 100                  |
+| [BatchDeleteGeofence](../APIReference/API_WaypointGeofencing_BatchDeleteGeofence.md "../APIReference/API_WaypointGeofencing_BatchDeleteGeofence.md")          | 50      | 100                  |
 
 ## Other usage limits

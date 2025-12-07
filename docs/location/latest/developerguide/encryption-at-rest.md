@@ -62,7 +62,7 @@ For more information on AWS KMS, see [What is AWS Key Management Service?](../..
 Amazon Location requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your
 customer managed key.
 
-When you create a [tracker resource](geometry-components.md#tracking-components "geometry-components.md#tracking-components") or [geofence collection](geometry-components.md#geofence-components "geometry-components.md#geofence-components") encrypted with a customer managed key, Amazon Location creates a
+When you create a [tracker resource](trackers.md "trackers.md") or [geofence collection](geofences.md "geofences.md") encrypted with a customer managed key, Amazon Location creates a
 grant on your behalf by sending a [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request
 to AWS KMS. Grants in AWS KMS are used to give Amazon Location access to a KMS key in a
 customer account.

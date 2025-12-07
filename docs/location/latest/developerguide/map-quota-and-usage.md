@@ -9,8 +9,8 @@ service.
 
 Amazon Location Service sets default quotas for APIs to help manage service capacity, which can
 be viewed in the [AWS service
-quotas management console](https://console.aws.amazon.com//servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com//servicequotas/home?region=us-east-1#!/services/geo/quotas"). You can request an increase in quotas through
-the [self-service console](https://console.aws.amazon.com//servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com//servicequotas/home#!/services/geo/quotas"), for up to twice the default limit for each API.
+quotas management console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas"). You can request an increase in quotas through
+the [self-service console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas"), for up to twice the default limit for each API.
 
 For quota limits exceeding twice the default limit, request through the self
 service console and it will automatically submit a support ticket. Alternately,

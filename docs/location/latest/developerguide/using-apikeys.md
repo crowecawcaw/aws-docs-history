@@ -71,9 +71,10 @@ Amazon Location console
    - **Expiration time** –
      Optionally, add an expiration date and time for your API
      key. For more information, see [API key best practices](#api-keys-best-practices "#api-keys-best-practices").
-   - **Referrers** – Optionally,
-     add one or more domains where you can use the API key.
-     For example, if the API key is to allow an application
+   - **Client restrictions** –
+     Optionally, add one or more web domains or one or more
+     Android or Apple apps where you can use the API key. For
+     example, if the API key is to allow an application
      running on the website `example.com`, then
      you could put `*.example.com/` as an allowed
      referrer.
@@ -138,20 +139,21 @@ single map resource.
 POST /metadata/v0/keys HTTP/1.1
 Content-type: application/json
 {
-"KeyName": "ExampleKey",
-"NoExpiry": true,
+  "KeyName": "ExampleKey",
+  "NoExpiry": true,
   "Restrictions": {
     "AllowActions": [
       "geo-places:*",
       "geo-routes:*",
       "geo-maps:*"
     ],
-        "AllowResources": [
-            "arn:aws:geo-places:`Region`::provider/default",
-            "arn:aws:geo-routes:`Region`::provider/default",
-            "arn:aws:geo-maps:`Region`::provider/default"
-        ]
+    "AllowResources": [
+      "arn:aws:geo-places:Region::provider/default",
+      "arn:aws:geo-routes:Region::provider/default",
+      "arn:aws:geo-maps:Region::provider/default"
+    ]
   }
+}
 ```
 
 The response includes the API key value to use when accessing
@@ -341,6 +343,52 @@ class MapActivity : Activity(), OnMapReadyCallback {
 }
 ```
 
+## Restrict API key usage by request
+
+origin
+
+You can configure API keys with client restrictions that limit access to specific
+domains or mobile applications. When restricting by domain, requests will be
+authorized only if the HTTP Referer header matches the value that you provide. When
+restricting by Android or Apple application, requests will be authorized only if the
+application identifier HTTP header fields match the values that you provide.
+
+For more information, see [ApiKeyRestrictions](../APIReference/API_geotags_ApiKeyRestrictions.md "../APIReference/API_geotags_ApiKeyRestrictions.md") in the _Amazon Location Service API
+Reference_.
+
+**Android application identifiers:**
+
+- `X-Android-Package`:
+
+A unique identifier for Android applications, defined in the app's
+`build.gradle` file, typically following a reverse-domain
+format.
+
+Example:
+
+`com.mydomain.appname`
+
+- `X-Android-Cert`:
+
+The SHA-1 hash of the signing certificate used to sign the Android
+APK.
+
+Example:
+
+`BB:0D:AC:74:D3:21:E1:43:67:71:9B:62:91:AF:A1:66:6E:44:5D:75`
+
+**Apple application identifiers:**
+
+- `X-Apple-Bundle-Id` :
+
+A unique identifier for Apple (iOS, macOS, etc.) applications, defined in
+the app's `Info.plist`, typically following a reverse-domain
+format.
+
+Example:
+
+`com.mydomain.appname`
+
 ## API key best practices
 
 API keys include a plain text _value_ that gives access to one
@@ -351,8 +399,8 @@ review the following best practices:
 - **Limit the API key**
 
 To avoid the situation above, it is best to limit your API key. When you
-create the key, you can specify the domain or referrer where the key can be
-used.
+create the key, you can specify the domain, Android app or Apple app where
+the key can be used.
 
 - **Manage API key lifetimes**
 

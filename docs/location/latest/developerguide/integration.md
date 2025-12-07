@@ -72,7 +72,7 @@ monitoring, management and development.
 - Amazon Location Service console
   – Use the Amazon Location console to learn about APIs, resources,
   and to get started with a visual and interactive learning tool. For more
-  information, see the [Amazon Location Service console](https://console.aws.amazon.com//location/explore/home "https://console.aws.amazon.com//location/explore/home").
+  information, see the [Amazon Location Service console](https://console.aws.amazon.com/location/explore/home "https://console.aws.amazon.com/location/explore/home").
 
 **Cost and billing**
 

@@ -117,7 +117,7 @@ This pricing bucket has no restrictions on travel modes, up to 5,000
 ## Calculate Isoline
 
 This price is based on the number of Isolines calculated in the response.
-`CalculateIsoline` has 2 pricing buckets: Advanced and
+`CalculateIsolines` has 2 pricing buckets: Advanced and
 Premium.
 
 **Advanced**

@@ -21,68 +21,68 @@ index.html
 
 ```
 
-                        <!DOCTYPE html>
-                        <html lang="en">
-                            <head>
-                                <title>Display a map</title>
-                                <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
-                                <meta charset='utf-8'>
-                                <meta name="viewport" content="width=device-width, initial-scale=1">
-                                <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
-                                <link rel='stylesheet' href='style.css' />
-                                <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
-                                <script src="https://unpkg.com/@mapbox/mapbox-gl-sync-move@0.3.1"></script>
-                                <script src='main.js'></script>
-                            </head>
-                            <body>
-                                <!-- Map container -->
-                                <div class="maps">
-                                <div id="internatinalView"></div>
-                                <div id="turkeyView"></div>
-                                </div>
-                                <script>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Display a map</title>
+        <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
+        <link rel='stylesheet' href='style.css' />
+        <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
+        <script src="https://unpkg.com/@mapbox/mapbox-gl-sync-move@0.3.1"></script>
+        <script src='main.js'></script>
+    </head>
+    <body>
+        <!-- Map container -->
+        <div class="maps">
+        <div id="internatinalView"></div>
+        <div id="turkeyView"></div>
+        </div>
+        <script>
 
-                                    const apiKey = "Add Your Api Key";
-                                    const mapStyle = "Standard";
-                                    const awsRegion = "eu-central-1";
+            const apiKey = "Add Your Api Key";
+            const mapStyle = "Standard";
+            const awsRegion = "eu-central-1";
 
-                                    // International perspective without political-view query parameter
-                                    const internatinalViewMapStyleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
+            // International perspective without political-view query parameter
+            const internatinalViewMapStyleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
-                                    // Turkey perspective with political-view query parameter
-                                    const turkeyViewMapStyleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?political-view=TUR&key=${apiKey}`;
+            // Turkey perspective with political-view query parameter
+            const turkeyViewMapStyleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?political-view=TUR&key=${apiKey}`;
 
-                                    const internatinalViewMap = new maplibregl.Map({
-                                        container: 'internatinalView', // container id
-                                        style: internatinalViewMapStyleUrl, // style URL
-                                        center: [33.0714561, 35.1052139], // starting position [lng, lat]
-                                        zoom: 7.5,
-                                    });
+            const internatinalViewMap = new maplibregl.Map({
+                container: 'internatinalView', // container id
+                style: internatinalViewMapStyleUrl, // style URL
+                center: [33.0714561, 35.1052139], // starting position [lng, lat]
+                zoom: 7.5,
+            });
 
-                                    const turkeyViewMap = new maplibregl.Map({
-                                        container: 'turkeyView', // container id
-                                        style: turkeyViewMapStyleUrl, // style URL
-                                        center: [33.0714561, 35.1052139],
-                                        zoom: 7.5,
-                                    });
+            const turkeyViewMap = new maplibregl.Map({
+                container: 'turkeyView', // container id
+                style: turkeyViewMapStyleUrl, // style URL
+                center: [33.0714561, 35.1052139],
+                zoom: 7.5,
+            });
 
-                                    // Sync map zoom and center
-                                    syncMaps(internatinalViewMap, turkeyViewMap);
+            // Sync map zoom and center
+            syncMaps(internatinalViewMap, turkeyViewMap);
 
-                                    // Informational popup for international view
-                                    new maplibregl.Popup({closeOnClick: false})
-                                        .setLngLat([33, 35.5])
-                                        .setHTML('<h4>International view <br> recognizes <br> Cyprus</h4>')
-                                        .addTo(internatinalViewMap);
+            // Informational popup for international view
+            new maplibregl.Popup({closeOnClick: false})
+                .setLngLat([33, 35.5])
+                .setHTML('<h4>International view <br> recognizes <br> Cyprus</h4>')
+                .addTo(internatinalViewMap);
 
-                                    // Informational popup for Turkey's view
-                                    new maplibregl.Popup({closeOnClick: false})
-                                        .setLngLat([33, 35.5])
-                                        .setHTML('<h4>Turkey does not <br> recognize <br> Cyprus</h4>')
-                                        .addTo(turkeyViewMap);
-                                </script>
-                            </body>
-                        </html>
+            // Informational popup for Turkey's view
+            new maplibregl.Popup({closeOnClick: false})
+                .setLngLat([33, 35.5])
+                .setHTML('<h4>Turkey does not <br> recognize <br> Cyprus</h4>')
+                .addTo(turkeyViewMap);
+        </script>
+    </body>
+</html>
 
 ```
 
@@ -90,13 +90,13 @@ style.css
 
 ```
 
-                        body { margin: 0; padding: 0; }
-                        html, body { height: 100%; }
-                        #internatinalView, #turkeyView { height: 100%; width: 100%; }
-                        .maps {
-                            display: flex;
-                            width: 100%;
-                            height: 100%;
-                        }
+body { margin: 0; padding: 0; }
+html, body { height: 100%; }
+#internatinalView, #turkeyView { height: 100%; width: 100%; }
+.maps {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
 
 ```

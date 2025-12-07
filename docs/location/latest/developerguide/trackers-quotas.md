@@ -30,16 +30,16 @@ Amazon Location Service denies additional requests that exceed the service quota
 
 If you need a higher limit for any of these APIs, [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact the support team.
 
-| API name                                                                                                                                                       | Default | Max adjustable limit |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |
-| [AssociateTrackerConsumer](../../previous/APIReference/API_AssociateTrackerConsumer.md "../../previous/APIReference/API_AssociateTrackerConsumer.md")          | 10      | 20                   |
-| [CreateTracker](../../previous/APIReference/API_CreateTracker.md "../../previous/APIReference/API_CreateTracker.md")                                           | 10      | 20                   |
-| [DeleteTracker](../../previous/APIReference/API_DeleteTracker.md "../../previous/APIReference/API_DeleteTracker.md")                                           | 10      | 20                   |
-| [DescribeTracker](../../previous/APIReference/API_DescribeTracker.md "../../previous/APIReference/API_DescribeTracker.md")                                     | 10      | 20                   |
-| [DisassociateTrackerConsumer](../../previous/APIReference/API_DisassociateTrackerConsumer.md "../../previous/APIReference/API_DisassociateTrackerConsumer.md") | 10      | 20                   |
-| [ListTrackerConsumers](../../previous/APIReference/API_ListTrackerConsumers.md "../../previous/APIReference/API_ListTrackerConsumers.md")                      | 10      | 20                   |
-| [ListTrackers](../../previous/APIReference/API_ListTrackers.md "../../previous/APIReference/API_ListTrackers.md")                                              | 10      | 20                   |
-| [UpdateTracker](../../previous/APIReference/API_UpdateTracker.md "../../previous/APIReference/API_UpdateTracker.md")                                           | 10      | 20                   |
+| API name                                                                                                                                                                 | Default | Max adjustable limit |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | -------------------- |
+| [AssociateTrackerConsumer](../APIReference/API_WaypointTracking_AssociateTrackerConsumer.md "../APIReference/API_WaypointTracking_AssociateTrackerConsumer.md")          | 10      | 20                   |
+| [CreateTracker](../APIReference/API_WaypointTracking_CreateTracker.md "../APIReference/API_WaypointTracking_CreateTracker.md")                                           | 10      | 20                   |
+| [DeleteTracker](../APIReference/API_WaypointTracking_DeleteTracker.md "../APIReference/API_WaypointTracking_DeleteTracker.md")                                           | 10      | 20                   |
+| [DescribeTracker](../APIReference/API_WaypointTracking_DescribeTracker.md "../APIReference/API_WaypointTracking_DescribeTracker.md")                                     | 10      | 20                   |
+| [DisassociateTrackerConsumer](../APIReference/API_WaypointTracking_DisassociateTrackerConsumer.md "../APIReference/API_WaypointTracking_DisassociateTrackerConsumer.md") | 10      | 20                   |
+| [ListTrackerConsumers](../APIReference/API_WaypointTracking_ListTrackerConsumers.md "../APIReference/API_WaypointTracking_ListTrackerConsumers.md")                      | 10      | 20                   |
+| [ListTrackers](../APIReference/API_WaypointTracking_ListTrackers.md "../APIReference/API_WaypointTracking_ListTrackers.md")                                              | 10      | 20                   |
+| [UpdateTracker](../APIReference/API_WaypointTracking_UpdateTracker.md "../APIReference/API_WaypointTracking_UpdateTracker.md")                                           | 10      | 20                   |
 
 ## Data API
 
@@ -47,13 +47,13 @@ If you need a higher limit for any of these APIs, [request quota increases](http
 
 If you need a higher limit for any of these APIs, [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact the support team.
 
-| API name                                                                                                                                                                      | Default | Max adjustable limit |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |
-| [BatchGetDevicePosition](../../previous/APIReference/API_BatchGetDevicePosition.md "../../previous/APIReference/API_BatchGetDevicePosition.md")                               | 50      | 100                  |
-| [BatchUpdateDevicePosition](../../previous/APIReference/API_BatchUpdateDevicePosition.md "../../previous/APIReference/API_BatchUpdateDevicePosition.md")                      | 50      | 100                  |
-| [GetDevicePosition](../../previous/APIReference/API_GetDevicePosition.md "../../previous/APIReference/API_GetDevicePosition.md")                                              | 50      | 100                  |
-| [GetDevicePositionHistory](../../previous/APIReference/API_GetDevicePositionHistory.md "../../previous/APIReference/API_GetDevicePositionHistory.md")                         | 50      | 100                  |
-| [BatchDeleteDevicePositionHistory](../../previous/APIReference/API_BatchDeleteDevicePositionHistory.md "../../previous/APIReference/API_BatchDeleteDevicePositionHistory.md") | 50      | 100                  |
-| [ListDevicePositions](../../previous/APIReference/API_ListDevicePositions.md "../../previous/APIReference/API_ListDevicePositions.md")                                        | 50      | 100                  |
+| API name                                                                                                                                                                                | Default | Max adjustable limit |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |
+| [BatchGetDevicePosition](../APIReference/API_WaypointTracking_BatchGetDevicePosition.md "../APIReference/API_WaypointTracking_BatchGetDevicePosition.md")                               | 50      | 100                  |
+| [BatchUpdateDevicePosition](../APIReference/API_WaypointTracking_BatchUpdateDevicePosition.md "../APIReference/API_WaypointTracking_BatchUpdateDevicePosition.md")                      | 50      | 100                  |
+| [GetDevicePosition](../APIReference/API_WaypointTracking_GetDevicePosition.md "../APIReference/API_WaypointTracking_GetDevicePosition.md")                                              | 50      | 100                  |
+| [GetDevicePositionHistory](../APIReference/API_WaypointTracking_GetDevicePositionHistory.md "../APIReference/API_WaypointTracking_GetDevicePositionHistory.md")                         | 50      | 100                  |
+| [BatchDeleteDevicePositionHistory](../APIReference/API_WaypointTracking_BatchDeleteDevicePositionHistory.md "../APIReference/API_WaypointTracking_BatchDeleteDevicePositionHistory.md") | 50      | 100                  |
+| [ListDevicePositions](../APIReference/API_WaypointTracking_ListDevicePositions.md "../APIReference/API_WaypointTracking_ListDevicePositions.md")                                        | 50      | 100                  |
 
 ## Other usage limits

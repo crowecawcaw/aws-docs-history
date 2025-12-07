@@ -16,7 +16,7 @@ Amazon Location Service integrates with AWS CloudTrail, which is a service that 
 actions taken by a user, role or AWS service. This includes actions from the
 Amazon Location Service console, and programmatic calls to Amazon Location API operations. These
 records of action are called events. For more information, see [Logging and
-monitoring Amazon Location Service with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+monitoring Amazon Location Service with AWS CloudTrail](cloudtrail.md "cloudtrail.md").
 
 **Amazon CloudWatch**
 
@@ -24,7 +24,7 @@ You can use Amazon CloudWatch to collect and analyze metrics related to your Ama
 account. You can enable CloudWatch alarms to notify you if a metric meets certain
 conditions, and has reached a specified threshold. When you create an alarm, CloudWatch
 sends a notification to an Amazon Simple Notification Service that you define. For more information, see
-the [Monitoring Amazon Location Service with Amazon CloudWatch](monitoring-using-cloudwatch.md "monitoring-using-cloudwatch.md").
+the [Monitoring Amazon Location Service with Amazon CloudWatch](cloudwatch.md "cloudwatch.md").
 
 **AWS Health Dashboards**
 

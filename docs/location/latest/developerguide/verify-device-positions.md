@@ -1,6 +1,6 @@
 # Verify device positions
 
-To check the integrity of a device position use the [VerifyDevicePosition](../../previous/APIReference/API_VerifyDevicePosition.md "../../previous/APIReference/API_VerifyDevicePosition.md") API.
+To check the integrity of a device position use the [VerifyDevicePosition](../APIReference/API_WaypointTracking_VerifyDevicePosition.md "../APIReference/API_WaypointTracking_VerifyDevicePosition.md") API.
 This API returns information about the integrity of the device's position,
 by evaluating properties such as the device's cell signal, Wi-Fi access point, Ipv4 address, and if a proxy is in use.
 
@@ -10,7 +10,7 @@ Before being able to use the listed APIs for device verification, make sure you 
 
 - You have created a tracker for the device or devices you want to check. For more information, see [Get started with Amazon Location Service trackers](start-tracking.md "start-tracking.md").
 
-The following example shows a request for the Amazon Location [VerifyDevicePosition](../../previous/APIReference/API_VerifyDevicePosition.md "../../previous/APIReference/API_VerifyDevicePosition.md") API.
+The following example shows a request for the Amazon Location [VerifyDevicePosition](../APIReference/API_WaypointTracking_VerifyDevicePosition.md "../APIReference/API_WaypointTracking_VerifyDevicePosition.md") API.
 
 API
 **To verify device positions using the Amazon Location APIs**

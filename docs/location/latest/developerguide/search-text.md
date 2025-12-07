@@ -18,7 +18,7 @@ For more information, see [SearchText](../APIReference/API_geoplaces_SearchText.
 the _Amazon Location Service API Reference_.
 
 For example requests, responses, cURL, and CLI commands for this API, see [How to use
-Search Text](SearchText-how-to.md "SearchText-how-to.md").
+Search Text](search-text-how-to.md "search-text-how-to.md").
 
 ## Use cases
 

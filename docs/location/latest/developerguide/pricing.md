@@ -4,7 +4,7 @@ Amazon Location Service requires no up-front commitment and no minimum fee. You'
 what you use. Amazon Location offers a free trial for the first three months of usage (usage
 quota apply). Location data is billed based on each request your application makes to
 the service. Beyond the Amazon Location Service free trial, you pay for the requests your application
-makes to the service. For more pricing information, visit our [pricing page](https://aws.amazon.com//location/pricing/ "https://aws.amazon.com//location/pricing/").
+makes to the service. For more pricing information, visit our [pricing page](https://aws.amazon.com/location/pricing/ "https://aws.amazon.com/location/pricing/").
 
 **Pricing Buckets**
 
@@ -18,7 +18,7 @@ For example, for `CalculateRoutes`, you'll be charged at **Core** price bucket w
 The specific pricing bucket you'll be charged for will be returned in the
 `PricingBucket` response field. To review the pricing for each API and
 feature, see the Amazon Location Service [pricing
-page](https://aws.amazon.com//location/pricing/ "https://aws.amazon.com//location/pricing/") for details on API feature, request parameters, and corresponding
+page](https://aws.amazon.com/location/pricing/ "https://aws.amazon.com/location/pricing/") for details on API feature, request parameters, and corresponding
 pricing. For more information, see the following topics:
 
 - [Maps pricing](maps-pricing.md "maps-pricing.md")

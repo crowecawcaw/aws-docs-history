@@ -12,35 +12,35 @@ index.html
 
 ```
 
-                                    <!DOCTYPE html>
-                                    <html lang="en">
-                                        <head>
-                                            <title>Display a map</title>
-                                            <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
-                                            <meta charset='utf-8'>
-                                            <meta name="viewport" content="width=device-width, initial-scale=1">
-                                            <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
-                                            <link rel='stylesheet' href='style.css' />
-                                            <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
-                                        </head>
-                                        <body>
-                                            <!-- Map container -->
-                                            <div id="map"></div>
-                                            <script>
-                                                const apiKey = "<API_KEY>";
-                                                const mapStyle = "Standard"; // e.g., Standard, Monochrome, Hybrid, Satellite
-                                                const awsRegion = "eu-central-1"; // e.g., us-east-2, us-east-1, us-west-2, etc.
-                                                const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Display a map</title>
+        <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
+        <link rel='stylesheet' href='style.css' />
+        <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
+    </head>
+    <body>
+        <!-- Map container -->
+        <div id="map"></div>
+        <script>
+            const apiKey = "<API_KEY>";
+            const mapStyle = "Standard"; // e.g., Standard, Monochrome, Hybrid, Satellite
+            const awsRegion = "eu-central-1"; // e.g., us-east-2, us-east-1, us-west-2, etc.
+            const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
-                                                const map = new maplibregl.Map({
-                                                    container: 'map', // container id
-                                                    style: styleUrl, // style URL
-                                                    center: [25.24, 36.31], // starting position [lng, lat]
-                                                    zoom: 2, // starting zoom
-                                                });
-                                            </script>
-                                        </body>
-                                    </html>
+            const map = new maplibregl.Map({
+                container: 'map', // container id
+                style: styleUrl, // style URL
+                center: [25.24, 36.31], // starting position [lng, lat]
+                zoom: 2, // starting zoom
+            });
+        </script>
+    </body>
+</html>
 
 ```
 
@@ -48,8 +48,8 @@ style.css
 
 ```
 
-                body { margin: 0; padding: 0; }
-             html, body, #map { height: 100%; }
+body { margin: 0; padding: 0; }
+html, body, #map { height: 100%; }
 
 ```
 
@@ -62,39 +62,39 @@ index.html
 
 ```
 
-                        <!DOCTYPE html>
-                        <html lang="en">
-                            <head>
-                                <title>Display a map</title>
-                                <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
-                                <meta charset='utf-8'>
-                                <meta name="viewport" content="width=device-width, initial-scale=1">
-                                <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
-                                <link rel='stylesheet' href='style.css' />
-                                <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
-                            </head>
-                            <body>
-                                <!-- Map container -->
-                                <div id="map"></div>
-                                <script>
-                                    const apiKey = "<API_KEY>";
-                                    const mapStyle = "Standard"; // e.g., Standard, Monochrome, Hybrid, Satellite
-                                    const awsRegion = "eu-central-1"; // e.g., us-east-2, us-east-1, us-west-2, etc.
-                                    const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Display a map</title>
+        <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
+        <link rel='stylesheet' href='style.css' />
+        <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
+    </head>
+    <body>
+        <!-- Map container -->
+        <div id="map"></div>
+        <script>
+            const apiKey = "<API_KEY>";
+            const mapStyle = "Standard"; // e.g., Standard, Monochrome, Hybrid, Satellite
+            const awsRegion = "eu-central-1"; // e.g., us-east-2, us-east-1, us-west-2, etc.
+            const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
-                                    var bounds = [
-                                        [90.0, -21.943045533438166], // Southwest coordinates
-                                        [146.25, 31.952162238024968] // Northeast coordinates
-                                    ];
+            var bounds = [
+                [90.0, -21.943045533438166], // Southwest coordinates
+                [146.25, 31.952162238024968] // Northeast coordinates
+            ];
 
-                                    const map = new maplibregl.Map({
-                                        container: 'map', // container id
-                                        style: styleUrl, // style URL
-                                        maxBounds: bounds, // Sets bounds of SE Asia
-                                    });
-                                </script>
-                            </body>
-                        </html>
+            const map = new maplibregl.Map({
+                container: 'map', // container id
+                style: styleUrl, // style URL
+                maxBounds: bounds, // Sets bounds of SE Asia
+            });
+        </script>
+    </body>
+</html>
 
 ```
 
@@ -102,8 +102,8 @@ style.css
 
 ```
 
-    body { margin: 0; padding: 0; }
-    html, body, #map { height: 100%; }
+body { margin: 0; padding: 0; }
+html, body, #map { height: 100%; }
 
 ```
 
@@ -116,36 +116,36 @@ index.html
 
 ```
 
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <title>Display a map</title>
-            <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
-            <meta charset='utf-8'>
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
-            <link rel='stylesheet' href='style.css' />
-            <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
-        </head>
-        <body>
-            <!-- Map container -->
-            <div id="map"></div>
-            <script>
-                const apiKey = "<API_KEY>";
-                const mapStyle = "Standard"; // e.g., Standard, Monochrome, Hybrid, Satellite
-                const awsRegion = "eu-central-1"; // e.g., us-east-2, us-east-1, us-west-2, etc.
-                const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Display a map</title>
+        <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
+        <link rel='stylesheet' href='style.css' />
+        <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
+    </head>
+    <body>
+        <!-- Map container -->
+        <div id="map"></div>
+        <script>
+            const apiKey = "<API_KEY>";
+            const mapStyle = "Standard"; // e.g., Standard, Monochrome, Hybrid, Satellite
+            const awsRegion = "eu-central-1"; // e.g., us-east-2, us-east-1, us-west-2, etc.
+            const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
-                const map = new maplibregl.Map({
-                    container: 'map', // container id
-                    style: styleUrl, // style URL
-                    center: [25.24, 36.31], // starting position [lng, lat]
-                    zoom: 2, // starting zoom
-                    interactive: false, // Disable pan & zoom handlers
-                });
-            </script>
-        </body>
-    </html>
+            const map = new maplibregl.Map({
+                container: 'map', // container id
+                style: styleUrl, // style URL
+                center: [25.24, 36.31], // starting position [lng, lat]
+                zoom: 2, // starting zoom
+                interactive: false, // Disable pan & zoom handlers
+            });
+        </script>
+    </body>
+</html>
 
 ```
 
@@ -153,7 +153,7 @@ style.css
 
 ```
 
-    body { margin: 0; padding: 0; }
-    html, body, #map { height: 100%; }
+body { margin: 0; padding: 0; }
+html, body, #map { height: 100%; }
 
 ```
