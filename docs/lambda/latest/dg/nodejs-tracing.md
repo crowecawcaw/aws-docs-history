@@ -269,7 +269,7 @@ Resources:
  Description: Dependencies for the blank sample app.
  ContentUri: lib/.
  CompatibleRuntimes:
- - nodejs22.x`
+ - nodejs24.x`
 ```
 
 With this configuration, you update the library layer only if you change your runtime dependencies.

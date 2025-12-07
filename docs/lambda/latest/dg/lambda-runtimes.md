@@ -7,7 +7,7 @@ offer the fastest performance. For functions with more complex computation, comp
 slower to initialize but run quickly in the Lambda handler. Choice of runtime is also influenced by developer
 preference and language familiarity.
 
-Each major programming language release has a separate runtime, with a unique _runtime identifier_, such as `nodejs22.x` or `python3.13`. To configure a function to use a new major language version, you need to change the runtime identifier. Since AWS Lambda cannot guarantee backward compatibility between major versions, this is a customer-driven operation.
+Each major programming language release has a separate runtime, with a unique _runtime identifier_, such as `nodejs24.x` or `python3.14`. To configure a function to use a new major language version, you need to change the runtime identifier. Since AWS Lambda cannot guarantee backward compatibility between major versions, this is a customer-driven operation.
 
 For a [function defined as a container image](images-create.md "images-create.md"),
 you choose a runtime and the Linux distribution when you create the container image. To change the runtime, you create a new container image.

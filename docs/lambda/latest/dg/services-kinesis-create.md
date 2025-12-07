@@ -71,7 +71,7 @@ Resources:
     Properties:
       CodeUri: ./my-function/
       Handler: index.handler
-      Runtime: nodejs22.x
+      Runtime: nodejs24.x
       Policies:
         - AWSLambdaKinesisExecutionRole
 ```
@@ -126,7 +126,7 @@ Resources:
     Properties:
       CodeUri: ./my-function/
       Handler: index.handler
-      Runtime: nodejs22.x
+      Runtime: nodejs24.x
       Policies:
         - AWSLambdaKinesisExecutionRole
       Events:

@@ -136,7 +136,7 @@ In the following [create-function](https://awscli.amazonaws.com/v2/documentation
 ```
 aws lambda create-function \
   --function-name myFunction \
-  --runtime nodejs22.x \
+  --runtime nodejs24.x \
   --handler index.handler \
   --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
   `--code` ZipFile=fileb://`myFunction.zip`,SourceKMSKeyArn=`arn:aws:kms:us-east-1:111122223333:key/key-id` \
@@ -151,7 +151,7 @@ In the following [create-function](https://awscli.amazonaws.com/v2/documentation
 ```
 aws lambda create-function \
   --function-name myFunction \
-  --runtime nodejs22.x --handler index.handler \
+  --runtime nodejs24.x --handler index.handler \
   --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
   `--code` S3Bucket=`amzn-s3-demo-bucket`,S3Key=`myFileName.zip`,S3ObjectVersion=`myObjectVersion`,SourceKMSKeyArn=`arn:aws:kms:us-east-1:111122223333:key/key-id` \
   `--kms-key-arn` `arn:aws:kms:us-east-1:111122223333:key/key2-id`

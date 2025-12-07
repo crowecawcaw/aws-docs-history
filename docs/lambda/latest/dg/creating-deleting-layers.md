@@ -57,7 +57,7 @@ other configuration changes, you must create a new version of the layer.
 Alternatively, you can run the [publish-layer-version](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html") AWS Command Line Interface (CLI) command. Example:
 
 ```
-aws lambda publish-layer-version --layer-name `my-layer` --zip-file fileb://layer.zip --compatible-runtimes `python3.13`
+aws lambda publish-layer-version --layer-name `my-layer` --zip-file fileb://layer.zip --compatible-runtimes `python3.14`
 ```
 
 Each time that you run `publish-layer-version`, Lambda creates a new [version of the layer](chapter-layers.md#lambda-layer-versions "chapter-layers.md#lambda-layer-versions").

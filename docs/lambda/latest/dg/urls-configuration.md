@@ -44,7 +44,7 @@ The following section show how to create and manage a function URL using the Lam
 - [Cross-origin resource sharing (CORS)](#urls-cors "#urls-cors")
 - [Throttling function URLs](#urls-throttling "#urls-throttling")
 - [Deactivating function URLs](#urls-deactivating "#urls-deactivating")
-- [Deleting function URLs](#w2aac31c75c53 "#w2aac31c75c53")
+- [Deleting function URLs](#w2aac39c81c53 "#w2aac39c81c53")
 - [Control access to Lambda function URLs](urls-auth.md "urls-auth.md")
 - [Invoking Lambda function URLs](urls-invocation.md "urls-invocation.md")
 - [Monitoring Lambda function URLs](urls-monitoring.md "urls-monitoring.md")
@@ -91,7 +91,7 @@ Follow these steps to create a function URL using the console.
    1. For **Function name**, enter a name for your function, such as
       `my-function`.
    2. For **Runtime**, choose the language runtime that you prefer, such as
-      **Node.js 22**.
+      **Node.js 24**.
    3. For **Architecture**, choose either **x86_64** or
       **arm64**.
    4. Expand **Permissions**, then choose whether to create a new execution role or use

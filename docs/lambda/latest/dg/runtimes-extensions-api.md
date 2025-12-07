@@ -106,6 +106,10 @@ When a Lambda function is invoked in response to a `Next` API request, Lambda
 sends an `Invoke` event to the runtime and to each extension that is registered
 for the `Invoke` event.
 
+###### Note
+
+**Lambda Managed Instances:** Extensions for Lambda Managed Instances functions cannot register for the `Invoke` event. Because Lambda Managed Instances supports concurrent invocations within a single execution environment, the `Invoke` event is not supported. Extensions can only register for the `Shutdown` event. If you need to track when invocations start and finish, use the `platform.report` platform event through the [Telemetry API](telemetry-api.md "telemetry-api.md").
+
 During the invocation, external extensions run in parallel with the function. They also continue running
 after the function has completed. This enables you to capture diagnostic information or to send logs, metrics,
 and traces to a location of your choice.
@@ -240,6 +244,7 @@ the following variables that are specific to the runtime process:
 - `AWS_EXECUTION_ENV`
 - `AWS_LAMBDA_LOG_GROUP_NAME`
 - `AWS_LAMBDA_LOG_STREAM_NAME`
+- `AWS_LAMBDA_MAX_CONCURRENCY` (Lambda Managed Instances only)
 - `AWS_XRAY_CONTEXT_MISSING`
 - `AWS_XRAY_DAEMON_ADDRESS`
 - `LAMBDA_RUNTIME_DIR`
@@ -247,6 +252,10 @@ the following variables that are specific to the runtime process:
 - `_AWS_XRAY_DAEMON_ADDRESS`
 - `_AWS_XRAY_DAEMON_PORT`
 - `_HANDLER`
+
+###### Note
+
+**Detecting Lambda Managed Instances:** Extensions can check the `AWS_LAMBDA_INITIALIZATION_TYPE` environment variable to determine if they are running on Lambda Managed Instances versus Lambda (default) functions. This is the recommended method for extensions to adapt their behavior based on the execution environment type.
 
 ### Failure handling
 
@@ -336,6 +345,10 @@ permitted to register for the `Shutdown` event.
 
 - `events` – Array of the events to register for. Required: no. Type:
   array of strings. Valid strings: `INVOKE`, `SHUTDOWN`.
+
+###### Note
+
+**Lambda Managed Instances:** Extensions for Lambda Managed Instances functions can only register for the `SHUTDOWN` event. Attempting to register for the `INVOKE` event will result in an error. This is because Lambda Managed Instances supports concurrent invocations within a single execution environment.
 
 ###### Response headers
 

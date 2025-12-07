@@ -1,16 +1,23 @@
 # Understanding the Lambda programming model
 
+Lambda offers two programming models: standard functions that run up to 15 minutes, and Durable Functions that can run up to one year. While both share core concepts, Durable Functions add capabilities for long-running, stateful workflows.
+
 Lambda provides a programming model that is common to all of the runtimes. The programming model defines the
 interface between your code and the Lambda system. You tell Lambda the entry point to your function by defining a
 _handler_ in the function configuration. The runtime passes in objects to the handler that
 contain the invocation _event_ and the _context_, such as the function name
 and request ID.
 
-When the handler finishes processing the first event, the runtime sends it another. The function's class stays
-in memory, so clients and variables that are declared outside of the handler method in _initialization
-code_ can be reused. To save processing time on subsequent events, create reusable resources like
-AWS SDK clients during initialization. Once initialized, each instance of your function can process thousands of
-requests.
+**For Durable Functions, the handler also receives a DurableContext object that provides:**
+
+- Checkpointing capabilities through step()
+- Wait state management through wait() and waitForCallback()
+- Automatic state persistence between invocations
+  When the handler finishes processing the first event, the runtime sends it another. For Durable Functions, the handler can pause execution between steps, and Lambda will automatically save and restore state when the function resumes. The function's class stays
+  in memory, so clients and variables that are declared outside of the handler method in _initialization
+  code_ can be reused. To save processing time on subsequent events, create reusable resources like
+  AWS SDK clients during initialization. Once initialized, each instance of your function can process thousands of
+  requests.
 
 Your function also has access to local storage in the `/tmp` directory, a transient cache that can be used for multiple invocations. For more information,
 see [Execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md").
@@ -28,8 +35,14 @@ error, the runtime returns that error to the invoker.
 Logging is subject to [CloudWatch Logs quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md"). Log data can be lost due
 to throttling or, in some cases, when an instance of your function is stopped.
 
-Lambda scales your function by running additional instances of it as demand increases, and by stopping
-instances as demand decreases. This model leads to variations in application architecture, such as:
+**Key differences for Durable Functions:**
+
+- State is automatically persisted between steps
+- Functions can pause execution without consuming resources
+- Steps are automatically retried on failure
+- Progress is tracked through checkpoints
+  Lambda scales your function by running additional instances of it as demand increases, and by stopping
+  instances as demand decreases. This model leads to variations in application architecture, such as:
 
 - Unless noted otherwise, incoming requests might be processed out of order or concurrently.
 - Do not rely on instances of your function being long lived, instead store your application's state elsewhere.

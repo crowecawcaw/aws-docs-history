@@ -1,12 +1,11 @@
 # How Lambda works
 
-Lambda functions are the basic building blocks you use to build Lambda applications. To write functions, it's essential to understand the core concepts and components that make up the Lambda programming model.
-This section will guide you through the fundamental elements you need to know to start building serverless applications with Lambda.
+Lambda functions are the basic building blocks you use to build Lambda applications. To write functions, it's essential to understand the core concepts and components that make up the Lambda programming model. This section will guide you through the fundamental elements you need to know to start building serverless applications with Lambda.
 
-- **[Lambda functions and function handlers](#gettingstarted-concepts-function "#gettingstarted-concepts-function")** - A Lambda function is a small block of code that runs in response to events. functions are the basic building blocks you use to build applications. Function handlers are the entry point for event objects that your Lambda function code processes.
-- **[Lambda execution environment and runtimes](#gettingstarted-concepts-runtime "#gettingstarted-concepts-runtime")** - Lambda execution environments manage the resources required to run your function. Run times are the language-specific environments your functions run in.
-- **[Events and triggers](#gettingstarted-concepts-event "#gettingstarted-concepts-event")** - how other AWS services invoke your functions in response to specific events.
-- **[Lambda permissions and roles](#gettingstarted-concepts-permissions "#gettingstarted-concepts-permissions")** - how you control who can access your functions and what other AWS services your functions can interact with.
+- **[Lambda functions and function handlers](#gettingstarted-concepts-function "#gettingstarted-concepts-function")** - A Lambda function is a small block of code that runs in response to events. Functions can be standard (up to 15 minutes) or [durable](durable-functions.md "durable-functions.md") (up to one year). Functions are the basic building blocks you use to build applications. Function handlers are the entry point for event objects that your Lambda function code processes.
+- **[Lambda execution environment and runtimes](#gettingstarted-concepts-runtime "#gettingstarted-concepts-runtime")** - Lambda execution environments manage the resources required to run your function. For [durable functions](durable-functions.md "durable-functions.md"), the execution environment includes automatic state management and checkpointing capabilities. Runtimes are the language-specific environments your functions run in.
+- **[Events and triggers](#gettingstarted-concepts-event "#gettingstarted-concepts-event")** - Other AWS services can invoke your functions in response to specific events. For durable functions, events can also trigger resumption of paused workflows.
+- **[Lambda permissions and roles](#gettingstarted-concepts-permissions "#gettingstarted-concepts-permissions")** - Control who can access your functions and what other AWS services your functions can interact with. durable functions require additional permissions for state management and extended execution.
 
 ###### Tip
 
@@ -16,8 +15,10 @@ in the _AWS Serverless Developer Guide_.
 ## Lambda functions and function handlers
 
 In Lambda, **functions** are the fundamental building blocks you use to create applications. A Lambda function is a piece
-of code that runs in response to events, such as a user clicking a button on a website or a file being uploaded to an Amazon Simple Storage Service (Amazon S3) bucket.
-You can think of a function as a kind of self-contained program with the following properties. A Lambda **function handler** is the method in your function code that processes events.
+of code that runs in response to events, such as a user clicking a button on a website or a file being uploaded to an Amazon Simple Storage Service (Amazon S3) bucket. With durable functions, your code can pause execution between steps, maintaining state automatically, making them ideal for long-running workflows like order processing or content moderation
+You can think of a function as a kind of self-contained program with the following properties.
+
+A Lambda **function handler** is the method in your function code that processes events.
 When a function runs in response to an event, Lambda runs the function handler. Data about the event that caused the function to run is
 passed directly to the handler. While the code in a Lambda function can contain more than one method or function, Lambda functions can only have one handler.
 
@@ -30,8 +31,7 @@ To create a Lambda function, you bundle your function code and its dependencies 
 
 ## Lambda execution environment and runtimes
 
-Lambda functions run inside a secure, isolated _[execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md")_ which Lambda manages for you. This
-execution environment manages the processes and resources that are needed to run your function. When a function is first invoked, Lambda
+Lambda functions run inside a secure, isolated _[execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md")_ which Lambda manages for you. For [durable functions](durable-functions.md "durable-functions.md"), the execution environment includes additional components for state management and workflow coordination. The execution environment manages the processes and resources that are needed to run your function. When a function is first invoked, Lambda
 creates a new execution environment for the function to run in. After the function has finished running, Lambda doesn't stop the execution environment right away;
 if the function is invoked again, Lambda can re-use the existing execution environment.
 

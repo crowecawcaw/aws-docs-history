@@ -28,7 +28,7 @@ To complete the steps in this section, you must have the following:
 1. Initialize the application using the Hello World TypeScript template.
 
 ```
-`sam init --app-template hello-world-typescript --name sam-app --package-type Zip --runtime nodejs22.x`
+`sam init --app-template hello-world-typescript --name sam-app --package-type Zip --runtime nodejs24.x`
 ```
 
 2. (Optional) The sample application includes configurations for commonly used tools, such as [ESLlint](https://eslint.org/ "https://eslint.org/") for code linting and [Jest](https://jestjs.io/ "https://jestjs.io/") for unit testing. To run lint and test commands:
@@ -263,7 +263,7 @@ npm run build
 7. Create a Lambda function using the .zip deployment package. Replace the highlighted text with the Amazon Resource Name (ARN) of your [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
 
 ```
-aws lambda create-function --function-name hello-world --runtime "nodejs22.x" --role `arn:aws:iam::123456789012:role/lambda-ex` --zip-file "fileb://dist/index.zip" --handler index.handler
+aws lambda create-function --function-name hello-world --runtime "nodejs24.x" --role `arn:aws:iam::123456789012:role/lambda-ex` --zip-file "fileb://dist/index.zip" --handler index.handler
 ```
 
 8. [Run a test event](testing-functions.md "testing-functions.md") to confirm that the function returns the following response. If you want to invoke this function using API Gateway, [create and configure a REST API](../../../apigateway/latest/developerguide/how-to-create-api.md "../../../apigateway/latest/developerguide/how-to-create-api.md").

@@ -560,7 +560,7 @@ AWS CLI
 
   ```
   `aws lambda create-function --function-name CreateThumbnail \
-  --zip-file fileb://function.zip --handler index.handler --runtime nodejs22.x \
+  --zip-file fileb://function.zip --handler index.handler --runtime nodejs24.x \
   --timeout 10 --memory-size 1024 \
   --role arn:aws:iam::`123456789012`:role/LambdaS3Role --region `us-east-1``
   ```
@@ -571,7 +571,7 @@ AWS CLI
   ```
   `aws lambda create-function --function-name CreateThumbnail \
   --zip-file fileb://lambda_function.zip --handler lambda_function.lambda_handler \
-  --runtime python3.13 --timeout 10 --memory-size 1024 \
+  --runtime python3.14 --timeout 10 --memory-size 1024 \
   --role arn:aws:iam::`123456789012`:role/LambdaS3Role --region `us-east-1``
   ```
 

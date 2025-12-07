@@ -7,6 +7,12 @@ remains fully functional, we recommend using only the Telemetry API going forwar
 your extension to a telemetry stream using either the Telemetry API or the Logs API. After subscribing using one
 of these APIs, any attempt to subscribe using the other API returns an error.
 
+###### Lambda Managed Instances do not support Logs API
+
+Lambda Managed Instances do not support the Logs API. If you are using Managed Instance functions,
+use the [Telemetry API](telemetry-api.md "telemetry-api.md") instead. The Telemetry API provides
+enhanced capabilities for collecting and processing telemetry data from your Lambda functions.
+
 Lambda automatically captures runtime logs and streams them to Amazon CloudWatch. This log stream contains the logs that
 your function code and extensions generate, and also the logs that Lambda generates as part of the function
 invocation.

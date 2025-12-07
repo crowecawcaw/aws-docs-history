@@ -50,7 +50,7 @@ To complete the steps in this section, you must have the following:
 1. Initialize the application using the Hello World TypeScript template.
 
 ```
-sam init --app-template hello-world-powertools-typescript --name sam-app --package-type Zip --runtime nodejs22.x --no-tracing
+sam init --app-template hello-world-powertools-typescript --name sam-app --package-type Zip --runtime nodejs24.x --no-tracing
 ```
 
 2. Build the app.

@@ -88,7 +88,7 @@ The **cli-binary-format** option is required if you're using AWS CLI version 2. 
 ```
 `aws lambda create-function \
  --function-name `my-function` \
- --runtime "`java21`" \
+ --runtime "`java25`" \
  --zip-file fileb://my-function.zip \
  --handler my-function.handler \
  --role `arn:aws:iam::111122223333:role/lambda-ex` \

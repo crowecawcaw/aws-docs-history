@@ -54,7 +54,7 @@ need it in later steps.
 Create a Lambda function that processes your Amazon SQS messages. The function code logs the body of
 the Amazon SQS message to CloudWatch Logs.
 
-This tutorial uses the Node.js 22 runtime, but we've also provided
+This tutorial uses the Node.js 24 runtime, but we've also provided
 example code in other runtime languages. You can select the tab in the following box to see code
 for the runtime you're interested in. The JavaScript code you'll use in this step is in the first
 example shown in the **JavaScript** tab.
@@ -461,7 +461,7 @@ The Lambda function and the Amazon SQS queue must be in the same AWS Region.
 
 ```
 `aws lambda create-function --function-name ProcessSQSRecord \
---zip-file fileb://function.zip --handler index.handler --runtime nodejs22.x \
+--zip-file fileb://function.zip --handler index.handler --runtime nodejs24.x \
 `--role arn:aws:iam::`111122223333`:role/lambda-sqs-role``
 ```
 

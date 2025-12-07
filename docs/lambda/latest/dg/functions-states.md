@@ -75,7 +75,7 @@ The following example is the result of [GetFunctionConfiguration](../api/API_Get
 {
     "FunctionName": "my-function",
     "FunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:my-function",
-    "Runtime": "nodejs22.x",
+    "Runtime": "nodejs24.x",
     "VpcConfig": {
         "SubnetIds": [
             "subnet-071f712345678e7c8",

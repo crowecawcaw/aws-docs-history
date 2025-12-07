@@ -89,7 +89,7 @@ CloudWatch Logs. We’ll add the permissions to read from your Amazon SNS topic 
 Create a Lambda function that processes your Amazon SNS messages. The function code logs the message
 contents of each record to Amazon CloudWatch Logs.
 
-This tutorial uses the Node.js 22 runtime, but we've also provided example code in other
+This tutorial uses the Node.js 24 runtime, but we've also provided example code in other
 runtime languages. You can select the tab in the following box to see code for the runtime
 you're interested in. The JavaScript code you'll use in this step is in the first example
 shown in the **JavaScript** tab.
@@ -512,7 +512,7 @@ cd sns-tutorial
 
 ```
 `aws lambda create-function --function-name Function-With-SNS \
- --zip-file fileb://function.zip --handler index.handler --runtime nodejs22.x \
+ --zip-file fileb://function.zip --handler index.handler --runtime nodejs24.x \
  --role arn:aws:iam::`<AccountB_ID>`:role/lambda-sns-role \
  --timeout 60 --profile accountB`
 ```
@@ -523,7 +523,7 @@ You should see output similar to the following.
 {
     "FunctionName": "Function-With-SNS",
     "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:Function-With-SNS",
-    "Runtime": "nodejs22.x",
+    "Runtime": "nodejs24.x",
     "Role": "arn:aws:iam::123456789012:role/lambda_basic_role",
     "Handler": "index.handler",
     ...

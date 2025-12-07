@@ -211,7 +211,7 @@ JSON
 
 ## Create the Lambda function
 
-This tutorial uses the Python 3.13 runtime, but we’ve also provided example code files for other runtimes. You can select the
+This tutorial uses the Python 3.14 runtime, but we’ve also provided example code files for other runtimes. You can select the
 tab in the following box to see the code for the runtime you’re interested in.
 
 The code receives an Amazon DocumentDB event input and processes the message that it contains.
@@ -223,7 +223,7 @@ The code receives an Amazon DocumentDB event input and processes the message tha
 3. Choose **Author from scratch**
 4. Under **Basic information**, do the following:
    1. For **Function name**, enter `ProcessDocumentDBRecords`
-   2. For **Runtime**, choose **Python 3.13**.
+   2. For **Runtime**, choose **Python 3.14**.
    3. For **Architecture**, choose **x86_64**.
 
 5. In the **Change default execution role** tab, do the following:

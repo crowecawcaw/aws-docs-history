@@ -312,7 +312,7 @@ the `--zip-file` option to specify the file path, as shown in the following exam
 
 ```
 `aws lambda create-function --function-name myFunction \
---runtime java21 --handler example.handler \
+--runtime java25 --handler example.handler \
 --role arn:aws:iam::123456789012:role/service-role/my-lambda-role \
 --zip-file fileb://myFunction.zip`
 ```
@@ -322,7 +322,7 @@ need to use the `S3ObjectVersion` parameter for versioned objects.
 
 ```
 `aws lambda create-function --function-name myFunction \
---runtime java21 --handler example.handler \
+--runtime java25 --handler example.handler \
 --role arn:aws:iam::123456789012:role/service-role/my-lambda-role \
 --code S3Bucket=amzn-s3-demo-bucket,S3Key=myFileName.zip,S3ObjectVersion=myObjectVersion`
 ```
@@ -363,7 +363,7 @@ Resources:
     Properties:
       `CodeUri: build/distributions/java-basic.zip`
       Handler: example.Handler
-      Runtime: java21
+      Runtime: java25
       Description: Java function
       MemorySize: 512
       Timeout: 10

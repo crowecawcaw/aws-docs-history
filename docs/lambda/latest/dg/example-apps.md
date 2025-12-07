@@ -28,6 +28,10 @@ resources for each app, or use to AWS SAM to quickly deploy resources as you wou
 - **[Create an EventBridge scheduled rule for Lambda functions](../../../eventbridge/latest/userguide/run-lambda-schedule.md "../../../eventbridge/latest/userguide/run-lambda-schedule.md")**:
   Use scheduled expressions for rules in EventBridge to trigger a Lambda function on a timed schedule. This format uses cron syntax and can be set with a one-minute granularity.
 
+## Long-running Workflows
+
+- **[Order Processing Application](order-processing-app.md "order-processing-app.md")**: Create a serverless application using Durable Functions that handles complex order fulfillment, including payment processing, inventory checks, and shipping coordination. This example demonstrates how to build workflows that can run for extended periods while maintaining state.
+
 ## Additional resources
 
 Use the following resources to further explore Lambda and serverless application development:

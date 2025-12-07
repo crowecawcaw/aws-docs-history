@@ -46,7 +46,7 @@ Lambda won't be able to create the log group. As a result of this, your function
 ```
 `aws lambda create-function \
  --function-name myFunction \
- --runtime nodejs22.x \
+ --runtime nodejs24.x \
  --handler index.handler \
  --zip-file fileb://function.zip \
  --role arn:aws:iam::123456789012:role/LambdaRole \
@@ -73,3 +73,53 @@ When you configure your function's log group using the AWS CLI, Lambda won't aut
 permission to your function's execution role if it doesn't already have it. This permission is included in the
 [AWSLambdaBasicExecutionRole](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole$jsonEditor")
 managed policy.
+
+## CloudWatch logging for Lambda Managed Instances
+
+When using [Lambda Managed Instances](lambda-managed-instances.md "lambda-managed-instances.md"), there are additional considerations for sending logs to CloudWatch Logs:
+
+### VPC networking requirements
+
+Lambda Managed Instances run on customer-owned EC2 instances within your VPC. To send logs to CloudWatch Logs and traces to X-Ray,
+you must ensure that these AWS APIs are routable from your VPC. You have several options:
+
+- **AWS PrivateLink (recommended)**: Use [AWS PrivateLink](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md")
+  to create VPC endpoints for CloudWatch Logs and X-Ray services. This allows your instances to access these services privately without requiring
+  an internet gateway or NAT gateway. For more information, see [Using CloudWatch Logs with interface VPC endpoints](../../../AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.md "../../../AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.md").
+- **NAT Gateway**: Configure a NAT gateway to allow outbound internet access from your private subnets.
+- **Internet Gateway**: For public subnets, ensure your VPC has an internet gateway configured.
+
+If CloudWatch Logs or X-Ray APIs are not routable from your VPC, your function logs and traces will not be delivered.
+
+### Concurrent invocations and log attribution
+
+Lambda Managed Instances execution environments can process multiple invocations concurrently. When multiple invocations
+run simultaneously, their log entries are interleaved in the same log stream. To effectively filter and analyze logs
+from concurrent invocations, you should ensure each log entry includes the AWS request ID.
+
+We recommend one of the following approaches:
+
+- **Use default Lambda runtime loggers (recommended)**: The default logging libraries provided by
+  Lambda managed runtimes automatically include the request ID in each log entry.
+- **Implement structured JSON logging**: If you're building a [custom runtime](runtimes-custom.md "runtimes-custom.md")
+  or need custom logging, implement JSON-formatted logs that include the request ID in each entry. Lambda Managed Instances only support
+  the JSON log format. Include the `requestId` field in your JSON logs to enable filtering by invocation:
+
+```
+{
+  "timestamp": "2025-01-15T10:30:00.000Z",
+  "level": "INFO",
+  "requestId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "message": "Processing request"
+}
+```
+
+With request ID attribution, you can filter CloudWatch Logs log entries for a specific invocation using CloudWatch Logs Insights queries. For example:
+
+```
+fields @timestamp, @message
+| filter requestId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+| sort @timestamp asc
+```
+
+For more information about Lambda Managed Instances logging requirements, see [Understanding the Lambda Managed Instances execution environment](lambda-managed-instances-execution-environment.md "lambda-managed-instances-execution-environment.md").

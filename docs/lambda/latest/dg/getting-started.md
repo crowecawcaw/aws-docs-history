@@ -86,7 +86,7 @@ to view records of your functions’ invocation.
 3. Select **Author from scratch**.
 4. In the **Basic information** pane, for **Function name**, enter
    `myLambdaFunction`.
-5. For **Runtime**, choose either **Node.js 22** or **Python 3.13**.
+5. For **Runtime**, choose either **Node.js 24** or **Python 3.14**.
 6. Leave **architecture** set to **x86_64**, and then choose **Create function**.
 
 In addition to a simple function that returns the message `Hello from Lambda!`, Lambda also creates an [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") for your function. An execution role is an AWS Identity and Access Management (IAM) role that grants a Lambda function

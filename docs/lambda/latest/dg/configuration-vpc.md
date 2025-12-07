@@ -112,7 +112,7 @@ AWS CLI
 
 ```
 `aws lambda create-function --function-name `my-function` \
---runtime `nodejs22.x` --handler `index.js` --zip-file `fileb://function.zip` \
+--runtime `nodejs24.x` --handler `index.js` --zip-file `fileb://function.zip` \
 --role `arn:aws:iam::123456789012:role/lambda-role` \
 --vpc-config Ipv6AllowedForDualStack=`true`,SubnetIds=`subnet-071f712345678e7c8`,`subnet-07fd123456788a036`,SecurityGroupIds=`sg-085912345678492fb``
 ```

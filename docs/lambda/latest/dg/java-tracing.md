@@ -837,7 +837,7 @@ Resources:
  Description: Dependencies for the blank-java sample app.
  ContentUri: build/blank-java-lib.zip
  CompatibleRuntimes:
- - java21`
+ - java25`
 ```
 
 With this configuration, you update the library layer only if you change your runtime dependencies.

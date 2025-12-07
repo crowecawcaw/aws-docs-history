@@ -23,8 +23,8 @@ Lambda console, or the [INIT_START
 line of your function logs](runtime-management-identify.md "runtime-management-identify.md").
 
 Runtime versions should not be confused with runtime identifiers. Each runtime has a unique
-**runtime identifier**, such as `python3.13` or
-`nodejs22.x`. These correspond to each major programming language release. Runtime
+**runtime identifier**, such as `python3.14` or
+`nodejs24.x`. These correspond to each major programming language release. Runtime
 versions describe the patch version of an individual runtime.
 
 ###### Note

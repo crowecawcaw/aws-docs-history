@@ -1,0 +1,304 @@
+# Deploy and invoke Lambda durable functions with the AWS CLI
+
+Use the AWS CLI to create and deploy Lambda durable functions with imperative commands. This approach gives you direct control over each step of the deployment process.
+
+## Prerequisites
+
+- Install and configure the AWS CLI. For instructions, see [Installing the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+- Create a deployment package with your function code and the durable execution SDK.
+- Create an IAM execution role with checkpoint permissions.
+
+## Create the execution role
+
+Create an IAM role with permissions for basic Lambda execution and checkpoint operations.
+
+###### To create the execution role
+
+1. Create a trust policy document that allows Lambda to assume the role. Save this as `trust-policy.json`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+2. Create the role:
+
+```
+aws iam create-role \
+  --role-name durable-function-role \
+  --assume-role-policy-document file://trust-policy.json
+```
+
+3. Attach the basic execution policy:
+
+```
+aws iam attach-role-policy \
+  --role-name durable-function-role \
+  --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+```
+
+4. Create a policy for checkpoint operations. Save this as `checkpoint-policy.json`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "lambda:CheckpointDurableExecutions",
+        "lambda:GetDurableExecutionState"
+      ],
+      "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:myDurableFunction"
+    }
+  ]
+}
+```
+
+5. Create and attach the checkpoint policy:
+
+```
+aws iam create-policy \
+  --policy-name durable-checkpoint-policy \
+  --policy-document file://checkpoint-policy.json
+
+aws iam attach-role-policy \
+  --role-name durable-function-role \
+  --policy-arn arn:aws:iam::ACCOUNT_ID:policy/durable-checkpoint-policy
+```
+
+## Create the durable function
+
+Create your durable function with the `--durable-config` parameter.
+
+###### To create a durable function
+
+1. Package your function code with dependencies into a .zip file:
+
+```
+zip -r function.zip index.mjs node_modules/
+```
+
+2. Create the function with durable execution enabled:
+
+```
+aws lambda create-function \
+  --function-name myDurableFunction \
+  --runtime nodejs22.x \
+  --role arn:aws:iam::ACCOUNT_ID:role/durable-function-role \
+  --handler index.handler \
+  --zip-file fileb://function.zip \
+  --durable-config '{"ExecutionTimeout": 10, "RetentionPeriodInDays":1}'
+```
+
+###### Note
+
+You can only enable durable execution when creating the function. You cannot enable it on existing functions.
+
+## Publish a version
+
+Durable functions require a qualified ARN (with version or alias) for invocation. Publish a version of your function:
+
+```
+aws lambda publish-version \
+  --function-name myDurableFunction \
+  --description "Initial version"
+```
+
+The command returns the version ARN. Note the version number (for example, `:1`) at the end of the ARN.
+
+Optionally, create an alias that points to the version:
+
+```
+aws lambda create-alias \
+  --function-name myDurableFunction \
+  --name prod \
+  --function-version 1
+```
+
+## Invoke the durable function
+
+Invoke your durable function using the qualified ARN (version or alias).
+
+###### Synchronous invocation
+
+For executions that complete within 15 minutes, use synchronous invocation:
+
+```
+aws lambda invoke \
+  --function-name myDurableFunction:1 \
+  --payload '{"orderId": "order-12345"}' \
+  --cli-binary-format raw-in-base64-out \
+  response.json
+```
+
+Or using an alias:
+
+```
+aws lambda invoke \
+  --function-name myDurableFunction:prod \
+  --payload '{"orderId": "order-12345"}' \
+  --cli-binary-format raw-in-base64-out \
+  response.json
+```
+
+###### Asynchronous invocation
+
+For long-running executions, use asynchronous invocation:
+
+```
+aws lambda invoke \
+  --function-name myDurableFunction:prod \
+  --invocation-type Event \
+  --payload '{"orderId": "order-12345"}' \
+  --cli-binary-format raw-in-base64-out \
+  response.json
+```
+
+With asynchronous invocation, Lambda returns immediately. The function continues executing in the background.
+
+## Manage durable executions
+
+Use the following commands to manage and monitor durable function executions.
+
+###### List executions
+
+List all executions for a durable function:
+
+```
+aws lambda list-durable-executions \
+  --function-name myDurableFunction:prod
+```
+
+###### Get execution details
+
+Get details about a specific execution:
+
+```
+aws lambda get-durable-execution \
+  --function-name myDurableFunction:prod \
+  --execution-id exec-abc123
+```
+
+###### Get execution history
+
+View the checkpoint history for an execution:
+
+```
+aws lambda get-durable-execution-history \
+  --function-name myDurableFunction:prod \
+  --execution-id exec-abc123
+```
+
+###### Stop an execution
+
+Stop a running durable execution:
+
+```
+aws lambda stop-durable-execution \
+  --function-name myDurableFunction:prod \
+  --execution-id exec-abc123
+```
+
+## Update function code
+
+Update your durable function code and publish a new version:
+
+###### To update and publish a new version
+
+1. Update the function code:
+
+```
+aws lambda update-function-code \
+  --function-name myDurableFunction \
+  --zip-file fileb://function.zip
+```
+
+2. Wait for the update to complete:
+
+```
+aws lambda wait function-updated \
+  --function-name myDurableFunction
+```
+
+3. Publish a new version:
+
+```
+aws lambda publish-version \
+  --function-name myDurableFunction \
+  --description "Updated order processing logic"
+```
+
+4. Update the alias to point to the new version:
+
+```
+aws lambda update-alias \
+  --function-name myDurableFunction \
+  --name prod \
+  --function-version 2
+```
+
+###### Important
+
+Running executions continue using the version they started with. New invocations use the updated alias version.
+
+## View function logs
+
+View your durable function's logs in CloudWatch Logs:
+
+```
+aws logs tail /aws/lambda/myDurableFunction --follow
+```
+
+Filter logs for a specific execution:
+
+```
+aws logs filter-log-events \
+  --log-group-name /aws/lambda/myDurableFunction \
+  --filter-pattern "exec-abc123"
+```
+
+## Clean up resources
+
+Delete your durable function and associated resources:
+
+```
+# Delete the function
+aws lambda delete-function --function-name myDurableFunction
+
+# Delete the IAM role policies
+aws iam detach-role-policy \
+  --role-name durable-function-role \
+  --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+aws iam detach-role-policy \
+  --role-name durable-function-role \
+  --policy-arn arn:aws:iam::ACCOUNT_ID:policy/durable-checkpoint-policy
+
+aws iam delete-policy \
+  --policy-arn arn:aws:iam::ACCOUNT_ID:policy/durable-checkpoint-policy
+
+# Delete the role
+aws iam delete-role --role-name durable-function-role
+```
+
+## Next steps
+
+After deploying your durable function with the AWS CLI:
+
+- Monitor executions using the `list-durable-executions` and `get-durable-execution` commands
+- View checkpoint operations in AWS CloudTrail data events
+- Set up CloudWatch alarms for execution failures or long-running executions
+- Automate deployments using shell scripts or CI/CD pipelines
+
+For more information about AWS CLI commands for Lambda, see the [AWS CLI Command Reference](../../../cli/latest/reference/lambda/index.md "../../../cli/latest/reference/lambda/index.md").

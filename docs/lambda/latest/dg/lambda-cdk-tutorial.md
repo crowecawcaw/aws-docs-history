@@ -335,7 +335,7 @@ Resources:
         Fn::GetAtt:
           - MyFunctionServiceRole3C357FF2
           - Arn
-      Runtime: nodejs22.x
+      Runtime: nodejs24.x
       ...
 ```
 

@@ -69,7 +69,7 @@ You should see the following output:
   "Version": "1",
   "Role": "arn:aws:iam::123456789012:role/lambda-role",
   "Handler": "function.handler",
-  "Runtime": "nodejs22.x",
+  "Runtime": "nodejs24.x",
   ...
 }
 ```

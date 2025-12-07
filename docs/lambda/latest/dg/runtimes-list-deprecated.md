@@ -43,7 +43,7 @@ const command = new ListFunctionsCommand({
 const response = await lambdaClient.send(command);
 
 for (const f of response.Functions){
-    if (f.Runtime == '`<your_runtime>`'){ // Use the runtime id, e.g. 'nodejs22.x' or 'python3.13'
+    if (f.Runtime == '`<your_runtime>`'){ // Use the runtime id, e.g. 'nodejs24.x' or 'python3.14'
         console.log(f.FunctionArn);
         // get the CloudWatch log group of the function to
         // use later for finding the last invocation date

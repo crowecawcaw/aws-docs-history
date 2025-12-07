@@ -19,6 +19,10 @@ There are several differences between CloudWatch Logs Live Tail and the [LogType
 - `--log-type Tail` captures and sends the logs with the response, which can impact the function's response latency. Live Tail does not affect function response latency.
 - `--log-type Tail` supports synchronous invocations only. Live Tail works for both synchronous and asynchronous invocations.
 
+###### Note
+
+[Lambda Managed Instances](lambda-managed-instances.md "lambda-managed-instances.md") does not support the `--log-type Tail` option. Use CloudWatch Logs Live Tail or query CloudWatch Logs directly to view logs for Managed Instances functions.
+
 ### Permissions
 
 The following permissions are required to start and stop CloudWatch Logs Live Tail sessions:

@@ -76,7 +76,7 @@ some details are different.
 
 ```
 `aws lambda create-function --function-name CrossAccountSQSExample \
---zip-file fileb://function.zip --handler index.handler --runtime nodejs22.x \
+--zip-file fileb://function.zip --handler index.handler --runtime nodejs24.x \
 --role `arn:aws:iam::111122223333:role/cross-account-lambda-sqs-role``
 ```
 

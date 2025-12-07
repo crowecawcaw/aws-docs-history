@@ -69,7 +69,7 @@ To find layers in your account that are compatible with your function’s runtim
 use the [ListLayers](../api/API_ListLayers.md "../api/API_ListLayers.md") API. For example, you can use the following [list-layers](../../../cli/latest/reference/lambda/list-layers.md "../../../cli/latest/reference/lambda/list-layers.md") AWS Command Line Interface (CLI) command:
 
 ```
-aws lambda list-layers --compatible-runtime python3.13
+aws lambda list-layers --compatible-runtime python3.14
 ```
 
 You should see output similar to the following:
@@ -86,7 +86,7 @@ You should see output similar to the following:
                 "Description": "My layer",
                 "CreatedDate": "2025-04-15T00:37:46.592+0000",
                 "CompatibleRuntimes": [
-                    "python3.13"
+                    "python3.14"
                 ]
             }
         }

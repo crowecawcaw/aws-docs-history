@@ -282,7 +282,7 @@ You must also specify the location of your .zip file. If your .zip file is locat
 
 ```
 `aws lambda create-function --function-name myFunction \
---runtime nodejs22.x --handler index.handler \
+--runtime nodejs24.x --handler index.handler \
 --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
 --zip-file fileb://myFunction.zip`
 ```
@@ -292,7 +292,7 @@ need to use the `S3ObjectVersion` parameter for versioned objects.
 
 ```
 `aws lambda create-function --function-name myFunction \
---runtime nodejs22.x --handler index.handler \
+--runtime nodejs24.x --handler index.handler \
 --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
 --code S3Bucket=amzn-s3-demo-bucket,S3Key=myFileName.zip,S3ObjectVersion=myObjectVersion`
 ```

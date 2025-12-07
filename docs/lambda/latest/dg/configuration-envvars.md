@@ -86,7 +86,7 @@ You should see the following output:
 {
     "FunctionName": "my-function",
     "FunctionArn": "arn:aws:lambda:us-east-2:111122223333:function:my-function",
-    "Runtime": "nodejs22.x",
+    "Runtime": "nodejs24.x",
     "Role": "arn:aws:iam::111122223333:role/lambda-role",
     "Environment": {
         "Variables": {
@@ -129,7 +129,7 @@ Resources:
       MemorySize: 128
       Timeout: 120
       Handler: index.handler
-      Runtime: nodejs22.x
+      Runtime: nodejs24.x
       Architectures:
         - x86_64
       EphemeralStorage:
@@ -312,7 +312,7 @@ environment variables are _reserved_ and cannot be set in your function configur
   MB.
 - `AWS_LAMBDA_FUNCTION_VERSION` – The version of the function being
   executed.
-- `AWS_LAMBDA_INITIALIZATION_TYPE` – The initialization type of the function, which is `on-demand`, `provisioned-concurrency`, or `snap-start`. For information, see [Configuring provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md") or [Improving startup performance with Lambda SnapStart](snapstart.md "snapstart.md").
+- `AWS_LAMBDA_INITIALIZATION_TYPE` – The initialization type of the function, which is `on-demand`, `provisioned-concurrency`, `snap-start`, or `lambda-managed-instances`. For information, see [Configuring provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md"), [Improving startup performance with Lambda SnapStart](snapstart.md "snapstart.md"), or [Lambda Managed Instances](lambda-managed-instances.md "lambda-managed-instances.md").
 - `AWS_LAMBDA_LOG_GROUP_NAME`, `AWS_LAMBDA_LOG_STREAM_NAME` – The name of the
   Amazon CloudWatch Logs group and stream for the function. The `AWS_LAMBDA_LOG_GROUP_NAME` and `AWS_LAMBDA_LOG_STREAM_NAME` environment variables are not available in Lambda SnapStart functions.
 - `AWS_ACCESS_KEY`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`
@@ -322,6 +322,7 @@ environment variables are _reserved_ and cannot be set in your function configur
   host and port of the [runtime API](runtimes-api.md "runtimes-api.md").
 - `LAMBDA_TASK_ROOT` – The path to your Lambda function code.
 - `LAMBDA_RUNTIME_DIR` – The path to runtime libraries.
+- `AWS_LAMBDA_MAX_CONCURRENCY` – (Lambda Managed Instances only) The maximum number of concurrent invocations Lambda will send to one execution environment.
 
 The following additional environment variables aren't reserved and can be extended in your function
 configuration.

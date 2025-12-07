@@ -183,7 +183,7 @@ and committing the template to the repository. Here's an example IaC template:
                 'statusCode': 200,
                 'body': json.dumps('Hello World!')
             }
-    Runtime: python3.13
+    Runtime: python3.14
     TracingConfig:
         Mode: PassThrough
     MemorySize: 256

@@ -231,7 +231,7 @@ total size of the HTTP request body is also limited.
 {
     "FunctionName": "my-function",
     "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function",
-    "Runtime": "nodejs22.x",
+    "Runtime": "nodejs24.x",
     "Role": "arn:aws:iam::123456789012:role/lambda-role",
     "Environment": {
         "Variables": `{

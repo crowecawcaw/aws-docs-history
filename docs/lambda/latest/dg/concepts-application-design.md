@@ -93,11 +93,13 @@ underlying mechanics helps you develop applications more quickly with less custo
 
 ## Implement statelessness in functions
 
-When building Lambda functions, you should assume that the environment exists only for a single invocation.
+For standard Lambda functions, you should assume that the environment exists only for a single invocation.
 The function should initialize any required state when it is first started. For example, your function may
 require fetching data from a DynamoDB table. It should commit any permanent data changes to a durable store such
 as Amazon S3, DynamoDB, or Amazon SQS before exiting. It should not rely on any existing data structures or temporary files,
 or any internal state that would be managed by multiple invocations.
+
+When using Durable Functions, state is automatically preserved between invocations, eliminating the need to manually persist state to external storage. However, you should still follow stateless principles for any data not explicitly managed through the DurableContext.
 
 To initialize database connections and libraries, or load state, you can take advantage of
 [static initialization](lambda-runtime-environment.md#static-initialization "lambda-runtime-environment.md#static-initialization"). Since execution environments are reused
@@ -123,6 +125,8 @@ Many traditional systems are designed to run periodically and process batches of
 built up over time. For example, a banking application may run every hour to process ATM transactions into
 central ledgers. In Lambda-based applications, the custom processing should be triggered by every event,
 allowing the service to scale up concurrency as needed, to provide near-real time processing of transactions.
+
+While standard Lambda functions are limited to 15 minutes of execution time, Durable Functions can run for up to one year, making them suitable for longer-running processing needs. However, you should still prefer event-driven processing over batch processing when possible.
 
 While you can run [cron](https://en.wikipedia.org/wiki/Cron "https://en.wikipedia.org/wiki/Cron") tasks in serverless applications
 [by using scheduled

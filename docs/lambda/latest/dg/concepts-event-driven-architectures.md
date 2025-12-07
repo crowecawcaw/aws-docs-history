@@ -6,7 +6,7 @@ Many AWS services can directly invoke your Lambda functions. These services _pus
 a schedule managed by an EventBridge rule, an AWS IoT event, or an Amazon S3 event. With event source mapping, Lambda actively fetches (or _pulls_) events from a queue or stream.
 You configure Lambda to check for events from a supported service, and Lambda handles the polling and invocation of your function.
 
-When passed to your function, events are structured in JSON format. The JSON structure varies depending on the service that generates it and the event type. While Lambda function invocations can last up to 15 minutes, Lambda is best-suited for short invocations that last one second or less.
+When passed to your function, events are structured in JSON format. The JSON structure varies depending on the service that generates it and the event type. While standard Lambda function invocations can last up to 15 minutes (or up to one year with Durable Functions), Lambda is best-suited for short invocations that last one second or less.
 This is particularly true of event-driven architectures, where each Lambda function is treated as a microservice responsible for performing a narrow set of specific instructions.
 
 ###### Note
@@ -225,6 +225,10 @@ You can use [recursive loop detection](invocation-recursion.md "invocation-recur
 Functions enable encapsulation and code re-use. Most programming languages support the concept of code
 synchronously calling functions within a code base. In this case, the caller waits until the function
 returns a response.
+
+###### Note
+
+While Lambda functions directly calling other Lambda functions is generally an anti-pattern due to cost and complexity concerns, this doesn't apply to Durable Functions where this pattern is supported and cost-optimized due to the built-in state management.
 
 When this happens on a traditional server or virtual instance, the operating system scheduler switches
 to other available work. Whether the CPU runs at 0% or 100% does not affect the overall cost of the application,

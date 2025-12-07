@@ -25,6 +25,7 @@ For a list of error types that the `Invoke` operation can return, see [Invoke](.
 - [Lambda: Alias routing with provisioned concurrency](#troubleshooting-invocation-alias "#troubleshooting-invocation-alias")
 - [Lambda: Cold starts with provisioned concurrency](#troubleshooting-invocation-coldstart "#troubleshooting-invocation-coldstart")
 - [Lambda: Cold starts with new versions](#troubleshooting-invocation-newversion "#troubleshooting-invocation-newversion")
+- [Lambda: Unexpected Node.js exit in runtime (Runtime.NodejsExit)](#troubleshooting-invocation-nodejs-exit "#troubleshooting-invocation-nodejs-exit")
 - [EFS: Function could not mount the EFS file system](#troubleshooting-invocation-efsmount "#troubleshooting-invocation-efsmount")
 - [EFS: Function could not connect to the EFS file system](#troubleshooting-invocation-efsconnect "#troubleshooting-invocation-efsconnect")
 - [EFS: Function could not mount the EFS file system due to timeout](#troubleshooting-invocation-efstimeout "#troubleshooting-invocation-efstimeout")
@@ -188,6 +189,28 @@ disabled. Please check the function's KMS key settings._
 This error can occur if your AWS Key Management Service (AWS KMS) key is disabled, or if the grant that allows Lambda to use the key
 is revoked. If the grant is missing, configure the function to use a different key. Then, reassign the custom key to
 recreate the grant.
+
+## Lambda: Unexpected Node.js exit in runtime (Runtime.NodejsExit)
+
+**Issue:**
+_Lambda runtime client detected an unexpected Node.js exit
+code._
+
+This error occurs when your function exits before all Promises are settled, for example
+due to a code bug. It can also occur when Node.js detects a deadlock that prevents Promises
+from being settled. This error affects only async style handlers, not callback-style
+handlers.
+
+**Affected runtimes:** Node.js 18 and later.
+
+**To resolve this issue:**
+
+1. Check your function code for unsettled promises in async handlers.
+2. Ensure all promises are properly settled (resolved or rejected) before the function
+   completes.
+3. Review your code for potential race conditions in asynchronous operations.
+
+For more information about Node.js exit codes and process termination, see the [Node.js documentation](https://nodejs.org/docs/latest/api/process.html#exit-codes "https://nodejs.org/docs/latest/api/process.html#exit-codes").
 
 ## EFS: Function could not mount the EFS file system
 

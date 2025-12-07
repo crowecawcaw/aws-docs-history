@@ -110,7 +110,7 @@ usual permissions needed for this operation. For more information about permissi
 
 ```
 `aws lambda create-function --function-name `my-function`
---handler index.js --runtime nodejs22.x \
+--handler index.js --runtime nodejs24.x \
 --role arn:aws:iam::`123456789012`:role/`lambda-role` \
 --tags Department=Marketing,CostCenter=1234ABCD`
 ```

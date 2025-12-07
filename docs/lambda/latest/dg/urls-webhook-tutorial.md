@@ -40,7 +40,7 @@ Python
    1. Choose **Create function**.
    2. Select **Author from scratch**.
    3. For **Function name**, enter `myLambdaWebhook`.
-   4. For **Runtime**, select **python3.13**.
+   4. For **Runtime**, select **python3.14**.
    5. Choose **Create function**.
 
 3. In the **Code source** pane, replace the existing code by copying and pasting the following:
@@ -151,7 +151,7 @@ Node.js
    1. Choose **Create function**.
    2. Select **Author from scratch**.
    3. For **Function name**, enter `myLambdaWebhook`.
-   4. For **Runtime**, select **nodejs22.x**.
+   4. For **Runtime**, select **nodejs24.x**.
    5. Choose **Create function**.
 
 3. In the **Code source** pane, replace the existing code by copying and pasting the following:

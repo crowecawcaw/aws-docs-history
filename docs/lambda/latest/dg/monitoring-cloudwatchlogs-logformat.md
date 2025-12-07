@@ -5,6 +5,12 @@ logs, you can also add tags and contextual information to your logs. This can he
 data. Unless your development workflow relies on existing tooling that consumes Lambda logs in plain text, we recommend that you select JSON for
 your log format.
 
+###### Lambda Managed Instances
+
+Lambda Managed Instances only support JSON log format. When you create a Managed Instances function, Lambda automatically
+configures the log format to JSON and you cannot change it to plain text. For more information about Managed Instances, see
+[Lambda Managed Instances](lambda-managed-instances.md "lambda-managed-instances.md").
+
 For all Lambda managed runtimes, you can choose whether your function's system logs are sent to CloudWatch Logs in unstructured plain text or JSON
 format. System logs are the logs that Lambda generates and are sometimes known as platform event logs.
 
@@ -48,7 +54,8 @@ JSON formatted log outputs.
 
 ## Default log formats
 
-Currently, the default log format for all Lambda runtimes is plain text.
+Currently, the default log format for all Lambda runtimes is plain text. For Lambda Managed Instances, the log format is
+always JSON and cannot be changed.
 
 If you’re already using logging libraries like Powertools for AWS Lambda to generate your function logs in JSON structured format, you
 don’t need to change your code if you select JSON log formatting. Lambda doesn’t double-encode any logs that are already JSON encoded, so
@@ -200,7 +207,7 @@ select. For information about default logging formats, see [Default log formats]
 ```
 `aws lambda create-function \
  --function-name myFunction \
- --runtime nodejs22.x \
+ --runtime nodejs24.x \
  --handler index.handler \
  --zip-file fileb://function.zip \
  --role arn:aws:iam::123456789012:role/LambdaRole \

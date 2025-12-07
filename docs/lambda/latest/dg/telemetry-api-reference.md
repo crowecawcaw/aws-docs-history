@@ -9,12 +9,12 @@ http://${AWS_LAMBDA_RUNTIME_API}/2022-07-01/telemetry/
 ```
 
 For the OpenAPI Specification (OAS) definition of the subscription responses version
-`2022-12-13`, see the following:
+`2025-01-29`, see the following:
 
 - **HTTP** –
-  [telemetry-api-http-schema.zip](samples/events_http_schema_v2022_12_13.md "samples/events_http_schema_v2022_12_13.md")
+  [telemetry-api-http-schema.zip](samples/events_http_schema_v2025_01_29.md "samples/events_http_schema_v2025_01_29.md")
 - **TCP** –
-  [telemetry-api-tcp-schema.zip](samples/events_tcp_schema_v2022_12_13.md "samples/events_tcp_schema_v2022_12_13.md")
+  [telemetry-api-tcp-schema.zip](samples/events_tcp_schema_v2025_01_29.md "samples/events_tcp_schema_v2025_01_29.md")
 
 ###### API operations
 
@@ -33,7 +33,8 @@ To subscribe to a telemetry stream, a Lambda extension can send a Subscribe API 
   - **schemaVersion**
     - Required: Yes
     - Type: String
-    - Valid values: `"2022-12-13"` or `"2022-07-01"`
+    - Valid values: `"2025-01-29"`, `"2022-12-13"`, or `"2022-07-01"`
+    - **Note:** Lambda Managed Instances require `"2025-01-29"`. This version is backward compatible with Lambda (default) functions.
 
   - **destination** – The configuration settings that define the
     telemetry event destination and the protocol for event delivery.
@@ -110,7 +111,7 @@ To subscribe to a telemetry stream, a Lambda extension can send a Subscribe API 
 ```
 PUT http://${AWS_LAMBDA_RUNTIME_API}/2022-07-01/telemetry HTTP/1.1
 {
-   "schemaVersion": "2022-12-13",
+   "schemaVersion": "2025-01-29",
    "types": [
         "platform",
         "function",

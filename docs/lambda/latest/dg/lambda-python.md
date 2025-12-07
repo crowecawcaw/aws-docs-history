@@ -21,7 +21,7 @@ Lambda supports the following Python runtimes.
 2. Choose **Create function**.
 3. Configure the following settings:
    - **Function name**: Enter a name for the function.
-   - **Runtime**: Choose **Python 3.13**.
+   - **Runtime**: Choose **Python 3.14**.
 
 4. Choose **Create function**.
    The console creates a Lambda function with a single source file named `lambda_function`. You can edit this file and add more files in the built-in code editor. In the **DEPLOY** section, choose **Deploy** to update your function's code. Then, to run your code, choose **Create test event** in the **TEST EVENTS** section.

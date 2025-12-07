@@ -18,7 +18,7 @@ three general steps:
 
 To create a layer, bundle your packages into a .zip file archive that meets the following requirements:
 
-- Ensure that the Java version that Maven or Gradle refers to is the same as the Java version of the function that you intend to deploy. For example, for a Java 21 function, the `mvn -v` command should list Java 21 in the output.
+- Ensure that the Java version that Maven or Gradle refers to is the same as the Java version of the function that you intend to deploy. For example, for a Java 25 function, the `mvn -v` command should list Java 25 in the output.
 - Your dependencies must be stored in the `java/lib` directory, at the root of the .zip file. For more information, see [Layer paths for each Lambda runtime](packaging-layers.md#packaging-layers-paths "packaging-layers.md#packaging-layers-paths").
 - The packages in your layer must be compatible with Linux. Lambda functions run on Amazon Linux.
 
@@ -129,7 +129,7 @@ AWS CLI
 Run the [publish-layer-version](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html") AWS CLI command to create the Lambda layer:
 
 ```
-aws lambda publish-layer-version --layer-name `my-layer` --zip-file fileb://layer.zip --compatible-runtimes `java21`
+aws lambda publish-layer-version --layer-name `my-layer` --zip-file fileb://layer.zip --compatible-runtimes `java25`
 ```
 
 The [compatible runtimes](../api/API_PublishLayerVersion.md#lambda-PublishLayerVersion-request-CompatibleRuntimes "../api/API_PublishLayerVersion.md#lambda-PublishLayerVersion-request-CompatibleRuntimes") parameter is optional. When specified, Lambda uses this parameter to filter layers in the Lambda console.

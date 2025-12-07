@@ -97,7 +97,7 @@ You can use the Amazon CloudWatch console to view logs for all Lambda function i
 2. Choose the log group for your function (**/aws/lambda/`your-function-name`**).
 3. Choose a log stream.
 
-Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md "lambda-runtime-environment.md"). A log stream appears when you update your Lambda function, and when additional instances are created to handle multiple concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace.
+Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md "lambda-runtime-environment.md"). A log stream appears when you update your Lambda function, and when additional instances are created to handle concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace.
 
 ## Viewing logs using the AWS Command Line Interface (AWS CLI)
 

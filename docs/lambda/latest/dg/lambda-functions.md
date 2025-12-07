@@ -2,6 +2,16 @@
 
 Learn how to configure the core capabilities and options for your Lambda function using the Lambda API or console.
 
+**[.zip file archives](configuration-function-zip.md "configuration-function-zip.md")**
+
+Create a Lambda function deployment package when you want to include dependencies, custom runtime layers, or any files beyond your function code.
+The deployment package is a .zip file archive containing your function code and dependencies.
+
+**[Container images](images-create.md "images-create.md")**
+
+Use container images to package your function code and dependencies when you need more control over the build process,
+or if your function requires custom runtime configurations. You can build, test, and deploy Lambda functions as container images using tools like Docker CLI.
+
 **[Memory](configuration-memory.md "configuration-memory.md")**
 
 Learn how and when to increase function memory.
@@ -13,6 +23,12 @@ Learn how and when to increase your function's temporary storage capacity.
 **[Timeout](configuration-timeout.md "configuration-timeout.md")**
 
 Learn how and when to increase your function's timeout value.
+
+**[Durable configuration](durable-configuration.md "durable-configuration.md")**
+
+Enable your Lambda functions to run for extended periods—up to one year—while maintaining state between invocations.
+Configure execution timeouts, state retention, and versioning behavior for long-running, stateful workflows.
+Durable functions allow you to build complex, multi-step processes that can pause, resume, and automatically handle interruptions.
 
 **[Environment variables](configuration-envvars.md "configuration-envvars.md")**
 

@@ -48,7 +48,7 @@ SnapStart is available for the following [Lambda managed runtimes](lambda-runtim
 - Python 3.12 and later
 - .NET 8 and later. If you're using the [Lambda Annotations framework for .NET](csharp-handler.md#csharp-handler-annotations "csharp-handler.md#csharp-handler-annotations"), upgrade to [Amazon.Lambda.Annotations](https://www.nuget.org/packages/Amazon.Lambda.Annotations "https://www.nuget.org/packages/Amazon.Lambda.Annotations") version 1.6.0 or later to ensure compatibility with SnapStart.
 
-Other managed runtimes (such as `nodejs22.x` and `ruby3.4`), [OS-only runtimes](runtimes-provided.md "runtimes-provided.md"), and [container images](images-create.md "images-create.md") are not supported.
+Other managed runtimes (such as `nodejs24.x` and `ruby3.4`), [OS-only runtimes](runtimes-provided.md "runtimes-provided.md"), and [container images](images-create.md "images-create.md") are not supported.
 
 SnapStart does not support [provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md"), [Amazon Elastic File System (Amazon EFS)](../../../efs/latest/ug/accessing-fs.md "../../../efs/latest/ug/accessing-fs.md"), or ephemeral
 storage greater than 512 MB.

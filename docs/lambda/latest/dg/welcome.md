@@ -5,13 +5,14 @@ To get started, see [Create your first function](getting-started.md "getting-sta
 
 You can use Lambda for:
 
+- **File processing**: Process files automatically when uploaded to Amazon Simple Storage Service. See [file processing examples](example-apps.md#examples-apps-file "example-apps.md#examples-apps-file") for details.
+- **Long-running workflows:** Use [durable Lambda functions](durable-functions.md "durable-functions.md") to build stateful, multi-step workflows that can run for up to one year. Perfect for order processing, approval workflows, human-in-the-loop processes, and complex data pipelines that need to remember their progress.
+- **Database operations and integration examples**: Respond to database changes and automate data workflows. See [database examples](example-apps.md#examples-apps-database "example-apps.md#examples-apps-database") for details.
+- **Scheduled and periodic tasks**: Run automated operations on a regular schedule using EventBridge. See [scheduled task examples](example-apps.md#examples-apps-scheduled "example-apps.md#examples-apps-scheduled") for details.
 - **Stream processing**: Process real-time data streams for analytics and monitoring. See [Kinesis Data Streams](with-kinesis.md "with-kinesis.md") for details.
 - **Web applications**: Build scalable web apps that automatically adjust to demand.
 - **Mobile backends**: Create secure API backends for mobile and web applications.
 - **IoT backends**: Handle web, mobile, IoT, and third-party API requests. See [IoT](services-iot.md "services-iot.md") for details.
-- **File processing**: Process files automatically when uploaded to Amazon Simple Storage Service. See [file processing examples](example-apps.md#examples-apps-file "example-apps.md#examples-apps-file") for details.
-- **Database operations and integration examples**: Respond to database changes and automate data workflows. See [database examples](example-apps.md#examples-apps-database "example-apps.md#examples-apps-database") for details.
-- **Scheduled and periodic tasks**: Run automated operations on a regular schedule using EventBridge. See [scheduled task examples](example-apps.md#examples-apps-scheduled "example-apps.md#examples-apps-scheduled") for details.
   For pricing information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
 
 ## How Lambda works

@@ -18,7 +18,7 @@ Lambda supports the following Node.js runtimes.
 2. Choose **Create function**.
 3. Configure the following settings:
    - **Function name**: Enter a name for the function.
-   - **Runtime**: Choose **Node.js 22.x**.
+   - **Runtime**: Choose **Node.js 24.x**.
 
 4. Choose **Create function**.
    The console creates a Lambda function with a single source file named `index.mjs`. You can edit this file and add more files in the built-in code editor. In the **DEPLOY** section, choose **Deploy** to update your function's code. Then, to run your code, choose **Create test event** in the **TEST EVENTS** section.

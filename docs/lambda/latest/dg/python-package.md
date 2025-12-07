@@ -132,7 +132,7 @@ If the .py file containing your function’s handler code is not at the root of 
 
 ```
 ~$ `cd my_function`
-~/my_function$ `python3.13 -m venv my_virtual_env`
+~/my_function$ `python3.14 -m venv my_virtual_env`
 ~/my_function$ `source ./my_virtual_env/bin/activate`
 ```
 
@@ -157,18 +157,18 @@ Python you are using). 4. Deactivate the virtual environment
 ```
 
 5. Navigate into the directory containing the dependencies you installed with pip and create a .zip file in your project directory with
-   the installed dependencies at the root. In this example, pip has installed your dependencies in the `my_virtual_env/lib/python3.13/site-packages` directory.
+   the installed dependencies at the root. In this example, pip has installed your dependencies in the `my_virtual_env/lib/python3.14/site-packages` directory.
 
 ```
-~/my_function$ `cd my_virtual_env/lib/python3.13/site-packages`
-~/my_function/my_virtual_env/lib/python3.13/site-packages$ `zip -r ../../../../my_deployment_package.zip .`
+~/my_function$ `cd my_virtual_env/lib/python3.14/site-packages`
+~/my_function/my_virtual_env/lib/python3.14/site-packages$ `zip -r ../../../../my_deployment_package.zip .`
 ```
 
 6. Navigate to the root of your project directory where the .py file containing your handler code is located and add that file to the
    root of your .zip package. In this example, your function code file is named `lambda_function.py`.
 
 ```
-~/my_function/my_virtual_env/lib/python3.13/site-packages$ `cd ../../../../`
+~/my_function/my_virtual_env/lib/python3.14/site-packages$ `cd ../../../../`
 ~/my_function$ `zip my_deployment_package.zip lambda_function.py`
 ```
 
@@ -384,7 +384,7 @@ You must also specify the location of your .zip file. If your .zip file is locat
 
 ```
 `aws lambda create-function --function-name myFunction \
---runtime python3.13 --handler lambda_function.lambda_handler \
+--runtime python3.14 --handler lambda_function.lambda_handler \
 --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
 --zip-file fileb://myFunction.zip`
 ```
@@ -394,7 +394,7 @@ need to use the `S3ObjectVersion` parameter for versioned objects.
 
 ```
 `aws lambda create-function --function-name myFunction \
---runtime python3.13 --handler lambda_function.lambda_handler \
+--runtime python3.14 --handler lambda_function.lambda_handler \
 --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
 --code S3Bucket=amzn-s3-demo-bucket,S3Key=myFileName.zip,S3ObjectVersion=myObjectVersion`
 ```

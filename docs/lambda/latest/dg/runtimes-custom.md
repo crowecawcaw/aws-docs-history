@@ -15,6 +15,7 @@ For a walkthrough of the custom runtime deployment process, see [Tutorial: Build
 - [Requirements](#runtimes-custom-build "#runtimes-custom-build")
 - [Implementing response streaming in a custom
   runtime](#runtimes-custom-response-streaming "#runtimes-custom-response-streaming")
+- [Building custom runtimes for Lambda Managed Instances](#runtimes-custom-managed-instances "#runtimes-custom-managed-instances")
 
 ## Requirements
 
@@ -137,3 +138,52 @@ chunked transfer encoding specification.
      example, `Runtime.APIKeyNotFound`.
     + `Lambda-Runtime-Function-Error-Body` – Base64-encoded
      information about the error.
+
+## Building custom runtimes for Lambda Managed Instances
+
+Lambda Managed Instances use the same runtime API as Lambda (default) functions. However, there are key differences
+in how custom runtimes must be implemented to support the concurrent execution model of Managed Instances.
+
+### Concurrent request handling
+
+The primary difference when building custom runtimes for Managed Instances is support for concurrent invocations.
+Unlike Lambda (default) functions where the runtime processes one invocation at a time, Managed Instances can process
+multiple invocations simultaneously within a single execution environment.
+
+Your custom runtime must:
+
+- **Support concurrent `/next` requests** – The runtime can make
+  multiple simultaneous calls to the [next invocation](runtimes-api.md#runtimes-api-next "runtimes-api.md#runtimes-api-next") API, up to the limit specified
+  by the `AWS_LAMBDA_MAX_CONCURRENCY` environment variable.
+- **Handle concurrent `/response` requests** – Multiple invocations can
+  call the [invocation response](runtimes-api.md#runtimes-api-response "runtimes-api.md#runtimes-api-response") API simultaneously.
+- **Implement thread-safe request handling** – Ensure that concurrent invocations
+  don't interfere with each other by properly managing shared resources and state.
+- **Use unique request IDs** – Track each invocation separately using the
+  `Lambda-Runtime-Aws-Request-Id` header to match responses with their corresponding requests.
+
+### Implementation pattern
+
+A typical implementation pattern for Managed Instances runtimes involves creating worker threads or processes
+to handle concurrent invocations:
+
+1. **Read the concurrency limit** – At initialization, read the
+   `AWS_LAMBDA_MAX_CONCURRENCY` environment variable to determine how many concurrent invocations to support.
+2. **Create worker pool** – Initialize a pool of workers (threads, processes, or
+   async tasks) equal to the concurrency limit.
+3. **Worker processing loop** – Each worker independently:
+   - Calls `/runtime/invocation/next` to get an invocation event
+   - Invokes the function handler with the event data
+   - Posts the response to `/runtime/invocation/AwsRequestId/response`
+   - Repeats the loop
+
+### Additional considerations
+
+- **Logging format** – Managed Instances only support JSON log format. Ensure your
+  runtime respects the `AWS_LAMBDA_LOG_FORMAT` environment variable and only uses JSON format. For more information,
+  see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md "monitoring-cloudwatchlogs-logformat.md").
+- **Shared resources** – Be cautious when using shared resources like the
+  `/tmp` directory with concurrent invocations. Implement proper locking mechanisms to prevent race conditions.
+
+For more information about Lambda Managed Instances execution environments, see
+[Understanding the Lambda Managed Instances execution environment](lambda-managed-instances-execution-environment.md "lambda-managed-instances-execution-environment.md").

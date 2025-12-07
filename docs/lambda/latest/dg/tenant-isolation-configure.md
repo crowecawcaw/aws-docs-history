@@ -33,7 +33,7 @@ When creating a new function using the CLI, add the `--tenancy-config
 ```
 `aws lambda create-function \
  --function-name `image-analysis` \
- --runtime `nodejs22.x` \
+ --runtime `nodejs24.x` \
  --zip-file fileb://image-analysis-function.zip \
  --handler image-analysis-function.handler \
  --role `arn:aws:iam:123456789012:role/execution-role` \
@@ -64,7 +64,7 @@ The following CloudFormation template creates a new Lambda function with tenant 
  Type: AWS::Lambda::Function
  Properties:
  FunctionName: `my-sample-python-lambda`
- Runtime: `python3.13`
+ Runtime: `python3.14`
  Role: !GetAtt LambdaExecutionRole.Arn
  Handler: index.lambda_handler
  TenancyConfig:

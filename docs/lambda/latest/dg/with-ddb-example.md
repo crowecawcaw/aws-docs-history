@@ -436,7 +436,7 @@ async fn main() -> Result<(), Error> {
 
 ```
 `aws lambda create-function --function-name ProcessDynamoDBRecords \
- --zip-file fileb://function.zip --handler example.handler --runtime nodejs22.x \
+ --zip-file fileb://function.zip --handler example.handler --runtime nodejs24.x \
  --role arn:aws:iam::`111122223333`:role/lambda-dynamodb-role`
 ```
 

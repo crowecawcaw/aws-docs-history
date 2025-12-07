@@ -113,7 +113,7 @@ An [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.
 
 ![Next step: Create the Lambda function](images/services-s3-example/s3trigger_tut_steps5.png)
 
-Create a Lambda function in the console using the Python 3.13 runtime.
+Create a Lambda function in the console using the Python 3.14 runtime.
 
 ###### To create the Lambda function
 
@@ -124,7 +124,7 @@ Create a Lambda function in the console using the Python 3.13 runtime.
 ![Image showing drop down region menu in Lambda console](images/console_region_select.png) 3. Choose **Create function**. 4. Choose **Author from scratch** 5. Under **Basic information**, do the following:
 
     1. For **Function name**, enter `s3-trigger-tutorial`
-    2. For **Runtime**, choose **Python 3.13**.
+    2. For **Runtime**, choose **Python 3.14**.
     3. For **Architecture**, choose **x86\_64**.
 
 6. In the **Change default execution role** tab, do the following:
@@ -137,7 +137,7 @@ Create a Lambda function in the console using the Python 3.13 runtime.
 
 ![Next step: Deploy the function code](images/services-s3-example/s3trigger_tut_steps6.png)
 
-This tutorial uses the Python 3.13 runtime, but we’ve also provided example code files for other runtimes. You can select the
+This tutorial uses the Python 3.14 runtime, but we’ve also provided example code files for other runtimes. You can select the
 tab in the following box to see the code for the runtime you’re interested in.
 
 The Lambda function retrieves the key name of the uploaded object and the name of the bucket from the `event` parameter it receives

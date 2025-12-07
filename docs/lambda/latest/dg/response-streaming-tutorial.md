@@ -108,7 +108,7 @@ zip function.zip index.js
 ```
 aws lambda create-function \
   --function-name `my-streaming-function` \
-  --runtime nodejs22.x \
+  --runtime nodejs24.x \
   --zip-file fileb://function.zip \
   --handler index.handler \
   --timeout 10 \

@@ -9,12 +9,12 @@ http://${AWS_LAMBDA_RUNTIME_API}/2022-07-01/telemetry/
 ```
 
 For the OpenAPI Specification (OAS) definition of the subscription responses version
-`2022-12-13`, see the following:
+`2025-01-29`, see the following:
 
 - **HTTP** –
-  [telemetry-api-http-schema.zip](samples/events_http_schema_v2022_12_13.md "samples/events_http_schema_v2022_12_13.md")
+  [telemetry-api-http-schema.zip](samples/events_http_schema_v2025_01_29.md "samples/events_http_schema_v2025_01_29.md")
 - **TCP** –
-  [telemetry-api-tcp-schema.zip](samples/events_tcp_schema_v2022_12_13.md "samples/events_tcp_schema_v2022_12_13.md")
+  [telemetry-api-tcp-schema.zip](samples/events_tcp_schema_v2025_01_29.md "samples/events_tcp_schema_v2025_01_29.md")
   The following table is a summary of all the types of `Event` objects that the Telemetry API
   supports.
 
@@ -249,6 +249,18 @@ A `platform.runtimeDone` event indicates that the function invocation phase has 
 `platform.runtimeDone`
 `Event` object has the following shape:
 
+###### Lambda Managed Instances
+
+The `platform.runtimeDone` event is not supported for Lambda Managed Instances. Extensions
+running on Managed Instances will not receive this event because extensions cannot subscribe to the
+`INVOKE` event on Managed Instances. Due to the concurrent execution model where multiple
+invocations can be processed simultaneously, extensions cannot perform post-invoke processing for individual
+invocations as they traditionally do on Lambda (default) functions.
+
+For Managed Instances, the `responseLatency` and `responseDuration` spans that
+are normally included in `platform.runtimeDone` are instead available in the
+`platform.report` event. See [platform.report](#platform-report "#platform-report") for details.
+
 ```
 Event: Object
 - time: String
@@ -302,6 +314,21 @@ The following is an example `Event` of type `platform.runtimeDone`:
 A `platform.report` event contains an overall report of the function invoke phase. A
 `platform.report`
 `Event` object has the following shape:
+
+###### Lambda Managed Instances
+
+The `platform.report` event for Lambda Managed Instances has different metrics and spans compared
+to Lambda (default) functions. For Managed Instances:
+
+- **Spans**: Contains `responseLatency` and `responseDuration`
+  instead of `extensionOverhead`. The `extensionOverhead` span is not available because
+  extensions cannot subscribe to the `INVOKE` event on Managed Instances due to the concurrent
+  execution model.
+- **Metrics**: Only includes `durationMs`. The following metrics are
+  not included: `billedDurationMs`, `initDurationMs`, `maxMemoryUsedMB`,
+  and `memorySizeMB`. These per-invoke metrics are not applicable in the concurrent execution
+  environment. For resource utilization metrics, use [Monitoring Lambda Managed Instances](lambda-managed-instances-monitoring.md "lambda-managed-instances-monitoring.md") or
+  [Lambda Insights](monitoring-insights.md "monitoring-insights.md").
 
 ```
 Event: Object
@@ -610,7 +637,8 @@ The following is an example `Event` of type `function` where the log format is J
 ###### Note
 
 If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered
-as a string even when your function's logging format is configured as JSON.
+as a string even when your function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version
+`2025-01-29`.
 
 ### `extension`
 
@@ -655,7 +683,8 @@ The following is an example `Event` of type `extension` where the log format is 
 ###### Note
 
 If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered
-as a string even when your function's logging format is configured as JSON.
+as a string even when your function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version
+`2025-01-29`.
 
 ## Shared object types
 

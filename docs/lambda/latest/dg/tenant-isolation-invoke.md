@@ -49,31 +49,42 @@ Authorization: AWS4-HMAC-SHA256 Credential=...
 
 ## Invoking functions with tenant isolation (API Gateway)
 
-When using API Gateway to trigger tenant-isolated Lambda functions, you can pass the tenant identifier via query parameters or request headers, as shown below:
+When using API Gateway REST APIs to trigger tenant-isolated Lambda functions, you must configure API Gateway to map client request properties to the `X-Amz-Tenant-Id` header that Lambda expects. API Gateway uses Lambda's [Invoke](../api/API_Invoke.md "../api/API_Invoke.md") API action, which requires the tenant ID to be passed using the `X-Amz-Tenant-Id` HTTP header. You can configure API Gateway to inject this HTTP header into the Lambda invocation request with a value obtained from client request properties such as HTTP headers, query parameters, or path parameters. You must first map the client request property before you can override the `X-Amz-Tenant-Id` header.
+
+###### Note
+
+You cannot use HTTP APIs to invoke tenant-isolated Lambda functions because it is not possible to override the `X-Amz-Tenant-Id` header.
+
+**Using request headers**
+
+Configure your API Gateway integration to map a custom header from the client request to the `X-Amz-Tenant-Id` header. The following example shows a client request with an `x-tenant-id` header:
+
+```
+POST /api/process HTTP/1.1
+Host: `your-api-id`.execute-api.`us-east-1`.amazonaws.com
+Content-Type: application/json
+`x-tenant-id`: `blue`
+
+{
+    "data": "sample payload"
+}
+```
+
+In your API Gateway method configuration, you must:
+
+1. Enable the client request header parameter (for example, `method.request.header.x-tenant-id`)
+2. Map the client header to the Lambda integration header using `integration.request.header.X-Amz-Tenant-Id`
 
 **Using query parameters**
 
-Configure your API Gateway integration to pass the tenant ID as a query parameter:
+Similarly, you can map query parameters to the `X-Amz-Tenant-Id` header:
 
 ```
 GET /api/process?tenant-id=`blue`&data=`sample` HTTP/1.1
 Host: `your-api-id`.execute-api.`us-east-1`.amazonaws.com
 ```
 
-**Using request headers**
-
-You can also pass the tenant ID through custom headers:
-
-```
-POST /api/process HTTP/1.1
-Host: `your-api-id`.execute-api.`us-east-1`.amazonaws.com
-Content-Type: application/json
-`X-Tenant-ID`: `blue`
-
-{
-    "data": "sample payload"
-}
-```
+Configure the method to enable the query parameter and map it to the integration header.
 
 ## Invoking functions with tenant isolation (SDK)
 

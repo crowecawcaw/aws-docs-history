@@ -42,7 +42,7 @@ read items from Kinesis and write logs to CloudWatch Logs.
 Create a Lambda function that processes your Kinesis messages. The function code logs the event ID
 and event data of the Kinesis record to CloudWatch Logs.
 
-This tutorial uses the Node.js 22 runtime, but we've also provided example code in other runtime
+This tutorial uses the Node.js 24 runtime, but we've also provided example code in other runtime
 languages. You can select the tab in the following box to see code for the runtime you're interested in.
 The JavaScript code you'll use in this step is in the first example shown in the
 **JavaScript** tab.
@@ -517,7 +517,7 @@ cd kinesis-tutorial
 
 ```
 `aws lambda create-function --function-name ProcessKinesisRecords \
---zip-file fileb://function.zip --handler index.handler --runtime nodejs22.x \
+--zip-file fileb://function.zip --handler index.handler --runtime nodejs24.x \
 --role arn:aws:iam::`111122223333`:role/lambda-kinesis-role`
 ```
 

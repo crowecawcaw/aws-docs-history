@@ -103,7 +103,7 @@ setting takes precedence over a setting of WARN that you configure using the Lam
 ```
 `aws lambda create-function \
  --function-name myFunction \
- --runtime nodejs22.x \
+ --runtime nodejs24.x \
  --handler index.handler \
  --zip-file fileb://function.zip \
  --role arn:aws:iam::123456789012:role/LambdaRole \

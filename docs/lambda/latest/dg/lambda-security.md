@@ -25,6 +25,8 @@ in Serverless Land.
 ###### Topics
 
 - [Data protection in AWS Lambda](security-dataprotection.md "security-dataprotection.md")
+- [Using service-linked roles for
+  Lambda](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Identity and Access Management for AWS Lambda](security-iam.md "security-iam.md")
 - [Create a governance strategy for Lambda functions and layers](governance-concepts.md "governance-concepts.md")
 - [Compliance validation for AWS Lambda](security-compliance.md "security-compliance.md")

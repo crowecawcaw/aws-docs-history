@@ -23,6 +23,17 @@ remains fully functional, we recommend using only the Telemetry API going forwar
 your extension to a telemetry stream using either the Telemetry API or the Logs API. After subscribing using one
 of these APIs, any attempt to subscribe using the other API returns an error.
 
+###### Lambda Managed Instances schema version requirement
+
+Lambda Managed Instances support only the `2025-01-29` schema version of the Telemetry API.
+When subscribing to telemetry streams for Managed Instance functions, you **must**
+use `"schemaVersion": "2025-01-29"` in your subscription request. Using previous schema versions
+will result in events being rejected by Lambda.
+
+The `2025-01-29` schema version is backward compatible and can be used with both Lambda
+Managed Instances and Lambda (default) functions. We recommend using this version for all new extensions to
+ensure compatibility across both deployment models.
+
 Extensions can use the Telemetry API to subscribe to three different telemetry streams:
 
 - **Platform telemetry** – Logs, metrics, and traces, which describe
@@ -268,7 +279,7 @@ telemetry, function logs, and extension logs.
 ```
 PUT http://${AWS_LAMBDA_RUNTIME_API}/2022-07-01/telemetry HTTP/1.1
 {
-   "schemaVersion": "2022-12-13",
+   "schemaVersion": "2025-01-29",
    "types": [
         "platform",
         "function",
@@ -314,6 +325,17 @@ has the following schema:
   values.
 - The `record` property defines a JSON object that contains the telemetry data. The schema of
   this JSON object depends on the `type`.
+
+###### Event ordering with concurrent invocations
+
+For [Lambda Managed Instances](lambda-managed-instances.md "lambda-managed-instances.md"), multiple function invocations can execute concurrently
+within the same execution environment. In this case, the order of `platform.start` and `platform.report`
+events is not guaranteed between different concurrent invocations. Extensions must handle events from multiple invocations
+running in parallel and should not assume sequential ordering.
+
+To properly attribute events to specific invocations, extensions should use the `requestId` field present in
+these platform events. Each invocation has a unique request ID that remains consistent across all events for that invocation,
+allowing extensions to correlate events correctly even when they arrive out of order.
 
 The following table summarizes all types of `Event` objects, and links to the [Telemetry API Event schema reference](telemetry-schema-reference.md "telemetry-schema-reference.md") for each event
 type.

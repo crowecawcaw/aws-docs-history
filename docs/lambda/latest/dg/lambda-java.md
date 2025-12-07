@@ -70,7 +70,7 @@ Don't use private components of the JDK API, such as private fields, methods, or
 2. Choose **Create function**.
 3. Configure the following settings:
    - **Function name**: Enter a name for the function.
-   - **Runtime**: Choose **Java 21**.
+   - **Runtime**: Choose **Java 25**.
 
 4. Choose **Create function**.
    The console creates a Lambda function with a handler class named `Hello`.

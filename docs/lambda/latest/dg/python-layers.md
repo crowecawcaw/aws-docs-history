@@ -19,7 +19,7 @@ three general steps:
 
 To create a layer, bundle your packages into a .zip file archive that meets the following requirements:
 
-- Build the layer using the same Python version that you plan to use for the Lambda function. For example, if you build your layer using Python 3.13, use the Python 3.13 runtime for your function.
+- Build the layer using the same Python version that you plan to use for the Lambda function. For example, if you build your layer using Python 3.14, use the Python 3.14 runtime for your function.
 - Your .zip file must include a `python` directory at the root level.
 - The packages in your layer must be compatible with Linux. Lambda functions run on Amazon Linux.
 
@@ -213,7 +213,7 @@ AWS CLI
 Run the [publish-layer-version](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html") AWS CLI command to create the Lambda layer:
 
 ```
-aws lambda publish-layer-version --layer-name `my-layer` --zip-file fileb://layer.zip --compatible-runtimes `python3.13`
+aws lambda publish-layer-version --layer-name `my-layer` --zip-file fileb://layer.zip --compatible-runtimes `python3.14`
 ```
 
 The [compatible runtimes](../api/API_PublishLayerVersion.md#lambda-PublishLayerVersion-request-CompatibleRuntimes "../api/API_PublishLayerVersion.md#lambda-PublishLayerVersion-request-CompatibleRuntimes") parameter is optional. When specified, Lambda uses this parameter to filter layers in the Lambda console.

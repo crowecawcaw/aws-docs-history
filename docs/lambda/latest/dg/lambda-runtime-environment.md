@@ -1,8 +1,24 @@
 # Understanding the Lambda execution environment lifecycle
 
+Lambda execution environments support both standard functions (up to 15 minutes) and Durable Functions (up to one year). While both share the same basic lifecycle, Durable Functions add state management capabilities for long-running workflows.
+
 Lambda invokes your function in an execution environment, which provides a secure and isolated runtime
 environment. The execution environment manages the resources required to run your function. The execution
 environment also provides lifecycle support for the function's runtime and any [external extensions](lambda-extensions.md "lambda-extensions.md") associated with your function.
+
+**For Durable Functions, the execution environment includes additional components for:**
+
+- State persistence between steps
+- Checkpointing management
+- Wait state coordination
+- Progress tracking
+
+###### Lambda Managed Instances execution environment
+
+If you are using [Lambda Managed Instances](lambda-managed-instances-execution-environment.md "lambda-managed-instances-execution-environment.md"), the execution environment
+has important differences compared to Lambda (default) functions. Managed Instances support concurrent invocations,
+use a different lifecycle model, and run on customer-owned infrastructure. For detailed information about the Managed
+Instances execution environment, see [Understanding the Lambda Managed Instances execution environment](lambda-managed-instances-execution-environment.md "lambda-managed-instances-execution-environment.md").
 
 The function's runtime communicates with Lambda using the [Runtime API](runtimes-api.md "runtimes-api.md").
 Extensions communicate with Lambda using the [Extensions API](runtimes-extensions-api.md "runtimes-extensions-api.md").
@@ -32,6 +48,14 @@ Each phase starts with an event that Lambda sends to the runtime and to all regi
 runtime and each extension indicate completion by sending a `Next` API request. Lambda freezes the
 execution environment when the runtime and each extension have completed and there are no pending events.
 
+**The lifecycle phases for Durable Functions include:**
+
+- **Init:** Standard initialization plus durable state setup
+- **Invoke:** Can include multiple step executions with automatic checkpointing
+- **Wait:** Function can pause execution without consuming resources
+- **Resume:** Function restarts from last checkpoint
+- **Shutdown:** Cleanup of durable state and resources
+
 ###### Topics
 
 - [Init phase](#runtimes-lifecycle-ib "#runtimes-lifecycle-ib")
@@ -59,8 +83,8 @@ When [Lambda SnapStart](snapstart.md "snapstart.md") is activated, the `Init` ph
 
 ###### Note
 
-The 10-second timeout doesn't apply to functions that are using provisioned concurrency
-or SnapStart. For provisioned concurrency and SnapStart functions, your initialization code
+The 10-second timeout doesn't apply to functions that are using provisioned concurrency,
+SnapStart, or Lambda Managed Instances. For provisioned concurrency, SnapStart, and Managed Instances functions, your initialization code
 can run for up to 15 minutes. The time limit is 130 seconds or the configured function
 timeout (maximum 900 seconds), whichever is higher.
 
