@@ -30,32 +30,32 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance families and instance types
 
 | Instance family | Available instance types |
-| --------------- | ------------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | ---------------- | ----------------- | ----------------- | ----------------- | ----------------- | ---------------- |
-| R5              | `r5.large`               | `r5.xlarge`        | `r5.2xlarge`       | `r5.4xlarge`       | `r5.8xlarge`       | `r5.12xlarge`       | `r5.16xlarge`       | `r5.24xlarge`    | `r5.metal`        |
-| R5a             | `r5a.large`              | `r5a.xlarge`       | `r5a.2xlarge`      | `r5a.4xlarge`      | `r5a.8xlarge`      | `r5a.12xlarge`      | `r5a.16xlarge`      | `r5a.24xlarge`   |
-| R5ad            | `r5ad.large`             | `r5ad.xlarge`      | `r5ad.2xlarge`     | `r5ad.4xlarge`     | `r5ad.8xlarge`     | `r5ad.12xlarge`     | `r5ad.16xlarge`     | `r5ad.24xlarge`  |
-| R5b             | `r5b.large`              | `r5b.xlarge`       | `r5b.2xlarge`      | `r5b.4xlarge`      | `r5b.8xlarge`      | `r5b.12xlarge`      | `r5b.16xlarge`      | `r5b.24xlarge`   | `r5b.metal`       |
-| R5d             | `r5d.large`              | `r5d.xlarge`       | `r5d.2xlarge`      | `r5d.4xlarge`      | `r5d.8xlarge`      | `r5d.12xlarge`      | `r5d.16xlarge`      | `r5d.24xlarge`   | `r5d.metal`       |
-| R5dn            | `r5dn.large`             | `r5dn.xlarge`      | `r5dn.2xlarge`     | `r5dn.4xlarge`     | `r5dn.8xlarge`     | `r5dn.12xlarge`     | `r5dn.16xlarge`     | `r5dn.24xlarge`  | `r5dn.metal`      |
-| R5n             | `r5n.large`              | `r5n.xlarge`       | `r5n.2xlarge`      | `r5n.4xlarge`      | `r5n.8xlarge`      | `r5n.12xlarge`      | `r5n.16xlarge`      | `r5n.24xlarge`   | `r5n.metal`       |
-| R6a             | `r6a.large`              | `r6a.xlarge`       | `r6a.2xlarge`      | `r6a.4xlarge`      | `r6a.8xlarge`      | `r6a.12xlarge`      | `r6a.16xlarge`      | `r6a.24xlarge`   | `r6a.32xlarge`    | `r6a.48xlarge`    | `r6a.metal`       |
-| R6g             | `r6g.medium`             | `r6g.large`        | `r6g.xlarge`       | `r6g.2xlarge`      | `r6g.4xlarge`      | `r6g.8xlarge`       | `r6g.12xlarge`      | `r6g.16xlarge`   | `r6g.metal`       |
-| R6gd            | `r6gd.medium`            | `r6gd.large`       | `r6gd.xlarge`      | `r6gd.2xlarge`     | `r6gd.4xlarge`     | `r6gd.8xlarge`      | `r6gd.12xlarge`     | `r6gd.16xlarge`  | `r6gd.metal`      |
-| R6i             | `r6i.large`              | `r6i.xlarge`       | `r6i.2xlarge`      | `r6i.4xlarge`      | `r6i.8xlarge`      | `r6i.12xlarge`      | `r6i.16xlarge`      | `r6i.24xlarge`   | `r6i.32xlarge`    | `r6i.metal`       |
-| R6id            | `r6id.large`             | `r6id.xlarge`      | `r6id.2xlarge`     | `r6id.4xlarge`     | `r6id.8xlarge`     | `r6id.12xlarge`     | `r6id.16xlarge`     | `r6id.24xlarge`  | `r6id.32xlarge`   | `r6id.metal`      |
-| R6idn           | `r6idn.large`            | `r6idn.xlarge`     | `r6idn.2xlarge`    | `r6idn.4xlarge`    | `r6idn.8xlarge`    | `r6idn.12xlarge`    | `r6idn.16xlarge`    | `r6idn.24xlarge` | `r6idn.32xlarge`  | `r6idn.metal`     |
-| R6in            | `r6in.large`             | `r6in.xlarge`      | `r6in.2xlarge`     | `r6in.4xlarge`     | `r6in.8xlarge`     | `r6in.12xlarge`     | `r6in.16xlarge`     | `r6in.24xlarge`  | `r6in.32xlarge`   | `r6in.metal`      |
-| R7a             | `r7a.medium`             | `r7a.large`        | `r7a.xlarge`       | `r7a.2xlarge`      | `r7a.4xlarge`      | `r7a.8xlarge`       | `r7a.12xlarge`      | `r7a.16xlarge`   | `r7a.24xlarge`    | `r7a.32xlarge`    | `r7a.48xlarge`    | `r7a.metal-48xl`  |
-| R7g             | `r7g.medium`             | `r7g.large`        | `r7g.xlarge`       | `r7g.2xlarge`      | `r7g.4xlarge`      | `r7g.8xlarge`       | `r7g.12xlarge`      | `r7g.16xlarge`   | `r7g.metal`       |
-| R7gd            | `r7gd.medium`            | `r7gd.large`       | `r7gd.xlarge`      | `r7gd.2xlarge`     | `r7gd.4xlarge`     | `r7gd.8xlarge`      | `r7gd.12xlarge`     | `r7gd.16xlarge`  | `r7gd.metal`      |
-| R7i             | `r7i.large`              | `r7i.xlarge`       | `r7i.2xlarge`      | `r7i.4xlarge`      | `r7i.8xlarge`      | `r7i.12xlarge`      | `r7i.16xlarge`      | `r7i.24xlarge`   | `r7i.48xlarge`    | `r7i.metal-24xl`  | `r7i.metal-48xl`  |
-| R7iz            | `r7iz.large`             | `r7iz.xlarge`      | `r7iz.2xlarge`     | `r7iz.4xlarge`     | `r7iz.8xlarge`     | `r7iz.12xlarge`     | `r7iz.16xlarge`     | `r7iz.32xlarge`  | `r7iz.metal-16xl` | `r7iz.metal-32xl` |
-| R8a             | `r8a.medium`             | `r8a.large`        | `r8a.xlarge`       | `r8a.2xlarge`      | `r8a.4xlarge`      | `r8a.8xlarge`       | `r8a.12xlarge`      | `r8a.16xlarge`   | `r8a.24xlarge`    | `r8a.48xlarge`    | `r8a.metal-24xl`  | `r8a.metal-48xl`  |
-| R8g             | `r8g.medium`             | `r8g.large`        | `r8g.xlarge`       | `r8g.2xlarge`      | `r8g.4xlarge`      | `r8g.8xlarge`       | `r8g.12xlarge`      | `r8g.16xlarge`   | `r8g.24xlarge`    | `r8g.48xlarge`    | `r8g.metal-24xl`  | `r8g.metal-48xl`  |
-| R8gb            | `r8gb.medium`            | `r8gb.large`       | `r8gb.xlarge`      | `r8gb.2xlarge`     | `r8gb.4xlarge`     | `r8gb.8xlarge`      | `r8gb.12xlarge`     | `r8gb.16xlarge`  | `r8gb.24xlarge`   | `r8gb.metal-24xl` |
-| R8gd            | `r8gd.medium`            | `r8gd.large`       | `r8gd.xlarge`      | `r8gd.2xlarge`     | `r8gd.4xlarge`     | `r8gd.8xlarge`      | `r8gd.12xlarge`     | `r8gd.16xlarge`  | `r8gd.24xlarge`   | `r8gd.48xlarge`   | `r8gd.metal-24xl` | `r8gd.metal-48xl` |
-| R8gn            | `r8gn.medium`            | `r8gn.large`       | `r8gn.xlarge`      | `r8gn.2xlarge`     | `r8gn.4xlarge`     | `r8gn.8xlarge`      | `r8gn.12xlarge`     | `r8gn.16xlarge`  | `r8gn.24xlarge`   | `r8gn.48xlarge`   | `r8gn.metal-24xl` | `r8gn.metal-48xl` |
-| R8i             | `r8i.large`              | `r8i.xlarge`       | `r8i.2xlarge`      | `r8i.4xlarge`      | `r8i.8xlarge`      | `r8i.12xlarge`      | `r8i.16xlarge`      | `r8i.24xlarge`   | `r8i.32xlarge`    | `r8i.48xlarge`    | `r8i.96xlarge`    | `r8i.metal-48xl`  | `r8i.metal-96xl` |
+| --------------- | ------------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | ------------------- | ----------------- | ----------------- | ----------------- | ----------------- | ---------------- |
+| R5              | `r5.large`               | `r5.xlarge`        | `r5.2xlarge`       | `r5.4xlarge`       | `r5.8xlarge`       | `r5.12xlarge`       | `r5.16xlarge`       | `r5.24xlarge`       | `r5.metal`        |
+| R5a             | `r5a.large`              | `r5a.xlarge`       | `r5a.2xlarge`      | `r5a.4xlarge`      | `r5a.8xlarge`      | `r5a.12xlarge`      | `r5a.16xlarge`      | `r5a.24xlarge`      |
+| R5ad            | `r5ad.large`             | `r5ad.xlarge`      | `r5ad.2xlarge`     | `r5ad.4xlarge`     | `r5ad.8xlarge`     | `r5ad.12xlarge`     | `r5ad.16xlarge`     | `r5ad.24xlarge`     |
+| R5b             | `r5b.large`              | `r5b.xlarge`       | `r5b.2xlarge`      | `r5b.4xlarge`      | `r5b.8xlarge`      | `r5b.12xlarge`      | `r5b.16xlarge`      | `r5b.24xlarge`      | `r5b.metal`       |
+| R5d             | `r5d.large`              | `r5d.xlarge`       | `r5d.2xlarge`      | `r5d.4xlarge`      | `r5d.8xlarge`      | `r5d.12xlarge`      | `r5d.16xlarge`      | `r5d.24xlarge`      | `r5d.metal`       |
+| R5dn            | `r5dn.large`             | `r5dn.xlarge`      | `r5dn.2xlarge`     | `r5dn.4xlarge`     | `r5dn.8xlarge`     | `r5dn.12xlarge`     | `r5dn.16xlarge`     | `r5dn.24xlarge`     | `r5dn.metal`      |
+| R5n             | `r5n.large`              | `r5n.xlarge`       | `r5n.2xlarge`      | `r5n.4xlarge`      | `r5n.8xlarge`      | `r5n.12xlarge`      | `r5n.16xlarge`      | `r5n.24xlarge`      | `r5n.metal`       |
+| R6a             | `r6a.large`              | `r6a.xlarge`       | `r6a.2xlarge`      | `r6a.4xlarge`      | `r6a.8xlarge`      | `r6a.12xlarge`      | `r6a.16xlarge`      | `r6a.24xlarge`      | `r6a.32xlarge`    | `r6a.48xlarge`    | `r6a.metal`       |
+| R6g             | `r6g.medium`             | `r6g.large`        | `r6g.xlarge`       | `r6g.2xlarge`      | `r6g.4xlarge`      | `r6g.8xlarge`       | `r6g.12xlarge`      | `r6g.16xlarge`      | `r6g.metal`       |
+| R6gd            | `r6gd.medium`            | `r6gd.large`       | `r6gd.xlarge`      | `r6gd.2xlarge`     | `r6gd.4xlarge`     | `r6gd.8xlarge`      | `r6gd.12xlarge`     | `r6gd.16xlarge`     | `r6gd.metal`      |
+| R6i             | `r6i.large`              | `r6i.xlarge`       | `r6i.2xlarge`      | `r6i.4xlarge`      | `r6i.8xlarge`      | `r6i.12xlarge`      | `r6i.16xlarge`      | `r6i.24xlarge`      | `r6i.32xlarge`    | `r6i.metal`       |
+| R6id            | `r6id.large`             | `r6id.xlarge`      | `r6id.2xlarge`     | `r6id.4xlarge`     | `r6id.8xlarge`     | `r6id.12xlarge`     | `r6id.16xlarge`     | `r6id.24xlarge`     | `r6id.32xlarge`   | `r6id.metal`      |
+| R6idn           | `r6idn.large`            | `r6idn.xlarge`     | `r6idn.2xlarge`    | `r6idn.4xlarge`    | `r6idn.8xlarge`    | `r6idn.12xlarge`    | `r6idn.16xlarge`    | `r6idn.24xlarge`    | `r6idn.32xlarge`  | `r6idn.metal`     |
+| R6in            | `r6in.large`             | `r6in.xlarge`      | `r6in.2xlarge`     | `r6in.4xlarge`     | `r6in.8xlarge`     | `r6in.12xlarge`     | `r6in.16xlarge`     | `r6in.24xlarge`     | `r6in.32xlarge`   | `r6in.metal`      |
+| R7a             | `r7a.medium`             | `r7a.large`        | `r7a.xlarge`       | `r7a.2xlarge`      | `r7a.4xlarge`      | `r7a.8xlarge`       | `r7a.12xlarge`      | `r7a.16xlarge`      | `r7a.24xlarge`    | `r7a.32xlarge`    | `r7a.48xlarge`    | `r7a.metal-48xl`  |
+| R7g             | `r7g.medium`             | `r7g.large`        | `r7g.xlarge`       | `r7g.2xlarge`      | `r7g.4xlarge`      | `r7g.8xlarge`       | `r7g.12xlarge`      | `r7g.16xlarge`      | `r7g.metal`       |
+| R7gd            | `r7gd.medium`            | `r7gd.large`       | `r7gd.xlarge`      | `r7gd.2xlarge`     | `r7gd.4xlarge`     | `r7gd.8xlarge`      | `r7gd.12xlarge`     | `r7gd.16xlarge`     | `r7gd.metal`      |
+| R7i             | `r7i.large`              | `r7i.xlarge`       | `r7i.2xlarge`      | `r7i.4xlarge`      | `r7i.8xlarge`      | `r7i.12xlarge`      | `r7i.16xlarge`      | `r7i.24xlarge`      | `r7i.48xlarge`    | `r7i.metal-24xl`  | `r7i.metal-48xl`  |
+| R7iz            | `r7iz.large`             | `r7iz.xlarge`      | `r7iz.2xlarge`     | `r7iz.4xlarge`     | `r7iz.8xlarge`     | `r7iz.12xlarge`     | `r7iz.16xlarge`     | `r7iz.32xlarge`     | `r7iz.metal-16xl` | `r7iz.metal-32xl` |
+| R8a             | `r8a.medium`             | `r8a.large`        | `r8a.xlarge`       | `r8a.2xlarge`      | `r8a.4xlarge`      | `r8a.8xlarge`       | `r8a.12xlarge`      | `r8a.16xlarge`      | `r8a.24xlarge`    | `r8a.48xlarge`    | `r8a.metal-24xl`  | `r8a.metal-48xl`  |
+| R8g             | `r8g.medium`             | `r8g.large`        | `r8g.xlarge`       | `r8g.2xlarge`      | `r8g.4xlarge`      | `r8g.8xlarge`       | `r8g.12xlarge`      | `r8g.16xlarge`      | `r8g.24xlarge`    | `r8g.48xlarge`    | `r8g.metal-24xl`  | `r8g.metal-48xl`  |
+| R8gb            | `r8gb.medium`            | `r8gb.large`       | `r8gb.xlarge`      | `r8gb.2xlarge`     | `r8gb.4xlarge`     | `r8gb.8xlarge`      | `r8gb.12xlarge`     | `r8gb.16xlarge`     | `r8gb.24xlarge`   | `r8gb.metal-24xl` |
+| R8gd            | `r8gd.medium`            | `r8gd.large`       | `r8gd.xlarge`      | `r8gd.2xlarge`     | `r8gd.4xlarge`     | `r8gd.8xlarge`      | `r8gd.12xlarge`     | `r8gd.16xlarge`     | `r8gd.24xlarge`   | `r8gd.48xlarge`   | `r8gd.metal-24xl` | `r8gd.metal-48xl` |
+| R8gn            | `r8gn.medium`            | `r8gn.large`       | `r8gn.xlarge`      | `r8gn.2xlarge`     | `r8gn.4xlarge`     | `r8gn.8xlarge`      | `r8gn.12xlarge`     | `r8gn.16xlarge`     | `r8gn.24xlarge`   | `r8gn.48xlarge`   | `r8gn.metal-24xl` | `r8gn.metal-48xl` |
+| R8i             | `r8i.large`              | `r8i.xlarge`       | `r8i.2xlarge`      | `r8i.4xlarge`      | `r8i.8xlarge`      | `r8i.12xlarge`      | `r8i.16xlarge`      | `r8i.24xlarge`      | `r8i.32xlarge`    | `r8i.48xlarge`    | `r8i.96xlarge`    | `r8i.metal-48xl`  | `r8i.metal-96xl` |
 | R8i-flex        | `r8i-flex.large`         | `r8i-flex.xlarge`  | `r8i-flex.2xlarge` | `r8i-flex.4xlarge` | `r8i-flex.8xlarge` | `r8i-flex.12xlarge` | `r8i-flex.16xlarge` |
 | U-3tb1          | `u-3tb1.56xlarge`        |
 | U-6tb1          | `u-6tb1.56xlarge`        | `u-6tb1.112xlarge` | `u-6tb1.metal`     |
@@ -72,11 +72,12 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | U7inh-32tb      | `u7inh-32tb.480xlarge`   |
 | X1              | `x1.16xlarge`            | `x1.32xlarge`      |
 | X1e             | `x1e.xlarge`             | `x1e.2xlarge`      | `x1e.4xlarge`      | `x1e.8xlarge`      | `x1e.16xlarge`     | `x1e.32xlarge`      |
-| X2gd            | `x2gd.medium`            | `x2gd.large`       | `x2gd.xlarge`      | `x2gd.2xlarge`     | `x2gd.4xlarge`     | `x2gd.8xlarge`      | `x2gd.12xlarge`     | `x2gd.16xlarge`  | `x2gd.metal`      |
+| X2gd            | `x2gd.medium`            | `x2gd.large`       | `x2gd.xlarge`      | `x2gd.2xlarge`     | `x2gd.4xlarge`     | `x2gd.8xlarge`      | `x2gd.12xlarge`     | `x2gd.16xlarge`     | `x2gd.metal`      |
 | X2idn           | `x2idn.16xlarge`         | `x2idn.24xlarge`   | `x2idn.32xlarge`   | `x2idn.metal`      |
-| X2iedn          | `x2iedn.xlarge`          | `x2iedn.2xlarge`   | `x2iedn.4xlarge`   | `x2iedn.8xlarge`   | `x2iedn.16xlarge`  | `x2iedn.24xlarge`   | `x2iedn.32xlarge`   | `x2iedn.metal`   |
+| X2iedn          | `x2iedn.xlarge`          | `x2iedn.2xlarge`   | `x2iedn.4xlarge`   | `x2iedn.8xlarge`   | `x2iedn.16xlarge`  | `x2iedn.24xlarge`   | `x2iedn.32xlarge`   | `x2iedn.metal`      |
 | X2iezn          | `x2iezn.2xlarge`         | `x2iezn.4xlarge`   | `x2iezn.6xlarge`   | `x2iezn.8xlarge`   | `x2iezn.12xlarge`  | `x2iezn.metal`      |
-| X8g             | `x8g.medium`             | `x8g.large`        | `x8g.xlarge`       | `x8g.2xlarge`      | `x8g.4xlarge`      | `x8g.8xlarge`       | `x8g.12xlarge`      | `x8g.16xlarge`   | `x8g.24xlarge`    | `x8g.48xlarge`    | `x8g.metal-24xl`  | `x8g.metal-48xl`  |
+| X8g             | `x8g.medium`             | `x8g.large`        | `x8g.xlarge`       | `x8g.2xlarge`      | `x8g.4xlarge`      | `x8g.8xlarge`       | `x8g.12xlarge`      | `x8g.16xlarge`      | `x8g.24xlarge`    | `x8g.48xlarge`    | `x8g.metal-24xl`  | `x8g.metal-48xl`  |
+| X8aedz          | `x8aedz.large`           | `x8aedz.xlarge`    | `x8aedz.3xlarge`   | `x8aedz.6xlarge`   | `x8aedz.12xlarge`  | `x8aedz.24xlarge`   | `x8aedz.metal-12xl` | `x8aedz.metal-24xl` |
 | z1d             | `z1d.large`              | `z1d.xlarge`       | `z1d.2xlarge`      | `z1d.3xlarge`      | `z1d.6xlarge`      | `z1d.12xlarge`      | `z1d.metal`         |
 
 ## Instance family summary
@@ -129,6 +130,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | X2iedn          | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | X2iezn          | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | X8g             | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
+| X8aedz          | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | z1d             | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 
 ## Performance specifications
@@ -506,6 +508,15 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | x8g.48xlarge         | 3072.00      | AWS Graviton4 Processor    | 192   | 192       | 1                | ✗ No         | ✗ No               |
 | x8g.metal-24xl       | 1536.00      | AWS Graviton4 Processor    | 96    | 96        | 1                | ✗ No         | ✗ No               |
 | x8g.metal-48xl       | 3072.00      | AWS Graviton4 Processor    | 192   | 192       | 1                | ✗ No         | ✗ No               |
+| **X8aedz**           |
+| x8aedz.large         | 64.00        | AMD EPYC 9R05              | 2     | 2         | 1                | ✗ No         | ✗ No               |
+| x8aedz.xlarge        | 128.00       | AMD EPYC 9R05              | 4     | 4         | 1                | ✗ No         | ✗ No               |
+| x8aedz.3xlarge       | 384.00       | AMD EPYC 9R05              | 12    | 12        | 1                | ✗ No         | ✗ No               |
+| x8aedz.6xlarge       | 768.00       | AMD EPYC 9R05              | 24    | 24        | 1                | ✗ No         | ✗ No               |
+| x8aedz.12xlarge      | 1536.00      | AMD EPYC 9R05              | 48    | 48        | 1                | ✗ No         | ✗ No               |
+| x8aedz.24xlarge      | 3072.00      | AMD EPYC 9R05              | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| x8aedz.metal-12xl    | 1536.00      | AMD EPYC 9R05              | 48    | 48        | 1                | ✗ No         | ✗ No               |
+| x8aedz.metal-24xl    | 3072.00      | AMD EPYC 9R05              | 96    | 96        | 1                | ✗ No         | ✗ No               |
 | **z1d**              |
 | z1d.large            | 16.00        | Intel Xeon Platinum 8151   | 2     | 1         | 2                | ✗ No         | ✗ No               |
 | z1d.xlarge           | 32.00        | Intel Xeon Platinum 8151   | 4     | 2         | 2                | ✗ No         | ✗ No               |
@@ -519,7 +530,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 
 ###### Note
 
-R8a, R8g, R8gd, R8i, R8i-flex, X8g instance types support configurable bandwidth weightings.
+R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz instance types support configurable bandwidth weightings.
 With these instance types, you can optimize an instance's bandwidth for either networking performance
 or Amazon EBS performance. The following table shows the default networking bandwidth performance for these
 instance types. For the supported configurable weightings, see [Configurable bandwidth weighting preferences](../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md "../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md").
@@ -897,6 +908,15 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | x8g.48xlarge         | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
 | x8g.metal-24xl       | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
 | x8g.metal-48xl       | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
+| **X8aedz**           |
+| x8aedz.large 1       | 1.562 / 18.75                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| x8aedz.xlarge 1      | 3.125 / 18.75                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| x8aedz.3xlarge 1     | 9.375 / 18.75                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 40                         | ✓ Yes |
+| x8aedz.6xlarge       | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 40                         | ✓ Yes |
+| x8aedz.12xlarge      | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
+| x8aedz.24xlarge      | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| x8aedz.metal-12xl    | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
+| x8aedz.metal-24xl    | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | **z1d**              |
 | z1d.large 1          | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
 | z1d.xlarge 1         | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
@@ -947,7 +967,7 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 
 ###### Note
 
-- R8a, R8g, R8gd, R8i, R8i-flex, X8g virtualized instance types support configurable bandwidth weightings.
+- R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz virtualized instance types support configurable bandwidth weightings.
   With these instance types, you can optimize an instance's bandwidth for either networking performance
   or Amazon EBS performance. The following table shows the default networking bandwidth performance for these
   instance types. Bare metal instance types are not supported. For the supported configurable weightings,
@@ -1328,6 +1348,15 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | x8g.48xlarge         | 40000.00                            | 5000.00                                           | 240000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | x8g.metal-24xl       | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 39 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | x8g.metal-48xl       | 40000.00                            | 5000.00                                           | 240000.00                            | ✓ Yes | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **X8aedz**           |
+| x8aedz.large 1       | 1250.00 / 15000.00                  | 156.25 / 1875.00                                  | 5000.00 / 60000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8aedz.xlarge 1      | 2500.00 / 15000.00                  | 312.50 / 1875.00                                  | 10000.00 / 60000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8aedz.3xlarge 1     | 7500.00 / 15000.00                  | 937.50 / 1875.00                                  | 30000.00 / 60000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8aedz.6xlarge       | 15000.00                            | 1875.00                                           | 60000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8aedz.12xlarge      | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8aedz.24xlarge      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| x8aedz.metal-12xl    | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8aedz.metal-24xl    | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **z1d**              |
 | z1d.large 1          | 800.00 / 3170.00                    | 100.00 / 396.25                                   | 3333.00 / 13333.00                   | ✓ Yes | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | z1d.xlarge 1         | 1580.00 / 3170.00                   | 197.50 / 396.25                                   | 6667.00 / 13333.00                   | ✓ Yes | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
@@ -1349,134 +1378,143 @@ instances.
 The following table shows the instance store volume configuration for supported instance types,
 along with the aggregated IOPS performance with 4,096 byte block size at queue depth saturation.
 
-| Instance type   | Instance store volumes | Instance store type | 100% random read IOPS / Write IOPS | Needs initialization 1 | TRIM support 2 |
-| --------------- | ---------------------- | ------------------- | ---------------------------------- | ---------------------- | -------------- |
-| **R5ad**        |
-| r5ad.large      | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
-| r5ad.xlarge     | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
-| r5ad.2xlarge    | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
-| r5ad.4xlarge    | 2 x 300 GB             | NVMe SSD            | 234,000 / 114,000                  |                        | ✓ Yes          |
-| r5ad.8xlarge    | 2 x 600 GB             | NVMe SSD            | 466,666 / 233,334                  |                        | ✓ Yes          |
-| r5ad.12xlarge   | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
-| r5ad.16xlarge   | 4 x 600 GB             | NVMe SSD            | 933,332 / 466,668                  |                        | ✓ Yes          |
-| r5ad.24xlarge   | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
-| **R5d**         |
-| r5d.large       | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
-| r5d.xlarge      | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
-| r5d.2xlarge     | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
-| r5d.4xlarge     | 2 x 300 GB             | NVMe SSD            | 234,000 / 114,000                  |                        | ✓ Yes          |
-| r5d.8xlarge     | 2 x 600 GB             | NVMe SSD            | 466,666 / 233,334                  |                        | ✓ Yes          |
-| r5d.12xlarge    | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
-| r5d.16xlarge    | 4 x 600 GB             | NVMe SSD            | 933,332 / 466,668                  |                        | ✓ Yes          |
-| r5d.24xlarge    | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
-| r5d.metal       | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
-| **R5dn**        |
-| r5dn.large      | 1 x 75 GB              | NVMe SSD            | 29,000 / 14,500                    |                        | ✓ Yes          |
-| r5dn.xlarge     | 1 x 150 GB             | NVMe SSD            | 58,000 / 29,000                    |                        | ✓ Yes          |
-| r5dn.2xlarge    | 1 x 300 GB             | NVMe SSD            | 116,000 / 58,000                   |                        | ✓ Yes          |
-| r5dn.4xlarge    | 2 x 300 GB             | NVMe SSD            | 232,000 / 116,000                  |                        | ✓ Yes          |
-| r5dn.8xlarge    | 2 x 600 GB             | NVMe SSD            | 464,000 / 232,000                  |                        | ✓ Yes          |
-| r5dn.12xlarge   | 2 x 900 GB             | NVMe SSD            | 700,000 / 350,000                  |                        | ✓ Yes          |
-| r5dn.16xlarge   | 4 x 600 GB             | NVMe SSD            | 930,000 / 465,000                  |                        | ✓ Yes          |
-| r5dn.24xlarge   | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 700,000                |                        | ✓ Yes          |
-| r5dn.metal      | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 700,000                |                        | ✓ Yes          |
-| **R6gd**        |
-| r6gd.medium     | 1 x 59 GB              | NVMe SSD            | 13,438 / 5,625                     |                        | ✓ Yes          |
-| r6gd.large      | 1 x 118 GB             | NVMe SSD            | 26,875 / 11,250                    |                        | ✓ Yes          |
-| r6gd.xlarge     | 1 x 237 GB             | NVMe SSD            | 53,750 / 22,500                    |                        | ✓ Yes          |
-| r6gd.2xlarge    | 1 x 474 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
-| r6gd.4xlarge    | 1 x 950 GB             | NVMe SSD            | 215,000 / 90,000                   |                        | ✓ Yes          |
-| r6gd.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
-| r6gd.12xlarge   | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
-| r6gd.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| r6gd.metal      | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| **R6id**        |
-| r6id.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| r6id.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| r6id.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| r6id.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| r6id.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| r6id.12xlarge   | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
-| r6id.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| r6id.24xlarge   | 4 x 1425 GB            | NVMe SSD            | 1,609,996 / 805,000                |                        | ✓ Yes          |
-| r6id.32xlarge   | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| r6id.metal      | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| **R6idn**       |
-| r6idn.large     | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| r6idn.xlarge    | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| r6idn.2xlarge   | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| r6idn.4xlarge   | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| r6idn.8xlarge   | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| r6idn.12xlarge  | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
-| r6idn.16xlarge  | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| r6idn.24xlarge  | 4 x 1425 GB            | NVMe SSD            | 1,609,996 / 805,000                |                        | ✓ Yes          |
-| r6idn.32xlarge  | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| r6idn.metal     | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| **R7gd**        |
-| r7gd.medium     | 1 x 59 GB              | NVMe SSD            | 16,771 / 8,385                     |                        | ✓ Yes          |
-| r7gd.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| r7gd.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| r7gd.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| r7gd.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| r7gd.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| r7gd.12xlarge   | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
-| r7gd.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| r7gd.metal      | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| **R8gd**        |
-| r8gd.medium     | 1 x 59 GB              | NVMe SSD            | 16,771 / 8,385                     |                        | ✓ Yes          |
-| r8gd.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| r8gd.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| r8gd.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| r8gd.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| r8gd.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| r8gd.12xlarge   | 3 x 950 GB             | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
-| r8gd.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| r8gd.24xlarge   | 3 x 1900 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
-| r8gd.48xlarge   | 6 x 1900 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
-| r8gd.metal-24xl | 3 x 1900 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
-| r8gd.metal-48xl | 6 x 1900 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
-| **X1**          |
-| x1.16xlarge     | 1 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
-| x1.32xlarge     | 2 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
-| **X1e**         |
-| x1e.xlarge      | 1 x 120 GB             | SSD                 |                                    | ✓ Yes                  |                |
-| x1e.2xlarge     | 1 x 240 GB             | SSD                 |                                    | ✓ Yes                  |                |
-| x1e.4xlarge     | 1 x 480 GB             | SSD                 |                                    | ✓ Yes                  |                |
-| x1e.8xlarge     | 1 x 960 GB             | SSD                 |                                    | ✓ Yes                  |                |
-| x1e.16xlarge    | 1 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
-| x1e.32xlarge    | 2 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
-| **X2gd**        |
-| x2gd.medium     | 1 x 59 GB              | NVMe SSD            | 13,438 / 5,625                     |                        | ✓ Yes          |
-| x2gd.large      | 1 x 118 GB             | NVMe SSD            | 26,875 / 11,250                    |                        | ✓ Yes          |
-| x2gd.xlarge     | 1 x 237 GB             | NVMe SSD            | 53,750 / 22,500                    |                        | ✓ Yes          |
-| x2gd.2xlarge    | 1 x 475 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
-| x2gd.4xlarge    | 1 x 950 GB             | NVMe SSD            | 215,000 / 90,000                   |                        | ✓ Yes          |
-| x2gd.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
-| x2gd.12xlarge   | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
-| x2gd.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| x2gd.metal      | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| **X2idn**       |
-| x2idn.16xlarge  | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
-| x2idn.24xlarge  | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
-| x2idn.32xlarge  | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| x2idn.metal     | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| **X2iedn**      |
-| x2iedn.xlarge   | 1 x 118 GB             | NVMe SSD            | 26,875 / 11,250                    |                        | ✓ Yes          |
-| x2iedn.2xlarge  | 1 x 237 GB             | NVMe SSD            | 53,750 / 22,500                    |                        | ✓ Yes          |
-| x2iedn.4xlarge  | 1 x 475 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
-| x2iedn.8xlarge  | 1 x 950 GB             | NVMe SSD            | 215,000 / 90,000                   |                        | ✓ Yes          |
-| x2iedn.16xlarge | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
-| x2iedn.24xlarge | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
-| x2iedn.32xlarge | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| x2iedn.metal    | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| **z1d**         |
-| z1d.large       | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
-| z1d.xlarge      | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
-| z1d.2xlarge     | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
-| z1d.3xlarge     | 1 x 450 GB             | NVMe SSD            | 175,000 / 75,000                   |                        | ✓ Yes          |
-| z1d.6xlarge     | 1 x 900 GB             | NVMe SSD            | 350,000 / 170,000                  |                        | ✓ Yes          |
-| z1d.12xlarge    | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
-| z1d.metal       | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
+| Instance type     | Instance store volumes | Instance store type | 100% random read IOPS / Write IOPS | Needs initialization 1 | TRIM support 2 |
+| ----------------- | ---------------------- | ------------------- | ---------------------------------- | ---------------------- | -------------- |
+| **R5ad**          |
+| r5ad.large        | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
+| r5ad.xlarge       | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
+| r5ad.2xlarge      | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
+| r5ad.4xlarge      | 2 x 300 GB             | NVMe SSD            | 234,000 / 114,000                  |                        | ✓ Yes          |
+| r5ad.8xlarge      | 2 x 600 GB             | NVMe SSD            | 466,666 / 233,334                  |                        | ✓ Yes          |
+| r5ad.12xlarge     | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
+| r5ad.16xlarge     | 4 x 600 GB             | NVMe SSD            | 933,332 / 466,668                  |                        | ✓ Yes          |
+| r5ad.24xlarge     | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
+| **R5d**           |
+| r5d.large         | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
+| r5d.xlarge        | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
+| r5d.2xlarge       | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
+| r5d.4xlarge       | 2 x 300 GB             | NVMe SSD            | 234,000 / 114,000                  |                        | ✓ Yes          |
+| r5d.8xlarge       | 2 x 600 GB             | NVMe SSD            | 466,666 / 233,334                  |                        | ✓ Yes          |
+| r5d.12xlarge      | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
+| r5d.16xlarge      | 4 x 600 GB             | NVMe SSD            | 933,332 / 466,668                  |                        | ✓ Yes          |
+| r5d.24xlarge      | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
+| r5d.metal         | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
+| **R5dn**          |
+| r5dn.large        | 1 x 75 GB              | NVMe SSD            | 29,000 / 14,500                    |                        | ✓ Yes          |
+| r5dn.xlarge       | 1 x 150 GB             | NVMe SSD            | 58,000 / 29,000                    |                        | ✓ Yes          |
+| r5dn.2xlarge      | 1 x 300 GB             | NVMe SSD            | 116,000 / 58,000                   |                        | ✓ Yes          |
+| r5dn.4xlarge      | 2 x 300 GB             | NVMe SSD            | 232,000 / 116,000                  |                        | ✓ Yes          |
+| r5dn.8xlarge      | 2 x 600 GB             | NVMe SSD            | 464,000 / 232,000                  |                        | ✓ Yes          |
+| r5dn.12xlarge     | 2 x 900 GB             | NVMe SSD            | 700,000 / 350,000                  |                        | ✓ Yes          |
+| r5dn.16xlarge     | 4 x 600 GB             | NVMe SSD            | 930,000 / 465,000                  |                        | ✓ Yes          |
+| r5dn.24xlarge     | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 700,000                |                        | ✓ Yes          |
+| r5dn.metal        | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 700,000                |                        | ✓ Yes          |
+| **R6gd**          |
+| r6gd.medium       | 1 x 59 GB              | NVMe SSD            | 13,438 / 5,625                     |                        | ✓ Yes          |
+| r6gd.large        | 1 x 118 GB             | NVMe SSD            | 26,875 / 11,250                    |                        | ✓ Yes          |
+| r6gd.xlarge       | 1 x 237 GB             | NVMe SSD            | 53,750 / 22,500                    |                        | ✓ Yes          |
+| r6gd.2xlarge      | 1 x 474 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
+| r6gd.4xlarge      | 1 x 950 GB             | NVMe SSD            | 215,000 / 90,000                   |                        | ✓ Yes          |
+| r6gd.8xlarge      | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
+| r6gd.12xlarge     | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
+| r6gd.16xlarge     | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| r6gd.metal        | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| **R6id**          |
+| r6id.large        | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| r6id.xlarge       | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| r6id.2xlarge      | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| r6id.4xlarge      | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| r6id.8xlarge      | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| r6id.12xlarge     | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
+| r6id.16xlarge     | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| r6id.24xlarge     | 4 x 1425 GB            | NVMe SSD            | 1,609,996 / 805,000                |                        | ✓ Yes          |
+| r6id.32xlarge     | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| r6id.metal        | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| **R6idn**         |
+| r6idn.large       | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| r6idn.xlarge      | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| r6idn.2xlarge     | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| r6idn.4xlarge     | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| r6idn.8xlarge     | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| r6idn.12xlarge    | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
+| r6idn.16xlarge    | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| r6idn.24xlarge    | 4 x 1425 GB            | NVMe SSD            | 1,609,996 / 805,000                |                        | ✓ Yes          |
+| r6idn.32xlarge    | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| r6idn.metal       | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| **R7gd**          |
+| r7gd.medium       | 1 x 59 GB              | NVMe SSD            | 16,771 / 8,385                     |                        | ✓ Yes          |
+| r7gd.large        | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| r7gd.xlarge       | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| r7gd.2xlarge      | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| r7gd.4xlarge      | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| r7gd.8xlarge      | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| r7gd.12xlarge     | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
+| r7gd.16xlarge     | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| r7gd.metal        | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| **R8gd**          |
+| r8gd.medium       | 1 x 59 GB              | NVMe SSD            | 16,771 / 8,385                     |                        | ✓ Yes          |
+| r8gd.large        | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| r8gd.xlarge       | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| r8gd.2xlarge      | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| r8gd.4xlarge      | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| r8gd.8xlarge      | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| r8gd.12xlarge     | 3 x 950 GB             | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
+| r8gd.16xlarge     | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| r8gd.24xlarge     | 3 x 1900 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| r8gd.48xlarge     | 6 x 1900 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| r8gd.metal-24xl   | 3 x 1900 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| r8gd.metal-48xl   | 6 x 1900 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| **X1**            |
+| x1.16xlarge       | 1 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
+| x1.32xlarge       | 2 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
+| **X1e**           |
+| x1e.xlarge        | 1 x 120 GB             | SSD                 |                                    | ✓ Yes                  |                |
+| x1e.2xlarge       | 1 x 240 GB             | SSD                 |                                    | ✓ Yes                  |                |
+| x1e.4xlarge       | 1 x 480 GB             | SSD                 |                                    | ✓ Yes                  |                |
+| x1e.8xlarge       | 1 x 960 GB             | SSD                 |                                    | ✓ Yes                  |                |
+| x1e.16xlarge      | 1 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
+| x1e.32xlarge      | 2 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
+| **X2gd**          |
+| x2gd.medium       | 1 x 59 GB              | NVMe SSD            | 13,438 / 5,625                     |                        | ✓ Yes          |
+| x2gd.large        | 1 x 118 GB             | NVMe SSD            | 26,875 / 11,250                    |                        | ✓ Yes          |
+| x2gd.xlarge       | 1 x 237 GB             | NVMe SSD            | 53,750 / 22,500                    |                        | ✓ Yes          |
+| x2gd.2xlarge      | 1 x 475 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
+| x2gd.4xlarge      | 1 x 950 GB             | NVMe SSD            | 215,000 / 90,000                   |                        | ✓ Yes          |
+| x2gd.8xlarge      | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
+| x2gd.12xlarge     | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
+| x2gd.16xlarge     | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| x2gd.metal        | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| **X2idn**         |
+| x2idn.16xlarge    | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
+| x2idn.24xlarge    | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
+| x2idn.32xlarge    | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| x2idn.metal       | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| **X2iedn**        |
+| x2iedn.xlarge     | 1 x 118 GB             | NVMe SSD            | 26,875 / 11,250                    |                        | ✓ Yes          |
+| x2iedn.2xlarge    | 1 x 237 GB             | NVMe SSD            | 53,750 / 22,500                    |                        | ✓ Yes          |
+| x2iedn.4xlarge    | 1 x 475 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
+| x2iedn.8xlarge    | 1 x 950 GB             | NVMe SSD            | 215,000 / 90,000                   |                        | ✓ Yes          |
+| x2iedn.16xlarge   | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
+| x2iedn.24xlarge   | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
+| x2iedn.32xlarge   | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| x2iedn.metal      | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| **X8aedz**        |
+| x8aedz.large      | 1 x 158 GB             | NVMe SSD            | 44,722 / 22,361                    |                        | ✓ Yes          |
+| x8aedz.xlarge     | 1 x 316 GB             | NVMe SSD            | 89,444 / 44,722                    |                        | ✓ Yes          |
+| x8aedz.3xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| x8aedz.6xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| x8aedz.12xlarge   | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| x8aedz.24xlarge   | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| x8aedz.metal-12xl | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| x8aedz.metal-24xl | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| **z1d**           |
+| z1d.large         | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
+| z1d.xlarge        | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
+| z1d.2xlarge       | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
+| z1d.3xlarge       | 1 x 450 GB             | NVMe SSD            | 175,000 / 75,000                   |                        | ✓ Yes          |
+| z1d.6xlarge       | 1 x 900 GB             | NVMe SSD            | 350,000 / 170,000                  |                        | ✓ Yes          |
+| z1d.12xlarge      | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
+| z1d.metal         | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
 
 1 Volumes attached to certain instances suffer a first-write
 penalty unless initialized. For more information, see [Optimize disk performance for
@@ -1860,6 +1898,15 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | x8g.48xlarge         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | x8g.metal-24xl       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | x8g.metal-48xl       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| **X8aedz**           |
+| x8aedz.large         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8aedz.xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8aedz.3xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8aedz.6xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8aedz.12xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8aedz.24xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8aedz.metal-12xl    | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| x8aedz.metal-24xl    | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **z1d**              |
 | z1d.large            | ✓ Yes          | ✓ Yes                        | ✗ No                  | ✗ No        | ✓ Yes    | ✗ No           |
 | z1d.xlarge           | ✓ Yes          | ✓ Yes                        | ✗ No                  | ✗ No        | ✓ Yes    | ✓ Yes          |

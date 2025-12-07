@@ -44,6 +44,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | C7gn            | `c7gn.medium`            | `c7gn.large`      | `c7gn.xlarge`      | `c7gn.2xlarge`     | `c7gn.4xlarge`     | `c7gn.8xlarge`      | `c7gn.12xlarge`     | `c7gn.16xlarge` | `c7gn.metal`    |
 | C7i             | `c7i.large`              | `c7i.xlarge`      | `c7i.2xlarge`      | `c7i.4xlarge`      | `c7i.8xlarge`      | `c7i.12xlarge`      | `c7i.16xlarge`      | `c7i.24xlarge`  | `c7i.48xlarge`  | `c7i.metal-24xl` | `c7i.metal-48xl`  |
 | C7i-flex        | `c7i-flex.large`         | `c7i-flex.xlarge` | `c7i-flex.2xlarge` | `c7i-flex.4xlarge` | `c7i-flex.8xlarge` | `c7i-flex.12xlarge` | `c7i-flex.16xlarge` |
+| C8a             | `c8a.medium`             | `c8a.large`       | `c8a.xlarge`       | `c8a.2xlarge`      | `c8a.4xlarge`      | `c8a.8xlarge`       | `c8a.12xlarge`      | `c8a.16xlarge`  | `c8a.24xlarge`  | `c8a.48xlarge`   | `c8a.metal-24xl`  | `c8a.metal-48xl`  |
 | C8g             | `c8g.medium`             | `c8g.large`       | `c8g.xlarge`       | `c8g.2xlarge`      | `c8g.4xlarge`      | `c8g.8xlarge`       | `c8g.12xlarge`      | `c8g.16xlarge`  | `c8g.24xlarge`  | `c8g.48xlarge`   | `c8g.metal-24xl`  | `c8g.metal-48xl`  |
 | C8gd            | `c8gd.medium`            | `c8gd.large`      | `c8gd.xlarge`      | `c8gd.2xlarge`     | `c8gd.4xlarge`     | `c8gd.8xlarge`      | `c8gd.12xlarge`     | `c8gd.16xlarge` | `c8gd.24xlarge` | `c8gd.48xlarge`  | `c8gd.metal-24xl` | `c8gd.metal-48xl` |
 | C8gn            | `c8gn.medium`            | `c8gn.large`      | `c8gn.xlarge`      | `c8gn.2xlarge`     | `c8gn.4xlarge`     | `c8gn.8xlarge`      | `c8gn.12xlarge`     | `c8gn.16xlarge` | `c8gn.24xlarge` | `c8gn.48xlarge`  | `c8gn.metal-24xl` | `c8gn.metal-48xl` |
@@ -72,6 +73,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | C7gn            | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | C7i             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | C7i-flex        | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| C8a             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | C8g             | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | C8gd            | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | C8gn            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
@@ -265,6 +267,19 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | c7i-flex.8xlarge  | 64.00        | Intel Xeon Sapphire Rapids         | 32    | 16        | 2                | ✗ No         | ✗ No               |
 | c7i-flex.12xlarge | 96.00        | Intel Xeon Sapphire Rapids         | 48    | 24        | 2                | ✗ No         | ✗ No               |
 | c7i-flex.16xlarge | 128.00       | Intel Xeon Sapphire Rapids         | 64    | 32        | 2                | ✗ No         | ✗ No               |
+| **C8a**           |
+| c8a.medium        | 2.00         | AMD EPYC 9R45                      | 1     | 1         | 1                | ✗ No         | ✗ No               |
+| c8a.large         | 4.00         | AMD EPYC 9R45                      | 2     | 2         | 1                | ✗ No         | ✗ No               |
+| c8a.xlarge        | 8.00         | AMD EPYC 9R45                      | 4     | 4         | 1                | ✗ No         | ✗ No               |
+| c8a.2xlarge       | 16.00        | AMD EPYC 9R45                      | 8     | 8         | 1                | ✗ No         | ✗ No               |
+| c8a.4xlarge       | 32.00        | AMD EPYC 9R45                      | 16    | 16        | 1                | ✗ No         | ✗ No               |
+| c8a.8xlarge       | 64.00        | AMD EPYC 9R45                      | 32    | 32        | 1                | ✗ No         | ✗ No               |
+| c8a.12xlarge      | 96.00        | AMD EPYC 9R45                      | 48    | 48        | 1                | ✗ No         | ✗ No               |
+| c8a.16xlarge      | 128.00       | AMD EPYC 9R45                      | 64    | 64        | 1                | ✗ No         | ✗ No               |
+| c8a.24xlarge      | 192.00       | AMD EPYC 9R45                      | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| c8a.48xlarge      | 384.00       | AMD EPYC 9R45                      | 192   | 192       | 1                | ✗ No         | ✗ No               |
+| c8a.metal-24xl    | 192.00       | AMD EPYC 9R45                      | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| c8a.metal-48xl    | 384.00       | AMD EPYC 9R45                      | 192   | 192       | 1                | ✗ No         | ✗ No               |
 | **C8g**           |
 | c8g.medium        | 2.00         | AWS Graviton4 Processor            | 1     | 1         | 1                | ✗ No         | ✗ No               |
 | c8g.large         | 4.00         | AWS Graviton4 Processor            | 2     | 2         | 1                | ✗ No         | ✗ No               |
@@ -331,7 +346,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 
 ###### Note
 
-C8g, C8gd, C8i, C8i-flex instance types support configurable bandwidth weightings.
+C8a, C8g, C8gd, C8i, C8i-flex instance types support configurable bandwidth weightings.
 With these instance types, you can optimize an instance's bandwidth for either networking performance
 or Amazon EBS performance. The following table shows the default networking bandwidth performance for these
 instance types. For the supported configurable weightings, see [Configurable bandwidth weighting preferences](../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md "../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md").
@@ -521,6 +536,19 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c7i-flex.8xlarge 1  | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | c7i-flex.12xlarge 1 | 9.375 / 18.75                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | c7i-flex.16xlarge 1 | 12.5 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
+| **C8a**             |
+| c8a.medium 1        | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
+| c8a.large 1         | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
+| c8a.xlarge 1        | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| c8a.2xlarge 1       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 40                         | ✓ Yes |
+| c8a.4xlarge 1       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 40                         | ✓ Yes |
+| c8a.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 40                         | ✓ Yes |
+| c8a.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 64                         | ✓ Yes |
+| c8a.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| c8a.24xlarge        | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| c8a.48xlarge        | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| c8a.metal-24xl      | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| c8a.metal-48xl      | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | **C8g**             |
 | c8g.medium 1        | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
 | c8g.large 1         | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
@@ -620,7 +648,7 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 
 ###### Note
 
-C8g, C8gd, C8i, C8i-flex instance types support configurable bandwidth weightings.
+C8a, C8g, C8gd, C8i, C8i-flex instance types support configurable bandwidth weightings.
 With these instance types, you can optimize an instance's bandwidth for either networking performance
 or Amazon EBS performance. The following table shows the default networking bandwidth performance for these
 instance types. For the supported configurable weightings, see [Configurable bandwidth weighting preferences](../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md "../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md").
@@ -810,6 +838,19 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c7i-flex.8xlarge 1  | 5000.00 / 10000.00                  | 625.00 / 1250.00                                  | 20000.00 / 40000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c7i-flex.12xlarge 1 | 7500.00 / 15000.00                  | 937.50 / 1875.00                                  | 30000.00 / 60000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c7i-flex.16xlarge 1 | 10000.00 / 20000.00                 | 1250.00 / 2500.00                                 | 40000.00 / 80000.00                  | ✓ Yes | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **C8a**             |
+| c8a.medium 1        | 325.00 / 10000.00                   | 40.62 / 1250.00                                   | 2500.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.large 1         | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.xlarge 1        | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.2xlarge 1       | 2500.00 / 10000.00                  | 312.50 / 1250.00                                  | 12000.00 / 40000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.4xlarge 1       | 5000.00 / 10000.00                  | 625.00 / 1250.00                                  | 20000.00 / 40000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.8xlarge         | 10000.00                            | 1250.00                                           | 40000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.12xlarge        | 15000.00                            | 1875.00                                           | 60000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.16xlarge        | 20000.00                            | 2500.00                                           | 80000.00                             | ✓ Yes | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.24xlarge        | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.48xlarge        | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| c8a.metal-24xl      | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8a.metal-48xl      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **C8g**             |
 | c8g.medium 1        | 315.00 / 10000.00                   | 39.38 / 1250.00                                   | 2500.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c8g.large 1         | 630.00 / 10000.00                   | 78.75 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1144,6 +1185,19 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | c7i-flex.8xlarge  | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | c7i-flex.12xlarge | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | c7i-flex.16xlarge | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| **C8a**           |
+| c8a.medium        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| c8a.large         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8a.xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8a.2xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8a.4xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8a.8xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8a.12xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8a.16xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8a.24xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8a.48xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8a.metal-24xl    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| c8a.metal-48xl    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **C8g**           |
 | c8g.medium        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | c8g.large         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
