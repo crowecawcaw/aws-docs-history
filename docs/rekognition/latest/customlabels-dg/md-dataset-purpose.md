@@ -87,7 +87,7 @@ can use two different types of images for your training dataset images.
   For example, the following image shows an architectural diagram with labeled bounding boxes
   surrounding the AWS Lambda and Amazon Pinpoint logos.
 
-![Diagrom workflow showing AWS Lambda service feeding user activity into Amazon Pinpoint for recommendations.](images/brand-detection-lambda.png)
+![Diagrom workflow showing AWS Lambda service feeding user activity into Amazon Pinpoint for recommendations.](/images/rekognition/latest/customlabels-dg/images/brand-detection-lambda.png)
 
 We recommend that you don't mix image-level labels and bounding boxes in your training images.
 

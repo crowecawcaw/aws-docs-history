@@ -70,7 +70,7 @@ For more information, see
    want to train.
 5. On the **Project** page, choose **Train model**.
 
-!["Train mode" button for training a machine learning model on the dataset in the current project.](/images/rekognition/latest/customlabels-dg/images/tutorial-train-model.jpg) 6. (Optional) If you want to use your own AWS KMS encryption key, do the following:
+!["Train mode" button for training a machine learning model on the dataset in the current project.](images/tutorial-train-model.jpg) 6. (Optional) If you want to use your own AWS KMS encryption key, do the following:
 
     1. In **Image data encryption** choose
      **Customize encryption settings (advanced)**.
