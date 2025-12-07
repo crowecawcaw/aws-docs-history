@@ -12,6 +12,7 @@ alarms, reviewing audit results and mitigating audit issues.
 - [Apply mitigation actions to your audit findings](#apply-mitigation-actions "#apply-mitigation-actions")
 - [Creating an AWS IoT Device Defender Audit IAM role (optional)](#audit-iam "#audit-iam")
 - [Enable SNS notifications (optional)](#audit-tutorial-enable-sns "#audit-tutorial-enable-sns")
+- [Configure permissions for customer managed keys (optional)](#audit-tutorial-cmk-permissions "#audit-tutorial-cmk-permissions")
 - [Enable logging (optional)](#enable-logging "#enable-logging")
 
 ## Prerequisites
@@ -156,6 +157,54 @@ this tutorial you will set up notifications for the audit checks enabled in the 
 6. Choose **Update**.
 7. If you'd like to receive email or text in your Ops platforms through Amazon SNS, see
    [Using Amazon Simple Notification Service for user notifications](../../../sns/latest/dg/sns-user-notifications.md "../../../sns/latest/dg/sns-user-notifications.md").
+
+## Configure permissions for customer managed keys (optional)
+
+###### Note
+
+This configuration is only required if you have opted in to customer managed keys
+for AWS IoT Core. For more information about AWS IoT Core encryption at rest, see [Data encryption at rest in AWS IoT Core](../../../iot/latest/developerguide/encryption-at-rest.md "../../../iot/latest/developerguide/encryption-at-rest.md").
+
+If you have enabled customer managed keys (CMK) for AWS IoT Core encryption at rest,
+the IAM role used by AWS IoT Device Defender Audit requires additional permissions to decrypt data.
+Without these permissions, audit operations will fail.
+
+The [`AWSIoTDeviceDefenderAudit`](../../../aws-managed-policy/latest/reference/AWSIoTDeviceDefenderAudit.md "../../../aws-managed-policy/latest/reference/AWSIoTDeviceDefenderAudit.md") managed policy does not include
+`kms:Decrypt` permissions by design, following the principle of least privilege.
+You must manually add these permissions to your audit role when using customer managed keys.
+
+###### To add KMS permissions to your AWS IoT Device Defender Audit IAM role
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Roles**, and then search for
+   the role you created in [Creating an AWS IoT Device Defender Audit IAM role (optional)](#audit-iam "#audit-iam")
+   or the role you specified when configuring audit settings.
+3. Choose the role name to open its details page.
+4. In the **Permissions** tab, choose **Add permissions**,
+   and then choose **Create inline policy**.
+5. Choose the **JSON** tab and enter the following policy. Replace
+   `REGION`, `ACCOUNT_ID`, and
+   `KEY_ID` with your AWS KMS key details:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": "arn:aws:kms:`REGION`:`ACCOUNT_ID`:key/`KEY_ID`"
+    }
+  ]
+}
+```
+
+6. Choose **Next**.
+7. For **Policy name**, enter a descriptive name such as
+   `DeviceDefenderAuditKMSDecrypt`.
+8. Choose **Create policy**.
 
 ## Enable logging (optional)
 
