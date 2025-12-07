@@ -1,43 +1,33 @@
-# [DL.SCM.3] Use artifact repositories with enforced authentication and authorization
+# [DL.SCM.10] Generate a comprehensive software inventory for each build
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Artifact repositories and registries offer secure storage and
-management for artifacts generated during the build stage of
-the development lifecycle. Examples of artifacts that are
-stored in these repositories are container images, compiled
-software artifacts, third-party modules, and other shared code
-modules. Using an artifact repository streamlines artifact
-versioning, access control, traceability, and dependency
-management, contributing to efficient and reliable software
-releases. They can significantly improve the auditability,
-security, and organization of your software artifacts, leading
-to higher-quality software deliveries.
+Maintain a comprehensive inventory of the components and dependencies that make up
+your software assists with identifying vulnerabilities and managing risks. This inventory,
+often taking the form of a [Software Bill of Materials (SBOM)](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md"), provides valuable insights into the
+composition of your software.
 
-Artifact repositories are in the critical path for ensuring
-the integrity of the software that is deployed into your
-environments. All artifacts in the repository should be
-expected to be built and tested using trusted automated
-processes in an effort to prevent errors or bugs from being
-introduced into the system. Artifact repositories should not
-contain manually produced artifacts or allow existing
-artifacts to be altered by users. Altering artifacts in the
-artifact repository degrades the integrity of the artifact and
-repository, so artifact repositories should enforce that
-artifacts are immutable.
+Generate a comprehensive inventory as part of each build. This
+forms a continuous record of your software's composition,
+enabling quick and efficient identification and management of
+potential vulnerabilities or risks. Tracking inventory that is
+machine readable enhances visibility and aids in identifying
+vulnerabilities and risks, enhancing the security posture of
+your software at scale.
 
-Use role-based or attribute-based access control to limit which users and systems can
-store and modify artifacts in artifact repositories. Access to create, update, or delete
-artifacts should remain restricted to emergencies, security use cases, and build and
-deployment processes.
+Use a tool to create and manage SBOMs, centralizing them with other build artifacts
+for easier accessibility. Open-source tool sets provided by Open Worldwide Application
+Security Project ([OWASP](https://owasp.org/ "https://owasp.org/")) and the [Linux Foundation](https://www.linuxfoundation.org/ "https://www.linuxfoundation.org/") offer options for
+creating and managing SBOMs in standardized formats.
 
 **Related information:**
 
-- [AWS Well-Architected Security Pillar: SEC11-BP05 Centralize
-  services for packages and dependencies](../framework/sec_appsec_centralize_services_for_packages_and_dependencies.md "../framework/sec_appsec_centralize_services_for_packages_and_dependencies.md")
-- [Artifact
-  Repository - AWS CodeArtifact](https://aws.amazon.com/codeartifact/ "https://aws.amazon.com/codeartifact/")
-- [Fully
-  Managed Container Registry - Amazon Elastic Container Registry](https://aws.amazon.com/ecr/ "https://aws.amazon.com/ecr/")
-- [Code
-  Repositories and Artifact Management | AWS Marketplace](https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all "https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all")
+- [Exporting
+  SBOMs with Amazon Inspector](../../../inspector/latest/user/sbom-export.md "../../../inspector/latest/user/sbom-export.md")
+- [SPDX
+  Becomes Internationally Recognized Standard for Software
+  Bill of Materials](https://www.linuxfoundation.org/press/featured/spdx-becomes-internationally-recognized-standard-for-software-bill-of-materials "https://www.linuxfoundation.org/press/featured/spdx-becomes-internationally-recognized-standard-for-software-bill-of-materials")
+- [Software
+  Supply Chain Best Practices](https://project.linuxfoundation.org/hubfs/CNCF_SSCP_v1.pdf "https://project.linuxfoundation.org/hubfs/CNCF_SSCP_v1.pdf")
+- [OWASP
+  CycloneDX](https://owasp.org/www-project-cyclonedx/ "https://owasp.org/www-project-cyclonedx/")

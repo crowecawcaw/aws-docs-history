@@ -1,53 +1,27 @@
-# [AG.ACG.6] Implement auto-remediation for non-compliant findings
+# [AG.ACG.7] Use automated tools for scalable cost management
 
 **Category:** RECOMMENDED
 
-Manual identification and remediation of non-compliance issues
-can be time-consuming and prone to errors. Automated systems
-can rapidly respond to non-compliant resources,
-misconfigurations, and insecure defaults as soon as they are
-detected.
+Automated cost management tools enable teams to remain agile
+and innovative while maintaining budgetary control. As
+deployment frequency increases due to DevOps improvements, it
+becomes important to put in place guardrails to control
+costs. 
 
-In the event of a non-compliance issue, an auto-remediation
-process should be triggered, which not only resolves the
-immediate issue but also initiates an alert to the developers.
-This is important because, while the auto-remediation resolves
-the problem at the system level, the developers need to be
-made aware of the problem so that they can correct the source
-of the error and prevent its recurrence. This dual approach of
-auto-remediation and developer notification promotes a
-learning environment and reduces the likelihood of recurring
-non-compliance issues. It allows developers to address the
-root cause of the configuration drift or non-compliance to
-prevent the continual reintroduction of the same error.
-
-While recommended for its efficiency and rapid response,
-auto-remediation is not universally applicable to all
-compliance issues. Certain issues might require manual
-intervention or a more nuanced approach. Use preventative
-guardrails and implementing detective and preventative
-controls directly within the development lifecycle where
-possible, with auto-remediation being a third best option.
-These measures, when used together, yield a more compliant
-environment.
-
-The goal of auto-remediation should not just be the swift
-resolution of issues, but also the continued education of
-developers while reducing the overall incidence of
-non-compliance.
+Use automated cost tracking mechanisms, such as cost budgets
+and alerts, and tag resources for cost allocation. Use cloud
+native cost management tools to monitor and report cloud
+expenditure continuously. Ensure these tools can alert teams
+when costs are approaching or exceeding budgeted amounts, and
+where possible, consider implementing auto-remediation methods
+to optimize resource usage, apply savings plans or reserved
+instances, and decommission unused resources.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF07-BP06 Monitor
-  and alarm proactively](../performance-efficiency-pillar/perf_monitor_instances_post_launch_proactive.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_proactive.md")
-- [AWS Well-Architected Reliability Pillar: REL06-BP04 Automate
-  responses (Real-time processing and alarming)](../reliability-pillar/rel_monitor_aws_resources_automate_response_monitor.md "../reliability-pillar/rel_monitor_aws_resources_automate_response_monitor.md")
-- [Remediating
-  Noncompliant Resources with AWS Config Rules](../../../config/latest/developerguide/remediation.md "../../../config/latest/developerguide/remediation.md")
-- [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md")
-- [Automated
-  Security Response on AWS](https://aws.amazon.com/solutions/implementations/automated-security-response-on-aws/ "https://aws.amazon.com/solutions/implementations/automated-security-response-on-aws/")
-- [Automating
-  ongoing OS patching - AWS Prescriptive Guidance](../../../prescriptive-guidance/latest/migration-replatforming-cots-applications/automating-os-patching.md "../../../prescriptive-guidance/latest/migration-replatforming-cots-applications/automating-os-patching.md")
-- [Decommission
-  resources - Cost Optimization Pillar](../cost-optimization-pillar/decommission-resources.md "../cost-optimization-pillar/decommission-resources.md")
+- [AWS Well-Architected Cost Optimization Pillar: COST02-BP05
+  Implement cost controls](../cost-optimization-pillar/cost_govern_usage_controls.md "../cost-optimization-pillar/cost_govern_usage_controls.md")
+- [Cloud
+  Financial Management](../management-and-governance-guide/cloudfinancialmanagement.md "../management-and-governance-guide/cloudfinancialmanagement.md")
+- [AWS Billing and Cost Management Conductor](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/")
+- [AWS Cost Anomaly Detection](https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/ "https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/")

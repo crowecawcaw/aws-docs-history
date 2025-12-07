@@ -1,39 +1,37 @@
-# [QA.DT.5] Utilize incremental metrics computation
+# [QA.DT.1] Ensure data integrity and accuracy with data quality tests
 
-**Category:** OPTIONAL
+**Category:** RECOMMENDED
 
-Incremental metrics computation allows teams to efficiently
-monitor and maintain data quality without needing to recompute
-metrics on the entire dataset every time data is updated. Use
-this method to significantly reduce computational resources
-and time spent on data quality testing, allowing for more
-agile and responsive data management practices. 
+Data quality tests assess the accuracy, consistency, and overall quality of the data
+used within the application or system. These tests typically involve validating data
+against predefined rules and checking for duplicate or missing data to ensure the dataset
+remains reliable. While data quality testing might not fall under the traditional
+definitions of functional or non-functional testing, it's still an essential aspect of
+ensuring that an application or system functions correctly, as the quality of data can
+significantly impact the overall performance, user experience, and reliability of the
+software.
 
-Start by identifying the specific data quality metrics that
-are essential for your system. This could include metrics
-related to accuracy, completeness, timeliness, and
-consistency. Depending on your dataset's size and complexity,
-select a tool or framework that supports incremental
-computation. Some modern data processing tools, such
-as [Apache
-Spark](https://spark.apache.org/ "https://spark.apache.org/")
-and [Deequ](https://github.com/awslabs/deequ "https://github.com/awslabs/deequ"),
-provide built-in support for incremental computations.
-
-Segment your data into logical partitions, often based on
-time, such as daily or hourly partitions. As new data is
-added, it becomes a new partition. Automate the computation
-process by setting up triggers that initiate the metric
-computation whenever new data is added or an existing
-partition is updated.
-
-Continuously monitor the updated metrics to help ensure they reflect the true state
-of your data. Periodically validate the results of the incremental metrics computation
-against a full computation to ensure accuracy. As you get more familiar with the process,
-look for ways to optimize the computation to save even more on computational resources.
-This could involve refining your partitions or improving the computation logic.
+We recommend data quality tests because they enable rapid
+software delivery and continuous improvement of data driving
+systems. Using data quality tests, teams can spend more of
+their time focusing on how data should appear rather than
+continually checking it for accuracy, streamlining the
+development and deployment process. To calculate data quality
+metrics on your dataset, define and verify data quality
+constraints, and be informed about changes in the data
+distribution. Instead of implementing checks and verification
+algorithms on your own, you can focus on describing how your
+data should look.
 
 **Related information:**
 
+- [Getting
+  started with AWS Glue Data Quality from the AWSAWS Glue Data Catalog](https://aws.amazon.com/blogs/big-data/getting-started-with-aws-glue-data-quality-from-the-aws-glue-data-catalog/ "https://aws.amazon.com/blogs/big-data/getting-started-with-aws-glue-data-quality-from-the-aws-glue-data-catalog/")
 - [Deequ
-  stateful metrics computation](https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/algebraic_states_example.md "https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/algebraic_states_example.md")
+
+* Unit Tests for Data](https://github.com/awslabs/deequ "https://github.com/awslabs/deequ")
+
+- [Test
+  data quality at scale with Deequ](https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/ "https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/")
+- [How
+  to Architect Data Quality on the AWS Cloud](https://aws.amazon.com/blogs/industries/how-to-architect-data-quality-on-the-aws-cloud/ "https://aws.amazon.com/blogs/industries/how-to-architect-data-quality-on-the-aws-cloud/")

@@ -1,30 +1,17 @@
-# [DL.CI.2] Trigger builds automatically upon source code modifications
+# [DL.CI.4] Provide consistent, actionable feedback to developers
 
 **Category:** FOUNDATIONAL
 
-Continuous integration (CI) tools should be configured to
-regularly monitor the source code repository for any changes.
-Alternatively, set up the source code repository to send an
-event upon each commit. This implementation creates an
-environment where developers can focus on coding and commit
-their changes, leaving the system to handle building, testing,
-and deploying the application.
+To identify and address issues as quickly as possible, it's important that developers
+receive consistent and actionable feedback, regardless of the technologies and tools being
+used. This consistency streamlines the process of addressing failures across diverse
+development environments, contributing to more efficient DevOps practices. Implement this by
+configuring your CI pipeline to send automatic failure notifications, offering clear,
+actionable resolution guidance. 
 
-Having this process in place aligns with the continuous integration principle of
-_failing fast_. It offers immediate feedback on the impact of changes,
-whether they cause a minor regression or a major bug, allowing for prompt correction. If a
-build fails, it becomes immediately visible to the team. Fixing a broken build is then
-prioritized, fostering a culture of discipline and continuous improvement. This approach
-minimizes the risk of integration conflicts and bugs while reducing the likelihood of
-unexpected outcomes that can arise from manual processes or irregular updates. It also
-streamlines the development process, promotes productivity, and contributes to delivering a
-higher-quality outcome.
-
-**Related information:**
-
-- [Amazon CodeCatalyst](https://codecatalyst.aws/explore "https://codecatalyst.aws/explore")
-- [Building
-  the pipeline](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/building-the-pipeline.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/building-the-pipeline.md")
-- [Deploy
-  container applications in a multicloud environment using
-  Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/deploy-container-applications-in-a-multicloud-environment-using-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/deploy-container-applications-in-a-multicloud-environment-using-amazon-codecatalyst/")
+Any failures in the process should send feedback to the
+developer automatically, describing the failure clearly with
+actionable guidance for resolution. Feedback mechanisms should
+be tailored to fit within tools already used by developers,
+such as IDEs, chat clients, or email, reducing the learning
+curve and aiding early problem detection.

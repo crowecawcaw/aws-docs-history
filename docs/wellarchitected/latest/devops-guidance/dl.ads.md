@@ -1,67 +1,53 @@
-# [DL.ADS.4] Implement Incremental Feature Release Techniques
+# [DL.ADS.2] Implement automatic rollbacks for failed deployments
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Incremental feature releases gradually roll out new features
-to users, reducing risk and maintaining system stability.
-Techniques include dark launching, two-phase deployments,
-feature flags, and canary releases. These techniques enable
-safe, controlled, and iterative changes to distributed systems
-which reduces risk associated with concurrent updates and
-maintaining system stability.
+Implement an automatic rollback strategy to enhance system
+reliability and minimize service disruptions. The strategy
+should be defined as a proactive measure in case of an
+operational event, which prioritizes customer impact
+mitigation even before identifying whether the new deployment
+is the cause of the issue.
 
-[Dark
-launches](https://martinfowler.com/bliki/DarkLaunching.html "https://martinfowler.com/bliki/DarkLaunching.html") allow teams to integrate and test new features
-in a live environment, without needing to make them visible to
-the entire user base. This approach allows for monitoring and
-analyzing the impact and performance of new features under
-real-world conditions, while mitigating the risk of widespread
-disruptions. Depending on system implementation and team
-preferences, dark launches can be implemented using
-versioning, A/B testing, canary releases, or most commonly,
-using feature flags.
+Rollback should be initiated based on alarms linked to key
+metrics like fault rates, latency, CPU usage, memory usage,
+disk usage, and log errors. Additionally, consider both the
+service's overall health and instance-specific
+metrics. Incorporate a waiting period after a deployment to
+closely monitor the system. This allows time to identify
+potential issues that might not be evident immediately,
+especially when the system is under low load. Establish
+methods to prevent deployments during higher-risk times or
+when there are active system issues. This could include
+blocking deployments during when high-severity aggregate
+alarms are raised or during specific time windows. 
 
-[Feature
-flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") allow developers to turn on or off certain
-features in their code base without affecting other
-functionality. This allows for testing of new features with a
-subset of users, limiting potential negative impacts. Feature
-flags provide an additional layer of control over the feature
-rollout process and can be used for A/B testing, canary
-releases, and dark launches.
+The rollback process should include the redeployment of the last successful code
+revision, artifact version, or container image, and should employ methods like rolling or
+blue/green deployments, or [feature flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") for a swift
+rollback with minimal disruption. Consider using the advanced deployment methods introduced
+in this capability for more granular control over deployments. Rollback considerations
+should not be limited to the latest deployments, but also account for latent changes that
+may be the source of current issues. To handle these situations, provide the ability for
+developers to select a specific previously deployed release for rollback.
 
-[Two-phase
-deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments#Two-phase_deployment_technique "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments#Two-phase_deployment_technique") complement dark launching, focusing
-primarily on managing read and write changes in a systematic
-and phased manner. Changes should first be prepared to handle
-a new update without actively implementing it (Prepare phase),
-followed by a second deployment that activates the new changes
-(Activate phase). This approach requires careful planning and
-coordination, but pays off by prioritizing data integrity and
-preventing stale records that could emerge from concurrent
-changes.
-
-The specific choice of technique, be it dark launching, two-phase deployments,
-feature flags, canary releases, or a combination, depends on your unique needs, the nature
-of the changes, the complexity of the system, and the degree of control required over the
-release process. Each of these methods offers its own advantages, and their strategic
-implementation can significantly enhance the resilience and efficiency of your
-deployments.
+After the rollback, depending on the specific issue being addressed, consider
+proactively rolling back other environments that could potentially also be affected, even
+if they aren't currently showing any customer impact. Alternatively, if the issue appears to
+be environment-specific, wait for the pipeline to roll forward a new release that includes a
+bug fix. These operational decisions should be supported by the ability to compare the
+changes between the current release and the selected rollback release's deployment
+artifacts, including source code changes and changes in library versions.
 
 **Related information:**
 
-- [Amazon CloudWatch Evidently](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md")
-- [Feature
-  Flags - AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig/ "https://aws.amazon.com/systems-manager/features/appconfig/")
-- [My
-  CI/CD pipeline is my release captain: Multiple inflight
-  releases](https://aws.amazon.com/builders-library/cicd-pipeline/#Multiple_inflight_releases "https://aws.amazon.com/builders-library/cicd-pipeline/#Multiple_inflight_releases")
 - [Ensuring
   rollback safety during deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/ "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/")
-- [Using
-  AWS AppConfig Feature Flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/ "https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/")
-- [The
-  Only Guide to Dark Launching You'll Ever Need](https://launchdarkly.com/blog/guide-to-dark-launching/ "https://launchdarkly.com/blog/guide-to-dark-launching/")
-- [Deployment
-  Pipeline Reference Architecture: Dynamic Configuration
-  Pipeline](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html")
+- [My
+  CI/CD pipeline is my release captain: Easy and automatic
+  rollbacks](https://aws.amazon.com/builders-library/cicd-pipeline/#Easy_and_automatic_rollbacks "https://aws.amazon.com/builders-library/cicd-pipeline/#Easy_and_automatic_rollbacks")
+- [Automating
+  safe, hands-off deployments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card")
+- [Amazon's
+  approach to high-availability deployment: Rollback
+  alarms](https://youtu.be/bCgD2bX1LI4?t=1669 "https://youtu.be/bCgD2bX1LI4?t=1669")

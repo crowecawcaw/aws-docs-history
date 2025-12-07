@@ -1,40 +1,28 @@
-# [AG.DLM.6] Centralize shared data to enhance governance
+# [AG.DLM.1] Define recovery objectives to maintain business continuity
 
 **Category:** FOUNDATIONAL
 
-Practicing DevOps puts an emphasis on teams working
-collaboratively and continuously exchanging data. Governing
-this shared data requires proper control, management, and
-distribution of data to prevent unauthorized access, data
-breaches, and other security incidents, fostering trust and
-enhancing the quality and reliability of software delivery.
+Clear recovery objectives help to ensure that teams can
+maintain business continuity and recover with minimal data
+loss, keeping the delivery pipeline flowing and maintaining
+service reliability.
 
-Use centralized data lakes to provide a single source of truth
-of data and management within your organization, helping to
-reduce data silos and inconsistencies. It enables secure and
-efficient data sharing across teams, enhancing collaboration
-and overall productivity. Use Role-Based Access Control (RBAC)
-or Attribute-Based Access Control (ABAC) to limit access to
-data based on the user context. Implement automated metadata
-management to better understand the context, source, and
-lineage of the data, and deploy continuous, automated data
-quality checks to ensure the accuracy and usability of the
-data.
-
-When collaboration extends beyond the organization's boundaries, _clean
-rooms_ can be used to maintain data privacy and security. Clean rooms create
-isolated data processing environments that let multiple parties collaborate and share data
-in a controlled, privacy-safe manner. With predefined rules that automatically govern the
-flow and accessibility of data, these clean rooms help ensure data privacy while still
-allowing for the extraction of valuable insights. This isolation facilitates decision-making
-and strategic planning, enabling stakeholders to collaborate and share information while
-protecting user privacy and maintaining compliance with various regulations.
+Set recovery point objectives (RPO) indicating how much data
+loss is acceptable, and recovery time objectives (RTO)
+specifying how quickly services need to be restored following
+an incident. Develop and document your disaster recovery (DR)
+strategy, make it available to teams, and conduct exercises
+and trainings to maintain the ability to perform the
+strategy. Implement policies and automated governance
+capabilities that align with your RPO and RTO objectives.
 
 **Related information:**
 
-- [AWS Well-Architected Sustainability Pillar: SUS04-BP06 Use
-  shared file systems or storage to access common data](../sustainability-pillar/sus_sus_data_a7.md "../sustainability-pillar/sus_sus_data_a7.md")
-- [Data
-  Collaboration Service - AWS Clean Rooms](https://aws.amazon.com/clean-rooms/ "https://aws.amazon.com/clean-rooms/")
-- [AWS Lake Formation](https://aws.amazon.com/lake-formation/ "https://aws.amazon.com/lake-formation/")
-- [AWS Data Exchange](https://aws.amazon.com/data-exchange "https://aws.amazon.com/data-exchange")
+- [AWS Well-Architected Reliability Pillar: REL09-BP01 Identify
+  and back up all data that needs to be backed up, or reproduce the data from sources](../reliability-pillar/rel_backing_up_data_identified_backups_data.md "../reliability-pillar/rel_backing_up_data_identified_backups_data.md")
+- [AWS Well-Architected Reliability Pillar: REL13-BP01 Define
+  recovery objectives for downtime and data loss](../reliability-pillar/rel_planning_for_recovery_objective_defined_recovery.md "../reliability-pillar/rel_planning_for_recovery_objective_defined_recovery.md")
+- [AWS Resilience Hub](https://aws.amazon.com/resilience-hub/ "https://aws.amazon.com/resilience-hub/")
+- [AWS Fault Isolation Boundaries](../../../whitepapers/latest/aws-fault-isolation-boundaries/abstract-and-introduction.md "../../../whitepapers/latest/aws-fault-isolation-boundaries/abstract-and-introduction.md")
+- [Blog: Establishing
+  RPO and RTO Targets for Cloud Applications](https://aws.amazon.com/blogs/mt/establishing-rpo-and-rto-targets-for-cloud-applications/ "https://aws.amazon.com/blogs/mt/establishing-rpo-and-rto-targets-for-cloud-applications/")

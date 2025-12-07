@@ -1,17 +1,21 @@
-# [OA.BCL.3] Reduce troubleshooting and technical debt through continuous improvement
+# [OA.BCL.7] Cultivate a psychologically-safe culture for experimentation
 
 **Category:** FOUNDATIONAL
 
-Proactively reducing the frequency of interruptions and addressing technical debt can
-have a significant positive impact on overall DevOps adoption. Allocating budget and a
-portion of the team's time to improve existing processes, environments, and
-workloads can yield a net improvement to overall development speed, code quality,
-and system stability. This can be achieved by implementing tools, processes, and team norms
-to identify, track, and manage technical debt, as well as regularly assessing and
-prioritizing process improvement opportunities. 
+Encourage experimentation and learning from failures by
+establishing clear guidelines and hosting sharing sessions for
+both successful and failed experiments. Foster a
+psychologically-safe environment where team members feel
+encouraged to share their ideas and speak up without fear of
+negative consequences. Recognize and celebrate successes,
+while also recognizing individuals who take risks and
+contribute to innovation. Cultivate a culture that values open
+communication, feedback, and continuous learning. Provide
+support for team members who are willing to experiment and
+think big.
 
-To focus teams on impactful improvements, encourage teams to factor in time and effort towards these
-initiatives. Establish metrics to measure their impact. Prioritizing addressing technical debt as part
-of regular work can also reduce the likelihood of production
-issues, ultimately resulting in more stable and reliable
-systems.
+**Related information:**
+
+- [Amazon's
+  approach to security during development: Technical
+  fearlessness](https://youtu.be/NeR7FhHqDGQ?t=1031 "https://youtu.be/NeR7FhHqDGQ?t=1031")

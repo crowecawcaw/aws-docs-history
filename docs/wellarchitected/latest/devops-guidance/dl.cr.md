@@ -1,27 +1,39 @@
-# [DL.CR.8] Designate code owners for expert review
+# [DL.CR.2] Perform peer review for code changes
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-A code owners process assigns a designated owner, usually the
-person or team with the most knowledge or expertise, to each
-part of the code base. In a DevOps environment, this helps
-ensure that there is an expert reviewer available for specific
-or complex parts of the system at all times.
+A peer review process for code changes is a strategy for
+ensuring code quality and shared responsibility. To support
+separation of duties in a DevOps environment, every change
+should be reviewed and approved by at least one other person
+before merging. Once approved, a pipeline with sufficient
+access will deploy the change.
 
-To implement a code owners process, determine who the code owners should be based on
-expertise and distribute the ownership equally amongst the team to avoid bottlenecks. You
-can use features in version control systems that automatically assign code owners to
-review code changes in their area of expertise. One example of this would be to use a
-`CODEOWNERS` file stored along with the code in the repository. This file
-defines individuals or teams that are responsible for code in a repository.
+Most version control systems support protection rules
+enforcing certain workflows, like requiring at least one peer
+review, before merging into designated branches. Use these
+rules to enforce this workflow and provide assurance that all
+code changes adhere to this mandatory review process. 
 
-While this practice is optional and not beneficial for all organizations, it can be
-particularly useful for larger teams or those with complex, distributed systems as it
-provides an additional layer of control and can prevent potential issues from going
-unnoticed if all reviewers are not equally experienced with a specific or complex part of
-the code base.
+Incorporating [pair
+programming](https://www.agilealliance.org/glossary/pair-programming/ "https://www.agilealliance.org/glossary/pair-programming/"), where two programmers collaboratively work side-by-side or through
+screen sharing, is method of peer review. By integrating this approach, reviews can be
+integrated into the development lifecycle earlier—while the code is being written, reducing
+the time taken to identify and fix issues. This accelerates review timelines, reduces the
+introduction of bugs or issues, promotes knowledge sharing, and creates a culture
+of quality and continuous improvement.
+
+Some companies require multiple reviewers, or require more
+proof than just pair-programming to adhere to compliance
+requirements. Pick a code review process that works for your
+organization, and enforce it through policies, processes, and
+technology.
 
 **Related information:**
 
-- [About
-  code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners")
+- [AWS Well-Architected Security Pillar: SEC11-BP04 Manual code
+  reviews](../framework/sec_appsec_manual_code_reviews.md "../framework/sec_appsec_manual_code_reviews.md")
+- [Team
+  Collaboration with Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/")
+- [Code
+  review](https://en.wikipedia.org/wiki/Code_review "https://en.wikipedia.org/wiki/Code_review")

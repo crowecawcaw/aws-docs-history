@@ -1,18 +1,28 @@
-# [DL.LD.2] Consistently provision local environments
+# [DL.LD.6] Leverage extensible development tools
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Standardize and automate the process for setting up local development environments
-using managed services, infrastructure as code (IaC), and scripted automation. This approach
-permits environments to be reliably replicated across different systems and teams, ensuring
-uniformity. Consistent local environments help to reduce issues that occur only on particular machines.
+Extensible software development tools, primarily integrated
+development environments (IDEs) or text editors, can be
+augmented with plugins or extensions. These plugins enhance
+the functionalities of the software, allowing for improved and
+tailored developer experiences.
 
-Create a baseline configuration for your local development environment that mirrors
-the production setup as closely as possible. Use IaC tools to define this environment, and
-script the provisioning process. All IaC and scripts should be version-controlled, helping
-to ensure that any changes are tracked and can be rolled back if necessary. Educate
-developers on the importance of using the provisioned environments and provide documentation
-on how to set up and troubleshoot these environments. Regularly review and update the
-baseline configuration to keep it aligned with changes in the production environment.
-Consider allowing developers to request local environments on-demand through a self-service
-developer portal.
+Choose development tools that work well with your primary programming languages and
+technologies in your stack. Choosing a widely adopted IDE or text editor enables
+leveraging support communities and extension ecosystems. Teams should be encouraged to
+experiment with and adopt plugins that enhance code quality, simplify integrations, or
+speed up routine tasks. Over time, curate a list of preferred, approved extensions that
+align with your DevOps objectives and security requirements. Verify that there is a
+process in place for regularly updating these tools and extensions to benefit from the
+latest improvements and security patches.
+
+**Related information:**
+
+- [Security
+  in every stage of CI/CD pipeline: IDE tools and
+  plugins](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#pre-commit-hooks#ide-tools-and-plugins "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#pre-commit-hooks#ide-tools-and-plugins")
+- [Tools
+  to Build on AWS](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/")
+- [Dev
+  Environments in CodeCatalyst](../../../codecatalyst/latest/userguide/devenvironment.md "../../../codecatalyst/latest/userguide/devenvironment.md")

@@ -1,45 +1,67 @@
-# [O.SI.4] Build health checks into every service
+# [O.SI.3] Instrument all systems for comprehensive telemetry data collection
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Each service within a system should be configured to include a health check endpoint
-which provides real-time insight into how the system and its dependencies are performing.
-Usually manifested as a secure and private HTTP health endpoint (for example,
-`/actuator/health`), this feature serves as a critical component in
-monitoring the health status of the overall system, generally including information such
-as operating status, versions of software running, database response time, and memory
-consumption. By offering lightweight and fast-responding feedback, they enable sustaining
-system reliability and availability, two attributes that directly impact customer
-experience and service credibility.
+All systems should be fully-instrumented to collect the metrics, logs, events, and
+traces necessary for meeting key performance indicators (KPIs), service level objectives,
+and logging and monitoring strategies. Teams should integrate instrumentation libraries into
+the components of new systems and feature enhancements to capture relevant data points,
+while also ensuring that pipelines and associated tools used during build, testing,
+deployment, and release of the system are also instrumented to track development lifecycle
+metrics and best practices. 
 
-Observability, governance, and testing tools can invoke these
-health check endpoints periodically, ensuring the continuous
-evaluation of system health. However, implementing them should
-be done with precautionary measures like rate-limiting,
-thresholding, and circuit breakers to avoid overwhelming the
-system and to involve human intervention when required.
+Chosen libraries and tools should support the efficient
+collection, normalization, and aggregation of telemetry data.
+Depending on the workload and existing instrumentation, this
+could involve structured log-based metric reporting, or it
+might rely on other established methods like using StatsD,
+Prometheus exporters, or other monitoring solutions. The
+chosen method should align with the workload's specific needs
+and the complexity involved in instrumenting the solution.
+Strike a balance between thorough monitoring and the amount of
+work required to implement and maintain the monitoring
+solution, to avoid falling into an anti-pattern of excessive
+instrumentation.
 
-Integrating health check endpoints is highly recommended for
-larger, more complex systems or any environment where system
-availability and rapid issue resolution need to be
-prioritized. In systems with high interoperability, such as
-microservices architecture, the presence of health check
-endpoints in every service becomes even more critical as they
-help identify issues related to specific services in the
-system. This can significantly reduce the debugging time and
-enhance the efficiency of the development process.
+Teams might also consider the use of auto-instrumentation tools to simplify the
+process of collecting data across their systems with little to no manual intervention,
+reducing the risk of human error and inconsistencies. Examples of auto-instrumentation
+include embedding instrumentation tools in shared computer images like AMIs or containers
+being used, automatically gathering telemetry from the compute runtime, or embedding
+instrumentation tools into shared libraries and frameworks.
 
-For mission critical workloads it may be beneficial to explore
-additional mitigation strategies to prevent widespread failure
-due to faulty deployments. These strategies could include
-alerting mechanisms when overall fleet size, load, latency, or
-error rate are abnormal, and phased deployments to ensure
-thorough testing before full-scale implementation. These
-preventive deployment measures complement health check
-endpoints and can prevent a potentially flawed deployment from
-propagating throughout the entire system.
+Regardless of how the team chooses to implement it, instrumentation should be
+designed to accommodate the needs of the specific workload and business requirements. This
+includes considering factors such as cost, security, data retention, access, compliance, and
+governance requirements. All collected data must always be protected using appropriate
+security measures, including encryption and least-privilege access controls.
 
 **Related information:**
 
-- [Implementing
-  health checks](https://aws.amazon.com/builders-library/implementing-health-checks/ "https://aws.amazon.com/builders-library/implementing-health-checks/")
+- [AWS Well-Architected Performance Pillar: PERF02-BP03 Collect
+  compute-related metrics](../performance-efficiency-pillar/perf_select_compute_collect_metrics.md "../performance-efficiency-pillar/perf_select_compute_collect_metrics.md")
+- [AWS Well-Architected Reliability Pillar: REL06-BP01 Monitor
+  all components for the workload (Generation)](../reliability-pillar/rel_monitor_aws_resources_monitor_resources.md "../reliability-pillar/rel_monitor_aws_resources_monitor_resources.md")
+- [AWS Well-Architected Cost Optimization Pillar: COST05-BP02
+  Analyze all components of the workload](../cost-optimization-pillar/cost_select_service_analyze_all.md "../cost-optimization-pillar/cost_select_service_analyze_all.md")
+- [Instrumenting
+  distributed systems for operational visibility](https://aws.amazon.com/builders-library/instrumenting-distributed-systems-for-operational-visibility/?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/instrumenting-distributed-systems-for-operational-visibility/?did=ba_card&trk=ba_card")
+- [AWS Observability Best Practices: Data Types](https://aws-observability.github.io/observability-best-practices "https://aws-observability.github.io/observability-best-practices")
+- [Embedding
+  metrics within logs](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.md")
+- [Application
+  Insights](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md")
+- [Container
+  Insights](../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md "../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md")
+- [Lambda
+  Insights](../../../AmazonCloudWatch/latest/monitoring/Lambda-Insights.md "../../../AmazonCloudWatch/latest/monitoring/Lambda-Insights.md")
+- [Powertools
+  for AWS Lambda](https://github.com/aws-powertools/powertools-lambda-python "https://github.com/aws-powertools/powertools-lambda-python")
+- [AWS Distro
+  for OpenTelemetry](https://aws-otel.github.io "https://aws-otel.github.io")
+- [Build
+  an observability solution using managed AWS services and
+  the OpenTelemetry standard](https://aws.amazon.com/blogs/mt/build-an-observability-solution-using-managed-aws-services-and-the-opentelemetry-standard/ "https://aws.amazon.com/blogs/mt/build-an-observability-solution-using-managed-aws-services-and-the-opentelemetry-standard/")
+- [The
+  Amazon Software Development Process: Monitor
+  Everything](https://youtu.be/52SC80SFPOw?t=1548 "https://youtu.be/52SC80SFPOw?t=1548")

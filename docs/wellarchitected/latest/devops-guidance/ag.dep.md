@@ -1,40 +1,38 @@
-# [AG.DEP.7] Utilize metadata for scalable environment management
+# [AG.DEP.3] Enable deployment to the landing zone
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-Effective environment management at scale requires the
-collection and maintenance of key information about each
-environment, such as ownership, purpose, criticality,
-lifespan, and more. These details can offer visibility and
-clarity which reduces potential confusion and misuse of
-environments and assists with setting up proper controls based
-on specific details associated with the environment.
+Dedicate an environment for each system to host the resources
+and tools required to perform controlled and uniform
+application deployments to related non-production and
+production environments. These deployment environments can
+include infrastructure or services such as pipelines and build
+agents.
 
-Adopt techniques like resource tagging to track and maintain this metadata. Not only
-does this allow platform teams to track and optimize costs by accurately attributing
-resource usage to specific environments, but it also supports the management of access
-controls and security measures, aligning governance and compliance needs with individual
-environments.
+At a minimum, each system should have a set of deployment, test, and production
+environments to support the development lifecycle. Having these environments at the system
+level, as opposed to sharing environments across multiple systems or at the team level,
+provides multiple benefits:
 
-For implementation, use available tagging features and APIs for resource management
-and metadata tracking. Where additional metadata capture is required, consider creating or
-integrating with a custom tracking system tailored to your specific needs, such as
-existing configuration management database (CMDB) or IT service management (ITSM) tools,
-providing a holistic view of all environments, thus empowering platform teams to better
-govern and manage environments based on their metadata.
-
-Although this practice is marked as optional, it is strongly
-recommended for organizations operating in complex and
-large-scale environments, where managing resources and
-configurations based on metadata can significantly improve
-efficiency, governance, and compliance. This indicator focuses
-on leveraging metadata for active environment management,
-distinguishing it from the broader scope of configuration item
-management.
+- **Isolation of systems:** Each system's resources are
+  isolated, reducing the risk of cross-system interference, reaching quotas, and security
+  breaches.
+- **Tailored environments:** The environments can be
+  customized according to the specific needs of each system, improving efficiency and
+  reducing unnecessary resource usage.
+- **Separation of concerns:** Each environment handles a
+  specific aspect of the application lifecycle (deployment, testing, production), ensuring
+  a clean and organized workflow.
+  The deployment environment should include resources and tools to support building,
+  validation, promotion, and deployment of the system. A deployment environment may not be
+  necessary for all organizations and scenarios, such as if your development lifecycle tools
+  are hosted on-premises or outside of your landing zone. For these use cases, you will need
+  to verify network connectivity between your external tools and your landing zone
+  environments.
 
 **Related information:**
 
-- [Choosing
-  tags for your environment](../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/choosing-tags.md "../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/choosing-tags.md")
-- [Tag
-  policies - AWS Organizations](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md")
+- [Spaces
+  in CodeCatalyst](../../../codecatalyst/latest/userguide/spaces.md "../../../codecatalyst/latest/userguide/spaces.md")
+- [Deployments
+  OU](../../../whitepapers/latest/organizing-your-aws-environment/deployments-ou.md "../../../whitepapers/latest/organizing-your-aws-environment/deployments-ou.md")

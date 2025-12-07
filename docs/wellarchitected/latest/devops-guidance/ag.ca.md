@@ -1,52 +1,31 @@
-# [AG.CA.1] Establish comprehensive audit trails
+# [AG.CA.2] Optimize configuration item management
 
 **Category:** FOUNDATIONAL
 
-Comprehensive audit trails involve capturing, recording, and
-storing every action taken across your environment. This
-provides a log of evidence that can offer insights for
-security and audit teams, aiding in identifying suspicious
-activities, evidencing non-compliance, and uncovering the root
-cause of issues.
+Configuration item management involves tracking and recording all resources used
+across workloads and environments. It enhances visibility, operational efficiency, and helps
+to ensure adherence to governance and compliance requirements. It aids in reviewing the
+frequent changes and updates to infrastructure and application configurations, providing a
+clear understanding of the system's state at any point in time.
 
-Effective DevOps processes are able to streamline both
-software delivery and the audit process. Automated governance,
-quality assurance, development lifecycle, and observability
-capabilities provide a significant amount of data about the
-processes that are being followed by your organization, and
-the absence of data indicates those that are not. This data
-can form a comprehensive audit trail, as steps such as
-committing code and doing peer reviews can be traced back to
-specific actors, actions, and timestamps.
+In a DevOps environment, where changes are frequent and continual, use a tool that
+maintains a resource inventory and continuous configuration log automatically with every
+change. Establish a consistent tagging strategy to streamline organizing this inventory and
+to assist in managing resources.
 
-Use tools for logging and tracking events should be enforced,
-along with access controls to maintain the integrity and
-confidentiality of audit data. Centralize evidence from these
-tools in a secure, accessible location for easy retrieval
-during audits. Consider using tools capable of automatically
-pulling data from resource APIs to collect and organize
-evidence rather than waiting for data to be pushed to it. It's
-important that this data remains secure and accessible only to
-auditors. There must be controls in place to prevent deletion,
-overwriting, or tampering with the evidence in any way.
-Regular audits of your audit systems and processes should also
-be undertaken to ensure their effectiveness.
-
-Recognize that while developers aren't auditors, they play a
-significant role in the compliance process. Provide training
-and resources to ensure that everyone on the team understands
-the concept of compliance as it relates to each systems
-specific industry.
+In cloud-based environments, with its high degree of dynamism, scalability,
+auto-scaling, and elasticity, verify that your tools can keep up with automated, on-demand
+changes. Understand the [AWS shared
+responsibility model](../security-pillar/shared-responsibility.md "../security-pillar/shared-responsibility.md") and which teams within your organization are responsible for
+managing each aspect of the configuration. In all cases, maintain an up-to-date and accurate
+record of the configuration status of every item, tracking changes over time to provide a
+comprehensive audit trail.
 
 **Related information:**
 
 - [What
-  Is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md")
-- [Automate
-  Cloud Audits - AWS Audit Manager](https://aws.amazon.com/audit-manager/ "https://aws.amazon.com/audit-manager/")
-- [Cloud
-  Audit Academy](https://aws.amazon.com/compliance/auditor-learning-path/ "https://aws.amazon.com/compliance/auditor-learning-path/")
-- [Compliance
-  and Auditing with AWS](https://aws.amazon.com/cloudops/compliance-and-auditing/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc "https://aws.amazon.com/cloudops/compliance-and-auditing/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc")
-- [Verifiable
-  Controls Evidence Store](https://aws.amazon.com/solutions/implementations/verifiable-controls-evidence-store/ "https://aws.amazon.com/solutions/implementations/verifiable-controls-evidence-store/")
+  Is AWS Config?](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md")
+- [Tagging
+  your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md")
+- [What
+  are resource groups?](../../../ARG/latest/userguide/resource-groups.md "../../../ARG/latest/userguide/resource-groups.md")
