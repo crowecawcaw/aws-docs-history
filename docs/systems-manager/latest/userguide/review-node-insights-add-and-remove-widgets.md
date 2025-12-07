@@ -29,6 +29,6 @@ page
    1. Choose **Add widgets**.
    2. In the **Add widgets** pane, click and hold the drag
       handle (
-      ![The drag handle](images/drag-handle-dashboard.png)
+      ![The drag handle](/images/systems-manager/latest/userguide/images/drag-handle-dashboard.png)
       ) of the widget to add to the display.
    3. Drag the widget and drop it into the main pane.
