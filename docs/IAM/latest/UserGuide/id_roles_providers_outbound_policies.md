@@ -4,11 +4,11 @@ IAM provides multiple policy types to control access to the outbound identity fe
 
 To request identity tokens, an IAM principal must have the `sts:GetWebIdentityToken` permission. Grant this permission through identity policies attached to IAM users or roles. To allow Tags (key, value pairs) to be passed to the GetWebIdentityToken call, the IAM principal must have the `sts:TagGetWebIdentityToken` permission.
 
-- Use the `sts:IdentityTokenAudience` condition key to limit which external services can receive tokens.
-- Use the `sts:DurationSeconds` condition key to enforce maximum token lifetimes.
-- Use the `sts:SigningAlgorithm` condition key to require specific cryptographic algorithms.
-- Use the `aws:RequestTag` condition key compare the tag key-value pair that was passed in the request with the tag pair that you specify in the policy.
-- Use the `aws:TagKeys` condition key to compare the tag keys in a request with the keys that you specify in the policy.
+- Use the [sts:IdentityTokenAudience](reference_policies_iam-condition-keys.md#ck_identitytokenaudience "reference_policies_iam-condition-keys.md#ck_identitytokenaudience") condition key to limit which external services can receive tokens.
+- Use the [sts:DurationSeconds](reference_policies_iam-condition-keys.md#ck_durationseconds "reference_policies_iam-condition-keys.md#ck_durationseconds") condition key to enforce maximum token lifetimes.
+- Use the [sts:SigningAlgorithm](reference_policies_iam-condition-keys.md#ck_signingalgorithm "reference_policies_iam-condition-keys.md#ck_signingalgorithm") condition key to require specific cryptographic algorithms.
+- Use the [aws:RequestTag](reference_policies_condition-keys.md#condition-keys-requesttag "reference_policies_condition-keys.md#condition-keys-requesttag") condition key compare the tag key-value pair that was passed in the request with the tag pair that you specify in the policy.
+- Use the [aws:TagKeys](reference_policies_condition-keys.md#condition-keys-tagkeys "reference_policies_condition-keys.md#condition-keys-tagkeys") condition key to compare the tag keys in a request with the keys that you specify in the policy.
   Refer to [IAM and AWS STS](reference_policies_iam-condition-keys.md "reference_policies_iam-condition-keys.md") condition keys to learn more about the condition keys available in IAM policies.
 
 This sample identity policy combines multiple condition keys:

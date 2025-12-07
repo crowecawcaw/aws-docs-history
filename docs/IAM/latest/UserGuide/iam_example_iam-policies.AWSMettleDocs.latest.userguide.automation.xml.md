@@ -1,6 +1,6 @@
-# Policy to enable Automation for your account
+# Policy to enable Automation across your organization
 
-The following code example shows how to This permission-based policy enablesAutomation for your account
+The following code example shows how to This permission-based policy enables Automation across your organization
 
 JSON
 
@@ -25,6 +25,21 @@ JSON
  {
  "Effect": "Allow",
  "Action": "aco-automation:UpdateEnrollmentConfiguration",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "aco-automation:AssociateAccounts",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "aco-automation:DisassociateAccounts",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "aco-automation:ListAccounts",
  "Resource": "*"
  }
  ]
