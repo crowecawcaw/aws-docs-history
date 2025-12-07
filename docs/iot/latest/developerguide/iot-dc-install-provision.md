@@ -176,6 +176,42 @@ response like this.
    2. Copy this JSON policy document and paste it into your open
       text editor.
 
+   ```
+
+
+
+
+
+
+
+
+   ```
+
+   `{
+ "Version":"2012-10-17", 
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Publish",
+ "iot:Subscribe",
+ "iot:Receive",
+ "iot:Connect"
+ ],
+ "Resource": [
+ "*"
+ ]
+ }
+ ]
+}`
+
+   ```
+
+
+
+
+   ```
+
    ###### Note
 
    This policy document generously grants every resource
