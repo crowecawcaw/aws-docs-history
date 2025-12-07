@@ -2,11 +2,12 @@
 
 instances in Lightsail
 
-###### Tip
+###### Did you know?
 
-Did you know that you can enable automatic snapshots for your instance? With automatic snapshots enabled, Lightsail stores seven daily snapshots
-and automatically replaces the oldest with the newest. For more information, see [Configure
-automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
+Lightsail stores seven daily snapshots and automatically replaces the oldest with the newest when you enable
+automatic snapshots for your instance. For more information, see
+[Configure automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
+.
 
 Create Lightsail instances that run the Windows Server operating system (OS). We have
 three OS blueprints available: Windows Server 2022, Windows Server 2019, and Windows Server 2016. In addition, we have blueprints that come preconfigured with SQL Server 2022, 2019, and

@@ -2,6 +2,13 @@
 
 your Lightsail instance
 
+###### Did you know?
+
+You can change your instance bundle to a larger size when you create an instance from an instance snapshot. For
+more information, see
+[Upsize a Lightsail instance, storage, or database from snapshots](how-to-create-larger-instance-from-snapshot-using-console.md "how-to-create-larger-instance-from-snapshot-using-console.md")
+.
+
 Your instance will use all of its burst capacity if it operates in the bursting zone
 frequently, or for extended periods of time. This can signify that your instance is
 under-provisioned. It could also be that a service is running too frequently, or your instance

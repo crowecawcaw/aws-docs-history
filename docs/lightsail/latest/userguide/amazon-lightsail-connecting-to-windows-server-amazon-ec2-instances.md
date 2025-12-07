@@ -63,7 +63,7 @@ instance. Continue to the [Get the password for your Windows Server instance](#g
 guide to learn how to get the default administrator password for your Windows Server
 instance in Amazon EC2.
 
-![An instance's public DNS in the Amazon EC2 console.](/images/lightsail/latest/userguide/images/amazon-lightsail-ec2-public-dns.png)
+![An instance's public DNS in the Amazon EC2 console.](images/amazon-lightsail-ec2-public-dns.png)
 
 ## Get the password for your Windows
 

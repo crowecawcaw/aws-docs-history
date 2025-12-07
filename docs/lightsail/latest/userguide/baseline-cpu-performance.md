@@ -2,6 +2,13 @@
 
 capacity accrual for Lightsail instances
 
+###### Did you know?
+
+You can change your instance bundle to a larger size when you create an instance from an instance snapshot. For
+more information, see
+[Upsize a Lightsail instance, storage, or database from snapshots](how-to-create-larger-instance-from-snapshot-using-console.md "how-to-create-larger-instance-from-snapshot-using-console.md")
+.
+
 Lightsail instances continuously earn (at a millisecond-level resolution) a set rate of
 CPU burst capacity per hour, which is also consumed when your instance's CPU utilization is
 greater than 0%. The accounting process for whether burst capacity is accrued or consumed also

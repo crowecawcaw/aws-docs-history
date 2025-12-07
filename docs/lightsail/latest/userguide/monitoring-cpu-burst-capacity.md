@@ -2,6 +2,13 @@
 
 Lightsail instance
 
+###### Did you know?
+
+You can change your instance bundle to a larger size when you create an instance from an instance snapshot. For
+more information, see
+[Upsize a Lightsail instance, storage, or database from snapshots](how-to-create-larger-instance-from-snapshot-using-console.md "how-to-create-larger-instance-from-snapshot-using-console.md")
+.
+
 The CPU overview page in the Lightsail console displays your instance's CPU utilization
 in comparison to its available CPU burst capacity. In the following CPU overview example, the
 CPU burst capacity percentage has increased because the instance has continuously operated

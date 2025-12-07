@@ -2,11 +2,12 @@
 
 Lightsail
 
-###### Tip
+###### Did you know?
 
-Did you know that you can enable automatic snapshots for your instance? With automatic snapshots enabled, Lightsail stores seven daily snapshots
-and automatically replaces the oldest with the newest. For more information, see [Configure
-automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
+Lightsail stores seven daily snapshots and automatically replaces the oldest with the newest when you enable
+automatic snapshots for your instance. For more information, see
+[Configure automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
+.
 
 Create a Linux/Unix-based Amazon Lightsail instance (a virtual private server) running an
 application like WordPress or a development stack like LAMP. After your instance starts running,

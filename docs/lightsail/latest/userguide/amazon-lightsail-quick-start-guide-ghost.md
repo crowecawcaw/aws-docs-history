@@ -2,11 +2,12 @@
 
 Lightsail
 
-###### Tip
+###### Did you know?
 
-Did you know that you can enable automatic snapshots for your instance? With automatic snapshots enabled, Lightsail stores seven daily snapshots
-and automatically replaces the oldest with the newest. For more information, see [Configure
-automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
+Lightsail stores seven daily snapshots and automatically replaces the oldest with the newest when you enable
+automatic snapshots for your instance. For more information, see
+[Configure automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
+.
 
 Here are a few steps you should take to get started after your Ghost instance is up and
 running on Amazon Lightsail:
@@ -341,7 +342,7 @@ Your certificate is successfully issued and validated, and the redirections
 are successfully configured on your instance if you see a message similar to the
 following example.
 
-![Actions successfully completed](images/bncert-success-conf.png)
+![Actions successfully completed](/images/lightsail/latest/userguide/images/bncert-success-conf.png)
 
 The `bncert` tool will perform an automatic renewal of your
 certificate every 80 days before it expires. Repeat the above steps if you wish

@@ -2,6 +2,13 @@
 
 bursts
 
+###### Did you know?
+
+You can change your instance bundle to a larger size when you create an instance from an instance snapshot. For
+more information, see
+[Upsize a Lightsail instance, storage, or database from snapshots](how-to-create-larger-instance-from-snapshot-using-console.md "how-to-create-larger-instance-from-snapshot-using-console.md")
+.
+
 On the CPU utilization metric graph for your instances, you will see a sustainable zone,
 and a burstable zone. In the following CPU utilization metric graph example, the performance
 baseline is 10% because the instance uses the Linux or Unix-based $7 USD/month instance

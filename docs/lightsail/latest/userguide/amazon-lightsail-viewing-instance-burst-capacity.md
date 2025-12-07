@@ -2,6 +2,13 @@
 
 bursting for optimal performance
 
+###### Did you know?
+
+You can change your instance bundle to a larger size when you create an instance from an instance snapshot. For
+more information, see
+[Upsize a Lightsail instance, storage, or database from snapshots](how-to-create-larger-instance-from-snapshot-using-console.md "how-to-create-larger-instance-from-snapshot-using-console.md")
+.
+
 Amazon Lightsail instances provide a baseline amount of CPU performance, but also have the
 ability to temporarily provide additional CPU performance above the baseline as needed. This is
 referred to as bursting. The baseline performance and ability to burst are governed by the

@@ -2,11 +2,12 @@
 
 Lightsail
 
-###### Tip
+###### Did you know?
 
-Did you know that you can enable automatic snapshots for your instance? With automatic snapshots enabled, Lightsail stores seven daily snapshots
-and automatically replaces the oldest with the newest. For more information, see [Configure
-automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
+Lightsail stores seven daily snapshots and automatically replaces the oldest with the newest when you enable
+automatic snapshots for your instance. For more information, see
+[Configure automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
+.
 
 Here are a few steps you should complete to get started after your Magento instance is up
 and running on Amazon Lightsail.
@@ -98,7 +99,7 @@ sudo /opt/bitnami/configure_app_domain --domain `203.0.113.0`
 You should see a response similar to the following example. The Magento software
 should now be aware of the new static IP address.
 
-![Result of the domain configuration tool](/images/lightsail/latest/userguide/images/quick-start-configure-domain-ip.png)
+![Result of the domain configuration tool](images/quick-start-configure-domain-ip.png)
 
 ###### Note
 

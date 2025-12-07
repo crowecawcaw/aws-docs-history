@@ -2,11 +2,12 @@
 
 instance on Lightsail
 
-###### Tip
+###### Did you know?
 
-Did you know that you can enable automatic snapshots for your instance? With automatic snapshots enabled, Lightsail stores seven daily snapshots
-and automatically replaces the oldest with the newest. For more information, see [Configure
-automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
+Lightsail stores seven daily snapshots and automatically replaces the oldest with the newest when you enable
+automatic snapshots for your instance. For more information, see
+[Configure automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
+.
 
 Here are a few steps you should take to get started after your Redmine instance is up and
 running on Amazon Lightsail:
@@ -62,7 +63,7 @@ cat $HOME/bitnami_application_password
 You should see a response similar to the following example, which contains the
 default application password:
 
-![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png)
+![Bitnami default application password.](/images/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-password.png)
 
 ## Step 3: Attach a static IP
 
