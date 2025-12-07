@@ -27,7 +27,6 @@ Guide_.
 
 ###### Topics
 
-- [PostgreSQL 18.1](#AuroraPostgreSQL.Updates.180X "#AuroraPostgreSQL.Updates.180X")
 - [PostgreSQL 17 versions](#aurorapostgresql-versions-version17 "#aurorapostgresql-versions-version17")
 - [PostgreSQL 16 versions](#aurorapostgresql-versions-version16 "#aurorapostgresql-versions-version16")
 - [PostgreSQL 15 versions (includes some deprecated versions)](#aurorapostgresql-versions-version15 "#aurorapostgresql-versions-version15")
@@ -40,100 +39,6 @@ Guide_.
   (Deprecated)](#AuroraPostgreSQL.versions-version10 "#AuroraPostgreSQL.versions-version10")
 - [PostgreSQL 9.6 versions
   (Deprecated)](#AuroraPostgreSQL.versions-version96 "#AuroraPostgreSQL.versions-version96")
-
-## PostgreSQL 18.1
-
-The PostgreSQL community releases new Major versions of PostgreSQL annually. The Amazon RDS Database Preview Environment allows you to test beta, release candidate, and early production versions of Amazon Aurora releases. This allows customers to create DB Clusters on an early release of Aurora PostgreSQL 18 in the Preview environment and test its features.
-
-The following limitations apply to Aurora PostgreSQL Clusters in the Preview environment:
-
-1. All DB instances/clusters are deleted 60 days after you create them, along with any backups and snapshots.
-2. You can't copy a snapshot of a DB instance from Preview to a production environment.
-3. The following options are supported by the Preview.
-   1. You can create DB instances using r6g, r6i, r7g, r7i, r8g, x2g, t3 and t4g instance types only. For more information about RDS Aurora instance classes, see DB instance classes.
-   2. You can use both single-AZ and multi-AZ deployments.
-   3. You can use standard PostgreSQL dump and load functions to export databases from or import databases to the Database Preview Environment.
-
-Some of the Features that are not supported for APG18.1 Preview:
-
-1. Serverless v1/v2
-2. Major Version Upgrades i.e. MVU
-3. No new minors will be released in preview region i.e. APG17.1 will not be released in preview region
-4. RDS PostgreSQL to Aurora PostgreSQL Inbound replication
-5. Amazon RDS Blue/Green deployment
-6. Cross-Region snapshot copy
-7. Global DB
-8. Database Activity Streams (DAS), RDS Proxy and Data Migration Service (DMS)
-9. Auto Scaling Read Replicas
-10.
-11. RDS Export
-12. Performance Insights
-13. Custom Endpoints
-14. Snapshot Copy
-15. zero-ETL
-16. Babelfish
-17. PostGis Topology module is not supported because of a community regression: [https://trac.osgeo.org/postgis/ticket/5983](https://trac.osgeo.org/postgis/ticket/5983 "https://trac.osgeo.org/postgis/ticket/5983")
-
-### Creating a new DB Cluster in the preview environment
-
-Use the following procedure to create a DB Cluster in the preview environment.
-
-###### To create a DB Cluster in the preview environment
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. Choose Dashboard from the navigation pane.
-3. In the Dashboard page, locate the Database Preview Environment section on the Dashboard page, as shown in the following image.
-4. You can navigate directly to the Database preview environment. Before you can proceed, you must acknowledge and accept the limitations.
-5. To create the Aurora PostgreSQL DB instance, follow the same process as that for creating any Amazon Aurora PostgreSQL DB Cluster. For more information, see the Console procedure in Creating an Amazon Aurora PostgreSQL DB cluster.
-6. To create an Cluster in the Database Preview Environment using the RDS API or the AWS CLI, use the following endpoint.
-
-`rds-preview.us-east-2.amazonaws.com`
-
-###### Releases and patches
-
-- [Aurora PostgreSQL 18.1 in the Amazon RDS Preview environment](#AuroraPostgreSQL.Updates.181Preview "#AuroraPostgreSQL.Updates.181Preview")
-
-### Aurora PostgreSQL 18.1 in the Amazon RDS Preview environment
-
-**_This is preview documentation for Amazon Aurora PostgreSQL version 18.1. It is subject to change._**
-
-This release of Aurora PostgreSQL is compatible with PostgreSQL 18.1. For more information about the improvements in PostgreSQL 18.1, see [PostgreSQL release 18.0](https://www.postgresql.org/docs/18/release-18.html "https://www.postgresql.org/docs/18/release-18.html") and [PostgreSQL release 18.1](https://www.postgresql.org/docs/18/release-18-1.html "https://www.postgresql.org/docs/18/release-18-1.html").
-
-###### Parameter updates
-
-- `track_cost_delay_timing` default is set to on
-- `max_active_replication_origins` default is set to 20
-- `pclient_connection_check_interval` default is set to 60000
-- `log_connections` was updated to reflect the new PostgreSQL 18 behavior. The old default value of 0 is equivalent to the new default empty value, and the old value of 1 is equivalent to specifying all three values of receipt, authentication, and authorization
-- `autovacuum_worker_slots`, `io_workers`, `io_max_concurrency`
-
-###### Extension updates
-
-- Updated h3-pg to version 4.2.3
-- Updated PostGIS to version 3.6.0
-- Updated pg_hint_plan to version 1.8.0
-- Updated pg_cron to version 1.6.7
-- Updated hypopg to version 1.4.2
-- Updated MySQL FDW to version REL-2_9_3
-- Updated pglogical to version 2.4.6
-- Updated pgvector to version 0.8.1
-- Updated PLv8 to version 3.2.4
-- Updated TDS FDW to version 2.0.5
-- Updated pg_tle to version 1.5.2
-- Updated PgAudit to version 18.0
-- Updated to PgRouting to version 3.8.0
-
-###### General enhancements
-
-- Reduced commit latency when I/O optimized is enabled
-
-###### Unsupported Features
-
-- Aurora PostgreSQL 18.1 does not currently support logical decoding on Aurora Read Replicas.
-- Aurora PostgreSQL 18.1 does not currently support failover control within a Cluster.
-- Aurora PostgreSQL 18.1 does not currently support pg_createsubscriber on Aurora Read Replicas.
-- Aurora PostgreSQL 18.1 does not currently support Aurora PostgreSQL Query Plan Management.
-- Aurora PostgreSQL 18.1 does not currently support in-region write forwarding
 
 ## PostgreSQL 17 versions
 
@@ -152,13 +57,35 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.6.1, November 25, 2025](#aurorapostgresql-versions-version1761x-1761 "#aurorapostgresql-versions-version1761x-1761")
 - [Aurora PostgreSQL 17.6, November 25, 2025](#aurorapostgresql-versions-version176x-176 "#aurorapostgresql-versions-version176x-176")
+
+#### Aurora PostgreSQL 17.6.1, November 25, 2025
+
+**Critical stability enhancements**
+
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 17.6, November 25, 2025
 
 **New features**
 
-- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit <Link to be updated>.
+- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit [Dynamic Data Masking](../AuroraUserGuide/AuroraPostgreSQL.Security.md "../AuroraUserGuide/AuroraPostgreSQL.Security.md").
 - Introduced Shared Plan Cache to reduce memory usage by sharing query plans between backend processes.
 - Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries.
 - Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
@@ -167,13 +94,14 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 **Critical stability enhancements**
 
 - Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+- Fixed an issue where clusters with enhanced logical replication (aurora.enhanced_logical_replication) enabled could experience instance restarts when decoding DDL-heavy workloads.
 
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
-  - CVE-2025-8713
-  - CVE-2025-8714
-  - CVE-2025-8715
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
 
 - Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
 - Fixed an issue which could prevent logical replication from resuming after upgrade.
@@ -665,13 +593,35 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.10.1, November 25, 2025](#aurorapostgresql-versions-version16101x-16101 "#aurorapostgresql-versions-version16101x-16101")
 - [Aurora PostgreSQL 16.10, November 25, 2025](#aurorapostgresql-versions-version1610x-1610 "#aurorapostgresql-versions-version1610x-1610")
+
+#### Aurora PostgreSQL 16.10.1, November 25, 2025
+
+**Critical stability enhancements**
+
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 16.10, November 25, 2025
 
 **New features**
 
-- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit <Link to be updated>.
+- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit [Dynamic Data Masking](../AuroraUserGuide/AuroraPostgreSQL.Security.md "../AuroraUserGuide/AuroraPostgreSQL.Security.md").
 - Introduced Shared Plan Cache to reduce memory usage by sharing query plans between backend processes.
 - Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries.
 - Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
@@ -680,13 +630,14 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 **Critical stability enhancements**
 
 - Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+- Fixed an issue where clusters with enhanced logical replication (aurora.enhanced_logical_replication) enabled could experience instance restarts when decoding DDL-heavy workloads.
 
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
-  - CVE-2025-8713
-  - CVE-2025-8714
-  - CVE-2025-8715
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
 
 - Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
 - Fixed an issue which could prevent logical replication from resuming after upgrade.
@@ -1976,7 +1927,29 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.14.1, November 25, 2025](#aurorapostgresql-versions-version15141x-15141 "#aurorapostgresql-versions-version15141x-15141")
 - [Aurora PostgreSQL 15.14, November 25, 2025](#aurorapostgresql-versions-version1514x-1514 "#aurorapostgresql-versions-version1514x-1514")
+
+#### Aurora PostgreSQL 15.14.1, November 25, 2025
+
+**Critical stability enhancements**
+
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 15.14, November 25, 2025
 
@@ -1991,9 +1964,9 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
-  - CVE-2025-8713
-  - CVE-2025-8714
-  - CVE-2025-8715
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
 
 - Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
@@ -3929,7 +3902,29 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.19.1, November 25, 2025](#aurorapostgresql-versions-version14191x-14191 "#aurorapostgresql-versions-version14191x-14191")
 - [Aurora PostgreSQL 14.19, November 25, 2025](#aurorapostgresql-versions-version1419x-1419 "#aurorapostgresql-versions-version1419x-1419")
+
+#### Aurora PostgreSQL 14.19.1, November 25, 2025
+
+**Critical stability enhancements**
+
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 14.19, November 25, 2025
 
@@ -3944,9 +3939,9 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
-  - CVE-2025-8713
-  - CVE-2025-8714
-  - CVE-2025-8715
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
 
 - Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
@@ -6562,7 +6557,29 @@ the improvements in PostgreSQL 13.22, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 13.22.1, November 25, 2025](#aurorapostgresql-versions-version13221x-13221 "#aurorapostgresql-versions-version13221x-13221")
 - [Aurora PostgreSQL 13.22, November 25, 2025](#aurorapostgresql-versions-version1322x-1322 "#aurorapostgresql-versions-version1322x-1322")
+
+#### Aurora PostgreSQL 13.22.1, November 25, 2025
+
+**Critical stability enhancements**
+
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 13.22, November 25, 2025
 
@@ -6577,9 +6594,9 @@ the improvements in PostgreSQL 13.22, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
-  - CVE-2025-8713
-  - CVE-2025-8714
-  - CVE-2025-8715
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
 
 - Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
 - Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
