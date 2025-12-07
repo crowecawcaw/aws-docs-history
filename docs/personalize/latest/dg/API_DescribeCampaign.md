@@ -46,6 +46,9 @@ Required: Yes
          "itemExplorationConfig": {
             "***string***" : "***string***"
          },
+         "rankingInfluence": {
+            "***string***" : ***number***
+         },
          "syncWithLatestSolutionVersion": ***boolean***
       },
       "creationDateTime": ***number***,
@@ -56,6 +59,9 @@ Required: Yes
             "enableMetadataWithRecommendations": ***boolean***,
             "itemExplorationConfig": {
                "***string***" : "***string***"
+            },
+            "rankingInfluence": {
+               "***string***" : ***number***
             },
             "syncWithLatestSolutionVersion": ***boolean***
          },
@@ -81,6 +87,11 @@ If the action is successful, the service sends back an HTTP 200 response.
 The following data is returned in JSON format by the service.
 
 **[campaign](#API_DescribeCampaign_ResponseSyntax "#API_DescribeCampaign_ResponseSyntax")**
+
+###### Note
+
+The `latestCampaignUpdate` field is only returned when the campaign has had
+at least one `UpdateCampaign` call.
 
 The properties of the campaign.
 

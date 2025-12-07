@@ -66,6 +66,9 @@ is `ACTIVE` before asking the campaign for recommendations.
       "itemExplorationConfig": {
          "`string`" : "`string`"
       },
+      "rankingInfluence": {
+         "`string`" : `number`
+      },
       "syncWithLatestSolutionVersion": `boolean`
    },
    "minProvisionedTPS": `number`,

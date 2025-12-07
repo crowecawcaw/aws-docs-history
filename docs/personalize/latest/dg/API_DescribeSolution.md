@@ -44,6 +44,7 @@ Required: Yes
          "failureReason": "***string***",
          "lastUpdatedDateTime": ***number***,
          "performAutoTraining": ***boolean***,
+         "performIncrementalUpdate": ***boolean***,
          "solutionUpdateConfig": {
             "autoTrainingConfig": {
                "schedulingExpression": "***string***"
@@ -73,6 +74,7 @@ Required: Yes
       "performAutoML": ***boolean***,
       "performAutoTraining": ***boolean***,
       "performHPO": ***boolean***,
+      "performIncrementalUpdate": ***boolean***,
       "recipeArn": "***string***",
       "solutionArn": "***string***",
       "solutionConfig": {
@@ -138,6 +140,9 @@ Required: Yes
          },
          "trainingDataConfig": {
             "excludedDatasetColumns": {
+               "***string***" : [ "***string***" ]
+            },
+            "includedDatasetColumns": {
                "***string***" : [ "***string***" ]
             }
          }

@@ -22,6 +22,9 @@ operation.
       "trainingDataConfig": {
          "excludedDatasetColumns": {
             "`string`" : [ "`string`" ]
+         },
+         "includedDatasetColumns": {
+            "`string`" : [ "`string`" ]
          }
       }
    }

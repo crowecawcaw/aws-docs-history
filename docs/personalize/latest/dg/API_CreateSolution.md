@@ -65,6 +65,7 @@ A solution can be in one of the following states:
    "performAutoML": `boolean`,
    "performAutoTraining": `boolean`,
    "performHPO": `boolean`,
+   "performIncrementalUpdate": `boolean`,
    "recipeArn": "`string`",
    "solutionConfig": {
       "algorithmHyperParameters": {
@@ -129,6 +130,9 @@ A solution can be in one of the following states:
       },
       "trainingDataConfig": {
          "excludedDatasetColumns": {
+            "`string`" : [ "`string`" ]
+         },
+         "includedDatasetColumns": {
             "`string`" : [ "`string`" ]
          }
       }
@@ -231,6 +235,14 @@ The default is `false`.
 
 When performing AutoML, this parameter is always `true` and you
 should not set it to `false`.
+
+Type: Boolean
+
+Required: No
+
+**[performIncrementalUpdate](#API_CreateSolution_RequestSyntax "#API_CreateSolution_RequestSyntax")**
+
+Whether to perform incremental training updates on your model. When enabled, this allows the model to learn from new data more frequently without requiring full retraining, which enables near real-time personalization. This parameter is supported only for solutions that use the semantic-similarity recipe.
 
 Type: Boolean
 

@@ -135,7 +135,7 @@ Length Constraints: Maximum length of 256.
 
 Pattern: `arn:([a-z\d-]+):iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`
 
-Required: Yes
+Required: No
 
 **[tags](#API_CreateDatasetImportJob_RequestSyntax "#API_CreateDatasetImportJob_RequestSyntax")**
 

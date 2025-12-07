@@ -37,6 +37,9 @@ Required: Yes
       "batchInferenceJobConfig": {
          "itemExplorationConfig": {
             "***string***" : "***string***"
+         },
+         "rankingInfluence": {
+            "***string***" : ***number***
          }
       },
       "batchInferenceJobMode": "***string***",

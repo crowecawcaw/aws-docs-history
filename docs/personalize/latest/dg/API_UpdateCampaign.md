@@ -29,6 +29,9 @@ For more information about campaigns, see [Creating a campaign](campaigns.md "ca
       "itemExplorationConfig": {
          "`string`" : "`string`"
       },
+      "rankingInfluence": {
+         "`string`" : `number`
+      },
       "syncWithLatestSolutionVersion": `boolean`
    },
    "minProvisionedTPS": `number`,

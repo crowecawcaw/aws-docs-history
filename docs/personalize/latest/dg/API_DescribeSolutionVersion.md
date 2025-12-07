@@ -39,6 +39,7 @@ Required: Yes
       "name": "***string***",
       "performAutoML": ***boolean***,
       "performHPO": ***boolean***,
+      "performIncrementalUpdate": ***boolean***,
       "recipeArn": "***string***",
       "solutionArn": "***string***",
       "solutionConfig": {
@@ -104,6 +105,9 @@ Required: Yes
          },
          "trainingDataConfig": {
             "excludedDatasetColumns": {
+               "***string***" : [ "***string***" ]
+            },
+            "includedDatasetColumns": {
                "***string***" : [ "***string***" ]
             }
          }

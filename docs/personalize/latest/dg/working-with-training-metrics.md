@@ -334,6 +334,51 @@ based on its curve.
 The AUC of a solution version can between 0 and 1. The closer to 1, the better the model is at predicting
 relevant actions for your users.
 
+**Item Popularity**
+
+If you trained the solution version with the `aws-semantic-similarity`
+recipe, this metric measures how much engagement an item has received (likes, views,
+shares, etc.) relative to other items in your catalog. The higher the item popularity
+score (the closer to 1), the more user interactions the item has accumulated compared to
+other items.
+
+To calculate item popularity, Amazon Personalize counts the total number of unique users who
+have interacted with each item (through events like views, clicks, purchases, etc.). The
+raw engagement count for each item is then normalized across all items in your dataset,
+resulting in scores between 0 and 1. A score closer to 0 indicates low engagement while
+a score closer to 1 indicates high engagement on an average with items in the
+catalogue.
+
+**Item Freshness**
+
+If you trained the solution version with the `aws-semantic-similarity`
+recipe, this metric measures how recently an item was added to your catalog relative to
+other items. The higher the item freshness score (the closer to 1), the more recently
+the item was created.
+
+To calculate item freshness, Amazon Personalize determines each item's age using the
+CREATION_TIMESTAMP from your Items dataset. The age is calculated as the difference
+between the training time and the item's creation timestamp. These ages are then
+normalized across all items, with newer items receiving scores closer to 1. A score
+closer to 0 indicates more old items while a score closer to 1 indicates more newer
+items on an average in the catalogue.
+
+**Item Similarity**
+
+If you trained the solution version with the `aws-semantic-similarity`
+recipe, this metric measures how semantically related recommended items will be to your
+input item(s) based on their content, attributes, and metadata. The higher the item
+similarity score (the closer to 1), the more closely the recommended items match the
+characteristics of your reference item(s).
+
+To calculate item similarity, Amazon Personalize computes similarity scores between each
+recommended item and the input item(s) using semantic embeddings derived from item
+metadata and attributes. A score closer to 0 indicates low semantic similarity between
+the items in the catalogue on an average while a score closer to 1 indicates high
+semantic similarity between the items in the catalogue on an average. This metric helps
+you understand how well the model is capturing semantic relationships in your
+recommendations.
+
 ## Example
 
 The following is a simple example for a solution version that produces a list of recommendations for a specific user.

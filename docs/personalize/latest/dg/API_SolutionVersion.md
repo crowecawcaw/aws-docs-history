@@ -85,6 +85,17 @@ Type: Boolean
 
 Required: No
 
+**performIncrementalUpdate**
+
+Whether the solution version should perform an incremental update. When set to true,
+the training will process only the data that has changed since the latest training, similar
+to when trainingMode is set to UPDATE. This can only be used with solution versions that
+use the User-Personalization recipe.
+
+Type: Boolean
+
+Required: No
+
 **recipeArn**
 
 The ARN of the recipe used in the solution.

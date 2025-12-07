@@ -69,6 +69,9 @@ is `ACTIVE` before asking the recommender for recommendations.
       "trainingDataConfig": {
          "excludedDatasetColumns": {
             "`string`" : [ "`string`" ]
+         },
+         "includedDatasetColumns": {
+            "`string`" : [ "`string`" ]
          }
       }
    },

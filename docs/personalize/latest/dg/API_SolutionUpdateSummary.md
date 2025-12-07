@@ -37,6 +37,22 @@ Type: Boolean
 
 Required: No
 
+**performIncrementalUpdate**
+
+A Boolean value that indicates whether incremental training updates are performed on the
+model. When enabled, incremental training is performed for solution versions with active
+campaigns and allows the model to learn from new data more frequently without requiring full
+retraining, which enables near real-time personalization. This parameter is supported only for
+solutions that use the semantic-similarity recipe. The default is `true`.
+
+Note that certain scores and attributes (like updates to item popularity and freshness
+used for ranking influence with aws-semantic-similarity recipe) may not update until the next
+full training occurs.
+
+Type: Boolean
+
+Required: No
+
 **solutionUpdateConfig**
 
 The configuration details of the solution.

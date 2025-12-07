@@ -77,6 +77,9 @@ Required: No
             "trainingDataConfig": {
                "excludedDatasetColumns": {
                   "***string***" : [ "***string***" ]
+               },
+               "includedDatasetColumns": {
+                  "***string***" : [ "***string***" ]
                }
             }
          },

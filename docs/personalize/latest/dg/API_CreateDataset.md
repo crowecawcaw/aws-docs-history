@@ -79,6 +79,8 @@ Type: String
 
 Length Constraints: Maximum length of 256.
 
+Pattern: `^[A-Za-z_]+$`
+
 Required: Yes
 
 **[name](#API_CreateDataset_RequestSyntax "#API_CreateDataset_RequestSyntax")**

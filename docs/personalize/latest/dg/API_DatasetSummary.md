@@ -38,6 +38,8 @@ Type: String
 
 Length Constraints: Maximum length of 256.
 
+Pattern: `^[A-Za-z_]+$`
+
 Required: No
 
 **lastUpdatedDateTime**

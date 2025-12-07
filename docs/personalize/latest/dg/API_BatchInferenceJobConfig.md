@@ -21,6 +21,21 @@ Value Length Constraints: Maximum length of 1000.
 
 Required: No
 
+**rankingInfluence**
+
+A map of ranking influence values for POPULARITY and FRESHNESS. For each key, specify a
+numerical value between 0.0 and 1.0 that determines how much influence that ranking factor has
+on the final recommendations. A value closer to 1.0 gives more weight to the factor, while a
+value closer to 0.0 reduces its influence. If not specified, both default to 0.0.
+
+Type: String to double map
+
+Valid Keys: `POPULARITY | FRESHNESS`
+
+Valid Range: Minimum value of 0. Maximum value of 1.
+
+Required: No
+
 ## See Also
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:

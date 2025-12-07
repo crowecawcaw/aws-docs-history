@@ -26,6 +26,9 @@ You can't get batch recommendations with the Trending-Now or Next-Best-Action re
    "batchInferenceJobConfig": {
       "itemExplorationConfig": {
          "`string`" : "`string`"
+      },
+      "rankingInfluence": {
+         "`string`" : `number`
       }
    },
    "batchInferenceJobMode": "`string`",

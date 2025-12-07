@@ -61,6 +61,9 @@ Required: Yes
             "trainingDataConfig": {
                "excludedDatasetColumns": {
                   "***string***" : [ "***string***" ]
+               },
+               "includedDatasetColumns": {
+                  "***string***" : [ "***string***" ]
                }
             }
          },
@@ -80,6 +83,9 @@ Required: Yes
          "minRecommendationRequestsPerSecond": ***number***,
          "trainingDataConfig": {
             "excludedDatasetColumns": {
+               "***string***" : [ "***string***" ]
+            },
+            "includedDatasetColumns": {
                "***string***" : [ "***string***" ]
             }
          }

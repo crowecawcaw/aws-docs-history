@@ -127,6 +127,14 @@ Type: Boolean
 
 Required: No
 
+**performIncrementalUpdate**
+
+A Boolean value that indicates whether incremental training updates are performed on the model. When enabled, this allows the model to learn from new data more frequently without requiring full retraining, which enables near real-time personalization. This parameter is supported only for solutions that use the semantic-similarity recipe
+
+Type: Boolean
+
+Required: No
+
 **recipeArn**
 
 The ARN of the recipe used to create the solution. This is required when

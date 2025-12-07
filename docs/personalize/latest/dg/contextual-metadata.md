@@ -3,7 +3,13 @@
 To increase recommendation relevance, include contextual metadata for a
 user, such as their device type or the time of day, when you get item recommendations or get a personalized ranking.
 
-To use contextual metadata, the schema of the Item interactions dataset must have a metadata fields for the contextual data. For example, a DEVICE field (see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md "how-it-works-dataset-schema.md")).
+To use contextual metadata, the schema of the Item interactions dataset must have
+metadata fields
+for the contextual data. For example, a DEVICE field (see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md "how-it-works-dataset-schema.md")).
+When considering fields
+to use for contextual metadata, select fields where the values are available for historical
+data in the Item interactions dataset, and when you get item recommendations or get a
+personalized ranking of items.
 
 For Domain dataset groups, the following recommender use cases can use contextual metadata:
 

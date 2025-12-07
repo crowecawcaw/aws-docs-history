@@ -19,6 +19,7 @@ in the `latestSolutionUpdate`.
 ```
 {
    "performAutoTraining": `boolean`,
+   "performIncrementalUpdate": `boolean`,
    "solutionArn": "`string`",
    "solutionUpdateConfig": {
       "autoTrainingConfig": {
@@ -55,6 +56,14 @@ see [Configuring automatic training](solution-config-auto-training.md "solution-
 After training starts, you can
 get the solution version's Amazon Resource Name (ARN) with the [ListSolutionVersions](API_ListSolutionVersions.md "API_ListSolutionVersions.md") API operation.
 To get its status, use the [DescribeSolutionVersion](API_DescribeSolutionVersion.md "API_DescribeSolutionVersion.md").
+
+Type: Boolean
+
+Required: No
+
+**[performIncrementalUpdate](#API_UpdateSolution_RequestSyntax "#API_UpdateSolution_RequestSyntax")**
+
+Whether to perform incremental training updates on your model. When enabled, this allows the model to learn from new data more frequently without requiring full retraining, which enables near real-time personalization. This parameter is supported only for solutions that use the semantic-similarity recipe.
 
 Type: Boolean
 
