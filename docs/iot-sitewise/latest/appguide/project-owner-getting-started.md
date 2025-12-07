@@ -67,7 +67,7 @@ dashboard is quick and easy.
 
 1. In the navigation bar, choose the **Projects** icon.
 
-![The "Projects" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project in which you want to
+![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project in which you want to
 create a dashboard.
 
 ![The "Projects" page as a project owner.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
@@ -113,7 +113,7 @@ more information, see [Configure thresholds](configure-thresholds.md "configure-
 ![A sample visualization with the visualization configuration icon highlighted.](images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
 visualization to a new location.
 
-![An example visualization with the gripper and resize controls highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
+![An example visualization with the gripper and resize controls highlighted.](images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
 Drag the corner to a new size and shape. Visualizations snap to the grid when resized,
 so you only have coarse control over the size. 7. After you finish editing the dashboard, choose **Save dashboard** to
 save your changes. The dashboard editor closes. If you try to close a dashboard that has
