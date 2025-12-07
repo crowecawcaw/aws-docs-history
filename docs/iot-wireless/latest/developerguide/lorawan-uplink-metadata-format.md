@@ -68,7 +68,7 @@ This diagram identifies the key elements in a LoRaWAN system connected to
 AWS IoT Core for LoRaWAN, which shows the primary data plane and how data flows through the
 system.
 
-![Image showing how AWS IoT Core for LoRaWAN data is passed from a wireless device to AWS IoT and other services.](images/iot-lorawan-data-flow.png)
+![Image showing how AWS IoT Core for LoRaWAN data is passed from a wireless device to AWS IoT and other services.](/images/iot-wireless/latest/developerguide/images/iot-lorawan-data-flow.png)
 
 When the wireless device starts sending uplink data, AWS IoT Core for LoRaWAN wraps the
 wireless metadata information with the payload and then sends it to your AWS
