@@ -18,8 +18,9 @@ support
 ## Troubleshooting connection errors
 
 **error: unrecognized SSL error code: 6**
+or **unable to accept connection, sni was not received**
 
-Cause: You might be using a psql version earlier than [version 14](https://www.postgresql.org/docs/release/14.0/ "https://www.postgresql.org/docs/release/14.0/"), which doesn't support
+You might be using a psql version earlier than [version 14](https://www.postgresql.org/docs/release/14.0/ "https://www.postgresql.org/docs/release/14.0/"), which doesn't support
 Server Name Indication (SNI).
 The SNI is required when connecting to Aurora DSQL.
 
@@ -106,13 +107,6 @@ revoke the relationship using `AWS IAM REVOKE`. To learn more, see [Revoking aut
 Aurora DSQL doesn't support all PostgreSQL-based dialect. To learn about what is supported, see
 [Supported PostgreSQL features in Aurora DSQL](working-with-postgresql-compatibility-supported-sql-features.md "working-with-postgresql-compatibility-supported-sql-features.md") .
 
-**Error: SELECT FOR UPDATE in a read-only transaction is a
-no-op**
-
-You are attempting an operation that isn't allowed in a read-only transaction. To learn
-more, see [Understanding
-concurrency control in Aurora DSQL](working-with-concurrency-control.md "working-with-concurrency-control.md").
-
 **Error: use `CREATE INDEX ASYNC` instead**
 
 To create an index on a table with existing rows, you must use the `CREATE INDEX
@@ -123,6 +117,10 @@ asynchronously in Aurora DSQL](working-with-create-index-async.md "working-with-
 
 **OC000 “ERROR: mutation conflicts with another transaction, retry as
 needed”**
+
+This transaction attempted to modify the same tuples as another, concurrent, transaction.
+This indicates contention on the modified tuples. To learn more, please
+refer to [Concurrency control in Aurora DSQL](working-with-concurrency-control.md "working-with-concurrency-control.md")
 
 **OC001 “ERROR: schema has been updated by another transaction, retry as
 needed”**

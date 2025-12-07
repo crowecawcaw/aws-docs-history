@@ -51,7 +51,10 @@ An AWS Labs Model Context Protocol (MCP) server for Aurora DSQL
 2. This MCP server can only be run locally on the same host as
    your LLM client.
 3. Set up AWS credentials with access to AWS services
-   - You need an AWS account with appropriate permissions
+   - You need an AWS account with a role including these permissions:
+     - `dsql:DbConnectAdmin` - Connect to DSQL clusters as the admin user
+     - `dsql:DbConnect` - Connect to DSQL clusters with custom database roles (only needed if using non-admin users)
+
    - Configure AWS credentials with
      `aws configure` or environment variables
 
@@ -80,11 +83,11 @@ for Amazon Q Developer CLI, edit
       "args": [
         "awslabs.aurora-dsql-mcp-server@latest",
         "--cluster_endpoint",
-        "[your dsql cluster endpoint]",
+        "[your dsql cluster endpoint, e.g. abcdefghijklmnopqrst234567.dsql.us-east-1.on.aws]",
         "--region",
         "[your dsql cluster region, e.g. us-east-1]",
         "--database_user",
-        "[your dsql username]",
+        "[your dsql username, e.g. admin]",
         "--profile",
         "default"
       ],
@@ -130,6 +133,10 @@ slightly different:
 }
 
 ```
+
+### Verifying Installation
+
+For Amazon Q Developer CLI, run `/mcp` to see the status of the MCP server.
 
 ## Server Configuration options
 
