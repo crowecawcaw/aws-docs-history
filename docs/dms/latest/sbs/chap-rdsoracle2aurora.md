@@ -1,8 +1,17 @@
-# AWS DMS migration from Amazon RDS for Oracle next steps
+# Step-by-step Amazon Relational Database Service to Amazon Aurora MySQL-Compatible Edition migration walkthrough
 
-You can explore several other features of AWS DMS that were not included in this walkthrough, including the following:
+In the following sections, you can find step-by-step instructions for migrating an Amazon Relational Database Service (Amazon RDS) for Oracle database to Amazon Aurora MySQL-Compatible Edition. These steps assume that you have already prepared your source database as described in preceding sections.
 
-- The AWS DMS change data capture (CDC) feature, for ongoing replication of data.
-- Transformation actions that let you specify and apply transformations to the selected schema or table as part of the migration process.
+###### Topics
 
-For more information, see [Getting started with Database Migration Service](../userguide/CHAP_GettingStarted.md "../userguide/CHAP_GettingStarted.md").
+- [Step 1: Launch the RDS Instances in a VPC by Using the AWS CloudFormation Template](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 2: Install the SQL Tools and AWS Schema Conversion Tool on Your Local Computer](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 3: Test Connectivity to the Oracle DB Instance and Create the Sample Schema](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 4: Test the Connectivity to the Aurora MySQL DB Instance](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 5: Use the AWS Schema Conversion Tool to Convert the Oracle Schema to Aurora MySQL](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 6: Validate the Schema Conversion](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 7: Create an AWS DMS Replication Instance](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 8: Create AWS DMS Source and Target Endpoints](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 9: Create and Run Your AWS DMS Migration Task](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 10: Verify That Your Data Migration Completed Successfully](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- [Step 11: Delete Walkthrough Resources](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
