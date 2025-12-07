@@ -8,6 +8,5 @@ services and tools compatible with open-source InfluxDB should work seamlessly w
 
 ###### Topics
 
-- [InfluxDB portals](other-services-influxdb-portals.md "other-services-influxdb-portals.md")
 - [DBeaver](other-services-influxdb-dbeaver.md "other-services-influxdb-dbeaver.md")
 - [Grafana](other-services-influxdb-grafana.md "other-services-influxdb-grafana.md")

@@ -1,80 +1,54 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Interpolation
+# Derivatives
 
 functions
 
-If your time series data is missing values for events at certain points in time,
-you can estimate the values of those missing events using interpolation. Amazon
-Timestream supports four variants of interpolation: linear interpolation, cubic
-spline interpolation, last observation carried forward (locf) interpolation, and
-constant interpolation. This section provides usage information for the Timestream for LiveAnalytics
-interpolation functions, as well as sample queries.
+Derivatives are used calculate the rate of change for a given metric and can be
+used to proactively respond to an event. For example, suppose you calculate the
+derivative of the CPU utilization of EC2 instances over the past 5 minutes, and you
+notice a significant positive derivative. This can be indicative of increased demand
+on your workload, so you may decide want to spin up more EC2 instances to better
+handle your workload.
+
+Amazon Timestream supports two variants of derivative functions. This section
+provides usage information for the Timestream for LiveAnalytics derivative functions, as well as sample
+queries.
 
 ## Usage information
 
-| Function                                                    | Output data type | Description                                                                                                                                                                                                                                                                                                                                                                        |
-| ----------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `interpolate_linear(timeseries,<br>array[timestamp])`       | timeseries       | Fills in missing data using [linear interpolation](https://wikipedia.org/wiki/Linear_interpolation "https://wikipedia.org/wiki/Linear_interpolation").                                                                                                                                                                                                                             |
-| `interpolate_linear(timeseries,<br>timestamp)`              | double           | Fills in missing data using [linear interpolation](https://wikipedia.org/wiki/Linear_interpolation "https://wikipedia.org/wiki/Linear_interpolation").                                                                                                                                                                                                                             |
-| `interpolate_spline_cubic(timeseries,<br>array[timestamp])` | timeseries       | Fills in missing data using [cubic spline interpolation](https://wikiversity.org/wiki/Cubic_Spline_Interpolation#:~:text=Cubic%20spline%20interpolation%20is%20a,Lagrange%20polynomial%20and%20Newton%20polynomial. "https://wikiversity.org/wiki/Cubic_Spline_Interpolation#:~:text=Cubic%20spline%20interpolation%20is%20a,Lagrange%20polynomial%20and%20Newton%20polynomial."). |
-| `interpolate_spline_cubic(timeseries,<br>timestamp)`        | double           | Fills in missing data using [cubic spline interpolation](https://wikiversity.org/wiki/Cubic_Spline_Interpolation#:~:text=Cubic%20spline%20interpolation%20is%20a,Lagrange%20polynomial%20and%20Newton%20polynomial. "https://wikiversity.org/wiki/Cubic_Spline_Interpolation#:~:text=Cubic%20spline%20interpolation%20is%20a,Lagrange%20polynomial%20and%20Newton%20polynomial."). |
-| `interpolate_locf(timeseries,<br>array[timestamp])`         | timeseries       | Fills in missing data using the last sampled value.                                                                                                                                                                                                                                                                                                                                |
-| `interpolate_locf(timeseries,<br>timestamp)`                | double           | Fills in missing data using the last sampled value.                                                                                                                                                                                                                                                                                                                                |
-| `interpolate_fill(timeseries, array[timestamp],<br>double)` | timeseries       | Fills in missing data using a constant value.                                                                                                                                                                                                                                                                                                                                      |
-| `interpolate_fill(timeseries, timestamp,<br>double)`        | double           | Fills in missing data using a constant value.                                                                                                                                                                                                                                                                                                                                      |
+| Function                                                  | Output data type | Description                                                                                                                                                                      |
+| --------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `derivative_linear(timeseries,<br>interval)`              | timeseries       | Calculates the [derivative](https://wikipedia.org/wiki/Derivative "https://wikipedia.org/wiki/Derivative") of each point in the<br>`timeseries` for the specified<br>`interval`. |
+| `non_negative_derivative_linear(timeseries,<br>interval)` | timeseries       | Same as `derivative_linear(timeseries,<br>interval)`, but only returns positive<br>values.                                                                                       |
 
 ## Query examples
 
-Find the average CPU utilization binned at 30 second intervals for a
-specific EC2 host over the past 2 hours, filling in the missing values using
-linear interpolation:
+Find the rate of change in the CPU utilization every 5 minutes over the
+past 1 hour:
 
 ```
-WITH binned_timeseries AS (
-SELECT hostname, BIN(time, 30s) AS binned_timestamp, ROUND(AVG(measure_value::double), 2) AS avg_cpu_utilization
-FROM "sampleDB".DevOps
+SELECT DERIVATIVE_LINEAR(CREATE_TIME_SERIES(time, measure_value::double), 5m) AS result
+FROM “sampleDB”.DevOps
 WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv'
-    AND time > ago(2h)
-GROUP BY hostname, BIN(time, 30s)
-), interpolated_timeseries AS (
-SELECT hostname,
-    INTERPOLATE_LINEAR(
-        CREATE_TIME_SERIES(binned_timestamp, avg_cpu_utilization),
-            SEQUENCE(min(binned_timestamp), max(binned_timestamp), 15s)) AS interpolated_avg_cpu_utilization
-FROM binned_timeseries
-GROUP BY hostname
-)
-SELECT time, ROUND(value, 2) AS interpolated_cpu
-FROM interpolated_timeseries
-CROSS JOIN UNNEST(interpolated_avg_cpu_utilization)
-
+AND hostname = 'host-Hovjv' and time > ago(1h)
+GROUP BY hostname, measure_name
 ```
 
-Find the average CPU utilization binned at 30 second intervals for a
-specific EC2 host over the past 2 hours, filling in the missing values using
-interpolation based on the last observation carried forward:
+Calculate the rate of increase in errors generated by one or more
+microservices:
 
 ```
-WITH binned_timeseries AS (
-SELECT hostname, BIN(time, 30s) AS binned_timestamp, ROUND(AVG(measure_value::double), 2) AS avg_cpu_utilization
-FROM "sampleDB".DevOps
-WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv'
-    AND time > ago(2h)
-GROUP BY hostname, BIN(time, 30s)
-), interpolated_timeseries AS (
-SELECT hostname,
-    INTERPOLATE_LOCF(
-        CREATE_TIME_SERIES(binned_timestamp, avg_cpu_utilization),
-            SEQUENCE(min(binned_timestamp), max(binned_timestamp), 15s)) AS interpolated_avg_cpu_utilization
-FROM binned_timeseries
-GROUP BY hostname
+WITH binned_view as (
+    SELECT bin(time, 5m) as binned_timestamp, ROUND(AVG(measure_value::double), 2) as value
+    FROM “sampleDB”.DevOps
+    WHERE micro_service = 'jwt'
+    AND time > ago(1h)
+    AND measure_name = 'service_error'
+    GROUP BY bin(time, 5m)
 )
-SELECT time, ROUND(value, 2) AS interpolated_cpu
-FROM interpolated_timeseries
-CROSS JOIN UNNEST(interpolated_avg_cpu_utilization)
+SELECT non_negative_derivative_linear(CREATE_TIME_SERIES(binned_timestamp, value), 1m) as rateOfErrorIncrease
+FROM binned_view
 
 ```
