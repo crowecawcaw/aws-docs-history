@@ -1,9 +1,5 @@
 # Viewing details about resources in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 The **Resources** page tracks common resources across your account and organization.
 You can access the **Resources** page in the Security Hub console by choosing **Resources** in the navigation pane.
 The benefit of the **Resources** page is that it helps you monitor your security posture, organize your resources, and review details about your resources.
@@ -35,5 +31,4 @@ For example, if the resource is an IAM resource, you can open the resource in th
 The resources page provides you with different ways to organize and search for resources.
 You can group resources by type.
 For example, you can group resources by account ID, finding type, AWS Region, resource category, resource name, and resource type.
-You can search for findings using filters.
 Quick filters help you review resources by category, accounts, and finding types.

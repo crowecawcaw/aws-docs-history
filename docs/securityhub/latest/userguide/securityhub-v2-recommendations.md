@@ -1,9 +1,5 @@
 # Security Hub recommendations
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 The following security services in AWS send findings to Security Hub in the OCSF format.
 After you enable Security Hub, we recommend enabling these AWS services for additional security.
 

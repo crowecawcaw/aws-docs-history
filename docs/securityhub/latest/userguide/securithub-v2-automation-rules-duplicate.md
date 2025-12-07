@@ -1,9 +1,5 @@
 # Duplicating automation rules in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 This topic describes how to duplicate automation rules.
 Duplicating automation rules can help you save time if you want to avoid creating them from scratch.
 When you duplicate automation rules, you can update details, actions, rule settings, and tags.

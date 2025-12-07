@@ -1,9 +1,5 @@
 # Automation rules in EventBridge
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 You can use automation rules in Amazon EventBridge to respond to Security Hub findings.
 Security Hub sends findings to EventBridge as events in near real time.
 You can write basic rules that indicate what automated actions to take when an events match the rules.

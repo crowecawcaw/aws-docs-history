@@ -1,9 +1,5 @@
 # Updating the rule order in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 This topic describes how to update the rule order for automation rules in the console.
 If you want to edit the criteria for an automation rule, see [Editing automation rules in Security Hub](securithub-v2-automation-rules-edit.md "securithub-v2-automation-rules-edit.md").
 

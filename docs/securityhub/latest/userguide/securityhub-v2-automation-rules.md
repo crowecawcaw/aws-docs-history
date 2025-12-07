@@ -1,9 +1,5 @@
 # Automation rules in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 With Security Hub, you can automate tasks like updating finding details and creating tickets for third-party integrations.
 
 ## Automation rules and AWS Regions

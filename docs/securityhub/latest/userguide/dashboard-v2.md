@@ -1,9 +1,5 @@
 # Working in the summary dashboard in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 The **Summary** dashboard in the Security Hub console displays an overview of your exposures, threats, resources, and security coverage across security widgets.
 You can customize the dashboard by adding and removing widgets and by creating and applying filter sets to retrieve data in each widget.
 

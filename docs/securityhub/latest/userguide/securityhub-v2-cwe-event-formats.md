@@ -1,9 +1,5 @@
 # EventBridge event formats
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 The **Findings Imported V2** event type uses the following event format.
 
 ###### Example

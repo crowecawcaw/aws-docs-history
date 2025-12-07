@@ -1,9 +1,5 @@
 # What are Security Hub and Security Hub CSPM?
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 AWS Security Hub and AWS Security Hub CSPM are AWS services that protect your cloud environment. The
 services complement each other. When used together, they provide valuable insight into the
 security posture of your AWS environment.

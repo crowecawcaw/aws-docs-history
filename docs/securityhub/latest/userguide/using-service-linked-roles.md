@@ -120,10 +120,6 @@ _IAM User Guide_.
 
 ## Service-linked role for AWS Security Hub V2
 
-###### Note
-
-is in preview release and subject to change.
-
 uses the service-linked role named `AWSServiceRoleForSecurityHubV2`. This
 service-linked role allows to manage AWS Config rules and resources for your
 organization and on your behalf. The `AWSServiceRoleForSecurityHubV2` service-linked role trusts

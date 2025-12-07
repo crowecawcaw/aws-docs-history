@@ -1,9 +1,5 @@
 # Viewing details for automation rules in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 This topic describes how to view details for automation rules.
 You can view the following details for an automation rule:
 

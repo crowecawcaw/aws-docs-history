@@ -1,9 +1,5 @@
 # Enabling an automation rule in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 This topic describes how to enable automation rules.
 When you enable automation rules, Security Hub resumes applying them.
 You can enable automation rules any time and in the AWS Region where you created them.

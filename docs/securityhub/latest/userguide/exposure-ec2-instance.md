@@ -36,7 +36,7 @@ The remediation guidance provided in this topic might require additional consult
 - [Vulnerability traits for EC2 instances](exposure-ec2-instance.md#vulnerability "exposure-ec2-instance.md#vulnerability")
   - [EC2 instance has network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ec2-instance.md#high-priority-vulnerability "exposure-ec2-instance.md#high-priority-vulnerability")
   - [The Amazon EC2 instance has software vulnerabilities](exposure-ec2-instance.md#low-priority-vulnerability "exposure-ec2-instance.md#low-priority-vulnerability")
-  - [The EC2 instance has an End-Of-Life operating system](exposure-ec2-instance.md#end-of-life-operating-system "exposure-ec2-instance.md#end-of-life-operating-system")
+  - [The EC2 instance has an End-Of-Life operating system](exposure-ec2-instance.md#end-of-life-operating-system-detected "exposure-ec2-instance.md#end-of-life-operating-system-detected")
 
 - [The EC2 instance has malicious software packages](exposure-ec2-instance.md#malicious-package "exposure-ec2-instance.md#malicious-package")
 - [The EC2 instance has malicious files](exposure-ec2-instance.md#malicious-file "exposure-ec2-instance.md#malicious-file")

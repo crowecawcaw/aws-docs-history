@@ -1,9 +1,5 @@
 # Remediating exposures for Amazon S3 buckets
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 AWS Security Hub can generate exposure findings for Amazon Simple Storage Service (S3) buckets.
 
 On the Security Hub console, the Amazon S3 bucket involved in an exposure finding and its identifying information are listed in

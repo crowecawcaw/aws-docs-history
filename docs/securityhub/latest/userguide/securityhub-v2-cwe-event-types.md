@@ -1,9 +1,5 @@
 # EventBridge event types
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 Security Hub uses the following Amazon EventBridge event types to integrate with EventBridge.
 
 On the EventBridge dashboard for Security Hub, **All Events** includes

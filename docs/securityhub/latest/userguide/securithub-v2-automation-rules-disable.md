@@ -1,9 +1,5 @@
 # Disabling automation rules in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 This topic describes how to disable automation rules.
 When you disable automation rules, Security Hub stops applying them.
 You can disable automation rules any time and in the AWS Region where you created them.

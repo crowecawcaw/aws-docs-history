@@ -1,9 +1,5 @@
 # Creating automation rules in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 This topic describes how to create automation rules.
 You can use automation rules to update details for a finding or create a ticket for a third-party integration.
 You must create automation rules individually and in the AWS Region where you want them applied.

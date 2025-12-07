@@ -1,9 +1,5 @@
 # Disabling Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 If your account is not part of an organization, you can disable Security Hub in the Security Hub console at any time.
 When you disable Security Hub, stops ingesting findings.
 You also lose access to existing findings and configurations.

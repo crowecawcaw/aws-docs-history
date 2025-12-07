@@ -2,10 +2,6 @@
 
 Remediating exposures for Amazon RDS instances and clusters
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 AWS Security Hub can generate exposure findings for Amazon RDS instances and clusters.
 
 On the Security Hub console, the Amazon RDS instance or cluster involved in an exposure finding and its identifying information are listed in the **Resources** section of the finding details.

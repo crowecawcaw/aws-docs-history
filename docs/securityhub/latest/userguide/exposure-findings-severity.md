@@ -2,10 +2,6 @@
 
 exposure finding
 
-###### Note
-
-AWS Security Hub is in preview release and is subject to change.
-
 AWS Security Hub assigns each exposure finding a default severity of `CRITICAL`,
 `HIGH`, `MEDIUM`, or `LOW`. Exposure findings with
 a severity of `INFORMATIONAL` aren't published. Security Hub uses several factors

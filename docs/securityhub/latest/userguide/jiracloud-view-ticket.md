@@ -1,9 +1,5 @@
 # Viewing a ticket for a Jira Cloud integration
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 After you create a ticket for a finding, you can open the ticket on your Jira Cloud instance.
 
 ###### To view a finding on your Jira Cloud instance

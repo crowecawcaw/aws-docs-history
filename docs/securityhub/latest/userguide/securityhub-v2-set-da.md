@@ -1,9 +1,5 @@
 # Designating a delegated administrator in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 In the AWS organization management account, you can designate a delegated administrator for your organization.
 As a best practice, we recommend using the same delegated administrator across security services for consistent governance.
 

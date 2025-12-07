@@ -1,9 +1,5 @@
 # Removing the delegated administrator account in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 You can remove the delegated administrator account in the Security Hub console at any time.
 However, this action not only removes the delegated administrator from Security Hub, but also Security Hub CSPM.
 We recommend only performing this action when you have confirmed this operation with your security account.

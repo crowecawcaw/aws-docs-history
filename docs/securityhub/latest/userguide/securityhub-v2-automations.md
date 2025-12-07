@@ -1,9 +1,5 @@
 # Automations in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 Security Hub includes features that automatically modify and take action on findings based on your specifications.
 
 Security Hub currently supports the following types of automations:

@@ -1,9 +1,5 @@
 # Sample exposure finding
 
-###### Note
-
-AWS Security Hub is in preview release and is subject to change.
-
 AWS Security Hub normalizes exposure findings in the Open Cybersecurity Schema Framework (OCSF).
 
 ###### Sample exposure finding

@@ -35,7 +35,7 @@ The remediation guidance provided in this topic might require additional consult
 - [Vulnerability traits for Amazon ECS services](exposure-ecs-service.md#vulnerability "exposure-ecs-service.md#vulnerability")
   - [The Amazon ECS service has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ecs-service.md#high-priority-vulnerability "exposure-ecs-service.md#high-priority-vulnerability")
   - [The Amazon ECS service has a container with software vulnerabilities](exposure-ecs-service.md#low-priority-vulnerability "exposure-ecs-service.md#low-priority-vulnerability")
-  - [The Amazon ECS service has a container with an End-Of-Life operating system](exposure-ecs-service.md#end-of-life-operating-system "exposure-ecs-service.md#end-of-life-operating-system")
+  - [The Amazon ECS service has a container with an End-Of-Life operating system](exposure-ecs-service.md#end-of-life-operating-system-detected "exposure-ecs-service.md#end-of-life-operating-system-detected")
 
 - [The Amazon ECS service has a container with malicious software packages](exposure-ecs-service.md#malicious-package "exposure-ecs-service.md#malicious-package")
 

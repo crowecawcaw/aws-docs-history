@@ -1,9 +1,5 @@
 # Introduction to AWS Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 AWS Security Hub is a unified cloud security solution that prioritizes your critical security issues and helps you respond at scale.
 Security Hub detects security issues by automatically correlating and enriching security signals from multiple sources, such as posture management, vulnerability management (Amazon Inspector), sensitive data (Amazon Macie), and threat detection (Amazon GuardDuty).
 This enables security teams to prioritize active risks in their cloud environments through automated analyses and contextual insights.
@@ -56,43 +52,14 @@ Security Hub receives findings from the following AWS services.
 - Amazon Inspector
 - Amazon Macie
 
-## AWS Regions supported for public preview
-
-Security Hub supports the following AWS Regions for this public preview release.
-
-- Asia Pacific (Tokyo)
-- Asia Pacific (Seoul)
-- Asia Pacific (Osaka)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Canada (Central)
-- Europe (Frankfurt)
-- Europe (Stockholm)
-- Europe (Ireland)
-- US West (N. California)
-- US West (Oregon)
-- Europe (London)
-- Europe (Paris)
-- South America (São Paulo)
-- US East (N. Virginia)
-- US East (Ohio)
-
-The following are opt-in AWS Regions, which require that you enable them before you can access them.
-
-- Africa (Cape Town)
-- Asia Pacific (Hong Kong)
-- Asia Pacific (Jakarta)
-- Europe (Milan)
-- Middle East (Bahrain)
-
-For information about these AWS Regions, see [Opt-in status](../../../global-infrastructure/latest/regions/aws-regions.md#regions-opt-in-status "../../../global-infrastructure/latest/regions/aws-regions.md#regions-opt-in-status") in the _AWS Regions and Availability Zones User Guide_.
-
 ## Accessibility
 
-Security Hub is available in the AWS Regions listed above.
+Security Hub is available in most AWS Regions.
+For a list of Regions where Security Hub is currently available, see [Security Hub endpoints and quotas](../../../general/latest/gr/sechub.md "../../../general/latest/gr/sechub.md") in the _AWS General Reference_.
+For information about managing AWS Regions for your AWS account, see [Specifying which AWS Regions your account can use](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _AWS Account Management Reference Guide_.
+
 You can enable Security Hub for individual accounts or accounts in your organization.
-You can access Security Hub through the following:
+In each Region, you can access and use Security Hub in any of the following ways:
 
 **Security Hub console**
 
@@ -115,6 +82,3 @@ In some cases, the AWS CLI can be more useful than the Security Hub console.
 They provide programmatic access to Security Hub and other AWS services in your preferred language and can help you manage tasks such as managing errors, signing requests, and retrying requests.
 
 ## Pricing
-
-There is no cost to use Security Hub.
-Security Hub is free during this public preview.

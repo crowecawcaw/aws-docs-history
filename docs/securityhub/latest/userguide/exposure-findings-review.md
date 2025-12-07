@@ -1,9 +1,5 @@
 # Reviewing exposure findings
 
-###### Note
-
-AWS Security Hub is in preview release and is subject to change.
-
 You can review all of your exposure findings in the Security Hub console and with the
 [GetFindingsV2](../../1.0/APIReference/API_GetFindingsV2.md "../../1.0/APIReference/API_GetFindingsV2.md") API. The **Exposures** page in
 the Security Hub console shows all active exposure findings. Exposure findings are listed by

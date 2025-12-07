@@ -30,7 +30,7 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon EKS cluster has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-eks-cluster.md#high-priority-vulnerability "exposure-eks-cluster.md#high-priority-vulnerability")
   - [The Amazon EKS cluster has a container with software vulnerabilities](exposure-eks-cluster.md#low-priority-vulnerability "exposure-eks-cluster.md#low-priority-vulnerability")
 
-- [The Amazon EKS cluster has a container with an End-Of-Life operating system](exposure-eks-cluster.md#end-of-life-operating-system "exposure-eks-cluster.md#end-of-life-operating-system")
+- [The Amazon EKS cluster has a container with an End-Of-Life operating system](exposure-eks-cluster.md#end-of-life-operating-system-detected "exposure-eks-cluster.md#end-of-life-operating-system-detected")
 - [The Amazon EKS cluster has a container with malicious software packages](exposure-eks-cluster.md#malicious-package "exposure-eks-cluster.md#malicious-package")
 - [The EKS cluster has malicious files](exposure-eks-cluster.md#malicious-file "exposure-eks-cluster.md#malicious-file")
 

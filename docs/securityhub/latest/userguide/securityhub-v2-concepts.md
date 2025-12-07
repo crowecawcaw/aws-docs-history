@@ -1,9 +1,5 @@
 # Security Hub concepts
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 In Security Hub, we build on common AWS concepts and terminology and use these additional terms.
 
 **Account**

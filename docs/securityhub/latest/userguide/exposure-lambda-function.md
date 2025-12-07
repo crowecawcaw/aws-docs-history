@@ -1,9 +1,5 @@
 # Remediating exposures for Lambda functions
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 AWS Security Hub can generate exposure findings for AWS Lambda (Lambda) functions.
 
 On the Security Hub console, the Lambda function involved in an exposure finding and its identifying information are listed in

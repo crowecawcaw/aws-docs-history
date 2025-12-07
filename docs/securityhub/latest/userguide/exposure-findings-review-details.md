@@ -1,9 +1,5 @@
 # Reviewing details for exposure findings
 
-###### Note
-
-AWS Security Hub is in preview release and is subject to change.
-
 This topic describes how to review details about exposure findings in the
 AWS Security Hub console and with the API.
 

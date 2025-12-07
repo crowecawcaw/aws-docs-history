@@ -1,9 +1,5 @@
 # Coverage findings in Security Hub
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 Coverage findings for Security Hub provide visibility into which AWS security features are enabled and where there might be gaps in coverage in a standalone account or across an organization's member accounts.
 Coverage Findings currently support reporting which services and features are enabled for Amazon GuardDuty, Amazon Inspector, Amazon Macie, and AWS Security Hub CSPM.
 These findings appear in the Security Coverage widget on the Security Hub dashboard with the ability to drill down into more detailed views by specific security capability.

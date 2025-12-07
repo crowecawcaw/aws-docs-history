@@ -1,9 +1,5 @@
 # Remediating exposure findings
 
-###### Note
-
-AWS Security Hub is in preview release and is subject to change.
-
 The topics in this section describe remediation steps for exposure findings across different AWS services.
 
 The `Remediation` field of the [OCSF

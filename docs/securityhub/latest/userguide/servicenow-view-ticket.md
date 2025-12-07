@@ -1,9 +1,5 @@
 # Viewing a ticket for a ServiceNow ITSM integration
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 After you create a ticket for a finding, you can open the ticket on your ServiceNow ITSM instance.
 
 ###### To view a finding on your ServiceNow ITSM instance

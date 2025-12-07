@@ -2,10 +2,6 @@
 
 potential attack path graph
 
-###### Note
-
-AWS Security Hub is in preview release and is subject to change.
-
 The potential attack path graph is an interactive visualization that shows how
 potential attackers can access and take control of resources associated with an exposure
 finding. You can access this graph only in the Security Hub console and from the

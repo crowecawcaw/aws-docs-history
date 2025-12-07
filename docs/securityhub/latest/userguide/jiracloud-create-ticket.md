@@ -1,9 +1,5 @@
 # Creating a ticket for a Jira Cloud integration
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 After you create an integration with Jira Cloud, you can create a ticket for a finding.
 
 ###### Note

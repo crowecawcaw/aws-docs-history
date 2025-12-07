@@ -1,9 +1,5 @@
 # Configuring rules for EventBridge
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 You can create a rule in Amazon EventBridge that defines an action to take when a **Findings Imported V2** event is
 received. **Findings Imported V2** events are triggered by updates through [`BatchUpdateFindingsV2`](../../1.0/APIReference/API_BatchUpdateFindingsV2.md "../../1.0/APIReference/API_BatchUpdateFindingsV2.md").
 

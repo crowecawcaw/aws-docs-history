@@ -1,9 +1,5 @@
 # Creating a ticket for a ServiceNow ITSM integration
 
-###### Note
-
-Security Hub is in preview release and is subject to change.
-
 After you create an integration with ServiceNow ITSM, you can create a ticket for a finding.
 
 ###### Note
