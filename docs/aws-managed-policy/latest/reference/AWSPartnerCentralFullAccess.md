@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 18, 2024, 23:33 UTC
-- **Edited time:** November 19, 2025, 16:34 UTC
+- **Edited time:** December 01, 2025, 00:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSPartnerCentralFullAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -71,6 +71,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
+      "Sid" : "VerificationAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:StartVerification",
+        "partnercentral:GetVerification"
+      ],
+      "Resource" : "*"
+    },
+    {
       "Sid" : "PassAWSPartnerCentralSnapshotJobRole",
       "Effect" : "Allow",
       "Action" : [
@@ -86,6 +95,22 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
+      "Sid" : "LegacyPartnerCentralAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral-account-management:AccessLegacyPartnerCentral"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "PartnerCentralMarketingAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral-account-management:AccessMarketingCentral"
+      ],
+      "Resource" : "*"
+    },
+    {
       "Sid" : "ChannelBillingTransferRoleAccess",
       "Effect" : "Allow",
       "Action" : [
@@ -94,6 +119,47 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:iam::*:role/PartnerCentralChannelBillingTransferManagement",
         "arn:aws:iam::*:role/PartnerCentralChannelBillingTransferReadOnly"
+      ]
+    },
+    {
+      "Sid" : "PartnerCentralEphemeralWriteS3Access",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:PutObject"
+      ],
+      "Resource" : "arn:aws:s3:::aws-partner-central-marketplace-ephemeral-writeonly-files/${aws:PrincipalAccount}/*"
+    },
+    {
+      "Sid" : "SupportAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:CreateCase",
+        "support:DescribeCases",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase",
+        "support:AddAttachmentsToSet",
+        "support:DescribeCommunications"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ListEntitiesAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListEntities"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "DescribeEntityAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:DescribeEntity"
+      ],
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace*/Solution/*",
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace*/OfferSet/*",
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace*/Offer/*"
       ]
     }
   ]

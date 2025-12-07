@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:40 UTC
-- **Edited time:** November 20, 2024, 19:22 UTC
+- **Edited time:** December 01, 2025, 00:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceManageSubscriptions`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -60,7 +60,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "aws-marketplace:UpdatePurchaseOrders",
-        "aws-marketplace:ListAgreementCharges"
+        "aws-marketplace:ListAgreementCharges",
+        "aws-marketplace:GetAgreementPaymentRequest",
+        "aws-marketplace:ListAgreementPaymentRequests",
+        "aws-marketplace:AcceptAgreementPaymentRequest",
+        "aws-marketplace:RejectAgreementPaymentRequest"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -73,6 +77,44 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws-marketplace:AgreementType" : "false"
         }
       }
+    },
+    {
+      "Sid" : "AWSMarketplaceChangeSetReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:DescribeChangeSet",
+        "aws-marketplace:ListChangeSets"
+      ],
+      "Resource" : "arn:aws:aws-marketplace:*:*:AWSMarketplace/ChangeSet/*"
+    },
+    {
+      "Sid" : "AWSMarketplaceTokenManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:StartChangeSet"
+      ],
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/AgentTokenContainer/*",
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/ChangeSet/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "catalog:ChangeType" : [
+            "CreateAgentTokenContainer",
+            "RequestExpressPrivateOffer",
+            "ExpireToken"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AWSMarketplaceEntityReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListEntities",
+        "aws-marketplace:DescribeEntity"
+      ],
+      "Resource" : "*"
     }
   ]
 }

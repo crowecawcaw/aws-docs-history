@@ -1,26 +1,26 @@
-# CloudWatchLogsReadOnlyAccess
+# AWSLambdaBasicDurableExecutionRolePolicy
 
-**Description**: Provides read only access to CloudWatch Logs
+**Description**: Provides write permissions to CloudWatch Logs and read/write permissions to durable execution APIs used by Lambda durable functions
 
-`CloudWatchLogsReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSLambdaBasicDurableExecutionRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `CloudWatchLogsReadOnlyAccess` to your users, groups, and roles.
+You can attach `AWSLambdaBasicDurableExecutionRolePolicy` to your users, groups, and roles.
 
 ## Policy
 
 details
 
-- **Type**: AWS managed policy
-- **Creation time**: February 06, 2015, 18:40 UTC
-- **Edited time:** December 02, 2025, 16:34 UTC
+- **Type**: Service role policy
+- **Creation time**: December 02, 2025, 15:04 UTC
+- **Edited time:** December 02, 2025, 15:04 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/CloudWatchLogsReadOnlyAccess`
+  `arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -32,23 +32,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "CloudWatchLogsReadOnlyAccess",
       "Effect" : "Allow",
       "Action" : [
-        "logs:Describe*",
-        "logs:Get*",
-        "logs:List*",
-        "logs:StartQuery",
-        "logs:StopQuery",
-        "logs:TestMetricFilter",
-        "logs:FilterLogEvents",
-        "logs:StartLiveTail",
-        "logs:StopLiveTail",
-        "cloudwatch:GenerateQuery",
-        "cloudwatch:GenerateQueryResultsSummary",
-        "observabilityadmin:ListS3TableIntegrations",
-        "observabilityadmin:GetS3TableIntegration",
-        "observabilityadmin:ListTelemetryPipelines"
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "lambda:CheckpointDurableExecution",
+        "lambda:GetDurableExecutionState"
       ],
       "Resource" : "*"
     }

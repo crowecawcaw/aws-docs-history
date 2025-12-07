@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 01, 2023, 11:32 UTC
-- **Edited time:** November 20, 2025, 19:34 UTC
+- **Edited time:** December 02, 2025, 16:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchFullAccessV2`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -79,6 +79,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "observabilityadmin:TagResource",
         "observabilityadmin:UntagResource",
         "observabilityadmin:ListTagsForResource",
+        "observabilityadmin:CreateTelemetryPipeline",
+        "observabilityadmin:GetTelemetryPipeline",
+        "observabilityadmin:UpdateTelemetryPipeline",
+        "observabilityadmin:DeleteTelemetryPipeline",
+        "observabilityadmin:ListTelemetryPipelines",
+        "observabilityadmin:TestTelemetryPipeline",
+        "observabilityadmin:ValidateTelemetryPipelineConfiguration",
+        "observabilityadmin:CreateS3TableIntegration",
+        "observabilityadmin:GetS3TableIntegration",
+        "observabilityadmin:ListS3TableIntegrations",
+        "observabilityadmin:DeleteS3TableIntegration",
         "rum:*",
         "synthetics:*",
         "xray:*"
@@ -184,6 +195,55 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "resource-explorer-2:CreateIndex"
       ],
       "Resource" : "arn:aws:resource-explorer-2:*:*:index/*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "logs.amazonaws.com"
+        },
+        "ArnLike" : {
+          "iam:AssociatedResourceArn" : "arn:aws:observabilityadmin:*:*:s3tableintegration/*"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : [
+            "logs.amazonaws.com",
+            "telemetry-pipelines.observabilityadmin.amazonaws.com"
+          ]
+        },
+        "ArnLike" : {
+          "iam:AssociatedResourceArn" : "arn:aws:observabilityadmin:*:*:telemetry-pipeline/*"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "s3tables:CreateTableBucket",
+        "s3tables:PutTableBucketEncryption"
+      ],
+      "Resource" : "arn:aws:s3tables:*:*:bucket/aws-cloudwatch",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "observabilityadmin.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "s3tables:PutTableBucketPolicy"
+      ],
+      "Resource" : "arn:aws:s3tables:*:*:bucket/aws-cloudwatch"
     }
   ]
 }

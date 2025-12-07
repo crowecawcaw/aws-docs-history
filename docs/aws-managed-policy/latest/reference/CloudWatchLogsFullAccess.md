@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:40 UTC
-- **Edited time:** May 20, 2025, 17:07 UTC
+- **Edited time:** December 02, 2025, 16:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchLogsFullAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -37,7 +37,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "logs:*",
         "cloudwatch:GenerateQuery",
-        "cloudwatch:GenerateQueryResultsSummary"
+        "cloudwatch:GenerateQueryResultsSummary",
+        "observabilityadmin:GetS3TableIntegration",
+        "observabilityadmin:ListS3TableIntegrations",
+        "observabilityadmin:ListTelemetryPipelines"
       ],
       "Resource" : "*"
     }

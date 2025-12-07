@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 17, 2020, 21:14 UTC
-- **Edited time:** March 17, 2025, 21:37 UTC
+- **Edited time:** December 01, 2025, 16:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSLambda_FullAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -41,6 +41,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
+        "kms:DescribeKey",
         "kms:ListAliases",
         "iam:GetPolicy",
         "iam:GetPolicyVersion",
@@ -79,6 +80,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "logs:StopLiveTail"
       ],
       "Resource" : "arn:aws:logs:*:*:log-group:/aws/lambda/*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/lambda.amazonaws.com/AWSServiceRoleForLambda",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "lambda.amazonaws.com"
+        }
+      }
     }
   ]
 }

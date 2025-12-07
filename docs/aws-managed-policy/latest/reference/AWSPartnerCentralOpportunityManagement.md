@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 14, 2024, 19:09 UTC
-- **Edited time:** December 04, 2024, 23:06 UTC
+- **Edited time:** December 01, 2025, 00:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSPartnerCentralOpportunityManagement`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -39,6 +39,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "partnercentral:AssignOpportunity",
         "partnercentral:AssociateOpportunity",
         "partnercentral:CreateEngagement",
+        "partnercentral:CreateEngagementContext",
         "partnercentral:CreateEngagementInvitation",
         "partnercentral:CreateOpportunity",
         "partnercentral:CreateResourceSnapshot",
@@ -58,18 +59,29 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "partnercentral:ListEngagementResourceAssociations",
         "partnercentral:ListEngagements",
         "partnercentral:ListOpportunities",
+        "partnercentral:ListOpportunityFromEngagementTasks",
         "partnercentral:ListResourceSnapshotJobs",
         "partnercentral:ListResourceSnapshots",
         "partnercentral:ListSolutions",
         "partnercentral:RejectEngagementInvitation",
         "partnercentral:StartEngagementByAcceptingInvitationTask",
         "partnercentral:StartEngagementFromOpportunityTask",
+        "partnercentral:StartOpportunityFromEngagementTask",
         "partnercentral:StartResourceSnapshotJob",
         "partnercentral:StopResourceSnapshotJob",
         "partnercentral:SubmitOpportunity",
+        "partnercentral:UpdateEngagementContext",
         "partnercentral:UpdateOpportunity"
       ],
-      "Resource" : "*"
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
     },
     {
       "Sid" : "ListingAWSMarketplaceEntities",
@@ -80,14 +92,89 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "AWSMarketplaceOffersAccess",
+      "Sid" : "AWSMarketplaceEntityAccess",
       "Effect" : "Allow",
       "Action" : [
         "aws-marketplace:DescribeEntity"
       ],
       "Resource" : [
-        "arn:aws:aws-marketplace:*:*:AWSMarketplace/Offer/*"
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace*/Solution/*",
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace*/OfferSet/*",
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace*/Offer/*"
       ]
+    },
+    {
+      "Sid" : "LegacyPartnerCentralAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral-account-management:AccessLegacyPartnerCentral"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "partnercentral-account-management:LegacyPartnerCentralRole" : "AceManager"
+        }
+      }
+    },
+    {
+      "Sid" : "PartnerDashboardAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:GetPartnerDashboard"
+      ],
+      "Resource" : [
+        "arn:aws:partnercentral::*:catalog/AWS/ReportingData/Opportunity_V1/Dashboard/*",
+        "arn:aws:partnercentral::*:catalog/AWS/ReportingData/Engagement_V1/Dashboard/*"
+      ]
+    },
+    {
+      "Sid" : "CollaborationChannelAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:CreateCollaborationChannelRequest",
+        "partnercentral:ListCollaborationChannels",
+        "partnercentral:GetCollaborationChannel",
+        "partnercentral:CreateCollaborationChannelMembers"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "PartnerResourceAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:ListPartners",
+        "partnercentral:GetPartner"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "TaggingAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:TagResource",
+        "partnercentral:UntagResource",
+        "partnercentral:ListTagsForResource"
+      ],
+      "Resource" : [
+        "arn:aws:partnercentral:*:*:catalog/*/opportunity/*",
+        "arn:aws:partnercentral:*:*:catalog/*/resource-snapshot-job/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
     }
   ]
 }

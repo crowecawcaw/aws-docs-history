@@ -14,7 +14,7 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 03, 2024, 15:21 UTC
-- **Edited time:** November 22, 2025, 01:04 UTC
+- **Edited time:** December 02, 2025, 17:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonS3TablesFullAccess`
 

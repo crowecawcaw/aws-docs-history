@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 13, 2022, 18:02 UTC
-- **Edited time:** September 18, 2025, 00:19 UTC
+- **Edited time:** November 27, 2025, 01:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSBillingConductorFullAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -42,7 +42,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "organizations:ListRoots",
         "organizations:ListOrganizationalUnitsForParent",
         "organizations:ListChildren",
-        "organizations:DescribeAccount"
+        "organizations:DescribeAccount",
+        "organizations:DescribeResponsibilityTransfer",
+        "organizations:ListInboundResponsibilityTransfers"
       ],
       "Resource" : "*"
     }

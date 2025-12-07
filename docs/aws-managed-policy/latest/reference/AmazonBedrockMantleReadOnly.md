@@ -1,26 +1,26 @@
-# CloudWatchLogsReadOnlyAccess
+# AmazonBedrockMantleReadOnly
 
-**Description**: Provides read only access to CloudWatch Logs
+**Description**: Provides read only access to Amazon Bedrock Mantle
 
-`CloudWatchLogsReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AmazonBedrockMantleReadOnly` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `CloudWatchLogsReadOnlyAccess` to your users, groups, and roles.
+You can attach `AmazonBedrockMantleReadOnly` to your users, groups, and roles.
 
 ## Policy
 
 details
 
 - **Type**: AWS managed policy
-- **Creation time**: February 06, 2015, 18:40 UTC
-- **Edited time:** December 02, 2025, 16:34 UTC
+- **Creation time**: December 04, 2025, 07:19 UTC
+- **Edited time:** December 04, 2025, 07:19 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/CloudWatchLogsReadOnlyAccess`
+  `arn:aws:iam::aws:policy/AmazonBedrockMantleReadOnly`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -32,23 +32,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "CloudWatchLogsReadOnlyAccess",
+      "Sid" : "BedrockMantleReadOnly",
       "Effect" : "Allow",
       "Action" : [
-        "logs:Describe*",
-        "logs:Get*",
-        "logs:List*",
-        "logs:StartQuery",
-        "logs:StopQuery",
-        "logs:TestMetricFilter",
-        "logs:FilterLogEvents",
-        "logs:StartLiveTail",
-        "logs:StopLiveTail",
-        "cloudwatch:GenerateQuery",
-        "cloudwatch:GenerateQueryResultsSummary",
-        "observabilityadmin:ListS3TableIntegrations",
-        "observabilityadmin:GetS3TableIntegration",
-        "observabilityadmin:ListTelemetryPipelines"
+        "bedrock-mantle:Get*",
+        "bedrock-mantle:List*"
+      ],
+      "Resource" : "arn:aws:bedrock-mantle:*:*:project/*"
+    },
+    {
+      "Sid" : "BedrockMantleCallWithBearerToken",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock-mantle:CallWithBearerToken"
       ],
       "Resource" : "*"
     }

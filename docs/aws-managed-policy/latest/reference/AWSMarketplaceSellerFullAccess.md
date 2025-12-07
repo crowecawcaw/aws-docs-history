@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 02, 2019, 20:40 UTC
-- **Edited time:** January 14, 2025, 19:52 UTC
+- **Edited time:** December 01, 2025, 00:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -168,6 +168,27 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "iam:AWSServiceName" : "resale-authorization.marketplace.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AgreementPaymentRequestAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:SendAgreementPaymentRequest",
+        "aws-marketplace:GetAgreementPaymentRequest",
+        "aws-marketplace:ListAgreementPaymentRequests",
+        "aws-marketplace:CancelAgreementPaymentRequest"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws-marketplace:PartyType" : "Proposer"
+        },
+        "ForAllValues:StringEquals" : {
+          "aws-marketplace:AgreementType" : [
+            "PurchaseAgreement"
+          ]
         }
       }
     }

@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:40 UTC
-- **Edited time:** November 20, 2025, 19:34 UTC
+- **Edited time:** December 02, 2025, 16:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -68,6 +68,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "observabilityadmin:ListTelemetryRulesForOrganization",
         "observabilityadmin:GetTelemetryEnrichmentStatus",
         "observabilityadmin:ListTagsForResource",
+        "observabilityadmin:GetTelemetryPipeline",
+        "observabilityadmin:ListTelemetryPipelines",
+        "observabilityadmin:TestTelemetryPipeline",
+        "observabilityadmin:ValidateTelemetryPipelineConfiguration",
+        "observabilityadmin:GetS3TableIntegration",
+        "observabilityadmin:ListS3TableIntegrations",
         "sns:Get*",
         "sns:List*",
         "rum:BatchGet*",

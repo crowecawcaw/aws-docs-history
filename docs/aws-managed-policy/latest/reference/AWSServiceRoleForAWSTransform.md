@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: May 15, 2025, 13:37 UTC
-- **Edited time:** September 18, 2025, 20:34 UTC
+- **Edited time:** December 01, 2025, 13:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAWSTransform`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -88,6 +88,32 @@ request to access an AWS resource, AWS checks the default version of the policy 
         },
         "StringLike" : {
           "kms:ViaService" : "identitystore.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "SupportCaseManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:CreateCase",
+        "support:DescribeCases",
+        "support:DescribeCommunications",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ExternalIdpSecretsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource" : "arn:aws:secretsmanager:*:*:secret:transform!*",
+      "Condition" : {
+        "StringEquals" : {
+          "secretsmanager:ResourceTag/aws:secretsmanager:owningService" : "transform",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     }

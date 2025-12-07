@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 19, 2025, 16:34 UTC
-- **Edited time:** November 19, 2025, 16:34 UTC
+- **Edited time:** December 01, 2025, 00:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSPartnerCentralChannelManagement`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -84,6 +84,46 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:partnercentral:*:*:catalog/*/program-management-account/*",
         "arn:aws:partnercentral:*:*:catalog/*/channel-handshake/*"
       ],
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "LegacyPartnerCentralAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral-account-management:AccessLegacyPartnerCentral"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "partnercentral-account-management:LegacyPartnerCentralRole" : "ChannelUser"
+        }
+      }
+    },
+    {
+      "Sid" : "PartnerDashboardAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:GetPartnerDashboard"
+      ],
+      "Resource" : [
+        "arn:aws:partnercentral::*:catalog/AWS/ReportingData/Resell_V1/Dashboard/*"
+      ]
+    },
+    {
+      "Sid" : "PartnerResourceAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:ListPartners",
+        "partnercentral:GetPartner"
+      ],
+      "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
           "partnercentral:Catalog" : [
