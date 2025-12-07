@@ -1,9 +1,5 @@
 # Generative AI upgrades for Apache Spark in AWS Glue
 
-|                                                                                                                                                                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The generative AI upgrades for Apache Spark preview is available for AWS Glue versions 4.0 and 5.0 in the following AWS Regions:<br>US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Tokyo), and Asia Pacific (Sydney). Preview features<br>are subject to change. |
-
 Spark Upgrades in AWS Glue enables data engineers and developers to upgrade and migrate their existing AWS Glue Spark jobs to the latest Spark
 releases using generative AI. Data engineers can use it to scan their AWS Glue Spark jobs, generate upgrade plans, execute plans, and validate outputs.
 It reduces the time and cost of Spark upgrades by automating the undifferentiated work of identifying and updating Spark scripts,
@@ -476,6 +472,16 @@ process a few gigabytes of representative data with 2 G.2X workers and auto-scal
   will produce the same output each time. When using the Generative AI upgrades for Apache Spark in AWS Glue, the service will run multiple iterations of
   your job as part of the validation process. During each iteration, it will make changes to your Spark code and configurations to validate the upgrade
   plan. If your Spark job is not idempotent, running it multiple times with the same input data could lead to issues.
+
+## Supported regions
+
+Generative AI upgrades for Apache Spark is available in the following regions:
+
+- **Asia Pacific**: Tokyo (ap-northeast-1), Seoul (ap-northeast-2), Mumbai (ap-south-1), Singapore (ap-southeast-1), and Sydney (ap-southeast-2)
+- **North America**: Canada (ca-central-1)
+- **Europe**: Frankfurt (eu-central-1), Stockholm (eu-north-1), Ireland (eu-west-1), London (eu-west-2), and Paris (eu-west-3)
+- **South America**: São Paulo (sa-east-1)
+- **United States**: North Virginia (us-east-1), Ohio (us-east-2), and Oregon (us-west-2)
 
 ## Cross-region inference in Spark Upgrades
 

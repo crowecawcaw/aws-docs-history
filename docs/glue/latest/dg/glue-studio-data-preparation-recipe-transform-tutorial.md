@@ -52,7 +52,7 @@ undoing a step, and re-ordering steps. For example:
 
 
 
-    ![The screenshot shows the more icon.](/images/glue/latest/dg/images/author-recipe-toolbar-undo-redo.png)
+    ![The screenshot shows the more icon.](images/author-recipe-toolbar-undo-redo.png)
     * Reorder step – when you reorder a step, AWS Glue Studio will validate each step and let you know if the step
      is invalid.
 

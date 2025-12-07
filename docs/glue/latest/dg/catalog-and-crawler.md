@@ -93,6 +93,16 @@ AWS Glue integrates with AWS Lake Formation to support fine-grained access contr
 you to manage permissions and secure access to your data assets based on your
 organization's policies and requirements. AWS Glue integrates with AWS Key Management Service (AWS KMS) to encrypt metadata that's stored in the Data Catalog.
 
+Materialized views
+
+The Data Catalog supports Apache Iceberg materialized views, which are managed tables that store precomputed results of SQL queries and automatically refresh as underlying source data changes. Materialized views simplify data transformation pipelines and accelerate query performance by eliminating redundant computation.
+
+You can create materialized views using Apache Spark SQL in AWS Glue version 5.1 and later, Amazon EMR release 7.12.0 and later, and Amazon Athena. The Data Catalog automatically monitors source Apache Iceberg tables and refreshes materialized views using managed compute infrastructure. Spark engines across AWS Glue, Amazon EMR, and Amazon Athena can automatically rewrite queries to use materialized views when they provide better performance.
+
+Materialized views are stored as Apache Iceberg tables in Amazon S3 Tables buckets or Amazon S3 general purpose buckets within your account, making them accessible from multiple query engines. The Data Catalog manages all aspects of materialized view lifecycle, including automatic refresh scheduling, incremental updates, and metadata management.
+
+For more information, see Using materialized views with AWS Glue and Using materialized views with Amazon EMR.
+
 ###### Topics
 
 - [Populating the AWS Glue Data Catalog](populate-catalog-methods.md "populate-catalog-methods.md")

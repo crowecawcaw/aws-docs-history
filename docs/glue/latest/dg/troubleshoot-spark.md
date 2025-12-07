@@ -1,13 +1,13 @@
 # Generative AI troubleshooting for Apache Spark in AWS Glue
 
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| The generative AI troubleshooting for Apache Spark preview is available for jobs running on AWS Glue 4.0 and AWS Glue 5.0, and in the<br>following AWS Regions:<br>US East (N. Virginia), US East (Ohio), US West (Oregon), US West (N. California), South America (São Paulo), Canada (Central),<br>Europe (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), Europe (Milan), Europe (Frankfurt), Middle East (Bahrain),<br>Middle East (UAE), Africa (Cape Town), Asia Pacific (Tokyo), Asia Pacific (Hong Kong), Asia Pacific (Mumbai), Asia Pacific (Singapore),<br>Asia Pacific (Jakarta), Asia Pacific (Seoul), Asia Pacific (Osaka), and Asia Pacific (Sydney).<br>Preview features are subject to change. |
-
 Generative AI Troubleshooting for Apache Spark jobs in AWS Glue is a new capability that helps data engineers and scientists
 diagnose and fix issues in their Spark applications with ease. Utilizing machine learning and generative AI technologies,
 this feature analyzes issues in Spark jobs and provides detailed root cause analysis along with actionable recommendations to
-resolve those issues.
+resolve those issues. The generative AI troubleshooting for Apache Spark is available for jobs running on AWS Glue version 4.0 and above.
+
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Transform your Apache Spark troubleshooting with our AI-powered Troubleshooting Agent, now supporting all major deployment modes including AWS Glue, Amazon EMR-EC2, Amazon EMR-Serverless and Amazon SageMaker AI Notebooks. This powerful agent eliminates complex debugging processes by combining natural language interactions, real-time workload analysis, and smart code recommendations into a seamless experience. For implementation details, refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR](../../../emr/latest/ReleaseGuide/spark-troubleshoot.md "../../../emr/latest/ReleaseGuide/spark-troubleshoot.md"). View the second demonstration in [Using the Troubleshooting Agent](../../../emr/latest/ReleaseGuide/spark-troubleshooting-using-troubleshooting-agent.md "../../../emr/latest/ReleaseGuide/spark-troubleshooting-using-troubleshooting-agent.md") for AWS Glue troubleshooting examples. |
 
 ## How does Generative AI Troubleshooting for Apache Spark work?
 
@@ -46,7 +46,7 @@ JSON
 
 ###### Note
 
-During preview, Spark Troubleshooting does not have APIs available through the AWS SDK that you can use programmatically.
+Spark Troubleshooting does not have APIs available through the AWS SDK that you can use programmatically.
 The following two APIs are used in the IAM policy for enabling this experience through the AWS Glue Studio Console:
 `StartCompletion` and `GetCompletion`.
 
@@ -96,7 +96,7 @@ You can access the troubleshooting feature through multiple paths in the AWS Glu
    **Runs** tab or selecting the job run from the **Job run monitoring** page.
 2. In the job run details page, find the **Troubleshooting analysis** tab.
 
-## Supported troubleshooting categories (preview)
+## Supported troubleshooting categories
 
 This service focuses on three primary categories of issues that data engineers and developers frequently encounter in their
 Spark applications:
@@ -116,3 +116,15 @@ Spark applications:
 
 Before implementing any suggested changes in your production environment, review the suggested changes thoroughly. The service
 provides recommendations based on patterns and best practices, but your specific use case might require additional considerations.
+
+## Supported regions
+
+Generative AI troubleshooting for Apache Spark is available in the following regions:
+
+- **Africa**: Cape Town (af-south-1)
+- **Asia Pacific**: Hong Kong (ap-east-1), Tokyo (ap-northeast-1), Seoul (ap-northeast-2), Osaka (ap-northeast-3), Mumbai (ap-south-1), Singapore (ap-southeast-1), Sydney (ap-southeast-2), and Jakarta (ap-southeast-3)
+- **Europe**: Frankfurt (eu-central-1), Stockholm (eu-north-1), Milan (eu-south-1), Ireland (eu-west-1), London (eu-west-2), and Paris (eu-west-3)
+- **Middle East**: Bahrain (me-south-1) and UAE (me-central-1)
+- **North America**: Canada (ca-central-1)
+- **South America**: São Paulo (sa-east-1)
+- **United States**: North Virginia (us-east-1), Ohio (us-east-2), North California (us-west-1), and Oregon (us-west-2)

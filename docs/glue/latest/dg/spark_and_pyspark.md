@@ -13,3 +13,4 @@ The following sections provide information on AWS Glue Spark and PySpark jobs.
 - [Storing Spark shuffle data](monitor-spark-shuffle-manager.md "monitor-spark-shuffle-manager.md")
 - [Monitoring AWS Glue Spark jobs](monitor-spark.md "monitor-spark.md")
 - [Generative AI troubleshooting for Apache Spark in AWS Glue](troubleshoot-spark.md "troubleshoot-spark.md")
+- [Using materialized views with AWS Glue](materialized-views.md "materialized-views.md")
