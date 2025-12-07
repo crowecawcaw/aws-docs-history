@@ -1,39 +1,31 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Infrastructure 6.32 release
+# Infrastructure 6.54 release
 
-The following release notes include information for infrastructure release 6.32. For
-information on the release timeline, see [Change log](#infra-release-notes-6.32-change-log "#infra-release-notes-6.32-change-log").
+The following release notes include information for infrastructure release 6.54. For
+information on the release timeline, see [Change log](#infra-release-notes-6.54-change-log "#infra-release-notes-6.54-change-log").
 
 **Platform version**
 
-|                |               |
-| -------------- | ------------- |
-| Infrastructure | 6.32.1 (1024) |
+|                |                                  |
+| -------------- | -------------------------------- |
+| Infrastructure | 6.54.1<br>Replicated KOTS (2149) |
 
-**New features**:
+**Changes, enhancements, and resolved issues**:
 
-- Administrators can now toggle private IP restrictions at the superadmin level. Toggling
-  the restrictions off facilitates ADFS and other SSO integration over private
-  connections.
-- The downloaded config filename now matches the name in the admin dashboard.
-  **Improvements**:
+- Updates to support future enhancements.
+  **New features**:
 
-- Added a new port allowlist (TCP 8443). This port allowlist is needed for the new
-  CALLING_BASE_URL environment variable in the Switchboard container, which facilitates internal
-  communication between the messaging and calling servers.
-- Redirected the base URL to /admin
-- Added a “Removed” banner for former Wickr Me users
-- Updated ServerAPI to Node18
-- Proactively retry to reconnect web sockets in federation gateway on disconnect
+The embedded cluster installation option for Wickr Enterprise offers a small and efficient
+installation for the Wickr Enterprise product. This option utilizes the [Replicated Embedded Cluster](https://docs.replicated.com/vendor/embedded-overview "https://docs.replicated.com/vendor/embedded-overview"),
+which enables a small Kubernetes installation using k0s on which Wickr Enterprise is installed.
+For more information, see [Embedded cluster for Wickr Enterprise](../wickrenterpriseinstall/embedded-cluster-overview.md "../wickrenterpriseinstall/embedded-cluster-overview.md").
 
 ## Change log
 
-**Change log for 6.32 release and release notes**
+**Change log for 6.54 release and release notes**
 
-| Change                | Description                                                                                                                                            | Date              |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| Final release         | Final notes with Replicated build number<br>NoteReplicated build numbers are dependent on deployment model, KOTS (1024) or Native<br>Scheduler (1882). | February 12, 2024 |
-| Infrastructure update | Updates to address vulnerability scan results, new features, and patching                                                                              | February 8, 2024  |
-| Initial release       | Initial release of February release notes                                                                                                              | February 5, 2024  |
+| Change                | Description                          | Date         |
+| --------------------- | ------------------------------------ | ------------ |
+| Infrastructure update | Initial release of May release notes | May 22, 2025 |
