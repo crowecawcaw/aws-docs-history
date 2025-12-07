@@ -160,7 +160,7 @@ panel. To show buckets that have the same value for a field, choose
 ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
 in the field. To show buckets that have other values
 for a field, choose
-![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
+![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
 in the field. 7. To export data from the table to a CSV file, select the checkbox for each row that you
 want to export, or select the checkbox in the selection column heading to select
 all rows. Then choose **Export to CSV** at the top of the page.
@@ -218,7 +218,7 @@ on certain fields. To show buckets that have the same value for a field, choose
 ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
 in the field. To show buckets that have other values for a field,
 choose
-![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
+![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
 in the field.
 
 ### Overview
