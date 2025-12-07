@@ -22,7 +22,7 @@ Amazon Linux
 Amazon Linux 2
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 CentOS 6
@@ -34,7 +34,7 @@ CentOS 6
 CentOS 7
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 RHEL 6
@@ -46,11 +46,11 @@ RHEL 6
 RHEL 7
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 Ubuntu 16.04 LTS
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```

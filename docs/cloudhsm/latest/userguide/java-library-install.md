@@ -20,49 +20,49 @@ Amazon Linux
 Amazon Linux 2
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 CentOS 7
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 CentOS 8
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 RHEL 7
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 RHEL 8
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 Ubuntu 16.04 LTS
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 Ubuntu 18.04 LTS
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 Ubuntu 20.04 LTS
 
 ```
-`$` `sudo systemctl cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 Use the following sections to install, validate, and provide credentials to the

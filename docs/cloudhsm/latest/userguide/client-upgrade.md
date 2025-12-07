@@ -381,49 +381,47 @@ Amazon Linux
 Amazon Linux 2
 
 ```
-`$` `sudo service cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 CentOS 7
 
 ```
-`$` `sudo service cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 CentOS 8
 
 ```
-`$` `sudo service cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 RHEL 7
 
 ```
-`$` `sudo service cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 RHEL 8
 
 ```
-`$` `sudo service cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 Ubuntu 16.04 LTS
 
 ```
-`$` `sudo service cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 Ubuntu 18.04 LTS
 
 ```
-`$` `sudo service cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
 
 Ubuntu 20.04 LTS
 
 ```
-`$` `sudo service cloudhsm-client start`
+`$` `sudo systemctl start cloudhsm-client`
 ```
-
-Ubuntu 22.04 LTSSupport for OpenSSL Dynamic Engine is not yet available.
