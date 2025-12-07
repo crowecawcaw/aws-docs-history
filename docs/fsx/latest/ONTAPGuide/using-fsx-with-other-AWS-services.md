@@ -1,4 +1,4 @@
-# Accessing data with other AWS
+# Accessing data from other AWS
 
 services
 

@@ -36,7 +36,8 @@ available on second-generation file systems that have 6 or fewer HA pairs.
 - [Provisioning iSCSI for Linux](mount-iscsi-luns-linux.md "mount-iscsi-luns-linux.md")
 - [Provisioning iSCSI for Windows](mount-iscsi-windows.md "mount-iscsi-windows.md")
 - [Provisioning NVMe/TCP for Linux](provision-nvme-linux.md "provision-nvme-linux.md")
-- [Accessing data with other AWS
+- [Accessing your data via Amazon S3 access points](accessing-data-via-s3-access-points.md "accessing-data-via-s3-access-points.md")
+- [Accessing data from other AWS
   services](using-fsx-with-other-AWS-services.md "using-fsx-with-other-AWS-services.md")
 
 ## Supported clients
