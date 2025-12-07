@@ -14,6 +14,10 @@ Neural model
 
 The neural speech recognition model provides enhanced accuracy and better handling of natural speech patterns, accents, and background noise. This model uses advanced neural network architectures to improve recognition performance, especially in challenging audio environments.
 
+Deepgram
+
+Deepgram provides a public speech-to-test (STT) API for users that create an account and an API key. See [https://deepgram.com/](https://deepgram.com/ "https://deepgram.com/") for information about their public offerings.
+
 ## Configuring speech model preferences
 
 You can configure speech model preferences when creating or updating a bot locale. The speech model preference setting determines which recognition model Amazon Lex V2 uses to process audio input for your bot.
@@ -25,6 +29,7 @@ To configure speech model preferences:
 3. For **Speech model preference**, choose one of the following options:
    - **Standard** - Use the standard speech recognition model for reliable performance across general use cases.
    - **Neural** - Use the neural speech recognition model for enhanced accuracy and better handling of natural speech patterns.
+   - **Deepgram** - Use Deepgram's Listen API for speech recognition. For setup instructions, see [Setting up Deepgram speech model preference](customizing-speech-deepgram-setup.md "customizing-speech-deepgram-setup.md").
 
 4. Save your changes to apply the speech model preference to your bot locale.
 
