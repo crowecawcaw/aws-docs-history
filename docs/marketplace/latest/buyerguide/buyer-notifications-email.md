@@ -3,6 +3,7 @@
 As a buyer in AWS Marketplace, you receive an email notification when the following events occur:
 
 - You accept an offer.
+- A seller publishes a private offer set to your account.
 - A seller publishes a new private offer that is related to a private offer that you
   accepted previously.
 - A seller publishes an update to a previously accepted offer.

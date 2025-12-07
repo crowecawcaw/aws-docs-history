@@ -39,3 +39,11 @@ In addition to using an email delivery channel, you can also use the AWS Console
 - [What is the AWS Console Mobile Application](../../../consolemobileapp/latest/userguide/what-is-consolemobileapp.md "../../../consolemobileapp/latest/userguide/what-is-consolemobileapp.md"), in the _AWS Console Mobile Application User Guide_.
 - [What is AWS Chatbot](../../../chatbot/latest/adminguide/what-is.md "../../../chatbot/latest/adminguide/what-is.md"), in the _Amazon Q Developer in chat applications Administrator Guide_.
 - [Creating a notification configuration](../../../notifications/latest/userguide/getting-started.md#getting-started-step1 "../../../notifications/latest/userguide/getting-started.md#getting-started-step1"), in the _User Notifications User Guide_.
+
+###### Note
+
+Private Marketplace supports two user experiences: AWS Console and the legacy website.
+
+To view and manage Private Marketplace in the AWS Marketplace Console, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. See [Enabling Private Marketplace](private-marketplace-current.md#enable-private-marketplace "private-marketplace-current.md#enable-private-marketplace") for details. For end users, administrators must also grant the new permissions listed in [AWSPrivateMarketplaceRequests](buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplacerequests "buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplacerequests").
+
+Product requests created using the legacy website will be available at [Private Marketplace](https://aws.amazon.com/marketplace/privatemarketplace "https://aws.amazon.com/marketplace/privatemarketplace"). **Important:** The legacy website will be deprecated on March 17, 2026.

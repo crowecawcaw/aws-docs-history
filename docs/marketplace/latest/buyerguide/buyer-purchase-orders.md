@@ -34,6 +34,9 @@ You may encounter one or more of the following choices:
   it may still apply to this purchase.
 - **One PO number for all charges** – Applies one purchase order to all fixed and pay-as-you-go charges,
   including one-time fees, recurring subscriptions, and usage-based services.
+- **One PO number for all payment requests** – Applies to
+  professional services contracts with variable payments. Assigns a PO number of all future
+  payment requests associated with this private offer.
 - **Separate PO numbers for fixed and usage charges** – Assign one PO number
   for all your fixed charges, such as up-front and recurring
   payments, and a separate PO number for all pay-as-you-go charges.
