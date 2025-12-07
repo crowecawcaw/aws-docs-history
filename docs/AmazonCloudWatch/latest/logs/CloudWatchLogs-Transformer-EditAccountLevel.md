@@ -17,5 +17,5 @@ policy.
    then choose **Edit** or **Delete**.
 
 If you're editing the policy, see steps 5-11 in [Configurable
-parser-type processors](CloudWatch-Logs-Transformation-Processors.md#CloudWatch-Logs-Transformation-Configurable "CloudWatch-Logs-Transformation-Processors.md#CloudWatch-Logs-Transformation-Configurable") to see
+parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md") to see
 your options.

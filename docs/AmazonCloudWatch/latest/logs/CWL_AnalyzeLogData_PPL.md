@@ -9,8 +9,26 @@ Unix pipes, and enables chaining of commands to transform and process data. With
 PPL, you can filter and aggregate data, and use a rich set of math, string, date,
 conditional, and other functions for analysis.
 
-You can use OpenSearch PPL only for queries of log groups in the Standard Log
-Class.
+Including `SOURCE` in a PPL query is a useful way to specify the log
+groups field indexes, and data sources to include in a query when you are using the
+AWS CLI or API to create a query. The `SOURCE` command is supported only in
+the AWS CLI and API, not in the CloudWatch console. When you use the CloudWatch
+console to start a query, you use the console interface to specify the log groups
+and data source name and type.
+
+Use `aws:fieldIndex` to return indexed data only, by forcing a query to
+scan only log groups that are indexed on a field that you specify in the query. The
+relevant log groups are automatically selected, based on the fields specified in the
+`filterIndex` command. This reduces scanned volume by
+skipping log groups that do not have any log events containing the field specified
+in the query, and only scanning log groups that match the value specified in the
+query for this field index. Use `aws:fieldIndex` to specify the field
+name, along with the field name and value in the source command to query only
+indexed data containing the field and value specified. For more information, see
+[Create field indexes to improve query
+performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
+
+You can use OpenSearch PPL for queries of log groups in the Standard Log Class.
 
 ###### Note
 
@@ -26,6 +44,7 @@ SQL](CWL_AnalyzeLogData_SQL.md "CWL_AnalyzeLogData_SQL.md"), and [CloudWatch Met
 | fields                  | `fields field1, field2`                                                                                                                       | Displays a set of fields which needs projection.                                                                                                                                                                                   |
 | join                    | `LEFT JOIN left=l, right=r on l.id = r.id `join_right_lg`<br>                                                                                 | fields l.field_1, r.field_2`                                                                                                                                                                                                       | Joins two datasets together.                                                                                                                                                                                                                              |
 | where                   | `where field1="success"                                                                                                                       | where field2 !=<br>"i-023fe0a90929d8822"                                                                                                                                                                                           | fields field3, field4, field5,field6<br>                                                                                                                                                                                                                  | head 1000`                                                                                                                                                                                                         | Filters the data based on the conditions that you<br>specify.                                                                                                                        |
+| aws:fieldIndex          | `source = [`aws:fieldIndex`="region", `region` =<br>"us-west-2"]                                                                              | where status = 200                                                                                                                                                                                                                 | head 10`                                                                                                                                                                                                                                                  | Returns indexed data only, by forcing a query to scan only log<br>groups that are indexed on a field that you specify in the<br>query.                                                                             |
 | stats                   | `stats count(), count(field1), min(field1), max(field1),<br>avg(field1) by field2                                                             | head 1000`                                                                                                                                                                                                                         | Performs aggregations and calculations                                                                                                                                                                                                                    |
 | parse                   | `parse field1 ".\*/(?<field2>[^/]+$)"                                                                                                         | where field2<br>= "requestId"                                                                                                                                                                                                      | fields field1, field2                                                                                                                                                                                                                                     | head<br>1000`                                                                                                                                                                                                      | Extracts a regular expression (regex) pattern from a string<br>and displays the extracted pattern. The extracted pattern can be<br>further used to create new fields or filter data. |
 | sort                    | `stats count(), count(field1), min(field1) as<br>field1Alias, max(`field1`), avg(`field1`) by field2                                          | sort<br>-field1Alias                                                                                                                                                                                                               | head 1000`                                                                                                                                                                                                                                                | Sort the displayed results by a field name. Use sort<br>-FieldName to sort in descending order.                                                                                                                    |
@@ -50,3 +69,135 @@ SQL](CWL_AnalyzeLogData_SQL.md "CWL_AnalyzeLogData_SQL.md"), and [CloudWatch Met
 | Math functions          | `eval field2 = ACOS(field1)                                                                                                                   | fields field1`                                                                                                                                                                                                                     | Built-in functions for performing mathematical calculations<br>and transformations in PPL queries. For example, abs (absolute<br>value), round (rounds numbers), sqrt (square root), pow (power<br>calculation), and ceil (rounds up to nearest integer). |
 | CryptoGraphic functions | `eval crypto = MD5(field)                                                                                                                     | head 1000`                                                                                                                                                                                                                         | To calculate the hash of given field                                                                                                                                                                                                                      |
 | JSON functions          | `eval valid_json = json('[1,2,3,{"f1":1,"f2":[5,6]},4]')<br>                                                                                  | fields valid_json`                                                                                                                                                                                                                 | Built-in functions for handling JSON including arrays,<br>extracting, and validation. For example, json_object,<br>json_array, to_json_string, json_array_length, json_extract,<br>json_keys, and json_valid.                                             |
+
+## Query scope
+
+Including SOURCE in a query is a useful way to specify the log groups to
+include in a query when you are using the AWS CLI or API to create a query. The
+SOURCE command is supported only in the AWS CLI and API, not in the CloudWatch
+console. When you use the CloudWatch console to start a query, you use the
+console interface to specify the log groups and data source name and
+type.
+
+PPL's source command now support multiple ways to specify them:
+
+1. Log group
+2. Field indexes - New
+3. Data source and type - New
+
+### Log Group
+
+Log Group source selection can be used when customers know which exact log
+group(s) need to be searched
+
+```
+source = [lg:`/aws/lambda/my-function`] | where status = 200 | head 10
+```
+
+### Field
+
+Indexes
+
+Field index-based source selection reduces the amount of data queried by
+limiting results to only indexed data when your filters target fields that
+have been indexed. The relevant log groups are automatically selected, based
+on the fields specified in the `filterIndex` command. For more
+information about field indexes and how to create them, see [Create field indexes to improve
+query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md").
+
+Use `aws:fieldIndex` to return indexed data only, by forcing a
+query to scan only log groups that are indexed on a field that you specify
+in the query. For these log groups that are indexed on this field, it
+further optimizes the query by skipping the log groups that do not have any
+log events containing the field specified in the query for the indexed
+field. It further reduces scanned volume by attempting to scan only log
+events from these log groups that match the value specified in the query for
+this field index. For more information about field indexes and how to create
+them, see Create field indexes to improve query performance and reduce scan
+volume.
+
+In PPL, `aws:fieldIndex` is used to specify which key value
+pairs should be treated as indexes. The syntax is as follows
+
+```
+source = [`aws:fieldIndex`="region", `region` = "us-west-2"] | where status = 200 | head 10
+```
+
+where,
+
+1. ``aws:fieldIndex`="region"` identifies region as field
+   Index.
+   1. Note: Instead of = customers can use IN to specify
+      multiple indexes (example below)
+
+2. ``region`="us-west-2"` identifies the filter condition
+   to be applied
+   1. Note: Instead of = customers can use IN to specify
+      multiple values (example below)
+
+Customers can specify multiple fieldIndexes as follows
+
+```
+source = [`aws:fieldIndex` IN ("status", "region"), `status` = 200, `region` IN ("us-west-2", "us-east-1")] | head 10
+```
+
+### Data Source and
+
+Type
+
+Data source and type based source selection can be used when customers
+know which exact data sources need to be queried. This query is executed
+over one or more log groups which contain the specified data source and
+type.
+
+```
+source = [ds:`data_source.type`] | where status = 200 | head 10
+```
+
+#### Supported PPL for data source queries
+
+To support the use case for querying data sources in PPL, you can use
+the dynamic source selector clause. Using this syntax, you can query
+data sources by specifying them in the search command. You can specify
+up to 10 data sources.
+
+**Syntax**
+
+```
+source=[ds:`DataSource1.Type1`, ds:`DataSource2.Type2`, ...ds:`DataSourcen.Typen`]
+```
+
+**Example query**
+
+```
+search source=[ds:`DataSource1.Type1`, ds:`DataSource2.Type2`] | fields field1, field2
+```
+
+### Combined
+
+example
+
+Customers can specify all the source selection operators in any order
+& the results would be the intersection of the all the conditions
+applied.
+
+For example, /aws/lambda/my-function-1 might contain multiple data source
+& types including wide variety of indexes, when the following query was
+ran, the results returned will only have events of source and type
+DataSource1.Type1 and matching the criteria of 'status' = 200.
+
+```
+search source=[
+    ds:`DataSource1.Type1`,
+    lg:`/aws/lambda/my-function-1`,
+    `aws:fieldIndex` IN ("status"), `status` = 200
+]
+```
+
+## Restrictions
+
+The following restrictions apply when you use OpenSearch PPL to query in
+CloudWatch Logs Insights.
+
+- You cannot use join or subquery commands with data source
+  queries.

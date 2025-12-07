@@ -13,26 +13,26 @@ different account.
 
 ###### Topics
 
-- [Same-account export](#ExportSingleAccount "#ExportSingleAccount")
-- [Cross-account export](#ExportCrossAccount "#ExportCrossAccount")
+- [Same-account export (console)](#ExportSingleAccount "#ExportSingleAccount")
+- [Cross-account export (console)](#ExportCrossAccount "#ExportCrossAccount")
 
-## Same-account export
+## Same-account export (console)
 
 If the Amazon S3 bucket is in the same account as the logs that are being exported, use
 the instructions in this section.
 
 ###### Topics
 
-- [Step 1: Create an Amazon S3 bucket](#CreateS3BucketConsole "#CreateS3BucketConsole")
-- [Step 2: Set up access
-  permissions](#CreateIAMUser-With-S3-Access "#CreateIAMUser-With-S3-Access")
-- [Step 3: Set permissions on an Amazon S3
-  bucket](#S3PermissionsConsole "#S3PermissionsConsole")
-- [(Optional) Step 4: Exporting to a
-  bucket encrypted with SSE-KMS](#S3-Export-KMSEncrypted "#S3-Export-KMSEncrypted")
-- [Step 5: Create an export task](#CreateExportTaskConsole "#CreateExportTaskConsole")
+- [Create an Amazon S3 bucket (console)](#CreateS3BucketConsole "#CreateS3BucketConsole")
+- [Set up access
+  permissions (console)](#CreateIAMUser-With-S3-Access "#CreateIAMUser-With-S3-Access")
+- [Set permissions on an Amazon S3
+  bucket (console)](#S3PermissionsConsole "#S3PermissionsConsole")
+- [(Optional) Exporting to a
+  bucket encrypted with SSE-KMS (console)](#S3-Export-KMSEncrypted "#S3-Export-KMSEncrypted")
+- [Create an export task (console)](#CreateExportTaskConsole "#CreateExportTaskConsole")
 
-### Step 1: Create an Amazon S3 bucket
+### Create an Amazon S3 bucket (console)
 
 We recommend that you use a bucket that was created specifically for CloudWatch Logs.
 However, if you want to use an existing bucket, you can skip to step 2.
@@ -56,11 +56,11 @@ Region.
    data resides.
 6. Choose **Create**.
 
-### Step 2: Set up access
+### Set up access
 
-permissions
+permissions (console)
 
-To create the export task in step 5, you'll need to be signed on with the
+To create the export task, you'll need to be signed on with the
 `AmazonS3ReadOnlyAccess` IAM role and with the following
 permissions:
 
@@ -85,9 +85,9 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-### Step 3: Set permissions on an Amazon S3
+### Set permissions on an Amazon S3
 
-bucket
+bucket (console)
 
 By default, all Amazon S3 buckets and objects are private. Only the resource owner,
 the AWS account that created the bucket, can access the bucket and any objects
@@ -116,11 +116,10 @@ S3 bucket is created, to allow export within the same account.
 
 ###### To set permissions on an Amazon S3 bucket
 
-1. In the Amazon S3 console, choose the bucket that you created in step
-1.
-1. Choose **Permissions**, **Bucket
+1. In the Amazon S3 console, choose the bucket that you created.
+2. Choose **Permissions**, **Bucket
    policy**.
-1. In the **Bucket Policy Editor**, add the following
+3. In the **Bucket Policy Editor**, add the following
    policy. Change `my-exported-logs` to the name of your S3
    bucket. Be sure to specify the correct Region endpoint, such as
    `us-west-1`, for **Principal**.
@@ -192,9 +191,9 @@ policies. We recommend that you evaluate the resulting set of
 permissions to be sure that they're appropriate for the users who
 will access the bucket.
 
-### (Optional) Step 4: Exporting to a
+### (Optional) Exporting to a
 
-bucket encrypted with SSE-KMS
+bucket encrypted with SSE-KMS (console)
 
 This step is necessary only if you are exporting to an Amazon S3 bucket that uses
 server-side encryption with AWS KMS keys. This encryption is known as
@@ -263,7 +262,7 @@ JSON
 14. Choose **Save changes**.
 15. Open the Amazon S3 console at
     [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-16. Find the bucket that you created in [Step 1: Create an S3 bucket](S3ExportTasks.md#CreateS3Bucket "S3ExportTasks.md#CreateS3Bucket") and choose the bucket name.
+16. Find the bucket that you created in [Create an S3 bucket (CLI)](S3ExportTasks.md#CreateS3Bucket "S3ExportTasks.md#CreateS3Bucket") and choose the bucket name.
 17. Choose the **Properties** tab. Then, under
     **Default Encryption**, choose
     **Edit**.
@@ -277,15 +276,15 @@ JSON
     **Enable**.
 22. Choose **Save changes**.
 
-### Step 5: Create an export task
+### Create an export task (console)
 
-In this step, you create the export task for exporting logs from a log
+In this procedure, you create the export task for exporting logs from a log
 group.
 
 ###### To export data to Amazon S3 using the CloudWatch console
 
-1. Sign in with sufficient permissions as documented in [Step 2: Set up access
-   permissions](#CreateIAMUser-With-S3-Access "#CreateIAMUser-With-S3-Access").
+1. Sign in with sufficient permissions as documented in [Set up access
+   permissions (console)](#CreateIAMUser-With-S3-Access "#CreateIAMUser-With-S3-Access").
 2. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 3. In the navigation pane, choose **Log groups**.
@@ -313,30 +312,29 @@ group.
     **Actions** and then **View all exports to
     Amazon S3**.
 
-## Cross-account export
+## Cross-account export (console)
 
 If the Amazon S3 bucket is in a different account than the logs that are being
 exported, use the instructions in this section.
 
 ###### Topics
 
-- [Step 1: Create an Amazon S3
-  bucket](#CreateS3BucketConsole-crossaccount "#CreateS3BucketConsole-crossaccount")
-- [Step 2: Set up
-  access permissions](#CreateIAMUser-With-S3-Access-crossaccount "#CreateIAMUser-With-S3-Access-crossaccount")
-- [Step 3: Set permissions on
-  an S3 bucket](#S3PermissionsConsole-crossaccount "#S3PermissionsConsole-crossaccount")
-- [(Optional) Step 4:
-  Exporting to a bucket encrypted with SSE-KMS](#S3-Export-KMSEncrypted-crossaccount "#S3-Export-KMSEncrypted-crossaccount")
-- [Step 5: Create an export
-  task](#CreateExportTaskConsole-crossaccount "#CreateExportTaskConsole-crossaccount")
+- [Create an Amazon S3
+  bucket for cross-account export (console)](#CreateS3BucketConsole-crossaccount "#CreateS3BucketConsole-crossaccount")
+- [Set up
+  access permissions for cross-account export (console)](#CreateIAMUser-With-S3-Access-crossaccount "#CreateIAMUser-With-S3-Access-crossaccount")
+- [Set permissions on
+  an S3 bucket for cross-account export (console)](#S3PermissionsConsole-crossaccount "#S3PermissionsConsole-crossaccount")
+- [(Optional) Exporting to a bucket encrypted with SSE-KMS for cross-account export (console)](#S3-Export-KMSEncrypted-crossaccount "#S3-Export-KMSEncrypted-crossaccount")
+- [Create an export
+  task for cross-account export (console)](#CreateExportTaskConsole-crossaccount "#CreateExportTaskConsole-crossaccount")
 
-### Step 1: Create an Amazon S3
+### Create an Amazon S3
 
-bucket
+bucket for cross-account export (console)
 
 We recommend that you use a bucket that was created specifically for CloudWatch Logs.
-However, if you want to use an existing bucket, you can skip to step 2.
+However, if you want to use an existing bucket, you can skip this procedure.
 
 ###### Note
 
@@ -357,9 +355,9 @@ Region.
    data resides.
 6. Choose **Create**.
 
-### Step 2: Set up
+### Set up
 
-access permissions
+access permissions for cross-account export (console)
 
 First, you must create a new IAM policy to enable CloudWatch Logs to have the
 `s3:PutObject` action for the destination Amazon S3 bucket in the
@@ -433,8 +431,8 @@ JSON
 8. Choose **Create policy** to save the new
    policy.
 
-To create the export task in step 5, you'll need to be signed on with the
-`AmazonS3ReadOnlyAccess` IAM role. You must also be signed on
+To create the export task, you'll need to be signed in with the
+`AmazonS3ReadOnlyAccess` IAM role. You must also be signed in
 with the IAM policy that you just created, and also with the following
 permissions:
 
@@ -459,9 +457,9 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-### Step 3: Set permissions on
+### Set permissions on
 
-an S3 bucket
+an S3 bucket for cross-account export (console)
 
 By default, all S3 buckets and objects are private. Only the resource owner,
 the AWS account that created the bucket, can access the bucket and any objects
@@ -490,11 +488,10 @@ S3 bucket is created, to allow export within the same account.
 
 ###### To set permissions on an Amazon S3 bucket
 
-1. In the Amazon S3 console, choose the bucket that you created in step
-1.
-1. Choose **Permissions**, **Bucket
+1. In the Amazon S3 console, choose the bucket that you created.
+2. Choose **Permissions**, **Bucket
    policy**.
-1. In the **Bucket Policy Editor**, add the following
+3. In the **Bucket Policy Editor**, add the following
    policy. Change `my-exported-logs` to the name of your S3
    bucket. Be sure to specify the correct Region endpoint, such as
    `us-west-1`, for **Principal**.
@@ -577,11 +574,9 @@ policies. We recommend that you evaluate the resulting set of
 permissions to be sure that they're appropriate for the users who
 will access the bucket.
 
-### (Optional) Step 4:
+### (Optional) Exporting to a bucket encrypted with SSE-KMS for cross-account export (console)
 
-Exporting to a bucket encrypted with SSE-KMS
-
-This step is necessary only if you are exporting to an S3 bucket that uses
+This procedure is necessary only if you are exporting to an S3 bucket that uses
 server-side encryption with AWS KMS keys. This encryption is known as
 SSE-KMS.
 
@@ -660,7 +655,7 @@ JSON
 14. Choose **Save changes**.
 15. Open the Amazon S3 console at
     [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-16. Find the bucket that you created in [Step 1: Create an S3 bucket](S3ExportTasks.md#CreateS3Bucket "S3ExportTasks.md#CreateS3Bucket") and choose the bucket name.
+16. Find the bucket that you created in [Create an S3 bucket (CLI)](S3ExportTasks.md#CreateS3Bucket "S3ExportTasks.md#CreateS3Bucket") and choose the bucket name.
 17. Choose the **Properties** tab. Then, under
     **Default Encryption**, choose
     **Edit**.
@@ -674,17 +669,17 @@ JSON
     **Enable**.
 22. Choose **Save changes**.
 
-### Step 5: Create an export
+### Create an export
 
-task
+task for cross-account export (console)
 
-In this step, you create the export task for exporting logs from a log
+In this procedure, you create the export task for exporting logs from a log
 group.
 
 ###### To export data to Amazon S3 using the CloudWatch console
 
-1. Sign in with sufficient permissions as documented in [Step 2: Set up access
-   permissions](#CreateIAMUser-With-S3-Access "#CreateIAMUser-With-S3-Access").
+1. Sign in with sufficient permissions as documented in [Set up access
+   permissions (console)](#CreateIAMUser-With-S3-Access "#CreateIAMUser-With-S3-Access").
 2. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 3. In the navigation pane, choose **Log groups**.

@@ -9,15 +9,9 @@ You can do the following:
 - Export log data to S3 buckets that are encrypted by SSE-KMS in AWS Key Management Service (AWS KMS)
 - Export log data to S3 buckets that have S3 Object Lock enabled with a retention
   period
-
-###### Note
-
-Export to Amazon S3 is supported only for log groups in the Standard log class. For more
-information about log classes, see [Log classes](CloudWatch_Logs_Log_Classes.md "CloudWatch_Logs_Log_Classes.md").
-
-We recommend that you don't regularly export to Amazon S3 as a way to continuously archive your
-logs. For that use case, we instead recommend that you use subscriptions. For more
-information about subscriptions, see [Real-time processing of log data with subscriptions](Subscriptions.md "Subscriptions.md").
+  We recommend that you don't regularly export to Amazon S3 as a way to continuously archive your
+  logs. For that use case, we instead recommend that you use subscriptions. For more
+  information about subscriptions, see [Real-time processing of log data with subscriptions](Subscriptions.md "Subscriptions.md").
 
 To begin the export process, you must create an S3 bucket to store the exported log data.
 You can store the exported files in your S3 bucket and define Amazon S3 lifecycle rules to
@@ -61,8 +55,8 @@ For near real-time analysis of log data, see [Analyzing log data with CloudWatch
 - [Concepts](#S3concepts "#S3concepts")
 - [Export log data to Amazon S3 using the console](S3ExportTasksConsole.md "S3ExportTasksConsole.md")
 - [Export log data to Amazon S3 using the AWS CLI](S3ExportTasks.md "S3ExportTasks.md")
-- [Describe export tasks](DescribeExportTasks.md "DescribeExportTasks.md")
-- [Cancel an export task](CancelExportTask.md "CancelExportTask.md")
+- [Describe export tasks (CLI)](DescribeExportTasks.md "DescribeExportTasks.md")
+- [Cancel an export task (CLI)](CancelExportTask.md "CancelExportTask.md")
 
 ## Concepts
 

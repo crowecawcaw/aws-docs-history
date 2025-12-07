@@ -1,4 +1,4 @@
-# Describe export tasks
+# Describe export tasks (CLI)
 
 After you create an export task, you can get the current status of the task.
 

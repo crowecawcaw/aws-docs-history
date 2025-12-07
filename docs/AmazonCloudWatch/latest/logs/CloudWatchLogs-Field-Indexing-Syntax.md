@@ -9,25 +9,39 @@ index policies, you can have one that applies to all log groups in the account. 
 can also create account-level index policies that apply to a subset of log groups in
 the account, selected by the prefixes of their log group names. If you have multiple
 account-level policies in the same account, the log group name prefixes for these
-policies can't overlap.
+policies can't overlap. Similarly, you can create account-level index policies that
+apply to a specific data source name and type combination. Only one account policy
+can be created per data source name and type combination.
 
 Log group-level field index policies override account-level field index policies:
-if you create log-group level index policy, that log group uses only that policy and
-ignores the account-level policies.
+which apply to the log group as a whole (such as, account-level policies with no
+selection criteria or with log group name prefix based selection criteria).
+Account-level policies which match at the log event level (such as, for a given data
+source name and type combination) will apply in addition to policies which match the
+log group as a whole. If you create log-group level index policy, that log group
+does not use account-level policies that match at the log group level.
 
 Matches of log events to the names of field indexes are case-sensitive. For
 example, a field index of `RequestId` won't match a log event containing
 `requestId`.
 
-You can have as many as 20 account-level index policies. If you have multiple
-account-level index policies filtered to log group name prefixes, no two of them can
-use the same or overlapping log group name prefixes. For example, if you have one
-policy filtered to log groups that start with `my-log`, you can't have
-another field index policy filtered to `my-logpprod` or
-`my-logging`.
+You can have as many as 40 account-level index policies, of these policies 20 can
+use log group name prefix selection criteria and 20 can use data source based
+selection criteria. If you have multiple account-level index policies filtered to
+log group name prefixes, no two of them can use the same or overlapping log group
+name prefixes. For example, if you have one policy filtered to log groups that start
+with `my-log`, you can't have another field index policy filtered to
+`my-logpprod` or `my-logging`. Similarly, if you have
+multiple account-level index policies filtered to data source name and type
+combinations, no two of them can use the same data source name and type. For
+example, if you have one policy filtered to the data source name
+`amazon_vpc` and data source type `flow` you cannot create
+another policy with this combination.
 
 If you have an account-level index policy that has no name prefixes and applies to
-all log groups, then no other account-level index policy can be created.
+all log groups, then no other account-level index policy with log group name prefix
+filters can be created; you can create account-level index policies which use data
+source name and type filters.
 
 Each index policy has the following quotas and restrictions:
 
@@ -38,7 +52,11 @@ Each index policy has the following quotas and restrictions:
   at the beginning of the field name. For example, if your log events include
   a field named `@userId`, you must specify `@@userId`
   to create an index for this field.
-  **Generated fields and reserved fields**
+  For account-level index policies with data source name and type based selection
+  criteria an additional restriction applies: all of the fields must be primitive data
+  types, nested primitives are only supported for structs.
+
+**Generated fields and reserved fields**
 
 CloudWatch Logs Insights automatically generates system fields in each log event. These generated
 fields are prefixed with `@` For more information about generated fields,
@@ -72,10 +90,24 @@ indexes are automatically available for the following fields:
 - `@aws.region`
 - `@aws.account`
 - `@source.log`
+- `@data_source_name`
+- `@data_source_type`
+- `@data_format`
 - `traceId`
-  Default field indexes are in addition to any custom
-  field indexes you define within your policy. Default field indexes are not counted
-  towards your field index quota.
+- `severityText`
+- `attributes.session.id`
+  CloudWatch Logs provides default field indexes for certain data source name and type combinations as well. Default field indexes are automatically available for the following data source name and type combinations:
+
+| Data Source Name and Type                            | Default Field Indexes                                                                                                                                         |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amazon_vpc.flow`                                    | `action`<br>`logStatus`<br>`region`<br>`flowDirection`<br>`type`                                                                                              |
+| `amazon_route53.resolver_query`                      | `query_type`<br>`transport`<br>`rcode`                                                                                                                        |
+| `aws_waf.access`                                     | `action`<br>`httpRequest.country`                                                                                                                             |
+| `aws_cloudtrail.data`<br>`aws_cloudtrail.management` | `eventSource`<br>`eventName`<br>`awsRegion`<br>`userAgent`<br>`errorCode`<br>`eventType`<br>`managementEvent`<br>`readOnly`<br>`eventCategory`<br>`requestId` |
+
+Default field indexes are in addition to any custom
+field indexes you define within your policy. Default field indexes are not counted
+towards your field index quota.
 
 **Child fields and array fields in JSON logs**
 

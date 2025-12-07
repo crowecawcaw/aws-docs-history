@@ -1,10 +1,13 @@
 # SOURCE
 
 Including `SOURCE` in a query is a useful way to specify the
-log groups to include in a query when you are using the AWS CLI or API to
-create a query. The `SOURCE` command is supported only in the
-AWS CLI and API, not in the CloudWatch console. When you use the CloudWatch console to
-start a query, you use the console interface to specify the log groups.
+log groups and/or data sources to include in a query when you are using the
+AWS CLI or API to create a query. The `SOURCE` command is supported
+only in the AWS CLI and API, not in the CloudWatch console. When you use the CloudWatch
+console to start a query, you use the console interface to specify the log
+groups.
+
+Query log groups
 
 To use `SOURCE` to specify the log groups to query, you can use
 the following keywords:
@@ -86,4 +89,24 @@ aws logs start-query
 --start-time 1729728200
 --end-time 1729728215
 --query-string "SOURCE logGroups(namePrefix: ['Query']) | fields @message | limit 5"
+```
+
+Query data sources
+
+To use `SOURCE` to specify the data sources to query, you can
+use the `dataSource` keyword. You can include as many as ten data
+sources in the list.
+
+The following example selects the `amazon_vpc.flow` data
+source.
+
+```
+SOURCE dataSource(['amazon_vpc.flow'])
+```
+
+The following example selects the `amazon_vpc.flow` data
+source and limits the log groups based on a log group name prefix.
+
+```
+SOURCE dataSource(['amazon_vpc.flow']) logGroups(namePrefix: ['namePrefix1'])
 ```

@@ -36,9 +36,8 @@ You must follow these guidelines when you create a transformer:
 - You can include only one **copyValue** processor in a
   transformer.
 - Each transformer can extract up to 200 fields from a log event.
-- Each log event **MUST** be below 512KB. Total size of log events can still go over 512KB.
-  For more information about all supported processors and their syntax, see [Processors that you can
-  use](CloudWatch-Logs-Transformation-Processors.md "CloudWatch-Logs-Transformation-Processors.md").
+- Each log event **MUST** be below 512KB. Total size of log
+  events can still go over 512KB.
 
 ###### Topics
 

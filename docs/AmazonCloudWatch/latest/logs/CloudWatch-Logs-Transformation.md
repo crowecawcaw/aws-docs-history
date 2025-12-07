@@ -3,7 +3,7 @@
 With logs transformation and enrichment, you can normalize all your logs in a consistent
 and context-rich format at the time of ingestion into CloudWatch Logs. You can add structure to your
 logs by using pre-configured templates for common AWS services such as AWS WAF and
-Amazon Route 53, or build custom transformers with native parsers such as [Grok](CloudWatch-Logs-Transformation-Processors.md#CloudWatch-Logs-Transformation-Grok "CloudWatch-Logs-Transformation-Processors.md#CloudWatch-Logs-Transformation-Grok"). You can also rename existing
+Amazon Route 53, or build custom transformers with native parsers such as [Grok](CloudWatch-Logs-Transformation-Configurable.md#CloudWatch-Logs-Transformation-Grok "CloudWatch-Logs-Transformation-Configurable.md#CloudWatch-Logs-Transformation-Grok"). You can also rename existing
 attributes and add additional metadata to your logs such as account ID, and Region.
 
 Log transformation helps simplify and shorten your log queries across your applications,
@@ -20,10 +20,13 @@ format. You can leverage these transformed logs to accelerate your analytics exp
 the following features:
 
 - [Field indexes](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
-- [CloudWatch Logs Insights discovered fields](CWL_AnalyzeLogData-discoverable-fields.md "CWL_AnalyzeLogData-discoverable-fields.md")
-- Flexibility in alarming using [metric filters](MonitoringLogData.md "MonitoringLogData.md")
+- [CloudWatch Logs Insights discovered
+  fields](CWL_AnalyzeLogData-discoverable-fields.md "CWL_AnalyzeLogData-discoverable-fields.md")
+- Flexibility in alarming using [metric
+  filters](MonitoringLogData.md "MonitoringLogData.md")
 - Forwarding via [subscription filters](Subscriptions.md "Subscriptions.md")
-- Creating metric data from log events with [Contributor Insights](../monitoring/ContributorInsights.md "../monitoring/ContributorInsights.md"), where you can choose to have the Contributor Insights rule
+- Creating metric data from log events with [Contributor
+  Insights](../monitoring/ContributorInsights.md "../monitoring/ContributorInsights.md"), where you can choose to have the Contributor Insights rule
   evaluate log events either before or after they are transformed.
   Transformations happen only during log ingestion. You can't transform log events that have
   already been ingested. Transformations are not reversible. Both original and transformed
@@ -40,9 +43,10 @@ before they were transformed.
 
 ###### Important
 
-Despite a single log event in PutLogEvents allowing upto 1MB, logs transformation can only
-handle log event of size less than 512kb. Any log events greather than 512kb will fail
-in transformation and emit an error. Total size of PutLogEvents can still go over 512kb.
+Despite a single log event in PutLogEvents allowing upto 1MB, logs transformation can
+only handle log event of size less than 512kb. Any log events greather than 512kb will
+fail in transformation and emit an error. Total size of PutLogEvents can still go over
+512kb.
 
 In addition to transforming into different formats, you can also enrich your logs with
 additional context, such as account ID, Region, and keyword. These are extracted from the
@@ -63,6 +67,14 @@ transformer that would otherwise apply to that log group.
 
 - [Create and manage log
   transformers](CloudWatch-Logs-Transformation-Create.md "CloudWatch-Logs-Transformation-Create.md")
-- [Processors that you can
-  use](CloudWatch-Logs-Transformation-Processors.md "CloudWatch-Logs-Transformation-Processors.md")
+- [Configurable
+  parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md")
+- [Built-in processors for
+  AWS vended logs](CloudWatch-Logs-Transformation-BuiltIn.md "CloudWatch-Logs-Transformation-BuiltIn.md")
+- [String mutate
+  processors](CloudWatch-Logs-Transformation-StringMutate.md "CloudWatch-Logs-Transformation-StringMutate.md")
+- [JSON mutate
+  processors](CloudWatch-Logs-Transformation-JSONMutate.md "CloudWatch-Logs-Transformation-JSONMutate.md")
+- [Datatype converter
+  processors](CloudWatch-Logs-Transformation-Datatype.md "CloudWatch-Logs-Transformation-Datatype.md")
 - [Transformation metrics and errors](Transformation-Errors-Metrics.md "Transformation-Errors-Metrics.md")

@@ -2,8 +2,9 @@
 
 With CloudWatch Logs Insights, you can interactively search and analyze your log data in Amazon CloudWatch Logs. You can
 perform queries to help you more efficiently and effectively respond to operational issues.
-If an issue occurs, you can use CloudWatch Logs Insights to identify potential causes and validate deployed
-fixes.
+In addition to querying using log groups, you can query using facets, data source, and data
+type. If an issue occurs, you can use CloudWatch Logs Insights to identify potential causes and validate
+deployed fixes.
 
 CloudWatch Logs Insights supports three query languages that you can use for your queries:
 
@@ -63,18 +64,17 @@ QL.
   results with AWS Key Management Service](CloudWatchLogs-Insights-Query-Encrypt.md "CloudWatchLogs-Insights-Query-Encrypt.md").
 - [Query generation using
   natural language](CloudWatchLogs-Insights-Query-Assist.md "CloudWatchLogs-Insights-Query-Assist.md") lets you use natural language to create CloudWatch Logs Insights queries.
-  You can ask questions about or describe the data you're looking for, then the
-  AI generates a query based on your prompt and provides a
-  line-by-line explanation of how the query works.
+  You can ask questions about or describe the data you're looking for, then the AI
+  generates a query based on your prompt and provides a line-by-line explanation of
+  how the query works.
+- [Use facets to group, filter, and
+  interactively explore your logs](CloudWatchLogs-Facets.md "CloudWatchLogs-Facets.md").
   The following CloudWatch Logs Insights features are supported only when you use Logs Insights QL.
 
 - Querying logs in the [Infrequent Access
   log class](CloudWatch_Logs_Log_Classes.md "CloudWatch_Logs_Log_Classes.md").
 - [Comparison queries](CWL_AnalyzeLogData_Compare.md "CWL_AnalyzeLogData_Compare.md") that compare
   log events in a log group with log events from a previous time period.
-- The [filterIndex
-  command](CWL_QuerySyntax-FilterIndex.md "CWL_QuerySyntax-FilterIndex.md"), which forces the query to attempt to scan only
-  log events that contain a _field index_ that you specify.
 
 ###### Important
 
@@ -117,6 +117,7 @@ _Amazon CloudWatch Logs API Reference_.
   fields](CWL_AnalyzeLogData-discoverable-fields.md "CWL_AnalyzeLogData-discoverable-fields.md")
 - [Create field indexes to improve query
   performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
+- [Use facets to group and explore logs](CloudWatchLogs-Facets.md "CloudWatchLogs-Facets.md")
 - [Pattern analysis](CWL_AnalyzeLogData_Patterns.md "CWL_AnalyzeLogData_Patterns.md")
 - [Save and re-run CloudWatch Logs Insights
   queries](CWL_Insights-Saving-Queries.md "CWL_Insights-Saving-Queries.md")

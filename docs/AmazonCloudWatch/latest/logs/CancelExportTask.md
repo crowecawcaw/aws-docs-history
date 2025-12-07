@@ -1,4 +1,4 @@
-# Cancel an export task
+# Cancel an export task (CLI)
 
 You can cancel an export task if it's in a `PENDING` or
 `RUNNING` state.

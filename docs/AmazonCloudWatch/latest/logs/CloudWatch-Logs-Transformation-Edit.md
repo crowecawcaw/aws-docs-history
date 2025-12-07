@@ -20,9 +20,7 @@ Use these steps to edit an existing log transformer.
 7. To add another processor, choose **+ Add Processor**.
    Then select the processor that you want in the
    **Processor** box, and fill in the configuration
-   parameters. For information about the configuration parameters, see the
-   section for that processor in [Processors that you can
-   use](CloudWatch-Logs-Transformation-Processors.md "CloudWatch-Logs-Transformation-Processors.md").
+   parameters.
 
 Remember that processors operate on the log events in the order that you
 add them to the transformer. 8. (Optional) At any time, you can test the transformer that you have built

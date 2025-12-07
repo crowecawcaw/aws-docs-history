@@ -42,12 +42,10 @@ have to specify any configuration for it.
 
 If it is a different parser, you need to specify its configuration. For
 more information, see the information for that processor in [Configurable
-parser-type processors](CloudWatch-Logs-Transformation-Processors.md#CloudWatch-Logs-Transformation-Configurable "CloudWatch-Logs-Transformation-Processors.md#CloudWatch-Logs-Transformation-Configurable"). 7. To add another processor, choose **Select processor**.
+parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md"). 7. To add another processor, choose **Select processor**.
 Then select the processor that you want in the
 **Processor** box, and fill in the configuration
-parameters. For information about the configuration parameters, see the
-section for that processor in [Processors that you can
-use](CloudWatch-Logs-Transformation-Processors.md "CloudWatch-Logs-Transformation-Processors.md").
+parameters.
 
 Remember that processors operate on the log events in the order that you
 add them to the transformer. 8. (Optional) To add additional processors, choose **+

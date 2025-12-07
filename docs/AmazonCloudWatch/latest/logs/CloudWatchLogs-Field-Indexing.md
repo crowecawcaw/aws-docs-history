@@ -43,10 +43,24 @@ indexes are automatically available for the following fields:
 - `@aws.region`
 - `@aws.account`
 - `@source.log`
+- `@data_source_name`
+- `@data_source_type`
+- `@data_format`
 - `traceId`
-  Default field indexes are in addition to any custom
-  field indexes you define within your policy. Default field indexes are not counted
-  towards your [field index quota](CloudWatchLogs-Field-Indexing-Syntax.md "CloudWatchLogs-Field-Indexing-Syntax.md").
+- `severityText`
+- `attributes.session.id`
+  CloudWatch Logs provides default field indexes for certain data source name and type combinations as well. Default field indexes are automatically available for the following data source name and type combinations:
+
+| Data Source Name and Type                            | Default Field Indexes                                                                                                                                         |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amazon_vpc.flow`                                    | `action`<br>`logStatus`<br>`region`<br>`flowDirection`<br>`type`                                                                                              |
+| `amazon_route53.resolver_query`                      | `query_type`<br>`transport`<br>`rcode`                                                                                                                        |
+| `aws_waf.access`                                     | `action`<br>`httpRequest.country`                                                                                                                             |
+| `aws_cloudtrail.data`<br>`aws_cloudtrail.management` | `eventSource`<br>`eventName`<br>`awsRegion`<br>`userAgent`<br>`errorCode`<br>`eventType`<br>`managementEvent`<br>`readOnly`<br>`eventCategory`<br>`requestId` |
+
+Default field indexes are in addition to any custom
+field indexes you define within your policy. Default field indexes are not counted
+towards your [field index quota](CloudWatchLogs-Field-Indexing-Syntax.md "CloudWatchLogs-Field-Indexing-Syntax.md").
 
 CloudWatch Logs indexes only the log events ingested after an index policy is created. It
 doesn't index log events ingested before the policy was created. After you create a

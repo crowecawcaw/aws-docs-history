@@ -14,28 +14,28 @@ different account.
 
 ###### Topics
 
-- [Same-account export](#ExportSingleAccount-CLI "#ExportSingleAccount-CLI")
-- [Cross-account export](#ExportCrossAccount-CLI "#ExportCrossAccount-CLI")
+- [Same-account export (CLI)](#ExportSingleAccount-CLI "#ExportSingleAccount-CLI")
+- [Cross-account export (CLI)](#ExportCrossAccount-CLI "#ExportCrossAccount-CLI")
 
-## Same-account export
+## Same-account export (CLI)
 
 If the Amazon S3 bucket is in the same account as the logs that are being exported, use
 the instructions in this section.
 
 ###### Topics
 
-- [Step 1: Create an S3 bucket](#CreateS3Bucket "#CreateS3Bucket")
-- [Step 2: Set up access
-  permissions](#CreateIAMUser-With-S3-Access-CLI "#CreateIAMUser-With-S3-Access-CLI")
-- [Step 3: Set permissions on an S3 bucket](#S3Permissions "#S3Permissions")
-- [(Optional) Step 4: Exporting to a
-  bucket encrypted with SSE-KMS](#S3-Export-KMSEncrypted-CLI "#S3-Export-KMSEncrypted-CLI")
-- [Step 5: Create an export task](#CreateExportTask "#CreateExportTask")
+- [Create an S3 bucket (CLI)](#CreateS3Bucket "#CreateS3Bucket")
+- [Set up access
+  permissions (CLI)](#CreateIAMUser-With-S3-Access-CLI "#CreateIAMUser-With-S3-Access-CLI")
+- [Set permissions on an S3 bucket (CLI)](#S3Permissions "#S3Permissions")
+- [(Optional) Exporting to a
+  bucket encrypted with SSE-KMS (CLI)](#S3-Export-KMSEncrypted-CLI "#S3-Export-KMSEncrypted-CLI")
+- [Create an export task (CLI)](#CreateExportTask "#CreateExportTask")
 
-### Step 1: Create an S3 bucket
+### Create an S3 bucket (CLI)
 
 We recommend that you use a bucket that was created specifically for CloudWatch Logs.
-However, if you want to use an existing bucket, you can skip to step 2.
+However, if you want to use an existing bucket, you can skip this procedure.
 
 ###### Note
 
@@ -61,11 +61,11 @@ The following is example output.
 }`
 ```
 
-### Step 2: Set up access
+### Set up access
 
-permissions
+permissions (CLI)
 
-To create the export task in step 5, you'll need to be signed on with the
+To create the export task later, you'll need to be signed on with the
 `AmazonS3ReadOnlyAccess` IAM role and with the following
 permissions:
 
@@ -90,7 +90,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-### Step 3: Set permissions on an S3 bucket
+### Set permissions on an S3 bucket (CLI)
 
 By default, all S3 buckets and objects are private. Only the resource owner,
 the account that created the bucket, can access the bucket and any objects that
@@ -193,11 +193,11 @@ policies. We recommend that you evaluate the resulting set of
 permissions to be sure that they're appropriate for the users who
 will access the bucket.
 
-### (Optional) Step 4: Exporting to a
+### (Optional) Exporting to a
 
-bucket encrypted with SSE-KMS
+bucket encrypted with SSE-KMS (CLI)
 
-This step is necessary only if you are exporting to an S3 bucket that uses
+This procedure is necessary only if you are exporting to an S3 bucket that uses
 server-side encryption with AWS KMS keys. This encryption is known as
 SSE-KMS.
 
@@ -310,7 +310,7 @@ aws s3api put-bucket-encryption --bucket `bucket-name` --server-side-encryption-
 If the command doesn't return an error, the process is
 successful.
 
-### Step 5: Create an export task
+### Create an export task (CLI)
 
 Use the following command to create the export task. After you create it, the
 export task might take anywhere from a few seconds to a few hours, depending on
@@ -318,8 +318,8 @@ the size of the data to export.
 
 ###### To export data to Amazon S3 using the AWS CLI
 
-1. Sign in with sufficient permissions as documented in [Step 2: Set up access
-   permissions](#CreateIAMUser-With-S3-Access-CLI "#CreateIAMUser-With-S3-Access-CLI").
+1. Sign in with sufficient permissions as documented in [Set up access
+   permissions (CLI)](#CreateIAMUser-With-S3-Access-CLI "#CreateIAMUser-With-S3-Access-CLI").
 2. At a command prompt, use the following [create-export-task](../../../cli/latest/reference/logs/create-export-task.md "../../../cli/latest/reference/logs/create-export-task.md") command to create the export
    task.
 
@@ -335,27 +335,27 @@ The following is example output.
 }`
 ```
 
-## Cross-account export
+## Cross-account export (CLI)
 
 If the Amazon S3 bucket is in a different account than the logs that are being
 exported, use the instructions in this section.
 
 ###### Topics
 
-- [Step 1: Create an S3
-  bucket](#CreateS3Bucket-CLI-crossaccount "#CreateS3Bucket-CLI-crossaccount")
-- [Step 2: Set up
-  access permissions](#CreateIAMUser-With-S3-Access-CLI-crossaccount "#CreateIAMUser-With-S3-Access-CLI-crossaccount")
-- [Step 3: Set permissions on an
-  S3 bucket](#S3Permissions-CLI-crossaccount "#S3Permissions-CLI-crossaccount")
-- [(Optional) Step 4:
-  Exporting to a bucket encrypted with SSE-KMS](#S3-Export-KMSEncrypted-CLI-crossaccount "#S3-Export-KMSEncrypted-CLI-crossaccount")
-- [Step 5: Create an export
-  task](#CreateExportTask-CLI-crossaccount "#CreateExportTask-CLI-crossaccount")
+- [Create an S3
+  bucket for cross-account export (CLI)](#CreateS3Bucket-CLI-crossaccount "#CreateS3Bucket-CLI-crossaccount")
+- [Set up
+  access permissions for cross-account export (CLI)](#CreateIAMUser-With-S3-Access-CLI-crossaccount "#CreateIAMUser-With-S3-Access-CLI-crossaccount")
+- [Set permissions on an
+  S3 bucket for cross-account export (CLI)](#S3Permissions-CLI-crossaccount "#S3Permissions-CLI-crossaccount")
+- [(Optional)
+  Exporting to a bucket encrypted with SSE-KMS for cross-account export (CLI)](#S3-Export-KMSEncrypted-CLI-crossaccount "#S3-Export-KMSEncrypted-CLI-crossaccount")
+- [Create an export
+  task for cross-account export (CLI)](#CreateExportTask-CLI-crossaccount "#CreateExportTask-CLI-crossaccount")
 
-### Step 1: Create an S3
+### Create an S3
 
-bucket
+bucket for cross-account export (CLI)
 
 We recommend that you use a bucket that was created specifically for CloudWatch Logs.
 However, if you want to use an existing bucket, you can skip to step 2.
@@ -384,14 +384,14 @@ The following is example output.
 }`
 ```
 
-### Step 2: Set up
+### Set up
 
-access permissions
+access permissions for cross-account export (CLI)
 
 First, you must create a new IAM policy to enable CloudWatch Logs to have the
 `s3:PutObject` permission for the destination Amazon S3 bucket.
 
-To create the export task in step 5, you'll need to be signed on with the
+To create the export task later, you'll need to be signed on with the
 `AmazonS3ReadOnlyAccess` IAM role and with certain other
 permissions. You can create a policy that contains some of these other necessary
 permissions.
@@ -442,7 +442,7 @@ JSON
 
 ```
 
-To create the export task in step 5, you must be signed on with the
+To create the export task later, you must be signed on with the
 `AmazonS3ReadOnlyAccess` IAM role, the IAM policy that you
 just created, and also with the following permissions:
 
@@ -467,9 +467,9 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-### Step 3: Set permissions on an
+### Set permissions on an
 
-S3 bucket
+S3 bucket for cross-account export (CLI)
 
 By default, all S3 buckets and objects are private. Only the resource owner,
 the account that created the bucket, can access the bucket and any objects that
@@ -583,11 +583,11 @@ policies. We recommend that you evaluate the resulting set of
 permissions to be sure that they're appropriate for the users who
 will access the bucket.
 
-### (Optional) Step 4:
+### (Optional)
 
-Exporting to a bucket encrypted with SSE-KMS
+Exporting to a bucket encrypted with SSE-KMS for cross-account export (CLI)
 
-This step is necessary only if you are exporting to an S3 bucket that uses
+This procedure is necessary only if you are exporting to an S3 bucket that uses
 server-side encryption with AWS KMS keys. This encryption is known as
 SSE-KMS.
 
@@ -712,9 +712,9 @@ aws s3api put-bucket-encryption --bucket `bucket-name` --server-side-encryption-
 If the command doesn't return an error, the process is
 successful.
 
-### Step 5: Create an export
+### Create an export
 
-task
+task for cross-account export (CLI)
 
 Use the following command to create the export task. After you create it, the
 export task might take anywhere from a few seconds to a few hours, depending on
@@ -722,8 +722,8 @@ the size of the data to export.
 
 ###### To export data to Amazon S3 using the AWS CLI
 
-1. Sign in with sufficient permissions as documented in [Step 2: Set up access
-   permissions](#CreateIAMUser-With-S3-Access-CLI "#CreateIAMUser-With-S3-Access-CLI").
+1. Sign in with sufficient permissions as documented in [Set up access
+   permissions (CLI)](#CreateIAMUser-With-S3-Access-CLI "#CreateIAMUser-With-S3-Access-CLI").
 2. At a command prompt, use the following [create-export-task](../../../cli/latest/reference/logs/create-export-task.md "../../../cli/latest/reference/logs/create-export-task.md") command to create the export
    task.
 

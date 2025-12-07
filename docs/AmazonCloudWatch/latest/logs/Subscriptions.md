@@ -51,8 +51,8 @@ amount of calls made to the destination. Batching is not guaranteed but is used 
 possible.
 
 For batch processing and analysis of log data on a schedule, consider using [Automating log analysis with scheduled queries](ScheduledQueries.md "ScheduledQueries.md"). Scheduled queries run
-queries automatically and deliver results to destinations such as Amazon S3 buckets
-or event buses.
+CloudWatch Logs Insights queries automatically and deliver results to destinations such as Amazon S3 buckets
+or Amazon EventBridge event buses.
 
 ###### Contents
 

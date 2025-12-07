@@ -34,4 +34,4 @@ log field `@emailname`, enter `@@emailname` in the
 You can also create indexes for the `@ingestionTime` and
 `@logStream` fields that CloudWatch Logs automatically generates. If
 you do, do not need to add an extra `@` when specifying
-them. 7. Repeat the previous step to add as many as 20 field indexes. 8. When you have finished, choose **Save**.
+them. 7. (Optional) In addition to specifying the field path, you can select **Set as a facet** to create the field as a facet. 8. Repeat the previous step to add as many as 20 field indexes. 9. When you have finished, choose **Save**.
