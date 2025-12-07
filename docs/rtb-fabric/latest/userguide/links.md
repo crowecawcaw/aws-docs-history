@@ -9,6 +9,7 @@ To create links with other RTB Fabric users, you need their responder gateway ID
 ###### Topics
 
 - [Creating links between gateways](#creating-rtb-links "#creating-rtb-links")
+- [Testing and using links](#testing-and-using-links "#testing-and-using-links")
 - [Creating external links](#creating-external-links "#creating-external-links")
 - [Editing links](#editing-links-api "#editing-links-api")
 - [Accepting or declining a link request](#accepting-declining-link-request "#accepting-declining-link-request")
@@ -79,6 +80,25 @@ aws rtbfabric create-link \
     }' \
     --tags Environment=Production Team=RTB
 ```
+
+## Testing and using links
+
+###### Note
+
+Link addresses will only be visible and accessible from within your VPC.
+
+###### To test your newly created link
+
+1. The URL components in the example below will come from your API responses. If you don't have them at hand, your Gateway ID and Link ID can be found via the AWS Management Console, or by invoking the ListGateways and ListLinks operations outlined in [RTB Fabric API Reference](../api/welcome.md "../api/welcome.md")
+2. From the command line, use `curl` to send a POST request to the Link. Supply an OpenRTB payload to validate full end-to-end requests to your partner, or an empty body to simply test connectivity. See below for a `curl` example in the us-east-1 region.
+
+```
+curl -X POST -H "Content-Type: application/json" -d {Your RTB JSON Payload} \
+    "https://rtb-gw-{your-gateway-id}.{your-aws-account}.gateway.rtbfabric.us-east-1.amazonaws.com/link/link-{your-link-id}/link"
+
+```
+
+Any additional URL or path params that your partner expects can be appended to the Link URI.
 
 ## Creating external links
 

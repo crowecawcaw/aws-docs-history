@@ -104,6 +104,10 @@ The role must also allow the following permissions in its permissions policies:
 }
 ```
 
+###### Important
+
+For RTB Fabric to approriately route traffic to healthy hosts, the provided ASG must **only** have hosts listed as IN_USE if they are available to take traffic. Ensure that hosts which are unhealthy, inactive, or running other services are not set as IN_USE in the provided ASG.
+
 ### EKS endpoints configuration
 
 For EKS managed endpoints, you must provide the following configuration:

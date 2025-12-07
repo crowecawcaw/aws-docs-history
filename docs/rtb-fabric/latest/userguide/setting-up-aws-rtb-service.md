@@ -28,7 +28,7 @@ Your VPC must meet the following requirements for RTB Fabric:
 When selecting or configuring your VPC for RTB Fabric, ensure you have the following information ready:
 
 - **VPC ID** – The VPC where your RTB application runs.
-- **Subnet IDs** – Subnets with sufficient IPv6 addresses for gateway connections.
+- **Subnet IDs** – Subnets with sufficient IPv4 addresses for gateway connections.
 - **Availability Zone configuration** – RTB Fabric supports single Availability Zone deployment by default. Multi-AZ deployment is optional and may require a service quota increase.
 - **Security group ID** – Configured with the appropriate inbound rules for your role (requester or responder).
 
