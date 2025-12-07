@@ -45,7 +45,7 @@ Starts and stops machine-generated closed captions. You must attend meetings hos
 
 \*\*Media layout (
 
-![An icon showing a stylized app window with three panels.](/images/chime/latest/ug/images/left-control-5.png)
+![An icon showing a stylized app window with three panels.](images/left-control-5.png)
 
 )\*\*
 
