@@ -12,8 +12,6 @@ Not all Amazon VPC endpoints in AWS GovCloud (US) support Amazon VPC endpoint po
 - Traffic mirror sessions are visible to the owner of a traffic mirror target only if created using the same account. If a traffic mirror target is shared with other accounts, those other accounts can still create sessions with that target, but those sessions are not visible to the target owner.
 - Security group rule IDs are not available in the Amazon VPC console.
 - The AWS-managed prefix list for Amazon CloudFront is not available.
-- Reachability Analyzer is not supported.
-- Network Access Analyzer is not supported.
 - Amazon VPC Route Server is not supported.
 
 ## Documentation for Amazon Virtual Private Cloud
