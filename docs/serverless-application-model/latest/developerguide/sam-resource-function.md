@@ -28,17 +28,20 @@ Properties:
   AutoPublishAlias: `String`
   AutoPublishAliasAllProperties: `Boolean`
   AutoPublishCodeSha256: `String`
+  CapacityProviderConfig: `CapacityProviderConfig`
   CodeSigningConfigArn: `String`
   CodeUri: `String | FunctionCode`
   DeadLetterQueue: `Map | DeadLetterQueue`
   DeploymentPreference: `DeploymentPreference`
   Description: `String`
+  DurableConfig: `DurableConfig`
   Environment: `Environment`
   EphemeralStorage: `EphemeralStorage`
   EventInvokeConfig: `EventInvokeConfiguration`
   Events: `EventSource`
   FileSystemConfigs: `List`
   FunctionName: `String`
+  FunctionScalingConfig: `FunctionScalingConfig`
   FunctionUrlConfig: `FunctionUrlConfig`
   Handler: `String`
   ImageConfig: `ImageConfig`
@@ -51,6 +54,7 @@ Properties:
   PackageType: `String`
   PermissionsBoundary: `String`
   Policies: `String | List | Map`
+  PublishToLatestPublished: `Boolean`
   PropagateTags: `Boolean`
   ProvisionedConcurrencyConfig: `ProvisionedConcurrencyConfig`
   RecursiveLoop: `String`
@@ -66,6 +70,7 @@ Properties:
   Timeout: `Integer`
   Tracing: `String`
   VersionDescription: `String`
+  VersionDeletionPolicy: `String`
   VpcConfig: `VpcConfig`
 
 ```
@@ -180,6 +185,20 @@ _Required_: No
 _CloudFormation compatibility_: This property is unique to AWS SAM and
 doesn't have an CloudFormation equivalent.
 
+`CapacityProviderConfig`
+
+Configures the capacity provider to which published versions of the function will be attached.
+This enables the function to run on customer-owned EC2 instances managed by Lambda Managed Instances.
+
+_Type_: [CapacityProviderConfig](sam-property-function-capacityproviderconfig.md "sam-property-function-capacityproviderconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: SAM flattens the property passed to the
+`CapacityProviderConfig` property of an
+`AWS::Lambda::Function` resource and reconstructs the nested
+structure..
+
 `CodeSigningConfigArn`
 
 The ARN of the [AWS::Lambda::CodeSigningConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.md") resource, used to enable code
@@ -272,6 +291,16 @@ _CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::Lambda::Function`
 resource.
 
+`DurableConfig`
+
+Configuration for durable functions. Enables stateful execution with automatic checkpointing and replay capabilities.
+
+_Type_: [DurableConfig](sam-property-function-durableconfig.md "sam-property-function-durableconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+
 `Environment`
 
 The configuration for the runtime environment.
@@ -352,6 +381,16 @@ _Required_: No
 _CloudFormation compatibility_: This property is passed directly to the
 `FunctionName` property of an `AWS::Lambda::Function`
 resource.
+
+`FunctionScalingConfig`
+
+Configures the scaling behavior for Lambda functions running on capacity providers. Defines the minimum and maximum number of execution environments.
+
+_Type_: [FunctionScalingConfig](sam-property-function-functionscalingconfig.md "sam-property-function-functionscalingconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the `FunctionScalingConfig` property of an `AWS::Lambda::Function` resource.
 
 `FunctionUrlConfig`
 
@@ -558,6 +597,19 @@ _Required_: No
 
 _CloudFormation compatibility_: This property is similar to the
 `Policies` property of an `AWS::IAM::Role` resource.
+
+`PublishToLatestPublished`
+
+Specifies whether to publish the latest function version when the function is
+updated.
+
+_Type_: Boolean
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`PublishToLatestPublished` property of an `AWS::Lambda::Function`
+resource.
 
 `PropagateTags`
 
@@ -796,6 +848,18 @@ _Required_: No
 _CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::Lambda::Version`
 resource.
+
+`VersionDeletionPolicy`
+
+Specifies the deletion policy for the Lambda version resource that is created when `AutoPublishAlias` is set. This controls whether the version resource is retained or deleted when the stack is deleted.
+
+_Valid values_: `Delete`, `Retain`, or `Snapshot`
+
+_Type_: String
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent. It sets the `DeletionPolicy` attribute on the generated `AWS::Lambda::Version` resource.
 
 `VpcConfig`
 

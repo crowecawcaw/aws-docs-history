@@ -9,7 +9,8 @@ and performance all while identifying issues (bugs) that will need to be address
 This section provides guidance on common practices you can follow to test your application.
 The topics in this section focus mostly on the local testing you can do before deploying in the AWS Cloud.
 Testing before deploying helps you identify issues proactively, reducing unnecessary costs associated with deployment issues.
-Each topic in this section describes a test you can perform, tells you the advantages of using it, and includes examples
+Each topic in this section describes a test you can perform, tells yoxi include href?
+u the advantages of using it, and includes examples
 showing you how to perform the test. After testing your application, you’ll be ready to debug any issues you’ve found.
 
 ###### Topics
@@ -22,3 +23,4 @@ showing you how to perform the test. After testing your application, you’ll be
 - [Automate local integration tests with AWS SAM](serverless-sam-cli-using-automated-tests.md "serverless-sam-cli-using-automated-tests.md")
 - [Generate sample event
   payloads with AWS SAM](serverless-sam-cli-using-generate-event.md "serverless-sam-cli-using-generate-event.md")
+- [Testing and debugging durable functions](test-and-debug-durable-functions.md "test-and-debug-durable-functions.md")

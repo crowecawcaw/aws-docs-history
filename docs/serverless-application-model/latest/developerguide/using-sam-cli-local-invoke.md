@@ -8,7 +8,12 @@ one-time invocation of an AWS Lambda function locally.
   [sam local invoke](sam-cli-command-reference-sam-local-invoke.md "sam-cli-command-reference-sam-local-invoke.md").
 - For an example of using `sam local invoke` during a typical development workflow, see
   [Step 7: (Optional) Test your application locally](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-test "serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-test").
-  To use `sam local invoke`, install the AWS SAM CLI by completing the following:
+
+###### Note
+
+`sam local invoke` supports durable functions with automatic checkpointing and replay capabilities. When invoking durable functions locally, execution state is automatically managed.
+
+To use `sam local invoke`, install the AWS SAM CLI by completing the following:
 
 - [AWS SAM prerequisites](prerequisites.md "prerequisites.md").
 - [Install the AWS SAM CLI](install-sam-cli.md "install-sam-cli.md").

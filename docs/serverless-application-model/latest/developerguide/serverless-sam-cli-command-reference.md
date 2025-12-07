@@ -13,6 +13,8 @@ the AWS SAM CLI, see [Install the AWS SAM CLI](install-sam-cli.md "install-sam
 - [sam deploy](sam-cli-command-reference-sam-deploy.md "sam-cli-command-reference-sam-deploy.md")
 - [sam init](sam-cli-command-reference-sam-init.md "sam-cli-command-reference-sam-init.md")
 - [sam list](sam-cli-command-reference-sam-list.md "sam-cli-command-reference-sam-list.md")
+- [sam local callback](sam-cli-command-reference-sam-local-callback.md "sam-cli-command-reference-sam-local-callback.md")
+- [sam local execution](sam-cli-command-reference-sam-local-execution.md "sam-cli-command-reference-sam-local-execution.md")
 - [sam local
   generate-event](sam-cli-command-reference-sam-local-generate-event.md "sam-cli-command-reference-sam-local-generate-event.md")
 - [sam local invoke](sam-cli-command-reference-sam-local-invoke.md "sam-cli-command-reference-sam-local-invoke.md")
@@ -24,6 +26,8 @@ the AWS SAM CLI, see [Install the AWS SAM CLI](install-sam-cli.md "install-sam
   bootstrap](sam-cli-command-reference-sam-pipeline-bootstrap.md "sam-cli-command-reference-sam-pipeline-bootstrap.md")
 - [sam pipeline init](sam-cli-command-reference-sam-pipeline-init.md "sam-cli-command-reference-sam-pipeline-init.md")
 - [sam publish](sam-cli-command-reference-sam-publish.md "sam-cli-command-reference-sam-publish.md")
+- [sam remote callback](sam-cli-command-reference-sam-remote-callback.md "sam-cli-command-reference-sam-remote-callback.md")
+- [sam remote execution](sam-cli-command-reference-sam-remote-execution.md "sam-cli-command-reference-sam-remote-execution.md")
 - [sam remote invoke](sam-cli-command-reference-remote-invoke.md "sam-cli-command-reference-remote-invoke.md")
 - [sam remote test-event](sam-cli-command-reference-remote-test-event.md "sam-cli-command-reference-remote-test-event.md")
 - [sam sync](sam-cli-command-reference-sam-sync.md "sam-cli-command-reference-sam-sync.md")

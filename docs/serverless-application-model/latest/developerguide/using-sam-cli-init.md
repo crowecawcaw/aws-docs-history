@@ -13,6 +13,10 @@ serverless application that consists of:
 - Configuration for your AWS Lambda functions.
   To create an AWS SAM project, refer to the topics in this sections.
 
+###### Note
+
+`sam init` includes project templates for durable functions in supported runtimes (TypeScript, Python, Java). These templates provide starter code and configuration for building stateful serverless applications.
+
 ###### Topics
 
 - [Initialize a new serverless application](#using-sam-cli-init-new "#using-sam-cli-init-new")
@@ -20,7 +24,7 @@ serverless application that consists of:
 - [Troubleshooting](#using-sam-cli-init-troubleshooting "#using-sam-cli-init-troubleshooting")
 - [Examples](#using-sam-cli-init-examples "#using-sam-cli-init-examples")
 - [Learn more](#using-sam-cli-init-learn "#using-sam-cli-init-learn")
-- [Next steps](#w2aac18c11c37 "#w2aac18c11c37")
+- [Next steps](#w2aac18c11c39 "#w2aac18c11c39")
 
 ## Initialize a new serverless application
 

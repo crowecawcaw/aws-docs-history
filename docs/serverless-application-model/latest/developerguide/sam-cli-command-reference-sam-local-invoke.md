@@ -8,6 +8,10 @@ This page provides reference information for the AWS Serverless Application Mode
   [Introduction to testing with sam local invoke](using-sam-cli-local-invoke.md "using-sam-cli-local-invoke.md").
   The `sam local invoke` subcommand initiates a one-time invocation of an AWS Lambda function locally.
 
+###### Note
+
+For durable functions, `sam local invoke` supports stateful execution with automatic checkpointing and replay. The container remains running during durable function execution to handle state persistence and resumption.
+
 ## Usage
 
 ```
@@ -102,6 +106,10 @@ containers connect only to the default bridge Docker network.
 The location of the base directory where the AWS SAM file exists. If Docker is
 running on a remote machine, you must mount the path where the AWS SAM file exists on the
 Docker machine and modify this value to match the remote machine.
+
+`--durable-execution-name `TEXT``
+
+Name for the durable execution (for durable functions only)
 
 `--env-vars, -n `PATH``
 
@@ -243,4 +251,10 @@ The following example tests the function `HelloWorldFunction` using Python
 
 ```
 `$` `sam local invoke --runtime `python3.11 HelloWorldFunction``
+```
+
+The following example tests the function `HelloWorldFunction` with durable execution name
+
+```
+`$` `sam local invoke `HelloWorldFunction --durable-execution-name my-execution``
 ```

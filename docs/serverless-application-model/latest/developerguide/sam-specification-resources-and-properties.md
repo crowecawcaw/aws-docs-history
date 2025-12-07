@@ -10,6 +10,7 @@ and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-te
 
 - [AWS::Serverless::Api](sam-resource-api.md "sam-resource-api.md")
 - [AWS::Serverless::Application](sam-resource-application.md "sam-resource-application.md")
+- [AWS::Serverless::CapacityProvider](sam-resource-capacityprovider.md "sam-resource-capacityprovider.md")
 - [AWS::Serverless::Connector](sam-resource-connector.md "sam-resource-connector.md")
 - [AWS::Serverless::Function](sam-resource-function.md "sam-resource-function.md")
 - [AWS::Serverless::GraphQLApi](sam-resource-graphqlapi.md "sam-resource-graphqlapi.md")

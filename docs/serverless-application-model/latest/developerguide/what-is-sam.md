@@ -12,7 +12,7 @@ infrastructure during deployment. When working with AWS SAM, you will interact w
 AWS SAM is an ideal IaC solution for scenarios where you want simplified serverless development with the full power of CloudFormation.
 For example, you can use SAM for:
 
-- **Serverless applications:** You can use SAM to quickly define AWS Lambda functions, Amazon API Gateway APIs, Amazon DynamoDB tables,
+- **Serverless applications:** You can use SAM to quickly define AWS Lambda functions, Lambda durable functions, Amazon API Gateway APIs, Amazon DynamoDB tables,
   and other serverless resources with minimal code.
 - **CloudFormation enhancement:** You can combine SAM with existing CloudFormation templates to add serverless components to traditional infrastructure.
   SAM resources work alongside standard CloudFormation resources in the same template.

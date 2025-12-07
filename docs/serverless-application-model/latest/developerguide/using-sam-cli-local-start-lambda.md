@@ -7,7 +7,12 @@ Lambda.
 - For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
 - For a list of `sam local start-lambda` command options, see
   [sam local start-lambda](sam-cli-command-reference-sam-local-start-lambda.md "sam-cli-command-reference-sam-local-start-lambda.md").
-  To use `sam local start-lambda`, install the AWS SAM CLI by completing the following:
+
+###### Note
+
+`sam local start-lambda` supports durable functions with automatic checkpointing and replay capabilities. Durable functions work seamlessly with the local Lambda endpoint.
+
+To use `sam local start-lambda`, install the AWS SAM CLI by completing the following:
 
 - [AWS SAM prerequisites](prerequisites.md "prerequisites.md").
 - [Install the AWS SAM CLI](install-sam-cli.md "install-sam-cli.md").

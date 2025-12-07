@@ -9,7 +9,12 @@ invoked by an Amazon API Gateway endpoint.
   [sam local start-api](sam-cli-command-reference-sam-local-start-api.md "sam-cli-command-reference-sam-local-start-api.md").
 - For an example of using `sam local start-api` during a typical development workflow, see
   [Step 7: (Optional) Test your application locally](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-test "serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-test").
-  To use `sam local start-api`, install the AWS SAM CLI by completing the following:
+
+###### Note
+
+`sam local start-api` supports durable functions with automatic checkpointing and replay capabilities. Durable functions work seamlessly with the local API Gateway endpoint.
+
+To use `sam local start-api`, install the AWS SAM CLI by completing the following:
 
 - [AWS SAM prerequisites](prerequisites.md "prerequisites.md").
 - [Install the AWS SAM CLI](install-sam-cli.md "install-sam-cli.md").
