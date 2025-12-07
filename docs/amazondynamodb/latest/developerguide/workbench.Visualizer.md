@@ -1,65 +1,32 @@
-# Committing a data model to DynamoDB
+# Importing sample data from a CSV
 
-When you are satisfied with your data model, you can commit the model to
-Amazon DynamoDB.
+file
 
-###### Note
+If you have preexisting sample data in a CSV file, you can import it into NoSQL
+Workbench. This enables you to quickly populate your model with sample data without
+having to enter it line by line.
 
-- This action results in the creation of server-side resources in AWS for
-  the tables and global secondary indexes represented in the data
-  model.
-- Tables are created with the following characteristics:
-  - Auto scaling is set to 70 percent target utilization.
-  - Provisioned capacity is set to 5 read capacity units and 5 write
-    capacity units.
+The column names in the CSV file must match the attribute names in your data model,
+but they do not need to be in the same order. For example, if your data model has
+attributes called `LoginAlias`, `FirstName`, and
+`LastName`, your CSV columns could be `LastName`,
+`FirstName`, and `LoginAlias`.
 
-- Global secondary indexes are created with provisioned capacity of 10 read
-  capacity units and 5 write capacity units.
+Data import from a CSV file is limited to 150 rows at a time.
 
-###### To commit the data model to DynamoDB
+###### To import data from a CSV file into NoSQL Workbench
 
 1. In the navigation pane on the left side, choose the
    **visualizer** icon.
 
-![Console screenshot showing the visualizer icon in DynamoDB.](images/workbench/VisualizerChoose.png) 2. Choose **Commit to DynamoDB**.
-
-![Console screenshot showing the commit to DynamoDB button.](images/workbench/VisualizerCommitToDynamoDB.png) 3. Choose an already existing connection, or create a new connection by choosing
-the **Add new remote connection** tab.
-
-    * To add a new connection, specify the following information:
-
-
-
-
-    	+ **Account Alias**
-    	+ **AWS Region**
-    	+ **Access key ID**
-    	+ **Secret access key**
-    For more information about how to obtain the access keys, see [Getting an AWS access key](SettingUp.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.md#SettingUp.DynamoWebService.GetCredentials").
-    * You can optionally specify the following:
-
-
-
-
-    	+ [**Session token**](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md")
-    	+ [**IAM role ARN**](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns")
-    * If you don't want to sign up for a free tier account, and prefer to
-     use [DynamoDB
-     local (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md"):
-
-
-
-
-    	1. Choose the **Add a new DynamoDB local
-    	 connection** tab.
-    	2. Specify the **Connection name** and
-    	 **Port**.
-
-4. Choose **Commit**.
+![Console screenshot showing the visualizer icon.](images/workbench/VisualizerChoose.png) 2. In the visualizer, select the data model and choose the table. 3. Choose the **Action** drop down, and select **Edit Data**. 4. Choose the **Action** drop down again, and select **Import CSV file**. 5. Select your CSV file and choose **Open**. The data in the CSV
+file will be appended to your table.
 
 ###### Note
 
-If you installed DynamoDB local as part of the NoSQL Workbench setup, you'll need to turn DynamoDB local on by using the
-**DynamoDB local Server** toggle at the bottom left of the NoSQL Workbench screen. See
-[Install NoSQL Workbench for DynamoDB](workbench.settingup.md "workbench.settingup.md") for more information on
-this toggle.
+If your CSV file contains one or more rows that have the same keys as
+items already in your table, you will have the option of overwriting the
+existing items or appending them to the end of the table. If you choose to
+append the items, the suffix "-Copy" will be added to each
+duplicate item's key to differentiate the duplicate items from the items
+that were already in the table.

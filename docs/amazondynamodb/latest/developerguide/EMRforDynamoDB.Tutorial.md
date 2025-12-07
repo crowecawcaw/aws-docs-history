@@ -1,33 +1,33 @@
-# Step 3: Connect
+# Step 1: Create an Amazon EC2 key
 
-to the Leader node
+pair
 
-When the status of your Amazon EMR cluster changes to `Waiting`, you will be
-able to connect to the leader node using SSH and perform command line
-operations.
+In this step, you will create the Amazon EC2 key pair you need to connect to an Amazon EMR
+leader node and run Hive commands.
 
-1. In the Amazon EMR console, choose your cluster's name to view its
-   status.
-2. On the **Cluster Details** page, find the
-   **Leader public DNS** field. This is the public
-   DNS name for the leader node of your Amazon EMR cluster.
-3. To the right of the DNS name, choose the **SSH**
-   link.
-4. Follow the instructions in **Connect to the Leader Node
-   Using SSH** .
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Choose a region (for example, `US West (Oregon)`). This should
+   be the same region in which your DynamoDB table is located.
+3. In the navigation pane, choose **Key Pairs**.
+4. Choose **Create Key Pair**.
+5. In **Key pair name**, type a name for your key pair (for
+   example, `mykeypair`), and then choose
+   **Create**.
+6. Download the private key file. The file name will end with
+   `.pem` (such as `mykeypair.pem`). Keep this
+   private key file in a safe place. You will need it to access any Amazon EMR
+   cluster that you launch with this key pair.
 
-Depending on your operating system, choose the
-**Windows** tab or the **Mac/Linux**
-tab, and follow the instructions for connecting to the leader
-node.
-After you connect to the leader node using either SSH or PuTTY, you should
-see a command prompt similar to the following:
+###### Important
 
-```
-[hadoop@ip-`192-0-2-0` ~]$
-```
+If you lose the key pair, you cannot connect to the leader node
+of your Amazon EMR cluster.
+
+For more information about key pairs, see [Amazon EC2 Key Pairs](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the
+_Amazon EC2 User Guide_.
 
 ###### Next step
 
-[Step 4: Load data into
-HDFS](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+[Step 2: Launch an Amazon EMR
+cluster](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")

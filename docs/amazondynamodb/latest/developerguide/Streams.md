@@ -1,267 +1,68 @@
-# Change data capture for DynamoDB Streams
+# Using the DynamoDB Streams Kinesis adapter to process stream
 
-DynamoDB Streams captures a time-ordered sequence of item-level modifications in any DynamoDB table
-and stores this information in a log for up to 24 hours. Applications can access this
-log and view the data items as they appeared before and after they were modified, in
-near-real time.
+records
 
-Encryption at rest encrypts the data in DynamoDB streams. For more information, see
-[DynamoDB encryption at rest](EncryptionAtRest.md "EncryptionAtRest.md").
+Using the Amazon Kinesis Adapter is the recommended way to consume streams from Amazon DynamoDB. The
+DynamoDB Streams API is intentionally similar to that of Kinesis Data Streams. In both services, data streams are composed of shards,
+which are containers for stream records. Both services' APIs contain
+`ListStreams`, `DescribeStream`, `GetShards`, and
+`GetShardIterator` operations. (Although these DynamoDB Streams actions are similar to
+their counterparts in Kinesis Data Streams, they are not 100 percent identical.)
 
-A _DynamoDB stream_ is an ordered flow of information about changes to
-items in a DynamoDB table. When you enable a stream on a table, DynamoDB captures information
-about every modification to data items in the table.
+As a DynamoDB Streams user, you can use the design patterns found within the KCL to process DynamoDB Streams
+shards and stream records. To do this, you use the DynamoDB Streams Kinesis Adapter. The Kinesis Adapter
+implements the Kinesis Data Streams interface so that the KCL can be used for consuming and processing
+records from DynamoDB Streams. For instructions on how to set up and install the DynamoDB Streams Kinesis Adapter, see
+the [GitHub
+repository](https://github.com/awslabs/dynamodb-streams-kinesis-adapter "https://github.com/awslabs/dynamodb-streams-kinesis-adapter").
 
-Whenever an application creates, updates, or deletes items in the table, DynamoDB Streams writes a
-stream record with the primary key attributes of the items that were modified. A
-_stream record_ contains information about a data modification to
-a single item in a DynamoDB table. You can configure the stream so that the stream records
-capture additional information, such as the "before" and "after" images of modified
-items.
+You can write applications for Kinesis Data Streams using the Kinesis Client Library (KCL). The KCL
+simplifies coding by providing useful abstractions above the low-level Kinesis Data Streams API. For more
+information about the KCL, see the [Developing consumers using the Kinesis
+client library](../../../kinesis/latest/dev/developing-consumers-with-kcl.md "../../../kinesis/latest/dev/developing-consumers-with-kcl.md") in the _Amazon Kinesis Data Streams Developer Guide_.
 
-DynamoDB Streams helps ensure the following:
-
-- Each stream record appears exactly once in the stream.
-- For each item that is modified in a DynamoDB table, the stream records appear in
-  the same sequence as the actual modifications to the item.
-  DynamoDB Streams writes stream records in near-real time so that you can build applications that
-  consume these streams and take action based on the contents.
-
-###### Topics
-
-- [Endpoints for DynamoDB Streams](#Streams.Endpoints "#Streams.Endpoints")
-- [Enabling a stream](#Streams.Enabling "#Streams.Enabling")
-- [Reading and processing a stream](#Streams.Processing "#Streams.Processing")
-- [DynamoDB Streams and Time to Live](time-to-live-ttl-streams.md "time-to-live-ttl-streams.md")
-- [Using the DynamoDB Streams Kinesis adapter to process stream
-  records](Streams.md "Streams.md")
-- [DynamoDB Streams low-level API: Java example](Streams.LowLevel.md "Streams.LowLevel.md")
-- [DynamoDB Streams and AWS Lambda triggers](Streams.md "Streams.md")
-- [DynamoDB Streams and Apache Flink](StreamsApacheFlink.md "StreamsApacheFlink.md")
-
-## Endpoints for DynamoDB Streams
-
-AWS maintains separate endpoints for DynamoDB and DynamoDB Streams. To work with database
-tables and indexes, your application must access a DynamoDB endpoint. To read and
-process DynamoDB Streams records, your application must access a DynamoDB Streams endpoint in the same
-Region.
-
-DynamoDB Streams offers two sets of endpoints. They are:
-
-- **IPv4-only endpoints**: Endpoints with the
-  `streams.dynamodb.`<region>`.amazonaws.com`
-  naming convention.
-- **Dual-stack endpoints**: New endpoints that
-  are compatible with both IPv4 and IPv6 and follows the
-  `streams-dynamodb.`<region>`.api.aws`
-  naming convention.
+DynamoDB recommends using KCL version 3.x with AWS SDK for Java v2.x. The current DynamoDB Streams
+Kinesis Adapter version 1.x with AWS SDK for AWS SDK for Java v1.x will continue to be fully supported
+throughout its lifecycle as intended during the transitional period in alignment
+with [AWS SDKs and Tools
+maintenance policy](../../../sdkref/latest/guide/maint-policy.md "../../../sdkref/latest/guide/maint-policy.md").
 
 ###### Note
 
-For a complete list of DynamoDB and DynamoDB Streams Regions and endpoints, see [Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the
-_AWS General Reference_.
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach
+end-of-support on January 30, 2026. We strongly recommend that you migrate your KCL
+applications using version 1.x to the latest KCL version before January 30, 2026. To
+find the latest KCL version, see the [Amazon Kinesis Client
+Library](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client") page on GitHub. For information about the latest KCL versions, see
+[Use Kinesis
+Client Library](../../../streams/latest/dev/kcl.md "../../../streams/latest/dev/kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see
+Migrating from KCL 1.x to KCL 3.x.
 
-The AWS SDKs provide separate clients for DynamoDB and DynamoDB Streams. Depending on your
-requirements, your application can access a DynamoDB endpoint, a DynamoDB Streams endpoint, or both
-at the same time. To connect to both endpoints, your application must instantiate
-two clients—one for DynamoDB and one for DynamoDB Streams.
+The following diagram shows how these libraries interact with one another.
 
-## Enabling a stream
+![Interaction between DynamoDB Streams, Kinesis Data Streams, and KCL for processing DynamoDB Streams records.](images/streams-kinesis-adapter.png)
+With the DynamoDB Streams Kinesis Adapter in place, you can begin developing against the KCL interface,
+with the API calls seamlessly directed at the DynamoDB Streams endpoint.
 
-You can enable a stream on a new table when you create it using the AWS CLI or one
-of the AWS SDKs. You can also enable or disable a stream on an existing table, or
-change the settings of a stream. DynamoDB Streams operates asynchronously, so there is no
-performance impact on a table if you enable a stream.
+When your application starts, it calls the KCL to instantiate a worker. You must provide
+the worker with configuration information for the application, such as the stream descriptor
+and AWS credentials, and the name of a record processor class that you provide. As it runs
+the code in the record processor, the worker performs the following tasks:
 
-The easiest way to manage DynamoDB Streams is by using the AWS Management Console.
-
-1.  Sign in to the AWS Management Console and open the DynamoDB console at
-    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2.  On the DynamoDB console dashboard, choose **Tables** and
-    select an existing table.
-3.  Choose the **Exports and streams** tab.
-4.  In the **DynamoDB stream details** section, choose **Turn on**.
-5.  On the **Turn on DynamoDB stream** page, choose the
-    information that will be written to the stream whenever the data in the
-    table is modified:
-
-        * **Key attributes only** — Only the key
-         attributes of the modified item.
-        * **New image** — The entire item, as it
-         appears after it was modified.
-        * **Old image** — The entire item, as it
-         appeared before it was modified.
-        * **New and old images** — Both the new and
-         the old images of the item.
-
-    When the settings are as you want them, choose **Turn on
-    stream**.
-
-6.  (Optional) To disable an existing stream, choose
-    **Turn off** under **DynamoDB stream
-    details**.
-
-You can also use the `CreateTable` or `UpdateTable` API
-operations to enable or modify a stream. The `StreamSpecification`
-parameter determines how the stream is configured:
-
-- `StreamEnabled` — Specifies whether a stream is enabled
-  (`true`) or disabled (`false`) for the
-  table.
-- `StreamViewType` — Specifies the information that will be
-  written to the stream whenever data in the table is modified:
-  - `KEYS_ONLY` — Only the key attributes of the
-    modified item.
-  - `NEW_IMAGE` — The entire item, as it appears
-    after it was modified.
-  - `OLD_IMAGE` — The entire item, as it appeared
-    before it was modified.
-  - `NEW_AND_OLD_IMAGES` — Both the new and the old
-    images of the item.
-
-You can enable or disable a stream at any time. However, you receive a `ValidationException` if you try to enable a stream on a table that already has a stream. You also receive a `ValidationException` if you try to disable a stream on a table that doesn't have a stream.
-
-When you set `StreamEnabled` to `true`, DynamoDB creates a new
-stream with a unique stream descriptor assigned to it. If you disable and then
-re-enable a stream on the table, a new stream is created with a different stream
-descriptor.
-
-Every stream is uniquely identified by an Amazon Resource Name (ARN). The
-following is an example ARN for a stream on a DynamoDB table named
-`TestTable`.
-
-```
-arn:aws:dynamodb:us-west-2:111122223333:table/TestTable/stream/2015-05-11T21:21:33.291
-```
-
-To determine the latest stream descriptor for a table, issue a DynamoDB
-`DescribeTable` request and look for the `LatestStreamArn`
-element in the response.
+- Connects to the stream
+- Enumerates the shards within the stream
+- Checks and enumerates child shards of a closed parent shard within the stream
+- Coordinates shard associations with other workers (if any)
+- Instantiates a record processor for every shard it manages
+- Pulls records from the stream
+- Pushes the records to the corresponding record processor
+- Checkpoints processed records
+- Balances shard-worker associations when the worker instance count changes
+- Balances shard-worker associations when shards are split
 
 ###### Note
 
-It is not possible to edit a `StreamViewType` once a stream has
-been setup. If you need to make changes to a stream after it has been setup, you
-must disable the current stream and create a new one.
+For a description of the KCL concepts listed here, see [Developing consumers using the
+Kinesis client library](../../../kinesis/latest/dev/developing-consumers-with-kcl.md "../../../kinesis/latest/dev/developing-consumers-with-kcl.md") in the _Amazon Kinesis Data Streams Developer Guide_.
 
-## Reading and processing a stream
-
-To read and process a stream, your application must connect to a DynamoDB Streams endpoint and
-issue API requests.
-
-A stream consists of _stream records_. Each stream record
-represents a single data modification in the DynamoDB table to which the stream
-belongs. Each stream record is assigned a sequence number, reflecting the order in
-which the record was published to the stream.
-
-Stream records are organized into groups, or _shards_. Each
-shard acts as a container for multiple stream records, and contains information
-required for accessing and iterating through these records. The stream records
-within a shard are removed automatically after 24 hours.
-
-Shards are ephemeral: They are created and deleted automatically, as needed. Any
-shard can also split into multiple new shards; this also occurs automatically. (It's
-also possible for a parent shard to have just one child shard.) A shard might split
-in response to high levels of write activity on its parent table, so that
-applications can process records from multiple shards in parallel.
-
-If you disable a stream, any shards that are open will be closed. The data in the
-stream will continue to be readable for 24 hours.
-
-Because shards have a lineage (parent and children), an application must always
-process a parent shard before it processes a child shard. This helps ensure that the
-stream records are also processed in the correct order. (If you use the DynamoDB Streams Kinesis
-Adapter, this is handled for you. Your application processes the shards and stream
-records in the correct order. It automatically handles new or expired shards, in
-addition to shards that split while the application is running. For more
-information, see [Using the DynamoDB Streams Kinesis adapter to process stream
-records](Streams.md "Streams.md").)
-
-The following diagram shows the relationship between a stream, shards in the
-stream, and stream records in the shards.
-
-![DynamoDB Streams structure. Stream records that represent data modifications are organized into shards.](images/streams-terminology.png)
-
-###### Note
-
-If you perform a `PutItem` or `UpdateItem` operation
-that does not change any data in an item, DynamoDB Streams does _not_
-write a stream record for that operation.
-
-To access a stream and process the stream records within, you must do the
-following:
-
-- Determine the unique ARN of the stream that you want to access.
-- Determine which shards in the stream contain the stream records that you
-  are interested in.
-- Access the shards and retrieve the stream records that you want.
-
-###### Note
-
-No more than two processes at most should be reading from the same stream's
-shard at the same time. Having more than two readers per shard can result in
-throttling.
-
-The DynamoDB Streams API provides the following actions for use by application
-programs:
-
-- `ListStreams` — Returns a list of stream descriptors
-  for the current account and endpoint. You can optionally request just the
-  stream descriptors for a particular table name.
-- `DescribeStream` — Returns information about a
-  stream, including the current status of the stream, its Amazon Resource Name
-  (ARN), the composition of its shards, and its corresponding DynamoDB table. You
-  can optionally use the `ShardFilter` field to retrieve the
-  existing child shard associated with the parent shard.
-- `GetShardIterator` — Returns a _shard
-  iterator_, which describes a location within a shard. You can
-  request that the iterator provide access to the oldest point, the newest
-  point, or a particular point in the stream.
-- `GetRecords` — Returns the stream records from
-  within a given shard. You must provide the shard iterator returned from a
-  `GetShardIterator` request.
-
-For complete descriptions of these API operations, including example requests and
-responses, see the [Amazon DynamoDB Streams API Reference](../APIReference/API_Operations_Amazon_DynamoDB_Streams.md "../APIReference/API_Operations_Amazon_DynamoDB_Streams.md").
-
-### Shard discovery
-
-Discover new shards in your DynamoDB stream with two powerful methods.
-As a Amazon DynamoDB Streams user, you have two effective ways to track and identify new shards:
-
-**Polling the entire stream topology**
-Use the `DescribeStream` API to regularly poll the stream. This returns all shards
-in the stream, including any new shards that have been created. By
-comparing results over time, you can detect newly added
-shards.
-
-**Discovering child shards**
-Use the `DescribeStream` API with the `ShardFilter` parameter to find a
-subset of shards. By specifying a parent shard in the request,
-DynamoDB Streams will return its immediate child shards. This
-approach is useful when you only need to track shard lineage without
-scanning the entire stream.
-
-Applications consuming data from DynamoDB Streams can efficiently
-transition from reading a closed shard to its child shard using this
-`ShardFilter` parameter, avoiding repeated calls to
-the `DescribeStream` API to retrieve and traverse the
-shard map for all closed and open shards. This helps to quickly
-discover child shards after a parent shard has been closed, making
-your stream processing applications more responsive and
-cost-effective.
-
-Both methods empower you to stay on top of your DynamoDB Streams' evolving structure, ensuring you never
-miss critical data updates or shard modifications.
-
-### Data retention limit for DynamoDB Streams
-
-All data in DynamoDB Streams is subject to a 24-hour lifetime. You can retrieve and
-analyze the last 24 hours of activity for any given table. However, data that is
-older than 24 hours is susceptible to trimming (removal) at any moment.
-
-If you disable a stream on a table, the data in the stream continues to be
-readable for 24 hours. After this time, the data expires and the stream records
-are automatically deleted. There is no mechanism for manually deleting an
-existing stream. You must wait until the retention limit expires (24 hours), and
-all the stream records will be deleted.
+For more information on using streams with AWS Lambda see [DynamoDB Streams and AWS Lambda triggers](Streams.md "Streams.md")

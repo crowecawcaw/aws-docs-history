@@ -1,56 +1,260 @@
-# DynamoDB data import from Amazon S3: how it works
+# Import format quotas and validation
 
-To import data into DynamoDB, your data must be in an Amazon S3 bucket in CSV, DynamoDB JSON, or
-Amazon Ion format. Data can be compressed in ZSTD or GZIP format, or can be directly
-imported in uncompressed form. Source data can either be a single Amazon S3 object or multiple
-Amazon S3 objects that use the same prefix.
+## Import quotas
 
-Your data will be imported into a new DynamoDB table, which will be created when you initiate
-the import request. You can create this table with secondary indexes, then query and update
-your data across all primary and secondary indexes as soon as the import is complete. You
-can also add a global table replica after the import is complete.
+DynamoDB Import from Amazon S3 can support up to 50 concurrent import jobs with a total import
+source object size of 15TB at a time in us-east-1, us-west-2, and eu-west-1 regions. In
+all other regions, up to 50 concurrent import tasks with a total size of 1TB is
+supported. Each import job can take up to
+50,000
+Amazon S3 objects in all regions. These default quotas are applied to every account. If you
+feel you need to revise these quotas, please contact your account team, and this will be
+considered on a case-by-case basis. For more details on DynamoDB limits, see [Service Quotas](ServiceQuotas.md "ServiceQuotas.md").
+
+## Validation errors
+
+During the import process, DynamoDB may encounter errors while parsing your data.
+For each error, DynamoDB emits a CloudWatch log and keeps a count of the total number of
+errors encountered. If the Amazon S3 object itself is malformed or if its contents cannot form a
+DynamoDB item, then we may skip processing the remaining portion of the object.
 
 ###### Note
 
-During the Amazon S3 import process, DynamoDB creates a new target table that will be imported
-into. Import into existing tables is not currently supported by this feature.
+If the Amazon S3 data source has multiple items that share the same key, the items will overwrite
+until one remains. This can appear as if 1 item was imported and the others were ignored. The
+duplicate items will be overwritten in random order, are not counted as errors, and are not
+emitted to CloudWatch logs.
 
-Import from Amazon S3 does not consume write capacity on the new table, so you do not need to
-provision any extra capacity for importing data into DynamoDB. Data import pricing is based on
-the uncompressed size of the source data in Amazon S3, that is processed as a result of the
-import. Items that are processed but fail to load into the table due to formatting or other
-inconsistencies in the source data are also billed as part of the import process. See [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing") for details.
+Once the import is complete you can see the total count of items imported, total count of errors,
+and total count of items processed. For further troubleshooting you can also check the total size
+of items imported and total size of data processed.
 
-You can import data from an Amazon S3 bucket owned by a different account if you have the
-correct permissions to read from that specific bucket. The new table may also be in a
-different Region from the source Amazon S3 bucket. For more information, see [Amazon Simple Storage Service setup
-and permissions](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md") .
+There are three categories of import errors: API validation errors, data validation errors,
+and configuration errors.
 
-Import times are directly related to your data’s characteristics in Amazon S3. This includes
-data size, data format, compression scheme, uniformity of data distribution, number of Amazon S3
-objects, and other related variables. In particular, data sets with uniformly distributed
-keys will be faster to import than skewed data sets. For example, if your secondary index's
-key is using the month of the year for partitioning, and all your data is from the month of
-December, then importing this data may take significantly longer.
+### API validation errors
 
-The attributes associated with keys are expected to be unique on the base table. If any
-keys are not unique, the import will overwrite the associated items until only the last
-overwrite remains. For example, if the primary key is the month and multiple items are set
-to the month of September, each new item will overwrite the previously written items and
-only one item with the primary key of "month" set to September will remain. In such cases,
-the number of items processed in the import table description will not match the number of
-items in the target table.
+API validation errors are item-level errors from the sync API. Common causes are permissions issues, missing required parameters
+and parameter validation failures. Details on why the API call failed are contained in the exceptions thrown by the `ImportTable` request.
 
-AWS CloudTrail logs all console and API actions for table import. For more information, see
-[Logging DynamoDB operations by using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+### Data validation errors
 
-The following video is an introduction to importing directly from Amazon S3 into DynamoDB.
+Data validation errors can occur at either the item level or file level. During import, items are
+validated based on DynamoDB rules before importing into the target table. When an item fails validation
+and is not imported, the import job skips over that item and continues on with the next item. At the end
+of job, the import status is set to FAILED with a FailureCode, ItemValidationError and the FailureMessage
+"Some of the items failed validation checks and were not imported. Please check CloudWatch error logs
+for more details."
 
-###### Topics
+Common causes for data validation errors include objects being unparsable, objects being in the
+incorrect format (input specifies DYNAMODB_JSON but the object is not in DYNAMODB_JSON), and schema mismatch with
+specified source table keys.
 
-- [Requesting a table import in DynamoDB](S3DataImport.md "S3DataImport.md")
-- [Amazon S3 import formats for DynamoDB](S3DataImport.md "S3DataImport.md")
-- [Import format quotas and validation](S3DataImport.md "S3DataImport.md")
-- [Best practices for importing from Amazon S3 into
-  DynamoDB](S3DataImport.md "S3DataImport.md")
+### Configuration errors
+
+Configuration errors are typically workflow errors due to permission validation. The Import workflow checks some
+permissions after accepting the request. If there are issues calling any of the required dependencies like Amazon S3 or CloudWatch
+the process marks the import status as FAILED. The `failureCode` and `failureMessage` point to the reason for failure.
+Where applicable, the failure message also contains the request id that you can use to investigate the reason for failure in CloudTrail.
+
+Common configuration errors include having the wrong URL for the Amazon S3 bucket, and not having permission to access the Amazon S3 bucket,
+CloudWatch Logs, and AWS KMS keys used to decrypt the Amazon S3 object. For more information see
+[Using and data keys](encryption.md#dynamodb-kms "encryption.md#dynamodb-kms").
+
+### Validating source Amazon S3 objects
+
+In order to validate source S3 objects, take the following steps.
+
+1. Validate the data format and compression type
+   - Make sure that all matching Amazon S3 objects under the specified prefix have the same format
+     (DYNAMODB_JSON, DYNAMODB_ION, CSV)
+   - Make sure that all matching Amazon S3 objects under the specified prefix are compressed the same way (GZIP, ZSTD, NONE)
+
+   ###### Note
+
+   The Amazon S3 objects do not need to have the corresponding extension (.csv / .json / .ion / .gz / .zstd etc)
+   as the input format specified in ImportTable call takes precedence.
+
+2. Validate that the import data conforms to the desired table schema
+   - Make sure that each item in the source data has the primary key. A sort key is optional for imports.
+   - Make sure that the attribute type associated with the primary key and any sort key matches the attribute type in the
+     Table and the GSI schema, as specified in table creation parameters
+
+### Troubleshooting
+
+#### CloudWatch logs
+
+For Import jobs that fail, detailed error messages are posted to CloudWatch logs. To access these logs,
+first retrieve the ImportArn from the output and describe-import using this command:
+
+```
+aws dynamodb describe-import --import-arn arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658528578619-c4d4e311
+}
+```
+
+Example output:
+
+```
+aws dynamodb describe-import --import-arn "arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658528578619-c4d4e311"
+{
+    "ImportTableDescription": {
+        "ImportArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658528578619-c4d4e311",
+        "ImportStatus": "FAILED",
+        "TableArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table",
+        "TableId": "7b7ecc22-302f-4039-8ea9-8e7c3eb2bcb8",
+        "ClientToken": "30f8891c-e478-47f4-af4a-67a5c3b595e3",
+        "S3BucketSource": {
+            "S3BucketOwner": "ACCOUNT",
+            "S3Bucket": "my-import-source",
+            "S3KeyPrefix": "import-test"
+        },
+        "ErrorCount": 1,
+        "CloudWatchLogGroupArn": "arn:aws:logs:us-east-1:ACCOUNT:log-group:/aws-dynamodb/imports:*",
+        "InputFormat": "CSV",
+        "InputCompressionType": "NONE",
+        "TableCreationParameters": {
+            "TableName": "target-table",
+            "AttributeDefinitions": [
+                {
+                    "AttributeName": "pk",
+                    "AttributeType": "S"
+                }
+            ],
+            "KeySchema": [
+                {
+                    "AttributeName": "pk",
+                    "KeyType": "HASH"
+                }
+            ],
+            "BillingMode": "PAY_PER_REQUEST"
+        },
+        "StartTime": 1658528578.619,
+        "EndTime": 1658528750.628,
+        "ProcessedSizeBytes": 70,
+        "ProcessedItemCount": 1,
+        "ImportedItemCount": 0,
+        "FailureCode": "ItemValidationError",
+        "FailureMessage": "Some of the items failed validation checks and were not imported. Please check CloudWatch error logs for more details."
+    }
+}
+```
+
+Retrieve the log group and the import id from the above response and use it to retrieve the error logs. The import ID is the last path element of the `ImportArn` field.
+The log group name is `/aws-dynamodb/imports`. The error log stream name is `import-id/error`. For this example, it would be `01658528578619-c4d4e311/error`.
+
+#### Missing the key pk in the item
+
+If the source S3 object does not contain the primary key that was provided as a parameter, the import will fail.
+For example, when you define the primary key for the import as column name “pk”.
+
+```
+aws dynamodb import-table —s3-bucket-source S3Bucket=my-import-source,S3KeyPrefix=import-test.csv \
+            —input-format CSV --table-creation-parameters '{"TableName":"target-table","KeySchema":  \
+            [{"AttributeName":"pk","KeyType":"HASH"}],"AttributeDefinitions":[{"AttributeName":"pk","AttributeType":"S"}],"BillingMode":"PAY_PER_REQUEST"}'
+```
+
+The column “pk” is missing from the the source object `import-test.csv` which has the following contents:
+
+```
+title,artist,year_of_release
+The Dark Side of the Moon,Pink Floyd,1973
+```
+
+This import will fail due to item validation error because of the missing primary key in the data source.
+
+Example CloudWatch error log:
+
+```
+aws logs get-log-events —log-group-name /aws-dynamodb/imports —log-stream-name 01658528578619-c4d4e311/error
+{
+"events": [
+{
+"timestamp": 1658528745319,
+"message": "{\"itemS3Pointer\":{\"bucket\":\"my-import-source\",\"key\":\"import-test.csv\",\"itemIndex\":0},\"importArn\":\"arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658528578619-c4d4e311\",\"errorMessages\":[\"One or more parameter values were invalid: Missing the key pk in the item\"]}",
+"ingestionTime": 1658528745414
+}
+],
+"nextForwardToken": "f/36986426953797707963335499204463414460239026137054642176/s",
+"nextBackwardToken": "b/36986426953797707963335499204463414460239026137054642176/s"
+}
+```
+
+This error log indicates that “One or more parameter values were invalid: Missing the key pk in the item”.
+Since this import job failed, the table “target-table” now exists and is empty because no items were imported.
+The first item was processed and the object failed Item Validation.
+
+To fix the issue, first delete “target-table” if it is no longer needed. Then either use a primary key column
+name that exists in the source object, or update the source data to:
+
+```
+pk,title,artist,year_of_release
+Albums::Rock::Classic::1973::AlbumId::ALB25,The Dark Side of the Moon,Pink Floyd,1973
+```
+
+#### Target table exists
+
+When you start an import job and receive a response as follows:
+
+```
+An error occurred (ResourceInUseException) when calling the ImportTable operation: Table already exists: target-table
+```
+
+To fix this error, you will need to choose a table name that doesn’t already exist and retry the import.
+
+#### The specified bucket does not exist
+
+If the source bucket does not exist, the import will fail and log the error message details in CloudWatch.
+
+Example describe import:
+
+```
+aws dynamodb —endpoint-url $ENDPOINT describe-import —import-arn "arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658530687105-e6035287"
+{
+"ImportTableDescription": {
+"ImportArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658530687105-e6035287",
+"ImportStatus": "FAILED",
+"TableArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table",
+"TableId": "e1215a82-b8d1-45a8-b2e2-14b9dd8eb99c",
+"ClientToken": "3048e16a-069b-47a6-9dfb-9c259fd2fb6f",
+"S3BucketSource": {
+"S3BucketOwner": "531234567890",
+"S3Bucket": "BUCKET_DOES_NOT_EXIST",
+"S3KeyPrefix": "import-test"
+},
+"ErrorCount": 0,
+"CloudWatchLogGroupArn": "arn:aws:logs:us-east-1:ACCOUNT:log-group:/aws-dynamodb/imports:*",
+"InputFormat": "CSV",
+"InputCompressionType": "NONE",
+"TableCreationParameters": {
+"TableName": "target-table",
+"AttributeDefinitions": [
+{
+"AttributeName": "pk",
+"AttributeType": "S"
+}
+],
+"KeySchema": [
+{
+"AttributeName": "pk",
+"KeyType": "HASH"
+}
+],
+"BillingMode": "PAY_PER_REQUEST"
+},
+"StartTime": 1658530687.105,
+"EndTime": 1658530701.873,
+"ProcessedSizeBytes": 0,
+"ProcessedItemCount": 0,
+"ImportedItemCount": 0,
+"FailureCode": "S3NoSuchBucket",
+"FailureMessage": "The specified bucket does not exist (Service: Amazon S3; Status Code: 404; Error Code: NoSuchBucket; Request ID: Q4W6QYYFDWY6WAKH; S3 Extended Request ID: ObqSlLeIMJpQqHLRX2C5Sy7n+8g6iGPwy7ixg7eEeTuEkg/+chU/JF+RbliWytMlkUlUcuCLTrI=; Proxy: null)"
+}
+}
+```
+
+The `FailureCode` is `S3NoSuchBucket`, with `FailureMessag` containing details such as
+request id and the service that threw the error.
+Since the error was caught before the data was imported into the table, a new DynamoDB table is not created. In some cases,
+when these errors are encountered after the data import has started, the table with partially imported data is retained.
+
+To fix this error, make sure that the source Amazon S3 bucket exists and then restart the import process.

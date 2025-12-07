@@ -1,180 +1,127 @@
-# DAX: How it works
+# In-memory acceleration with DynamoDB Accelerator (DAX)
 
-Amazon DynamoDB Accelerator (DAX) is designed to run within an Amazon Virtual Private Cloud (Amazon VPC) environment. The
-Amazon VPC service defines a virtual network that closely resembles a traditional data center.
-With a VPC, you have control over its IP address range, subnets, routing tables, network
-gateways, and security settings. You can launch a DAX cluster in your virtual network and
-control access to the cluster by using Amazon VPC security groups.
+Amazon DynamoDB is designed for scale and performance. In most cases, the DynamoDB response times
+can be measured in single-digit milliseconds. However, there are certain use cases that
+require response times in microseconds. For these use cases, DynamoDB Accelerator (DAX) delivers fast
+response times for accessing eventually consistent data.
 
-###### Note
+DAX is a DynamoDB-compatible caching service that enables you to benefit from fast
+in-memory performance for demanding applications. DAX addresses three core
+scenarios:
 
-If you created your AWS account after December 4, 2013, you already have a default
-VPC in each AWS Region. The VPC is ready for you to use immediately—without
-having to perform any additional configuration steps.
+1. As an in-memory cache, DAX reduces the response times of eventually consistent
+   read workloads by an order of magnitude from single-digit milliseconds to
+   microseconds.
+2. DAX reduces operational and application complexity by providing a managed
+   service that is API-compatible with DynamoDB. Therefore, it requires only minimal
+   functional changes to use with an existing application.
+3. For read-heavy or bursty workloads, DAX provides increased throughput and
+   potential operational cost savings by reducing the need to overprovision read
+   capacity units. This is especially beneficial for applications that require repeated
+   reads for individual keys.
+   DAX supports server-side encryption. With encryption at rest, the data persisted by
+   DAX on disk will be encrypted. DAX writes data to disk as part of propagating changes
+   from the primary node to read replicas. For more information, see [DAX encryption at rest](DAXEncryptionAtRest.md "DAXEncryptionAtRest.md").
 
-For more information, see [Default VPC and
-default subnets](../../../vpc/latest/userguide/default-vpc.md "../../../vpc/latest/userguide/default-vpc.md") in the _Amazon VPC User Guide_.
-
-The following diagram shows a high-level overview of DAX.
-
-![Workflow diagram showing interaction of application, DAX client, and DAX cluster in a VPC.](images/dax_high_level.png)
-To create a DAX cluster, you use the AWS Management Console. Unless you specify otherwise, your DAX
-cluster runs within your default VPC. To run your application, you launch an Amazon EC2 instance
-into your Amazon VPC. You then deploy your application (with the DAX client) on the EC2
-instance.
-
-At runtime, the DAX client directs all of your application's DynamoDB API requests to the
-DAX cluster. If DAX can process one of these API requests directly, it does so.
-Otherwise, it passes the request through to DynamoDB.
-
-Finally, the DAX cluster returns the results to your application.
+DAX also supports encryption in transit, ensuring that all requests and responses
+between your application and the cluster are encrypted by transport level security (TLS),
+and connections to the cluster can be authenticated by verification of a cluster x509
+certificate. For more information, see [DAX encryption in transit](DAXEncryptionInTransit.md "DAXEncryptionInTransit.md").
 
 ###### Topics
 
-- [How DAX processes requests](#DAX.concepts.request-processing "#DAX.concepts.request-processing")
-- [Item cache](#DAX.concepts.item-cache "#DAX.concepts.item-cache")
-- [Query cache](#DAX.concepts.query-cache "#DAX.concepts.query-cache")
+- [Use cases for DAX](#DAX.use-cases "#DAX.use-cases")
+- [DAX usage notes](#DAX.usage-notes "#DAX.usage-notes")
+- [DAX: How it works](DAX.md "DAX.md")
+- [DAX cluster components](DAX.concepts.md "DAX.concepts.md")
+- [Creating a DAX cluster](DAX.md "DAX.md")
+- [DAX and DynamoDB consistency models](DAX.md "DAX.md")
+- [Developing with the DynamoDB Accelerator (DAX) client](DAX.md "DAX.md")
+- [Managing DAX clusters](DAX.md "DAX.md")
+- [Monitoring DynamoDB Accelerator](DAX.md "DAX.md")
+- [DAX T3/T2 burstable instances](DAX.md "DAX.md")
+- [DAX access control](DAX.md "DAX.md")
+- [DAX encryption at rest](DAXEncryptionAtRest.md "DAXEncryptionAtRest.md")
+- [DAX encryption in transit](DAXEncryptionInTransit.md "DAXEncryptionInTransit.md")
+- [Using service-linked IAM roles for DAX](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Accessing DAX across AWS accounts](DAX.md "DAX.md")
+- [DAX cluster sizing guide](DAX.md "DAX.md")
 
-## How DAX processes requests
+## Use cases for DAX
 
-A DAX cluster consists of one or more nodes. Each node runs its own instance of the
-DAX caching software. One of the nodes serves as the primary node for the cluster.
-Additional nodes (if present) serve as read replicas. For more information, see [Nodes](DAX.concepts.md#DAX.concepts.nodes "DAX.concepts.md#DAX.concepts.nodes").
+DAX provides access to eventually consistent data from DynamoDB tables, with
+microsecond latency. A Multi-AZ DAX cluster can serve millions of requests per
+second.
 
-Your application can access DAX by specifying the endpoint for the DAX cluster.
-The DAX client software works with the cluster endpoint to perform intelligent load
-balancing and routing.
+DAX is ideal for the following types of applications:
 
-### Read operations
+- Applications that require the fastest possible response time for reads. Some
+  examples include real-time bidding, social gaming, and trading applications.
+  DAX delivers fast, in-memory read performance for these use cases.
+- Applications that read a small number of items more frequently than others.
+  For example, consider an ecommerce system that has a one-day sale on a popular
+  product. During the sale, demand for that product (and its data in DynamoDB) would
+  sharply increase, compared to all of the other products. To mitigate the impacts
+  of a "hot" key and a non-uniform traffic distribution, you could offload the
+  read activity to a DAX cache until the one-day sale is over.
+- Applications that are read-intensive, but are also cost-sensitive. With DynamoDB,
+  you provision the number of reads per second that your application requires. If
+  read activity increases, you can increase your tables' provisioned read
+  throughput (at an additional cost). Or, you can offload the activity from your
+  application to a DAX cluster, and reduce the number of read capacity units
+  that you need to purchase otherwise.
+- Applications that require repeated reads against a large set of data. Such an
+  application could potentially divert database resources from other applications.
+  For example, a long-running analysis of regional weather data could temporarily
+  consume all the read capacity in a DynamoDB table. This situation would negatively
+  impact other applications that need to access the same data. With DAX, the
+  weather analysis could be performed against cached data instead.
 
-DAX can respond to the following API calls:
+DAX is _not_ ideal for the following types of
+applications:
 
-- `GetItem`
-- `BatchGetItem`
-- `Query`
-- `Scan`
+- Applications that require strongly consistent reads (or that cannot tolerate
+  eventually consistent reads).
+- Applications that do not require microsecond response times for reads, or that
+  do not need to offload repeated read activity from underlying tables.
+- Applications that are write-intensive. High volume of writes lead to increased replication across DAX nodes in a cluster. This causes an increased consumption of resources and risk of availability issues.
+- Applications without many repeated reads. DAX performs best when cache hit rates exceed 90%. Lower cache hit rates increase cache misses, which consumes more resources across the DAX cluster.
 
-If the request specifies _eventually consistent reads_ (the
-default behavior), it tries to read the item from DAX:
+## DAX usage notes
 
-- If DAX has the item available (a _cache
-  hit_), DAX returns the item to the application without
-  accessing DynamoDB.
-- If DAX does not have the item available (a _cache
-  miss_), DAX passes the request through to DynamoDB. When it
-  receives the response from DynamoDB, DAX returns the results to the
-  application. But it also writes the results to the cache on the primary
-  node.
+- For a list of AWS Regions where DAX is available, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing").
+- DAX supports applications written in Go, Java, Node.js, Python, and .NET,
+  using AWS-provided clients for those programming languages.
+- DAX is only available for the EC2-VPC platform.
+- The DAX cluster service role policy must allow the
+  `dynamodb:DescribeTable` action in order to maintain metadata
+  about the DynamoDB table.
+- DAX clusters maintain metadata about the attribute names of items they
+  store. That metadata is maintained indefinitely (even after the item has expired
+  or been evicted from the cache). Applications that use an unbounded number of
+  attribute names can, over time, cause memory exhaustion in the DAX cluster.
+  This limitation applies only to top-level attribute names, not nested attribute
+  names. Examples of problematic top-level attribute names include timestamps,
+  UUIDs, and session IDs.
 
-###### Note
+This limitation applies only to attribute names, not their values. Items like
+the following are not a problem.
 
-If there are any read replicas in the cluster, DAX automatically keeps the
-replicas in sync with the primary node. For more information, see [Clusters](DAX.concepts.md#DAX.concepts.clusters "DAX.concepts.md#DAX.concepts.clusters").
+```
+{
+    "Id": 123,
+    "Title": "Bicycle 123",
+    "CreationDate": "2017-10-24T01:02:03+00:00"
+}
+```
 
-If the request specifies _strongly consistent reads_, DAX
-passes the request through to DynamoDB. The results from DynamoDB are not cached in DAX.
-Instead, they are simply returned to the application.
+But items like the following are a problem if there are enough of them and
+they each have a different timestamp.
 
-### Write operations
-
-The following DAX API operations are considered "write-through":
-
-- `BatchWriteItem`
-- `UpdateItem`
-- `DeleteItem`
-- `PutItem`
-
-With these operations, data is first written to the DynamoDB table, and then to the
-DAX cluster. The operation is successful only if the data is successfully written
-to _both_ the table and to DAX.
-
-### Other operations
-
-DAX does not recognize any DynamoDB operations for managing tables (such as
-`CreateTable`, `UpdateTable`, and so on). If your
-application needs to perform these operations, it must access DynamoDB directly rather
-than using DAX.
-
-For detailed information about DAX and DynamoDB consistency, see [DAX and DynamoDB consistency models](DAX.md "DAX.md").
-
-For information about how transactions work in DAX, see [Using transactional APIs in DynamoDB Accelerator (DAX)](transaction-apis.md#transaction-apis-dax "transaction-apis.md#transaction-apis-dax").
-
-### Request rate
-
-limiting
-
-If the number of requests sent to DAX exceeds the capacity of a node, DAX
-limits the rate at which it accepts additional requests by returning a [ThrottlingException](../APIReference/CommonErrors.md#CommonErrors-ThrottlingException "../APIReference/CommonErrors.md#CommonErrors-ThrottlingException"). DAX continuously evaluates your CPU utilization
-to determine the volume of requests it can process while maintaining a healthy
-cluster state.
-
-You can monitor the [ThrottledRequestCount metric](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md") that DAX publishes to Amazon CloudWatch. If you
-see these exceptions regularly, you should consider [scaling up your cluster](DAX.md#DAX.cluster-management.scaling "DAX.md#DAX.cluster-management.scaling").
-
-## Item cache
-
-DAX maintains an _item cache_ to store the results from
-`GetItem` and `BatchGetItem` operations. The items in the
-cache represent eventually consistent data from DynamoDB, and are stored by their primary
-key values.
-
-When an application sends a `GetItem` or `BatchGetItem` request,
-DAX tries to read the items directly from the item cache using the specified key
-values. If the items are found (cache hit), DAX returns them to the application
-immediately. If the items are not found (cache miss), DAX sends the request to DynamoDB.
-DynamoDB processes the requests using eventually consistent reads and returns the items to
-DAX. DAX stores them in the item cache and then returns them to the
-application.
-
-The item cache has a Time to Live (TTL) setting, which is 5 minutes by default. DAX assigns
-a timestamp to every item that it writes to the item cache. An item expires if it has
-remained in the cache for longer than the TTL setting. If you issue a
-`GetItem` request on an expired item, this is considered a cache miss,
-and DAX sends the `GetItem` request to DynamoDB.
-
-###### Note
-
-You can specify the TTL setting for the item cache when you create a new DAX
-cluster. For more information, see [Managing DAX clusters](DAX.md "DAX.md") .
-
-DAX also maintains a least recently used (LRU) list for the item cache. The LRU list
-tracks when an item was first written to the cache, and when the item was last read from
-the cache. If the item cache becomes full, DAX evicts older items (even if they
-haven't expired yet) to make room for new items. The LRU algorithm is always enabled for
-the item cache and is not user-configurable.
-
-If you specify zero as the _item cache_ TTL setting, items in the
-item cache will only be refreshed due to an LRU eviction or a ["write-through"](DAX.md#DAX.concepts.request-processing-write "DAX.md#DAX.concepts.request-processing-write") operation.
-
-For detailed information about the consistency of the item cache in DAX, see [DAX item cache behavior](DAX.md#DAX.consistency.item-cache "DAX.md#DAX.consistency.item-cache").
-
-## Query cache
-
-DAX also maintains a _query cache_ to store the results from
-`Query` and `Scan` operations. The items in this cache
-represent result sets from queries and scans on DynamoDB tables. These result sets are
-stored by their parameter values.
-
-When an application sends a `Query` or `Scan` request, DAX
-tries to read a matching result set from the query cache using the specified parameter
-values. If the result set is found (cache hit), DAX returns it to the application
-immediately. If the result set is not found (cache miss), DAX sends the request to
-DynamoDB. DynamoDB processes the requests using eventually consistent reads and returns the
-result set to DAX. DAX stores it in the query cache and then returns it to the
-application.
-
-###### Note
-
-You can specify the TTL setting for the query cache when you create a new DAX
-cluster. For more information, see [Managing DAX clusters](DAX.md "DAX.md") .
-
-DAX also maintains an LRU list for the query cache. The list tracks when a result
-set was first written to the cache, and when the result was last read from the cache. If
-the query cache becomes full, DAX evicts older result sets (even if they have not
-expired yet) to make room for new result sets. The LRU algorithm is always enabled for
-the query cache, and is not user-configurable.
-
-If you specify zero as the _query cache_ TTL setting, the query
-response will not be cached.
-
-For detailed information about the consistency of the query cache in DAX, see [DAX query cache behavior](DAX.md#DAX.consistency.query-cache "DAX.md#DAX.consistency.query-cache").
+```
+{
+    "Id": 123,
+    "Title": "Bicycle 123",
+    "2017-10-24T01:02:03+00:00": "created"
+}
+```

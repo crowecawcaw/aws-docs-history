@@ -1,31 +1,22 @@
-# Using the EXISTS function with PartiQL for DynamoDB
+# Using the BEGINS_WITH function with PartiQL for DynamoDB
 
-You can use EXISTS to perform the same function as `ConditionCheck` does in
-the [TransactWriteItems](transaction-apis.md#transaction-apis-txwriteitems "transaction-apis.md#transaction-apis-txwriteitems") API. The EXISTS function can only be used in
-transactions.
-
-Given a value, returns `TRUE` if the value is a non-empty collection.
-Otherwise, returns `FALSE`.
-
-###### Note
-
-This function can only be used in transactional operations.
+Returns `TRUE` if the attribute specified begins with a particular substring.
 
 ## Syntax
 
 ```
-EXISTS ( `statement` )
+begins_with(`path`, `value` )
 ```
 
 ## Arguments
 
-`statement`
+`path`
 
-(Required) The SELECT statement that the function evaluates.
+(Required) The attribute name or document path to use.
 
-###### Note
+`value`
 
-The SELECT statement must specify a full primary key and one other condition.
+(Required) The string to search for.
 
 ## Return type
 
@@ -34,7 +25,5 @@ The SELECT statement must specify a full primary key and one other condition.
 ## Examples
 
 ```
-EXISTS(
-    SELECT * FROM "Music"
-    WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks')
+SELECT * FROM "Orders" WHERE "OrderID"=1 AND begins_with("Address", '7834 24th')
 ```

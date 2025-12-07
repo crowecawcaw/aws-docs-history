@@ -5483,7 +5483,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
           iv_max_wait_time = 200
           iv_tablename     = iv_table_name ).
         MESSAGE 'DynamoDB Table' && iv_table_name && 'created.' TYPE 'I'.
-      " It throws exception if the table already exists.
+        " It throws exception if the table already exists.
       CATCH /aws1/cx_dynresourceinuseex INTO DATA(lo_resourceinuseex).
         DATA(lv_error) = |"{ lo_resourceinuseex->av_err_code }" - { lo_resourceinuseex->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
@@ -5530,7 +5530,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
             ( VALUE /aws1/cl_dynattributevalue=>ts_putiteminputattrmap_maprow(
               key = 'rating' value = NEW /aws1/cl_dynattributevalue( iv_n = |{ '7.9' }| ) ) )
           ) ).
-        " TYPE REF TO ZCL_AWS1_dyn_PUT_ITEM_OUTPUT
+        " TYPE REF TO /AWSEX/CL_AWS1_dyn_PUT_ITEM_OUTPUT
         MESSAGE '3 rows inserted into DynamoDB Table' && iv_table_name TYPE 'I'.
       CATCH /aws1/cx_dyncondalcheckfaile00.
         MESSAGE 'A condition specified in the operation could not be evaluated.' TYPE 'E'.

@@ -1,15 +1,15 @@
-# 04-Query-Test.cs
+# 01-CreateTable.cs
 
-The `04-Query-Test.cs` program performs `Query`
-operations on `TryDaxTable`.
+The `01-CreateTable.cs` program creates a table
+(`TryDaxTable`). The remaining .NET programs in this
+section depend on this table.
 
 ```
 
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Amazon.Runtime;
-using Amazon.DAX;
+using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 
 namespace ClientTest
@@ -18,45 +18,30 @@ namespace ClientTest
     {
         public static async Task Main(string[] args)
         {
-            string endpointUri = args[0];
-            Console.WriteLine($"Using DAX client - endpointUri={endpointUri}");
-
-
-            var clientConfig = new DaxClientConfig(endpointUri)
-            {
-                AwsCredentials = FallbackCredentialsFactory.GetCredentials()
-            };
-            var client = new ClusterDaxClient(clientConfig);
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 
             var tableName = "TryDaxTable";
 
-            var pk = 5;
-            var sk1 = 2;
-            var sk2 = 9;
-            var iterations = 5;
-
-            var startTime = DateTime.Now;
-
-            for (var i = 0; i < iterations; i++)
+            var request = new CreateTableRequest()
             {
-                var request = new QueryRequest()
+                TableName = tableName,
+                KeySchema = new List<KeySchemaElement>()
                 {
-                    TableName = tableName,
-                    KeyConditionExpression = "pk = :pkval and sk between :skval1 and :skval2",
-                    ExpressionAttributeValues = new Dictionary<string, AttributeValue>() {
-                            {":pkval", new AttributeValue {N = pk.ToString()} },
-                            {":skval1", new AttributeValue {N = sk1.ToString()} },
-                            {":skval2", new AttributeValue {N = sk2.ToString()} }
-                    }
-                };
-                var response = await client.QueryAsync(request);
-                Console.WriteLine($"{i}: Query succeeded");
+                    new KeySchemaElement{ AttributeName = "pk",KeyType = "HASH"},
+                    new KeySchemaElement{ AttributeName = "sk",KeyType = "RANGE"}
+                },
+                AttributeDefinitions = new List<AttributeDefinition>() {
+                    new AttributeDefinition{ AttributeName = "pk",AttributeType = "N"},
+                    new AttributeDefinition{ AttributeName = "sk",AttributeType  = "N"}
+                },
+                ProvisionedThroughput = new ProvisionedThroughput()
+                {
+                    ReadCapacityUnits = 10,
+                    WriteCapacityUnits = 10
+                }
+            };
 
-            }
-
-            var endTime = DateTime.Now;
-            TimeSpan timeSpan = endTime - startTime;
-            Console.WriteLine($"Total time: {timeSpan.TotalMilliseconds} milliseconds");
+            var response = await client.CreateTableAsync(request);
 
             Console.WriteLine("Hit <enter> to continue...");
             Console.ReadLine();

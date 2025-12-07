@@ -1,54 +1,93 @@
-# PartiQL - a SQL-compatible query language for
+# PartiQL delete statements for DynamoDB
 
-Amazon DynamoDB
-
-Amazon DynamoDB supports [PartiQL](https://partiql.org/ "https://partiql.org/"), a SQL-compatible
-query language, to select, insert, update, and delete data in Amazon DynamoDB. Using PartiQL, you
-can easily interact with DynamoDB tables and run ad hoc queries using the AWS Management Console, NoSQL
-Workbench, AWS Command Line Interface, and DynamoDB APIs for PartiQL.
-
-PartiQL operations provide the same availability, latency, and performance as the other
-DynamoDB data plane operations.
-
-The following sections describe the DynamoDB implementation of PartiQL.
-
-###### Topics
-
-- [What is PartiQL?](#ql-reference.what-is "#ql-reference.what-is")
-- [PartiQL in Amazon DynamoDB](#ql-reference.what-is "#ql-reference.what-is")
-- [Getting started](ql-gettingstarted.md "ql-gettingstarted.md")
-- [Data types](ql-reference.md "ql-reference.md")
-- [Statements](ql-reference.md "ql-reference.md")
-- [Functions](ql-functions.md "ql-functions.md")
-- [Operators](ql-operators.md "ql-operators.md")
-- [Transactions](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md")
-- [Batch operations](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md")
-- [IAM policies](ql-iam.md "ql-iam.md")
-
-## What is PartiQL?
-
-_PartiQL_ provides SQL-compatible query access across multiple data
-stores containing structured data, semistructured data, and nested data. It is widely
-used within Amazon and is now available as part of many AWS services, including
-DynamoDB.
-
-For the PartiQL specification and a tutorial on the core query language, see the
-[PartiQL documentation](https://partiql.org/docs.html "https://partiql.org/docs.html").
+Use the `DELETE` statement to delete an existing item from your
+Amazon DynamoDB table.
 
 ###### Note
 
-- Amazon DynamoDB supports a _subset_ of the [PartiQL](https://partiql.org/ "https://partiql.org/") query language.
-- Amazon DynamoDB does not support the [Amazon ion](http://amzn.github.io/ion-docs/ "http://amzn.github.io/ion-docs/") data format or
-  Amazon Ion literals.
+You can only delete one item at a time. You cannot issue a single DynamoDB
+PartiQL statement that deletes multiple items. For information on deleting
+multiple items, see [Performing transactions
+with PartiQL for DynamoDB](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md") or [Running batch operations with
+PartiQL for DynamoDB](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md").
 
-## PartiQL in Amazon DynamoDB
+###### Topics
 
-To run PartiQL queries in DynamoDB, you can use:
+- [Syntax](#ql-reference.delete.syntax "#ql-reference.delete.syntax")
+- [Parameters](#ql-reference.delete.parameters "#ql-reference.delete.parameters")
+- [Return value](#ql-reference.delete.return "#ql-reference.delete.return")
+- [Examples](#ql-reference.delete.examples "#ql-reference.delete.examples")
 
-- The DynamoDB console
-- The NoSQL Workbench
-- The AWS Command Line Interface (AWS CLI)
-- The DynamoDB APIs
+## Syntax
 
-For information about using these methods to access DynamoDB, see [Accessing
-DynamoDB](AccessingDynamoDB.md "AccessingDynamoDB.md").
+```
+DELETE FROM `table`
+ WHERE `condition` [RETURNING `returnvalues`]
+ <returnvalues>  ::= ALL OLD *
+```
+
+## Parameters
+
+**`table`**
+
+(Required) The DynamoDB table containing the item to be
+deleted.
+
+**`condition`**
+
+(Required) The selection criteria for the item to be deleted; this
+condition must resolve to a single primary key value.
+
+**`returnvalues`**
+
+(Optional) Use `returnvalues` if you want to get the
+item attributes as they appeared before they were deleted. The valid
+values are:
+
+- `ALL OLD *`- The content of the old item is
+  returned.
+
+## Return value
+
+This statement does not return a value unless `returnvalues`
+parameter is specified.
+
+###### Note
+
+If the DynamoDB table does not have any item with the same primary key as
+that of the item for which the DELETE is issued, SUCCESS is returned with 0
+items deleted. If the table has an item with same primary key, but the
+condition in the WHERE clause of the DELETE statement evaluates to false,
+`ConditionalCheckFailedException` is returned.
+
+## Examples
+
+The following query deletes an item in the `"Music"` table.
+
+```
+DELETE FROM "Music" WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks'
+```
+
+You can add the parameter `RETURNING ALL OLD *` to return the data
+that was deleted.
+
+```
+DELETE FROM "Music" WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks' RETURNING ALL OLD *
+```
+
+The `Delete` statement now returns the following:
+
+```
+{
+    "Items": [
+        {
+            "Artist": {
+                "S": "Acme Band"
+            },
+            "SongTitle": {
+                "S": "PartiQL Rocks"
+            }
+        }
+    ]
+}
+```

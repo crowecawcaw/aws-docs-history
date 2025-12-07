@@ -2031,7 +2031,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
           iv_max_wait_time = 200
           iv_tablename     = iv_table_name ).
         MESSAGE 'DynamoDB Table' && iv_table_name && 'created.' TYPE 'I'.
-      " This exception can happen if the table already exists.
+        " This exception can happen if the table already exists.
       CATCH /aws1/cx_dynresourceinuseex INTO DATA(lo_resourceinuseex).
         DATA(lv_error) = |"{ lo_resourceinuseex->av_err_code }" - { lo_resourceinuseex->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
