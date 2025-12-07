@@ -72,7 +72,7 @@ sample `GET` operation, its **Response Code**, the
 Timeline** follows the **Trace Summary** that shows the
 duration of trace segments and subsegments.
 
-![A trace map, summary and segments timeline details information about service nodes and the segments in the trace.](/images/xray/latest/devguide/images/xray-trace-details-cw.png)
+![A trace map, summary and segments timeline details information about service nodes and the segments in the trace.](images/xray-trace-details-cw.png)
 
 If you have an event-driven application that uses Amazon SQS and Lambda, you can see a
 connected view of traces for each request in the **Trace map**. In
