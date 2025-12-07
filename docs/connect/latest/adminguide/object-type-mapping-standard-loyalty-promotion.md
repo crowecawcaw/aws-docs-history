@@ -5,6 +5,8 @@ mapping for the standard loyalty promotion
 The topics in this section provide the standard loyalty promotion
 definition.
 
+using
+
 ###### Contents
 
 - [Customer Profiles

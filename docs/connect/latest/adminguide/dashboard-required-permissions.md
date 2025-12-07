@@ -20,7 +20,7 @@ When you select **Access metrics - Access**:
 
 ![The Access option is selected for Access metrics, Real-time metrics, Historical metrics, and Agent activity audit.](images/permissions-create-and-share-reports.png)
 
-- Also add the **Saved reports - View** permission.
+- **Saved reports - View** permission.
 - You gain access to:
   - All tabs on the **Dashboards and reports**
     page.
@@ -67,14 +67,14 @@ reports** page.
 
 ![The Dashboards and reports page, access is granted to the Dashboards tab only.](images/dashboard-access.png)
 
-## Custom service level metric calculation
+## Custom metrics and permissions
 
-permissions
-
-To create customer service level metric calculations, you need the following
-permissions:
-
-- **Analytics and Optimization - Access metrics - Acces**s permission or the
-  **Dashboard - Access** permission.
-- **Analytics and Optimization - Custom metrics**: This permission enables
-  users to view, create and manage custom metrics.
+- **Analytics and Optimization - Access metrics** - Access
+  permission or the **Dashboard - Access** permission.
+- **Analytics and Optimization - Custom metrics**:
+  - This permission enables users to view, create and manage custom
+    metrics.
+  - If you have enabled Next Generation Amazon Connect in your instance, you
+    will have the ability to view, create, and manage custom metrics
+    with custom filters and functions in addition to custom customer
+    service level metric calculations.

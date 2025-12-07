@@ -7,7 +7,7 @@ To allow users to create, automate, and access evaluation forms, assign the foll
 
 - **Evaluation forms - perform evaluations**: Allows a user,
   such as a Quality Assurance team member, to use an evaluation form to review a
-  contact. For an example image, see [Evaluate contact center agent performance in Amazon Connect](evaluations.md "evaluations.md").
+  contact. For an example image, see [Evaluate agent and self-service interaction performance in Amazon Connect](evaluations.md "evaluations.md").
 
 This permission allows users to [search](search-evaluations.md "search-evaluations.md") evaluations by evaluation form, score, last updated
 date/range, evaluator, and status. It also allows them to view the evaluation

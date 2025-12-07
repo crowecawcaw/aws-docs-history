@@ -3,13 +3,13 @@
 colors, and data definitions in a view
 
 This topic explains how to configure column layouts, colors, and dynamic data
-fields in the Amazon Connect No-code UI builder to customize views for contact center
+fields in the Amazon Connect UI builder to customize views for contact center
 agents.
 
-In the No-code UI builder, the **Customize** panel is located on
+In the UI builder, the **Customize** panel is located on
 the right side, as shown in the following image.
 
-![An example of the Customize panel in the no-code UI builder, the global settings icon.](images/no-code-ui-builder-customize-panel-example.png)
+![An example of the Customize panel in the UI builder, the global settings icon.](images/no-code-ui-builder-customize-panel-example.png)
 You use the **Customize** panel to configure:
 
 - Global settings for the entire view resource.

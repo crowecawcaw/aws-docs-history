@@ -8,7 +8,7 @@ This is the URL to the CCP website:
 
 - **https://`instance
  name`.my.connect.aws/ccp-v2/**
-  This is the URL to the [agent application](#use-agent-application "#use-agent-application"):
+  This is the URL to the [agent workspace](#use-agent-workspace "#use-agent-workspace"):
 
 - **https://`instance
 name`.my.connect.aws/agent-app-v2/**
@@ -38,20 +38,20 @@ access it. 6. Train your agents on the CCP:
     * Watch [Training video: How to use the Contact Center Panel
      (CCP) in Amazon Connect](ccp-video-training.md "ccp-video-training.md")
 
-## Agent application: Everything in one
+## Agent workspace: Everything in one
 
 place
 
-Want your agents to manage contacts, and access customer profiles, cases, and
+Want your agents to handle contacts and access customer profiles, cases, and
 knowledge all in one place? Use the [agent
-application](agent-user-guide.md "agent-user-guide.md")!
+workspace](agent-user-guide.md "agent-user-guide.md")!
 
-The _agent application_ is a single web browser
+The _agent workspace_ is a single web browser
 interface that hosts the CCP, [Customer Profiles](ag-cp-select.md "ag-cp-select.md"), [Cases](search-cases.md "search-cases.md"), and [Amazon Q in Connect](search-for-answers.md "search-for-answers.md").
 
 If you're using the CCP that is provided with Amazon Connect, after you enable
 Customer Profiles, Cases, or Amazon Q in Connect, share the following URL with your agents so they can
-access it in the agent application:
+access it in the agent workspace:
 
 - **https://`instance
 name`.my.connect.aws/agent-app-v2/**

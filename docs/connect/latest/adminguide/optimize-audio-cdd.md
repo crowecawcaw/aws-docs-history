@@ -1,8 +1,8 @@
-# Use Agent Workspace to optimize audio for
+# Use the agent workspace to optimize audio for
 
 Citrix, Amazon WorkSpaces, and Omnissa cloud desktops
 
-You can use Amazon Connect Agent Workspace to simplify the delivery of high-quality voice
+You can use the Amazon Connect agent workspace to simplify the delivery of high-quality voice
 experiences in Amazon WorkSpaces, Citrix, and Omnissa Virtual Desktop Infrastructure (VDI)
 environments.
 
@@ -16,7 +16,7 @@ optimizations in the agent workspace.
 
 know
 
-- For non SSO users, if the agents navigate to Agent Workspace from the
+- For non SSO users, if the agents navigate to the agent workspace from the
   Amazon Connect admin website, there will be a query parameter for referrer already appended to
   the URL. The format of the URL is
   `https://`your-instance-url`/agent-app-v2?referrer=admin`.
@@ -36,9 +36,9 @@ know
 
 ## How to use audio optimization in
 
-Agent Workspace
+the agent workspace
 
-To use audio optimization in Agent Workspace, users need to have a query
+To use audio optimization in the agent workspace, users need to have a query
 parameter in the URL with a value for the VDI environment in which the agent
 workspace is used. This process signals the Contact Control Panel (CCP) to
 perform WebRTC redirection for the calls from that specific VDI environment to
@@ -49,7 +49,7 @@ environment.
 
 ### Use without SSO based login
 
-1. Go to your Amazon Connect Agent Workspace, and copy the URL for the agent
+1. Go to the Amazon Connect agent workspace, and copy the URL for the agent
    workspace to Notepad.
 2. Append a query parameter with the key `VDIPlatform` and
    the value equal to the specific VDI environment you have. For
@@ -76,7 +76,7 @@ environment.
 
 ### Use with SSO based login
 
-1. If you use SSO to directly login into Amazon Connect Agent Workspace, you
+1. If you use SSO to directly login into the Amazon Connect agent workspace, you
    need to change the relay state URL of your SSO setup to append the
    VDI query parameter. Complete the following steps to do this:
    1. Copy and paste the relay state you are using to access the
@@ -98,7 +98,7 @@ environment.
       `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=OMNISSA`
 
 2. Setting `VDIPlatform` in relay state URL automatically
-   sets the audio optimization in Agent Workspace for the specific VDI
+   sets the audio optimization in the agent workspace for the specific VDI
    environment being used.
    1. Log in from your IdP, and confirm that
       `VDIPlatform` is present as a query

@@ -47,8 +47,7 @@ additional steps that you may find useful:
    instance level.
 
 To learn how to monitor conversations, see [Enable enhanced multi-party contact monitoring
-in Amazon Connect](monitor-conversations.md "monitor-conversations.md"). 2. [Create conversational AI bots in
-Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md"). Use Amazon Lex in your
+in Amazon Connect](monitor-conversations.md "monitor-conversations.md"). 2. [Create conversational AI bots in Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md"). Use Amazon Lex in your
 contact center to reduce the load on your agents. For example, a bot can handle
 the initial interaction before the chat is routed to an agent, and also answer
 common questions for the customer.

@@ -3,6 +3,7 @@
 This topic lists all metrics in alphabetical order. For lists of metrics that apply only
 to a specific feature area, see these topics:
 
+- [Custom metric primitives](metric-primitive-definitions.md "metric-primitive-definitions.md")
 - [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md")
 - [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md")
 - [Conversational analytics
@@ -42,6 +43,33 @@ staffing, improved call routing strategies, or addressing queue bottlenecks.
 **Calculation logic**:
 
 - (Contacts abandoned / Contacts queues ) \* 100.0
+
+## Active AI Agents
+
+This metric measures the total number of unique [AI Agents](create-ai-agents.md "create-ai-agents.md"), where each AI
+Agent is identified by its unique combination of `Name` and `Version`.
+
+**Metric type**: Integer
+
+**Metric category**: AI Agent
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `ACTIVE_AI_AGENTS`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Active AI Agents
+
+**Calculation logic**:
+
+- For each AI Agent record
+  - If aiAgentId is NOT present, then skip this record.
+  - If aiAgentNameVersion is present, then return noncontroversial.
+
+- Return final_result = approximate unique count of aiAgentNameVersion values from matching records.
 
 ## Active slots
 
@@ -868,6 +896,601 @@ conversation duration.
 
 For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
 Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+
+## AI Handoffs
+
+This metric measures the total count of contacts handled by [AI Agents](create-ai-agents.md "create-ai-agents.md")
+that escalated to human agents. This metric is specifically applicable to self-service use cases where AI agents
+initially handle customer inquiries.
+
+**Metric type**: Integer
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_HANDOFFS`
+
+**How to access using the Amazon Connect admin website**:
+
+- Historical metrics reports: Active
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Active AI Agents
+
+**Calculation logic**:
+
+- For each AI Agent record
+  - If aiAgentId is NOT present, then skip this record.
+  - If aiAgentNameVersion is present, then return noncontroversial.
+
+- Return final_result = approximate unique count of aiAgentNameVersion values from matching records.
+
+## AI Handoff Rate
+
+This metric measures the percentage of contacts handled by [AI Agents](create-ai-agents.md "create-ai-agents.md")
+that had escalation to human agents or additional support.
+
+**Metric type**: Percent
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_HANDOFF_RATE`
+
+**How to access using the Amazon Connect admin website:**
+
+- Dashboard [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Handoff Rate
+
+**Calculation logic**:
+
+- Get total AI handoffs count.
+- Get total AI involved contacts count.
+- Calculate percentage: (AI handoffs / AI involved contacts) \* 100.0
+
+## AI Agent Invocations
+
+This metric measures the total count of [AI Agents](create-ai-agents.md "create-ai-agents.md") invocations across all
+AI-Agents per instance.
+
+**Metric type**: Integer
+
+**Metric category**: AI Agent
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_AGENT_INVOCATIONS`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Agent Invocation Count
+
+**Calculation logic**:
+
+- For each AI Agent record
+  - If aiAgentId is present, then count this record as 1.
+  - Else, skip this record.
+
+- Return final_result = sum of the counts from matching records.
+
+## AI Agent Invocation Success
+
+This metric measures the number of [AI Agents](create-ai-agents.md "create-ai-agents.md") invocations that executed
+successfully without technical failures such as API errors, timeouts, or system issues.
+
+**Metric type**: Integer
+
+**Metric category**: AI Agent
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_AGENT_INVOCATION_SUCCESS`
+
+**Calculation logic**:
+
+For each AI Agent record
+
+- If aiAgentId is NOT present, then skip this record.
+- If invocationSuccess is present and equals true, then count this record as 1.
+- Else, count this record as 0.
+
+- Return final_result = sum of the counts from matching records.
+
+## AI Agent Invocation Success Rate
+
+This metric measures the percentage of [AI Agents](create-ai-agents.md "create-ai-agents.md") invocations that
+executed successfully without technical failures.
+
+**Metric type**: Percent
+
+**Metric category**: AI Agent
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_AGENT_INVOCATION_SUCCESS_RATE`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Agent Invocation Success Rate
+
+**Calculation logic**:
+
+- Get total AI agent invocation success count.
+- Get total AI agent invocations count.
+- Calculate percentage: (AI agent invocation success / AI agent invocations) \* 100.0
+
+## AI Response Completion Rate
+
+This metric measures the percentage of [AI sessions](../APIReference/API_amazon-q-connect_CreateSession.md "../APIReference/API_amazon-q-connect_CreateSession.md") that successfully
+responded to incoming customer requests.
+
+This metric measures the total count of customer contacts where [AI
+Agents](create-ai-agents.md "create-ai-agents.md") were involved, either providing self-service automation or assisting human agents in resolving
+customer inquiries.
+
+**Metric type**: Percent
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_RESPONSE_COMPLETION_RATE`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Response Completion Rate
+
+**Calculation logic**:
+
+- Get weighted sum of AI completed responses calculated as agentInvocationCount \* agentResponseCompletionRate
+- Get total AI session invocation sum calculated as sum of agentInvocationCount
+- Calculate percentage: (weighted sum of AI completed responses / AI session invocation sum) \* 100.0
+
+## AI Involved Contacts
+
+This metric measures the total count of customer contacts where [AI
+Agents](create-ai-agents.md "create-ai-agents.md") were involved, either providing self-service automation or assisting human agents in resolving
+customer inquiries.
+
+**Metric type**: Integer
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_INVOLVED_CONTACTS`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Involved Contacts
+
+**Calculation logic**:
+
+- For each AI session record
+  - If contactId is NOT present, then skip this record.
+  - If sessionId is NOT present, then skip this record.
+  - Else, count this record as 1.
+
+- Return final_result = sum of the counts from matching records.
+
+## AI Prompt Invocation Success
+
+This metric measures the number of [AI
+Prompts](create-ai-prompts.md "create-ai-prompts.md") invocations that executed successfully without errors.
+
+**Metric type**: Integer
+
+**Metric category**: AI Prompt
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_PROMPT_INVOCATION_SUCCESS`
+
+**Calculation logic**:
+
+- For each AI Prompt record
+  - If aiPromptId is NOT present, then skip this record.
+  - If invocationSuccess is present and equals true, then count this record as 1.
+  - Else, count this record as 0.
+
+- Return final_result = sum of the counts from matching records.
+
+## AI Prompt Invocation Success Rate
+
+This metric measures the number of [AI
+Prompts](create-ai-prompts.md "create-ai-prompts.md") invocations that executed successfully without errors.
+
+**Metric type**: Percent
+
+**Metric category**: AI Prompt
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_PROMPT_INVOCATION_SUCCESS_RATE`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Prompt Invocation Success Rate
+
+**Calculation logic**:
+
+- Get total AI prompt invocation success count.
+- Get total AI prompt invocations count.
+- Calculate percentage: (AI prompt invocation success / AI prompt invocations) \* 100.0
+
+## AI Prompt Invocations
+
+This metric measures the total count of [AI Prompts](create-ai-prompts.md "create-ai-prompts.md") invocations.
+
+**Metric type**: Integer
+
+**Metric category**: AI Prompt
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_PROMPT_INVOCATIONS`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Prompt Invocation Count
+
+**Calculation logic**:
+
+- For each AI Prompt record
+  - If aiPromptId is present, then count this record as 1.
+  - Else, skip this record.
+
+- Return final_result = sum of the counts from matching records.
+
+## AI Tool Invocation Success
+
+This metric measures the total count of [AI Tools](ai-agent-mcp-tools.md "ai-agent-mcp-tools.md") invocations that
+executed successfuly.
+
+**Metric type**: Integer
+
+**Metric category**: AI Tool
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_TOOL_INVOCATION_SUCCESS`
+
+**Calculation logic**:
+
+- For each AI Tool record
+  - If aiToolId is NOT present, then skip this record.
+  - If invocationSuccess is present and equals true, then count this record as 1.
+  - Else, count this record as 0.
+
+- Return final_result = sum of the counts from matching records.
+
+## AI Tool Invocation Success Rate
+
+This metric measures the percentage of [AI Tools](ai-agent-mcp-tools.md "ai-agent-mcp-tools.md") invocations.
+
+**Metric type**: Percent
+
+**Metric category**: AI Tool
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_TOOL_INVOCATION_SUCCESS_RATE`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Tool Invocation Success Rate
+
+**Calculation logic**:
+
+- Get total AI tool invocation success count.
+- Get total AI tool invocations count.
+- Calculate percentage: (AI tool invocation success / AI tool invocations) \* 100.0
+
+## AI Tool Invocations
+
+This metric measures the percentage of [AI Tools](ai-agent-mcp-tools.md "ai-agent-mcp-tools.md") invocations.
+
+**Metric type**: Integer
+
+**Metric category**: AI Tool
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_TOOL_INVOCATIONS`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Tool Invocation Count
+
+**Calculation logic**:
+
+- For each AI Tool record
+  - If aiToolId is present, then count this record as 1.
+  - Else, skip this record.
+
+- Return final_result = sum of the counts from matching records.
+
+## Average AI Agent Conversation Turns
+
+This metric measures the average number of conversation turns that [AI
+Agents](create-ai-agents.md "create-ai-agents.md") took to reach an outcome.
+
+**Metric type**: Double
+
+**Metric category**: AI Agent
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AVG_AI_AGENT_CONVERSATION_TURNS`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Avg. AI agent conversation turns
+
+**Calculation logic**:
+
+- For each AI Agent record
+  - If aiAgentId is NOT present, then skip this record.
+  - If conversationTurnsInResponse is present, then set result = conversationTurnsInResponse.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+## Average AI Conversation Turns
+
+This metric measures the average number of conversation turns across all AI involved contacts.
+
+**Metric type**: Double
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AVG_AI_CONVERSATION_TURNS`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Avg. AI Conversation Turns
+
+**Calculation logic**:
+
+- For each AI session record
+  - If contactId is NOT present, then skip this record.
+  - If sessionId is NOT present, then skip this record.
+  - If avgConversationTurnsInResponse is present, then set result = avgConversationTurnsInResponse.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+## Average AI Prompt Invocation Latency
+
+This metric measures the average invocation latency of [AI Prompts](create-ai-prompts.md "create-ai-prompts.md") in
+milliseconds.
+
+**Metric type**: Double
+
+**Metric category**: AI Prompt
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AVG_AI_PROMPT_INVOCATION_LATENCY`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Avg. AI Prompt Invocation Latency
+
+**Calculation logic**:
+
+- For each AI Prompt record
+  - If aiPromptId is NOT present, then skip this record.
+  - If invocationLatency is present, then set result = invocationLatency.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+## Average AI Tool Invocation Latency
+
+This metric measures the average invocation latency of [AI Tools](ai-agent-mcp-tools.md "ai-agent-mcp-tools.md") in
+milliseconds.
+
+**Metric type**: Double
+
+**Metric category**: AI Prompt
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AVG_AI_TOOL_INVOCATION_LATENCY`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Avg. AI Tool Invocation Latency
+
+**Calculation logic**:
+
+- For each AI Tool record
+  - If aiToolId is NOT present, then skip this record.
+  - If invocationLatency is present, then set result = invocationLatency.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+## Knowledge Content References
+
+This metric measures the count of knowledge content articles referenced by [AI
+Agents](create-ai-agents.md "create-ai-agents.md").
+
+**Metric type**: Integer
+
+**Metric category**: AI Knowledge Base
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `KNOWLEDGE_CONTENT_REFERENCES`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Knowledge Base Reference Count
+
+**Calculation logic**:
+
+- For each KnowledgeBase record
+  - If knowledgeBaseId is present, then count this record as 1.
+  - Else, skip this record.
+
+- Return final_result = sum of the result values from matching records.
+
+## Proactive Intents Answered
+
+This metric measures the number of proactive intents (customer queries) that were successfully answered by [AI Agents](create-ai-agents.md "create-ai-agents.md") during AI sessions.
+
+**Metric type**: Integer
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `PROACTIVE_INTENTS_ANSWERED`
+
+**Calculation logic**:
+
+- For each AI session record
+  - If If contactId is NOT present, then skip this record.
+  - If sessionId is NOT present, then skip this record.
+  - If proactiveIntentsAnswered is present, then set result = proactiveIntentsAnswered.
+  - Else, skip this record.
+
+- Return final_result = sum of the result values from matching records.
+
+## Proactive Intents Detected
+
+This metric measures the number of proactive intents (customer queries) detected during AI sessions,
+particularly for Agent Assistance use cases.
+
+**Metric type**: Integer
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `PROACTIVE_INTENTS_DETECTED`
+
+**Calculation logic**:
+
+- For each AI session record
+  - If If contactId is NOT present, then skip this record.
+  - If sessionId is NOT present, then skip this record.
+  - If proactiveIntentsDetected is present, then set result = proactiveIntentsDetected.
+  - Else, skip this record.
+
+- Return final_result = sum of the result values from matching records.
+
+## Proactive Intents Engaged
+
+This metric measures the number of proactive intents (customer queries) detected during AI sessions,
+particularly for Agent Assistance use cases.
+
+**Metric type**: Integer
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `PROACTIVE_INTENTS_ENGAGED`
+
+**Calculation logic**:
+
+- For each AI session record
+  - If If contactId is NOT present, then skip this record.
+  - If sessionId is NOT present, then skip this record.
+  - If proactiveIntentsEngaged is present, then set result = proactiveIntentsEngaged.
+  - Else, skip this record.
+
+- Return final_result = sum of the result values from matching records.
+
+## Proactive Intent Engagement Rate
+
+This metric measures the percentage of detected proactive intents that were clicked or engaged with by human
+agents.
+
+**Metric type**: Percent
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `PROACTIVE_INTENT_ENGAGEMENT_RATE`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Proactive Intent Engagement Rate
+
+**Calculation logic**:
+
+- Get total proactive intents engaged count.
+- Get total proactive intents detected count.
+- Calculate percentage: (proactive intents engaged / proactive intents detected) \* 100.0
+
+## Proactive Intent Response Rate
+
+This metric measures the percentage of detected proactive intents that were clicked or engaged with by human
+agents.
+
+**Metric type**: Percent
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `PROACTIVE_INTENT_RESPONSE_RATE`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Proactive Intent Engagement Rate
+
+**Calculation logic**:
+
+- Get total proactive intents answered count.
+- Get total proactive intents engaged count.
+- Calculate percentage: (proactive intents answered / proactive intents engaged) \* 100.0
 
 ## API contacts
 
@@ -2736,6 +3359,24 @@ customer or the agent.
 
 For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
 Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+
+## Average Test Case Execution Duration
+
+The max duration of test runs that successfully started and completed.
+
+**Metric type**: Double
+
+**Metric category**: Flow driven metric
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
+
+**Calculation logic**:
+
+- If executionStartTime and executionEndTime are present and executionEndTime > 0
+  and executionEndTime > executionStartTime then return
+  (executionEndTime-executionStartTime)/1000
 
 ## Average wait time after customer connection - customer first callback
 
@@ -5140,6 +5781,26 @@ the queue management process.
 - Real-time metrics reports: Max Queued
 - Historical metrics reports: Maximum queued time
 
+## Max Test Case Execution Duration
+
+The max duration of test runs that successfully started and completed.
+
+**Metric type**: Double
+
+**Metric category**: Flow driven metric
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
+
+**Calculation logic**:
+
+- If executionStartTime and executionEndTime are present and executionEndTime > 0
+  and executionEndTime > executionStartTime then return
+  (executionEndTime-executionStartTime)/1000
+
+**Note**: Use MAX for statistic aggregation.
+
 ## Minimum flow time
 
 This metric returns the minimum time a flow took to complete within the specified
@@ -5726,7 +6387,6 @@ This metric helps organizations:
 **How to access using the Amazon Connect admin website**:
 
 - Real-time metrics reports: Staffed
-- Historical metrics reports: Staffed agents
 - Dashboard: Staffed agents
 
 **Related metrics**:
@@ -5853,3 +6513,52 @@ duration.
 
 For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in
 Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+
+## Test case execution count
+
+The total number of test case executions performed in automated testing scenarios.
+
+**Metric type**: Integer
+
+**Metric category**: Flow driven metric
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
+
+**Calculation logic**:
+
+- Sum of test cases executed in a timeframe where each test case execution record
+  contributes a value of 1
+
+## Test case failed rate
+
+The percentage of test runs completed with a failed outcome.
+
+**Metric type**: Double
+
+**Metric category**: Flow driven metric
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
+
+**Calculation logic**:
+
+- TEST_CASE_EXECUTION_FAILED_COUNT / TEST_CASE_EXECUTION_COUNT
+
+## Test case success rate
+
+The percentage of test runs completed with a successful outcome.
+
+**Metric type**: Double
+
+**Metric category**: Flow driven metric
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
+
+**Calculation logic**:
+
+- TEST_CASE_EXECUTION_SUCCESS_COUNT / TEST_CASE_EXECUTION_COUNT

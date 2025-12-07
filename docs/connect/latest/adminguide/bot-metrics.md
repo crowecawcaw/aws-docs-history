@@ -1,12 +1,10 @@
 # Amazon Connect bot metrics and analytics
 
 The following flow driven metrics are available on the [Flows and conversational bot performance
-dashboard](flows-performance-dashboard.md "flows-performance-dashboard.md")
-and the [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md").
+dashboard](flows-performance-dashboard.md "flows-performance-dashboard.md") and the
+[GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md").
 
-## Average bot conversation
-
-time
+## Average bot conversation time
 
 This metric measures the average duration of completed conversations for which the invoking
 resource (flow or flow module) started between the specified start and end time.
@@ -33,9 +31,7 @@ It can be filtered on specific conversation outcomes with
 - Data for this metric is available starting from December 2, 2024 00:00:00
   GMT.
 
-## Average bot conversation
-
-turns
+## Average bot conversation turns
 
 This metric provides the average number of turns for completed conversations for which the invoking
 resource (flow or flow module) started between the specified start and end time.
@@ -65,9 +61,7 @@ It can be filtered on specific conversation outcomes with
 - Data for this metric is available starting from December 2, 2024 00:00:00
   GMT.
 
-## Bot conversations
-
-completed
+## Bot conversations completed
 
 This metric provides the count of completed conversations for which the invoking resource
 (flow or flow module) started between the specified start and end time. The conversation
@@ -207,9 +201,7 @@ between the specified start and end time.
 - Data for this metric is available starting from December 2, 2024 00:00:00
   GMT.
 
-## Percent bot intents
-
-outcome
+## Percent bot intents outcome
 
 This metric provides the percentage of intents that ended in the specific outcome type specified in
 the metric level filter (`BOT_INTENT_OUTCOME_TYPE`). It includes

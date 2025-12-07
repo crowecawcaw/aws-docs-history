@@ -12,7 +12,7 @@ information before starting a contact:
   flow.
 
 To create the form, you create a custom view and use the connect action
-button component. For more information on views, see [Use the no-code UI builder in Amazon Connect for resources
+button component. For more information on views, see [Use the UI builder in Amazon Connect for resources
 in step-by-step guides](no-code-ui-builder.md "no-code-ui-builder.md").
 
 The connect action button allows you to take in user input from the form and select

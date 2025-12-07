@@ -212,7 +212,7 @@ pre-populate the input with a JSON schema that contains sample data.
 
 Ensure you [configure
 dynamic references](no-code-ui-builder-properties-dynamic-fields.md "no-code-ui-builder-properties-dynamic-fields.md") for dynamic data (for example, $.Channel)
-in the No-code UI builder to be populated at run time.
+in the UI builder to be populated at run time.
 
 The following image shows the **Apply Sample Data**
 option.

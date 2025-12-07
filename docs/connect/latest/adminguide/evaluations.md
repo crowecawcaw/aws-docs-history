@@ -1,4 +1,4 @@
-# Evaluate contact center agent performance in Amazon Connect
+# Evaluate agent and self-service interaction performance in Amazon Connect
 
 ###### Tip
 
@@ -12,15 +12,16 @@ capabilities, go to the Amazon Connect console, choose your instance alias, choo
 **Edit**. You'll be prompted to create or choose an S3 bucket.
 After the bucket is created, you can store evaluations and export them.
 
-Amazon Connect helps you to assess, track, and improve how agents interact with customers and
-resolve issues. For example, you can search for a contact, choose the appropriate evaluation
-form, review the contact audio, transcript, or both, and then evaluate how the agent
-interacted with the customer. You can then use that feedback to help the agent deliver
-improved customer experiences.
+Amazon Connect performance evaluations enables you to define custom performance evaluation criteria
+to assess, monitor and improve how agents and automated systems (bots, AI agents)
+interact with customers and resolve issues. You can evaluate contacts manually or
+automatically using integrated generative AI and contact metrics. You can then review
+aggregated insights and drill-down into individual contacts, where you can see evaluations
+alongside audio and screen recordings, transcripts and insights from conversational analytics.
 
-You can perform manual evaluations for all contact types (such as voice, chat, email, and task).
-Automated evaluations only work for voice and chat contacts analyzed by conversational
-analytics.
+You can perform manual evaluations for all contact types (voice, chat, email, and task). You can perform automated interactions for voice and chat contacts analyzed by Amazon Connect conversational analytics. You can perform automated evaluations of both agent interactions and automated interactions (handled by bots or AI agents). For more details on automated evaluations, see [Step 6: Enable automated evaluations](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate").
+
+To perform manual evaluations, you can search for a contact, choose the appropriate evaluation form, review the contact audio, screen recording or transcript, and then evaluate how the human, AI agent, or bot interacted with the customer. You can then use those insights to improve the customer experience by providing agent coaching feedback and optimizing bots, AI agents and self-service workflows.
 
 ###### To evaluate performance
 
@@ -39,8 +40,10 @@ analytics.
 ![The Contact details page, the Evaluations button.](images/evaluationforms-evaluatebutton.png) 4. The **Evaluations** panel lists any evaluations that are in
 progress or completed for the contact.
 
-![The evaluations pane, the status of two evaluations.](images/evaluationforms-startevaluation.png) 5. To start an evaluation, choose an evaluation from the dropdown menu, and then
-choose **Start evaluation**. 6. To navigate an especially long evaluation form, use the arrows next to each
+![The evaluations pane, the status of two evaluations.](images/evaluationforms-startevaluation.png) 5. To start an evaluation, choose an evaluation form from the dropdown menu, and then
+choose **Start evaluation**. If you have not set up an
+evaluation form yet, then you will need to do so beforehand. For more information, see [Create an evaluation
+form](create-evaluation-forms.md "create-evaluation-forms.md"). 6. To navigate an especially long evaluation form, use the arrows next to each
 section to collapse or expand it.
 
 ![The evaluations pane, the arrow to collapse or expand a section.](images/evaluationforms-exampleevaluation.png) 7. Choose **Save** to save a form in progress. The status of the

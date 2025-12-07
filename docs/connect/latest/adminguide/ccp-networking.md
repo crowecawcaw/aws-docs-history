@@ -131,19 +131,19 @@ is in. If you don't want to use the
 TurnNlb-\*.elb.`region`.amazonaws.com wildcard, you can add
 these endpoints to your allowlist instead.
 
-| Region         | Turn Domain/URL                                                                                                                                                      |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| us-west-2      | TurnNlb-8d79b4466d82ad0e.elb.us-west-2.amazonaws.com<br>TurnNlb-dbc4ebb71307fda2.elb.us-west-2.amazonaws.com<br>TurnNlb-13c884fe3673ed9f.elb.us-west-2.amazonaws.com |
-| us-east-1      | TurnNlb-d76454ac48d20c1e.elb.us-east-1.amazonaws.com<br>TurnNlb-31a7fe8a79c27929.elb.us-east-1.amazonaws.com<br>TurnNlb-7a9b8e750cec315a.elb.us-east-1.amazonaws.com |
-| af-south-1     | TurnNlb-29b8f2824c2958b8.elb.af-south-1.amazonaws.com                                                                                                                |
-| ap-northeast-1 | TurnNlb-3c6ddabcbeb821d8.elb.ap-northeast-1.amazonaws.com                                                                                                            |
-| ap-northeast-2 | TurnNlb-a2d59ac3f246f09a.elb.ap-northeast-2.amazonaws.com                                                                                                            |
-| ap-southeast-1 | TurnNlb-261982506d86d300.elb.ap-southeast-1.amazonaws.com                                                                                                            |
-| ap-southeast-2 | TurnNlb-93f2de0c97c4316b.elb.ap-southeast-2.amazonaws.com                                                                                                            |
-| ca-central-1   | TurnNlb-b019de6142240b9f.elb.ca-central-1.amazonaws.com                                                                                                              |
-| eu-central-1   | TurnNlb-ea5316ebe2759cbc.elb.eu-central-1.amazonaws.com                                                                                                              |
-| eu-west-2      | TurnNlb-1dc64a459ead57ea.elb.eu-west-2.amazonaws.com                                                                                                                 |
-| us-gov-west-1  | TurnNlb-d7c623c23f628042.elb.us-gov-west-1.amazonaws.com                                                                                                             |
+| Region         | Turn Domain/URL                                                                                                                                                                                                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| us-west-2      | TurnNlb-8d79b4466d82ad0e.elb.us-west-2.amazonaws.com<br>TurnNlb-dbc4ebb71307fda2.elb.us-west-2.amazonaws.com<br>TurnNlb-13c884fe3673ed9f.elb.us-west-2.amazonaws.com<br>TurnNlb-6bb66ee54ee32710.elb.us-west-2.amazonaws.com<br>TurnNlb-ecc67f8fbd7a29f6.elb.us-west-2.amazonaws.com |
+| us-east-1      | TurnNlb-d76454ac48d20c1e.elb.us-east-1.amazonaws.com<br>TurnNlb-31a7fe8a79c27929.elb.us-east-1.amazonaws.com<br>TurnNlb-7a9b8e750cec315a.elb.us-east-1.amazonaws.com<br>TurnNlb-d40f7ff9cdd63758.elb.us-east-1.amazonaws.com<br>TurnNlb-7675623c965365c2.elb.us-east-1.amazonaws.com |
+| af-south-1     | TurnNlb-29b8f2824c2958b8.elb.af-south-1.amazonaws.com                                                                                                                                                                                                                                |
+| ap-northeast-1 | TurnNlb-3c6ddabcbeb821d8.elb.ap-northeast-1.amazonaws.com                                                                                                                                                                                                                            |
+| ap-northeast-2 | TurnNlb-a2d59ac3f246f09a.elb.ap-northeast-2.amazonaws.com                                                                                                                                                                                                                            |
+| ap-southeast-1 | TurnNlb-261982506d86d300.elb.ap-southeast-1.amazonaws.com                                                                                                                                                                                                                            |
+| ap-southeast-2 | TurnNlb-93f2de0c97c4316b.elb.ap-southeast-2.amazonaws.com                                                                                                                                                                                                                            |
+| ca-central-1   | TurnNlb-b019de6142240b9f.elb.ca-central-1.amazonaws.com                                                                                                                                                                                                                              |
+| eu-central-1   | TurnNlb-ea5316ebe2759cbc.elb.eu-central-1.amazonaws.com<br>TurnNlb-cce94fede9926d70.elb.eu-central-1.amazonaws.com                                                                                                                                                                   |
+| eu-west-2      | TurnNlb-1dc64a459ead57ea.elb.eu-west-2.amazonaws.com<br>TurnNlb-0c39b6a52bcdd446.elb.eu-west-2.amazonaws.com                                                                                                                                                                         |
+| us-gov-west-1  | TurnNlb-d7c623c23f628042.elb.us-gov-west-1.amazonaws.com                                                                                                                                                                                                                             |
 
 ## Option 2 (not recommended): Allow IP address ranges
 

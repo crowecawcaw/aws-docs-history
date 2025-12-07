@@ -7,14 +7,14 @@ Amazon Connect instance.
 Amazon Connect handles a variety of data related to the contact center, including but not
 limited to the following categories.
 
-- **Resources and configurations** -- This includes
+- **Resources and configurations** – This includes
   queues, flows, users, routing profiles, and task templates.
-- **Contact metadata**-- This includes connection
+- **Contact metadata** – This includes connection
   time, handle time, source number (ANI), destination number (DNIS), and user
   defined contact attributes.
-- **Agent-related performance data** -- This
+- **Agent-related performance data** – This
   includes login time, status changes, and contacts handled.
-- **Phone call audio streams** -- When enabled,
+- **Phone call audio streams** – When enabled,
   this also includes call recordings.
 - **Chat transcripts** – Included only if enabled
   in flows.

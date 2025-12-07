@@ -1,18 +1,18 @@
 # UI component library for
 
-No-code UI builder in Amazon Connect
+UI builder in Amazon Connect
 
-All of the No-code UI builder components are described in the [Amazon Connect UI
+All of the UI builder components are described in the [Amazon Connect UI
 component documentation](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/overview--page "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/overview--page"). This documentation shows you the individual UI
-components that you can use in the No-code UI builder, and how you can configure
+components that you can use in the UI builder, and how you can configure
 them.
 
-You access the library components in the no-code UI builder in the
+You access the library components in the UI builder in the
 **Create** panel, the **Library** tab. The
 following image shows an example of the **Library** tab and the
 **Container** components.
 
-![The no-code builder Create panel, the Library tab, the UI components.](images/user-interface-component-library-example.png)
+![The UI builder Create panel, the Library tab, the UI components.](images/user-interface-component-library-example.png)
 
 ## Use Containers to
 

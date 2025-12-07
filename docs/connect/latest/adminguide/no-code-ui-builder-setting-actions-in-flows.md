@@ -3,7 +3,7 @@
 appear as flow branches in the Show view block
 
 In step-by-step guides, users must choose a button to proceed to a new page in
-guides. You configure these buttons in the no-code UI builder by setting an Action
+guides. You configure these buttons in the UI builder by setting an Action
 for each button. For example, you can configure a button to submit a form.
 
 When a user chooses the button at runtime, the guide sends a response message to

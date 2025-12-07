@@ -17,6 +17,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 - [Telephony call metadata attributes
   (call attributes)](#telephony-call-metadata-attributes "#telephony-call-metadata-attributes")
 - [Chat initial message attributes](#chat-initial-message-attributes "#chat-initial-message-attributes")
+- [Email attributes](#email-attribs "#email-attribs")
 - [Media streams attributes](#media-stream-attribs "#media-stream-attribs")
 - [Amazon Lex contact attributes](#attribs-lex-table "#attribs-lex-table")
 - [Case contact attributes](#attribs-case-table "#attribs-case-table")
@@ -206,6 +207,14 @@ providers and may not be available in all cases. This may result in empty values
 | Attribute      | Description                                                        | Type   | JSONPath Reference     |
 | -------------- | ------------------------------------------------------------------ | ------ | ---------------------- |
 | InitialMessage | The initial message supplied by the customer on a web chat or SMS. | System | $.Media.InitialMessage |
+
+## Email attributes
+
+The following table lists the email attributes available in Amazon Connect.
+
+| Attribute                  | Description                                                                                                                                                                        | Type   | JSONPath Reference             |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------------------------ |
+| Email message (Plain text) | When using the [Get stored content](get-stored-content.md "get-stored-content.md") flow block, this will store the plain text<br>version of the email message from email contacts. | System | $.Email.EmailMessage.Plaintext |
 
 ## Media streams attributes
 

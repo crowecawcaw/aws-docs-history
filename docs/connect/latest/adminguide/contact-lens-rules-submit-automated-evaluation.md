@@ -62,15 +62,30 @@ create such a rule by selecting **Create a rule**,
    source. These two options are highlighted in the following
    image.
 
-![The post-call analysis and post-chat analysis options.](images/defined-conditions-evaluations.png) 2. Define conditions (such as specific queues) to be
-automatically evaluated, and then choose
-**Next**. 3. On the **Define actions** page, provide a
-category name to identify the rule. 4. Choose **Add action**, select
-**Submit automated evaluation**, and select
-the form that you want to use for automatically submitting an
-evaluation. (This action is already selected on the page if you
-created the rule when you activate the form.) 5. Choose **Next**. Review and then choose
-**Save and Publish**.
+![The post-call analysis and post-chat analysis options.](images/defined-conditions-evaluations.png) 2. Define conditions to identity contacts to be automatically evaluated, and then choose **Next**.
+
+Example conditions that you can use to identify the specific set of agents or contacts on which the evaluation form is applicable are:
+
+    * Agents
+    * Agent hierarchy
+    * AI agent
+    * Queues
+    * Initiation method
+
+In addition, you can exclude contacts that may have ended prematurely due to connectivity or other issues using conditions such as:
+
+    * Interaction duration (for example, over 30 seconds)
+    * Talk time (for example, the customer speaks for over 10 seconds)
+    * Potential disconnect issue when the issue does not exist or there is no known connectivity or device issue during the conversation
+
+3. On the **Define actions** page provide a category name to identify the rule.
+4. Choose **Add action**, select
+   **Submit automated evaluation**, and select
+   the form that you want to use for automatically submitting an
+   evaluation. (This action is already selected on the page if you
+   created the rule when you activate the form.)
+5. Choose **Next**. Review and then choose
+   **Save and Publish**.
 
 After you add rules, they are applied to new contacts that occur after
 the rule was added. Rules are applied when Contact Lens analyzes

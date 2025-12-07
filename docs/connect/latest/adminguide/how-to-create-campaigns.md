@@ -2,7 +2,11 @@
 
 1. Open the Amazon Connect Outbound campaigns page from the Amazon Connect admin website.
 
-![The Amazon Connect navigation menu showing the Outbound campaigns option highlighted in the left navigation pane.](images/how-to-create-campaigns-1.png) 2. From the **Campaign management** page, choose **Create Campaign**.
+![The Amazon Connect navigation menu showing the Outbound campaigns option highlighted in the left navigation pane.](images/how-to-create-campaigns-1.png) 2. From the **Output Campaigns**, choose Create Campaign.
+
+You have two options to create an outbound campaigns. Use visual journey builder to
+create multi-channel and multi-steps using an intuitive drag-and-drop canvas, or use guided
+campaign builder to create a single-channel using step-by-step guidance.
 
 ![The Campaign management dashboard showing the Create campaign button in the upper right corner.](images/how-to-create-campaigns-2.png) 3. Enter a campaign **Name**.
 
@@ -43,10 +47,10 @@ Email
 3. Select an **Email Message Template** to use when
    sending.
 4. Select the **Template Alias or Version** number to use
-   with the campaign.  If an alias is selected, then the contents of emails sent by the
-   campaign may change when the alias is updated to point to a new template version. If a
-   version is selected, the campaign will always send the exact same content for the life of
-   the campaign.
+   with the campaign.  If you select an alias, then the contents of emails sent by the
+   campaign may change when the alias is updated to point to a new template version. If you
+   select a version, the campaign will always send the exact same content for the life of the
+   campaign.
 
 ![Email campaign creation interface with sender, template, and scheduling configuration options.](images/create_campaign_email-1.png)
 
@@ -138,10 +142,10 @@ Automated Voice
 
 1. Select the **Contact Flow** to use for the outbound
    call.  If **Reattempts**, call classification, or waiting for
-   a prompt is desired, then the Flow must contain a [Check call progress](check-call-progress.md "check-call-progress.md")
+   a prompt is desired, then the flow must contain a [Check call progress](check-call-progress.md "check-call-progress.md")
    block.
 2. Select a **Source Phone Number**.  This is a phone
-   number associated with the Connect Instance.
+   number associated with your Amazon Connect instance.
 
 ###### Important
 
@@ -163,12 +167,38 @@ SMS
 2. Select an **SMS Message Template** to use when
    sending.
 3. Select the **Template alias or version** number to use
-   with the campaign.  If an alias is selected, then the contents of SMS sent by the campaign
+   with the campaign.  If you select an alias, then the contents of SMS sent by the campaign
    may change when the alias is updated to point to a new template version.  On the other
-   hand, if a Version is selected, the campaign will always send the exact same content for
-   the life of the campaign.
+   hand, if select a version, the campaign will always send the exact same content for the
+   life of the campaign.
 
 ![SMS configuration panel showing originator selection, SMS message template dropdown, and template alias or version selection options.](images/create_campaign_sms-1.png)
+
+WhatsApp
+
+###### Important
+
+To enable Amazon Connect Outbound Campaigns to send messages and Amazon Q Connect to manage and
+create WhatsApp message templates, your WhatsApp Business Account (WABA) in AWS End User Messaging Social
+must be tagged with `AmazonConnectEnabled`: `True`.
+
+If you linked your WABA to Amazon Connect after WhatsApp support for Amazon Connect Outbound Campaigns
+was launched, this tag is automatically applied. For WABAs linked before this launch, you
+must manually add this tag to enable these capabilities.
+
+For information about adding tags to your WABA, see [Getting started with AWS End User Messaging Social](../../../social-messaging/latest/userguide/getting-started-whatsapp.md "../../../social-messaging/latest/userguide/getting-started-whatsapp.md").
+
+1. Select an **Originator**.  This is the phone number used
+   to *send* the text messages. For more information, see [Set up WhatsApp Business messaging](whatsapp-integration.md "whatsapp-integration.md").
+2. Select a **WhatsApp Message Template** to use when
+   sending.
+3. Select the **Template alias or version** number to use
+   with the campaign. If an alias is selected, then the contents of WhatsApp sent by the
+   campaign might change when the alias is updated to point to a new template version. If a
+   Version is selected, the campaign will always send the exact same content for the life of
+   the campaign.
+
+![WhatsApp configuration page showing originator selection, WhatsApp message template dropdown, and template alias or version selection options.](images/create_campaign_whatsapp-1.png)
 
 ## Outbound campaigns attempts
 

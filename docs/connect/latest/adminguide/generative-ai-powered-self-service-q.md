@@ -49,8 +49,7 @@ You can customize these default tools to meet your specific requirements.
 
 Follow these steps to enable Amazon Q in Connect for self-service:
 
-1.  Enable Amazon Q in Connect in your Amazon Lex bot by activating the [AMAZON.QinConnectIntent](../../../lexv2/latest/dg/built-in-intent-qinconnect.md "../../../lexv2/latest/dg/built-in-intent-qinconnect.md"). For instructions, see [Create an Amazon Q in Connect
-    intent](create-qic-intent-connect.md "create-qic-intent-connect.md").
+1.  Enable Amazon Q in Connect in your Amazon Lex bot by activating the [AMAZON.QinConnectIntent](../../../lexv2/latest/dg/built-in-intent-qinconnect.md "../../../lexv2/latest/dg/built-in-intent-qinconnect.md"). For instructions, see [Create an Amazon Q in Connect intent](create-qic-intent-connect.md "create-qic-intent-connect.md").
 2.  Add an [Amazon Q in Connect](q-block.md "q-block.md") block to
     your flow.
 3.  Add a [Get customer input](get-customer-input.md "get-customer-input.md") block to your flow to
@@ -59,8 +58,7 @@ Follow these steps to enable Amazon Q in Connect for self-service:
         * When Amazon Q in Connect should begin handling customer interactions.
         * Which types of interactions it should handle.
 
-    For instructions, see [Create a flow and add your conversational AI
-    bot](create-bot-flow.md "create-bot-flow.md").
+    For instructions, see [Create a flow and add your conversational AI bot](create-bot-flow.md "create-bot-flow.md").
 
 4.  (Optional) Add a [Check contact
     attributes](check-contact-attributes.md "check-contact-attributes.md") block to your flow and

@@ -1,8 +1,8 @@
-# No-code UI builder templates to get
+# UI builder templates to get
 
 started quickly
 
-The no-code UI builder includes templates that you can use to pre-populate your
+The UI builder includes templates that you can use to pre-populate your
 canvas with components. To access the templates:
 
 1. In the no-code builder, open the **Create** panel.

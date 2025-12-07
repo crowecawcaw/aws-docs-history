@@ -49,8 +49,7 @@ The all-inclusive pricing includes unlimited use of:
     + AI-powered voice and chat through Amazon Lex and Amazon Q in Connect
     + AI-powered generative voice for text-to-speech (TTS) in Amazon Connect
 
-We recommend reviewing [Opt out of using your data for service
-improvement](data-opt-out.md "data-opt-out.md") to learn which Amazon Connect services use your
+We recommend reviewing [Service Improvement and how to opt out from using your data for service improvement](data-opt-out.md "data-opt-out.md") to learn which Amazon Connect services use your
 customer's data to train machine learning models, and how you can opt
 out.
 

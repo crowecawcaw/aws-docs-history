@@ -12,8 +12,8 @@ the key for encryption and decryption. For example:
 - If you call the [DisassociateInstanceStorageConfig](../APIReference/API_DisassociateInstanceStorageConfig.md "../APIReference/API_DisassociateInstanceStorageConfig.md") API to dissociate the AWS KMS key
   from the S3 storage location in Amazon Connect, the grant is removed from the key.
 - If you call the [AssociateInstanceStorageConfig](../APIReference/API_AssociateInstanceStorageConfig.md "../APIReference/API_AssociateInstanceStorageConfig.md") API to associate the AWS KMS key to
-  the S3 storage location in Amazon Connect but you don't have the kms:CreateGrant
-  permission, the association will fail.
+  the S3 storage location in Amazon Connect but you don't have the
+  `kms:CreateGrant` permission, the association will fail.
   Use the [`list-grants`](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/kms/list-grants.html "https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/kms/list-grants.html") CLI command to list all grants for the
   specified customer managed key.
 
@@ -41,8 +41,20 @@ customer managed key, which affects Amazon Connect services that are dependent o
 
 ## Customer Profiles
 
-For Customer Profiles, you can specify AWS KMS keys, including bring your own keys (BYOK), to use
-for envelope encryption with Amazon S3 input/output buckets.
+For Customer Profiles, you can specify AWS KMS keys to use for encrypting your data. If you don't
+specify a customer managed key, Amazon Connect Customer Profiles provides encryption by default for your
+data at rest using an AWS-owned encryption key.
+
+Before you turn on Data Store for a new or existing domain, you must configure an
+AWS KMS key.
+
+You can also define individual KMS keys for your Object Types. When encrypting
+customer data, we use the Object Type KMS key if present. Otherwise, we use the
+domain's KMS key.
+
+After you enable Data Vault, you can't update KMS keys for your domain or Object
+Types. While you can create new Object Types with new keys, you can't modify
+existing key settings.
 
 ## Voice ID
 

@@ -2,17 +2,17 @@
 
 ###### Important
 
-**End of support notice**: On September 15, 2025,
-AWS will discontinue support for Amazon Lex V1. After September 15,
-2025, you will no longer be able to access the Amazon Lex V1 console or Amazon Lex V1
-resources. To learn about migrating to Amazon Lex V2, see [Migrating a bot](../../../lex/latest/dg/migrate.md "../../../lex/latest/dg/migrate.md").
+**End of support notice**: On September 15, 2025, AWS will discontinue support for Amazon Lex V1. After September 15, 2025, you will no
+longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. To learn about migrating
+to Amazon Lex V2, see [Migrating a
+bot](../../../lex/latest/dg/migrate.md "../../../lex/latest/dg/migrate.md").
 
 In this article we guide you through the steps to add an Amazon Lex bot to Amazon Connect.
 
-With Amazon Lex, you can build conversational interactions (bots) that feel natural to
-your customers. Amazon Connect with Amazon Lex bots can also capture customer input as digits that
-customers enter on their numeric keypad when used in an Amazon Connect flow. This way customers
-can choose how they want to enter sensitive information such as account numbers.
+With Amazon Lex, you can build conversational interactions (bots) that feel natural to your
+customers. Amazon Connect with Amazon Lex bots can also capture customer input as digits that customers enter
+on their numeric keypad when used in an Amazon Connect flow. This way customers can choose how they want to
+enter sensitive information such as account numbers.
 
 To follow along with this walkthrough, you need the following:
 
@@ -21,119 +21,108 @@ To follow along with this walkthrough, you need the following:
 
 ###### Tip
 
-You can also use Amazon Lex to power interactive messages for Amazon Connect chat. Interactive
-messages are rich messages that present a prompt and pre-configured display options
-that a customer can select from. These messages are powered by Amazon Lex and
-configured through Amazon Lex using a Lambda. For more information, see [Add Amazon Lex interactive messages for customers in
+You can also use Amazon Lex to power interactive messages for Amazon Connect chat. Interactive messages
+are rich messages that present a prompt and pre-configured display options that a customer can
+select from. These messages are powered by Amazon Lex and configured through Amazon Lex using a
+Lambda. For more information, see [Add Amazon Lex interactive messages for customers in
 chat](interactive-messages.md "interactive-messages.md").
 
 ## Create an Amazon Lex bot
 
-In this step you'll create a custom bot to demonstrate the Press or Say
-integration with Amazon Connect. The bot prompts callers to press or say a number that
-matches the menu option for the task to complete. In this case, the input is
-checking their account balance.
+In this step you'll create a custom bot to demonstrate the Press or Say integration with
+Amazon Connect. The bot prompts callers to press or say a number that matches the menu option for the
+task to complete. In this case, the input is checking their account balance.
 
 Amazon Lex
 
 1. Open the [Amazon Lex
    console.](https://console.aws.amazon.com/lexv2/home "https://console.aws.amazon.com/lexv2/home")
 2. Choose **Create bot**.
-3. On the **Configure bot settings** page,
-   choose **Create - Create a blank bot** and
-   provide the following information:
-   - **Bot name** — For this
-     walkthrough, name the bot
-     **AccountBalance**.
-   - **IAM permissions** — Select a
-     role if you have one created. Otherwise, choose
-     **Create a role with basic Amazon Lex
-     permissions**.
-   - **COPPA** — Choose whether the
-     bot is subject to the Child Online Privacy Protection
-     Act.
-   - **Session timeout** — Choose
-     how long the bot should wait to get input from a caller
-     before ending the session.
+3. On the **Configure bot settings** page, choose
+   **Create - Create a blank bot** and provide the
+   following information:
+   - **Bot name** — For this walkthrough, name
+     the bot **AccountBalance**.
+   - **IAM permissions** — Select a role if
+     you have one created. Otherwise, choose **Create a role
+     with basic Amazon Lex permissions**.
+   - **COPPA** — Choose whether the bot is
+     subject to the Child Online Privacy Protection Act.
+   - **Session timeout** — Choose how long the
+     bot should wait to get input from a caller before ending the
+     session.
 
 4. Choose **Next**.
 5. Provide language and voice specific information:
-   - **Language** — Select language
-     and locale from the list of [Languages
-     and locales supported by Amazon Lex](../../../lexv2/latest/dg/how-languages.md "../../../lexv2/latest/dg/how-languages.md").
-   - **Voice interaction** — Select
-     the voice for your bot to use when speaking to callers.
-     The default voice for Amazon Connect is Joanna.
+   - **Language** — Select language and locale
+     from the list of [Languages and locales
+     supported by Amazon Lex](../../../lexv2/latest/dg/how-languages.md "../../../lexv2/latest/dg/how-languages.md").
+   - **Voice interaction** — Select the voice
+     for your bot to use when speaking to callers. The default voice
+     for Amazon Connect is Joanna.
 
-6. Choose **Done**. The AccountBalance bot is
-   created, and the **Intent** page is
-   displayed.
+6. Choose **Done**. The AccountBalance bot is created, and
+   the **Intent** page is displayed.
 
 Amazon Lex (Classic)
 
-1. Open the [Amazon Lex console.](https://console.aws.amazon.com/lex/ "https://console.aws.amazon.com/lex/")
+1. Open the [Amazon Lex
+   console.](https://console.aws.amazon.com/lex/ "https://console.aws.amazon.com/lex/")
 2. If you are creating your first bot, choose **Get
    Started**. Otherwise, choose **Bots,
    Create**.
 3. On the **Create your bot** page, choose
    **Custom bot** and provide the following
    information:
-   - **Bot name** — For this
-     walkthrough, name the bot
-     **AccountBalance**.
-   - **Output voice** — Select the
-     voice for your bot to use when speaking to callers. The
-     default voice for Amazon Connect is Joanna.
-   - **Session timeout** — Choose
-     how long the bot should wait to get input from a caller
-     before ending the session.
-   - **COPPA** — Choose whether the
-     bot is subject to the Child Online Privacy Protection
-     Act.
+   - **Bot name** — For this walkthrough, name
+     the bot **AccountBalance**.
+   - **Output voice** — Select the voice for
+     your bot to use when speaking to callers. The default voice for
+     Amazon Connect is Joanna.
+   - **Session timeout** — Choose how long the
+     bot should wait to get input from a caller before ending the
+     session.
+   - **COPPA** — Choose whether the bot is
+     subject to the Child Online Privacy Protection Act.
 
 4. Choose **Create**.
 
 ## Configure the Amazon Lex bot
 
-In this step you'll determine how the bot responds to customers by providing
-intents, sample utterances, slots for input, and error handling.
+In this step you'll determine how the bot responds to customers by providing intents, sample
+utterances, slots for input, and error handling.
 
-For this example, you'll configure the bot with two intents: one to look up
-account information, and another to speak with an agent.
+For this example, you'll configure the bot with two intents: one to look up account
+information, and another to speak with an agent.
 
 ### Create AccountLookup intent
 
 Amazon Lex
 
 1.  After you created the bot, you are on the
-    **Intents** page the Amazon Lex console.
-    If you're not there, you can get there by choosing
-    **Bots**,
+    **Intents** page the Amazon Lex console. If you're
+    not there, you can get there by choosing **Bots**,
     **AccountBalance**, **Bot
     versions**, **Draft version**,
     **Intents**. Choose **Add
-    intent**, **Add empty
-    intent**.
+    intent**, **Add empty intent**.
 2.  In the **Intent name** box, enter
     **AccountLookup**.
-3.  Scroll down the page to **Sample
-    utterances**. In this step you enter utterances
-    that allow the customer to elicit the AccountLookup intent.
-    Enter the following utterances, and choose **Add
-    utterance** after each one.
+3.  Scroll down the page to **Sample utterances**. In
+    this step you enter utterances that allow the customer to elicit the
+    AccountLookup intent. Enter the following utterances, and choose
+    **Add utterance** after each one.
 
-        * **Check my account
-         balance**
-        * **One**: This assigns the
-         utterance of "one" or key press of "1" to the
+        * **Check my account balance**
+        * **One**: This assigns the utterance of
+         "one" or key press of "1" to the
          **AccountLookup** intent.
 
-    The following image shows where to add the utterance in
-    the **Sample utterances** section.
+    The following image shows where to add the utterance in the
+    **Sample utterances** section.
 
-![The sample utterances section of the Intents page.](images/lexv2-enter-utterances.png) 4. Scroll to the **Slots** section, and
-choose **Add slot**. Complete the box as
-follows:
+![The sample utterances section of the Intents page.](images/lexv2-enter-utterances.png) 4. Scroll to the **Slots** section, and choose
+**Add slot**. Complete the box as follows:
 
     1. **Required for this intent** =
      selected.
@@ -141,21 +130,19 @@ follows:
      **AccountNumber**.
     3. **Slot type** =
      **AMAZON.Number**.
-    4. **Prompts** = the text to be
-     spoken when the call is answered. For example, ask
-     callers to enter their account number using their
-     keypad: **Using your touch-tone keypad,
-     please enter your account number**.
-     Choose **Add**.The following image shows a completed **Add
+    4. **Prompts** = the text to be spoken when
+     the call is answered. For example, ask callers to enter their
+     account number using their keypad: **Using your
+     touch-tone keypad, please enter your account
+     number**. Choose **Add**.The following image shows a completed **Add slot**
 
-slot\*\* section.
+section.
 
-![The add slot section of the Intents page.](images/lexv2-add-slots.png) 5. Scroll to the **Closing responses**
-section. Add a message for the bot to say to customers. For
-example, **Your account balance is
-$1,234.56**. (For this walkthrough, we aren't
-going to actually get the data, which is what you would do
-in reality.)
+![The add slot section of the Intents page.](images/lexv2-add-slots.png) 5. Scroll to the **Closing responses** section. Add a
+message for the bot to say to customers. For example, **Your
+account balance is $1,234.56**. (For this walkthrough, we
+aren't going to actually get the data, which is what you would do in
+reality.)
 
 The following image shows a completed **Closing
 responses** section.
@@ -164,39 +151,37 @@ responses** section.
 
 Amazon Lex (Classic)
 
-1. In the Amazon Lex console choose the **+**
-   icon next to **Intents**, and choose
-   **Create new intent**.
+1. In the Amazon Lex console choose the **+** icon next to
+   **Intents**, and choose **Create new
+   intent**.
 2. Name the intent **AccountLookup**.
 3. Add a sample utterance, such as _Check my account
-   balance_, and choose the
-   **+** icon.
-4. Add a second utterance, such as _One_
-   and choose the **+** icon. This assigns the
-   utterance of "one" or key press of "1" to the
-   **AccountLookup** intent.
+   balance_, and choose the **+**
+   icon.
+4. Add a second utterance, such as _One_ and choose
+   the **+** icon. This assigns the utterance of "one"
+   or key press of "1" to the **AccountLookup**
+   intent.
 
 ###### Tip
 
-You must add an utterance of "one" in the bot, and not
-the number "1". This is because Amazon Lex doesn't support
-numeric input directly. To get around this, later in
-this walkthrough you'll use numeric input to interact
-with a Lex bot invoked from a flow. 5. Under **Slots**, add a slot named
+You must add an utterance of "one" in the bot, and not the
+number "1". This is because Amazon Lex doesn't support numeric input
+directly. To get around this, later in this walkthrough you'll use
+numeric input to interact with a Lex bot invoked from a flow. 5. Under **Slots**, add a slot named
 **AccountNumber**.
 
 The following image shows the location of the
 **Slots** section on the page.
 
-![The slot section on the Intents page.](images/lex-slots.png) 6. For **Slot type**, use the drop-down to
-choose **AMAZON.NUMBER**. 7. For **Prompt**, add the text to be spoken
-when the call is answered. For example, ask callers to enter
-their account number using their keypad: _Using
-your touch-tone keypad, please enter your account
-number_. 8. Choose the + icon. 9. Make sure that the **Required** check box
-is selected. 10. In the **Response** section, add a
-message for the bot to say to customers. For example,
-**Your account balance is $1,234.56**. 11. Choose **Save Intent**.
+![The slot section on the Intents page.](images/lex-slots.png) 6. For **Slot type**, use the drop-down to choose
+**AMAZON.NUMBER**. 7. For **Prompt**, add the text to be spoken when the
+call is answered. For example, ask callers to enter their account
+number using their keypad: _Using your touch-tone keypad,
+please enter your account number_. 8. Choose the + icon. 9. Make sure that the **Required** check box is
+selected. 10. In the **Response** section, add a message for the
+bot to say to customers. For example, **Your account balance
+is $1,234.56**. 11. Choose **Save Intent**.
 
 ### Create SpeakToAgent intent
 
@@ -204,38 +189,37 @@ Amazon Lex
 
 1. Navigate to the **Intents** page: choose
    **Back to intents list**.
-2. Choose **Add intent**, **Add
-   empty intent**.
+2. Choose **Add intent**, **Add empty
+   intent**.
 3. In the **Intent name** box, enter
    **SpeakToAgent**, and then choose
    **Add**.
-4. Scroll down to **Sample utterances**
-   section. Enter the following utterances, which allow the
-   customer to elicit the SpeakToAgent intent:
+4. Scroll down to **Sample utterances** section. Enter
+   the following utterances, which allow the customer to elicit the
+   SpeakToAgent intent:
    - **Speak to an agent**
    - **Two**
 
-5. Scroll down to the **Closing responses**
-   section. Add a message for the bot to say to customers. For
-   example, **Okay, an agent will be with you
+5. Scroll down to the **Closing responses** section.
+   Add a message for the bot to say to customers. For example,
+   **Okay, an agent will be with you
    shortly**.
 6. Choose **Save intent**.
 
 Amazon Lex (Classic)
 
-1. In the Amazon Lex console choose the **+**
-   icon next to **Intents**, and choose
-   **Create new intent**.
+1. In the Amazon Lex console choose the **+** icon next to
+   **Intents**, and choose **Create new
+   intent**.
 2. Name the intent **SpeakToAgent**.
 3. Select **SpeakToAgent**.
 4. Add a sample utterance, such as _Speak to an
-   agent_, and choose
+   agent_, and choose **+**.
+5. Add a second utterance, such as _Two_, and choose
    **+**.
-5. Add a second utterance, such as _Two_,
-   and choose **+**.
-6. Add a message that lets callers know that their call is
-   being connected to an agent. For example, "Okay, an agent
-   will be with you shortly."
+6. Add a message that lets callers know that their call is being
+   connected to an agent. For example, "Okay, an agent will be with you
+   shortly."
 7. Choose **Save Intent**.
 
 ## Build and test the Amazon Lex bot
@@ -244,16 +228,14 @@ After you create your bot, make sure it works as intended.
 
 Amazon Lex
 
-1. At the bottom of the page, choose **Build**.
-   It may take a minute or two. The following image shows where the
+1. At the bottom of the page, choose **Build**. It may
+   take a minute or two. The following image shows where the
    **Build** button is located.
 
-![The location of the Build button on the page.](images/lexv2-build-test-intent.png) 2. When it's finished building, choose
-**Test**. 3. Let's test the **AccountLookup** intent: In
-the **Test Draft version** pane, in the
-**Type a message** box, type
-**1** and press Enter. Then type a
-fictitious account number and press Enter. The following image
+![The location of the Build button on the page.](images/lexv2-build-test-intent.png) 2. When it's finished building, choose **Test**. 3. Let's test the **AccountLookup** intent: In the
+**Test Draft version** pane, in the **Type a
+message** box, type **1** and press Enter.
+Then type a fictitious account number and press Enter. The following image
 shows where you enter intent.
 
 ![The box where you type the intent to test.](images/lexv2-test1.png)
@@ -261,51 +243,46 @@ shows where you enter intent.
     1. Clear the test box.
     2. Type the intents you want to test.
 
-4. To confirm that the **SpeakToAgent** intent
-   is working, clear the test box, and then type
-   **2** and press Enter. The following image
-   shows what the test looks like after you clear it and then enter
-5.
+4. To confirm that the **SpeakToAgent** intent is working,
+   clear the test box, and then type **2** and press Enter.
+   The following image shows what the test looks like after you clear it and
+   then enter 2.
 
 ![The test box.](images/lexv2-test2.png) 5. Close the **Test Draft version** pane.
 
 Amazon Lex (Classic)
 
-1. Choose **Build**. It may take a minute or
-   two.
-2. When it's finished building, choose **Test
-   Chatbot**, as shown in the following image.
+1. Choose **Build**. It may take a minute or two.
+2. When it's finished building, choose **Test Chatbot**,
+   as shown in the following image.
 
-![The test chatbot button, on the right side of the page.](images/lex-test-chatbot.png) 3. Let's test the **AccountLookup** intent: In
-the **Test Chatbot** pane, in the
-**Chat with your bot** box, type
-**1**. Then type a fictitious account
-number. In the following image, the arrow points to the box
-where you type 1.
+![The test chatbot button, on the right side of the page.](images/lex-test-chatbot.png) 3. Let's test the **AccountLookup** intent: In the
+**Test Chatbot** pane, in the **Chat with
+your bot** box, type **1**. Then type a
+fictitious account number. In the following image, the arrow points to the
+box where you type 1.
 
-![The test bot, the box for typing your message.](images/lex-test-run.png) 4. Choose **Clear chat history**. 5. To confirm that the **SpeakToAgent** intent
-is working, type **2**.
+![The test bot, the box for typing your message.](images/lex-test-run.png) 4. Choose **Clear chat history**. 5. To confirm that the **SpeakToAgent** intent is working,
+type **2**.
 
 ## Create a bot version (Optional)
 
-In this step you create a new bot version to use in an alias. It's how you create
-an alias that can be used in a production environment. Test aliases are subject to
-lower throttling limits. Although this is a test walkthrough, creating a version is
-a best practice.
+In this step you create a new bot version to use in an alias. It's how you create an alias
+that can be used in a production environment. Test aliases are subject to lower throttling
+limits. Although this is a test walkthrough, creating a version is a best practice.
 
 Amazon Lex
 
 1. If you're on the **Intents** page, choose
    **Back to intents list**.
-2. On the left menu, choose **Bot
-   versions**.
+2. On the left menu, choose **Bot versions**.
 3. Choose **Create version**.
-4. Review the details of the **AccountBalance**
-   bot, and then choose **Create**.
+4. Review the details of the **AccountBalance** bot, and
+   then choose **Create**.
 
-This creates a version of your bot (Version 1). You can switch
-versions on an non-test alias without having to track which
-version is getting published.
+This creates a version of your bot (Version 1). You can switch versions
+on an non-test alias without having to track which version is getting
+published.
 
 ![The Versions page with Version 1 listed.](images/lexv2-version1.png)
 
@@ -314,27 +291,25 @@ version is getting published.
 Amazon Lex
 
 1. In the left menu, choose **Aliases**.
-2. On the **Aliases** page, choose
-   **Create alias**.
-3. In the **Alias name** box, enter a name, such
-   as **Test**. Later in this walkthrough you'll
-   use this alias to specify this version of the bot in your flow.
+2. On the **Aliases** page, choose **Create
+   alias**.
+3. In the **Alias name** box, enter a name, such as
+   **Test**. Later in this walkthrough you'll use this
+   alias to specify this version of the bot in your flow.
 
 ###### Important
 
 In a production environment, always use a different alias than **TestBotAlias** for
 Amazon Lex and **$LATEST** for Amazon Lex classic. **TestBotAlias** and **$LATEST**
 support a limited number of concurrent calls to an Amazon Lex bot.
-For more information, see [Runtime quotas](../../../lexv2/latest/dg/quotas.md#quotas-service "../../../lexv2/latest/dg/quotas.md#quotas-service"). 4. For **Associated version**, choose the
-version you just created, such as **Version
-1**. 5. Choose **Create**.
+For more information, see [Runtime quotas](../../../lexv2/latest/dg/quotas.md#quotas-service "../../../lexv2/latest/dg/quotas.md#quotas-service"). 4. For **Associated version**, choose the version you just
+created, such as **Version 1**. 5. Choose **Create**.
 
 Amazon Lex (Classic)
 
 1. Choose **Publish**.
-2. Provide an alias for your bot. Use the alias to specify this
-   version of the bot in the flow, for example,
-   **Test**.
+2. Provide an alias for your bot. Use the alias to specify this version of
+   the bot in the flow, for example, **Test**.
 
 ###### Important
 
@@ -347,157 +322,147 @@ For more information, see [Runtime Service Quotas](../../../lex/latest/dg/gl-lim
 
 Amazon Lex
 
-1. Open the [Amazon Connect console.](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
-2. Select the Amazon Connect instance that you want to integrate with your
-   Amazon Lex bot.
+1. Open the [Amazon Connect
+   console.](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
+2. Select the Amazon Connect instance that you want to integrate with your Amazon Lex
+   bot.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. On the navigation menu, choose
-**Flows**. 4. Under **Amazon Lex**, use the dropdown to select
-the Region of your Amazon Lex bot, and then select your Amazon Lex
-bot, **AccountBalance**. 5. Select the Amazon Lex bot alias name from the dropdown
-(**Test**), and then choose **+ Add
-Lex Bot**. The following image shows Amazon Lex section
-after it has been configured.
+![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. On the navigation menu, choose **Flows**. 4. Under **Amazon Lex**, use the dropdown to select the Region
+of your Amazon Lex bot, and then select your Amazon Lex bot,
+**AccountBalance**. 5. Select the Amazon Lex bot alias name from the dropdown
+(**Test**), and then choose **+ Add Lex
+Bot**. The following image shows Amazon Lex section after it has
+been configured.
 
 ![The Amazon Lex section of the flows page.](images/lexv2-region-bot.png)
 
 ###### Note
 
-Amazon Connect uses Amazon Lex resource-based policies to make calls to your
-Amazon Lex bot. When you associate an Amazon Lex bot with your Amazon Connect
-instance, the resource-based policy on the bot is updated to give
-Amazon Connect permission to invoke the bot. For more information on Amazon Lex
-resource-based policies, see [How Amazon Lex works with IAM](../../../lexv2/latest/dg/security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "../../../lexv2/latest/dg/security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies").
+Amazon Connect uses Amazon Lex resource-based policies to make calls to your Amazon Lex
+bot. When you associate an Amazon Lex bot with your Amazon Connect instance, the
+resource-based policy on the bot is updated to give Amazon Connect permission to invoke
+the bot. For more information on Amazon Lex resource-based policies, see [How Amazon Lex works with IAM](../../../lexv2/latest/dg/security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "../../../lexv2/latest/dg/security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies").
 
 Amazon Lex (Classic)
 
-1. Open the [Amazon Connect console.](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
-2. Select the Amazon Connect instance that you want to integrate with your
-   Amazon Lex bot.
+1. Open the [Amazon Connect
+   console.](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
+2. Select the Amazon Connect instance that you want to integrate with your Amazon Lex
+   bot.
 3. On the navigation menu, choose **Contact
    flows**.
-4. Under **Amazon Lex**, select the Region of your
-   Amazon Lex classic bot from the dropdown, and then select your Amazon Lex
-   classic bot. It’s name will have the suffix "(Classic)". Then
-   choose **Add Lex Bot**.
+4. Under **Amazon Lex**, select the Region of your Amazon Lex
+   classic bot from the dropdown, and then select your Amazon Lex classic bot.
+   It’s name will have the suffix "(Classic)". Then choose **Add Lex
+   Bot**.
 
-## Create a flow and add your Amazon Lex
-
-bot
+## Create a flow and add your Amazon Lex bot
 
 ###### Important
 
-If you're using an Amazon Lex V2 bot, your language attribute in Amazon Connect must match
-the language model used to build your Lex bot. This is different than Amazon Lex
-(Classic). Use a [Set voice](set-voice.md#set-voice-lexv2bot "set-voice.md#set-voice-lexv2bot") block to
-indicate the Amazon Connect language model, or use a [Set contact
+If you're using an Amazon Lex V2 bot, your language attribute in Amazon Connect must match the
+language model used to build your Lex bot. This is different than Amazon Lex (Classic). Use a
+[Set voice](set-voice.md#set-voice-lexv2bot "set-voice.md#set-voice-lexv2bot") block to indicate the Amazon Connect
+language model, or use a [Set contact
 attributes](set-contact-attributes.md "set-contact-attributes.md") block.
 
-Next, create a new flow that uses your Amazon Lex bot. When you create the flow, you
-configure the message played to callers.
+Next, create a new flow that uses your Amazon Lex bot. When you create the flow, you configure
+the message played to callers.
 
-1. Log in to your Amazon Connect instance with an account that has permissions for
-   contact flows and Amazon Lex bots.
-2. On the navigation menu, choose **Routing, Flows, Create
-   Flow**, and type a name for the flow.
-3. Under **Interact**, drag a [Get customer input](get-customer-input.md "get-customer-input.md")
-   block onto the designer, and connect it to the **Entry point
-   block**.
-4. Choose the **Get customer input** block to open it.
-   Choose **Text to speech or chat text, Enter text**.
-5. Type a message that provides callers with information about what they can
-   do. For example, use a message that matches the intents used in the bot,
-   such as "To check your account balance, press or say 1. To speak to an
-   agent, press or say 2." The following image shows this message on the
-   Properties page of the **Get customer input** block.
+1. Log in to your Amazon Connect instance with an account that has permissions for contact flows
+   and Amazon Lex bots.
+2. On the navigation menu, choose **Routing, Flows, Create Flow**, and
+   type a name for the flow.
+3. Under **Interact**, drag a [Get customer input](get-customer-input.md "get-customer-input.md") block onto the designer, and connect it
+   to the **Entry point block**.
+4. Choose the **Get customer input** block to open it. Choose
+   **Text to speech or chat text, Enter text**.
+5. Type a message that provides callers with information about what they can do. For
+   example, use a message that matches the intents used in the bot, such as "To check
+   your account balance, press or say 1. To speak to an agent, press or say 2." The
+   following image shows this message on the Properties page of the **Get
+   customer input** block.
 
-![The Properties page of the Get customer input block.](images/lex-get-customer-input.png) 6. Select the **Amazon Lex** tab, as shown in the following
-image.
+![The Properties page of the Get customer input block.](images/lex-get-customer-input.png) 6. Select the **Amazon Lex** tab, as shown in the following image.
 
 ![The Amazon Lex tab on the Properties page of the Get customer input block.](images/lexv2-get-customer-input2.png) 7. In the **Name** dropdown, select the
 **AccountBalance** bot you created earlier.
 
-    1. If you selected an Amazon Lex bot, under **Alias**
-     use the dropdown menu to select the bot alias,
-     **Test**. from
-    2. Amazon Lex Classic bots have the suffix "(Classic)" appended to their
-     names. If you have selected a Classic bot, enter the alias you want
-     to use in the **Alias** field.
-    3. For Amazon Lex V2 bots, you also have the option of manually setting
-     a bot alias ARN. Choose **Set manually**, then
-     either type the ARN of the bot alias you want to use or set the ARN
-     using a dynamic attribute.
+    1. If you selected an Amazon Lex bot, under **Alias** use the
+     dropdown menu to select the bot alias, **Test**. from
+    2. Amazon Lex Classic bots have the suffix "(Classic)" appended to their names. If
+     you have selected a Classic bot, enter the alias you want to use in the
+     **Alias** field.
+    3. For Amazon Lex V2 bots, you also have the option of manually setting a bot
+     alias ARN. Choose **Set manually**, then either type the ARN
+     of the bot alias you want to use or set the ARN using a dynamic
+     attribute.
 
 8. Under **Intents**, choose **Add an
    intent**.
 9. Type **AccountLookup** and choose **Add another
-   intent**. The following image shows the
-   **Intents** section configured with this
-   information.
+   intent**. The following image shows the **Intents**
+   section configured with this information.
 
-![The Intents section of Amazon Lex tab.](images/lex-get-customer-input3.png) 10. Type **SpeakToAgent** and choose
-**Save**.
+![The Intents section of Amazon Lex tab.](images/lex-get-customer-input3.png) 10. Type **SpeakToAgent** and choose **Save**.
 
 ### Finish the flow
 
-In this step you finish adding parts to the flow that run after the caller
-interacts with the bot:
+In this step you finish adding parts to the flow that run after the caller interacts
+with the bot:
 
 1. If the caller presses 1 to get their account balance, use a
-   **Prompt** block to play a message and disconnect
-   the call.
+   **Prompt** block to play a message and disconnect the
+   call.
 2. If the caller presses 2 to speak to an agent, use a **Set
-   queue** block to set the queue and transfer the caller to
-   the queue, which ends the flow.
+   queue** block to set the queue and transfer the caller to the queue,
+   which ends the flow.
 
 Here are the steps to create the flow:
 
 1. Under **Interact**, drag a **Play prompt
    block** to the designer, and connect the
-   **AccountLookup** node of the **Get
-   customer input** block to it. After the customer gets their
-   account balance from the Amazon Lex bot, the message in the **Play
-   prompt** block plays.
+   **AccountLookup** node of the **Get customer
+   input** block to it. After the customer gets their account balance
+   from the Amazon Lex bot, the message in the **Play prompt** block
+   plays.
 2. Under **Terminate/Transfer**, drag a
-   **Disconnect** block to the designer, and connect
-   the **Play prompt** block to it. After the prompt
-   message plays, the call is disconnected.
+   **Disconnect** block to the designer, and connect the
+   **Play prompt** block to it. After the prompt message plays,
+   the call is disconnected.
 
 To complete the **SpeakToAgent** intent:
 
-1. Add a **Set working queue** block and connect it to
-   the **SpeakToAgent** node of the **Get customer
+1. Add a **Set working queue** block and connect it to the
+   **SpeakToAgent** node of the **Get customer
    input** block.
 2. Add a **Transfer to queue** block.
-3. Connect the Success node of the **Set customer queue
-   flow** block to the **Transfer
-   queue**.
-4. Choose **Save**, then
-   **Publish**.
+3. Connect the Success node of the **Set customer queue flow**
+   block to the **Transfer queue**.
+4. Choose **Save**, then **Publish**.
 
-Your finished flow will look something like the following image. The flow
-starts with the **Get customer input** block. That block
-branches to **Play prompt** or **Set customer
-queue**.
+Your finished flow will look something like the following image. The flow starts with
+the **Get customer input** block. That block branches to **Play
+prompt** or **Set customer queue**.
 
 ![The finished flow in the flow designer.](images/lex-contactflow-designer.png)
 
 ###### Tip
 
 If your business uses multiple locales in a single bot, add a [Set contact
-attributes](set-contact-attributes.md "set-contact-attributes.md") block to the beginning of
-your flow. Configure this block to use the [$.LanguageCode](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table") system attribute.
+attributes](set-contact-attributes.md "set-contact-attributes.md")
+block to the beginning of your flow. Configure this block to use the [$.LanguageCode](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table") system attribute.
 
 ## Assign the flow to a phone number
 
-When customers call in to your contact center, the flow to which they are sent is
-the one assigned to the telephone number that they called. To make the new flow
-active, assign it to a phone number for your instance.
+When customers call in to your contact center, the flow to which they are sent is the one
+assigned to the telephone number that they called. To make the new flow active, assign it to a
+phone number for your instance.
 
 1. Open the Amazon Connect console.
 2. Choose **Routing, Phone numbers**.
-3. On the **Manage Phone numbers** page, select the phone
-   number to assign to the flow.
+3. On the **Manage Phone numbers** page, select the phone number to
+   assign to the flow.
 4. Add a description.
 5. In the **Flow/IVR** menu, choose the flow that you just
    created.
@@ -505,5 +470,4 @@ active, assign it to a phone number for your instance.
 
 ## Try it!
 
-To try the bot and flow, call the number you assigned to the flow. Follow the
-prompts.
+To try the bot and flow, call the number you assigned to the flow. Follow the prompts.

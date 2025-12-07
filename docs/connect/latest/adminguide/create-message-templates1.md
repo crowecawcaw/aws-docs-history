@@ -36,6 +36,8 @@ You can design the following types of message templates in Amazon Connect:
   agent, for example, for a signature, or they can be a full response.
 - **SMS templates** for SMS text messages that you send from
   campaigns, or to a limited audience as direct or test messages.
+- **WhatsApp templates** for WhatsApp messages that you send from
+  campaigns, or to a limited audience as direct or test messages.
 
 You can create templates that have the following features:
 
@@ -62,13 +64,13 @@ message with the content and settings that you defined in the template.
    a knowledge base, which is where the templates are stored.
 
 Your business can have several knowledge bases, but only one of them can be
-associated with templates. 4. Choose **Create template**. 5. Under **Channel**, choose **Email**. 6. For **Name** enter a name for the template. The name must
+associated with templates. 4. Choose **Create template**. 5. Under **Channel**, choose a channel. 6. For **Name** enter a name for the template. The name must
 begin with a letter or number. It can contain up to 128 characters. 7. For **Description - _optional_**, enter a
 brief description of the template. The description can contain up to 255
 characters. 8. For **Routing profiles - _optional_**,
 enter the routing profiles for agents to be able to use this template from the
-agent workspace. 9. Depending on whether you are creating an **Email** or an
-**SMS** template, do one of the following:
+agent workspace. 9. Depending on whether you are creating an **Email**, an
+**SMS** or **WhatsApp** template, do one of the following:
 
 For email templates:
 
@@ -145,3 +147,13 @@ For email templates:
 4. When you're ready for the SMS template to be available in the **Send
    message** block, or for the Email template to be available for email
    campaigns, complete the steps to [activate](create-message-templates1.md "create-message-templates1.md") it.
+
+###### For WhatsApp templates:
+
+1. Under **WhatsApp details**, select the template from dropdown. Please note only Meta approved templates can be used to create message templates. Ensure your imported templates are approved in Meta Business WhatsApp Manager before proceeding.
+2. Define a name for the template and add descriptions if needed.
+3. Once you selected Meta approved template, you will see the details displayed in **Body** and **Template Metadata (JSON)** format.
+4. **Attribute mapping:** To enable personalized message delivery in Amazon Connect, you will need to map your imported Meta attributes to custom text. By combining your existing Connect attributes with plain text, you can create customized messages for your customers. For example, you might see Hello {{1}} in the **Body**, and you can choose to `Attributes.Customer.FirstName` from Connect attribute list to match.
+5. There are a variety of button types that can be added into a content template. If your selected template includes buttons, such as a Website URL that includes attributes, you can either select Connect attributes to map or type in static text.
+6. When you completed attributes mapping, choose **Save**.
+7. Before making the template available to users we recommend that you send a test message to make sure the template works as intended.

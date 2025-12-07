@@ -10,6 +10,7 @@ This topic defines the flow block for updating and creating cases.
 ## Description
 
 - Gets, updates, and creates cases.
+- Searches for case linked to a contact.
 - You can link a contact to a case, and then the contact will be recorded in
   the **Activity feed** of the case. When the agent accepts a
   contact that is linked to a case, the case automatically opens as a new tab
@@ -148,6 +149,33 @@ shown to the agent: **Status**, **Summary**, and
 **Title**.
 
 ![The Cases block properties page configured to search cases by late arrival.](images/cases-block-get-case-properties2.png)
+
+## Properties: Get case id
+
+When configuring properties to get a case id:
+
+- You can specify to **Link contact to case** (Yes/No). If "Yes," then you can choose from the following options:
+  - **Current contact** is the contact on which the current flow is being executed.
+  - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
+
+- If you link the contact to the case, then the contact and a link to contact details appear on the case that the agent sees in the agent application.
+- You can specify the **Contact to search** to fetch a case
+  linked to another contact in the current contact's [contact chain](contacts-contact-chains-attributes.md#contact-chains "contacts-contact-chains-attributes.md#contact-chains"). This enables you to link follow-up contacts such
+  as email replies, call transfers, persistent chats, and queued callbacks to
+  the same case more easily.
+  - **Current contact**
+  - **Initial contact**
+  - **Task contact**
+  - **Previous contact**
+  - **Related contact**
+
+- If a case is found, for the **Contact to search**, the case ID for that case will be persisted in the case namespace. It can be used in other blocks by accessing the case namespace case ID attribute value.
+- Contacts can be routed down the following branches:
+  - **Success**: The case was found. If you specify to link the contact to case, the contact was also successfully linked.
+  - **Contact not linked**: If you specify to link the contact to case, then this error branch will appear. It might be that the contact was not linked after the case is retrieved (partial success/partial failure). If this happens, then the flow will follow this branch.
+  - **Multiple found**: Multiple cases are found with the search criteria.
+  - **None found**: No cases are found with the search criteria.
+  - **Error**: An error was encountered while trying to find the case. This may be due to a system error or how **Get case id** is configured.
 
 ## Properties: Update case
 

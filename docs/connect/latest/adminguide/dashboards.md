@@ -32,18 +32,21 @@ contact center performance.
 - [Contact Lens conversational analytics dashboard](contact-lens-conversational-analytics-dashboard.md "contact-lens-conversational-analytics-dashboard.md")
 - [Agent performance
   evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
+- [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md")
 - [Flows and conversational bot
   performance dashboard](flows-performance-dashboard.md "flows-performance-dashboard.md")
 - [Outbound
   campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
 - [Queue and agent performance
   dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md")
+- [Testing and simulation dashboard](testing-and-simulation-dashboard.md "testing-and-simulation-dashboard.md")
 - [Intraday forecast
   performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md")
 - [Agent workspace performance
   dashboard](performance-dashboard-aw.md "performance-dashboard-aw.md")
 - [Integrate a published
   dashboard into the agent workspace](integrate-published-dashboard.md "integrate-published-dashboard.md")
+- [[New] Custom Metrics](custom-metrics-topic.md "custom-metrics-topic.md")
 
 ## Get started
 

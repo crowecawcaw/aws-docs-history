@@ -420,6 +420,21 @@ contact attributes.
 
 ![The properties page of the Customer Profiles AssociateContactToProfile block.](images/customer-profiles-block-properties-associate-2.png)
 
+## Properties: Get profile
+
+recommendations
+
+###### Important
+
+To use this action, your Amazon Connect instance must have permission for the following
+API: `GetProfileRecommendations` in either of the following Policies:
+**AmazonConnectServiceLinkedRolePolicy** or
+**AmazonConnectServiceCustomerProfileAccess**.
+
+For more details on how to set up and use the **Get profile
+recommendations** block, please refer to [Step 4: Using Predictive
+Insights across customer engagement channels](predictive-insights-get-started.md#use-across-customer-engagement-channels "predictive-insights-get-started.md#use-across-customer-engagement-channels") .
+
 ## How to persist fields
 
 throughout the flow

@@ -31,6 +31,7 @@ Guide](../../../agentworkspace/latest/devguide/getting-started.md "../../../agen
   permissions](assign-security-profile-3p-apps.md "assign-security-profile-3p-apps.md")
 - [Iframe permissions when
   granting third-party application access](3p-apps-iframe-permissions.md "3p-apps-iframe-permissions.md")
+- [MCP server applications](3p-apps-mcp-server.md "3p-apps-mcp-server.md")
 - [Events and
   requests](3p-apps-events-requests.md "3p-apps-events-requests.md")
 - [Access third-party
@@ -114,7 +115,7 @@ in instances that are using an SLR. For more information, see [For instances cre
     	 agents.
     	4. **Application type**:
     	 Indicates whether the application is a standard web
-    	 application or a service. This determines how the
+    	 application, service, or MCP server. This determines how the
     	 application will be integrated and accessed within the
     	 system.
     	5. **Contact Scope**: Indicates

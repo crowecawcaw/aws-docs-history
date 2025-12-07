@@ -1,23 +1,22 @@
-# Customize the Amazon Connect Agent Workspace
+# Customize the Amazon Connect agent workspace
 
 This section explains how to customize the agent workspace and enable guided experiences.
 
-Out-of-the-box the agent workspace integrates all of your agent facing capabilities on one
-page. For example, when an agent accepts a call, chat, or task, they are given necessary
-information about the case and customer, plus real-time recommendations.
+The agent workspace integrates all of your agent-facing capabilities out of the box.
+When an agent accepts a call, chat, email, or task, they can see relevant
+information about the case and customer, plus step-by-step guidance and real-time recommendations.
 
-You can customize the agent workspace by enabling guided experiences, for example, and
-customizing the look and feel of the View resources in the agent workspace.
+You can customize the agent workspace by integrating third-party applications and creating custom workflows with step-by-step guides.
 
 The following image shows the parts of the agent workspace.
 
 ![The agent workspace, with callouts pointing to each part.](images/agent-workspace-intro-sq.png)
 
 1. The **Contact Control Panel**, which agents use to
-   accept calls, chats, and tasks.
+   handle calls, chats, emails, and tasks.
 2. **Third-party applications**, which reduce the number
    of windows an agent interacts with.
-3. Real-time recommendations, powered by Amazon Q in Connect.
+3. Real-time recommendations, powered by **Amazon Q in Connect**.
 4. **Tasks** to assign work or follow-up
    activities.
 5. The case ID, and other info on the **Cases** tab, powered by
@@ -42,7 +41,7 @@ The following image shows the parts of the agent workspace.
 - [Enable step-by-step
   guides](enable-guided-experiences-sg.md "enable-guided-experiences-sg.md")
 - [View resource](view-resources-sg.md "view-resources-sg.md")
-- [No-code UI builder](no-code-ui-builder.md "no-code-ui-builder.md")
+- [UI builder](no-code-ui-builder.md "no-code-ui-builder.md")
 - [Invoke a guide at the start of a
   contact](how-to-invoke-a-flow-sg.md "how-to-invoke-a-flow-sg.md")
 - [Deploy step-by-step guides in
@@ -53,5 +52,7 @@ The following image shows the parts of the agent workspace.
   codes](disposition-codes-sg.md "disposition-codes-sg.md")
 - [PII
   Redaction](step-by-step-guides-pii-redaction.md "step-by-step-guides-pii-redaction.md")
+- [Create persona-based Workspace pages](use-views-to-create-persona-based-workspace-pages.md "use-views-to-create-persona-based-workspace-pages.md")
+- [Customize the theme of the agent workspace](customize-theme-agent-workspace.md "customize-theme-agent-workspace.md")
 - [Integrate third-party applications (3p
   apps)](3p-apps.md "3p-apps.md")

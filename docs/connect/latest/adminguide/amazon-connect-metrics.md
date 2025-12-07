@@ -19,6 +19,7 @@ For detailed information about the activity of agents in your contact center, us
 ###### Contents
 
 - [Metric definitions](metrics-definitions.md "metrics-definitions.md")
+- [Custom metric primitives](metric-primitive-definitions.md "metric-primitive-definitions.md")
 - [Assign
   permissions](dashboard-required-permissions.md "dashboard-required-permissions.md")
 - [Dashboards](dashboards.md "dashboards.md")

@@ -106,7 +106,7 @@ automatically filled using generative AI (without requiring you to click Ask AI)
 You can also use generative AI to automatically fill and submit evaluations. For
 automatically submitted evaluations, you can use generative AI to answer up to 10
 questions per contact (see [Contact Lens service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas")). Note that this limit does not apply to
-automation using Contact Lens categories or metrics (for example, longest
+automation using contact categories or metrics (for example, longest
 hold duration, etc.).
 
 To learn more about setting up automated evaluations using generative AI, see

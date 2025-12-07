@@ -2,13 +2,12 @@
 
 In Amazon Connect, you can create [many different
 evaluation forms](feature-limits.md#evaluationforms-feature-specs "feature-limits.md#evaluationforms-feature-specs"). For example, you may need a different evaluation form for
-each business unit and type of interaction.
+each business unit, and for different queues. You can also create different evaluation forms for evaluating the agent interaction and the self-service interaction with a Lex bot or AI agent.
 
 Each form can contain multiple sections and questions.
 
 - You can assign [weights](about-scoring-and-weights.md "about-scoring-and-weights.md") to
-  each question and section to indicate how much their score impacts the agent's
-  total score.
+  each question and section to indicate how much their score impacts the overall score of the evaluation form.
 - You can configure automation on each question so that answers to those
   questions are automatically filled using insights and metrics from
   Contact Lens conversational analytics.
@@ -229,7 +228,7 @@ automate the question of certain questions, or continue to [preview the evaluati
 
 ## Step 6: Enable automated evaluations
 
-Contact Lens enables you to automatically answer questions within
+Amazon Connect enables you to automatically answer questions within
 evaluation forms (for example, did the agent adhere to the greeting script?) using
 insights and metrics from conversational analytics. Automation can be used
 to:
@@ -241,23 +240,28 @@ to:
 - **Automatically fill and submit
   evaluations**: Administrators can configure evaluation forms to
   automate responses to all questions within an evaluation form and
-  automatically submit evaluations for up to 100% of agents’ customer
+  automatically submit evaluations for up to 100% of customer
   interactions. Evaluators can edit and re-submit evaluations (if
   needed).
 
-For both scenarios, you need to first setup automation on individual questions
-within an evaluation form. Contact Lens provides 3 ways of automating
+The ways of automation vary by whether you are evaluating the agent interaction or automated interaction (for example, self-service while interacting with a Lex bot or AI agent). You can choose between agent and automated interaction by choosing the **Additional settings**, under **Contact interaction type**.
+
+Both for assisting evaluators, and for automated submission of evaluations, you need to first set up automation on individual questions
+within an evaluation form. Amazon Connect provides three ways of automating
 evaluations:
 
-- **Contact Lens categories**:
+- **Contact categories**:
   _Single selection_ questions (for example, did the
   agent properly greet the customer (Yes/ No)?), can be automatically answered
-  using categories defined with Contact Lens rules. For more
+  using contact categories defined with rules. For more
   information, see [Create Contact Lens rules
   using the Amazon Connect admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
 - **Generative AI**: Both _Single
   selection_ and _Text field_ questions can
   be automatically answered using generative AI.
+
+###### Note
+
 - **Metrics**: _Numeric_
   questions (for example, what was the longest that the customer was put on
   hold?) can be automatically answered using metrics such as longest hold
@@ -281,12 +285,12 @@ categories
 
 ![A question section, the automation tab with Contact Lens categories.](images/evaluationforms-automation1.png)
 
-For information about setting up Contact Lens categories, see [Automatically categorize
+For information about setting up contact categories, see [Automatically categorize
 contacts](rules.md "rules.md").
 
 ###### Example automation for an _optional_ Single selection
 
-question using Contact Lens categories
+question using contact categories
 
 - The following image shows example automation of an optional Single
   selection question. The first check is whether the question is applicable or
@@ -298,14 +302,14 @@ question using Contact Lens categories
 
 The subsequent conditions run only if the question is applicable. The
 answer is marked as **Yes** or **No**
-based on the Contact Lens category
+based on the contact category
 **NewAccountDisclosures**. This category checks whether
 the agent provided the customer with disclosures about opening a new
 account.
 
 ![A question section, the automation tab.](images/evaluationforms-automation1a.png)
 
-For information about setting up Contact Lens categories, see [Automatically categorize
+For information about setting up contact categories, see [Automatically categorize
 contacts](rules.md "rules.md").
 
 ###### Example automation for an _optional_ Single selection

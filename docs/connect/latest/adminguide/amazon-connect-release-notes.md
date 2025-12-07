@@ -5,6 +5,22 @@ Inbox. Click the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## December 2025 Updates
+
+### Workspace and data table resources provide business users with greater control over daily operations
+
+Amazon Connect now gives business users greater control over daily contact center operations without
+requiring technical resources. With new capabilities to adjust queues, routing behavior, and
+customer experience settings in real time, business users can respond to changing conditions
+immediately while maintaining enterprise-grade governance and security. Contact center
+administrators can start by defining key business configurations such as queue assignments,
+operating hours, skill mappings, and escalation rules, in data tables that directly drive contact
+flows. Guides can then be configured to surface role-specific actions for each business user
+within persona based workspaces. Together, these updates enable a business-led operating model
+that keeps contact center operations fast, consistent, and secure, all without relying on IT.
+
+For more information, see [Set up workspaces for your admin website users](amazon-connect-workspaces.md "amazon-connect-workspaces.md").
+
 ## November 2025 Updates
 
 ### Conditional case field visibility and dependent options
@@ -15,6 +31,17 @@ For example, you can show a Return Reason field only when the case involves a re
 and limit Issue Type choices to hardware-related options when Issue Category is set to Hardware.
 
 For more information, see [Add case field conditions to a case template in Amazon Connect](case-field-conditions.md "case-field-conditions.md").
+
+### Custom metrics
+
+Amazon Connect now supports creation of custom metrics, enabling contact center supervisors to
+analyze tailored performance measurements without requiring technical skills. This feature
+provides a simple, no-code interface for performing mathematical operations (e.g., addition,
+subtraction, sum, average) on existing Connect data to build metrics that align with your
+organization's specific business requirements. Custom metrics are available to use in the
+dashboards and APIs.
+
+For more information, see [Custom metrics](custom-metrics-topic.md "custom-metrics-topic.md").
 
 ## October 2025 Updates
 
@@ -633,7 +660,7 @@ entered on a view by a user more initiative and consistent with Amazon Connect w
 In addition, the UI builder contains a consistent look and feel with the rest of Amazon Connect by
 using [Cloudscape Design System](https://cloudscape.design/ "https://cloudscape.design/") components.
 
-For more information, see [Use the no-code UI builder in Amazon Connect for resources
+For more information, see [Use the UI builder in Amazon Connect for resources
 in step-by-step guides](no-code-ui-builder.md "no-code-ui-builder.md"), especially the subtopic [Configure
 dynamic fields](no-code-ui-builder-properties-dynamic-fields.md "no-code-ui-builder-properties-dynamic-fields.md").
 
@@ -673,7 +700,7 @@ using the GetMetricDataV2 API.
 - [Average agent response time](metrics-definitions.md#average-agent-response-time "metrics-definitions.md#average-agent-response-time")
 - [Average bot messages](metrics-definitions.md#average-bot-messages "metrics-definitions.md#average-bot-messages")
 
-Also added fields to the [Contacts record](data-type-definitions.md#data-lake-contacts-record "data-type-definitions.md#data-lake-contacts-record") in the Amazon Connect analytics data lake.
+Also added fields to the [Contact record](data-type-definitions.md#data-lake-contacts-record "data-type-definitions.md#data-lake-contacts-record") in the Amazon Connect analytics data lake.
 
 ### Create instance replication between Asia Pacific (Tokyo)
 
@@ -1192,7 +1219,7 @@ Amazon WorkSpaces virtual desktops
 You can use Amazon Connect Agent Workspace to redirect audio from Citrix and Amazon WorkSpaces Virtual
 Desktop Infrastructure (VDI) environments to an agent's local device. Audio redirection improves
 voice quality and reduces latency for voice calls handled on virtual desktops. It provides a
-better experience for both end customers and agents. For more information, see [Use Agent Workspace to optimize
+better experience for both end customers and agents. For more information, see [Use the agent workspace to optimize
 audio for Citrix, Amazon WorkSpaces, and Omnissa cloud desktops](optimize-audio-cdd.md "optimize-audio-cdd.md").
 
 ### Screen recording available in
@@ -1231,7 +1258,7 @@ agent performance by reviewing email threads and additional details of the email
 You can also use public APIs to incorporate data from third-party systems (such as CSAT,
 sales volumes, customer retention, and more) into performance evaluations of email contacts,
 providing managers with comprehensive insights on agent performance. For more information, see
-[Evaluate agent performance](evaluations.md "evaluations.md").
+[Evaluate performance](evaluations.md "evaluations.md").
 
 ### Dashboards provide configurable
 
@@ -1468,8 +1495,7 @@ options. These new bot building capabilities in Amazon Connect make it easy for 
 bot-powered self-service experiences by reducing the need for you to manage multiple
 applications or custom integrations.
 
-For more information, see [Create conversational AI bots in
-Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md").
+For more information, see [Create conversational AI bots in Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md").
 
 For a list of new metrics included in this release, see [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md").
 
@@ -2373,7 +2399,7 @@ reduces the time needed to create unified profiles, which allows you to create m
 personalized customer experiences more efficiently. For more information, see [Generative AI powered data mapping in
 Amazon Connect](genai-powered-data-mapping.md "genai-powered-data-mapping.md").
 
-#### No-code UI builder for step-by-step
+#### UI builder for step-by-step
 
 guides
 
@@ -2382,7 +2408,7 @@ guides. Using a drag-and-drop interface you are able to define static and dynami
 the agent’s UI. This includes layouts, styles, and dynamic data, which enables you to control
 the look and feel of your agent’s experience. With this capability, you are able define what
 gets displayed in your agent’s UI during the step-by-step guided experience. For more
-information, see the [Use the no-code UI builder in Amazon Connect for resources
+information, see the [Use the UI builder in Amazon Connect for resources
 in step-by-step guides](no-code-ui-builder.md "no-code-ui-builder.md")
 documentation.
 

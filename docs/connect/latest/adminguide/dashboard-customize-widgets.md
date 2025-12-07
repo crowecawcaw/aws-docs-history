@@ -7,7 +7,8 @@ most important queues so you can quickly see how increasing contact volumes impa
 wait time and customer abandonment rates.
 
 You can delete or add new metrics, define widget level filters and groupings, re-order
-and re-size columns, and more.
+and re-size columns, and more. Additionally, you can add new custom metrics to specific
+widgets in your dashboards. For more information, see. [[New] Custom Metrics](custom-metrics-topic.md "custom-metrics-topic.md").
 
 ###### Contents
 
@@ -230,9 +231,9 @@ Complete the following steps to create a custom calculation.
 
 1. Log in to Amazon Connect admin website using an Admin account, or an account that has the
    following permissions in its security profile:
-   - **Analytics and Optimization - Access metrics -
-     Access**s permission or the **Dashboard -
-     Access** permission.
+   - **Analytics and Optimization - Access metrics** -
+     Access permission or the **Dashboard - Access**
+     permission.
    - **Analytics and Optimization - Custom metrics**:
      These permission enables users to view, create and manage custom
      metrics.
@@ -286,7 +287,6 @@ The preview shows:
 
 ### Limitations
 
-- You cannot delete custom SL metrics.
 - You can add up to 10 custom metrics to a widget.
 
 ### Use custom service level metrics in

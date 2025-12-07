@@ -30,6 +30,14 @@ Customer Profile domains:
   domain. This isn't recommended, however, because the customer profiles
   from the earlier domain won't be moved to the new domain.
 
+### Data store
+
+Data store is a long-term data store of Customer Profiles data. It stores Customer Profiles data that
+has been updated over the past 10 years. It is the data used for segmentation
+powered by Spark SQL and predictive insights and must be enabled to use those
+features. It is not used in computing calculated attributes or populating Agent
+Workspace.
+
 ### How do you want to name your
 
 customer profiles domain?
@@ -134,6 +142,20 @@ policies that you should apply.
 ## Enable Customer Profiles, and specify a
 
 dead-letter queue and KMS key
+
+**Data store**
+
+Choose whether to enable Data store. It is required to use segmentation powered by
+Spark SQL and predictive insights. If you choose not to enable Data store when
+creating a domain, you can enable it after the domain is created and being used. You
+cannot turn off Data store after it has been enabled.
+
+If you have an existing domain without Data store, you can enable it by clicking
+on the enable button in the blue banner on the Customer Profiles page (left hand panel > Customer
+Profiles).
+
+Data store requires a Customer managed key (CMK) and will prompt you to create a
+Customer managed key (CMK) if you have not already enabled one for your domain.
 
 1. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").

@@ -804,8 +804,7 @@ that describe the sample flows which include this block.
 
 See the following topics to learn more about Amazon Lex and adding prompts.
 
-- [Create conversational AI bots in
-  Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md")
+- [Create conversational AI bots in Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md")
 - [How to use the same Amazon Lex bot for voice and
   chat](one-bot-voice-chat.md "one-bot-voice-chat.md")
 - [Add text-to-speech to prompts in flow blocks in

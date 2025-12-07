@@ -21,11 +21,16 @@ shared:
 - [Agent queue statistic
   record](#data-lake-agent-queue-statistic-record "#data-lake-agent-queue-statistic-record")
 - [Agent statistic record](#data-lake-agent-statistic-record "#data-lake-agent-statistic-record")
+- [AI Agent](#data-lake-ai-agent "#data-lake-ai-agent")
+- [AI Agent Knowledge Base](#data-lake-ai-agent-knowledge-base "#data-lake-ai-agent-knowledge-base")
+- [AI Prompt](#data-lake-ai-prompt "#data-lake-ai-prompt")
+- [AI Session](#data-lake-ai-session "#data-lake-ai-session")
+- [AI Tool](#data-lake-ai-tool "#data-lake-ai-tool")
 - [Contact Lens conversational analytics](#data-lake-contact-lens-conversational-analytics "#data-lake-contact-lens-conversational-analytics")
 - [Contact evaluation
   record](#data-lake-contact-evaluation-record "#data-lake-contact-evaluation-record")
 - [Contact flow events](#data-lake-contact-flow-events "#data-lake-contact-flow-events")
-- [Contacts record](#data-lake-contacts-record "#data-lake-contacts-record")
+- [Contact record](#data-lake-contacts-record "#data-lake-contacts-record")
 - [Contact statistic
   record](#data-lake-contact-statistic-record "#data-lake-contact-statistic-record")
 - [Bot analytics data](data-lake-botdata.md "data-lake-botdata.md")
@@ -161,6 +166,128 @@ record
 | custom_state_time_50               | bigint    | Represents custom agent states defined by a customer. For<br>example: Coffee_break.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the data lake processed the<br>record. This can include transformation and backfill. This field<br>cannot be used to determine reliably data freshness.                                                                                                                                                                                                                                                                                                                                                                                           |
 
+## AI Agent
+
+| **Column**                     | **Type** | **Description**                                                                                    |
+| ------------------------------ | -------- | -------------------------------------------------------------------------------------------------- |
+| instance_arn                   | string   | The ARN of the Connect instance.                                                                   |
+| instance_id                    | string   | The ID of the Connect instance.                                                                    |
+| contact_id                     | string   | The ID of the contact.                                                                             |
+| ai_agent_id                    | string   | The Id of the requested AI Agent.                                                                  |
+| ai_agent_version               | string   | The version of the requested AI Agent.                                                             |
+| ai_agent_event_id              | string   | Id of the event.                                                                                   |
+| aws_account_id                 | string   | The ID of the AWS account where AI Assistant is used.                                              |
+| assistant_id                   | string   | The ID of the AI Assistant.                                                                        |
+| ai_session_id                  | string   | The ID of AI-Agent session.                                                                        |
+| creation_timestamp             | bigint   | The timestamp of the event is created in the data lake.                                            |
+| update_timestamp               | bigint   | The timestamp of the event is updated in the data lake.                                            |
+| ai_use_case                    | string   | The use case of the AI agent.                                                                      |
+| ai_agent_type                  | string   | The type of the requested AI Agent.                                                                |
+| ai_agent_name                  | string   | The name of the requested AI Agent.                                                                |
+| ai_agent_arn                   | string   | The Arn of the requested AI Agent.                                                                 |
+| invocation_success             | bool     | A boolean field which indicates whether the invocation of the AI agent has been successful or not. |
+| invocation_latency_ms          | float    | The invocation latency of the AI Agent in the evaluated contact.                                   |
+| conversation_turns_in_response | bigint   | The number of conversation turns responded by the requested AI Agent.                              |
+
+## AI Agent Knowledge Base
+
+| **Column**                       | **Type** | **Description**                                                  |
+| -------------------------------- | -------- | ---------------------------------------------------------------- |
+| instance_arn                     | string   | The ARN of the Connect instance.                                 |
+| aws_account_id                   | string   | The identifer of the AWS account that owns Connect AI Assistant. |
+| instance_id                      | string   | The ID of the Connect instance.                                  |
+| contact_id                       | string   | The ID of the specific contact .                                 |
+| knowledge_content_id             | string   | The ID of the referenced knowledge content.                      |
+| ai_agent_type                    | string   | The type of the requested AI Agent.                              |
+| ai_agent_knowledge_base_event_id | string   | The ID of the knowledge base reference event.                    |
+| assistant_id                     | string   | The ID of the Amazon Connect AI Assistant.                       |
+| ai_session_id                    | string   | The ID of AI Agent session.                                      |
+| creation_timestamp               | string   | The instant the data lake event was created.                     |
+| update_timestamp                 | string   | The instant the data lake event was last modified.               |
+| ai_agent_id                      | string   | The ID of requested AI Agent.                                    |
+| ai_agent_name                    | string   | The name of the requested AI Agent.                              |
+| ai_agent_version                 | string   | The version number of the requested AI Agent.                    |
+| ai_agent_arn                     | string   | The ARN of the requested AI Agent.                               |
+| knowledge_base_id                | string   | The ID of the referenced knowledge base.                         |
+| knowledge_base_name              | string   | The name of the referenced knowledge base.                       |
+| knowledge_content_reference      | string   | The title of the referenced knowledge content.                   |
+|                                  | string   | .                                                                |
+|                                  | string   | .                                                                |
+
+## AI Prompt
+
+| **Column**            | **Type** | **Description**                                                                                  |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| instance_arn          | string   | The ARN of the Amazon Connect instance.                                                          |
+| aws_account_id        | string   | The customer AWS account ID.                                                                     |
+| instance_id           | string   | The ID of the Amazon Connect instance.                                                           |
+| contact_id            | string   | The ID of the contact.                                                                           |
+| ai_prompt_id          | string   | The ID of the requested AI-prompt.                                                               |
+| ai_prompt_version     | string   | The version of the requested AI-prompt.                                                          |
+| ai_prompt_event_id    | string   | The ID of the event.                                                                             |
+| assistant_id          | string   | The identifier of the AI Assistant.                                                              |
+| ai_session_id         | string   | The ID of AI-Agent session.                                                                      |
+| creation_timestamp    | bigint   | The timestamp when the event is created in the data lake.                                        |
+| update_timestamp      | bigint   | The timestamp when the event is updated in the data lake.                                        |
+| ai_agent_type         | string   | The type of the requested AI Agent.                                                              |
+| ai_agent_name         | string   | The name of the requested AI Agent.                                                              |
+| ai_agent_id           | string   | The Id of the requested AI Agent.                                                                |
+| ai_agent_version      | string   | The version number of the requested AI Agent.                                                    |
+| ai_agent_arn          | string   | The Arn of the requested AI Agent.                                                               |
+| ai_prompt_type        | string   | The type of the invoked AI Prompt.                                                               |
+| ai_prompt_name        | string   | The name of the invoked AI Prompt.                                                               |
+| ai_prompt_arn         | string   | The arn of the invoked AI Prompt.                                                                |
+| model_id              | string   | The name of the llm model associated to the AI Prompt.                                           |
+| invocation_success    | boolean  | A boolean field which indicates whether the invocation of the prompt has been successful or not. |
+| invocation_latency_ms | float    | The invocation latency of the AI Prompt in the evaluated contact.                                |
+| input_token           | bigint   | The input token of the AI Prompt in the evaluated contact.                                       |
+| output_token          | bigint   | The output token of the AI Prompt in the evaluated contact.                                      |
+
+## AI Session
+
+| **Column**                         | **Type** | **Description**                                                                                                        |
+| ---------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| instance_arn                       | string   | The ARN of the Amazon Connect instance.                                                                                |
+| instance_id                        | string   | The ID of the Amazon Connect instance.                                                                                 |
+| contact_id                         | string   | The ID of the contact.                                                                                                 |
+| ai_session_id                      | string   | The ID of the AI-Agent session.                                                                                        |
+| aws_account_id                     | string   | The customer AWS account ID.                                                                                           |
+| assistant_id                       | string   | The identifier of the Amazon Q in Connect assistant.                                                                   |
+| creation_timestamp                 | bigint   | The timestamp when the event is created in the data lake.                                                              |
+| update_timestamp                   | bigint   | The timestamp when the event is updated in the data lake.                                                              |
+| proactive_intents_detected         | bigint   | The number of proactive intents (customer queries) detected during the AI session for an Agent Assistance<br>use case. |
+| proactive_intents_engaged          | bigint   | The number of proactive intents (customer queries) engaged in the AI session for an Agent Assistance use<br>case.      |
+| proactive_intents_answered         | bigint   | The number of proactive intents (customer queries) answered in the AI session for an Agent Assistance use<br>case.     |
+| ai_agent_invocation_count          | bigint   | The number of AI Agent invocations in the AI session.                                                                  |
+| ai_agent_invocation_success_count  | bigint   | The number of successful AI Agent invocations in the AI session.                                                       |
+| is_handed_off                      | boolean  | A boolean field which indicates whether the AI agent has handed off to the human agent during the AI<br>session.       |
+| avg_conversation_turns_in_response | float    | The average number of conversation turns in response of AI Agent invocation.                                           |
+
+## AI Tool
+
+| **Column**            | **Type** | **Description**                                                                                |
+| --------------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| instance_arn          | string   | The ARN of the Connect instance.                                                               |
+| aws_account_id        | string   | The identifier of the AWS account that owns Connect AI Assistant.                              |
+| instance_id           | string   | The ID of the Connect instance.                                                                |
+| contact_id            | string   | The ID of the contact .                                                                        |
+| ai_agent_id           | string   | The ID of requested AI Agent.                                                                  |
+| ai_tool_id            | string   | The ID of requested AI tool.                                                                   |
+| ai_tool_event_id      | string   | The ID of the AI Tool invocation event.                                                        |
+| assistant_id          | string   | The ID of the Amazon Connect AI Assistant.                                                     |
+| ai_session_id         | string   | The ID of AI Agent session.                                                                    |
+| creation_timestamp    | bigint   | The instant the data lake event was created.                                                   |
+| update_timestamp      | bigint   | The instant the data lake event was last modified.                                             |
+| ai_agent_type         | string   | The type of the requested AI Agent.                                                            |
+| ai_agent_name         | string   | The name of the requested AI Agent.                                                            |
+| ai_agent_version      | string   | The version number of the requested AI Agent.                                                  |
+| ai_agent_arn          | string   | The ARN of the requested AI Agent.                                                             |
+| ai_tool_type          | string   | The type of the invoked AI tool.                                                               |
+| ai_tool_name          | string   | The name of the invoked AI tool.                                                               |
+| ai_tool_arn           | string   | The ARN of the invoked AI tool.                                                                |
+| invocation_success    | boolean  | A boolean field which indicates whether the invocation of the tool has been successful or not. |
+| invocation_latency_ms | float    | The invocation latency for AI tool calling.                                                    |
+
 ## Contact Lens conversational analytics
 
 | **Column**                                         | **Type**      | **Description**                                                                                                                                                                                                                                                                                             |
@@ -274,7 +401,7 @@ record
 | resource_published_timestamp       | Timestamp | "Creation" or "revision" date of the flow<br>itself.                                                                                                                                             |     |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the data lake processed<br>the record. This can include transformation and backfill. This field<br>cannot be used to determine reliably data freshness. |     |
 
-## Contacts record
+## Contact record
 
 | **Column**                                                  | **Type**                                                                                                                                                                                                                                                         | **Description**                                                                                                                                                                                                                                                        |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------ | ------ | ---- | ----------------- |
@@ -413,6 +540,8 @@ record
 | chat_customer_metrics_total_response_time_ms                | bigint                                                                                                                                                                                                                                                           | The total chat response time by Customer.                                                                                                                                                                                                                              |
 | chat_customer_metrics_max_response_time_ms                  | bigint                                                                                                                                                                                                                                                           | The maximum chat response time by Customer.                                                                                                                                                                                                                            |
 | chat_customer_metrics_last_message_timestamp                | Timestamp                                                                                                                                                                                                                                                        | The Timestamp of last chat message by Customer.                                                                                                                                                                                                                        |
+| q_in_connect_session_arn                                    | string                                                                                                                                                                                                                                                           | The ARN of Amazon Q in Connect session.                                                                                                                                                                                                                                |
+|                                                             |                                                                                                                                                                                                                                                                  | The AI Agent information of the contact.                                                                                                                                                                                                                               |
 
 ## Contact statistic
 

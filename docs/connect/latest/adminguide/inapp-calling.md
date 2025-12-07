@@ -48,7 +48,7 @@ There are two ways to embed Amazon Connect in-app, web, and video calling, and
 screen sharing onto your website or mobile application:
 
 - Option 1: [Configure an out-of-the-box
-  communications widget](config-com-widget1.md "config-com-widget1.md"). You can use the no-code UI builder to customize the
+  communications widget](config-com-widget1.md "config-com-widget1.md"). You can use the UI builder to customize the
   font and colors, and secure the widget so that it can be launched only from your
   website.
 - Option 2: [Integrate in-app, web, and video

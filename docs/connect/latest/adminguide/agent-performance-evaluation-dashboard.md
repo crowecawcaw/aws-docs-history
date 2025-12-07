@@ -235,7 +235,7 @@ tables](dashboard-customize-widgets.md#dashboard-thresholds "dashboard-customize
 The following image shows an example **Agent performance evaluation
 metrics** table.
 
-![The Agent performance evaluation metrics chart.](images/agent-perf-evaluation-metrics.png)
+![The Agent performance evaluation metrics chart.](/images/connect/latest/adminguide/images/agent-perf-evaluation-metrics.png)
 
 ## Agent online time breakdown
 

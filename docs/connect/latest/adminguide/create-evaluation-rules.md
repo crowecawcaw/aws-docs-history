@@ -37,7 +37,7 @@ forms
 ![The list of conditions for when an evaluation result is available.](images/evaluationforms-rule-condition-all.png)
 
 You can combine criteria from a set of conditions to build very specific
-Contact Lens rules. Following are the available conditions:
+Contact Lens rules. The following are some of the available conditions:
 
     * **Evaluation - Form score**: Build rules that run
      when the score for a specific evaluation form is met.
@@ -47,19 +47,17 @@ Contact Lens rules. Following are the available conditions:
      that run when the score for a specific question and answer is met.
     * **Evaluation - Results available**: Build rules
      that run on any evaluation submissions.
-    * **Agent**: Build rules that run on a subset of
-     agents. For example, create a rule to ensure newly hired agents
-     comply with company standards.
+    * **Agent hierarchy**: Build rules that run on a specific agent hierarchy. Agent hierarchies may represent geographical locations, departments, products, or teams.
+
+
+    To see list of agent hierarchies so you can add them to rules, you need **Agent hierarchy - View** permissions in your security profile.
+    * **Agent**: Build rules that run on a subset of agents. For example, receive notifications on agents belonging to your team.
 
 
     To see agent names so you can add them to rules, you need
      **Users - View** permissions in your security
      profile.
-    * **Queues**: Build rules that run on a subset of
-     queues. Often organizations use queues to indicate a line of
-     business, topic, or domain. For example, you could build rules
-     specifically for the evaluations of those agents assign to sales
-     queues.
+    * **Queues**: Build rules that run on a subset of queues. Often organizations use queues to indicate a line of business, topic, or domain. For example, you could build rules specifically for the evaluations of those agents assigned to sales queues.
 
 
     To see the queue names so you can add them to rules, you need
@@ -70,6 +68,10 @@ Contact Lens rules. Following are the available conditions:
      agent evaluations for a particular line of business or for specific
      customers, such as based on their membership level, their current
      country of residence, or if they have an outstanding order.
+    * **Contact segment attributes**: You can identify contacts within rules using custom contact segment attributes with values populated from other systems or using custom logic. You can [define an attribute](predefined-attributes.md#predefined-attributes-create-web-admin "predefined-attributes.md#predefined-attributes-create-web-admin") and set its value in flows. Custom segment attributes are only present on that specific contact ID, and not the entire contact chain. For example, you can build a rule that identifies that customer closed their account during the conversation.
+
+
+    To see the list of contact segment attributes to add to a rule, you need **Predefined attributes - View** permission.
 
 5. Choose **Next**.
 

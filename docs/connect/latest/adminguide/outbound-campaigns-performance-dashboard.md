@@ -70,6 +70,14 @@ The following image shows an example chart for an email campaign.
 
 ![The Email campaign performance overview chart.](images/dashboard-oc-email-metrics.png)
 
+The following image shows an example chart for a WhatsApp campaign.
+
+![The WhatsApp campaign performance overview chart showing metrics including delivery attempts and read count.](images/dashboard-oc-whatsapp-metrics.png)
+
+###### Note
+
+The widget must be manually added to your dashboard. Refer to [Add or remove widgets on a dashboard](dashboard-customize-widgets.md#dashboard-add-widgets "dashboard-customize-widgets.md#dashboard-add-widgets"), then locate the `WhatsApp campaign performance` widget under the Campaign section.
+
 The charts include the following metrics:
 
 - **Delivery attempts**: The count of outbound campaign
@@ -164,7 +172,7 @@ filter.
 
 charts
 
-The Telephony, SMS, and Email classification by campaign charts drill down into
+The Telephony, SMS, Email, and WhatsApp classification by campaign charts drill down into
 the delivery outcomes of each delivery attempt for each campaign delivery mode. The
 charts show the count of each delivery classification across a campaign.
 
@@ -232,6 +240,24 @@ The following image shows a sample Email classification stacked bar
 chart.
 
 ![The Email classification stacked bar chart.](images/dashboard-oc-email-classification.png)
+
+### WhatsApp classification stacked bar chart
+
+The WhatsApp classifications displayed include the following delivery outcomes:
+
+- Delivered
+- Failed
+- Any remaining classifications grouped under Other
+
+For the full list of available WhatsApp events, see `campaign_event_type` in the [Outbound campaign events](data-lake-outbound-campaigns-data.md#data-lake-oc-events "data-lake-outbound-campaigns-data.md#data-lake-oc-events") table.
+
+The following image shows a sample WhatsApp classification stacked bar chart.
+
+![The WhatsApp classification stacked bar chart showing delivery outcomes by campaign.](images/dashboard-oc-whatsapp-classification.png)
+
+###### Note
+
+The widget must be manually added to your dashboard. Refer to [Add or remove widgets on a dashboard](dashboard-customize-widgets.md#dashboard-add-widgets "dashboard-customize-widgets.md#dashboard-add-widgets"), then locate the `WhatsApp classification by campaign` widget under the Campaign section.
 
 ## Campaign metrics by recipients
 
@@ -321,6 +347,8 @@ This table includes the following metrics.
   for the same message.
 - **SMS spam**: The count of sms messages identified as
   spam by the mobile carrier.
+- **WhatsApp delivered**: The count of WhatsApp messages delivered.
+- **Read**: The count of WhatsApp messages opened by the recipients.
 - **Email delivered**: The count of email messages
   delivered.
 - **Email complaint**: The count of email messages reported

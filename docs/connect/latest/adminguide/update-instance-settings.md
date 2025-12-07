@@ -175,8 +175,7 @@ options
 2. (Optional) To add a signing key for use in flows, choose **Add
    key**. For more information, see [Encrypt sensitive customer input in Amazon Connect](encrypt-data.md "encrypt-data.md").
 3. (Optional) To integrate with Amazon Lex, select a Lex bot. For more
-   information, see [Create conversational AI bots in
-   Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md").
+   information, see [Create conversational AI bots in Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md").
 4. (Optional) To integrate with AWS Lambda, select a Lambda function. For more
    information, see [Grant Amazon Connect access to your AWS Lambda
    functions](connect-lambda-functions.md "connect-lambda-functions.md").

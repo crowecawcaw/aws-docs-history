@@ -94,7 +94,7 @@ searchable using these attributes.
 The following steps are typically performed by managers.
 
 Managers can evaluate ingested activities in Amazon Connect the same way that they
-evaluate native Amazon Connect contacts. For more information, see [Evaluate agent performance](evaluations.md "evaluations.md").
+evaluate native Amazon Connect contacts. For more information, see [Evaluate performance](evaluations.md "evaluations.md").
 
 If your admin has configured search on custom contact attributes, you can search
 for external activities with identifiers, such as the type of activity and ID.
