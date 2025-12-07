@@ -1,23 +1,24 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Editing a secret
+# Masking data using secrets
 
-Use the following procedure to edit a secret.
+There may be times when you need to use sensitive data, such as authentication
+credentials, in your workflows. Storing these values in plaintext anywhere in your
+repository should be avoided because anyone with access to the repository which contains the
+secret can see them. Similarly, these values shouldn't be used directly in any workflow
+definitions because they will be visible as files in your repository. With CodeCatalyst, you can
+protect these values by adding a secret to your project, and then referencing the secret in
+your workflow definition file. Note that you can have a maximum of five secrets per
+action.
 
-###### To edit a secret
+###### Note
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. In the navigation pane, choose **CI/CD**, and then choose
-   **Secrets**.
-3. In the secrets list, choose the secret that you want to edit.
-4. Choose **Edit**.
-5. Edit the following properties:
+Secrets can only be used to replace passwords and sensitive information in the
+workflow definition file.
 
-**Value**
+###### Topics
 
-Enter the value for the secret. This is the value that you want to
-hide from view. By default, the value is not displayed.
-
-**Description**
-
-(Optional) Enter a description for your secret. 6. Choose **Save**.
+- [Creating a secret](workflows-secrets.md "workflows-secrets.md")
+- [Editing a secret](workflows-secrets.md "workflows-secrets.md")
+- [Using a secret](workflows-secrets.md "workflows-secrets.md")
+- [Deleting a secret](workflows-secrets.md "workflows-secrets.md")
