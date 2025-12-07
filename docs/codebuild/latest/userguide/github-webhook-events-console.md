@@ -60,7 +60,7 @@ https://api.github.com/users/`user-name`, where
 In this example, a webhook filter group triggers a build for a push event when the
 head commit message matches the regular expression `\[CodeBuild\]`.
 
-![A webhook filter group that triggers a build for a push event when the head commit message matches the regular expression.](images/pull-request-webhook-filter-commit-message.png)
+![A webhook filter group that triggers a build for a push event when the head commit message matches the regular expression.](/images/codebuild/latest/userguide/images/pull-request-webhook-filter-commit-message.png)
 In this example, a webhook filter group triggers a build for GitHub Actions workflow
 job events only.
 
