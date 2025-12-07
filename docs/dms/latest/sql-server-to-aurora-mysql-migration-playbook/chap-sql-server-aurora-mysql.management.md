@@ -1,92 +1,73 @@
-# Linked servers
+# Viewing server logs
 
-This topic provides reference information about linked servers in Microsoft SQL Server and their absence in Amazon Aurora MySQL-Compatible Edition. You can understand the functionality and benefits of linked servers in SQL Server, including their ability to connect to external data sources and run distributed queries.
+This topic provides reference information about logging capabilities in SQL Server and Amazon Aurora MySQL. You can gain insights into how these database systems handle error logging, slow query logging, and general logging.
 
-| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                               | Key differences                                                                                  |
-| ------------------------ | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| No feature compatibility | No automation                      | [Linked Servers](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.linkedservers "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.linkedservers") | Data transfer across schemas only, use a custom application solution to access remote instances. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                          |
+| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | View logs from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. |
 
 ## SQL Server Usage
 
-Linked servers enable the database engine to connect to external Object Linking and Embedding for databases (OLE-DB) sources. They are typically used to run T-SQL commands and include tables in other instances of SQL Server, or other RDBMS engines such as Oracle. SQL Server supports multiple types of OLE-DB sources as linked servers, including Microsoft Access, Microsoft Excel, text files and others.
+SQL Server logs system and user generated events to the _SQL Server Error Log_ and to the _Windows Application Log_. It logs recovery messages, kernel messages, security events, maintenance events, and other general server level error and informational messages. The Windows Application Log contains events from all windows applications including SQL Server and SQL Server agent.
 
-The main benefits of using linked servers are:
+SQL Server Management Studio Log Viewer unifies all logs into a single consolidated view. You can also view the logs with any text editor.
 
-- Reading external data for import or processing.
-- Running distributed queries, data modifications, and transactions for enterprise-wide data sources.
-- Querying heterogeneous data source using the familiar T-SQL API.
+Administrators typically use the SQL Server Error Log to confirm successful completion of processes, such as backup or batches, and to investigate the cause of run time errors. These logs can help detect current risks or potential future problem areas.
 
-You can configure linked servers using either SQL Server Management Studio, or the system stored procedure `sp_addlinkedserver`. The available functionality and the specific requirements vary significantly between the various OLE-DB sources. Some sources may allow read only access, others may require specific security context settings, and so on.
+To view the log for SQL Server, SQL Server Agent, Database Mail, and Windows applications, open the SQL Server Management Studio Object Explorer pane, navigate to **Management**, **SQL Server Logs**, and choose the current log.
 
-The linked server definition contains the linked server alias, the OLE DB provider, and all the parameters needed to connect to a specific OLE-DB data source.
+The following table identifies some common error codes database administrators typically look for in the error logs:
 
-The OLE-DB provider is a .NET Dynamic Link Library (DLL) that handles the interaction of SQL Server with all data sources of its type. For example, OLE-DB Provider for Oracle. The OLE-DB data source is the specific data source to be accessed, using the specified OLE-DB provider.
-
-###### Note
-
-You can use SQL Server distributed queries with any custom OLE DB provider as long as the required interfaces are implemented correctly.
-
-SQL Server parses the T-SQL commands that access the linked server and sends the appropriate requests to the OLE-DB provider. There are several access methods for remote data, including opening the base table for read or issuing SQL queries against the remote data source.
-
-You can manage linked servers using SQL Server Management Studio graphical user interface or T-SQL system stored procedures.
-
-- `EXECUTE sp_addlinkedserver` to add new server definitions.
-- `EXECUTE sp_addlinkedserverlogin` to define security context.
-- `EXECUTE sp_linkedservers` or `SELECT * FROM sys.servers` system catalog view to retrieve meta data.
-- `EXECUTE sp_dropserver` to delete a linked server.
-
-You can access linked server data sources from T-SQL using a fully qualified, four-part naming scheme: `<Server Name>.<Database Name>.<Schema Name>.<Object Name>`.
-
-Additionally, you can use the `OPENQUERY` row set function to explicitly invoke pass-through queries on the remote linked server. Also, you can use the `OPENROWSET` and `OPENDATASOURCE` row set functions for one-time remote data access without defining the linked server in advance.
-
-### Syntax
-
-```
-EXECUTE sp_addlinkedserver
-    [ @server= ] <Linked Server Name>
-    [ , [ @srvproduct= ] <Product Name>]
-    [ , [ @provider= ] <OLE DB Provider>]
-    [ , [ @datasrc= ] <Data Source>]
-    [ , [ @location= ] <Data Source Address>]
-    [ , [ @provstr= ] <Provider Connection String>]
-    [ , [ @catalog= ] <Database>];
-```
+| Error code | Error message                 |
+| ---------- | ----------------------------- |
+| 1105       | Couldn’t allocate space.      |
+| 3041       | Backup failed.                |
+| 9002       | Transaction log full.         |
+| 14151      | Replication agent failed.     |
+| 17053      | Operating system error.       |
+| 18452      | Login failed.                 |
+| 9003       | Possible database corruption. |
 
 ### Examples
 
-Create a linked server to a local text file.
+The following screenshot shows the typical log file viewer content:
 
-```
-EXECUTE sp_addlinkedserver MyTextLinkedServer, N'Jet 4.0',
-    N'Microsoft.Jet.OLEDB.4.0',
-    N'D:\TextFiles\MyFolder',
-    NULL,
-    N'Text';
-```
+![Log file viewer](images/pb-sql-server-aurora-mysql-log-file-viewer.png)
 
-Define security context.
-
-```
-EXECUTE sp_addlinkedsrvlogin MyTextLinkedServer, FALSE, Admin, NULL;
-```
-
-Use `sp_tables_ex` to list tables in a folder.
-
-```
-EXEC sp_tables_ex MyTextLinkedServer;
-```
-
-Issue a `SELECT` query using a four-part name.
-
-```
-SELECT *
-FROM MyTextLinkedServer...[FileName#text];
-```
-
-For more information, see [sp_addlinkedserver (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addlinkedserver-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addlinkedserver-transact-sql?view=sql-server-ver15") and [Distributed Queries Stored Procedures (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/distributed-queries-stored-procedures-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/distributed-queries-stored-procedures-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Monitoring the Error Logs](https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition doesn’t support remote data access.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides administrators with access to the MySQL error log, slow query log, and the general log.
 
-Connectivity between schemas is trivial, connectivity to other instances will require an application custom solution.
+The MySQL Error Log is generated by default. To generate the slow query and general logs, set the corresponding parameters in the database parameter group. For more information, see [Server Options](chap-sql-server-aurora-mysql.configuration.md "chap-sql-server-aurora-mysql.configuration.md").
+
+You can view Aurora MySQL logs directly from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. You can also direct the logs to a database table in the main database and use SQL queries to view the data. To download a binary log, use the `mysqlbinlog` utility.
+
+The system writes error events to the `mysql-error.log` file, which you can view using the Amazon RDS console. Alternatively, you can use the Amazon RDS API, the Amazon RDS CLI, or the AWS SDKs retrieve to retrieve the log.
+
+The `mysql-error.log` file buffers are flushed every five minutes and are appended to the `filemysql-error-running.log`. The `mysql-error-running.log` file is rotated every hour and retained for 24 hours.
+
+Aurora MySQL writes to the error log only on server startup, server shutdown, or when an error occurs. A database instance may run for long periods without generating log entries.
+
+You can turn on and configure the Aurora MySQL Slow Query and general logs to write log entries to a file or a database table by setting the corresponding parameters in the database parameter group. The following list identifies he parameters that control the log options:
+
+- `slow_query_log` — Set to 1 to create the Slow Query Log. The default is 0.
+- `general_log` — Set to 1 to create the General Log. The default is 0.
+- `long_query_time` — Specify a value in seconds for the shortest query run time to be logged. The default is 10 seconds; the minimum is 0.
+- `log_queries_not_using_indexes` — Set to 1 to log all queries not using indexes to the slow query log. The default is 0. Queries using indexes are logged even if their run time is less than the value of the `long_query_time` parameter.
+- `log_output` — Specify one of the following options:
+  - **TABLE** — Write general queries to the `mysql.general_log` table and slow queries to the `mysql.slow_log` table. This option is set by default.
+  - **FILE** — Write both general and slow query logs to the file system. Log files are rotated hourly.
+  - **NONE** — Disable logging.
+
+### Examples
+
+The following walkthrough demonstrates how to view the Aurora PostgreSQL error logs in the Amazon RDS console.
+
+1. In the AWS console, choose **RDS**, and then choose **Databases**.
+2. Choose the instance for which you want to view the error log.
+
+![Log file viewer](images/pb-sql-server-aurora-mysql-view-error-log.png) 3. Scroll down to the logs section and choose the log name. The log viewer displays the log content.
+
+For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.

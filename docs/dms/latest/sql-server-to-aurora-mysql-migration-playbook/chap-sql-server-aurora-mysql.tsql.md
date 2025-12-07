@@ -1,228 +1,265 @@
-# User-defined functions for T-SQL
+# SQL Server TOP and FETCH and MySQL LIMIT for T-SQL
 
-This topic provides reference content comparing user-defined functions (UDFs) in Microsoft SQL Server 2019 and Amazon Aurora MySQL. It explains the capabilities, limitations, and key differences between UDFs in these two database systems. You’ll learn about the types of UDFs supported, their behavior, and important considerations when migrating from SQL Server to Aurora MySQL.
+This topic provides reference information about feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL, specifically focusing on result set limiting and paging techniques. You can understand how the TOP and FETCH clauses in SQL Server correspond to the LIMIT and OFFSET clauses in Aurora MySQL.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                   | Key differences                                                                                                     |
-| ------------------------------ | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Two star feature compatibility | Three star automation level        | [User-Defined Functions](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.udf "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.udf") | Scalar functions only, rewrite inline TVF as views or derived tables, and multi-statement TVF as stored procedures. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                    | Key differences                                                                         |
+| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | [TOP and FETCH](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.topfetch "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.topfetch") | Syntax rewrite, very similar functionality. Convert `PERCENT` and `TIES` to subqueries. |
 
 ## SQL Server Usage
 
-User-defined functions (UDF) are code objects that accept input parameters and return either a scalar value or a set consisting of rows and columns.
+SQL Server supports two options for limiting and paging result sets returned to the client. `TOP` is a legacy, proprietary T-SQL keyword that is still supported due to its wide usage. The ANSI compliant syntax of `FETCH` and `OFFSET` were introduced in SQL Server 2012 and are recommended for paginating results sets.
 
-SQL Server UDFs can be implemented using T-SQL or Common Language Runtime (CLR) code.
+### TOP
+
+The `TOP (n)` operator is used in the `SELECT` list and limits the number of rows returned to the client based on the `ORDER BY` clause.
 
 ###### Note
 
-This section doesn’t cover CLR code objects.
+When you use TOP with no `ORDER BY` clause, the query is non-deterministic and may return any rows up to the number specified by the `TOP` operator.
 
-Function invocations can’t have any lasting impact on the database. They must be contained and can only modify objects and data local to their scope (for example, data in local variables). Functions aren’t allowed to modify data or the structure of a database.
+You can use `TOP (n)` used with two modifier options:
 
-Functions may be deterministic or non-deterministic. Deterministic functions always return the same result when you run them with the same data. Non-deterministic functions may return different results each time they run. For example, a function that returns the current date or time.
+- `TOP (n) PERCENT` is used to designate a percentage of the rows to be returned instead of a fixed maximal row number limit (n). When using PERCENT, n can be any value from 1-100.
+- `TOP (n) WITH TIES` is used to allow overriding the n maximal number (or percentage) of rows specified in case there are additional rows with the same ordering values as the last row.
 
-SQL Server supports three types of T-SQL UDFs: scalar functions, table-valued functions, and multi-statement table-valued functions.
+###### Note
 
-SQL Server 2019 adds scalar user-defined functions inlining. Inlining transforms functions into relational expressions and embeds them in the calling SQL query. This transformation improves the performance of workloads that take advantage of scalar UDFs. Scalar UDF inlining facilitates cost-based optimization of operations inside UDFs. The results are efficient, set-oriented, and parallel instead of inefficient, iterative, serial run plans. For more information, see [Scalar UDF Inlining](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### Scalar User-Defined Functions
-
-Scalar UDFs accept zero or more parameters and return a scalar value. You can use scalar UDFs in T-SQL expressions.
+If `TOP (n)` is used without `WITH TIES` and there are additional rows that have the same ordering value as the last row in the group of n rows, the query is also non-deterministic because the last row may be any of the rows that share the same ordering value.
 
 **Syntax**
 
 ```
-CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default Value>] [READONLY]} [,...n]])
-RETURNS <Return Data Type>
-[AS]
-BEGIN
-<Function Body Code>
-RETURN <Scalar Expression>
-END[;]
+SELECT TOP (<Limit Expression>) [PERCENT] [ WITH TIES ] <Select Expressions List>
+FROM...
 ```
 
-**Examples**
+### OFFSET…​ FETCH
 
-Create a scalar function to change the first character of a string to upper case.
+`OFFSET…​ FETCH` as part of the `ORDER BY` clause is the ANSI compatible syntax for limiting and paginating result sets. It allows specification of the starting position and limits the number of rows returned, which enables easy pagination of result sets.
 
-```
-CREATE FUNCTION dbo.UpperCaseFirstChar (@String VARCHAR(20))
-RETURNS VARCHAR(20)
-AS
-BEGIN
-RETURN UPPER(LEFT(@String, 1)) + LOWER(SUBSTRING(@String, 2, 19))
-END;
-```
+Similar to `TOP`, `OFFSET…​ FETCH` relies on the presentation order defined by the `ORDER BY` clause. Unlike `TOP`, it is part of the `ORDER BY` clause and can’t be used without it.
 
-```
-SELECT dbo.UpperCaseFirstChar ('mIxEdCasE');
+###### Note
 
-Mixedcase
-```
-
-### User-Defined Table-Valued Functions
-
-Inline table-valued UDFs are similar to views or a Common Table Expressions (CTE) with the added benefit of parameters. They can be used in `FROM` clauses as subqueries and can be joined to other source table rows using the `APPLY` and `OUTER APPLY` operators. In-line table valued UDFs have many associated internal optimizer optimizations due to their simple, view-like characteristics.
+Queries using `FETCH…​ OFFSET` can still be non-deterministic if there is more than one row that has the same ordering value as the last row.
 
 **Syntax**
 
 ```
-CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
-Value>] [READONLY]} [,...n]])
-RETURNS TABLE
-[AS]
-RETURN (<SELECT Query>)[;]
+ORDER BY <Ordering Expression> [ ASC | DESC ] [ ,...n ]
+OFFSET <Offset Expression> { ROW | ROWS }
+[FETCH { FIRST | NEXT } <Page Size Expression> { ROW | ROWS } ONLY ]
 ```
 
 **Examples**
 
-Create a table valued function to aggregate employee orders.
+Create the `OrderItems` table.
 
 ```
-CREATE TABLE Orders
+CREATE TABLE OrderItems
 (
-    OrderID INT NOT NULL PRIMARY KEY,
-    EmployeeID INT NOT NULL,
-    OrderDate DATETIME NOT NULL
+    OrderID INT NOT NULL,
+    Item VARCHAR(20) NOT NULL,
+    Quantity SMALLINT NOT NULL,
+    PRIMARY KEY(OrderID, Item)
 );
 ```
 
 ```
-INSERT INTO Orders (OrderID, EmployeeID, OrderDate)
+INSERT INTO OrderItems (OrderID, Item, Quantity)
 VALUES
-(1, 1, '20180101 13:00:05'),
-(2, 1, '20180201 11:33:12'),
-(3, 2, '20180112 10:22:35');
+(1, 'M8 Bolt', 100),
+(2, 'M8 Nut', 100),
+(3, 'M8 Washer', 200),
+(3, 'M6 Locking Nut', 300);
 ```
 
-```
-CREATE FUNCTION dbo.EmployeeMonthlyOrders
-(@EmployeeID INT)
-RETURNS TABLE AS
-RETURN
-(
-SELECT EmployeeID,
-    YEAR(OrderDate) AS OrderYear,
-    MONTH(OrderDate) AS OrderMonth,
-    COUNT(*) AS NumOrders
-FROM Orders AS O
-WHERE EmployeeID = @EmployeeID
-GROUP BY EmployeeID,
-    YEAR(OrderDate),
-    MONTH(OrderDate)
-);
-```
+Retrieve the three most ordered items by quantity.
 
 ```
+-- Using TOP
+SELECT TOP (3) *
+FROM OrderItems
+ORDER BY Quantity DESC;
+
+-- USING FETCH
 SELECT *
-FROM dbo.EmployeeMonthlyOrders (1)
-
-EmployeeID  OrderYear  OrderMonth  NumOrders
-1           2018       1           1
-1           2018       2           1
+FROM OrderItems
+ORDER BY Quantity DESC
+OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY;
 ```
 
-### Multi-Statement User-Defined Table-Valued Functions
-
-Multi-statement table valued UDFs, like inline UDFs, are also similar to views or CTEs, with the added benefit of allowing parameters. They can be used in FROM clauses as sub queries and can be joined to other source table rows using the `APPLY` and `OUTER APPLY` operators.
-
-The difference between multi-statement UDFs and the inline UDFs is that multi-statement UDFs aren’t restricted to a single `SELECT` statement. They can consist of multiple statements including logic implemented with flow control, complex data processing, security checks, and so on.
-
-The downside of using multi-statement UDFs is that there are far less optimizations possible and performance may suffer.
-
-**Syntax**
-
 ```
-CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
-Value>] [READONLY]} [,...n]])
-RETURNS <@Return Variable> TABLE <Table Definition>
-[AS]
-BEGIN
-<Function Body Code>
-RETURN
-END[;]
+OrderID  Item            Quantity
+3        M6 Locking Nut  300
+3        M8 Washer       200
+2        M8 Nut          100
 ```
 
-For more information, see [CREATE FUNCTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+Include rows with ties.
+
+```
+SELECT TOP (3) WITH TIES *
+FROM OrderItems
+ORDER BY Quantity DESC;
+```
+
+```
+OrderID  Item            Quantity
+3        M6 Locking Nut  300
+3        M8 Washer       200
+2        M8 Nut          100
+1        M8 Bolt         100
+```
+
+Retrieve half of the rows based on quantity.
+
+```
+SELECT TOP (50) PERCENT *
+FROM OrderItems
+ORDER BY Quantity DESC;
+```
+
+```
+OrderID  Item            Quantity
+3        M6 Locking Nut  300
+3        M8 Washer       200
+```
+
+For more information, see [SELECT - ORDER BY Clause (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15") and [TOP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the creation of user-defined scalar functions only. There is no support for table-valued functions.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the non-ANSI compliant but popular with other database engines `LIMIT…​ OFFSET` operator for paging results sets.
 
-Unlike SQL Server, Aurora MySQL enables routines to read and write data using `INSERT`, `UPDATE`, and `DELETE`. It also allows DDL statements such as `CREATE` and `DROP`. Aurora MySQL doesn’t permit stored functions to contain explicit SQL transaction statements such as `COMMIT` and `ROLLBACK`.
+The `LIMIT` clause limits the number of rows returned and doesn’t require an `ORDER BY` clause, although that would make the query non-deterministic.
 
-In Aurora MySQL, you can explicitly specify several options with the `CREATE FUNCTION` statement. These characteristics are saved with the function definition and are viewable with the `SHOW CREATE FUNCTION` statement.
-
-- The `DETERMINISTIC` option must be explicitly stated. Otherwise, the engine assumes it is not deterministic.
-
-###### Note
-
-The MySQL engine doesn’t check the validity of the deterministic property declaration. If you wrongly specify a function as `DETERMINISTIC` when in fact it is not, unexpected results and errors may occur.
-
-- `CONTAINS SQL` indicates the function code doesn’t contain statements that read or modify data.
-- `READS SQL DATA` indicates the function code contains statements that read data (for example, `SELECT`) but not statements that modify data (for example, `INSERT`, `DELETE`, or `UPDATE`).
-- `MODIFIES SQL DATA` indicates the function code contains statements that may modify data.
-
-###### Note
-
-The preceding options are advisory only. The server doesn’t constrain the function code based on the declaration. This feature is useful in assisting code management.
-
-### Syntax
-
-```
-CREATE FUNCTION <Function Name> ([<Function Parameter>[,...]])
-RETURNS <Returned Data Type> [characteristic ...]
-<Function Code Body>
-```
-
-```
-characteristic:
-COMMENT '<Comment>' | LANGUAGE SQL | [NOT] DETERMINISTIC
-| { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA }
-| SQL SECURITY { DEFINER | INVOKER }
-```
+The `OFFSET` clause is zero-based, similar to SQL Server and used for pagination.
 
 ### Migration Considerations
 
-For scalar functions, migration should be straight forward as far as the function syntax is concerned. Note that rules in Aurora MySQL regarding functions are much more lenient than SQL Server.
+`LIMIT…​ OFFSET` syntax can be used to replace the functionality of both `TOP(n)` and `FETCH…​ OFFSET` in SQL Server. It is automatically converted by the AWS Schema Conversion Tool (AWS SCT except for the `WITH TIES` and `PERCENT` modifiers.
 
-A function in Aurora MySQL may modify data and schema. Function determinism must be explicitly stated, unlike SQL Server that infers it from the code. Additional properties can be stated for a function, but most are advisory only and have no functional impact.
+To replace the `PERCENT` option, first calculate how many rows the query returns and then calculate the fixed number of rows to be returned based on that number.
 
-Also note that the AS keyword, which is mandatory in SQL Server before the function’s code body, is not valid Aurora MySQL syntax and must be removed.
+###### Note
 
-Table-valued functions will be harder to migrate. For most in-line table valued functions, a simple path may consist of migrating to using views, and letting the calling code handle parameters.
+Because this technique involves added complexity and accessing the table twice, consider changing the logic to use a fixed number instead of percentage.
 
-Complex multi-statement table valued functions will require rewrite as a stored procedure, which may in turn write the data to a temporary or standard table for further processing.
+To replace the `WITH TIES` option, rewrite the logic to add another query that checks for the existence of additional rows that have the same ordering value as the last row returned from the `LIMIT` clause.
+
+###### Note
+
+Because this technique introduces significant added complexity and three accesses to the source table, consider changing the logic to introduce a tie-breaker into the `ORDER BY` clause.
 
 ### Examples
 
-Create a scalar function to change the first character of string to upper case.
+Create the `OrderItems` table.
 
 ```
-CREATE FUNCTION UpperCaseFirstChar (String VARCHAR(20))
-RETURNS VARCHAR(20)
+CREATE TABLE OrderItems
+(
+    OrderID INT NOT NULL,
+    Item VARCHAR(20) NOT NULL,
+    Quantity SMALLINT NOT NULL,
+    PRIMARY KEY(OrderID, Item)
+);
+```
+
+```
+INSERT INTO OrderItems (OrderID, Item, Quantity)
+VALUES
+(1, 'M8 Bolt', 100),
+(2, 'M8 Nut', 100),
+(3, 'M8 Washer', 200),
+(3, 'M6 Locking Nut', 300);
+```
+
+Retrieve the three most ordered items by quantity.
+
+```
+SELECT *
+FROM OrderItems
+ORDER BY Quantity DESC
+LIMIT 3 OFFSET 0;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+OrderID  Item            Quantity
+3        M6 Locking Nut  300
+3        M8 Washer       200
+2        M8 Nut          100
+```
+
+Include rows with ties.
+
+```
+SELECT *
+FROM
+(
+    SELECT *
+    FROM OrderItems
+    ORDER BY Quantity DESC
+    LIMIT 3 OFFSET 0
+) AS X
+UNION
+SELECT *
+FROM OrderItems
+WHERE Quantity = (
+    SELECT Quantity
+    FROM OrderItems
+    ORDER BY Quantity DESC
+    LIMIT 1 OFFSET 2
+)
+ORDER BY Quantity DESC
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+OrderID  Item            Quantity
+3        M6 Locking Nut  300
+3        M8 Washer       200
+2        M8 Nut          100
+1        M8 Bolt         100
+```
+
+Retrieve half of the rows based on quantity.
+
+```
+CREATE PROCEDURE P(Percent INT)
 BEGIN
-RETURN CONCAT(UPPER(LEFT(String, 1)) , LOWER(SUBSTRING(String, 2, 19)));
+DECLARE N INT;
+SELECT COUNT(*) * Percent / 100 FROM OrderItems INTO N;
+SELECT *
+FROM OrderItems
+ORDER BY Quantity DESC
+LIMIT N OFFSET 0;
 END
 ```
 
 ```
-SELECT UpperCaseFirstChar ('mIxEdCasE');
+CALL P(50);
 ```
 
+For the preceding example, the result looks as shown following.
+
 ```
-Mixedcase
+OrderID  Item            Quantity
+3        M6 Locking Nut  300
+3        M8 Washer       200
 ```
 
 ## Summary
 
-The following table identifies similarities, differences, and key migration considerations.
+| SQL Server          | Aurora MySQL     | Comments                         |
+| ------------------- | ---------------- | -------------------------------- |
+| `TOP (n)`           | `LIMIT n`        |                                  |
+| `TOP (n) WITH TIES` | Not supported    | See examples for the workaround. |
+| `TOP (n) PERCENT`   | Not supported    | See examples for the workaround. |
+| `OFFSET…​ FETCH`    | `LIMIT…​ OFFSET` |                                  |
 
-| SQL Server user-defined function feature | Migrate to Aurora MySQL    | Comment                                                                                                                   |
-| ---------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Scalar UDF                               | Scalar UDF                 | Use `CREATE FUNCTION` with similar syntax, remove the `AS` keyword.                                                       |
-| Inline table-valued UDF                  | N/A                        | Use views and replace parameters with `WHERE` filter predicates.                                                          |
-| Multi-statement table-valued UDF         | N/A                        | Use stored procedures to populate tables and read from the table directly.                                                |
-| UDF determinism implicit                 | Explicit declaration       | Use the `DETERMINISTIC` characteristic explicitly to denote a deterministic function, which enables engine optimizations. |
-| UDF boundaries local only                | Can change data and schema | UDF rules are more lenient, avoid unexpected changes from function invocation.                                            |
-
-For more information, see [CREATE PROCEDURE and CREATE FUNCTION Statements](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html "https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html") and [CREATE FUNCTION Statement for Loadable Functions](https://dev.mysql.com/doc/refman/5.7/en/create-function-loadable.html "https://dev.mysql.com/doc/refman/5.7/en/create-function-loadable.html") in the _MySQL documentation_.
+For more information, see [SELECT Statement](https://dev.mysql.com/doc/refman/5.7/en/select.html "https://dev.mysql.com/doc/refman/5.7/en/select.html") and [LIMIT Query Optimization](https://dev.mysql.com/doc/refman/5.7/en/limit-optimization.html "https://dev.mysql.com/doc/refman/5.7/en/limit-optimization.html") in the _MySQL documentation_.
