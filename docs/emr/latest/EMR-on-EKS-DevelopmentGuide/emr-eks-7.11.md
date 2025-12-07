@@ -1,12 +1,12 @@
-# emr-7.11.0-flink-latest
+# emr-7.11.0-20251020
 
-**Release notes**: `emr-7.11.0-flink-latest`
-currently points to `emr-7.11.0-flink-20251020`
+**Release notes**: `emr-7.11.0-20251020` was released in
+November 2025. This is the initial release of Amazon EMR 7.11.0 (Spark).
 
 **Regions:**
-`emr-7.11.0-flink-latest` is available in all Regions supported by Amazon EMR on EKS. For more
+`emr-emr-7.11.0-20251020` is available in all Regions supported by Amazon EMR on EKS. For more
 information, see [Amazon EMR on EKS
 service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
 
 **Container image tag**:
-`emr-7.11.0-flink:latest`
+`emr-7.11.0-20251020`
