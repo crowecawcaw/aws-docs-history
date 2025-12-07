@@ -1,8 +1,8 @@
 # StartTelemetryEnrichment
 
 Enables the resource tags for telemetry feature for your account, which enhances
-telemetry data with additional resource metadata from AWS Resource Explorer to provide
-richer context for monitoring and observability.
+telemetry data with additional resource metadata from AWS Resource Explorer to provide richer context for
+monitoring and observability.
 
 ## Request Syntax
 
@@ -39,8 +39,8 @@ The following data is returned in JSON format by the service.
 
 **[AwsResourceExplorerManagedViewArn](#API_StartTelemetryEnrichment_ResponseSyntax "#API_StartTelemetryEnrichment_ResponseSyntax")**
 
-The Amazon Resource Name (ARN) of the AWS Resource Explorer managed view created for
-resource tags for telemetry.
+The Amazon Resource Name (ARN) of the AWS Resource Explorer managed view created for resource tags
+for telemetry.
 
 Type: String
 
@@ -79,6 +79,14 @@ HTTP Status Code: 400
 The requested operation conflicts with the current state of the specified resource or
 with another request.
 
+**ResourceId**
+
+The identifier of the resource which is in conflict with the requested operation.
+
+**ResourceType**
+
+The type of the resource which is in conflict with the requested operation.
+
 HTTP Status Code: 409
 
 **InternalServerException**
@@ -89,6 +97,10 @@ exception, or failure.
 **amznErrorType**
 
 The name of the exception.
+
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
 
 HTTP Status Code: 500
 

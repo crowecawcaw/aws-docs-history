@@ -26,7 +26,7 @@ The type of AWS resource the rule applies to.
 
 Type: String
 
-Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function`
+Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter`
 
 Required: No
 
@@ -51,6 +51,17 @@ Type: String
 Length Constraints: Minimum length of 1. Maximum length of 100.
 
 Pattern: `[0-9A-Za-z-_.#/]+`
+
+Required: No
+
+**TelemetrySourceTypes**
+
+The types of telemetry sources configured for this rule, such as VPC Flow Logs or EKS
+audit logs. TelemetrySourceTypes must be correlated with the specific resource type.
+
+Type: Array of strings
+
+Valid Values: `VPC_FLOW_LOGS | ROUTE53_RESOLVER_QUERY_LOGS | EKS_AUDIT_LOGS | EKS_AUTHENTICATOR_LOGS | EKS_CONTROLLER_MANAGER_LOGS | EKS_SCHEDULER_LOGS | EKS_API_LOGS`
 
 Required: No
 

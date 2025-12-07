@@ -65,6 +65,7 @@ Content-type: application/json
          "ResourceType": "***string***",
          "RuleArn": "***string***",
          "RuleName": "***string***",
+         "TelemetrySourceTypes": [ "***string***" ],
          "TelemetryType": "***string***"
       }
    ]
@@ -115,6 +116,10 @@ exception, or failure.
 
 The name of the exception.
 
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
+
 HTTP Status Code: 500
 
 **TooManyRequestsException**
@@ -126,6 +131,10 @@ HTTP Status Code: 429
 **ValidationException**
 
 Indicates input validation failed. Check your request parameters and retry the request.
+
+**Errors**
+
+The errors in the input which caused the exception.
 
 HTTP Status Code: 400
 

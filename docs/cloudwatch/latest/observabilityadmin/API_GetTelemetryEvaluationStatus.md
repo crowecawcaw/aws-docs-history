@@ -77,6 +77,10 @@ exception, or failure.
 
 The name of the exception.
 
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
+
 HTTP Status Code: 500
 
 **TooManyRequestsException**

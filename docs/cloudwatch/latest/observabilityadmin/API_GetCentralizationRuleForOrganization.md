@@ -176,11 +176,23 @@ exception, or failure.
 
 The name of the exception.
 
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
+
 HTTP Status Code: 500
 
 **ResourceNotFoundException**
 
 The specified resource (such as a telemetry rule) could not be found.
+
+**ResourceId**
+
+The identifier of the resource which could not be found.
+
+**ResourceType**
+
+The type of the resource which could not be found.
 
 HTTP Status Code: 404
 
@@ -193,6 +205,10 @@ HTTP Status Code: 429
 **ValidationException**
 
 Indicates input validation failed. Check your request parameters and retry the request.
+
+**Errors**
+
+The errors in the input which caused the exception.
 
 HTTP Status Code: 400
 

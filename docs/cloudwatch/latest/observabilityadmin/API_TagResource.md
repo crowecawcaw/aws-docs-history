@@ -1,6 +1,7 @@
 # TagResource
 
-Adds or updates tags for a telemetry rule resource.
+Adds or updates tags for a resource. Supports telemetry rule resources and telemetry
+pipeline resources.
 
 ## Request Syntax
 
@@ -91,11 +92,23 @@ exception, or failure.
 
 The name of the exception.
 
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
+
 HTTP Status Code: 500
 
 **ResourceNotFoundException**
 
 The specified resource (such as a telemetry rule) could not be found.
+
+**ResourceId**
+
+The identifier of the resource which could not be found.
+
+**ResourceType**
+
+The type of the resource which could not be found.
 
 HTTP Status Code: 404
 
@@ -106,6 +119,22 @@ The requested operation would exceed the allowed quota for the specified resourc
 **amznErrorType**
 
 The name of the exception.
+
+**QuotaCode**
+
+The code for the exceeded service quota.
+
+**ResourceId**
+
+The identifier of the resource which exceeds the service quota.
+
+**ResourceType**
+
+The type of the resource which exceeds the service quota.
+
+**ServiceCode**
+
+The code for the service of the exceeded quota.
 
 HTTP Status Code: 402
 
@@ -118,6 +147,10 @@ HTTP Status Code: 429
 **ValidationException**
 
 Indicates input validation failed. Check your request parameters and retry the request.
+
+**Errors**
+
+The errors in the input which caused the exception.
 
 HTTP Status Code: 400
 

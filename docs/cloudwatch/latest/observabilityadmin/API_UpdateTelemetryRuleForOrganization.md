@@ -13,18 +13,76 @@ Content-type: application/json
 {
    "Rule": {
       "DestinationConfiguration": {
+         "CloudtrailParameters": {
+            "AdvancedEventSelectors": [
+               {
+                  "FieldSelectors": [
+                     {
+                        "EndsWith": [ "`string`" ],
+                        "Equals": [ "`string`" ],
+                        "Field": "`string`",
+                        "NotEndsWith": [ "`string`" ],
+                        "NotEquals": [ "`string`" ],
+                        "NotStartsWith": [ "`string`" ],
+                        "StartsWith": [ "`string`" ]
+                     }
+                  ],
+                  "Name": "`string`"
+               }
+            ]
+         },
          "DestinationPattern": "`string`",
          "DestinationType": "`string`",
+         "ELBLoadBalancerLoggingParameters": {
+            "FieldDelimiter": "`string`",
+            "OutputFormat": "`string`"
+         },
+         "LogDeliveryParameters": {
+            "LogTypes": [ "`string`" ]
+         },
          "RetentionInDays": `number`,
          "VPCFlowLogParameters": {
             "LogFormat": "`string`",
             "MaxAggregationInterval": `number`,
             "TrafficType": "`string`"
+         },
+         "WAFLoggingParameters": {
+            "LoggingFilter": {
+               "DefaultBehavior": "`string`",
+               "Filters": [
+                  {
+                     "Behavior": "`string`",
+                     "Conditions": [
+                        {
+                           "ActionCondition": {
+                              "Action": "`string`"
+                           },
+                           "LabelNameCondition": {
+                              "LabelName": "`string`"
+                           }
+                        }
+                     ],
+                     "Requirement": "`string`"
+                  }
+               ]
+            },
+            "LogType": "`string`",
+            "RedactedFields": [
+               {
+                  "Method": "`string`",
+                  "QueryString": "`string`",
+                  "SingleHeader": {
+                     "Name": "`string`"
+                  },
+                  "UriPath": "`string`"
+               }
+            ]
          }
       },
       "ResourceType": "`string`",
       "Scope": "`string`",
       "SelectionCriteria": "`string`",
+      "TelemetrySourceTypes": [ "`string`" ],
       "TelemetryType": "`string`"
    },
    "RuleIdentifier": "`string`"
@@ -111,11 +169,23 @@ exception, or failure.
 
 The name of the exception.
 
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
+
 HTTP Status Code: 500
 
 **ResourceNotFoundException**
 
 The specified resource (such as a telemetry rule) could not be found.
+
+**ResourceId**
+
+The identifier of the resource which could not be found.
+
+**ResourceType**
+
+The type of the resource which could not be found.
 
 HTTP Status Code: 404
 
@@ -126,6 +196,22 @@ The requested operation would exceed the allowed quota for the specified resourc
 **amznErrorType**
 
 The name of the exception.
+
+**QuotaCode**
+
+The code for the exceeded service quota.
+
+**ResourceId**
+
+The identifier of the resource which exceeds the service quota.
+
+**ResourceType**
+
+The type of the resource which exceeds the service quota.
+
+**ServiceCode**
+
+The code for the service of the exceeded quota.
 
 HTTP Status Code: 402
 
@@ -138,6 +224,10 @@ HTTP Status Code: 429
 **ValidationException**
 
 Indicates input validation failed. Check your request parameters and retry the request.
+
+**Errors**
+
+The errors in the input which caused the exception.
 
 HTTP Status Code: 400
 

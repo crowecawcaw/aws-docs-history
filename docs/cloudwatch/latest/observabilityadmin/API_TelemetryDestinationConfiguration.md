@@ -5,6 +5,14 @@ resources.
 
 ## Contents
 
+**CloudtrailParameters**
+
+Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
+
+Type: [CloudtrailParameters](API_CloudtrailParameters.md "API_CloudtrailParameters.md") object
+
+Required: No
+
 **DestinationPattern**
 
 The pattern used to generate the destination path or name, supporting macros like
@@ -24,6 +32,24 @@ Valid Values: `cloud-watch-logs`
 
 Required: No
 
+**ELBLoadBalancerLoggingParameters**
+
+Configuration parameters specific to ELB load balancer logging when ELB is the resource
+type.
+
+Type: [ELBLoadBalancerLoggingParameters](API_ELBLoadBalancerLoggingParameters.md "API_ELBLoadBalancerLoggingParameters.md") object
+
+Required: No
+
+**LogDeliveryParameters**
+
+Configuration parameters specific to Amazon Bedrock AgentCore logging when Amazon Bedrock AgentCore is the resource
+type.
+
+Type: [LogDeliveryParameters](API_LogDeliveryParameters.md "API_LogDeliveryParameters.md") object
+
+Required: No
+
 **RetentionInDays**
 
 The number of days to retain the telemetry data in the destination.
@@ -39,6 +65,14 @@ Required: No
 Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 
 Type: [VPCFlowLogParameters](API_VPCFlowLogParameters.md "API_VPCFlowLogParameters.md") object
+
+Required: No
+
+**WAFLoggingParameters**
+
+Configuration parameters specific to WAF logging when WAF is the resource type.
+
+Type: [WAFLoggingParameters](API_WAFLoggingParameters.md "API_WAFLoggingParameters.md") object
 
 Required: No
 

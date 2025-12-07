@@ -89,7 +89,7 @@ Type: Array of strings
 
 Array Members: Minimum number of 1 item. Maximum number of 9 items.
 
-Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function`
+Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter`
 
 Required: No
 
@@ -176,6 +176,10 @@ exception, or failure.
 
 The name of the exception.
 
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
+
 HTTP Status Code: 500
 
 **TooManyRequestsException**
@@ -187,6 +191,10 @@ HTTP Status Code: 429
 **ValidationException**
 
 Indicates input validation failed. Check your request parameters and retry the request.
+
+**Errors**
+
+The errors in the input which caused the exception.
 
 HTTP Status Code: 400
 

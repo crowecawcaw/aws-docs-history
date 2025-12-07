@@ -66,6 +66,14 @@ HTTP Status Code: 400
 The requested operation conflicts with the current state of the specified resource or
 with another request.
 
+**ResourceId**
+
+The identifier of the resource which is in conflict with the requested operation.
+
+**ResourceType**
+
+The type of the resource which is in conflict with the requested operation.
+
 HTTP Status Code: 409
 
 **InternalServerException**
@@ -76,6 +84,10 @@ exception, or failure.
 **amznErrorType**
 
 The name of the exception.
+
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
 
 HTTP Status Code: 500
 

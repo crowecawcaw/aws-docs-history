@@ -29,7 +29,8 @@ Required: No
 
 **ResourceIdentifier**
 
-The identifier of the resource, for example `i-0b22a22eec53b9321`.
+The identifier of the resource, for example for Amazon VPC, it would be
+`vpc-1a2b3c4d5e6f1a2b3`.
 
 Type: String
 
@@ -46,11 +47,12 @@ Required: No
 
 **ResourceType**
 
-The type of resource, for example `AWS::EC2::Instance`.
+The type of resource, for example `AWS::EC2::Instance`, or
+`AWS::EKS::Cluster`, etc.
 
 Type: String
 
-Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function`
+Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter`
 
 Required: No
 

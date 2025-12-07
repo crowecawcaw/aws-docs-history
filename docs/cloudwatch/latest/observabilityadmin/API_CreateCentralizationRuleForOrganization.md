@@ -141,6 +141,14 @@ HTTP Status Code: 400
 The requested operation conflicts with the current state of the specified resource or
 with another request.
 
+**ResourceId**
+
+The identifier of the resource which is in conflict with the requested operation.
+
+**ResourceType**
+
+The type of the resource which is in conflict with the requested operation.
+
 HTTP Status Code: 409
 
 **InternalServerException**
@@ -152,6 +160,10 @@ exception, or failure.
 
 The name of the exception.
 
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
+
 HTTP Status Code: 500
 
 **ServiceQuotaExceededException**
@@ -161,6 +173,22 @@ The requested operation would exceed the allowed quota for the specified resourc
 **amznErrorType**
 
 The name of the exception.
+
+**QuotaCode**
+
+The code for the exceeded service quota.
+
+**ResourceId**
+
+The identifier of the resource which exceeds the service quota.
+
+**ResourceType**
+
+The type of the resource which exceeds the service quota.
+
+**ServiceCode**
+
+The code for the service of the exceeded quota.
 
 HTTP Status Code: 402
 
@@ -173,6 +201,10 @@ HTTP Status Code: 429
 **ValidationException**
 
 Indicates input validation failed. Check your request parameters and retry the request.
+
+**Errors**
+
+The errors in the input which caused the exception.
 
 HTTP Status Code: 400
 

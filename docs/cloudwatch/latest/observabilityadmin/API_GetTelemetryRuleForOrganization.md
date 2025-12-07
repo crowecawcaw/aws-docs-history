@@ -45,18 +45,76 @@ Content-type: application/json
    "RuleName": "***string***",
    "TelemetryRule": {
       "DestinationConfiguration": {
+         "CloudtrailParameters": {
+            "AdvancedEventSelectors": [
+               {
+                  "FieldSelectors": [
+                     {
+                        "EndsWith": [ "***string***" ],
+                        "Equals": [ "***string***" ],
+                        "Field": "***string***",
+                        "NotEndsWith": [ "***string***" ],
+                        "NotEquals": [ "***string***" ],
+                        "NotStartsWith": [ "***string***" ],
+                        "StartsWith": [ "***string***" ]
+                     }
+                  ],
+                  "Name": "***string***"
+               }
+            ]
+         },
          "DestinationPattern": "***string***",
          "DestinationType": "***string***",
+         "ELBLoadBalancerLoggingParameters": {
+            "FieldDelimiter": "***string***",
+            "OutputFormat": "***string***"
+         },
+         "LogDeliveryParameters": {
+            "LogTypes": [ "***string***" ]
+         },
          "RetentionInDays": ***number***,
          "VPCFlowLogParameters": {
             "LogFormat": "***string***",
             "MaxAggregationInterval": ***number***,
             "TrafficType": "***string***"
+         },
+         "WAFLoggingParameters": {
+            "LoggingFilter": {
+               "DefaultBehavior": "***string***",
+               "Filters": [
+                  {
+                     "Behavior": "***string***",
+                     "Conditions": [
+                        {
+                           "ActionCondition": {
+                              "Action": "***string***"
+                           },
+                           "LabelNameCondition": {
+                              "LabelName": "***string***"
+                           }
+                        }
+                     ],
+                     "Requirement": "***string***"
+                  }
+               ]
+            },
+            "LogType": "***string***",
+            "RedactedFields": [
+               {
+                  "Method": "***string***",
+                  "QueryString": "***string***",
+                  "SingleHeader": {
+                     "Name": "***string***"
+                  },
+                  "UriPath": "***string***"
+               }
+            ]
          }
       },
       "ResourceType": "***string***",
       "Scope": "***string***",
       "SelectionCriteria": "***string***",
+      "TelemetrySourceTypes": [ "***string***" ],
       "TelemetryType": "***string***"
    }
 }
@@ -132,11 +190,23 @@ exception, or failure.
 
 The name of the exception.
 
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
+
 HTTP Status Code: 500
 
 **ResourceNotFoundException**
 
 The specified resource (such as a telemetry rule) could not be found.
+
+**ResourceId**
+
+The identifier of the resource which could not be found.
+
+**ResourceType**
+
+The type of the resource which could not be found.
 
 HTTP Status Code: 404
 
@@ -149,6 +219,10 @@ HTTP Status Code: 429
 **ValidationException**
 
 Indicates input validation failed. Check your request parameters and retry the request.
+
+**Errors**
+
+The errors in the input which caused the exception.
 
 HTTP Status Code: 400
 

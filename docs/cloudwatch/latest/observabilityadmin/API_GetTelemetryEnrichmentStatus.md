@@ -38,8 +38,8 @@ The following data is returned in JSON format by the service.
 
 **[AwsResourceExplorerManagedViewArn](#API_GetTelemetryEnrichmentStatus_ResponseSyntax "#API_GetTelemetryEnrichmentStatus_ResponseSyntax")**
 
-The Amazon Resource Name (ARN) of the AWS Resource Explorer managed view used for
-resource tags for telemetry, if the feature is enabled.
+The Amazon Resource Name (ARN) of the AWS Resource Explorer managed view used for resource tags for
+telemetry, if the feature is enabled.
 
 Type: String
 
@@ -82,11 +82,23 @@ exception, or failure.
 
 The name of the exception.
 
+**retryAfterSeconds**
+
+The number of seconds to wait before retrying the request.
+
 HTTP Status Code: 500
 
 **ResourceNotFoundException**
 
 The specified resource (such as a telemetry rule) could not be found.
+
+**ResourceId**
+
+The identifier of the resource which could not be found.
+
+**ResourceType**
+
+The type of the resource which could not be found.
 
 HTTP Status Code: 404
 
