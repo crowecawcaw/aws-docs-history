@@ -1,0 +1,13 @@
+# Under Build
+
+- **Solutions:** Native in the AWS Console. [Create](../builder-guide/creating-a-solution.md "../builder-guide/creating-a-solution.md") and manage solutions. More information in the [AWS Partner Central Builder Guide](../builder-guide/what-is-a-solution.md "../builder-guide/what-is-a-solution.md").
+- **AI agents & tools:** Redirects to AMMP. Manage your AI agents and tools listings on the AWS Marketplace. For more information, see [AI agent products](../../../marketplace/latest/userguide/ai-agents-tools.md "../../../marketplace/latest/userguide/ai-agents-tools.md").
+- **SaaS products:** Redirects to AMMP. Manage your SaaS product listings on the AWS Marketplace. For more information, see [SaaS-based products in AWS Marketplace](../../../marketplace/latest/userguide/saas-products.md "../../../marketplace/latest/userguide/saas-products.md").
+- **Server products:** Redirects to AMMP. Manage your server product listings on the AWS Marketplace.
+- **Machine learning products:** Redirects to AMMP. Manage machine learning (NL) algorithms and models that buyers can deploy in AWS. For more information, see [Machine learning products in AWS Marketplace](../../../marketplace/latest/userguide/machine-learning-products.md "../../../marketplace/latest/userguide/machine-learning-products.md").
+- **Amazon Machine Image:** Redirects to AMMP. Deliver products to buyers with Amazon Machine Images (AMIs). For more information, see [AMI-based products in AWS Marketplace](../../../marketplace/latest/userguide/ami-products.md "../../../marketplace/latest/userguide/ami-products.md").
+- **Data products:** Redirects to AMMP. Manage your data product listings on the AWS Marketplace. For more information, see [Data products](../../../marketplace/latest/userguide/data-products.md "../../../marketplace/latest/userguide/data-products.md").
+- **Professional services:** Redirects to AMMP. Manage your professional services listings on the AWS Marketplace. For more information, see [Professional services products in AWS Marketplace](../../../marketplace/latest/userguide/proserv-products.md "../../../marketplace/latest/userguide/proserv-products.md").
+- **Requests:** Redirects to AMMP. Displays a list of change requests made on products (AMI, Container, SaaS and Professional Services), offers, and other AWS Marketplace entities from AWS Marketplace Management Portal, or from AWS Marketplace Catalog API.
+- **File upload:** Redirects to AMMP. Upload product load forms (PLFs) to request a new product or updates to an existing product in AWS Marketplace.
+- **Device listings:** Redirects to the legacy Partner Central experience. Relevant for partners on the Hardware Path.

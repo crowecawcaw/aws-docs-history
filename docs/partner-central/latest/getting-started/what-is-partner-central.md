@@ -1,3 +1,7 @@
 # What is AWS Partner Central?
 
-Amazon Web Services (AWS) Partner Central is a self-service portal where AWS Partners manage their engagement with AWS. As an AWS Partner, use AWS Partner Central to access benefits, differentiate your offerings, and use resources, tools, and training that can help your company increase its marketing impact.
+Amazon Web Services (AWS) AWS Partner Central is an AWS service available on the AWS Management Console where AWS Partners manage their engagement with AWS.
+
+AWS Partner Central accelerates your AWS partnership with tools, resources and APIs designed to accelerate building, marketing, and selling solutions on [AWS Marketplace](../../../marketplace/latest/userguide/user-guide-for-sellers.md "../../../marketplace/latest/userguide/user-guide-for-sellers.md"). With AWS Partner Central, partners can unlock benefits offered through the AWS Partner Network. To get started, sign in to the AWS console and complete registration.
+
+For instructions to become an AWS Partner, refer to [Join the AWS Partner Network](https://aws.amazon.com/partners/ "https://aws.amazon.com/partners/").

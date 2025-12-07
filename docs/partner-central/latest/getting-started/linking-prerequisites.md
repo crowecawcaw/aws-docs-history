@@ -93,8 +93,6 @@ If you're an alliance lead or cloud admin, and you already have an IAM user or r
 with AWS administrator permissions, skip to [Linking AWS Partner Central and AWS
 accounts](linking-apc-aws-marketplace.md "linking-apc-aws-marketplace.md").
 
-For more information about AWS Partner Central roles, refer to [AWS Partner Central roles](role-summaries.md "role-summaries.md") later in this guide.
-
 ###### To create the policy
 
 1. Sign in to the [IAM

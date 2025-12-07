@@ -1,10 +1,12 @@
 # User management
 
-In AWS Partner Central, you provide users specific permissions by assigning them roles. A user can only access the AWS Partner Central resources permitted by their roles. Review the topics in this section to learn about role capabilities, assigning roles, and user management.
+User access to AWS Partner Central is managed through AWS Identity and Access Management (IAM). The below topics describe how to invite, onboard, manage and troubleshoot permissions for AWS Partner Central users.
 
 ###### Topics
 
-- [AWS Partner Central roles](role-summaries.md "role-summaries.md")
-- [Managing users and role assignments](managing-user-roles-and-assignments.md "managing-user-roles-and-assignments.md")
-- [AWS Partner Central permissions best practices](permissions-best-practices.md "permissions-best-practices.md")
-- [Multi-factor authentication (MFA)](mfa.md "mfa.md")
+- [Controlling access in AWS Partner Central](controlling-access-in-aws-partner-central.md "controlling-access-in-aws-partner-central.md")
+- [Controlling access in
+  AWS Partner Central account management](controlling-access-in-apc-account-management.md "controlling-access-in-apc-account-management.md")
+- [AWS managed policies for AWS Partner Central users](managed-policies.md "managed-policies.md")
+- [Managed policy mappings](managed-policy-mappings.md "managed-policy-mappings.md")
+- [User Management FAQs](user-management-faq.md "user-management-faq.md")
