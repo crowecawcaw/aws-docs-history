@@ -1,85 +1,56 @@
-# Leads
+# Receiving leads shared by AWS
 
-On **Leads** tab of the ACE Pipeline Manager, you can accept and update leads and convert leads to opportunities.
+The Leads page allows you to accept, manage, and report back updates on lead engagements shared by AWS and convert those lead engagements to opportunities. The Leads page has two tabs:
 
-###### Topics
+- **Leads** – where you can manage and convert accepted leads
+- **Lead invitations** – where you can accept or reject leads shared with you
+  AWS Partners have the option to either **Accept** or **Reject** incoming lead invitations. Any new lead that is surfaced to you will need to be **Accepted** before the entire lead detail, including contact information, is made visible. Rejected leads will automatically be removed from the **Lead Invitations** tab.
 
-- [Accessing leads](#accessing-leads "#accessing-leads")
-- [Lead status](#lead-status "#lead-status")
-- [Accepting a lead](#accepting-a-lead "#accepting-a-lead")
-- [Updating a lead](#updating-a-lead "#updating-a-lead")
-- [Converting a lead to an opportunity](#converting-leads "#converting-leads")
-- [Exporting the current lead view](#exporting-current-lead-view "#exporting-current-lead-view")
-- [Transferring lead ownership](#transferring-a-lead "#transferring-a-lead")
-
-## Accessing leads
-
-1. Sign in to [AWS Partner Central](https://partnercentral.awspartner.com/APNLogin "https://partnercentral.awspartner.com/APNLogin").
-2. From the top menu bar, choose **Sell**, **Leads Management**. On the **ACE Pipeline Manager** page, the **Leads** tab is where you to accept, manage, and report back updates on lead engagements shared by AWS and convert lead engagements to opportunities.
-
-###### Note
-
-Only Alliance leads can view AWS Partner Solutions Finder leads. Users with the alliance lead, alliance team, and ACE manager roles receive automated messages when a lead is generated through their AWS Partner Solutions Finder listing.
+For lead management, partners can review, accept, or reject leads shared by AWS within a 5-business-day window. Leads progress through defined statuses and include essential information such as company details, use cases, and project descriptions. Once qualified, leads can be converted into full opportunities for further development.
 
 ## Lead status
 
 Leads can have the following status:
 
-| **Lead status**  | **Description**                                                                                                                                                                                                                  |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Open**         | The lead was accepted by the partner but no customer contact has been<br>made.                                                                                                                                                   |
-| **Research**     | The lead is being reviewed by the partner to understand customer needs, use<br>case.                                                                                                                                             |
-| **Qualified**    | Partner account team engaged with prospect/end customer to discuss viability,<br>understand requirements, etc. Prospect/end customer agreed the opportunity is real, of<br>interest, and may solve a business or technical need. |
-| **Disqualified** | Lead cannot be tied to an opportunity.                                                                                                                                                                                           |
+| **Lead status**  | **Description**                                                                                                                                                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Open**         | The lead was accepted by the partner but no customer contact has been made.                                                                                                                                                |
+| **Research**     | The lead is being reviewed by the partner to understand customer needs, use case.                                                                                                                                          |
+| **Qualified**    | Partner account team engaged with prospect/end customer to discuss viability, understand requirements, etc. Prospect/end customer agreed the opportunity is real, of interest, and may solve a business or technical need. |
+| **Disqualified** | Lead cannot be tied to an opportunity.                                                                                                                                                                                     |
+
+###### Topics
+
+- [Accepting a lead](#accepting-a-lead "#accepting-a-lead")
+- [Updating a lead](#updating-a-lead "#updating-a-lead")
+- [Converting a lead to an opportunity](#converting-leads "#converting-leads")
 
 ## Accepting a lead
 
 AWS Partners have the option to either accept or reject incoming lead engagements. You must accept an incoming lead before you can view all lead details including contact information.
 
-1. On the **Leads** tab, for **All Customer Engagements**, choose **Leads Pending Acceptance**.
-2. Choose the row of the lead you want to accept.
-3. In the **Action** column, choose **Accept**.
+1. From the **Lead Invitations** Tab, click on one or multiple leads using the checkbox and select **accept invitation** or You can also click on any lead invitation and select **Accept invitation** on the top right corner.
+2. Once clicked, you will see a pop up appear to confirm acceptance.
+3. A banner will appear informing of the successful acceptance.
 
 ## Updating a lead
 
-1. On the **Leads** tab, select the row of the lead you want to update.
-2. In the **Action** column, choose **Update**.
-3. On the **Leads detail** page, choose **Edit**.
-4. Edit lead details and choose **Save**.
+1. Navigate to any lead using the checkbox or clicking on the lead.
+2. Select **Edit**.
+3. Make relevant updates and select **Save**. You can also add interactions to the lead to record contact between a partner and the potential customer to help track engagement with leads across different channels and touchpoints.
 
 ## Converting a lead to an opportunity
 
-On the **Leads** tab, you can convert qualified leads to opportunities to receive AWS validation and support.
+Once a lead reaches the Qualified stage, partners can convert it into an opportunity, maintaining the historical connection between the lead and the resulting opportunity.
 
-1. On the **Leads** tab, select the row of the qualified lead you want to convert.
-2. In the **Action** column, choose **Update**.
-3. On the **Leads detail** page, choose **Convert**.
-4. On the confirmation dialog, choose **OK**.
-5. Complete the five steps of the **Create opportunity** form.
-6. On the **Review and create** page, choose **Save & Submit**.
-7. Choose **Back to Opportunity Dashboard**. On the **Opportunities** tab, the new opportunity displays with status of **Submitted**.
+###### To convert a lead to an opportunity
 
-## Exporting the current lead view
-
-You can export the current lead view as a CSV file. On the **Leads** tab,
-choose **Bulk Actions**, **Export current lead view**.
+1. Navigate to desired lead and click **create draft opportunity**.
+2. Choose **Create draft opportunity** which is automatically generate a new opportunity with relevant lead information pre-populated.
+3. Choose **View draft opportunity**.
+4. Add any additional required opportunity information.
+5. Choose **Submit** to submit for validation.
 
 ###### Note
 
-To view all available lead information, ensure that all leads are accepted. For more information, refer to [Accepting a lead](#accepting-a-lead "#accepting-a-lead").
-
-## Transferring lead ownership
-
-Partner users can transfer ownership of leads in ACE Pipeline Manager to another active user in their partner organization that meets the following criteria:
-
-- The user must have permissions to ACE Pipeline Manager. For more information, refer to [Permissions](getting-started.md#permissions "getting-started.md#permissions").
-- The user must have the alliance lead, alliance team, ACE manager, or ACE user role.
-
-1. On the **Leads** tab, choose the lead you want to transfer.
-2. Choose **Bulk actions**, **Transfer lead**.
-3. Enter the name of the user you want to transfer to.
-4. Choose **Save**.
-
-###### Note
-
-To transfer leads in bulk, refer to [Bulk actions](bulk-actions.md "bulk-actions.md")
+To transfer leads in bulk, refer to [Bulk actions](bulk-actions.md "bulk-actions.md").
