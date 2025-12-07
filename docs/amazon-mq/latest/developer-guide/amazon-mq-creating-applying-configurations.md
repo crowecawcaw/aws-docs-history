@@ -80,7 +80,7 @@ revision to your broker.
 1. On the left, expand the navigation panel and choose
    **Brokers**.
 
-![Amazon MQ navigation panel showing Brokers and Configurations options.](images/amazon-mq-tutorials-apply-configuration.png) 2. From the broker list, select your broker (for example, **MyBroker**) and then choose **Edit**. 3. On the **Edit `MyBroker`** page, in the
+![Amazon MQ navigation panel showing Brokers and Configurations options.](/images/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-apply-configuration.png) 2. From the broker list, select your broker (for example, **MyBroker**) and then choose **Edit**. 3. On the **Edit `MyBroker`** page, in the
 **Configuration** section, select a **Configuration**
 and a **Revision** and then choose **Schedule Modifications**. 4. In the **Schedule broker modifications** section, choose whether to apply modifications
 **During the next scheduled maintenance window** or **Immediately**.
