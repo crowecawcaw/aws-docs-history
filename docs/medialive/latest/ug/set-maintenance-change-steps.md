@@ -10,7 +10,7 @@ methods. Read across each row to compare the two methods.
 | Reason for change                   | Use this method if you're happy to wait until the next maintenance opening<br>(purple bar), but the current day of the week and/or time doesn't suit your<br>operations. | Use this method if you don't want to wait until the next maintenance opening<br>(purple bar) for maintenance. You want to move the maintenance window earlier in the<br>maintenance event period (green bar).                      |
 | Period when you can make the change | Any time from the minute that you create the channel until one minute before the<br>start of the upcoming maintenance window (red mark).                                 | From the start of the maintenance event period (green bar) until one minute<br>before the start of the upcoming maintenance window (red mark). You can't change<br>the maintenance window outside of the maintenance event period. |
 
-![Timeline showing a long bar spanning multiple days and shorter bars on specific dates.](images/maintenance.png)
+![Timeline showing a long bar spanning multiple days and shorter bars on specific dates.](/images/medialive/latest/ug/images/maintenance.png)
 
 ## Change the maintenance window
 
