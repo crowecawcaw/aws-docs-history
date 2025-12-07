@@ -22,6 +22,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Seoul)      | ap-northeast-2 | datazone.ap-northeast-2.api.aws                                           | HTTPS          |
 | Asia Pacific (Singapore)  | ap-southeast-1 | datazone.ap-southeast-1.api.aws                                           | HTTPS          |
 | Asia Pacific (Sydney)     | ap-southeast-2 | datazone.ap-southeast-2.api.aws                                           | HTTPS          |
+| Asia Pacific (Thailand)   | ap-southeast-7 | datazone.ap-southeast-7.api.aws                                           | HTTPS          |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | datazone.ap-northeast-1.api.aws                                           | HTTPS          |
 | Canada (Central)          | ca-central-1   | datazone.ca-central-1.api.aws<br>datazone-fips.ca-central-1.amazonaws.com | HTTPS<br>HTTPS |
 | Europe (Frankfurt)        | eu-central-1   | datazone.eu-central-1.api.aws                                             | HTTPS          |
