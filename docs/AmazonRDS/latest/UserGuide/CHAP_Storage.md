@@ -18,6 +18,7 @@ For more information about instance storage pricing, see [Amazon RDS pricing](ht
   (SSD) storage types](#storage-comparison "#storage-comparison")
 - [Magnetic storage (legacy, not
   recommended)](#CHAP_Storage.Magnetic "#CHAP_Storage.Magnetic")
+- [Additional storage volumes](#Welcome.AdditionalStorageVolumes "#Welcome.AdditionalStorageVolumes")
 - [Dedicated log volume (DLV)](#CHAP_Storage.dlv "#CHAP_Storage.dlv")
 - [Monitoring database performance](#Concepts.Storage.Metrics "#Concepts.Storage.Metrics")
 - [Factors that affect database
@@ -401,6 +402,46 @@ are some limitations for magnetic storage:
 - Doesn't support elastic volumes.
 - Limited to a maximum size of 3 TiB.
 - Limited to a maximum of 1,000 IOPS.
+
+## Additional storage volumes
+
+With RDS for Oracle and RDS for SQL Server, you can attach up to three additional storage volumes to your
+DB instance. Depending on your workload requirements, choose between gp3 and io2 storage for each volume.
+
+Additional storage volumes provide the following benefits:
+
+- Flexible storage configuration and performance optimization
+  – Mix different storage types (gp3 and io2) to optimize for both cost and
+  performance based on your data access patterns. Separate frequently accessed data on
+  high-performance io2 storage from archival data on cost-effective gp3 storage.
+- Enhanced capacity – Scale your total storage up to 256 TiB per DB instance by combining primary and
+  additional storage volumes.
+- Expand and reduce storage capacity as needed
+  – Create a volume when you need additional storage, as during data migration,
+  and then later delete the volume. In this way, you can expand and reduce the total
+  DB instance storage.
+- Online data movement – Use the built-in capabilities of Oracle Database to move data between volumes
+  without downtime.
+
+###### Note
+
+You can remove additional storage volumes but you can't remove the primary volume.
+
+The additional volumes must use the volume names shown in the following table.
+
+| RDS for Oracle volume name | RDS for SQL Server volume name |
+| -------------------------- | ------------------------------ |
+| `rdsdbdata2`               | `H:`                           |
+| `rdsdbdata3`               | `I:`                           |
+| `rdsdbdata4`               | `J:`                           |
+
+For more information about working with additional storage volumes, see the following
+sections:
+
+- [Working with storage for Amazon RDS DB instances](USER_PIOPS.md "USER_PIOPS.md")
+- [Working with storage in RDS for Oracle](User_Oracle_AdditionalStorage.md "User_Oracle_AdditionalStorage.md")
+- [Working with storage in
+  RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md")
 
 ## Dedicated log volume (DLV)
 

@@ -31,6 +31,12 @@ If you don't want a pending change to be applied in the next maintenance
 window, you can modify the DB instance to revert the change. You can do this by
 using the AWS CLI and specifying the `--apply-immediately` option.
 
+When you are adding an additional storage volume using the
+`modify-db-instance` command, the RDS adds the storage volume
+immediately regardless of the `--no-apply-immediately` parameter. If you
+have other modifications in the request, they will be applied baed on the schedule
+modifications.
+
 Changes to some database settings are applied immediately,
 even if you choose to defer your changes.
 To see how the different database settings interact with the apply immediately setting,

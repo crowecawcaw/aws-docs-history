@@ -1,65 +1,164 @@
-# Moving a DB instance not in a VPC into a VPC
+# Scenarios for accessing a DB instance in a VPC
 
-Some legacy DB instances on the EC2-Classic platform are not in a VPC.
-If your DB instance is not in a VPC, you can use the AWS Management Console to easily move your DB instance into a VPC.
-Before you can move a DB instance not in a VPC, into a VPC, you must create the VPC.
+Amazon RDS supports the following scenarios for accessing a DB instance
+in a VPC:
 
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that<br>you migrate as soon as possible. For more information, see [Migrate from EC2-Classic to a VPC](../../../AWSEC2/latest/UserGuide/vpc-migrate.md "../../../AWSEC2/latest/UserGuide/vpc-migrate.md") in the \*Amazon EC2 User Guide<br>• and the blog [EC2-Classic Networking is Retiring – Here’s How to Prepare](https://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/ "https://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/"). |
+- [An Amazon EC2 instance in the same
+  VPC](#USER_VPC.Scenario1 "#USER_VPC.Scenario1")
+- [An EC2 instance in a different
+  VPC](#USER_VPC.Scenario3 "#USER_VPC.Scenario3")
+- [A client application through the
+  internet](#USER_VPC.Scenario4 "#USER_VPC.Scenario4")
+- [A private network](#USER_VPC.NotPublic "#USER_VPC.NotPublic")
 
-###### Important
+## A DB instance in a VPC
 
-If you are a new Amazon RDS customer, if you have never created a DB instance before, or if you are
-creating a DB instance in an AWS Region you have not used before, in almost all
-cases you are on the _EC2-VPC_ platform and have a default
-VPC. For information about working with DB instances in a VPC, see
-[Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
+accessed by an Amazon EC2 instance in the same VPC
 
-Follow these steps to create a VPC for your DB instance.
+A common use of a DB instance in a VPC is to share data with an
+application server that is running in an Amazon EC2 instance in the same VPC.
 
-- [Step 1: Create a VPC](USER_VPC.md#USER_VPC.CreatingVPC "USER_VPC.md#USER_VPC.CreatingVPC")
-- [Step 2: Create a DB subnet
-  group](USER_VPC.md#USER_VPC.CreateDBSubnetGroup "USER_VPC.md#USER_VPC.CreateDBSubnetGroup")
-- [Step 3: Create a VPC security
-  group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup")
-  After you create the VPC, follow these steps to move your DB instance into the VPC.
+The following diagram shows this scenario.
 
-- [Updating the VPC for a DB instance](USER_VPC.md "USER_VPC.md")
-  We highly recommend that you create a backup of your DB instance immediately before the migration. Doing so ensures that
-  you can restore the data if the migration fails. For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.md "CHAP_CommonTasks.md").
+![VPC scenario with a public web server and a private database.](images/con-VPC-sec-grp.png)
 
-The following are some limitations to moving your DB instance into the VPC.
+The simplest way to manage access between EC2 instances and DB instances in the same VPC is to do the following:
 
-- **Previous generation DB instance classes** – Previous generation DB instance classes
-  might not be supported on the VPC platform. When moving a DB instance to a VPC, choose a db.m3 or db.r3 DB instance class. After you
-  move the DB instance to a VPC, you can scale the DB instance to use a later DB instance class. For a full list of VPC supported instance
-  classes, see [Amazon RDS instance types](https://aws.amazon.com/rds/instance-types/ "https://aws.amazon.com/rds/instance-types/").
-- **Multi-AZ** – Moving a Multi-AZ DB instance not in a VPC into a VPC is not
-  currently supported. To move your DB instance to a VPC, first modify the DB instance so that it is a single-AZ deployment.
-  Change the **Multi-AZ deployment** setting to **No**. After you move the DB instance
-  to a VPC, modify it again to make it a Multi-AZ deployment. For more information, see
-  [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-- **Read replicas** – Moving a DB instance with read replicas not in a VPC into a VPC is not currently
-  supported. To move your DB instance to a VPC, first delete all of its read replicas. After you move the DB instance to a VPC,
-  recreate the read replicas. For more information, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
-- **Option groups** – If you move your DB instance to a VPC, and the DB instance is using a custom option group,
-  change the option group that is associated with your DB instance. Option groups are platform-specific, and moving to a VPC is a change in platform.
-  To use a custom option group in this case, assign the default VPC option group to the DB instance, assign an option group that is used by other
-  DB instances in the VPC you are moving to, or create a new option group and assign it to the DB instance. For more information,
-  see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
+- Create a VPC security group for your DB instances to be
+  in. This security group can be used to restrict access to the DB instances. For example, you can create a custom rule for this
+  security group. This might allow TCP access using the port that you assigned
+  to the DB instance when you created it and an IP
+  address you use to access the DB instance for
+  development or other purposes.
+- Create a VPC security group for your EC2 instances (web servers and
+  clients) to be in. This security group can, if needed, allow access to the
+  EC2 instance from the internet by using the VPC's routing table. For
+  example, you can set rules on this security group to allow TCP access to the
+  EC2 instance over port 22.
+- Create custom rules in the security group for your DB instances that allow connections from the security group you
+  created for your EC2 instances. These rules might allow any member of the
+  security group to access the DB instances.
 
-## Alternatives for moving a DB instance not in a VPC into a VPC with minimal downtime
+There is an additional public and private subnet in a separate Availability Zone.
+An RDS DB subnet group requires a subnet in at least two Availability Zones. The
+additional subnet makes it easy to switch to a Multi-AZ DB instance deployment in
+the future.
 
-Using the following alternatives, you can move a DB instance not in a VPC into a VPC with minimal downtime.
-These alternatives cause minimum disruption to the source DB instance and allow it to serve user traffic during the migration.
-However, the time required to migrate to a VPC will vary based on the database size and the live workload characteristics.
+For a tutorial that shows you how to create a VPC with both public and private
+subnets for this scenario, see [Tutorial: Create a VPC for use with a
+DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
 
-- **AWS Database Migration Service (AWS DMS)** – AWS DMS enables the live migration of data while keeping the
-  source DB instance fully operational, but it replicates only a limited set of DDL statements. AWS DMS doesn't propagate
-  items such as indexes, users, privileges, stored procedures, and other database changes not directly related to table data.
-  In addition, AWS DMS doesn't automatically use RDS snapshots for the initial DB instance creation, which can increase
-  migration time. For more information, see [AWS Database Migration Service](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/").
-- **DB snapshot restore or point-in-time recovery** – You can move a DB instance to a
-  VPC by restoring a snapshot of the DB instance or by restoring a DB instance to a point in time. For more information, see
-  [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md") and [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md").
+###### Tip
+
+You can set up network connectivity between an Amazon EC2 instance and a DB instance automatically when you create the DB instance. For more information, see
+[Configure
+automatic network connectivity with an EC2 instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic").
+
+###### To create a rule in a VPC security group that allows connections from another
+
+security group, do the following:
+
+1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc").
+2. In the navigation pane, choose **Security
+   groups**.
+3. Choose or create a security group for which you want to allow access to
+   members of another security group. In the preceding scenario, this is the
+   security group that you use for your DB instances. Choose
+   the **Inbound rules** tab, and then choose **Edit
+   inbound rules**.
+4. On the **Edit inbound rules** page, choose **Add
+   rule**.
+5. For **Type**, choose the entry that corresponds to the
+   port you used when you created your DB instance, such as
+   **MYSQL/Aurora**.
+6. In the **Source** box, start typing the ID of the
+   security group, which lists the matching security groups. Choose the
+   security group with members that you want to have access to the resources
+   protected by this security group. In the scenario preceding, this is the
+   security group that you use for your EC2 instance.
+7. If required, repeat the steps for the TCP protocol by creating a rule with
+   **All TCP** as the **Type** and your
+   security group in the **Source** box. If you intend to use
+   the UDP protocol, create a rule with **All UDP** as the
+   **Type** and your security group in
+   **Source**.
+8. Choose **Save rules**.
+
+The following screen shows an inbound rule with a security group for its
+source.
+
+![Adding a security group to another security group's rules.](images/con-vpc-add-sg-rule.png)
+
+For more information about connecting to the DB instance from your EC2
+instance, see [Connecting to an Amazon RDS DB instance](CHAP_CommonTasks.md "CHAP_CommonTasks.md")
+.
+
+## A DB instance in a VPC
+
+accessed by an EC2 instance in a different VPC
+
+When your DB instances is in a different VPC from the EC2 instance
+you are using to access it, you can use VPC peering to access the DB instance.
+
+The following diagram shows this scenario.
+
+![A DB instance in a VPC accessed by an Amazon EC2 instance in a different VPC.](images/RDSVPC2EC2VPC.png)
+
+A VPC peering connection is a networking connection between two VPCs that enables
+you to route traffic between them using private IP addresses. Resources in either
+VPC can communicate with each other as if they are within the same network. You can
+create a VPC peering connection between your own VPCs, with a VPC in another AWS
+account, or with a VPC in a different AWS Region. To learn more about VPC peering,
+see [VPC peering](../../../vpc/latest/userguide/vpc-peering.md "../../../vpc/latest/userguide/vpc-peering.md") in the
+_Amazon Virtual Private Cloud User Guide_.
+
+## A DB instance in a VPC
+
+accessed by a client application through the internet
+
+To access a DB instances in a VPC from a client application through
+the internet, you configure a VPC with a single public subnet, and an internet
+gateway to enable communication over the internet.
+
+The following diagram shows this scenario.
+
+![A DB instance in a VPC accessed by a client application through the internet.](images/GS-VPC-network.png)
+
+We recommend the following configuration:
+
+- A VPC of size /16 (for example CIDR: 10.0.0.0/16). This size provides
+  65,536 private IP addresses.
+- A subnet of size /24 (for example CIDR: 10.0.0.0/24). This size provides
+  256 private IP addresses.
+- An Amazon RDS DB instance that is
+  associated with the VPC and the subnet. Amazon RDS assigns an IP address within
+  the subnet to your DB instance.
+- An internet gateway which connects the VPC to the internet and to other
+  AWS products.
+- A security group associated with the DB instance. The
+  security group's inbound rules allow your client application to access to
+  your DB instance.
+
+For information about creating a DB instances in a VPC, see
+[Creating a DB instance in a
+VPC](USER_VPC.md#USER_VPC.InstanceInVPC "USER_VPC.md#USER_VPC.InstanceInVPC").
+
+## A DB instance in a VPC
+
+accessed by a private network
+
+If your DB instance isn't publicly accessible, you have the
+following options for accessing it from a private network:
+
+- An AWS Site-to-Site VPN connection. For more information, see [What is
+  AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md")
+- An Direct Connect connection. For more information, see [What
+  is Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
+- An AWS Client VPN connection. For more information, see [What is
+  AWS Client VPN?](../../../vpn/latest/clientvpn-admin/what-is.md "../../../vpn/latest/clientvpn-admin/what-is.md")
+
+The following diagram shows a scenario with an AWS Site-to-Site VPN connection.
+
+![DB instances in a VPC accessed by a private network.](images/site-to-site-vpn-connection.png)
+
+For more information, see [Internetwork traffic privacy](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md").

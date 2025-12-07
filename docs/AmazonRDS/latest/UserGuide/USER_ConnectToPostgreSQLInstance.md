@@ -1,88 +1,59 @@
-# Troubleshooting
+# Using psql to connect to your
 
-connections to your RDS for PostgreSQL instance
+RDS for PostgreSQL DB instance
 
-###### Topics
+You can use a local instance of the psql command line utility to connect to a
+RDS for PostgreSQL DB instance. You need either PostgreSQL or the psql client installed on
+your client computer.
 
-- [Error
-  – FATAL: database name does not exist](#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname "#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname")
-- [Error
-  – Could not connect to server: Connection timed out](#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout "#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout")
-- [Errors with security group access rules](#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules "#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules")
+You can download the PostgreSQL client from the [PostgreSQL](https://www.postgresql.org/download/ "https://www.postgresql.org/download/") website. Follow the
+instructions specific to your operating system version to install psql.
 
-## Error
+To connect to your RDS for PostgreSQL DB instance using psql, you need to provide host
+(DNS) information, access credentials, and the name of the database.
 
-– FATAL: database `name` does not exist
+Use one of the following formats to connect to your RDS for PostgreSQL DB instance. When
+you connect, you're prompted for a password. For batch jobs or scripts, use the
+`--no-password` option. This option is set for the entire session.
 
-If when trying to connect you receive an error like `FATAL: database
- `name` does not exist`, try using the default
-database name **postgres** for the
-`--dbname` option.
+###### Note
 
-## Error
+A connection attempt with `--no-password` fails when the server
+requires password authentication and a password is not available from other sources.
+For more information, see the [psql
+documentation](https://www.postgresql.org/docs/13/app-psql.html "https://www.postgresql.org/docs/13/app-psql.html").
 
-– Could not connect to server: Connection timed out
+If this is the first time you are connecting to this DB instance, or if you
+didn't yet create a database for this RDS for PostgreSQL instance, you can connect to
+the **postgres** database using the 'master
+username' and password.
 
-If you can't connect to the DB instance, the most common error is `Could
- not connect to server: Connection timed out.` If you receive this error,
-check the following:
-
-- Check that the host name used is the DB instance endpoint and that the
-  port number used is correct.
-- Make sure that the DB instance's public accessibility is set to
-  **Yes** to allow external connections. To modify the
-  **Public access** setting, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-- Make sure that the user connecting to the database has CONNECT access to
-  it. You can use the following query to provide connect access to the
-  database.
+For Unix, use the following format.
 
 ```
-GRANT CONNECT ON DATABASE `database name` TO `username`;
+psql \
+   --host=<DB instance endpoint> \
+   --port=<port> \
+   --username=<master username> \
+   --password \
+   --dbname=<database name>
 ```
 
-- Check that the security group assigned to the DB instance has rules to
-  allow access through any firewall your connection might go through. For
-  example, if the DB instance was created using the default port of 5432, your
-  company might have firewall rules blocking connections to that port from
-  external company devices.
+For Windows, use the following format.
 
-To fix this, modify the DB instance to use a different port. Also, make
-sure that the security group applied to the DB instance allows connections
-to the new port. To modify the **Database port** setting,
-see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+```
+psql ^
+   --host=<DB instance endpoint> ^
+   --port=<port> ^
+   --username=<master username> ^
+   --password ^
+   --dbname=<database name>
+```
 
-- Check whether the port you're attempting to use is already occupied by a
-  local instance of PostgreSQL or another service running on your computer.
-  For example, if you have a local PostgreSQL database running on the same
-  port (default is 5432), it might prevent a successful connection to the
-  RDS for PostgreSQL DB instance. Make sure that the port is free, or try
-  connecting with a different port number if possible.
-- See also [Errors with security group access rules](#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules "#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules").
+For example, the following command connects to a database called `mypgdb`
+on a PostgreSQL DB instance called `mypostgresql` using fictitious
+credentials.
 
-##
-
-Errors with security group access rules
-
-By far the most common connection problem is with the security group's access
-rules assigned to the DB instance. If you used the default security group when you
-created the DB instance, the security group likely didn't have access rules
-that allow you to access the instance.
-
-For the connection to work, the security group you assigned to the DB instance at
-its creation must allow access to the DB instance. For example, if the DB instance
-was created in a VPC, it must have a VPC security group that authorizes connections.
-Check if the DB instance was created using a security group that doesn't
-authorize connections from the device or Amazon EC2 instance where the application is
-running.
-
-You can add or edit an inbound rule in the security group. For
-**Source**, choosing **My IP** allows access
-to the DB instance from the IP address detected in your browser. For more
-information, see [Provide access to your DB instance in your VPC by
-creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup").
-
-Alternatively, if the DB instance was created outside of a VPC, it must have a
-database security group that authorizes those connections.
-
-For more information about Amazon RDS security groups, see [Controlling access with security
-groups](Overview.md "Overview.md").
+```
+psql --host=mypostgresql.c6c8mwvfdgv0.us-west-2.rds.amazonaws.com --port=5432 --username=awsuser --password --dbname=mypgdb
+```

@@ -1,86 +1,71 @@
-# Setting up an SSL connection over JDBC
+# Adding the SSL option
 
-To use an SSL connection over JDBC, you must create a keystore, trust the Amazon RDS
-root CA certificate, and use the code snippet specified following.
+To use SSL, your RDS for Oracle DB instance must
+be associated with an option group that includes the `SSL`
+option.
 
-To create the keystore in JKS format, you can use the following command. For more
-information about creating the keystore, see the [Creating a keystore](https://docs.oracle.com/cd/E35822_01/server.740/es_admin/src/tadm_ssl_jetty_keystore.html "https://docs.oracle.com/cd/E35822_01/server.740/es_admin/src/tadm_ssl_jetty_keystore.html") in the Oracle documentation. For reference information,
-see [keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html "https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html") in the _Java Platform, Standard Edition Tools
-Reference_.
+###### To add the SSL option to an option group
+
+1. Create a new option group or identify an existing option group to which
+   you can add the `SSL` option.
+
+For information about creating an option group, see
+[Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create"). 2. Add the `SSL` option to the option group.
+
+If you want to use only FIPS-verified cipher suites for SSL
+connections, set the option `FIPS.SSLFIPS_140` to
+`TRUE`. For information about the FIPS standard, see
+[FIPS support](Appendix.Oracle.Options.md#Appendix.Oracle.Options.SSL.FIPS "Appendix.Oracle.Options.md#Appendix.Oracle.Options.SSL.FIPS").
+
+For information about adding an option to an option group, see
+[Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption"). 3. Create a new RDS for Oracle DB instance and associate the option group with it, or
+modify an RDS for Oracle DB instance to associate the option group with it.
+
+For information about creating an DB instance, see
+[Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+
+For information about modifying an DB instance, see
+[Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+
+###### To add the SSL option to an option group
+
+1. Create a new option group or identify an existing option group to which
+   you can add the `SSL` option.
+
+For information about creating an option group, see
+[Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create"). 2. Add the `SSL` option to the option group.
+
+Specify the following option settings:
+
+    * `Port` – The SSL port number
+    * `VpcSecurityGroupMemberships` – The VPC security group for which the option is enabled
+    * `SQLNET.SSL_VERSION` – The TLS version that client can use to connect to the DB instance
+
+For example, the following AWS CLI command adds the
+`SSL` option to an option group named
+`ora-option-group`.
+
+###### Example
+
+For Linux, macOS, or Unix:
 
 ```
-keytool -genkey -alias `client` -validity `365` -keyalg `RSA` -keystore `clientkeystore`
+aws rds add-option-to-option-group --option-group-name ora-option-group \
+  --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.0}]'
 ```
 
-Take the following steps to trust the Amazon RDS root CA certificate.
-
-###### To trust the Amazon RDS root CA certificate
-
-1. Download the certificate bundle .pem file that works for all AWS Regions
-   and put the file in the ssl_wallet directory.
-
-For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md"). 2. Extract each certificate in the .pem file into a separate file using an OS
-utility. 3. Convert each certificate to .der format using a separate
-`openssl` command, replacing
-`certificate-pem-file` with the name of the
-certificate .pem file (without the .pem extension).
+For Windows:
 
 ```
-openssl x509 -outform der -in `certificate-pem-file`.pem -out `certificate-pem-file`.der
+aws rds add-option-to-option-group --option-group-name ora-option-group ^
+  --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.0}]'
 ```
 
-4. Import each certificate into the keystore using the following
-   command.
+3. Create a new RDS for Oracle DB instance and associate the option group with it, or
+   modify an RDS for Oracle DB instance to associate the option group with it.
 
-```
-keytool -import -alias rds-root -keystore `clientkeystore.jks` -file `certificate-pem-file`.der
-```
+For information about creating an DB instance, see
+[Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 
-For more information, see [Rotating your SSL/TLS
-certificate](UsingWithRDS.md "UsingWithRDS.md"). 5. Confirm that the key store was created successfully.
-
-```
-keytool -list -v -keystore `clientkeystore.jks`
-```
-
-Enter the keystore password when you are prompted for it.
-The following code example shows how to set up the SSL connection using
-JDBC.
-
-```
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Properties;
-
-public class OracleSslConnectionTest {
-    private static final String DB_SERVER_NAME = "`dns-name-provided-by-amazon-rds`";
-    private static final Integer SSL_PORT = "`ssl-option-port-configured-in-option-group`";
-    private static final String DB_SID = "`oracle-sid`";
-    private static final String DB_USER = "`user-name`";
-    private static final String DB_PASSWORD = "`password`";
-    // This key store has only the prod root ca.
-    private static final String KEY_STORE_FILE_PATH = "`file-path-to-keystore`";
-    private static final String KEY_STORE_PASS = "`keystore-password`";
-
-    public static void main(String[] args) throws SQLException {
-        final Properties properties = new Properties();
-        final String connectionString = String.format(
-                "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)(HOST=%s)(PORT=%d))(CONNECT_DATA=(SID=%s)))",
-                DB_SERVER_NAME, SSL_PORT, DB_SID);
-        properties.put("user", DB_USER);
-        properties.put("password", DB_PASSWORD);
-        properties.put("oracle.jdbc.J2EE13Compliant", "true");
-        properties.put("javax.net.ssl.trustStore", KEY_STORE_FILE_PATH);
-        properties.put("javax.net.ssl.trustStoreType", "JKS");
-        properties.put("javax.net.ssl.trustStorePassword", KEY_STORE_PASS);
-        final Connection connection = DriverManager.getConnection(connectionString, properties);
-        // If no exception, that means handshake has passed, and an SSL connection can be opened
-    }
-}
-```
-
-###### Note
-
-Specify a password other than the prompt shown here as a security best practice.
+For information about modifying an DB instance, see
+[Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").

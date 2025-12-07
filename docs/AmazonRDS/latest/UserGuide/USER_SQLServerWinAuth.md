@@ -1,46 +1,92 @@
-# Managing a DB instance in a
+# Working with AWS Managed Active Directory with RDS for SQL Server
 
-Domain
+You can use AWS Managed Microsoft AD to authenticate users with Windows Authentication when they connect to your
+RDS for SQL Server DB instance. The DB instance works with AWS Directory Service for Microsoft Active Directory,
+also called AWS Managed Microsoft AD, to enable Windows Authentication. When users authenticate with a
+SQL Server DB instance joined to the trusting domain, authentication requests are forwarded
+to the domain directory that you create with Directory Service.
 
-You can use the console, AWS CLI, or the Amazon RDS API to manage your DB instance and its
-relationship with your domain. For example, you can move the DB instance into, out of,
-or between domains.
+## Region and version availability
 
-For example, using the Amazon RDS API, you can do the following:
+Amazon RDS supports using only AWS Managed Microsoft AD for Windows Authentication. RDS doesn't support using AD Connector. For more information, see the following:
 
-- To reattempt a domain join for a failed membership, use the [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") API
-  operation and specify the current membership's directory ID.
-- To update the IAM role name for membership, use the `ModifyDBInstance` API operation and
-  specify the current membership's directory ID and the new IAM role.
-- To remove a DB instance from a domain, use the `ModifyDBInstance` API operation and specify
-  `none` as the domain parameter.
-- To move a DB instance from one domain to another, use the `ModifyDBInstance` API operation
-  and specify the domain identifier of the new domain as the domain parameter.
-- To list membership for each DB instance, use the [DescribeDBInstances](../APIReference/DescribeDBInstances.md "../APIReference/DescribeDBInstances.md") API operation.
+- [Application
+  compatibility policy for AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_app_compatibility.md "../../../directoryservice/latest/admin-guide/ms_ad_app_compatibility.md")
+- [Application
+  compatibility policy for AD Connector](../../../directoryservice/latest/admin-guide/ad_connector_app_compatibility.md "../../../directoryservice/latest/admin-guide/ad_connector_app_compatibility.md")
 
-## Understanding Domain
+For information on version and Region availability, see
+[Kerberos authentication with RDS for SQL Server](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.sq "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.sq").
 
-membership
+## Overview of setting up Windows
 
-After you create or modify your DB instance, the instance becomes a member of the
-domain. The AWS console indicates the status of the domain membership for the DB
-instance. The status of the DB instance can be one of the following:
+authentication
 
-- **joined** – The instance is a member of the domain.
-- **joining** – The instance is in the process of becoming a member of the
-  domain.
-- **pending-join** – The instance membership is pending.
-- **pending-maintenance-join** – AWS will attempt to make the instance a member of
-  the domain during the next scheduled maintenance window.
-- **pending-removal** – The removal of the instance from the domain is
-  pending.
-- **pending-maintenance-removal** – AWS will attempt to remove the instance from
-  the domain during the next scheduled maintenance window.
-- **failed** – A configuration problem has prevented the instance from joining the
-  domain. Check and fix your configuration before reissuing the instance modify command.
-- **removing** – The instance is being removed from the domain.
+Amazon RDS uses mixed mode for Windows Authentication. This approach means that the _master user_ (the name and password used to create your SQL
+Server DB instance) uses SQL Authentication. Because the master user account is a privileged
+credential, you should restrict access to this account.
 
-A request to become a member of a domain can fail because of a network connectivity issue or an incorrect IAM role. For example,
-you might create a DB instance or modify an existing instance and have the attempt fail for the DB instance to become a
-member of a domain. In this case, either reissue the command to create or modify the DB instance or modify the newly created
-instance to join the domain.
+To get Windows Authentication using an on-premises or self-hosted Microsoft Active Directory,
+create a forest trust. The trust can be one-way or two-way. For more information on setting
+up forest trusts using Directory Service, see [When to create a trust
+relationship](../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md") in the _AWS Directory Service Administration Guide_.
+
+To set up Windows authentication for a SQL Server DB instance, do the following steps,
+explained in greater detail in [Setting up Windows Authentication for
+SQL Server DB instances](USER_SQLServerWinAuth.md "USER_SQLServerWinAuth.md"):
+
+1. Use AWS Managed Microsoft AD, either from the AWS Management Console or Directory Service API, to create an AWS Managed Microsoft AD
+   directory.
+2. If you use the AWS CLI or Amazon RDS API to create your SQL Server DB instance, create an
+   AWS Identity and Access Management (IAM) role. This role uses the managed IAM policy
+   `AmazonRDSDirectoryServiceAccess` and allows Amazon RDS to make calls to
+   your directory. If you use the console to create your SQL Server DB instance, AWS
+   creates the IAM role for you.
+
+For the role to allow access, the AWS Security Token Service (AWS STS) endpoint must be activated in the AWS
+Region for your AWS account. AWS STS endpoints are active by default in all AWS
+Regions, and you can use them without any further actions. For more information, see
+[Managing
+AWS STS in an AWS Region](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md") in the _IAM User Guide_. 3. Create and configure users and groups in the AWS Managed Microsoft AD directory using the Microsoft Active Directory tools. For
+more information about creating users and groups in your Active Directory, see [Manage users and groups in AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups.md "../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups.md") in the _AWS Directory Service Administration Guide_. 4. If you plan to locate the directory and the DB instance in different VPCs, enable cross-VPC
+traffic. 5. Use Amazon RDS to create a new SQL Server DB instance either from the console, AWS CLI, or Amazon RDS
+API. In the create request, you provide the domain identifier ("`d-*`"
+identifier) that was generated when you created your directory and the name of the
+role you created. You can also modify an existing SQL Server DB instance to use
+Windows Authentication by setting the domain and IAM role parameters for the DB
+instance. 6. Use the Amazon RDS master user credentials to connect to the SQL Server DB instance as you do
+any other DB instance. Because the DB instance is joined to the AWS Managed Microsoft AD domain,
+you can provision SQL Server logins and users from the Active Directory users and
+groups in their domain. (These are known as SQL Server "Windows" logins.) Database
+permissions are managed through standard SQL Server permissions granted and revoked
+to these Windows logins.
+
+When you create a domain-connected RDS for SQL Server DB instance using the Amazon RDS console, AWS automatically creates the
+`rds-directoryservice-access-role` IAM role. This role is essential for managing domain-connected instances
+and is required for the following operations:
+
+- Making configuration changes to domain-connected SQL Server instances
+- Managing Active Directory integration settings
+- Performing maintenance operations on domain-joined instances
+
+###### Important
+
+If you delete the `rds-directoryservice-access-role` IAM role, you can't make
+changes to your domain-connected SQL Server instance through the Amazon RDS console or API. Attempting to modify the
+instance results in an error message stating: **`You don't have permission to iam:CreateRole. To request 
+ access, copy the following text and send it to your AWS administrator.`**
+
+This error occurs because Amazon RDS needs to recreate the role to manage the domain connection, but lacks the
+necessary permissions. Additionally, this error is not logged in CloudTrail, which can make troubleshooting
+more difficult.
+
+If you accidentally delete the `rds-directoryservice-access-role`, you must have
+`iam:CreateRole` permissions to recreate it before you can make any changes to your domain-connected
+SQL Server instance. To recreate the role manually, ensure it has the `AmazonRDSDirectoryServiceAccess`
+managed policy attached and the appropriate trust relationship that allows the RDS service to assume the role.
+
+## Restoring a SQL Server DB instance and then adding it to a domain
+
+You can restore a DB snapshot or do point-in-time recovery (PITR) for a SQL Server DB instance and then add it to a domain. Once
+the DB instance is restored, modify the instance using the process explained in [Step 5: Create or modify a SQL Server DB instance](USER_SQLServerWinAuth.md#USER_SQLServerWinAuth.SettingUp.CreateModify "USER_SQLServerWinAuth.md#USER_SQLServerWinAuth.SettingUp.CreateModify") to add
+the DB instance to a domain.

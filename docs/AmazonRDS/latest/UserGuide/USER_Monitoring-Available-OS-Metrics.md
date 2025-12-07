@@ -16,6 +16,9 @@ metrics available using Amazon CloudWatch Logs.
 
 for Db2, MariaDB, MySQL, Oracle, and PostgreSQL
 
+RDS collects disk metrics for `rdsdbdata` as well as
+additional storage volumes present in the OS. To view OS metrics in CloudWatch Logs, see [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+
 | Group                | Metric                                | Console name                                                                                                                                                             | Description                                                              |
 | -------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | `General`            | `engine`                              | Not applicable                                                                                                                                                           | The database engine for the DB instance.                                 |
@@ -56,6 +59,7 @@ for Db2, MariaDB, MySQL, Oracle, and PostgreSQL
 | `avgReqSz`           | **Physical Devices Ave Request Size** | The average request size, in kilobytes.                                                                                                                                  |
 | `await`              | **Physical Devices Disk I/O Await**   | The number of milliseconds required to respond to requests, including queue time and service time.                                                                       |
 | `device`             | Not applicable                        | The identifier of the disk device in use.                                                                                                                                |
+| `mountPoint`         | Not applicable                        | The path to the file system.                                                                                                                                             |
 | `readIOsPS`          | **Physical Devices Read IO/s**        | The number of read operations per second.                                                                                                                                |
 | `readKb`             | **Physical Devices Read Total**       | The total number of kilobytes read.                                                                                                                                      |
 | `readKbPS`           | **Physical Devices Read Kb/s**        | The number of kilobytes read per second.                                                                                                                                 |
@@ -67,7 +71,7 @@ for Db2, MariaDB, MySQL, Oracle, and PostgreSQL
 | `writeKbPS`          | **Physical Devices Write Kb/s**       | The number of kilobytes written per second.                                                                                                                              |
 | `wrqmPS`             | **Physical Devices Wrqms**            | The number of merged write requests queued per second.                                                                                                                   |
 | `fileSys`            | `maxFiles`                            | **Max Inodes**                                                                                                                                                           | The maximum number of files that can be created for the file system.     |
-| `mountPoint`         | Not applicable                        | The path to the file system.                                                                                                                                             |
+| `mountPoint`         | Not applicable                        | The path to the file system. When this is `/rdsdbdata*`, it<br>represents the aggregate of all storage volumes.                                                          |
 | `name`               | Not applicable                        | The name of the file system.                                                                                                                                             |
 | `total`              | **Total Filesystem**                  | The total number of disk space available for the file system, in kilobytes.                                                                                              |
 | `used`               | **Used Filesystem**                   | The amount of disk space used by files in the file system, in kilobytes.                                                                                                 |
@@ -117,6 +121,9 @@ for Db2, MariaDB, MySQL, Oracle, and PostgreSQL
 | `zombie`             | **Tasks Zombie**                      | The number of child tasks that are inactive with an active parent task.                                                                                                  |
 
 ## OS metrics for Microsoft SQL Server
+
+RDS collects disk metrics for `rdsdbdata` as well as
+additional storage volumes present in the OS. To view OS metrics in CloudWatch Logs, see [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
 
 | Group                   | Metric                      | Console name                                                                                                                                                                                                                     | Description                                                                                                                                                          |
 | ----------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

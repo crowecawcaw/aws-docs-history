@@ -39,6 +39,7 @@ guide. For more information, see [Setting up your Amazon RDS environment](CHAP_S
 - [Common management tasks for Microsoft SQL Server on Amazon RDS](#SQLServer.Concepts.General "#SQLServer.Concepts.General")
 - [Limitations for Microsoft SQL Server DB instances](#SQLServer.Concepts.General.FeatureSupport.Limits "#SQLServer.Concepts.General.FeatureSupport.Limits")
 - [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md")
+- [Optimize CPUs for RDS for SQL Server license-included instances](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md")
 - [Microsoft SQL Server security](SQLServer.Concepts.General.FeatureSupport.md "SQLServer.Concepts.General.FeatureSupport.md")
 - [Compliance program support for Microsoft SQL Server DB instances](#SQLServer.Concepts.General.Compliance "#SQLServer.Concepts.General.Compliance")
 - [Microsoft SQL Server versions on Amazon RDS](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md")
@@ -51,8 +52,11 @@ guide. For more information, see [Setting up your Amazon RDS environment](CHAP_S
 - [Licensing Microsoft SQL Server on Amazon RDS](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md")
 - [Connecting to your Microsoft SQL Server
   DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md")
+- [Working with SQL Server Developer Edition on RDS for SQL Server](sqlserver-dev-edition.md "sqlserver-dev-edition.md")
 - [Working with Active Directory with RDS for SQL Server](User.SQLServer.md "User.SQLServer.md")
 - [Upgrades of the Microsoft SQL Server DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
+- [Working with storage in
+  RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md")
 - [Importing and exporting SQL Server databases using native
   backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md")
 - [Working with read replicas for Microsoft SQL Server in Amazon RDS](SQLServer.md "SQLServer.md")
@@ -103,12 +107,13 @@ instance class type or availability mode can support, modifying the DB instance
 fails. You can see the status of your request in the **Events**
 pane.
 
-| Instance class type              | Single-AZ | Multi-AZ with DBM | Multi-AZ with Always On AGs |
-| -------------------------------- | --------- | ----------------- | --------------------------- |
-| db.\*.micro to db.\*.medium      | 30        | N/A               | N/A                         |
-| db.\*.large                      | 30        | 30                | 30                          |
-| db.\*.xlarge to db.\*.16xlarge   | 100       | 50                | 75                          |
-| db.\*.24xlarge to db.\*.32xlarge | 100       | 50                | 100                         |
+| Instance class type              | Allowed vCPU range      | Single-AZ | Multi-AZ with DBM | Multi-AZ with Always On AGs |
+| -------------------------------- | ----------------------- | --------- | ----------------- | --------------------------- |
+| db.\*.micro to db.\*.medium      | N/A                     | 30        | N/A               | N/A                         |
+| db.\*.large                      | N/A                     | 30        | 30                | 30                          |
+| db.\*.xlarge to db.\*.16xlarge   | 4 vCPUs<br>• 64 vCPUs   | 100       | 50                | 75                          |
+| db.\*.24xlarge to db.\*.32xlarge | 4 vCPUs<br>• 64 vCPUs   | 100       | 50                | 100                         |
+| db.\*.24xlarge to db.\*.32xlarge | 96 vCPUs<br>• 128 vCPUs | 100       | 50                | 100                         |
 
 \* Represents the different instance class types.
 

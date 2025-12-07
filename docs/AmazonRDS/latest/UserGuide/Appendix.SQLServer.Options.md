@@ -1,145 +1,164 @@
-# Microsoft SQL Server resource governor with RDS for SQL Server
+# Support for native backup and restore in SQL Server
 
-Resource governor is a SQL Server Enterprise Edition feature that gives you precise control over
-your instance resources. It enables you to set specific limits on how workloads use CPU,
-memory, and physical I/O resources. With resource governor, you can:
+By using native backup and restore for SQL Server databases, you can create a
+differential or full backup of your on-premises database
+and store the backup files on Amazon S3. You can then restore to an existing Amazon RDS DB instance running SQL Server.
+You can also back up an RDS for SQL Server database, store it on Amazon S3, and restore it in other locations. In addition, you can
+restore the backup to an on-premises server, or a different Amazon RDS DB instance running
+SQL Server. For more information, see [Importing and exporting SQL Server databases using native
+backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md").
 
-- Prevent resource monopolization in multi-tenant environments by managing how different workloads share instance resources
-- Deliver predictable performance by setting specific resource limits and priorities for different users and applications
-  You can enable resource governor on either an existing or new RDS for SQL Server DB instance.
+Amazon RDS supports native backup and restore for Microsoft SQL Server databases by using
+differential and full backup files (.bak files).
 
-Resource governor uses three fundamental concepts:
+## Adding the native backup and restore option
 
-- **Resource pool** - A container that manages your instance physical resources (CPU, memory, and I/O).
-  You get two built-in pools (internal and default) and you can create additional custom pools.
-- **Workload group** - A container for database sessions with similar characteristics.
-  Every workload group belongs to a resource pool. You get two built-in workload groups
-  (internal and default) and you can create additional custom workload groups.
-- **Classification** - The process that determines which workload
-  group handles incoming sessions based on user name, application name, database name or host name.
-  For additional details about resource governor functionality in SQL Server,
-  see [Resource Governor](https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver16")
-  in the Microsoft documentation.
+The general process for adding the native backup and restore option to a DB instance is the following:
 
-###### Contents
+1. Create a new option group, or copy or modify an existing option
+   group.
+2. Add the `SQLSERVER_BACKUP_RESTORE` option to the option group.
+3. Associate an AWS Identity and Access Management (IAM) role with the option. The IAM role must have access to an S3 bucket to
+   store the database backups.
 
-- [Supported versions and Regions](Appendix.SQLServer.Options.md#ResourceGovernor.SupportedVersions "Appendix.SQLServer.Options.md#ResourceGovernor.SupportedVersions")
-- [Limitations and recommendations](Appendix.SQLServer.Options.md#ResourceGovernor.Limitations "Appendix.SQLServer.Options.md#ResourceGovernor.Limitations")
-- [Enabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
-  - [Creating the option group for RESOURCE_GOVERNOR](ResourceGovernor.md#ResourceGovernor.OptionGroup "ResourceGovernor.md#ResourceGovernor.OptionGroup")
-  - [Adding the RESOURCE_GOVERNOR option to the option group](ResourceGovernor.md#ResourceGovernor.Add "ResourceGovernor.md#ResourceGovernor.Add")
-  - [Associating the option group with your DB instance](ResourceGovernor.md#ResourceGovernor.Apply "ResourceGovernor.md#ResourceGovernor.Apply")
+That is, the option must have as its option setting a valid Amazon Resource Name (ARN) in the format
+`arn:aws:iam::`account-id`:role/`role-name``.
+For more information, see [Amazon Resource Names (ARNs)](../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-iam "../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-iam") in the _AWS General Reference._
 
-- [Using Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
-  - [Manage resource pool](ResourceGovernor.md#ResourceGovernor.ManageResourcePool "ResourceGovernor.md#ResourceGovernor.ManageResourcePool")
-    - [Create resource Pool](ResourceGovernor.md#ResourceGovernor.CreateResourcePool "ResourceGovernor.md#ResourceGovernor.CreateResourcePool")
-    - [Alter resource pool](ResourceGovernor.md#ResourceGovernor.AlterResourcePool "ResourceGovernor.md#ResourceGovernor.AlterResourcePool")
-    - [Drop resource pool](ResourceGovernor.md#ResourceGovernor.DropResourcePool "ResourceGovernor.md#ResourceGovernor.DropResourcePool")
+The IAM role must also have a trust relationship and a permissions policy attached. The trust relationship allows
+RDS to assume the role, and the permissions policy defines the actions that the role can perform. For more
+information, see [Manually creating an IAM role for native backup and restore](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Enabling.IAM "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Enabling.IAM"). 4. Associate the option group with the DB instance.
 
-  - [Manage workload groups](ResourceGovernor.md#ResourceGovernor.ManageWorkloadGroups "ResourceGovernor.md#ResourceGovernor.ManageWorkloadGroups")
-    - [Create workload group](ResourceGovernor.md#ResourceGovernor.CreateWorkloadGroup "ResourceGovernor.md#ResourceGovernor.CreateWorkloadGroup")
-    - [Alter workload group](ResourceGovernor.md#ResourceGovernor.AlterWorkloadGroup "ResourceGovernor.md#ResourceGovernor.AlterWorkloadGroup")
-    - [Drop workload group](ResourceGovernor.md#ResourceGovernor.DropWorkloadGroup "ResourceGovernor.md#ResourceGovernor.DropWorkloadGroup")
+After you add the native backup and restore option, you don't need to restart your DB
+instance. As soon as the option group is active, you can begin backing up and restoring immediately.
 
-  - [Create and register classifier function](ResourceGovernor.md#ResourceGovernor.ClassifierFunction "ResourceGovernor.md#ResourceGovernor.ClassifierFunction")
-  - [Drop classifier function](ResourceGovernor.md#ResourceGovernor.DropClassifier "ResourceGovernor.md#ResourceGovernor.DropClassifier")
-  - [De-register classifier function](ResourceGovernor.md#ResourceGovernor.DeregisterClassifier "ResourceGovernor.md#ResourceGovernor.DeregisterClassifier")
-  - [Reset statistics](ResourceGovernor.md#ResourceGovernor.ResetStats "ResourceGovernor.md#ResourceGovernor.ResetStats")
-  - [Resource governor configuration changes](ResourceGovernor.md#ResourceGovernor.ConfigChanges "ResourceGovernor.md#ResourceGovernor.ConfigChanges")
-  - [Bind TempDB to a resource pool](ResourceGovernor.md#ResourceGovernor.BindTempDB "ResourceGovernor.md#ResourceGovernor.BindTempDB")
-  - [Unbind TempDB from a resource pool](ResourceGovernor.md#ResourceGovernor.UnbindTempDB "ResourceGovernor.md#ResourceGovernor.UnbindTempDB")
-  - [Cleanup resource governor](ResourceGovernor.md#ResourceGovernor.Cleanup "ResourceGovernor.md#ResourceGovernor.Cleanup")
+###### To add the native backup and restore option
 
-- [Considerations for Multi-AZ deployment](Appendix.SQLServer.Options.md#ResourceGovernor.Considerations "Appendix.SQLServer.Options.md#ResourceGovernor.Considerations")
-- [Considerations for read replicas](Appendix.SQLServer.Options.md#ResourceGovernor.ReadReplica "Appendix.SQLServer.Options.md#ResourceGovernor.ReadReplica")
-- [Monitor Microsoft SQL Server resource governor using system views for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
-  - [Resource pool runtime statistics](ResourceGovernor.md#ResourceGovernor.ResourcePoolStats "ResourceGovernor.md#ResourceGovernor.ResourcePoolStats")
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Option groups**.
+3. Create a new option group or use an existing option group. For information on how to
+   create a custom DB option group, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
 
-- [Disabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
-- [Best practices for configuring resource governor on RDS for SQL Server](ResourceGovernor.md "ResourceGovernor.md")
+To use an existing option group, skip to the next step. 4. Add the **SQLSERVER_BACKUP_RESTORE** option to the option
+group. For more information about adding options, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption"). 5. Do one of the following:
 
-## Supported versions and Regions
+    * To use an existing IAM role and Amazon S3 settings, choose an existing IAM role for
+     **IAM Role**. If you use an existing IAM
+     role, RDS uses the Amazon S3 settings configured for this role.
+    * To create a new role and configure Amazon S3 settings, do the following:
 
-Resource governor is available in all AWS Regions where RDS for SQL Server is available.
-It is only supported for SQL Server Enterprise Edition for SQL Server 2016, SQL Server 2017,
-SQL Server 2019, and SQL Server 2022.
 
-## Limitations and recommendations
 
-The following limitations and recommendations apply to resource governor:
 
-- Edition and service restrictions:
-  - Available only in SQL Server Enterprise Edition.
-  - Resource management is limited to the SQL Server Database Engine.
-    Resource governor for Analysis Services, Integration Services, and Reporting Services are not supported.
+    	1. For **IAM role**, choose **Create a new role**.
+    	2. For **S3 bucket**, choose an S3 bucket from the list.
+    	3. For **S3 prefix (optional)**, specify a prefix to use for the files stored in your Amazon S3 bucket.
 
-- Configuration restrictions:
-  - Must use Amazon RDS stored procedures for all configurations.
-  - Native DDL statements and SQL Server Management Studio GUI configurations aren't supported.
 
-- Resource pool parameters:
-  - Pool names starting with `rds_` aren't supported.
-  - Internal and default resource pool modifications aren't permitted.
-  - For the user-defined resource pools the following resource pool parameters aren't supported:
-    - `MIN_MEMORY_PERCENT`
-    - `MIN_CPU_PERCENT`
-    - `MIN_IOPS_PER_VOLUME`
-    - `AFFINITY`
+    	This prefix can include a file path but doesn't have to. If you provide a prefix, RDS
+    	 attaches that prefix to all backup files. RDS then uses the
+    	 prefix during a restore to identify related files and ignore
+    	 irrelevant files. For example, you might use the S3 bucket
+    	 for purposes besides holding backup files. In this case, you
+    	 can use the prefix to have RDS perform native backup and
+    	 restore only on a particular folder and its subfolders.
 
-- Workload group parameters:
-  - Workload group names starting with `rds_` aren't supported.
-  - Internal workload group modification isn't permitted.
-  - For the default workload group:
-    - Only the `REQUEST_MAX_MEMORY_GRANT_PERCENT` parameter can be modified.
-    - For the default workload group, `REQUEST_MAX_MEMORY_GRANT_PERCENT` must be between 1 and 70.
-    - All other parameters are locked and can't be changed.
 
-  - User-defined workload groups allow modification of all parameters.
+    	If you leave the prefix blank, then RDS doesn't use a prefix to identify backup files
+    	 or files to restore. As a result, during a multiple-file
+    	 restore, RDS attempts to restore every file in every folder
+    	 of the S3 bucket.
+    	4. Choose the **Enable encryption** check box to encrypt the backup file. Leave the check box cleared (the
+    	 default) to have the backup file unencrypted.
 
-- Classifier function limitations:
-  - Classifier function routes connections to custom workload groups
-    based on specified criteria (user name, database, host, or application name).
-  - Supports up to two user-defined workload groups with their
-    respective routing conditions.
-  - Combines criterion with `AND` conditions within each group.
-  - Requires at least one routing criterion per workload group.
-  - Only the classification methods listed above are supported.
-  - Function name must start with `rg_classifier_`.
-  - Default group assignment if no conditions match.
 
-## Considerations for Multi-AZ deployment
+    	If you chose **Enable encryption**, choose an encryption key for **AWS KMS key**. For
+    	 more information about encryption keys, see [Getting started](../../../kms/latest/developerguide/getting-started.md "../../../kms/latest/developerguide/getting-started.md") in the *AWS Key Management Service Developer Guide.*
 
-RDS for SQL Server replicates resource governor to secondary instance in a Multi-AZ deployment.
-You can verify when modified and new resource governor last synchronized with the secondary instance.
+6.  Choose **Add option**.
+7.  Apply the option group to a new or existing DB instance:
 
-Use the following query to check the `last_sync_time` of the replication:
+        * For a new DB instance, apply the option group when you launch the instance. For more
+         information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+        * For an existing DB instance, apply the option group by modifying the instance and
+         attaching the new option group. For more information, see
+         [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+
+    This procedure makes the following assumptions:
+
+- You're adding the SQLSERVER_BACKUP_RESTORE option to an option group that already
+  exists. For more information about adding options, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
+- You're associating the option with an IAM role that already exists and has access to an
+  S3 bucket to store the backups.
+- You're applying the option group to a DB instance that already exists. For more
+  information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+
+###### To add the native backup and restore option
+
+1. Add the `SQLSERVER_BACKUP_RESTORE` option to the option group.
+
+For Linux, macOS, or Unix:
 
 ```
-SELECT * from msdb.dbo.rds_fn_server_object_last_sync_time();
+aws rds add-option-to-option-group \
+	--apply-immediately \
+	--option-group-name `mybackupgroup` \
+	--options "OptionName=SQLSERVER_BACKUP_RESTORE, \
+	  OptionSettings=[{Name=IAM_ROLE_ARN,Value=arn:aws:iam::`account-id`:role/`role-name`}]"
 ```
 
-In the query results, if the sync time is past the resource governor updated or creation time, then the resource governor syncs with the secondary.
+For Windows:
 
-To perform a manual DB failover to confirm that the resource governor replicate,
-wait for the `last_sync_time` to update first. Then, proceed with the Multi-AZ failover.
-
-## Considerations for read replicas
-
-- For SQL Server replicas in the same Region as the source DB instance,
-  use the same option group as the source. Changes to the option group propagate
-  to replicas immediately, regardless of their maintenance windows.
-- When you create a SQL Server cross-Region replica, RDS creates a dedicated option group for it.
-- You can't remove an SQL Server cross-Region replica from its dedicated option group.
-  No other DB instances can use the dedicated option group for a SQL Server cross-Region replica.
-- Resource governor option is non-replicated options.
-  You can add or remove non-replicated options from a dedicated option group.
-- When you promote a SQL Server cross-Region read replica, the promoted replica
-  behaves the same as other SQL Server DB instances, including the management of its options.
+```
+aws rds add-option-to-option-group ^
+	--option-group-name `mybackupgroup` ^
+	--options "[{\"OptionName\": \"SQLSERVER_BACKUP_RESTORE\", ^
+	\"OptionSettings\": [{\"Name\": \"IAM_ROLE_ARN\", ^
+	\"Value\": \"arn:aws:iam::`account-id`:role/`role-name`"}]}]" ^
+	--apply-immediately
+```
 
 ###### Note
 
-When using Resource governor on a read replica, you must manually ensure that resource governor has been configured on your read replica
-using Amazon RDS stored procedures after the option is added to the option group. Resource governor configurations do not automatically replicate to
-the read replica. Also, the workload on read replica is typically different than the primary instance.
-Hence, it's recommended to apply the resource configuration on the replica based on your workload and instance type.
-You can run these Amazon RDS stored procedures on read replica independently to configure resource governor on read replica.
+When using the Windows command prompt, you must escape double quotes (") in JSON code by
+prefixing them with a backslash (\). 2. Apply the option group to the DB instance.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-instance \
+	--db-instance-identifier `mydbinstance` \
+	--option-group-name `mybackupgroup` \
+	--apply-immediately
+```
+
+For Windows:
+
+```
+aws rds modify-db-instance ^
+	--db-instance-identifier `mydbinstance` ^
+	--option-group-name `mybackupgroup` ^
+	--apply-immediately
+```
+
+## Modifying native backup and restore option settings
+
+After you enable the native backup and restore option, you can modify the settings for the
+option. For more information about how to modify option settings, see [Modifying an option setting](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption").
+
+## Removing the native backup and restore option
+
+You can turn off native backup and restore by removing the option from your DB instance.
+After you remove the native backup and restore option, you don't need to restart
+your DB instance.
+
+To remove the native backup and restore option from a DB instance, do one of the following:
+
+- Remove the option from the option group it belongs to. This change affects all DB
+  instances that use the option group. For more information, see [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption").
+- Modify the DB instance and specify a different option group that doesn't include the
+  native backup and restore option. This change affects a single DB instance.
+  You can specify the default (empty) option group, or a different custom
+  option group. For more information, see
+  [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").

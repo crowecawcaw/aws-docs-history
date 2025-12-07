@@ -1,67 +1,32 @@
-# Working with trace and
+# Deny or allow viewing database names for Amazon RDS for SQL Server
 
-dump files for Amazon RDS for SQL Server
+The master user cannot set `DENY VIEW ANY DATABASE TO `LOGIN``  
+to hide databases from a user.  
+To change this permission, use the following stored procedure instead:
 
-This section describes working with trace files and dump files for your Amazon RDS DB
-instances running Microsoft SQL Server.
-
-## Generating a trace SQL query
-
-```
-declare @rc int
-declare @TraceID int
-declare @maxfilesize bigint
-
-set @maxfilesize = 5
-
-exec @rc = sp_trace_create @TraceID output,  0, N'D:\rdsdbdata\log\rdstest', @maxfilesize, NULL
-```
-
-## Viewing
-
-an open trace
+- Denying database view access to `LOGIN`:
 
 ```
-select * from ::fn_trace_getinfo(default)
+EXEC msdb.dbo.rds_manage_view_db_permission @permission=‘DENY’, @server_principal=`‘LOGIN’` 
+go
 ```
 
-## Viewing trace contents
+- Allowing database view access to `LOGIN`:
 
 ```
-select * from ::fn_trace_gettable('D:\rdsdbdata\log\rdstest.trc', default)
+EXEC msdb.dbo.rds_manage_view_db_permission @permission='GRANT', @server_principal=`'LOGIN'`
+ go
 ```
 
-## Setting the retention period for trace and dump files
+Consider the following when using this stored procedure:
 
-Trace and dump files can accumulate and consume disk space. By default, Amazon RDS
-purges trace and dump files that are older than seven days.
-
-To view the current trace and dump file retention period, use the
-`rds_show_configuration` procedure, as shown in the following
-example.
-
-```
-exec rdsadmin..rds_show_configuration;
-```
-
-To modify the retention period for trace files, use the
-`rds_set_configuration` procedure and set the `tracefile
- retention` in minutes. The following example sets the trace file retention
-period to 24 hours.
-
-```
-exec rdsadmin..rds_set_configuration 'tracefile retention', `1440`;
-```
-
-To modify the retention period for dump files, use the
-`rds_set_configuration` procedure and set the `dumpfile
- retention` in minutes. The following example sets the dump file retention
-period to 3 days.
-
-```
-exec rdsadmin..rds_set_configuration 'dumpfile retention', `4320`;
-```
-
-For security reasons, you cannot delete a specific trace or dump file on a SQL
-Server DB instance. To delete all unused trace or dump files, set the retention
-period for the files to 0.
+- Database names are hidden from the SSMS and internal DMV (dynamic management views).
+  However, database names are still visible from audit, logs and metadata tables.
+  These are secured `VIEW ANY DATABASE` server permissions. For more information, see
+  [DENY Server Permissions](https://learn.microsoft.com/en-us/sql/t-sql/statements/deny-server-permissions-transact-sql?view=sql-server-ver16#permissions "https://learn.microsoft.com/en-us/sql/t-sql/statements/deny-server-permissions-transact-sql?view=sql-server-ver16#permissions").
+- Once the permission is reverted to `GRANT` (allowed), the `LOGIN` can view all databases.
+- If you delete and recreate `LOGIN`, the view permission related to the LOGIN is reset to `ALLOW`.
+- For Multi-AZ instances, set the `DENY` or `GRANT` permission only for the `LOGIN` on the primary host.
+  The changes are propagated to the secondary host automatically.
+- This permission only changes whether a login can view the database names.
+  However, access to databases and objects within are managed separately.

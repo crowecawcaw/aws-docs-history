@@ -1,163 +1,56 @@
-# Oracle Statspack
+# Overview of Oracle DB options
 
-The Oracle Statspack option installs and enables the Oracle Statspack performance
-statistics feature. Oracle Statspack is a collection of SQL, PL/SQL, and SQL\*Plus
-scripts that collect, store, and display performance data. For information about using
-Oracle Statspack, see [Oracle Statspack](http://docs.oracle.com/cd/E13160_01/wli/docs10gr3/dbtuning/statsApdx.html "http://docs.oracle.com/cd/E13160_01/wli/docs10gr3/dbtuning/statsApdx.html") in the Oracle documentation.
+To enable options for your Oracle database, add them to an option group, and then associate the option group
+with your DB instance. For more information, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
 
-###### Note
+###### Topics
 
-Oracle Statspack is no longer supported by Oracle and has been replaced by the
-more advanced Automatic Workload Repository (AWR). AWR is available only for Oracle
-Enterprise Edition customers who have purchased the Diagnostics Pack. You can use
-Oracle Statspack with any Oracle DB engine on Amazon RDS. You can't run Oracle
-Statspack on Amazon RDS read replicas.
+- [Summary of Oracle Database options](#Appendix.Oracle.Options.summary "#Appendix.Oracle.Options.summary")
+- [Options supported for different editions](#Appendix.Oracle.Options.editions "#Appendix.Oracle.Options.editions")
+- [Memory requirements for specific options](#Appendix.Oracle.Options.memory "#Appendix.Oracle.Options.memory")
 
-## Setting up Oracle Statspack
+## Summary of Oracle Database options
 
-To run Statspack scripts, you must add the Statspack option.
+You can add the following options for Oracle DB instances.
 
-###### To set up Oracle Statspack
+| Option                                                                                        | Option ID                   |
+| --------------------------------------------------------------------------------------------- | --------------------------- |
+| [Amazon S3 integration](oracle-s3-integration.md "oracle-s3-integration.md")                  | `S3_INTEGRATION`            |
+| [Oracle Application Express (APEX)](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")  | `APEX`<br>`APEX-DEV`        |
+| [Oracle Enterprise Manager](Oracle.Options.md "Oracle.Options.md")                            | `OEM`<br>`OEM_AGENT`        |
+| [Oracle Java virtual machine](oracle-options-java.md "oracle-options-java.md")                | `JVM`                       |
+| [Oracle Label Security](Oracle.Options.md "Oracle.Options.md")                                | `OLS`                       |
+| [Oracle Locator](Oracle.Options.md "Oracle.Options.md")                                       | `LOCATOR`                   |
+| [Oracle native network encryption](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")   | `NATIVE_NETWORK_ENCRYPTION` |
+| [Oracle OLAP](Oracle.Options.md "Oracle.Options.md")                                          | `OLAP`                      |
+| [Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")        | `SSL`                       |
+| [Oracle Spatial](Oracle.Options.md "Oracle.Options.md")                                       | `SPATIAL`                   |
+| [Oracle SQLT](Oracle.Options.md "Oracle.Options.md")                                          | `SQLT`                      |
+| [Oracle Statspack](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")                   | `STATSPACK`                 |
+| [Oracle time zone](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")                   | `Timezone`                  |
+| [Oracle time zone file autoupgrade](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")  | `TIMEZONE_FILE_AUTOUPGRADE` |
+| [Oracle Transparent Data Encryption](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md") | `TDE`                       |
+| [Oracle UTL_MAIL](Oracle.Options.md "Oracle.Options.md")                                      | `UTL_MAIL`                  |
+| [Oracle XML DB](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")                      | `XMLDB`                     |
 
-1. In a SQL client, log in to the Oracle DB with an administrative
-   account.
-2. Do either of the following actions, depending on whether Statspack is
-   installed:
-   - If Statspack is installed, and the `PERFSTAT` account
-     is associated with Statspack, skip to Step 4.
-   - If Statspack is not installed, and the `PERFSTAT`
-     account exists, drop the account as follows:
+## Options supported for different editions
 
-   ```
-   DROP USER PERFSTAT CASCADE;
-   ```
-
-   Otherwise, attempting to add the Statspack option generates an
-   error and `RDS-Event-0058`.
-
-3. Add the Statspack option to an option group. See [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
-
-Amazon RDS automatically installs the Statspack scripts on the DB instance and
-then sets up the `PERFSTAT` account. 4. Reset the password using the following SQL statement, replacing _pwd_ with your new password:
-
-```
-ALTER USER PERFSTAT IDENTIFIED BY *pwd* ACCOUNT UNLOCK;
-```
-
-You can log in using the `PERFSTAT` user account and run the
-Statspack scripts. 5. Grant the `CREATE JOB` privilege to the `PERFSTAT`
-account using the following statement:
+RDS for Oracle prevents you from adding options to an edition if they aren't supported. To find out which
+RDS options are supported in different Oracle Database editions, use the command `aws rds
+ describe-option-group-options`. The following example lists supported options for Oracle Database
+19c Enterprise Edition.
 
 ```
-GRANT CREATE JOB TO PERFSTAT;
+aws rds describe-option-group-options \
+    --engine-name oracle-ee \
+    --major-engine-version 19
 ```
 
-6. Ensure that idle wait events in the `PERFSTAT.STATS$IDLE_EVENT`
-   table are populated.
+For more information, see [describe-option-group-options](../../../cli/latest/reference/rds/describe-option-group-options.md "../../../cli/latest/reference/rds/describe-option-group-options.md") in the _AWS CLI Command Reference_.
 
-Because of Oracle Bug 28523746, the idle wait events in
-`PERFSTAT.STATS$IDLE_EVENT` may not be populated. To ensure
-all idle events are available, run the following statement:
+## Memory requirements for specific options
 
-```
-INSERT INTO PERFSTAT.STATS$IDLE_EVENT (EVENT)
-SELECT NAME FROM V$EVENT_NAME WHERE WAIT_CLASS='Idle'
-MINUS
-SELECT EVENT FROM PERFSTAT.STATS$IDLE_EVENT;
-COMMIT;
-```
-
-## Generating Statspack reports
-
-A Statspack report compares two snapshots.
-
-###### To generate Statspack reports
-
-1. In a SQL client, log in to the Oracle DB with the `PERFSTAT` account.
-2. Create a snapshot using either of the following techniques:
-   - Create a Statspack snapshot manually.
-   - Create a job that takes a Statspack snapshot after a given time interval. For example, the following job creates a Statspack
-     snapshot every hour:
-
-   ```
-   VARIABLE jn NUMBER;
-   exec dbms_job.submit(:jn, 'statspack.snap;',SYSDATE,'TRUNC(SYSDATE+1/24,''HH24'')');
-   COMMIT;
-   ```
-
-3. View the snapshots using the following query:
-
-```
-SELECT SNAP_ID, SNAP_TIME FROM STATS$SNAPSHOT ORDER BY 1;
-```
-
-4. Run the Amazon RDS procedure `rdsadmin.rds_run_spreport`,
-   replacing _begin_snap_ and _end_snap_ with the snapshot IDs:
-
-```
-exec rdsadmin.rds_run_spreport(*begin\_snap*,*end\_snap*);
-```
-
-For example, the following command creates a report based on the interval
-between Statspack snapshots 1 and 2:
-
-```
-exec rdsadmin.rds_run_spreport(1,2);
-```
-
-The file name of the Statspack report includes the number of the two
-snapshots. For example, a report file created using Statspack snapshots 1
-and 2 would be named `ORCL_spreport_1_2.lst`. 5. Monitor the output for errors.
-
-Oracle Statspack performs checks before running the report. Therefore, you
-could also see error messages in the command output. For example, you might
-try to generate a report based on an invalid range, where the beginning
-Statspack snapshot value is larger than the ending value. In this case, the
-output shows the error message, but the DB engine does not generate an error
-file.
-
-```
-exec rdsadmin.rds_run_spreport(2,1);
-*
-ERROR at line 1:
-ORA-20000: Invalid snapshot IDs. Find valid ones in perfstat.stats$snapshot.
-```
-
-If you use an invalid number a Statspack snapshot, the output shows an
-error. For example, if you try to generate a report for snapshots 1 and 50,
-but snapshot 50 doesn't exist, the output shows an error.
-
-```
-exec rdsadmin.rds_run_spreport(1,50);
-*
-ERROR at line 1:
-ORA-20000: Could not find both snapshot IDs
-```
-
-6. (Optional)
-
-To retrieve the report, call the trace file procedures, as explained in
-[Working with
-Oracle trace files](USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles "USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles").
-
-Alternatively, download the Statspack report from the RDS console. Go to the
-**Log** section of the DB instance details and choose
-**Download**. The following example shows
-`trace/ORCL_spreport_1_2.lst`
-
-![Show a list of Oracle log files in the RDS console. The following trace file is circled: trace/ORCL_spreport_1_2.lst.](images/statspack1.png)
-
-If an error occurs while generating a report, the DB engine uses the same
-naming conventions as for a report but with an extension of
-`.err`. For example, if an error occurred while creating
-a report using Statspack snapshots 1 and 7, the report file would be named
-`ORCL_spreport_1_7.err`. You can download the error
-report using the same techniques as for a standard Snapshot report.
-
-## Removing Statspack snapshots
-
-To remove a range of Oracle Statspack snapshots, use the following command:
-
-```
-exec statspack.purge(*begin snap*, *end snap*);
-```
+Some options require additional memory to run on your DB instance. For example, Oracle Enterprise Manager
+Database Control uses about 300 MB of RAM. If you enable this option for a small DB instance, you might
+encounter performance problems due to memory constraints. You can adjust the Oracle parameters so that the
+database requires less RAM. Alternatively, you can scale up to a larger DB instance.

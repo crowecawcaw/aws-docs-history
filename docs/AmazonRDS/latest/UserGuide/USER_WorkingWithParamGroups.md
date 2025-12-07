@@ -1,86 +1,64 @@
-# Creating a DB parameter group in Amazon RDS
+# Modifying parameters in a DB cluster parameter group
 
-You can create a new DB parameter group using the AWS Management Console, the AWS CLI, or the RDS API.
+You can modify parameter values in a customer-created DB cluster parameter group. You can't change
+the parameter values in a default DB cluster parameter group. Changes to parameters in a
+customer-created DB cluster parameter group are applied to all DB clusters that are associated
+with the DB cluster parameter group.
 
-The following limitations apply to the DB parameter group name:
-
-- The name must be 1 to 255 letters, numbers, or hyphens.
-
-Default parameter group names can include a period, such as
-`default.mysql8.0`. However, custom parameter group names can't
-include a period.
-
-- The first character must be a letter.
-- The name can't end with a hyphen or contain two consecutive hyphens.
-
-###### To create a DB parameter group
+###### To modify a DB cluster parameter group
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Parameter
    groups**.
-3. Choose **Create parameter group**.
-4. For **Parameter group name**, enter the name of your
-   new DB parameter group.
-5. For **Description**, enter a description for your new
-   DB parameter group.
-6. For **Engine type**, choose your DB engine.
-7. For **Parameter group family**, choose a DB parameter group
-   family.
-8. For **Type**, if applicable, choose **DB
-   Parameter Group**.
-9. Choose **Create**.
-   To create a DB parameter group, use the AWS CLI [`create-db-parameter-group`](../../../cli/latest/reference/rds/create-db-parameter-group.md "../../../cli/latest/reference/rds/create-db-parameter-group.md") command. The following
-   example creates a DB parameter group named _mydbparametergroup_ for MySQL
-   version 8.0 with a description of "_My new parameter
-   group_."
+3. In the list, choose the parameter group that you want to modify.
+4. For **Parameter group actions**, choose
+   **Edit**.
+5. Change the values of the parameters you want to modify. You can scroll through the
+   parameters using the arrow keys at the top right of the dialog box.
 
-Include the following required parameters:
+You can't change values in a default parameter group. 6. Choose **Save changes**. 7. Reboot the cluster to apply
+the changes to it.
 
-- `--db-parameter-group-name`
-- `--db-parameter-group-family`
-- `--description`
-  To list all of the available parameter group families, use the following
-  command:
+If you don't reboot the cluster, then a failover operation
+could take longer than normal.
+To modify a DB cluster parameter group, use the AWS CLI [`modify-db-cluster-parameter-group`](../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md") command with the following
+required parameters:
 
-```
-aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
-```
-
-###### Note
-
-The output contains duplicates.
+- `--db-cluster-parameter-group-name`
+- `--parameters`
+  The following example modifies the `server_audit_logging` and
+  `server_audit_logs_upload` values in the DB cluster parameter group named
+  _mydbclusterparametergroup_.
 
 ###### Example
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds create-db-parameter-group \
-    --db-parameter-group-name `mydbparametergroup` \
-    --db-parameter-group-family `MySQL8.0` \
-    --description `"My new parameter group"`
+aws rds modify-db-cluster-parameter-group \
+    --db-cluster-parameter-group-name `mydbclusterparametergroup` \
+    --parameters "ParameterName=`server_audit_logging`,ParameterValue=`1`,ApplyMethod=`immediate`" \
+                 "ParameterName=`server_audit_logs_upload`,ParameterValue=`1`,ApplyMethod=`immediate`"
 ```
 
 For Windows:
 
 ```
-aws rds create-db-parameter-group ^
-    --db-parameter-group-name `mydbparametergroup` ^
-    --db-parameter-group-family `MySQL8.0` ^
-    --description `"My new parameter group"`
+aws rds modify-db-cluster-parameter-group ^
+    --db-cluster-parameter-group-name `mydbclusterparametergroup` ^
+    --parameters "ParameterName=`server_audit_logging`,ParameterValue=`1`,ApplyMethod=`immediate`" ^
+                 "ParameterName=`server_audit_logs_upload`,ParameterValue=`1`,ApplyMethod=`immediate`"
 ```
 
-This command produces output similar to the following:
+The command produces output like the following:
 
 ```
-DBPARAMETERGROUP  mydbparametergroup  mysql8.0  My new parameter group
+DBCLUSTERPARAMETERGROUP  mydbclusterparametergroup
 ```
 
-To create a DB parameter group, use the RDS API [`CreateDBParameterGroup`](../APIReference/API_CreateDBParameterGroup.md "../APIReference/API_CreateDBParameterGroup.md") operation.
+To modify a DB cluster parameter group, use the RDS API [`ModifyDBClusterParameterGroup`](../APIReference/API_ModifyDBClusterParameterGroup.md "../APIReference/API_ModifyDBClusterParameterGroup.md") command with the following
+required parameters:
 
-Include the following required parameters:
-
-- `DBParameterGroupName`
-- `DBParameterGroupFamily`
-- `Description`
+- `DBClusterParameterGroupName`
+- `Parameters`

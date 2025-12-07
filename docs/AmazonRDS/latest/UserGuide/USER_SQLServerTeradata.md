@@ -1,41 +1,52 @@
-# Deactivating servers linked to Teradata
+# Creating linked servers with Teradata
 
-To deactivate linked servers to Teradata, remove the `ODBC_TERADATA` option from its option group.
-
-###### Important
-
-Deleting the option doesn't delete the linked server configurations on the DB instance. You must manually drop them to remove them from the DB instance.
-
-You can reactivate the `ODBC_TERADATA` after removal to reuse the linked server configurations
-that were previously configured on the DB instance.
-
-To remove the `ODBC_TERADATA` option from the option group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `ODBC_TERADATA` option.
-4. Choose **Delete**.
-5. Under **Deletion options**, choose `ODBC_TERADATA` under **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it during the next maintenance window.
-7. Choose **Delete**.
-   The following commands removes the `ODBC_TERADATA` option.
-
-For Linux, macOS, or Unix:
+To create a linked server with Teradata, run the following commands:
 
 ```
-aws rds remove-option-from-option-group \
-    --option-group-name `teradata-odbc-se-2019` \
-    --options ODBC_TERADATA \
-    --apply-immediately
+EXECUTE master.dbo.sp_addlinkedserver
+    @server = N'`LinkedServer_NAME`',
+    @srvproduct=N'',
+    @provider=N'MSDASQL',
+    @provstr=N'"PROVIDER=MSDASQL;DRIVER={Teradata Database ODBC Driver 17.20};
+                DBCName=`Server`;UID=`user_name`;PWD=`user_password`;
+                UseDataEncryption=`YES/NO`;SSLMODE=`PREFER/ALLOW/DISABLE`>;"',
+    @catalog='`database`'
 ```
 
-For Windows:
+```
+EXECUTE master.dbo.sp_addlinkedsrvlogin
+    @rmtsrvname = N'`LinkedServer_NAME`',
+    @locallogin = NULL ,
+    @useself = N'False',
+    @rmtuser = N'`user_name`',
+    @rmtpassword = N'`user_password`'
 
 ```
-aws rds remove-option-from-option-group ^
-    --option-group-name `teradata-odbc-se-2019` ^
-    --options ODBC_TERADATA ^
-    --apply-immediately
+
+An example of the the commands above are shown here:
+
 ```
+EXECUTE master.dbo.sp_addlinkedserver
+    @server = N'LinkedServerToTeradata',
+    @srvproduct=N'',
+    @provider=N'MSDASQL',
+    @provstr=N'"PROVIDER=MSDASQL;DRIVER={Teradata Database ODBC Driver 17.20};
+                DBCName=`my-teradata-test.cnetsipka.us-west-2.rds.amazonaws.com`;
+                UID=master;
+                PWD=`Test#1234`;
+                UseDataEncryption=YES;
+                SSLMODE=PREFER;"',
+    @catalog='MyTestTeradataDB'
+
+EXECUTE master.dbo.sp_addlinkedsrvlogin
+    @rmtsrvname = N'LinkedServerToTeradata',
+    @locallogin = NULL ,
+    @useself = N'False',
+    @rmtuser = N'master',
+    @rmtpassword = N'`Test#1234`'
+
+```
+
+###### Note
+
+Specify a password other than the prompt shown here as a security best practice.

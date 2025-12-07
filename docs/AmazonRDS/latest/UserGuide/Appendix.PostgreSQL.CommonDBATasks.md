@@ -1,66 +1,454 @@
-# Using PostgreSQL extensions with
+# Managing spatial data with the
 
-Amazon RDS for PostgreSQL
+PostGIS extension
 
-You can extend the functionality of PostgreSQL by installing a variety of extensions and
-modules. For example, to work with spatial data you can install and use the PostGIS extension.
-For more information, see [Managing spatial data with the
-PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md"). As another example, if you want
-to improve data entry for very large tables, you can consider partitioning your data by using
-the `pg_partman` extension. To learn more, see [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md").
+PostGIS is an extension to PostgreSQL for storing and managing spatial information. To
+learn more about PostGIS, see [PostGIS.net](https://postgis.net/ "https://postgis.net/").
 
-###### Note
+Starting with version 10.5, PostgreSQL supports the libprotobuf 1.3.0 library used by
+PostGIS for working with map box vector tile data.
 
-RDS for PostgreSQL supports Trusted Language Extensions for PostgreSQL through the `pg_tle` extension, which you
-can add to your DB instance. By using this extension, developers can create their own
-PostgreSQL extensions in a safe environment that simplifies the setup and configuration
-requirements. To learn about RDS for PostgreSQL versions supporting `pg_tle` extension
-and for more information, see [Working with Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension.md "PostgreSQL_trusted_language_extension.md").
-
-In some cases, rather than installing an extension, you might add a specific module to the
-list of `shared_preload_libraries` in your RDS for PostgreSQL DB instance's custom DB
-parameter group. Typically, the default DB cluster parameter group loads only the
-`pg_stat_statements`, but several other modules are available to add to the list.
-For example, you can add scheduling capability by adding the `pg_cron` module, as
-detailed in [Scheduling maintenance with the PostgreSQL pg_cron
-extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md"). As another
-example, you can log query execution plans by loading the `auto_explain` module. To
-learn more, see [Logging execution plans of queries](https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-tune-query-performance/# "https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-tune-query-performance/#") in the AWS knowledge center.
-
-Depending on your version of RDS for PostgreSQL, installing an extension might require
-`rds_superuser` permissions, as follows:
-
-- For RDS for PostgreSQL versions 12 and earlier versions, installing extensions requires
-  `rds_superuser` privileges.
-- For RDS for PostgreSQL version 13 and higher versions, users (roles) with create permissions
-  on a given database instance can install and use any _trusted
-  extensions_. For a list of trusted extensions, see [PostgreSQL trusted
-  extensions](PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.Extensions.Trusted "PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.Extensions.Trusted").
-  You can also specify precisely which extensions can be installed on your RDS for PostgreSQL DB
-  instance, by listing them in the `rds.allowed_extensions` parameter. For more
-  information, see [Restricting installation of PostgreSQL extensions](PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction "PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction").
-
-To learn more about the `rds_superuser` role, see [Understanding PostgreSQL roles and
-permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+Setting up the PostGIS extension requires `rds_superuser` privileges. We
+recommend that you create a user (role) to manage the PostGIS extension and your spatial
+data. The PostGIS extension and its related components add thousands of functions to
+PostgreSQL. Consider creating the PostGIS extension in its own schema if that makes sense
+for your use case. The following example shows how to install the extension in its own
+database, but this isn't required.
 
 ###### Topics
 
-- [Using functions from the orafce
-  extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Using Amazon RDS delegated extension support for PostgreSQL](RDS_delegated_ext.md "RDS_delegated_ext.md")
-- [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md")
-- [Using pgAudit to log database activity](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Scheduling maintenance with the PostgreSQL pg_cron
-  extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md")
-- [Using pglogical to synchronize
-  data across instances](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Using pgactive to support
-  active-active replication](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Reducing bloat in tables and
-  indexes with the pg_repack extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Upgrading and using the PLV8
-  extension](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")
-- [Using PL/Rust to write PostgreSQL
-  functions in the Rust language](PostgreSQL.Concepts.General.Using.md "PostgreSQL.Concepts.General.Using.md")
-- [Managing spatial data with the
-  PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Step 1: Create a
+  user (role) to manage the PostGIS extension](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Connect "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Connect")
+- [Step 2: Load
+  the PostGIS extensions](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.LoadExtensions "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.LoadExtensions")
+- [Step 3:
+  Transfer ownership of the extension schemas](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.TransferOwnership "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.TransferOwnership")
+- [Step 4:
+  Transfer ownership of the PostGIS tables](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.TransferObjects "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.TransferObjects")
+- [Step 5: Test the
+  extensions](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Test "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Test")
+- [Step 6: Upgrade the
+  PostGIS extension](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update")
+- [PostGIS extension
+  versions](#CHAP_PostgreSQL.Extensions.PostGIS "#CHAP_PostgreSQL.Extensions.PostGIS")
+- [Upgrading PostGIS 2 to PostGIS 3](#PostgreSQL.Extensions.PostGIS.versions.upgrading.2-to-3 "#PostgreSQL.Extensions.PostGIS.versions.upgrading.2-to-3")
+
+## Step 1: Create a
+
+user (role) to manage the PostGIS extension
+
+First, connect to your RDS for PostgreSQL DB instance as a user that has
+`rds_superuser` privileges. If you kept the default name when you set up
+your instance, you connect as `postgres`.
+
+```
+psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password
+```
+
+Create a separate role (user) to administer the PostGIS extension.
+
+```
+`postgres=>`  `CREATE ROLE `gis_admin` LOGIN PASSWORD '`change_me`';`
+`CREATE ROLE`
+```
+
+Grant this role `rds_superuser` privileges, to allow the role to install
+the extension.
+
+```
+`postgres=>` `GRANT rds_superuser TO `gis_admin`;`
+`GRANT`
+```
+
+Create a database to use for your PostGIS artifacts. This step is optional. Or you can
+create a schema in your user database for the PostGIS extensions, but this also
+isn't required.
+
+```
+`postgres=>` `CREATE DATABASE `lab_gis`;`
+`CREATE DATABASE`
+```
+
+Give the `gis_admin` all privileges on the `lab_gis`
+database.
+
+```
+`postgres=>` `GRANT ALL PRIVILEGES ON DATABASE lab_gis TO gis_admin;`
+`GRANT`
+```
+
+Exit the session and reconnect to your RDS for PostgreSQL DB instance as
+`gis_admin`.
+
+```
+`postgres=>` `psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=`gis_admin` --password --dbname=`lab_gis``
+`Password for user gis_admin:...`
+`lab_gis=>`
+```
+
+Continue setting up the extension as detailed in the next steps.
+
+## Step 2: Load
+
+the PostGIS extensions
+
+The PostGIS extension includes several related extensions that work together to
+provide geospatial functionality. Depending on your use case, you might not need all the
+extensions created in this step.
+
+Use `CREATE EXTENSION` statements to load the PostGIS extensions.
+
+```
+`CREATE EXTENSION postgis;`
+`CREATE EXTENSION`
+`CREATE EXTENSION postgis_raster;`
+`CREATE EXTENSION`
+`CREATE EXTENSION fuzzystrmatch;`
+`CREATE EXTENSION`
+`CREATE EXTENSION postgis_tiger_geocoder;`
+`CREATE EXTENSION`
+`CREATE EXTENSION postgis_topology;`
+`CREATE EXTENSION`
+`CREATE EXTENSION address_standardizer_data_us;`
+`CREATE EXTENSION`
+
+
+```
+
+You can verify the results by running the SQL query shown in the following example,
+which lists the extensions and their owners.
+
+```
+`SELECT n.nspname AS "Name",
+ pg_catalog.pg_get_userbyid(n.nspowner) AS "Owner"
+ FROM pg_catalog.pg_namespace n
+ WHERE n.nspname !~ '^pg_' AND n.nspname <> 'information_schema'
+ ORDER BY 1;``List of schemas
+ Name | Owner
+--------------+-----------
+ public | postgres
+ tiger | rdsadmin
+ tiger_data | rdsadmin
+ topology | rdsadmin
+(4 rows)`
+```
+
+## Step 3:
+
+Transfer ownership of the extension schemas
+
+Use the ALTER SCHEMA statements to transfer ownership of the schemas to the
+`gis_admin` role.
+
+```
+`ALTER SCHEMA tiger OWNER TO gis_admin;`
+`ALTER SCHEMA`
+`ALTER SCHEMA tiger_data OWNER TO gis_admin;`
+`ALTER SCHEMA`
+`ALTER SCHEMA topology OWNER TO gis_admin;`
+`ALTER SCHEMA`
+```
+
+You can confirm the ownership change by running the following SQL query. Or you can
+use the `\dn` metacommand from the psql command line.
+
+```
+`SELECT n.nspname AS "Name",
+ pg_catalog.pg_get_userbyid(n.nspowner) AS "Owner"
+ FROM pg_catalog.pg_namespace n
+ WHERE n.nspname !~ '^pg_' AND n.nspname <> 'information_schema'
+ ORDER BY 1;``List of schemas
+ Name | Owner
+--------------+---------------
+ public | postgres
+ tiger | gis_admin
+ tiger_data | gis_admin
+ topology | gis_admin
+(4 rows)`
+```
+
+## Step 4:
+
+Transfer ownership of the PostGIS tables
+
+###### Note
+
+Do not change ownership of the PostGIS functions. Proper operation and future
+upgrades of PostGIS require these functions to retain original ownership. For more
+information about PostGIS permissions, see [PostgreSQL
+Security](https://postgis.net/workshops/postgis-intro/security.html "https://postgis.net/workshops/postgis-intro/security.html").
+
+Use the following function to transfer ownership of the PostGIS tables to the
+`gis_admin` role. Run the following statement from the psql prompt to
+create the function.
+
+```
+`CREATE FUNCTION exec(text) returns text language plpgsql volatile AS $f$ BEGIN EXECUTE $1; RETURN $1; END; $f$;`
+`CREATE FUNCTION`
+```
+
+Next, run the following query to run the `exec` function that in turn runs
+the statements and alters the permissions.
+
+```
+`SELECT exec('ALTER TABLE ' || quote_ident(s.nspname) || '.' || quote_ident(s.relname) || ' OWNER TO gis_admin;')
+ FROM (
+ SELECT nspname, relname
+ FROM pg_class c JOIN pg_namespace n ON (c.relnamespace = n.oid)
+ WHERE nspname in ('tiger','topology') AND
+ relkind IN ('r','S','v') ORDER BY relkind = 'S')
+s;`
+```
+
+## Step 5: Test the
+
+extensions
+
+To avoid needing to specify the schema name, add the `tiger` schema to your
+search path using the following command.
+
+```
+`SET search_path=public,tiger;`
+`SET`
+```
+
+Test the `tiger` schema by using the following SELECT statement.
+
+```
+`SELECT address, streetname, streettypeabbrev, zip
+ FROM normalize_address('1 Devonshire Place, Boston, MA 02109') AS na;``address | streetname | streettypeabbrev | zip
+---------+------------+------------------+-------
+ 1 | Devonshire | Pl | 02109
+(1 row)`
+```
+
+To learn more about this extension, see [Tiger Geocoder](https://postgis.net/docs/Extras.html#Tiger_Geocoder "https://postgis.net/docs/Extras.html#Tiger_Geocoder") in
+the PostGIS documentation.
+
+Test access to the `topology` schema by using the following
+`SELECT` statement. This calls the `createtopology` function
+to register a new topology object (my_new_topo) with the specified spatial reference
+identifier (26986) and default tolerance (0.5). To learn more, see [CreateTopology](https://postgis.net/docs/CreateTopology.html "https://postgis.net/docs/CreateTopology.html") in the
+PostGIS documentation.
+
+```
+`SELECT topology.createtopology('my_new_topo',26986,0.5);``createtopology
+----------------
+ 1
+(1 row)`
+```
+
+## Step 6: Upgrade the
+
+PostGIS extension
+
+Each new release of PostgreSQL supports one or more versions of the PostGIS extension
+compatible with that release. Upgrading the PostgreSQL engine to a new version
+doesn't automatically upgrade the PostGIS extension. Before upgrading the
+PostgreSQL engine, you typically upgrade PostGIS to the newest available version for the
+current PostgreSQL version. For details, see [PostGIS extension versions](#CHAP_PostgreSQL.Extensions.PostGIS "#CHAP_PostgreSQL.Extensions.PostGIS").
+
+After the PostgreSQL engine upgrade, you then upgrade the PostGIS extension again, to
+the version supported for the newly upgraded PostgreSQL engine version. For more
+information about upgrading the PostgreSQL engine, see
+[How
+to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md").
+
+You can check for available PostGIS extension version updates on your
+RDS for PostgreSQL DB instance at any time. To do so,
+run the following command. This function is available with PostGIS 2.5.0 and higher
+versions.
+
+```
+`SELECT postGIS_extensions_upgrade();`
+```
+
+If your application doesn't support the latest PostGIS version, you can install
+an older version of PostGIS that's available in your major version as
+follows.
+
+```
+`CREATE EXTENSION postgis VERSION "2.5.5";`
+```
+
+If you want to upgrade to a specific PostGIS version from an older version, you can
+also use the following command.
+
+```
+`ALTER EXTENSION postgis UPDATE TO "2.5.5";`
+```
+
+Depending on the version that you're upgrading from, you might need to use this
+function again. The result of the first run of the function determines if an additional
+upgrade function is needed. For example, this is the case for upgrading from PostGIS 2
+to PostGIS 3. For more information, see [Upgrading
+PostGIS 2 to PostGIS 3](#PostgreSQL.Extensions.PostGIS.versions.upgrading.2-to-3 "#PostgreSQL.Extensions.PostGIS.versions.upgrading.2-to-3").
+
+If you upgraded this extension to prepare for a major version upgrade of the
+PostgreSQL engine, you can continue with other preliminary tasks.
+For more information, see [How
+to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md").
+
+## PostGIS extension versions
+
+We recommend that you install the versions of all extensions such as PostGIS as listed
+in
+[Extension versions for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-extensions.md "../PostgreSQLReleaseNotes/postgresql-extensions.md") in the
+_Amazon RDS for PostgreSQL Release Notes._ To get a list of versions that
+are available in your release, use the following command.
+
+```
+`SELECT * FROM pg_available_extension_versions WHERE name='postgis';`
+```
+
+You can find version information in the following sections in
+the _Amazon RDS for PostgreSQL Release Notes_:
+
+- [PostgreSQL version 16 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-16x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-16x")
+- [PostgreSQL version 15 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-15x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-15x")
+- [PostgreSQL version 14 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-14x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-14x")
+- [PostgreSQL version 13 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-13x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-13x")
+- [PostgreSQL version 12 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-12x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-12x")
+- [PostgreSQL version 11 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-11x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-11x")
+- [PostgreSQL version 10 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-101x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-101x")
+- [PostgreSQL version 9.6.x extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-96x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-96x")
+
+## Upgrading
+
+PostGIS 2 to PostGIS 3
+
+Starting with version 3.0, the PostGIS raster functionality is now a separate
+extension, `postgis_raster`. This extension has its own installation and
+upgrade path. This removes dozens of functions, data types, and other artifacts required
+for raster image processing from the core `postgis` extension. That means
+that if your use case doesn't require raster processing, you don't need to
+install the `postgis_raster` extension.
+
+In the following upgrade example, the first upgrade command extracts raster
+functionality into the `postgis_raster` extension. A second upgrade command
+is then required to upgrade `postgis_raster` to the new version.
+
+###### To upgrade from PostGIS 2 to PostGIS 3
+
+1. Identify the default version of PostGIS that's available to the
+   PostgreSQL version on your
+   RDS for PostgreSQL DB instance. To do so, run
+   the following query.
+
+```
+SELECT * FROM pg_available_extensions
+    WHERE default_version > installed_version;
+`name   | default_version | installed_version |                          comment
+---------+-----------------+-------------------+------------------------------------------------------------
+ postgis | 3.1.4           | 2.3.7             | PostGIS geometry and geography spatial types and functions
+(1 row)`
+```
+
+2. Identify the versions of PostGIS installed in each database on
+   your RDS for PostgreSQL DB instance. In other
+   words, query each user database as follows.
+
+```
+SELECT
+    e.extname AS "Name",
+    e.extversion AS "Version",
+    n.nspname AS "Schema",
+    c.description AS "Description"
+FROM
+    pg_catalog.pg_extension e
+    LEFT JOIN pg_catalog.pg_namespace n ON n.oid = e.extnamespace
+    LEFT JOIN pg_catalog.pg_description c ON c.objoid = e.oid
+    AND c.classoid = 'pg_catalog.pg_extension'::pg_catalog.regclass
+WHERE
+    e.extname LIKE '%postgis%'
+ORDER BY
+    1;
+`Name   | Version | Schema |                             Description
+---------+---------+--------+---------------------------------------------------------------------
+ postgis | 2.3.7   | public | PostGIS geometry, geography, and raster spatial types and functions
+(1 row)`
+```
+
+This mismatch between the default version (PostGIS 3.1.4) and the installed
+version (PostGIS 2.3.7) means that you need to upgrade the PostGIS
+extension.
+
+```
+ALTER EXTENSION postgis UPDATE;
+`ALTER EXTENSION
+WARNING: unpackaging raster
+WARNING: PostGIS Raster functionality has been unpackaged`
+```
+
+3. Run the following query to verify that the raster functionality is now in its
+   own package.
+
+```
+SELECT
+    probin,
+    count(*)
+FROM
+    pg_proc
+WHERE
+    probin LIKE '%postgis%'
+GROUP BY
+    probin;
+`probin          | count
+--------------------------+-------
+ $libdir/rtpostgis-2.3    | 107
+ $libdir/postgis-3        | 487
+(2 rows)`
+```
+
+The output shows that there's still a difference between versions. The
+PostGIS functions are version 3 (postgis-3), while the raster functions
+(rtpostgis) are version 2 (rtpostgis-2.3). To complete the upgrade, you run the
+upgrade command again, as follows.
+
+```
+`postgres=>` SELECT postgis_extensions_upgrade();
+```
+
+You can safely ignore the warning messages. Run the following query again to
+verify that the upgrade is complete. The upgrade is complete when PostGIS and
+all related extensions aren't marked as needing upgrade.
+
+```
+SELECT postgis_full_version();
+```
+
+4. Use the following query to see the completed upgrade process and the
+   separately packaged extensions, and verify that their versions match.
+
+```
+SELECT
+    e.extname AS "Name",
+    e.extversion AS "Version",
+    n.nspname AS "Schema",
+    c.description AS "Description"
+FROM
+    pg_catalog.pg_extension e
+    LEFT JOIN pg_catalog.pg_namespace n ON n.oid = e.extnamespace
+    LEFT JOIN pg_catalog.pg_description c ON c.objoid = e.oid
+        AND c.classoid = 'pg_catalog.pg_extension'::pg_catalog.regclass
+WHERE
+    e.extname LIKE '%postgis%'
+ORDER BY
+    1;
+`Name      | Version | Schema |                             Description
+----------------+---------+--------+---------------------------------------------------------------------
+ postgis        | 3.1.5   | public | PostGIS geometry, geography, and raster spatial types and functions
+ postgis_raster | 3.1.5   | public | PostGIS raster types and functions
+(2 rows)`
+```
+
+The output shows that the PostGIS 2 extension was upgraded to PostGIS 3, and
+both `postgis` and the now separate `postgis_raster`
+extension are version 3.1.5.
+
+After this upgrade completes, if you don't plan to use the raster functionality,
+you can drop the extension as follows.
+
+```
+DROP EXTENSION postgis_raster;
+```

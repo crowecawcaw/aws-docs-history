@@ -1,80 +1,183 @@
-# Sharing public snapshots for Amazon RDS
+# Sharing a DB snapshot for Amazon RDS
 
-You can share an unencrypted manual snapshot as public, which makes the snapshot available to all AWS accounts. Make
-sure when sharing a snapshot as public that none of your private information is included in the public snapshot.
+Using Amazon RDS, you can share a manual DB snapshot in the following ways:
 
-When a snapshot is shared publicly, it gives all AWS accounts permission both to copy the snapshot and to create DB
-instances from it.
+- Sharing a manual DB snapshot, whether encrypted or unencrypted, enables authorized AWS accounts to copy the snapshot.
+- Sharing an unencrypted manual DB snapshot enables authorized AWS accounts to directly restore
+  a DB instance from the snapshot instead of taking a copy of it and restoring from
+  that. However, you can't restore a DB instance from a DB snapshot that is both shared and encrypted.
+  Instead, you can make a copy of the DB snapshot and restore the DB instance from the copy.
 
-You aren't billed for the backup storage of public snapshots owned by other accounts. You're billed only for
-snapshots that you own.
+###### Note
 
-If you copy a public snapshot, you own the copy. You're billed for the backup storage of your snapshot copy. If you
-create a DB instance from a public snapshot, you're billed for that DB instance.
-For Amazon RDS pricing information, see the [Amazon RDS product
-page](https://aws.amazon.com/rds/pricing "https://aws.amazon.com/rds/pricing").
+To share an automated DB snapshot, create a manual DB snapshot by copying the automated snapshot,
+and then share that copy. This process also applies to AWS Backup–generated resources.
 
-You can delete only the public snapshots that you own. To delete a shared or public snapshot, make sure to log into the
-AWS account that owns the snapshot.
+For more information on copying a snapshot, see
+[Copying a DB snapshot for Amazon RDS](USER_CopySnapshot.md "USER_CopySnapshot.md"). For more
+information on restoring a DB instance from a DB snapshot, see
+[Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").
 
-## Viewing public snapshots owned by other AWS accounts
+You can share a manual snapshot with up to 20 other AWS accounts.
 
-You can view public snapshots owned by other accounts in a particular AWS Region on the **Public** tab
-of the **Snapshots** page in the Amazon RDS console. Your snapshots (those owned by your account) don't
-appear on this tab.
+The following limitations apply when you share manual snapshots with other
+AWS accounts:
 
-###### To view public snapshots
+- When you restore a DB instance from a shared snapshot using the AWS Command Line Interface (AWS CLI) or Amazon RDS API,
+  you must specify the Amazon Resource Name (ARN) of the shared snapshot as the snapshot identifier.
+- You can't share a DB snapshot that uses an option group with permanent or persistent options, except for Oracle DB instances that
+  have the `Timezone` or `OLS` option (or both).
 
-1. Open the Amazon RDS console at
+A _permanent option_ can't be removed from an option group. Option groups with persistent options
+can't be removed from a DB instance once the option group has been assigned to the DB instance.
+
+The following table lists permanent and persistent options and their related DB engines.
+
+| Option name | Persistent | Permanent | DB engine                                                                                                        |
+| ----------- | ---------- | --------- | ---------------------------------------------------------------------------------------------------------------- |
+| TDE         | Yes        | No        | Microsoft SQL Server Enterprise Edition                                                                          |
+| TDE         | Yes        | Yes       | Oracle Enterprise Edition                                                                                        |
+| Timezone    | Yes        | Yes       | Oracle Enterprise Edition<br>Oracle Standard Edition<br>Oracle Standard Edition One<br>Oracle Standard Edition 2 |
+
+For Oracle DB instances, you can copy shared DB snapshots that have the `Timezone` or
+`OLS` option (or both). To do so, specify a target option group that includes these options when you copy the
+DB snapshot. The OLS option is permanent and persistent only for Oracle DB instances running Oracle version 12.2 or higher.
+For more information about these options, see [Oracle time zone](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md") and [Oracle Label Security](Oracle.Options.md "Oracle.Options.md").
+
+- You can't share a snapshot of a Multi-AZ DB cluster.
+- You can't share a snapshot when it contains an additional storage volume.
+  See the following topics for information about sharing public snapshots, sharing encrypted snapshots, and stopping snapshot sharing.
+
+###### Topics
+
+- [Sharing public snapshots for Amazon RDS](USER_ShareSnapshot.md "USER_ShareSnapshot.md")
+- [Sharing encrypted snapshots for Amazon RDS](share-encrypted-snapshot.md "share-encrypted-snapshot.md")
+- [Stopping snapshot sharing for Amazon RDS](share-snapshot-stop.md "share-snapshot-stop.md")
+
+## Sharing a snapshot
+
+You can share a DB snapshot using the AWS Management Console, the AWS CLI, or the RDS API.
+
+Using the Amazon RDS console, you can share a manual DB snapshot with up
+to 20 AWS accounts. You can also use the console to stop sharing a manual snapshot with
+one or more accounts.
+
+###### To share a manual DB snapshot by using the Amazon RDS console
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Snapshots**.
-3. Choose the **Public** tab.
+3. Select the manual snapshot that you want to share.
+4. For **Actions**, choose
+   **Share snapshot**.
+5. Choose one of the following options for **DB snapshot visibility**.
+   - If the source is unencrypted, choose **Public** to permit all AWS
+     accounts to restore a DB instance from your manual DB snapshot, or
+     choose **Private** to permit only AWS accounts that you
+     specify to restore a DB instance from your manual DB snapshot.
 
-The public snapshots appear. You can see which account owns a public snapshot in the **Owner**
-column.
+   ###### Warning
+
+   If you set **DB snapshot visibility** to **Public**,
+   all AWS accounts can restore a DB instance from your manual DB
+   snapshot and have access to your data. Do not share any manual DB snapshots that
+   contain private information as **Public**.
+
+   For more information, see [Sharing public snapshots for Amazon RDS](USER_ShareSnapshot.md "USER_ShareSnapshot.md").
+   - If the source is encrypted, **DB snapshot visibility** is set as
+     **Private** because encrypted snapshots can't be shared as public.
+
+   ###### Note
+
+   Snapshots that have been encrypted with the default AWS KMS key can't be shared. For
+   information on how to work around this issue, see [Sharing encrypted snapshots for Amazon RDS](share-encrypted-snapshot.md "share-encrypted-snapshot.md").
+
+6. For **AWS Account ID**, enter the AWS account identifier for an account
+   that you want to permit to restore a DB instance
+   from your manual
+   snapshot, and then choose **Add**. Repeat to include additional
+   AWS account identifiers, up to 20 AWS accounts.
+
+If you make an error when adding an AWS account identifier to the list of permitted
+accounts, you can delete it from the list by choosing **Delete** at
+the right of the incorrect AWS account identifier.
+
+![Permit AWS accounts to restore a manual DB snapshot](images/ShareSnapshot_add.png) 7. After you have added identifiers for all of the AWS accounts that you want to permit to
+restore the manual snapshot, choose **Save** to save your
+changes.
+To share a DB snapshot, use the
+`aws rds modify-db-snapshot-attribute`
+command. Use the `--values-to-add` parameter to add a list of the IDs for the AWS accounts
+that are authorized to restore the manual snapshot.
+
+###### Example of sharing a snapshot with a single account
+
+The following example enables AWS account identifier `123456789012` to restore the DB snapshot named
+`db7-snapshot`.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-snapshot-attribute \
+--db-snapshot-identifier db7-snapshot \
+--attribute-name restore \
+--values-to-add 123456789012
+```
+
+For Windows:
+
+```
+aws rds modify-db-snapshot-attribute ^
+--db-snapshot-identifier db7-snapshot ^
+--attribute-name restore ^
+--values-to-add 123456789012
+```
+
+###### Example of sharing a snapshot with multiple accounts
+
+The following example enables two AWS account identifiers, `111122223333` and
+`444455556666`, to restore the DB snapshot named `manual-snapshot1`.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-snapshot-attribute \
+--db-snapshot-identifier manual-snapshot1 \
+--attribute-name restore \
+--values-to-add {"111122223333","444455556666"}
+```
+
+For Windows:
+
+```
+aws rds modify-db-snapshot-attribute ^
+--db-snapshot-identifier manual-snapshot1 ^
+--attribute-name restore ^
+--values-to-add "[\"111122223333\",\"444455556666\"]"
+```
 
 ###### Note
 
-You might have to modify the page preferences, by selecting the gear icon at the upper right of the
-**Public snapshots** list, to see this column.
+When using the Windows command prompt, you must escape double quotes (") in JSON code by
+prefixing them with a backslash (\).
 
-## Viewing your own public snapshots
+To list the AWS accounts enabled to restore a snapshot, use the
+[`describe-db-snapshot-attributes`](../../../cli/latest/reference/rds/describe-db-snapshot-attributes.md "../../../cli/latest/reference/rds/describe-db-snapshot-attributes.md")
+AWS CLI command.
 
-You can use the following AWS CLI command (Unix only) to view the public snapshots owned by your AWS account in a
-particular AWS Region.
+You can also share a manual DB snapshot with other AWS accounts by
+using the Amazon RDS API. To do so, call the
+[`ModifyDBSnapshotAttribute`](../APIReference/API_ModifyDBSnapshotAttribute.md "../APIReference/API_ModifyDBSnapshotAttribute.md")
+operation. Specify `restore` for `AttributeName`, and
+use the `ValuesToAdd` parameter to add a list of the IDs for the AWS accounts
+that are authorized to restore the manual snapshot.
 
-```
-aws rds describe-db-snapshots --snapshot-type public --include-public | grep `account_number`
-```
+To make a manual snapshot public and restorable by all AWS accounts, use the value
+`all`. However, take care not to add the `all` value for any
+manual snapshots that contain private information that you don't want to be available to
+all AWS accounts. Also, don't specify `all` for encrypted snapshots, because
+making such snapshots public isn't supported.
 
-The output returned is similar to the following example if you have public snapshots.
-
-```
-"DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mysnapshot1",
-"DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mysnapshot2",
-```
-
-###### Note
-
-You might see duplicate entries for `DBSnapshotIdentifier` or
-`SourceDBSnapshotIdentifier`.
-
-## Sharing public snapshots from deprecated DB engine versions
-
-Restoring or copying public snapshots from deprecated DB engine versions isn't supported.
-
-The RDS for Oracle and RDS for PostgreSQL DB engines support upgrading DB snapshot engine versions directly. You can upgrade your
-snapshots, then re-share them publicly. For more information, see the following:
-
-- [Upgrading an Oracle DB snapshot](USER_UpgradeDBSnapshot.md "USER_UpgradeDBSnapshot.md")
-- [Upgrading a PostgreSQL DB snapshot
-  engine version](USER_UpgradeDBSnapshot.md "USER_UpgradeDBSnapshot.md")
-
-For other DB engines, perform the following steps to make your existing unsupported public snapshot available to restore
-or copy:
-
-1. Mark the snapshot as private.
-2. Restore the snapshot.
-3. Upgrade the restored DB instance to a supported engine version.
-4. Create a new snapshot.
-5. Re-share the snapshot publicly.
+To list all of the AWS accounts permitted to restore a snapshot, use the
+[`DescribeDBSnapshotAttributes`](../APIReference/API_DescribeDBSnapshotAttributes.md "../APIReference/API_DescribeDBSnapshotAttributes.md")
+API operation.

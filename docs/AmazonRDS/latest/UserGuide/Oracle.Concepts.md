@@ -1,244 +1,103 @@
-# Overview of RDS for Oracle CDBs
+# Turning on extended data types in RDS for Oracle
 
-You can create an RDS for Oracle DB instance as a container database (CDB) when you run Oracle
-Database 19c or higher. Starting with Oracle Database 21c, all databases are CDBs. A CDB
-differs from a non-CDB because it can contain pluggable databases (PDBs), which are called
-_tenant databases_ in RDS for Oracle. A PDB is a portable collection
-of schemas and objects that appears to an application as a separate database.
+Amazon RDS for Oracle supports extended data types. With extended data types, the maximum size
+is 32,767 bytes for the `VARCHAR2`, `NVARCHAR2`, and `RAW`
+data types. To use extended data types, set the `MAX_STRING_SIZE` parameter to
+`EXTENDED`. For more information, see [Extended
+data types](https://docs.oracle.com/database/121/SQLRF/sql_elements001.htm#SQLRF55623 "https://docs.oracle.com/database/121/SQLRF/sql_elements001.htm#SQLRF55623") in the Oracle documentation.
 
-You create your initial tenant database (PDB) when you create your CDB instance. In
-RDS for Oracle, your client application interacts with a PDB rather than the CDB. Your experience
-with a PDB is mostly identical to your experience with a non-CDB.
+If you don't want to use extended data types, keep the `MAX_STRING_SIZE` parameter set to
+`STANDARD` (the default). In this case, the size limits are 4,000 bytes for the
+`VARCHAR2` and `NVARCHAR2` data types, and 2,000 bytes for the RAW data type.
 
-###### Topics
+You can turn on extended data types on a new or existing DB instance. For new DB instances, DB instance creation time is typically
+longer when you turn on extended data types. For existing DB instances, the DB instance is unavailable during the conversion
+process.
 
-- [Multi-tenant configuration of
-  the CDB architecture](#multi-tenant-configuration "#multi-tenant-configuration")
-- [Single-tenant configuration of the
-  CDB architecture](#Oracle.Concepts.single-tenant "#Oracle.Concepts.single-tenant")
-- [Creation and conversion options for
-  CDBs](#oracle-cdb-creation-conversion "#oracle-cdb-creation-conversion")
-- [User accounts and privileges in a
-  CDB](#Oracle.Concepts.single-tenant.users "#Oracle.Concepts.single-tenant.users")
-- [Parameter group families in a
-  CDB](#Oracle.Concepts.single-tenant.parameters "#Oracle.Concepts.single-tenant.parameters")
-- [Limitations of RDS for Oracle
-  CDBs](#Oracle.Concepts.single-tenant-limitations "#Oracle.Concepts.single-tenant-limitations")
+## Considerations for
 
-## Multi-tenant configuration of
+extended data types
 
-the CDB architecture
+Consider the following when you enable extended data types for your DB instance:
 
-RDS for Oracle supports the _multi-tenant configuration_ of the Oracle
-multitenant architecture, also called the _CDB architecture_. In this
-configuration, your RDS for Oracle CDB instance can contain 1–30 tenant databases, depending on the database edition and any required option licenses. In Oracle database, a tenant database is a PDB. Your
-DB instance must use Oracle database release 19.0.0.0.ru-2022-01.rur-2022.r1 or higher.
+- When you turn on extended data types for a new or existing DB instance, you must
+  reboot the instance for the change to take effect.
+- After you turn on extended data types, you can't change the DB instance back to use
+  the standard size for data types. If you set the `MAX_STRING_SIZE`
+  parameter back to `STANDARD` it results in the
+  `incompatible-parameters` status.
+- When you restore a DB instance that uses extended data types, you must specify a
+  parameter group with the `MAX_STRING_SIZE` parameter set to
+  `EXTENDED`. During restore, if you specify the default parameter
+  group or any other parameter group with `MAX_STRING_SIZE` set to
+  `STANDARD` it results in the `incompatible-parameters`
+  status.
+- When the DB instance status is `incompatible-parameters` because of the
+  `MAX_STRING_SIZE` setting, the DB instance remains unavailable until
+  you set the `MAX_STRING_SIZE` parameter to `EXTENDED` and
+  reboot the DB instance.
 
-###### Note
+## Turning on extended data types for a new DB instance
 
-The Amazon RDS configuration is called "multi-tenant" rather than "multitenant" because it is a
-capability of Amazon RDS, not just the Oracle DB engine. Similarly, the RDS term "tenant"
-refers to any tenant in an RDS configuration, not just Oracle PDBs. In the RDS documentation,
-the unhyphenated term "Oracle multitenant" refers exclusively to the Oracle database CDB
-architecture, which is compatible with both on-premises and RDS deployments.
+When you create a DB instance with `MAX_STRING_SIZE` set to
+`EXTENDED`, the instance shows `MAX_STRING_SIZE` set to the
+default `STANDARD`. Reboot the instance to enable the change.
 
-You can configure the following settings:
+###### To turn on extended data types for a new DB instance
 
-- Tenant database name
-- Tenant database master username
-- Tenant database master password (optionally integrated with Secrets Manager)
-- Tenant database character set
-- Tenant database national character set
+1. Set the `MAX_STRING_SIZE` parameter to `EXTENDED` in a parameter
+   group.
 
-The tenant database character set can be different from the CDB character set. The
-same applies to the national character set. After you create your initial tenant
-database, you can create, modify, or delete tenant databases using RDS APIs. The CDB
-name defaults to `RDSCDB` and can't be changed. For more information, see
-[Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md") and [Modifying an RDS for Oracle tenant
-database](oracle-cdb-configuring.modifying.md "oracle-cdb-configuring.modifying.md").
+To set the parameter, you can either create a new parameter group or modify an existing parameter
+group.
 
-## Single-tenant configuration of the
+For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Create a new RDS for Oracle DB instance.
 
-CDB architecture
+For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). 3. Associate the parameter group with `MAX_STRING_SIZE` set to
+`EXTENDED` with the DB instance.
 
-RDS for Oracle supports a legacy configuration of the Oracle multitenant architecture called
-the _single-tenant configuration_. In this configuration, an
-RDS for Oracle CDB instance can contain only one tenant (PDB). You can't create more PDBs later.
+For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). 4. Reboot the DB instance for the parameter change to take effect.
 
-## Creation and conversion options for
+For more information, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md").
 
-CDBs
+## Turning on extended
 
-Oracle Database 21c supports only CDBs, whereas Oracle Database 19c supports both CDBs
-and non-CDBs. All RDS for Oracle CDB instances support both the multi-tenant and single-tenant
-configurations.
+data types for an existing DB instance
 
-### Creation, conversion,
+When you modify a DB instance to turn on extended data types, RDS converts the data in the
+database to use the extended sizes. The conversion and downtime occur when you next
+reboot the database after the parameter change. The DB instance is unavailable during the
+conversion.
 
-and upgrade options for the Oracle database architecture
-
-The following table shows the different architecture options for creating and
-upgrading RDS for Oracle databases.
-
-| Release             | Database creation options   | Architecture conversion options                       | Major version upgrade targets |
-| ------------------- | --------------------------- | ----------------------------------------------------- | ----------------------------- |
-| Oracle Database 21c | CDB architecture only       | N/A                                                   | N/A                           |
-| Oracle Database 19c | CDB or non-CDB architecture | Non-CDB to CDB architecture (April 2021 RU or higher) | Oracle Database 21c CDB       |
-
-As shown in the preceding table, you can't directly upgrade a non-CDB to a CDB in
-a new major database version. But you can convert an Oracle Database 19c non-CDB to
-an Oracle Database 19c CDB, and then upgrade the Oracle Database 19c CDB to an
-Oracle Database 21c CDB. For more information, see [Converting an RDS for Oracle non-CDB to a CDB](oracle-cdb-converting.md "oracle-cdb-converting.md").
-
-### Conversion options
-
-for CDB architecture configurations
-
-The following table shows the different options for converting the architecture
-configuration of an RDS for Oracle DB instance.
-
-| Current architecture and configuration    | Conversion to the single-tenant configuration of the CDB<br>architecture | Conversion to the multi-tenant configuration of the CDB<br>architecture | Conversion to the non-CDB architecture |
-| ----------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------- | -------------------------------------- |
-| Non-CDB                                   | Supported                                                                | Supported\*                                                             | N/A                                    |
-| CDB using the single-tenant configuration | N/A                                                                      | Supported                                                               | Not supported                          |
-| CDB using the multi-tenant configuration  | Not supported                                                            | N/A                                                                     | Not supported                          |
-
-\* You can't convert a non-CDB to the multi-tenant configuration in a single
-operation. When you convert a non-CDB to a CDB, the CDB is in the single-tenant
-configuration. You can then convert the single-tenant to the multi-tenant
-configuration in a separate operation.
-
-## User accounts and privileges in a
-
-CDB
-
-In the Oracle multitenant architecture, all user accounts are either _common
-users_ or _local users_. A CDB common user is a
-database user whose single identity and password are known in the CDB root and in every
-existing and future PDB. In contrast, a local user exists only in a single PDB.
-
-The RDS master user is a local user account in the PDB, which you name when you create
-your DB instance. If you create new user accounts, these users will also be local users
-residing in the PDB. You can't use any user accounts to create new PDBs or modify the
-state of the existing PDB.
-
-The `rdsadmin` user is a common user account. You can run RDS for Oracle packages
-that exist in this account, but you can't log in as `rdsadmin`. For more
-information, see [About Common Users and Local Users](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/managing-security-for-oracle-database-users.html#GUID-BBBD9904-F2F3-442B-9AFC-8ACDD9A588D8 "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/managing-security-for-oracle-database-users.html#GUID-BBBD9904-F2F3-442B-9AFC-8ACDD9A588D8") in the Oracle documentation.
-
-For master users in both the multi-tenant and single-tenant configurations, you can
-use credentials that are self-managed or managed by AWS Secrets Manager. In the single-tenant
-configuration, you use instance-level CLI commands such as
-`create-db-instance` for managed master passwords. In the multi-tenant
-configuration, you use tenant database commands such as
-`create-tenant-database` for managed master passwords. For more
-information about Secrets Manager integration, see [Managing the master user password for an
-RDS for Oracle tenant database with Secrets Manager](rds-secrets-manager.md#rds-secrets-manager-tenant "rds-secrets-manager.md#rds-secrets-manager-tenant").
-
-## Parameter group families in a
-
-CDB
-
-CDBs have their own parameter group families and default parameter values. The CDB
-parameter group families are as follows:
-
-- oracle-ee-cdb-21
-- oracle-se2-cdb-21
-- oracle-ee-cdb-19
-- oracle-se2-cdb-19
-
-## Limitations of RDS for Oracle
-
-CDBs
-
-RDS for Oracle supports a subset of features available in an on-premises CDB.
-
-### CDB limitations
-
-The following limitations apply to RDS for Oracle at the CDB level:
-
-- You can’t connect to a CDB. You always connect to the tenant database
-  (PDB) rather than the CDB. Specify the endpoint for the PDB just as for a
-  non-CDB. The only difference is that you specify
-  _pdb_name_ for the database name, where
-  _pdb_name_ is the name you chose for your PDB.
-- You can't convert a CDB in the multi-tenant configuration to a CDB in the
-  single-tenant conversion. Conversion to the multi-tenant configuration is
-  one-way and irreversible.
-- You can't enable or convert to the multi-tenant configuration if your
-  DB instance uses an Oracle database release lower than
-  19.0.0.0.ru-2022-01.rur-2022.r1.
-- You can't use Oracle Data Guard in the multi-tenant configuration, but you
-  can use it in the single-tenant configuration.
-- You can't use Database Activity Streams in a CDB.
-- You can't enable auditing from within `CDB$ROOT`. You must enable
-  auditing within each PDB individually.
-
-### Tenant database (PDB)
-
-limitations
-
-The following limitations apply to tenant databases in the RDS for Oracle multi-tenant
-configuration:
-
-- You can't defer tenant database operations to the maintenance window. All
-  changes occur immediately.
-- You can't add a tenant database to a CDB that uses the single-tenant
-  configuration.
-- You can't add or modify multiple tenant databases in a single operation.
-  You can only add or modify them one at a time.
-- You can't modify a tenant database to be named `CDB$ROOT` or
-  `PDB$SEED`.
-- You can't delete a tenant database if it is the only tenant in the
-  CDB.
-- Not all DB instance class types have sufficient resources to support multiple
-  PDBs in an RDS for Oracle CDB instance. An increased PDB count affects the
-  performance and stability of the smaller instance classes and increases the
-  time of most instance-level operations, for example, database
-  upgrades.
-- You can't use multiple AWS accounts to create PDBs in the same CDB. PDBs
-  must be owned by the same account as the DB instance that the PDBs are hosted
-  on.
-- All PDBs in a CDB use the same endpoint and database listener.
-- The following operations aren't supported at the PDB level but are
-  supported at the CDB level:
-  - Backup and recovery
-  - Database upgrades
-  - Maintenance actions
-
-- The following features aren't supported at the PDB level but are supported
-  at the CDB level:
-  - Option groups (options are installed on all PDBs on your CDB
-    instance)
-  - Parameter groups (all parameters are derived from the parameter
-    group associated with your CDB instance)
-
-- PDB-level operations that are supported in the on-premises CDB
-  architecture but aren't supported in an RDS for Oracle CDB include the
-  following:
+The amount of time it takes to convert the data depends on the DB instance class, the
+database size, and the time of the last DB snapshot. To reduce downtime, consider taking a
+snapshot immediately before rebooting. This shortens the time of the backup that occurs
+during the conversion workflow.
 
 ###### Note
 
-The following list is not exhaustive.
+After you turn on extended data types, you can't perform a point-in-time restore to a time during the conversion. You can
+restore to the time immediately before the conversion or after the conversion.
 
-    + Application PDBs
-    + Proxy PDBs
-    + Starting and stopping a PDB
-    + Unplugging and plugging in PDBs
+###### To turn on extended data types for an existing DB instance
 
+1. Take a snapshot of the database.
 
-    To move data into or out of your CDB, use the same techniques as
-     for a non-CDB. For more information about migrating data, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.md "Oracle.Procedural.md").
-    + Setting options at the PDB level
+If there are invalid objects in the database, Amazon RDS tries to recompile them. The conversion to
+extended data types can fail if Amazon RDS can't recompile an invalid object. The snapshot enables you to
+restore the database if there is a problem with the conversion. Always check for invalid objects
+before conversion and fix or drop those invalid objects. For production databases, we recommend
+testing the conversion process on a copy of your DB instance first.
 
+For more information, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md"). 2. Set the `MAX_STRING_SIZE` parameter to `EXTENDED` in a parameter
+group.
 
-    The PDB inherits options settings from the CDB option group. For
-     more information about setting options, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For best
-     practices, see [Working with DB parameter groups](CHAP_BestPractices.md#CHAP_BestPractices.DBParameterGroup "CHAP_BestPractices.md#CHAP_BestPractices.DBParameterGroup").
-    + Configuring parameters in a PDB
+To set the parameter, you can either create a new parameter group or modify an existing parameter
+group.
 
+For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 3. Modify the DB instance to associate it with the parameter group with `MAX_STRING_SIZE`
+set to `EXTENDED`.
 
-    The PDB inherits parameter settings from the CDB. For more
-     information about setting option, see [Adding options to Oracle DB instances](Appendix.Oracle.md "Appendix.Oracle.md").
-    + Configuring different listeners for PDBs in the same CDB
-    + Oracle Flashback features
+For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md"). 4. Reboot the DB instance for the parameter change to take effect.
+
+For more information, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md").

@@ -486,7 +486,7 @@ For information on copying incremental snapshots across AWS Regions, see [Full a
 
 ### Considerations for cross-Region snapshot copying
 
-You can copy DB snapshots across AWS Regions. Data transfer charges applies for cross-Region snapshot copy.
+You can copy DB snapshots across AWS Regions. Data transfer charges apply for cross-Region snapshot copy.
 Cross-Region snapshot copying is subject to certain constraints and considerations.
 
 #### Requesting a cross-Region DB snapshot copy

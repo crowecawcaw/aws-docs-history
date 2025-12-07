@@ -1,26 +1,50 @@
-# Creating a temporary tablespace
+# Enabling and
 
-on the instance store
+disabling restricted sessions
 
-To create a temporary tablespace on the instance store, use the Amazon RDS procedure
-`rdsadmin.rdsadmin_util.create_inst_store_tmp_tblspace`. The `create_inst_store_tmp_tblspace` procedure has
-the following parameters.
+To enable and disable restricted sessions, use the Amazon RDS procedure
+`rdsadmin.rdsadmin_util.restricted_session`. The
+`restricted_session` procedure has the following parameters.
 
-| Parameter name      | Data type | Default | Required | Description                           |
-| ------------------- | --------- | ------- | -------- | ------------------------------------- |
-| `p_tablespace_name` | varchar   | —       | Yes      | The name of the temporary tablespace. |
+| Parameter name | Data type | Default | Yes | Description                                                                             |
+| -------------- | --------- | ------- | --- | --------------------------------------------------------------------------------------- |
+| `p_enable`     | boolean   | true    | No  | Set to `true` to enable restricted sessions,<br>`false` to disable restricted sessions. |
 
-The following example creates the temporary tablespace `temp01` in the instance
-store.
+The following example shows how to enable and disable restricted sessions.
 
 ```
-EXEC rdsadmin.rdsadmin_util.create_inst_store_tmp_tblspace(p_tablespace_name => '`temp01`');
+/* Verify that the database is currently unrestricted. */
+
+SELECT LOGINS FROM V$INSTANCE;
+
+LOGINS
+-------
+ALLOWED
+
+/* Enable restricted sessions */
+
+EXEC rdsadmin.rdsadmin_util.restricted_session(p_enable => true);
+
+
+/* Verify that the database is now restricted. */
+
+SELECT LOGINS FROM V$INSTANCE;
+
+LOGINS
+----------
+RESTRICTED
+
+
+/* Disable restricted sessions */
+
+EXEC rdsadmin.rdsadmin_util.restricted_session(p_enable => false);
+
+
+/* Verify that the database is now unrestricted again. */
+
+SELECT LOGINS FROM V$INSTANCE;
+
+LOGINS
+-------
+ALLOWED
 ```
-
-###### Important
-
-When you run `rdsadmin_util.create_inst_store_tmp_tblspace`, the newly created temporary tablespace is not
-automatically set as the default temporary tablespace. To set it as the default, see [Setting
-the default temporary tablespace](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.SettingDefTempTablespace "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.SettingDefTempTablespace").
-
-For more information, see [Storing temporary data in an RDS for Oracle instance store](CHAP_Oracle.advanced-features.md "CHAP_Oracle.advanced-features.md").

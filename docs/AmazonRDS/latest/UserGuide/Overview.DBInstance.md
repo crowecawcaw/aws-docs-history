@@ -73,6 +73,23 @@ aws rds modify-db-instance ^
     `--no-apply-immediately`
 ```
 
+###### Example
+
+The following example adds a storage volume to an RDS for Oracle DB instance. The
+additional volume uses gp3 storage with 5000 GiB of allocated storage and 12000
+IOPS.
+
+```
+aws rds modify-db-instance \
+     --db-instance-identifier my-oracle-instance \
+     --additional-storage-volumes '[{ \
+             "VolumeName": "rdsdbdata2", \
+             "StorageType": "gp3",
+             "AllocatedStorage": 5000, \
+             "IOPS": 12000 \
+         }]'
+```
+
 To modify a DB instance by using the Amazon RDS API, call the
 [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") operation.
 Specify the DB instance identifier,

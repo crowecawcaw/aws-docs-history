@@ -1,50 +1,33 @@
-# Creating a
+# Setting the SQL text limit for Amazon RDS for PostgreSQL DB
 
-performance analysis report in Performance Insights
+instances
 
-You can create a performance analysis report for a specific period in the Performance Insights dashboard. You can select a time period and add one or more
-tags to the analysis report.
+Amazon RDS for PostgreSQL
+handles text differently. You can set the text size limit with the DB instance parameter
+`track_activity_query_size`. This parameter has the following characteristics:
 
-The analysis period can range from 5 minutes to 6 days. There must be at least 24 hours of performance data before the analysis start time.
+Default text size
 
-For the region, DB engine, and instance class support information for this feature, see
-[Amazon RDS DB engine, Region, and instance class support
-for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport")
+On Amazon RDS for PostgreSQL version 9.6, the default setting for the
+`track_activity_query_size` parameter is 1,024 bytes. On Amazon RDS for PostgreSQL version 10 or higher, the default is 4,096 bytes.
 
-###### To create a performance analysis report for a time period
+Maximum text size
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance.
-4. Choose **Analyze performance** in **Database load**
-   section on the Performance Insights dashboard.
+The limit for `track_activity_query_size` is 102,400 bytes for Amazon RDS for PostgreSQL version 12 and lower. The maximum is 1 MB for version 13 and higher.
 
-The fields to set the time period and add one or more tags to the performance analysis report are displayed.
+If the engine returns 1 MB to Performance Insights, the console displays only the first 4 KB. If
+you download the query, you get the full 1 MB. In this case, viewing and downloading return different
+numbers of bytes. For more information about the `track_activity_query_size` DB instance
+parameter, see [Run-time Statistics](https://www.postgresql.org/docs/current/runtime-config-statistics.html "https://www.postgresql.org/docs/current/runtime-config-statistics.html") in the PostgreSQL documentation.
 
-![Performance Insights dashboard showing fields to create analysis report](images/PI_CreateAnalysisReport.png) 5. Choose the time period. If you set a time period in the **Relative range** or **Absolute range**
-in the upper right, you can only enter or select the analysis report date and time within this time period.
-If you select the analysis period outside of this time period, an error message displays.
+To increase the SQL text size, increase the `track_activity_query_size` limit. To modify the
+parameter, change the parameter setting in the parameter group that is associated with the Amazon RDS for PostgreSQL DB
+instance.
 
-To set the time period, you can do any of the following:
+###### To change the setting when the instance uses the default parameter group
 
-    * Press and drag any of the sliders on the DB load chart.
-
-
-    The **Performance analysis period** box displays the selected time period and DB load chart highlights the selected time period.
-    * Choose the **Start date**, **Start time**, **End date**, and **End time** in the
-     **Performance analysis period** box.
-
-![Performance Insights dashboard with analysis period selected](images/PI_CreateAnalysisRep_TimePeriod.png) 6. (Optional) Enter **Key** and **Value-_optional_** to add a tag for the report.
-
-![Performance Insights dashboard with fields to add a new tag](images/PI_CreateAnalysisRep_AddTag.png) 7. Choose **Analyze performance**.
-
-A banner displays a message whether the report generation is successful or failed. The message also provides the link to view the report.
-
-The following example shows the banner with the report creation successful message.
-
-![Analysis report creation successful message banner](images/PI_CreateAnaysisRep_SuccessMsg.png)
-
-The report is available to view in **Performance analysis reports - new** tab.
-You can create a performance analysis report using the AWS CLI.
-For an example on how to create a report using AWS CLI, see [Creating a performance analysis report for a time period](USER_PerfInsights.API.md#USER_PerfInsights.API.Examples.CreatePerfAnalysisReport "USER_PerfInsights.API.md#USER_PerfInsights.API.Examples.CreatePerfAnalysisReport").
+1. Create a new DB instance parameter group for the appropriate DB engine and DB engine version.
+2. Set the parameter in the new parameter group.
+3. Associate the new parameter group with the DB instance.
+   For information about setting a DB instance parameter, see [Modifying parameters in a DB parameter group
+   in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").

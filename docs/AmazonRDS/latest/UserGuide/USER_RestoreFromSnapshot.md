@@ -2,28 +2,27 @@
 
 This section shows how to restore to a DB instance. This page shows how to restore to an Amazon RDS DB instance from a DB snapshot.
 
-Amazon RDS creates a storage volume snapshot of your DB instance,
-backing up the entire DB instance and not just individual databases. You can create a new DB instance
-by restoring from a DB snapshot.
-You provide the name of the DB snapshot to restore from, and then provide a name for the new DB instance that is created from the restore. You can't restore from a DB snapshot to an existing DB instance; a
-new DB instance is created when you restore.
+Amazon RDS creates a storage volume snapshot of your DB instance, backing up the entire DB instance and not
+just individual databases. You can create a new DB instance by restoring from a DB snapshot. You provide
+the name of the DB snapshot to restore from, and then provide a name for the new DB instance that is
+created from the restore. You can't restore from a DB snapshot to an existing DB instance; you create a
+new DB instance when you restore the snapshot.
 
 You can use the restored DB instance as soon as its status is `available`. The DB instance
-continues to load data in the background. This is known as _lazy loading_.
-
-If you access data that hasn't been loaded yet, the DB instance immediately downloads the requested data from Amazon S3,
-and then continues loading the rest of the data in the background. For more information, see
-[Amazon EBS snapshots](../../../AWSEC2/latest/UserGuide/EBSSnapshots.md "../../../AWSEC2/latest/UserGuide/EBSSnapshots.md").
+continues to load data in the background. This is known as _lazy
+loading_. If you access data that hasn't been loaded yet, the DB instance
+immediately downloads the requested data from Amazon S3, and then continues loading the rest of
+the data in the background. For more information, see [Amazon EBS
+snapshots](../../../AWSEC2/latest/UserGuide/EBSSnapshots.md "../../../AWSEC2/latest/UserGuide/EBSSnapshots.md").
 
 To help mitigate the effects of lazy loading on tables to which you require quick access, you can perform operations that involve
 full-table scans, such as `SELECT *`. This allows Amazon RDS to download all of the backed-up table data from S3.
 
-You can restore a DB instance and use a different storage type than the
-source DB snapshot. In this case, the restoration process is slower because of the
-additional work required to migrate the data to the new storage type. If you restore to or
-from magnetic storage, the migration process is the slowest. That's because magnetic storage
-doesn't have the IOPS capability of Provisioned IOPS or General Purpose (SSD)
-storage.
+You can restore a DB instance and use a different storage type than the source DB snapshot. In this case,
+the restore process is slower because of the additional work required to migrate the data to
+the new storage type. If you restore to or from magnetic storage, the migration process is
+the slowest. That's because magnetic storage doesn't have the IOPS capability of Provisioned
+IOPS or General Purpose (SSD) storage.
 
 You can use CloudFormation to restore a DB instance from a DB instance snapshot. For more information,
 see [AWS::RDS::DBInstance](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md")
@@ -91,6 +90,27 @@ This command returns output similar to the following:
 
 ```
 DBINSTANCE  mynewdbinstance  db.t3.small  MySQL     50       sa              creating  3  n  8.0.28  general-public-license
+```
+
+###### Example
+
+The following example shows restoring a snapshot while adding an
+additional storage volume to the newly created instance. The
+snapshot included additional volume `rdsdbdata2`. The restore
+operation adds `rdsdbdata3`, making a total of three volumes in
+the newly created instance. You can't delete a volume when you restore the
+snapshot.
+
+```
+aws rds restore-db-instance-from-db-snapshot \
+     --db-instance-identifier my-restored-instance \
+     --db-snapshot-identifier my-asv-snapshot \
+     --additional-storage-volumes '[{ \
+             "VolumeName": "rdsdbdata3", \
+             "StorageType":"gp3", \
+             "AllocatedStorage": 5000, \
+             "IOPS": 12000 \
+         }]'
 ```
 
 To restore a DB instance from a DB snapshot, call the Amazon RDS API function

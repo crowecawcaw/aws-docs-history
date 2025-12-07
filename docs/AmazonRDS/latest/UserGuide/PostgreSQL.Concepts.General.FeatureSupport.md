@@ -1,29 +1,34 @@
-#
+# Custom data
 
-Tablespaces for RDS for PostgreSQL
+types and enumerations with RDS for PostgreSQL
 
-RDS for PostgreSQL supports tablespaces for compatibility. Because all storage is on a
-single logical volume, you can't use tablespaces for I/O splitting or
-isolation. Our benchmarks and experience indicate that a single logical volume is
-the best setup for most use cases.
+PostgreSQL supports creating custom data types and working with enumerations. For
+more information about creating and working with enumerations and other data types,
+see [Enumerated
+types](https://www.postgresql.org/docs/14/datatype-enum.html "https://www.postgresql.org/docs/14/datatype-enum.html") in the PostgreSQL documentation.
 
-To create and use tablespaces with your RDS for PostgreSQL DB instance requires the
-`rds_superuser` role. Your RDS for PostgreSQL DB instance's main user
-account (default name, `postgres`) is a member of this role. For more
-information, see [Understanding PostgreSQL roles and
-permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
-
-If you specify a file name when you create a tablespace, the path prefix is
-`/rdsdbdata/db/base/tablespace`. The following example places
-tablespace files in `/rdsdbdata/db/base/tablespace/data`. This example
-assumes that a `dbadmin` user (role) exists and that it's been
-granted the `rds_superuser` role needed to work with tablespaces.
+The following is an example of creating a type as an enumeration and then
+inserting values into a table.
 
 ```
-`postgres=>` `CREATE TABLESPACE act_data
- OWNER dbadmin
- LOCATION '/data';`
-`CREATE TABLESPACE`
+`CREATE TYPE rainbow AS ENUM ('red', 'orange', 'yellow', 'green', 'blue', 'purple');`
+`CREATE TYPE`
+`CREATE TABLE t1 (colors rainbow);`
+`CREATE TABLE`
+`INSERT INTO t1 VALUES ('red'), ( 'orange');`
+`INSERT 0 2`
+`SELECT * from t1;`
+`colors
+--------
+red
+orange
+(2 rows)`
+`postgres=>` `ALTER TYPE rainbow RENAME VALUE 'red' TO 'crimson';`
+`ALTER TYPE`
+`postgres=>` `SELECT * from t1;`
+`colors
+---------
+crimson
+orange
+(2 rows)`
 ```
-
-To learn more about PostgreSQL tablespaces, see [Tablespaces](https://www.postgresql.org/docs/current/manage-ag-tablespaces.html "https://www.postgresql.org/docs/current/manage-ag-tablespaces.html") in the PostgreSQL documentation.

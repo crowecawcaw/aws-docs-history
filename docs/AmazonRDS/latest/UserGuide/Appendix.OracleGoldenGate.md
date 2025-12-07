@@ -1,105 +1,143 @@
-# Troubleshooting Oracle GoldenGate
+# Working with the EXTRACT and REPLICAT utilities of
 
-This section explains the most common issues when using Oracle GoldenGate with Amazon RDS for Oracle.
+Oracle GoldenGate
 
-###### Topics
+The Oracle GoldenGate utilities `EXTRACT` and `REPLICAT` work together to keep the
+source and target databases in sync via incremental transaction replication using trail
+files. All changes that occur on the source database are automatically detected by
+`EXTRACT`, then formatted and transferred to trail files on the Oracle GoldenGate
+on-premises or Amazon EC2 instance hub. After initial load is completed, the data is read from
+these files and replicated to the target database by the `REPLICAT`
+utility.
 
-- [Error opening an online redo
-  log](#Appendix.OracleGoldenGate.Troubleshooting.Logs "#Appendix.OracleGoldenGate.Troubleshooting.Logs")
-- [Oracle GoldenGate appears to be properly
-  configured but replication is not working](#Appendix.OracleGoldenGate.Troubleshooting.Replication "#Appendix.OracleGoldenGate.Troubleshooting.Replication")
-- [Integrated REPLICAT slow due to query on
-  SYS."\_DBA_APPLY_CDR_INFO"](#Appendix.OracleGoldenGate.IR "#Appendix.OracleGoldenGate.IR")
+## Running the Oracle GoldenGate EXTRACT utility
 
-## Error opening an online redo
+The `EXTRACT` utility retrieves, converts, and outputs data from the source
+database to trail files. The basic process is as follows:
 
-log
+1. `EXTRACT` queues transaction details to memory or to temporary disk
+   storage.
+2. The source database commits the transaction.
+3. `EXTRACT` writes the transaction details to a trail file.
+4. The trail file routes these details to the Oracle GoldenGate on-premises or the Amazon EC2
+   instance hub and then to the target database.
 
-Make sure that you configure your databases to retain archived redo logs. Consider the
-following guidelines:
+The following steps start the `EXTRACT` utility, capture the data from
+`EXAMPLE.TABLE` in source database `OGGSOURCE`, and create the
+trail files.
 
-- Specify the duration for log retention in hours. The minimum value is one
-  hour.
-- Set the duration to exceed any potential downtime of the source DB instance,
-  any potential period of communication, and any potential period of networking
-  issues for the source DB instance. Such a duration lets Oracle GoldenGate recover logs from the
-  source DB instance as needed.
-- Ensure that you have sufficient storage on your instance for the files.
+###### To run the EXTRACT utility
 
-If you don't have log retention enabled, or if the retention value is too small, you
-receive an error message similar to the following.
-
-```
-2022-03-06 06:17:27  ERROR   OGG-00446  error 2 (No such file or directory)
-opening redo log /rdsdbdata/db/GGTEST3_A/onlinelog/o1_mf_2_9k4bp1n6_.log for sequence 1306
-Not able to establish initial position for begin time 2022-03-06 06:16:55.
-```
-
-## Oracle GoldenGate appears to be properly
-
-configured but replication is not working
-
-For pre-existing tables, you must specify the SCN that Oracle GoldenGate works from.
-
-###### To fix this issue
-
-1. Log in to the source database and launch the Oracle GoldenGate command line interface
-   (`ggsci`). The following example shows the format for logging
-   in.
+1. Configure the `EXTRACT` parameter file on the Oracle GoldenGate hub
+   (on-premises or Amazon EC2 instance). The following listing shows an example
+   `EXTRACT` parameter file named
+   `$GGHOME/dirprm/eabc.prm`.
 
 ```
-dblogin userid oggadm1@OGGSOURCE
+EXTRACT EABC
+ 
+USERID oggadm1@OGGSOURCE, PASSWORD "`my-password`"
+EXTTRAIL `/path/to/goldengate/dirdat/ab`
+ 
+IGNOREREPLICATES
+GETAPPLOPS
+TRANLOGOPTIONS EXCLUDEUSER OGGADM1
+	 
+TABLE EXAMPLE.TABLE;
 ```
 
-2. Using the `ggsci` command line, set up the start SCN for the
-   `EXTRACT` process. The following example sets the SCN to 223274
-   for the `EXTRACT`.
+2. On the Oracle GoldenGate hub, log in to the source database and launch the Oracle GoldenGate command
+   line interface `ggsci`. The following example shows the format for
+   logging in.
 
 ```
-ALTER EXTRACT EABC SCN 223274
+dblogin oggadm1@OGGSOURCE
+```
+
+3. Add transaction data to turn on supplemental logging for the database
+   table.
+
+```
+add trandata EXAMPLE.TABLE
+```
+
+4. Using the `ggsci` command line, enable the `EXTRACT`
+   utility using the following commands.
+
+```
+add extract EABC tranlog, INTEGRATED tranlog, begin now
+add exttrail `/path/to/goldengate/dirdat/ab`
+   extract EABC,
+   MEGABYTES 100
+```
+
+5. Register the `EXTRACT` utility with the database so that the
+   archive logs are not deleted. This task allows you to recover old, uncommitted
+   transactions if necessary. To register the `EXTRACT` utility with the
+   database, use the following command.
+
+```
+register EXTRACT EABC, DATABASE
+```
+
+6. Start the `EXTRACT` utility with the following command.
+
+```
 start EABC
 ```
 
-3. Log in to the target database. The following example shows the format for
-   logging in.
+## Running the Oracle GoldenGate REPLICAT utility
+
+The `REPLICAT` utility "pushes" transaction information in the trail files to the
+target database.
+
+The following steps enable and start the `REPLICAT` utility so that it can
+replicate the captured data to the table `EXAMPLE.TABLE` in target database
+`OGGTARGET`.
+
+###### To run the REPLICATE utility
+
+1. Configure the `REPLICAT` parameter file on the Oracle GoldenGate hub
+   (on-premises or EC2 instance). The following listing shows an example
+   `REPLICAT` parameter file named
+   `$GGHOME/dirprm/rabc.prm`.
+
+```
+REPLICAT RABC
+ 
+USERID oggadm1@OGGTARGET, password "`my-password`"
+ 
+ASSUMETARGETDEFS
+MAP EXAMPLE.TABLE, TARGET EXAMPLE.TABLE;
+```
+
+###### Note
+
+Specify a password other than the prompt shown here as a security best practice. 2. Log in to the target database and launch the Oracle GoldenGate command line interface
+(`ggsci`). The following example shows the format for logging
+in.
 
 ```
 dblogin userid oggadm1@OGGTARGET
 ```
 
-4. Using the `ggsci` command line, set up the start SCN for the
-   `REPLICAT` process. The following example sets the SCN to 223274
-   for the `REPLICAT`.
+3. Using the `ggsci` command line, add a checkpoint table. The user indicated
+   should be the Oracle GoldenGate user account, not the target table schema owner. The
+   following example creates a checkpoint table named
+   `gg_checkpoint`.
 
 ```
-start RABC atcsn 223274
+add checkpointtable oggadm1.oggchkpt
 ```
 
-## Integrated REPLICAT slow due to query on
-
-SYS."\_DBA_APPLY_CDR_INFO"
-
-Oracle GoldenGate Conflict Detection and Resolution (CDR) provides basic conflict resolution routines. For
-example, CDR can resolve a unique conflict for an `INSERT` statement.
-
-When CDR resolves a collision, it can insert records into the exception table
-`_DBA_APPLY_CDR_INFO` temporarily. Integrated `REPLICAT` deletes these records
-later. In a rare scenario, the integrated `REPLICAT` can process a large number of collisions, but
-a new integrated `REPLICAT` does not replace it. Instead of being removed, the existing rows in
-`_DBA_APPLY_CDR_INFO` are orphaned. Any new integrated `REPLICAT` processes slow
-down because they are querying orphaned rows in `_DBA_APPLY_CDR_INFO`.
-
-To remove all rows from `_DBA_APPLY_CDR_INFO`, use the Amazon RDS procedure
-`rdsadmin.rdsadmin_util.truncate_apply$_cdr_info`. This procedure is
-released as part of the October 2020 release and patch update. The procedure is
-available in the following database versions:
-
-- [Version 21.0.0.0.ru-2022-01.rur-2022-01.r1](../OracleReleaseNotes/oracle-version-21-0.md#oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1 "../OracleReleaseNotes/oracle-version-21-0.md#oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1") and higher
-- [Version 19.0.0.0.ru-2020-10.rur-2020-10.r1](../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2020-10.rur-2020-10.r1 "../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2020-10.rur-2020-10.r1") and higher
-
-The following example truncates the table `_DBA_APPLY_CDR_INFO`.
+4. To enable the `REPLICAT` utility, use the following command.
 
 ```
-SET SERVEROUTPUT ON SIZE 2000
-EXEC rdsadmin.rdsadmin_util.truncate_apply$_cdr_info;
+add replicat RABC EXTTRAIL `/path/to/goldengate/dirdat/ab` CHECKPOINTTABLE oggadm1.oggchkpt
+```
+
+5. Start the `REPLICAT` utility by using the following command.
+
+```
+start RABC
 ```
