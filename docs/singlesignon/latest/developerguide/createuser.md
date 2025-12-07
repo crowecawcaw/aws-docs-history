@@ -25,13 +25,15 @@ operation.
 - The `addresses` field can contain letters, accented characters,
   symbols, numbers, punctuation, space (normal and nonbreaking).
 - We do not support multiple values in multi-value attributes (such as
-  `emails`, `addresses`, `phoneNumbers`).
+  `emails`, `addresses`, `phoneNumbers`, `roles`).
   Only single values are permitted.
 - The `emails` attribute value must be marked as primary.
 - The `groups` field cannot be specified with the
   `createUser` request.
 - The `userName` field can contain letters, accented characters,
   symbols, numbers, punctuation.
+- The `roles` attribute value cannot contain display field,
+  only `value`, `type`, and `primary` are supported.
 
 ## Errors
 
@@ -97,12 +99,19 @@ Authorization: Bearer <bearer_token>
       "type": "work"
     }
   ],
+  "roles": [
+    {
+        "value": "Researcher",
+        "type": "work",
+        "primary": true
+    }
+  ],
   "userType": "Employee",
   "title": "Tour Guide",
   "preferredLanguage": "en-US",
   "locale": "en-US",
   "timezone": "America/Los_Angeles",
-  "active":true,
+  "active": true,
   "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
     "employeeNumber": "701984",
     "costCenter": "4130",
@@ -176,6 +185,13 @@ x-amzn-RequestId: abbf9e53-9ecc-46d2-8efe-104a66ff128f
         {
             "value": "555-555-5555",
             "type": "work"
+        }
+    ],
+    "roles": [
+        {
+            "value": "Researcher",
+            "type": "work",
+            "primary": true
         }
     ],
     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
