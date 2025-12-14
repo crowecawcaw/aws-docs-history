@@ -3,224 +3,174 @@ If you would like to use Python UDFs, create the UDFs prior to that date.
 Existing Python UDFs will continue to function as normal. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Supported Regions for
+# Querying replicated
 
-zero-ETL integrations
+data in Amazon Redshift
 
-Zero-ETL integration is a fully managed solution that makes transactional and operational
-data available in Amazon Redshift from multiple operational and transactional sources, as well as
-enterprise applications. This page lists the available Regions for each
-supported source.
+After you add data to your source, it's replicated in near real time to the Amazon Redshift data
+warehouse, and it's ready for querying. For information about integration metrics and table
+statistics, see [Metrics for zero-ETL integrations](zero-etl-using.md "zero-etl-using.md").
 
-## Aurora MySQL
+###### Note
 
-The following Regions and engine versions are available for Aurora MySQL
-zero-ETL integrations with Amazon Redshift.
+As a database is the same as a schema in MySQL, MySQL database level maps to Amazon Redshift schema
+level. Note this mapping difference when you query data replicated from Aurora MySQL or
+RDS for MySQL.
 
-| Region                    | Aurora MySQL  |
-| ------------------------- | ------------- |
-| Africa (Cape Town)        | Available     |
-| Asia Pacific (Hong Kong)  | Available     |
-| Asia Pacific (Tokyo)      | Available     |
-| Asia Pacific (Seoul)      | Available     |
-| Asia Pacific (Osaka)      | Available     |
-| Asia Pacific (Mumbai)     | Available     |
-| Asia Pacific (Hyderabad)  | Available     |
-| Asia Pacific (Singapore)  | Available     |
-| Asia Pacific (Sydney)     | Available     |
-| Asia Pacific (Jakarta)    | Available     |
-| Asia Pacific (Melbourne)  | Available     |
-| Asia Pacific (Malaysia)   | Not available |
-| Canada (Central)          | Available     |
-| Canada West (Calgary)     | Available     |
-| China (Beijing)           | Available     |
-| China (Ningxia)           | Available     |
-| Europe (Frankfurt)        | Available     |
-| Europe (Zurich)           | Available     |
-| Europe (Stockholm)        | Available     |
-| Europe (Milan)            | Available     |
-| Europe (Spain)            | Available     |
-| Europe (Ireland)          | Available     |
-| Europe (London)           | Available     |
-| Europe (Paris)            | Available     |
-| Israel (Tel Aviv)         | Available     |
-| Middle East (UAE)         | Available     |
-| Middle East (Bahrain)     | Available     |
-| South America (São Paulo) | Available     |
-| US East (N. Virginia)     | Available     |
-| US East (Ohio)            | Available     |
-| US West (N. California)   | Available     |
-| US West (Oregon)          | Available     |
-| AWS GovCloud (US-East)    | Not available |
-| AWS GovCloud (US-West)    | Not available |
+###### To query replicated data
 
-## Aurora PostgreSQL
+1. Navigate to the Amazon Redshift console and choose **Query editor
+   v2**.
+2. Connect to your Amazon Redshift Serverless workgroup or Amazon Redshift provisioned cluster and choose your
+   database from the dropdown list.
+3. Use a SELECT statement to select all replicated data from the schema and table that
+   you created in the source. For case sensitivity, use double quotes (" ") for schema,
+   table, and column names. For example:
 
-The following Regions are available for Aurora PostgreSQL zero-ETL
-integrations with Amazon Redshift.
+```
+SELECT * FROM "`schema_name`"."`table_name`";
+```
 
-| Region                    | Aurora PostgreSQL |
-| ------------------------- | ----------------- |
-| Africa (Cape Town)        | Available         |
-| Asia Pacific (Hong Kong)  | Available         |
-| Asia Pacific (Tokyo)      | Available         |
-| Asia Pacific (Seoul)      | Available         |
-| Asia Pacific (Osaka)      | Available         |
-| Asia Pacific (Mumbai)     | Available         |
-| Asia Pacific (Hyderabad)  | Available         |
-| Asia Pacific (Singapore)  | Available         |
-| Asia Pacific (Sydney)     | Available         |
-| Asia Pacific (Jakarta)    | Available         |
-| Asia Pacific (Melbourne)  | Available         |
-| Asia Pacific (Malaysia)   | Available         |
-| Canada (Central)          | Available         |
-| Canada West (Calgary)     | Available         |
-| China (Beijing)           | Available         |
-| China (Ningxia)           | Available         |
-| Europe (Frankfurt)        | Available         |
-| Europe (Zurich)           | Available         |
-| Europe (Stockholm)        | Available         |
-| Europe (Milan)            | Available         |
-| Europe (Spain)            | Available         |
-| Europe (Ireland)          | Available         |
-| Europe (London)           | Available         |
-| Europe (Paris)            | Available         |
-| Israel (Tel Aviv)         | Available         |
-| Middle East (UAE)         | Available         |
-| Middle East (Bahrain)     | Available         |
-| South America (São Paulo) | Available         |
-| US East (N. Virginia)     | Available         |
-| US East (Ohio)            | Available         |
-| US West (N. California)   | Available         |
-| US West (Oregon)          | Available         |
-| AWS GovCloud (US-East)    | Not available     |
-| AWS GovCloud (US-West)    | Not available     |
+You can also query the data using the Amazon Redshift Data API.
 
-## Amazon DynamoDB
+## Querying replicated data with materialized
 
-The following Regions are available for DynamoDB zero-ETL integrations with
-Amazon Redshift.
+views
 
-| Region                    | DynamoDB  |
-| ------------------------- | --------- |
-| Africa (Cape Town)        | Available |
-| Asia Pacific (Hong Kong)  | Available |
-| Asia Pacific (Taipei)     | Available |
-| Asia Pacific (Tokyo)      | Available |
-| Asia Pacific (Seoul)      | Available |
-| Asia Pacific (Osaka)      | Available |
-| Asia Pacific (Mumbai)     | Available |
-| Asia Pacific (Hyderabad)  | Available |
-| Asia Pacific (Singapore)  | Available |
-| Asia Pacific (Sydney)     | Available |
-| Asia Pacific (Jakarta)    | Available |
-| Asia Pacific (Melbourne)  | Available |
-| Asia Pacific (Malaysia)   | Available |
-| Asia Pacific (Thailand)   | Available |
-| Canada (Central)          | Available |
-| Canada West (Calgary)     | Available |
-| China (Beijing)           | Available |
-| China (Ningxia)           | Available |
-| Europe (Frankfurt)        | Available |
-| Europe (Zurich)           | Available |
-| Europe (Stockholm)        | Available |
-| Europe (Milan)            | Available |
-| Europe (Spain)            | Available |
-| Europe (Ireland)          | Available |
-| Europe (London)           | Available |
-| Europe (Paris)            | Available |
-| Israel (Tel Aviv)         | Available |
-| Middle East (UAE)         | Available |
-| Middle East (Bahrain)     | Available |
-| Mexico (Central)          | Available |
-| South America (São Paulo) | Available |
-| US East (N. Virginia)     | Available |
-| US East (Ohio)            | Available |
-| US West (N. California)   | Available |
-| US West (Oregon)          | Available |
-| AWS GovCloud (US-East)    | Available |
-| AWS GovCloud (US-West)    | Available |
+You can create materialized views in your local Amazon Redshift database to transform data
+replicated through zero-ETL integrations.
+Connect
+to your local database and use cross-database queries to access the destination databases.
+You can use either fully qualified object names with the three-part notation
+(destination-database-name.schema-name.table-name) or create an external schema referencing
+the destination database-schema pair and use the two-part notation
+(external-schema-name.table-name). For more information on cross-database queries, see
+[Querying
+data across databases](../dg/cross-database-overview.md "../dg/cross-database-overview.md").
 
-## Amazon RDS for MySQL
+Use the following example to create and insert sample data into the
+`sales_zetl` and `event_zetl` tables
+from the source `tickit_zetl`. The tables are replicated into the
+Amazon Redshift database `zetl_int_db`.
 
-The following Regions are available for Amazon RDS for MySQL zero-ETL
-integrations with Amazon Redshift.
+```
+CREATE TABLE sales_zetl (
+        salesid integer NOT NULL primary key,
+        eventid integer NOT NULL,
+        pricepaid decimal(8, 2)
+);
 
-| Region                    | RDS for MySQL |
-| ------------------------- | ------------- |
-| Africa (Cape Town)        | Available     |
-| Asia Pacific (Hong Kong)  | Available     |
-| Asia Pacific (Tokyo)      | Available     |
-| Asia Pacific (Seoul)      | Available     |
-| Asia Pacific (Osaka)      | Available     |
-| Asia Pacific (Mumbai)     | Available     |
-| Asia Pacific (Hyderabad)  | Not available |
-| Asia Pacific (Singapore)  | Available     |
-| Asia Pacific (Sydney)     | Available     |
-| Asia Pacific (Jakarta)    | Not available |
-| Asia Pacific (Melbourne)  | Not available |
-| Asia Pacific (Malaysia)   | Not available |
-| Canada (Central)          | Available     |
-| Canada West (Calgary)     | Not available |
-| China (Beijing)           | Not available |
-| China (Ningxia)           | Not available |
-| Europe (Frankfurt)        | Available     |
-| Europe (Zurich)           | Not available |
-| Europe (Stockholm)        | Available     |
-| Europe (Milan)            | Available     |
-| Europe (Spain)            | Not available |
-| Europe (Ireland)          | Available     |
-| Europe (London)           | Available     |
-| Europe (Paris)            | Available     |
-| Israel (Tel Aviv)         | Not available |
-| Middle East (UAE)         | Not available |
-| Middle East (Bahrain)     | Available     |
-| South America (São Paulo) | Available     |
-| US East (N. Virginia)     | Available     |
-| US East (Ohio)            | Available     |
-| US West (N. California)   | Available     |
-| US West (Oregon)          | Available     |
-| AWS GovCloud (US-East)    | Not available |
-| AWS GovCloud (US-West)    | Not available |
+CREATE TABLE event_zetl (
+        eventid integer NOT NULL PRIMARY KEY,
+        eventname varchar(200)
+);
 
-## Enterprise applications
+INSERT INTO sales_zetl VALUES(1, 1, 3.33);
+INSERT INTO sales_zetl VALUES(2, 2, 4.44);
+INSERT INTO sales_zetl VALUES(3, 2, 5.55);
 
-The following Regions are available for enterprise application zero-ETL
-integrations with Amazon Redshift.
+INSERT INTO event_zetl VALUES(1, "Event 1");
+INSERT INTO event_zetl VALUES(2, "Event 2");
+```
 
-| Region                    | Enterprise applications |
-| ------------------------- | ----------------------- |
-| Africa (Cape Town)        | Not available           |
-| Asia Pacific (Hong Kong)  | Available               |
-| Asia Pacific (Tokyo)      | Available               |
-| Asia Pacific (Seoul)      | Available               |
-| Asia Pacific (Osaka)      | Not available           |
-| Asia Pacific (Mumbai)     | Not available           |
-| Asia Pacific (Hyderabad)  | Not available           |
-| Asia Pacific (Singapore)  | Available               |
-| Asia Pacific (Sydney)     | Available               |
-| Asia Pacific (Jakarta)    | Not available           |
-| Asia Pacific (Melbourne)  | Not available           |
-| Asia Pacific (Malaysia)   | Not available           |
-| Canada (Central)          | Available               |
-| Canada West (Calgary)     | Not available           |
-| China (Beijing)           | Not available           |
-| China (Ningxia)           | Not available           |
-| Europe (Frankfurt)        | Available               |
-| Europe (Zurich)           | Not available           |
-| Europe (Stockholm)        | Available               |
-| Europe (Milan)            | Not available           |
-| Europe (Spain)            | Not available           |
-| Europe (Ireland)          | Available               |
-| Europe (London)           | Available               |
-| Europe (Paris)            | Not available           |
-| Israel (Tel Aviv)         | Not available           |
-| Middle East (UAE)         | Not available           |
-| Middle East (Bahrain)     | Not available           |
-| South America (São Paulo) | Available               |
-| US East (N. Virginia)     | Available               |
-| US East (Ohio)            | Available               |
-| US West (N. California)   | Not available           |
-| US West (Oregon)          | Available               |
-| AWS GovCloud (US-East)    | Not available           |
-| AWS GovCloud (US-West)    | Not available           |
+You can create a materialized view to get total sales per event using the three-part
+notation:
+
+```
+--three part notation zetl-database-name.schema-name.table-name
+CREATE MATERIALIZED VIEW mv_transformed_sales_per_event_3p
+AUTO REFRESH YES
+AS
+(SELECT eventname, sum(pricepaid) as total_price
+FROM  zetl_int_db.tickit_zetl.sales_zetl S, zetl_int_db.tickit_zetl.event_zetl E
+WHERE S.eventid = E.eventid
+GROUP BY 1);
+```
+
+You can create a materialized view to get total sales per event using the two-part
+notation:
+
+```
+--two part notation external-schema-name.table-name notation
+CREATE EXTERNAL schema ext_tickit_zetl
+FROM REDSHIFT
+DATABASE zetl_int_db
+SCHEMA tickit_zetl;
+
+CREATE MATERIALIZED VIEW mv_transformed_sales_per_event_2p
+AUTO REFRESH YES
+AS
+(
+    SELECT eventname, sum(pricepaid) as total_price
+    FROM  ext_tickit_zetl.sales_zetl S, ext_tickit_zetl.event_zetl E
+    WHERE S.eventid = E.eventid
+    GROUP BY 1
+);
+```
+
+To view the materialized views you created, use the following example.
+
+```
+`SELECT * FROM mv_transformed_sales_per_event_3p;`
+
+`+-----------+-------------+
+| eventname | total_price |
++-----------+-------------+
+| Event 1 | 3.33 |
+| Event 2 | 9.99 |
++-----------+-------------+`
+
+`SELECT * FROM mv_transformed_sales_per_event_2p;`
+
+`+-----------+-------------+
+| eventname | total_price |
++-----------+-------------+
+| Event 1 | 3.33 |
+| Event 2 | 9.99 |
++-----------+-------------+`
+```
+
+## Querying replicated data from DynamoDB
+
+When you replicate data from Amazon DynamoDB to a Amazon Redshift database, it is stored in a
+materialized view in a column of SUPER data type.
+
+For this example, the following data is stored in DynamoDB.
+
+```
+{
+    "key1": {
+        "S": "key_1"
+    },
+    "key2": {
+        "N": 0
+    },
+    "payload": {
+        "L": [
+            {
+                "S": "sale1"
+            },
+            {
+                "S": "sale2"
+            },
+        ]
+    },
+}
+```
+
+The Amazon Redshift materialized view is defined as the following.
+
+```
+CREATE MATERIALIZED VIEW mv_sales
+                    BACKUP NO
+                    AUTO REFRESH YES
+                    AS
+                    SELECT "value"."payload"."L"[0]."S"::VARCHAR AS first_payload
+                    FROM public.sales;
+```
+
+To view the data in the materialized view run an SQL command.
+
+```
+SELECT first_payload FROM mv_sales;
+```

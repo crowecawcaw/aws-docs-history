@@ -68,7 +68,7 @@ The following examples show graphs that are displayed in the new Amazon Redshift
 
 - **Workload execution breakdown**
 
-![Vertical bar graph showing duration of query processing stages in increments of days.](/images/redshift/latest/mgmt/images/database-performance-workload-execution-breakdown.png)
+![Vertical bar graph showing duration of query processing stages in increments of days.](images/database-performance-workload-execution-breakdown.png)
 
 - **Queries by duration range**
 

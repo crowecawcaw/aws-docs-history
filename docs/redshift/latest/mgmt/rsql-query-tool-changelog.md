@@ -5,7 +5,16 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 # Amazon Redshift RSQL change log
 
-_1.1.1 (2025-11-20)_
+_1.1.2 (2025-11-20)_
+
+Bug Fixes
+
+- Fixed a bug that caused failures with \goto and \label commands.
+- Fixed a bug that prevented RSQL from printing variable values when variables were enclosed in quotes.
+- Fixed a bug that caused RSQL crashes when query results exceeded the ODBC DSN Fetch parameter size while UseDeclareFetch was enabled.
+- Fixed an issue where multiple pages of results are returned at once even though pager is turned on.
+- Fixed a bug that triggered RSQL crashes when queries failed within transaction blocks.
+  _1.1.1 (2025-11-20)_
 
 Bug Fixes
 
@@ -86,6 +95,9 @@ based on your operating system.
 
 **Linux 64-bit RPM**
 
+- [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.rhel.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.rhel.x86_64.rpm")
+- [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.rhel.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.rhel.x86_64.rpm")
+- [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.rpm")
 - [RSQL Version 1.0.7](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.rpm")
 - [RSQL Version 1.0.6](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.rpm")
 - [RSQL Version 1.0.5](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5-1.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5-1.x86_64.rpm")
@@ -93,8 +105,11 @@ based on your operating system.
 - [RSQL Version 1.0.3](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3-1.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3-1.x86_64.rpm")
 - [RSQL Version 1.0.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1-1.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1-1.x86_64.rpm")
 
-**Mac OS 64-bit DMG**
+**Mac OS 64-bit DMG/PKG**
 
+- [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.universal.pkg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.universal.pkg")
+- [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.universal.pkg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.universal.pkg")
+- [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.dmg")
 - [RSQL Version 1.0.7](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.dmg")
 - [RSQL Version 1.0.6](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.dmg")
 - [RSQL Version 1.0.5](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.dmg")
@@ -104,6 +119,9 @@ based on your operating system.
 
 **Windows 64-bit MSI**
 
+- [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.x86_64.msi")
+- [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.x86_64.msi")
+- [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.msi")
 - [RSQL Version 1.0.7](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.msi")
 - [RSQL Version 1.0.6](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.msi")
 - [RSQL Version 1.0.5](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.msi")

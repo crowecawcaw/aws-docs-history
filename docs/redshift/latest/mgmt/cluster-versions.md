@@ -61,6 +61,8 @@ and avoid potential disruptions to your workloads, see
 
 Cluster versions in this patch:
 
+- 1.0.176066 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on December 08, 2025
 - 1.0.166219 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
   version – Released on November 21, 2025
 
@@ -95,6 +97,8 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.171165 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on December 08, 2025
 - 1.0.163480 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
   version – Released on November 19, 2025
 - 1.0.160807 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
@@ -111,6 +115,7 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.172541 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on December 08, 2025
 - 1.0.162991 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 17, 2025
 - 1.0.160706 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 13, 2025
 - 1.0.151179 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 4, 2025
