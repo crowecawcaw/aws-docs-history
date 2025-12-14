@@ -9,7 +9,8 @@ information:
 
 - **AWS accounts:** The twelve-digit account identification number. All accounts that you want to onboard to Trusted Remediator must belong
   to the same Accelerate customer.
-  - **Delegated administrator account:** The account that is used for Trusted Advisor and Compute Optimizer check configuration for single or multiple accounts.
+  - **Delegated administrator account:** The account that is used for Trusted Advisor,
+    Compute Optimizer and Security Hub CSPM check configuration for single or multiple accounts.
   - **Member accounts:** These are the accounts linked to the delegated administrator account. These accounts inherit the configurations from the
     delegated administrator account. You can have one member account or multiple member accounts.
 
@@ -40,15 +41,19 @@ For more information, see [Configure Trusted Advisor check remediation in Truste
 
 ## Choose the checks and recommendations to remediate
 
-By default, remediation execution mode is **Inactive** for all Trusted Advisor checks and Compute Optimizer recommendations in your configuration. This prevents
-unauthorized remediation and protects resources. AMS provides curated SSM automation documents for Trusted Advisor check remediation.
+By default, remediation execution mode is **Inactive** for all
+Trusted Advisor checks, Compute Optimizer recommendations, and Security Hub CSPM recommendations in your configuration. This
+prevents unauthorized remediation and protects resources. AMS provides curated SSM
+automation documents for Trusted Advisor check remediation.
 
 To select the checks that you want to remediate with Trusted Remediator, complete the following steps:
 
-1. Review the list of supported [Trusted Advisor and Compute Optimizer recommendations or
-   and the name of the associated SSM automation documents](tr-supported-checks.md "tr-supported-checks.md") to decide which checks and recommendations you want to remediate with Trusted Remediator.
-2. Update your configuration to turn on remediation for your selected Trusted Advisor checks. For instructions on how to select checks, see
-   [Configure Trusted Advisor check remediation in Trusted Remediator](tr-configure-remediations.md "tr-configure-remediations.md").
+1. Review the list of supported [Trusted Advisor](tr-supported-checks.md "tr-supported-checks.md"), [Compute Optimizer recommendations](tr-supported-recommendations-co.md "tr-supported-recommendations-co.md"), [Security Hub CSPM recommendations](tr-supported-sec-hub-recommendations.md "tr-supported-sec-hub-recommendations.md"), and the
+   name of the associated SSM automation documents to decide which checks and
+   recommendations you want to remediate with Trusted Remediator.
+2. Update your configuration to turn on remediation for your selected Trusted Advisor checks, Compute Optimizer
+   recommendations, and Security Hub CSPM recommendations. For instructions on how to select checks,
+   see [Configure Trusted Advisor check remediation in Trusted Remediator](tr-configure-remediations.md "tr-configure-remediations.md").
 
 ## Track your remediations in Trusted Remediator
 
@@ -59,5 +64,7 @@ your remediation schedule. For instructions on how to view all remediation OpsIt
 
 ## Run manual remediations in Trusted Remediator
 
-You can manually remediate Trusted Advisor checks. When you initiate a manual remediation, Trusted Remediator creates a manual execution OpsItem. You must review and
-initiate the SSM automation document to remediate the OpsItems. For more information, see [Run manual remediations in Trusted Remediator](tr-remediation.md#tr-remediation-run "tr-remediation.md#tr-remediation-run").
+You can manually remediate Trusted Advisor checks as well as recommendations
+from Compute Optimizer and Security Hub CSPM. When you initiate a manual remediation, Trusted Remediator creates a manual
+execution OpsItem. You must review and initiate the SSM automation document to remediate
+the OpsItems. For more information, see [Run manual remediations in Trusted Remediator](tr-remediation.md#tr-remediation-run "tr-remediation.md#tr-remediation-run").
