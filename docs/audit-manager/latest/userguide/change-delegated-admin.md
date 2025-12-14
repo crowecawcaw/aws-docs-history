@@ -67,8 +67,8 @@ following considerations:
 
 - The new account must be part of an organization.
 - Before you designate a new delegated administrator, you must [enable all features in your organization](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md"). You must also
-  [configure your organization's Security Hub settings](setup-recommendations.md#securityhub-recommendations "setup-recommendations.md#securityhub-recommendations"). This way,
-  Audit Manager can collect Security Hub evidence from your member accounts.
+  [configure your organization's Security Hub CSPM settings](setup-recommendations.md#securityhub-recommendations "setup-recommendations.md#securityhub-recommendations"). This way,
+  Audit Manager can collect Security Hub CSPM evidence from your member accounts.
 - The delegated administrator account must have access on the KMS key
   that you provided when setting up Audit Manager.
 - You can't use your AWS Organizations management account as a delegated

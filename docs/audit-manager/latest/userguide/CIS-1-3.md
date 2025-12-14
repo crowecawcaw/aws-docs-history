@@ -95,8 +95,8 @@ The framework details are as follows:
 
 ###### Important
 
-To ensure that these frameworks collect the intended evidence from AWS Security Hub, make
-sure that you enabled all standards in Security Hub.
+To ensure that these frameworks collect the intended evidence from AWS Security Hub CSPM, make
+sure that you enabled all standards in Security Hub CSPM.
 
 To ensure that these frameworks collect the intended evidence from AWS Config, make sure
 that you enable the necessary AWS Config rules. To review a list of the AWS Config rules that

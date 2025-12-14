@@ -15,16 +15,16 @@ Make sure your IAM identity has appropriate permissions to create a custom contr
 in AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to
 AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
 
-To successfully collect evidence from AWS Config and Security Hub, make sure that you do the
+To successfully collect evidence from AWS Config and Security Hub CSPM, make sure that you do the
 following:
 
 - [Enable AWS Config](../../../config/latest/developerguide/getting-started.md "../../../config/latest/developerguide/getting-started.md"), then
   apply the [required settings for using AWS Config with Audit Manager](setup-recommendations.md#setup-recommendations-services "setup-recommendations.md#setup-recommendations-services")
 - [Enable
-  Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md"), then apply the [required settings for using Security Hub with Audit Manager](setup-recommendations.md#set-up-securityhub "setup-recommendations.md#set-up-securityhub")
+  Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md"), then apply the [required settings for using Security Hub CSPM with Audit Manager](setup-recommendations.md#set-up-securityhub "setup-recommendations.md#set-up-securityhub")
 
 Audit Manager can then collect evidence each time an evaluation occurs for a given AWS Config
-rule or Security Hub control.
+rule or Security Hub CSPM control.
 
 ## Procedure
 
@@ -149,7 +149,7 @@ this step.
      identifier.
    - Choose **AWS Config custom rule**, then choose a rule
      identifier.
-   - Choose **AWS Security Hub control**, then choose a Security Hub
+   - Choose **AWS Security Hub CSPM control**, then choose a Security Hub CSPM
      control.
    - Choose **Manual data source**, then choose an
      option:

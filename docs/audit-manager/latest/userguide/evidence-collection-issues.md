@@ -10,7 +10,7 @@ collection issues in Audit Manager.
 - [I created an
   assessment but I can’t see any evidence yet](#no-evidence-yet "#no-evidence-yet")
 - [My assessment isn’t collecting compliance check evidence
-  from AWS Security Hub](#no-evidence-from-security-hub "#no-evidence-from-security-hub")
+  from AWS Security Hub CSPM](#no-evidence-from-security-hub "#no-evidence-from-security-hub")
 - [My
   assessment isn’t collecting compliance check evidence from AWS Config](#no-evidence-from-config "#no-evidence-from-config")
 - [My assessment isn’t collecting user activity evidence from
@@ -55,8 +55,8 @@ We recommend that you check the following:
 2. Make sure that you’re using Audit Manager in the same AWS Region as the
    AWS service that you’re expecting to see evidence for.
 3. If you expect to see compliance check evidence from AWS Config and
-   AWS Security Hub, make sure that both the AWS Config and Security Hub consoles display results
-   for these checks. The AWS Config and Security Hub results should display in the same
+   AWS Security Hub CSPM, make sure that both the AWS Config and Security Hub CSPM consoles display results
+   for these checks. The AWS Config and Security Hub CSPM results should display in the same
    AWS Region that you use Audit Manager in.
 
 If you still can't see evidence in your assessment and it's not due to one of
@@ -64,27 +64,27 @@ these issues, check the other potential causes that are described on this page.
 
 ## My assessment isn’t collecting compliance check evidence
 
-from AWS Security Hub
+from AWS Security Hub CSPM
 
-If you don't see compliance check evidence for an AWS Security Hub control, this could be
+If you don't see compliance check evidence for an AWS Security Hub CSPM control, this could be
 due to one of the following issues.
 
-**Missing configuration in AWS Security Hub**
+**Missing configuration in AWS Security Hub CSPM**
 
 This issue can be caused if you missed some configuration steps when
-you enabled AWS Security Hub.
+you enabled AWS Security Hub CSPM.
 
-To fix this issue, make sure that you enabled Security Hub with the required
-settings for Audit Manager. For instructions, see [Enable and set up AWS Security Hub](setup-recommendations.md#securityhub-recommendations "setup-recommendations.md#securityhub-recommendations").
+To fix this issue, make sure that you enabled Security Hub CSPM with the required
+settings for Audit Manager. For instructions, see [Enable and set up AWS Security Hub CSPM](setup-recommendations.md#securityhub-recommendations "setup-recommendations.md#securityhub-recommendations").
 
-**A Security Hub control name was entered incorrectly in your
+**A Security Hub CSPM control name was entered incorrectly in your
 `ControlMappingSource`**
 
 When you use the Audit Manager API to create a custom control, you can specify
-a Security Hub control as a [data source mapping](../APIReference/API_ControlMappingSource.md "../APIReference/API_ControlMappingSource.md") for evidence collection. To do this,
+a Security Hub CSPM control as a [data source mapping](../APIReference/API_ControlMappingSource.md "../APIReference/API_ControlMappingSource.md") for evidence collection. To do this,
 you enter a control ID as the [`keywordValue`](../APIReference/API_SourceKeyword.md#auditmanager-Type-SourceKeyword-keywordValue "../APIReference/API_SourceKeyword.md#auditmanager-Type-SourceKeyword-keywordValue").
 
-If you don't see compliance check evidence for a Security Hub control, it
+If you don't see compliance check evidence for a Security Hub CSPM control, it
 could be that the `keywordValue` was entered incorrectly in
 your `ControlMappingSource`. The `keywordValue` is
 case sensitive. If you enter it incorrectly, Audit Manager might not recognize
@@ -92,8 +92,8 @@ that rule. As a result, you might not collect compliance check evidence
 for that control as expected.
 
 To fix this issue, [update the custom control](../APIReference/API_UpdateControl.md "../APIReference/API_UpdateControl.md") and revise the
-`keywordValue`. The correct format of a Security Hub keyword
-varies. For accuracy, reference the list of [Supported Security Hub
+`keywordValue`. The correct format of a Security Hub CSPM keyword
+varies. For accuracy, reference the list of [Supported Security Hub CSPM
 controls](control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources "control-data-sources-ash.md#security-hub-controls-for-custom-control-data-sources") .
 
 **`AuditManagerSecurityHubFindingsReceiver`
@@ -102,10 +102,10 @@ Amazon EventBridge rule is missing**
 When you enable Audit Manager, a rule named
 `AuditManagerSecurityHubFindingsReceiver` is
 automatically created and enabled in Amazon EventBridge. This rule enables Audit Manager to
-collect Security Hub findings as evidence.
+collect Security Hub CSPM findings as evidence.
 
 If this rule isn't listed and enabled in the AWS Region where you
-use Security Hub, Audit Manager can't collect Security Hub findings for that Region.
+use Security Hub CSPM, Audit Manager can't collect Security Hub CSPM findings for that Region.
 
 To resolve this issue, go to the [EventBridge console](https://console.aws.amazon.com/events "https://console.aws.amazon.com/events") and confirm that the
 `AuditManagerSecurityHubFindingsReceiver` rule exists in
@@ -116,11 +116,11 @@ resolve the issue, or if disabling Audit Manager isn’t an option, [contact Sup
 assistance.
 
 **Service-linked AWS Config rules created by
-Security Hub**
+Security Hub CSPM**
 
 Keep in mind that Audit Manager doesn’t collect evidence from the [service-linked AWS Config rules that
-Security Hub](../../../securityhub/latest/userguide/securityhub-standards-awsconfigrules.md "../../../securityhub/latest/userguide/securityhub-standards-awsconfigrules.md") creates. This is a specific type of managed AWS Config rule
-that's enabled and controlled by the Security Hub service. Security Hub creates
+Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-standards-awsconfigrules.md "../../../securityhub/latest/userguide/securityhub-standards-awsconfigrules.md") creates. This is a specific type of managed AWS Config rule
+that's enabled and controlled by the Security Hub CSPM service. Security Hub CSPM creates
 instances of these service-linked rules in your AWS environment, even
 if other instances of the same rules already exist. As a result, to
 prevent evidence duplication, Audit Manager doesn’t support evidence collection
@@ -128,34 +128,34 @@ from the service-linked rules.
 
 ## I disabled a security
 
-control in Security Hub. Does Audit Manager collect compliance check evidence for that security
+control in Security Hub CSPM. Does Audit Manager collect compliance check evidence for that security
 control?
 
 Audit Manager doesn't collect evidence for disabled security controls.
 
-If you set the status of a security control to [disabled](../../../securityhub/latest/userguide/controls-overall-status.md#controls-overall-status-values "../../../securityhub/latest/userguide/controls-overall-status.md#controls-overall-status-values") in Security Hub, no security checks are performed for that control in
+If you set the status of a security control to [disabled](../../../securityhub/latest/userguide/controls-overall-status.md#controls-overall-status-values "../../../securityhub/latest/userguide/controls-overall-status.md#controls-overall-status-values") in Security Hub CSPM, no security checks are performed for that control in
 the current account and Region. As a result, no security findings are available in
-Security Hub, and no related evidence is collected by Audit Manager.
+Security Hub CSPM, and no related evidence is collected by Audit Manager.
 
-By respecting the disabled status that you set in Security Hub, Audit Manager ensures that your
+By respecting the disabled status that you set in Security Hub CSPM, Audit Manager ensures that your
 assessment accurately reflects the active security controls and findings that are
 relevant to your environment, excluding any controls that you intentionally
 disabled.
 
 ## I set the status of
 
-a finding to `Suppressed` in Security Hub. Does Audit Manager collect compliance
+a finding to `Suppressed` in Security Hub CSPM. Does Audit Manager collect compliance
 check evidence about that finding?
 
 Audit Manager collects evidence for security controls that have suppressed findings.
 
-If you set the workflow status of a finding to [suppressed](../../../securityhub/latest/userguide/finding-workflow-status.md "../../../securityhub/latest/userguide/finding-workflow-status.md") in Security Hub, this means that you reviewed the finding and do not believe that
+If you set the workflow status of a finding to [suppressed](../../../securityhub/latest/userguide/finding-workflow-status.md "../../../securityhub/latest/userguide/finding-workflow-status.md") in Security Hub CSPM, this means that you reviewed the finding and do not believe that
 any action is needed. In Audit Manager, these suppressed findings are collected as evidence
 and attached to your assessment. The evidence details show the evaluation status of
-`SUPPRESSED` reported directly from Security Hub.
+`SUPPRESSED` reported directly from Security Hub CSPM.
 
 This approach ensures that your Audit Manager assessment accurately represents the findings
-from Security Hub, while also providing visibility into any suppressed findings that may
+from Security Hub CSPM, while also providing visibility into any suppressed findings that may
 require further review or consideration in an audit.
 
 ## My
@@ -224,9 +224,9 @@ The reason that Audit Manager doesn't collect evidence from most service-linked
 AWS Config rules is to prevent duplicate evidence in your assessments. A
 service-linked rule is a specific type of managed rule that enables
 other AWS services to create AWS Config rules in your account. For
-example, [some Security Hub controls use an AWS Config service-linked rule to run
-security checks](../../../securityhub/latest/userguide/securityhub-standards-awsconfigrules.md "../../../securityhub/latest/userguide/securityhub-standards-awsconfigrules.md"). For each Security Hub control that uses a
-service-linked AWS Config rule, Security Hub creates an instance of the required
+example, [some Security Hub CSPM controls use an AWS Config service-linked rule to run
+security checks](../../../securityhub/latest/userguide/securityhub-standards-awsconfigrules.md "../../../securityhub/latest/userguide/securityhub-standards-awsconfigrules.md"). For each Security Hub CSPM control that uses a
+service-linked AWS Config rule, Security Hub CSPM creates an instance of the required
 AWS Config rule in your AWS environment. This happens even if the
 original rule already exists in your account. Therefore, to avoid
 collecting the same evidence from the same rule twice, Audit Manager ignores the
@@ -362,12 +362,12 @@ without a compliance determination.
 The following is a summary of the different data source types and how often they
 collect evidence.
 
-| Data source type | Description                                                                                                   | Evidence collection frequency                                                        | When this control is active in an assessment                                                                                                               |
-| ---------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS CloudTrail   | Tracks a specific user activity.                                                                              | Continual                                                                            | Audit Manager filters your CloudTrail logs based on the keyword that you<br>choose. The processed logs are imported as \*_User<br>activity_<br>• evidence. |
-| AWS Security Hub | Captures a snapshot of your resource security posture by<br>reporting findings from Security Hub.             | Based on the schedule of the Security Hub check (typically around every<br>12 hours) | Audit Manager retrieves the security finding directly from Security Hub. The<br>finding is imported as \*_Compliance<br>check_<br>• evidence.              |
-| AWS Config       | Captures a snapshot of your resource security posture by<br>reporting findings from AWS Config.               | Based on the settings that are defined in the AWS Config rule                        | Audit Manager retrieves the rule evaluation directly from AWS Config. The<br>evaluation is imported as **Compliance check**<br>evidence.                   |
-| AWS API calls    | Takes a snapshot of your resource configuration directly<br>through an API call to the specified AWS service. | Daily, weekly, or monthly                                                            | Audit Manager makes the API call based on the frequency that you specify.<br>The response is imported as **Configuration data**<br>evidence.               |
+| Data source type      | Description                                                                                                   | Evidence collection frequency                                                             | When this control is active in an assessment                                                                                                               |
+| --------------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS CloudTrail        | Tracks a specific user activity.                                                                              | Continual                                                                                 | Audit Manager filters your CloudTrail logs based on the keyword that you<br>choose. The processed logs are imported as \*_User<br>activity_<br>• evidence. |
+| AWS Security Hub CSPM | Captures a snapshot of your resource security posture by<br>reporting findings from Security Hub CSPM.        | Based on the schedule of the Security Hub CSPM check (typically around every<br>12 hours) | Audit Manager retrieves the security finding directly from Security Hub CSPM. The<br>finding is imported as \*_Compliance<br>check_<br>• evidence.         |
+| AWS Config            | Captures a snapshot of your resource security posture by<br>reporting findings from AWS Config.               | Based on the settings that are defined in the AWS Config rule                             | Audit Manager retrieves the rule evaluation directly from AWS Config. The<br>evaluation is imported as **Compliance check**<br>evidence.                   |
+| AWS API calls         | Takes a snapshot of your resource configuration directly<br>through an API call to the specified AWS service. | Daily, weekly, or monthly                                                                 | Audit Manager makes the API call based on the frequency that you specify.<br>The response is imported as **Configuration data**<br>evidence.               |
 
 Regardless of the evidence collection frequency, new evidence is collected
 automatically for as long as the assessment is active. For more information, see
@@ -535,8 +535,8 @@ type](control-data-sources.md "control-data-sources.md") indicates where exactly
 upload your own evidence, the data source type is _Manual_. If Audit Manager collects the evidence, the data source can be one of
 four types.
 
-1. AWS Security Hub – Captures a snapshot of your resource security posture
-   by reporting findings from Security Hub.
+1. AWS Security Hub CSPM – Captures a snapshot of your resource security posture
+   by reporting findings from Security Hub CSPM.
 2. AWS Config – Captures a snapshot of your resource security posture by
    reporting findings from AWS Config.
 3. AWS CloudTrail – Tracks a specific user activity for a resource.

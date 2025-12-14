@@ -52,9 +52,9 @@ apply to all of the widgets on your dashboard.
 
 The dashboard highlights the controls in your assessments that have [compliance
 check evidence](concepts.md#evidence "concepts.md#evidence") with a _non-compliant_ conclusion.
-Compliance check evidence relates to controls that use AWS Config or AWS Security Hub as a data source type.
+Compliance check evidence relates to controls that use AWS Config or AWS Security Hub CSPM as a data source type.
 For this evidence type, Audit Manager reports the result of a compliance check directly from those
-services. If Security Hub reports a _Fail_ result, or if AWS Config
+services. If Security Hub CSPM reports a _Fail_ result, or if AWS Config
 reports a _Non-compliant_ result, Audit Manager classes the evidence
 as non-compliant.
 
@@ -62,7 +62,7 @@ as non-compliant.
 
 Evidence is _inconclusive_ if a compliance check isn’t
 available or applicable. As a result, no compliance evaluation can be made. This is the case
-if a control uses AWS Config or AWS Security Hub as a data source type but you didn’t enable those
+if a control uses AWS Config or AWS Security Hub CSPM as a data source type but you didn’t enable those
 services. This is also the case if the control uses a data source type that doesn't support
 compliance checks, such as manual evidence, AWS API calls, or AWS CloudTrail. In the console,
 evidence with a compliance check status of _not applicable_ is classified
@@ -78,7 +78,7 @@ evaluate the evidence for compliance.
 **Compliant evidence**
 
 Evidence is _compliant_ if a compliance check reported
-no issues. This is the case if Security Hub reports a _Pass_ result,
+no issues. This is the case if Security Hub CSPM reports a _Pass_ result,
 or AWS Config reports a _Compliant_ result.
 
 **Control domains**

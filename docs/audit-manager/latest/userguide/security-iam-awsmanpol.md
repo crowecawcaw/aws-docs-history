@@ -65,8 +65,8 @@ This policy includes the following permissions:
   Amazon SNS. This is required so that you can specify which SNS topic you want
   AWS Audit Manager to send notifications to.
 - `events` – Allows principals to list and manage checks
-  from AWS Security Hub. This is required so that AWS Audit Manager can automatically collect
-  AWS Security Hub findings for the AWS services that are monitored by AWS Security Hub.
+  from AWS Security Hub CSPM. This is required so that AWS Audit Manager can automatically collect
+  AWS Security Hub CSPM findings for the AWS services that are monitored by AWS Security Hub CSPM.
   It can then convert this data into evidence to be included in your AWS Audit Manager
   assessments.
 - `tag` – Allows principals to retrieve tagged resources.
@@ -100,7 +100,7 @@ AWS Audit Manager to collect automated evidence by doing the following on your b
 - Collect data from the following data sources:
   - Management events from AWS CloudTrail
   - Compliance checks from AWS Config Rules
-  - Compliance checks from AWS Security Hub
+  - Compliance checks from AWS Security Hub CSPM
 
 - Use API calls to describe your resource configurations for the following
   AWS services.
@@ -150,7 +150,7 @@ guide.
     + Amazon S3
     + Amazon SageMaker AI
     + AWS Secrets Manager
-    + AWS Security Hub
+    + AWS Security Hub CSPM
     + Amazon Simple Notification Service
     + Amazon Simple Queue Service
     + AWS WAF

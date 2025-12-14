@@ -29,7 +29,7 @@ organization’s security posture.
 
 The controls include best practices from across multiple AWS services. Each control
 is assigned a category that reflects the security function that it applies to. For more
-information, see [Control categories](../../../securityhub/latest/userguide/control-categories.md "../../../securityhub/latest/userguide/control-categories.md") in the _AWS Security Hub
+information, see [Control categories](../../../securityhub/latest/userguide/control-categories.md "../../../securityhub/latest/userguide/control-categories.md") in the _AWS Security Hub CSPM
 User Guide_.
 
 ## Using this
@@ -63,8 +63,8 @@ follows:
 
 ###### Important
 
-To ensure that this framework collects the intended evidence from AWS Security Hub, make sure
-that you enabled all standards in Security Hub.
+To ensure that this framework collects the intended evidence from AWS Security Hub CSPM, make sure
+that you enabled all standards in Security Hub CSPM.
 
 The controls in this AWS Audit Manager framework aren't intended to verify if your systems are
 compliant with AWS Foundational Security Best Practices. Moreover, they can't guarantee
@@ -86,5 +86,5 @@ existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.
 resources
 
 - [AWS Foundational Security Best Practices standard](../../../securityhub/latest/userguide/securityhub-standards-fsbp.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp.md") in
-  the _AWS Security Hub User Guide_
-- [Control categories](../../../securityhub/latest/userguide/control-categories.md "../../../securityhub/latest/userguide/control-categories.md") in the _AWS Security Hub User Guide_
+  the _AWS Security Hub CSPM User Guide_
+- [Control categories](../../../securityhub/latest/userguide/control-categories.md "../../../securityhub/latest/userguide/control-categories.md") in the _AWS Security Hub CSPM User Guide_

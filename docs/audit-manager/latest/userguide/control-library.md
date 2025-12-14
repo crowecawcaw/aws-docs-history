@@ -51,7 +51,7 @@ To create and manage controls in Audit Manager, follow the procedures that are o
 - [Supported data source types for automated
   evidence](control-data-sources.md "control-data-sources.md")
   - [AWS Config Rules supported by AWS Audit Manager](control-data-sources-config.md "control-data-sources-config.md")
-  - [AWS Security Hub controls supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md")
+  - [AWS Security Hub CSPM controls supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md")
   - [AWS API calls supported by AWS Audit Manager](control-data-sources-api.md "control-data-sources-api.md")
   - [AWS CloudTrail event names supported by
     AWS Audit Manager](control-data-sources-cloudtrail.md "control-data-sources-cloudtrail.md")

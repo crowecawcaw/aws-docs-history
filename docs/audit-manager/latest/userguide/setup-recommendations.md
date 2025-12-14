@@ -17,7 +17,7 @@ features and enable the following AWS services.
 - [Set up recommended integrations
   with other AWS services](#setup-recommendations-services "#setup-recommendations-services")
   - [Enable and set up AWS Config](#config-recommendations "#config-recommendations")
-  - [Enable and set up AWS Security Hub](#securityhub-recommendations "#securityhub-recommendations")
+  - [Enable and set up AWS Security Hub CSPM](#securityhub-recommendations "#securityhub-recommendations")
   - [Enable and set up AWS Organizations](#enabling-orgs "#enabling-orgs")
 
 ## Set up recommended Audit Manager
@@ -50,15 +50,15 @@ following AWS services:
 - **AWS Organizations** – You can use Organizations to run
   Audit Manager assessments over multiple accounts and consolidate evidence into a
   delegated administrator account.
-- **AWS Security Hub** and **AWS Config** – Audit Manager relies on these AWS services as
-  data sources for evidence collection. When you enable AWS Config and Security Hub,
+- **AWS Security Hub CSPM** and **AWS Config** – Audit Manager relies on these AWS services as
+  data sources for evidence collection. When you enable AWS Config and Security Hub CSPM,
   Audit Manager can operate with its full functionality, collecting comprehensive
   evidence and accurately reporting the results of compliance checks directly
   from these services.
 
 ###### Important
 
-If you don’t enable and configure AWS Config and Security Hub, you won’t be able to
+If you don’t enable and configure AWS Config and Security Hub CSPM, you won’t be able to
 collect the intended evidence for many controls in your Audit Manager assessments. As a
 result, you risk incomplete or failed evidence collection for certain controls.
 More specifically:
@@ -66,11 +66,11 @@ More specifically:
 - If Audit Manager attempts to use AWS Config as a control data source, but the
   required AWS Config rules aren’t enabled, no evidence will be collected for
   those controls.
-- Similarly, if Audit Manager attempts to use Security Hub as a control data source, but
-  the required standards aren’t enabled in Security Hub, no evidence will be
+- Similarly, if Audit Manager attempts to use Security Hub CSPM as a control data source, but
+  the required standards aren’t enabled in Security Hub CSPM, no evidence will be
   collected for those controls.
   To mitigate these risks and ensure comprehensive evidence collection, follow
-  the steps on this page to enable and configure AWS Config and Security Hub before you create
+  the steps on this page to enable and configure AWS Config and Security Hub CSPM before you create
   your Audit Manager assessments.
 
 Many controls in Audit Manager require AWS Config as a data source type. To support these
@@ -129,44 +129,44 @@ You can find the default parameter details for each managed rule in the
 documentation](../../../config/latest/developerguide/managed-rules-by-aws-config.md "../../../config/latest/developerguide/managed-rules-by-aws-config.md"). For instructions on how to configure a rule, see
 [Working with AWS Config Managed Rules](../../../config/latest/developerguide/managing-aws-managed-rules.md "../../../config/latest/developerguide/managing-aws-managed-rules.md").
 
-Many controls in Audit Manager require Security Hub as a data source type. To support
-these controls, you must enable Security Hub on all accounts in each Region where
+Many controls in Audit Manager require Security Hub CSPM as a data source type. To support
+these controls, you must enable Security Hub CSPM on all accounts in each Region where
 Audit Manager is enabled.
 
-Audit Manager doesn’t manage Security Hub for you. You can follow these steps to enable Security Hub
+Audit Manager doesn’t manage Security Hub CSPM for you. You can follow these steps to enable Security Hub CSPM
 and configure its settings.
 
 ###### Important
 
-Enabling Security Hub is an optional recommendation. However, if you do
-enable Security Hub, the following settings are required. If Audit Manager tries to
-collect evidence for controls that use Security Hub as a data source type, and
-Security Hub is not set up as described below, no evidence is collected for
+Enabling Security Hub CSPM is an optional recommendation. However, if you do
+enable Security Hub CSPM, the following settings are required. If Audit Manager tries to
+collect evidence for controls that use Security Hub CSPM as a data source type, and
+Security Hub CSPM is not set up as described below, no evidence is collected for
 those controls.
 
-**Tasks to integrate AWS Security Hub with Audit Manager**
+**Tasks to integrate AWS Security Hub CSPM with Audit Manager**
 
-- [Step 1: Enable AWS Security Hub](#enabling-securityhub "#enabling-securityhub")
-- [Step 2: Configure your Security Hub settings
+- [Step 1: Enable AWS Security Hub CSPM](#enabling-securityhub "#enabling-securityhub")
+- [Step 2: Configure your Security Hub CSPM settings
   for use with Audit Manager](#set-up-securityhub "#set-up-securityhub")
 - [Step 3: Configure the Organizations settings
   for your organization](#set-up-securityhub-orgs "#set-up-securityhub-orgs")
 
-#### Step 1: Enable AWS Security Hub
+#### Step 1: Enable AWS Security Hub CSPM
 
-You can enable Security Hub using either the console or the API. For
+You can enable Security Hub CSPM using either the console or the API. For
 instructions, see [Setting up
-AWS Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User
+AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User
 Guide_.
 
-#### Step 2: Configure your Security Hub settings
+#### Step 2: Configure your Security Hub CSPM settings
 
 for use with Audit Manager
 
-After you enable Security Hub, make sure that you also do the following:
+After you enable Security Hub CSPM, make sure that you also do the following:
 
 - [Enable AWS Config and configure resource recording](../../../securityhub/latest/userguide/securityhub-prereq-config.md "../../../securityhub/latest/userguide/securityhub-prereq-config.md")
-  – Security Hub uses service-linked AWS Config rules to perform most of its
+  – Security Hub CSPM uses service-linked AWS Config rules to perform most of its
   security checks for controls. To support these controls, AWS Config must
   be enabled and configured to record resources that are required for
   the controls that you have enabled in each enabled standard.
@@ -174,20 +174,20 @@ After you enable Security Hub, make sure that you also do the following:
   ensures that Audit Manager can import findings for all supported compliance
   standards.
 - [Turn on the consolidated control findings setting in
-  Security Hub](../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings "../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings") - This setting is turned _on_ by default if you enable Security Hub on or after
+  Security Hub CSPM](../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings "../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings") - This setting is turned _on_ by default if you enable Security Hub CSPM on or after
   February 23, 2023.
 
 ###### Note
 
-When you enable consolidated findings, Security Hub produces a single
+When you enable consolidated findings, Security Hub CSPM produces a single
 finding for each security check (even when the same check is
-used across multiple standards). Each Security Hub finding is collected
+used across multiple standards). Each Security Hub CSPM finding is collected
 as one unique resource assessment in Audit Manager. As a result,
 consolidated findings results in a decrease of the total unique
-resource assessments that Audit Manager performs for Security Hub findings. For
+resource assessments that Audit Manager performs for Security Hub CSPM findings. For
 this reason, using consolidated findings can often result in a
 reduction in your Audit Manager usages costs. For more information about
-using Security Hub as a data source type, see [AWS Security Hub controls supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md"). For more
+using Security Hub CSPM as a data source type, see [AWS Security Hub CSPM controls supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md"). For more
 information about Audit Manager pricing, see [AWS Audit Manager
 Pricing](https://aws.amazon.com/audit-manager/pricing/ "https://aws.amazon.com/audit-manager/pricing/").
 
@@ -195,31 +195,31 @@ Pricing](https://aws.amazon.com/audit-manager/pricing/ "https://aws.amazon.com/a
 
 for your organization
 
-If you use AWS Organizations and you want to collect Security Hub evidence from your
-member accounts, you must also perform the following steps in Security Hub.
+If you use AWS Organizations and you want to collect Security Hub CSPM evidence from your
+member accounts, you must also perform the following steps in Security Hub CSPM.
 
-###### To set up your organization's Security Hub settings
+###### To set up your organization's Security Hub CSPM settings
 
-1. Sign in to the AWS Management Console and open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
+1. Sign in to the AWS Management Console and open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. Using your AWS Organizations management account, designate an account as
-   the delegated administrator for Security Hub. For more information, see
-   [Designating a Security Hub administrator account](../../../securityhub/latest/userguide/designate-orgs-admin-account.md#designate-admin-console "../../../securityhub/latest/userguide/designate-orgs-admin-account.md#designate-admin-console") in the
-   _AWS Security Hub User Guide_.
+   the delegated administrator for Security Hub CSPM. For more information, see
+   [Designating a Security Hub CSPM administrator account](../../../securityhub/latest/userguide/designate-orgs-admin-account.md#designate-admin-console "../../../securityhub/latest/userguide/designate-orgs-admin-account.md#designate-admin-console") in the
+   _AWS Security Hub CSPM User Guide_.
 
 ###### Note
 
 Make sure that the delegated administrator account that you
-designate in Security Hub is the same one that you use in Audit Manager. 3. Using your Organizations delegated administrator account, go to
+designate in Security Hub CSPM is the same one that you use in Audit Manager. 3. Using your Organizations delegated administrator account, go to
 **Settings, Accounts**, select all accounts,
 and then add them as members by selecting
 **Auto-enroll**. For more information, see
 [Enabling member accounts from your organization](../../../securityhub/latest/userguide/orgs-accounts-enable.md "../../../securityhub/latest/userguide/orgs-accounts-enable.md") in the
-_AWS Security Hub User Guide_. 4. Enable AWS Config for every member account of the organization. For
+_AWS Security Hub CSPM User Guide_. 4. Enable AWS Config for every member account of the organization. For
 more information, see [Enabling member accounts from your organization](../../../securityhub/latest/userguide/orgs-accounts-enable.md "../../../securityhub/latest/userguide/orgs-accounts-enable.md") in the
-_AWS Security Hub User Guide_. 5. Enable the PCI DSS security standard for every member account of
+_AWS Security Hub CSPM User Guide_. 5. Enable the PCI DSS security standard for every member account of
 the organization. The AWS CIS Foundations Benchmark standard and
 the AWS Foundational Best Practices standard are already enabled
-by default. For more information, see [Enabling a security standard](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md#securityhub-standard-enable-console "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md#securityhub-standard-enable-console") in the _AWS Security Hub User Guide_.
+by default. For more information, see [Enabling a security standard](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md#securityhub-standard-enable-console "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md#securityhub-standard-enable-console") in the _AWS Security Hub CSPM User Guide_.
 
 Audit Manager supports multiple accounts via integration with AWS Organizations. Audit Manager can
 run assessments over multiple accounts and consolidate evidence into a

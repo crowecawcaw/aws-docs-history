@@ -1,8 +1,8 @@
-# Create an Audit Manager custom framework that contains Security Hub controls using an AWS SDK
+# Create an Audit Manager custom framework that contains Security Hub CSPM controls using an AWS SDK
 
 The following code example shows how to:
 
-- Get a list of all standard controls that have Security Hub as their data source.
+- Get a list of all standard controls that have Security Hub CSPM as their data source.
 - Create an Audit Manager custom framework that contains the controls.
 
 Python

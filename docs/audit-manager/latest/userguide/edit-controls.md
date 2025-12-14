@@ -119,7 +119,7 @@ step.
         identifier.
       - Choose **AWS Config custom rule**, then choose a rule
         identifier.
-      - Choose **AWS Security Hub control**, then choose a Security Hub
+      - Choose **AWS Security Hub CSPM control**, then choose a Security Hub CSPM
         control.
       - Choose **Manual data source**, then choose an
         option:

@@ -50,12 +50,12 @@ optional**, we recommend that you enable AWS Config for an
 optimal experience. This enables Audit Manager to generate evidence using
 AWS Config rules. For instructions and recommended settings, see [Enable and set up AWS Config](setup-recommendations.md#config-recommendations "setup-recommendations.md#config-recommendations").
 
-![Screenshot of the AWS Config section of the Audit Manager setup options.](images/setup-config-console.png) 8. (Optional) Under **Security Hub – optional**, we recommend
-that you enable Security Hub for an optimal experience. This enables Audit Manager to
-generate evidence using Security Hub checks. For instructions and recommended
-settings, see [Enable and set up AWS Security Hub](setup-recommendations.md#securityhub-recommendations "setup-recommendations.md#securityhub-recommendations").
+![Screenshot of the AWS Config section of the Audit Manager setup options.](images/setup-config-console.png) 8. (Optional) Under **Security Hub CSPM – optional**, we recommend
+that you enable Security Hub CSPM for an optimal experience. This enables Audit Manager to
+generate evidence using Security Hub CSPM checks. For instructions and recommended
+settings, see [Enable and set up AWS Security Hub CSPM](setup-recommendations.md#securityhub-recommendations "setup-recommendations.md#securityhub-recommendations").
 
-![Screenshot of the Security Hub section of the Audit Manager setup options.](images/setup-securityhub-console.png) 9. Choose **Complete setup** to finish the setup
+![Screenshot of the Security Hub CSPM section of the Audit Manager setup options.](images/setup-securityhub-console.png) 9. Choose **Complete setup** to finish the setup
 process.
 
 ![Screenshot that shows how to complete Audit Manager setup in the console.](images/setup-complete-console.png)

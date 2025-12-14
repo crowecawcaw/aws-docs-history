@@ -7,7 +7,7 @@ In Audit Manager, controls can automatically collect evidence from four data sou
 
 1. **AWS CloudTrail** – Capture user activity from your
    CloudTrail logs and import it as user activity evidence
-2. **AWS Security Hub** – Collect findings from Security Hub and
+2. **AWS Security Hub CSPM** – Collect findings from Security Hub CSPM and
    import them as compliance check evidence
 3. **AWS Config** – Collect rule evaluations from
    AWS Config and import them as compliance check evidence
@@ -26,12 +26,12 @@ the data source, and the next steps that you can take to demonstrate compliance.
 
 ###### Tip
 
-We recommend that you enable AWS Config and Security Hub for an optimal experience in Audit Manager. When
-you enable these services, Audit Manager can use Security Hub findings and AWS Config Rules to generate automated
+We recommend that you enable AWS Config and Security Hub CSPM for an optimal experience in Audit Manager. When
+you enable these services, Audit Manager can use Security Hub CSPM findings and AWS Config Rules to generate automated
 evidence.
 
 - After you [enable
-  AWS Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md"), make sure that you also [enable all security standards](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md#securityhub-standard-enable-console "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md#securityhub-standard-enable-console") and [turn on the consolidated control findings setting](../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings "../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings"). This step ensures that
+  AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md"), make sure that you also [enable all security standards](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md#securityhub-standard-enable-console "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md#securityhub-standard-enable-console") and [turn on the consolidated control findings setting](../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings "../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings"). This step ensures that
   Audit Manager can import findings for all supported compliance standards.
 - After you [enable AWS Config](../../../config/latest/developerguide/gs-console.md "../../../config/latest/developerguide/gs-console.md"), make sure
   that you also [enable the relevant AWS Config Rules](../../../config/latest/developerguide/setting-up-aws-config-rules-with-console.md "../../../config/latest/developerguide/setting-up-aws-config-rules-with-console.md") or [deploy a conformance
@@ -42,7 +42,7 @@ evidence.
 
 ###### Topics
 
-- [Automated controls that use AWS Security Hub as a data
+- [Automated controls that use AWS Security Hub CSPM as a data
   source type](#automated-security-hub "#automated-security-hub")
 - [Automated controls that use AWS Config as a data source
   type](#automated-config "#automated-config")
@@ -54,11 +54,11 @@ evidence.
 - [Controls with mixed data source types (automated and
   manual)](#mixed "#mixed")
 
-## Automated controls that use AWS Security Hub as a data
+## Automated controls that use AWS Security Hub CSPM as a data
 
 source type
 
-This example shows a control that uses AWS Security Hub as a data source type. This is a
+This example shows a control that uses AWS Security Hub CSPM as a data source type. This is a
 standard control taken from the [AWS
 Foundational Security Best Practices (FSBP) framework](aws-foundational-security-best-practices.md "aws-foundational-security-best-practices.md"). Audit Manager uses this control to
 generate evidence that can help to bring your AWS environment in line with FSBP
@@ -73,13 +73,13 @@ should be enabled`
   management.
 - **Evidence source** – Individual data
   sources
-- **Data source type** – AWS Security Hub
+- **Data source type** – AWS Security Hub CSPM
 - **Evidence type** – Compliance check
 
 In the following example, this control appears in an Audit Manager assessment that was created
 from the FSBP framework.
 
-![Screenshot that shows the Security Hub control in an assessment.](images/control-example-automated_securityhub-console.png)
+![Screenshot that shows the Security Hub CSPM control in an assessment.](images/control-example-automated_securityhub-console.png)
 
 The assessment shows the control status. It also shows how much evidence was collected
 for this control so far. From here, you can delegate the control set for review or complete
@@ -89,7 +89,7 @@ including the evidence for that control.
 ###### What this control does
 
 This control requires that AWS Config is enabled in all AWS Regions where you use
-Security Hub. Audit Manager can use this control to check whether you have enabled AWS Config.
+Security Hub CSPM. Audit Manager can use this control to check whether you have enabled AWS Config.
 
 ###### How Audit Manager collects evidence for this control
 
@@ -97,12 +97,12 @@ Audit Manager takes the following steps to collect evidence for this control:
 
 1. For each control, Audit Manager assesses your in-scope resources. It does this using the data
    source that’s specified in the control settings. In this example, your AWS Config settings are
-   the resource, and Security Hub is the data source type. Audit Manager looks for the result of a specific
-   Security Hub check ([[Config.1]](../../../securityhub/latest/userguide/config-controls.md#config-1 "../../../securityhub/latest/userguide/config-controls.md#config-1")).
+   the resource, and Security Hub CSPM is the data source type. Audit Manager looks for the result of a specific
+   Security Hub CSPM check ([[Config.1]](../../../securityhub/latest/userguide/config-controls.md#config-1 "../../../securityhub/latest/userguide/config-controls.md#config-1")).
 2. The result of the resource assessment is saved and converted into auditor-friendly
    evidence. Audit Manager generates _compliance check_ evidence
-   for controls that use Security Hub as a data source type. This evidence contains the result of
-   the compliance check reported directly from Security Hub.
+   for controls that use Security Hub CSPM as a data source type. This evidence contains the result of
+   the compliance check reported directly from Security Hub CSPM.
 3. Audit Manager attaches the saved evidence to the control in your assessment that’s named
    `FSBP1-012: AWS Config should be enabled`.
 
@@ -112,7 +112,7 @@ After the evidence is attached to the control, you—or a delegate of your
 choice—can review the evidence to see if any remediation is necessary.
 
 In this example, Audit Manager might display a _Fail_ ruling
-from Security Hub. This can happen if you have not enabled AWS Config. In this case, you can take the
+from Security Hub CSPM. This can happen if you have not enabled AWS Config. In this case, you can take the
 corrective action of enabling AWS Config, which helps to bring your AWS environment in line with
 FSBP requirements.
 

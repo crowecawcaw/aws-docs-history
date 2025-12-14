@@ -19,7 +19,7 @@ functionality of Audit Manager – collecting evidence and attaching it to contr
 
 In the framework, you’ll find sample controls that show you the different data sources
 that Audit Manager uses to automatically collect evidence. These data sources include an AWS CloudTrail
-event, an AWS Config rule, an AWS Security Hub control, and an AWS API call. By using these data
+event, an AWS Config rule, an AWS Security Hub CSPM control, and an AWS API call. By using these data
 sources in an test assessment, you can see how Audit Manager works with different AWS services to
 gather evidence. In addition to demonstrating automated evidence collection, the sample
 framework shows how you can manually add your own evidence. It also has a manual control
@@ -59,8 +59,8 @@ The framework details are as follows:
 
 ###### Important
 
-To ensure that this framework collects the intended evidence from AWS Security Hub, make sure
-that you enabled all standards in Security Hub.
+To ensure that this framework collects the intended evidence from AWS Security Hub CSPM, make sure
+that you enabled all standards in Security Hub CSPM.
 
 To ensure that this framework collects the intended evidence from AWS Config, make sure
 that you enable the necessary AWS Config rules. To review the AWS Config rules that are used

@@ -51,19 +51,19 @@ evidence collection is based on the evidence type and its data source, as descri
 below.
 
 - **Compliance checks** — Audit Manager collects this
-  evidence type from AWS Security Hub and AWS Config.
-  - For Security Hub, evidence collection follows the schedule of your Security Hub checks. For
-    more information about the schedule of Security Hub checks, see [Schedule
-    for running security checks](../../../securityhub/latest/userguide/securityhub-standards-schedule.md "../../../securityhub/latest/userguide/securityhub-standards-schedule.md") in the _AWS Security Hub User
-    Guide_. For more information about the Security Hub checks supported by Audit Manager,
-    see [AWS Security Hub controls supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md").
+  evidence type from AWS Security Hub CSPM and AWS Config.
+  - For Security Hub CSPM, evidence collection follows the schedule of your Security Hub CSPM checks. For
+    more information about the schedule of Security Hub CSPM checks, see [Schedule
+    for running security checks](../../../securityhub/latest/userguide/securityhub-standards-schedule.md "../../../securityhub/latest/userguide/securityhub-standards-schedule.md") in the _AWS Security Hub CSPM User
+    Guide_. For more information about the Security Hub CSPM checks supported by Audit Manager,
+    see [AWS Security Hub CSPM controls supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md").
   - For AWS Config, evidence collection follows the
     triggers
     that are defined in your AWS Config rules. For more information about the triggers for
     AWS Config rules, see [Trigger types](../../../config/latest/developerguide/evaluate-config-rules.md#aws-config-rules-trigger-types "../../../config/latest/developerguide/evaluate-config-rules.md#aws-config-rules-trigger-types") in the _AWS Config User Guide_. For more
     information about the AWS Config Rules that are supported by Audit Manager, see [AWS Config Rules supported by AWS Audit Manager](control-data-sources-config.md "control-data-sources-config.md").
   - AWS Audit Manager marks evidence as inconclusive when automated compliance evaluation
-    isn't possible. This occurs when you haven't enabled AWS Config or AWS Security Hub, which are
+    isn't possible. This occurs when you haven't enabled AWS Config or AWS Security Hub CSPM, which are
     key data sources. It also happens when evidence is collected directly from AWS
     services via API calls, AWS CloudTrail logs, or manual uploads. When there's no mechanism
     for automatic evaluation of this evidence, AWS Audit Manager can't provide evaluation

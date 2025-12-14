@@ -102,13 +102,13 @@ If you're a first-time user of Audit Manager, we recommend that you start with t
 AWS Audit Manager integrates with multiple AWS services to automatically collect evidence that
 you can include in your assessment reports.
 
-###### AWS Security Hub
+###### AWS Security Hub CSPM
 
-AWS Security Hub monitors your environment using automated security checks that are based on
+AWS Security Hub CSPM monitors your environment using automated security checks that are based on
 AWS best practices and industry standards. Audit Manager captures snapshots of your resource
-security posture by reporting the results of security checks directly from Security Hub. For more
-information about Security Hub, see [What is AWS Security Hub?](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") in
-the _AWS Security Hub User Guide_.
+security posture by reporting the results of security checks directly from Security Hub CSPM. For more
+information about Security Hub CSPM, see [What is AWS Security Hub CSPM?](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") in
+the _AWS Security Hub CSPM User Guide_.
 
 ###### AWS CloudTrail
 

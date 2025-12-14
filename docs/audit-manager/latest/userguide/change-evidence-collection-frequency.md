@@ -13,7 +13,7 @@ for each control data source type, and how to change it (if applicable).
 - [Key points](#change-evidence-collection-frequency-key-points "#change-evidence-collection-frequency-key-points")
 - [Configuration snapshots from API calls](#change-evidence-collection-frequency-api-calls "#change-evidence-collection-frequency-api-calls")
 - [Compliance checks from AWS Config](#change-evidence-collection-frequency-config "#change-evidence-collection-frequency-config")
-- [Compliance checks from Security Hub](#change-evidence-collection-frequency-security-hub "#change-evidence-collection-frequency-security-hub")
+- [Compliance checks from Security Hub CSPM](#change-evidence-collection-frequency-security-hub "#change-evidence-collection-frequency-security-hub")
 - [User activity logs from AWS CloudTrail](#change-evidence-collection-frequency-cloudtrail "#change-evidence-collection-frequency-cloudtrail")
 
 ## Key points
@@ -24,8 +24,8 @@ for each control data source type, and how to change it (if applicable).
 - For **AWS Config**, Audit Manager reports the result of a
   compliance check directly from AWS Config. The frequency follows the triggers that are
   defined in the AWS Config rule.
-- For **AWS Security Hub**, Audit Manager reports the result of a
-  compliance check directly from Security Hub. The frequency follows the schedule of the Security Hub
+- For **AWS Security Hub CSPM**, Audit Manager reports the result of a
+  compliance check directly from Security Hub CSPM. The frequency follows the schedule of the Security Hub CSPM
   check.
 - For **AWS CloudTrail**, Audit Manager collects evidence continuously
   from CloudTrail. You can’t change the frequency for this evidence type.
@@ -102,27 +102,27 @@ rules](../../../config/latest/developerguide/evaluate-config_manage-rules.md "..
 
 ## Compliance checks from
 
-Security Hub
+Security Hub CSPM
 
 ###### Note
 
-The following applies to both standard controls and custom controls that use Security Hub
+The following applies to both standard controls and custom controls that use Security Hub CSPM
 checks as a data source.
 
-If a control uses Security Hub as a data source type, you can’t change the evidence
+If a control uses Security Hub CSPM as a data source type, you can’t change the evidence
 collection frequency directly in Audit Manager. This is because the frequency follows the schedule
-of the Security Hub checks.
+of the Security Hub CSPM checks.
 
 - **Periodic checks** run automatically within 12 hours
   after the most recent run. You cannot change the periodicity.
 - **Change-triggered checks** run when the associated
   resource changes state. Even if the resource doesn't change state, the updated at time
   for change-triggered checks is refreshed every 18 hours. This helps to indicate that
-  the control is still enabled. In general, Security Hub uses change-triggered rules whenever
+  the control is still enabled. In general, Security Hub CSPM uses change-triggered rules whenever
   possible.
 
 To learn more, see [Schedule for
-running security checks](../../../securityhub/latest/userguide/securityhub-standards-schedule.md "../../../securityhub/latest/userguide/securityhub-standards-schedule.md") in the _AWS Security Hub User
+running security checks](../../../securityhub/latest/userguide/securityhub-standards-schedule.md "../../../securityhub/latest/userguide/securityhub-standards-schedule.md") in the _AWS Security Hub CSPM User
 Guide_.
 
 ## User activity logs from

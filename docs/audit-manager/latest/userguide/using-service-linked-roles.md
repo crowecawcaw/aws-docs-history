@@ -30,16 +30,16 @@ The role permissions policy, [`AWSAuditManagerServiceRolePolicy`](../../../aws-m
 automated evidence about your AWS usage. More specifically, it can take the following
 actions on your behalf.
 
-- Audit Manager can use AWS Security Hub to collect **compliance
+- Audit Manager can use AWS Security Hub CSPM to collect **compliance
   check** evidence. In this case, Audit Manager uses the following permission
-  to report the results of security checks directly from AWS Security Hub. It then
+  to report the results of security checks directly from AWS Security Hub CSPM. It then
   attaches the results to your relevant assessment controls as evidence.
   - `securityhub:DescribeStandards`
 
 ###### Note
 
-For more information about which specific Security Hub controls Audit Manager can
-describe, see [AWS Security Hub controls supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md").
+For more information about which specific Security Hub CSPM controls Audit Manager can
+describe, see [AWS Security Hub CSPM controls supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md").
 
 - Audit Manager can use AWS Config to collect **compliance check**
   evidence. In this case, Audit Manager uses the following permissions to report the

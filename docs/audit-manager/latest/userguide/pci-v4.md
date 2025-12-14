@@ -48,9 +48,9 @@ preparation
 
 ###### Note
 
-This standard framework uses consolidated controls from Security Hub as a data source. To
-successfully collect evidence from consolidated controls, make sure that you [turned on the consolidated control findings setting in Security Hub](../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings "../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings"). For more
-information about using Security Hub as a data source type, see [AWS Security Hub controls
+This standard framework uses consolidated controls from Security Hub CSPM as a data source. To
+successfully collect evidence from consolidated controls, make sure that you [turned on the consolidated control findings setting in Security Hub CSPM](../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings "../../../securityhub/latest/userguide/controls-findings-create-update.md#turn-on-consolidated-control-findings"). For more
+information about using Security Hub as a data source type, see [AWS Security Hub CSPM controls
 supported by AWS Audit Manager](control-data-sources-ash.md "control-data-sources-ash.md").
 
 You can use the PCI DSS V4.0 framework to help you prepare for audits. This framework
@@ -78,8 +78,8 @@ The framework details are as follows:
 
 ###### Important
 
-To ensure that this framework collects the intended evidence from AWS Security Hub, make sure
-that you enabled all standards in Security Hub.
+To ensure that this framework collects the intended evidence from AWS Security Hub CSPM, make sure
+that you enabled all standards in Security Hub CSPM.
 
 To ensure that this framework collects the intended evidence from AWS Config, make sure
 that you enable the necessary AWS Config rules. To review the AWS Config rules that are used

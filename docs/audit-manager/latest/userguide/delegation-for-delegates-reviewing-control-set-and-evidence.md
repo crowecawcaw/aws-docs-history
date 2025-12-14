@@ -49,7 +49,7 @@ AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "s
 3. Choose the name of an evidence folder to open it. Then, review a summary of all
    evidence gathered on that date.
    - This summary includes the total number of compliance check issues that were
-     reported directly from AWS Security Hub, AWS Config, or both.
+     reported directly from AWS Security Hub CSPM, AWS Config, or both.
    - To learn more about this information, see [Reviewing an evidence folder in
      AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md").
 

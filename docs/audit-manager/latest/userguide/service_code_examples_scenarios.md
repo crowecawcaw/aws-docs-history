@@ -12,5 +12,5 @@ Scenarios target an intermediate level of experience to help you understand serv
 ###### Examples
 
 - [Create a custom framework from an AWS Config conformance pack](example_auditmanager_Scenario_CustomFrameworkFromConformancePack_section.md "example_auditmanager_Scenario_CustomFrameworkFromConformancePack_section.md")
-- [Create a custom framework that contains Security Hub controls](example_auditmanager_Scenario_CustomFrameworkFromSecurityHub_section.md "example_auditmanager_Scenario_CustomFrameworkFromSecurityHub_section.md")
+- [Create a custom framework that contains Security Hub CSPM controls](example_auditmanager_Scenario_CustomFrameworkFromSecurityHub_section.md "example_auditmanager_Scenario_CustomFrameworkFromSecurityHub_section.md")
 - [Create an assessment report](example_auditmanager_Scenario_CreateAssessmentReport_section.md "example_auditmanager_Scenario_CreateAssessmentReport_section.md")
