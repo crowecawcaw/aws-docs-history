@@ -28,4 +28,4 @@ AWS provides these resources to help with compliance:
   Compliance Resources](https://aws.amazon.com/compliance/resources/ "https://aws.amazon.com/compliance/resources/") – This collection of workbooks and guides could
   apply to your industry and location.
 - [AWS Config](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") – This AWS service assesses how well your resource configurations comply with internal practices, industry guidelines, and regulations.
-- [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – This AWS service provides a comprehensive view of your security state within AWS that helps you check your compliance with security industry standards and best practices.
+- [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – This AWS service provides a comprehensive view of your security state within AWS that helps you check your compliance with security industry standards and best practices.
