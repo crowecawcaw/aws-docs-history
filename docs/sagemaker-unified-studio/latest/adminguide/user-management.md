@@ -4,13 +4,13 @@ By default, Amazon SageMaker unified domains support IAM user credentials. You c
 enable access to the Amazon SageMaker unified domains in the Amazon SageMaker Unified Studio for users with SSO and
 SAML credentials. To do this, complete the following procedures.
 
-To enable access to the Amazon SageMaker unified domains in the Amazon SageMaker Unified Studio for users with
-SSO credentials, complete the following procedure:
+To enable access to the Amazon SageMaker unified domains in the Amazon SageMaker Unified Studio for users with SSO
+credentials, complete the following procedure:
 
 1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
    navigation bar to choose the appropriate AWS Region.
-2. Either create a new or choose an existing Amazon SageMaker unified domain where you
-   want to configure SSO user access.
+2. Either create a new or choose an existing Amazon SageMaker unified domain where you want
+   to configure SSO user access.
 3. On the domain's details page, either choose **Configure** next to the
    **Configure SSO user access** in the **Next steps for your domain
    section** or navigate to the **User management** tab and choose
@@ -47,8 +47,8 @@ an account instance of the IAM Identity Center.
 
 8. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
    navigation bar to choose the appropriate AWS Region.
-9. Either create a new or choose an existing Amazon SageMaker unified domain where you
-   want to configure SAML user access.
+9. Either create a new or choose an existing Amazon SageMaker unified domain where you want
+   to configure SAML user access.
 10. On the domain's details page, either choose **Configure** next to the
     **Configure SSO user access** in the **Next steps for your
     domain** section or navigate to the **User management** tab and
@@ -78,3 +78,31 @@ an account instance of the IAM Identity Center.
 
 You can add new owners, by expanding **Add** and choosing the add SSO
 users and groups or IAM users and groups.
+
+## Update Root Domain Unit Owner
+
+The root domain unit owner for your Amazon SageMaker domain can be changed using AWS CLI
+or API. This procedure is helpful when the original IAM role/user no longer exists and
+ownership needs to be replaced.
+
+To use the AWS CLI to update the root domain unit owner, use the
+update-root-domain-unit-owner command. The IAM user or role initiating the call needs to have
+the datazone:UpdateRootDomainUnitOwner permission.
+
+Considerations:
+
+1. Domain ID, Current Owner, and New Owner are required.
+2. The new owner needs to exist as a user in the domain.
+3. SSO users/groups are referenced using their display name. IAM users/groups are
+   referenced using their ARN.
+
+Example command:
+
+```
+
+  aws datazone update-root-domain-unit-owner \
+  --domain-identifier DOMAIN_ID \
+  --current-owner CURRENT_OWNER \
+  --new-owner NEW_OWNER
+
+```

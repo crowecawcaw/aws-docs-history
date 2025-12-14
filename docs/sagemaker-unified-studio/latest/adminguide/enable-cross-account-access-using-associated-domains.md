@@ -31,4 +31,4 @@ access to both Amazon EKS cluster account and Amazon SageMaker Unified Studio do
 ###### Note
 
 The IAM role designated as the provisioning role must have access to the Amazon EKS cluster. See
-[Enable Amazon EKS cluster access for Amazon EMR on EKS and Amazon SageMaker Unified Studio](../userguide/enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md "../userguide/enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md")
+[Enable Amazon EKS cluster access for Amazon EMR on EKS and Amazon SageMaker Unified Studio](enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md "enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md")

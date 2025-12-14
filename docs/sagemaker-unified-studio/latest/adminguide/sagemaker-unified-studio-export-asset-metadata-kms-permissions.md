@@ -50,7 +50,7 @@ To read more about the S3 maintenance service principal, see [Permissions requir
                 "kms:GenerateDataKey",
                 "kms:Decrypt"
             ],
-            "Resource": "arn:aws:kms:us-east-1:111122223333:key/key-id",
+            "Resource": "arn:aws:kms:`region`:111122223333:key/`key-id`",
             "Condition": {
                 "StringEquals": {
                     "aws:SourceAccount": "111122223333"
@@ -67,10 +67,10 @@ To read more about the S3 maintenance service principal, see [Permissions requir
                 "kms:GenerateDataKey",
                 "kms:Decrypt"
             ],
-            "Resource": "arn:aws:kms:us-east-1:111122223333:key/key-id",
+            "Resource": "arn:aws:kms:`region`:111122223333:key/`key-id`",
             "Condition": {
                 "StringLike": {
-                    "kms:EncryptionContext:aws:s3:arn": "<table-or-table-bucket-arn>/*"
+                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:`region`:111122223333:bucket/*"
                 }
             }
         }
@@ -83,7 +83,7 @@ To read more about the S3 maintenance service principal, see [Permissions requir
 
 When your Amazon SageMaker Catalog domain is encrypted using AWS Key Management
 Service (AWS KMS) keys, you need to grant permissions to the principals that will
-allow them to enable [exporting](sagemaker-unified-studio-export-asset-metadata-kms-permissions.md "sagemaker-unified-studio-export-asset-metadata-kms-permissions.md") the asset metadata. The policy below grants the IAM principal
+allow them to enable [exporting](../userguide/export-asset-metadata.md "../userguide/export-asset-metadata.md") the asset metadata. The policy below grants the IAM principal
 access to decrypt a specific Amazon SageMaker Catalog domain.
 
 To read more about how Amazon SageMaker Catalog domain data encryption works at
@@ -99,16 +99,16 @@ rest, see [Data encryption at rest for Amazon DataZone](../../../datazone/latest
             "Sid": "Allow access to principal to manage an Amazon SageMaker catalog domain with the given domain id",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
+                "AWS": "arn:aws:iam::111122223333:role/`ExampleRole`"
             },
             "Action": [
                 "kms:Decrypt",
                 "kms:GenerateDataKey"
             ],
-            "Resource": "arn:aws:kms:region:111122223333:key/key_ID",
+            "Resource": "arn:aws:kms:`region`:111122223333:key/`key-id`",
             "Condition": {
                 "StringEquals": {
-                    "kms:EncryptionContext:aws:datazone:domainId": "dzd_sampleid"
+                    "kms:EncryptionContext:aws:datazone:domainId": "`dzd_sampleid`"
                 }
             }
         }
