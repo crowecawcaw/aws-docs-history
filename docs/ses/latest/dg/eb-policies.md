@@ -58,8 +58,8 @@ JSON
 
 ingress endpoint
 
-The following KMS customer managed key (CMK) key policy is
-required to allow SES to use your key while using your secret.
+It is required to use a customer managed key (CMK) for your secret.
+The following statement is required within your KMS key policy to allow SES to use your key for your secret.
 
 ```
 {
@@ -71,7 +71,7 @@ required to allow SES to use your key while using your secret.
     "Resource": "*",
     "Condition": {
         "StringEquals": {
-           "kms:ViaService": "secretsmanager.`us-east-1`.amazonaws.com",
+            "kms:ViaService": "secretsmanager.`us-east-1`.amazonaws.com",
             "aws:SourceAccount": "`000000000000`"
         },
         "ArnLike": {
@@ -130,8 +130,7 @@ JSON
 
 SMTP relay
 
-The following KMS customer managed key (CMK) key policy is
-required to allow SES to use your key while using your secret.
+The following statement is required within your KMS key policy to allow SES to use your key for your secret.
 
 JSON
 
@@ -169,7 +168,7 @@ JSON
 ###### Archiving export
 
 The IAM identity calling `StartArchiveExport` must have access to the
-destination S3 bucket configured by the following policies:
+destination S3 bucket configured by the following IAM policy:
 
 JSON
 
@@ -200,7 +199,7 @@ JSON
 
 ```
 
-This is the policy for the destination bucket.
+This is the S3 bucket policy for the destination bucket:
 
 JSON
 
@@ -248,7 +247,7 @@ Sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../..
 ###### Archiving encryption at rest with KMS CMK
 
 The IAM identity calling `CreateArchive` and `UpdateArchive`
-must have access to the KMS key ARN through the following policies:
+must have access to the KMS key ARN through the following policy:
 
 JSON
 
@@ -268,7 +267,7 @@ JSON
 
 ```
 
-This is the KMS key policy required for email archiving.
+The following statements are required within your KMS key policy:
 
 JSON
 
@@ -369,7 +368,7 @@ JSON
 
 S3\* rule action
 
-The following policy is required to use the **Write to
+The following policy is required for your IAM role to use the **Write to
 S3** rule action which delivers the received email to an
 S3 bucket.
 
@@ -440,7 +439,7 @@ _AWS Key Management Service Developer Guide_.
 
 mailbox\* rule action
 
-The following policy is required to use the **Deliver to
+The following policy is required for your IAM role to use the **Deliver to
 mailbox** rule action which delivers the received email to an Amazon WorkMail
 account.
 
@@ -464,7 +463,7 @@ JSON
 
 internet\* rule action
 
-The following policy is required to use the **Send to internet**
+The following policy is required for your IAM role to use the **Send to internet**
 rule action which sends the received email to an external domain.
 
 ###### Note
@@ -500,7 +499,7 @@ The following policies are required to use the **Deliver to Q
 Business** rule action, which delivers the received email to an
 Amazon Q Business index.
 
-Amazon Q Business policy:
+IAM policy required for your role:
 
 JSON
 
@@ -523,7 +522,7 @@ JSON
 
 ```
 
-KMS policy for Amazon Q Business:
+Statement required within your KMS key policy:
 
 JSON
 
@@ -569,7 +568,7 @@ SNS\* rule action
 The following policies are required to use the **Publish to SNS**
 rule action, which delivers the received email to an Amazon SNS topic.
 
-Amazon SNS policy:
+IAM policy required for your role:
 
 JSON
 
@@ -592,7 +591,7 @@ JSON
 
 ```
 
-KMS policy for Amazon SNS:
+Statement required within your KMS key policy:
 
 JSON
 
