@@ -5,10 +5,10 @@ User Guide](../userguide/what-is-wickr.md "../userguide/what-is-wickr.md").
 
 # Database settings
 
-Wickr Enterprise requires a MySQL 5.7 database. We recommend using a database which is
-external to your Kubernetes cluster, such as Amazon RDS, but you also have the option of deploying an
-**Internal** MySQL database inside of the Kubernetes cluster as a part of the
-installation.
+Wickr Enterprise requires a MySQL 8.0 database. If you are on MySQL 5.7, see [Upgrade to MySQL 8.0](#upgrade-database "#upgrade-database") to upgrade. We recommend using a
+database which is external to your Kubernetes cluster, such as Amazon RDS, but you also have the
+option of deploying an **Internal** MySQL database inside of the Kubernetes
+cluster as a part of the installation.
 
 ## External Database Settings
 
@@ -26,7 +26,7 @@ installation.
 
 ###### Note
 
-Ensure that your MySQL 5.7 installation is using the default latin1 character set with
+Ensure that your MySQL installation is using the default latin1 character set with
 latin1_swedish_ci collation. This can be accomplished by verifying that your MySQL server is
 started with the following flags:
 
@@ -71,3 +71,36 @@ online.
 
 `kubectl -n wickr rollout restart statefulset mysql-primary
  mysql-secondary`.
+
+## Upgrade to MySQL 8.0
+
+**External Database (RDS)**
+
+To take Wickr Backend offline, complete the following steps.
+
+1. Find the namespace of ingress `kubectl get deployments
+--all-namespaces`
+
+In the example below, the namespace is Wickr and replicas is 3.
+
+```
+NAMESPACE     NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+...
+wickr         ingress-nginx-controller   3/3     3            3           43h
+...
+```
+
+2. Scale down ingress `kubectl scale deployment/ingress-nginx-controller --replicas=0
+-n wickr`
+3. Take a snapshot to backup DB. For more information, see [Managing manual
+   backups](../../../AmazonRDS/latest/UserGuide/USER_ManagingManualBackups.md "../../../AmazonRDS/latest/UserGuide/USER_ManagingManualBackups.md") in the _Amazon Relational Database Service User Guide_.
+4. Upgrade the engine version to MySQL 8.0.x (MySQL 8.4 is not supported). For more
+   information, see [Upgrading a DB
+   instance engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md") in the _Amazon Relational Database Service User Guide_.
+
+To bring Wickr Backend online, scale back ingress `kubectl scale
+ deployment/ingress-nginx-controller --replicas=3 -n wickr`
+
+**Internal Database**
+
+For more information, see [Backup and Restore MySQL](https://github.com/aws-samples/sample-packages-for-aws-wickr/blob/main/docs/mysql-backup.md "https://github.com/aws-samples/sample-packages-for-aws-wickr/blob/main/docs/mysql-backup.md").

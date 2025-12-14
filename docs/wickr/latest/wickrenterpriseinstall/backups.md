@@ -24,3 +24,14 @@ for Minio in Low Resource Mode.
   - [Azure](https://velero.io/docs/v1.0.0/azure-config/ "https://velero.io/docs/v1.0.0/azure-config/").
   - [Other
     providers](https://velero.io/docs/v1.10/supported-providers/ "https://velero.io/docs/v1.10/supported-providers/").
+
+### Limitation
+
+By default, no volumes are included in the backup. If any pods mount a volume that should
+be backed up, you must configure the backup with an annotation listing the specific volumes to
+include in the backup.
+
+For each volume that requires a backup, add the backup.velero.io/backup-volumes
+annotation. The annotation name is backup.velero.io/backup-volumes and the value is a comma
+separated list of volumes to include in the backup. For more information, see [Configure
+Snapshots](https://docs.replicated.com/vendor/snapshots-configuring-backups "https://docs.replicated.com/vendor/snapshots-configuring-backups").
