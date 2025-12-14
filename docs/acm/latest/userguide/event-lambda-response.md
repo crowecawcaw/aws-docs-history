@@ -3,7 +3,7 @@
 function
 
 This procedure demonstrates how to use AWS Lambda to listen on Amazon EventBridge, create
-notifications with Amazon Simple Notification Service (SNS), and publish findings to AWS Security Hub, providing
+notifications with Amazon Simple Notification Service (SNS), and publish findings to AWS Security Hub CSPM, providing
 visibility to administrators and security teams.
 
 ###### To set up a Lambda function and IAM role
@@ -263,11 +263,11 @@ JSON
         	* (Optional) SECURITY\_HUB\_REGION
 
 
-        	Specifies an AWS Security Hub in a different Region. If this
+        	Specifies an AWS Security Hub CSPM in a different Region. If this
         	 is not specified, the Region of the running Lambda
         	 function is used. If the function is run in multiple
         	 Regions, it may be desirable to have all certificate
-        	 messages go to Security Hub in a single Region.
+        	 messages go to Security Hub CSPM in a single Region.
         9. Under **Basic settings**, set
          **Timeout** to 30 seconds.
         10. At the top of the page, choose
@@ -292,7 +292,7 @@ ACM raises Amazon EventBridge event →
 
                     Rule calls Lambda function →
 
-                              Function sends SNS email and logs a Finding in Security Hub
+                              Function sends SNS email and logs a Finding in Security Hub CSPM
 ```
 
 1. Create the Lambda function and configure permissions. (Already

@@ -51,6 +51,19 @@ information, see [Getting an SSL/TLS Certificate](../../../AmazonCloudFront/late
 To use an ACM certificate with CloudFront, you must request or import the certificate
 in the US East (N. Virginia) region.
 
+**Amazon Elastic Kubernetes Service**
+
+Amazon Elastic Kubernetes Service is a managed Kubernetes service that makes it easy to run Kubernetes on
+AWS without needing to install, operate, and maintain your own Kubernetes control
+plane. For more information about Amazon EKS, see the Amazon Elastic Kubernetes Service
+User Guide.
+
+You can use ACM with AWS Controllers for Kubernetes (ACK) to issue and export
+TLS certificates to your Kubernetes workloads. This integration enables you to
+secure Amazon EKS pods and terminate TLS at your Kubernetes Ingress or at an AWS load
+balancer. ACM automatically renews certificates and the ACK controller updates your
+Kubernetes Secrets with renewed certificates. For more information, see [Secure Kubernetes Workloads with ACM Certificates](exportable-certificates-kubernetes.md "exportable-certificates-kubernetes.md").
+
 **Amazon Cognito**
 
 Amazon Cognito provides authentication, authorization, and user management for your web
