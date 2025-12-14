@@ -19,6 +19,7 @@ AWS Glue 5.0 and above), or a list of comma-separated Python modules.
 
 | Glue Version Compatibility and Installation Methods | AWS Glue version | Python version                                                                                                                  | Base image | glibc version |
 | --------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------- |
+| 5.1                                                 | 3.11             | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34       |
 | 5.0                                                 | 3.11             | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34       |
 | 4.0                                                 | 3.10             | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")                         | 2.26       |
 | 3.0                                                 | 3.7              | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")                         | 2.26       |

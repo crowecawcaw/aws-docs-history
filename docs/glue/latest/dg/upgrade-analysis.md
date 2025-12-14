@@ -434,10 +434,10 @@ You can cancel an upgrade analysis in progress or just stop the analysis.
 
 ## Considerations
 
-As you begin using Spark Upgrades during the preview period, there are several important aspects to consider for optimal
+As you begin using Spark Upgrades, there are several important aspects to consider for optimal
 usage of the service.
 
-- **Service Scope and Limitations**: The preview release focuses on PySpark code upgrades from
+- **Service Scope and Limitations**: The current release focuses on PySpark code upgrades from
   AWS Glue versions 2.0 to version 5.0. At this time, the service handles PySpark code that doesn't rely on additional library
   dependencies. You can run automated upgrades for up to 10 jobs concurrently in an AWS account, allowing you to efficiently
   upgrade multiple jobs while maintaining system stability.
@@ -459,7 +459,7 @@ usage of the service.
 For example, if your production job processes terabytes of data with 20 G.2X workers, you might configure the upgrade job to
 process a few gigabytes of representative data with 2 G.2X workers and auto-scaling enabled for validation.
 
-- **Preview Best Practices**: During the preview period, we strongly recommend starting your
+- **Best Practices**: We strongly recommend starting your
   upgrade journey with non-production jobs. This approach allows you to familiarize yourself with the upgrade workflow,
   and understand how the service handles different types of Spark code patterns.
 - **Alarms and notifications**: When utilizing the Generative AI upgrades feature on a job, ensure that alarms/notifications for failed job runs are turned off.

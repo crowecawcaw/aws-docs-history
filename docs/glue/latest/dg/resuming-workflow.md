@@ -211,9 +211,8 @@ to discover any nodes that didn't successfully complete.
   node.
 - Restarting a node does not reset its state. Any data that was partially
   processed is not rolled back.
-- You can resume the same workflow run multiple times. If a resumed workflow run
-  only partially runs, you can address the issue and resume the resumed
-  run.
+- You can resume a failed workflow run multiple times. However, a resumed run can only
+  be resumed once more. For additional retries, resume the original failed run instead
 - If you select two nodes to restart and they're dependent upon each other, the
   upstream node is run before the downstream node. In fact, selecting the
   downstream node is redundant, because it will be run according to the normal

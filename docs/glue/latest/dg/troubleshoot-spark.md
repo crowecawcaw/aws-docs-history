@@ -46,7 +46,6 @@ JSON
 
 ###### Note
 
-Spark Troubleshooting does not have APIs available through the AWS SDK that you can use programmatically.
 The following two APIs are used in the IAM policy for enabling this experience through the AWS Glue Studio Console:
 `StartCompletion` and `GetCompletion`.
 

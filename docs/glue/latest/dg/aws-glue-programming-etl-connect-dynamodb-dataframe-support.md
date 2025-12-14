@@ -6,11 +6,30 @@ In order to load in the DataFrame-based connector library, make sure to attach a
 
 ###### Note
 
-Glue console UI currently does not support creating a DynamoDB connection.
+Glue console UI currently does not support creating a DynamoDB connection. You can use Glue CLI
+([CreateConnection](../../../cli/latest/reference/glue/create-connection.md "../../../cli/latest/reference/glue/create-connection.md")) to create a DynamoDB connection:
 
-Upon creating the DynamoDB connection, you can attach it to your Glue job via CLI (CreateJob, UpdateJob) or directly in the "Job details" page.
+```
 
-Upon ensuring a connection with DYNAMODB Type is attached to your Glue job, you can utilize the following read, write, and export operations from the DataFrame-based connector.
+        aws glue create-connection \
+            --connection-input '{
+            "Name": "my-dynamodb-connection",
+            "ConnectionType": "DYNAMODB",
+            "ConnectionProperties": {},
+            "ValidateCredentials": false,
+            "ValidateForComputeEnvironments": ["SPARK"]
+            }'
+
+```
+
+Upon creating the DynamoDB connection, you can attach it to your Glue job via CLI
+([CreateJob](../../../cli/latest/reference/glue/create-job.md "../../../cli/latest/reference/glue/create-job.md"),
+[UpdateJob](../../../cli/latest/reference/glue/update-job.md "../../../cli/latest/reference/glue/update-job.md")
+) or directly in the "Job details" page:
+
+![](images/dynamodb-dataframe-connector.png)
+Upon ensuring a connection with DYNAMODB Type is attached to your Glue job,
+you can utilize the following read, write, and export operations from the DataFrame-based connector.
 
 ## Reading from and writing to DynamoDB with the DataFrame-based connector
 
@@ -38,8 +57,7 @@ df = spark.read.format("dynamodb") \
     .option("dynamodb.consistentRead", "false") \
     .load()
 
-# Process the data
-df.show()
+print(df.rdd.getNumPartitions())
 
 # Write to DynamoDB
 df.write \
@@ -61,7 +79,7 @@ import com.amazonaws.services.glue.util.Job
 import org.apache.spark.SparkContext
 import scala.collection.JavaConverters._
 
-object SparkDynamoDBJob {
+object GlueApp {
   def main(sysArgs: Array[String]): Unit = {
 
     val glueContext = new GlueContext(SparkContext.getOrCreate())
@@ -69,7 +87,6 @@ object SparkDynamoDBJob {
     val args = GlueArgParser.getResolvedOptions(sysArgs, Seq("JOB_NAME").toArray)
     Job.init(args("JOB_NAME"), glueContext, args.asJava)
 
-    // Read from DynamoDB
     val df = spark.read
       .format("dynamodb")
       .option("dynamodb.input.tableName", "test-source")
@@ -77,10 +94,8 @@ object SparkDynamoDBJob {
       .option("dynamodb.consistentRead", "false")
       .load()
 
-    // Process the data
-    df.show()
+    print(df.rdd.getNumPartitions)
 
-    // Write to DynamoDB
     df.write
       .format("dynamodb")
       .option("dynamodb.output.tableName", "test-sink")
@@ -95,68 +110,43 @@ object SparkDynamoDBJob {
 
 ## Using DynamoDB export via the DataFrame-based connector
 
-The export operation performs better than the read operation when the DynamoDB table size is larger than 80 GB. The following code examples show how to read from a table, export to S3, and print the number of partitions via the DataFrame-based connector.
+The export operation is preffered to read operation for DynamoDB table sizes larger than 80 GB.
+The following code examples show how to read from a table, export to S3, and print the number of partitions via the DataFrame-based connector.
 
-Python
+###### Note
 
-```
-import sys
-from pyspark.context import SparkContext
-from awsglue.context import GlueContext
-from awsglue.job import Job
-from awsglue.utils import getResolvedOptions
-import glue.spark.dynamodb.DynamoDBExport
-
-args = getResolvedOptions(sys.argv, ["JOB_NAME"])
-glue_context= GlueContext(SparkContext.getOrCreate())
-spark = glueContext.spark_session
-job = Job(glue_context)
-job.init(args["JOB_NAME"], args)
-
-val options = Map(
-  "dynamodb.export" -> "ddb",
-  "dynamodb.tableArn" -> "my-table-arn",
-  "dynamodb.s3.bucket" -> "my-s3-bucket",
-  "dynamodb.s3.prefix" -> "my-s3-prefix",
-  "dynamodb.simplifyDDBJson" -> "true"
-)
-val df = DynamoDBExport.fullExport(spark, options)
-
-print(f"Number of partitions: {df.rdd.getNumPartitions()}")
-
-job.commit()
-```
+The DynamoDB export functionality is available through the Scala `DynamoDBExport` object.
+Python users can access it via Spark's JVM interop or use the AWS SDK for Python (boto3) with the DynamoDB `ExportTableToPointInTime` API.
 
 Scala
 
 ```
 import com.amazonaws.services.glue.GlueContext
-import com.amazonaws.services.glue.util.GlueArgParser
-import com.amazonaws.services.glue.util.Job
+import com.amazonaws.services.glue.util.{GlueArgParser, Job}
 import org.apache.spark.SparkContext
 import glue.spark.dynamodb.DynamoDBExport
 import scala.collection.JavaConverters._
 
-object DynamoDBExportJob {
+object GlueApp {
   def main(sysArgs: Array[String]): Unit = {
-    val args = GlueArgParser.getResolvedOptions(sysArgs, Seq("JOB_NAME").toArray)
     val glueContext = new GlueContext(SparkContext.getOrCreate())
     val spark = glueContext.getSparkSession
-    val job = Job(glueContext)
-    job.init(args("JOB_NAME"), args.asJava)
+    val args = GlueArgParser.getResolvedOptions(sysArgs, Seq("JOB_NAME").toArray)
+    Job.init(args("JOB_NAME"), glueContext, args.asJava)
 
     val options = Map(
       "dynamodb.export" -> "ddb",
-      "dynamodb.tableArn" -> "my-table-arn",
+      "dynamodb.tableArn" -> "arn:aws:dynamodb:us-east-1:123456789012:table/my-table",
       "dynamodb.s3.bucket" -> "my-s3-bucket",
       "dynamodb.s3.prefix" -> "my-s3-prefix",
       "dynamodb.simplifyDDBJson" -> "true"
     )
     val df = DynamoDBExport.fullExport(spark, options)
 
-    println(s"Number of partitions: ${df.rdd.getNumPartitions}")
+    print(df.rdd.getNumPartitions)
+    df.count()
 
-    job.commit()
+    Job.commit()
   }
 }
 ```
