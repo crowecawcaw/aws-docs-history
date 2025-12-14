@@ -1,120 +1,89 @@
-# Oracle Real Application Clusters and PostgreSQL Aurora architecture
+# Oracle Active Data Guard and PostgreSQL replicas
 
-With AWS DMS, you can migrate your on-premises Oracle Real Application Clusters (RAC) and PostgreSQL databases to Amazon Aurora, a fully managed relational database service. Oracle RAC provides scalability and high availability by allowing multiple instances to access a single database. Similarly, Amazon Aurora PostgreSQL clusters consist of a writer instance and multiple reader instances, enabling read scaling and failover support.
+With AWS DMS, you can create and manage Oracle Active Data Guard and PostgreSQL logical replication instances to maintain standby databases for disaster recovery and read scaling. Oracle Active Data Guard and PostgreSQL logical replication provide continuous data protection by transmitting database changes from a primary database to one or more standby databases.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                    |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------ |
-| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, or users across multiple instances. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                   |
+| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, or users across multiple instances |
 
 ## Oracle usage
 
-Oracle Real Application Clusters (RAC) is one of the most advanced and capable technologies providing highly available and scalable relational databases. It allows multiple Oracle instances to access a single database. Applications can access the database through the multiple instances in Active-Active mode.
+Oracle Active Data Guard (ADG) is a synced database architecture with primary and standby databases. The difference between Data Guard and ADG is that ADG standby databases allow read access only.
 
-The following diagram illustrates the Oracle RAC architecture.
+The following diagram illustrates the ADG architecture.
 
-![Oracle RAC architecture](images/pb-oracle-rac.png)
+![Active Data Guard architecture](images/pb-active-data-guard.png)
 
-Oracle RAC requires network configuration of SCAN IPs, VIP IPs, interconnect, and other items. As a best practice, all severs should run the same versions of Oracle software.
+- **Primary DB** — The main database open to read and write operations.
+- **Redo/Archive** — The redo files and archives that store the redo entries for recovery operations.
+- **Data Broker** — The data guard broker service is responsible for all failover and syncing operations.
+- **Standby DB** — The secondary database that allows read operations only. This database remains in recovery mode until it is shut down or becomes the primary (failover or switchover).
+- **Log Apply** — Runs all the redo log entries from the redo and archives files on the standby db.
+- **Redo/Archive** — Contains the redo files and archives that are synced from the primary log and archive files.
+- **Data Broker** — The Data Guard broker service is responsible for all failover and syncing operations.
 
-Because of the shared nature of the RAC cluster architecture—specifically, having all nodes write to a single set of database data files on disk—the following two special coordination mechanisms ensure Oracle database objects and data maintain ACID compliance:
+All components use SQL\*NET protocol.
 
-- **GCS (Global Cache Services)** — Tracks the location and status of the database data blocks and helps guarantee data integrity for global access across all cluster nodes.
-- **GES (Global Enqueue Services)** — Performs concurrency control across all cluster nodes including cache locks and transactions.
+**Special features**
 
-These services, which run as background processes on each cluster node, are essential for serializing access to shared data structures in an Oracle database.
+- You can select "asynchronously" for best performance or "synchronously" for best data protection.
+- You can temporarily convert a standby database to a snapshot database and allow read/write operations. When you are done running QA, testing, loads, or other operations, it can be switched back to standby.
+- A sync gap can be specified between the primary and standby databases to account for human errors (for example, creating 12 hours gap of sync).
 
-Shared storage is another essential component in the Oracle RAC architecture. All cluster nodes read and write data to the same physical database files stored on a disk accessible by all nodes. Most customers rely on high-end storage hardware to provide the shared storage capabilities required for RAC.
-
-In addition, Oracle provides its own software-based storage/disk management mechanism called Automatic Storage Management (ASM). ASM is implemented as a set of special background processes that run on all cluster nodes and allow for easy management of the database storage layer.
-
-### Performance and scale-out with Oracle RAC
-
-You can add new nodes to an existing RAC cluster without downtime. Adding more nodes increases the level of high availability and enhances performance.
-
-Although you can scale read performance easily by adding more cluster nodes, scaling write performance is more complicated. Technically, Oracle RAC can scale writes and reads together when adding new nodes to the cluster, but attempts from multiple sessions to modify rows that reside in the same physical Oracle block (the lowest level of logical I/O performed by the database) can cause write overhead for the requested block and impact write performance.
-
-Concurrency is another reason why RAC implements a “smart mastering” mechanism that attempts to reduce write-concurrency overhead. The “smart mastering” mechanism enables the database to determine which service causes which rows to be read into the buffer cache and master the data blocks only on those nodes where the service is active. Scaling writes in RAC isn’t as straightforward as scaling reads.
-
-With the limitations for pure write scale-out, many Oracle RAC customers choose to split their RAC clusters into multiple services, which are logical groupings of nodes in the same RAC cluster. By using services, you can use Oracle RAC to perform direct writes to specific cluster nodes. This is usually done in one of two ways:
-
-- Splitting writes from different individual modules in the application (that is, groups of independent tables) to different nodes in the cluster. This approach is also known as application partitioning (not to be confused with database table partitions).
-- In extremely non-optimized workloads with high concurrency, directing all writes to a single RAC node and load-balancing only the reads.
-
-In summary, Oracle Real Application Clusters provides two major benefits:
-
-- Multiple database nodes within a single RAC cluster provide increased high availability. No single point of failure exists from the database servers themselves. However, the shared storage requires storage-based high availability or disaster recovery solutions.
-- Multiple cluster database nodes enable scaling-out query performance across multiple servers.
-
-For more information, see [Oracle Real Application Clusters](https://docs.oracle.com/en/database/oracle/oracle-database/19/racad/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/racad/index.html") in the _Oracle documentation_.
+For more information, see [Creating a Physical Standby Database](https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/creating-oracle-data-guard-physical-standby.html#GUID-B511FB6E-E3E7-436D-94B5-071C37550170 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/creating-oracle-data-guard-physical-standby.html#GUID-B511FB6E-E3E7-436D-94B5-071C37550170") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-Aurora extends the vanilla versions of PostgreSQL in two major ways:
+You can use Aurora replicas for scaling read operations and increasing availability such as Oracle Active Data Guard, but with less configuration and administration. You can easily manage many replicas from the Amazon RDS console. Alternatively, you can use the AWS CLI for automation.
 
-- Adds enhancements to the PostgreSQL database kernel itself to improve performance (concurrency, locking, multi-threading, and so on).
-- Uses the capabilities of the AWS ecosystem for greater high availability, disaster recovery, and backup/recovery functionality.
+When you create Aurora PostgreSQL instances, use one of the two following replication options:
 
-Comparing the Amazon Aurora architecture to Oracle RAC, there are major differences in how Amazon implements scalability and increased high availability. These differences are due mainly to the existing capabilities of PostgreSQL and the strengths the AWS backend provides in terms of networking and storage.
+- **Multi-AZ (Availability Zone)** — Create a replicating instance in a different region.
+- **Instance Read Replicas** — Create a replicating instance in the same region.
 
-Instead of having multiple read/write cluster nodes access a shared disk, an Aurora cluster has a single primary node that is open for reads and writes and a set of replica nodes that are open for reads with automatic promotion to primary in case of failures. While Oracle RAC uses a set of background processes to coordinate writes across all cluster nodes, the Amazon Aurora primary writes a constant redo stream to six storage nodes distributed across three Availability Zones within an AWS Region. The only writes that cross the network are redo log records (not pages).
+For instance options, you can use one of the two following options:
 
-Each Aurora cluster can have one or more instances serving different purposes:
+- Create Aurora Replica.
+- Create Cross Region Read Replica.
 
-- At any given time, a single instance functions as the primary that handles both writes and reads from your applications.
-- You can create up to 15 read replicas in addition to the primary, which are used for two purposes:
-  - **Performance and Read Scalability** — Replicas can be used as read-only nodes for queries and report workloads.
-  - **High Availability** — Replicas can be used as failover nodes in the event the master fails. Each read replica can be located in one of the three Availability Zones hosting the Aurora cluster. A single Availability Zone can host more than one read replica.
+The main differences between these two options are:
 
-The following diagram illustrates a high-level Aurora architecture with four cluster nodes: one primary and three read replicas. The primary node is located in Availability Zone A, the first read replica in Availability Zone B, and the second and third read replicas in Availability Zone C.
+- Cross Region creates a new reader cluster in a different region. Use Cross Region for a higher level of Higher Availability and to keep the data closer to the end users.
+- Cross Region has more lag between the two instances.
+- Additional charges apply for transferring the data between the two regions.
 
-![Aurora architecture with four cluster nodes](images/pb-aurora-architecture-four-cluster-nodes.png)
+DDL statements that run on the primary instance may interrupt database connections on the associated Aurora Replicas. If an Aurora Replica connection is actively using a database object such as a table, and that object is modified on the primary instance using a DDL statement, the Aurora Replica connection is interrupted.
 
-An Aurora Storage volume is made up of 10 GB segments of data with six copies spread across three Availability Zones. Each Amazon Aurora read replica shares the same underlying volume as the master instance. Updates made by the master are visible to all read replicas through a combination of reading from the shared Aurora storage volume and applying log updates in-memory when received from the primary instance after a master failure. Promotion of a read replica to master usually occurs in less than 30 seconds with no data loss.
+Rebooting the primary instance of an Amazon Aurora database cluster also automatically reboots the Aurora Replicas for that database cluster.
 
-For a write to be considered durable in Aurora, the primary instance (“master”) sends a redo stream to six storage nodes — two in each availability zone for the storage volume — and waits until four of the six nodes have responded. No database pages are ever written from the database tier to the storage tier. The Aurora Storage volume asynchronously applies redo records to generate database pages in the background or on demand. Aurora hides the underlying complexity.
+Before you create a cross region replica, turn on the `binlog_format` parameter.
 
-### High availability and scale-out in Aurora
+When using Multi-AZ, the primary database instance switches over automatically to the standby replica if any of the following conditions occur:
 
-Aurora provides two endpoints for cluster access. These endpoints provide both high availability capabilities and scale-out read processing for connecting applications.
+- The primary database instance fails.
+- An Availability Zone outage.
+- The database instance server type is changed.
+- The operating system of the database instance is undergoing software patching.
+- A manual failover of the database instance was initiated using reboot with fail-over.
 
-- **Cluster Endpoint** — Connects to the current primary instance for the Aurora cluster. You can perform both read and write operations using the cluster endpoint. If the current primary instance fails, Aurora automatically fails over to a new primary instance. During a failover, the database cluster continues to serve connection requests to the cluster endpoint from the new primary instance with minimal interruption of service.
-- **Reader Endpoint** — Provides load-balancing capabilities (round-robin) across the replicas allowing applications to scale-out reads across the Aurora cluster. Using the Reader Endpoint provides better use of the resources available in the cluster. The reader endpoint also enhances high availability. If an AWS Availability Zone fails, the application’s use of the reader endpoint continues to send read traffic to the other replicas with minimal disruption.
+**Examples**
 
-![Aurora architecture with cluster endpoints](images/pb-aurora-cluster-endpoints.png)
+The following walkthrough demonstrates how to create a replica/reader.
 
-While Amazon Aurora focuses on the scale-out of reads and Oracle RAC can scale-out both reads and writes, most OLTP applications are usually not limited by write scalability. Many Oracle RAC customers use RAC first for high availability and second to scale-out their reads. You can write to any node in an Oracle RAC cluster, but this capability is often a functional benefit for the application versus a method for achieving unlimited scalability for writes.
+1. Sign in to your AWS console and choose **RDS**.
+2. Choose **Instance actions** and choose **Add reader**.
+3. Enter all required details and choose **Create**.
 
-## Summary
+After the replica is created, you can run read and write operations on the primary instance and read-only operations on the replica.
 
-- Multiple cluster database nodes provide increased high availability. There is no single point of failure from the database servers. In addition, since an Aurora cluster can be distributed across three availability zones, there is a large benefit for high availability and durability of the database. These types of “stretch” database clusters are usually uncommon with other database architectures.
-- AWS managed storage nodes also provide high availability for the storage tier. A zero-data loss architecture is employed in the event a master node fails and a replica node is promoted to the new master. This failover can usually be performed in under 30 seconds.
-- Multiple cluster database nodes enable scaling-out query read performance across multiple servers.
-- Greatly reduced operational overhead using a cloud solution and reduced total cost of ownership by using AWS and open source database engines.
-- Automatic management of storage. No need to pre-provision storage for a database. Storage is automatically added as needed, and you only pay for one copy of your data.
-- With Amazon Aurora, you can easily scale-out your reads (and scale-up your writes) which fits perfectly into the workload characteristics of many, if not most, OLTP applications. Scaling out reads usually provides the most tangible performance benefit.
+### Compare Oracle Active Data Guard and Aurora PostgreSQL Replicates
 
-When comparing Oracle RAC and Amazon Aurora side by side, you can see the architectural differences between the two database technologies. Both provide high availability and scalability, but with different architectures.
+| Description                                                | Oracle Active Data Guard                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Aurora PostgreSQL Replicates                                                                                                                                                     |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| How to switch over                                         | `<br>ALTER DATABASE SWITCHOVER TO DBREP VERIFY;<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Note that you can’t choose to which instance to failover, the instance with the higher priority will become a writer (primary).                                                  |
+| Define automatic failover                                  | `<br>EDIT DATABASE db1 SET PROPERTY<br>FASTSTARTFAILOVERTARGET='db1rep';<br>EDIT DATABASE db1rep SET PROPERTY<br>FASTSTARTFAILOVERTARGET='db1';<br>ENABLE FAST_START FAILOVER;<br>`                                                                                                                                                                                                                                                                                                                          | Use Multi-AZ on instance creation or by modifying existing instance.                                                                                                             |
+| Asynchronous or synchronous replication                    | Change to synchronous<br>`<br>ALTER SYSTEM SET<br>LOG_ARCHIVE_DEST_2='SERVICE=db1rep<br>AFFIRM SYNC VALID_FOR=(ONLINE_LOGFILES,<br>PRIMARY_ROLE) DB_UNIQUE_NAME=db1rep';<br>ALTER DATABASE SET STANDBY<br>DATABASE TO MAXIMIZE AVAILABILITY;<br>`<br>Change to asynchronous<br>`<br>ALTER SYSTEM SET<br>LOG_ARCHIVE_DEST_2='SERVICE=db1rep<br>NOAFFIRM<br>ASYNC VALID_FOR=(ONLINE_LOGFILES,<br>PRIMARY_ROLE) DB_UNIQUE_NAME=db1rep';<br>ALTER DATABASE SET STANDBY<br>DATABASE TO MAXIMIZE PERFORMANCE;<br>` | Not supported. Only asynchronous replication is in use.                                                                                                                          |
+| Open standby to read/write and continue syncing afterwards | `<br>CONVERT DATABASE db1rep<br>TO SNAPSHOT STANDBY;<br>CONVERT DATABASE db1rep<br>TO PHYSICAL STANDBY;<br>`                                                                                                                                                                                                                                                                                                                                                                                                 | Not supported but you can: restore your database from snapshot, run your QA, testing or other operations on the restored instance. After you finish, drop the restored instance. |
+| Create gaped replication                                   | Create 5 minutes delay<br>`<br>ALTER DATABASE<br>RECOVER MANAGED STANDBY<br>DATABASE CANCEL;<br>ALTER DATABASE<br>RECOVER MANAGED STANDBY<br>DATABASE DELAY 5<br>DISCONNECT FROM SESSION;<br>`<br>Return for no delay<br>`<br>ALTER DATABASE<br>RECOVER MANAGED STANDBY<br>DATABASE CANCEL;<br>ALTER DATABASE<br>RECOVER MANAGED STANDBY<br>DATABASE NODELAY<br>DISCONNECT FROM SESSION;<br>`                                                                                                                | Not Supported                                                                                                                                                                    |
 
-![Oracle RAC and Aurora architecture comparison](images/pb-oracle-rac-amazon-aurora-comparison.png)
-
-Overall, Amazon Aurora introduces a simplified solution that can function as an Oracle RAC alternative for many typical OLTP applications that need high performance writes, scalable reads, and very high availability with lower operational overhead.
-
-| Feature                                   | Oracle RAC                                                                                                                                                                                         | Amazon Aurora                                                                        |
-| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Storage                                   | Usually enterprise-grade storage + ASM                                                                                                                                                             | Aurora Storage Nodes: Distributed, Low Latency, Storage Engine Spanning Multiple AZs |
-| Cluster type                              | Active/Active. All nodes open for R/W                                                                                                                                                              | Active/Active. Primary node open for R/W, Replica nodes open for reads               |
-| Cluster virtual IPs                       | R/W load balancing: SCAN IP                                                                                                                                                                        | R/W: Cluster endpoint + Read load balancing: Reader endpoint                         |
-| Internode coordination                    | Cache-fusion + GCS + GES                                                                                                                                                                           | N/A                                                                                  |
-| Internode private network                 | Interconnect                                                                                                                                                                                       | N/A                                                                                  |
-| Transaction (write) TTR from node failure | Typically, 0-30 seconds                                                                                                                                                                            | Typically, less than 30 seconds                                                      |
-| Application (Read) TTR from node failure  | Immediate                                                                                                                                                                                          | Immediate                                                                            |
-| Max number of cluster nodes               | Theoretical maximum is 100, but smaller clusters (2 to 10 nodes) are far more common                                                                                                               | 15                                                                                   |
-| Provides built-in read scaling            | Yes                                                                                                                                                                                                | Yes                                                                                  |
-| Provides built-in write scaling           | Yes, under certain scenarios, write performance can be limited and affect scale-out capabilities. For example, when multiple sessions attempt to modify rows contained in the same database blocks | No                                                                                   |
-| Data loss in case of node failure         | No data loss                                                                                                                                                                                       | No data loss                                                                         |
-| Replication latency                       | N/A                                                                                                                                                                                                | Milliseconds                                                                         |
-| Operational complexity                    | Requires database, IT, network, and storage expertise                                                                                                                                              | Provided as a cloud-solution                                                         |
-| Scale-up nodes                            | Difficult with physical hardware, usually requires to replace servers                                                                                                                              | Easy using the AWS UI/CLI                                                            |
-| Scale-out cluster                         | Provision, deploy, and configure new servers, unless you pre-allocate a pool of idle servers to scale-out on                                                                                       | Easy using the AWS UI/CLI                                                            |
-
-For more information, see [Amazon Aurora as an Alternative to Oracle RAC](https://aws.amazon.com/blogs/database/amazon-aurora-as-an-alternative-to-oracle-rac "https://aws.amazon.com/blogs/database/amazon-aurora-as-an-alternative-to-oracle-rac").
+For more information, see [Replication with Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") in the _user guide_ and [Multi-AZ deployments for high availability](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") in the _user guide_.
