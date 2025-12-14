@@ -16,7 +16,7 @@ resources, including:
 - [Access to application monitoring
   and management](../../../awsconsolehelpdocs/latest/gsg/aws-myApplications.md#myApp-benefits "../../../awsconsolehelpdocs/latest/gsg/aws-myApplications.md#myApp-benefits") in myApplications dashboard in the AWS Management Console
 - Viewing details about your application's costs, security findings, alarms, metrics and usage
-- Filtering by application in integrated AWS services, such as AWS Cost Explorer and AWS Security Hub
+- Filtering by application in integrated AWS services, such as AWS Cost Explorer and AWS Security Hub CSPM
   For AppRegistry applications created before November 8th, 2023, AppRegistry creates the `awsApplication` tag
   after you perform your first resource association. You can then apply the `awsApplication` tag
   to any other resources you want to add to the application.
