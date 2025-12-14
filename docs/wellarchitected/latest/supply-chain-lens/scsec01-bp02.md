@@ -30,7 +30,7 @@ practice is not established:** Medium
 
 ## Implementation guidance
 
-- Use cloud management and governance services like AWS Control Tower, Service Catalog, and AWS Security Hub to
+- Use cloud management and governance services like AWS Control Tower, Service Catalog, and AWS Security Hub CSPM to
   provision secure, compliance-aligned resources at scale.
 - AWS Control Tower can help set up a secure multi-account
   environment following best practices for separation of
@@ -47,7 +47,7 @@ practice is not established:** Medium
 2. Create standardized, pre-approved templates in Service Catalog to enable self-service provisioning of secure
    supply chain workloads while maintaining governance
    controls.
-3. Implement AWS Security Hub to gain centralized visibility
+3. Implement AWS Security Hub CSPM to gain centralized visibility
    into security findings, automate compliance checks, and
    continuously monitor security best practices across supply
    chain accounts.

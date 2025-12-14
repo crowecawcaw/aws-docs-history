@@ -42,7 +42,7 @@ complex automation sequences.
 
 The solution's integration layer utilizes Amazon API Gateway and
 AWS AppSync to connect various warehouse systems and external
-applications. Security is maintained through AWS Identity and Access Management and AWS Security Hub, for proper access controls and compliance. Amazon CloudWatch and AWS X-Ray provide comprehensive monitoring and
+applications. Security is maintained through AWS Identity and Access Management and AWS Security Hub CSPM, for proper access controls and compliance. Amazon CloudWatch and AWS X-Ray provide comprehensive monitoring and
 troubleshooting capabilities. The entire solution is deployed and
 managed using AWS CloudFormation and AWS Systems Manager, enabling
 consistent implementation across multiple facilities. This

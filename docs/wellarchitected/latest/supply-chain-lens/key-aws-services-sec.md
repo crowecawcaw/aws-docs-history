@@ -31,7 +31,7 @@ and features support the four areas of security:
 - [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/"): Track user activity and API usage.
 - [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/"): Assess, audit, and evaluate configurations of
   your resources.
-- [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"): Automate AWS security checks and
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"): Automate AWS security checks and
   centralize security alerts.
 
 **Infrastructure protection:**

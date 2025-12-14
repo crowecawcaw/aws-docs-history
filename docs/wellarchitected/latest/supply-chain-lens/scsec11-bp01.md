@@ -33,7 +33,7 @@ practice is not established:** High
 Maintain an up to date incident response plan specifically for
 supply chain incidents, with defined roles, communication
 procedures, and playbooks that are regularly reviewed and tested
-through tabletop exercises. Use AWS Security Hub to aggregate
+through tabletop exercises. Use AWS Security Hub CSPM to aggregate
 security alerts and compliance checks across AWS accounts and
 supply chain partners' connected accounts, providing a
 centralized view of security posture.

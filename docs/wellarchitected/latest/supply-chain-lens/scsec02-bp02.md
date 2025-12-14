@@ -32,7 +32,7 @@ practice is not established:** Medium
 
 Use AWS Config's aggregated view to get a consolidated
 compliance picture across multiple AWS accounts and Regions,
-while AWS Security Hub provides a comprehensive view of your
+while AWS Security Hub CSPM provides a comprehensive view of your
 high-priority security alerts and compliance findings from
 across AWS accounts.
 
@@ -46,7 +46,7 @@ supply chain security posture.
    data from all supply chain accounts and regions into a
    designated security account, providing a unified view of
    resource configurations and compliance status.
-2. Enable AWS Security Hub in all accounts and establish a
+2. Enable AWS Security Hub CSPM in all accounts and establish a
    central administrator account to aggregate security
    findings, with customized security standards specific to
    supply chain operations.
@@ -54,7 +54,7 @@ supply chain security posture.
    to categorize them by supply chain function, allowing for
    more granular filtering and analysis of security findings.
 4. Create custom Amazon CloudWatch dashboards that integrate
-   metrics from multiple AWS services (Config, Security Hub,
+   metrics from multiple AWS services (Config, Security Hub CSPM,
    Amazon GuardDuty, and Amazon Inspector) to visualize
    security trends and compliance status across your supply
    chain.

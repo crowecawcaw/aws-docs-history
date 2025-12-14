@@ -32,10 +32,10 @@ utilizing AWS Config and its proactive mode to automatically
 track and remediate resource configurations for continuous
 compliance across accounts and regions.
 
-Enable AWS Security Hub standards and controls to continuously
+Enable AWS Security Hub CSPM standards and controls to continuously
 evaluate if security requirements are met across your supply
 chain environments, and Implement automated workflows to route
-security findings from AWS Security Hub to your incident
+security findings from AWS Security Hub CSPM to your incident
 response and remediation processes.
 
 ### Implementation steps
@@ -48,17 +48,17 @@ response and remediation processes.
    remediate non-compliant resources, making sure
    configurations consistently meet security requirements
    without manual intervention.
-3. Enable relevant AWS Security Hub standards (such as CIS
+3. Enable relevant AWS Security Hub CSPM standards (such as CIS
    AWS Foundations, AWS Foundational Security Best Practices,
    and industry-specific frameworks) to comprehensively
    evaluate security posture across your supply chain
    accounts.
-4. Create custom Security Hub insights that focus
+4. Create custom Security Hub CSPM insights that focus
    specifically on supply chain-critical resources and
    configurations to prioritize security findings relevant to
    your business operations.
 5. Implement automated workflows using EventBridge and Lambda
-   to route Security Hub findings to appropriate teams,
+   to route Security Hub CSPM findings to appropriate teams,
    ticketing systems, and remediation processes based on
    severity and resource type.
 6. Establish dashboards and regular reporting mechanisms that
