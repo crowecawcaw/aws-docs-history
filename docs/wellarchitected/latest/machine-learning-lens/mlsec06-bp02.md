@@ -192,4 +192,4 @@ investigation.
 
 **Related examples:**
 
-- [AWS Security Hub automated response and remediation](https://github.com/aws-solutions/aws-security-hub-automated-response-and-remediation "https://github.com/aws-solutions/aws-security-hub-automated-response-and-remediation")
+- [AWS Security Hub CSPM automated response and remediation](https://github.com/aws-solutions/aws-security-hub-automated-response-and-remediation "https://github.com/aws-solutions/aws-security-hub-automated-response-and-remediation")

@@ -1,7 +1,7 @@
 # Deployment
 
 After you have trained, tuned, and evaluated your model, you can deploy it into production
-and make predictions against this deployed model. Amazon SageMaker AI AI Studio can convert notebook code
+and make predictions against this deployed model. Amazon SageMaker AI Studio can convert notebook code
 to production-ready jobs without the need to manage the underlying infrastructure. Be sure to
 use a governance process. Controlling deployments through automation combined with manual or
 automated quality gates facilitates that changes can be effectively validated with dependent

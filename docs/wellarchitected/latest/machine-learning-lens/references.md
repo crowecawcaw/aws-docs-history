@@ -19,5 +19,5 @@
 - [Announcing
   New Tools for Building with Generative AI on AWS $1 Amazon Web Services](https://aws.amazon.com/blogs/machine-learning/announcing-new-tools-for-building-with-generative-ai-on-aws/ "https://aws.amazon.com/blogs/machine-learning/announcing-new-tools-for-building-with-generative-ai-on-aws/")
 - [Get
-  started with generative AI on AWS using Amazon SageMaker AI AI
+  started with generative AI on AWS using Amazon SageMaker AI
   JumpStart $1 Amazon Web Services](https://aws.amazon.com/blogs/machine-learning/get-started-with-generative-ai-on-aws-using-amazon-sagemaker-jumpstart/ "https://aws.amazon.com/blogs/machine-learning/get-started-with-generative-ai-on-aws-using-amazon-sagemaker-jumpstart/")

@@ -177,7 +177,7 @@ initiatives.
     data access patterns, and potential data exfiltration from
     your ML environments. Use
     [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/"),
-    [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"), and
+    [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"), and
     [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/") to create a comprehensive security
     monitoring solution for ML resources.
 11. **Implement additional security
