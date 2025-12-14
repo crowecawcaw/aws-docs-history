@@ -326,13 +326,13 @@ JSON
 This AWS-managed policy allows AWS Control Tower to call AWS services that provide
 automated account configuration and centralized governance on your behalf.
 
-The policy contains the minimum permissions for AWS Control Tower to implement AWS Security Hub
-findings forwarding for resources managed by Security Hub controls that are part of the
-**Security Hub Service-managed Standard: AWS Control Tower**, and it prevents
+The policy contains the minimum permissions for AWS Control Tower to implement AWS Security Hub CSPM
+findings forwarding for resources managed by Security Hub CSPM controls that are part of the
+**Security Hub CSPM Service-managed Standard: AWS Control Tower**, and it prevents
 changes that restrict the ability to manage customer accounts. It is part of background
-AWS Security Hub drift detection process that is not directly initiated by a customer.
+AWS Security Hub CSPM drift detection process that is not directly initiated by a customer.
 
-The policy gives permissions to create Amazon EventBridge rules, specifically for Security Hub
+The policy gives permissions to create Amazon EventBridge rules, specifically for Security Hub CSPM
 controls, in each member account, and these rules must specify an exact EventPattern.
 Also, a rule can operate only on rules managed by our service principal.
 

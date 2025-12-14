@@ -21,7 +21,7 @@ Well-Architected Tool](../../../wellarchitected/latest/userguide/intro.md "../..
 - [Run Serverless Compute Functions with Lambda](lambda.md "lambda.md")
 - [Manage Accounts Through AWS Organizations](organizations.md "organizations.md")
 - [Store Objects with Amazon S3](s3.md "s3.md")
-- [Monitor your environment with Security Hub](security-hub.md "security-hub.md")
+- [Monitor your environment with Security Hub CSPM](security-hub.md "security-hub.md")
 - [Provision accounts through AWS Service Catalog](service-catalog.md "service-catalog.md")
 - [Track Alerts Through Amazon Simple Notification Service](sns.md "sns.md")
 - [Build Distributed Applications with AWS Step Functions](step-functions.md "step-functions.md")

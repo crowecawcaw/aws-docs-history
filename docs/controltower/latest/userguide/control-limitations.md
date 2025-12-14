@@ -30,10 +30,10 @@ Some controls in AWS Control Tower do not operate in certain AWS Regions where A
 available, because those Regions do not support the required underlying functionality.
 As a result, when you deploy that control, it may not be operating in all Regions that
 you govern with AWS Control Tower. This limitation affects certain detective controls, certain
-proactive controls, and certain controls in the **Security Hub Service-managed
+proactive controls, and certain controls in the **Security Hub CSPM Service-managed
 Standard: AWS Control Tower**. For more information about Regional availability, see
 the [Security Hub
-controls](../controlreference/security-hub-controls.md "../controlreference/security-hub-controls.md"). Also see the [Regional services list documentation](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") and the [Security Hub
+controls](../controlreference/security-hub-controls.md "../controlreference/security-hub-controls.md"). Also see the [Regional services list documentation](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") and the [Security Hub CSPM
 controls reference documentation](../../../securityhub/latest/userguide/securityhub-controls-reference.md "../../../securityhub/latest/userguide/securityhub-controls-reference.md").
 
 Control behavior also is limited in case of _mixed
@@ -58,9 +58,9 @@ Also see the reference table of AWS Control Tower controls and supported Regions
 availability by Region](../controlreference/control-region-tables.md "../controlreference/control-region-tables.md"), in the _AWS Control Tower Controls Reference
 Guide_.
 
-For information about AWS Security Hub controls from the **Service-Managed
+For information about AWS Security Hub CSPM controls from the **Service-Managed
 Standard: AWS Control Tower** that are not supported in certain AWS Regions,
-see "Unsupported Regions" in the [Security Hub
+see "Unsupported Regions" in the [Security Hub CSPM
 standard](../controlreference/security-hub-controls.md "../controlreference/security-hub-controls.md").
 
 **The following table shows specific proactive controls that

@@ -42,7 +42,7 @@ governance.
   proactive controls. You will receive a `FAILED_TO_ENABLE` error
   message, because non-updated member accounts within the OU have not yet been
   opted into those Regions.
-- During mixed governance, controls that are part of the **Security Hub
+- During mixed governance, controls that are part of the **Security Hub CSPM
   Service-managed Standard: AWS Control Tower** cannot report compliance
   accurately in Regions where there is a mismatch between the landing zone
   configuration and the accounts that are not updated.

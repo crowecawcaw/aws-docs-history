@@ -42,8 +42,8 @@ and centralize logging systems.
 
 _Security_
 
-- [Automating AWS Security Hub Alerts with AWS Control Tower lifecycle events](https://aws.amazon.com/blogs/mt/automating-aws-security-hub-alerts-with-aws-control-tower-lifecycle-events/ "https://aws.amazon.com/blogs/mt/automating-aws-security-hub-alerts-with-aws-control-tower-lifecycle-events/") –
-  This blog post describes how to automate Security Hub enablement and configuration in
+- [Automating AWS Security Hub CSPM Alerts with AWS Control Tower lifecycle events](https://aws.amazon.com/blogs/mt/automating-aws-security-hub-alerts-with-aws-control-tower-lifecycle-events/ "https://aws.amazon.com/blogs/mt/automating-aws-security-hub-alerts-with-aws-control-tower-lifecycle-events/") –
+  This blog post describes how to automate Security Hub CSPM enablement and configuration in
   an AWS Control Tower multi-account environment on existing and new accounts.
 - [Enabling AWS Identity and Access Management](https://aws.amazon.com/blogs/mt/enabling-aws-identity-and-access-analyzer-on-aws-control-tower-accounts "https://aws.amazon.com/blogs/mt/enabling-aws-identity-and-access-analyzer-on-aws-control-tower-accounts") – This blog post describes how to enhance
   your organizational security visibility by enabling and centralizing IAM

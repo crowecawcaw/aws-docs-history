@@ -28,7 +28,7 @@ and to a Lambda function.
 
 When the auto-enroll capability for accounts is enabled in **Settings**, these SNS notifications are not available.
 
-For controls that are part of the AWS Security Hub **Service-Managed Standard:
+For controls that are part of the AWS Security Hub CSPM **Service-Managed Standard:
 AWS Control Tower**, drift is shown on the **Account** and
 **Account details** pages in the AWS Control Tower console, as well as by
 means of an Amazon SNS notification.

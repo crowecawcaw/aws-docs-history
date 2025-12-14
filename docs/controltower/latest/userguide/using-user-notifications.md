@@ -20,7 +20,7 @@ EventBridge include:
 - Native support for email notifications, there's no need to set up Amazon SNS.
 - Most notably, support for mobile push notifications, exclusive to AWS User
   Notifications.
-  For example, one type of notification you may wish to receive is in case of Security Hub critical
+  For example, one type of notification you may wish to receive is in case of Security Hub CSPM critical
   and high severity findings. A code snippet in JSON to set up that notification subscription may
   look something like this:
 

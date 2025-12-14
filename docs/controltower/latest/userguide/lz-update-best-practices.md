@@ -31,7 +31,7 @@ versions
 - Customize your log retention timeframe
 - Enhanced mandatory controls
 - Increased number of controls available
-- Integrated with AWS Security Hub
+- Integrated with AWS Security Hub CSPM
 - Python runtime updates
 
 ###### Caveats for moving from 2.x landing zone versions to 3.x landing zone versions

@@ -43,9 +43,9 @@ and shared accounts.
 
 AWS Control Tower reports _control drift_ regarding controls implemented
 with resource control policies (RCPs), declarative policies and controls that are part of the
-**AWS Security Hub Service-managed Standard: AWS Control Tower**.
+**AWS Security Hub CSPM Service-managed Standard: AWS Control Tower**.
 
-- [Security Hub control drift](#sh-control-drift "#sh-control-drift")
+- [Security Hub CSPM control drift](#sh-control-drift "#sh-control-drift")
 - [Control policy drift](#control-policy-drift "#control-policy-drift")
   **Inheritance drift for baselines and controls**
 
@@ -290,15 +290,15 @@ updated automatically.
 
 For more information about resolving drift for accounts and OUs, see [If you manage resources outside of AWS Control Tower](external-resources.md "external-resources.md").
 
-## Security Hub control drift
+## Security Hub CSPM control drift
 
-This type of drift occurs when a control that's part of the **AWS Security Hub
+This type of drift occurs when a control that's part of the **AWS Security Hub CSPM
 Service-Managed Standard: AWS Control Tower** reports a state of drift. The
-AWS Security Hub service itself does not report a state of drift for these controls.
+AWS Security Hub CSPM service itself does not report a state of drift for these controls.
 Instead, the service sends its findings to AWS Control Tower.
 
-Security Hub control drift also can be detected if AWS Control Tower has not received a status
-update from Security Hub in more than 24 hours. If those findings are not received as
+Security Hub CSPM control drift also can be detected if AWS Control Tower has not received a status
+update from Security Hub CSPM in more than 24 hours. If those findings are not received as
 expected, AWS Control Tower verifies that the control is in drift. The following example
 shows a drift notification you may receive when this type of drift is
 detected.
@@ -358,7 +358,7 @@ of drift is detected.
 
 ### Resolution
 
-The easiest resolution for control policy drift on RCP controls, declarative policy controls, and Security Hub
+The easiest resolution for control policy drift on RCP controls, declarative policy controls, and Security Hub CSPM
 controls enabled in AWS Control Tower is to call the `ResetEnabledControl`
 API.
 
