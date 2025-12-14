@@ -1,27 +1,27 @@
-# `awsbqueues`
+# `awsbkill`
 
-Shows the job queue that is associated with the cluster.
+Cancels or terminates jobs submitted in the cluster.
 
 ```
-awsbqueues [-h] [-c `CLUSTER`] [-d] [`job_queues` [`job_queues` ... ]]
+awsbkill [-h] [-c `CLUSTER`] [-r `REASON`] `job_ids` [`job_ids` ... ]
 ```
 
-## Positional arguments
+## Positional Arguments
 
-`job_queues`
+`job_ids`
 
-Specifies the space-separated list of queue names to show. If a single queue is
-requested, it is shown in a detailed version.
+Specifies the space-separated list of job IDs to cancel or terminate.
 
-## Named arguments
+## Named Arguments
 
 `-c `CLUSTER`, --cluster
  `CLUSTER``
 
-Specifies the name of the cluster to use.
+Indicates the name of the cluster to use.
 
-`-d, --details`
+`-r `REASON`, --reason
+ `REASON``
 
-Indicates whether to show the details of the queues.
+Indicates the message to attach to a job, explaining the reason for canceling it.
 
-Default: False
+Default: “Terminated by the user”
