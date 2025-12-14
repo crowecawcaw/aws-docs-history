@@ -75,7 +75,7 @@ privately connect supported AWS services to your VPC. When you use a VPC service
 endpoint with DataSync, all communication between your DataSync agent and the DataSync service
 remains in your VPC.
 
-The VPC service endpoint (along with the [network interfaces](required-network-interfaces.md "required-network-interfaces.md") DataSync creates for data transfer traffic) are private IP
+The VPC service endpoint (along with the [network interfaces](required-network-interfaces.md "required-network-interfaces.md") DataSync creates for data transfer traffic) uses private IP
 addresses that are only accessible from inside your VPC. For more information, see [Connecting your network for AWS DataSync
 transfers](networking-datasync.md "networking-datasync.md").
 

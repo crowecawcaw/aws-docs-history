@@ -26,7 +26,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]*:[0-9]{12}:task/task-[0-9a-f]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:task/task-[0-9a-f]{17}$`
 
 Required: Yes
 
@@ -144,7 +144,7 @@ Type: String
 
 Length Constraints: Maximum length of 562.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):logs:[a-z\-0-9]+:[0-9]{12}:log-group:([^:\*]*)(:\*)?$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):logs:[a-z\-0-9]+:[0-9]{12}:log-group:([^:\*]*)(:\*)?$`
 
 **[CreationTime](#API_DescribeTask_ResponseSyntax "#API_DescribeTask_ResponseSyntax")**
 
@@ -160,7 +160,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]*:[0-9]{12}:task/task-[0-9a-f]{17}/execution/exec-[0-9a-f]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:task/task-[0-9a-f]{17}/execution/exec-[0-9a-f]{17}$`
 
 **[DestinationLocationArn](#API_DescribeTask_ResponseSyntax "#API_DescribeTask_ResponseSyntax")**
 
@@ -170,7 +170,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
 
 **[DestinationNetworkInterfaceArns](#API_DescribeTask_ResponseSyntax "#API_DescribeTask_ResponseSyntax")**
 
@@ -261,7 +261,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
 
 **[SourceNetworkInterfaceArns](#API_DescribeTask_ResponseSyntax "#API_DescribeTask_ResponseSyntax")**
 
@@ -290,7 +290,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]*:[0-9]{12}:task/task-[0-9a-f]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:task/task-[0-9a-f]{17}$`
 
 **[TaskMode](#API_DescribeTask_ResponseSyntax "#API_DescribeTask_ResponseSyntax")**
 

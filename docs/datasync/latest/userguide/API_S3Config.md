@@ -16,7 +16,7 @@ Type: String
 
 Length Constraints: Maximum length of 2048.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*$`
 
 Required: Yes
 

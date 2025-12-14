@@ -36,6 +36,8 @@ The following data types are supported:
 - [TagListEntry](API_TagListEntry.md "API_TagListEntry.md")
 - [TaskExecutionFilesFailedDetail](API_TaskExecutionFilesFailedDetail.md "API_TaskExecutionFilesFailedDetail.md")
 - [TaskExecutionFilesListedDetail](API_TaskExecutionFilesListedDetail.md "API_TaskExecutionFilesListedDetail.md")
+- [TaskExecutionFoldersFailedDetail](API_TaskExecutionFoldersFailedDetail.md "API_TaskExecutionFoldersFailedDetail.md")
+- [TaskExecutionFoldersListedDetail](API_TaskExecutionFoldersListedDetail.md "API_TaskExecutionFoldersListedDetail.md")
 - [TaskExecutionListEntry](API_TaskExecutionListEntry.md "API_TaskExecutionListEntry.md")
 - [TaskExecutionResultDetail](API_TaskExecutionResultDetail.md "API_TaskExecutionResultDetail.md")
 - [TaskFilter](API_TaskFilter.md "API_TaskFilter.md")

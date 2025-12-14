@@ -12,6 +12,14 @@ transfers with an SMB file server](create-smb-location.md "create-smb-location.m
 {
    "AgentArns": [ "`string`" ],
    "AuthenticationType": "`string`",
+   "CmkSecretConfig": {
+      "KmsKeyArn": "`string`",
+      "SecretArn": "`string`"
+   },
+   "CustomSecretConfig": {
+      "SecretAccessRoleArn": "`string`",
+      "SecretArn": "`string`"
+   },
    "DnsIpAddresses": [ "`string`" ],
    "Domain": "`string`",
    "KerberosKeytab": `blob`,
@@ -41,11 +49,11 @@ server. You specify an agent by using its Amazon Resource Name (ARN).
 
 Type: Array of strings
 
-Array Members: Minimum number of 1 item. Maximum number of 4 items.
+Array Members: Minimum number of 1 item. Maximum number of 8 items.
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
 
 Required: No
 
@@ -60,6 +68,26 @@ For more information, see [Providing DataSync access to SMB file servers](create
 Type: String
 
 Valid Values: `NTLM | KERBEROS`
+
+Required: No
+
+**[CmkSecretConfig](#API_UpdateLocationSmb_RequestSyntax "#API_UpdateLocationSmb_RequestSyntax")**
+
+Specifies configuration information for a DataSync-managed secret, such as a
+`Password` or `KerberosKeytab` or set of credentials that DataSync uses to access a specific transfer location, and a
+customer-managed AWS KMS key.
+
+Type: [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md") object
+
+Required: No
+
+**[CustomSecretConfig](#API_UpdateLocationSmb_RequestSyntax "#API_UpdateLocationSmb_RequestSyntax")**
+
+Specifies configuration information for a customer-managed secret, such as a
+`Password` or `KerberosKeytab` or set of credentials that DataSync uses to access a specific transfer location, and a
+customer-managed AWS KMS key.
+
+Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
 
 Required: No
 
@@ -154,7 +182,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
 
 Required: Yes
 

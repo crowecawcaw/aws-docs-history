@@ -26,7 +26,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
 
 Required: Yes
 
@@ -36,12 +36,23 @@ Required: Yes
 {
    "AgentArns": [ "***string***" ],
    "AuthenticationType": "***string***",
+   "CmkSecretConfig": {
+      "KmsKeyArn": "***string***",
+      "SecretArn": "***string***"
+   },
    "CreationTime": ***number***,
+   "CustomSecretConfig": {
+      "SecretAccessRoleArn": "***string***",
+      "SecretArn": "***string***"
+   },
    "DnsIpAddresses": [ "***string***" ],
    "Domain": "***string***",
    "KerberosPrincipal": "***string***",
    "LocationArn": "***string***",
    "LocationUri": "***string***",
+   "ManagedSecretConfig": {
+      "SecretArn": "***string***"
+   },
    "MountOptions": {
       "Version": "***string***"
    },
@@ -62,11 +73,11 @@ server.
 
 Type: Array of strings
 
-Array Members: Minimum number of 1 item. Maximum number of 4 items.
+Array Members: Minimum number of 1 item. Maximum number of 8 items.
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
 
 **[AuthenticationType](#API_DescribeLocationSmb_ResponseSyntax "#API_DescribeLocationSmb_ResponseSyntax")**
 
@@ -77,11 +88,27 @@ Type: String
 
 Valid Values: `NTLM | KERBEROS`
 
+**[CmkSecretConfig](#API_DescribeLocationSmb_ResponseSyntax "#API_DescribeLocationSmb_ResponseSyntax")**
+
+Describes configuration information for a DataSync-managed secret, such as a
+`Password` or `KerberosKeytab` that DataSync uses to access
+a specific storage location, with a customer-managed AWS KMS key.
+
+Type: [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md") object
+
 **[CreationTime](#API_DescribeLocationSmb_ResponseSyntax "#API_DescribeLocationSmb_ResponseSyntax")**
 
 The time that the SMB location was created.
 
 Type: Timestamp
+
+**[CustomSecretConfig](#API_DescribeLocationSmb_ResponseSyntax "#API_DescribeLocationSmb_ResponseSyntax")**
+
+Describes configuration information for a customer-managed secret, such as a
+`Password` or `KerberosKeytab` that DataSync uses to access
+a specific storage location, with a customer-managed AWS KMS key.
+
+Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
 
 **[DnsIpAddresses](#API_DescribeLocationSmb_ResponseSyntax "#API_DescribeLocationSmb_ResponseSyntax")**
 
@@ -126,7 +153,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
 
 **[LocationUri](#API_DescribeLocationSmb_ResponseSyntax "#API_DescribeLocationSmb_ResponseSyntax")**
 
@@ -137,6 +164,15 @@ Type: String
 Length Constraints: Maximum length of 4360.
 
 Pattern: `^(efs|nfs|s3|smb|hdfs|fsx[a-z0-9-]+)://[a-zA-Z0-9.:/\-]+$`
+
+**[ManagedSecretConfig](#API_DescribeLocationSmb_ResponseSyntax "#API_DescribeLocationSmb_ResponseSyntax")**
+
+Describes configuration information for a DataSync-managed secret, such as a
+`Password` or `KerberosKeytab` that DataSync uses to access
+a specific storage location. DataSync uses the default AWS-managed
+KMS key to encrypt this secret in AWS Secrets Manager.
+
+Type: [ManagedSecretConfig](API_ManagedSecretConfig.md "API_ManagedSecretConfig.md") object
 
 **[MountOptions](#API_DescribeLocationSmb_ResponseSyntax "#API_DescribeLocationSmb_ResponseSyntax")**
 

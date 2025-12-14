@@ -250,6 +250,13 @@ error
 The set of data you're trying to transfer may be too large for DataSync. If you see this
 error, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
+## Task execution fails with `FsNfsIdMappingEnabled`
+
+error
+
+DataSync does not support NFSv4 ID mapping. To work around this,
+[configure your NFS location to use NFSv3](create-nfs-location.md#configure-network-nfs-location "create-nfs-location.md#configure-network-nfs-location").
+
 ## Object fails to transfer to
 
 Azure Blob Storage with `user metadata key`

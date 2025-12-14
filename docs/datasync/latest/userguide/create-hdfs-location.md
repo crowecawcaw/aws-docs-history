@@ -3,7 +3,7 @@
 cluster
 
 With AWS DataSync, you can transfer data between your Hadoop Distributed File System
-(HDFS) cluster and one of the following AWS storage services:
+(HDFS) cluster and one of the following AWS storage services using Basic mode tasks:
 
 - [Amazon S3](create-s3-location.md "create-s3-location.md")
 - [Amazon EFS](create-efs-location.md "create-efs-location.md")
@@ -16,7 +16,7 @@ With AWS DataSync, you can transfer data between your Hadoop Distributed File Sy
 
 ## Providing DataSync access to HDFS clusters
 
-To connect to your HDFS cluster, DataSync uses an [agent
+To connect to your HDFS cluster, DataSync uses a Basic mode agent [agent
 that you deploy](deploy-agents.md "deploy-agents.md") as close as possible to your HDFS cluster. The DataSync
 agent acts as an HDFS client and communicates with the NameNodes and DataNodes in
 your cluster.
@@ -89,7 +89,7 @@ transfer.
 **Before you begin**: Verify network connectivity
 between your agent and Hadoop cluster by doing the following:
 
-- Test access to the TCP ports listed in [Network requirements for on-premises, self-managed, other cloud, and edge storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
+- Test access to the TCP ports listed in [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
 - Test access between your local agent and your Hadoop cluster. For
   instructions, see [Verifying your agent's
   connection to your storage system](test-agent-connections.md#self-managed-storage-connectivity "test-agent-connections.md#self-managed-storage-connectivity").

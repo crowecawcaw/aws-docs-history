@@ -18,13 +18,26 @@ How you access the local console depends on the type of agent you're using.
 
 For
 security reasons, you can't remotely connect to the local
-console of the DataSync agent virtual machine (VM).
+console of the DataSync agent virtual machine (VM). You must access the local console from your
+hypervisor management interface.
 
 - If this is your first time using the local console,
   log in with the temporary credentials. The initial user name is
   `admin` and the temporary password is
   `password`. You must change the password on
   first log in.
+
+###### Note
+
+Enhanced mode agents have the following password requirements:
+
+    + Must contain a minimum of 15 characters
+    + Must contain at least one uppercase character
+    + Must contain at least one lowercase character
+    + Must contain at least one numeric character
+    + Must contain at least one special character
+    + At least 50% of the characters must change on password update
+    + The password cannot be a dictionary word
 
 ###### Note
 

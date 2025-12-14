@@ -30,7 +30,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
 
 Required: Yes
 
@@ -82,7 +82,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):fsx:[a-z\-0-9]*:[0-9]{12}:file-system/fs-.*$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):fsx:[a-z\-0-9]+:[0-9]{12}:file-system/fs-[0-9a-f]+$`
 
 **[LocationArn](#API_DescribeLocationFsxOntap_ResponseSyntax "#API_DescribeLocationFsxOntap_ResponseSyntax")**
 
@@ -92,7 +92,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
 
 **[LocationUri](#API_DescribeLocationFsxOntap_ResponseSyntax "#API_DescribeLocationFsxOntap_ResponseSyntax")**
 
@@ -123,7 +123,7 @@ Array Members: Minimum number of 1 item. Maximum number of 5 items.
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/sg-[a-f0-9]+$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/sg-[a-f0-9]+$`
 
 **[StorageVirtualMachineArn](#API_DescribeLocationFsxOntap_ResponseSyntax "#API_DescribeLocationFsxOntap_ResponseSyntax")**
 
@@ -134,7 +134,7 @@ Type: String
 
 Length Constraints: Maximum length of 162.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):fsx:[a-z\-0-9]+:[0-9]{12}:storage-virtual-machine/fs-[0-9a-f]+/svm-[0-9a-f]{17,}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):fsx:[a-z\-0-9]+:[0-9]{12}:storage-virtual-machine/fs-[0-9a-f]+/svm-[0-9a-f]{17,}$`
 
 ## Errors
 

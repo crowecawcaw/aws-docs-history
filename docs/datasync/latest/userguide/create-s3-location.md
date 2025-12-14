@@ -802,7 +802,7 @@ To create a location for your transfer, you need an existing Amazon S3 on Outpos
 bucket. If you don't have one, see the [_Amazon S3 on Outposts
 User Guide_](../../../AmazonS3/latest/s3-outposts/S3onOutposts.md "../../../AmazonS3/latest/s3-outposts/S3onOutposts.md").
 
-You also need a DataSync agent. For more information, see [Deploying your agent on AWS Outposts](deploy-agents.md#outposts-agent "deploy-agents.md#outposts-agent").
+You also need a DataSync agent. For more information, see [Deploying your Basic mode agent on AWS Outposts](deploy-agents.md#outposts-agent "deploy-agents.md#outposts-agent").
 
 When transferring from an S3 on Outposts bucket prefix that contains a large
 dataset (such as hundreds of thousands or millions of objects), your DataSync task

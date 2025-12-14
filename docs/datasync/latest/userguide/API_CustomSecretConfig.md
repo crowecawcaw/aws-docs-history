@@ -1,9 +1,9 @@
 # CustomSecretConfig
 
 Specifies configuration information for a customer-managed Secrets Manager secret where
-a storage location authentication token or secret key is stored in plain text. This
-configuration includes the secret ARN, and the ARN for an IAM role that
-provides access to the secret.
+a storage location credentials is stored in Secrets Manager as plain text (for authentication
+token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes
+the secret ARN, and the ARN for an IAM role that provides access to the secret.
 
 ###### Note
 
@@ -22,7 +22,7 @@ Type: String
 
 Length Constraints: Maximum length of 2048.
 
-Pattern: `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/[a-zA-Z0-9+=,.@_-]+|)$`
+Pattern: `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):iam::[0-9]{12}:role/[a-zA-Z0-9+=,.@_-]+|)$`
 
 Required: No
 
@@ -34,7 +34,7 @@ Type: String
 
 Length Constraints: Maximum length of 2048.
 
-Pattern: `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z\-0-9]+:[0-9]{12}:secret:.*|)$`
+Pattern: `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):secretsmanager:[a-z\-0-9]+:[0-9]{12}:secret:.*|)$`
 
 Required: No
 

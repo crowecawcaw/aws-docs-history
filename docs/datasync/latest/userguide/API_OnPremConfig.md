@@ -14,11 +14,11 @@ You can specify more than one agent. For more information, see [Using multiple D
 
 Type: Array of strings
 
-Array Members: Minimum number of 1 item. Maximum number of 4 items.
+Array Members: Minimum number of 1 item. Maximum number of 8 items.
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
 
 Required: Yes
 

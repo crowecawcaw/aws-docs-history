@@ -1,8 +1,8 @@
 # CmkSecretConfig
 
 Specifies configuration information for a DataSync-managed secret, such as an
-authentication token or secret key that DataSync uses to access a specific storage
-location, with a customer-managed AWS KMS key.
+authentication token, secret key, password, or Kerberos keytab that DataSync uses
+to access a specific storage location, with a customer-managed AWS KMS key.
 
 ###### Note
 
@@ -21,7 +21,7 @@ Type: String
 
 Length Constraints: Maximum length of 2048.
 
-Pattern: `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):kms:[a-z\-0-9]+:[0-9]{12}:key/.*|)$`
+Pattern: `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):kms:[a-z\-0-9]+:[0-9]{12}:key/.*|)$`
 
 Required: No
 
@@ -34,7 +34,7 @@ Type: String
 
 Length Constraints: Maximum length of 2048.
 
-Pattern: `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z\-0-9]+:[0-9]{12}:secret:.*|)$`
+Pattern: `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):secretsmanager:[a-z\-0-9]+:[0-9]{12}:secret:.*|)$`
 
 Required: No
 

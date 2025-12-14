@@ -3,7 +3,7 @@
 storage system
 
 With AWS DataSync, you can transfer data between your object storage system and one of
-the following AWS storage services:
+the following AWS storage services using Basic mode tasks:
 
 - [Amazon S3](create-s3-location.md "create-s3-location.md")
 - [Amazon EFS](create-efs-location.md "create-efs-location.md")
@@ -13,7 +13,7 @@ the following AWS storage services:
 - [Amazon FSx for NetApp ONTAP](create-ontap-location.md "create-ontap-location.md")
   To set up this kind of transfer, you create a [location](how-datasync-transfer-works.md#sync-locations "how-datasync-transfer-works.md#sync-locations") for your object storage system. You can use this location as a
   transfer source or destination. Transferring data to or from your on-premises object
-  storage requires a DataSync agent.
+  storage requires a Basic mode DataSync agent.
 
 ## Prerequisites
 

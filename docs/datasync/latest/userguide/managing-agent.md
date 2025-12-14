@@ -18,7 +18,8 @@ AWS updates the agent.
 ###### Important
 
 - DataSync automatically and regularly patches agents to maintain their
-  security and stability. DataSync agents use Amazon Linux 2 as their base operating
+  security and stability. DataSync Basic mode agents use Amazon Linux 2 as their base operating
+  system. DataSync Enhanced mode agents use Amazon Linux 2023 as their base operating
   system. You can view the current status of detected Common
   Vulnerabilities and Exposures (CVE) issues on the [Amazon Linux Security
   Center](https://explore.alas.aws.amazon.com/ "https://explore.alas.aws.amazon.com/"). CVE patches are automatically applied within 30 days

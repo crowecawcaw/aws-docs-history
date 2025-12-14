@@ -6,9 +6,15 @@ requirements.
 
 ## Hypervisor requirements
 
+DataSync agents can be deployed on supported hypervisors to facilitate data transfer.
+
+###### Note
+
+Enhanced mode agents only support VMware ESXi, KVM, Nutanix AHV, and EC2.
+
 You can run a DataSync agent on the following hypervisors:
 
-- **VMware ESXi (version 6.5, 6.7, 7.0, or
+- **VMware ESXi (version 7.0 or
   8.0)**: VMware ESXi is available on the [Broadcom website](https://knowledge.broadcom.com/external/article?articleId=366685#mcetoc_1i29sq73la "https://knowledge.broadcom.com/external/article?articleId=366685#mcetoc_1i29sq73la"). You also need a VMware vSphere client to
   connect to the host.
 - **Linux Kernel-based Virtual Machine (KVM)**:
@@ -25,7 +31,7 @@ running and you're already familiar with how KVM works.
 Running KVM on Amazon EC2 isn't supported and can't be used for DataSync
 agents.
 
-- **Microsoft Hyper-V (version 2012 R2, 2016, or 2019)**: For this setup, you need a Microsoft Hyper-V Manager
+- **Microsoft Hyper-V (version 2012 R2, 2016, or 2019)**: Basic mode agents only. For this setup, you need a Microsoft Hyper-V Manager
   on a Microsoft Windows client computer to connect to the host.
 
 The DataSync agent is a generation 1 virtual machine (VM). For more
@@ -45,11 +51,13 @@ requirements.
 
 ###### Important
 
-Keep in mind that the agent requirements for working with up to 20 million
-files, objects, or directories are general guidelines. Your agent may need more
-resources because of other factors, such as how many directories you have and
-object metadata size. For example, the m5.2xlarge instance for an Amazon EC2 agent
-still might not be enough for a transfer of less than 20 million files.
+Keep in mind that the Basic mode agent requirements for working with up to 20
+million files, objects, or directories are general guidelines. Your agent may
+need more resources because of other factors, such as how many directories you
+have and object metadata size. For example, the m5.2xlarge instance for an Amazon EC2
+agent still might not be enough for a transfer of less than 20 million files.
+
+Enhanced mode agents don't have file quotas.
 
 ###### Contents
 
@@ -59,30 +67,24 @@ still might not be enough for a transfer of less than 20 million files.
 ### Virtual machine requirements
 
 When deploying a DataSync agent that isn't on an Amazon EC2 instance, the agent VM
-requires the following resources:
+requires the following resources, depending upon whether you use a Basic mode
+agent or an Enhanced mode agent:
 
-- **Virtual processors**: Four virtual
-  processors assigned to the VM.
-- **Disk space**: 80 GB of disk space for
-  installing the VM image and system data.
-- **RAM**: Depending on your transfer
-  scenario, you need the following amount of memory:
-  - 32 GB of RAM assigned to the VM for task executions working
-    with up to 20 million files, objects, or directories.
-  - 64 GB of RAM assigned to the VM for task executions working
-    with more than 20 million files, objects, or directories.
+| Resource           | Basic mode                                                                                                                                                                                                                               | Enhanced mode                                                   |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Virtual processors | Four virtual processors assigned to the VM                                                                                                                                                                                               | Eight virtual processors assigned to the VM                     |
+| Disk space         | 80 GB of disk space for installing the VM image and system data                                                                                                                                                                          | 80 GB of disk space for installing the VM image and system data |
+| RAM                | 32 GB of RAM assigned to the VM for task executions working with up to 20 million files, objects, or directories<br>64 GB of RAM assigned to the VM for task executions working with more than 20 million files, objects, or directories | 32 GB of RAM assigned to the VM                                 |
 
 ### Amazon EC2 instance requirements
 
 When deploying a DataSync agent on an Amazon EC2 instance, the instance size must be
-at least 2xlarge.
+at least 2xlarge. We recommend using one of the following instance sizes, depending
+upon whether you use a Basic mode agent or an Enhanced mode agent:
 
-We recommend using one of the following instance sizes:
-
-- **m5.2xlarge**: For task executions
-  working with up to 20 million files, objects, or directories.
-- **m5.4xlarge**: For task executions
-  working with more than 20 million files, objects, or directories.
+| Basic mode agent                                                                                                                                                                                                         | Enhanced mode agent                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| For task executions working with up to 20 million files, objects, or directories, use<br>**m5.2xlarge.**<br>For task executions working with more than 20 million files, objects, or directories, use<br>**m5.4xlarge.** | Use \*_m6a.2xlarge_<br>• regardless of the number of files,<br>objects, or directories in your dataset. |
 
 ## Agent requirements for AWS Region
 

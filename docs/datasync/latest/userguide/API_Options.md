@@ -47,11 +47,6 @@ Limits the bandwidth used by a DataSync task. For example, if you want
 DataSync to use a maximum of 1 MB, set this value to `1048576`
 (`=1024*1024`).
 
-###### Note
-
-Not applicable to [Enhanced mode
-tasks](choosing-task-mode.md "choosing-task-mode.md").
-
 Type: Long
 
 Valid Range: Minimum value of -1.

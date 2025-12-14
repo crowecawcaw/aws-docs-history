@@ -66,8 +66,8 @@ For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgro
 
 DataSync
 
-DataSync can transfer your data to an Amazon S3 bucket, Amazon EFS file system, or a [number of other AWS storage services](working-with-locations.md "working-with-locations.md"). To
-get your data where you want it to go, you need the right IAM permissions granted to
+DataSync can transfer your data to or from an Amazon S3 bucket, Amazon EFS file system, or Amazon FSx file system.
+To get your data where you want it to go, you need the right IAM permissions granted to
 your identity. For example, the IAM role that you use with DataSync needs permission to
 use the Amazon S3 operations required to transfer data to an S3 bucket.
 
@@ -118,8 +118,7 @@ There are several ways to use DataSync:
 
 ## How much will DataSync cost?
 
-On the [DataSync pricing](https://aws.amazon.com/datasync/pricing "https://aws.amazon.com/datasync/pricing") page,
-create a custom estimate using the amount of data that you plan to transfer.
+To create a custom estimate using the amount of data that you plan to transfer, see [DataSync pricing](https://aws.amazon.com/datasync/pricing "https://aws.amazon.com/datasync/pricing").
 
 ## Open-source components used by DataSync
 

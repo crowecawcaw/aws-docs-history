@@ -1,6 +1,6 @@
 # TaskExecutionFilesFailedDetail
 
-The number of objects that DataSync fails to prepare, transfer, verify, and
+The number of files or objects that DataSync fails to prepare, transfer, verify, and
 delete during your task execution.
 
 ###### Note
@@ -12,7 +12,7 @@ tasks](choosing-task-mode.md "choosing-task-mode.md").
 
 **Delete**
 
-The number of objects that DataSync fails to delete during your task
+The number of files or objects that DataSync fails to delete during your task
 execution.
 
 Type: Long
@@ -21,7 +21,7 @@ Required: No
 
 **Prepare**
 
-The number of objects that DataSync fails to prepare during your task
+The number of files or objects that DataSync fails to prepare during your task
 execution.
 
 Type: Long
@@ -30,7 +30,7 @@ Required: No
 
 **Transfer**
 
-The number of objects that DataSync fails to transfer during your task
+The number of files or objects that DataSync fails to transfer during your task
 execution.
 
 Type: Long
@@ -39,7 +39,7 @@ Required: No
 
 **Verify**
 
-The number of objects that DataSync fails to verify during your task
+The number of files or objects that DataSync fails to verify during your task
 execution.
 
 Type: Long

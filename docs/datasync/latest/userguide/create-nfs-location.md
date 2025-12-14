@@ -3,21 +3,21 @@
 server
 
 With AWS DataSync, you can transfer data between your Network File System (NFS) file
-server and one of the following AWS storage services:
+server and the following AWS storage services. Supported storage services depend on
+your task mode, as shown below:
 
-- [Amazon S3](create-s3-location.md "create-s3-location.md")
-- [Amazon EFS](create-efs-location.md "create-efs-location.md")
-- [Amazon FSx for Windows File Server](create-fsx-location.md "create-fsx-location.md")
-- [Amazon FSx for Lustre](create-lustre-location.md "create-lustre-location.md")
-- [Amazon FSx for OpenZFS](create-openzfs-location.md "create-openzfs-location.md")
-- [Amazon FSx for NetApp ONTAP](create-ontap-location.md "create-ontap-location.md")
-  To set up this kind of transfer, you create a [location](how-datasync-transfer-works.md#sync-locations "how-datasync-transfer-works.md#sync-locations") for your NFS file server. You can use this location as a transfer
-  source or destination.
+| Basic mode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Enhanced mode                                                |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| • [Amazon S3](create-s3-location.md "create-s3-location.md")<br>• [Amazon EFS](create-efs-location.md "create-efs-location.md")<br>• [Amazon FSx for Windows File Server](create-fsx-location.md "create-fsx-location.md")<br>• [Amazon FSx for Lustre](create-lustre-location.md "create-lustre-location.md")<br>• [Amazon FSx for OpenZFS](create-openzfs-location.md "create-openzfs-location.md")<br>• [Amazon FSx for NetApp ONTAP](create-ontap-location.md "create-ontap-location.md") | • [Amazon S3](create-s3-location.md "create-s3-location.md") |
+
+To set up this kind of transfer, you create a [location](how-datasync-transfer-works.md#sync-locations "how-datasync-transfer-works.md#sync-locations") for your NFS file server. You can use this location as a transfer
+source or destination.
 
 ## Providing DataSync access to NFS file servers
 
 For DataSync to access your NFS file server, you need a DataSync [agent](how-datasync-transfer-works.md#sync-agents "how-datasync-transfer-works.md#sync-agents"). The agent mounts an export on your file
-server by using the NFS protocol.
+server by using the NFS protocol. Be sure to use the agent that corresponds to your
+desired task mode.
 
 ###### Topics
 

@@ -134,8 +134,10 @@ run.
 
 tasks
 
-If you're transferring a large dataset, such as [migrating](datasync-large-migration.md "datasync-large-migration.md") millions of files or objects, we
-recommend partitioning your dataset with multiple DataSync tasks. Partitioning your source
+If you're transferring a large dataset, such as [migrating](datasync-large-migration.md "datasync-large-migration.md") millions of files or objects, we recommend
+using DataSync Enhanced mode for your transfer, which can transfer datasets with virtually
+unlimited numbers of files. For very large datasets, with billions of files,
+you should consider partitioning your dataset with multiple DataSync tasks. Partitioning your
 data across multiple tasks (and possibly [agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"),
 depending on your locations) helps reduce the time it takes DataSync to prepare and
 transfer your data.

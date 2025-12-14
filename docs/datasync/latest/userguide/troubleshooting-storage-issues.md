@@ -57,7 +57,7 @@ Do the following until the error is resolved.
    information, see [Using the DataSync
    console](create-nfs-location.md#create-nfs-location-console "create-nfs-location.md#create-nfs-location-console").
 2. Check your firewall configuration between your agent and NFS file server. For
-   more information, see [Network requirements for on-premises, self-managed, other cloud, and edge storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
+   more information, see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
 3. Make sure that your agent can access the NFS file server and mount the export.
    For more information, see [Providing DataSync access to NFS file servers](create-nfs-location.md#accessing-nfs "create-nfs-location.md#accessing-nfs").
 4. If you still see the error, open a support channel with Support. For more

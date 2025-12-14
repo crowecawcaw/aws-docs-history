@@ -20,7 +20,7 @@ another cloud provider.
 - Transferring between Amazon EFS or Amazon FSx and storage in other clouds
 - Transferring between some AWS storage services [across AWS accounts](working-with-locations.md#working-with-locations-across-accounts "working-with-locations.md#working-with-locations-across-accounts") (when
   neither storage service is Amazon S3)
-- Transferring between a commercial AWS Region and an AWS GovCloud (US) where the
+- Transferring between a commercial AWS Region and an AWS GovCloud (US) Region where the
   source and destination are either Amazon EFS or Amazon FSx
 
 ## Situations when you don't need a DataSync
@@ -37,13 +37,34 @@ The situations that don't require an agent apply whether you're transferring in 
 - Transferring between a commercial AWS Region and an AWS GovCloud (US) where
   either the source or destination is Amazon S3
 
+## Choosing an agent for your task mode
+
+DataSync tasks run in Basic mode or Enhanced mode. Basic mode tasks require a Basic mode agent.
+Enhanced mode tasks require an Enhanced mode agent.
+
+Basic mode supports using an agent when copying to or from the following
+locations:
+
+- NFS
+- SMB
+- HDFS
+- Object storage (including other clouds)
+- Azure blob
+
+Enhanced mode supports using an agent for transfers to or from Amazon S3 with the following locations:
+
+- NFS
+- SMB
+
+For more information, see [Choosing a task mode for your data transfer](choosing-task-mode.md "choosing-task-mode.md").
+
 ## Using multiple DataSync agents
 
 While most transfers only need one agent, using multiple agents can speed up transfers
 for large datasets with millions of files or objects. In these situations, we recommend
-running transfer tasks in parallel. This approach spreads the transfer workload across
-multiple tasks, with each task using its own agent. It also helps reduce the time it
-takes DataSync to prepare and transfer your data. For more information, see [Partitioning large datasets with multiple
+running transfer tasks in parallel, using one agent per task. This approach spreads the
+transfer workload across multiple tasks, with each task using its own agent. It also helps
+reduce the time it takes DataSync to prepare and transfer your data. For more information, see [Partitioning large datasets with multiple
 tasks](create-task-how-to.md#multiple-tasks-large-dataset "create-task-how-to.md#multiple-tasks-large-dataset").
 
 Another option—especially if you have millions of small files—is to use
@@ -58,6 +79,9 @@ for your DataSync transfers, see the [AWS Storage Blog](https://aws.amazon.com/b
 
 If you're thinking of using multiple agents, remember the following:
 
+- A location can have up to four Basic mode agents and up to four Enhanced mode
+  agents assigned. A task that uses the location will only use the agents that correspond
+  to the configured task mode.
 - Using multiple agents with a location doesn't provide high availability. All
   the agents associated with a location must be online before you can start your
   transfer task. If one of the agents is [offline](managing-agent.md#understand-agent-statuses "managing-agent.md#understand-agent-statuses"), you can't run your task.

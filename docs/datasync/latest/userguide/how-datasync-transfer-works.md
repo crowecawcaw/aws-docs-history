@@ -49,8 +49,8 @@ The diagram illustrates a common DataSync use case:
 - Data moving across AWS Regions, encrypted using TLS.
 - DataSync copying data to a supported AWS storage service.
 
-When transferring between AWS storage services (whether in the same AWS Region
-or across AWS Regions), your data remains in the AWS network and doesn't
+When transferring between AWS storage services in the same account (whether in the same AWS Region
+or across AWS Regions in the same partition), no agent is required. Your data remains in the AWS network and doesn't
 traverse the public internet.
 
 ###### Important
@@ -96,10 +96,11 @@ Familiarize yourself with DataSync transfer features.
 ### Agent
 
 An _agent_ is a virtual machine (VM) appliance that DataSync uses
-to read from and write to storage during a transfer.
+to read from and write to storage during a transfer. DataSync provides two types of agents, with one handling Basic mode tasks and another handling Enhanced mode tasks.
+For more information about choosing an agent for your use case, see [Choosing an agent for your task mode](do-i-need-datasync-agent.md#choose-task-mode-agent "do-i-need-datasync-agent.md#choose-task-mode-agent").
 
 You can deploy an agent in your storage environment on VMware ESXi, Linux
-Kernel-based Virtual Machine (KVM), or Microsoft Hyper-V hypervisors. For storage in
+Kernel-based Virtual Machine (KVM), Nutanix AHV (using the KVM agent image), or Microsoft Hyper-V hypervisors. For storage in
 a virtual private cloud (VPC) in AWS, you can deploy an agent as an Amazon EC2
 instance.
 

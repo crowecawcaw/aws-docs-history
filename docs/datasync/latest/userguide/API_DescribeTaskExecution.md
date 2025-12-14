@@ -33,7 +33,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]*:[0-9]{12}:task/task-[0-9a-f]{17}/execution/exec-[0-9a-f]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:task/task-[0-9a-f]{17}/execution/exec-[0-9a-f]{17}$`
 
 Required: Yes
 
@@ -48,6 +48,8 @@ Required: Yes
    "EstimatedBytesToTransfer": ***number***,
    "EstimatedFilesToDelete": ***number***,
    "EstimatedFilesToTransfer": ***number***,
+   "EstimatedFoldersToDelete": ***number***,
+   "EstimatedFoldersToTransfer": ***number***,
    "Excludes": [
       {
          "FilterType": "***string***",
@@ -69,6 +71,22 @@ Required: Yes
    "FilesSkipped": ***number***,
    "FilesTransferred": ***number***,
    "FilesVerified": ***number***,
+   "FoldersDeleted": ***number***,
+   "FoldersFailed": {
+      "Delete": ***number***,
+      "List": ***number***,
+      "Prepare": ***number***,
+      "Transfer": ***number***,
+      "Verify": ***number***
+   },
+   "FoldersListed": {
+      "AtDestinationForDelete": ***number***,
+      "AtSource": ***number***
+   },
+   "FoldersPrepared": ***number***,
+   "FoldersSkipped": ***number***,
+   "FoldersTransferred": ***number***,
+   "FoldersVerified": ***number***,
    "Includes": [
       {
          "FilterType": "***string***",
@@ -200,6 +218,12 @@ The number of files, objects, and directories that DataSync expects to delete in
 your destination location. If you don't configure your task to [delete data in the destination that
 isn't in the source](configure-metadata.md "configure-metadata.md"), the value is always `0`.
 
+###### Note
+
+For [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md"), this counter only includes files or objects. Directories are counted in
+[EstimatedFoldersToDelete](API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-EstimatedFoldersToDelete "API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-EstimatedFoldersToDelete").
+
 Type: Long
 
 **[EstimatedFilesToTransfer](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
@@ -224,6 +248,51 @@ mode](API_Options.md#DataSync-Type-Options-TransferMode "API_Options.md#DataSync
 - If `TranserMode` is set to `ALL` - The calculation is based only
   on the items that DataSync finds at the source location.
 
+###### Note
+
+For [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md"), this counter only includes files or objects. Directories are counted in
+[EstimatedFoldersToTransfer](API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-EstimatedFoldersToTransfer "API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-EstimatedFoldersToTransfer").
+
+Type: Long
+
+**[EstimatedFoldersToDelete](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
+
+The number of directories that DataSync expects to delete in
+your destination location. If you don't configure your task to [delete data in the destination that
+isn't in the source](configure-metadata.md "configure-metadata.md"), the value is always `0`.
+
+###### Note
+
+Applies only to [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md").
+
+Type: Long
+
+**[EstimatedFoldersToTransfer](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
+
+The number of directories that DataSync expects to
+transfer over the network. This value is calculated as DataSync
+[prepares](run-task.md#understand-task-execution-statuses "run-task.md#understand-task-execution-statuses") directories to transfer.
+
+How this gets calculated depends primarily on your task’s [transfer
+mode](API_Options.md#DataSync-Type-Options-TransferMode "API_Options.md#DataSync-Type-Options-TransferMode") configuration:
+
+- If `TranserMode` is set to `CHANGED` - The calculation is based
+  on comparing the content of the source and destination locations and determining the
+  difference that needs to be transferred. The difference can include:
+  - Anything that's added or modified at the source location.
+  - Anything that's in both locations and modified at the destination after an initial
+    transfer (unless [OverwriteMode](API_Options.md#DataSync-Type-Options-OverwriteMode "API_Options.md#DataSync-Type-Options-OverwriteMode") is set to `NEVER`).
+
+- If `TranserMode` is set to `ALL` - The calculation is based only
+  on the items that DataSync finds at the source location.
+
+###### Note
+
+Applies only to [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md").
+
 Type: Long
 
 **[Excludes](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
@@ -241,11 +310,17 @@ The number of files, objects, and directories that DataSync actually deletes in
 your destination location. If you don't configure your task to [delete data in the destination that
 isn't in the source](configure-metadata.md "configure-metadata.md"), the value is always `0`.
 
+###### Note
+
+For [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md"), this counter only includes files or objects. Directories are counted in
+[FoldersDeleted](API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-FoldersDeleted "API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-FoldersDeleted").
+
 Type: Long
 
 **[FilesFailed](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
 
-The number of objects that DataSync fails to prepare, transfer, verify, and
+The number of files or objects that DataSync fails to prepare, transfer, verify, and
 delete during your task execution.
 
 ###### Note
@@ -257,11 +332,7 @@ Type: [TaskExecutionFilesFailedDetail](API_TaskExecutionFilesFailedDetail.md "AP
 
 **[FilesListed](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
 
-The number of
-objects
-that DataSync
-finds
-at your locations.
+The number of files or objects that DataSync finds at your locations.
 
 ###### Note
 
@@ -272,7 +343,7 @@ Type: [TaskExecutionFilesListedDetail](API_TaskExecutionFilesListedDetail.md "AP
 
 **[FilesPrepared](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
 
-The number of objects that DataSync will attempt to transfer after comparing
+The number of files or objects that DataSync will attempt to transfer after comparing
 your source and destination locations.
 
 ###### Note
@@ -291,6 +362,12 @@ Type: Long
 The number of files, objects, and directories that DataSync skips during your
 transfer.
 
+###### Note
+
+For [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md"), this counter only includes files or objects. Directories are counted in
+[FoldersSkipped](API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-FoldersSkipped "API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-FoldersSkipped").
+
 Type: Long
 
 **[FilesTransferred](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
@@ -305,6 +382,12 @@ If DataSync fails to transfer something, this value can be less than
 location types, so don't use it as an exact indication of what's transferring or to monitor
 your task execution.
 
+###### Note
+
+For [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md"), this counter only includes files or objects. Directories are counted in
+[FoldersTransferred](API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-FoldersTransferred "API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-FoldersTransferred").
+
 Type: Long
 
 **[FilesVerified](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
@@ -317,6 +400,102 @@ transfer.
 When you configure your task to [verify only the
 data that's transferred](configure-data-verification-options.md "configure-data-verification-options.md"), DataSync doesn't verify directories in some
 situations or files that fail to transfer.
+
+For [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md"), this counter only includes files or objects. Directories are counted in
+[FoldersVerified](API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-FoldersVerified "API_DescribeTaskExecution.md#DataSync-DescribeTaskExecution-response-FoldersVerified").
+
+Type: Long
+
+**[FoldersDeleted](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
+
+The number of directories that DataSync actually deletes in
+your destination location. If you don't configure your task to [delete data in the destination that
+isn't in the source](configure-metadata.md "configure-metadata.md"), the value is always `0`.
+
+###### Note
+
+Applies only to [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md").
+
+Type: Long
+
+**[FoldersFailed](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
+
+The number of directories that DataSync fails to list, prepare, transfer, verify, and
+delete during your task execution.
+
+###### Note
+
+Applies only to [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md").
+
+Type: [TaskExecutionFoldersFailedDetail](API_TaskExecutionFoldersFailedDetail.md "API_TaskExecutionFoldersFailedDetail.md") object
+
+**[FoldersListed](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
+
+The number of directories that DataSync finds at your locations.
+
+###### Note
+
+Applies only to [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md").
+
+Type: [TaskExecutionFoldersListedDetail](API_TaskExecutionFoldersListedDetail.md "API_TaskExecutionFoldersListedDetail.md") object
+
+**[FoldersPrepared](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
+
+The number of directories that DataSync will attempt to transfer after comparing
+your source and destination locations.
+
+###### Note
+
+Applies only to [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md").
+
+This counter isn't applicable if you configure your task to [transfer
+all data](configure-metadata.md#task-option-transfer-mode "configure-metadata.md#task-option-transfer-mode"). In that scenario, DataSync copies everything from the source to
+the destination without comparing differences between the locations.
+
+Type: Long
+
+**[FoldersSkipped](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
+
+The number of directories that DataSync skips during your
+transfer.
+
+###### Note
+
+Applies only to [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md").
+
+Type: Long
+
+**[FoldersTransferred](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
+
+The number of directories that DataSync actually
+transfers over the network. This value is updated periodically during your task execution when
+something is read from the source and sent over the network.
+
+If DataSync fails to transfer something, this value can be less than
+`EstimatedFoldersToTransfer`. In some cases, this value can also be greater than
+`EstimatedFoldersToTransfer`.
+
+###### Note
+
+Applies only to [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md").
+
+Type: Long
+
+**[FoldersVerified](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
+
+The number of directories that DataSync verifies during your transfer.
+
+###### Note
+
+Applies only to [Enhanced mode
+tasks](choosing-task-mode.md "choosing-task-mode.md").
 
 Type: Long
 
@@ -406,7 +585,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]*:[0-9]{12}:task/task-[0-9a-f]{17}/execution/exec-[0-9a-f]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:task/task-[0-9a-f]{17}/execution/exec-[0-9a-f]{17}$`
 
 **[TaskMode](#API_DescribeTaskExecution_ResponseSyntax "#API_DescribeTaskExecution_ResponseSyntax")**
 
@@ -490,8 +669,10 @@ filters.
     }],
     "StartTime": "2024-10-16T11:19:56.844000-04:00",
     "EstimatedFilesToTransfer": 7,
+    "EstimatedFoldersToTransfer": 2,
     "EstimatedBytesToTransfer": 30,
     "FilesTransferred": 7,
+    "FoldersTransferred": 2,
     "BytesWritten": 30,
     "BytesTransferred": 30,
     "BytesCompressed": 30,
@@ -515,6 +696,21 @@ filters.
         "AtDestinationForDelete": 0
     },
     "FilesFailed": {
+        "Prepare": 0,
+        "Transfer": 0,
+        "Verify": 0,
+        "Delete": 0
+    },
+    "FoldersDeleted": 0,
+    "FoldersSkipped": 0,
+    "FoldersVerified": 2,
+    "FoldersPrepared": 2,
+    "FoldersListed": {
+        "AtSource": 2,
+        "AtDestinationForDelete": 0
+    },
+    "FoldersFailed": {
+        "List": 0,
         "Prepare": 0,
         "Transfer": 0,
         "Verify": 0,
@@ -569,8 +765,10 @@ manifest instead of filters.
     },
     "StartTime": "2024-10-16T09:29:56.757000-04:00",
     "EstimatedFilesToTransfer": 1,
+    "EstimatedFoldersToTransfer": 0,
     "EstimatedBytesToTransfer": 6,
     "FilesTransferred": 1,
+    "FoldersTransferred": 1,
     "BytesWritten": 6,
     "BytesTransferred": 6,
     "BytesCompressed": 6,
@@ -613,8 +811,23 @@ manifest instead of filters.
         "Transfer": 0,
         "Verify": 0,
         "Delete": 0
+    },
+    "FoldersDeleted": 0,
+    "FoldersSkipped": 0,
+    "FoldersVerified": 0,
+    "FoldersPrepared": 0,
+    "FoldersListed": {
+        "AtSource": 0,
+        "AtDestinationForDelete": 0
+    },
+    "FoldersFailed": {
+        "List": 0,
+        "Prepare": 0,
+        "Transfer": 0,
+        "Verify": 0,
+        "Delete": 0
     }
-}
+  }
 ```
 
 ### Sample Response for a Basic mode task execution

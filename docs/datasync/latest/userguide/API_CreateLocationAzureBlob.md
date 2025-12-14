@@ -71,11 +71,11 @@ it.
 
 Type: Array of strings
 
-Array Members: Minimum number of 1 item. Maximum number of 4 items.
+Array Members: Minimum number of 1 item. Maximum number of 8 items.
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
 
 Required: No
 
@@ -109,12 +109,12 @@ Specifies configuration information for a DataSync-managed secret, which
 includes the authentication token that DataSync uses to access a specific AzureBlob
 storage location, with a customer-managed AWS KMS key.
 
-When you include this paramater as part of a `CreateLocationAzureBlob` request,
+When you include this parameter as part of a `CreateLocationAzureBlob` request,
 you provide only the KMS key ARN. DataSync uses this KMS key together with the authentication token you specify for
 `SasConfiguration` to create a DataSync-managed secret to store the
 location access credentials.
 
-Make sure the DataSync has permission to access the KMS key that
+Make sure that DataSync has permission to access the KMS key that
 you specify.
 
 ###### Note
@@ -143,9 +143,9 @@ Required: Yes
 **[CustomSecretConfig](#API_CreateLocationAzureBlob_RequestSyntax "#API_CreateLocationAzureBlob_RequestSyntax")**
 
 Specifies configuration information for a customer-managed Secrets Manager secret where
-the authentication token for an AzureBlob storage location is stored in plain text. This
-configuration includes the secret ARN, and the ARN for an IAM role that
-provides access to the secret.
+the authentication token for an AzureBlob storage location is stored in plain text, in Secrets
+Manager. This configuration includes the secret ARN, and the ARN for an IAM role
+that provides access to the secret.
 
 ###### Note
 
@@ -220,7 +220,7 @@ Type: String
 
 Length Constraints: Maximum length of 128.
 
-Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
 
 ## Errors
 

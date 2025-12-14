@@ -2,7 +2,7 @@
 
 When creating an AWS DataSync agent, the first step is to deploy the agent in your
 storage environment. You can deploy an agent as a virtual machine (VM) on VMware ESXi,
-Linux Kernel-based Virtual Machine (KVM), and Microsoft Hyper-V hypervisors. You also
+Linux Kernel-based Virtual Machine (KVM), Nutanix AHV (using the KVM image), and Microsoft Hyper-V hypervisors. You also
 can deploy an agent as an Amazon EC2 instance in a virtual private cloud (VPC) within
 AWS.
 
@@ -26,9 +26,11 @@ environment can support a DataSync agent. For more information, see [Virtual mac
 3. For **Hypervisor**, choose **VMWare
    ESXi**, and then choose **Download the
    image**.
+   - The Enhanced mode agent downloads as an `.ova` image file.
+   - The Basic mode agent downloads in a `.zip` file that contains the
+     `.ova` image file
 
-The agent downloads in a `.zip` file that contains an
-`.ova` image file. 4. To minimize network latency, deploy the agent as close as possible to the storage system that DataSync needs to access (the same local network if possible). For more information, see [Network requirements for on-premises, self-managed, other cloud, and edge storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
+4. To minimize network latency, deploy the agent as close as possible to the storage system that DataSync needs to access (the same local network if possible). For more information, see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
 
 If needed, see your hypervisor's documentation on how to deploy an
 `.ova` file in a VMware host. 5. Power on your hypervisor, log in to the agent VM, and get the agent's IP
@@ -58,10 +60,13 @@ environment can support a DataSync agent. For more information, see [Virtual mac
 3. For **Hypervisor**, choose **Kernel-based Virtual
    Machine (KVM)**, and then choose **Download the
    image**.
+   - The Enhanced mode agent downloads as an `.qcow2` image file.
+   - The Basic mode agent downloads in a `.zip` file that contains the
+     `.qcow2` image file
 
-The agent downloads in a `.zip` file that contains a
-`.qcow2` image file. 4. To minimize network latency, deploy the agent as close as possible to the storage system that DataSync needs to access (the same local network if possible). For more information, see [Network requirements for on-premises, self-managed, other cloud, and edge storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements"). 5. Run the following command to install your `.qcow2`
-image.
+4. To minimize network latency, deploy the agent as close as possible to the storage system that DataSync needs to access (the same local network if possible). For more information, see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
+5. Run the following command to install your `.qcow2`
+   image.
 
 ```
 virt-install \
@@ -89,17 +94,17 @@ the [VM's local console](local-console-vm.md "local-console-vm.md").
 **Next step: [Choosing a service endpoint for your AWS DataSync
 agent](choose-service-endpoint.md "choose-service-endpoint.md")**
 
-## Deploying your agent on Microsoft
+## Deploying your Basic mode agent on Microsoft
 
 Hyper-V
 
-You can download an agent from the DataSync console and deploy it in your Microsoft
+You can download a Basic mode agent from the DataSync console and deploy it in your Microsoft
 Hyper-V environment.
 
 **Before you begin**: Make sure that your storage
 environment can support a DataSync agent. For more information, see [Virtual machine requirements](agent-requirements.md#hardware "agent-requirements.md#hardware").
 
-###### To deploy an agent on Hyper-V
+###### To deploy a Basic mode agent on Hyper-V
 
 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
 2. In the left navigation pane, choose **Agents**, and then
@@ -109,7 +114,7 @@ environment can support a DataSync agent. For more information, see [Virtual mac
    image**.
 
 The agent downloads in a `.zip` file that contains a
-`.vhdx` image file. 4. To minimize network latency, deploy the agent as close as possible to the storage system that DataSync needs to access (the same local network if possible). For more information, see [Network requirements for on-premises, self-managed, other cloud, and edge storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
+`.vhdx` image file. 4. To minimize network latency, deploy the agent as close as possible to the storage system that DataSync needs to access (the same local network if possible). For more information, see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
 
 If needed, see your hypervisor's documentation on how to deploy a
 `.vhdx` file in a Hyper-V host.
@@ -139,11 +144,11 @@ between:
 - A cloud storage provider (such as Microsoft Azure Blob
   Storage
   or Google Cloud Storage)
-  and an AWS storage service.
+  and an AWS storage service using Basic mode.
 - An S3 bucket in a commercial AWS Region and an S3 bucket in an
   AWS GovCloud (US) Region.
 - [Amazon S3 on AWS Outposts](#outposts-agent "#outposts-agent") and
-  an AWS storage service.
+  an AWS storage service using Basic mode.
 
 ###### Warning
 
@@ -158,8 +163,16 @@ as possible.
    latest DataSync Amazon Machine Image (AMI) ID for the Region where you
    want to deploy your Amazon EC2 agent.
 
+###### Basic mode agents
+
 ```
 aws ssm get-parameter --name /aws/service/datasync/ami --region `your-region`
+```
+
+###### Enhanced mode agents
+
+```
+aws ssm get-parameter --name /aws/service/datasync/ami/v3 --region `your-region`
 ```
 
 2. Run the command. In the output, take note of the
@@ -237,7 +250,7 @@ or create a new one. 5. For **Network settings**, choose
     	* Allows inbound and outbound traffic between the
     	 Amazon EC2 instance the storage system that you're
     	 transferring data to or from. For more information,
-    	 see [Network requirements for on-premises, self-managed, other cloud, and edge storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
+    	 see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
     ###### Note
 
     There are additional ports to configure depending on
@@ -262,12 +275,12 @@ DataSync agent in an AWS Region.
 
 ###### Topics
 
-- [Deploying your agent for transfers between
+- [Deploying your Basic mode agent for transfers between
   cloud storage and AWS storage services](#efs-efs "#efs-efs")
-- [Deploying your agent for transfers
+- [Deploying your Basic mode agent for transfers
   between Amazon S3 and AWS file systems](#s3-cloud-nfs "#s3-cloud-nfs")
 
-#### Deploying your agent for transfers between
+#### Deploying your Basic mode agent for transfers between
 
 cloud storage and AWS storage services
 
@@ -311,7 +324,7 @@ services across AWS accounts:
 - When transferring between Amazon FSx file systems using the SMB
   protocol, configure your source file system as an [SMB location](create-smb-location.md "create-smb-location.md").
 
-#### Deploying your agent for transfers
+#### Deploying your Basic mode agent for transfers
 
 between Amazon S3 and AWS file systems
 
@@ -323,21 +336,13 @@ self-managed in-cloud file system.
 
 ![Diagram showing data transfer between source Region containing an S3 bucket and DataSync endpoint, and a destination Region containing a VPC with an EFS file system and DataSync agent.](images/s3-efs-ec2.png)
 
-## Deploying your agent on
-
-AWS Snowball Edge
-
-For more information and instructions, see [Creating a DataSync agent in your
-on-premises storage environment](s3-compatible-storage-snow.md#create-agent-s3-compatible-storage "s3-compatible-storage-snow.md#create-agent-s3-compatible-storage") for Amazon S3 compatible
-storage.
-
-## Deploying your agent on AWS Outposts
+## Deploying your Basic mode agent on AWS Outposts
 
 You can launch a DataSync Amazon EC2 instance on your Outpost. To learn more about
 launching an AMI on AWS Outposts, see [Launch an instance on your
 Outpost](../../../outposts/latest/userguide/launch-instance.md "../../../outposts/latest/userguide/launch-instance.md") in the _AWS Outposts User Guide_.
 
-When using DataSync to access Amazon S3 on Outposts, you must launch the agent in a VPC
+When using DataSync to access Amazon S3 on Outposts, you must use a Basic mode agent and launch it in a VPC
 that's allowed to access your Amazon S3 access point, and activate the agent in the
 parent Region of the Outpost. The agent must also be able to route to the
 Amazon S3 on Outposts endpoint for the bucket. To learn more about working with

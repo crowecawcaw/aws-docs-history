@@ -14,15 +14,15 @@ service.
 
 storage system and agent
 
-Your DataSync agent connects to your on-premises, other cloud, or edge storage system.
-For more information, see [Network requirements for on-premises, self-managed, other cloud, and edge storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
+Your DataSync agent connects to your on-premises storage or storage in other clouds.
+For more information, see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
 
 ## 2. Network connection between your
 
 agent and DataSync service
 
-There are a few aspects to connecting your agent to the DataSync service. First, you must
-connect your storage network to AWS. Second, your agent needs a service endpoint to
+There are a few aspects to connecting your agent to the DataSync service. First, you must establish
+network connectivity between your storage location and AWS. Second, your agent needs a service endpoint to
 communicate with DataSync.
 
 ###### Contents
