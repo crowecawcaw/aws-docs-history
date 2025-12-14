@@ -122,13 +122,13 @@ and trigger automated responses including Serverless Computing -[AWS Lambda](htt
 [AWS IoT Device Management](https://aws.amazon.com/iot-device-management/ "https://aws.amazon.com/iot-device-management/") should be used to group devices that
 need remediation and then using AWS IoT Jobs to deploy fixes to
 devices.
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") can be used to aggregate security alerts from
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") can be used to aggregate security alerts from
 various AWS services and partner products to help you analyze your
 security trends and identify the highest priority security issues.
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") provides you with a comprehensive view of your
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") provides you with a comprehensive view of your
 security state within AWS and your compliance with security
 standards and best practices and enables automated remediation.
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") has out-of-the-box integrations with
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") has out-of-the-box integrations with
 ticketing, chat, Security Information and Event Management (SIEM),
 Security Orchestration Automation and Response (SOAR), threat
 investigation, Governance Risk and Compliance (GRC), and incident

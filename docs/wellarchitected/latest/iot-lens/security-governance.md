@@ -102,7 +102,7 @@ Use tools such as
 [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") and the rules development kit (RDK) to codify
 security policies into verifiable checks. Additional services
 including
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"),
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"),
 
 [AWS IoT Device Defender](https://aws.amazon.com/iot-device-defender/ "https://aws.amazon.com/iot-device-defender/"), and
 

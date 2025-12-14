@@ -18,7 +18,7 @@ practices for security:
 - [Assessing
   OT and IIoT cybersecurity risk](https://aws.amazon.com/blogs/iot/assessing-ot-and-iiot-cybersecurity-risk/ "https://aws.amazon.com/blogs/iot/assessing-ot-and-iiot-cybersecurity-risk/")
 - [Detect anomalies on connected devices using AWS IoT Device Defender](https://aws.amazon.com/blogs/iot/detect-anomalies-connected-devices/ "https://aws.amazon.com/blogs/iot/detect-anomalies-connected-devices/")
-- [Implement security monitoring across OT, IIoT and cloud with AWS Security Hub](https://aws.amazon.com/blogs/iot/implement-security-monitoring-across-ot-iiot-and-cloud-with-aws-security-hub/ "https://aws.amazon.com/blogs/iot/implement-security-monitoring-across-ot-iiot-and-cloud-with-aws-security-hub/")
+- [Implement security monitoring across OT, IIoT and cloud with AWS Security Hub CSPM](https://aws.amazon.com/blogs/iot/implement-security-monitoring-across-ot-iiot-and-cloud-with-aws-security-hub/ "https://aws.amazon.com/blogs/iot/implement-security-monitoring-across-ot-iiot-and-cloud-with-aws-security-hub/")
 - [Using
   AWS IoT Core with interface VPC endpoints](../../../iot/latest/developerguide/IoTCore-VPC.md "../../../iot/latest/developerguide/IoTCore-VPC.md")
 - [AWS IoT secure tunneling](../../../iot/latest/developerguide/secure-tunneling.md "../../../iot/latest/developerguide/secure-tunneling.md")
