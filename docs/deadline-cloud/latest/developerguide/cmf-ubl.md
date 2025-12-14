@@ -17,8 +17,8 @@ traffic for third-party licenses.
 - [Step 1: Create a security group](#cmf-ubl-step-1 "#cmf-ubl-step-1")
 - [Step 2: Set up the license endpoint](#cmf-ubl-step-2 "#cmf-ubl-step-2")
 - [Step 3: Connect a rendering application to an
-  endpoint](#w2aac35c15c15 "#w2aac35c15c15")
-- [Step 4: Delete a license endpoint](#w2aac35c15c17 "#w2aac35c15c17")
+  endpoint](#w2aac38c15c15 "#w2aac38c15c15")
+- [Step 4: Delete a license endpoint](#w2aac38c15c17 "#w2aac38c15c17")
 
 ## Step 1: Create a security group
 
@@ -26,7 +26,6 @@ Use the [Amazon VPC Console](https://console.aws.amazon.com/vpc "https://console
 for your farm's VPC. Configure the security group to allow the following inbound rules:
 
 - Autodesk Maya and Arnold – 2701 - 2702, TCP, IPv4, IPv6
-- Autodesk 3ds Max – 2704, TCP, IPv4, IPv6
 - Cinema 4D – 7057, TCP, IPv4, IPv6
 - KeyShot – 2703, TCP, IPv4, IPv6
 - Foundry Nuke – 6101, TCP, IPv4, IPv6
@@ -112,14 +111,6 @@ For Autodesk Maya and Arnold, set the environment variable `ADSKFLEX_LICENSE_FIL
 
 For Windows workers, use a semi-colon (;) instead of a colon (:) to separate
 endpoints.
-
-###### Example – Autodesk 3ds Max
-
-Set the environment variable `ADSKFLEX_LICENSE_FILE` to:
-
-```
-2704@`VPC_Endpoint_DNS_Name`
-```
 
 ###### Example – Cinema 4D
 

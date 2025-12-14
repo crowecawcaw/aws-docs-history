@@ -24,6 +24,23 @@ metrics:
 | FarmId    | This dimension filters the data that you request to the specified<br>farm.         |
 | FleetId   | This dimension filters the data that you request to the specified worker<br>fleet. |
 
+## Licensing metrics
+
+The `AWS/DeadlineCloud` namespace contains the following metrics for
+licensing:
+
+| Metric          | Description                            | Unit  |
+| --------------- | -------------------------------------- | ----- |
+| `LicensesInUse` | The number of license sessions in use. | Count |
+
+You can use the following dimensions to refine the licensing metrics:
+
+| Dimension         | Description                                                                                                                                                   |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| FleetId           | Use this dimension to filter the data to the specified service-managed<br>fleet. For customer-managed fleets, use the LicenseEndpointId dimension<br>instead. |
+| LicenseEndpointId | Use this dimension to filter the data to the specified license endpoint.                                                                                      |
+| Product           | Use this dimension to filter the data to the specified metered product.                                                                                       |
+
 ## Resource limit metrics
 
 The `AWS/DeadlineCloud` namespace contains the following metrics for

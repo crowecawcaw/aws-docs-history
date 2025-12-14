@@ -32,7 +32,7 @@ QUEUE1_ID=queue-`00112233445566778899aabbccddeeff`
 WSALL_ID=sp-`00112233445566778899aabbccddeeff`
 
 aws deadline create-job --farm-id $FARM_ID --queue-id $QUEUE1_ID \
-  --priority 50 \\
+  --priority 50 \
   --storage-profile-id $WSALL_ID \
   --template-type JSON --template \
   '{
