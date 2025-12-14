@@ -78,8 +78,8 @@ architecture**
 8. Critical system messages sent from the cloud to the vehicle can be stored,
    processed, and delivered when the vehicle comes back online.
 9. AWS IoT Device Defender sends device audit and violation findings (such as unusual device behavior or
-   software and configuration vulnerabilities) to AWS Security Hub, where security findings from
-   other AWS services and AWS Partner products are aggregated and normalized. Security Hub sends
+   software and configuration vulnerabilities) to AWS Security Hub CSPM, where security findings from
+   other AWS services and AWS Partner products are aggregated and normalized. Security Hub CSPM sends
    findings to EventBridge, which routes them to a remediation workflow implemented in a vehicle
    security operations center.
 10. The vehicle can use the AWS Encryption SDK using keys in AWS KMS for client-side encryption.

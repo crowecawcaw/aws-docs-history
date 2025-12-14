@@ -7,7 +7,7 @@
 - [AWS WAF](https://aws.amazon.com/waf/ "https://aws.amazon.com/waf/")
 - [AWS Shield](https://aws.amazon.com/shield/ "https://aws.amazon.com/shield/")
 - [AWS Developer Tools](https://aws.amazon.com/products/developer-tools/ "https://aws.amazon.com/products/developer-tools/")
-- [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
 - [AWS Identity and Access Management](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/")
 - [AWS Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/")
 - [AWS IoT Family](https://aws.amazon.com/iot/ "https://aws.amazon.com/iot/")

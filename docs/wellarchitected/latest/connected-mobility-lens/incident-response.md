@@ -32,7 +32,7 @@ a workflow.
 
 The VSOC should include security orchestration automation and response (SOAR) and
 ticketing capability to provide timely responses and workflows that can prioritize and
-address incidents. Customers can send findings to AWS Security Hub, which integrates with issue
+address incidents. Customers can send findings to AWS Security Hub CSPM, which integrates with issue
 tracking systems like [ServiceNow](../../../smc/latest/ag/sn-config-security-hub.md "../../../smc/latest/ag/sn-config-security-hub.md") and [Jira](../../../smc/latest/ag/jsmcloud-config-security-hub.md "../../../smc/latest/ag/jsmcloud-config-security-hub.md").
 The incident response procedure must be consistent, accurate, and updated when necessary.
 Running game days and tabletop exercises can provide insight about the ability to handle an

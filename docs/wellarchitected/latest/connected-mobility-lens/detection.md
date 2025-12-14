@@ -191,7 +191,7 @@ configure.
 
 Alarms can send [Amazon SNS](https://aws.amazon.com/sns/ "https://aws.amazon.com/sns/") notifications, which is
 a web service that coordinates and manages the delivery or sending of messages to
-subscribing endpoints or clients. Detect and Rule based findings integrate with [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"), which is a cloud security posture
+subscribing endpoints or clients. Detect and Rule based findings integrate with [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"), which is a cloud security posture
 management service that performs security best practice checks, aggregates alerts, and
 enables automated remediation.
 
