@@ -4,7 +4,7 @@ This troubleshooting guide helps you resolve common issues when using Amazon Q D
 
 Before diving into specific issues, try these general troubleshooting steps:
 
-- Verify your internet connection is stable
+- Verify your internet connection is AWS stable
 - Check that you're signed in to Amazon Q with valid credentials
 - Ensure Amazon Q is up to date in your [IDE](q-in-IDE-setup.md "q-in-IDE-setup.md")
 - Restart your IDE or type `/quit` to exit and restart the Amazon Q command line if issues persist

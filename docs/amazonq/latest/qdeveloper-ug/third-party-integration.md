@@ -34,11 +34,10 @@ Amazon Q Developer offers the following key capabilities in GitHub:
 
 - Feature development label that automatically implements new features and bug fixes from idea to pull request
 - Automated code reviews of new or reopened pull requests for code quality, issues, and security concerns
-- Code transformation label that automatically upgrades codebase to supported Java version
-- Slash commands to provide alternative ways to initiate feature development and code transformation from issues,
+- Slash commands to provide alternative ways to initiate feature development from issues,
   and code reviews after initial automatic review
 - Iterative development by providing feedback on generated code and implementing
-- Browser extensions to quickly assign feature development and code transformation tasks to Amazon Q Developer
+- Browser extensions to quickly assign feature development tasks to Amazon Q Developer
 
 To get started, see [Quickstart: Installing, using features in GitHub, and
 increasing usage limits](github-quickstart.md "github-quickstart.md").

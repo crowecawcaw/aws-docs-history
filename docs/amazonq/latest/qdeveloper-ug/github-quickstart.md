@@ -10,10 +10,10 @@ This tutorial provides a walkthrough of the following tasks:
 
 1. Install the Amazon Q Developer app from the GitHub Marketplace and provide access to your
    repositories.
-2. Get started with Amazon Q Developer in an issue by adding a label for either feature
-   development or code transformation, or by creating a new pull request for code review.
-   Alternatively, you can use slash commands in issues to initiate feature development or
-   code transformation. You can also initiate additional code reviews within pull requests
+2. Get started with Amazon Q Developer in an issue by adding a label for feature
+   development, or by creating a new pull request for code review.
+   Alternatively, you can use slash commands in issues to initiate feature development.
+   You can also initiate additional code reviews within pull requests
    with a slash command.
 3. (Optional) Register your Amazon Q Developer app installation with your AWS account to
    increase your usage limits.
@@ -72,23 +72,21 @@ The following IP addresses are used to access your GitHub resources:
 
 After installing the Amazon Q Developer app in GitHub and authorizing access to your repositories,
 you can begin using the Amazon Q Developer agents for support across the software development
-lifecycle from coding, testing, and deploying to troubleshooting and modernizing
+lifecycle from coding, testing, and deploying to troubleshooting
 applications. For more information, see one of the following:
 
 ###### Important
 
 The Amazon Q Developer app attempts to automatically create the **Amazon Q development
-agent** and the **Amazon Q transform agent** labels in GitHub
-repositories you authorize access to. If the labels are not automatically created, or if
-they're unintentionally deleted, you can manually create them in GitHub. The labels must be
-named as **Amazon Q development agent** and **Amazon Q transform
-agent** in order for them to be recognized and processed as Amazon Q Developer labels.
+agent** label in GitHub
+repositories you authorize access to. If the label is not automatically created, or if
+it's unintentionally deleted, you can manually create it in GitHub. The label must be
+named as **Amazon Q development agent** in order for it to be recognized and processed as a Amazon Q Developer label.
 For more information, see [Creating a label](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label "https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label") in the _GitHub documentation_.
 
 - [Developing features and iterating with Amazon Q Developer
   in GitHub](github-feature-development.md "github-feature-development.md")
 - [Reviewing code with Amazon Q Developer in GitHub](github-code-reviews.md "github-code-reviews.md")
-- [Transforming code with Amazon Q Developer in GitHub](github-code-transformation.md "github-code-transformation.md")
 
 ## Step 3: Increase free usage limits and configure
 
@@ -96,8 +94,7 @@ details
 
 You can use Amazon Q Developer agents in GitHub for free without the need to set up an AWS
 account to get started. You're provided with limited invocations per month for feature
-development and code review, as well as limited number of lines of code transformation per
-month. You can increase your free usage at any time by registering your Amazon Q Developer app
+development and code review. You can increase your free usage at any time by registering your Amazon Q Developer app
 installation with your AWS account. Registering also provides with the ability to
 configure details such as disabling code reviews and adding tags for searching and
 filtering. For more information, see [Increasing usage limits and configuring details

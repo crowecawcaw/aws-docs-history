@@ -39,14 +39,14 @@ To learn more about modifying branch protection rules in GitHub, see [Creating a
 issues
 
 **Problem**: I don't see the **Amazon Q development
-agent** or **Amazon Q transform agent** labels in GitHub
+agent** label in GitHub
 issues.
 
-**Solution**: If the labels aren't automatically created when you
-installed the Amazon Q Developer for GitHub app, or they were unintentionally delted, you can manually
-create them in GitHub. The labels must be named as **Amazon Q development
-agent** and **Amazon Q transform agent** in order for them to be
-recognized and processed as Amazon Q Developer labels. For more information, see [Creating a label](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label "https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label") in the _GitHub documentation_.
+**Solution**: If the label isn't automatically created when you
+installed the Amazon Q Developer for GitHub app, or it was unintentionally deleted, you can manually
+create it in GitHub. The label must be named as **Amazon Q development
+agent** in order for it to be
+recognized and processed as a Amazon Q Developer label. For more information, see [Creating a label](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label "https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label") in the _GitHub documentation_.
 
 ## Amazon Q Developer not creating code for GitHub
 
@@ -68,8 +68,7 @@ for generative AI feature usage.
 
 **Solution**: If Amazon Q Developer is not able to process your issue and
 generate code for it, create a new issue and apply the **Amazon Q development
-agent** or the **Amazon Q transform agent** label to the new
+agent** label to the new
 issue. To learn more about creating an issue and applying an Amazon Q Developer agent label, see
 [Developing features and iterating with Amazon Q Developer
-in GitHub](github-feature-development.md "github-feature-development.md") or
-[Transforming code with Amazon Q Developer in GitHub](github-code-transformation.md "github-code-transformation.md").
+in GitHub](github-feature-development.md "github-feature-development.md").
