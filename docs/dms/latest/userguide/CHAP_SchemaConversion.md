@@ -5,7 +5,7 @@
 DMS Schema Conversion with generative AI feature is now available. For more information, see [Viewing your database migration assessment
 report for DMS Schema Conversion](assessment-reports-view.md "assessment-reports-view.md") and
 [Converting database schemas in
-DMS Schema Conversion](schema-conversion-convert.md "schema-conversion-convert.md").
+DMS Schema Conversion: step-by-step guide](schema-conversion-convert.md "schema-conversion-convert.md").
 
 DMS Schema Conversion in AWS Database Migration Service (AWS DMS) makes database migrations between different types of
 databases more predictable. Use DMS Schema Conversion to assess the complexity of your migration for your

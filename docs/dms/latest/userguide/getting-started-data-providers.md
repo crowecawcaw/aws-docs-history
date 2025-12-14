@@ -16,10 +16,10 @@ store your database credentials in a data provider.
 6. Turn on **Virtual mode** if you want to use schema conversion without connecting to a target database. For more information, see [Virtual data provider](virtual-data-provider.md "virtual-data-provider.md").
 7. If **Virtual Mode** is turned on, connection information will be preset automatically using defaults. Note that a virtual data provider can only be used as a target in a migration project or in schema conversion. For more information on virtual mode, see [Virtual data provider](virtual-data-provider.md "virtual-data-provider.md").
 
-If **Virtual mode** is off, provide your connection information for the source database. The connection parameters depend on your database engine. For more information, see [Creating data providers](../../../data-providers-create.md "../../../data-providers-create.md"). 8. Select **Engine configuration**. Then select
+If **Virtual mode** is off, provide your connection information for the source database. The connection parameters depend on your database engine. For more information, see [Creating data providers](data-providers-create.md "data-providers-create.md"). 8. Select **Engine configuration**. Then select
 **Enter manually**. Provide your connection information
 for the source database. The connection parameters depend on your source
-database engine. For more information, see [Creating data providers](../../../data-providers-create.md "../../../data-providers-create.md"). 9. For **Secure Socket Layer (SSL) mode**, choose the type of SSL enforcement. 10. Choose **Create data provider**.
+database engine. For more information, see [Creating data providers](data-providers-create.md "data-providers-create.md"). 9. For **Secure Socket Layer (SSL) mode**, choose the type of SSL enforcement. 10. Choose **Create data provider**.
 
 ###### To create a data provider for an Amazon RDS database
 

@@ -27,7 +27,7 @@ To convert your database schema, use the following process:
 - [Setting up transformation rules
   in DMS Schema Conversion](schema-conversion-transformation-rules.md "schema-conversion-transformation-rules.md")
 - [Converting database schemas in
-  DMS Schema Conversion](schema-conversion-convert.md "schema-conversion-convert.md")
+  DMS Schema Conversion: step-by-step guide](schema-conversion-convert.md "schema-conversion-convert.md")
 - [Converting database objects
   with generative AI](schema-conversion-convert.md "schema-conversion-convert.md")
 - [Specifying schema conversion settings for

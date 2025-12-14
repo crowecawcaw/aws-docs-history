@@ -36,7 +36,7 @@ Region.
 | Certificates per user account                               | 100                            |
 | Data providers per user account                             | 1,000                          |
 | Instance profiles per user account                          | 60                             |
-| Migration projects per user account                         | 10                             |
+| Migration projects per user account                         | 50                             |
 | DMS data collectors per user account                        | 10                             |
 | Target recommendations generated at one time                | 100                            |
 | Number of files that DMS data collector can upload per hour | 500                            |

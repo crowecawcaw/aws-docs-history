@@ -1,181 +1,148 @@
-# Starting and viewing data type
+# Setting LOB support for source databases in
 
-assessments (Legacy)
+an AWS DMS task
 
-###### Note
+Large binary objects (LOBs) can sometimes be difficult to migrate between systems.
+AWS DMS offers a number of options to help with the tuning of LOB columns. To see
+which and when data types are considered LOBs by AWS DMS, see the AWS DMS
+documentation.
 
-This section describes legacy content. We recommend that you use premigration assessment
-runs, described prior in [Specifying, starting, and viewing
-premigration assessment runs](CHAP_Tasks.md "CHAP_Tasks.md").
+When you migrate data from one database to another, you might take the opportunity
+to rethink how your LOBs are stored, especially for heterogeneous migrations. If you
+want to do so, there's no need to migrate the LOB data.
 
-Data type assessments are not available in the console. You can only run data type assessments
-using the API or CLI, and you can only view the results of a data type assessment in the task's S3 bucket.
+If you decide to include LOBs, you can then decide the other LOB settings:
 
-The Pre-migration Assessment will automatically run under these conditions:
+- The LOB mode determines how LOBs are handled:
+  - **Full LOB mode** – In full
+    LOB mode AWS DMS migrates all LOBs from source to target regardless of
+    size. In this configuration, AWS DMS has no information about the
+    maximum size of LOBs to expect. Thus, LOBs are migrated one at a
+    time, piece by piece. Full LOB mode can be quite slow.
+  - **Limited LOB mode** – In
+    limited LOB mode, you set a maximum LOB size for DMS to accept. That
+    enables DMS to pre-allocate memory and load the LOB data in bulk. LOBs
+    that exceed the maximum LOB size are truncated, and a warning is issued
+    to the log file. In limited LOB mode, you can gain significant
+    performance over full LOB mode. We recommend that you use limited LOB
+    mode whenever possible. The maximum value for this parameter is 102400 KB (100 MB).
 
-- During Start Task: If you haven't manually run the assessment during task creation.
-- During Resume Task: If no completed assessment exists within the past 7 days.
-  A data type assessment identifies data types in a source database that might not
-  get migrated correctly because the target doesn't support them. During this assessment, AWS DMS reads the source database
-  schemas for a migration task and creates a list of the column data types. It then
-  compares this list to a predefined list of data types supported by AWS DMS. If your
-  migration task has unsupported data types, AWS DMS
-  creates a report that you can look at to see if your migration task has any
-  unsupported data types. AWS DMS doesn't create a report if your migration task doesn't have any
-  unsupported data types.
+  ###### Note
 
-AWS DMS supports creating data type assessment reports for the following relational
-databases:
+  Using the Max LOB size (K) option with a value greater than 63KB
+  impacts the performance of a full load configured to run in limited
+  LOB mode. During a full load, DMS allocates memory by multiplying
+  the Max LOB size (k) value by the Commit rate, and the product is
+  multiplied by the number of LOB columns. When DMS cannot
+  pre-allocate that memory, it consumes SWAP memory which negatively
+  impacts performance of the full load tasks. If you experience
+  performance issues when using limited LOB mode, consider decreasing
+  the commit rate until you achieve an acceptable level of
+  performance. During a CDC mode, DMS allocates memory by multiplying
+  the number of LOB Columns by the Max LOB Size parameter specified in
+  the Limited LOB task settings, and then by the record size. DMS CDC
+  process is single threaded per DMS task. For more information, see
+  [Change processing tuning
+  settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 
-- Oracle
-- SQL Server
-- PostgreSQL
-- MySQL
-- MariaDB
-- Amazon Aurora
-  You can start and view a data type assessment report using the CLI and SDKs to
-  access the AWS DMS API:
-
-- The CLI uses the [`start-replication-task-assessment`](../../../cli/latest/reference/dms/start-replication-task-assessment.md "../../../cli/latest/reference/dms/start-replication-task-assessment.md") command to start
-  a data type assessment and uses the [`describe-replication-task-assessment-results`](../../../cli/latest/reference/dms/describe-replication-task-assessment-results.md "../../../cli/latest/reference/dms/describe-replication-task-assessment-results.md")
-  command to view the latest data type assessment report in JSON
-  format.
-- The AWS DMS API uses the [`StartReplicationTaskAssessment`](../APIReference/API_StartReplicationTaskAssessment.md "../APIReference/API_StartReplicationTaskAssessment.md")
-  operation to start a data type assessment and uses the [`DescribeReplicationTaskAssessmentResults`](../APIReference/API_DescribeReplicationTaskAssessmentResults.md "../APIReference/API_DescribeReplicationTaskAssessmentResults.md")
-  operation to view the latest data type assessment report in JSON
-  format.
-  The data type assessment report is a single JSON file that includes a summary that
-  lists the unsupported data types and the column count for each one. It includes a
-  list of data structures for each unsupported data type including the schemas,
-  tables, and columns that have the unsupported data type. You can use the report to
-  modify the source data types and improve the migration success.
-
-There are two levels of unsupported data types. Data types that appear on the
-report as not supported can't be migrated. Data types that appear on the report
-as partially supported might be converted to another data type, but not migrate as
-you expect.
-
-The following example shows a sample data type assessment report that you might
-view.
-
-```
-{
-    "summary":{
-        "task-name":"test15",
-        "not-supported":{
-            "data-type": [
-                "sql-variant"
-            ],
-            "column-count":3
-        },
-        "partially-supported":{
-            "data-type":[
-                "float8",
-                "jsonb"
-            ],
-            "column-count":2
-        }
-    },
-    "types":[
-        {
-            "data-type":"float8",
-            "support-level":"partially-supported",
-            "schemas":[
-                {
-                    "schema-name":"schema1",
-                    "tables":[
-                        {
-                            "table-name":"table1",
-                            "columns":[
-                                "column1",
-                                "column2"
-                            ]
-                        },
-                        {
-                            "table-name":"table2",
-                            "columns":[
-                                "column3",
-                                "column4"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "schema-name":"schema2",
-                    "tables":[
-                        {
-                            "table-name":"table3",
-                            "columns":[
-                                "column5",
-                                "column6"
-                            ]
-                        },
-                        {
-                            "table-name":"table4",
-                            "columns":[
-                                "column7",
-                                "column8"
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "datatype":"int8",
-            "support-level":"partially-supported",
-            "schemas":[
-                {
-                    "schema-name":"schema1",
-                    "tables":[
-                        {
-                            "table-name":"table1",
-                            "columns":[
-                                "column9",
-                                "column10"
-                            ]
-                        },
-                        {
-                            "table-name":"table2",
-                            "columns":[
-                                "column11",
-                                "column12"
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-}
-
-```
-
-AWS DMS stores the latest and all previous data type assessments in an Amazon S3
-bucket created by AWS DMS in your account. The Amazon S3 bucket name has the following
-format, where `customerId` is your customer ID and
-`customerDNS` is an internal identifier.
-
-```
-dms-`customerId`-`customerDNS`
-```
+  To validate limited LOB size, you must set
+  `ValidationPartialLobSize` to the same value as
+  `LobMaxSize` (K).
+  - **Inline LOB mode** –
+    In inline LOB mode, you set the maximum LOB size that DMS transfers inline.
+    LOBs smaller than the specified size are transferred inline. LOBs larger than the
+    specified size are replicated using full LOB mode. You can select this option to replicate
+    both small and large LOBs when most of the LOBs are small. DMS doesn’t support
+    inline LOB mode for endpoints that don’t support Full LOB mode, like S3 and Redshift.
 
 ###### Note
 
-By default, you can create up to 100 Amazon S3 buckets in each of your AWS
-accounts. Because AWS DMS creates a bucket in your account, make sure that it
-doesn't exceed your bucket limit. Otherwise, the data type assessment
-fails.
+With Oracle, LOBs are treated as VARCHAR data types whenever possible.
+This approach means that AWS DMS fetches them from the database in bulk,
+which is significantly faster than other methods. The maximum size of a
+VARCHAR in Oracle is 32 K. Therefore, a limited LOB size of less than 32
+K is optimal when Oracle is your source database.
 
-All data type assessment reports for a given migration task are stored in a bucket
-folder named with the task identifier. Each report's file name is the date of
-the data type assessment in the format yyyy-mm-dd-hh-mm. You can view and compare
-previous data type assessment reports from the Amazon S3 Management Console.
+- When a task is configured to run in limited LOB mode, the **Max
+  LOB size (K)** option sets the maximum size LOB that AWS DMS
+  accepts. Any LOBs that are larger than this value is truncated to this
+  value.
+- When a task is configured to use full LOB mode, AWS DMS retrieves LOBs in
+  pieces. The **LOB chunk size (K)** option determines the
+  size of each piece. When setting this option, pay particular attention to
+  the maximum packet size allowed by your network configuration. If the LOB
+  chunk size exceeds your maximum allowed packet size, you might see
+  disconnect errors. The recommended value for
+  `LobChunkSize` is 64 kilobytes. Increasing the value
+  for `LobChunkSize` above 64 kilobytes can cause task
+  failures.
+- When a task is configured to run in inline LOB mode, the `InlineLobMaxSize` setting
+  determines which LOBs DMS transfers inline.
 
-AWS DMS also creates an AWS Identity and Access Management (IAM) role to allow access to the S3 bucket
-created for these reports. The role name is `dms-access-for-tasks`. The
-role uses the `AmazonDMSRedshiftS3Role` policy. If a **ResourceNotFoundFault**
-error occurs when you run `StartReplicationTaskAssessment`, see
-[ResourceNotFoundFault](CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Troubleshooting.ResourceNotFoundFault "CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Troubleshooting.ResourceNotFoundFault") in the Troubleshooting section
-for information about creating the `dms-access-for-tasks`
-role manually.
+###### Note
+
+A primary key is mandatory for tables containing LOB columns during Change Data Capture (CDC)
+operations. DMS uses this key to look up LOB values in the source table.
+This requirement only applies to CDC tasks - full-load tasks can read and
+copy entire LOB columns directly from source to target without
+restrictions.
+For information on the task settings to specify these options, see [Target
+metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+
+## SQL Commands to check max LOB
+
+column length on source table
+
+Use the following SQL commands to check the Max LOB column length and accordingly
+configure the DMS limited LOB settings to avoid any data truncation in the
+migration:
+
+**Oracle**
+
+```
+SELECT dbms_lob.getlength(<COL_NAME>) as LOB_LENGTH
+FROM <TABLE_NAME>
+ORDER BY dbms_lob.getlength(<COL_NAME>) DESC
+FETCH FIRST 10 ROWS ONLY;
+
+Select ((max(length(<COL_NAME>)))/(1024)) from <TABLE_NAME>
+```
+
+**SQL Server**
+
+```
+Select top 10 datalength(<COL_NAME>) as fieldsize from <TABLE_NAME> order by datalength(<COL_NAME>) desc;
+```
+
+**MySQL**
+
+```
+Select (max(length(<COL_NAME>))/(1024)) as "Size in KB" from <TABLE_NAME>;
+```
+
+**PostgreSQL**
+
+```
+Select max((octet_length(<COL_NAME>))/(1024.0)) as "Size in KB" from <TABLE_NAME>;
+
+```
+
+**Db2 LUW**
+
+```
+-- Method 1: Using SYSCAT.COLUMNS (converting to KB)
+
+SELECT TABSCHEMA, TABNAME, COLNAME, LENGTH/1024 as LENGTH_KB, TYPENAME FROM SYSCAT.COLUMNS WHERE TYPENAME IN ('BLOB', 'CLOB', 'DBCLOB') ORDER BY LENGTH DESC;
+
+-- Method 2: For specific table with KB conversion
+
+  SELECT COLNAME, LENGTH/1024 as LENGTH_KB, TYPENAME FROM SYSCAT.COLUMNS WHERE TABSCHEMA = 'YOUR_SCHEMA'AND TABNAME = 'YOUR_TABLE'AND TYPENAME IN ('BLOB', 'CLOB', 'DBCLOB');
+
+-- Method 3: Using SYSIBM.SYSCOLUMNS
+
+SELECT TBCREATOR, TBNAME, NAME, LENGTH/1024 as LENGTH_KB, COLTYPE FROM SYSIBM.SYSCOLUMNS WHERE COLTYPE IN ('BLOB', 'CLOB', 'DBCLOB') ORDER BY LENGTH DESC;
+
+SYBASE :
+
+SELECT c.name as column_name, t.name as data_type, (c.length)/1024 as length_KB FROM syscolumns c JOIN systypes t ON c.usertype = t.usertype WHERE object_name(c.id) = 'YOUR_TABLE_NAME'AND t.name IN ('text', 'image', 'unitext') ORDER BY c.length DESC;
+```

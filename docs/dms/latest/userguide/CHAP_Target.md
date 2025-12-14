@@ -1,267 +1,868 @@
-# Using Redis OSS as a target for
+# Using an Amazon DynamoDB database as a target for
 
 AWS Database Migration Service
 
-Redis OSS is an open-source in-memory data structure store used as a database, cache, and
-message broker. Managing data in-memory can result in read or write operations taking
-less than a millisecond, and hundreds of millions of operations performed each second. As an
-in-memory data store, Redis OSS powers the most demanding applications requiring
-sub-millisecond response times.
+You can use AWS DMS to migrate data to an Amazon DynamoDB table. Amazon DynamoDB is a fully managed
+NoSQL database service that provides fast and predictable performance with seamless
+scalability. AWS DMS supports using a relational database or MongoDB as a source.
 
-Using AWS DMS, you can migrate data from any supported source
-database to a target Redis OSS data store with minimal downtime. For additional information about Redis OSS see, [Redis OSS Documentation](https://redis.io/documentation "https://redis.io/documentation").
+In DynamoDB, tables, items, and attributes are the core components that you work with. A
+_table_ is a collection of items, and each
+_item_ is a collection of attributes. DynamoDB uses
+primary keys, called partition keys, to uniquely identify each item in a table. You can
+also use keys and secondary indexes to provide more querying flexibility.
 
-In addition to on-premises Redis OSS, AWS Database Migration Service supports the following:
+You use object mapping to migrate your data from a source database to a target DynamoDB
+table. Object mapping enables you to determine where the source data is located in the
+target.
 
-- [Amazon ElastiCache (Redis OSS)](https://aws.amazon.com/elasticache/redis/ "https://aws.amazon.com/elasticache/redis/")
-  as a target data store. ElastiCache (Redis OSS) works with your Redis OSS clients and uses the open Redis OSS data
-  format to store your data.
-- [Amazon MemoryDB](https://aws.amazon.com/memorydb/ "https://aws.amazon.com/memorydb/")
-  as a target data store. MemoryDB is compatible with Redis OSS and enables you to build
-  applications using all the Redis OSS data structures, APIs, and commands in use today.
-  For additional information about working with Redis OSS as a target for AWS DMS, see the following sections:
-
-###### Topics
-
-- [Prerequisites for using a Redis OSS
-  cluster as a target for AWS DMS](#CHAP_Target.Redis.Prerequisites "#CHAP_Target.Redis.Prerequisites")
-- [Limitations when using Redis
-  as a target for AWS Database Migration Service](#CHAP_Target.Redis.Limitations "#CHAP_Target.Redis.Limitations")
-- [Migrating data from a
-  relational or non-relational database to a Redis OSS target](#CHAP_Target.Redis.Migrating "#CHAP_Target.Redis.Migrating")
-- [Specifying endpoint settings
-  for Redis OSS as a target](#CHAP_Target.Redis.EndpointSettings "#CHAP_Target.Redis.EndpointSettings")
-
-## Prerequisites for using a Redis OSS
-
-cluster as a target for AWS DMS
-
-DMS supports an on-premises Redis OSS target in a standalone configuration, or as a
-Redis OSS cluster where data is automatically _sharded_
-across multiple nodes. Sharding is the process of separating data into smaller
-chunks called shards that are spread across multiple servers or nodes. In effect, a
-shard is a data partition that contains a subset of the total data set, and serves a
-slice of the overall workload.
-
-Since Redis OSS is a key-value NoSQL data store, the Redis OSS key naming convention
-to use when your source is a relational database, is **schema-name.table-name.primary-key**. In Redis OSS, the key and value must
-not contain the special character %. Otherwise, DMS skips the record.
+When AWS DMS creates tables on an DynamoDB target endpoint, it creates as many tables
+as in the source database endpoint. AWS DMS also sets several DynamoDB parameter values.
+The cost for the table creation depends on the amount of data and the number of tables
+to be migrated.
 
 ###### Note
 
-If you are using ElastiCache (Redis OSS) as a target, DMS supports _cluster mode
-enabled_ configurations only. For more information about using
-ElastiCache (Redis OSS) version 6.x or higher to create a cluster mode enabled target data store,
-see [Getting
-started](../../../AmazonElastiCache/latest/red-ug/GettingStarted.md "../../../AmazonElastiCache/latest/red-ug/GettingStarted.md") in the _Amazon ElastiCache (Redis OSS) User Guide_.
+The **SSL Mode** option on the AWS DMS console or API doesn’t apply
+to some data streaming and NoSQL services like Kinesis and DynamoDB. They are secure
+by default, so AWS DMS shows the SSL mode setting is equal to none
+(**SSL Mode=None**). You don’t need to provide any additional
+configuration for your endpoint to make use of SSL. For example, when using DynamoDB
+as a target endpoint, it is secure by default. All API calls to DynamoDB use SSL, so
+there is no need for an additional SSL option in the AWS DMS endpoint. You can securely
+put data and retrieve data through SSL endpoints using the HTTPS protocol, which AWS DMS
+uses by default when connecting to a DynamoDB database.
 
-Before you begin a database migration, launch your Redis OSS cluster with the following criteria.
+To help increase the speed of the transfer, AWS DMS supports a multithreaded full load
+to a DynamoDB target instance. DMS supports this multithreading with task settings that
+include the following:
 
-- Your cluster has one or more shards.
-- If you're using an ElastiCache (Redis OSS) target, ensure that your cluster doesn't use
-  IAM role-based access control. Instead, use Redis OSS Auth to authenticate users.
-- Enable Multi-AZ (Availability Zones).
-- Ensure the cluster has sufficient memory available to fit the data to be
-  migrated from your database.
-- Make sure that your target Redis OSS cluster is clear of all data before
-  starting the initial migration task.
+- `MaxFullLoadSubTasks` – Use this option to indicate the
+  maximum number of source tables to load in parallel. DMS loads each table into
+  its corresponding DynamoDB target table using a dedicated subtask. The default
+  value is 8. The maximum value is 49.
+- `ParallelLoadThreads` – Use this option to specify the
+  number of threads that AWS DMS uses to load each table into its DynamoDB target
+  table. The default value is 0 (single-threaded). The maximum value is 200. You
+  can ask to have this maximum limit increased.
 
-You should determine your security requirements for the data migration prior to
-creating your cluster configuration. DMS supports migration to target replication
-groups regardless of their encryption configuration. But you can enable or disable
-encryption only when you create your cluster configuration.
+###### Note
 
-## Limitations when using Redis
+DMS assigns each segment of a table to its own thread for loading.
+Therefore, set `ParallelLoadThreads` to the maximum number of
+segments that you specify for a table in the source.
+
+- `ParallelLoadBufferSize` – Use this option to specify the
+  maximum number of records to store in the buffer that the parallel load threads
+  use to load data to the DynamoDB target. The default value is 50. The maximum value
+  is 1,000. Use this setting with `ParallelLoadThreads`.
+  `ParallelLoadBufferSize` is valid only when there is more than
+  one thread.
+- Table-mapping settings for individual tables – Use
+  `table-settings` rules to identify individual tables from the
+  source that you want to load in parallel. Also use these rules to specify how to
+  segment the rows of each table for multithreaded loading. For more information,
+  see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+
+###### Note
+
+When AWS DMS sets DynamoDB parameter values for a migration task, the default Read
+Capacity Units (RCU) parameter value is set to 200.
+
+The Write Capacity Units (WCU) parameter value is also set, but its value depends on
+several other settings:
+
+- The default value for the WCU parameter is 200.
+- If the `ParallelLoadThreads` task setting is set greater than 1
+  (the default is 0), then the WCU parameter is set to 200 times the
+  `ParallelLoadThreads` value.
+- Standard AWS DMS usage fees apply to resources you use.
+
+## Migrating from a relational
+
+database to a DynamoDB table
+
+AWS DMS supports migrating data to DynamoDB scalar data types. When migrating from
+a relational database like Oracle or MySQL to DynamoDB, you might want to
+restructure how you store this data.
+
+Currently AWS DMS supports single table to single table restructuring to DynamoDB
+scalar type attributes. If you are migrating data into DynamoDB from a relational
+database table, you take data from a table and reformat it into DynamoDB scalar data
+type attributes. These attributes can accept data from multiple columns, and you can
+map a column to an attribute directly.
+
+AWS DMS supports the following DynamoDB scalar data types:
+
+- String
+- Number
+- Boolean
+
+###### Note
+
+NULL data from the source are ignored on the target.
+
+## Prerequisites for using
+
+DynamoDB as a target for AWS Database Migration Service
+
+Before you begin to work with a DynamoDB database as a target for AWS DMS, make
+sure that you create an IAM role. This IAM role should allow AWS DMS to assume
+and grant access to the DynamoDB tables that are being migrated into. The minimum set
+of access permissions is shown in the following IAM policy.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "dms.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
+```
+
+The role that you use for the migration to DynamoDB must have the following
+permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:PutItem",
+ "dynamodb:CreateTable",
+ "dynamodb:DescribeTable",
+ "dynamodb:DeleteTable",
+ "dynamodb:DeleteItem",
+ "dynamodb:UpdateItem"
+ ],
+ "Resource": [
+ "arn:aws:dynamodb:us-west-2:`111122223333`:table/name1",
+ "arn:aws:dynamodb:us-west-2:`111122223333`:table/OtherName*",
+ "arn:aws:dynamodb:us-west-2:`111122223333`:table/awsdms_apply_exceptions",
+ "arn:aws:dynamodb:us-west-2:`111122223333`:table/awsdms_full_load_exceptions"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:ListTables"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Limitations when using DynamoDB
 
 as a target for AWS Database Migration Service
 
-The following limitations apply when using Redis OSS as a target:
+The following limitations apply when using DynamoDB as a target:
 
-- Since Redis OSS is a key-value no-sql data store, the Redis OSS key naming convention to use
-  when your source is a relational database, is `schema-name.table-name.primary-key`.
-- In Redis OSS, the key-value can't contain the special character `%`.
-  Otherwise, DMS skips the record.
-- DMS won't migrate rows that contain the `%` character.
-- DMS won't migrate fields that contain the `%` character in the field name.
-- Full LOB mode is not supported.
-- A private Certificate Authority (CA) isn’t supported when using ElastiCache (Redis OSS) as a target.
+- DynamoDB limits the precision of the Number data type to 38 places. Store all
+  data types with a higher precision as a String. You need to explicitly
+  specify this using the object-mapping feature.
+- Because DynamoDB doesn't have a Date data type, data using the Date data
+  type are converted to strings.
+- DynamoDB doesn't allow updates to the primary key attributes. This
+  restriction is important when using ongoing replication with change data
+  capture (CDC) because it can result in unwanted data in the target.
+  Depending on how you have the object mapping, a CDC operation that updates
+  the primary key can do one of two things. It can either fail or insert a new
+  item with the updated primary key and incomplete data.
+- AWS DMS only supports replication of tables with noncomposite primary keys.
+  The exception is if you specify an object mapping for the target table with
+  a custom partition key or sort key, or both.
+- AWS DMS doesn't support LOB data unless it is a CLOB. AWS DMS converts
+  CLOB data into a DynamoDB string when migrating the data.
+- When you use DynamoDB as target, only the Apply Exceptions control table
+  (`dmslogs.awsdms_apply_exceptions`) is supported. For more
+  information about control tables, see [Control
+  table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+- AWS DMS doesn't support the task setting `TargetTablePrepMode=TRUNCATE_BEFORE_LOAD`
+  for DynamoDB as a target.
+- AWS DMS doesn't support the task setting `TaskRecoveryTableEnabled`
+  for DynamoDB as a target.
+- `BatchApply` is not supported for a DynamoDB endpoint.
+- AWS DMS cannot migrate attributes whose names match reserved words in DynamoDB.
+  For more information, see [Reserved words in DynamoDB](../../../amazondynamodb/latest/developerguide/ReservedWords.md "../../../amazondynamodb/latest/developerguide/ReservedWords.md") in the _Amazon DynamoDB Developer Guide_.
 
-## Migrating data from a
+## Using object mapping to migrate
 
-relational or non-relational database to a Redis OSS target
+data to DynamoDB
 
-You can migrate data from any source SQL or NoSQL data store directly to a Redis OSS
-target. Setting up and starting a migration to a Redis OSS target is similar to any full
-load and change data capture migration using the DMS console or API. To perform a
-database migration to a Redis OSS target, you do the following.
+AWS DMS uses table-mapping rules to map data from the source to the target DynamoDB
+table. To map data to a DynamoDB target, you use a type of table-mapping rule called
+_object-mapping_. Object mapping lets you define the
+attribute names and the data to be migrated to them. You must have selection rules
+when you use object mapping.
 
-- Create a replication instance to perform all the processes for the
-  migration. For more information, see [Creating a replication instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
-- Specify a source endpoint. For more information, see [Creating source and target endpoints](CHAP_Endpoints.md "CHAP_Endpoints.md").
-- Locate the DNS name and port number of your cluster.
-- Download a certificate bundle that you can use to verify SSL
-  connections.
-- Specify a target endpoint, as described below.
-- Create a task or set of tasks to define what tables and replication processes you
-  want to use. For more information, see [Creating a task](CHAP_Tasks.md "CHAP_Tasks.md").
-- Migrate data from your source database to your target cluster.
+DynamoDB doesn't have a preset structure other than having a partition key and an
+optional sort key. If you have a noncomposite primary key, AWS DMS uses it. If you
+have a composite primary key or you want to use a sort key, define these keys and
+the other attributes in your target DynamoDB table.
 
-You begin a database migration in one of two ways:
+To create an object-mapping rule, you specify the `rule-type` as
+_object-mapping_. This rule specifies what type of object
+mapping you want to use.
 
-1. You can choose the AWS DMS console and perform each step there.
-2. You can use the AWS Command Line Interface (AWS CLI). For more information about
-   using the CLI with AWS DMS, see [AWS CLI for
-   AWS DMS](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md").
-
-###### To locate the DNS name and port number of your cluster
-
-- Use the following AWS CLI command to provide the
-  `replication-group-id` with the name of your
-  replication group.
-
-```
-
-aws elasticache describe-replication-groups --replication-group-id *myreplgroup*
-
-```
-
-Here, the output shows the DNS name in the `Address` attribute and the port number in the
-`Port` attribute of the primary node in the cluster.
+The structure for the rule is as follows:
 
 ```
- ...
-"ReadEndpoint": {
-"Port": 6379,
-"Address": "myreplgroup-
-111.1abc1d.1111.uuu1.cache.example.com"
+{ "rules": [
+    {
+      "rule-type": "object-mapping",
+      "rule-id": "<id>",
+      "rule-name": "<name>",
+      "rule-action": "<valid object-mapping rule action>",
+      "object-locator": {
+      "schema-name": "<case-sensitive schema name>",
+      "table-name": ""
+      },
+      "target-table-name": "<table_name>"
+    }
+  ]
 }
-...
-
 ```
 
-If you are using MemoryDB as your target, use the following
-AWS CLI command to provide an endpoint address to your Redis OSS cluster.
+AWS DMS currently supports `map-record-to-record` and
+`map-record-to-document` as the only valid values for the
+`rule-action` parameter. These values specify what AWS DMS does by
+default to records that aren't excluded as part of the `exclude-columns`
+attribute list. These values don't affect the attribute mappings in any way.
+
+- You can use `map-record-to-record` when migrating from a
+  relational database to DynamoDB. It uses the primary key from the relational
+  database as the partition key in DynamoDB and creates an attribute for each
+  column in the source database. When using `map-record-to-record`,
+  for any column in the source table not listed in the
+  `exclude-columns` attribute list, AWS DMS creates a
+  corresponding attribute on the target DynamoDB instance. It does so regardless
+  of whether that source column is used in an attribute mapping.
+- You use `map-record-to-document` to put source columns into a
+  single, flat DynamoDB map on the target using the attribute name "\_doc." When
+  using `map-record-to-document`, AWS DMS places the data into a
+  single, flat, DynamoDB map attribute on the source. This attribute is called
+  "\_doc". This placement applies to any column in the source table not listed
+  in the `exclude-columns` attribute list.
+
+One way to understand the difference between the `rule-action`
+parameters `map-record-to-record` and
+`map-record-to-document` is to see the two parameters in
+action. For this example, assume that you are starting with a relational database
+table row with the following structure and data:
+
+![sample database for example](images/datarep-dynamodb1.png)
+
+To migrate this information to DynamoDB, you create rules to map the data into a
+DynamoDB table item. Note the columns listed for the `exclude-columns`
+parameter. These columns are not directly mapped over to the target. Instead,
+attribute mapping is used to combine the data into new items, such as where
+_FirstName_ and _LastName_ are grouped
+together to become _CustomerName_ on the DynamoDB target.
+_NickName_ and _income_ are not
+excluded.
 
 ```
-
-aws memorydb describe-clusters --clusterid `clusterid`
-
-```
-
-###### Download a certificate bundle for use to verify SSL connections
-
-- Enter the following `wget` command at the command line. Wget is a free
-  GNU command-line utility tool used to download files from the internet.
-
-```
-
-wget https://s3.aws-api-domain/rds-downloads/rds-combined-ca-bundle.pem
-
-```
-
-Here, `*aws-api-domain*` completes the Amazon S3
-domain in your AWS Region required to access the speciﬁed S3 bucket and the
-rds-combined-ca-bundle.pem ﬁle that it provides.
-
-###### To create a target endpoint using the AWS DMS console
-
-This endpoint is for your Redis OSS target that is already running.
-
-- On the console, choose **Endpoints** from the navigation
-  pane and then choose **Create Endpoint**. The following
-  table describes the settings.
-
-| For this option           | Do this                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Endpoint type**         | Choose the \*_Target_<br>• endpoint type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Endpoint identifier**   | Enter the name of your endpoint. For example, include the<br>type of endpoint in the name, such as<br>`my-redis-target`.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Target engine**         | Choose \*_Redis OSS_<br>• as the type of<br>database engine that you want this endpoint to<br>connect.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Cluster name**          | Enter the DNS name of your Redis OSS cluster.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Port**                  | Enter the port number of your Redis OSS cluster.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **SSL security protocol** | Choose either **Plain text\*<br>• or<br>**SSL encryption**.<br>**Plain text**—This option doesn't provide<br>Transport Layer Security (TLS) encryption for traffic between endpoint and database.<br>**SSL encryption\*\*—If you choose<br>this option, enter an SSL Certificate Authority (CA)<br>certificate ARN to verify the server’s certificate and<br>make an encrypted connection.<br>For on-premises Redis OSS, DMS supports both public and<br>private Certificate Authority (CA). For ElastiCache (Redis OSS), DMS<br>supports only a public CA. |
-| **Authentication type**   | Choose the type of authentication to perform while connecting to Redis OSS. Options include,<br>**None**, **Authentication role**, and<br>**Authentication token**.<br>If you choose Authentication role, provide an **Authentication username\*<br>• and an<br>**Authentication password**.<br>If you choose Authentication token, provide an<br>**Authentication password\*<br>• only.                                                                                                                                                                    |
-| **Replication instance**  | **[Optional]\*<br>• Only if you<br>intend to test your connection, choose the name of the<br>replication instance you previously entered on the<br>**Create replication instance\*\*<br>page.                                                                                                                                                                                                                                                                                                                                                               |
-
-When you're finished providing all information for your endpoint, AWS DMS
-creates your Redis OSS target endpoint for use during database migration.
-
-For information about creating a migration task and starting your database
-migration, see [Creating a task](CHAP_Tasks.md "CHAP_Tasks.md").
-
-## Specifying endpoint settings
-
-for Redis OSS as a target
-
-To create or modify a target endpoint, you can use the console or the
-`CreateEndpoint` or `ModifyEndpoint` API operations.
-
-For a Redis OSS target in the AWS DMS console, specify **Endpoint-specific
-settings** on the **Create endpoint** or
-**Modify endpoint** console page.
-
-When using `CreateEndpoint` and `ModifyEndpoint` API
-operations, specify request parameters for the `RedisSettings` option.
-The example following shows how to do this using the AWS CLI.
-
-```
-aws dms create-endpoint --endpoint-identifier `my-redis-target`
---endpoint-type target --engine-name redis --redis-settings
-'{"ServerName":"`sample-test-sample.zz012zz.cluster.eee1.cache.bbbxxx.com`","Port":6379,"AuthType":"auth-token",
- "SslSecurityProtocol":"ssl-encryption", "AuthPassword":"`notanactualpassword`"}'
 
 {
-    "Endpoint": {
-        "EndpointIdentifier": "my-redis-target",
-        "EndpointType": "TARGET",
-        "EngineName": "redis",
-        "EngineDisplayName": "Redis",
-        "TransferFiles": false,
-        "ReceiveTransferredFiles": false,
-        "Status": "active",
-        "KmsKeyId": "arn:aws:kms:us-east-1:999999999999:key/x-b188188x",
-        "EndpointArn": "arn:aws:dms:us-east-1:555555555555:endpoint:ABCDEFGHIJKLMONOPQRSTUVWXYZ",
-        "SslMode": "none",
-        "RedisSettings": {
-            "ServerName": "sample-test-sample.zz012zz.cluster.eee1.cache.bbbxxx.com",
-            "Port": 6379,
-            "SslSecurityProtocol": "ssl-encryption",
-            "AuthType": "auth-token"
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "2",
+            "rule-name": "TransformToDDB",
+            "rule-action": "map-record-to-record",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "customer"
+            },
+            "target-table-name": "customer_t",
+            "mapping-parameters": {
+                "partition-key-name": "CustomerName",
+                "exclude-columns": [
+                    "FirstName",
+                    "LastName",
+                    "HomeAddress",
+                    "HomePhone",
+                    "WorkAddress",
+                    "WorkPhone"
+                ],
+                "attribute-mappings": [
+                    {
+                        "target-attribute-name": "CustomerName",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${FirstName},${LastName}"
+                    },
+                    {
+                        "target-attribute-name": "ContactDetails",
+                        "attribute-type": "document",
+                        "attribute-sub-type": "dynamodb-map",
+                        "value": {
+                            "M": {
+                                "Home": {
+                                    "M": {
+                                        "Address": {
+                                            "S": "${HomeAddress}"
+                                        },
+                                        "Phone": {
+                                            "S": "${HomePhone}"
+                                        }
+                                    }
+                                },
+                                "Work": {
+                                    "M": {
+                                        "Address": {
+                                            "S": "${WorkAddress}"
+                                        },
+                                        "Phone": {
+                                            "S": "${WorkPhone}"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
         }
+    ]
+}
+
+```
+
+By using the `rule-action` parameter
+_map-record-to-record_, the data for
+_NickName_ and _income_ are mapped to
+items of the same name in the DynamoDB target.
+
+![Get started with AWS DMS](images/datarep-dynamodb2.png)
+
+However, suppose that you use the same rules but change the
+`rule-action` parameter to
+_map-record-to-document_. In this case, the columns not
+listed in the `exclude-columns` parameter, _NickName_
+and _income_, are mapped to a _\_doc_
+item.
+
+![Get started with AWS DMS](images/datarep-dynamodb3.png)
+
+### Using
+
+custom condition expressions with object mapping
+
+You can use a feature of DynamoDB called conditional expressions to
+manipulate data that is being written to a DynamoDB table. For more information
+about condition expressions in DynamoDB, see [Condition
+expressions](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md").
+
+A condition expression member consists of:
+
+- an expression (required)
+- expression attribute values (required). Specifies a DynamoDB json
+  structure of the attribute value. This is useful for comparing an attribute with a value in DynamoDB that you might not know until runtime. You can define an expression attribute value as a placeholder for an actual value.
+- expression attribute names (required). This helps avoid potential conflicts with any DynamoDB reserved words, attribute names containing special characters, and similar.
+- options for when to use the condition expression (optional). The
+  default is apply-during-cdc = false and apply-during-full-load =
+  true
+
+The structure for the rule is as follows:
+
+```
+
+"target-table-name": "customer_t",
+      "mapping-parameters": {
+        "partition-key-name": "CustomerName",
+        "condition-expression": {
+          "expression":"<conditional expression>",
+          "expression-attribute-values": [
+              {
+                "name":"<attribute name>",
+                "value":<attribute value>
+              }
+          ],
+          "apply-during-cdc":<optional Boolean value>,
+          "apply-during-full-load": <optional Boolean value>
+        }
+
+```
+
+The following sample highlights the sections used for condition
+expression.
+
+![Get started with AWS DMS](images/datarep-Tasks-conditional1.png)
+
+### Using
+
+attribute mapping with object mapping
+
+Attribute mapping lets you specify a template string using source column names
+to restructure data on the target. There is no formatting done other than what
+the user specifies in the template.
+
+The following example shows the structure of the source database and the
+desired structure of the DynamoDB target. First is shown the structure of the
+source, in this case an Oracle database, and then the desired structure of the
+data in DynamoDB. The example concludes with the JSON used to create the desired
+target structure.
+
+The structure of the Oracle data is as follows:
+
+| FirstName   | LastName | StoreId | HomeAddress       | HomePhone  | WorkAddress               | WorkPhone  | DateOfBirth |
+| ----------- | -------- | ------- | ----------------- | ---------- | ------------------------- | ---------- | ----------- |
+| Primary Key | N/A      |         |
+| Randy       | Marsh    | 5       | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog | 9876543210 | 02/29/1988  |
+
+The structure of the DynamoDB data is as follows:
+
+| CustomerName          | StoreId     | ContactDetails                                                                                                                                                                                        | DateOfBirth          |
+| --------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| Partition Key         | Sort Key    | N/A                                                                                                                                                                                                   |
+| `<br>Randy,Marsh<br>` | `<br>5<br>` | `<br>{<br>"Name": "Randy",<br>"Home": {<br>"Address": "221B Baker Street",<br>"Phone": 1234567890<br>},<br>"Work": {<br>"Address": "31 Spooner Street, Quahog",<br>"Phone": 9876541230<br>}<br>}<br>` | `<br>02/29/1988<br>` |
+
+The following JSON shows the object mapping and column mapping used to achieve
+the DynamoDB structure:
+
+```
+
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "2",
+            "rule-name": "TransformToDDB",
+            "rule-action": "map-record-to-record",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "customer"
+            },
+            "target-table-name": "customer_t",
+            "mapping-parameters": {
+                "partition-key-name": "CustomerName",
+                "sort-key-name": "StoreId",
+                "exclude-columns": [
+                    "FirstName",
+                    "LastName",
+                    "HomeAddress",
+                    "HomePhone",
+                    "WorkAddress",
+                    "WorkPhone"
+                ],
+                "attribute-mappings": [
+                    {
+                        "target-attribute-name": "CustomerName",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${FirstName},${LastName}"
+                    },
+                    {
+                        "target-attribute-name": "StoreId",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${StoreId}"
+                    },
+                    {
+                        "target-attribute-name": "ContactDetails",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "{\"Name\":\"${FirstName}\",\"Home\":{\"Address\":\"${HomeAddress}\",\"Phone\":\"${HomePhone}\"}, \"Work\":{\"Address\":\"${WorkAddress}\",\"Phone\":\"${WorkPhone}\"}}"
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+```
+
+Another way to use column mapping is to use DynamoDB format as your document
+type. The following code example uses _dynamodb-map_ as the
+`attribute-sub-type` for attribute mapping.
+
+```
+
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "2",
+            "rule-name": "TransformToDDB",
+            "rule-action": "map-record-to-record",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "customer"
+            },
+            "target-table-name": "customer_t",
+            "mapping-parameters": {
+                "partition-key-name": "CustomerName",
+                "sort-key-name": "StoreId",
+                "exclude-columns": [
+                    "FirstName",
+                    "LastName",
+                    "HomeAddress",
+                    "HomePhone",
+                    "WorkAddress",
+                    "WorkPhone"
+                ],
+                "attribute-mappings": [
+                    {
+                        "target-attribute-name": "CustomerName",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${FirstName},${LastName}"
+                    },
+                    {
+                        "target-attribute-name": "StoreId",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${StoreId}"
+                    },
+                    {
+                        "target-attribute-name": "ContactDetails",
+                        "attribute-type": "document",
+                        "attribute-sub-type": "dynamodb-map",
+                        "value": {
+                          "M": {
+                            "Name": {
+                              "S": "${FirstName}"
+                            },
+                            "Home": {
+                                    "M": {
+                                        "Address": {
+                                            "S": "${HomeAddress}"
+                                        },
+                                        "Phone": {
+                                            "S": "${HomePhone}"
+                                        }
+                                    }
+                                },
+                                "Work": {
+                                    "M": {
+                                        "Address": {
+                                            "S": "${WorkAddress}"
+                                        },
+                                        "Phone": {
+                                            "S": "${WorkPhone}"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+```
+
+As an alternative to `dynamodb-map`, you can use `dynamodb-list`
+as the attribute-sub-type for attribute mapping, as shown in the following example.
+
+```
+
+{
+"target-attribute-name": "ContactDetailsList",
+"attribute-type": "document",
+"attribute-sub-type": "dynamodb-list",
+"value": {
+    "L": [
+            {
+                "N": "${FirstName}"
+            },
+            {
+                "N": "${HomeAddress}"
+            },
+            {
+                "N": "${HomePhone}"
+            },
+            {
+                "N": "${WorkAddress}"
+            },
+            {
+                "N": "${WorkPhone}"
+            }
+        ]
     }
 }
 
 ```
 
-The `--redis-settings` parameters follow:
+### Example 1: Using
 
-- `ServerName`–(Required) Of type `string`,
-  specifies the Redis OSS cluster that data will be migrated to, and is in your
-  same VPC.
-- `Port`–(Required) Of type `number`, the port
-  value used to access the endpoint.
-- `SslSecurityProtocol`–(Optional) Valid values include `plaintext`
-  and `ssl-encryption`. The default is `ssl-encryption`.
+attribute mapping with object mapping
 
-The `plaintext` option doesn't provide Transport Layer Security (TLS)
-encryption for traffic between endpoint and database.
+The following example migrates data from two MySQL database tables,
+_nfl_data_ and _sport_team_ , to two
+DynamoDB table called _NFLTeams_ and
+_SportTeams_. The structure of the tables and the JSON
+used to map the data from the MySQL database tables to the DynamoDB tables are
+shown following.
 
-Use `ssl-encryption` to make an encrypted connection. `ssl-encryption`
-doesn’t require an SSL Certificate Authority (CA) ARN to verify a server’s certificate, but one can be
-identified optionally using the `SslCaCertificateArn` setting. If a certificate authority ARN
-isn't given, DMS uses the Amazon root CA.
+The structure of the MySQL database table _nfl_data_ is
+shown below:
 
-When using an on-premises Redis OSS target, you can use
-`SslCaCertificateArn` to import public or private Certificate
-Authority (CA) into DMS, and provide that ARN for server authentication. A
-private CA isn’t supported when using ElastiCache (Redis OSS) as a target.
+```
 
-- `AuthType`–(Required) Indicates the type of
-  authentication to perform when connecting to Redis OSS. Valid values include
-  `none`, `auth-token`, and
-  `auth-role`.
+mysql> desc nfl_data;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| Position      | varchar(5)  | YES  |     | NULL    |       |
+| player_number | smallint(6) | YES  |     | NULL    |       |
+| Name          | varchar(40) | YES  |     | NULL    |       |
+| status        | varchar(10) | YES  |     | NULL    |       |
+| stat1         | varchar(10) | YES  |     | NULL    |       |
+| stat1_val     | varchar(10) | YES  |     | NULL    |       |
+| stat2         | varchar(10) | YES  |     | NULL    |       |
+| stat2_val     | varchar(10) | YES  |     | NULL    |       |
+| stat3         | varchar(10) | YES  |     | NULL    |       |
+| stat3_val     | varchar(10) | YES  |     | NULL    |       |
+| stat4         | varchar(10) | YES  |     | NULL    |       |
+| stat4_val     | varchar(10) | YES  |     | NULL    |       |
+| team          | varchar(10) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
 
-The `auth-token` option requires an
-"`AuthPassword`" be provided, while the
-`auth-role` option requires
-"`AuthUserName`" and
-"`AuthPassword`" be provided.
+```
+
+The structure of the MySQL database table _sport_team_ is
+shown below:
+
+```
+
+mysql> desc sport_team;
++---------------------------+--------------+------+-----+---------+----------------+
+| Field                     | Type         | Null | Key | Default | Extra          |
++---------------------------+--------------+------+-----+---------+----------------+
+| id                        | mediumint(9) | NO   | PRI | NULL    | auto_increment |
+| name                      | varchar(30)  | NO   |     | NULL    |                |
+| abbreviated_name          | varchar(10)  | YES  |     | NULL    |                |
+| home_field_id             | smallint(6)  | YES  | MUL | NULL    |                |
+| sport_type_name           | varchar(15)  | NO   | MUL | NULL    |                |
+| sport_league_short_name   | varchar(10)  | NO   |     | NULL    |                |
+| sport_division_short_name | varchar(10)  | YES  |     | NULL    |                |
+
+```
+
+The table-mapping rules used to map the two tables to the two DynamoDB tables
+is shown below:
+
+```
+
+{
+  "rules":[
+    {
+      "rule-type": "selection",
+      "rule-id": "1",
+      "rule-name": "1",
+      "object-locator": {
+        "schema-name": "dms_sample",
+        "table-name": "nfl_data"
+      },
+      "rule-action": "include"
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "2",
+      "rule-name": "2",
+      "object-locator": {
+        "schema-name": "dms_sample",
+        "table-name": "sport_team"
+      },
+      "rule-action": "include"
+    },
+    {
+      "rule-type":"object-mapping",
+      "rule-id":"3",
+      "rule-name":"MapNFLData",
+      "rule-action":"map-record-to-record",
+      "object-locator":{
+        "schema-name":"dms_sample",
+        "table-name":"nfl_data"
+      },
+      "target-table-name":"NFLTeams",
+      "mapping-parameters":{
+        "partition-key-name":"Team",
+        "sort-key-name":"PlayerName",
+        "exclude-columns": [
+          "player_number", "team", "name"
+        ],
+        "attribute-mappings":[
+          {
+            "target-attribute-name":"Team",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"${team}"
+          },
+          {
+            "target-attribute-name":"PlayerName",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"${name}"
+          },
+          {
+            "target-attribute-name":"PlayerInfo",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"{\"Number\": \"${player_number}\",\"Position\": \"${Position}\",\"Status\": \"${status}\",\"Stats\": {\"Stat1\": \"${stat1}:${stat1_val}\",\"Stat2\": \"${stat2}:${stat2_val}\",\"Stat3\": \"${stat3}:${
+stat3_val}\",\"Stat4\": \"${stat4}:${stat4_val}\"}"
+          }
+        ]
+      }
+    },
+    {
+      "rule-type":"object-mapping",
+      "rule-id":"4",
+      "rule-name":"MapSportTeam",
+      "rule-action":"map-record-to-record",
+      "object-locator":{
+        "schema-name":"dms_sample",
+        "table-name":"sport_team"
+      },
+      "target-table-name":"SportTeams",
+      "mapping-parameters":{
+        "partition-key-name":"TeamName",
+        "exclude-columns": [
+          "name", "id"
+        ],
+        "attribute-mappings":[
+          {
+            "target-attribute-name":"TeamName",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"${name}"
+          },
+          {
+            "target-attribute-name":"TeamInfo",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"{\"League\": \"${sport_league_short_name}\",\"Division\": \"${sport_division_short_name}\"}"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+The sample output for the _NFLTeams_ DynamoDB table is
+shown below:
+
+```
+
+  "PlayerInfo": "{\"Number\": \"6\",\"Position\": \"P\",\"Status\": \"ACT\",\"Stats\": {\"Stat1\": \"PUNTS:73\",\"Stat2\": \"AVG:46\",\"Stat3\": \"LNG:67\",\"Stat4\": \"IN 20:31\"}",
+  "PlayerName": "Allen, Ryan",
+  "Position": "P",
+  "stat1": "PUNTS",
+  "stat1_val": "73",
+  "stat2": "AVG",
+  "stat2_val": "46",
+  "stat3": "LNG",
+  "stat3_val": "67",
+  "stat4": "IN 20",
+  "stat4_val": "31",
+  "status": "ACT",
+  "Team": "NE"
+}
+
+```
+
+The sample output for the SportsTeams _DynamoDB_ table is
+shown below:
+
+```
+
+{
+  "abbreviated_name": "IND",
+  "home_field_id": 53,
+  "sport_division_short_name": "AFC South",
+  "sport_league_short_name": "NFL",
+  "sport_type_name": "football",
+  "TeamInfo": "{\"League\": \"NFL\",\"Division\": \"AFC South\"}",
+  "TeamName": "Indianapolis Colts"
+}
+
+```
+
+## Target data types for
+
+DynamoDB
+
+The DynamoDB endpoint for AWS DMS supports most DynamoDB data
+types. The following table shows the Amazon AWS DMS target data types that are
+supported when using AWS DMS and the default mapping from AWS DMS data
+types.
+
+For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.md "CHAP_Reference.md").
+
+When AWS DMS migrates data from heterogeneous databases, we map data types from
+the source database to intermediate data types called AWS DMS data types. We then
+map the intermediate data types to the target data types. The following table shows
+each AWS DMS data type and the data type it maps to in DynamoDB:
+
+| AWS DMS data type | DynamoDB data type |
+| ----------------- | ------------------ |
+| String            | String             |
+| WString           | String             |
+| Boolean           | Boolean            |
+| Date              | String             |
+| DateTime          | String             |
+| INT1              | Number             |
+| INT2              | Number             |
+| INT4              | Number             |
+| INT8              | Number             |
+| Numeric           | Number             |
+| Real4             | Number             |
+| Real8             | Number             |
+| UINT1             | Number             |
+| UINT2             | Number             |
+| UINT4             | Number             |
+| UINT8             | Number             |
+| CLOB              | String             |
