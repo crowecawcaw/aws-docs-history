@@ -2335,7 +2335,7 @@ us-east-1** using the Region selector in the upper-right corner of the AWS Manag
 | ----------------------------- | ---------------------- | -------------------- | ------------------------------------- |
 | `AWS::SecretsManager::Secret` | Yes                    | Yes                  | Yes                                   |
 
-## AWS Security Hub
+## AWS Security Hub CSPM
 
 | **Resources**                           | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** |
 | --------------------------------------- | ---------------------- | -------------------- | ------------------------------------- |
