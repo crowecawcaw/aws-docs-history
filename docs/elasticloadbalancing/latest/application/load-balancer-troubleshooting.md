@@ -362,7 +362,7 @@ Possible causes:
   the connection timeout expired (10 seconds).
 - The load balancer established a connection to the target but the target
   did not respond before the idle timeout period elapsed.
-- The networks ACL or SecurityGroup Policies did not allow traffic from
+- The network ACL for the subnet did not allow traffic from
   the targets to the load balancer nodes on the ephemeral ports (1024-65535).
 - The target returns a content-length header that is larger than the entity
   body. The load balancer timed out waiting for the missing bytes.

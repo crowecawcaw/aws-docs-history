@@ -15,6 +15,7 @@ For more information, see [How ELB works](../userguide/how-elastic-load-balancin
 - [Load balancer state](#load-balancer-state "#load-balancer-state")
 - [Load balancer attributes](#load-balancer-attributes "#load-balancer-attributes")
 - [IP address type](#ip-address-type "#ip-address-type")
+- [Application Load Balancer IP Address Management](#w2aab7c21 "#w2aab7c21")
 - [IPAM IP address pools](#ip-pools "#ip-pools")
 - [Load balancer connections](#load-balancer-connections "#load-balancer-connections")
 - [Cross-zone load balancing](#cross-zone-load-balancing "#cross-zone-load-balancing")
@@ -340,6 +341,18 @@ example, 2001:0db8:85a3:0:0:8a2e:0370:7334).
   the authentication process, resulting in HTTP 500 errors.
 
 For more information, see [Update the IP address types for your Application Load Balancer](load-balancer-ip-address-type.md "load-balancer-ip-address-type.md").
+
+## Application Load Balancer IP Address Management
+
+Application Load Balancers use Public Elastic IPv4 addresses from [EC2's public IPv4 address pool.](../../../awsec2/latest/userguide/using-instance-addresing.md "../../../awsec2/latest/userguide/using-instance-addresing.md") These IP addresses are visible in your AWS account when using the [describe-addresses](../../../cli/latest/reference/ec2/describe-addresses.md "../../../cli/latest/reference/ec2/describe-addresses.md") CLI, API or viewing the Elastic IPs (EIP) section in the AWS Console. Each ALB-associated IP address is marked with a service_managed attribute set to "ALB".
+
+While these IPs are visible in your account, they remain fully managed by the Application Load Balancer service and cannot be modified or released. Application Load Balancer releases IPs back into the public IPv4 address pool when no longer in use.
+
+CloudTrail logs API calls related to Application Load Balancer's EIP, such as the "AllocateAddress". These API calls are invoked by the Service Principal 'elasticloadbalancing.amazonaws.com'.
+
+###### Note
+
+Note: IPs allocated by Application Load Balancer do not count against your account's EIP limits.
 
 ## IPAM IP address pools
 
