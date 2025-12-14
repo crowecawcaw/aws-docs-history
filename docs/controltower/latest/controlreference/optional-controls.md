@@ -13,8 +13,8 @@ deactivate these optional controls through the AWS Control Tower console, or by 
   which are based on RCPs from AWS Organizations. For more information, see [Resource control policies](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the AWS Organizations documentation.
 - [Controls implemented with declarative policies](declarative-controls.md "declarative-controls.md"),
   which are based on _declarative policies_ from AWS Organizations. For more information, see [Declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative.md "../../../organizations/latest/userguide/orgs_manage_policies_declarative.md") in the AWS Organizations documentation.
-- [Security Hub controls](security-hub-controls.md "security-hub-controls.md"), which are based on AWS Config rules – these
-  controls are owned by Security Hub and integrated with AWS Control Tower, by means of the
+- [Security Hub CSPM controls](security-hub-controls.md "security-hub-controls.md"), which are based on AWS Config rules – these
+  controls are owned by Security Hub CSPM and integrated with AWS Control Tower, by means of the
   **Service-Managed Standard: AWS Control Tower**.
 - [Digital sovereignty controls](digital-sovereignty-controls.md "digital-sovereignty-controls.md"), which are elective controls based
   on SCPs and AWS Config rules, implemented within AWS Control Tower. This group includes the
@@ -42,4 +42,4 @@ You can view the Regions for each control in the AWS Control Tower console, or b
 For more information about the detective controls that cannot be deployed in
 certain Regions, see the [Regional services list documentation](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") to learn more about the
 Regions where AWS Config is available. If the detective control is implemented as
-a managed AWS Config rule, see the [Security Hub controls reference documentation](../../../securityhub/latest/userguide/securityhub-controls-reference.md "../../../securityhub/latest/userguide/securityhub-controls-reference.md").
+a managed AWS Config rule, see the [Security Hub CSPM controls reference documentation](../../../securityhub/latest/userguide/securityhub-controls-reference.md "../../../securityhub/latest/userguide/securityhub-controls-reference.md").

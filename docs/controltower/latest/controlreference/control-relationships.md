@@ -4,10 +4,10 @@ Certain controls stand in specified relationships to each other. These relations
 defined as follows:
 
 - **Alternative**: One control can replace or substitute the other. Example: An AWS Config
-  rule and a Security Hub control using the same underlying Config rule.
+  rule and a Security Hub CSPM control using the same underlying Config rule.
 - **Complementary**: The related controls work together to strengthen governance, each
   covering different aspects of security and compliance and enhancing the
-  effectiveness of the other. Example: A Security Hub control and a proactive control that
+  effectiveness of the other. Example: A Security Hub CSPM control and a proactive control that
   both check that an Amazon S3 bucket should have **Block public access** settings
   configured.
 - **Mutually Exclusive**: Controls cannot be enabled together on the same target or else

@@ -325,7 +325,7 @@ This control checks whether Elasticsearch domains are configured with VPC option
 
 **Explanation**
 
-Elasticsearch domains deployed within a VPC can communicate with VPC resources over the private AWS network, without the need to traverse the public internet. This configuration increases the security posture by limiting access to the data in transit. VPCs provide a number of network controls that help create secure access to Elasticsearch domains, including network ACLs and security groups. Security Hub recommends that you migrate public Elasticsearch domains to VPCs to take advantage of these controls.
+Elasticsearch domains deployed within a VPC can communicate with VPC resources over the private AWS network, without the need to traverse the public internet. This configuration increases the security posture by limiting access to the data in transit. VPCs provide a number of network controls that help create secure access to Elasticsearch domains, including network ACLs and security groups. Security Hub CSPM recommends that you migrate public Elasticsearch domains to VPCs to take advantage of these controls.
 
 ### Remediation for rule failure
 

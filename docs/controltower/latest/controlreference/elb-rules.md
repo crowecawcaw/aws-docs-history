@@ -2869,7 +2869,7 @@ This control checks whether classic load balancers use HTTPS/SSL certificates pr
 
 **Explanation**
 
-To create a certificate, you can use either ACM or a tool that supports the SSL and TLS protocols, such as OpenSSL. Security Hub recommends that you use ACM to create or import certificates for your load balancer.
+To create a certificate, you can use either ACM or a tool that supports the SSL and TLS protocols, such as OpenSSL. Security Hub CSPM recommends that you use ACM to create or import certificates for your load balancer.
 
 ACM integrates with Classic Load Balancers, so that you can deploy the certificate on your load balancer. You also should renew these certificates automatically.
 

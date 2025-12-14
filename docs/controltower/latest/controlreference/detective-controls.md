@@ -11,9 +11,9 @@ controls apply only in those AWS Regions supported by AWS Control Tower.
   **Elective** controls, that are owned by AWS Control Tower are detective
   controls. The name of these controls typically begins with the word
   _Detect_, to denote a detective control.
-- The integrated, detective Security Hub controls are implemented using AWS Config rules, similarly to
-  all Security Hub controls. These controls are owned by the **Service-Managed
-  Standard: AWS Control Tower**, which is part of Security Hub.
+- The integrated, detective Security Hub CSPM controls are implemented using AWS Config rules, similarly to
+  all Security Hub CSPM controls. These controls are owned by the **Service-Managed
+  Standard: AWS Control Tower**, which is part of Security Hub CSPM.
 - Certain AWS Config controls are manageable directly from the AWS Control Tower console, implemented with AWS Config rules.
 - When you enable controls on an organizational unit (OU) that is registered
   with AWS Control Tower, detective controls apply to enrolled accounts
@@ -42,5 +42,5 @@ The integrated AWS Config controls in AWS Control Tower have **Elective** guidan
 
 ###### Topics
 
-- [The Security Hub standard](security-hub-controls.md "security-hub-controls.md")
+- [The Security Hub CSPM standard](security-hub-controls.md "security-hub-controls.md")
 - [Integrated AWS Config controls available in AWS Control Tower](config-controls.md "config-controls.md")

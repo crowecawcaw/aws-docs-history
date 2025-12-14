@@ -32,8 +32,8 @@ is a classification system for controls.
 
 To view the Regional
 `controlIdentifier` ARN for each control and Region, and other metadata, see [Tables of
-control metadata](../userguide/control-metadata-tables.md "../userguide/control-metadata-tables.md"). The tables also include the identifiers for Security Hub
-controls that are part of the [**AWS Security Hub Service-Managed Standard:
+control metadata](../userguide/control-metadata-tables.md "../userguide/control-metadata-tables.md"). The tables also include the identifiers for Security Hub CSPM
+controls that are part of the [**AWS Security Hub CSPM Service-Managed Standard:
 AWS Control Tower**](../userguide/security-hub-controls.md "../userguide/security-hub-controls.md").
 
 ###### How to change from AWS Control Tower control ARNs (Regional) to Control Catalog
