@@ -60,7 +60,7 @@ metrics
 3. On the **All metrics** tab, choose
    **CodeBuild**.
 
-![How to view CodeBuild metrics.](images/codebuild-metrics-in-cw.png) 4. Choose **Account Metrics**. 5. Choose one or more projects and metrics. For each project, you can choose
+![How to view CodeBuild metrics.](/images/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png) 4. Choose **Account Metrics**. 5. Choose one or more projects and metrics. For each project, you can choose
 the **SucceededBuilds**, **FailedBuilds**,
 **Builds**, and **Duration** metrics.
 All selected project and metric combinations are displayed in the graph on
@@ -78,7 +78,7 @@ metrics
 3. On the **All metrics** tab, choose
    **CodeBuild**.
 
-![How to view CodeBuild metrics.](images/codebuild-metrics-in-cw.png) 4. Choose **By Project**. 5. Choose one or more project and metric combinations. For each project, you
+![How to view CodeBuild metrics.](/images/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png) 4. Choose **By Project**. 5. Choose one or more project and metric combinations. For each project, you
 can choose the **SucceededBuilds**,
 **FailedBuilds**, **Builds**, and
 **Duration** metrics. All selected project and metric

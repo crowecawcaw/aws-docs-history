@@ -26,8 +26,8 @@ FedRAMP, AWS provides resources to help:
 - [AWS Config](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") – This AWS service assesses how well your resource
   configurations comply with internal practices, industry guidelines, and
   regulations.
-- [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – Monitor your usage of AWS CodeBuild as it relates to security
-  best practices by using [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). Security Hub uses security controls to evaluate resource configurations and
+- [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – Monitor your usage of AWS CodeBuild as it relates to security
+  best practices by using [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). Security Hub CSPM uses security controls to evaluate resource configurations and
   security standards to help you comply with various compliance frameworks. For more information about
-  using Security Hub to evaluate CodeBuild resources, see [AWS CodeBuild controls](../../../securityhub/latest/userguide/codebuild-controls.md "../../../securityhub/latest/userguide/codebuild-controls.md") in the AWS Security Hub
+  using Security Hub CSPM to evaluate CodeBuild resources, see [AWS CodeBuild controls](../../../securityhub/latest/userguide/codebuild-controls.md "../../../securityhub/latest/userguide/codebuild-controls.md") in the AWS Security Hub CSPM
   User Guide.
