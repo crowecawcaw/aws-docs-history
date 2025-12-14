@@ -24,12 +24,13 @@ The following table summarizes EOL date for each major version.
 
 | Major version | End of Life date   |
 | ------------- | ------------------ |
+| Version 5     | N/A                |
+| Version 4     | February 18th 2026 |
 | Version 3     | July 8th 2024      |
-| Version 4     | Yet to be released |
 
 ###### Note
 
-EOL date for major version 4 will be aligned with the availability for the next
+EOL date for major version 5 will be aligned with the availability for the next
 major version.
 
 To understand the support model of minor versions, refer [AWS Mainframe Modernization components lifecycle](lifecycle-m2.md "lifecycle-m2.md").

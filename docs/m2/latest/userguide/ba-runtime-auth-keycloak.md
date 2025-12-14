@@ -63,7 +63,6 @@ gapwalk-application.security.userAttributeName: "preferred_username"
 # Use "username" for cognito,
 #     "preferred_username" for keycloak
 #      or any other string
-gapwalk-application.security.localhostWhitelistingEnabled: false
 
 spring:
   security:

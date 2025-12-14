@@ -145,6 +145,10 @@ associate your user to one or more of these groups. These roles are later mapped
 ROLE_SUPER_ADMIN, ROLE_ADMIN and ROLE_USER by the Gapwalk application to make it possible to
 access some restricted API REST calls.
 
+The application implements hierarchical scope-to-role mapping that works with multiple OAuth2 identity providers.
+When JWT tokens issued by Cognito are used for resource server authorization, scopes defined in the token are automatically
+mapped to corresponding roles.
+
 ## Integrate Amazon Cognito into the Gapwalk application
 
 Now that your Amazon Cognito user pool and users are ready, go the
@@ -156,7 +160,6 @@ gapwalk-application.security: enabled
 gapwalk-application.security.identity: oauth
 gapwalk-application.security.issuerUri: https://cognito-idp.<region-id>.amazonaws.com/<pool-id>
 gapwalk-application.security.domainName: <your-cognito-domain>
-gapwalk-application.security.localhostWhitelistingEnabled: false
 
 spring:
   security:

@@ -664,16 +664,14 @@ value><optional whitespace><memory unit>` where
   remains in the cache before being considered expired and removed. If this property is not
   specified, cache entries will not automatically expire by default.
 
-##### Multi-schema configuration properties
+##### Optional properties for large data sets:
 
-- `multiSchema`: false (default value) or true, to disable or enable the
-  Multi-schema mode for Blusam - Available starting version 4.4.0.
-- `pgsql`:
-  - `schemas`: A list of schema names that the application will utilize in Multi-schema
-    mode for Blusam.
-  - `fallbackSchema`: The fallback schema name for use in Multi-schema mode. If a data set
-    is not found in the current schema context, this schema will be used for Blusam-related
-    operations on that data set.
+Localized in-memory caching for Paginated Indexes:
+
+- `indexesPrefetchWindowSize`: This property applies to Blusam Large data sets using Redis cache enabled operations.
+  It specifies the maximum in-memory cache size (in MB) available for storing paginated indexes.
+  Default value is 0. This value may be adjusted depending on the available system memory and the size
+  of the data sets being processed.
 
 Sample configuration snippet:
 
@@ -695,9 +693,21 @@ bluesam:
     enabled: true
     threads: 8
     batchsize: 5000
+    indexesPrefetchWindowSize: 25
   pgsql:
     dataSource : bluesamDs
 ```
+
+##### Multi-schema configuration properties
+
+- `multiSchema`: false (default value) or true, to disable or enable the
+  Multi-schema mode for Blusam - Available starting version 4.4.0.
+- `pgsql`:
+  - `schemas`: A list of schema names that the application will utilize in Multi-schema
+    mode for Blusam.
+  - `fallbackSchema`: The fallback schema name for use in Multi-schema mode. If a data set
+    is not found in the current schema context, this schema will be used for Blusam-related
+    operations on that data set.
 
 Sample configuration snippet (with Multi-schema mode enabled for Blusam):
 
@@ -734,6 +744,37 @@ bluesam:
 Blusam metadata schemas, including schemas listed in the
 `application-main.yml` file for Multi-schema mode, are created in the
 Blusam database if they don't exist and the user has sufficient privileges.
+
+## Blusam DD File Configuration
+
+These options can be used for Blusam file configuration (data definition in JCL) in groovy:
+
+- `largeKSDS()`: indicates large KSDS nature. When used, if the specified file is a missing file and it should be created (depending
+  on the OPEN mode and optional file option), a large KSDS file and its index table will be created.
+
+```
+.bluesam("TESTFILE").dataset("TESTFILE").largeKSDS().build()
+```
+
+- `indexPageSize(Integer param)`: specify the page size (in mb) of index table to be created.
+  Applicable to file with `largeKSDS()` option. Value of `param` should be strictly positive.
+  A default value of 15 will be used for invalid `param` value.
+
+```
+.bluesam("TESTFILE").dataset("TESTFILE").largeKSDS().indexPageSize(15).build()
+```
+
+You can set default file configurations in the `ds-config.yml` file, located at `entities/src/main/resources/ds-config.yml`
+(or other locations for configuration files). These settings serve as fallback configurations when no specific file configuration
+is provided to the run unit. All Bluesam file configuration options are supported in `ds-config.yml`.
+
+```
+TESTFILE:
+ provider: Bluesam
+ dataset: TESTFILE
+ largeKSDS: true
+ indexPageSize: 15
+```
 
 ## Blusam Administration Console
 

@@ -102,7 +102,7 @@ applications.
 
 ### How to access
 
-Access to the BluInsights Toolbox is provided as part of your AWS Blu Age project
+Access to the [BluInsights Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") is provided as part of your AWS Blu Age project
 engagement. The Developer Runtime is available through AWS Blu Age toolbox requests. Once
 approved, you'll have access to specific S3 buckets:
 `s3://toolbox-dev-runtime-<region>`
@@ -111,9 +111,28 @@ These buckets are available in the us-east-1 and us-east-2 regions. To use the
 available bucket, append the region to the bucket name (e.g.,
 `s3://toolbox-dev-runtime-us-east-1`).
 
-For detailed instructions on how to request access and set up the necessary
-permissions, see [Dev and Special
-AWS Blu Age Runtimes](https://bluinsights.aws/docs/dev-special-bluage-runtime "https://bluinsights.aws/docs/dev-special-bluage-runtime") documentation.
+S3 read permissions are required on the principal accessing the bucket from the authorized account.
+Below is an example policy allowing all read actions on the `s3://toolbox-dev-runtime` bucket:
+
+```
+{
+"Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucket*",
+                "s3:GetObject*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::toolbox-dev-runtime",
+                "arn:aws:s3:::toolbox-dev-runtime/*"
+            ]
+        }
+    ]
+}
+```
 
 ### Deployment
 
@@ -134,17 +153,8 @@ aws s3 ls s3://toolbox-dev-runtime/[version]/
 3. Download the runtime artifact:
 
 ```
-aws s3 cp s3://toolbox-dev-runtime/[version]/gapwalk-[version]-dev.tar.gz
+aws s3 cp s3://toolbox-dev-runtime/[version]/gapwalk-[version].zip
 ```
 
 4. Extract and set up the runtime according to your project
    requirements.
-
-For more detailed deployment instructions and usage guidelines, see [Dev and Special
-AWS Blu Age Runtimes](https://bluinsights.aws/docs/dev-special-bluage-runtime "https://bluinsights.aws/docs/dev-special-bluage-runtime") documentation.
-
-###### Note
-
-Ensure you have the necessary S3 read permissions on your AWS account to
-access these buckets. An example IAM policy can be found in the [Dev and
-Special AWS Blu Age Runtimes](https://bluinsights.aws/docs/dev-special-bluage-runtime "https://bluinsights.aws/docs/dev-special-bluage-runtime") documentation.

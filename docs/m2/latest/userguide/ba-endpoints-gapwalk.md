@@ -46,6 +46,9 @@ scripts (JCL).
 ### List deployed scripts
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/scripts`
 - Arguments: none
 - This endpoint returns the list of deployed groovy scripts on the server, as a String.
@@ -62,7 +65,10 @@ Sample response:
 
 The links represent the url to use to launch each listed script **synchronously**.
 
-- Supported method: GET
+- Supported method: GET / POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/triggerscripts`
 - Arguments: none
 - This endpoint returns the list of deployed groovy scripts on the server, as a String.
@@ -80,18 +86,33 @@ This endpoint has two variants with dedicated paths for GET and POST usage (see
 below).
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/script/{scriptId:.+}`
 - Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/post/script/{scriptId:.+}`
 - Arguments:
-  - identifier of the script to launch
+  - identifier of the script to launch **Input validation**: Script ID must not be blank,
+    cannot exceed 255 characters, and must match the pattern: `^[a-zA-Z0-9._-]+$`
   - optionally: parameters to pass to the script, using request parameters (seen as a
     `Map<String,String>`). The given parameters will be automatically added to
-    the [bindings](https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html "https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html") of the invoked groovy script.
+    the [bindings](https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html "https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html") of the invoked groovy script. **Input validation**:
+    Parameter map cannot exceed 50 entries.
 
 - The call executes the script (identified by scriptId) with optional parameters and waits for completion before returning a `ResponseEntityString` with either:
-  - "HTTP 200: "Done." or JSON success message on successful execution
-  - HTTP 200: JSON error message with execution failure details. Additional information available in server logs.
+  - HTTP 200: "Done." or JSON success message on successful execution
+  - HTTP 200: A JSON error message with execution failure details. Additional information available in server logs.
+
+  ###### Note
+
+  Runtime now supports returning HTTP 500 status code for failed job executions. See
+  [Available
+  properties for the main application](ba-runtime-key-value.md#ba-runtime-key-value-main "ba-runtime-key-value.md#ba-runtime-key-value-main") to configure this response code.
+  - **Input Validation**: Invalid script ID or parameters will return HTTP 400 Bad Request with validation error details.
 
   ```
   {
@@ -116,13 +137,17 @@ jobs should rather be launched asynchronously (see dedicated endpoint below).
 ### Launch a script asynchronously
 
 - Supported methods: GET / POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/triggerscript/{scriptId:.+}`
 - Arguments:
-  - identifier of the script to launch
+  - identifier of the script to launch **Input validation**: Script ID must not be blank,
+    cannot exceed 255 characters, and must match the pattern: `^[a-zA-Z0-9._-]+$`
   - optionally: parameters to pass to the script, using request parameters (seen as a
     `Map<String,String>`). The given parameters will be automatically added to
-    the https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html[bindings] of the
-    invoked groovy script.
+    the [bindings](https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html "https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html") of the invoked groovy script. **Input validation**:
+    Parameter map cannot exceed 50 entries.
 
 - As opposed to the synchronous mode above, the endpoint is not waiting for the job
   execution to finish to send a response. The job execution is launched at once, if an available
@@ -157,12 +182,15 @@ server logs if required. It is also used by several other endpoints detailed bel
 
 ### Listing triggered scripts
 
-- Supported methods: GET
+- Supported methods: GET / POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Paths: `/triggeredscripts/{status:.+}`,
   `/triggeredscripts/{status:.+}/{namefilter}`
 - Arguments:
-  - Status (mandatory): the status of the triggered scripts to retrieve. Possibles values
-    are:
+  - Status (mandatory): the status of the triggered scripts to retrieve. **Input validation**:
+    Status must not be blank and cannot exceed 50 characters. Possibles values are:
     - `all` : show all job execution details, whether the jobs are still running
       or not.
     - `running`: only show jobs details for jobs that are currently
@@ -175,7 +203,7 @@ server logs if required. It is also used by several other endpoints detailed bel
     - `failed`: only show jobs details for jobs whose execution has been marked
       as failed.
     - \_namefilter (optional)\_ : retrieve only executions for the given script
-      identifier.
+      identifier. **Input validation**: Cannot exceed 255 characters
 
 - Returns a collection of job executions details as JSON. For more information, see [Job execution details message structure](ba-endpoints-apx.md#job-execution-details "ba-endpoints-apx.md#job-execution-details").
 
@@ -199,10 +227,14 @@ Sample response:
 ### Retrieving job execution details
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/getjobexecutioninfo/{jobexecutionid:.+}`
 - Arguments:
   - jobexecutionid (mandatory): the unique job execution identifier to retrieve the
-    corresponding job execution details.
+    corresponding job execution details. **Input validation**: Job execution ID
+    must not be blank and cannot exceed 255 characters
 
 - Returns a JSON string representing a single job execution details (see [Job execution details message structure](ba-endpoints-apx.md#job-execution-details "ba-endpoints-apx.md#job-execution-details")) or an empty response
   if no job execution details could be found for the given identifier.
@@ -212,6 +244,9 @@ Sample response:
 killed
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/killablescripts`
 - Returns a collection of job execution identifiers of jobs which have been launched
   asynchronously that are still currently running and can be forcefully killed (see the
@@ -222,6 +257,9 @@ killed
 killed
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/killablesyncscripts`
 - Returns a collection of job execution identifiers of jobs which have been launched
   synchronously, are still currently running and can be forcefully killed (see the
@@ -229,10 +267,14 @@ killed
 
 ### Killing a given job execution
 
-- Supported method: GET
+- Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+
 - Path: `/kill/{identifier:.+}`
 - Argument: job execution identifier (mandatory): the unique job execution identifier to
-  point at the job execution to be forcefully killed.
+  point at the job execution to be forcefully killed. **Input validation**:
+  Identifier must not be blank and cannot exceed 255 characters
 - Returns a textual message detailing the job execution kill attempt outcome; the message
   will contain the script identifier, the job execution unique identifier and the date and time
   at which the execution kill occurred. If no running job execution could be found for the given
@@ -262,7 +304,10 @@ fails to end properly, and restart checkpoints have been registered, one can sim
 job execution from the last known registered checkpoint (without having to execute the
 predecessor steps above the checkpoint).
 
-- Supported method: GET
+- Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+
 - Path: `/restarts/{scriptId}/{jobId}`
 - Arguments:
   - scriptId (optional - string): the script being restarted.
@@ -275,7 +320,10 @@ predecessor steps above the checkpoint).
 
 ### Restarting a job (synchronously)
 
-- Supported method: GET
+- Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+
 - Path: `/restart/{hashcode}/{scriptId}/{skipflag}`
 - Arguments:
   - hashcode (integer - mandatory): restart the most recent execution of a job, using the
@@ -290,6 +338,9 @@ predecessor steps above the checkpoint).
 ### Restarting a job (asynchronously)
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/triggerrestart/{hashcode}/{scriptId}/{skipflag}`
 - Arguments:
   - hashcode (integer - mandatory): restart the most recent execution of a job, using the
@@ -310,10 +361,13 @@ has a fixed limit regarding the number of available threads. The used has the ab
 the limit according to the host capabilities (number of CPUs, available memory, etc...). By
 default, the thread limit is set to 5 threads.
 
-- Supported method: GET
+- Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+
 - Path: `/settriggerthreadlimit/{threadlimit:.+}`
-- Argument (integer): the new thread limit to apply. Must be a strictly positive
-  integer.
+- Argument (integer): the new thread limit to apply. **Input validation**:
+  Must be between 1 and 1000 inclusive.
 - Returns a message (`String`) giving the new thread limit and the previous one,
   or en error message if the provided thread limit value is not valid (not a strictly positive
   integer).
@@ -329,6 +383,9 @@ Set thread limit for Script Tower Control to 10 (previous value was 5)
 executions
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/countrunningtriggeredscripts`
 - Returns a message indicating the number of running jobs launched asynchronously and the
   thread limit (that is the maximum number of triggered jobs that can run
@@ -351,10 +408,14 @@ The job executions information remain in the server memory as long as the server
 might be convenient to purge oldest informations from the memory, as they are not relevant
 anymore; this is the purpose of this endpoint.
 
-- Supported method: GET
+- Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+
 - Path: `/purgejobinformation/{age:.+}`
 - Arguments: a strictly positive integer value representing the age in hours of
-  informations to be purged.
+  informations to be purged. **Input validation**:
+  Must be between 0 and 365 inclusive.
 - Returns a message with the following informations:
   - Name of the purge file where purged job execution informations are being stored for
     archiving purpose.
@@ -363,11 +424,17 @@ anymore; this is the purpose of this endpoint.
 
 ## Metrics endpoints
 
+**Input validation**:
+All metrics endpoints validate request parameters and return HTTP 400 Bad Request for invalid values.
+
 ### JVM
 
 This endpoint returns available metrics related to the JVM.
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/metrics/jvm`
 - Arguments: none
 - Returns a message with the following information:
@@ -382,6 +449,9 @@ This endpoint returns available metrics related to the JVM.
 This endpoint returns metrics related to currently opened HTTP sessions.
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/metrics/session`
 - Arguments: none
 - Returns a message with the following information:
@@ -390,12 +460,20 @@ This endpoint returns metrics related to currently opened HTTP sessions.
 ### Batch
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/metrics/batch`
 - Arguments:
   - startTimestamp (optional, number): Starting timestamp for data filtering.
+    **Input validation**: Must be a valid numeric value.
   - endTimestamp (optional, number): Ending timestamp for data filtering.
-  - page (optional, number): Page number for pagination.
-  - pageSize (optional, number): Number of items per page in pagination.
+    **Input validation**: Must be a valid numeric value.
+  - page (optional, number): Page number for pagination. **Input validation**:
+    Must be a positive integer.
+  - pageSize (optional, number): Number of items per page in pagination. **Input validation**:
+    Must be a strictly positive integer, maximum 500.
+  - **Input validation**: Parameter map cannot exceed 20 entries
 
 - Returns a message with the following information:
   - content: List of batch execution metrics.
@@ -409,12 +487,20 @@ This endpoint returns metrics related to currently opened HTTP sessions.
 ### Transaction
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/metrics/transaction`
 - Arguments:
   - startTimestamp (optional, number): Starting timestamp for data filtering.
+    **Input validation**: Must be a valid numeric value.
   - endTimestamp (optional, number): Ending timestamp for data filtering.
-  - page (optional, number): Page number for pagination.
-  - pageSize (optional, number): Number of items per page in pagination.
+    **Input validation**: Must be a valid numeric value.
+  - page (optional, number): Page number for pagination. **Input validation**:
+    Must be a positive integer.
+  - pageSize (optional, number): Number of items per page in pagination. **Input validation**:
+    Must be a strictly positive integer, maximum 500.
+  - **Input validation**: Parameter map cannot exceed 20 entries
 
 - Returns a message with the following information:
   - content: List of transaction execution metrics.
@@ -443,6 +529,9 @@ and manage JICS transactions.
 ### Listing registered programs
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/programs`
 - Returns the list of registered programs, as a html page. Each program is designated by
   its main program identifier. Both modernized legacy programs and utility programs (IDCAMS,
@@ -454,6 +543,9 @@ and manage JICS transactions.
 ### Listing registered services
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/services`
 - Returns the list of registered runtime services, as a html page. The given services are
   brought by the AWS Blu Age runtime as utilities, that can be used for instance in groovy scripts.
@@ -469,6 +561,9 @@ Sample response:
 ### Health status
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/`
 - Returns a simple message, indicating that the gapwalk-application is up and running
   (`Jics application is running.`)
@@ -476,6 +571,9 @@ Sample response:
 ### Listing available JICS transactions
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/transactions`
 - Returns a html page listing all available JICS transactions. This only makes sense for
   environments with JICS elements (modernization of legacy CICS elements).
@@ -488,7 +586,10 @@ Sample response:
 
 ### Launch a JICS transaction
 
-- Supported methods: GET,POST
+- Supported methods: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/jicstransrunner/{jtrans:.+}`
 - Arguments:
   - JICS transaction identifier (string, required) : identifier of the JICS transaction to
@@ -509,16 +610,22 @@ Sample response:
     - `jicxa-xid` : The XID (X/Open transaction identifier XID structure) of a
       "global transaction" ([XA](https://en.wikipedia.org/wiki/X/Open_XA "https://en.wikipedia.org/wiki/X/Open_XA")),
       initiated by the caller, to which the current JICS transaction launch will
-      participate.
+      participate. **Input validation**: XID must not be blank
+      and cannot exceed 255 characters.
 
 - Returns a `com.netfective.bluage.gapwalk.rt.shared.web.TransactionResultBean`
   JSON serialization, representing the outcome of the JICS transaction launch.
+- **Input validation**: Invalid XID values
+  (blank or exceeding 255 characters) will return HTTP 400 Bad Request with validation error details.
 
 For more information about the details of the structure, see [Transaction launch outcome structure](ba-endpoints-apx.md#transaction-outcome "ba-endpoints-apx.md#transaction-outcome").
 
 ### Launch a JICS transaction (alternative)
 
-- supported methods: GET,POST
+- supported methods: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - path: `/jicstransaction/{jtrans:.+}`
 - Arguments:
 
@@ -548,17 +655,24 @@ The following header keys are being supported:
     + `jicxa-xid` : The XID (X/Open transaction identifier XID structure) of a
      "global transaction" ([XA](https://en.wikipedia.org/wiki/X/Open_XA "https://en.wikipedia.org/wiki/X/Open_XA")),
      initiated by the caller, to which the current JICS transaction launch will
-     participate.
+     participate. **Input validation**: XID must not be blank
+     and cannot exceed 255 characters.
 
 - Returns a `com.netfective.bluage.gapwalk.rt.shared.web.RecordHolderBean` JSON
   serialization, representing the outcome of the JICS transaction launch. The details of the
   structure can be found in [Transaction launch record outcome structure](ba-endpoints-apx.md#transaction-record-outcome "ba-endpoints-apx.md#transaction-record-outcome").
+- **Input validation**: Invalid XID values
+  (blank or exceeding 255 characters) will return HTTP 400 Bad Request with validation error details.
 
 ### List active sessions
 
-- supported methods: GET,POST
+- supported methods: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+
 - path: `/activesessionlist`
 - Arguments: none
+- **Input validation**: Parameter map cannot exceed 20 entries
 - Returns a list of
   `com.netfective.bluage.gapwalk.application.web.sessiontracker.SessionTrackerObject`
   in JSON serialization, representing the list of active user sessions. When session tracking is
@@ -596,6 +710,9 @@ invoke these operations from the Gapwalk Application URL with the following root
 ### List available queues
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `list-queues`
 - Returns the list of available queues along with their status, as a JSON list of
   key-values.
@@ -623,8 +740,12 @@ the job queue status cannot be determined.
 ### Start or restart a job queue
 
 - Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+
 - Path: `/restart/{name}`
 - Argument: the name of the queue to be started/restarted, as a String - mandatory.
+  **Input validation**: Queue name must not be blank and cannot exceed 255 characters.
 - The endpoint does not return anything but rather relies on http status to indicate the
   outcome of the start/restart operation:
 
@@ -644,6 +765,9 @@ inspected to figure out what went wrong).
 ### Submit a job for launch
 
 - Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/submit`
 - Argument: mandatory as request body, a JSON serialization of a
   `com.netfective.bluage.gapwalk.rt.jobqueue.SubmitJobMessage` object. For more
@@ -654,6 +778,9 @@ inspected to figure out what went wrong).
 ### List all submitted jobs
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path:
   `/list-jobs?status={status}&size={size}&page={page}&sort={sort}`
 - Arguments:
@@ -668,6 +795,9 @@ inspected to figure out what went wrong).
 ### Release all jobs that are "on hold"
 
 - Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/release-all`
 - Returns a message indicating the outcome for the release attempt operation. Two possible
   cases here:
@@ -685,6 +815,9 @@ unicity of a job run is granted by a couple <job name, job number>). The endpoin
 attempt to release all job submissions with the given job name, which are "on hold".
 
 - Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/release/{name}`
 - Arguments: the job name to look for, as a string. Mandatory.
 - Returns a message indicating the outcome for the release attempt operation. Two possible
@@ -700,6 +833,9 @@ The endpoint will attempt to release the unique job submission which is "on hold
 given couple <job name, job number>.
 
 - Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/release/{name}/{number}`
 - Arguments:
 
@@ -727,6 +863,9 @@ cases here:
 Schedule a job that will be executed with a repeating schedule.
 
 - Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_USER
+
 - Path: `/schedule`
 - Argument: the request body must contain a JSON serialization of a
   `com.netfective.bluage.gapwalk.rt.jobqueue.SubmitJobMessage` object.
@@ -734,6 +873,9 @@ Schedule a job that will be executed with a repeating schedule.
 ### List all submitted repeating jobs
 
 - Supported method: GET
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+
 - Path:
   `/schedule/list?status={status}&size={size}&page={page}&sort={sort}`
 - Arguments:
@@ -754,6 +896,9 @@ job
 Removes a job that was created on a repeating schedule. The job scheduling status is set to
 INACTIVE.
 
-- Supported method: GET
+- Supported method: POST
+
+Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_ADMIN
+
 - Path: `/schedule/remove/{schedule_id}`
 - Argument: `schedule_id`, the identifier of the scheduled job to remove.

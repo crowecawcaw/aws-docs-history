@@ -18,6 +18,308 @@ For release notes predating this document, contact AWS Blu Age delivery services
 about the latest Blu Insights features, see [Blu
 Insights releases](https://bluinsights.aws/releases "https://bluinsights.aws/releases").
 
+## Release notes 5.1.0
+
+Released on: November 18, 2025
+
+This release of AWS Blu Age Runtime and Transformation Engines introduces significant enhancements to platform capabilities, performance optimizations, and modernized technologies. Some key features and changes include:
+
+For more information about the changes included in this release, see the following
+sections.
+
+- **AWS Blu Age Transformation Engines & Runtime for GS21**
+
+Added support of Fujitsu proprietary mainframe GS21 in the context of the MAJI (Modernization Acceleration Joint Initiative) partnership. Main features
+include several new languages like PSAM, ADL, ACSGEN or JCL XSP, modernization of the network database NDB, implementation of GS21 ecosystems
+like AIM, OFM and ACSAPI and support of the JEF encoding.
+
+- **Java version upgrade**
+
+Upgraded from Java 17 to Java 21, increasing security, performance, and allowing customers to deploy and run applications implemented in a of more modern
+language and to use recent third party framework versions
+
+This version of the AWS Blu Age Runtime has been tested with the following stack:
+
+|                           |                         |
+| ------------------------- | ----------------------- |
+| **Component**             | **Version tested**      |
+| Java                      | Java 21                 |
+| Presentation layer        | Node JS 22.17.1         |
+| Npm 10.9.0                |
+| Angular 20                |
+| Service layer             | Spring Boot 3.5.7       |
+| Spring Core 6.2.12        |
+| Spring Session 3.5.2      |
+| Spring statemachine 4.0.0 |
+| Persistence layer         | PostgreSQL engine 15.10 |
+| Oracle 21c                |
+| Report                    | Jasper 6                |
+| Application server        | Apache Tomcat 10.1.40   |
+
+## AWS Blu Age Runtime
+
+### zOS
+
+**Improvements**
+
+- COBOL
+  - Added Support for CEELOCT, CEESECS, CEEDATE utility routines
+  - Improved support for JSON GENERATE statement and option COUNT
+  - Improved support for BY VALUE clause in PROCEDURE DIVISION statement
+  - Improved support for COMPUTE statement to handle exponential representation for numeric literals
+  - Improved support for CICS START command for option TRANS and SYSID
+  - Improved support for MOVE statement to handle overflow numeric literal
+  - Improved support for division scaling for fixed precision types
+  - Improved support for CALL statement with USING clause
+
+- JCL - SORT
+  - Added support for DATE format "4MD/"
+  - Added support for RESTART keyword
+  - Added support for DATENS and TIMENS keywords
+  - Added support for format Y2S
+  - Improved support for OUTFIL statement with multiple files
+  - Improved support for REMARKS fields
+  - Improved support for OUTREC statement and SYMNAMES binding
+  - Improved support for numeric and alphanumeric checks for INCLUDE statement
+
+- JCL - DSNUTILB
+  - Improved support for COPYDDN when GDG file is used as parameter
+
+- JCL - IDCAMS
+  - Improved support for dataset definition with single quotes
+
+- JCL - Misc
+  - Added support to handle empty PARM passing to program through JCL
+  - Added support for INZUTILB utility
+  - Added support for parameterized generation number in GDG DD statement
+  - Enhanced read of SYSIN files with a record size
+
+- Blusam
+  - Change default value for property openwarmup from true to false
+  - Added new YML property useBatchInMemoryAtomic to enable in-memory-atomic mode for Redis batch read operations
+  - Improved support for indexed data sets rewrite when an invalid key is encountered
+  - Improved support for large KSDS internal table creation with OID data type
+  - Improved support for large KSDS data read when fetching the previous/next page
+
+- SQL
+  - Improved support for host variables in SQL CONNECT statement
+  - Improved support for Data conversion in SQL query
+  - Improved support for parameterized queries with double-quoted identifiers
+
+- IMS
+  - Improved support for NULLVAL in XDFLD statement
+  - Added support for SEG statement and multiple END statement
+
+- CICS
+  - Improved support for RETURN command to handle INPUTMSG option
+
+### AS400
+
+**Improvements**
+
+- RPG
+  - Added support for multi table in LOOKUP for CTDATA
+  - Added support for \*OMIT parameter in feedback code handling of CEELOCT API
+  - Added support for \*LOVAL assigned to date, time and timestamp field types
+  - Added support to convert ISO0 expression to timestamp
+  - Improved byte size calculation for indexed array
+  - Improved support of MOVEA operation between heterogeneous array types zoned and packed
+  - Improved support of MOVEA operation from array defined in DS with OCCURS
+  - Improved support of MOVEA with array based on external Data Structure
+  - Improved dynamic indicator access using a variable with MOVEA
+  - Improved support for MOVE statement from data structure to stand-alone field
+  - Improved support for nested built-in %DEC(%SUBST())
+  - Improved support for EXTFILE keyword to use the library list only when the library is not specified
+  - Improved support for EDITCODE with option A,J,P, K and CHECK(RB)
+  - Added support of keyword \*JOBRUN to set the separators for type Date and Time
+
+- CL
+  - Added support for QRCVDTAQ command
+  - Added support for RNMOBJ command
+  - Improved support for CPYFTOIMPF command involving decimal value under 1 and empty values
+  - Improved support for CPYTOIMPF command to preserve insertion order and output single spaces for empty strings in non nullable columns
+  - Improved support for OPNQRYF command with "QRYSLT" option and DB columns that are different from Java entity field names
+  - Improved support for OPNQRYF command when entity field names does not match DB column names
+  - Improved support for OPNQRYF command with KEYFLD parameters containing MAPFLD values
+  - Improved support for SNDPGMMSG command with parameters MSGTYPE(\*STATUS) and TOPGMQ(\*EXT)
+  - Improved support for CPYF command and MBROPT option when partition does not exist and CRTF(\*YES)
+  - Improved support for CPYF command with numeric data validation and error handling by adding pre-conversion checks and zero-value fallbacks
+  - Improved support for CPYF command with INCREL parameter
+  - Improved support for CPYF command to handle manual row insertion to handle NULL numeric fields
+  - Improved support for SBMOBJ command to retrieve the user name in the context when it is defined and with the default value JOBD otherwise
+  - Improved support for RMVMSG command for parameters MSGQ and MSGKEY
+  - Improved support for output format of DSPDBR command
+  - Improved support of CHGDTAARA command to handle the Local Data Area
+  - Improved DSPDBR command output accuracy by implementing proper case handling, default values, and space padding while ensuring consistent record numbering and member name display
+  - Improved support for RTVJOBA command to handle USRLIBL attribute
+  - Improved support for MOVOBJ command to handle flat files
+  - Improved support for RMVM command to handle RangeReference File as a parameter
+  - Improved support for PgmAlcObj and PgmDlcObj commands to ignore lock operations for flat files
+  - Improved support of OVRDBF with flat file and \*LIBL
+  - Improved support of RTVOBJD to return LIB name with disk file
+  - Added support for message CPF999 that catches all unhandled messages
+  - Improved view retrieval for RTVMBRD without whereConditions
+
+- Database access
+  - Enhanced file override capabilities to support JOIN files
+  - Enhanced precedence rules of AND/OR operators when processing multiple Select/Omit conditions
+  - Improved concurrent cache synchronization using timestamp-based record versioning
+  - Improved support for OVRDBF with batch write operation
+  - Improved Database record locking mechanism on multi-thread access
+  - Improved cache initialization on READ operation
+  - Improved support for DELETE operation under Commit Control
+  - Improved support of primary file with multi-format logical files
+  - Added support of LIBL for DataArea and CURLIB accross jobs
+
+- Screen
+  - Improved escaping of single-quotes for String value
+  - Improved web component cleanup when handling write operations with no overlay, specifically for components marked with keep keyword
+  - Improved support for keyword SLNO
+  - Improved support for Terminal ID
+  - Improved support for large numbers in an input field
+  - Improved cursor positioning while loading tables in front-end by sorting the display files column by rows and in each row by columns
+  - Added support for PUTRETAIN (Put-Retain) keyword for display files
+  - Improved support of Terminal ID accross an online session
+
+- Printer
+  - Improved support for page number generation
+  - Added support for overflow handling in reports
+  - Added support for INFDS keyword for printer files
+
+- Job
+  - Improved job resources cleaning at the end of a online session
+  - Improved Quartz job logging to include username and formatted jobNumber to job properties
+  - Improved JobHistory creation to dynamically use netName for interactive sessions
+  - Improved support for job submission and date format validation
+
+- Misc
+  - Added support for EBCDIC CP1047 sort function for Postgres
+  - User Space - Improved Error code parameters for Errc0100 Format for User Space
+  - Upgraded Jedis to version 6.0.0 to improve session persistence in Redis and extended session tracking support across multiple endpoints.
+  - Improved support for composed program when the program ID format contains "/" characters
+  - Improved handling of DDS fields defined as parameter of the program
+  - Improved support of the ErrorCode parameter for command QMHSNDPM
+  - Improved support for date conversion from ISO to EUR
+
+## AWS Blu Age Transformation Engines
+
+### zOS
+
+**Improvements**
+
+- COBOL
+  - Improved support for line continuation and multi-line string
+  - Improved support for statement INITIALIZE with multiple fields
+  - Improved support for copybooks containing occurs statement in the dependencies
+  - Improved file format generation by removing comma separators in numeric values and adding binary type support for COMP fields
+  - Improved support for CALL statement using option BY VALUE ZERO
+  - Improve support for JSON GENERATE statement to handle NAME phrase
+
+- CICS
+  - Improved support for LINK command with SYNCONRETURN option
+  - Improved support for GET CONTAINER command with NODATA option
+  - Improved support for WRITE OPERATOR TEXT command for option ROUTECODES & NUMROUTES
+  - Added support for INQUIRE TSPOOL command
+
+- IMS
+  - Improved support for SLASHSX and DDATA in DBD files transformation
+  - Enhanced support for TITLE after PRINT keyword in MFS map
+  - Added support for COPY and EQU statements support for MFS files
+
+- SQL
+  - Accept FLOOR keyword as column name
+  - Improved support for TIME-ZONE fields
+  - Improved support for if condition and consective subqueries within FROM and JOIN clause
+
+### AS400
+
+**Improvements**
+
+- RPG
+  - Improved support of DO operation
+  - Added support for result indicators on MOVE/MOVEL operation
+  - Improved support for MOVE operation for standalone array field
+  - Improved support for MOVEA operation when moving values from arrays to indicators
+  - Improved support of Z-ADD operation with result field as an array.
+  - Improved support for \*Start keyword for data access funtion like SETLL
+  - Improved support for calling procedures with parameters passed byValue defined in external files
+  - Improved support for sizePrefixedAlphanumeric using \*ALL figurative
+  - Improved support for EXTIND function
+  - Added support for GOTOs instruction in subroutines in which their corresponding TAGs are in the main subroutine
+  - Improved support of NOT keyword in IFs/LOOPs conditions
+  - Improved field renaming through input specifications
+  - Improved tracking of intermediary results' scale/precision for multiplications
+  - Implemented output specification indicator conditions
+  - Improved support of LOOKUP operation
+  - Improved support of pointers across programs
+  - Improved support for %CHAR for numeric inputs
+  - Improved support of %dec builtin function used with a single argument
+  - Improved data structure field initialization
+  - Improved handling of binary integer target type when processing \*ALL literal
+  - Improved handling \*LOVAL with Packed, Float and Double types
+
+- CL
+  - Improved support for DCL statement to handle duplicate occurrences
+  - Improved support for SUBROUTINE and OTHERWISE statement
+
+- DDS
+  - Improved key fields detection for packed type fields
+  - Improved support of LIKE keyword in physical files
+
+- DSPF
+  - Improved support for DSPATR keyword when COLOR is not explicitly specified
+  - Improved support of field override through keyword REFFLD
+  - Improved support for input specification for record with no input fields in new design
+
+- PRTF
+  - Improved program described prtf transformation with empty .prtf legacy file
+  - Improved layout setting on JASPER template generation
+  - Improved handling of AS400 output specifications with edit words (formatting patterns)
+  - Implemented data formatting capabilities for EditCode, EditWord and negative sign handling in RPGLE output specifications
+  - Added support for "DLTEDT" keyword
+  - Added support for Output Indicators for PRTF files
+
+- Misc
+  - Improved support for PFkey convertion to take into account encoding when converting symbolic constants for CICS aid keys
+
+## AWS Blu Age Transformation Engines & Runtime for GS21
+
+**Improvements**
+
+- Languages:
+  - ADL: AIM Description Language, used to describe AIM artifacts (PEDs, NDB (sub)schemas, VSAM schemas, AIM Procedures, etc..)
+    - Transformed into database configuration records, DDL scripts, JSON files processed by the Data Migrator, etc...
+
+  - ACSGEN: ACS Environment Generator, used to generate system data sets, control tables, ADL sources, application program entry points...
+    - Transformed into database configuration records
+
+  - PSAM: Presentation Service Access Method, used to describe online screens
+    - Transformed into Angular artifacts
+
+  - JCLXSP: Job Control Language used on the GS21 XSP platform: special syntax of JCL with specific functionalities
+    - Transformed into Groovy scripts
+
+  - GS21 COBOL: support for GS21 specific constructs (mainly related to Japanese language support)
+
+- Database:
+  - NDB: Network Database
+    - Customizable transformation to a modern relational database
+    - Data Migration processing the GS21 TDUMP format
+    - Transformation of the network links to modern SQL relations (using foreign keys and additional columns to retain the NEXT/PRIOR order stemming from the legacy database)
+    - Code Generation of a modern Java DAO layer backed by the newly introduced GS21 runtime
+
+- GS21 ecosystems:
+  - AIM: Advanced Information Manager. Main GS21 middleware handling screens, printers, workstations, databases, and external communications via a messaging approach backed by queues.
+  - ACSAPI: GS21 special program implementing the ACS protocol that enables screen scenarios (programs inter-communication, PSAM/printer interactions, VSAM access, etc...) (ancestor of AIM).
+  - OFM: Online Format Management, GS21 subsystem used for program communication using message files (ancestor of ACS).
+  - JXGIJSM, KQCAMS, KDJBR14, JXKUNLOD, JXKRELOD, etc...: Various GS21 JCL utilities
+  - Support for OS commands
+
+- Specific Encoding: JEF
+  - Double-byte encoding (same principles as IBM930 but different SOSI values (0x28, 0x29)).
+  - Custom JEF-PU encoding preserving private use characters
+  - The corresponding font is used in the webapps/pdfs in order to reproduce the display with maximum fidelity
+
 ## Release notes 4.10.0
 
 Released on: August 29, 2025

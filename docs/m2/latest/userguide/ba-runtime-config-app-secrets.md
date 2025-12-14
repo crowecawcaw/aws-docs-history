@@ -455,3 +455,34 @@ in the YAML file.
 | password     | The IBM MQ user password.      |
 | maxPoolSize  | The IBM MQ maximum pool size.  |
 | sslCipherKey | The IBM MQ SSL cipher suite.   |
+
+### JHDB database
+
+The client `application-jhdb.yml` file can reference the secret ARNs for JHDB metadata databases.
+Each database connection requires a unique name and corresponding secret ARN containing the connection credentials.
+Database names are defined in a comma-separated list, with individual secret ARNs mapped to each database name.
+
+```
+spring:
+   aws:
+     jhdb:
+       cnxs:
+         datasources:
+           names: DBD1,DBD2
+           DBD1:
+             secret: arn:aws:secretsmanager:XXXX
+           DBD2:
+             secret: arn:aws:secretsmanager:XXXX
+```
+
+Supported client database secret keys:
+
+| Secret key    | Secret key description                                |
+| ------------- | ----------------------------------------------------- |
+| host          | The host name.                                        |
+| port          | The port.                                             |
+| dbname        | The name of the database.                             |
+| username      | The username.                                         |
+| password      | The password.                                         |
+| engine        | Database engine: Postgres(now support Postgres only). |
+| currentSchema | Specific schema to use.                               |

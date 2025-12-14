@@ -21,3 +21,4 @@ CSRF,XSS,CSP, and so on), set `gapwalk-application.security` to `enabled` and
 - [Configure URI accessibility for Gapwalk
   applications](ba-runtime-filteringURIs.md "ba-runtime-filteringURIs.md")
 - [Configure authentication for Gapwalk applications](ba-runtime-auth.md "ba-runtime-auth.md")
+- [Configure rate limiting for AWS Blu Age Runtime](ba-runtime-rate-limiting.md "ba-runtime-rate-limiting.md")
