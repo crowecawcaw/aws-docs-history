@@ -24,7 +24,7 @@ industry-standard security frameworks.
   workloads.
 - Map AWS services and controls to required standards using AWS Audit Manager
   frameworks.
-- Continuously monitor control adherence using AWS Config and Security Hub.
+- Continuously monitor control adherence using AWS Config and Security Hub CSPM.
 - Integrate compliance requirements into the CI/CD process for industrial apps.
 
 ## Resources

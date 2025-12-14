@@ -22,7 +22,7 @@ assessments.
 - Schedule recurring scans using Amazon Inspector across EC2 and container
   workloads.
 - Perform black-box and white-box pen tests with third-party experts.
-- Integrate findings with AWS Security Hub for centralized visibility.
+- Integrate findings with AWS Security Hub CSPM for centralized visibility.
 - Remediate critical vulnerabilities through prioritized CI/CD updates.
 
 ## Resources

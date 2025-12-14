@@ -24,14 +24,14 @@ industrial systems and mapping them to technical implementations.
 Then, implement automated monitoring that evaluates industrial system configurations,
 tracks security control changes, and validates compliance with manufacturing standards.
 
-Use AWS Config, Security Hub, and Audit Manager, configured specifically for
+Use AWS Config, Security Hub CSPM, and Audit Manager, configured specifically for
 manufacturing environments, to continuously monitor both IT and OT systems while maintaining
 required compliance evidence.
 
 ### Implementation steps
 
 - Enable AWS Config across all Regions and accounts.
-- Use AWS Security Hub to aggregate security findings.
+- Use AWS Security Hub CSPM to aggregate security findings.
 - Map controls in AWS Audit Manager to your industry framework.
 - Schedule automated compliance report generation and alerting.
 

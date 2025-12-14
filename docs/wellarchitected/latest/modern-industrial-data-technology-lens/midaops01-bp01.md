@@ -32,8 +32,8 @@ documentation, and updates to your industrial data infrastructure.
   compliance rules in AWS Config to automatically evaluate your resources against
   industry standards. AWS Config maintains a detailed inventory of your AWS resource
   configurations and continuously checks for compliance violations.
-- **Security Hub integration:** Enable AWS Security Hub
-  with industry-specific security standards (CIS, PCI DSS, HIPAA). Security Hub
+- **Security Hub CSPM integration:** Enable AWS Security Hub CSPM
+  with industry-specific security standards (CIS, PCI DSS, HIPAA). Security Hub CSPM
   automatically assesses your security status and aggregates alerts across integrated
   services.
 - **Audit management:** Use AWS Audit Manager to automate
@@ -46,7 +46,7 @@ documentation, and updates to your industrial data infrastructure.
 ## Key AWS services
 
 - [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/")
-- [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
 - [AWS Audit Manager](https://aws.amazon.com/audit-manager/ "https://aws.amazon.com/audit-manager/")
 - [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/")
 - [Amazon EventBridge](https://aws.amazon.com/pm/eventbridge/ "https://aws.amazon.com/pm/eventbridge/")

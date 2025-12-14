@@ -23,7 +23,7 @@ Use AWS monitoring tools such as Amazon CloudWatch, AWS IoT Device Defender, and
 - Deploy AWS IoT Device Defender to monitor device behavior and audit
   configurations.
 - Use AWS Config to track configuration changes across resources.
-- Integrate alerts with AWS SNS or AWS Security Hub for real-time response.
+- Integrate alerts with AWS SNS or AWS Security Hub CSPM for real-time response.
 
 ## Resources
 
