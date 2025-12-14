@@ -29,3 +29,6 @@ be revealed to consumers through AWS Glue IAM permissions.
   - When the reference table is a resource link.
   - When the reference table is in another account.
   - From external Hive metastores.
+
+- Cross-account definer roles are not supported for Redshift Spectrum Dialect views.
+- Resource links for the Athena dialect in the Athena query editor is not supported. To use cross-account definer roles for the Athena dialect, add the account that hosts the base tables as a Data Source in Athena.

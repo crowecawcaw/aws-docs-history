@@ -35,8 +35,8 @@ permissions to access the underlying reference tables. This approach enables use
 interact with the view without requiring direct access to the source tables, enhancing
 security and simplifying data access management.
 
-To set up a definer view, the definer must be an IAM role within the same AWS
-account that hosts the view in its Data Catalog. For more information about the permissions
+To set up a definer view, the definer IAM role can be within the same AWS
+account as the base tables, or in a different account using cross-account definer roles. For more information about the permissions
 required for the definer role, see [Prerequisites for creating views](views-prereqs.md "views-prereqs.md").
 
 ## A framework for multi-dialect views
