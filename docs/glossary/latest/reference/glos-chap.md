@@ -4078,9 +4078,9 @@ connections.) Each security group consists of a list of protocols, ports, and IP
 address ranges. A security group can apply to multiple instances, and multiple groups
 can regulate a single instance.
 
-Security Hub
-AWS Security Hub is a service that provides a comprehensive view of the security state of your AWS
-resources. Security Hub collects security data from AWS accounts and services and helps
+Security Hub CSPM
+AWS Security Hub CSPM is a service that provides a comprehensive view of the security state of your AWS
+resources. Security Hub CSPM collects security data from AWS accounts and services and helps
 you analyze your security trends to identify and prioritize the security issues
 across your AWS environment.
 
