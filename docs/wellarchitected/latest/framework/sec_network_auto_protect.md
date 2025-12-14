@@ -127,7 +127,7 @@ the individual workload teams and their respective accounts.
 - [NetDevSecOps
   to modernize AWS networking deployments](https://aws.amazon.com/blogs/networking-and-content-delivery/netdevsecops-to-modernize-aws-networking-deployments/ "https://aws.amazon.com/blogs/networking-and-content-delivery/netdevsecops-to-modernize-aws-networking-deployments/")
 - [Integrating
-  AWS CloudFormation security tests with AWS Security Hub and
+  AWS CloudFormation security tests with AWS Security Hub CSPM and
   AWS CodeBuild reports](https://aws.amazon.com/blogs/security/integrating-aws-cloudformation-security-tests-with-aws-security-hub-and-aws-codebuild-reports/ "https://aws.amazon.com/blogs/security/integrating-aws-cloudformation-security-tests-with-aws-security-hub-and-aws-codebuild-reports/")
 
 **Related tools:**

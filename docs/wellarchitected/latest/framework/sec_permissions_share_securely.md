@@ -35,11 +35,11 @@ to help you establish governance to reduce the external access to only resources
 establish a process to monitor continuously and alert automatically.
 
 Cross-account sharing within AWS Organizations is supported by [a number of AWS services](../../../organizations/latest/userguide/orgs_integrate_services_list.md "../../../organizations/latest/userguide/orgs_integrate_services_list.md"),
-such as [AWS Security Hub](../../../organizations/latest/userguide/services-that-can-integrate-securityhub.md "../../../organizations/latest/userguide/services-that-can-integrate-securityhub.md"),
+such as [AWS Security Hub CSPM](../../../organizations/latest/userguide/services-that-can-integrate-securityhub.md "../../../organizations/latest/userguide/services-that-can-integrate-securityhub.md"),
 [Amazon GuardDuty](../../../guardduty/latest/ug/guardduty_organizations.md "../../../guardduty/latest/ug/guardduty_organizations.md"),
 and [AWS Backup](../../../organizations/latest/userguide/services-that-can-integrate-backup.md "../../../organizations/latest/userguide/services-that-can-integrate-backup.md").
 These services allow for data to be shared to a central account, be accessible from a central account, or manage resources
-and data from a central account. For example, AWS Security Hub can transfer findings from individual accounts to a
+and data from a central account. For example, AWS Security Hub CSPM can transfer findings from individual accounts to a
 central account where you can view all the findings. AWS Backup can take a backup for a resource and share it
 across accounts. You can use [AWS Resource Access Manager](https://aws.amazon.com/ram/ "https://aws.amazon.com/ram/") (AWS RAM) to share other
 common resources, such as [VPC subnets and Transit Gateway attachments](../../../ram/latest/userguide/shareable.md#shareable-vpc "../../../ram/latest/userguide/shareable.md#shareable-vpc"),

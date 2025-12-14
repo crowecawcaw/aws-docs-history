@@ -22,7 +22,7 @@ If your account is in AWS Organizations, you can grant access to resources to th
 through AWS Config policy checks, can detect resources that have
 public access configured. Services such as
 [AWS Control Tower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/") and
-[AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") simplify deploying detective controls and
+[AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") simplify deploying detective controls and
 guardrails across AWS Organizations to identify and remediate
 publicly exposed resources. For example, AWS Control Tower has a
 managed guardrail which can detect if any

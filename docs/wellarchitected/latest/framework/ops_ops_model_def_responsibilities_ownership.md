@@ -106,7 +106,7 @@ responsibilities that were missed or that may need to change as
 operations practices evolve. To explore new opportunities to
 standardize and improve efficiency across your workloads, provide
 access to operations tools like AWS Systems Manager and security
-tools like AWS Security Hub and Amazon GuardDuty. AnyCompany
+tools like AWS Security Hub CSPM and Amazon GuardDuty. AnyCompany
 Retail puts together a review of responsibilities and strategy
 based on improvements they wants to address first. As the company
 adopts new ways of working and technology patterns, they update

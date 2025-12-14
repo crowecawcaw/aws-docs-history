@@ -60,7 +60,7 @@ before a workload launches to general availability. Run the ORR throughout the s
 development lifecycle to keep it up to date with best practices or new requirements. The ORR
 checklist should include configuration items, security and governance requirements, and best
 practices from your organization. Over time, you can use services, such as [AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md"),
-[AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"), and [AWS Control Tower Guardrails](../../../controltower/latest/userguide/guardrails.md "../../../controltower/latest/userguide/guardrails.md"), to
+[AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"), and [AWS Control Tower Guardrails](../../../controltower/latest/userguide/guardrails.md "../../../controltower/latest/userguide/guardrails.md"), to
 build best practices from the ORR into guardrails for automatic detection of best practices.
 
 **Customer example**
@@ -163,5 +163,5 @@ your organization.
 
 - [AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md")
 - [AWS Control Tower](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md")
-- [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
+- [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
 - [AWS Well-Architected Tool](../userguide/intro.md "../userguide/intro.md")

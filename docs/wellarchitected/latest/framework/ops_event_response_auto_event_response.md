@@ -75,7 +75,7 @@ Incorporate automation to create efficient operational workflows and minimize ma
 
 - [Create Automation Runbooks with AWS Systems Manager](https://www.youtube.com/watch?v=fQ_KahCPBeU "https://www.youtube.com/watch?v=fQ_KahCPBeU")
 - [How to automate IT Operations on AWS](https://www.youtube.com/watch?v=GuWj_mlyTug "https://www.youtube.com/watch?v=GuWj_mlyTug")
-- [AWS Security Hub automation rules](https://www.youtube.com/watch?v=XaMfO_MERH8 "https://www.youtube.com/watch?v=XaMfO_MERH8")
+- [AWS Security Hub CSPM automation rules](https://www.youtube.com/watch?v=XaMfO_MERH8 "https://www.youtube.com/watch?v=XaMfO_MERH8")
 - [Start your software project fast with Amazon CodeCatalyst blueprints](https://www.youtube.com/watch?v=rp7roaoPzFE "https://www.youtube.com/watch?v=rp7roaoPzFE")
 
 **Related examples:**

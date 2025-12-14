@@ -45,7 +45,7 @@ including:
 
 - Services such as
   [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/"),
-  [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"),
+  [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"),
   [Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/"),
   [Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/"),
   [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/"),
@@ -105,7 +105,7 @@ high, which would expedite further action.
    how alerts from these systems represent identity, action,
    and resources to determine where correlation is possible.
 2. Establish a mechanism for capturing alerts from different
-   sources. Consider services such as Security Hub,
+   sources. Consider services such as Security Hub CSPM,
    EventBridge, and CloudWatch for this purpose.
 3. Identify sources for data correlation and enrichment.
    Example sources include
@@ -147,7 +147,7 @@ high, which would expedite further action.
 **Related examples:**
 
 - [How
-  to enrich AWS Security Hub findings with account
+  to enrich AWS Security Hub CSPM findings with account
   metadata](https://aws.amazon.com/blogs/security/how-to-enrich-aws-security-hub-findings-with-account-metadata/ "https://aws.amazon.com/blogs/security/how-to-enrich-aws-security-hub-findings-with-account-metadata/")
 
 **Related tools:**

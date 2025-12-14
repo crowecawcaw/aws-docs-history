@@ -145,7 +145,7 @@ Most AWS services use AWS KMS in a way that is transparent to you
       update does not grant public access to KMS Keys.
 
 6. Enable
-   [Security Hub](../../../securityhub/latest/userguide/kms-controls.md "../../../securityhub/latest/userguide/kms-controls.md") to receive notifications if there are
+   [Security Hub CSPM](../../../securityhub/latest/userguide/kms-controls.md "../../../securityhub/latest/userguide/kms-controls.md") to receive notifications if there are
    misconfigured key policies, keys scheduled for deletion, or
    keys without automated rotation enabled.
 7. Determine the logging level appropriate for your AWS KMS
