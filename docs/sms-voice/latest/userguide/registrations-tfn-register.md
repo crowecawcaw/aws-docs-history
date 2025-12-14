@@ -69,12 +69,32 @@ registration form. 3. In the **Company info** section, enter the following:
         after they have sent a request.
       - **Promotions and Marketing** – Use this if you only intend
         to send marketing messages to your users.
+      - **One time passcodes** – Use this for sending one-time passcodes for authentication.
+      - **Non political polling and survey** – Use this to poll users on their preferences.
+      - **Delivery notifications** – Use this for sending delivery status updates.
+      - **Education** – Use this for educational content and notifications.
+      - **Public announcements** – Use this for sending public service announcements.
+      - **Customer care** – Use this for customer support communications.
+      - **Non profit** – Use this for non-profit organization communications.
+      - **Account notifications** – Use this for sending account-related notifications.
+      - **Event notifications** – Use this for sending event-related updates.
+      - **Financial transactions** – Use this for financial transaction notifications.
+      - **Appointment reminders** – Use this for sending appointment reminders.
+      - **Health care** – Use this for healthcare-related communications.
+      - **Booking confirmations** – Use this for sending booking and reservation confirmations.
       - **Other** – Use this if your use case doesn't fall into any
         other category. Be sure that you fill out the **Use Case
         Details** for this option.
 
     - Complete **Use Case Details** to provide
       additional context to the selected **Use Case Category**.
+    - For **Opt-in category**, choose one of the following options:
+      - **Verbal**
+      - **Digital form**
+      - **Paper form**
+      - **Text**
+      - **QR code**
+
     - For **Opt-in Workflow Description** enter a description of how
       users consent to receive SMS messages. For example, by filling out an online form on
       your website.
