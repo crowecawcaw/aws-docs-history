@@ -193,10 +193,11 @@ AWS IoT Device Management Software Package Catalog is available in the following
 
 Managed integrations for AWS IoT Device Management is available in the following AWS Regions.
 
-| Region Name      | Region       | Endpoint                                                                                                | Protocol       |
-| ---------------- | ------------ | ------------------------------------------------------------------------------------------------------- | -------------- |
-| Canada (Central) | ca-central-1 | api.iotmanagedintegrations.ca-central-1.api.aws<br>api.iotmanagedintegrations-fips.ca-central-1.api.aws | HTTPS<br>HTTPS |
-| Europe (Ireland) | eu-west-1    | api.iotmanagedintegrations.eu-west-1.api.aws                                                            | HTTPS          |
+| Region Name       | Region       | Endpoint                                                                                                | Protocol       |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------- | -------------- |
+| Canada (Central)  | ca-central-1 | api.iotmanagedintegrations.ca-central-1.api.aws<br>api.iotmanagedintegrations-fips.ca-central-1.api.aws | HTTPS<br>HTTPS |
+| Europe (Ireland)  | eu-west-1    | api.iotmanagedintegrations.eu-west-1.api.aws                                                            | HTTPS          |
+| Middle East (UAE) | me-central-1 | api.iotmanagedintegrations.me-central-1.api.aws                                                         | HTTPS          |
 
 ### AWS IoT FIPS endpoints
 

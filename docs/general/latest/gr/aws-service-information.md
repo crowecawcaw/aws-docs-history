@@ -243,7 +243,7 @@ quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-infor
 - [SageMaker AI](sagemaker.md "sagemaker.md")
 - [Secrets Manager](asm.md "asm.md")
 - [Security Lake](securitylake.md "securitylake.md")
-- [Security Hub](sechub.md "sechub.md")
+- [Security Hub CSPM](sechub.md "sechub.md")
 - [AWS Security Incident Response](securityir.md "securityir.md")
 - [Service Quotas](servicequotas.md "servicequotas.md")
 - [AWS Serverless Application Repository](serverlessrepo.md "serverlessrepo.md")

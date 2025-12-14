@@ -1,4 +1,4 @@
-# AWS Security Hub endpoints and quotas
+# AWS Security Hub CSPM endpoints and quotas
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
 in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
@@ -62,5 +62,5 @@ The following are the service endpoints and service quotas for this service.
 | Number of insight results                      | Each supported Region: 100    | No         | The maximum number of aggregated results returned for the GetInsightsResults API operation.                                                                      |
 | Security Hub finding retention time            | Each supported Region: 90     | No         | The maximum number of days a Security Hub finding is saved. This is 90 days after the most recent update or 90 days after the creation date if no update occurs. |
 
-For more information about Security Hub quotas, see [Quotas](../../../securityhub/latest/userguide/securityhub_limits.md "../../../securityhub/latest/userguide/securityhub_limits.md") in the
-_AWS Security Hub User Guide_.
+For more information about Security Hub CSPM quotas, see [Quotas](../../../securityhub/latest/userguide/securityhub_limits.md "../../../securityhub/latest/userguide/securityhub_limits.md") in the
+_AWS Security Hub CSPM User Guide_.

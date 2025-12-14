@@ -49,17 +49,11 @@ The following are the service endpoints and service quotas for this service.
 
 ### Model building endpoints
 
-| Region Name              | Region         | Endpoint                                                                              | Protocol       |
-| ------------------------ | -------------- | ------------------------------------------------------------------------------------- | -------------- |
-| US East (N. Virginia)    | us-east-1      | models.lex.us-east-1.amazonaws.com<br>models-fips.lex.us-east-1.amazonaws.com         | HTTPS<br>HTTPS |
-| US West (Oregon)         | us-west-2      | models.lex.us-west-2.amazonaws.com<br>models-fips.lex.us-west-2.amazonaws.com         | HTTPS<br>HTTPS |
-| Asia Pacific (Singapore) | ap-southeast-1 | models.lex.ap-southeast-1.amazonaws.com                                               | HTTPS          |
-| Asia Pacific (Sydney)    | ap-southeast-2 | models.lex.ap-southeast-2.amazonaws.com                                               | HTTPS          |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | models.lex.ap-northeast-1.amazonaws.com                                               | HTTPS          |
-| Europe (Frankfurt)       | eu-central-1   | models.lex.eu-central-1.amazonaws.com                                                 | HTTPS          |
-| Europe (Ireland)         | eu-west-1      | models.lex.eu-west-1.amazonaws.com                                                    | HTTPS          |
-| Europe (London)          | eu-west-2      | models.lex.eu-west-2.amazonaws.com                                                    | HTTPS          |
-| AWS GovCloud (US-West)   | us-gov-west-1  | models.lex.us-gov-west-1.amazonaws.com<br>models-fips.lex.us-gov-west-1.amazonaws.com | HTTPS<br>HTTPS |
+| Region Name           | Region         | Endpoint                                                                      | Protocol       |
+| --------------------- | -------------- | ----------------------------------------------------------------------------- | -------------- |
+| US East (N. Virginia) | us-east-1      | models.lex.us-east-1.amazonaws.com<br>models-fips.lex.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| US West (Oregon)      | us-west-2      | models.lex.us-west-2.amazonaws.com<br>models-fips.lex.us-west-2.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Sydney) | ap-southeast-2 | models.lex.ap-southeast-2.amazonaws.com                                       | HTTPS          |
 
 ### Runtime endpoints
 

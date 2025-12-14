@@ -11,27 +11,27 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name               | Region         | Endpoint                                     | Protocol |
-| ------------------------- | -------------- | -------------------------------------------- | -------- |
-| US East (Ohio)            | us-east-2      | api.mediatailor.us-east-2.amazonaws.com      | HTTPS    |
-| US East (N. Virginia)     | us-east-1      | api.mediatailor.us-east-1.amazonaws.com      | HTTPS    |
-| US West (Oregon)          | us-west-2      | api.mediatailor.us-west-2.amazonaws.com      | HTTPS    |
-| Africa (Cape Town)        | af-south-1     | api.mediatailor.af-south-1.amazonaws.com     | HTTPS    |
-| Asia Pacific (Hyderabad)  | ap-south-2     | api.mediatailor.ap-south-2.amazonaws.com     | HTTPS    |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | api.mediatailor.ap-southeast-4.amazonaws.com | HTTPS    |
-| Asia Pacific (Mumbai)     | ap-south-1     | api.mediatailor.ap-south-1.amazonaws.com     | HTTPS    |
-| Asia Pacific (Osaka)      | ap-northeast-3 | api.mediatailor.ap-northeast-3.amazonaws.com | HTTPS    |
-| Asia Pacific (Seoul)      | ap-northeast-2 | api.mediatailor.ap-northeast-2.amazonaws.com | HTTPS    |
-| Asia Pacific (Singapore)  | ap-southeast-1 | api.mediatailor.ap-southeast-1.amazonaws.com | HTTPS    |
-| Asia Pacific (Sydney)     | ap-southeast-2 | api.mediatailor.ap-southeast-2.amazonaws.com | HTTPS    |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | api.mediatailor.ap-northeast-1.amazonaws.com | HTTPS    |
-| Canada (Central)          | ca-central-1   | api.mediatailor.ca-central-1.amazonaws.com   | HTTPS    |
-| Europe (Frankfurt)        | eu-central-1   | api.mediatailor.eu-central-1.amazonaws.com   | HTTPS    |
-| Europe (Ireland)          | eu-west-1      | api.mediatailor.eu-west-1.amazonaws.com      | HTTPS    |
-| Europe (Paris)            | eu-west-3      | api.mediatailor.eu-west-3.amazonaws.com      | HTTPS    |
-| Europe (Stockholm)        | eu-north-1     | api.mediatailor.eu-north-1.amazonaws.com     | HTTPS    |
-| Middle East (UAE)         | me-central-1   | api.mediatailor.me-central-1.amazonaws.com   | HTTPS    |
-| South America (São Paulo) | sa-east-1      | api.mediatailor.sa-east-1.amazonaws.com      | HTTPS    |
+| Region Name               | Region         | Endpoint                                                                           | Protocol       |
+| ------------------------- | -------------- | ---------------------------------------------------------------------------------- | -------------- |
+| US East (Ohio)            | us-east-2      | api.mediatailor.us-east-2.amazonaws.com<br>mediatailor.us-east-2.api.aws           | HTTPS<br>HTTPS |
+| US East (N. Virginia)     | us-east-1      | api.mediatailor.us-east-1.amazonaws.com<br>mediatailor.us-east-1.api.aws           | HTTPS<br>HTTPS |
+| US West (Oregon)          | us-west-2      | api.mediatailor.us-west-2.amazonaws.com<br>mediatailor.us-west-2.api.aws           | HTTPS<br>HTTPS |
+| Africa (Cape Town)        | af-south-1     | api.mediatailor.af-south-1.amazonaws.com<br>mediatailor.af-south-1.api.aws         | HTTPS<br>HTTPS |
+| Asia Pacific (Hyderabad)  | ap-south-2     | api.mediatailor.ap-south-2.amazonaws.com<br>mediatailor.ap-south-2.api.aws         | HTTPS<br>HTTPS |
+| Asia Pacific (Melbourne)  | ap-southeast-4 | api.mediatailor.ap-southeast-4.amazonaws.com<br>mediatailor.ap-southeast-4.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Mumbai)     | ap-south-1     | api.mediatailor.ap-south-1.amazonaws.com<br>mediatailor.ap-south-1.api.aws         | HTTPS<br>HTTPS |
+| Asia Pacific (Osaka)      | ap-northeast-3 | api.mediatailor.ap-northeast-3.amazonaws.com<br>mediatailor.ap-northeast-3.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Seoul)      | ap-northeast-2 | api.mediatailor.ap-northeast-2.amazonaws.com<br>mediatailor.ap-northeast-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Singapore)  | ap-southeast-1 | api.mediatailor.ap-southeast-1.amazonaws.com<br>mediatailor.ap-southeast-1.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Sydney)     | ap-southeast-2 | api.mediatailor.ap-southeast-2.amazonaws.com<br>mediatailor.ap-southeast-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Tokyo)      | ap-northeast-1 | api.mediatailor.ap-northeast-1.amazonaws.com<br>mediatailor.ap-northeast-1.api.aws | HTTPS<br>HTTPS |
+| Canada (Central)          | ca-central-1   | api.mediatailor.ca-central-1.amazonaws.com<br>mediatailor.ca-central-1.api.aws     | HTTPS<br>HTTPS |
+| Europe (Frankfurt)        | eu-central-1   | api.mediatailor.eu-central-1.amazonaws.com<br>mediatailor.eu-central-1.api.aws     | HTTPS<br>HTTPS |
+| Europe (Ireland)          | eu-west-1      | api.mediatailor.eu-west-1.amazonaws.com<br>mediatailor.eu-west-1.api.aws           | HTTPS<br>HTTPS |
+| Europe (Paris)            | eu-west-3      | api.mediatailor.eu-west-3.amazonaws.com<br>mediatailor.eu-west-3.api.aws           | HTTPS<br>HTTPS |
+| Europe (Stockholm)        | eu-north-1     | api.mediatailor.eu-north-1.amazonaws.com<br>mediatailor.eu-north-1.api.aws         | HTTPS<br>HTTPS |
+| Middle East (UAE)         | me-central-1   | api.mediatailor.me-central-1.amazonaws.com<br>mediatailor.me-central-1.api.aws     | HTTPS<br>HTTPS |
+| South America (São Paulo) | sa-east-1      | api.mediatailor.sa-east-1.amazonaws.com<br>mediatailor.sa-east-1.api.aws           | HTTPS<br>HTTPS |
 
 ## Service quotas
 
