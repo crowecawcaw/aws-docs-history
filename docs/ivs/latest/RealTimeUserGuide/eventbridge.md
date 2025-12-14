@@ -40,6 +40,7 @@ You can create EventBridge rules for any of the following events.
 | IVS Stage Update                       | Participant Publish Error     | A participant's attempt to publish to a stage failed.                                                                                                                                                                                                       |
 | IVS Stage Update                       | Participant Replication Start | A participant replication starts.                                                                                                                                                                                                                           |
 | IVS Stage Update                       | Participant Replication End   | A participant replication ends. A replication can end due to a StopParticipantReplication API operation,<br>if the publisher has stopped publishing, or if the publisher has stopped publishing and the reconnect window has expired.                       |
+| IVS Stage Update                       | Token Exchanged               | An existing participant token is exchanged for a new one. This exchange results in upgraded or downgraded token capabilities<br>and/or updated token attributes.                                                                                            |
 
 ## Creating Amazon EventBridge Rules for
 
@@ -340,6 +341,7 @@ participant begins publishing to a stage.
     "detail": {
         "session_id": "st-ZyXwvu1T2s",
         "event_name": "Participant Published",
+        "event_time": "2025-11-18T16:40:32Z",
         "user_id": "Your User Id",
         "participant_id": "xYz1c2d3e4f",
         "replica": true,
@@ -367,6 +369,7 @@ participant has stopped publishing to a stage.
     "detail": {
         "session_id": "st-ZyXwvu1T2s",
         "event_name": "Participant Unpublished",
+        "event_time": "2025-11-18T16:40:32Z",
         "user_id": "Your User Id",
         "participant_id": "xYz1c2d3e4f",
         "replica": true,
@@ -422,6 +425,7 @@ attempt to publish to a stage failed.
     "detail": {
         "session_id": "st-ZyXwvu1T2s",
         "event_name": "Participant Replication Start",
+        "event_time": "2025-11-18T16:40:32Z",
         "user_id": "Your User Id",
         "participant_id": "xYz1c2d3e4f",
         "destination_stage_arn": "arn:aws:ivs:us-west-2:123456789012:stage/XYZdef1G2hij",
@@ -449,10 +453,53 @@ or if the publisher has stopped publishing and the reconnect window has expired.
     "detail": {
         "session_id": "st-ZyXwvu1T2s",
         "event_name": "Participant Replication End",
+        "event_time": "2025-11-18T16:40:32Z",
         "user_id": "Your User Id",
         "participant_id": "xYz1c2d3e4f",
         "destination_stage_arn": "arn:aws:ivs:us-west-2:123456789012:stage/XYZdef1G2hij",
         "destination_session_id":  "aBC1c2d3e4f"
+    }
+}
+```
+
+**Token Exchanged**: This event is sent when an existing participant token is
+exchanged for a new one, resulting in upgraded or downgraded token capabilities and/or updated
+token attributes.
+
+```
+{
+    "version": "0",
+    "id": "12345678-1a23-4567-a1bc-1a2b34567890",
+    "detail-type": "IVS Stage Update",
+    "source": "aws.ivs",
+    "account": "123456789012",
+    "time": "2020-06-23T20:12:36Z",
+    "region": "us-west-2"
+    "resources": [
+        "arn:aws:ivs:us-west-2:123456789012:stage/AbCdef1G2hij"
+    ],
+    "detail": {
+        "session_id": "st-ZyXwvu1T2s",
+        "event_name": "Token Exchanged",
+        "event_time": "2025-11-12T20:54:53Z",
+        "user_id": "UpdatedUser",
+        "participant_id": "xYz1c2d3e4f",
+        "previous_token": {
+            "capabilities": ["SUBSCRIBE"],
+            "attributes": {
+                "role": "viewer"
+            },
+            "user_id": "InitialUser",
+            "expiration_time": "2025-11-12T21:54:52Z"
+        },
+        "new_token": {
+            "capabilities": ["SUBSCRIBE", "PUBLISH"],
+            "attributes": {
+                "role": "moderator"
+            },
+            "user_id": "UpdatedUser",
+            "expiration_time": "2025-11-12T22:54:52Z"
+        }
     }
 }
 ```

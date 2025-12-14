@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.37.0:stages@aar'
+     implementation 'com.amazonaws:ivs-broadcast:1.37.1:stages@aar'
 }
 ```
 
@@ -42,7 +42,7 @@ latest version of the IVS broadcast SDK):
 
 ```
 [versions]
-ivs="1.37.0"
+ivs="1.37.1"
 
 [libraries]
 ivs = {module = "com.amazonaws:ivs-broadcast", version.ref = "ivs"}
