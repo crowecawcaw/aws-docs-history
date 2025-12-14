@@ -33,10 +33,10 @@ information (PHI). For more information, see [HIPAA Compliance.](https://aws.ama
 - [AWS Config](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") – This AWS service assesses how well your resource
   configurations comply with internal practices, industry guidelines, and
   regulations.
-- [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – This AWS service uses security controls to
+- [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – This AWS service uses security controls to
   evaluate resource configurations and security standards to help you comply with
-  various compliance frameworks. For more information about using Security Hub to evaluate
-  CloudFront resources, see [Amazon CloudFront controls](../../../securityhub/latest/userguide/cloudfront-controls.md "../../../securityhub/latest/userguide/cloudfront-controls.md") in the _AWS Security Hub User
+  various compliance frameworks. For more information about using Security Hub CSPM to evaluate
+  CloudFront resources, see [Amazon CloudFront controls](../../../securityhub/latest/userguide/cloudfront-controls.md "../../../securityhub/latest/userguide/cloudfront-controls.md") in the _AWS Security Hub CSPM User
   Guide_.
 
 ## CloudFront compliance best practices
