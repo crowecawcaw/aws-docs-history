@@ -6,7 +6,7 @@ log streams, and reporting to the log streams any caller's requests and response
 
 To improve your security posture, we recommend that you use execution logging at the `ERROR` or
 `INFO` level. You might need to do this to comply with various compliance frameworks. For more information, see [Amazon API Gateway controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md")
-in the _AWS Security Hub User Guide_.
+in the _AWS Security Hub CSPM User Guide_.
 
 In access logging, you, as an API developer, want to log who has accessed your API and how the caller accessed
 the API. You can create your own log group or choose an existing log group that could be managed by API Gateway. To

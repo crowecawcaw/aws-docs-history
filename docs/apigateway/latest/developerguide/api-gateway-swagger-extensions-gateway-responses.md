@@ -1,34 +1,31 @@
-# x-amazon-apigateway-gateway-responses object
+# x-amazon-apigateway-gateway-responses.gatewayResponse object
 
-Defines the gateway responses for an API as a string-to-[GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") map of key-value pairs. The extension applies to the root-level OpenAPI structure.
+Defines a gateway response of a given response type, including the status code, any
+applicable response parameters, or response templates.
 
-| Property name  | Type                                                                                                                                                               | Description                                           |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| `responseType` | [x-amazon-apigateway-gateway-responses.gatewayResponse](api-gateway-swagger-extensions-gateway-responses.md "api-gateway-swagger-extensions-gateway-responses.md") | A `GatewayResponse` for the specified `responseType`. |
+| Property name        | Type                                                                                                                                                                  | Description                                                                                                                                                                                                                                                                                            |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `responseParameters` | [x-amazon-apigateway-gateway-responses.responseParameters](api-gateway-swagger-extensions-gateway-responses.md "api-gateway-swagger-extensions-gateway-responses.md") | Specifies the [GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") parameters, namely the header parameters. The parameter values can take any incoming [request parameter](rest-api-parameter-mapping.md "rest-api-parameter-mapping.md") value or a static custom value. |
+| `responseTemplates`  | [x-amazon-apigateway-gateway-responses.responseTemplates](api-gateway-swagger-extensions-gateway-responses.md "api-gateway-swagger-extensions-gateway-responses.md")  | Specifies the mapping templates of the gateway response. The templates are not processed by the VTL engine.                                                                                                                                                                                            |
+| `statusCode`         | `string`                                                                                                                                                              | An HTTP status code for the gateway response.                                                                                                                                                                                                                                                          |
 
-## x-amazon-apigateway-gateway-responses example
+## x-amazon-apigateway-gateway-responses.gatewayResponse example
 
-The following API Gateway extension to OpenAPI example defines a [GatewayResponses](../api/API_GetGatewayResponses.md "../api/API_GetGatewayResponses.md") map that
-contains two [GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") instances—one for the `DEFAULT_4XX`
-type and another for the `INVALID_API_KEY` type.
+The following example of the API Gateway extension to OpenAPI defines a [GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") to
+customize the `INVALID_API_KEY` response to return the status code of
+`456`, the incoming request's `api-key` header value, and
+a `"Bad api-key"` message.
 
 ```
-{
-  "x-amazon-apigateway-gateway-responses": {
-    "DEFAULT_4XX": {
+
+    "INVALID_API_KEY": {
+      "statusCode": "456",
       "responseParameters": {
-        "gatewayresponse.header.Access-Control-Allow-Origin": "'domain.com'"
+        "gatewayresponse.header.api-key": "method.request.header.api-key"
       },
       "responseTemplates": {
-        "application/json": "{\"message\": test 4xx b }"
-      }
-    },
-    "INVALID_API_KEY": {
-      "statusCode": "429",
-      "responseTemplates": {
-        "application/json": "{\"message\": test forbidden }"
+        "application/json": "{\"message\": \"Bad api-key\" }"
       }
     }
-  }
-}
+
 ```

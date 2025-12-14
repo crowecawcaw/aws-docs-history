@@ -160,7 +160,7 @@ can also modify the TTL period or turn encryption on or off for cached responses
 
 If you anticipate that a method
 that you are caching will receive sensitive data in its responses, encrypt your cache data. You might need to do this to comply with various compliance frameworks. For more information, see [Amazon API Gateway controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md")
-in the _AWS Security Hub User Guide_.
+in the _AWS Security Hub CSPM User Guide_.
 
 AWS Management ConsoleIf you change the default method-level caching setting in the **Stage details**, it doesn't affect the method-level cache settings that have overrides.
 

@@ -18,7 +18,7 @@ You can use the following mechanisms for authentication and authorization:
   To improve your security posture, we recommend that you configure an authorizer for the `$connect`
   route on all your WebSocket APIs. You might need to do this to comply with various compliance frameworks. For more
   information, see [Amazon API Gateway
-  controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md") in the _AWS Security Hub User Guide_.
+  controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md") in the _AWS Security Hub CSPM User Guide_.
 
 ###### Topics
 

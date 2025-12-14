@@ -41,9 +41,9 @@ evaluate resource configurations for data compliance. AWS Config rules represent
 resource violates a rule and is flagged as noncompliant, AWS Config can alert you using an Amazon Simple Notification Service (Amazon SNS) topic.
 For details, see [Monitoring API Gateway API configuration with AWS Config](apigateway-config.md "apigateway-config.md").
 
-**Use AWS Security Hub**
+**Use AWS Security Hub CSPM**
 
-Monitor your usage of API Gateway as it relates to security best practices by using [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). Security Hub uses _security controls_
+Monitor your usage of API Gateway as it relates to security best practices by using [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). Security Hub CSPM uses _security controls_
 to evaluate resource configurations and _security standards_ to help you comply with various compliance
-frameworks. For more information about using Security Hub to evaluate API Gateway resources, see [Amazon API Gateway controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md")
-in the _AWS Security Hub User Guide_.
+frameworks. For more information about using Security Hub CSPM to evaluate API Gateway resources, see [Amazon API Gateway controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md")
+in the _AWS Security Hub CSPM User Guide_.

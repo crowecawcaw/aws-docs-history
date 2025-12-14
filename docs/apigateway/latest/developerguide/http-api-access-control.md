@@ -16,4 +16,4 @@ HTTP API:
   To improve your security posture, we recommend that you configure an authorizer for all routes on your HTTP API.
   You might need to do this to comply with various compliance frameworks. For more information, see
   [Amazon API Gateway controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md")
-  in the _AWS Security Hub User Guide_.
+  in the _AWS Security Hub CSPM User Guide_.
