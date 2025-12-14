@@ -25,9 +25,9 @@ The following parameters are required when creating a policy version:
 
 The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to create a version.
 
-`description` (optional)
+`lastUpdatedDefinitionHash` (required)
 
-A description of the policy version. This helps you identify the purpose or changes in this version.
+The hash of the policy definition for the new version. You can retreive this hash from the `GetAutomatedReasoningPolicy` API action.
 
 #### Example
 
@@ -36,15 +36,15 @@ using the AWS CLI:
 
 ```
 aws bedrock create-automated-reasoning-policy-version \
-  --policy-arn "arn:aws:bedrock:`us-west-2`:`123456789012`:automated-reasoning-policy/t3x7y9z2a5b8" \
-  --description "Production version for HR chatbot"
+  --policy-arn "arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`" \
+  --last-updated-definition-hash "`583463f067a8a4f49fc1206b4642fd40b1c877a0141109ad0a3cf213f87df0ad21455e049dbe43dda94253439d9d3710f9ae161b4842d825d7bda119ffb92a5d`"
 ```
 
 Example response:
 
 ```
 {
-  "policyArn": "arn:aws:bedrock:`us-west-2`:`123456789012`:automated-reasoning-policy/t3x7y9z2a5b8:1",
+  "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk",
   "version": "1",
   "name": "MyHRPolicy"
 }

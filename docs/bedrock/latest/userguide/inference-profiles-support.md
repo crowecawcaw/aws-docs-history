@@ -440,6 +440,24 @@ The following table shows the source Regions from which you can call the inferen
 | us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2    |
 | us-west-2      | us-east-1<br>us-east-2<br>us-west-2                 |
 
+To call the US Anthropic Claude Opus 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.anthropic.claude-opus-4-5-20251101-v1:0
+```
+
+For more information about inference parameters for this model, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                 |
+| -------------- | --------------------------------------------------- |
+| ca-central-1   | ca-central-1<br>us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2                 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2                 |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2    |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2                 |
+
 To call the US Anthropic Claude Sonnet 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
@@ -1476,6 +1494,27 @@ To call the EU Anthropic Claude Haiku 4.5 inference profile, specify the followi
 
 ```
 eu.anthropic.claude-haiku-4-5-20251001-v1:0
+```
+
+For more information about inference parameters for this model, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-central-2   | eu-central-1<br>eu-central-2<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-2     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-2      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-2<br>eu-west-3    |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+
+To call the EU Anthropic Claude Opus 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+eu.anthropic.claude-opus-4-5-20251101-v1:0
 ```
 
 For more information about inference parameters for this model, see [Link](model-parameters-claude.md "model-parameters-claude.md").

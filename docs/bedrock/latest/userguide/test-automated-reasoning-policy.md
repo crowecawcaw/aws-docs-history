@@ -78,18 +78,21 @@ The following parameters are required or optional when creating a test:
 
 The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to create the test.
 
+`queryContent` (optional)
+
+The input query or prompt that generated the content, such as the user question. This provides context for the validation.
+
 `guardContent` (required)
 
 The output content that's validated by the Automated Reasoning policy. This represents the foundation model response that will be checked for accuracy.
 
-`query` (optional)
-
-The input query or prompt that generated the content. This provides context for the validation.
-
 `expectedAggregatedFindingsResult` (optional)
 
 The expected validation result for the test (for example, `VALID` or
-`INVALID`).
+`INVALID`). The actual result of the test is selected by sorting findings
+in order of importance and selecting the worst result. The sorting order is: ambiguous,
+impossible, invalid, satisfiable, and valid. For example, a test that results in two
+valid and one impossible finding will have an aggregated result of impossible.
 
 `confidenceThreshold` (optional)
 
@@ -102,11 +105,11 @@ the AWS CLI:
 
 ```
 aws bedrock create-automated-reasoning-policy-test-case \
-  --policy-arn "arn:aws:bedrock:us-west-2:123456789012:automated-reasoning-policy/k8m9n2p4q7r5" \
-  --query-content "Can I take a leave of absence if I'm a part-time employee?" \
-  --guard-content "No, only full-time employees are eligible for leave of absence." \
-  --expected-aggregated-findings-result "VALID" \
-  --confidence-threshold 0.8
+  --policy-arn "arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`" \
+  --query-content "`Can I take a leave of absence if I'm a part-time employee?`" \
+  --guard-content "`No, only full-time employees are eligible for leave of absence.`" \
+  --expected-aggregated-findings-result "`VALID`" \
+  --confidence-threshold `0.8`
 ```
 
 Example response:
@@ -114,13 +117,13 @@ Example response:
 ```
 {
   "testCaseId": "test-12345abcde",
-  "policyArn": "arn:aws:bedrock:us-west-2:123456789012:automated-reasoning-policy/k8m9n2p4q7r5"
+  "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk"
 }
 ```
 
 ## Generate tests automatically using the API
 
-You can use the `GenerateAutomatedReasoningPolicyTestScenarios` API operation to automatically generate test scenarios based on your policy's rules.
+You can use the `GetAutomatedReasoningPolicyNextScenario` API operation to fetch the next generated test scenarios based on your policy's rules.
 
 ### Request parameters
 
@@ -130,26 +133,27 @@ The following parameters are required or optional when generating test scenarios
 
 The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to generate test scenarios.
 
-`maxResults` (optional)
+`buildWorkdflowId` (required)
 
-The maximum number of test scenarios to generate.
+The unique identifier of the build workflow for the generated scenarios. You can fetch the latest build
+workflow using the `ListAutomatedReasoningPolicyBuildWorkflows` API action.
 
 ### Example
 
-The following example shows how to generate test scenarios for an Automated Reasoning
+The following example shows how to fetch the next generated test scenarios for an Automated Reasoning
 policy using the AWS CLI:
 
 ```
-aws bedrock generate-automated-reasoning-policy-test-scenarios \
-  --policy-arn "arn:aws:bedrock:us-west-2:123456789012:automated-reasoning-policy/k8m9n2p4q7r5" \
-  --max-results 3
+aws bedrock get-automated-reasoning-policy-next-scenario \
+  --policy-arn "arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`" \
+  --build-worflow-id `d40fa7fc-351e-47d8-a338-53e4b3b1c690`
 ```
 
 The response will include generated test scenarios that you can review and use to create tests.
 
 ## Run tests using the API
 
-You can use the `ValidateAutomatedReasoningPolicyTest` API operation to run a test for your Automated Reasoning policy and the `GetAutomatedReasoningPolicyTestResult` operation to retrieve the results.
+You can use the `StartAutomatedReasoningPolicyTestWorkflow` API operation to run your Automated Reasoning policy tests and the `GetAutomatedReasoningPolicyTestResult` operation to retrieve the results.
 
 ### Request parameters
 
@@ -159,13 +163,18 @@ The following parameters are required when running a test:
 
 The Amazon Resource Name (ARN) of the Automated Reasoning policy.
 
-`testCaseId` (required)
+`buildWorkdflowId` (required)
 
-The unique identifier of the test to run.
+The unique identifier of the build workflow you want to execute the tests against. You can fetch the latest build
+workflow using the `ListAutomatedReasoningPolicyBuildWorkflows` API action.
+
+`testCaseIds` (optional)
+
+The list of test identifiers to run. If not provided, all tests for the policy are run.
 
 ### Get test results
 
-To retrieve the results of a test, use the following parameters:
+To retrieve the results of a test, use the following parameters with the `GetAutomatedReasoningPolicyTestResult` API action:
 
 `policyArn` (required)
 
@@ -186,15 +195,15 @@ AWS CLI:
 
 ```
 # Run the test
-aws bedrock validate-automated-reasoning-policy-test \
-  --policy-arn "arn:aws:bedrock:us-west-2:123456789012:automated-reasoning-policy/k8m9n2p4q7r5" \
-  --test-case-id "test-12345abcde"
+aws bedrock start-automated-reasoning-policy-test-workflow \
+  --policy-arn "arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`" \
+  --build-worflow-id `d40fa7fc-351e-47d8-a338-53e4b3b1c690`
 
 # Get the test results
 aws bedrock get-automated-reasoning-policy-test-result \
-  --policy-arn "arn:aws:bedrock:us-west-2:123456789012:automated-reasoning-policy/k8m9n2p4q7r5" \
-  --build-workflow-id "workflow-67890fghij" \
-  --test-case-id "test-12345abcde"
+  --policy-arn "arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`" \
+  --build-worflow-id `d40fa7fc-351e-47d8-a338-53e4b3b1c690` \
+  --test-case-id `test-12345abcde`
 ```
 
 The response will include detailed test results with validation findings and execution status.

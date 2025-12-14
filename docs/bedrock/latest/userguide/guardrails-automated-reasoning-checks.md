@@ -49,9 +49,6 @@ Automated Reasoning checks in Amazon Bedrock Guardrails complement other Amazon 
 topic policies. For more information, see [Guardrail
 components](guardrails-components.md "guardrails-components.md").
 
-CloudFormation is currently not supported. CloudFormation support will be coming
-soon.
-
 Automated Reasoning checks in Amazon Bedrock Guardrails currently support English (US) only.
 
 Automated Reasoning checks in Amazon Bedrock Guardrails does not support streaming APIs.
@@ -64,6 +61,9 @@ limitations:
 - **Document complexity:** Source documents should be
   well-structured with clear, unambiguous rules. Highly complex documents with nested
   conditions or contradictory statements may not extract cleanly into formal logic.
+  Input documents are limited to 5Mb in size and 50,000 characters. You can split larger
+  documents and merge each section into your policy. Images and tables in documents also
+  impact the number of input characters.
 - **Processing time:** Automated Reasoning validation adds
   latency to your application responses. Plan for additional processing time, especially for
   complex policies with many rules.
@@ -192,9 +192,7 @@ requirements.
 Rules are logic that Automated Reasoning extracts from your source document. These might
 be written as if-then statements. Here are some examples of the rule format:
 
-`if <premise>, then <claim>`
-
-`<premise> is true`
+`<claim> is true if <premise>`
 
 ###### Note
 
@@ -243,12 +241,12 @@ variable types
 The following table describes the predefined types of variables that your policy can
 have.
 
-| Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bool | Boolean variables can be true or false. For example, in a leave of absence<br>policy, you would use a `bool` variable to identify whether leave of<br>absence is allowed or not.                                                                                                                                                                                                                                                                                                       |
-| int  | Numerical `int` variables can store positive or negative whole<br>numbers. For example, in a leave of absence policy, you would use an<br>`int` variable to store the accrued vacation days if fractional<br>days are not allowed.                                                                                                                                                                                                                                                     |
-| real | Numerical `real` variables can store positive or negative numbers<br>that need decimal precision. For example, in a leave of absence policy, you<br>would use a `real` variable to store the dollar payment amount for<br>unused vacation days.                                                                                                                                                                                                                                        |
-| enum | Enum variables can store a single value selected from a set of fixed<br>options. For example, in a leave of absence policy, you could use an enum<br>variable to store the leave type: (1) Paid Vacation; (2) Personal time; (3)<br>Leave of Absence<br>You can also create custom, user-defined enum types that provide additional<br>context beyond the predefined variable types. These custom types allow you to<br>define specific sets of values relevant to your policy domain. |
+| Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BOOL   | Boolean variables can be true or false. For example, in a leave of absence<br>policy, you would use a `BOOL` variable to identify whether leave of<br>absence is allowed or not.                                                                                                                                                                                                                                                                                                                  |
+| INT    | Numerical `INT` variables can store positive or negative whole<br>numbers. For example, in a leave of absence policy, you would use an<br>`INT` variable to store the accrued vacation days if fractional<br>days are not allowed.                                                                                                                                                                                                                                                                |
+| NUMBER | `NUMBER` variables can store positive or negative numbers<br>that need decimal precision. For example, in a leave of absence policy, you<br>would use a `NUMBER` variable to store the dollar payment amount for<br>unused vacation days.                                                                                                                                                                                                                                                         |
+| enum   | Enum variables are user-defined types that can store a single value selected<br>from a set of fixed options defined in a custom type. For example, in a leave of<br>absence policy, you could use an enum variable to store the `LeaveType`<br>: (1) Paid Vacation; (2) Personal time; (3) Leave of Absence. These custom types<br>allow you to define specific sets of values relevant to your policy domain.<br>Enum type names should not conflict with default types like `INT` or<br>`BOOL`. |
 
 ###### Topics
 
@@ -256,4 +254,5 @@ have.
 - [Test an Automated Reasoning policy](test-automated-reasoning-policy.md "test-automated-reasoning-policy.md")
 - [Validate your Automated Reasoning policy test results](validate-automated-reasoning-policy-results.md "validate-automated-reasoning-policy-results.md")
 - [Address failed Automated Reasoning policy tests](address-failed-automated-reasoning-tests.md "address-failed-automated-reasoning-tests.md")
+- [Use Kiro CLI with an Automated Reasoning policy](kiro-cli-automated-reasoning-policy.md "kiro-cli-automated-reasoning-policy.md")
 - [Deploy your Automated Reasoning policy in your application](deploy-automated-reasoning-policy.md "deploy-automated-reasoning-policy.md")

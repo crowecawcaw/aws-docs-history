@@ -27,9 +27,9 @@ The following list details possible validation results from an Automated Reasoni
 
 `VALID`
 
-The claims in the model's response are logically consistent with your policy rules and can be mathematically proven correct. The response correctly follows all applicable logical constraints and the reasoning from premises to conclusions is sound.
+The premises and claims in the model's response are logically consistent with your policy rules, can be mathematically proven correct, and cannot be disproved using any of the rules in the policy. The response correctly follows all applicable logical constraints and the reasoning from premises to conclusions is sound.
 
-**Example:** If your policy states "Employees with 1+ year of service get parental leave" and the model responds "You qualify for parental leave since you've worked here for 18 months," this would be VALID because 18 months exceeds the 1-year requirement.
+**Example:** If your policy contains a single rule stating "Employees with 1+ year of service get parental leave" and the model responds "You qualify for parental leave since you've worked here for 18 months," this would be VALID because 18 months exceeds the 1-year requirement.
 
 `INVALID`
 
@@ -45,9 +45,9 @@ The claims are consistent with at least one possible interpretation of your poli
 
 `IMPOSSIBLE`
 
-Automated Reasoning can't make a statement about the claims. This can happen if the premises are logically incorrect, or if there is a conflict within the Automated Reasoning policy itself.
+Automated Reasoning can't make a statement about the claims. This can happen if the premises are in conflict with each other, or if there is a conflict within the Automated Reasoning policy itself.
 
-**Example:** If your policy contains contradictory rules like "All employees get vacation days" and "No employees get vacation days," or if the test question contains impossible premises like "What benefits do employees get if they work negative hours?", the result would be IMPOSSIBLE because the logical foundation is flawed.
+**Example:** If your policy contains contradictory rules like "All employees get vacation days" and "No employees get vacation days," or if the test question contains impossible premises like "I'm a full time employee and also part time, what benefits am I eligible for?", the result would be IMPOSSIBLE because the logical foundation is flawed.
 
 `TRANSLATION_AMBIGUOUS`
 

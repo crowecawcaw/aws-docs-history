@@ -21,19 +21,19 @@ Use annotations to:
 
 ### Example: Policy repair annotation
 
-**Problem:** Policy approved leave for employee with 8 months tenure, but source document requires 1+ years.
+**Problem:** Policy approved leave for all full time employees, but source document requires 1+ years.
 
 **Original rule:**
 
 ```
-if is_full_time = true, then eligible_for_parental_leave = true
+if isFullTime is true, then eligibleForParentalLeave is true
 ```
 
 **Annotation applied:**
 
-1. Added `years_of_service` variable (real type)
-2. Updated rule to: `if is_full_time = true and years_of_service >= 1.0, then eligible_for_parental_leave = true`
-3. Test now correctly returns INVALID for 8-month employee
+1. Added `tenureMonths` variable (INT type)
+2. Updated rule to: `if isFullTime is true and tenureMonths is greater than 12, then eligibleForParentalLeave is true`
+3. Test now correctly returns INVALID for employees with less than 12 months of tenure
 
 - Update the failed test's conditions and rerun it. If you the test returns the validation result you expect, you can apply this annotation to update your policy.
 - Update your policy's variable names or descriptions to help Automated Reasoning distinguish between them as it translates natural language into logic.
@@ -43,7 +43,7 @@ if is_full_time = true, then eligible_for_parental_leave = true
 
 ## When it's impossible to provide guidance
 
-In some cases, Automated Reasoning may indicate that it's impossible to provide guidance for a failed test. This typically occurs when there are fundamental issues with the policy structure that prevent clear analysis. When this happens, you should inspect your policy rules and look for conflicts.
+In some cases, Automated Reasoning may indicate that it's impossible to provide guidance for a failed test. This typically occurs when there are fundamental issues with the policy structure that prevent clear analysis.
 
 Common scenarios where guidance cannot be provided include:
 
@@ -54,7 +54,7 @@ Common scenarios where guidance cannot be provided include:
 
 **To address these issues:**
 
-1. **Review your policy rules systematically**: Go through each rule in your policy and identify any that might conflict with others. Look for rules that could apply to the same scenario but produce different outcomes.
+1. **Review your policy rules systematically**: the definitions page in the console will show warnings around rules that are in conflict, unused variables, and unused values incustom types. The same information is available in the `QUALITY_REPORT` asset from the `GetAutomatedReasoningPolicyBuildWorkflowResultAssets` API action.
 2. **Check for rule completeness**: Ensure that your rules cover all possible combinations of conditions that might occur in your domain. Identify any gaps where no rule applies.
 3. **Simplify complex interactions**: If you have many interconnected rules, consider breaking them down into simpler, more focused rules that are easier to understand and validate.
 4. **Test edge cases**: Create additional tests that specifically target the boundary conditions and edge cases in your policy to identify where conflicts or gaps might exist.
@@ -100,14 +100,14 @@ might contain errors or inconsistencies.
    `INVALID`.
 2. When referencing variables in the rule, use the full variable name that's specified in
    the **Definitions** section of the policy. For example, spell out
-   `is_full_time`. If you expected the input Q&A to match a specific rule, first
+   `isFullTime`. If you expected the input Q&A to match a specific rule, first
    check that the **Variables** from the input Q&A are correct. If they are,
    you might need to add a new rule.
 3. Use the **Add** button at the top-right of the rules list to enter a new
    rule. Use natural language to specify the rule. Specify constraints first and reference
    variables by their full name. For example, for a rule that only allows full-time employees to
    take leave of absence, the text could be something like, "If an employee
-   `is_full_time`, then they are allowed to take leave of absence, paid
+   `isFullTime`, then they are allowed to take leave of absence, paid
    (LoAP)".
 
 ## Automated reasoning policy returns `TRANSLATION_AMBIGUOUS`
@@ -118,7 +118,7 @@ If your policy returns `TRANSLATION_AMBIGUOUS`, this indicates that Automated Re
 
 Translation ambiguity can arise from several underlying causes:
 
-- **Overlapping variable definitions**: When multiple variables in your policy could reasonably represent the same concept mentioned in natural language, the system cannot determine which variable to use. For example, if you have both `employee_tenure_years` and `years_of_service` variables with similar descriptions, the system may struggle to determine which one to use when a user asks about "how long someone has worked at the company." This creates ambiguity in the translation process and can lead to inconsistent results.
+- **Overlapping variable definitions**: When multiple variables in your policy could reasonably represent the same concept mentioned in natural language, the system cannot determine which variable to use. For example, if you have both `tenureMonths` and `monthsOfService` variables with similar descriptions, the system may struggle to determine which one to use when a user asks about "how long someone has worked at the company." This creates ambiguity in the translation process and can lead to inconsistent results.
 - **Incomplete variable descriptions**: Variable descriptions that lack sufficient detail about how users might refer to concepts in everyday language, making it difficult to map user input to the correct formal logic representation.
 - **Ambiguous natural language input**: User prompts or model responses that contain vague, contradictory, or multi-interpretable statements that cannot be clearly translated into formal logic.
 - **Missing contextual information**: When the natural language refers to concepts that exist in your domain but are not adequately represented in your policy's variable schema.
@@ -130,54 +130,7 @@ Understanding these causes can help you debug issues with your tests and determi
 
 There are several ways to correct this depending on the underlying issue:
 
-- **Variable descriptions are too similar**: When two variables have similar names or descriptions, the translation process might inconsistently choose between them. For example, if you have both `is_full_time` and `full_time_status` variables with similar descriptions, the system may not consistently map natural language about employment status to the correct variable. Review your variable descriptions so that each has clearly differentiated purposes and contexts. Consider consolidating duplicate concepts into a single variable or ensuring each variable has a distinct purpose with clear, non-overlapping descriptions that specify exactly when each should be used.
+- **Variable descriptions are too similar**: When two variables have similar names or descriptions, the translation process might inconsistently choose between them. For example, if you have both `isFullTime` and `fullTimeStatus` variables with similar descriptions, the system may not consistently map natural language about employment status to the correct variable. Review your variable descriptions so that each has clearly differentiated purposes and contexts. Consider consolidating duplicate concepts into a single variable or ensuring each variable has a distinct purpose with clear, non-overlapping descriptions that specify exactly when each should be used.
 - **Insufficient variable context**: Your variable descriptions might not adequately cover how users can refer to concepts in your domain. Update your variable descriptions with the right level of context.
 - **Inconsistent value formatting**: Translation ambiguity can occur when the system is unsure how to format values (such as numbers or dates). Update your variable descriptions to clarify expected formats.
-- **Ambiguous input**: If the input text contains ambiguous
-  statements, revise them to be more precise.
-
-You can use one of the following prompts to correct translation ambiguity issues:
-
-**Ambiguity without source**
-
-```
-You are an expert in revising answers to questions based on logical disagreements found in the answers.
-Given a domain, a question, an original answer, and logical ambiguities suggested from scearios, your task is to revise the original answer to address and resolve the logical ambiguities identified above. The revised answer should remove any ambiguities, such that one can clearly judge whether each scenario is consistent or inconsistent with the answer. The revised answer should have approximately the same length as the original answer. Avoid extending the answer with your own background knowledge.
-Below is an example.
-DOMAIN: DiscountPolicy
-QUESTION: I want to buy tickets for next Thursday. How many people are needed to qualify for your group discount?
-ORIGINAL ANSWER: You need at least 10 people to get the group discount.
-LOGICAL AMBIGUITIES FOUND: disagree_scenario1: ['(= group_size 12)', '(= advanced_booking false)', '(= group_discount true)']
-(Analysis: The scenario says the group size is 12, there is no advanced booking and group discount is true. Is this consistent with the answer? Well, the original answer does not mention advanced booking. Maybe the answer assumed advanced booking from the question "I want to buy tickets for next Thursday", but that's debatable. The revised answer should make it clear.)
-REVISED ANSWER: You need at least 10 people and need to book in advance to get the group discount.
-(Note: Scenarios are illustrative cases highlighting potential ambiguities. Do not overfit in your revised answer. In the example above, you should use the original "You need at least 10 people..." rather than the scenario-specific "If you have 12 people...")
-Now complete the following task and return the revised answer. (Just return the answer. Do not return any analysis or notes)
-DOMAIN: {domain}
-QUESTION: {question}
-ORIGINAL ANSWER: {original_answer}
-LOGICAL AMBIGUITIES FOUND: It is unclear if the following scenarios are valid or not according to the answer. {disagreement_text}
-REVISED ANSWER:
-```
-
-**Ambiguity with source**
-
-```
-You are an expert in revising answers to questions based on logical disagreements found in the answers.
-Given a domain, a question, an original answer, a piece of policy source text, and logical ambiguities suggested from scearios, your task is to revise the original answer to address and resolve the logical ambiguities identified above. The revised answer should remove any ambiguities, such that one can clearly judge whether each scenario is consistent or inconsistent with the answer. The revised answer should have approximately the same length as the original answer. Avoid extending the answer with your own background knowledge. The revised answer should be consistent with the actual policy from the source text.
-Below is an example.
-DOMAIN: DiscountPolicy
-QUESTION: I want to buy tickets for next Thursday. How many people are needed to qualify for your group discount?
-ORIGINAL ANSWER: You need at least 10 people to get the group discount.
-POLICY SOURCE TEXT: ... We offer discounts to students, seniors, and large groups. Students must present a valid ID ... A group of ten or more people are qualified for a group discount. Group discount tickets must be booked in advance. Each group ticket is 20% off the regular ticket price ...
-LOGICAL AMBIGUITIES FOUND: disagree_scenario1: ['(= group_size 12)', '(= advanced_booking false)', '(= group_discount true)']
-(Analysis: The scenario says the group size is 12, there is no advanced booking and group discount is true. Is this consistent with the answer? Well, the original answer does not mention advanced booking. Maybe the answer assumed advanced booking from the question "I want to buy tickets for next Thursday", but that's debatable. The revised answer should make it clear.)
-REVISED ANSWER: You need at least 10 people and need to book in advance to get the group discount.
-(Note: Scenarios are illustrative cases highlighting potential ambiguities. Do not overfit in your revised answer. In the example above, you should use the original "You need at least 10 people..." rather than the scenario-specific "If you have 12 people...")
-Now complete the following task and return the revised answer. (Just return the answer. Do not return any analysis or notes)
-DOMAIN: {domain}
-QUESTION: {question}
-ORIGINAL ANSWER: {original_answer}
-POLICY SOURCE TEXT: {policy_source_text}
-LOGICAL DISAGREEMENTS FOUND: It is unclear if the following scenarios are valid or not according to the answer. {disagreement_text}
-REVISED ANSWER:
-```
+- **Ambiguous input**: If the input text contains ambiguous statements, use the disagreements between the alternative interprestations to revise them to be more precise.

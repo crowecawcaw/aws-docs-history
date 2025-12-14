@@ -4,13 +4,15 @@ When you create an Automated Reasoning policy, [your input source document](#sou
 
 Amazon Bedrock encrypts your Automated Reasoning policy using AWS Key Management Service (KMS). By default, Amazon Bedrock uses a service-owned key. You can optionally specify a customer managed KMS key for additional control over the encryption of your policy data.
 
-**Example:** If your source document contains an HR policy stating "Full-time employees who have worked for at least 1 year are eligible for parental leave," Automated Reasoning would extract variables like `is_full_time` (boolean), `years_of_service` (integer), and `eligible_for_parental_leave` (boolean), along with a rule that connects them.
+**Example:** If your source document contains an HR policy stating "Full-time employees who have worked for at least 1 year are eligible for parental leave," Automated Reasoning would extract variables like `IsFullTime` (boolean), `YearsOfService` (integer), and `EligibleForParentalLeave` (boolean), along with a rule that connects them.
 
 ###### Note
 
 **Tutorial video:** For a step-by-step walkthrough of creating an Automated Reasoning policy, watch the following tutorial:
 
 [Tutorial Demo 1 - Policy creation in Automated Reasoning checks](https://youtu.be/8Y4kKv6F0JY "https://youtu.be/8Y4kKv6F0JY")
+
+To test and use your Automated Reasoning policy, ensure you have [the appropriate permissions](guardrail-automated-reasoning-permissions.md "guardrail-automated-reasoning-permissions.md").
 
 ## Create your Automated Reasoning policy in the console
 
@@ -43,9 +45,20 @@ Do the following:
 
 ## Create your Automated Reasoning policy using the API
 
-You can use the `CreateAutomatedReasoningPolicy` API operation to create an Automated Reasoning policy programmatically.
+An Automated Reasoning policy is a resource in your AWS account that can be referenced using an Amazon Resource Name (ARN).
+Automated Reasoning policies are a container for build workflows that produce policy definitions and policy versions. Policy
+definitions consist of a schema of variables and a set of rules that operate on the variables. Policy versions are immutable
+snapshots of the default DRAFT version. Automated Reasoning policies can have up to two build workflows. Each build workflow
+outputs three assets: a policy definition, a quality report on the policy definition, and a build log.
 
-### Request parameters
+Automated Reasoning policies can contain numbered, immutable versions of a definition created by calling the `CreateAutomatedReasoningPolicyVersion`
+API action. Automated Reasoning policies support a special version called `DRAFT` that is presented in the AWS console as "Working Draft."
+
+To create a new policy, the first step is to use the the `CreateAutomatedReasoningPolicy` API to create the policy resource.
+Then, using the new policy Amazon Resource Name (ARN), you can call the `StartAutomatedReasoningPolicyBuildWorkflow` to
+populate a policy build from a document with a schema of variables and rules.
+
+### Create Automated Reasoning policy request parameters
 
 The following parameters are required or optional when creating an Automated Reasoning policy:
 
@@ -73,7 +86,7 @@ A list of tags to associate with the Automated Reasoning policy. Tags help you o
 
 The KMS key identifier for encrypting the Automated Reasoning policy. You can use the key ID, key ARN, alias name, or alias ARN. If you don't specify a KMS key, Amazon Bedrock uses a service-owned key to encrypt your policy.
 
-### Response elements
+### Create Automated Reasoning policy response elements
 
 The API returns the following information:
 
@@ -96,9 +109,7 @@ AWS CLI:
 
 ```
 aws bedrock create-automated-reasoning-policy \
-  --name "DeleteMe" \
-  --description "A Test AR Policy" \
-  --source-document file://policy-document.pdf \
+  --name "`DeleteMe`" \
   --kms-key-id arn:aws:kms:`us-east-1`:`111122223333`:key/`12345678-1234-1234-1234-123456789012`
 ```
 
@@ -108,12 +119,96 @@ Example response:
 {
   "createdAt": "2025-07-21T14:43:52.692Z",
   "definitionHash": "f16ba1ceca36e1d21adce559481add6a4998b79ae203d933fd0206a28d5c2896513dd62f57b293cba282441269a72063b1d9da02fcf2b421e9bf8495ff8c87af",
-  "description": "A Test AR Policy",
   "name": "DeleteMe",
-  "policyArn": "arn:aws:bedrock:us-east-1:286352875722:automated-reasoning-policy/lnq5hhz70wgk",
+  "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk",,
   "updatedAt": "2025-07-21T14:43:52.692Z",
   "version": "DRAFT"
 }
+```
+
+## Start Automated Reasoning policy build workflow request parameters
+
+The following parameters are required or optional when starting a build workflow for an Automated Reasoning policy:
+
+`policyArn` (required)
+
+The Amazon Resource Name (ARN) of the Automated Reasoning policy resource created in the previous step.
+
+`buildWorkflowType` (required)
+
+The type of workflow you are starting. The options are `INGEST_CONTENT`, `REFINE_POLICY`, or `IMPORT_POLICY`.
+To create a new policy definition from a document or text, use the `INGEST_CONTENT`.
+
+`sourceContent` (required)
+
+The source file used to extract variables and rules.
+
+`clientRequestToken` (optional)
+
+A unique, case-sensitive identifier to ensure that the operation completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request but doesn't return an error.
+
+## Create Automated Reasoning policy response elements
+
+The API returns the following information:
+
+`policyArn`
+
+The Amazon Resource Name (ARN) of the Automated Reasoning policy you created.
+
+`buildWorkflowId`
+
+The unique identifier for the new build workflow.
+
+## Example
+
+The following example shows how to start an import workflow using the
+AWS CLI. You can use the optional `policyDefinition` property to
+specify a starting variable schema or rule set, for example if you already
+have an application that expects a specific set of variables.
+
+```
+# Step 1: Encode PDF to base64 (remove newlines)
+PDF_BASE64=$(base64 -i `your-policy.pdf` | tr -d '\n')
+
+# Step 2: Create policy from base64-encoded content
+aws bedrock start-automated-reasoning-policy-build-workflow \
+  --policy-arn arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk` \
+  --build-workflow-type INGEST_CONTENT \
+  --source-content "{
+    \"policyDefinition\": {
+      \"version\": \"1.0\",
+      \"types\": [],
+      \"rules\": [],
+      \"variables\": []
+    },
+    \"workflowContent\": {
+      \"documents\": [
+        {
+          \"document\": \"$PDF_BASE64\",
+          \"documentContentType\": \"pdf\",
+          \"documentName\": \"`Company Policy Document`\",
+          \"documentDescription\": \"`I'm building a chatbot that answers user questions about my leave of absence HR policy, capture rules and variables that help users determine whether they are eligible for leave of absence.`\"
+        }
+      ]
+    }
+  }"
+```
+
+Example response:
+
+```
+{
+    "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk",
+    "buildWorkflowId": "d40fa7fc-351e-47d8-a338-53e4b3b1c690"
+}
+```
+
+After starting a document ingestion workflow, you can use the `ListAutomatedReasoningPolicyBuildWorkflows`
+to check the status of the import workflow with the policy ARN.
+
+```
+aws bedrock list-automated-reasoning-policy-build-workflows \
+  --policy-arn arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`
 ```
 
 ## KMS permissions for Automated Reasoning policies
@@ -187,7 +282,7 @@ Amazon Bedrock uses encryption context to provide additional security for your A
 For Automated Reasoning policies, Amazon Bedrock uses the following encryption context:
 
 - **Key:** `aws:bedrock:automated-reasoning-policy`
-- **Value:** The ARN of your Automated Reasoning policy
+- **Value:** The Amazon Resource Name (ARN) of your Automated Reasoning policy
 
 ## View Automated Reasoning policy details
 
