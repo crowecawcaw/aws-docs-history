@@ -23,7 +23,7 @@ with AWS organization, such as:
 - Hierarchical Tags - The tags that can be defined on OU level and propagate to account level (More specific tags override less specific).
 - Management Account names (or nicknames).
 
-![Architecture](/images/guidance/latest/cloud-intelligence-dashboards/images/ou-integration-architecture.png)
+![Architecture](images/ou-integration-architecture.png)
 
 You also can leverage the OU information for your Row Level Security.
 

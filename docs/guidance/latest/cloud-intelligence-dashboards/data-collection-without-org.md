@@ -98,19 +98,13 @@ Note, not all Data Collection modules will work without AWS Organizations. The f
 
 ## Step by Step Guide
 
-1. If you have not done so already,
-   [deploy
-   the permissions stack](cloudformation/home.md#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_IncludeBudgetsModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeTAModule=yes&param_IncludeTransitGatewayModule=no "cloudformation/home.md#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack¶m_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_IncludeBudgetsModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeTAModule=yes¶m_IncludeTransitGatewayModule=no") into each Linked Account in scope. You should
-   adjust the template parameters to choose the modules you wish to use,
-   using the list of supported modules above.
-2. Follow [Step 2](data-collection-deployment.md "data-collection-deployment.md") of the standard Data Collection deployment to deploy the Data
-   Collection tooling. Select the same modules that you selected with your
-   permissions stack deployment.
-3. Create either a JSON or CSV file with your Linked Account information.
-   For either format, declare each account as on a separate line, per the
-   following examples. Note there is no header row for the CSV but the
-   order is the same as the JSON: `account_id, account_name, payer_id`.
-   Name the file `account-list.json` or `account-list.csv` accordingly.
+1. If you have not done so already, deploy the permissions stack into each Linked Account in scope. You should adjust the template parameters to choose the modules you wish to use, using the list of supported modules above.
+
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_IncludeBudgetsModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeTAModule=yes&param_IncludeTransitGatewayModule=no "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack¶m_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_IncludeBudgetsModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeTAModule=yes¶m_IncludeTransitGatewayModule=no") 2. Follow [Step 2](data-collection-deployment.md "data-collection-deployment.md") of the standard Data Collection deployment to deploy the Data Collection tooling. Select the same modules that you selected with your permissions stack deployment. 3. Create either a JSON or CSV file with your Linked Account information.
+For either format, declare each account as on a separate line, per the
+following examples. Note there is no header row for the CSV but the
+order is the same as the JSON: `account_id, account_name, payer_id`.
+Name the file `account-list.json` or `account-list.csv` accordingly.
 
 JSON:
 
@@ -126,9 +120,9 @@ CSV:
  222222222222,My account 2,999999999999
 ```
 
-1. Locate the main bucket created by the Data Collection stack. The default is `cid-data-[YOUR ACCOUNT NUMBER]`. Create a folder off of the root and name it `account-list`. Then deploy the file you created to that folder. The framework will detect the existence of the file when it next runs and use it instead of AWS Organizations for the affected modules. The bucket path should look like something like `cid-data-111111111111/account-list/account-list.csv`.
-2. Now you can trigger StepFunctions for data collection (Search
+4. Locate the main bucket created by the Data Collection stack. The default is `cid-data-[YOUR ACCOUNT NUMBER]`. Create a folder off of the root and name it `account-list`. Then deploy the file you created to that folder. The framework will detect the existence of the file when it next runs and use it instead of AWS Organizations for the affected modules. The bucket path should look like something like `cid-data-111111111111/account-list/account-list.csv`.
+5. Now you can trigger StepFunctions for data collection (Search
    TrustedAdvisor, locate the StepFunction and launch execution without any
    specific parameter needed).
-3. When StepFunction completed you can check the data in Athena and
+6. When StepFunction completed you can check the data in Athena and
    proceed to deployment of dashboards.
