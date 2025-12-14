@@ -4,14 +4,14 @@ You can use the following checks for the security category.
 
 ###### Note
 
-If you enabled Security Hub for your AWS account, you can view your findings in the
-Trusted Advisor console. For information, see [Viewing AWS Security Hub controls in
+If you enabled Security Hub CSPM for your AWS account, you can view your findings in the
+Trusted Advisor console. For information, see [Viewing AWS Security Hub CSPM controls in
 AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md").
 
 You can view all controls in the AWS Foundational Security Best Practices security
 standard _except_ for controls that have the **Category:
 Recover > Resilience**. For a list of supported controls, see [AWS
-Foundational Security Best Practices controls](../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md") in the _AWS Security Hub
+Foundational Security Best Practices controls](../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md") in the _AWS Security Hub CSPM
 User Guide_.
 
 ###### Check names

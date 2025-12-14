@@ -12,7 +12,7 @@ page of the Trusted Advisor console. You then follow the recommendations to reso
 
 Trusted Advisor Priority recommendations come from these two sources:
 
-- AWS services – Services such as Trusted Advisor, AWS Security Hub, and AWS
+- AWS services – Services such as Trusted Advisor, AWS Security Hub CSPM, and AWS
   Well-Architected automatically create recommendations. Your account team shares
   these recommendations with you so that those recommendations appear in Trusted Advisor Priority.
 - Your account team – Your account team can create manual

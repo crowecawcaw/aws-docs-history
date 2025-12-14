@@ -141,8 +141,6 @@ _IAM User Guide_.
   the Support API operations for Trusted Advisor](#control-access-to-trusted-advisor-deny-support "#control-access-to-trusted-advisor-deny-support")
 - [Example IAM policies for
   Trusted Advisor Priority](#trusted-advisor-priority-policies "#trusted-advisor-priority-policies")
-- [Example IAM policies for
-  Trusted Advisor Engage](#trusted-advisor-engage-policies "#trusted-advisor-engage-policies")
 
 ### Full access to Trusted Advisor
 
@@ -313,116 +311,6 @@ Trusted Advisor Priority
 You can use the following AWS managed policies to control access to
 Trusted Advisor Priority. For more information, see [AWS managed policies for
 AWS Trusted Advisor](aws-managed-policies-for-trusted-advisor.md "aws-managed-policies-for-trusted-advisor.md") and [Get started with AWS Trusted Advisor Priority](trusted-advisor-priority.md "trusted-advisor-priority.md").
-
-### Example IAM policies for
-
-Trusted Advisor Engage
-
-###### Note
-
-Trusted Advisor Engage is in preview release and does not currently have any AWS managed
-policies. You can use one of the following policies to create a _customer
-managed policy_ in the IAM console.
-
-An example policy that grants read and write access in Trusted Advisor Engage:
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "trustedadvisor:CreateEngagement*",
- "trustedadvisor:DescribeAccount*",
- "trustedadvisor:GetEngagement*",
- "trustedadvisor:ListEngagement*",
- "trustedadvisor:UpdateEngagement*"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
-
-An example policy that grants read-only access in Trusted Advisor Engage:
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "trustedadvisor:DescribeAccount*",
- "trustedadvisor:GetEngagement*",
- "trustedadvisor:ListEngagement*"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
-
-An example policy that grants read and write access in Trusted Advisor Engage and the ability
-to enable trusted access to Trusted Advisor:
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "organizations:DescribeOrganization",
- "organizations:ListAWSServiceAccessForOrganization",
- "trustedadvisor:CreateEngagement*",
- "trustedadvisor:DescribeAccount*",
- "trustedadvisor:DescribeOrganization",
- "trustedadvisor:GetEngagement*",
- "trustedadvisor:ListEngagement*",
- "trustedadvisor:SetOrganizationAccess",
- "trustedadvisor:UpdateEngagement*"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "organizations:EnableAWSServiceAccess",
- "organizations:DisableAWSServiceAccess"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "organizations:ServicePrincipal": [
- "reporting.trustedadvisor.amazonaws.com"
- ]
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": "iam:CreateServiceLinkedRole",
- "Resource": "arn:aws:iam::*:role/aws-service-role/reporting.trustedadvisor.amazonaws.com/AWSServiceRoleForTrustedAdvisorReporting",
- "Condition": {
- "StringLike": {
- "iam:AWSServiceName": "reporting.trustedadvisor.amazonaws.com"
- }
- }
- }
- ]
-}`
-
-```
 
 ## See also
 

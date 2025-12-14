@@ -236,8 +236,8 @@ You can also refresh specific checks in the following ways:
   automatically refreshed checks, you can't choose the refresh icon (
   ![Circular arrow icon representing a refresh or reload action.](images/refresh.png)
   ) to manually refresh your results.
-- If you enabled AWS Security Hub for your account, you can't use the Trusted Advisor console to refresh
-  Security Hub controls. For more information, see [Refresh your Security Hub findings](security-hub-controls-with-trusted-advisor.md#refreshing-security-hub-findings "security-hub-controls-with-trusted-advisor.md#refreshing-security-hub-findings").
+- If you enabled AWS Security Hub CSPM for your account, you can't use the Trusted Advisor console to refresh
+  Security Hub CSPM controls. For more information, see [Refresh your Security Hub CSPM findings](security-hub-controls-with-trusted-advisor.md#refreshing-security-hub-findings "security-hub-controls-with-trusted-advisor.md#refreshing-security-hub-findings").
 
 ## Download check results
 

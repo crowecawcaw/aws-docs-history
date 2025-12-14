@@ -28,6 +28,7 @@ Developer Support, Business Support, and Enterprise On-Ramp will remain availabl
 ###### Topics
 
 - [AI-enhanced troubleshooting in the Support Center Console](ai-enhanced-support.md "ai-enhanced-support.md")
+- [Virtual meetings with AWS Support](virtual-meetings-support.md "virtual-meetings-support.md")
 - [Case management](case-management.md "case-management.md")
 - [Request a service quota increase](create-service-quota-increase.md "create-service-quota-increase.md")
 - [Legacy experience: Creating support cases and case management](case-management-legacy.md "case-management-legacy.md")

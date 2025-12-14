@@ -45,7 +45,7 @@ For more information, see [Trusted Advisor](https://aws.amazon.com/premiumsuppor
 - [Using Trusted Advisor as a web service](trustedadvisor.md "trustedadvisor.md")
 - [Organizational view for AWS Trusted Advisor](organizational-view.md "organizational-view.md")
 - [View AWS Trusted Advisor checks powered by AWS Config](aws-config-integration-with-ta.md "aws-config-integration-with-ta.md")
-- [Viewing AWS Security Hub controls in
+- [Viewing AWS Security Hub CSPM controls in
   AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md")
 - [Opt in AWS Compute Optimizer for Trusted Advisor
   checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md")

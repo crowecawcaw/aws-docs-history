@@ -34,7 +34,7 @@ For more information about the available checks, see the [AWS Trusted Advisor ch
 
 ## Older updates
 
-The following AWS Security Hub checks are deprecated:
+The following AWS Security Hub CSPM checks are deprecated:
 
 | Check name                                                                                                     | Check ID     |
 | -------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -457,20 +457,20 @@ For more information, see the [Fault tolerance](fault-tolerance-checks.md "fault
 
 ## Updates to the Trusted Advisor integration
 
-with AWS Security Hub
+with AWS Security Hub CSPM
 
 Trusted Advisor made the following update on November 17, 2022.
 
-If you disable Security Hub or AWS Config for an AWS Region, Trusted Advisor now removes your control
+If you disable Security Hub CSPM or AWS Config for an AWS Region, Trusted Advisor now removes your control
 findings for that AWS Region within 7-9 days. Previously, the time frame to remove
-your Security Hub data from Trusted Advisor was 90 days.
+your Security Hub CSPM data from Trusted Advisor was 90 days.
 
 For more information, see the following sections in the [Troubleshooting](security-hub-controls-with-trusted-advisor.md#troubleshooting-security-hub-integration "security-hub-controls-with-trusted-advisor.md#troubleshooting-security-hub-integration") topic:
 
-- [I turned off Security Hub or AWS Config in a
+- [I turned off Security Hub CSPM or AWS Config in a
   Region](security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions "security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions")
 - [My control is
-  archived in Security Hub, but I still see the findings in Trusted Advisor](security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor "security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor")
+  archived in Security Hub CSPM, but I still see the findings in Trusted Advisor](security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor "security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor")
 
 ## New fault tolerance checks for
 
@@ -520,17 +520,17 @@ Trusted Advisor added the following check on September 1, 2022.
 
 For more information, see the [Security](security-checks.md "security-checks.md") category.
 
-## Added Security Hub checks to
+## Added Security Hub CSPM checks to
 
 Trusted Advisor
 
-As of June 23, 2022, Trusted Advisor only supports Security Hub controls available through April 7, 2022. This release supports all controls in the AWS Foundational Security Best
+As of June 23, 2022, Trusted Advisor only supports Security Hub CSPM controls available through April 7, 2022. This release supports all controls in the AWS Foundational Security Best
 Practices security standard except for controls in the Category: Recover > Resilience.
-For more information, see [Viewing AWS Security Hub controls in
+For more information, see [Viewing AWS Security Hub CSPM controls in
 AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md").
 
 For a list of supported controls, see [AWS
-Foundational Security Best Practices controls](../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md") in the _AWS Security Hub
+Foundational Security Best Practices controls](../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md") in the _AWS Security Hub CSPM
 User Guide_.
 
 ## Added checks from AWS Compute Optimizer
@@ -612,18 +612,18 @@ appeared in the table. These resources have a warning icon (
 ![Warning triangle symbol with an exclamation mark inside.](images/warning.png)
 ) next to them.
 
-## AWS Security Hub controls added
+## AWS Security Hub CSPM controls added
 
 to the AWS Trusted Advisor console
 
-AWS Trusted Advisor added 111 Security Hub controls to the **Security** category
+AWS Trusted Advisor added 111 Security Hub CSPM controls to the **Security** category
 on January 18, 2022.
 
-You can view your findings for Security Hub controls from the AWS Foundational Security
+You can view your findings for Security Hub CSPM controls from the AWS Foundational Security
 Best Practices security standard. This integration doesn't include controls that have
 the **Category: Recover > Resilience**.
 
-For more information about this feature, see [Viewing AWS Security Hub controls in
+For more information about this feature, see [Viewing AWS Security Hub CSPM controls in
 AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md").
 
 ## New checks for Amazon EC2 and AWS
