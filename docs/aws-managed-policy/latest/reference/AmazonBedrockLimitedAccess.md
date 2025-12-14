@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 29, 2025, 22:22 UTC
-- **Edited time:** June 29, 2025, 22:22 UTC
+- **Edited time:** December 05, 2025, 05:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonBedrockLimitedAccess`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -84,6 +84,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeVpcs",
         "ec2:DescribeSubnets",
         "ec2:DescribeSecurityGroups"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "BedrockMantleAPIs",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock-mantle:CallWithBearerToken",
+        "bedrock-mantle:Get*",
+        "bedrock-mantle:List*",
+        "bedrock-mantle:CreateInference"
       ],
       "Resource" : "*"
     },

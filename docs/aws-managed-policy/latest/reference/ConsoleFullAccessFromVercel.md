@@ -1,0 +1,196 @@
+# ConsoleFullAccessFromVercel
+
+**Description**: For use with accounts created through the Vercel Marketplace integration with AWS. Provides access to manage all resources for the services that are integrated with the Vercel Marketplace.
+
+`ConsoleFullAccessFromVercel` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+
+## Using this policy
+
+You can attach `ConsoleFullAccessFromVercel` to your users, groups, and roles.
+
+## Policy
+
+details
+
+- **Type**: AWS managed policy
+- **Creation time**: December 11, 2025, 16:49 UTC
+- **Edited time:** December 11, 2025, 16:49 UTC
+- **ARN**:
+  `arn:aws:iam::aws:policy/ConsoleFullAccessFromVercel`
+
+## Policy version
+
+**Policy version:** v1 (default)
+
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
+request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+
+## JSON policy document
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" : [
+    {
+      "Sid" : "DSQL",
+      "Effect" : "Allow",
+      "Action" : [
+        "dsql:GetCluster",
+        "dsql:ListClusters",
+        "dsql:ListTagsForResource",
+        "dsql:UpdateCluster",
+        "dsql:DbConnectAdmin",
+        "dsql:DbConnect"
+      ],
+      "Resource" : [
+        "*"
+      ]
+    },
+    {
+      "Sid" : "DynamoDB",
+      "Effect" : "Allow",
+      "Action" : [
+        "dynamodb:BatchGetItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:UpdateTimeToLive",
+        "dynamodb:ConditionCheckItem",
+        "dynamodb:UntagResource",
+        "dynamodb:PutItem",
+        "dynamodb:ListTables",
+        "dynamodb:DeleteItem",
+        "dynamodb:Scan",
+        "dynamodb:ListTagsOfResource",
+        "dynamodb:Query",
+        "dynamodb:UpdateItem",
+        "dynamodb:DescribeTimeToLive",
+        "dynamodb:TagResource",
+        "dynamodb:DescribeTable",
+        "dynamodb:GetItem",
+        "dynamodb:DescribeLimits",
+        "dynamodb:UpdateTable",
+        "dynamodb:GetRecords"
+      ],
+      "Resource" : [
+        "*"
+      ]
+    },
+    {
+      "Sid" : "Aurora",
+      "Effect" : "Allow",
+      "Action" : [
+        "rds-db:connect",
+        "rds:Describe*",
+        "rds:ListTagsForResource",
+        "rds:RebootDBInstance",
+        "rds:DeleteDBInstance",
+        "rds:StartDBInstance",
+        "rds:ModifyDBInstance",
+        "rds:ApplyPendingMaintenanceAction",
+        "rds:StartDBCluster",
+        "rds:DeleteDBCluster",
+        "rds:RebootDBCluster",
+        "rds:CreateDBClusterEndpoint",
+        "rds:ModifyDBClusterEndpoint",
+        "rds:ModifyDBCluster",
+        "rds:DeleteDBClusterEndpoint",
+        "rds:FailoverDBCluster",
+        "rds:DeleteDBClusterParameterGroup",
+        "rds:ModifyDBClusterParameterGroup",
+        "rds:CopyDBClusterParameterGroup",
+        "rds:ResetDBClusterParameterGroup",
+        "rds:CreateDBClusterParameterGroup",
+        "rds:ResetDBParameterGroup",
+        "rds:ModifyDBParameterGroup",
+        "rds:CopyDBParameterGroup",
+        "rds:DeleteDBParameterGroup",
+        "rds:CreateDBParameterGroup",
+        "rds:DeleteDBClusterAutomatedBackup",
+        "rds:CopyDBClusterSnapshot",
+        "rds:RestoreDBClusterToPointInTime",
+        "rds:RestoreDBClusterFromSnapshot",
+        "rds:CreateDBClusterSnapshot",
+        "rds:DeleteDBClusterSnapshot",
+        "ec2:DescribeAvailabilityZones"
+      ],
+      "Resource" : [
+        "*"
+      ]
+    },
+    {
+      "Sid" : "AuroraRestricted",
+      "Effect" : "Allow",
+      "Action" : [
+        "rds:CreateDBInstance"
+      ],
+      "Resource" : [
+        "*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "rds:DatabaseEngine" : "aurora-postgresql"
+        }
+      }
+    },
+    {
+      "Sid" : "Observability",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudwatch:DeleteAlarms",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics",
+        "cloudwatch:PutMetricAlarm",
+        "logs:DescribeLogStreams",
+        "logs:GetLogEvents",
+        "tag:GetTagKeys",
+        "tag:GetTagValues"
+      ],
+      "Resource" : [
+        "*"
+      ]
+    },
+    {
+      "Sid" : "ApplicationAutoscalingIntegration",
+      "Effect" : "Allow",
+      "Action" : [
+        "application-autoscaling:DeleteScalingPolicy",
+        "application-autoscaling:DeregisterScalableTarget",
+        "application-autoscaling:PutScalingPolicy",
+        "application-autoscaling:RegisterScalableTarget"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "application-autoscaling:service-namespace" : "dynamodb"
+        }
+      }
+    },
+    {
+      "Sid" : "ApplicationAutoscalingDescribeActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "application-autoscaling:DescribeScalableTargets",
+        "application-autoscaling:DescribeScalingActivities",
+        "application-autoscaling:DescribeScalingPolicies"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ViewFreeTierState",
+      "Effect" : "Allow",
+      "Action" : [
+        "freetier:GetAccountPlanState"
+      ],
+      "Resource" : "*"
+    }
+  ]
+}
+```
+
+## Learn more
+
+- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
+- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
+- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
+- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")

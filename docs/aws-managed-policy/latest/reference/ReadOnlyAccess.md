@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:39 UTC
-- **Edited time:** October 22, 2025, 20:19 UTC
+- **Edited time:** December 08, 2025, 18:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v135 (default)
+**Policy version:** v136 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -1722,13 +1722,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "mediaconvert:DescribeEndpoints",
         "mediaconvert:Get*",
         "mediaconvert:List*",
+        "medialive:DescribeAccountConfiguration",
         "medialive:DescribeChannel",
+        "medialive:DescribeChannelPlacementGroup",
+        "medialive:DescribeCluster",
         "medialive:DescribeInput",
         "medialive:DescribeInputDevice",
         "medialive:DescribeInputDeviceThumbnail",
         "medialive:DescribeInputSecurityGroup",
         "medialive:DescribeMultiplex",
         "medialive:DescribeMultiplexProgram",
+        "medialive:DescribeNetwork",
         "medialive:DescribeOffering",
         "medialive:DescribeReservation",
         "medialive:DescribeSchedule",
@@ -1742,12 +1746,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "medialive:ListCloudWatchAlarmTemplates",
         "medialive:ListEventBridgeRuleTemplateGroups",
         "medialive:ListEventBridgeRuleTemplates",
-        "medialive:ListInputDeviceTransfers",
         "medialive:ListInputDevices",
-        "medialive:ListInputSecurityGroups",
+        "medialive:ListInputDeviceTransfers",
         "medialive:ListInputs",
-        "medialive:ListMultiplexPrograms",
+        "medialive:ListInputSecurityGroups",
         "medialive:ListMultiplexes",
+        "medialive:ListMultiplexPrograms",
         "medialive:ListOfferings",
         "medialive:ListReservations",
         "medialive:ListSignalMaps",
@@ -2166,10 +2170,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "resource-explorer-2:GetDefaultView",
         "resource-explorer-2:GetIndex",
         "resource-explorer-2:GetManagedView",
+        "resource-explorer-2:GetResourceExplorerSetup",
+        "resource-explorer-2:GetServiceIndex",
+        "resource-explorer-2:GetServiceView",
         "resource-explorer-2:GetView",
         "resource-explorer-2:ListIndexes",
         "resource-explorer-2:ListIndexesForMembers",
         "resource-explorer-2:ListManagedViews",
+        "resource-explorer-2:ListServiceIndexes",
+        "resource-explorer-2:ListServiceViews",
+        "resource-explorer-2:ListStreamingAccessForServices",
         "resource-explorer-2:ListSupportedResourceTypes",
         "resource-explorer-2:ListTagsForResource",
         "resource-explorer-2:ListViews",
@@ -2508,6 +2518,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "user-subscriptions:ListApplicationClaims",
         "user-subscriptions:ListClaims",
         "user-subscriptions:ListUserSubscriptions",
+        "uxc:GetAccountColor",
         "verifiedpermissions:GetIdentitySource",
         "verifiedpermissions:GetPolicy",
         "verifiedpermissions:GetPolicyStore",

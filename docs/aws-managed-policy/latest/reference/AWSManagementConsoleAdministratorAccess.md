@@ -14,13 +14,13 @@ details
 
 - **Type**: Job function policy
 - **Creation time**: August 14, 2025, 21:19 UTC
-- **Edited time:** August 14, 2025, 21:19 UTC
+- **Edited time:** December 10, 2025, 00:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/AWSManagementConsoleAdministratorAccess`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -112,7 +112,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "resource-explorer-2:TagResource",
         "resource-explorer-2:UntagResource",
         "resource-explorer-2:UpdateIndexType",
-        "resource-explorer-2:UpdateView"
+        "resource-explorer-2:UpdateView",
+        "action-recommendations:ListRecommendedActions",
+        "account:GetAccountInformation"
       ],
       "Resource" : "*"
     }

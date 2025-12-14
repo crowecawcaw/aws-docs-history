@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: November 22, 2025, 00:34 UTC
-- **Edited time:** November 22, 2025, 00:34 UTC
+- **Edited time:** December 05, 2025, 20:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSIdentityCenterExternalManagementPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -44,7 +44,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "ForAllValues:ArnEquals" : {
           "identitystore:UserExternalIdIssuers" : [
-            "arn:aws:identitystore::*:provisioningtenant/${aws:PrincipalTag/IdentityStoreId}/${aws:PrincipalTag/IdentityStoreExternalIdIssuer}"
+            "arn:aws:identitystore::*:identitystore/${aws:PrincipalTag/IdentityStoreId}/provisioningtenant/${aws:PrincipalTag/IdentityStoreExternalIdIssuer}"
           ]
         },
         "Null" : {
@@ -68,7 +68,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "ForAllValues:ArnEquals" : {
           "identitystore:UserExternalIdIssuers" : [
-            "arn:aws:identitystore::*:provisioningtenant/${aws:PrincipalTag/IdentityStoreId}/${aws:PrincipalTag/IdentityStoreExternalIdIssuer}"
+            "arn:aws:identitystore::*:identitystore/${aws:PrincipalTag/IdentityStoreId}/provisioningtenant/${aws:PrincipalTag/IdentityStoreExternalIdIssuer}"
           ]
         },
         "Null" : {

@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: December 02, 2025, 15:04 UTC
-- **Edited time:** December 02, 2025, 15:04 UTC
+- **Edited time:** December 10, 2025, 01:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SecurityAgentWebAppAPIPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -56,6 +56,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "securityagent:BatchGetFindings",
         "securityagent:BatchGetPentestJobs",
         "securityagent:BatchGetPentests",
+        "securityagent:BatchGetSecurityTestContentMetadata",
         "securityagent:BatchGetTasks",
         "securityagent:CreateDocumentReview",
         "securityagent:CreatePentest",

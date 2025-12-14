@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: April 10, 2023, 20:48 UTC
-- **Edited time:** April 10, 2023, 20:48 UTC
+- **Edited time:** December 08, 2025, 19:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceCatalogOrgsDataSyncServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -44,6 +44,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "organizations:ListAWSServiceAccessForOrganization"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "OrganizationsDataSyncToServiceCatalogRegions",
+      "Effect" : "Allow",
+      "Action" : [
+        "account:ListRegions"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

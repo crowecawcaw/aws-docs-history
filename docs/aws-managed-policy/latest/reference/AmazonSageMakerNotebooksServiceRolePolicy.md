@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 18, 2019, 20:27 UTC
-- **Edited time:** November 14, 2024, 20:33 UTC
+- **Edited time:** December 10, 2025, 18:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonSageMakerNotebooksServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -181,6 +181,38 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sso:GetManagedApplicationInstance"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowKmsAccessViaIdentityCenter",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:sso:instance-arn" : "arn:*:sso:::instance/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "sso.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowKmsAccessViaIdentityStore",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn" : "arn:*:identitystore::*:identitystore/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "identitystore.*.amazonaws.com"
+        }
+      }
     },
     {
       "Sid" : "AllowSagemakerProfileCreation",

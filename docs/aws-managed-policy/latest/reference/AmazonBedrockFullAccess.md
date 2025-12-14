@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 06, 2023, 15:47 UTC
-- **Edited time:** June 29, 2025, 22:22 UTC
+- **Edited time:** December 05, 2025, 05:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonBedrockFullAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -36,6 +36,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "bedrock:*"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "BedrockMantleAll",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock-mantle:*"
       ],
       "Resource" : "*"
     },

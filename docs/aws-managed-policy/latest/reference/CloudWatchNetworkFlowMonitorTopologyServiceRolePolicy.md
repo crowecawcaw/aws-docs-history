@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: December 01, 2024, 22:51 UTC
-- **Edited time:** November 06, 2025, 23:19 UTC
+- **Edited time:** December 10, 2025, 17:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -55,6 +55,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "ec2:DescribeManagedPrefixLists",
         "ec2:GetManagedPrefixListEntries"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VPCEndpointStatement",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcEndpointServiceConfigurations"
       ],
       "Resource" : "*"
     }
