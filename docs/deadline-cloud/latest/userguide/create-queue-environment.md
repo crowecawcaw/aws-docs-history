@@ -59,6 +59,7 @@ Linux
 
 - Cinema 4D
   - `cinema4d=2025`
+  - `cinema4d=2026`
   - `cinema4d-openjd`
   - `cinema4d-c4dtoa=2025`
 
