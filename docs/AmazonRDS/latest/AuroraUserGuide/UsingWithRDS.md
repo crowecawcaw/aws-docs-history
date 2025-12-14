@@ -1,34 +1,132 @@
-# Master user account privileges
+# Security in Amazon Aurora
 
-When you create a new DB
-cluster, the default master user that you use gets
-certain privileges for that DB
-cluster. You can't change the master user name after the
-DB
-cluster is created.
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
+data center and network architecture that are built to meet the requirements of the most
+security-sensitive organizations.
 
-###### Important
+Security is a shared responsibility between AWS and you. The [shared responsibility
+model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security _of_ the cloud and security
+_in_ the cloud:
 
-We strongly recommend that you do not use the master user directly in your
-applications. Instead, adhere to the best practice of using a database user created
-with the minimal privileges required for your application.
+- **Security of the cloud** – AWS is
+  responsible for protecting the infrastructure that runs AWS services in the AWS
+  Cloud. AWS also provides you with services that you can use securely. Third-party
+  auditors regularly test and verify the effectiveness of our security as part of the
+  [AWS compliance
+  programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to
+  Amazon Aurora
+  (Aurora), see [AWS services in scope by compliance program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
+- **Security in the cloud** – Your responsibility
+  is determined by the AWS service that you use. You are also responsible for other
+  factors including the sensitivity of your data, your organization's
+  requirements, and applicable laws and regulations.
+  This documentation helps you understand how to apply the shared responsibility model when
+  using
+  Amazon Aurora. The following topics show you how to configure
+  Amazon Aurora to
+  meet your security and compliance objectives. You also learn how to use other AWS services
+  that help you monitor and secure your
+  Amazon Aurora resources.
+
+You can manage access to your
+Amazon Aurora resources and your databases on a DB
+cluster. The
+method you use to manage access depends on what type of task the user needs to perform with
+
+Amazon Aurora:
+
+- Run your DB
+  cluster in a virtual private cloud (VPC) based on
+  the Amazon VPC service for the greatest possible network access control. For more
+  information about creating a DB
+  cluster in a VPC, see
+  [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md")
+  .
+- Use AWS Identity and Access Management (IAM) policies to assign permissions that determine who is allowed
+  to manage
+  Amazon Aurora resources. For example, you can use IAM to determine who is
+  allowed to create, describe, modify, and delete DB
+  clusters, tag resources,
+  or modify security groups.
+
+To review IAM policy examples, see [Identity-based policy
+examples for Amazon Aurora](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+.
+
+- Use security groups to control what IP addresses or Amazon EC2 instances can connect to
+  your databases on a DB
+  cluster. When you first create a DB
+  cluster, its firewall prevents any database access except through
+  rules specified by an associated security group.
+- Use Secure Socket Layer (SSL) or Transport Layer Security (TLS) connections with
+  DB
+  clusters running the Aurora MySQL or Aurora PostgreSQL. For more information
+  on using SSL/TLS with a DB cluster, see [Using SSL/TLS to encrypt a connection to a DB
+  cluster](UsingWithRDS.md "UsingWithRDS.md")
+  .
+- Use
+  Amazon Aurora encryption to secure your
+  DB clusters and snapshots
+  at rest.
+  Amazon Aurora encryption uses the industry standard AES-256 encryption
+  algorithm to encrypt your data on the server that hosts your DB
+  cluster. For more information, see [Encrypting Amazon Aurora
+  resources](Overview.md "Overview.md")
+  .
+- Use the security features of your DB engine to control who can log in to the
+  databases on a DB
+  cluster. These features work just as if the database
+  was on your local network.
+
+For information about security with Aurora MySQL, see [Security with Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md")
+. For
+information about security with Aurora PostgreSQL, see [Security with Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md")
+.
+Aurora is part of the managed database service Amazon Relational Database Service (Amazon RDS). Amazon RDS
+is a web service that makes it easier to set up, operate, and scale a relational database in
+the cloud. If you are not already familiar with Amazon RDS, see the [_Amazon RDS user
+guide_](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+Aurora includes a high-performance storage subsystem. Its MySQL- and
+PostgreSQL-compatible database engines are customized to take advantage of that fast
+distributed storage. Aurora also automates and standardizes database clustering and
+replication, which are typically among the most challenging aspects of database
+configuration and administration.
+
+For both Amazon RDS and Aurora, you can access the RDS API programmatically,
+and you can use the AWS CLI to access the RDS API interactively. Some RDS API operations and
+AWS CLI commands apply to both Amazon RDS and Aurora, while others apply to either Amazon RDS or Aurora.
+For information about RDS API operations, see [Amazon RDS
+API reference](../APIReference/Welcome.md "../APIReference/Welcome.md"). For more information about the AWS CLI, see [AWS Command Line Interface reference for Amazon RDS](../../../cli/latest/reference/rds/index.md "../../../cli/latest/reference/rds/index.md").
 
 ###### Note
 
-If you accidentally delete the permissions for the master user, you can restore
-them by modifying the DB
-cluster and setting a new master user password. For
-more information about modifying a DB
-cluster, see
+You have to configure security only for your use cases. You don't have to configure
+security access for processes that Amazon Aurora manages. These include creating backups,
+automatic failover, and other processes.
 
-[Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md")
-.
+For more information on managing access to
+Amazon Aurora resources and your
+databases on a DB
+cluster, see the following topics.
 
-The following table shows the privileges and database roles the master user gets for
-each of the database engines.
+###### Topics
 
-| Database engine                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | System privilege                                                                                                                                                                                                                                                                                                                                                                                                     | Database role                                                                                                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Aurora MySQL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Version 2:<br>`ALTER`,`ALTER ROUTINE`,<br>`CREATE`,`CREATE ROUTINE`,`CREATE<br>TEMPORARY TABLES`,`CREATE USER`,`CREATE<br>VIEW`,`DELETE`,`DROP`,<br>`EVENT`,`EXECUTE`,`GRANT<br>OPTION`,`INDEX`,`INSERT`,<br>`LOAD FROM S3`,`LOCK TABLES`,<br>`PROCESS`,`REFERENCES`,<br>`RELOAD`,`REPLICATION CLIENT`,<br>`REPLICATION SLAVE`,`SELECT`,<br>`SELECT INTO S3`,`SHOW DATABASES`,<br>`SHOW VIEW`,`TRIGGER`,<br>`UPDATE` | —                                                                                                                                                                                                        |
-| Version 3:<br>`ALTER`,`APPLICATION_PASSWORD_ADMIN`,<br>`ALTER ROUTINE`,`CONNECTION_ADMIN`,<br>`CREATE`,`CREATE ROLE`,`CREATE<br>ROUTINE`,`CREATE TEMPORARY TABLES`,<br>`CREATE USER`,`CREATE VIEW`,<br>`DELETE`,`DROP`,`DROP ROLE`,<br>`EVENT`,`EXECUTE`,`INDEX`,<br>`INSERT`,`LOCK TABLES`,<br>`PROCESS`,`REFERENCES`,<br>`RELOAD`,`REPLICATION CLIENT`,<br>`REPLICATION SLAVE`,`ROLE_ADMIN`,<br>`SET_USER_ID`,`SELECT`,`SHOW<br>DATABASES`,`SHOW VIEW`,`TRIGGER`,<br>`UPDATE`,`XA_RECOVER_ADMIN`<br>Starting with Aurora MySQL version 3.04.0, the master user also gets the `SHOW_ROUTINE` privilege.<br>Starting with Aurora MySQL version 3.09.0, the master user also gets the `FLUSH_OPTIMIZER_COSTS`,`FLUSH_STATUS`,`FLUSH_TABLES`, and `FLUSH_USER_RESOURCES` privileges. | `rds_superuser_role`<br>For more information about rds_superuser_role, see [Role-based privilege model](AuroraMySQL.md#AuroraMySQL.privilege-model "AuroraMySQL.md#AuroraMySQL.privilege-model")<br>.                                                                                                                                                                                                                |
-| Aurora PostgreSQL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `LOGIN`,`NOSUPERUSER`,<br>`INHERIT`,`CREATEDB`,<br>`CREATEROLE`,`NOREPLICATION`,`VALID<br>UNTIL 'infinity'`                                                                                                                                                                                                                                                                                                          | `RDS_SUPERUSER`<br>For more information about RDS_SUPERUSER, see [Understanding PostgreSQL roles and<br>permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")<br>. |
+- [Database authentication with Amazon Aurora](database-authentication.md "database-authentication.md")
+- [Password management with
+  Amazon Aurora
+  and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md")
+- [Data protection in Amazon RDS](DataDurability.md "DataDurability.md")
+- [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md")
+- [Logging and monitoring in Amazon Aurora](Overview.md "Overview.md")
+- [Compliance validation for Amazon Aurora](RDS-compliance.md "RDS-compliance.md")
+- [Resilience in Amazon Aurora](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure security in Amazon Aurora](infrastructure-security.md "infrastructure-security.md")
+- [Amazon RDS API and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Security best practices for Amazon Aurora](CHAP_BestPractices.md "CHAP_BestPractices.md")
+- [Controlling access with security
+  groups](Overview.md "Overview.md")
+- [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md")
+- [Using service-linked roles for
+  Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md")
+- [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md")

@@ -1,13 +1,13 @@
-# Lock:transactionid
+# Lock:extend
 
-The `Lock:transactionid` event occurs when a transaction is waiting for a row-level lock.
+The `Lock:extend` event occurs when a backend process is waiting to lock a relation to extend it while another process has a lock on that relation for the same purpose.
 
 ###### Topics
 
-- [Supported engine versions](#apg-waits.locktransactionid.context.supported "#apg-waits.locktransactionid.context.supported")
-- [Context](#apg-waits.locktransactionid.context "#apg-waits.locktransactionid.context")
-- [Likely causes of increased waits](#apg-waits.locktransactionid.causes "#apg-waits.locktransactionid.causes")
-- [Actions](#apg-waits.locktransactionid.actions "#apg-waits.locktransactionid.actions")
+- [Supported engine versions](#apg-waits.lockextend.context.supported "#apg-waits.lockextend.context.supported")
+- [Context](#apg-waits.lockextend.context "#apg-waits.lockextend.context")
+- [Likely causes of increased waits](#apg-waits.lockextend.causes "#apg-waits.lockextend.causes")
+- [Actions](#apg-waits.lockextend.actions "#apg-waits.lockextend.actions")
 
 ## Supported engine versions
 
@@ -15,113 +15,85 @@ This wait event information is supported for all versions of Aurora PostgreSQL.
 
 ## Context
 
-The event `Lock:transactionid` occurs when a transaction is trying
-to acquire a row-level lock that has already been granted to a transaction that is
-running at the same time. The session that shows the `Lock:transactionid`
-wait event is blocked because of this lock. After the blocking transaction ends in
-either a `COMMIT` or `ROLLBACK` statement, the blocked transaction
-can proceed.
-
-The multiversion concurrency control semantics of Aurora PostgreSQL guarantee that readers
-don't block writers and writers don't block readers. For row-level conflicts to occur,
-blocking and blocked transactions must issue conflicting statements of the following
-types:
-
-- `UPDATE`
-- `SELECT … FOR UPDATE`
-- `SELECT … FOR KEY SHARE`
-
-The statement `SELECT … FOR KEY SHARE` is a special case. The database uses the clause `FOR KEY
- SHARE` to optimize the performance of referential integrity. A row-level lock on a row can block
-`INSERT`, `UPDATE`, and `DELETE` commands on other tables that reference the
-row.
+The event `Lock:extend` indicates that a backend process is waiting
+to extend a relation that another backend process holds a lock on while it's extending
+that relation. Because only one process at a time can extend a relation, the system generates a
+`Lock:extend` wait event. `INSERT`, `COPY`, and
+`UPDATE` operations can generate this event.
 
 ## Likely causes of increased waits
 
-When this event appears more than normal, the cause is typically `UPDATE`, `SELECT …
- FOR UPDATE`, or `SELECT … FOR KEY SHARE` statements combined with the following
-conditions.
+When the `Lock:extend` event appears more than normal, possibly indicating a performance problem, typical causes include the following:
 
-###### Topics
+**Surge in concurrent inserts or updates to the same table**
 
-- [High concurrency](#apg-waits.locktransactionid.concurrency "#apg-waits.locktransactionid.concurrency")
-- [Idle in transaction](#apg-waits.locktransactionid.idle "#apg-waits.locktransactionid.idle")
-- [Long-running transactions](#apg-waits.locktransactionid.long-running "#apg-waits.locktransactionid.long-running")
+There might be an increase in the number of concurrent sessions with queries that insert into or update the same table.
 
-### High concurrency
+**Insufficient network bandwidth**
 
-Aurora PostgreSQL can use granular row-level locking semantics. The probability of
-row-level conflicts increases when the following conditions are met:
-
-- A highly concurrent workload contends for the same rows.
-- Concurrency increases.
-
-### Idle in transaction
-
-Sometimes the `pg_stat_activity.state` column shows the value
-`idle in transaction`. This value appears for sessions that have
-started a transaction, but haven't yet issued a `COMMIT` or
-`ROLLBACK`. If the `pg_stat_activity.state` value isn't
-`active`, the query shown in `pg_stat_activity` is the
-most recent one to finish running. The blocking session isn't actively processing a
-query because an open transaction is holding a lock.
-
-If an idle transaction acquired a row-level lock, it might be preventing other
-sessions from acquiring it. This condition leads to frequent occurrence of the wait
-event `Lock:transactionid`. To diagnose the issue, examine the output
-from `pg_stat_activity` and `pg_locks`.
-
-### Long-running transactions
-
-Transactions that run for a long time get locks for a long time. These long-held
-locks can block other transactions from running.
+The network bandwidth on the DB instance might be insufficient for the storage communication needs of the current workload. This can contribute to storage latency that causes an increase in `Lock:extend` events.
 
 ## Actions
 
-Row-locking is a conflict among `UPDATE`, `SELECT … FOR
- UPDATE`, or `SELECT … FOR KEY SHARE` statements. Before attempting
-a solution, find out when these statements are running on the same row. Use this
-information to choose a strategy described in the following sections.
+We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Respond to high concurrency](#apg-waits.locktransactionid.actions.problem "#apg-waits.locktransactionid.actions.problem")
-- [Respond to idle transactions](#apg-waits.locktransactionid.actions.find-blocker "#apg-waits.locktransactionid.actions.find-blocker")
-- [Respond to long-running
-  transactions](#apg-waits.locktransactionid.actions.concurrency "#apg-waits.locktransactionid.actions.concurrency")
+- [Reduce concurrent inserts and updates to the same relation](#apg-waits.lockextend.actions.action1 "#apg-waits.lockextend.actions.action1")
+- [Increase network bandwidth](#apg-waits.lockextend.actions.increase-network-bandwidth "#apg-waits.lockextend.actions.increase-network-bandwidth")
 
-### Respond to high concurrency
+### Reduce concurrent inserts and updates to the same relation
 
-If concurrency is the issue, try one of the following techniques:
+First, determine whether there's an increase in `tup_inserted` and `tup_updated` metrics and an accompanying increase
+in this wait event. If so, check which relations are in high contention for insert and update operations. To determine this, query the
+`pg_stat_all_tables` view for the values in `n_tup_ins` and `n_tup_upd` fields. For information about the `pg_stat_all_tables` view, see
+[pg_stat_all_tables](https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW") in the PostgreSQL documentation.
 
-- Lower the concurrency in the application. For example, decrease the number of active
-  sessions.
-- Implement a connection pool. To learn how to pool connections with RDS Proxy, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
-- Design the application or data model to avoid contending `UPDATE` and `SELECT … FOR
-UPDATE` statements. You can also decrease the number of foreign keys accessed by
-  `SELECT … FOR KEY SHARE` statements.
+To get more information about blocking and blocked queries, query `pg_stat_activity` as in the following example:
 
-### Respond to idle transactions
+```
+SELECT
+    blocked.pid,
+    blocked.usename,
+    blocked.query,
+    blocking.pid AS blocking_id,
+    blocking.query AS blocking_query,
+    blocking.wait_event AS blocking_wait_event,
+    blocking.wait_event_type AS blocking_wait_event_type
+FROM pg_stat_activity AS blocked
+JOIN pg_stat_activity AS blocking ON blocking.pid = ANY(pg_blocking_pids(blocked.pid))
+where
+blocked.wait_event = 'extend'
+and blocked.wait_event_type = 'Lock';
 
-If `pg_stat_activity.state` shows `idle in transaction`, use the following
-strategies:
+   pid  | usename  |            query             | blocking_id |                         blocking_query                           | blocking_wait_event | blocking_wait_event_type
+  ------+----------+------------------------------+-------------+------------------------------------------------------------------+---------------------+--------------------------
+   7143 |  myuser  | insert into tab1 values (1); |        4600 | INSERT INTO tab1 (a) SELECT s FROM generate_series(1,1000000) s; | DataFileExtend      | IO
+```
 
-- Turn on autocommit wherever possible. This approach prevents transactions
-  from blocking other transactions while waiting for a `COMMIT` or
-  `ROLLBACK`.
-- Search for code paths that are missing `COMMIT`, `ROLLBACK`, or
-  `END`.
-- Make sure that the exception handling logic in your application always has a path to a valid
-  `end of transaction`.
-- Make sure that your application processes query results after ending the transaction with
-  `COMMIT` or `ROLLBACK`.
+After you identify relations that contribute to increase `Lock:extend` events, use the following techniques to reduce the contention:
 
-### Respond to long-running
+- Find out whether you can use partitioning to reduce contention for the same table. Separating inserted or updated tuples into different partitions can reduce contention.
+  For information about partitioning, see [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md").
+- If the wait event is mainly due to update activity, consider reducing the relation's fillfactor value. This can reduce requests for new blocks during the update.
+  The fillfactor is a storage parameter for a table that determines the maximum amount of space for packing a table page. It's expressed as a percentage of the total space for a page.
+  For more information about the fillfactor parameter, see [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the PostgreSQL documentation.
 
-transactions
+###### Important
 
-If long-running transactions are causing the frequent occurrence of `Lock:transactionid`, try
-the following strategies:
+We highly recommend that you test your system if you change the fillfactor because changing this value can negatively impact performance, depending on your workload.
 
-- Keep row locks out of long-running transactions.
-- Limit the length of queries by implementing autocommit whenever possible.
+### Increase network bandwidth
+
+To see whether there's an increase in write latency, check the `WriteLatency` metric in CloudWatch. If there is, use the `WriteThroughput` and `ReadThroughput` Amazon CloudWatch
+metrics to monitor the storage related traffic on the DB cluster. These metrics can help you to
+determine if network bandwidth is sufficient for the storage activity of your workload.
+
+If your network bandwidth isn't enough, increase it. If your DB instance is reaching the
+network bandwidth limits, the only way to increase the bandwidth is to increase your DB instance size.
+
+For more information about CloudWatch metrics,
+
+see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md").
+For information about network performance for each DB instance class, see [Hardware specifications for DB instance
+classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").

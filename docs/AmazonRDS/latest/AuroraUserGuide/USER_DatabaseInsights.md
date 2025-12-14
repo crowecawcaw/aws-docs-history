@@ -1,43 +1,138 @@
-# Configuring your database to monitor slow SQL queries with Database Insights for Amazon Aurora
+# Turning on the Advanced mode of Database Insights for Amazon Aurora
 
-To monitor slow SQL queries for your database, you can use the **Slow SQL Queries** section in the Database Insights dashboard. Before configuring your database to monitor slow SQL queries, the **Slow SQL Queries** section is blank.
+To turn on the Advanced mode of Database Insights for Amazon Aurora, use the following procedures.
 
-For more information about monitoring slow SQL queries in the Database Insights dashboard, see [Viewing the Database Instance Dashboard for CloudWatch Database Insights](../../../AmazonCloudWatch/latest/monitoring/Database-Insights-Database-Instance-Dashboard.md "../../../AmazonCloudWatch/latest/monitoring/Database-Insights-Database-Instance-Dashboard.md") in the _Amazon CloudWatch User Guide_.
+## Turning on the Advanced mode of Database Insights when creating a DB cluster
 
-To configure your database to monitor slow SQL queries with Database Insights, complete the following steps:
+Turn on the Advanced mode of Database Insights when creating a database for Amazon Aurora.
 
-1. Enable log exports to CloudWatch Logs.
-2. Create or modify the DB cluster parameter group for your DB cluster.
-   For information about configuring log exports, see [Publishing database logs to Amazon CloudWatch Logs](USER_LogAccess.md#USER_LogAccess.Procedural.UploadtoCloudWatch "USER_LogAccess.md#USER_LogAccess.Procedural.UploadtoCloudWatch") in the _Amazon Aurora User Guide_.
+Console
+In the console, you can turn on the Advanced mode of Database Insights when you
+create a DB cluster. Settings for Database Insights apply to all DB instances in your DB cluster.
 
-To create or modify your DB cluster parameter group, see the following topics.
+###### To turn on the Advanced mode of Database Insights when creating a DB cluster using the console
 
-- [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
-- [Modifying parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Choose **Databases**.
+3. Choose **Create database**.
+4. In the **Database Insights** section, select **Advanced mode**. Then, choose the following options:
+   - **Retention** – The amount of time to retain Performance Insights data. The retention period must be 15 months for the Advanced mode of Database Insights.
+   - **AWS KMS key** – Specify your
+     KMS key. Performance Insights encrypts all
+     potentially sensitive data using your KMS key. Data is
+     encrypted in flight and at rest. For more information, see
+     [Encrypting Amazon Aurora
+     resources](Overview.md "Overview.md").
 
-Amazon Aurora MySQL
-To configure your Amazon Aurora MySQL DB cluster to monitor slow SQL queries, you can use the following parameter combination as an example:
+5. Choose **Create database**.
 
-- `slow_query_log` – set to `1`
-- `long_query_time` – set to `1.0`
-- `log_output` – set to `FILE`
+AWS CLI
+To turn on the Advanced mode of Database Insights when creating a DB cluster, call the [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") AWS CLI command and supply the following values:
 
-This is one possible configuration. For a comprehensive guide to MySQL slow query log parameters and additional configuration options, see the [MySQL documentation for the slow query log](https://dev.mysql.com/doc/refman/8.0/en/slow-query-log.html "https://dev.mysql.com/doc/refman/8.0/en/slow-query-log.html").
+- `--database-insights-mode advanced` to turn on the Advanced mode of Database Insights.
+- `--engine` – The database engine for the DB cluster.
+- `--db-cluster-identifier` – The identifier for the DB cluster.
+- `--enable-performance-insights` to turn on Performance Insights for Database Insights.
+- `--performance-insights-retention-period` – The retention period for data for your DB cluster. To turn on Database Insights, the retention period must be at least 465 days.
 
-Amazon Aurora PostgreSQL
-To configure your Amazon Aurora PostgreSQL DB cluster to monitor slow SQL queries, you can use the following parameter combination as an example. Note that setting these parameters might reduce the performance of your DB cluster.
+The following example enables the Advanced mode of Database Insights when creating a DB cluster.
 
-- `log_min_duration_statement` – set to `1000`
-- `log_statement` – set to `none`
-- `log_destination` – set to `stderr`
+For Linux, macOS, or Unix:
 
-This is one possible configuration. For a comprehensive guide to PostgreSQL logging parameters and additional configuration options, see the [PostgreSQL documentation for logging configuration](https://www.postgresql.org/docs/current/runtime-config-logging.html "https://www.postgresql.org/docs/current/runtime-config-logging.html").
+```
+aws rds create-db-cluster \
+    --database-insights-mode advanced \
+    --engine aurora-postgresql \
+    --db-cluster-identifier sample-db-identifier \
+    --enable-performance-insights \
+    --performance-insights-retention-period 465
+```
+
+For Windows:
+
+```
+aws rds create-db-cluster ^
+    --database-insights-mode advanced ^
+    --engine aurora-postgresql ^
+    --db-cluster-identifier sample-db-identifier ^
+    --enable-performance-insights ^
+    --performance-insights-retention-period 465
+```
+
+RDS API
+To turn on the Advanced mode of Database Insights when you create a DB cluster, specify the following parameters for your [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") Amazon RDS API operation.
+
+- `DatabaseInsightsMode` to `advanced`
+- `EnablePerformanceInsights` to `True`
+- `PerformanceInsightsRetentionPeriod` to at least 465 days
+
+## Turning on the Advanced mode of Database Insights when modifying a DB cluster
+
+Turn on Database Insights when modifying a database for Amazon Aurora. Modifying a DB cluster to enable the Advanced mode of Database Insights doesn't cause downtime.
 
 ###### Note
 
-For Aurora MySQL, you can configure the parameter `long_query_time` with 1‐microsecond granularity. For example, you can set this parameter to `0.000001`. Depending on the amount of queries on the DB instance, the value of the parameter `long_query_time` can reduce performance. Start with the value `1.0`, and adjust it based on your workload. When you set this parameter to `0`, Database Insights logs all queries.
+To enable Database Insights, each DB instance in a DB cluster must have the same Performance Insights and Enhanced Monitoring settings.
 
-For information about Aurora MySQL and Aurora PostgreSQL logs, see the following.
+Console
+In the console, you can turn on the Advanced mode of Database Insights when you
+modify a DB cluster. Settings for Database Insights apply to all DB instances in your DB cluster.
 
-- [Aurora MySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
-- [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
+###### To turn on the Advanced mode of Database Insights when modifying a DB cluster using the console
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Choose **Databases**.
+3. Choose a DB cluster, and choose **Modify**.
+4. In the **Database Insights** section, select **Advanced mode**. Then, choose the following options:
+   - **Retention** – The amount of time to retain Performance Insights data. The retention period must be 15 months for the Advanced mode of Database Insights.
+   - **AWS KMS key** – Specify your
+     KMS key. Performance Insights encrypts all
+     potentially sensitive data using your KMS key. Data is
+     encrypted in flight and at rest. For more information, see
+     [Encrypting Amazon Aurora
+     resources](Overview.md "Overview.md").
+
+5. Choose **Continue**.
+6. For **Scheduling of Modifications**, choose **Apply immediately**. If you
+   choose **Apply during the next scheduled maintenance window**, your database
+   ignores this setting and turns on the Advanced mode of Database Insights immediately.
+7. Choose **Modify cluster**.
+
+AWS CLI
+To turn on the Advanced mode of Database Insights when modifying a DB cluster, call the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") AWS CLI command and supply the following values:
+
+- `--database-insights-mode advanced` to turn on the Advanced mode of Database Insights.
+- `--db-cluster-identifier` – The identifier for the DB cluster.
+- `--enable-performance-insights` to turn on Performance Insights for Database Insights.
+- `--performance-insights-retention-period` – The retention period for data for your DB cluster. To turn on the Advanced mode of Database Insights, the retention period must be at least 465 days.
+
+The following example enables the Advanced mode of Database Insights when modifying a DB cluster.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-cluster \
+    --database-insights-mode advanced \
+    --db-cluster-identifier sample-db-identifier \
+    --enable-performance-insights \
+    --performance-insights-retention-period 465
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster ^
+    --database-insights-mode advanced ^
+    --db-cluster-identifier sample-db-identifier ^
+    --enable-performance-insights ^
+    --performance-insights-retention-period 465
+```
+
+RDS API
+To turn on the Advanced mode of Database Insights when you modify a DB cluster, specify the following parameters for your [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md") Amazon RDS API operation.
+
+- `DatabaseInsightsMode` to `advanced`
+- `EnablePerformanceInsights` to `True`
+- `PerformanceInsightsRetentionPeriod` to at least 465 days

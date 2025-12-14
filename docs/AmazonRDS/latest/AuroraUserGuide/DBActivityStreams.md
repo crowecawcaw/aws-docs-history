@@ -1,44 +1,68 @@
-# Accessing an activity stream from Amazon Kinesis
+# Network prerequisites for Aurora MySQL database activity streams
 
-When you enable an activity stream for a DB cluster, a Kinesis stream is created for you. From Kinesis, you can monitor your
-database activity in real time. To further analyze database activity, you can connect your Kinesis stream to consumer
-applications. You can also connect the stream to compliance management applications such as IBM's Security Guardium or Imperva's SecureSphere Database Audit and Protection.
+In the following section, you can find how to configure your virtual private cloud (VPC) for
+use with database activity streams.
 
-You can access your Kinesis stream either from the RDS console or the Kinesis console.
+###### Note
 
-###### To access an activity stream from Kinesis using the RDS console
+Aurora MySQL network prerequisites are applicable to the following engine versions:
 
-1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-3. Choose the DB cluster on which you started an activity stream.
-4. Choose **Configuration**.
-5. Under **Database activity stream**, choose the link under
-   **Kinesis stream**.
-6. In the Kinesis console, choose **Monitoring** to begin observing the
-   database activity.
+- Aurora MySQL version 2, up to 2.11.3
+- Aurora MySQL version 2.12.0
+- Aurora MySQL version 3, up to 3.04.2
 
-###### To access an activity stream from Kinesis using the Kinesis console
+###### Topics
 
-1. Open the Kinesis console at
-   [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
-2. Choose your activity stream from the list of Kinesis streams.
+- [Prerequisites for AWS KMS endpoints](#DBActivityStreams.Prereqs.KMS "#DBActivityStreams.Prereqs.KMS")
+- [Prerequisites for public availability](#DBActivityStreams.Prereqs.Public "#DBActivityStreams.Prereqs.Public")
+- [Prerequisites for private availability](#DBActivityStreams.Prereqs.Private "#DBActivityStreams.Prereqs.Private")
 
-An activity stream's name includes the prefix `aws-rds-das-cluster-`
-followed by the resource ID of the DB cluster. The following is an example.
+## Prerequisites for AWS KMS endpoints
 
-```
-aws-rds-das-cluster-NHVOV4PCLWHGF52NP
-```
+Instances in an Aurora MySQL cluster that use activity streams must be able to access AWS KMS endpoints. Make sure
+this requirement is satisfied before enabling database activity streams for your Aurora MySQL cluster. If the Aurora
+cluster is publicly available, this requirement is satisfied automatically.
 
-To use the Amazon RDS console to find the resource ID for
-the DB cluster,
-choose your DB cluster from the list of databases, and then choose
-the **Configuration** tab.
+###### Important
 
-To use the AWS CLI to find the full Kinesis stream name for an activity stream, use a
-[describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md")
+If the Aurora MySQL DB cluster can't access the AWS KMS endpoint, the activity stream stops. In that case,
+Aurora notifies you about this issue using RDS Events.
 
-CLI request and note the value of `ActivityStreamKinesisStreamName` in the
-response. 3. Choose **Monitoring** to begin observing the database activity.
-For more information about using Amazon Kinesis, see
-[What Is Amazon Kinesis Data Streams?](../../../streams/latest/dev/introduction.md "../../../streams/latest/dev/introduction.md").
+## Prerequisites for public availability
+
+For an Aurora DB cluster to be public, it must meet the following requirements:
+
+- **Publicly Accessible** is **Yes** in the AWS Management Console cluster details
+  page.
+- The DB cluster is in an Amazon VPC public subnet. For more information about publicly accessible DB instances, see
+  [Working with a DB cluster in a VPC](USER_VPC.md "USER_VPC.md").
+  For more information about public Amazon VPC subnets, see [Your VPC and
+  Subnets](../../../vpc/latest/userguide/VPC_Subnets.md "../../../vpc/latest/userguide/VPC_Subnets.md").
+
+## Prerequisites for private availability
+
+If your Aurora DB cluster is in a VPC public subnet and isn't publicly accessible, it's private. To keep
+your cluster private and use it with database activity streams, you have the following options:
+
+- Configure Network Address Translation (NAT) in your VPC. For more information, see [NAT Gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md").
+- Create an AWS KMS endpoint in your VPC. This option is recommended because it's easier to configure.
+
+###### To create an AWS KMS endpoint in your VPC
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Endpoints**.
+3. Choose **Create Endpoint**.
+
+The **Create Endpoint** page appears. 4. Do the following:
+
+    * In **Service category**, choose **AWS services**.
+    * In **Service Name**, choose
+     **com.amazonaws.`region`.kms**, where
+     `region` is the AWS Region where your cluster is located.
+    * For **VPC**, choose the VPC where your cluster is located.
+
+5. Choose **Create Endpoint**.
+
+For more information about configuring VPC endpoints, see [VPC
+Endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md").

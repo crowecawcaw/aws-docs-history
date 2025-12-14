@@ -1,132 +1,89 @@
-# Auto migrating EC2 databases to Amazon Aurora using AWS Database Migration Service
+# Managing data migrations
 
-You can use the Aurora console to migrate an EC2 database to
-Aurora.
-Aurora uses
-AWS Database Migration Service (AWS DMS) to migrate your source EC2 database.
-AWS DMS allows you to migrate relational databases into your AWS Cloud.
-For more information about AWS Database Migration Service, see
-[What is AWS Database Migration Service?](../../../dms/latest/userguide/Welcome.md "../../../dms/latest/userguide/Welcome.md")
-in the _AWS Database Migration Service User Guide_.
+After using the **Migrate data from EC2 database** action from the RDS console,
+Aurora starts the migration automatically.
 
-To begin the migration, you must create an equivalent Aurora
-DB cluster
-to migrate the data into.
-After you create your target database, you can import your EC2 database into it.
-For source databases smaller than 1TiB, this migration action reduces
-the time and resources required to migrate your data into Aurora
-.
+If you used the AWS DMS console to create the migration resources, you can start the migration process.
 
-## Overview
+## Starting the data migration
 
-The Aurora console allows you to migrate EC2 databases
-into equivalent Aurora databases. You must create an
-Aurora database to enable migration from the console.
+Follow these steps to start data migration:
 
-You can migrate EC2 databases for the following databases engines:
+###### Starting a data migration
 
-- MySQL
-- PostgreSQL
+1. Choose the target database on the **Databases** page in the RDS console.
+2. In the database details page, choose the **Data migrations** tab.
+3. Under the **Data migrations** tab, the
+   **Associated data migrations** lists the available data migrations.
 
-The migration process involves the following steps:
+Migrations set up using the Aurora
+console start automatically once the required resources are set up.
 
-- Create an equivalent database in Aurora.
-  For the databases to be equivalent, they must have the same database engine and compatible engine versions. They must also
-  be in the same VPC. For instructions on creating your database, see
-  [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md")
-  .
-- Choose the type of replication for your database:
-  - **Full load migration** – Aurora copies the complete source database
-    to the target database, creating new tables in the target when necessary.
+Migrations set up using the DMS console are set to **Ready**.
 
-  ###### Note
+To begin these migrations, select the **Actions**
+drop down and select **Start**. 4. This begins the data migration for your EC2 database.
 
-  This option causes an outage in your Aurora database.
-  - **Full load and change data capture (CDC) migration** – Similar to full load migration,
-    with this option, Aurora
-    copies over the complete source database to the target database. However, after the full load migration,
-    Aurora applies any captured changes in the source
-    to the target database. Change data capture collects changes to the database logs by using the database engine's native API.
+## Stopping the data migration
 
-  ###### Note
+For data migrations whose replication type is full load, stopping the migration
+causes the process to stop and can't be resumed. Once stopped, you must restart the
+migration.
 
-  This option causes an outage in your Aurora database.
-  - **Change data capture (CDC)** – Use this option to keep your target database available through the migration.
-    Aurora migrates ongoing changes in your source database to the target database.
+For migrations with replication type set to change data capture (CDC) or full load and CDC,
+you can stop the continuous replication process, and resume the process later.
 
-- Aurora creates the
-  necessary networking resources to facilitate the migration.
-  Once Aurora
-  creates the required resources, it notifies you about the resources
-  created and allows you to initiate the data transfer.
+###### Stopping a data migration
 
-The time required to complete the migration depends on the
-type of replication and the size of the source database.
+1. Choose the target database on the **Databases** page in the RDS console.
+2. In the database details page, choose the **Data migrations** tab.
+3. Under the **Data migrations** tab, the
+   **Associated data migrations** lists the ongoing data migrations.
 
-## Prerequisites
+To stop a migration, select a data migration and select **Stop**
+in the **Actions** drop down. 4. This stops the data migration for your EC2 database.
 
-### MySQL
+## Resuming the data migration
 
-Before you begin to work with a MySQL
-database as the source database, make sure
-that you have the following prerequisites. These prerequisites apply to AWS-managed sources.
+For data migrations whose replication type is full load and change data capture (CDC)
+or change data capture (CDC) migration, you can resume the CDC process from the last stop point.
 
-You must have an account for AWS DMS that has the Replication Admin role. The role
-needs the following privileges:
+###### Resuming a data migration
 
-- **REPLICATION CLIENT** – This privilege
-  is required for CDC tasks only. In other words, full-load-only tasks
-  don't require this privilege.
-- **REPLICATION SLAVE** – This privilege is
-  required for CDC tasks only. In other words, full-load-only tasks don't
-  require this privilege.
+1. Choose the target database on the **Databases** page in the RDS console.
+2. In the database details page, choose the **Data migrations** tab.
+3. Under the **Data migrations** tab, the
+   **Associated data migrations** lists the stopped data migrations.
 
-The AWS DMS user must also have SELECT privileges for the source tables designated
-for replication.
+To resume a migration, select a data migration and select **Resume processing**
+in the **Actions** drop down. 4. This resume the data migration for your EC2 database.
 
-Grant the following privileges if you use MySQL-specific premigration assessments.
+## Deleting the data migration
 
-```
-grant select on mysql.user to <dms_user>;
-grant select on mysql.db to <dms_user>;
-grant select on mysql.tables_priv to <dms_user>;
-grant select on mysql.role_edges to <dms_user>  #only for MySQL version 8.0.11 and higher
-```
+To delete an associated data migration, use the following instructions
 
-### PostgreSQL
+###### Deleting a data migration
 
-Before migrating data from an AWS-managed PostgreSQL source database, do the
-following:
+1. Choose the target database on the **Databases** page in the RDS console.
+2. In the database details page, choose the **Data migrations** tab.
+3. To delete a migration, select a data migration and select **Delete**
+   in the **Actions** drop down.
+4. This deletes the data migration.
 
-- We recommend that you use an AWS user account with the minimum required permissions
-  for the PostgreSQL DB instance as
-  the user account for the PostgreSQL source endpoint for AWS DMS. Using the master
-  account is not recommended.
-  The account must have the `rds_superuser` role and the
-  `rds_replication` role. The `rds_replication`
-  role grants permissions to manage logical slots and to stream data using
-  logical slots.
+Deleting a data migration that was in progress doesn't impact
+any data that has already been loaded to the target database.
 
-###### Note
+## Restarting the data migration
 
-Some AWS DMS transactions are idle for some time before the DMS engine uses
-them again. By using the parameter
-`idle_in_transaction_session_timeout` in PostgreSQL versions
-9.6 and higher, you can cause idle transactions to time out and fail.
+To restart an associated data migration from a CDC start point, use the following instructions
 
-## Limitations
+###### Restarting a data migration
 
-The following limitations apply to the auto-migrate process:
+1. Choose the target database on the **Databases** page in the RDS console.
+2. In the database details page, choose the **Data migrations** tab.
+3. To restart a migration, select a data migration and select **Restart**
+   in the **Actions** drop down.
+4. This restarts the data migration from a CDC start point.
 
-- Your target database status must be **Available** to begin source database migration.
-- When migrating from a MySQL source database, your Aurora
-  account must have the Replication Admin role.
-  You must also have the proper privileges applied for that role.
-- Your EC2 instance and target database must be in the same VPC.
-- You can't migrate your EC2 database to the following target databases when using the
-  **Migrate data from EC2 database** action:
-  - Aurora global database
-  - Aurora Limitless database
-  - Aurora Serverless v1
-  - Databases with MySQL version lower than 5.7
-  - Databases with PostgreSQL version lower than 10.4
+Restarting a data migration that was in progress doesn't impact
+any data that has already been loaded to the target database.

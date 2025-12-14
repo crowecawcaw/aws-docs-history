@@ -1,233 +1,130 @@
-# Hardware specifications for DB instance
+# DB instance class types
 
-classes for Aurora
+Amazon Aurora
+supports DB instance classes for the following use cases:
 
-In the table in this section, you can find hardware details about the Amazon RDS DB instance
-classes for Aurora.
+- [Aurora Serverless v2](#Concepts.DBInstanceClass.Types.serverless-v2 "#Concepts.DBInstanceClass.Types.serverless-v2")
+- [Memory-optimized](#Concepts.DBInstanceClass.Types.memory "#Concepts.DBInstanceClass.Types.memory")
+- [Burstable-performance](#Concepts.DBInstanceClass.Types.burstable "#Concepts.DBInstanceClass.Types.burstable")
+- [Optimized Reads](#Concepts.DBInstanceClass.Types.optimized-reads "#Concepts.DBInstanceClass.Types.optimized-reads")
+  For more information about Amazon EC2 instance types, see [Instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in the Amazon EC2
+  documentation.
 
-For information about Aurora DB engine support for each DB instance class, see
-[Supported DB engines for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+## Aurora Serverless v2 instance class type
 
-###### Topics
+The following Aurora Serverless v2 type is available:
 
-- [Hardware terminology for
-  DB instance classes for Aurora](#Concepts.DBInstanceClass.hardware-terminology "#Concepts.DBInstanceClass.hardware-terminology")
-- [Hardware specifications for the memory-optimized instance classes](#hw-specs-aur.mem-opt "#hw-specs-aur.mem-opt")
-- [Hardware specifications for the burstable-performance instance classes](#hardware-specifications.burstable-inst-classes "#hardware-specifications.burstable-inst-classes")
+- db.serverless – A special DB instance class type
+  used by Aurora Serverless v2. Aurora adjusts the compute, memory, and network resources
+  dynamically as the workload changes. For usage details, see [Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
 
-## Hardware terminology for
+## Memory-optimized instance class types
 
-DB instance classes for Aurora
+The memory-optimized X family supports the following instance classes:
 
-The following terminology is used to describe hardware specifications for DB instance
-classes:
+- db.x2g – Instance classes optimized for
+  memory-intensive applications and powered by AWS Graviton2 processors. These
+  instance classes offer low cost per GiB of memory.
 
-**vCPU**
+You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
+processors. To do so, complete the same steps as with any other DB instance
+modification.
 
-The number of virtual central processing units (CPUs). A _virtual CPU_ is a unit of capacity that you can
-use to compare DB instance classes. Instead of purchasing or leasing a particular
-processor to use for several months or years, you are renting capacity by
-the hour. Our goal is to make a consistent and specific amount of CPU
-capacity available, within the limits of the actual underlying
-hardware.
+The memory-optimized R family supports the following instance class types:
 
-**ECU**
+- db.r8g – Instance classes powered by AWS
+  Graviton4 processors. These instance classes are ideal for running memory-intensive
+  workloads. These instances offer larger instance sizes with up to
+  3x more vCPUs and memory than the seventh-generation AWS Graviton3-based db.r7g
+  instances. They are powered by the AWS Nitro System, a combination of dedicated
+  hardware and lightweight hypervisor.
+- You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton4
+  processors. To do so, complete the same steps as with any other DB instance
+  modification.
+- db.r7g – Instance classes powered by AWS Graviton3 processors. These instance
+  classes are ideal for running memory-intensive workloads.
 
-The relative measure of the integer processing power of an Amazon EC2 instance.
-To make it easy for developers to compare CPU capacity between different
-instance classes, we have defined an Amazon EC2 Compute Unit. The amount of CPU
-that is allocated to a particular instance is expressed in terms of these
-EC2 Compute Units. One ECU currently provides CPU capacity equivalent to a
-1.0–1.2 GHz 2007 Opteron or 2007 Xeon processor.
+You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton3
+processors. To do so, complete the same steps as with any other DB instance modification.
+They are powered by the AWS Nitro System, a combination of dedicated hardware and
+lightweight hypervisor.
 
-**Memory (GiB)**
+- db.r7i – Instance classes powered by 4th
+  Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified
+  and are ideal for running memory-intensive workloads. You can modify a
+  DB instance to use one of the DB instance classes powered by 4th Generation Intel Xeon Scalable
+  processors. To do so, complete the same steps as with any other DB instance modification.
+  They are powered by the AWS Nitro System, a combination of dedicated hardware and
+  lightweight hypervisor.
+- db.r6g – Instance classes powered by AWS
+  Graviton2 processors. These instance classes are ideal for running memory-intensive
+  workloads. They are powered by the AWS Nitro System, a combination of
+  dedicated hardware and lightweight hypervisor.
+- You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
+  processors. To do so, complete the same steps as with any other DB instance
+  modification.
+- db.r6i – Instance classes powered by 3rd
+  Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified
+  and are an ideal fit for memory-intensive workloads.
+- db.r5 – Instance classes optimized for
+  memory-intensive applications. These instance classes offer improved networking
+  and Amazon Elastic Block Store (Amazon EBS) performance. They are
+  powered by the AWS Nitro System, a combination of dedicated hardware and
+  lightweight hypervisor.
+- db.r4 – These instance classes are supported only for Aurora MySQL 2.x and Aurora PostgreSQL 11 and 12
+  versions. For all Aurora DB clusters that use db.r4 DB instance classes, we recommend that you upgrade to a higher generation instance class as soon as
+  possible.
 
-The RAM, in gibibytes, allocated to the DB instance. There is often a consistent
-ratio between memory and vCPU. As an example, take the db.r4 instance class,
-which has a memory to vCPU ratio similar to the db.r5 instance class.
-However, for most use cases the db.r5 instance class provides better, more
-consistent performance than the db.r4 instance class.
+The db.r4 instance classes aren't available for the Aurora I/O-Optimized cluster storage configuration.
 
-**Max. EBS bandwidth (Mbps)**
+## Burstable-performance instance
 
-The maximum EBS bandwidth in megabits per second. Divide by 8 to get the
-expected throughput in megabytes per second.
+class types
+
+The following burstable-performance DB instance class types are available:
+
+- db.t4g – General-purpose instance classes
+  powered by Arm-based AWS Graviton2 processors. These instance classes deliver
+  better price performance than previous burstable-performance DB instance classes for a
+  broad set of burstable general-purpose workloads. Amazon RDS db.t4g instances are
+  configured for Unlimited mode. This means that they can burst beyond the baseline
+  over a 24-hour window for an additional charge.
+
+You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
+processors. To do so, complete the same steps as with any other DB instance
+modification.
+
+- db.t3 – Instance classes that provide a
+  baseline performance level, with the ability to burst to full CPU usage. The db.t3
+  instances are configured for Unlimited mode. These instance classes provide more
+  computing capacity than the previous db.t2 instance classes. They are powered by the
+  AWS Nitro System, a combination of dedicated hardware and lightweight hypervisor.
+  We recommend using these instance classes only for
+  development and test servers, or other non-production servers.
+- db.t2 – Instance classes that provide a
+  baseline performance level, with the ability to burst to full CPU usage. The db.t2
+  instances are configured for Unlimited mode. We recommend using these instance classes
+  only for development and test servers, or other non-production servers.
+
+The db.t2 instance classes aren't available for the Aurora I/O-Optimized cluster storage configuration.
 
 ###### Note
 
-This figure refers to I/O bandwidth for local storage within the DB
-instance. It doesn't apply to communication with the Aurora cluster
-volume.
+We recommend using the T DB instance classes only for development, test,
+or other nonproduction servers. For more detailed recommendations for the T instance
+classes, see [Using T instance classes for development and testing](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium").
 
-**Network bandwidth**
+For DB instance class hardware specifications, see [Hardware specifications for DB instance
+classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
-The network speed relative to other DB instance classes.
+## Optimized Reads instance class types
 
-For information on using Amazon CloudWatch metrics to monitor your Aurora DB instance throughput, see [Evaluating DB instance usage for Aurora MySQL with Amazon CloudWatch metrics](AuroraMySQL.BestPractices.md "AuroraMySQL.BestPractices.md") and [Evaluating DB instance usage for Aurora PostgreSQL with CloudWatch
-metrics](AuroraPostgreSQL_AnayzeResourceUsage.md#AuroraPostgreSQL_AnayzeResourceUsage.EvaluateInstanceUsage "AuroraPostgreSQL_AnayzeResourceUsage.md#AuroraPostgreSQL_AnayzeResourceUsage.EvaluateInstanceUsage").
+The following Optimized Reads instance class types are available:
 
-## Hardware specifications for the memory-optimized instance classes
-
-The following tables show the compute, memory, storage, and bandwidth specifications for the memory-optimized instance classes.
-
-**db.x2g – memory-optimized instance classes with AWS Graviton2 processors**
-
-| Instance class  | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| --------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.x2g.16xlarge | 64   | —   | 1024         | EBS-optimized only     | 19,000                    | 25                       |
-| db.x2g.12xlarge | 48   | —   | 768          | EBS-optimized only     | 14,250                    | 20                       |
-| db.x2g.8xlarge  | 32   | —   | 512          | EBS-optimized only     | 9,500                     | 12                       |
-| db.x2g.4xlarge  | 16   | —   | 256          | EBS-optimized only     | 4,750                     | Up to 10                 |
-| db.x2g.2xlarge  | 8    | —   | 128          | EBS-optimized only     | Up to 4,750               | Up to 10                 |
-| db.x2g.xlarge   | 4    | —   | 64           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
-| db.x2g.large    | 2    | —   | 32           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
-
-**db.r8gd – memory-optimized instance classes powered by AWS
-Graviton4 processors and SSD storage**
-
-| Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r8gd.48xlarge | 192  | —   | 1536         | 6 x 1900 NVMe SSD      | 40,000                    | 50                       |
-| db.r8gd.24xlarge | 96   | —   | 768          | 3 x 1900 NVMe SSD      | 30,000                    | 40                       |
-| db.r8gd.16xlarge | 64   | —   | 512          | 2 x 1900 NVMe SSD      | 20,000                    | 30                       |
-| db.r8gd.12xlarge | 48   | —   | 384          | 3 x 950 NVMe SSD       | 15,000                    | 22.5                     |
-| db.r8gd.8xlarge  | 32   | —   | 256          | 1 x 1900 NVMe SSD      | 10,000                    | 15                       |
-| db.r8gd.4xlarge  | 16   | —   | 128          | 1 x 950 NVMe SSD       | Up to 10,000              | Up to 15                 |
-| db.r8gd.2xlarge  | 8    | —   | 64           | 1 x 474 NVMe SSD       | Up to 10,000              | Up to 15                 |
-| db.r8gd.xlarge   | 4    | —   | 32           | 1 x 237 NVMe SSD       | Up to 10,000              | Up to 12.5               |
-| db.r8gd.large    | 2    | —   | 16           | 1 x 118 NVMe SSD       | Up to 10,000              | Up to 12.5               |
-
-**db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors**
-
-| Instance class  | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| --------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r8g.48xlarge | 192  | —   | 1536         | EBS-optimized only     | 40,000                    | 50                       |
-| db.r8g.24xlarge | 96   | —   | 768          | EBS-optimized only     | 30,000                    | 40                       |
-| db.r8g.16xlarge | 64   | —   | 512          | EBS-optimized only     | 20,000                    | 30                       |
-| db.r8g.12xlarge | 48   | —   | 384          | EBS-optimized only     | 15,000                    | 22.5                     |
-| db.r8g.8xlarge  | 32   | —   | 256          | EBS-optimized only     | 10,000                    | 15                       |
-| db.r8g.4xlarge  | 16   | —   | 128          | EBS-optimized only     | Up to 10,000              | Up to 15                 |
-| db.r8g.2xlarge  | 8    | —   | 64           | EBS-optimized only     | Up to 10,000              | Up to 15                 |
-| db.r8g.xlarge   | 4    | —   | 32           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-| db.r8g.large    | 2    | —   | 16           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-
-**db.r7i – memory-optimized instance classes powered by 4th generation Intel Xeon Scalable processors**
-
-| Instance class  | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| --------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r7i.48xlarge | 192  | —   | 1536         | EBS-optimized only     | 40,000                    | 50                       |
-| db.r7i.24xlarge | 96   | —   | 768          | EBS-optimized only     | 30,000                    | 37.5                     |
-| db.r7i.16xlarge | 64   | —   | 512          | EBS-optimized only     | 20,000                    | 25                       |
-| db.r7i.12xlarge | 48   | —   | 384          | EBS-optimized only     | 15,000                    | 18.75                    |
-| db.r7i.8xlarge  | 32   | —   | 256          | EBS-optimized only     | 10,000                    | 12.5                     |
-| db.r7i.4xlarge  | 16   | —   | 128          | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-| db.r7i.2xlarge  | 8    | —   | 64           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-| db.r7i.xlarge   | 4    | —   | 32           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-| db.r7i.large    | 2    | —   | 16           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-
-**db.r7g – memory-optimized instance classes with AWS Graviton3 processors**
-
-| Instance class  | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| --------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r7g.16xlarge | 64   | —   | 512          | EBS-optimized only     | 20,000                    | 30                       |
-| db.r7g.12xlarge | 48   | —   | 384          | EBS-optimized only     | 15,000                    | 22.5                     |
-| db.r7g.8xlarge  | 32   | —   | 256          | EBS-optimized only     | 10,000                    | 15                       |
-| db.r7g.4xlarge  | 16   | —   | 128          | EBS-optimized only     | Up to 10,000              | Up to 15                 |
-| db.r7g.2xlarge  | 8    | —   | 64           | EBS-optimized only     | Up to 10,000              | Up to 15                 |
-| db.r7g.xlarge   | 4    | —   | 32           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-| db.r7g.large    | 2    | —   | 16           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-
-**db.r6id – memory-optimized instance classes with 3rd generation Intel Xeon Scalable processors and SSD
-storage**
-
-| Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r6id.32xlarge | 128  | —   | 1,024        | 4x1900 NVMe SSD        | 40,000                    | 50                       |
-| db.r6id.24xlarge | 96   | —   | 768          | 4x1425 NVMe SSD        | 30,000                    | 37.5                     |
-
-**db.r6gd – memory-optimized instance classes with AWS Graviton2 processors and SSD storage**
-
-| Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r6gd.16xlarge | 64   | —   | 512          | 2 x 1900 NVMe SSD      | 19,000                    | 25                       |
-| db.r6gd.12xlarge | 48   | —   | 384          | 2 x 1425 NVMe SSD      | 13,500                    | 20                       |
-| db.r6gd.8xlarge  | 32   | —   | 256          | 1 x 1900 NVMe SSD      | 9,000                     | 12                       |
-| db.r6gd.4xlarge  | 16   | —   | 128          | 1 x 950 NVMe SSD       | 4,750                     | Up to 10                 |
-| db.r6gd.2xlarge  | 8    | —   | 64           | 1 x 474 NVMe SSD       | Up to 4,750               | Up to 10                 |
-| db.r6gd.xlarge   | 4    | —   | 32           | 1 x 237 NVMe SSD       | Up to 4,750               | Up to 10                 |
-
-**db.r6g – memory-optimized instance classes with AWS Graviton2 processors**
-
-| Instance class  | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| --------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r6g.16xlarge | 64   | —   | 512          | EBS-optimized only     | 19,000                    | 25                       |
-| db.r6g.12xlarge | 48   | —   | 384          | EBS-optimized only     | 13,500                    | 20                       |
-| db.r6g.8xlarge  | 32   | —   | 256          | EBS-optimized only     | 9,000                     | 12                       |
-| db.r6g.4xlarge  | 16   | —   | 128          | EBS-optimized only     | 4,750                     | Up to 10                 |
-| db.r6g.2xlarge  | 8    | —   | 64           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
-| db.r6g.xlarge   | 4    | —   | 32           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
-| db.r6g.large    | 2    | —   | 16           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
-
-**db.r6i – memory-optimized instance classes with 3rd Generation Intel Xeon Scalable processors**
-
-| Instance class  | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| --------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r6i.32xlarge | 128  | —   | 1,024        | EBS-optimized only     | 40,000                    | 50                       |
-| db.r6i.24xlarge | 96   | —   | 768          | EBS-optimized only     | 30,000                    | 37.5                     |
-| db.r6i.16xlarge | 64   | —   | 512          | EBS-optimized only     | 20,000                    | 25                       |
-| db.r6i.12xlarge | 48   | —   | 384          | EBS-optimized only     | 15,000                    | 18.75                    |
-| db.r6i.8xlarge  | 32   | —   | 256          | EBS-optimized only     | 10,000                    | 12.5                     |
-| db.r6i.4xlarge  | 16   | —   | 128          | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-| db.r6i.2xlarge  | 8    | —   | 64           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-| db.r6i.xlarge   | 4    | —   | 32           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-| db.r6i.large    | 2    | —   | 16           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
-
-**db.r5 – memory-optimized instance classes**
-
-| Instance class | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| -------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r5.24xlarge | 96   | 347 | 768          | EBS-optimized only     | 19,000                    | 25                       |
-| db.r5.16xlarge | 64   | 264 | 512          | EBS-optimized only     | 13,600                    | 20                       |
-| db.r5.12xlarge | 48   | 173 | 384          | EBS-optimized only     | 9,500                     | 12                       |
-| db.r5.8xlarge  | 32   | 132 | 256          | EBS-optimized only     | 6,800                     | 10                       |
-| db.r5.4xlarge  | 16   | 71  | 128          | EBS-optimized only     | 4,750                     | Up to 10                 |
-| db.r5.2xlarge  | 8    | 38  | 64           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
-| db.r5.xlarge   | 4    | 19  | 32           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
-| db.r5.large    | 2    | 10  | 16           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
-
-**db.r4 – memory-optimized instance classes with Intel Xeon Scalable processors**
-
-| Instance class | vCPU | ECU  | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| -------------- | ---- | ---- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r4.16xlarge | 64   | 195  | 488          | EBS-optimized only     | 14,000                    | 25                       |
-| db.r4.8xlarge  | 32   | 99   | 244          | EBS-optimized only     | 7,000                     | 10                       |
-| db.r4.4xlarge  | 16   | 53   | 122          | EBS-optimized only     | 3,500                     | Up to 10                 |
-| db.r4.2xlarge  | 8    | 27   | 61           | EBS-optimized only     | 1,700                     | Up to 10                 |
-| db.r4.xlarge   | 4    | 13.5 | 30.5         | EBS-optimized only     | 850                       | Up to 10                 |
-| db.r4.large    | 2    | 7    | 15.25        | EBS-optimized only     | 425                       | Up to 10                 |
-
-## Hardware specifications for the burstable-performance instance classes
-
-The following tables show the compute, memory, storage, and bandwidth specifications for the burstable-performance instance classes.
-
-**db.t4g – burstable-performance instance classes powered by AWS Graviton2 processors**
-
-| Instance class | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| -------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.t4g.large   | 2    | —   | 8            | EBS-optimized only     | Up to 2,780               | Up to 5                  |
-| db.t4g.medium  | 2    | —   | 4            | EBS-optimized only     | Up to 2,085               | Up to 5                  |
-
-**db.t3 – burstable-performance instance classes**
-
-| Instance class | vCPU | ECU      | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| -------------- | ---- | -------- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.t3.large    | 2    | Variable | 8            | EBS-optimized only     | Up to 2,048               | Up to 5                  |
-| db.t3.medium   | 2    | Variable | 4            | EBS-optimized only     | Up to 1,536               | Up to 5                  |
-| db.t3.small    | 2    | Variable | 2            | EBS-optimized only     | Up to 1,536               | Up to 5                  |
-
-**db.t2 – burstable-performance instance classes**
-
-| Instance class | vCPU | ECU      | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
-| -------------- | ---- | -------- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.t2.medium   | 2    | Variable | 4            | EBS only               | —                         | Moderate                 |
-| db.t2.small    | 1    | Variable | 2            | EBS only               | —                         | Low                      |
+- db.r8gd – Instance classes powered by Graviton4 processors. These instance classes are ideal
+  for running memory-intensive workloads and offer local NVMe-based SSD block-level storage for applications that need high-speed,
+  low latency local storage. They offer a maximum memory of 1.5 TiB and up to 11.4 TB of direct-attached NVMe-based SSD storage.
+- db.r6gd – Instance classes powered by AWS Graviton2 processors. These instance
+  classes are ideal for running memory-intensive workloads and offer local NVMe-based SSD block-level storage for applications that need high-speed, low latency local storage.
+- db.r6id – Instance classes powered by 3rd Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified and
+  are an ideal fit for memory-intensive workloads. They offer a maximum memory of 1 TiB and up to 7.6 TB of direct-attached NVMe-based SSD storage.

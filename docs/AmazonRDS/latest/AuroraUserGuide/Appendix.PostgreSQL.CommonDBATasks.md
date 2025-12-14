@@ -1,35 +1,103 @@
-# Understanding PostgreSQL roles and
+# Controlling user access to the
 
-permissions
+PostgreSQL database
 
-When you create an Aurora PostgreSQL DB cluster
-using the AWS Management Console, an
-administrator account is created at the same time. By default, its name is
-`postgres`, as shown in the following screenshot:
+New databases in PostgreSQL are always created with a default set of privileges in the
+database's `public` schema that allow all database users and roles to create
+objects. These privileges allow database users to connect to the database, for example, and
+create temporary tables while connected.
 
-![The default login identity for Credentials in the Create database page is postgres.](images/default-login-identity-apg-rpg.png)
-You can choose another name rather than accept the default (`postgres`). If you
-do, the name you choose must start with a letter and be between 1 and 16 alphanumeric
-characters. For simplicity's sake, we refer to this main user account by its default value
-(`postgres`) throughout this guide.
+To better control user access to the databases instances that you create on your Aurora PostgreSQL DB cluster primary node
+, we recommend that
+you revoke these default `public` privileges. After doing so, you then grant
+specific privileges for database users on a more granular basis, as shown in the following
+procedure.
 
-If you use the `create-db-cluster` AWS CLI rather than the
-AWS Management Console, you create the user name by passing it with the `master-username`
-parameter. For more information, see [Step 2: Create an
-Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
+###### To set up roles and privileges for a new database instance
 
-Whether you use the AWS Management Console, the AWS CLI, or the Amazon RDS API, and whether you use the default
-`postgres` name or choose a different name, this first database user account is a
-member of the `rds_superuser` group and has `rds_superuser`
-privileges.
+Suppose you're setting up a database on a newly created Aurora PostgreSQL DB cluster for use by several researchers, all of whom need read-write access to
+the database.
 
-###### Topics
+1. Use `psql` (or pgAdmin) to connect to the
+   primary DB instance on your Aurora PostgreSQL DB cluster:
 
-- [Understanding the
-  rds_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.md "Appendix.PostgreSQL.CommonDBATasks.Roles.md")
-- [Controlling user access to the
-  PostgreSQL database](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Delegating and
-  controlling user password management](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Using SCRAM for PostgreSQL
-  password encryption](PostgreSQL_Password_Encryption_configuration.md "PostgreSQL_Password_Encryption_configuration.md")
+```
+psql --host=`your-cluster-instance-1.666666666666`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password
+```
+
+When prompted, enter your password. The `psql` client connects and displays
+the default administrative connection database, `postgres=>`, as the
+prompt. 2. To prevent database users from creating objects in the `public` schema, do
+the following:
+
+```
+`postgres=>` `REVOKE CREATE ON SCHEMA public FROM PUBLIC;`
+`REVOKE`
+```
+
+3. Next, you create a new database instance:
+
+```
+`postgres=>` `CREATE DATABASE `lab_db`;`
+`CREATE DATABASE`
+```
+
+4. Revoke all privileges from the `PUBLIC` schema on this new database.
+
+```
+`postgres=>` `REVOKE ALL ON DATABASE `lab_db` FROM public;`
+`REVOKE`
+```
+
+5. Create a role for database users.
+
+```
+`postgres=>` `CREATE ROLE `lab_tech`;`
+`CREATE ROLE`
+```
+
+6. Give database users that have this role the ability to connect to the database.
+
+```
+`postgres=>` `GRANT CONNECT ON DATABASE `lab_db` TO `lab_tech`;`
+`GRANT`
+
+```
+
+7. Grant all users with the `lab_tech` role all privileges on this
+   database.
+
+```
+`postgres=>` `GRANT ALL PRIVILEGES ON DATABASE `lab_db` TO `lab_tech`;`
+`GRANT`
+
+```
+
+8. Create database users, as follows:
+
+```
+`postgres=>` `CREATE ROLE lab_user1 LOGIN PASSWORD 'change_me';`
+`CREATE ROLE`
+`postgres=>` `CREATE ROLE lab_user2 LOGIN PASSWORD 'change_me';`
+`CREATE ROLE`
+```
+
+9. Grant these two users the privileges associated with the lab_tech role:
+
+```
+`postgres=>` `GRANT lab_tech TO lab_user1;`
+`GRANT ROLE`
+`postgres=>` `GRANT lab_tech TO lab_user2;`
+`GRANT ROLE`
+
+```
+
+At this point, `lab_user1` and `lab_user2` can connect to the
+`lab_db` database. This example doesn't follow best practices for enterprise
+usage, which might include creating multiple database instances, different schemas, and
+granting limited permissions. For more complete information and additional scenarios, see
+[Managing PostgreSQL
+Users and Roles](https://aws.amazon.com/blogs//database/managing-postgresql-users-and-roles/ "https://aws.amazon.com/blogs//database/managing-postgresql-users-and-roles/").
+
+For more information about privileges in PostgreSQL databases, see the [GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html "https://www.postgresql.org/docs/current/static/sql-grant.html") command in
+the PostgreSQL documentation.
