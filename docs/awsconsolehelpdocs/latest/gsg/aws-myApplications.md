@@ -26,7 +26,7 @@ You can access all applications in your account, key metrics across all applicat
 - **Access your resources** – You can quickly view your application resources from the Services menu by selecting the application. When you select a resource, you go directly to the relevant service console. Your place in the resource table is saved, so you can continue browsing at any time from the Services menu.
 - **Compare application metrics** – Use myApplications to compare key metrics for applications like cost of application resources and
   number of critical security findings for multiple applications.
-- **Monitor and manage applications** – Assess application health and performance using alarms, canaries, and service level objectives from Amazon CloudWatch, findings from AWS Security Hub, and
+- **Monitor and manage applications** – Assess application health and performance using alarms, canaries, and service level objectives from Amazon CloudWatch, findings from AWS Security Hub CSPM, and
   cost trends from AWS Cost Explorer Service. You can also find compute metrics summaries and optimizations and manage resource compliance and configuration status from AWS Systems Manager.
 
 ## Related services
@@ -39,7 +39,7 @@ myApplications makes use of the following services:
 - Amazon EC2
 - AWS Lambda
 - AWS Resource Explorer
-- AWS Security Hub
+- AWS Security Hub CSPM
 - Systems Manager
 - AWS Service Catalog
 - Tagging

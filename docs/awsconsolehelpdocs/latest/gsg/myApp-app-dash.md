@@ -47,15 +47,15 @@ _AWS Cost Management User Guide_.
 ## AWS Security widget
 
 This widget displays security findings from AWS Security for your application. AWS Security provides a comprehensive view of security findings for your application in AWS. You can access recent priority findings by severity, monitor their security posture,
-access recent critical or high severity findings, and gain insight for next steps. For more information, see [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/").
+access recent critical or high severity findings, and gain insight for next steps. For more information, see [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/").
 
 ### Configuring the AWS Security widget
 
-To configure the AWS Security widget, set up AWS Security Hub for your application and account. For more information, see [What is AWS Security Hub?](../../../securityhub/latest/userguide/what-is-securityhub.md#securityhub-free-trial "../../../securityhub/latest/userguide/what-is-securityhub.md#securityhub-free-trial") in the
-_AWS Security Hub User Guide_. For pricing information, see [AWS Security Hub free trial, usage, and pricing](../../../securityhub/latest/userguide/what-is-securityhub.md#securityhub-free-trial "../../../securityhub/latest/userguide/what-is-securityhub.md#securityhub-free-trial") in the
-_AWS Security Hub User Guide_.
+To configure the AWS Security widget, set up AWS Security Hub CSPM for your application and account. For more information, see [What is AWS Security Hub CSPM?](../../../securityhub/latest/userguide/what-is-securityhub.md#securityhub-free-trial "../../../securityhub/latest/userguide/what-is-securityhub.md#securityhub-free-trial") in the
+_AWS Security Hub CSPM User Guide_. For pricing information, see [AWS Security Hub CSPM free trial, usage, and pricing](../../../securityhub/latest/userguide/what-is-securityhub.md#securityhub-free-trial "../../../securityhub/latest/userguide/what-is-securityhub.md#securityhub-free-trial") in the
+_AWS Security Hub CSPM User Guide_.
 
-AWS Security Hub requires you to configure AWS Config Recording. This service provides a detailed view of the resources associated with your AWS account. For more information, see [AWS Systems Manager](../../../systems-manager/latest/userguide/quick-setup-config.md "../../../systems-manager/latest/userguide/quick-setup-config.md") in the _AWS Systems Manager User Guide_.
+AWS Security Hub CSPM requires you to configure AWS Config Recording. This service provides a detailed view of the resources associated with your AWS account. For more information, see [AWS Systems Manager](../../../systems-manager/latest/userguide/quick-setup-config.md "../../../systems-manager/latest/userguide/quick-setup-config.md") in the _AWS Systems Manager User Guide_.
 
 ## AWS Resiliency widget
 

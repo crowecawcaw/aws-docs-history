@@ -141,7 +141,7 @@ The following Regions and service consoles are supported.
 - Amazon SageMaker AI Synthetic Data
 - AWS Secrets Manager
 - AWS Service Catalog
-- AWS Security Hub
+- AWS Security Hub CSPM
 - Service Quotas
 - AWS Signer
 - Amazon Simple Email Service
