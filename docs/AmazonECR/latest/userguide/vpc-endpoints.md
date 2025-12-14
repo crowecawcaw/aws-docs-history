@@ -30,9 +30,7 @@ considerations.
 - Amazon ECR VPC endpoints support dual-stack (IPv4 and IPv6) connectivity. When you
   create a dual-stack VPC endpoint, it can handle traffic over both IPv4 and IPv6
   private IP addresses.
-- VPC endpoints currently don't support Amazon ECR Public repositories. Consider
-  using a pull through cache rule to host the public image in a private repository
-  in the same Region as the VPC endpoint. For more information, see [Sync an upstream registry with an Amazon ECR private registry](pull-through-cache.md "pull-through-cache.md").
+- VPC endpoints support Amazon ECR Public repositories through the AWS API SDK endpoint in US East (N. Virginia).
 - VPC endpoints only support AWS provided DNS through Amazon Route 53. If you want
   to use your own DNS, you can use conditional DNS forwarding. For more
   information, see [DHCP Options
