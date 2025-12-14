@@ -102,7 +102,7 @@ build a landing zone in less than an hour.
 - [Using a Cloud Center of Excellence (CCOE) to Transform the Entire Enterprise](https://aws.amazon.com/blogs/enterprise-strategy/using-a-cloud-center-of-excellence-ccoe-to-transform-the-entire-enterprise/ "https://aws.amazon.com/blogs/enterprise-strategy/using-a-cloud-center-of-excellence-ccoe-to-transform-the-entire-enterprise/")
 - [7
   Pitfalls to Avoid When Building a CCOE](https://aws.amazon.com/blogs/enterprise-strategy/7-pitfalls-to-avoid-when-building-a-ccoe/ "https://aws.amazon.com/blogs/enterprise-strategy/7-pitfalls-to-avoid-when-building-a-ccoe/")
-- [AWS Control Tower and AWS Security Hub – Powerful Enterprise Twins](https://aws.amazon.com/blogs/enterprise-strategy/aws-control-tower-and-aws-security-hub-powerful-enterprise-twins/ "https://aws.amazon.com/blogs/enterprise-strategy/aws-control-tower-and-aws-security-hub-powerful-enterprise-twins/")
+- [AWS Control Tower and AWS Security Hub CSPM – Powerful Enterprise Twins](https://aws.amazon.com/blogs/enterprise-strategy/aws-control-tower-and-aws-security-hub-powerful-enterprise-twins/ "https://aws.amazon.com/blogs/enterprise-strategy/aws-control-tower-and-aws-security-hub-powerful-enterprise-twins/")
 
 **Related videos:**
 

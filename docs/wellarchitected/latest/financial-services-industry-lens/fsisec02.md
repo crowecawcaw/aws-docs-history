@@ -45,7 +45,7 @@ AWS Config
 [Conformance
 Packs](../../../config/latest/developerguide/conformance-packs.md "../../../config/latest/developerguide/conformance-packs.md") in AWS Config, and
 
-[AWS Security Hub standards](../../../securityhub/latest/userguide/standards-available.md "../../../securityhub/latest/userguide/standards-available.md"). FIs can benefit from
+[AWS Security Hub CSPM standards](../../../securityhub/latest/userguide/standards-available.md "../../../securityhub/latest/userguide/standards-available.md"). FIs can benefit from
 Conformance Packs that are available and ready to be used for
 alignment to the financial services industry's standards and
 regulatory requirements, such as PCI-DSS, NYDFS, and FFIEC.
@@ -61,9 +61,9 @@ regulatory requirements, such as PCI-DSS, NYDFS, and FFIEC.
   information, see
   [Evaluation Mode and Trigger Types for AWS Config Rules](../../../config/latest/developerguide/evaluate-config-rules.md "../../../config/latest/developerguide/evaluate-config-rules.md").
 - To determine if requirements in a standard are being
-  met, enable the controls from AWS Security Hub
+  met, enable the controls from AWS Security Hub CSPM
   standards. For more information, see
-  [Security standards and controls in AWS Security Hub](../../../securityhub/latest/userguide/securityhub-standards.md "../../../securityhub/latest/userguide/securityhub-standards.md").
+  [Security standards and controls in AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-standards.md "../../../securityhub/latest/userguide/securityhub-standards.md").
 
 ## Resources
 

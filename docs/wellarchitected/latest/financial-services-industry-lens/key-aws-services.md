@@ -23,7 +23,7 @@
     secrets through their lifecycle
 
 - **Detection**
-  - [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"): Automate AWS security
+  - [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"): Automate AWS security
     checks and centralize security alerts
   - [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/"): Protect your AWS accounts
     with intelligent threat detection

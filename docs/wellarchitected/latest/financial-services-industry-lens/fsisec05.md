@@ -49,12 +49,12 @@ credentials, resources, accounts or buckets.
 in your AWS Organization and for all of the AWS Regions, as it
 can detect unintended activities in unused Regions as well.
 
-AWS Security Hub provides you with a comprehensive view of the
+AWS Security Hub CSPM provides you with a comprehensive view of the
 security state in AWS and helps you check your environment
 against
 [security
 industry standards and best practices](../../../securityhub/latest/userguide/securityhub-standards.md "../../../securityhub/latest/userguide/securityhub-standards.md"). The
-activities surrounding Amazon GuardDuty and AWS Security Hub
+activities surrounding Amazon GuardDuty and AWS Security Hub CSPM
 must also be tracked and analyzed using AWS CloudTrail, and
 they can feed a normalized central data-lake of your
 security-related information on
@@ -95,4 +95,4 @@ You can
 
 **Related videos:**
 
-- [The top 7 ways to operationalize AWS Security Hub](https://www.youtube.com/watch?v=ZEgCsKHPpFI&ab_channel=AWSOnlineTechTalks "https://www.youtube.com/watch?v=ZEgCsKHPpFI&ab_channel=AWSOnlineTechTalks")
+- [The top 7 ways to operationalize AWS Security Hub CSPM](https://www.youtube.com/watch?v=ZEgCsKHPpFI&ab_channel=AWSOnlineTechTalks "https://www.youtube.com/watch?v=ZEgCsKHPpFI&ab_channel=AWSOnlineTechTalks")
