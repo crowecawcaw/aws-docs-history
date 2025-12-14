@@ -172,7 +172,7 @@ deleted and the storage space they used to consume on your bucket is freed.
 
 The following table provides multipart upload core specifications.
 
-- Maximum object size: 5 TB
+- Maximum object size: 50 TB
 - Maximum number of parts per upload: 10,000
 - Part numbers: 1-10,000 (inclusive)
 - Part size: 5 MB (minimum) - 5 GB (maximum). There is no size limit on the last part of

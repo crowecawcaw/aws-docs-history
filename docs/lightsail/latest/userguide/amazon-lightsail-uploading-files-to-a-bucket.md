@@ -23,7 +23,7 @@ upload:
   the AWS CLI](#uploading-files-to-a-bucket-aws-cli "#uploading-files-to-a-bucket-aws-cli") later in this guide.
 - **Upload an object in parts using the AWS SDKs, REST API, or
   AWS CLI** — Using the multipart upload API, you can upload a single large object,
-  of 5 MB to 5 TB in size. The multipart upload API is designed to improve the upload
+  of 5 MB to 50 TB in size. The multipart upload API is designed to improve the upload
   experience for larger objects. You can upload an object in parts. These object parts can be
   uploaded independently, in any order, and in parallel. For more information, see [Upload files
   to a bucket using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md "amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md").

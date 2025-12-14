@@ -63,7 +63,7 @@ cat $HOME/bitnami_application_password
 You should see a response similar to the following example, which contains the
 default application password:
 
-![Bitnami default application password.](/images/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-password.png)
+![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png)
 
 ## Step 3: Attach a static IP
 

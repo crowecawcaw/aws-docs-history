@@ -84,4 +84,4 @@ proceed with the operation.
 show as **Disabling** until the process completes and updates to
 **Disabled**.
 
-![Displays a disabled opt-in Region.](/images/lightsail/latest/userguide/images/opt-in-regions-region-is-disabled.png)
+![Displays a disabled opt-in Region.](images/opt-in-regions-region-is-disabled.png)

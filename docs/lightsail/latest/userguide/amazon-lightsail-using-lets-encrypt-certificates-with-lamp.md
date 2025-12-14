@@ -332,7 +332,7 @@ sudo /opt/bitnami/ctlscript.sh stop
 
 You should see a response similar to the following:
 
-![Instance services stopped.](/images/lightsail/latest/userguide/images/amazon-lightsail-ssh-stop-services.png) 2. Enter the following command to set an environment variable for your domain.
+![Instance services stopped.](images/amazon-lightsail-ssh-stop-services.png) 2. Enter the following command to set an environment variable for your domain.
 
 ```
 DOMAIN=`Domain`

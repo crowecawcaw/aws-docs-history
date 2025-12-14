@@ -407,7 +407,7 @@ echo $DOMAIN
 
 You should see a result similar to the following:
 
-![Confirm the domain environment variable.](/images/lightsail/latest/userguide/images/amazon-lightsail-ssh-lets-encrypt-confirm-domain-variable.png) 4. Enter the following commands individually to rename your existing certificate files as
+![Confirm the domain environment variable.](images/amazon-lightsail-ssh-lets-encrypt-confirm-domain-variable.png) 4. Enter the following commands individually to rename your existing certificate files as
 backups. Refer to the **Important** block at the beginning of
 this tutorial for information about the different distributions and file
 structures.
