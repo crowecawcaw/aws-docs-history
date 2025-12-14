@@ -69,7 +69,7 @@ notifications when your dedicated IPs are added to major denylists.
     period(s) of**, choose **1 hour**, as
     shown in the following image.
 
-    ![An alarm for the denylisted IP rate that exceeds your specified threshold for two hours.](images/deliverability_dashboard_deny_list_ip_alarms_period.png) 4. Under **Notification method**, choose one of the
+    ![An alarm for the denylisted IP rate that exceeds your specified threshold for two hours.](/images/pinpoint/latest/userguide/images/deliverability_dashboard_deny_list_ip_alarms_period.png) 4. Under **Notification method**, choose one of the
     following options:
 
         * **Use an existing SNS topic** – Choose
