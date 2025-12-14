@@ -27,6 +27,7 @@ availability
   - Asia Pacific (Taipei) (ap-east-2)
   - Asia Pacific (Melbourne) (ap-southeast-4)
   - Asia Pacific (Malaysia) (ap-southeast-5)
+  - Asia Pacific (New Zealand) (ap-southeast-6)
   - Asia Pacific (Thailand) (ap-southeast-7)
   - Canada West (Calgary) (ca-west-1)
   - Europe (Spain) (eu-south-2)
