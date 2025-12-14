@@ -18,7 +18,7 @@ customizable, predefined rules called managed rules to help you get started.
 - [Deleting Rules](evaluate-config_delete-rules.md "evaluate-config_delete-rules.md")
 - [Viewing Rules](evaluate-config_view-rules.md "evaluate-config_view-rules.md")
 - [Turning on Proactive Evaluation](evaluate-config_turn-on-proactive-rules.md "evaluate-config_turn-on-proactive-rules.md")
-- [Sending Evaluations to Security Hub](setting-up-aws-config-rules-with-console-integration.md "setting-up-aws-config-rules-with-console-integration.md")
+- [Sending Evaluations to Security Hub CSPM](setting-up-aws-config-rules-with-console-integration.md "setting-up-aws-config-rules-with-console-integration.md")
 - [Evaluating Resources with Rules](evaluating-your-resources.md "evaluating-your-resources.md")
 - [Deleting Evaluation Results](deleting-evaluations-results.md "deleting-evaluations-results.md")
 - [Troubleshooting](troubleshooting-rules.md "troubleshooting-rules.md")

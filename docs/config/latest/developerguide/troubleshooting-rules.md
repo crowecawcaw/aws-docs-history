@@ -49,9 +49,9 @@ API**
    **The rule is not a service-linked rule**
 
 When you [enable
-a security standard](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md"), AWS Security Hub creates [service-linked rules](service-linked-awsconfig-rules.md "service-linked-awsconfig-rules.md") for you. You can't delete these service-linked rules
+a security standard](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md"), AWS Security Hub CSPM creates [service-linked rules](service-linked-awsconfig-rules.md "service-linked-awsconfig-rules.md") for you. You can't delete these service-linked rules
 using AWS Config, and the delete button is grayed out. To remove a service-linked rule, see
-[Disabling a security standard](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md") in the _Security Hub User
+[Disabling a security standard](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md") in the _Security Hub CSPM User
 Guide_.
 
 **No remediation actions are in progress**

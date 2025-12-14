@@ -227,7 +227,7 @@ period.
   **Keep Minimum Permisions When Reusing an IAM
   role**
 
-  If you use an AWS service that uses AWS Config, such as AWS Security Hub
+  If you use an AWS service that uses AWS Config, such as AWS Security Hub CSPM
   or AWS Control Tower, and an IAM role has already been created,
   make sure that the IAM role that you use when setting up AWS Config
   keeps the same minimum permissions as the pre-existing IAM

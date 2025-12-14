@@ -212,7 +212,7 @@ To avoid unnecessary evaluations, you should only deploy AWS Config rules and co
 that have these global resources in scope to one of the supported Regions. For a list of which
 managed rules are supported in which Regions, see [List of AWS Config
 Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md"). This applies to AWS Config rules, organizational
-AWS Config rules, and also rules created by other AWS services, such as AWS Security Hub and
+AWS Config rules, and also rules created by other AWS services, such as AWS Security Hub CSPM and
 AWS Control Tower.
 
 If you are not recording global resource types onboarded before February 2022, it is

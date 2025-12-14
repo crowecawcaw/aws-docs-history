@@ -29,19 +29,19 @@ to view the configuration changes related to your AWS API activities.
 For more information, see [Logging AWS Config API Calls with AWS CloudTrail](log-api-calls.md "log-api-calls.md") in the _AWS Config Developer Guide_
 and [Create an event data store for AWS Config configuration items with the console](../../../awscloudtrail/latest/userguide/query-event-data-store-config.md "../../../awscloudtrail/latest/userguide/query-event-data-store-config.md") in the _AWS CloudTrail User Guide_.
 
-## AWS Security Hub
+## AWS Security Hub CSPM
 
-AWS Security Hub centralizes security checks from other AWS services,
+AWS Security Hub CSPM centralizes security checks from other AWS services,
 including AWS Config rules. Security Hub enables and controls
 AWS Config rules to verify your resource configurations are aligned to best practices.
 Enable AWS Config on all accounts in all
-Regions where Security Hub is to run security checks on your environment’s resources.
+Regions where Security Hub CSPM is to run security checks on your environment’s resources.
 For more information,
-see [AWS services that send findings to Security Hub](../../../securityhub/latest/userguide/securityhub-internal-providers.md#integrations-internal-send "../../../securityhub/latest/userguide/securityhub-internal-providers.md#integrations-internal-send") in the _AWS Security Hub User Guide_.
+see [AWS services that send findings to Security Hub](../../../securityhub/latest/userguide/securityhub-internal-providers.md#integrations-internal-send "../../../securityhub/latest/userguide/securityhub-internal-providers.md#integrations-internal-send") in the _AWS Security Hub CSPM User Guide_.
 
-###### Some Security Hub-related rules are periodic and do not depend on configuration items
+###### Some Security Hub CSPM-related rules are periodic and do not depend on configuration items
 
-Some Security Hub-related rules are periodic. These rule can run without the configuration recorder being enabled and do not depend on
+Some Security Hub CSPM-related rules are periodic. These rule can run without the configuration recorder being enabled and do not depend on
 configuration items (CI).
 
 This means that if you view the rule page, there is no listed CI or supported resource. If you select the resource ID, you will see the following error:

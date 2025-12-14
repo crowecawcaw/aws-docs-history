@@ -1151,11 +1151,11 @@ and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-in
 | AWS Secrets Manager | `AWS::SecretsManager::Secret` | is associated with | Lambda function  |
 | is associated with  | KMS Key                       |
 
-## AWS Security Hub
+## AWS Security Hub CSPM
 
-| AWS Service      | Resource Type Value          | Relationship | Related Resource |
-| ---------------- | ---------------------------- | ------------ | ---------------- |
-| AWS Security Hub | `AWS::SecurityHub::Standard` | NA           | NA               |
+| AWS Service           | Resource Type Value          | Relationship | Related Resource |
+| --------------------- | ---------------------------- | ------------ | ---------------- |
+| AWS Security Hub CSPM | `AWS::SecurityHub::Standard` | NA           | NA               |
 
 ## AWS Service Catalog
 

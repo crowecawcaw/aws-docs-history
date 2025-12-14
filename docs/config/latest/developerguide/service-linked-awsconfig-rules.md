@@ -36,4 +36,4 @@ For information on updating conformance packs, see [Deploying a Conformance Pack
 **Editing and deleting service-linked rules**
 
 To edit or delete a service-linked rule, contact the AWS service that created the rule.
-For example, for service-linked rules created by AWS Security Hub, you can remove a service-linked rule by following these steps in the _AWS Security Hub User Guide_: [Disabling a security standard](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md").
+For example, for service-linked rules created by AWS Security Hub CSPM, you can remove a service-linked rule by following these steps in the _AWS Security Hub CSPM User Guide_: [Disabling a security standard](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md").
