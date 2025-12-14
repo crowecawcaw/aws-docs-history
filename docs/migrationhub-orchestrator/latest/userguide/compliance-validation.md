@@ -26,7 +26,7 @@ provides the following resources to help with compliance:
   with Rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") in the _AWS Config Developer Guide_ – AWS Config;
   assesses how well your resource configurations comply with internal practices,
   industry guidelines, and regulations.
-- [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
+- [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
   – This AWS service provides a comprehensive view of your security state
   within AWS that helps you check your compliance with security industry standards
   and best practices.
