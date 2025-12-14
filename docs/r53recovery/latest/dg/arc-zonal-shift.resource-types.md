@@ -1,152 +1,67 @@
-# Amazon EC2 Amazon EC2 Auto Scaling groups
+# Amazon Elastic Kubernetes Service
 
-An Amazon EC2 Amazon EC2 Auto Scaling group contains a collection of Amazon EC2 instances that are
-treated as a logical grouping for the purposes of automatic scaling and management.
-An Amazon EC2 Auto Scaling group also lets you use Amazon EC2 Amazon EC2 Auto Scaling features such as health
-check replacements and scaling policies. Both maintaining the number of instances in
-an Amazon EC2 Auto Scaling group and automatic scaling are the core functionality of the Amazon EC2
-Amazon EC2 Auto Scaling service.
+Amazon EKS provides features that enable you to make your applications more resilient to events such as the degraded health or the impairment of an Availability Zone.
+When you run your workloads in an Amazon EKS cluster, you can further improve your application environment’s fault tolerance and application recovery by using zonal shift
+or zonal autoshift.
 
-## Using zonal shift for Amazon EC2 Auto Scaling groups
+## Using zonal shift with Amazon Elastic Kubernetes Service
 
-To enable zonal shift, use one of the following methods.
+To enable zonal shift, use one of the following methods. For more information, see [Learn about ARC zonal shift](../../../eks/latest/userguide/zone-shift-enable.md#zone-shift-enable-steps "../../../eks/latest/userguide/zone-shift-enable.md#zone-shift-enable-steps") in the _Amazon Elastic Kubernetes Service User Guide_.
 
 Console
 
-###### To enable zonal shift on a new group (console)
+###### To enable zonal shift on a new Amazon EKS cluster (Console)
 
-1. Follow the instructions in [Create an Amazon EC2 Auto Scaling group using a launch template](../../../autoscaling/ec2/userguide/create-asg-launch-template.md "../../../autoscaling/ec2/userguide/create-asg-launch-template.md") and complete each step in the procedure, up to step 10.
-2. On the **Integrate with other services** page, for **ARC zonal shift**, select the checkbox to enable zonal shift.
-3. For **Health check behavior**, choose Ignore unhealthy or Replace
-   unhealthy. If set to `replace-unhealthy`,
-   unhealthy instances will be replaced in the Availability
-   Zone with the active zonal shift. If set to
-   `ignore-unhealthy`, unhealthy instances will
-   not be replaced in the Availability Zone with the active
-   zonal shift.
-4. Continue with the steps in [Create an Amazon EC2 Auto Scaling group using a launch template](../../../autoscaling/ec2/userguide/create-asg-launch-template.md "../../../autoscaling/ec2/userguide/create-asg-launch-template.md").
+1. Find the name and Region of the Amazon EKS cluster that you want to register with ARC.
+2. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+3. Select your cluster.
+4. On the **Cluster info** page, select the **Overview** tab.
+5. Under **Zonal shift**, choose **Manage**.
+6. For **EKS Zonal Shift**, choose **Enable** or **Disable**.
 
 AWS CLI
 
-###### To enable zonal shift on a new group (AWS CLI)
+###### To enable zonal shift on a new Amazon EKS cluster (AWS CLI)
 
-Add the `--availability-zone-impairment-policy` parameter to the [create-auto-scaling-group](../../../cli/latest/reference/autoscaling/create-auto-scaling-group.md "../../../cli/latest/reference/autoscaling/create-auto-scaling-group.md") command.
-
-The `--availability-zone-impairment-policy` parameter has two options:
-
-- **ZonalShiftEnabled** – If set to `true`, Amazon EC2 Auto Scaling registers the Amazon EC2 Auto Scaling group with ARC zonal shift and you can [start, update, or cancel a zonal shift](arc-zonal-shift.md "arc-zonal-shift.md") on the
-  ARC console. If set to `false`, Amazon EC2 Auto Scaling deregisters the Amazon EC2 Auto Scaling group from ARC zonal shift. You must already have zonal shift enabled to set to `false`.
-- **ImpairedZoneHealthCheckBehavior** – If set to `replace-unhealthy`, unhealthy instances will be replaced in the Availability Zone with the active zonal shift. If set to `ignore-unhealthy`, unhealthy instances will
-  not be replaced in the Availability Zone with the active zonal shift.
-
-The following example enables zonal shift on a new Amazon EC2 Auto Scaling group named `my-asg`.
+- Enter the following command:
 
 ```
-aws autoscaling create-auto-scaling-group \
-  --launch-template LaunchTemplateName=`my-launch-template`,Version='`1`' \
-  --auto-scaling-group-name `my-asg` \
-  --min-size `1` \
-  --max-size `10` \
-  --desired-capacity `5` \
-  --availability-zones `us-east-1a` `us-east-1b` `us-east-1c` \
-  --availability-zone-impairment-policy '{
-      "ZonalShiftEnabled": `true`,
-      "ImpairedZoneHealthCheckBehavior": `IgnoreUnhealthy`
-    }'
-
+aws eks create-cluster --name `my-eks-cluster` --role-arn `my-role-arn-to-create-cluster` --resources-vpc-config subnetIds=string,string,securityGroupIds=string,string,endpointPublicAccess=boolean,endpointPrivateAccess=boolean,publicAccessCidrs=string,string --zonal-shift-config enabled=true
 ```
 
-Console
+###### To enable zonal shift on an existing Amazon EKS cluster (AWS CLI)
 
-###### To enable zonal shift on an existing group (console)
-
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"), and choose **Amazon EC2 Auto Scaling Groups** from the navigation pane.
-2. On the navigation bar at the top of the screen, choose the AWS Region that you created your Amazon EC2 Auto Scaling group in.
-3. Select the checkbox next to the Amazon EC2 Auto Scaling group.
-
-A split pane opens up in the bottom of the page. 4. On the **Integrations** tab, under **ARC zonal shift**, choose **Edit**. 5. Select the checkbox to enable zonal shift. 6. For **Health check behavior**, choose **Ignore unhealthy** or **Replace unhealthy**.
-
-    * If health check behavior is set to ignore unhealthy, unhealthy instances are *not* replaced in the Availability Zone
-     with the active zonal shift.
-    * If health check behavior is set to replace unhealthy, unhealthy instances are replaced in the Availability Zone with the active zonal shift.
-
-7. Choose **Update**.
-
-AWS CLI
-
-###### To enable zonal shift on an existing group (AWS CLI)
-
-Add the `--availability-zone-impairment-policy` parameter to the [update-auto-scaling-group](../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md "../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md") command.
-
-The `--availability-zone-impairment-policy` parameter has two options:
-
-- **ZonalShiftEnabled** – If set to `TRUE`, Amazon EC2 Auto Scaling
-  registers the Amazon EC2 Auto Scaling group with ARC zonal shift and you can
-  [start, update, or cancel a zonal shift](arc-zonal-shift.md "arc-zonal-shift.md") on the
-  ARC console. If set to `FALSE`, Amazon EC2 Auto Scaling deregisters the Amazon EC2 Auto Scaling group from ARC zonal shift. You must already
-  have zonal shift enabled to set it to `FALSE`.
-- **ImpairedZoneHealthCheckBehavior** – If set to `replace-unhealthy`, unhealthy instances will be replaced in the Availability Zone with the active zonal shift. If set to `ignore-unhealthy`, unhealthy instances will
-  not be replaced in the Availability Zone with the active zonal shift.
-
-The following example enables zonal shift on the specified Amazon EC2 Auto Scaling group.
+- Enter the following command:
 
 ```
-aws autoscaling update-auto-scaling-group --auto-scaling-group-name `my-asg` \
-  --availability-zone-impairment-policy '{
-      "ZonalShiftEnabled": `true`,
-      "ImpairedZoneHealthCheckBehavior": `IgnoreUnhealthy`
-    }'
+aws eks update-cluster-config --name `my-eks-cluster` --zonal-shift-config enabled=true
 ```
 
-To start a zonal shift, see [Starting, updating, or canceling a zonal shift](arc-zonal-shift.md "arc-zonal-shift.md").
+You can start a zonal shift for an Amazon EKS cluster, or you can allow AWS to
+do it for you, by enabling zonal autoshift. After your Amazon EKS cluster zonal shift
+enabled with ARC, you can start a zonal shift or enable zonal autoshift
+using the ARC Console, the AWS CLI, or the zonal shift and zonal
+autoshift APIs.
 
-## How zonal shift works for Amazon EC2 Auto Scaling groups
+For more information on starting a zonal shift, see [Starting, updating, or canceling a zonal shift](arc-zonal-shift.md "arc-zonal-shift.md").
 
-Suppose you have an Amazon EC2 Auto Scaling group with the following Availability Zones:
+For more information on enabling Amazon EKS with zonal shift, see [Learn about
+ARC Zonal Shift in Amazon EKS](../../../eks/latest/userguide/zone-shift.md "../../../eks/latest/userguide/zone-shift.md") in the _Amazon Elastic Kubernetes Service User Guide_.
 
-- `us-east-1a`
-- `us-east-1b`
-- `us-east-1c`
+## How zonal shift works for Amazon Elastic Kubernetes Service
 
-You notice failures in `us-east-1a` and start a zonal shift.
-The following behaviors occur when a zonal shift is started in `us-east-1a`.
+During an Amazon EKS zonal shift, the following automatically takes place:
 
-- **Scaling out** – Amazon EC2 Auto Scaling launches all new capacity
-  requests in the healthy Availability Zones (`us-east-1b` and `us-east-1c`).
-- **Dynamic scaling** – Amazon EC2 Auto Scaling blocks scaling policies
-  from decreasing desired capacity. Amazon EC2 Auto Scaling does not block scaling policies from increasing desired capacity.
-- **Instance refresh** – Amazon EC2 Auto Scaling extends the timeout for
-  any instance refresh process that is delayed during an active zonal shift.
+- All the nodes in the impacted AZ are cordoned.
+  This prevents the Kubernetes Scheduler from scheduling new Pods onto the nodes in the unhealthy AZ.
+- If you’re using [Managed Node Groups](../../../eks/latest/userguide/managed-node-groups.md "../../../eks/latest/userguide/managed-node-groups.md"), [Availability Zone rebalancing](../../../autoscaling/ec2/userguide/auto-scaling-benefits.md#AutoScalingBehavior.InstanceUsage "../../../autoscaling/ec2/userguide/auto-scaling-benefits.md#AutoScalingBehavior.InstanceUsage")
+  is suspended, and your Amazon EC2 Auto Scaling group is updated to ensure that new Amazon EKS data plane nodes are only launched in healthy AZs.
+- The nodes in the unhealthy AZ are not terminated and the Pods are not evicted from these nodes. This is to ensure that when a
+  zonal shift expires or is canceled, your traffic can be safely returned to the AZ that still has full capacity.
+- The EndpointSlice controller finds all the Pod endpoints in the impaired AZ and removes them from the relevant
+  EndpointSlices. This ensures that only Pod endpoints in healthy AZs are targeted to receive network traffic.
+  When a zonal shift is canceled or expires, the EndpointSlice controller updates the EndpointSlices to include the
+  endpoints in the restored AZ.
 
-| Impaired Availability Zone health check behavior selection | Health check behavior                                                                                                                                                                 |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Replace unhealthy                                          | Instances that appear unhealthy will be replaced in all<br>Availability Zones (`us-east-1a`, `us-east-1b`, and `us-east-1c`).                                                         |
-| Ignore unhealthy                                           | Instances that appear unhealthy will be replaced in `us-east-1b` and `us-east-1c`. Instances are not replaced in the<br>Availability Zone with the active zonal shift (`us-east-1a`). |
-|                                                            |                                                                                                                                                                                       |
-
-## Best practices for using zonal shift
-
-To maintain high availability for your applications when using zonal shift, we recommend the following best practices.
-
-- Monitor EventBridge notifications to determine when there is an ongoing availability zone impairment event. For more information,
-  see [Automating Amazon EC2 Amazon EC2 Auto Scaling with EventBridge](../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md "../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md").
-- Use scaling policies with appropriate thresholds to make sure that you have enough capacity to tolerate the loss of an availability zone.
-- Set an instance maintenance policy with a minimum healthy percentage of 100. With this setting, Amazon EC2 Auto Scaling waits for a new instance to be ready to use before
-  terminating an unhealthy instance.
-
-For prescaled customers, we also recommend the following:
-
-- Select **Ignore unhealthy** as the health check behavior for the impaired availability zone because you don't need to
-  replace the unhealthy instance during the impairment event.
-- Use zonal autoshift in ARC for your Amazon EC2 Auto Scaling groups. The zonal autoshift capability in Amazon Application Recovery Controller (ARC) allows
-  AWS to shift traffic for a resource away from an availability zone when AWS detects an impairment in an availability zone.
-  For more information, see [Zonal autoshift in ARC](arc-zonal-autoshift.md "arc-zonal-autoshift.md").
-
-For customers with cross-zone disabled load balancers, we also recommend:
-
-- Use **balanced only** for your availability zone distribution.
-- If you are using zonal shift on both your Amazon EC2 Auto Scaling group and your load balancers, make sure to cancel the zonal shift on your Amazon EC2 Auto Scaling group first. Then, wait until the capacity is balanced across all availability zones.
-  before you cancel the zonal shift on the load balancer.
-- Because of the possibility of imbalanced capacity when you enable zonal shift and you use a cross-zone disabled load balancer, Amazon EC2 Auto Scaling has an extra validation. If you are following the best practices, you can acknowledge this possibility by selecting the
-  checkbox in the AWS Management Console or using the `skip-zonal-shift-validation` flag in `CreateAutoScalingGroup`, `UpdateAutoScalingGroup`, or `AttachTrafficSources`.
+For more information, see the [AWS
+Containers blog](https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-amazon-application-recovery-controller/ "https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-amazon-application-recovery-controller/").
