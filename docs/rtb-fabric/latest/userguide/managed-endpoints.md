@@ -26,6 +26,7 @@ For Auto Scaling group managed endpoints, the IAM role must include the followin
 - `ec2:DescribeInstanceStatus`
 - `ec2:DescribeInstances`
 - `ec2:DescribeAvailabilityZones`
+- `ec2:DescribeSubnets`
 
 The role must also include a trust relationship that allows RTB Fabric to assume it:
 
@@ -85,20 +86,16 @@ The role must also allow the following permissions in its permissions policies:
    "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "EksEndpointsIpDiscovery",
+            "Sid": "AsgEndpointsIpDiscovery",
             "Effect": "Allow",
             "Action": [
                 "autoscaling:DescribeAutoScalingGroups",
                 "ec2:DescribeInstanceStatus",
                 "ec2:DescribeInstances",
-                "ec2:DescribeAvailabilityZones"
+                "ec2:DescribeAvailabilityZones",
+                "ec2:DescribeSubnets"
             ],
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "ec2:Region": "us-east-1"
-                }
-            }
+            "Resource": "*"
         }
     ]
 }
