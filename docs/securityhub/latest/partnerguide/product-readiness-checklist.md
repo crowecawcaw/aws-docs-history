@@ -1,6 +1,6 @@
 # Product readiness checklist
 
-The AWS Security Hub and APN Partner teams use this checklist to validate that the integration is
+The AWS Security Hub CSPM and APN Partner teams use this checklist to validate that the integration is
 ready to be launched.
 
 ## ASFF mapping
@@ -51,7 +51,7 @@ was observed in the product. Map this field if at all possible.
 \***\*Does the partner provide unique values generated for each finding
 identifier, except for findings that they want to update?\*\***
 
-All findings in Security Hub are indexed on the finding identifier (`Id` attribute).
+All findings in Security Hub CSPM are indexed on the finding identifier (`Id` attribute).
 This value must always be unique to ensure that findings are not updated accidentally.
 
 You should also maintain the finding identifier state for the purpose of updating the
@@ -120,7 +120,7 @@ available, use the canonical resource ID.
 These questions are related to the setup and day-to-day function of the integration.
 
 **Does the partner provide an infrastructure-as-code (IaC) template to deploy the
-integration with Security Hub, such as Terraform, CloudFormation, or AWS Cloud Development Kit (AWS CDK)?**
+integration with Security Hub CSPM, such as Terraform, CloudFormation, or AWS Cloud Development Kit (AWS CDK)?**
 
 For integrations that will send findings from the customer account or use CloudWatch Events to
 consume findings, some form of IaC template is required.
@@ -128,7 +128,7 @@ consume findings, some form of IaC template is required.
 CloudFormation is preferred, but AWS CDK or Terraform can also be used.
 
 **Does the partner product have a one-click setup on their console for their integration
-with Security Hub?**
+with Security Hub CSPM?**
 
 Some partner products use a toggle or a similar mechanism in their product to activate
 the integration. This may entail automatically provisioning resources and permission. If you
@@ -136,16 +136,16 @@ send findings from a product account, one-click setup is the preferred method.
 
 **Does the partner only send findings of value?**
 
-You should generally only send findings that have security value to Security Hub
+You should generally only send findings that have security value to Security Hub CSPM
 customers.
 
-Security Hub is not a general log management tool. You should not send every possible log to
-Security Hub.
+Security Hub CSPM is not a general log management tool. You should not send every possible log to
+Security Hub CSPM.
 
 **Did the partner provide an estimate on how many findings they will send per day per
 customer and at what frequency (average and burst)?**
 
-Numbers of unique findings are used to calculate load on Security Hub. A unique finding is
+Numbers of unique findings are used to calculate load on Security Hub CSPM. A unique finding is
 defined as a finding with a different ASFF mapping from another finding.
 
 For example, if one finding populated only `ThreatIntelndicators` and another
@@ -191,16 +191,16 @@ customers.
 If you take action on findings, you can use the [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") operation to update specific fields.
 
 **Does the partner provide information on the amount of latency between when a finding is
-created and when it is sent from their product to Security Hub?**
+created and when it is sent from their product to Security Hub CSPM?**
 
 You should minimize latency to ensure that customers see findings as soon as possible in
-Security Hub.
+Security Hub CSPM.
 
 This information is required in the manifest.
 
-**If the partner's architecture is to send findings to Security Hub from a customer account, have
+**If the partner's architecture is to send findings to Security Hub CSPM from a customer account, have
 they demonstrated this successfully? If the partner's architecture is to send findings to
-Security Hub from their own account, have they demonstrated this successfully?**
+Security Hub CSPM from their own account, have they demonstrated this successfully?**
 
 During testing, findings must be successfully sent from an account that you own that is
 different from the account provided for the product ARN.
@@ -208,7 +208,7 @@ different from the account provided for the product ARN.
 Sending a finding from the product ARN owner's account can bypass certain error
 exceptions from the API operations.
 
-**Does the partner provide a heartbeat finding to Security Hub?**
+**Does the partner provide a heartbeat finding to Security Hub CSPM?**
 
 To show that your integration is working correctly, you should send a heartbeat finding.
 The heartbeat finding is sent every five minutes and uses the finding type
@@ -216,9 +216,9 @@ The heartbeat finding is sent every five minutes and uses the finding type
 
 This is important if you send findings from a product account.
 
-**Did the partner integrate with the Security Hub product team's account during testing?**
+**Did the partner integrate with the Security Hub CSPM product team's account during testing?**
 
-During preproduction validation, you should send finding examples to the Security Hub product
+During preproduction validation, you should send finding examples to the Security Hub CSPM product
 team's AWS account. These examples demonstrate that the findings are sent and mapped
 correctly.
 
@@ -235,7 +235,7 @@ or other dedicated format.
 Hosting documentation on GitHub does not satisfy the dedicated website
 requirement.
 
-**Does the partner documentation provide instructions on how to set up the Security Hub
+**Does the partner documentation provide instructions on how to set up the Security Hub CSPM
 integration?**
 
 You can set up the integration using either an IaC template or a console-based
@@ -252,7 +252,7 @@ send?**
 You should provide the rationale for the types of findings that you send.
 
 For example, your product might produce findings for vulnerabilities, malware, and
-antivirus, but you only send vulnerability and malware findings to Security Hub. In that case, you
+antivirus, but you only send vulnerability and malware findings to Security Hub CSPM. In that case, you
 must provide a rationale for why you do not send antivirus findings.
 
 **Does the partner documentation provide a rationale for how the partner maps their
@@ -270,7 +270,7 @@ findings with up-to-date information.
 **Does the partner documentation describe finding latency?**
 
 Minimize latency to ensure that customers see findings as soon as possible in
-Security Hub.
+Security Hub CSPM.
 
 This information is required in the manifest.
 
@@ -299,7 +299,7 @@ not attempt an integration.
 ## Product card information
 
 These questions are related to the card for the product that is displayed on the
-**Integrations** page of the Security Hub console.
+**Integrations** page of the Security Hub CSPM console.
 
 **Is the provided AWS account ID valid and contain 12 digits?**
 
@@ -318,7 +318,7 @@ your main website or to marketing pages.
 
 **Does the purchase link (if provided) lead to the AWS Marketplace listing for the product?**
 
-If you provide a purchase link, it must be for an AWS Marketplace entry. Security Hub does not accept
+If you provide a purchase link, it must be for an AWS Marketplace entry. Security Hub CSPM does not accept
 purchase links that are not hosted by AWS.
 
 **Do the product categories correctly describe the product?**
@@ -338,19 +338,19 @@ The product name in the product card JSON must match the name in the manifest.
 
 These questions are related to marketing for the integration.
 
-**Is the product description for the Security Hub partners page within 700 characters, including
+**Is the product description for the Security Hub CSPM partners page within 700 characters, including
 spaces?**
 
-The Security Hub partners page only accepts up to 700 characters, including spaces.
+The Security Hub CSPM partners page only accepts up to 700 characters, including spaces.
 
 The team will edit down longer descriptions.
 
-**Is the Security Hub partners page logo no larger than 600 x 300 px?**
+**Is the Security Hub CSPM partners page logo no larger than 600 x 300 px?**
 
 Provide a publicly accessible URL with a company logo in PNG or JPG that is no larger
 than 600 x 300 pixels.
 
-**Does the Learn more hyperlink on the Security Hub partners page lead to the partner's dedicated
+**Does the Learn more hyperlink on the Security Hub CSPM partners page lead to the partner's dedicated
 webpage about the integration?**
 
 The **Learn more** link should not lead to the partner's main website
@@ -390,7 +390,7 @@ Partner Network blog.
 
 You can create your own webinars to showcase the integration.
 
-If you require assistance from the Security Hub team, work with the product team after you
+If you require assistance from the Security Hub CSPM team, work with the product team after you
 complete the testing with the private product ARN.
 
 **Did the partner request social media support from AWS?**

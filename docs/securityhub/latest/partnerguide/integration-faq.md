@@ -1,72 +1,72 @@
-# AWS Security Hub partner FAQ
+# AWS Security Hub CSPM partner FAQ
 
 The following are common questions about setting up and maintaining an integration with
-AWS Security Hub.
+AWS Security Hub CSPM.
 
-1. **What are the benefits of Security Hub integration?**
+1. **What are the benefits of Security Hub CSPM integration?**
    - **Customer satisfaction** – The number one reason to
-     integrate with Security Hub is because you have customer requests to do so.
+     integrate with Security Hub CSPM is because you have customer requests to do so.
 
-   Security Hub is the security and compliance center for AWS customers. It is designed as the
+   Security Hub CSPM is the security and compliance center for AWS customers. It is designed as the
    first stop where AWS security and compliance professionals go each day to understand their
    security and compliance state.
 
    Listen to your customers. They will tell you if they want to see your findings in
    Security Hub.
    - **Discovery opportunities** – We promote partners with
-     certified integrations inside the Security Hub console, including links to their AWS Marketplace
+     certified integrations inside the Security Hub CSPM console, including links to their AWS Marketplace
      listings. This is a great way for customers to discover new security products.
    - **Marketing opportunities** – Vendors with approved
      integrations can participate in webinars, issue press releases, create slick sheets, and
      demonstrate their integrations to AWS customers.
 
 2. **What types of partners are there?**
-   - Partners that send findings to Security Hub
-   - Partner that receive findings from Security Hub
+   - Partners that send findings to Security Hub CSPM
+   - Partner that receive findings from Security Hub CSPM
    - Partners that both send and receive findings
-   - Consulting partners that help customers to set up, customize, and use Security Hub in their
+   - Consulting partners that help customers to set up, customize, and use Security Hub CSPM in their
      environment
 
-3. **How does a partner integration with Security Hub work at a high
+3. **How does a partner integration with Security Hub CSPM work at a high
    level?**
 
 You gather findings from within a customer account or from your own AWS account and
 transform the format of the findings to the AWS Security Finding Format (ASFF). You then
-push those findings to the appropriate Security Hub regional endpoint.
+push those findings to the appropriate Security Hub CSPM regional endpoint.
 
-You can also use CloudWatch Events to receive findings from Security Hub. 4. **What are the basic steps for completing an integration with
-Security Hub?**
+You can also use CloudWatch Events to receive findings from Security Hub CSPM. 4. **What are the basic steps for completing an integration with
+Security Hub CSPM?**
 
     1. Submit your partner manifest information.
-    2. Receive product ARNs to use with Security Hub, if you will be sending findings to Security
+    2. Receive product ARNs to use with Security Hub CSPM, if you will be sending findings to Security
      Hub.
     3. Map your findings to ASFF. See [Guidelines for mapping findings into the AWS Security
      Finding Format (ASFF)](guidelines-asff-mapping.md "guidelines-asff-mapping.md").
-    4. Define your architecture for sending findings to and receiving findings from Security Hub.
+    4. Define your architecture for sending findings to and receiving findings from Security Hub CSPM.
      Follow the tenets outlined in [Tenets for creating and updating findings](tenets-update-create-findings.md "tenets-update-create-findings.md").
     5. Create a deployment framework for customers. For example, CloudFormation scripts can serve this
      purpose.
     6. Document your setup and provide configuration instructions for customers.
     7. Define any custom insights (correlation rules) that customers can use with your
      product.
-    8. Demonstrate your integration to the Security Hub team.
+    8. Demonstrate your integration to the Security Hub CSPM team.
     9. Submit marketing information for approval (website language, press release, architecture
      slide, video, slick sheet).
 
 5. **What is the process for submitting the partner manifest? And for
-   AWS services to send findings to Security Hub?**
+   AWS services to send findings to Security Hub CSPM?**
 
-To submit the manifest information to the Security Hub team, use
+To submit the manifest information to the Security Hub CSPM team, use
 `<securityhub-partners@amazon.com>`.
 
-You are issued product ARNs within seven calendar days. 6. **What types of findings should I send to Security Hub?**
+You are issued product ARNs within seven calendar days. 6. **What types of findings should I send to Security Hub CSPM?**
 
-Security Hub pricing is partly based on the number of findings ingested. Because of this, you
+Security Hub CSPM pricing is partly based on the number of findings ingested. Because of this, you
 should refrain from sending findings that do not provide value to customers.
 
 For example, some vulnerability management vendors only send findings with a Common
 Vulnerability Scoring System (CVSS) score of 3 or above out of a possible 10. 7. **What are the different approaches for me to send findings to
-Security Hub?**
+Security Hub CSPM?**
 
 These are the primary approaches:
 
@@ -75,7 +75,7 @@ These are the primary approaches:
      approaches, but these approaches are not required.
 
 For overall guidelines on using [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md"), see [Guidelines for using the
-BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md"). 8. **How do I gather my findings and push them to a Security Hub Regional
+BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md"). 8. **How do I gather my findings and push them to a Security Hub CSPM Regional
 endpoint?**
 
 Partners have used different approaches for this, as it is highly dependent on the
@@ -83,18 +83,18 @@ architecture of your solution.
 
 For example, some partners build a Python app that can be deployed as an CloudFormation script. The
 script gathers the partner's findings from the customer environment, transforms them into
-ASFF, and sends them to the Security Hub Regional endpoint.
+ASFF, and sends them to the Security Hub CSPM Regional endpoint.
 
 Other partners build a full wizard that gives the customer a single-click experience to
-push findings to Security Hub. 9. **How do I know when to start sending findings to
-Security Hub?**
+push findings to Security Hub CSPM. 9. **How do I know when to start sending findings to
+Security Hub CSPM?**
 
-Security Hub supports partial batch authorization for the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API operation, so that you can send all of
-your findings to Security Hub for all of your customers.
+Security Hub CSPM supports partial batch authorization for the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API operation, so that you can send all of
+your findings to Security Hub CSPM for all of your customers.
 
-If some of your customers have not yet subscribed to Security Hub, Security Hub does not ingest those
+If some of your customers have not yet subscribed to Security Hub CSPM, Security Hub CSPM does not ingest those
 findings. It only ingests authorized findings that are in the batch. 10. **What steps do I need to complete to send findings to a customer's
-Security Hub instance?**
+Security Hub CSPM instance?**
 
     1. Ensure the correct IAM policies are in place.
     2. Enable a product subscription (resource policies) for the accounts. Use either the [`EnableImportFindingsForProduct`](../../1.0/APIReference/API_EnableImportFindingsForProduct.md "../../1.0/APIReference/API_EnableImportFindingsForProduct.md") API operation or the
@@ -156,7 +156,7 @@ the API, they use the [`EnableImportFindingsForProduct`](../../1.0/APIReference/
 The product subscription creates a resource policy that authorizes the findings from the
 partner to be received or sent by the customer. For details, see [Integration use cases and required permissions](integration-use-cases.md "integration-use-cases.md").
 
-Security Hub has the following types of resource policies for partners:
+Security Hub CSPM has the following types of resource policies for partners:
 
     * `BATCH_IMPORT_FINDINGS_FROM_PRODUCT_ACCOUNT`
     * `BATCH_IMPORT_FINDINGS_FROM_CUSTOMER_ACCOUNT`
@@ -165,7 +165,7 @@ During the partner onboarding process, you can request either one or both types 
 policies.
 
 With `BATCH_IMPORT_FINDINGS_FROM_PRODUCT_ACCOUNT`, you can only send findings to
-Security Hub from the account listed in your product ARN.
+Security Hub CSPM from the account listed in your product ARN.
 
 With `BATCH_IMPORT_FINDINGS_FROM_CUSTOMER_ACCOUNT`, you can only send findings
 from the customer account that subscribed to you. 13. **Assume a customer created an administrator account and added a few
@@ -179,9 +179,9 @@ administrator account registration.
 The customer must put a product subscription in place for each account. They can do this
 programmatically through the API. 14. **What is my product ARN?**
 
-Your product ARN is your unique identifier that Security Hub generates for you and that you use to
-submit findings. You receive a product ARN for each product that you integrate with Security Hub.
-The correct product ARN must be part of every finding that you send to Security Hub. Findings
+Your product ARN is your unique identifier that Security Hub CSPM generates for you and that you use to
+submit findings. You receive a product ARN for each product that you integrate with Security Hub CSPM.
+The correct product ARN must be part of every finding that you send to Security Hub CSPM. Findings
 without the product ARN are dropped. The product ARN uses the following format:
 
 `arn:aws:securityhub:`[region
@@ -192,7 +192,7 @@ Here is an example:
 
 `arn:aws:securityhub:us-west-2:222222222222:product/generico/secure-pro`
 
-You are given a product ARN for each Region where Security Hub is deployed. The account ID,
+You are given a product ARN for each Region where Security Hub CSPM is deployed. The account ID,
 company, and product names are dictated by your partner manifest submissions. You never
 change any of the information that is associated with your product ARN, except for the
 Region code. The Region code must match the Region that you submit findings for.
@@ -201,30 +201,30 @@ A common mistake is to change the account ID to match the account where you are 
 working from. The account ID does not change. You submit a "home" account ID as part of the
 manifest submission. This account ID is locked into your product ARN.
 
-When Security Hub launches in new Regions, it automatically uses the standard Region codes to
+When Security Hub CSPM launches in new Regions, it automatically uses the standard Region codes to
 generate your product ARNs for those Regions.
 
 Every account is also automatically provisioned with a private product ARN. You can use
 this ARN to test importing findings within your own development account before you receive
-your official public product ARN. 15. **What format should be used to send findings to Security Hub?**
+your official public product ARN. 15. **What format should be used to send findings to Security Hub CSPM?**
 
 Findings must be provided in the AWS Security Finding Format (ASFF). For details, see
 [AWS Security Finding
-Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
+Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
 
 The expectation is that all of the information in your native findings is fully reflected
 in the ASFF. Custom fields such as `ProductFields` and
 `Resource.Details.Other` allow you to map data that does not fit neatly into
 the predefined fields. 16. **What is the correct Regional endpoint to use?**
 
-You must send findings to the Security Hub Regional endpoint that is associated with the customer
+You must send findings to the Security Hub CSPM Regional endpoint that is associated with the customer
 account. 17. **Where can I find the list of regional endpoints?**
 
-See the [Security Hub endpoints
+See the [Security Hub CSPM endpoints
 list](../../../general/latest/gr/sechub.md "../../../general/latest/gr/sechub.md"). 18. **Can I submit cross-Region findings?**
 
-Security Hub does not yet support cross-Region submission of findings for the native AWS
-services, such as Amazon GuardDuty, Amazon Macie, and Amazon Inspector. If your customer allows it, Security Hub does
+Security Hub CSPM does not yet support cross-Region submission of findings for the native AWS
+services, such as Amazon GuardDuty, Amazon Macie, and Amazon Inspector. If your customer allows it, Security Hub CSPM does
 not prevent you from submitting findings from different Regions.
 
 In this sense, you can call a Regional endpoint from anywhere, and the resource information
@@ -236,7 +236,7 @@ You can batch up to 100 findings or 240 KB in a single call of [`BatchImportFind
 to this limit.
 
 You can batch a set of findings from different accounts. However, if any of the accounts in
-the batch are not subscribed to Security Hub, the entire batch fails. This is a limitation of the API Gateway
+the batch are not subscribed to Security Hub CSPM, the entire batch fails. This is a limitation of the API Gateway
 baseline authorization model.
 
 See [Guidelines for using the
@@ -253,38 +253,38 @@ Yes, if the customer grants you access to the [`BatchUpdateFindings`](../../1.0/
 using that operation. This operation is designed to be used by customers, SIEMs, ticketing
 systems, and Security Orchestration, Automation, and Response (SOAR) platforms. 22. **How are findings aged off?**
 
-Security Hub ages out findings 90 days after the last update date. After this time, the aged-out
-findings are purged from the Security Hub OpenSearch cluster.
+Security Hub CSPM ages out findings 90 days after the last update date. After this time, the aged-out
+findings are purged from the Security Hub CSPM OpenSearch cluster.
 
 If you update a finding with the same finding ID, and it has been aged off, a new finding
-is created in Security Hub.
+is created in Security Hub CSPM.
 
-Customers can use CloudWatch Events to move findings out of Security Hub. Doing so enables all findings to be
+Customers can use CloudWatch Events to move findings out of Security Hub CSPM. Doing so enables all findings to be
 sent to targets of the customer's choice.
 
-In general, Security Hub recommends that you create new findings every 90 days and do not update
-findings forever. 23. **What throttles does Security Hub put in place?**
+In general, Security Hub CSPM recommends that you create new findings every 90 days and do not update
+findings forever. 23. **What throttles does Security Hub CSPM put in place?**
 
-Security Hub throttles `GetFindings` API calls, as the recommended approach to access
+Security Hub CSPM throttles `GetFindings` API calls, as the recommended approach to access
 findings is using CloudWatch Events.
 
-Security Hub does not implement any other throttling on internal services, partners, or customers
+Security Hub CSPM does not implement any other throttling on internal services, partners, or customers
 beyond that enforced by API Gateway and Lambda invocations. 24. **What is the timeliness or latency SLAs or expectations for findings
-that are sent to Security Hub from source services?**
+that are sent to Security Hub CSPM from source services?**
 
 The aim is to be as near-real time as possible for both initial findings and updates to
-findings. You should send findings to Security Hub within five minutes after they are
-created. 25. **How can I receive findings from Security Hub?**
+findings. You should send findings to Security Hub CSPM within five minutes after they are
+created. 25. **How can I receive findings from Security Hub CSPM?**
 
 To receive findings, use one of the following methods.
 
     * All findings are automatically sent to CloudWatch Events. A customer can create specific CloudWatch Events rules
      to send findings to specific targets, such as a SIEM or an S3 bucket. This capability
      replaced the legacy `GetFindings` API operation.
-    * Use CloudWatch Events for custom actions. Security Hub allows customers to select specific findings or
+    * Use CloudWatch Events for custom actions. Security Hub CSPM allows customers to select specific findings or
      groups of findings from within the console and take action on them. For example, they
      can send findings to a SIEM, ticketing system, chat platform, or remediation workflow.
-     This would be part of an alert triage workflow that a customer performs within Security Hub.
+     This would be part of an alert triage workflow that a customer performs within Security Hub CSPM.
      These are called custom actions.
 
 
@@ -299,39 +299,39 @@ To receive findings, use one of the following methods.
      automatically create available actions for your product (such as using CloudFormation templates).
      You would also use CloudWatch Events rule API operations to create corresponding CloudWatch Events rules that
      are associated with the custom action. Using CloudFormation templates, you can also create CloudWatch Events
-     rules to automatically ingest from Security Hub all findings or all findings with certain
+     rules to automatically ingest from Security Hub CSPM all findings or all findings with certain
      characteristics.
 
 26. **What are the requirements for a managed security service provider
-    (MSSP) to become a Security Hub partner?**
+    (MSSP) to become a Security Hub CSPM partner?**
 
-You must demonstrate how Security Hub is used as part of your service delivery to customers.
+You must demonstrate how Security Hub CSPM is used as part of your service delivery to customers.
 
-You should have user documentation that explains your use of Security Hub.
+You should have user documentation that explains your use of Security Hub CSPM.
 
-If the MSSP is a finding provider, they must demonstrate sending findings to Security Hub.
+If the MSSP is a finding provider, they must demonstrate sending findings to Security Hub CSPM.
 
-If the MSSP only receives findings from Security Hub, they must at a minimum have an CloudFormation
+If the MSSP only receives findings from Security Hub CSPM, they must at a minimum have an CloudFormation
 template to set up the appropriate CloudWatch Events rules. 27. **What are the requirements for a non-MSSP APN Consulting Partner to
-become a Security Hub partner?**
+become a Security Hub CSPM partner?**
 
-If you are am APN Consulting Partner, you can become a Security Hub partner. You should submit two
+If you are am APN Consulting Partner, you can become a Security Hub CSPM partner. You should submit two
 private case studies on how you helped a specific customer do the following.
 
-    * Set up Security Hub with IAM permissions that the customer needs.
-    * Help to connect already integrated independent software vendor (ISV) solutions to Security Hub
+    * Set up Security Hub CSPM with IAM permissions that the customer needs.
+    * Help to connect already integrated independent software vendor (ISV) solutions to Security Hub CSPM
      using the configuration instructions on the partner page in the console.
     * Help customers with custom product integrations.
     * Build custom insights relevant to the customer needs and datasets.
     * Build custom actions.
     * Build remediation playbooks.
-    * Build Quickstarts that align to the Security Hub compliance standards. These must be validated
-     by the Security Hub team.
+    * Build Quickstarts that align to the Security Hub CSPM compliance standards. These must be validated
+     by the Security Hub CSPM team.
 
 Case studies do not need to be publicly shareable. 28. **What are the requirements around how I deploy my integration with
-Security Hub with my customers?**
+Security Hub CSPM with my customers?**
 
-Integration architectures between Security Hub and partner products vary from partner to partner
+Integration architectures between Security Hub CSPM and partner products vary from partner to partner
 in terms of how that partner's solution is operated. You should ensure that the setup
 process for the integration takes no longer than 15 minutes.
 
@@ -340,7 +340,7 @@ leverage CloudFormation templates to simplify the integration. Some partners hav
 integration, which is highly encouraged. 29. **What are my documentation requirements?**
 
 You must provide a link to documentation that describes the integration and setup process
-between your product and Security Hub, including your use of CloudFormation templates.
+between your product and Security Hub CSPM, including your use of CloudFormation templates.
 
 That documentation should also include information on your usage of ASFF. Specifically,
 this should list the ASFF finding types that you are using for your different findings. If you
@@ -348,7 +348,7 @@ have any default insight definitions, we recommend that you also include them he
 
 Consider including other potential information:
 
-    * Your use case for integration with Security Hub
+    * Your use case for integration with Security Hub CSPM
     * Average volume of findings sent
     * Your integration architecture
     * The Regions that you do and do not support
@@ -361,32 +361,32 @@ You are encouraged to define custom insights for your findings. Insights are lig
 correlation rules that help a customer prioritize which findings and resources most require
 attention and action.
 
-Security Hub has a `CreateInsight` API operation. You can create custom insights inside
+Security Hub CSPM has a `CreateInsight` API operation. You can create custom insights inside
 a customer account as part of your CloudFormation template. These insights appear on the customer’s
 console. 31. **Can I submit dashboard widgets?**
 
 No, not at this time. You can only create managed insights. 32. **What is your pricing model?**
 
-See the [Security Hub pricing
-information](https://aws.amazon.com/security-hub/pricing/ "https://aws.amazon.com/security-hub/pricing/"). 33. **How do I submit findings to the Security Hub demo account as part of the
+See the [Security Hub CSPM pricing
+information](https://aws.amazon.com/security-hub/pricing/ "https://aws.amazon.com/security-hub/pricing/"). 33. **How do I submit findings to the Security Hub CSPM demo account as part of the
 final approval process for my integration?**
 
-Send findings to the Security Hub demo account using your provided product ARN, using
+Send findings to the Security Hub CSPM demo account using your provided product ARN, using
 `us-west-2` as the Region. The findings should include the demo account number
 in the `AwsAccountId` field of ASFF. To obtain the demo account number, contact
-the Security Hub team.
+the Security Hub CSPM team.
 
 Do not send us any sensitive data or personally identifiable information. This data is used
 for public demos. When you send us this data, you authorize us to use it in demos. 34. **What error or success messages does `BatchImportFindings`
 provide?**
 
-Security Hub provides a response for authorization and a response for [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md"). More crisp success, failure, and error
+Security Hub CSPM provides a response for authorization and a response for [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md"). More crisp success, failure, and error
 messages are in development. 35. **What error handling is the source service responsible
 for?**
 
 Source services are responsible for all error handling. They must handle error messages,
 retries, throttling, and alarming. They also must handle feedback or error messages sent
-through the Security Hub feedback mechanism. 36. **What are some resolutions to common problems?**
+through the Security Hub CSPM feedback mechanism. 36. **What are some resolutions to common problems?**
 
 An `AuthorizerConfigurationException` is caused by either a malformed
 `AwsAccountId` or `ProductArn`.
@@ -399,7 +399,7 @@ When troubleshooting, note the following:
      us-east-1>`:`<accountId>`:product/`<company-id>`/`<product-id>`
 
 
-    The account ID does not change from the one that the Security Hub team included in the product
+    The account ID does not change from the one that the Security Hub CSPM team included in the product
      ARNs that they provided to you.
 
 `AccessDeniedException` is caused when a finding is sent to or from the wrong
@@ -424,7 +424,7 @@ Send findings to the same Region where the finding was detected. For a service s
 IAM, your solution will likely find the same IAM issue in multiple Regions. In this
 case, the finding is sent to every Region where the issue was detected.
 
-If the customer runs Security Hub in three Regions, and the same IAM issue is detected in all
+If the customer runs Security Hub CSPM in three Regions, and the same IAM issue is detected in all
 three Regions, then send the finding to all three Regions.
 
 When an issue is resolved, send the update to the finding to all of the Regions where you

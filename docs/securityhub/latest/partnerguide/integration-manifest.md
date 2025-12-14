@@ -1,14 +1,14 @@
 # Product integration manifest
 
-Every AWS Security Hub integration partner must complete a product integration manifest that
+Every AWS Security Hub CSPM integration partner must complete a product integration manifest that
 provides the required details for the proposed integration.
 
-The Security Hub team uses this information in several ways:
+The Security Hub CSPM team uses this information in several ways:
 
 - To create your website listing
-- To create the product card for the Security Hub console
+- To create the product card for the Security Hub CSPM console
 - To inform the product team of your use case.
-  To evaluate the quality of the proposed integration and the provided information, the Security Hub
+  To evaluate the quality of the proposed integration and the provided information, the Security Hub CSPM
   team uses the [Product readiness checklist](product-readiness-checklist.md "product-readiness-checklist.md"). This checklist determines whether
   your integration is ready to be launched.
 
@@ -16,7 +16,7 @@ All of the technical information that you provide must also be reflected in your
 documentation.
 
 You can download a PDF version of the product integration manifest from the
-**Resources** section of the AWS Security Hub partners page. Note that the partners
+**Resources** section of the AWS Security Hub CSPM partners page. Note that the partners
 page is not available in the China (Beijing) and China (Ningxia) Regions.
 
 ###### Contents
@@ -33,11 +33,11 @@ page is not available in the China (Beijing) and China (Ningxia) Regions.
   - [Company and product description](manifest-use-case-marketing.md#manifest-company-product-description "manifest-use-case-marketing.md#manifest-company-product-description")
   - [Partner website assets](manifest-use-case-marketing.md#manifest-website-assets "manifest-use-case-marketing.md#manifest-website-assets")
   - [Logo for partners page](manifest-use-case-marketing.md#manifest-partners-page-logo "manifest-use-case-marketing.md#manifest-partners-page-logo")
-  - [Logos for Security Hub console](manifest-use-case-marketing.md#manifest-sechub-console-logo "manifest-use-case-marketing.md#manifest-sechub-console-logo")
+  - [Logos for Security Hub CSPM console](manifest-use-case-marketing.md#manifest-sechub-console-logo "manifest-use-case-marketing.md#manifest-sechub-console-logo")
   - [Finding types](manifest-use-case-marketing.md#manifest-finding-types "manifest-use-case-marketing.md#manifest-finding-types")
   - [Hotline](manifest-use-case-marketing.md#manifest-hotline "manifest-use-case-marketing.md#manifest-hotline")
   - [Heartbeat finding](manifest-use-case-marketing.md#manifest-heartbeat-finding "manifest-use-case-marketing.md#manifest-heartbeat-finding")
 
-- [AWS Security Hub console information](manifest-console-information.md "manifest-console-information.md")
+- [AWS Security Hub CSPM console information](manifest-console-information.md "manifest-console-information.md")
   - [Company information](manifest-console-information.md#manifest-console-company-info "manifest-console-information.md#manifest-console-company-info")
   - [Product information](manifest-console-information.md#manifest-console-product-information "manifest-console-information.md#manifest-console-product-information")

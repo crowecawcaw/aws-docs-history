@@ -1,9 +1,9 @@
 # Go-to-market activities
 
 Partners can also engage in optional marketing activities to help explain and promote their
-AWS Security Hub integration.
+AWS Security Hub CSPM integration.
 
-If you want to create your own marketing content related to Security Hub, before you release the
+If you want to create your own marketing content related to Security Hub CSPM, before you release the
 content, send a draft to your APN Partner manager for review and approval. This ensures that
 everyone is aligned on messaging.
 
@@ -11,19 +11,19 @@ AWS Partner Network (APN) Partners can use APN Partner Marketing Central and the
 Development Funds (MDF) program to create campaigns and get funding support. For details about
 these programs, contact your partner manager.
 
-## Entry on the Security Hub partners page
+## Entry on the Security Hub CSPM partners page
 
-After you are approved as a Security Hub partner, your solution can be displayed on the [AWS Security Hub partners page](https://aws.amazon.com/security-hub/partners/ "https://aws.amazon.com/security-hub/partners/").
+After you are approved as a Security Hub CSPM partner, your solution can be displayed on the [AWS Security Hub CSPM partners page](https://aws.amazon.com/security-hub/partners/ "https://aws.amazon.com/security-hub/partners/").
 
 To be listed on this page, provide the following details to your APN Partner contacts. This
 could be your partner development manager (PDM), partner solution architect (PSA), or an email to
 `<securityhub-pms@amazon.com>`.
 
-- A brief description of your solution, its integration with Security Hub, and the value that the
-  integration with Security Hub provides to customers. This description is limited to 700 characters
+- A brief description of your solution, its integration with Security Hub CSPM, and the value that the
+  integration with Security Hub CSPM provides to customers. This description is limited to 700 characters
   including spaces.
 - The URL to a page that describes your solution. This site should be specific to your AWS
-  integration and more specifically your Security Hub integration. It should focus on the customer
+  integration and more specifically your Security Hub CSPM integration. It should focus on the customer
   experience and the value that customers receive when they use the integration.
 - A high-resolution copy of your logo that is 600 x 300 pixels. For details on the
   requirements for this logo, see [Logo for partners page](manifest-use-case-marketing.md#manifest-partners-page-logo "manifest-use-case-marketing.md#manifest-partners-page-logo").
@@ -34,7 +34,7 @@ As an approved partner, you can optionally publish a press release on your websi
 public relations channels. The press release must be approved by AWS.
 
 Before you publish the press release, you must submit it to AWS for review by APN Partner
-marketing, Security Hub leadership, and AWS External Security Services (ESS). The press release can
+marketing, Security Hub CSPM leadership, and AWS External Security Services (ESS). The press release can
 include a proposed quote for the VP of ESS.
 
 To initiate this process, work with your PDM. We have a Service Level Agreement (SLA) of 10
@@ -107,25 +107,25 @@ The following types of content are best suited for an APN blog post.
 A slick sheet is a one-page document that outlines your product, its integration
 architecture, and joint customer use cases.
 
-If you create a slick sheet for your integration, send a copy to the Security Hub team. They will
+If you create a slick sheet for your integration, send a copy to the Security Hub CSPM team. They will
 add it to the partner page.
 
 ## Whitepaper or ebook
 
 If you create a whitepaper or ebook outlining your product, its integration architecture,
-and joint customer use cases, send a copy to the Security Hub team. They will add it to the Security Hub
+and joint customer use cases, send a copy to the Security Hub CSPM team. They will add it to the Security Hub CSPM
 partner page.
 
 ## Webinar
 
 If you do conduct a webinar about your integration, send a recording of the webinar to the
-Security Hub team. The team will link to it from the partner page.
+Security Hub CSPM team. The team will link to it from the partner page.
 
-The team can also provide a Security Hub subject matter expert to participate in your
+The team can also provide a Security Hub CSPM subject matter expert to participate in your
 webinar.
 
 ## Demo video
 
 For marketing purposes, you can produce a demo video of the working integration. Post such a
-video on your video platform account, and the Security Hub team will link to it from the partner
+video on your video platform account, and the Security Hub CSPM team will link to it from the partner
 page.

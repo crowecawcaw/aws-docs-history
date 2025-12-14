@@ -1,14 +1,14 @@
 # Guidelines and checklists
 
-As you prepare the required materials for your AWS Security Hub integration, use these
+As you prepare the required materials for your AWS Security Hub CSPM integration, use these
 guidelines.
 
-The readiness checklist is used to conduct a final review of the integration before Security Hub
-makes it available to Security Hub customers.
+The readiness checklist is used to conduct a final review of the integration before Security Hub CSPM
+makes it available to Security Hub CSPM customers.
 
 ###### Topics
 
-- [Guidelines for the logo to display on the AWS Security Hub
+- [Guidelines for the logo to display on the AWS Security Hub CSPM
   console](guidelines-console-logo.md "guidelines-console-logo.md")
 - [Tenets for creating and updating findings](tenets-update-create-findings.md "tenets-update-create-findings.md")
 - [Guidelines for mapping findings into the AWS Security

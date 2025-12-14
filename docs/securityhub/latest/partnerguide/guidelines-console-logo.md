@@ -1,8 +1,8 @@
-# Guidelines for the logo to display on the AWS Security Hub
+# Guidelines for the logo to display on the AWS Security Hub CSPM
 
 console
 
-For the logo to display on the AWS Security Hub console, follow these guidelines.
+For the logo to display on the AWS Security Hub CSPM console, follow these guidelines.
 
 **Light and dark modes**
 
@@ -24,13 +24,13 @@ Minimum height is 40 px.
 
 Rectangular logos work best.
 
-The following image shows how an ideal logo is displayed on the Security Hub console.
+The following image shows how an ideal logo is displayed on the Security Hub CSPM console.
 
 ![Example of a card for a product integration with an ideally sized logo](images/partner-logo-display-ideal.png)
 
 If your logo does not match these dimensions, Security Hub reduces the size to a maximum
 height of 40 px and a maximum width of 175 px. This affects how the logo is displayed on the
-Security Hub console.
+Security Hub CSPM console.
 
 The following image compares the display of a logo that used the ideal size to logos that
 were wider or taller.

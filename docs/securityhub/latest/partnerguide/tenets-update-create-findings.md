@@ -1,6 +1,6 @@
 # Tenets for creating and updating findings
 
-As you plan how you will create and update findings in AWS Security Hub, keep the following tenets
+As you plan how you will create and update findings in AWS Security Hub CSPM, keep the following tenets
 in mind.
 
 **Make findings specific so that customers can easily take action on them.**
@@ -16,17 +16,17 @@ When a finding contains data for multiple security events, it is more difficult 
 customers to take action on the finding.
 
 **Map all of your finding fields to the AWS Security Finding Format (ASFF). Allow
-customers to rely on Security Hub as a source of truth.**
+customers to rely on Security Hub CSPM as a source of truth.**
 
 Customers expect that every field that is in your native finding format is also
-represented in the Security Hub ASFF.
+represented in the Security Hub CSPM ASFF.
 
-Customers want all data to be present in the Security Hub version of the finding. Missing data
-causes them to lose trust in Security Hub as a central source of security information.
+Customers want all data to be present in the Security Hub CSPM version of the finding. Missing data
+causes them to lose trust in Security Hub CSPM as a central source of security information.
 
 **Minimize redundancy in findings. Do not overwhelm customers with finding volumes.**
 
-Security Hub is not a general log management tool. You should send findings to Security Hub that are
+Security Hub CSPM is not a general log management tool. You should send findings to Security Hub CSPM that are
 highly actionable, and that customers can directly respond to, remediate, or correlate with
 other findings.
 

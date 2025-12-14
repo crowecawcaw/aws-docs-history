@@ -4,15 +4,15 @@ Finding Format (ASFF)
 
 Use the following guidelines to map your findings to the ASFF. For detailed descriptions of
 each ASFF field and object, see [AWS Security Finding
-Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
+Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
 
 ## Identifying information
 
 `SchemaVersion` is always `2018-10-08`.
 
-`ProductArn` is the ARN that AWS Security Hub assigns to you.
+`ProductArn` is the ARN that AWS Security Hub CSPM assigns to you.
 
-`Id` is the value that Security Hub uses to index findings. The finding identifier must
+`Id` is the value that Security Hub CSPM uses to index findings. The finding identifier must
 be unique, to ensure that other findings are not overwritten. To update a finding, resubmit the
 finding with the same identifier.
 
@@ -85,7 +85,7 @@ accommodate the system that you use.
 
 **`Label`**
 
-The required Security Hub indicator of the finding severity. The allowed values are as
+The required Security Hub CSPM indicator of the finding severity. The allowed values are as
 follows.
 
 - `INFORMATIONAL` – No issue was found.
@@ -107,14 +107,14 @@ Your integration documentation must include your mapping rationale.
 
 ## Remediation
 
-`Remediation` has two elements. These elements are combined on the Security Hub
+`Remediation` has two elements. These elements are combined on the Security Hub CSPM
 console.
 
 `Remediation.Recommendation.Text` appears in the
 **Remediation** section of the finding details. It is hyperlinked to the value
 of `Remediation.Recommendation.Url`.
 
-Currently, only findings from Security Hub standards, IAM Access Analyzer, and Firewall Manager display
+Currently, only findings from Security Hub CSPM standards, IAM Access Analyzer, and Firewall Manager display
 hyperlinks to documentation on how to remediate the finding.
 
 ## SourceUrl
@@ -122,7 +122,7 @@ hyperlinks to documentation on how to remediate the finding.
 Only use `SourceUrl` if you can provide a deep-linked URL to your console for
 that specific finding. Otherwise, omit it from the mapping.
 
-Security Hub does not support hyperlinks from this field, but it is exposed on the Security Hub
+Security Hub CSPM does not support hyperlinks from this field, but it is exposed on the Security Hub CSPM
 console.
 
 ## Malware,
@@ -130,7 +130,7 @@ console.
 Network, Process, ThreatIntelIndicators
 
 Where applicable, use `Malware`, `Network`, `Process`, or
-`ThreatIntelIndicators`. Each of these objects is exposed in the Security Hub console. Use
+`ThreatIntelIndicators`. Each of these objects is exposed in the Security Hub CSPM console. Use
 these objects in the context of the finding that you are sending.
 
 For example, if you detect malware that makes an outbound connection to a known command and
@@ -188,7 +188,7 @@ Indicates the type of malware. The allowed values are `ADWARE` |
 `REMOTE_ACCESS` | `ROOTKIT` | `TROJAN` |
 `VIRUS` | `WORM`.
 
-If you need an additional value for `Type`, contact the Security Hub team.
+If you need an additional value for `Type`, contact the Security Hub CSPM team.
 
 ### Network
 
@@ -292,7 +292,7 @@ is for the `HASH_SHA1`.
 ## Resources
 
 For `Resources`, use our provided resource types and detail fields whenever
-possible. Security Hub is constantly adding new resources to the ASFF. To receive a monthly log of the
+possible. Security Hub CSPM is constantly adding new resources to the ASFF. To receive a monthly log of the
 changes to ASFF, contact `<securityhub-partners@amazon.com>`.
 
 If you cannot fit the information in the details fields for a modeled resource type, map
@@ -316,7 +316,7 @@ decision.
 
 Only use `Compliance` if your findings are related to compliance.
 
-Security Hub uses `Compliance` for the findings it generates based on controls.
+Security Hub CSPM uses `Compliance` for the findings it generates based on controls.
 
 Firewall Manager uses `Compliance` for its findings because they are
 compliance-related.
@@ -342,4 +342,4 @@ object. Do not map to the top-level fields.
   importance of the resource associated with the finding.
 - `RelatedFindings` – Only provide related findings if you can keep track
   of findings related to the same resource or finding type. To identify a related finding, you
-  must refer to the finding identifier of a finding that is already in Security Hub.
+  must refer to the finding identifier of a finding that is already in Security Hub CSPM.
