@@ -27,9 +27,9 @@ Amazon ECR private registries host container images in a highly-available and sc
 You can use Amazon Inspector to scan container images residing in your Amazon ECR repository for vulnerable operating system packages and programming language packages.
 For more information, see [Amazon Inspector integration with Amazon Elastic Container Registry (Amazon ECR)](ecr-integration.md "ecr-integration.md").
 
-## Amazon Inspector integration with AWS Security Hub
+## Amazon Inspector integration with AWS Security Hub CSPM
 
-[AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") provides a comprehensive view of your security state in AWS and helps you check your environment against security industry standards and best practices
-Security Hub collects security data from AWS accounts, services, and supported products.
-You can use Security Hub to ingest Amazon Inspector findings data and create a central location for findings in all of your integrated AWS services and AWS Partner Network products.
-For more information, see [Amazon Inspector integration with AWS Security Hub](securityhub-integration.md "securityhub-integration.md").
+[AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") provides a comprehensive view of your security state in AWS and helps you check your environment against security industry standards and best practices
+Security Hub CSPM collects security data from AWS accounts, services, and supported products.
+You can use Security Hub CSPM to ingest Amazon Inspector findings data and create a central location for findings in all of your integrated AWS services and AWS Partner Network products.
+For more information, see [Amazon Inspector integration with AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md").

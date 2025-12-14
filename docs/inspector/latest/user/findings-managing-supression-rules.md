@@ -10,7 +10,7 @@ You can view suppressed findings in the console.
 You create suppression rules to prioritize your most important findings.
 Suppression rules don't have any impact on your findings, as they only hide findings from view.
 You cannot create a suppression rule that closes or remediates findings.
-You can also [suppress unwanted findings in AWS Security Hub with an Amazon EventBridge rule](https://aws.amazon.com/blogs/security/how-to-create-auto-suppression-rules-in-aws-security-hub/ "https://aws.amazon.com/blogs/security/how-to-create-auto-suppression-rules-in-aws-security-hub/").
+You can also [suppress unwanted findings in AWS Security Hub CSPM with an Amazon EventBridge rule](https://aws.amazon.com/blogs/security/how-to-create-auto-suppression-rules-in-aws-security-hub/ "https://aws.amazon.com/blogs/security/how-to-create-auto-suppression-rules-in-aws-security-hub/").
 The procedures in this section describe how to create, view, edit, and delete a suppression rule.
 
 ###### Note
@@ -81,7 +81,7 @@ rule criteria and that aren't suppressed by other rules.
 After you delete a suppression rule, new and existing occurrences of findings that
 met the rule's criteria have a status of **Active**. This means
 that they appear by default on the Amazon Inspector console. In addition, Amazon Inspector publishes these
-findings to AWS Security Hub and Amazon EventBridge as events.
+findings to AWS Security Hub CSPM and Amazon EventBridge as events.
 
 **To delete a suppression rule**
 

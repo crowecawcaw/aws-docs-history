@@ -4,7 +4,7 @@ With Amazon Inspector, you can manage your findings in different ways.
 You can filter your findings based on their status.
 You can search your findings based on filter criteria.
 You can create suppression rules to exclude findings from your list of findings.
-You can also export findings to AWS Security Hub, Amazon EventBridge, and Amazon Simple Storage Service (Amazon S3).
+You can also export findings to AWS Security Hub CSPM, Amazon EventBridge, and Amazon Simple Storage Service (Amazon S3).
 
 ###### Topics
 

@@ -74,8 +74,6 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Debian Server (Bullseye)            | 11              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Bookworm)            | 12              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Trixie)              | 13              | DSA CVE                                | Yes                    | Yes                      |
-| Fedora                              | 40              | Errata CVE                             | Yes                    | Yes                      |
-| Fedora                              | 41              | Errata CVE                             | Yes                    | Yes                      |
 | Fedora                              | 42              | Errata CVE                             | Yes                    | Yes                      |
 | OpenSUSE Leap                       | 15.6            | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 8               | Errata CVE                             | Yes                    | Yes                      |
@@ -117,7 +115,6 @@ It also specifies the vendor security advisory for each operating system.
 | AlmaLinux                           | 8       | Errata CVE                             |
 | AlmaLinux                           | 9       | Errata CVE                             |
 | AlmaLinux                           | 10      | Errata CVE                             |
-| Alpine Linux (Alpine)               | 3.19    | Errata CVE                             |
 | Alpine Linux (Alpine)               | 3.20    | Errata CVE                             |
 | Alpine Linux (Alpine)               | 3.21    | Errata CVE                             |
 | Alpine Linux (Alpine)               | 3.22    | Errata CVE                             |
@@ -129,7 +126,6 @@ It also specifies the vendor security advisory for each operating system.
 | Debian Server (Bullseye)            | 11      | DSA CVE                                |
 | Debian Server (Bookworm)            | 12      | DSA CVE                                |
 | Debian Server (Trixie)              | 13      | DSA CVE                                |
-| Fedora                              | 41      | Errata CVE                             |
 | Fedora                              | 42      | Errata CVE                             |
 | Minimus                             | –       | Errata CVE                             |
 | OpenSUSE Leap                       | 15.6    | Errata CVE                             |
@@ -180,8 +176,9 @@ Some checks may not be evaluated or return invalid remediation instructions on A
 | Windows Server                  | 2016    | 3.0.0                 |
 | Windows Server                  | 2019    | 4.0.0                 |
 | Windows Server                  | 2022    | 4.0.0                 |
+| Windows Server                  | 2025    | 1.0.0                 |
 
-### Supported operating systems: Amazon Inspector Scans
+### Supported operating systems: Amazon Inspector Scan API
 
 The following table lists the supported operating systems for the Amazon Inspector Scan API.
 For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md "../../v2/APIReference/API_scan_ScanSbom.md") in the _Amazon Inspector V2 API Reference_.
@@ -191,7 +188,6 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | AlmaLinux 8              | 8       |
 | AlmaLinux                | 9       |
 | AlmaLinux                | 10      |
-| Alpine Linux             | 3.19    |
 | Alpine Linux             | 3.20    |
 | Alpine Linux             | 3.21    |
 | Alpine Linux             | 3.22    |
@@ -205,7 +201,6 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Debian                   | 12      |
 | Debian                   | 13      |
 | Debian Sid               | –       |
-| Fedora                   | 41      |
 | Fedora                   | 42      |
 | macOS                    | 11+     |
 | MinimOS                  | –       |
@@ -233,68 +228,16 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 
 ## Discontinued operating systems
 
-The following tables list which operating systems have been discontinued and when they were discontinued.
+The following table lists operating systems that have been discontinued and when they were discontinued.
 
-Even though Amazon Inspector doesn't provide full support for the following discontinued operating systems, Amazon Inspector continues to scan the Amazon EC2 instances and Amazon ECR container images running them.
-As a security best practice, we recommend moving to the supported version of a discontinued operating system.
-Findings that Amazon Inspector generates for a discontinued operating system should be used for informational purposes only.
+Even though Amazon Inspector doesn't provide full support for discontinued operating systems, Amazon Inspector continues to scan Amazon EC2 instances and Amazon ECR container images running them.
+As a security best practice, we recommend moving to a supported version.
+Findings that Amazon Inspector generates for discontinued operating systems should be used for informational purposes only.
 
-In accordance with vendor policy, the following operating systems no longer receive patch updates.
+In accordance with vendor policy, discontinued operating systems no longer receive patch updates.
 New security advisories might not be released for discontinued operating systems.
 Vendors can remove existing security advisories and detections from their feeds for operating systems that reach the end of standard support.
 As a result, Amazon Inspector can stop generating findings for known CVEs.
-
-**Discontinued operating systems: Amazon EC2 scanning**
-
-| Operating system                    | Version | Discontinued      |
-| ----------------------------------- | ------- | ----------------- |
-| Amazon Linux (AL1)                  | 2012    | December 31, 2021 |
-| CentOS Linux (CentOS)               | 7       | June 30, 2024     |
-| CentOS Linux (CentOS)               | 8       | December 31, 2021 |
-| Debian Server (Jessie)              | 8       | June 30, 2020     |
-| Debian Server (Stretch)             | 9       | June 30, 2022     |
-| Debian Server (Buster)              | 10      | June 30, 2024     |
-| Fedora                              | 33      | November 30, 2021 |
-| Fedora                              | 34      | June 7, 2022      |
-| Fedora                              | 35      | December 13, 2022 |
-| Fedora                              | 36      | May 16, 2023      |
-| Fedora                              | 37      | December 15, 2023 |
-| Fedora                              | 38      | May 21, 2024      |
-| Fedora                              | 39      | November 26, 2024 |
-| Fedora                              | 40      | May 13, 2025      |
-| OpenSUSE Leap                       | 15.2    | December 1, 2021  |
-| OpenSUSE Leap                       | 15.3    | December 1, 2022  |
-| OpenSUSE Leap                       | 15.4    | December 7, 2023  |
-| OpenSUSE Leap                       | 15.5    | December 31, 2024 |
-| Oracle Linux (Oracle)               | 6       | March 1, 2021     |
-| Oracle Linux (Oracle)               | 7       | December 31, 2024 |
-| Red Hat Enterprise Linux (RHEL)     | 6       | November 30, 2020 |
-| Red Hat Enterprise Linux (RHEL)     | 7       | June 30, 2024     |
-| SUSE Linux Enterprise Server (SLES) | 12      | June 30, 2016     |
-| SUSE Linux Enterprise Server (SLES) | 12.1    | May 31, 2017      |
-| SUSE Linux Enterprise Server (SLES) | 12.2    | March 31, 2018    |
-| SUSE Linux Enterprise Server (SLES) | 12.3    | June 30, 2019     |
-| SUSE Linux Enterprise Server (SLES) | 12.4    | June 30, 2020     |
-| SUSE Linux Enterprise Server (SLES) | 12.5    | October 31, 2024  |
-| SUSE Linux Enterprise Server (SLES) | 15      | December 31, 2019 |
-| SUSE Linux Enterprise Server (SLES) | 15.1    | January 31, 2021  |
-| SUSE Linux Enterprise Server (SLES) | 15.2    | December 31, 2021 |
-| SUSE Linux Enterprise Server (SLES) | 15.3    | December 31, 2022 |
-| SUSE Linux Enterprise Server (SLES) | 15.4    | December 31, 2023 |
-| SUSE Linux Enterprise Server (SLES) | 15.5    | December 31, 2024 |
-| Ubuntu (Trusty)                     | 12.04   | April 28, 2017    |
-| Ubuntu (Trusty)                     | 14.04   | April 1, 2024     |
-| Ubuntu (Groovy)                     | 20.10   | July 22, 2021     |
-| Ubuntu (Hirsute)                    | 21.04   | January 20, 2022  |
-| Ubuntu (Impish)                     | 21.10   | July 31, 2022     |
-| Ubuntu (Kinetic)                    | 22.10   | July 20, 2023     |
-| Ubuntu (Lunar Lobster)              | 23.04   | January 25, 2024  |
-| Ubuntu (Mantic Minotaur)            | 23.10   | July 11, 2024     |
-| Ubuntu (Oracular Oriole)            | 24.10   | July 10, 2025     |
-| Windows Server                      | 2012    | October 10, 2023  |
-| Windows Server                      | 2012 R2 | October 10, 2023  |
-
-**Discontinued operating systems: Amazon ECR scanning**
 
 | Operating system                    | Version | Discontinued      |
 | ----------------------------------- | ------- | ----------------- |
@@ -314,7 +257,8 @@ As a result, Amazon Inspector can stop generating findings for known CVEs.
 | Alpine Linux (Alpine)               | 3.15    | November 1, 2023  |
 | Alpine Linux (Alpine)               | 3.16    | May 23, 2024      |
 | Alpine Linux (Alpine)               | 3.17    | November 22, 2024 |
-| Alpine Linux (Alpine)               | 3.18    | May 09 2025       |
+| Alpine Linux (Alpine)               | 3.18    | May 9, 2025       |
+| Alpine Linux (Alpine)               | 3.19    | November 1, 2025  |
 | Amazon Linux (AL1)                  | 2012    | December 31, 2021 |
 | CentOS Linux (CentOS)               | 7       | June 30, 2024     |
 | CentOS Linux (CentOS)               | 8       | December 31, 2021 |
@@ -329,6 +273,7 @@ As a result, Amazon Inspector can stop generating findings for known CVEs.
 | Fedora                              | 38      | May 21, 2024      |
 | Fedora                              | 39      | November 26, 2024 |
 | Fedora                              | 40      | May 13, 2025      |
+| Fedora                              | 41      | November 19, 2025 |
 | OpenSUSE Leap                       | 15.2    | December 1, 2021  |
 | OpenSUSE Leap                       | 15.3    | December 1, 2022  |
 | OpenSUSE Leap                       | 15.4    | December 7, 2023  |
@@ -360,6 +305,8 @@ As a result, Amazon Inspector can stop generating findings for known CVEs.
 | Ubuntu (Lunar Lobster)              | 23.04   | January 25, 2024  |
 | Ubuntu (Mantic Minotaur)            | 23.10   | July 11, 2024     |
 | Ubuntu (Oracular Oriole)            | 24.10   | July 10, 2025     |
+| Windows Server                      | 2012    | October 10, 2023  |
+| Windows Server                      | 2012 R2 | October 10, 2023  |
 
 ##
 

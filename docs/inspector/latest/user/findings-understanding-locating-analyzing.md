@@ -4,7 +4,7 @@ You can view findings in the Amazon Inspector console and with the Amazon Inspec
 In the Amazon Inspector console, you can view all of your findings in the **Dashboard** and **Findings** screens.
 By default, these screens only show your active and critical findings.
 However, you can filter through findings or choose to view findings by category.
-You can also view some findings in [Security Hub and Amazon ECR](integrations.md "integrations.md") if you activate these integrations.
+You can also view some findings in [Security Hub CSPM and Amazon ECR](integrations.md "integrations.md") if you activate these integrations.
 The procedures in this section describe how to view findings in Amazon Inspector console and with the Amazon Inspector `ListFindings` API.
 
 Console

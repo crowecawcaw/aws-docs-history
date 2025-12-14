@@ -24,7 +24,7 @@ For more information, see [Amazon Inspector pricing](https://aws.amazon.com/insp
 For information about how to activate Amazon ECR scanning, see [Activating a scan type](activate-scans.md "activate-scans.md").
 For information about how to view findings, see [Viewing Amazon Inspector findings](findings-understanding-locating-analyzing.md "findings-understanding-locating-analyzing.md").
 For information about how to view findings within Amazon ECR at the image level, see [Image scanning](../../../AmazonECR/latest/userguide/image-scanning.md "../../../AmazonECR/latest/userguide/image-scanning.md") in the _Amazon Elastic Container Registry User Guide_.
-You can manage findings using AWS services not available for basic scanning, like [AWS Security Hub and Amazon EventBridge](integrations.md "integrations.md").
+You can manage findings using AWS services not available for basic scanning, like [AWS Security Hub CSPM and Amazon EventBridge](integrations.md "integrations.md").
 
 You can view the scan configuration for each repository in Amazon Inspector through coverage pages and APIs.
 However, the configuration settings for basic scanning versus continuous scanning can only be modified in Amazon ECR.

@@ -88,11 +88,11 @@ route findings data to targets such as AWS Lambda functions and Amazon Simple No
 With EventBridge, you can monitor and process findings in near-real time as part of your
 existing security and compliance workflows.
 
-If you have activated [AWS Security Hub](securityhub-integration.md "securityhub-integration.md"), then
+If you have activated [AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md"), then
 Amazon Inspector will also [publish findings to
-Security Hub](integrations.md#integrations-security-hub "integrations.md#integrations-security-hub"). Security Hub is a service that provides a comprehensive view of your security
+Security Hub CSPM](integrations.md#integrations-security-hub "integrations.md#integrations-security-hub"). Security Hub CSPM is a service that provides a comprehensive view of your security
 posture across your AWS environment and helps you check your environment against
-security industry standards and best practices. With Security Hub, you can more easily monitor
+security industry standards and best practices. With Security Hub CSPM, you can more easily monitor
 and process your findings as part of a broader analysis of your organization's security
 posture in AWS.
 

@@ -1,18 +1,18 @@
-# Amazon Inspector integration with AWS Security Hub
+# Amazon Inspector integration with AWS Security Hub CSPM
 
-Security Hub provides a comprehensive view of your security state in AWS.
+Security Hub CSPM provides a comprehensive view of your security state in AWS.
 This helps you check your environment against security industry standards and best practices.
-Security Hub collects security data from AWS accounts, services, and supported products.
+Security Hub CSPM collects security data from AWS accounts, services, and supported products.
 You can use this information to analyze security trends and identify security issues.
-When you activate the Amazon Inspector integration with Security Hub, Amazon Inspector can send findings to Security Hub, and Security Hub can analyze those findings as part of your security posture.
+When you activate the Amazon Inspector integration with Security Hub CSPM, Amazon Inspector can send findings to Security Hub CSPM, and Security Hub CSPM can analyze those findings as part of your security posture.
 
-Security Hub tracks security issues as findings.
+Security Hub CSPM tracks security issues as findings.
 Some findings can be a result of security issues detected in other AWS services or third-party products.
-Security Hub uses a set of rules to detect security issues and generate findings and provides tools, so you can manage findings.
-Security Hub archives Amazon Inspector findings once the findings have been closed in Amazon Inspector.
+Security Hub CSPM uses a set of rules to detect security issues and generate findings and provides tools, so you can manage findings.
+Security Hub CSPM archives Amazon Inspector findings once the findings have been closed in Amazon Inspector.
 You can also [view a history of your findings and finding details](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md"), as well as [track the status of an investigation into a finding](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md").
 
-Security Hub processes findings in the [AWS Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md").
+Security Hub CSPM processes findings in the [AWS Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md").
 This format includes details such as unique identifiers, severity levels, affected resources, remediation guidance, workflow status, and contextual information.
 
 ###### Note
@@ -22,19 +22,20 @@ However, you can access these particular findings in the Amazon Inspector consol
 
 ###### Topics
 
-- [Viewing Amazon Inspector findings in AWS Security Hub](#integrations-security-hub-viewing-findings "#integrations-security-hub-viewing-findings")
-- [Activating and configuring the Amazon Inspector integration with Security Hub](#integrations-security-hub-activating-configuring "#integrations-security-hub-activating-configuring")
+- [Viewing Amazon Inspector findings in AWS Security Hub CSPM](#integrations-security-hub-viewing-findings "#integrations-security-hub-viewing-findings")
+- [Activating and configuring the Amazon Inspector integration with Security Hub CSPM](#integrations-security-hub-activating-configuring "#integrations-security-hub-activating-configuring")
+- [Activating Amazon Inspector from Security Hub CSPM using organization policy](#integrations-security-hub-org-policy "#integrations-security-hub-org-policy")
 - [Disabling the flow of findings from an integration](#integrations-security-hub-stopping-publication "#integrations-security-hub-stopping-publication")
-- [Viewing security controls for Amazon Inspector in Security Hub](#integrations-security-hub-inspector-controls "#integrations-security-hub-inspector-controls")
+- [Viewing security controls for Amazon Inspector in Security Hub CSPM](#integrations-security-hub-inspector-controls "#integrations-security-hub-inspector-controls")
 
-## Viewing Amazon Inspector findings in AWS Security Hub
+## Viewing Amazon Inspector findings in AWS Security Hub CSPM
 
-You can view Amazon Inspector Classic and Amazon Inspector findings in Security Hub.
+You can view Amazon Inspector Classic and Amazon Inspector findings in Security Hub CSPM.
 
 ###### Note
 
 To filter on Amazon Inspector findings only, add `"aws/inspector/ProductVersion": "2"` to the filter bar.
-This filter excludes Amazon Inspector Classic findings from the Security Hub dashboard.
+This filter excludes Amazon Inspector Classic findings from the Security Hub CSPM dashboard.
 
 **Example finding from Amazon Inspector**
 
@@ -172,18 +173,25 @@ This filter excludes Amazon Inspector Classic findings from the Security Hub das
 
 ```
 
-## Activating and configuring the Amazon Inspector integration with Security Hub
+## Activating and configuring the Amazon Inspector integration with Security Hub CSPM
 
-You can activate the Amazon Inspector integration with AWS Security Hub by [enabling Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md").
-After you enable Security Hub, the Amazon Inspector integration with AWS Security Hub is automatically activated, and Amazon Inspector begins sending all of its findings to Security Hub using the [AWS Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md").
+You can activate the Amazon Inspector integration with AWS Security Hub CSPM by [enabling Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md").
+After you enable Security Hub CSPM, the Amazon Inspector integration with AWS Security Hub CSPM is automatically activated, and Amazon Inspector begins sending all of its findings to Security Hub CSPM using the [AWS Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md").
+
+## Activating Amazon Inspector from Security Hub CSPM using organization policy
+
+You can manage Amazon Inspector activation across your organization using AWS Organizations policies directly from the Security Hub CSPM console.
+This centralized approach allows you to enable Amazon Inspector scanning for multiple accounts simultaneously through organization-level policy management.
+
+For detailed instructions on managing Amazon Inspector activation through Security Hub CSPM using organization policies, see [Managing delegated administrator accounts for Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-v2-da-policy.md "../../../securityhub/latest/userguide/securityhub-v2-da-policy.md") in the _AWS Security Hub CSPM User Guide_.
 
 ## Disabling the flow of findings from an integration
 
-To stop Amazon Inspector from sending findings to Security Hub, you can use the Security Hub [console](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console") or [API and AWS CLI](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api")..
+To stop Amazon Inspector from sending findings to Security Hub CSPM, you can use the Security Hub CSPM [console](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console") or [API and AWS CLI](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api")..
 
-## Viewing security controls for Amazon Inspector in Security Hub
+## Viewing security controls for Amazon Inspector in Security Hub CSPM
 
-Security Hub analyzes findings from supported AWS and third-party products and runs automated and continuous security checks against rules to generate findings of its own.
+Security Hub CSPM analyzes findings from supported AWS and third-party products and runs automated and continuous security checks against rules to generate findings of its own.
 The rules are represented by security controls, which help you determine whether requirements in a standard are being met.
 
 Amazon Inspector uses security controls to check whether Amazon Inspector features are or should be enabled.
@@ -194,4 +202,4 @@ These features include the following:
 - Lambda standard scanning
 - Lambda code scanning
 
-For more information, see [Amazon Inspector controls](../../../securityhub/latest/userguide/inspector-controls.md "../../../securityhub/latest/userguide/inspector-controls.md") in the _AWS Security Hub User Guide_.
+For more information, see [Amazon Inspector controls](../../../securityhub/latest/userguide/inspector-controls.md "../../../securityhub/latest/userguide/inspector-controls.md") in the _AWS Security Hub CSPM User Guide_.
