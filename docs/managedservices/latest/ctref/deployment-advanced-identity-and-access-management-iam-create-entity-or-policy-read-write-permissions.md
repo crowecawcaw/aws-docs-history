@@ -19,7 +19,7 @@ Create Identity and Access Management (IAM) role or policy with read-write permi
 
 ### Create IAM entity or policy
 
-![IAM role or policy creation interface with ID, execution mode, and description details.](images/guiIamEntityCreateCT.png)
+![IAM role or policy creation interface with ID, execution mode, and description details.](/images/managedservices/latest/ctref/images/guiIamEntityCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -68,7 +68,7 @@ _INLINE CREATE_:
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-1n9gfnog5x7fl" --change-type-version "1.0" --title "`Create role or policy`" --execution-parameters '{"DocumentName":"AWSManagedServices-HandleAutomatedIAMProvisioningCreate-Admin","Region":"`us-east-1`","Parameters":{"ValidateOnly":"`No`"},"RoleDetails":{"Roles":[{"RoleName":"`RoleTest01`","Description":"`This is a test role`","AssumeRolePolicyDocument":"{"Version": "2012-10-17",		 	 	 "Statement":`[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:root"},"Action":"sts:AssumeRole"}]}","ManagedPolicyArns":["arn:aws:iam::123456789012:policy/policy01","arn:aws:iam::123456789012:policy/policy02"],"Path":"/","MaxSessionDuration":"7200","PermissionsBoundary":"arn:aws:iam::123456789012:policy/permission_boundary01","InstanceProfile":"No"}]},"ManagedPolicyDetails":{"Policies":[{"ManagedPolicyName":"TestPolicy01","Description":"This is customer policy","Path":"/test/","PolicyDocument":"{"`Version`":"2012-10-17","Statement":[{"Sid":"AllQueueActions","Effect":"Allow","Action":"sqs:ListQueues","Resource":"*","Condition":{"ForAllValues:StringEquals":{"aws:tagKeys":["temporary"]}}}]}"}]}`}'
+aws amscm create-rfc --change-type-id "ct-1n9gfnog5x7fl" --change-type-version "1.0" --title "`Create role or policy`" --execution-parameters '{"DocumentName":"AWSManagedServices-HandleAutomatedIAMProvisioningCreate-Admin","Region":"`us-east-1`","Parameters":{"ValidateOnly":"`No`"},"RoleDetails":{"Roles":[{"RoleName":"`RoleTest01`","Description":"`This is a test role`","AssumeRolePolicyDocument":"{"Version": "2012-10-17", 		 	 	 		 	 	 "Statement":`[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:root"},"Action":"sts:AssumeRole"}]}","ManagedPolicyArns":["arn:aws:iam::123456789012:policy/policy01","arn:aws:iam::123456789012:policy/policy02"],"Path":"/","MaxSessionDuration":"7200","PermissionsBoundary":"arn:aws:iam::123456789012:policy/permission_boundary01","InstanceProfile":"No"}]},"ManagedPolicyDetails":{"Policies":[{"ManagedPolicyName":"TestPolicy01","Description":"This is customer policy","Path":"/test/","PolicyDocument":"{"`Version`":"2012-10-17","Statement":[{"Sid":"AllQueueActions","Effect":"Allow","Action":"sqs:ListQueues","Resource":"*","Condition":{"ForAllValues:StringEquals":{"aws:tagKeys":["temporary"]}}}]}"}]}`}'
 ```
 
 _TEMPLATE CREATE_:
