@@ -19,12 +19,12 @@ To manage eventual consistency, you can do the following:
   exponential backoff algorithm to ensure that you allow enough time for the
   previous command to propagate through the system. To do this, run the
   `Describe` command repeatedly, starting with a couple
-  of seconds of wait time, and increasing gradually up to five minutes of wait
+  of seconds of wait time, and increasing gradually up to a few minutes of wait
   time.
 - Add wait time between subsequent commands, even if a
   `Describe` command returns an accurate response.
   Apply an exponential backoff algorithm starting with a couple of seconds of
-  wait time, and increase gradually up to about five minutes of wait
+  wait time, and increase gradually up to a few minutes of wait
   time.
 
 ###### Eventual consistency error examples
