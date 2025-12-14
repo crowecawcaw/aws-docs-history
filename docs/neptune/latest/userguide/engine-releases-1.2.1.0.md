@@ -1,13 +1,7 @@
-# Amazon Neptune Engine Version 1.2.1.0.R4 (2023-08-10)
+# Amazon Neptune Engine Version 1.2.1.0.R7 (2023-10-06)
 
-As of 2023-08-10, engine version 1.2.1.0.R4 is being generally deployed. Please note
+As of 2023-10-06, engine version 1.2.1.0.R7 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
-
-###### Important
-
-Changes introduced in this engine release may in some cases cause you
-to observe degraded bulk load performance. As a result, upgrades to this release have
-been temporarily suspended until the problem has been resolved.
 
 ###### Note
 
@@ -45,41 +39,24 @@ a support case may help you explore additional strategies for bringing it down.
   In other languages, the `/openCypher` can be appended to the endpoint
   URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
-## Improvements in This Engine Release
-
-- Add [GraphSON-1.0](https://tinkerpop.apache.org/docs/3.4.1/dev/io/#graphson "https://tinkerpop.apache.org/docs/3.4.1/dev/io/#graphson")
-  support for Gremlin. To use GraphSON-1.0, pass `Accept header` with a value
-  of:
-
-```
-application/vnd.gremlin-v1.0+json;types=false
-```
-
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where a transaction leak would occur when checking
-  the Gremlin query status endpoint for queries with predicates in child traversals
-  for steps that are not processed natively.
-- Fixed an openCypher bug in Bolt transaction handling.
-- Fixed a concurrency issue on the storage layer that could cause a crash.
-- Fixed a bug in slow query logs to make sure that they're not active
-  when they're disabled.
+- Fixed a bug where in some cases a failed transaction was not closed
+  properly.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.1.0.R4, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.1.0.R7, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.6.2`
-- _Gremlin latest version supported:_ `3.6.5`
+- _Gremlin latest version supported:_ `3.6.2`
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.1.0.R4
-
 ## Upgrading to This Release
 
-Amazon Neptune 1.2.1.0.R4 is now generally available.
+Amazon Neptune 1.2.1.0.R7 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
