@@ -477,14 +477,14 @@ nodes.
 If your domain stores sensitive data, [enable node-to-node
 encryption](ntn.md "ntn.md").
 
-### Monitor with AWS Security Hub
+### Monitor with AWS Security Hub CSPM
 
 Monitor your usage of OpenSearch Service as it relates to security best practices by using
-[AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
-Security Hub uses security controls to evaluate resource configurations and security
+[AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
+Security Hub CSPM uses security controls to evaluate resource configurations and security
 standards to help you comply with various compliance frameworks. For more
-information about using Security Hub to evaluate OpenSearch Service resources, see [Amazon OpenSearch Service controls](../../../securityhub/latest/userguide/opensearch-controls.md "../../../securityhub/latest/userguide/opensearch-controls.md") in the
-_AWS Security Hub User Guide_.
+information about using Security Hub CSPM to evaluate OpenSearch Service resources, see [Amazon OpenSearch Service controls](../../../securityhub/latest/userguide/opensearch-controls.md "../../../securityhub/latest/userguide/opensearch-controls.md") in the
+_AWS Security Hub CSPM User Guide_.
 
 ## Cost optimization
 
