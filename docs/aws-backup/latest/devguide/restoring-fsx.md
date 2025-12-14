@@ -240,12 +240,10 @@ role. 11. Verify all your entries, and choose **Restore Backup**.
 
 points
 
-To restore Amazon FSx using the API or CLI, use `StartRestoreJob`. You can specify the following metadata during any Amazon FSx
+To restore Amazon FSx using the API or CLI, use `StartRestoreJob`. You can specify the following metadata during an Amazon FSx
 restore:
 
 ```
-FileSystemId
-FileSystemType
 StorageCapacity
 StorageType
 VpcId
@@ -264,14 +262,36 @@ OpenZFSConfiguration
 aws:backup:request-id
 ```
 
+###### Note
+
+Storage capacity cannot be specified for Intelligent Tiering file systems as they use
+elastic storage that scales automatically based on data usage.
+
 You can specify the following metadata during an FSx for Windows File Server restore:
 
 - ThroughputCapacity
 - PreferredSubnetId
 - ActiveDirectoryId
 
-You can specify the following `PerUnitStorageThroughput` and
-`DriveCacheType` during an FSx for Lustre restore.
+You can specify the following subfields of `LustreConfiguration`
+in the metadata during an FSx for Lustre restore:
+
+- `PerUnitStorageThroughput` - Specifies the throughput
+  capacity per unit of storage provisioned, measured in MB/s per TiB of storage.
+- `DriveCacheType` - The type of drive cache used by
+  `PERSISTENT_1` file systems that are provisioned with HDD storage
+  devices. This parameter is required when `StorageType` is set to
+  HDD.
+- `DataReadCacheConfiguration` - Specifies the provisioned SSD read
+  cache for Intelligent Tiering file systems. Required when `StorageType`
+  is set to `INTELLIGENT_TIERING`. See
+  [LustreReadCacheConfiguration](../../../fsx/latest/APIReference/API_LustreReadCacheConfiguration.md "../../../fsx/latest/APIReference/API_LustreReadCacheConfiguration.md") for more details.
+- `EfaEnabled` - Specifies whether Elastic Fabric Adapter (EFA)
+  and GPUDirect Storage (GDS) support is enabled for the FSx for Lustre file system.
+  For complete details about all available parameters in
+  `LustreConfiguration`, please see
+  [CreateFileSystemLustreConfiguration](../../../fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.md "../../../fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.md") in the
+  _Amazon FSx API Reference_.
 
 You can specify the following metadata during an FSx for ONTAP restore:
 
@@ -283,12 +303,22 @@ You can specify the following metadata during an FSx for ONTAP restore:
 - `storageVirtualMachineId`
 - `tieringPolicy`
 
-You can specify the following metadata during an FSx for OpenZFS restore:
+You can specify the following subfields of `OpenZFSConfiguration`
+in the metadata during an FSx for OpenZFS restore:
 
-- `ThroughputCapacity`
-- `DesklopsConfiguration`
-- If Iops if specified, you must include a value between 0 and 160,000, but do
-  not include Mode.
+- `ThroughputCapacity` - Specifies the throughput
+  capacity of the restored file system, measured in MB/s.
+- `DiskIopsConfiguration` - When specifying Iops for SSD storage
+  class, use a value between 0 and 160,000. Do not include Mode when Iops is
+  specified.
+- `ReadCacheConfiguration` - Specifies the provisioned SSD read
+  cache for Intelligent Tiering file systems. Required when `StorageType`
+  is set to `INTELLIGENT_TIERING`. See
+  [OpenZFSReadCacheConfiguration](../../../fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.md "../../../fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.md") for more details.
+  For complete details about all available parameters in
+  `OpenZFSConfiguration`, please see
+  [CreateFileSystemOpenZFSConfiguration](../../../fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.md "../../../fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.md") in the
+  _Amazon FSx API Reference_.
 
 Example CLI restore command:
 

@@ -33,7 +33,7 @@ For more information about AWS Backup, see the following:
 - [Obtain aggregated daily cross-account multi-Region AWS Backup reporting](https://aws.amazon.com/blogs/storage/obtain-aggregated-daily-cross-account-multi-region-aws-backup-reporting/ "https://aws.amazon.com/blogs/storage/obtain-aggregated-daily-cross-account-multi-region-aws-backup-reporting/").
   With Wali Akbari and Sabith Venkitachalapathy (Feb. 2022).
 - [Automate
-  visibility of backup findings using AWS Backup and AWS Security Hub](https://aws.amazon.com/blogs/storage/automate-visibility-of-backup-findings-using-aws-backup-and-aws-security-hub/ "https://aws.amazon.com/blogs/storage/automate-visibility-of-backup-findings-using-aws-backup-and-aws-security-hub/"). With Kanishk Mahajan (Jan.
+  visibility of backup findings using AWS Backup and AWS Security Hub CSPM](https://aws.amazon.com/blogs/storage/automate-visibility-of-backup-findings-using-aws-backup-and-aws-security-hub/ "https://aws.amazon.com/blogs/storage/automate-visibility-of-backup-findings-using-aws-backup-and-aws-security-hub/"). With Kanishk Mahajan (Jan.
   2022).
 - [Top 10
   security best practices for securing backups in AWS](https://aws.amazon.com/blogs/security/top-10-security-best-practices-for-securing-backups-in-aws/ "https://aws.amazon.com/blogs/security/top-10-security-best-practices-for-securing-backups-in-aws/"). With Ibukun Oyewumi (Jan.
