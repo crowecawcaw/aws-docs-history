@@ -1,9 +1,12 @@
 #
 
-Billing costs for cross-account resources in Global Accelerator
+Quotas for cross-account resources in Global Accelerator
 
-The owner of an accelerator in AWS Global Accelerator is billed for costs associated with the accelerator. There are no
-additional costs, for accelerator owners or for resource owners, for adding cross-account resources as
-endpoints or as bring your own IP address (BYOIP) pools for an accelerator.
+The following applies when you work with cross-account attachments and cross-account resources in AWS Global Accelerator:
 
-For more information about pricing, see [Pricing for AWS Global Accelerator](introduction-pricing.md "introduction-pricing.md").
+- All cross-account resources, and other resources, that are added as endpoints
+  for an accelerator—including resources added by all principals with cross-account
+  permission—count toward quotas in effect for the accelerator.
+- Quotas for accelerators are enforced for principals.
+- Quotas for cross-account attachments in Global Accelerator are enforced for resource owners.
+  For more information about quotas, see [Quotas for AWS Global Accelerator](limits-global-accelerator.md "limits-global-accelerator.md").

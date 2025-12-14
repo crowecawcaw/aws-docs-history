@@ -1,25 +1,27 @@
-# Deprovision the address range
+# Requirements
 
-To stop using your address range with AWS, you first must remove any accelerators that have static IP addresses that
-are allocated from the address pool and stop advertising your address range. After you complete
-those steps, you can deprovision the address range.
+You can bring up to two qualifying IP address ranges to AWS Global Accelerator per AWS account.
 
-You must stop advertising and deprovision your address range using the CLI or Global Accelerator API operations. This functionality
-is not available in the AWS console.
+To qualify, your IP address range must meet the following requirements:
 
-**Step 1: Delete any associated accelerators.** To delete an
-accelerator using the console or using API operations, see [Delete accelerator](about-accelerators.md "about-accelerators.md").
+- The IP address range must be registered with one of the following regional internet registries
+  (RIRs): the American Registry for Internet Numbers (ARIN), Réseaux IP Européens Network
+  Coordination Centre (RIPE), or Asia-Pacific Network Information Centre (APNIC). The address
+  range must be registered to a business or institutional entity. It can’t be registered to
+  an individual.
+- The only address range that you can bring is /24. The first 24 bits of the
+  IP address specify the network number. For example, 198.51.100 is the network number for IP
+  address 198.51.100.0.
+- The IP addresses in the address range must have a clean history. That is, they can’t have a
+  poor reputation or be associated with malicious behavior. We reserve the right
+  to reject the IP address range if we investigate the reputation of the IP
+  address range and find that it contains an IP address that doesn’t have a clean
+  history.
+  Also, we require the following allocation and assignment network types or statuses,
+  depending on where you registered your IP address range:
 
-**Step 2. Stop advertising the address range.** To stop advertising the range, use the
-following [WithdrawByoipCidr](../api/API_WithdrawByoipCidr.md "../api/API_WithdrawByoipCidr.md") command.
-
-```
-`aws globalaccelerator --region us-west-2 withdraw-byoip-cidr --cidr `address-range``
-```
-
-**Step 3. Deprovision the address range.** To deprovision the range, use the following
-[DeprovisionByoipCidr](../api/API_DeprovisionByoipCidr.md "../api/API_DeprovisionByoipCidr.md") command.
-
-```
-`aws globalaccelerator --region us-west-2 deprovision-byoip-cidr --cidr `address-range``
-```
+- ARIN: `Direct Allocation` and `Direct Assignment` network types
+- RIPE: `ALLOCATED PA`, `LEGACY`, and `ASSIGNED PI` allocation
+  statuses
+- APNIC: `ALLOCATED PORTABLE` and `ASSIGNED PORTABLE` allocation
+  statuses
