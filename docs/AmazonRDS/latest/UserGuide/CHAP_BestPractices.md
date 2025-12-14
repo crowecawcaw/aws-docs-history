@@ -29,13 +29,13 @@ up and restoring DB instances
   practices, see [IAM best
   practices](../../../IAM/latest/UserGuide/IAMBestPractices.md "../../../IAM/latest/UserGuide/IAMBestPractices.md").
 
-AWS Security Hub uses security controls to evaluate resource configurations and security
+AWS Security Hub CSPM uses security controls to evaluate resource configurations and security
 standards to help you comply with various compliance frameworks. For more information
-about using Security Hub to evaluate RDS resources, see [Amazon Relational Database Service controls](../../../securityhub/latest/userguide/rds-controls.md "../../../securityhub/latest/userguide/rds-controls.md") in the
-AWS Security Hub User Guide.
+about using Security Hub CSPM to evaluate RDS resources, see [Amazon Relational Database Service controls](../../../securityhub/latest/userguide/rds-controls.md "../../../securityhub/latest/userguide/rds-controls.md") in the
+AWS Security Hub CSPM User Guide.
 
 You can monitor your usage of RDS as it relates to security best practices by using
-Security Hub. For more information, see [What is AWS Security Hub?](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
+Security Hub CSPM. For more information, see [What is AWS Security Hub CSPM?](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
 
 Use the AWS Management Console, the AWS CLI, or the RDS API to change the password for your master
 user. If you use another tool, such as a SQL client, to change the master user password,

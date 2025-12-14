@@ -1,133 +1,65 @@
-# Role-based privilege model for RDS for MySQL
+# Dynamic privileges
 
-Starting with RDS for MySQL version 8.0.36, you can't modify the tables in the
-`mysql` database directly. In particular, you can't create database users
-by performing data manipulation language (DML) operations on the `grant`
-tables. Instead, you use MySQL account-management statements such as `CREATE
- USER`, `GRANT`, and `REVOKE` to grant role-based
-privileges to users. You also can't create other kinds of objects such as stored
-procedures in the `mysql` database. You can still query the
-`mysql` tables. If you use binary log replication, changes made directly
-to the `mysql` tables on the source DB instance aren't replicated to the
-target cluster.
+for RDS for MySQL
 
-In some cases, your application might use shortcuts to create users or other objects by inserting into the
-`mysql` tables. If so, change your application code to use the corresponding statements such as `CREATE
- USER`.
+Dynamic privileges are MySQL privileges that you can explicitly grant by using the
+`GRANT` statement. Depending on your version of RDS for MySQL, RDS allows
+you to grant only specific dynamic privileges. RDS disallows some of these privileges
+because they can interfere with the specific database operations, such as replication
+and backup.
 
-To export metadata for database users during the migration from an external MySQL
-database, use one of the following methods:
+The following table shows which of these privileges you can grant for different MySQL
+versions. If you are upgrading from a MySQL version lower than 8.0.36 to version 8.0.36
+or higher, you might have to update your application code if granting a particular
+privilege is no longer allowed.
 
-- Use MySQL Shell's instance dump utility with a filter to exclude users, roles, and grants. The following example shows you the command syntax to use. Make sure that
-  `outputUrl` is empty.
-
-```
-mysqlsh user@host -- util.dumpInstance(outputUrl,{excludeSchemas:['mysql'],users: true})
-```
-
-For more information, see [Instance Dump Utility, Schema Dump Utility, and Table Dump Utility](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-dump-instance-schema.html "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-dump-instance-schema.html") in the MySQL Reference Manual.
-
-- Use the `mysqlpump` client utility. This example includes all tables except for tables in the `mysql` system database.
-  It also includes `CREATE USER` and `GRANT` statements to reproduce all MySQL users in the migrated database.
-
-```
-mysqlpump --exclude-databases=mysql --users
-```
-
-The `mysqlpump` client utility is no longer available with MySQL
-8.4. Instead, use `mysqldump`.
-To simplify managing permissions for many users or applications, you can use the
-`CREATE ROLE` statement to create a role that has a set of
-permissions. Then you can use the `GRANT` and `SET ROLE`
-statements and the `current_role` function to assign roles to users or
-applications, switch the current role, and check which roles are in effect. For more
-information on the role-based permission system in MySQL 8.0, see [Using Roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html") in
-the MySQL Reference Manual.
-
-###### Important
-
-We strongly recommend that you do not use the master user directly in your applications. Instead, adhere to the best
-practice of using a database user created with the minimal privileges required for your application.
-
-Starting with version 8.0.36, RDS for MySQL includes a special role that has all of the
-following privileges. This role is named `rds_superuser_role`. The primary
-administrative user for each DB instance already has this role granted. The
-`rds_superuser_role` role includes the following privileges for all
-database objects:
-
-- `ALTER`
-- `APPLICATION_PASSWORD_ADMIN`
-- `ALTER ROUTINE`
-- `CREATE`
-- `CREATE ROLE`
-- `CREATE ROUTINE`
-- `CREATE TEMPORARY TABLES`
-- `CREATE USER`
-- `CREATE VIEW`
-- `DELETE`
-- `DROP`
-- `DROP ROLE`
-- `EVENT`
-- `EXECUTE`
-- `INDEX`
-- `INSERT`
-- `LOCK TABLES`
-- `PROCESS`
-- `REFERENCES`
-- `RELOAD`
-- `REPLICATION CLIENT`
-- `REPLICATION SLAVE`
-- `ROLE_ADMIN`
-- `SET_USER_ID`
-- `SELECT`
-- `SHOW DATABASES`
-- `SHOW VIEW`
-- `TRIGGER`
-- `UPDATE`
-- `XA_RECOVER_ADMIN`
-  The role definition also includes `WITH GRANT OPTION` so that an
-  administrative user can grant that role to other users. In particular, the administrator
-  must grant any privileges needed to perform binary log replication with the MySQL
-  cluster as the target.
-
-###### Tip
-
-To see the full details of the permissions, use the following statement.
-
-```
-SHOW GRANTS FOR rds_superuser_role@'%';
-```
-
-When you grant access by using roles in RDS for MySQL version 8.0.36 and higher, you also activate the role by using the `SET ROLE
- `role_name``or`SET ROLE ALL`statement. The following example shows how.
- Substitute the appropriate role name for`CUSTOM_ROLE`.
-
-```
-# Grant role to user
-`mysql>` GRANT CUSTOM_ROLE TO '`user`'@'`domain-or-ip-address`'
-
-# Check the current roles for your user. In this case, the CUSTOM_ROLE role has not been activated.
-# Only the rds_superuser_role is currently in effect.
-`mysql>` SELECT CURRENT_ROLE();
-`+--------------------------+
-| CURRENT_ROLE() |
-+--------------------------+
-| `rds_superuser_role`@`%` |
-+--------------------------+
-1 row in set (0.00 sec)`
-
-# Activate all roles associated with this user using SET ROLE.
-# You can activate specific roles or all roles.
-# In this case, the user only has 2 roles, so we specify ALL.
-`mysql>` SET ROLE ALL;
-`Query OK, 0 rows affected (0.00 sec)`
-
-# Verify role is now active
-`mysql>` SELECT CURRENT_ROLE();
-`+--------------------------------------------------+
-| CURRENT_ROLE() |
-+--------------------------------------------------+
-| `CUSTOM_ROLE`@`%`,`rds_superuser_role`@`%` |
-+--------------------------------------------------+`
-
-```
+| Privilege                                                                                                                                                                                                                               | MySQL 8.0.35 and lower | MySQL 8.0.36 and higher minor versions | MySQL 8.4.3 and higher |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- | ---------------------- |
+| [ALLOW_NONEXISTENT_DEFINER](https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_allow-nonexistent-definer "https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_allow-nonexistent-definer")          | Not available          | Not available                          | Disallowed             |
+| [APPLICATION_PASSWORD_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_application-password-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_application-password-admin")       | Allowed                | Allowed                                | Allowed                |
+| [AUDIT_ABORT_EXEMPT](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_audit-abort-exempt "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_audit-abort-exempt")                               | Allowed                | Disallowed                             | Disallowed             |
+| [AUDIT_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_audit-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_audit-admin")                                                    | Disallowed             | Disallowed                             | Disallowed             |
+| [AUTHENTICATION_POLICY_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_authentication-policy-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_authentication-policy-admin")    | Allowed                | Disallowed                             | Disallowed             |
+| [BACKUP_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_backup-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_backup-admin")                                                 | Allowed                | Disallowed                             | Disallowed             |
+| [BINLOG_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_binlog-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_binlog-admin")                                                 | Allowed                | Disallowed                             | Disallowed             |
+| [BINLOG_ENCRYPTION_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_binlog-encryption-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_binlog-encryption-admin")                | Disallowed             | Disallowed                             | Disallowed             |
+| [CLONE_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_clone-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_clone-admin")                                                    | Disallowed             | Disallowed                             | Disallowed             |
+| [CONNECTION_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_connection-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_connection-admin")                                     | Allowed                | Disallowed                             | Disallowed             |
+| [ENCRYPTION_KEY_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_encryption-key-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_encryption-key-admin")                         | Disallowed             | Disallowed                             | Disallowed             |
+| [FIREWALL_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_firewall-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_firewall-admin")                                           | Disallowed             | Disallowed                             | Disallowed             |
+| [FIREWALL_EXEMPT](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_firewall-exempt "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_firewall-exempt")                                        | Allowed                | Disallowed                             | Disallowed             |
+| [FIREWALL_USER](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_firewall-user "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_firewall-user")                                              | Disallowed             | Disallowed                             | Disallowed             |
+| [FLUSH_OPTIMIZER_COSTS](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_flush-optimizer-costs "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_flush-optimizer-costs")                      | Allowed                | Allowed                                | Allowed                |
+| [FLUSH_PRIVILEGES](https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_flush-privileges "https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_flush-privileges")                                     | Not available          | Not available                          | Allowed                |
+| [FLUSH_STATUS](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_flush-status "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_flush-status")                                                 | Allowed                | Allowed                                | Allowed                |
+| [FLUSH_TABLES](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_flush-tables "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_flush-tables")                                                 | Allowed                | Allowed                                | Allowed                |
+| [FLUSH_USER_RESOURCES](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_flush-user-resources "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_flush-user-resources")                         | Allowed                | Allowed                                | Allowed                |
+| [GROUP_REPLICATION_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_group-replication-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_group-replication-admin")                | Disallowed             | Disallowed                             | Disallowed             |
+| [GROUP_REPLICATION_STREAM](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_group-replication-stream "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_group-replication-stream")             | Disallowed             | Disallowed                             | Disallowed             |
+| [INNODB_REDO_LOG_ARCHIVE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_innodb-redo-log-archive "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_innodb-redo-log-archive")                | Disallowed             | Disallowed                             | Disallowed             |
+| [INNODB_REDO_LOG_ENABLE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_innodb-redo-log-enable "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_innodb-redo-log-enable")                   | Disallowed             | Disallowed                             | Disallowed             |
+| [MASKING_DICTIONARIES_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_masking-dictionaries-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_masking-dictionaries-admin")       | Disallowed             | Disallowed                             | Disallowed             |
+| [NDB_STORED_USER](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_ndb-stored-user "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_ndb-stored-user")                                        | Disallowed             | Disallowed                             | Disallowed             |
+| [OPTIMIZE_LOCAL_TABLE](https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_optimize-local-table "https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_optimize-local-table")                         | Not available          | Not available                          | Disallowed             |
+| [PASSWORDLESS_USER_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_passwordless-user-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_passwordless-user-admin")                | Disallowed             | Disallowed                             | Disallowed             |
+| [PERSIST_RO_VARIABLES_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_persist-ro-variables-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_persist-ro-variables-admin")       | Disallowed             | Disallowed                             | Disallowed             |
+| [REPLICATION_APPLIER](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-applier "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-applier")                            | Allowed                | Disallowed                             | Disallowed             |
+| [REPLICATION_SLAVE_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-slave-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-slave-admin")                | Disallowed             | Disallowed                             | Disallowed             |
+| [RESOURCE_GROUP_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_resource-group-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_resource-group-admin")                         | Allowed                | Disallowed                             | Disallowed             |
+| [RESOURCE_GROUP_USER](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_resource-group-user "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_resource-group-user")                            | Allowed                | Disallowed                             | Disallowed             |
+| [ROLE_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_role-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_role-admin")                                                       | Allowed                | Allowed                                | Allowed                |
+| [SENSITIVE_VARIABLES_OBSERVER](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_sensitive-variables-observer "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_sensitive-variables-observer") | Allowed                | Allowed                                | Allowed                |
+| [SERVICE_CONNECTION_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_service-connection-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_service-connection-admin")             | Allowed                | Disallowed                             | Disallowed             |
+| [SESSION_VARIABLES_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_session-variables-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_session-variables-admin")                | Allowed                | Allowed                                | Allowed                |
+| [SET_ANY_DEFINER](https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_set-any-definer "https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_set-any-definer")                                        | Not available          | Not available                          | Allowed                |
+| [SET_USER_ID](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_set-user-id "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_set-user-id")                                                    | Allowed                | Allowed                                | Not available          |
+| [SHOW_ROUTINE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-routine "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-routine")                                                 | Allowed                | Allowed                                | Allowed                |
+| [SKIP_QUERY_REWRITE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_skip-query-rewrite "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_skip-query-rewrite")                               | Disallowed             | Disallowed                             | Disallowed             |
+| [SYSTEM_USER](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_system-user "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_system-user")                                                    | Disallowed             | Disallowed                             | Disallowed             |
+| [SYSTEM_VARIABLES_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_system-variables-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_system-variables-admin")                   | Disallowed             | Disallowed                             | Disallowed             |
+| [TABLE_ENCRYPTION_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_table-encryption-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_table-encryption-admin")                   | Disallowed             | Disallowed                             | Disallowed             |
+| [TELEMETRY_LOG_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_telemetry-log-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_telemetry-log-admin")                            | Allowed                | Disallowed                             | Disallowed             |
+| [TP_CONNECTION_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_tp-connection-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_tp-connection-admin")                            | Disallowed             | Disallowed                             | Disallowed             |
+| [TRANSACTION_GTID_TAG](https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_transaction-gtid-tag "https://dev.mysql.com/doc/refman/8.4/en/privileges-provided.html#priv_transaction-gtid-tag")                         | Not available          | Not available                          | Disallowed             |
+| [VERSION_TOKEN_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_version-token-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_version-token-admin")                            | Disallowed             | Disallowed                             | Disallowed             |
+| [XA_RECOVER_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_xa-recover-admin "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_xa-recover-admin")                                     | Allowed                | Allowed                                | Allowed                |

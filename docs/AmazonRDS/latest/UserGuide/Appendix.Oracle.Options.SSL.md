@@ -1,71 +1,113 @@
-# Adding the SSL option
+# Configuring SQL\*Plus to
 
-To use SSL, your RDS for Oracle DB instance must
-be associated with an option group that includes the `SSL`
-option.
+use SSL with an RDS for Oracle DB instance
 
-###### To add the SSL option to an option group
+Before you can connect to an RDS for Oracle DB instance that uses the Oracle SSL option, you
+must configure SQL\*Plus before connecting.
 
-1. Create a new option group or identify an existing option group to which
-   you can add the `SSL` option.
+###### Note
 
-For information about creating an option group, see
-[Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create"). 2. Add the `SSL` option to the option group.
+To allow access to the DB instance from the appropriate clients, ensure that your security groups are configured correctly. For more information,
+see [Controlling access with security
+groups](Overview.md "Overview.md"). Also, these instructions are for SQL\*Plus and other
+clients that directly use an Oracle home. For JDBC connections, see [Setting up an SSL connection over JDBC](Appendix.Oracle.Options.SSL.md "Appendix.Oracle.Options.SSL.md").
 
-If you want to use only FIPS-verified cipher suites for SSL
-connections, set the option `FIPS.SSLFIPS_140` to
-`TRUE`. For information about the FIPS standard, see
-[FIPS support](Appendix.Oracle.Options.md#Appendix.Oracle.Options.SSL.FIPS "Appendix.Oracle.Options.md#Appendix.Oracle.Options.SSL.FIPS").
+###### To configure SQL\*Plus to use SSL to connect to an RDS for Oracle DB instance
 
-For information about adding an option to an option group, see
-[Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption"). 3. Create a new RDS for Oracle DB instance and associate the option group with it, or
-modify an RDS for Oracle DB instance to associate the option group with it.
+1. Set the `ORACLE_HOME` environment variable to the location of
+   your Oracle home directory.
 
-For information about creating an DB instance, see
-[Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-
-For information about modifying an DB instance, see
-[Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-
-###### To add the SSL option to an option group
-
-1. Create a new option group or identify an existing option group to which
-   you can add the `SSL` option.
-
-For information about creating an option group, see
-[Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create"). 2. Add the `SSL` option to the option group.
-
-Specify the following option settings:
-
-    * `Port` – The SSL port number
-    * `VpcSecurityGroupMemberships` – The VPC security group for which the option is enabled
-    * `SQLNET.SSL_VERSION` – The TLS version that client can use to connect to the DB instance
-
-For example, the following AWS CLI command adds the
-`SSL` option to an option group named
-`ora-option-group`.
-
-###### Example
-
-For Linux, macOS, or Unix:
+The path to your Oracle home directory depends on your installation. The
+following example sets the `ORACLE_HOME` environment
+variable.
 
 ```
-aws rds add-option-to-option-group --option-group-name ora-option-group \
-  --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.0}]'
+prompt>export ORACLE_HOME=/home/user/app/user/product/19.0.0/dbhome_1
 ```
 
-For Windows:
+For information about setting Oracle environment variables, see [SQL\*Plus environment variables](http://docs.oracle.com/database/121/SQPUG/ch_two.htm#SQPUG331 "http://docs.oracle.com/database/121/SQPUG/ch_two.htm#SQPUG331") in the Oracle documentation, and
+also see the Oracle installation guide for your operating system. 2. Append `$ORACLE_HOME/lib` to the
+`LD_LIBRARY_PATH` environment variable.
+
+The following is an example that sets the LD_LIBRARY_PATH environment
+variable.
 
 ```
-aws rds add-option-to-option-group --option-group-name ora-option-group ^
-  --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.0}]'
+prompt>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib
 ```
 
-3. Create a new RDS for Oracle DB instance and associate the option group with it, or
-   modify an RDS for Oracle DB instance to associate the option group with it.
+3. Create a directory for the Oracle wallet at
+   `$ORACLE_HOME/ssl_wallet`.
 
-For information about creating an DB instance, see
-[Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+The following is an example that creates the Oracle wallet
+directory.
 
-For information about modifying an DB instance, see
-[Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+```
+prompt>mkdir $ORACLE_HOME/ssl_wallet
+```
+
+4. Download the certificate bundle .pem file that works for all AWS Regions and
+   put the file in the ssl_wallet directory. For information, see [Using SSL/TLS to encrypt a connection to a DB
+   instance or cluster](UsingWithRDS.md "UsingWithRDS.md").
+5. In the `$ORACLE_HOME/network/admin` directory, modify
+   or create the `tnsnames.ora` file and include the following
+   entry.
+
+```
+`net_service_name` =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS =
+        (PROTOCOL = TCPS)
+        (HOST = `endpoint`)
+        (PORT = `ssl_port_number`)
+      )
+    )
+    (CONNECT_DATA =
+      (SID = `database_name`)
+    )
+    (SECURITY =
+      (SSL_SERVER_CERT_DN = "C=US,ST=Washington,L=Seattle,O=Amazon.com,OU=RDS,CN=`endpoint`")
+    )
+  )
+```
+
+6. In the same directory, modify or create the
+   sqlnet.ora file and include the following
+   parameters.
+
+###### Note
+
+To communicate with entities over a TLS secured connection, Oracle requires a wallet with the necessary certificates for authentication.
+You can use Oracle's ORAPKI utility to create and maintain Oracle wallets, as shown in step 7. For more information, see
+[Setting up Oracle wallet using ORAPKI](https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tsvt/task_SettingUpOracleWalletUsingORAPKI.html "https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tsvt/task_SettingUpOracleWalletUsingORAPKI.html") in the Oracle documentation.
+
+```
+WALLET_LOCATION = (SOURCE = (METHOD = FILE) (METHOD_DATA = (DIRECTORY = $ORACLE_HOME/ssl_wallet)))
+SSL_CLIENT_AUTHENTICATION = FALSE
+SSL_VERSION = 1.0
+SSL_CIPHER_SUITES = (SSL_RSA_WITH_AES_256_CBC_SHA)
+SSL_SERVER_DN_MATCH = ON
+```
+
+###### Note
+
+You can set `SSL_VERSION` to a higher value if your DB instance supports it. 7. Run the following command to create the Oracle wallet.
+
+```
+prompt>orapki wallet create -wallet $ORACLE_HOME/ssl_wallet -auto_login_only
+```
+
+8. Extract each certificate in the .pem bundle file into a separate .pem file
+   using an OS utility.
+9. Add each certificate to your wallet using separate `orapki`
+   commands, replacing `certificate-pem-file`
+   with the absolute file name of the .pem file.
+
+```
+prompt>orapki wallet add -wallet $ORACLE_HOME/ssl_wallet -trusted_cert -cert
+      `certificate-pem-file` -auto_login_only
+```
+
+For more information, see [Rotating your SSL/TLS
+certificate](UsingWithRDS.md "UsingWithRDS.md").

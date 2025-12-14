@@ -143,10 +143,22 @@ parameter group. You can apply a custom parameter group to a
 read replica only after the upgrade completes by modifying
 the read replica. For more information about read replicas,
 see [Working with read replicas for
-Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md"). 7. **Handle zero-ETL integrations**
+Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md"). 7. **Handle large objects** – In PostgreSQL, large objects (also known as BLOBs) are used to store and manage large binary objects (like files, images, videos, etc.) that are larger than the maximum size allowed for regular column data types. For more information see [PostgreSQL Large Objects documentation](https://www.postgresql.org/docs/current/largeobjects.html "https://www.postgresql.org/docs/current/largeobjects.html").
+
+An upgrade can run out of memory and fail if there are millions of large objects and the instance cannot handle them during an upgrade. The PostgreSQL major version upgrade process comprises of two broad phases: dumping the schema via pg_dump and restoring it through pg_restore. If your database has millions of large objects you need to ensure your instance has sufficient memory to handle the pg_dump and pg_restore during an upgrade and scale it to a larger instance type.
+
+Before you begin an upgrade, check if your database is having any large objects. The catalog `pg_largeobject_metadata` holds metadata associated with large objects. The actual large object data is stored in `pg_largeobject`. Use the following query to check for the number of large objects:
+
+```
+SELECT count(*) FROM pg_largeobject_metadata;
+```
+
+To cleanup existing large objects or orphaned large objects, see [Managing large objects with the lo module](../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md "../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md").
+
+When planning a major version upgrade, we recommend using an instance type with at least 32 GB of memory if your database contains 25 to 30 million large objects. This recommendation is based on our tests and can vary depending on your specific workload and database configuration. If your database includes additional objects (such as tables, indexes, or materialized views), we recommend selecting a larger instance type to ensure optimal performance during the upgrade process. 8. **Handle zero-ETL integrations**
 – If you have an existing [zero-ETL integration](zero-etl.md "zero-etl.md"), [delete it](zero-etl.md "zero-etl.md") before
 performing a major version upgrade. Then, after completing
-the upgrade, recreate the integration. 8. **Perform a backup** – We
+the upgrade, recreate the integration. 9. **Perform a backup** – We
 recommend that you perform a backup before performing the
 major version upgrade so that you have a known restore point
 for your database. If your backup retention period is
@@ -155,7 +167,7 @@ your database before and after upgrading. To change your
 backup retention period, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md") and
 [Modifying a Multi-AZ DB cluster for Amazon RDS](modify-multi-az-db-cluster.md "modify-multi-az-db-cluster.md").
 
-To perform a backup manually, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md") and [Creating a Multi-AZ DB cluster snapshot for Amazon RDS](USER_CreateMultiAZDBClusterSnapshot.md "USER_CreateMultiAZDBClusterSnapshot.md"). 9. **Upgrade certain extensions before a
+To perform a backup manually, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md") and [Creating a Multi-AZ DB cluster snapshot for Amazon RDS](USER_CreateMultiAZDBClusterSnapshot.md "USER_CreateMultiAZDBClusterSnapshot.md"). 10. **Upgrade certain extensions before a
 major version upgrade** – If you
 plan to skip a major version with the upgrade, you need to
 update certain extensions _before_
@@ -195,7 +207,7 @@ ALTER EXTENSION `PostgreSQL-extension` UPDATE TO '`new-version`';
 ```
 
 For more information, see [Upgrading PostgreSQL extensions in RDS for PostgreSQL databases](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md"). To learn more about upgrading PostGIS, see [Step 6: Upgrade the
-PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update"). 10. **Drop certain extensions before the major
+PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update"). 11. **Drop certain extensions before the major
 version upgrade** – An upgrade that
 skips a major version to version 11.x doesn't support
 updating the `pgRouting` extension. Upgrading
@@ -210,7 +222,7 @@ The `tsearch2` and `chkpass` extensions
 are no longer supported for PostgreSQL versions 11 or later.
 If you are upgrading to version 11.x, drop the
 `tsearch2`, and `chkpass`
-extensions before the upgrade. 11. **Drop unknown data types**
+extensions before the upgrade. 12. **Drop unknown data types**
 – Drop `unknown` data types depending on
 the target version.
 
@@ -234,7 +246,7 @@ supported data type, use the following SQL:
 SELECT DISTINCT data_type FROM information_schema.columns WHERE data_type ILIKE 'unknown';
 ```
 
-12. **Perform an upgrade dry run**
+13. **Perform an upgrade dry run**
     – We highly recommend testing a major version upgrade
     on a duplicate of your production database before attempting
     the upgrade on your production database. You can monitor the
@@ -289,7 +301,7 @@ After Amazon RDS performs the upgrade, it takes an
 automatic backup of the database. You can perform a
 point-in-time restore to times before the upgrade
 began and after the automatic backup of your
-database has completed. 13. **If an upgrade fails with precheck
+database has completed. 14. **If an upgrade fails with precheck
 procedure errors, resolve the issues**
 – During the major version upgrade process, Amazon RDS for
 PostgreSQL first runs a precheck procedure to identify any
@@ -331,7 +343,7 @@ Please take appropriate action on databases that have usage incompatible with th
 * The following issues in the database 'mydb' need to be corrected before upgrading:** The database has views or materialized views that depend on 'pg_stat_activity'. Drop the views.
 ```
 
-14. **If a read replica upgrade fails while
+15. **If a read replica upgrade fails while
     upgrading the database, resolve the issue**
     – A failed read replica is placed in the
     `incompatible-restore` state and
@@ -363,12 +375,12 @@ reasons:
      with the primary DB instance to synchronize the data
      folder.
 
-15. **Upgrade your production
+16. **Upgrade your production
     database** – When the dry-run major
     version upgrade is successful, you should be able to upgrade
     your production database with confidence. For more
     information, see [Manually upgrading the engine version](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual").
-16. Run the `ANALYZE` operation to refresh the
+17. Run the `ANALYZE` operation to refresh the
     `pg_statistic` table. You should do this
     for every database on all your PostgreSQL databases.
     Optimizer statistics aren't transferred during a major

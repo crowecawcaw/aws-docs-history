@@ -1,34 +1,45 @@
-# Custom data
+# RAM disk for
 
-types and enumerations with RDS for PostgreSQL
+the stats_temp_directory
 
-PostgreSQL supports creating custom data types and working with enumerations. For
-more information about creating and working with enumerations and other data types,
-see [Enumerated
-types](https://www.postgresql.org/docs/14/datatype-enum.html "https://www.postgresql.org/docs/14/datatype-enum.html") in the PostgreSQL documentation.
+You can use the RDS for PostgreSQL parameter `rds.pg_stat_ramdisk_size` to
+specify the system memory allocated to a RAM disk for storing the PostgreSQL
+`stats_temp_directory`. The RAM disk parameter is only available in
+RDS for PostgreSQL version 14 and lower versions.
 
-The following is an example of creating a type as an enumeration and then
-inserting values into a table.
+Under certain workloads, setting this parameter can improve performance and
+decrease I/O requirements. For more information about the
+`stats_temp_directory`, see [the PostgreSQL documentation.](https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-STATS-TEMP-DIRECTORY "https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-STATS-TEMP-DIRECTORY").
+
+To set up a RAM disk for your `stats_temp_directory`, set the
+`rds.pg_stat_ramdisk_size` parameter to an integer literal value in
+the parameter group used by your DB instance. This parameter denotes MB, so you must
+use an integer value. Expressions, formulas, and functions aren't valid for the
+`rds.pg_stat_ramdisk_size` parameter. Be sure to reboot the DB
+instance so that the change takes effect. For information about setting parameters,
+see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+
+For example, the following AWS CLI command sets the RAM disk parameter to 256
+MB.
 
 ```
-`CREATE TYPE rainbow AS ENUM ('red', 'orange', 'yellow', 'green', 'blue', 'purple');`
-`CREATE TYPE`
-`CREATE TABLE t1 (colors rainbow);`
-`CREATE TABLE`
-`INSERT INTO t1 VALUES ('red'), ( 'orange');`
-`INSERT 0 2`
-`SELECT * from t1;`
-`colors
---------
-red
-orange
-(2 rows)`
-`postgres=>` `ALTER TYPE rainbow RENAME VALUE 'red' TO 'crimson';`
-`ALTER TYPE`
-`postgres=>` `SELECT * from t1;`
-`colors
----------
-crimson
-orange
-(2 rows)`
+aws rds modify-db-parameter-group \
+    --db-parameter-group-name pg-95-ramdisk-testing \
+    --parameters "ParameterName=rds.pg_stat_ramdisk_size, ParameterValue=256, ApplyMethod=pending-reboot"
+```
+
+After you reboot, run the following command to see the status of the
+`stats_temp_directory`.
+
+```
+`postgres=>` `SHOW stats_temp_directory;`
+```
+
+The command should return the following.
+
+```
+stats_temp_directory
+---------------------------
+/rdsdbramdisk/pg_stat_tmp
+(1 row)
 ```

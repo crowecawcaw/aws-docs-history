@@ -30,10 +30,11 @@ Amazon RDS provides three storage types: Provisioned IOPS SSD (also known as io1
 Block Express), General Purpose SSD (also known as gp2 and gp3), and magnetic (also
 known as standard). They differ in performance characteristics and price, which means
 that you can tailor your storage performance and cost to the needs of your database
-workload. You can create Db2, MySQL, MariaDB, Oracle, SQL
-Server, and PostgreSQL RDS DB instances with up to 64 tebibytes (TiB) of
-storage. RDS for Db2 doesn't support the gp2 and magnetic
-storage types.
+workload. You can create Db2, MySQL, MariaDB, and PostgreSQL
+RDS DB instances with up to 64 tebibytes (TiB) of storage. You can create Oracle and SQL
+Server instances with up to 256 TiB of storage with additional storage volumes. For
+more information, see [Additional storage volumes](#Welcome.AdditionalStorageVolumes "#Welcome.AdditionalStorageVolumes"). RDS for Db2
+doesn't support the gp2 and magnetic storage types.
 
 The following list briefly describes the three storage types:
 
@@ -95,8 +96,15 @@ All RDS io2 volumes based on the AWS Nitro System are io2 Block Express volumes
 and provide sub-millisecond average latency. DB instances not based on the AWS
 Nitro System are io2 volumes.
 
-The following table shows the range of Provisioned IOPS and maximum throughput for
-each database engine and storage size range.
+The following table shows the range of Provisioned IOPS and maximum throughput per storage volume for
+each database engine and storage size range. In Amazon RDS for Oracle and SQL Server, you can
+attach up to three additional storage volumes in addition to the primary storage volumes
+to provision up to 256 TiB storage size in total. With additional storage volumes, you
+can have higher provisioned IOPS and maximum throughput for your DB instance. However, your DB instance
+might not be able to fully utilize the provisioned IOPS and maximum throughput if your instance class
+has lower limits than the values you've provisioned for your storage volumes. For more information, see
+[Factors that affect database
+performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors").
 
 | Database engine                     | Range of storage size | Range of Provisioned IOPS | Maximum throughput |
 | ----------------------------------- | --------------------- | ------------------------- | ------------------ |
@@ -232,8 +240,18 @@ instead of one. RDS for SQL Server doesn't support volume striping, and therefor
 a threshold value. For striped volumes, Amazon RDS provides a baseline storage
 performance of 12,000 IOPS and 500 MiB/s.
 
-Storage performance for gp3 volumes on Amazon RDS DB engines, including the threshold,
-is shown in the following table.
+Storage performance for gp3 volumes on Amazon RDS DB engines, including the threshold
+per storage volume, is shown in the following table. In RDS for Oracle and SQL Server,
+you can attach up to three additional storage volumes in addition to the primary
+storage volume. You can provision up to 256 TiB storage size in total with three gp3
+additional storage volumes in RDS for Oracle. You can provision up to 64 TiB storage
+size in total with three gp3 additional storage volumes in RDS for SQL Server because
+each gp3 storage volume can be sized up to 16 TiB. With additional storage volumes, you
+can have higher provisioned IOPS and maximum throughput for your DB instance. However, your DB instance
+might not be able to fully utilize the provisioned IOPS and maximum throughput if your
+instance class has lower limits than the values you've provisioned for your storage volumes.
+For more information, see [Factors that affect database
+performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors").
 
 | DB engine                           | Storage size   | Baseline storage performance | Range of Provisioned IOPS | Range of provisioned storage throughput |
 | ----------------------------------- | -------------- | ---------------------------- | ------------------------- | --------------------------------------- |
@@ -587,19 +605,20 @@ is your situation, seek the advice of a database performance tuning expert.
 ### DB instance class
 
 To get the most performance out of your Amazon RDS DB instance, choose a current
-generation instance type with enough bandwidth to support your storage type. For
-example, you can choose Amazon EBS–optimized instances and instances with
+generation instance type with enough bandwidth and IOPS to support your storage type.
+For example, you can choose Amazon EBS–optimized instances and instances with
 10-gigabit network connectivity.
 
 ###### Important
 
-Depending on the instance class you're using, you might see lower IOPS
-performance than the maximum that you can provision with RDS. For specific
-information on IOPS performance for DB instance classes, see [Amazon
+Depending on the instance class you're using, you might see lower bandwidth,
+throughput and IOPS performance than the maximum that you can provision with RDS.
+For specific information on bandwidth, throughput and IOPS performance for DB instance
+classes, see [Amazon
 EBS–optimized instances](../../../AWSEC2/latest/UserGuide/ebs-optimized.md "../../../AWSEC2/latest/UserGuide/ebs-optimized.md") in the _Amazon EC2 User
-Guide_. We recommend that you determine the maximum IOPS for the
-instance class before setting a Provisioned IOPS value for your DB
-instance.
+Guide_. We recommend that you determine the maximum bandwidth,
+throughput and IOPS for the instance class before setting a Provisioned IOPS and
+throughput value for your storage volumes in your DB instance.
 
 We encourage you to use the latest generation of instances to get the best
 performance. Previous generation DB instances can also have lower maximum

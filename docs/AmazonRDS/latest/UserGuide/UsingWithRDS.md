@@ -1,203 +1,278 @@
-# Identity and access management for Amazon RDS
+# Using SSL/TLS to encrypt a connection to a DB
 
-AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
-to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
-(have permissions) to use Amazon RDS resources. IAM is an AWS service that you can
-use with no additional charge.
+instance or cluster
 
-###### Topics
+You can use Secure Socket Layer (SSL) or Transport Layer
+Security (TLS) from your application to encrypt a connection to a database
+running Db2, MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL.
 
-- [Audience](#security_iam_audience "#security_iam_audience")
-- [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
-- [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How Amazon RDS works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Identity-based policy
-  examples for Amazon RDS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [AWS managed policies for Amazon RDS](rds-security-iam-awsmanpol.md "rds-security-iam-awsmanpol.md")
-- [Amazon RDS updates to AWS managed policies](rds-manpol-updates.md "rds-manpol-updates.md")
-- [Preventing cross-service confused deputy problems](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md")
-- [Troubleshooting Amazon RDS identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+SSL/TLS connections provide a layer of security by
+encrypting data that moves between your client and DB instance or cluster
+. Optionally, your SSL/TLS connection can perform server
+identity verification by validating the server certificate installed on your
+database. To require server identity verification, follow this general
+process:
 
-## Audience
+1. Choose the **certificate authority (CA)**
+   that signs the **DB server certificate,**
+   for your database. For more information about certificate
+   authorities, see [Certificate
+   authorities](#UsingWithRDS.SSL.RegionCertificateAuthorities "#UsingWithRDS.SSL.RegionCertificateAuthorities")
+   .
+2. Download a certificate bundle to use when you are connecting to the
+   database. To download a certificate bundle, see
 
-How you use AWS Identity and Access Management (IAM) differs, depending on the work you do in Amazon RDS.
+[Certificate
+bundles by AWS Region](#UsingWithRDS.SSL.CertificatesAllRegions "#UsingWithRDS.SSL.CertificatesAllRegions")
+.
 
-**Service user** – If you use the Amazon RDS service to do your job, then your administrator provides you
-with the credentials and permissions that you need. As you use more Amazon RDS features to do your work, you might need additional permissions.
-Understanding how access is managed can help you request the right permissions from your administrator. If you cannot access a feature in
-Amazon RDS, see [Troubleshooting Amazon RDS identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
+###### Note
 
-**Service administrator** – If you're in charge of Amazon RDS resources at your company, you probably have
-full access to Amazon RDS. It's your job to determine which Amazon RDS features and resources your employees should access. You must then
-submit requests to your administrator to change the permissions of your service users. Review the information on this page to understand the
-basic concepts of IAM. To learn more about how your company can use IAM with Amazon RDS, see [How Amazon RDS works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+All certificates are only available for download using SSL/TLS
+connections. 3. Connect to the database using your DB engine's process for
+implementing SSL/TLS connections. Each DB engine has its own process for
+implementing SSL/TLS. To learn how to implement SSL/TLS for your
+database, follow the link that corresponds to your DB engine:
 
-**Administrator** – If you're an administrator, you might want to learn details about how you can
-write policies to manage access to Amazon RDS. To view example Amazon RDS identity-based policies that you can use in IAM, see [Identity-based policy
-examples for Amazon RDS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+    * [Using SSL/TLS with an Amazon RDS for Db2 DB instance](Db2.Concepts.md "Db2.Concepts.md")
+    * [SSL/TLS support for MariaDB DB instances
+     on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md")
+    * [Using SSL with a Microsoft SQL Server DB instance](SQLServer.Concepts.General.SSL.md "SQLServer.Concepts.General.SSL.md")
+    * [SSL/TLS support for MySQL DB instances on
+     Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md")
+    * [Using SSL with an RDS for Oracle DB instance](Oracle.Concepts.md "Oracle.Concepts.md")
+    * [Using SSL with a PostgreSQL DB
+     instance](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")
 
-## Authenticating with identities
+## Certificate
 
-Authentication is how you sign in to AWS using your identity credentials. You must be authenticated as the AWS account root user, an IAM user, or by assuming an IAM role.
+authorities
 
-You can sign in as a federated identity using credentials from an identity source like AWS IAM Identity Center (IAM Identity Center), single sign-on authentication, or Google/Facebook credentials. For more information about signing in, see [How to sign in to your AWS account](../../../signin/latest/userguide/how-to-sign-in.md "../../../signin/latest/userguide/how-to-sign-in.md") in the _AWS Sign-In User Guide_.
+The **certificate authority (CA)** is the
+certificate that identifies the root CA at the top of the certificate chain.
+The CA signs the **DB server certificate,**
+which is installed on each DB instance. The DB server certificate identifies
+the DB instance as a trusted server.
 
-For programmatic access, AWS provides an SDK and CLI to cryptographically sign requests. For more information, see [AWS Signature Version 4 for API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") in the _IAM User Guide_.
+![Certificate authority overview](images/certificate-authority-overview.png)
 
-### AWS account root user
+Amazon RDS provides the following CAs to sign the DB server certificate for a
+database.
 
-When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
+| Certificate authority (CA) | Description                                                                                                                                                                                                                                                                                                                              | Common name (CN)                                  |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| rds-ca-rsa2048-g1          | Uses a certificate authority with RSA 2048 private key<br>algorithm and SHA256 signing algorithm in most<br>AWS Regions.<br>In the AWS GovCloud (US) Regions, this CA uses a<br>certificate authority with RSA 2048 private key<br>algorithm and SHA384 signing algorithm.<br>This CA supports automatic server certificate<br>rotation. | Amazon RDS `region-identifier` Root CA RSA2048 G1 |
+| rds-ca-rsa4096-g1          | Uses a certificate authority with RSA 4096 private key<br>algorithm and SHA384 signing algorithm. This CA supports<br>automatic server certificate rotation.                                                                                                                                                                             | Amazon RDS `region-identifier` Root CA RSA4096 G1 |
+| rds-ca-ecc384-g1           | Uses a certificate authority with ECC 384 private key<br>algorithm and SHA384 signing algorithm. This CA supports<br>automatic server certificate rotation.                                                                                                                                                                              | Amazon RDS `region-identifier` Root CA ECC384 G1  |
 
-### Federated identity
+###### Note
 
-As a best practice, require human users to use federation with an identity provider to access AWS services using temporary credentials.
+If you are using the AWS CLI, you can see the validities of the
+certificate authorities listed above by using [describe-certificates](../../../cli/latest/reference/rds/describe-certificates.md "../../../cli/latest/reference/rds/describe-certificates.md").
 
-A _federated identity_ is a user from your enterprise directory, web identity provider, or Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
+These CA certificates are included in the regional and global certificate
+bundle. When you use the rds-ca-rsa2048-g1,
+rds-ca-rsa4096-g1, or rds-ca-ecc384-g1 CA with a database, RDS
+manages the DB server certificate on the database. RDS rotates the DB server
+certificate automatically before it expires.
 
-For centralized access management, we recommend AWS IAM Identity Center. For more information, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the _AWS IAM Identity Center User Guide_.
+### Setting the CA for your database
 
-### IAM users and groups
+You can set the CA for a database when you perform the following
+tasks:
 
-An _[IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
+- Create a DB instance or Multi-AZ DB cluster – You can set the CA when you
+  create a DB instance or cluster. For instructions, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md")
+  or [Creating a Multi-AZ DB cluster for Amazon RDS](create-multi-az-db-cluster.md "create-multi-az-db-cluster.md")
+  .
+- Modify a DB instance or Multi-AZ DB cluster – You can set the CA for a
+  DB instance or cluster by modifying it. For instructions, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md")
+  or [Modifying a Multi-AZ DB cluster for Amazon RDS](modify-multi-az-db-cluster.md "modify-multi-az-db-cluster.md")
+  .
 
-An [_IAM group_](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md") specifies a collection of IAM users and makes permissions easier to manage for large sets of users. For more information, see [Use cases for IAM users](../../../IAM/latest/UserGuide/gs-identities-iam-users.md "../../../IAM/latest/UserGuide/gs-identities-iam-users.md") in the _IAM User Guide_.
+###### Note
 
-You can authenticate to your DB instance using IAM database authentication.
+The default CA is set to
+rds-ca-rsa2048-g1.
+You can override the default CA for your AWS account by
+using the [modify-certificates](../../../cli/latest/reference/rds/modify-certificates.md "../../../cli/latest/reference/rds/modify-certificates.md") command.
 
-IAM database authentication works with the following DB engines:
+The available CAs depend on the DB engine and DB engine version. When
+you use the AWS Management Console, you can choose the CA using the
+**Certificate authority** setting, as shown in the
+following image.
 
-- RDS for MariaDB
-- RDS for MySQL
-- RDS for PostgreSQL
+![Certificate authority option](images/certificate-authority.png)
 
-For more information
-about authenticating to your DB instance
-using IAM, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md").
+The console only shows the CAs that are available for the DB engine
+and DB engine version. If you're using the AWS CLI, you can set the CA for
+a DB instance using the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") or [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command. You can set the CA for a Multi-AZ DB cluster using the [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") or [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command.
 
-### IAM roles
+If you're using the AWS CLI, you can see the available CAs for your
+account by using the [describe-certificates](../../../cli/latest/reference/rds/describe-certificates.md "../../../cli/latest/reference/rds/describe-certificates.md") command. This command also shows the
+expiration date for each CA in `ValidTill` in the output. You
+can find the CAs that are available for a specific DB engine and DB
+engine version using the [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command.
 
-An _[IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")_ is an identity within your AWS account that
-has specific permissions. It is similar to a user, but is not associated with a specific person. You can temporarily assume an IAM role in
-the AWS Management Console by [switching roles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md"). You can assume a role by calling an AWS CLI
-or AWS API operation or by using a custom URL. For more information about methods for using roles, see [Using IAM roles](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/UserGuide/id_roles_use.md") in the _IAM User Guide_.
+The following example shows the CAs available for the default
+RDS for PostgreSQL DB engine version.
 
-IAM roles with temporary credentials are useful in the following situations:
+```
+aws rds describe-db-engine-versions --default-only --engine postgres
+```
 
-- **Temporary user permissions** – A user can assume an IAM role to temporarily take on
-  different permissions for a specific task.
-- **Federated user access** –
+Your output is similar to the following. The available CAs are listed
+in `SupportedCACertificateIdentifiers`. The output also shows
+whether the DB engine version supports rotating the certificate without
+restart in
+`SupportsCertificateRotationWithoutRestart`.
 
-To assign permissions to a federated identity, you create a role and define permissions for the role. When a federated identity authenticates, the identity is associated with the role and is granted the permissions that are defined by the role. For information about roles for federation, see [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md") in the _IAM User Guide_.
+```
+{
+    "DBEngineVersions": [
+        {
+            "Engine": "postgres",
+            "MajorEngineVersion": "13",
+            "EngineVersion": "13.4",
+            "DBParameterGroupFamily": "postgres13",
+            "DBEngineDescription": "PostgreSQL",
+            "DBEngineVersionDescription": "PostgreSQL 13.4-R1",
+            "ValidUpgradeTarget": [],
+            "SupportsLogExportsToCloudwatchLogs": false,
+            "SupportsReadReplica": true,
+            "SupportedFeatureNames": [
+                "Lambda"
+            ],
+            "Status": "available",
+            "SupportsParallelQuery": false,
+            "SupportsGlobalDatabases": false,
+            "SupportsBabelfish": false,
+            "SupportsCertificateRotationWithoutRestart": true,
+            "SupportedCACertificateIdentifiers": [
+                "rds-ca-rsa2048-g1",
+                "rds-ca-ecc384-g1",
+                "rds-ca-rsa4096-g1"
+            ]
+        }
+    ]
+}
+```
 
-If you use IAM Identity Center, you configure a permission set. To control what your identities can access after they authenticate, IAM Identity Center correlates the permission set to a role in IAM.
-For information about permissions sets, see [Permission sets](../../../singlesignon/latest/userguide/permissionsetsconcept.md "../../../singlesignon/latest/userguide/permissionsetsconcept.md") in the _AWS IAM Identity Center User Guide_.
+### DB server certificate validities
 
-- **Cross-account access** – You can use an
-  IAM role to allow someone (a trusted principal) in a different account to access
-  resources in your account. Roles are the primary way to grant cross-account
-  access. However, with some AWS services, you can attach a policy directly to a
-  resource (instead of using a role as a proxy). To learn the difference between
-  roles and resource-based policies for cross-account access, see [How IAM roles
-  differ from resource-based policies](../../../IAM/latest/UserGuide/id_roles_compare-resource-policies.md "../../../IAM/latest/UserGuide/id_roles_compare-resource-policies.md") in the
-  _IAM User Guide_.
-- **Cross-service access** –
+The validity of DB server certificate depends on the DB engine and DB
+engine version. If the DB engine version supports rotating the
+certificate without restart, the validity of the DB server certificate
+is 1 year. Otherwise the validity is 3 years.
 
-Some AWS services use features in other AWS services. For example, when you make a call in a service,
-it's common for that service to run applications in Amazon EC2 or store objects in Amazon S3. A service might do this
-using the calling principal's permissions, using a service role, or using a service-linked role.
+For more information about DB server certificate rotation, see [Automatic server certificate rotation](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation")
+.
 
-    + **Forward access sessions** –
+### Viewing the CA for your DB instance
 
-     Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
-     when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
-    + **Service role** –
+You can view the details about the CA for a database by viewing the
+**Connectivity & security** tab in the console,
+as in the following image.
 
-     A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
-     actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
-     more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the *IAM User Guide*.
-    + **Service-linked role** –
+![Certificate authority details](images/certificate-authority-details.png)
 
-     A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
-     Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
-     but not edit the permissions for service-linked roles.
+If you're using the AWS CLI, you can view the details about the CA for a
+DB instance by using the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command. You can view the details about the CA for a
+Multi-AZ DB cluster by using the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command.
 
-- **Applications running on Amazon EC2** –
+## Download
 
-You can use an IAM role to manage temporary credentials for applications that are running on an EC2 instance and making AWS CLI or AWS API requests.
-This is preferable to storing access keys within the EC2 instance. To assign an AWS role to an EC2 instance and make it
-available to all of its applications, you create an instance profile that is attached to the
-instance. An instance profile contains the role and enables programs that are running on the EC2 instance to
-get temporary credentials. For more information, see [Use an IAM role to grant permissions to applications running on Amazon EC2 instances](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2.md") in the
-_IAM User Guide_.
+certificate bundles for Amazon RDS
 
-To learn whether to use IAM roles, see [When to create an IAM role (instead of a
-user)](../../../IAM/latest/UserGuide/id.md#id_which-to-choose_role "../../../IAM/latest/UserGuide/id.md#id_which-to-choose_role") in the _IAM User Guide_.
+When you connect to your database with SSL or TLS, the database instance
+requires a trust certificate from Amazon RDS. Select the appropriate link in the
+following table to download the bundle that corresponds with the
+AWS Region where you host your database.
 
-## Managing access using policies
+### Certificate
 
-You control access in AWS by creating policies and attaching them to IAM identities or AWS resources. A policy is an object in AWS that,
-when associated with an identity or resource, defines their permissions. AWS evaluates these policies when an entity (root user, user, or IAM
-role) makes a request. Permissions in the policies determine whether the request is allowed or denied. Most policies are stored in AWS as JSON
-documents. For more information about the structure and contents of JSON policy documents, see [Overview of JSON policies](../../../IAM/latest/UserGuide/access_policies.md#access_policies-json "../../../IAM/latest/UserGuide/access_policies.md#access_policies-json") in the _IAM User Guide_.
+bundles by AWS Region
 
-An administrator can use policies to specify who has access to AWS resources, and what actions they can perform on those resources. Every
-IAM entity (permission set or role) starts with no permissions. In other words, by default, users can do nothing, not even change their own password. To give a
-user permission to do something, an administrator must attach a permissions policy to a user. Or the administrator can add the user to a group that has
-the intended permissions. When an administrator gives permissions to a group, all users in that group are granted those permissions.
+The certificate bundles for all AWS Regions and GovCloud (US)
+Regions contain the following root CA certificates:
 
-IAM policies define permissions for an action regardless of the method that you use to perform the operation. For example, suppose that you have a
-policy that allows the `iam:GetRole` action. A user with that policy can get role information from the AWS Management Console, the AWS CLI, or the AWS
-API.
+- `rds-ca-rsa2048-g1`
+- `rds-ca-rsa4096-g1`
+- `rds-ca-ecc384-g1`
 
-### Identity-based policies
+The `rds-ca-rsa4096-g1` and `rds-ca-ecc384-g1`
+certificates are not available in the following Regions:
 
-Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as a permission set or role. These
-policies control what actions that identity can perform, on which resources, and under what conditions. To learn how to create an identity-based
-policy, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
-_IAM User Guide_.
+- Asia Pacific (Mumbai)
+- Asia Pacific (Melbourne)
+- Canada West (Calgary)
+- Europe (Zurich)
+- Europe (Spain)
+- Israel (Tel Aviv)
 
-Identity-based policies can be further categorized as _inline policies_ or _managed
-policies_. Inline policies are embedded directly into a single permission set or role. Managed policies are standalone policies that you
-can attach to multiple permission sets and roles in your AWS account. Managed policies include AWS managed policies and customer managed
-policies. To learn how to choose between a managed policy or an inline policy, see [Choosing between managed policies and inline
-policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#choosing-managed-or-inline "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#choosing-managed-or-inline") in the _IAM User Guide_.
+Your application trust store needs to only register the root CA certificate. Do not register the intermediate
+CA certificates to your trust store as this might cause connection issues when RDS automatically rotates your DB server certificate.
 
-For information about AWS managed policies that are specific to
-Amazon RDS, see
-[AWS managed policies for Amazon RDS](rds-security-iam-awsmanpol.md "rds-security-iam-awsmanpol.md").
+###### Note
 
-### Other policy types
+Amazon RDS Proxy
+uses
+certificates from the AWS Certificate Manager (ACM). If you're using RDS Proxy, you
+don't need to download Amazon RDS certificates or update
+applications that use RDS Proxy connections. For more information, see
+[Using TLS/SSL with RDS Proxy](rds-proxy.md#rds-proxy-security.tls "rds-proxy.md#rds-proxy-security.tls")
+.
 
-AWS supports additional, less-common policy types. These policy types can set the maximum permissions granted to you by the more common policy
-types.
+To download a certificate bundle for an AWS Region, select the link
+for the AWS Region that hosts your database in the following
+table.
 
-- **Permissions boundaries** – A permissions
-  boundary is an advanced feature in which you set the maximum permissions that an
-  identity-based policy can grant to an IAM entity (permission set or role). You can
-  set a permissions boundary for an entity. The resulting permissions are the
-  intersection of entity's identity-based policies and its permissions boundaries.
-  Resource-based policies that specify the permission set or role in the
-  `Principal` field are not limited by the permissions boundary. An
-  explicit deny in any of these policies overrides the allow. For more information
-  about permissions boundaries, see [Permissions boundaries for
-  IAM entities](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md") in the _IAM User Guide_.
-- **Service control policies (SCPs)** – SCPs are JSON policies that specify the maximum permissions for
-  an organization or organizational unit (OU) in AWS Organizations. AWS Organizations is a service for grouping and centrally managing multiple AWS accounts
-  that your business owns. If you enable all features in an organization, then you can apply service control policies (SCPs) to any or all of
-  your accounts. The SCP limits permissions for entities in member accounts, including each AWS account root user. For more information about Organizations and
-  SCPs, see [How SCPs work](../../../organizations/latest/userguide/orgs_manage_policies_about-scps.md "../../../organizations/latest/userguide/orgs_manage_policies_about-scps.md") in the _AWS Organizations User Guide_.
-- **Session policies** – Session policies are
-  advanced policies that you pass as a parameter when you programmatically create a
-  temporary session for a role or federated user. The resulting session's
-  permissions are the intersection of the permission sets or role's identity-based policies and
-  the session policies. Permissions can also come from a resource-based policy. An
-  explicit deny in any of these policies overrides the allow. For more information,
-  see [Session
-  policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
+| **AWS Region**                | **Certificate bundle<br>(PEM)**                                                                                                                                                                                           | **Certificate bundle<br>(PKCS7)**                                                                                                                                                                                         |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Any commercial AWS Region     | [global-bundle.pem](https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem")                                                                | [global-bundle.p7b](https://truststore.pki.rds.amazonaws.com/global/global-bundle.p7b "https://truststore.pki.rds.amazonaws.com/global/global-bundle.p7b")                                                                |
+| US East (N. Virginia)         | [us-east-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem")                                                 | [us-east-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.p7b")                                                 |
+| US East (Ohio)                | [us-east-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.pem")                                                 | [us-east-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.p7b")                                                 |
+| US West (N. California)       | [us-west-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.pem")                                                 | [us-west-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.p7b")                                                 |
+| US West (Oregon)              | [us-west-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.pem")                                                 | [us-west-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.p7b")                                                 |
+| Africa (Cape Town)            | [af-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.pem")                                            | [af-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.p7b")                                            |
+| Asia Pacific (Hong Kong)      | [ap-east-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.pem")                                                 | [ap-east-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.p7b")                                                 |
+| Asia Pacific (Hyderabad)      | [ap-south-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.pem")                                            | [ap-south-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.p7b")                                            |
+| Asia Pacific (Jakarta)        | [ap-southeast-3-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.pem")                        | [ap-southeast-3-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.p7b")                        |
+| Asia Pacific (Malaysia)       | [ap-southeast-5-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.pem")                        | [ap-southeast-5-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.p7b")                        |
+| Asia Pacific (Melbourne)      | [ap-southeast-4-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.pem")                        | [ap-southeast-4-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.p7b")                        |
+| Asia Pacific (Mumbai)         | [ap-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.pem")                                            | [ap-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.p7b")                                            |
+| Asia Pacific (Osaka)          | [ap-northeast-3-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.pem")                        | [ap-northeast-3-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.p7b")                        |
+| Asia Pacific (Thailand)       | [ap-southeast-7-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.pem")                        | [ap-southeast-7-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.p7b")                        |
+| Asia Pacific (Tokyo)          | [ap-northeast-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.pem")                        | [ap-northeast-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.p7b")                        |
+| Asia Pacific (Seoul)          | [ap-northeast-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.pem")                        | [ap-northeast-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.p7b")                        |
+| Asia Pacific (Singapore)      | [ap-southeast-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.pem")                        | [ap-southeast-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.p7b")                        |
+| Asia Pacific (Sydney)         | [ap-southeast-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.pem")                        | [ap-southeast-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.p7b")                        |
+| Canada (Central)              | [ca-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.pem")                                  | [ca-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.p7b")                                  |
+| Canada West (Calgary)         | [ca-west-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.pem")                                                 | [ca-west-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.p7b")                                                 |
+| Europe (Frankfurt)            | [eu-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.pem")                                  | [eu-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.p7b")                                  |
+| Europe (Ireland)              | [eu-west-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.pem")                                                 | [eu-west-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.p7b")                                                 |
+| Europe (London)               | [eu-west-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.pem")                                                 | [eu-west-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.p7b")                                                 |
+| Europe (Milan)                | [eu-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.pem")                                            | [eu-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.p7b")                                            |
+| Europe (Paris)                | [eu-west-3-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.pem")                                                 | [eu-west-3-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.p7b")                                                 |
+| Europe (Spain)                | [eu-south-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.pem")                                            | [eu-south-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.p7b")                                            |
+| Europe (Stockholm)            | [eu-north-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.pem")                                            | [eu-north-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.p7b")                                            |
+| Europe (Zurich)               | [eu-central-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.pem")                                  | [eu-central-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.p7b")                                  |
+| Israel (Tel Aviv)             | [il-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.pem")                                  | [il-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.p7b")                                  |
+| Mexico (Central)              | [mx-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.pem")                                  | [mx-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.p7b")                                  |
+| Middle East (Bahrain)         | [me-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.pem")                                            | [me-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.p7b")                                            |
+| Middle East (UAE)             | [me-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.pem")                                  | [me-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.p7b")                                  |
+| South America (São Paulo)     | [sa-east-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.pem")                                                 | [sa-east-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.p7b")                                                 |
+| Any AWS GovCloud (US) Regions | [global-bundle.pem](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.pem "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.pem")                                    | [global-bundle.p7b](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.p7b "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.p7b")                                    |
+| AWS GovCloud (US-East)        | [us-gov-east-1-bundle.pem](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.pem "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.pem") | [us-gov-east-1-bundle.p7b](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.p7b "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.p7b") |
+| AWS GovCloud (US-West)        | [us-gov-west-1-bundle.pem](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.pem "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.pem") | [us-gov-west-1-bundle.p7b](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.p7b "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.p7b") |
 
-### Multiple policy types
+### Viewing
 
-When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines
-whether to allow a request when multiple policy types are involved, see [Policy
-evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
+the contents of your CA certificate
+
+To check the contents of your CA certificate bundle, use the following
+command:
+
+```
+keytool -printcert -v -file global-bundle.pem
+```

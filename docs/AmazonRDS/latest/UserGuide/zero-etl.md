@@ -1,132 +1,95 @@
-# Troubleshooting Amazon RDS zero-ETL integrations
+# Viewing and monitoring Amazon RDS
 
-You can check the state of a zero-ETL integration by querying the [SVV_INTEGRATION](../../../redshift/latest/dg/r_SVV_INTEGRATION.md "../../../redshift/latest/dg/r_SVV_INTEGRATION.md") system table in the
-analytics destination. If the `state` column has a value of
-`ErrorState`, it means something's wrong. For more information, see [Monitoring integrations using system tables for Amazon Redshift](zero-etl.md#zero-etl.monitoring "zero-etl.md#zero-etl.monitoring").
+zero-ETL integrations
 
-Use the following information to troubleshoot common issues with Amazon RDS
-zero-ETL integrations.
-
-###### Important
-
-Resync and refresh operations are not available for zero-ETL integrations with an
-Amazon SageMaker AI lakehouse. If there are issues with an
-integration, you must delete the integration and create a new integration. You can't
-refresh or resync an existing integration.
+You can view the details of an Amazon RDS zero-ETL integration to see its configuration
+information and current status. You can also monitor the status of your integration by
+querying specific system views in Amazon Redshift. In addition, Amazon Redshift publishes certain
+integration-related metrics to Amazon CloudWatch, which you can view within the Amazon Redshift console.
 
 ###### Topics
 
-- [I can't create a
-  zero-ETL integration](#zero-etl.troubleshooting.creation "#zero-etl.troubleshooting.creation")
-- [My integration is stuck in a state
-  of Syncing](#zero-etl.troubleshooting.syncing "#zero-etl.troubleshooting.syncing")
-- [My tables aren't replicating
-  to Amazon Redshift](#zero-etl.troubleshooting.primarykey "#zero-etl.troubleshooting.primarykey")
-- [One or more of my Amazon Redshift tables
-  requires a resync](#zero-etl.troubleshooting.resync "#zero-etl.troubleshooting.resync")
-- [Integration failed
-  issues for Amazon SageMaker AI lakehouse zero-ETL integrations](#zero-etl.troubleshooting.integration-issues "#zero-etl.troubleshooting.integration-issues")
+- [Viewing integrations](#zero-etl.describing "#zero-etl.describing")
+- [Monitoring integrations using system tables for Amazon Redshift](#zero-etl.monitoring "#zero-etl.monitoring")
+- [Monitoring integrations with Amazon EventBridge for Amazon Redshift](#zero-etl.eventbridge "#zero-etl.eventbridge")
 
-## I can't create a
+## Viewing integrations
 
-zero-ETL integration
+You can view Amazon RDS zero-ETL integrations using the AWS Management Console, the AWS CLI, or the RDS
+API.
 
-If you can't create a zero-ETL integration, make sure that the following are correct for
-your source database:
+###### To view the details of a zero-ETL integration
 
-- Your source database must be running a supported DB engine version. For a
-  list of supported versions, see [Supported
-  Regions and DB engines for Amazon RDS zero-ETL integrations](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
-- You correctly configured DB parameters. If the required parameters are
-  set incorrectly or not associated with the database, creation fails. See
-  [Step 1: Create a custom DB parameter group](zero-etl.md#zero-etl.parameters "zero-etl.md#zero-etl.parameters").
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. From the left navigation pane, choose **Zero-ETL integrations**.
+3. Select an integration to view more details about it, such as its source
+   database and target data warehouse.
 
-In addition, make sure the following are correct for your target data
-warehouse:
+![Details about a zero-ETL integration](images/zero-etl-integration-view.png)
+An integration can have the following statuses:
 
-- Case sensitivity is enabled. See [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-setting-up.case-sensitivity "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-setting-up.case-sensitivity").
-- You added the correct authorized principal and integration source. See
-  [Configure authorization for your Amazon Redshift data
-  warehouse](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam").
-- The data warehouse is encrypted (if it's a provisioned cluster). See
-  [Amazon Redshift database
-  encryption](../../../redshift/latest/mgmt/working-with-db-encryption.md "../../../redshift/latest/mgmt/working-with-db-encryption.md").
+- `Creating` – The integration is being created.
+- `Active` – The integration is sending transactional data to the target data
+  warehouse.
+- `Syncing` – The integration has encountered a recoverable error and is
+  reseeding data. Affected tables aren't available for querying until they finish resyncing.
+- `Needs attention` – The integration encountered an
+  event or error that requires manual intervention to resolve it. To fix
+  the issue, follow the instructions in the error message on the integration
+  details page.
+- `Failed` – The integration encountered an unrecoverable
+  event or error that can't be fixed. You must delete and recreate the
+  integration.
+- `Deleting` – The integration is being deleted.
+  To view all zero-ETL integrations in the current account using the AWS CLI, use the
+  [describe-integrations](../../../cli/latest/reference/rds/describe-integrations.md "../../../cli/latest/reference/rds/describe-integrations.md") command and specify the
+  `--integration-identifier` option.
 
-## My integration is stuck in a state
-
-of `Syncing`
-
-Your integration might consistently show a status of `Syncing` if you
-change the value of one of the required DB parameters.
-
-To fix this issue, check the values of the parameters in the parameter group
-associated with the source database, and make sure that they match the required
-values. For more information, see [Step 1: Create a custom DB parameter group](zero-etl.md#zero-etl.parameters "zero-etl.md#zero-etl.parameters").
-
-If you modify any parameters, make sure to reboot the database
-to apply the changes.
-
-## My tables aren't replicating
-
-to Amazon Redshift
-
-If you don't see one or more tables reflected in Amazon Redshift, you can run the following
-command to resynchronize them:
+For Linux, macOS, or Unix:
 
 ```
-ALTER DATABASE `dbname` INTEGRATION REFRESH TABLES `table1`, `table2`;
+aws rds describe-integrations \
+    --integration-identifier `ee605691-6c47-48e8-8622-83f99b1af374`
 ```
 
-For more information, see [ALTER
-DATABASE](../../../redshift/latest/dg/r_ALTER_DATABASE.md "../../../redshift/latest/dg/r_ALTER_DATABASE.md") in the Amazon Redshift SQL reference.
+For Windows:
 
-Your data might not be replicating because one or more of your source tables
-doesn't have a primary key. The monitoring dashboard in Amazon Redshift displays the status of
-these tables as `Failed`, and the status of the overall zero-ETL integration
-changes to `Needs attention`. To resolve this issue, you can identify an
-existing key in your table that can become a primary key, or you can add a synthetic
-primary key. For detailed solutions, see [Handle tables without primary keys while creating
-Amazon Aurora MySQL or Amazon RDS for MySQL zero-ETL integrations with
-Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/").
+```
+aws rds describe-integrations ^
+    --integration-identifier `ee605691-6c47-48e8-8622-83f99b1af374`
+```
 
-## One or more of my Amazon Redshift tables
+To view zero-ETL integration using the Amazon RDS API, use the [`DescribeIntegrations`](../APIReference/API_DescribeIntegrations.md "../APIReference/API_DescribeIntegrations.md") operation with the
+`IntegrationIdentifier` parameter.
 
-requires a resync
+## Monitoring integrations using system tables for Amazon Redshift
 
-Running certain commands on your source database might require your tables to be
-resynchronized. In these cases, the [SVV_INTEGRATION_TABLE_STATE](../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md "../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md") system view shows a
-`table_state` of `ResyncRequired`, which means that the
-integration must completely reload data for that specific table from MySQL to
-Amazon Redshift.
+Amazon Redshift has system tables and views that contain information about how the system is
+functioning. You can query these system tables and views the same way that you would
+query any other database table. For more information about system tables and views in
+Amazon Redshift, see [System tables and views
+reference](../../../redshift/latest/dg/cm_chap_system-tables.md "../../../redshift/latest/dg/cm_chap_system-tables.md") in the _Amazon Redshift Database Developer Guide_.
 
-When the table starts to resynchronize, it enters a state of `Syncing`.
-You don't need to take any manual action to resynchronize a table. While table data
-is resynchronizing, you can't access it in Amazon Redshift.
+You can query the following system views and tables to get information about your
+zero-ETL integrations:
 
-The following are some example operations that can put a table into a
-`ResyncRequired` state, and possible alternatives to consider.
+- [SVV_INTEGRATION](../../../redshift/latest/dg/r_SVV_INTEGRATION.md "../../../redshift/latest/dg/r_SVV_INTEGRATION.md") –
+  Provides configuration details for your integrations.
+- [SVV_INTEGRATION_TABLE_STATE](../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md "../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md") – Describes
+  the state of each table within an integration.
+- [SYS_INTEGRATION_TABLE_STATE_CHANGE](../../../redshift/latest/dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md "../../../redshift/latest/dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md") – Displays table state
+  change logs for an integration.
+- [SYS_INTEGRATION_ACTIVITY](../../../redshift/latest/dg/r_SYS_INTEGRATION_ACTIVITY.md "../../../redshift/latest/dg/r_SYS_INTEGRATION_ACTIVITY.md") – Provides information about
+  completed integration runs.
 
-| Operation                                                         | Example                                                                                                           | Alternative                                                                                                                                                                                                                                                                                                                          |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Adding a column into a specific position                          | ``<br>ALTER TABLE `table_name`<br>ADD COLUMN `column_name` INTEGER<br>NOT NULL first;<br>``                       | Amazon Redshift doesn't support adding columns into specific positions using<br>`first` or `after` keywords. If the order<br>of columns in the target table isn't critical, add the column to the<br>end of the table using a simpler<br>command:<br>``<br>ALTER TABLE `table_name`<br>ADD COLUMN `column_name` `column_type`;<br>`` |
-| Adding a timestamp column with the default<br>`CURRENT_TIMESTAMP` | ``<br>ALTER TABLE `table_name`<br>ADD COLUMN `column_name` TIMESTAMP<br>NOT NULL DEFAULT CURRENT_TIMESTAMP;<br>`` | The `CURRENT_TIMESTAMP` value for existing table rows<br>is calculated by RDS for MySQL and can't be simulated in Amazon Redshift without full<br>table data resynchronization. If possible, switch the default<br>value to a literal constant like `2023-01-01<br>00:00:15` to avoid latency in table<br>availability.              |
-| Performing multiple column operations within a single<br>command  | ``<br>ALTER TABLE `table_name`<br>ADD COLUMN `column_1`,<br>RENAME COLUMN `column_2` TO `column_3`;<br>``         | Consider splitting the command into two separate operations,<br>`ADD` and `RENAME`, which won't require<br>resynchronization.                                                                                                                                                                                                        |
+All integration-related Amazon CloudWatch metrics originate from Amazon Redshift. For more information, see
+[Metrics for
+zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.md "../../../redshift/latest/mgmt/zero-etl-using.md") in the _Amazon Redshift Management Guide_.
+Currently, Amazon RDS doesn't publish any integration metrics to CloudWatch.
 
-## Integration failed
+## Monitoring integrations with Amazon EventBridge for Amazon Redshift
 
-issues for Amazon SageMaker AI lakehouse zero-ETL integrations
-
-If you encounter issues with an existing zero-ETL integration with an Amazon SageMaker AI lakehouse, the only resolution is to delete the integration
-and create a new one. Unlike other AWS services, zero-ETL integrations do not support
-refresh or resync operations.
-
-To resolve integration issues:
-
-1. Delete the problematic zero-ETL integration using the console, CLI, or
-   API.
-2. Verify that the source database and target data warehouse configurations
-   are correct.
-3. Create a new zero-ETL integration with the same or updated configuration.
-
-This process will result in a complete re-initialization of the data pipeline,
-which may take time depending on the size of your source database.
+Amazon Redshift send integration-related events to Amazon EventBridge. For a list of events and their
+corresponding event IDs, see [Zero-ETL integration event notifications with Amazon EventBridge](../../../redshift/latest/mgmt/integration-event-notifications.md "../../../redshift/latest/mgmt/integration-event-notifications.md") in the _Amazon Redshift
+Management Guide_.

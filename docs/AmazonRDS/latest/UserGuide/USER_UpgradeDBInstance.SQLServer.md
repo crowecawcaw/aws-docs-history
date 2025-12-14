@@ -1,74 +1,32 @@
-# Major version upgrades for RDS for SQL Server
+# Testing an RDS for SQL Server upgrade
 
-Amazon RDS currently supports the following major version upgrades to a Microsoft SQL Server DB instance.
+Before you perform a major version upgrade on your DB instance, you should thoroughly test your database, and all applications
+that access the database, for compatibility with the new version. We recommend that you use the following procedure.
 
-You can upgrade your existing DB instance to SQL Server 2017 or 2019 from any version except SQL Server 2008. To upgrade from SQL
-Server 2008, first upgrade to one of the other versions.
+###### To test a major version upgrade
 
-| Current version | Supported upgrade versions                            |
-| --------------- | ----------------------------------------------------- |
-| SQL Server 2019 | SQL Server 2022                                       |
-| SQL Server 2017 | SQL Server 2022<br>SQL Server 2019                    |
-| SQL Server 2016 | SQL Server 2022<br>SQL Server 2019<br>SQL Server 2017 |
+1. Review [Upgrade
+   SQL Server](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/upgrade-sql-server "https://docs.microsoft.com/en-us/sql/database-engine/install-windows/upgrade-sql-server") in the Microsoft documentation for the new version of the database engine to see if there are
+   compatibility issues that might affect your database or applications.
+2. If your DB instance uses a custom option group, create a new option group compatible with the new version you are
+   upgrading to. For more information, see [Option group considerations](USER_UpgradeDBInstance.SQLServer.md#USER_UpgradeDBInstance.SQLServer.OGPG.OG "USER_UpgradeDBInstance.SQLServer.md#USER_UpgradeDBInstance.SQLServer.OGPG.OG").
+3. If your DB instance uses a custom parameter group, create a new parameter group compatible with the new version you
+   are upgrading to. For more information, see [Parameter group considerations](USER_UpgradeDBInstance.SQLServer.md#USER_UpgradeDBInstance.SQLServer.OGPG.PG "USER_UpgradeDBInstance.SQLServer.md#USER_UpgradeDBInstance.SQLServer.OGPG.PG").
+4. Create a DB snapshot of the DB instance to be upgraded. For more information, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md").
+5. Restore the DB snapshot to create a new test DB instance. For more information, see [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").
+6. Modify this new test DB instance to upgrade it to the new version, by using one of the following methods:
+   - [Console](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual.Console "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual.Console")
+   - [AWS CLI](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual.CLI "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual.CLI")
+   - [RDS API](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual.API "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual.API")
 
-You can use an AWS CLI query, such as the following example, to find the available upgrades for a particular database engine
-version.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds describe-db-engine-versions \
-    --engine sqlserver-se \
-    --engine-version 14.00.3281.6.v1 \
-    --query "DBEngineVersions[*].ValidUpgradeTarget[*].{EngineVersion:EngineVersion}" \
-    --output table
-```
-
-For Windows:
-
-```
-aws rds describe-db-engine-versions ^
-    --engine sqlserver-se ^
-    --engine-version 14.00.3281.6.v1 ^
-    --query "DBEngineVersions[*].ValidUpgradeTarget[*].{EngineVersion:EngineVersion}" ^
-    --output table
-```
-
-The output shows that you can upgrade version 14.00.3281.6 to the latest available SQL Server 2017 or 2019 versions.
-
-```
---------------------------
-|DescribeDBEngineVersions|
-+------------------------+
-|      EngineVersion     |
-+------------------------+
-|  14.00.3294.2.v1       |
-|  14.00.3356.20.v1      |
-|  14.00.3381.3.v1       |
-|  14.00.3401.7.v1       |
-|  14.00.3421.10.v1      |
-|  14.00.3451.2.v1       |
-|  15.00.4043.16.v1      |
-|  15.00.4073.23.v1      |
-|  15.00.4153.1.v1       |
-|  15.00.4198.2.v1       |
-|  15.00.4236.7.v1       |
-+------------------------+
-```
-
-## Database compatibility level
-
-You can use Microsoft SQL Server database compatibility levels to adjust some
-database behaviors to mimic previous versions of SQL Server. For more information,
-see [Compatibility level](https://msdn.microsoft.com/en-us/library/bb510680.aspx "https://msdn.microsoft.com/en-us/library/bb510680.aspx") in the Microsoft documentation. When you upgrade
-your DB instance, all existing databases remain at their original compatibility
-level.
-
-You can change the compatibility level of a database by using the ALTER DATABASE
-command. For example, to change a database named `customeracct` to be
-compatible with SQL Server 2016, issue the following command:
-
-```
-ALTER DATABASE customeracct SET COMPATIBILITY_LEVEL = 130
-
-```
+7. Evaluate the storage used by the upgraded instance to determine if the upgrade requires
+   additional storage.
+8. Run as many of your quality assurance tests against the upgraded DB instance as needed to
+   ensure that your database and application work correctly with the new version.
+   Implement any new tests needed to evaluate the impact of any compatibility
+   issues you identified in step 1. Test all stored procedures and functions.
+   Direct test versions of your applications to the upgraded DB instance.
+9. If all tests pass, then perform the upgrade on your production DB instance.
+   We recommend that you do not allow write operations
+   to the DB instance until you confirm that
+   everything is working correctly.

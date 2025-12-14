@@ -1,32 +1,32 @@
-# Deny or allow viewing database names for Amazon RDS for SQL Server
+# Determining a
 
-The master user cannot set `DENY VIEW ANY DATABASE TO `LOGIN``  
-to hide databases from a user.  
-To change this permission, use the following stored procedure instead:
+recovery model for your Amazon RDS for SQL Server database
 
-- Denying database view access to `LOGIN`:
+In Amazon RDS, the recovery model, retention period, and database status are linked.
 
-```
-EXEC msdb.dbo.rds_manage_view_db_permission @permission=‘DENY’, @server_principal=`‘LOGIN’` 
-go
-```
+It's important to understand the consequences before making a change to one of these
+settings. Each setting can affect the others. For example:
 
-- Allowing database view access to `LOGIN`:
+- If you change a database's recovery model to SIMPLE or BULK_LOGGED while backup retention
+  is enabled, Amazon RDS resets the recovery model to FULL within five minutes. This
+  also results in RDS taking a snapshot of the DB instance.
+- If you set backup retention to `0` days, RDS sets the recovery mode to SIMPLE.
+- If you change a database's recovery model from SIMPLE to any other option while backup
+  retention is set to `0` days, RDS resets the recovery model to SIMPLE.
 
-```
-EXEC msdb.dbo.rds_manage_view_db_permission @permission='GRANT', @server_principal=`'LOGIN'`
- go
-```
+###### Important
 
-Consider the following when using this stored procedure:
+Never change the recovery model on Multi-AZ instances, even if it seems you can do so—for
+example, by using ALTER DATABASE. Backup retention, and therefore FULL recovery mode, is
+required for Multi-AZ. If you alter the recovery model, RDS immediately changes it back to FULL.
 
-- Database names are hidden from the SSMS and internal DMV (dynamic management views).
-  However, database names are still visible from audit, logs and metadata tables.
-  These are secured `VIEW ANY DATABASE` server permissions. For more information, see
-  [DENY Server Permissions](https://learn.microsoft.com/en-us/sql/t-sql/statements/deny-server-permissions-transact-sql?view=sql-server-ver16#permissions "https://learn.microsoft.com/en-us/sql/t-sql/statements/deny-server-permissions-transact-sql?view=sql-server-ver16#permissions").
-- Once the permission is reverted to `GRANT` (allowed), the `LOGIN` can view all databases.
-- If you delete and recreate `LOGIN`, the view permission related to the LOGIN is reset to `ALLOW`.
-- For Multi-AZ instances, set the `DENY` or `GRANT` permission only for the `LOGIN` on the primary host.
-  The changes are propagated to the secondary host automatically.
-- This permission only changes whether a login can view the database names.
-  However, access to databases and objects within are managed separately.
+This automatic reset forces RDS to completely rebuild the mirror. During this rebuild, the
+availability of the database is degraded for about 30-90 minutes until the mirror is
+ready for failover. The DB instance also experiences performance degradation in the
+same way it does during a conversion from Single-AZ to Multi-AZ. How long
+performance is degraded depends on the database storage size—the bigger the
+stored database, the longer the degradation.
+
+For more information on SQL Server recovery models, see
+[Recovery models (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server")
+in the Microsoft documentation.

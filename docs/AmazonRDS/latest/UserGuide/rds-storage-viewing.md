@@ -1,9 +1,24 @@
-# Viewing storage volume details for your DB instance
+# CLI
 
-You can view your storage volume configuration from the AWS Management Console or AWS
-CLI. This includes details about both your primary storage volume and any additional storage
-volumes attached to your DB instance.
+To view your storage volume configuration from the AWS CLI, use the
+`describe-db-instances` command.
 
-The `StorageVolumeStatus` field indicates whether the volume is currently in
-use by your database. A status of `Not-in-use` means the volume is attached but
-it's not in use by the database engine or an RDS feature.
+```
+aws rds describe-db-instances --db-instance-identifier my-database
+```
+
+In the output, find the `AdditionalStorageVolumes` array to view details
+for the added volumes.
+
+```
+    "AdditionalStorageVolumes": [
+        {
+            "VolumeName": "rdsdbdata2",
+            "StorageVolumeStatus": "Not-in-use",
+            "AllocatedStorage": 5000,
+            "IOPS": 25000,
+            "StorageThroughput": 500,
+            "StorageType": "gp3"
+        }
+    ]
+```

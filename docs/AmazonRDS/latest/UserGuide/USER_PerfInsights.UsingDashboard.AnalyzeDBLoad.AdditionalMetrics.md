@@ -1,105 +1,106 @@
-# SQL statistics for Amazon RDS for Oracle
+# SQL statistics for RDS PostgreSQL
 
-Amazon RDS for Oracle collects SQL statistics both at the statement and digest level. At the statement level, the ID column represents the
-value of `V$SQL.SQL_ID`. At the digest level, the ID column shows the value of `V$SQL.FORCE_MATCHING_SIGNATURE`.
+For each SQL call and for each second that a query runs,
+Performance Insights collects SQL statistics. RDS for PostgreSQL collect SQL statistics only at the digest–level. No statistics are shown at the
+statement-level.
 
-If the ID is `0` at the digest level, Oracle Database has determined that this statement is not suitable for reuse. In this
-case, the child SQL statements could belong to different digests. However, the statements are grouped together under the
-`digest_text` for the first SQL statement collected.
+Following, you can find information about digest-level statistics for
+RDS for PostgreSQL.
 
 ###### Topics
 
-- [Per-second statistics for
-  Oracle](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.per-second "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.per-second")
-- [Per-call statistics for
-  Oracle](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.per-call "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.per-call")
-- [Primary statistics for
-  Oracle](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.primary "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.Oracle.primary")
+- [Digest statistics for RDS PostgreSQL](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.digest "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.digest")
+- [Per-second digest statistics
+  for RDS PostgreSQL](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.per-second "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.per-second")
+- [Per-call digest statistics for
+  RDS PostgreSQL](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.per-call "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.per-call")
+- [Primary statistics
+  for RDS PostgreSQL](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.primary "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.primary")
 
-## Per-second statistics for
+## Digest statistics for RDS PostgreSQL
 
-Oracle
+To view SQL digest statistics, RDS PostgreSQL must load the `pg_stat_statements` library. For PostgreSQL DB instances that are compatible
+with PostgreSQL 11 or later, the database loads this library by default. For PostgreSQL DB instances that are compatible with
+PostgreSQL 10 or earlier, enable this library manually. To enable it manually, add `pg_stat_statements` to
+`shared_preload_libraries` in the DB parameter group associated with the DB instance. Then reboot your DB instance. For
+more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-The following metrics provide per-second statistics for an Oracle SQL query.
+###### Note
 
-| Metric                                       | Unit                                         |
-| -------------------------------------------- | -------------------------------------------- |
-| db.sql.stats.executions_per_sec              | Number of executions per second              |
-| db.sql.stats.elapsed_time_per_sec            | Average active executions (AAE)              |
-| db.sql.stats.rows_processed_per_sec          | Rows processed per second                    |
-| db.sql.stats.buffer_gets_per_sec             | Buffer gets per second                       |
-| db.sql.stats.physical_read_requests_per_sec  | Physical reads per second                    |
-| db.sql.stats.physical_write_requests_per_sec | Physical writes per second                   |
-| db.sql.stats.total_sharable_mem_per_sec      | Total shareable memory per second (in bytes) |
-| db.sql.stats.cpu_time_per_sec                | CPU time per second (in ms)                  |
+Performance Insights can only collect statistics for queries in `pg_stat_activity` that aren't truncated. By
+default, PostgreSQL databases truncate queries longer than 1,024 bytes. To increase the query size, change the
+`track_activity_query_size` parameter in the DB parameter group associated with your DB instance. When you change
+this parameter, a DB instance reboot is required.
 
-The following metrics provide per-second statistics for an Oracle SQL digest query.
+## Per-second digest statistics
 
-| Metric                                                 | Unit                                         |
-| ------------------------------------------------------ | -------------------------------------------- |
-| db.sql_tokenized.stats.executions_per_sec              | Number of executions per second              |
-| db.sql_tokenized.stats.elapsed_time_per_sec            | Average active executions (AAE)              |
-| db.sql_tokenized.stats.rows_processed_per_sec          | Rows processed per second                    |
-| db.sql_tokenized.stats.buffer_gets_per_sec             | Buffer gets per second                       |
-| db.sql_tokenized.stats.physical_read_requests_per_sec  | Physical reads per second                    |
-| db.sql_tokenized.stats.physical_write_requests_per_sec | Physical writes per second                   |
-| db.sql_tokenized.stats.total_sharable_mem_per_sec      | Total shareable memory per second (in bytes) |
-| db.sql_tokenized.stats.cpu_time_per_sec                | CPU time per second (in ms)                  |
+for RDS PostgreSQL
 
-## Per-call statistics for
+The following SQL digest statistics are available for PostgreSQL DB instances.
 
-Oracle
+| Metric                                             | Unit                                       |
+| -------------------------------------------------- | ------------------------------------------ |
+| db.sql_tokenized.stats.calls_per_sec               | Calls per second                           |
+| db.sql_tokenized.stats.rows_per_sec                | Rows per second                            |
+| db.sql_tokenized.stats.total_time_per_sec          | Average active executions per second (AAE) |
+| db.sql_tokenized.stats.shared_blks_hit_per_sec     | Block hits per second                      |
+| db.sql_tokenized.stats.shared_blks_read_per_sec    | Block reads per second                     |
+| db.sql_tokenized.stats.shared_blks_dirtied_per_sec | Blocks dirtied per second                  |
+| db.sql_tokenized.stats.shared_blks_written_per_sec | Block writes per second                    |
+| db.sql_tokenized.stats.local_blks_hit_per_sec      | Local block hits per second                |
+| db.sql_tokenized.stats.local_blks_read_per_sec     | Local block reads per second               |
+| db.sql_tokenized.stats.local_blks_dirtied_per_sec  | Local block dirtied per second             |
+| db.sql_tokenized.stats.local_blks_written_per_sec  | Local block writes per second              |
+| db.sql_tokenized.stats.temp_blks_written_per_sec   | Temporary writes per second                |
+| db.sql_tokenized.stats.temp_blks_read_per_sec      | Temporary reads per second                 |
+| db.sql_tokenized.stats.blk_read_time_per_sec       | Average concurrent reads per second        |
+| db.sql_tokenized.stats.blk_write_time_per_sec      | Average concurrent writes per second       |
 
-The following metrics provide per-call statistics for an Oracle SQL statement.
+## Per-call digest statistics for
 
-| Metric                                        | Unit                                            |
-| --------------------------------------------- | ----------------------------------------------- |
-| db.sql.stats.elapsed_time_per_exec            | Elapsed time per executions (in ms)             |
-| db.sql.stats.rows_processed_per_exec          | Rows processed per execution                    |
-| db.sql.stats.buffer_gets_per_exec             | Buffer gets per execution                       |
-| db.sql.stats.physical_read_requests_per_exec  | Physical reads per execution                    |
-| db.sql.stats.physical_write_requests_per_exec | Physical writes per execution                   |
-| db.sql.stats.total_sharable_mem_per_exec      | Total shareable memory per execution (in bytes) |
-| db.sql.stats.cpu_time_per_exec                | CPU time per execution (in ms)                  |
+RDS PostgreSQL
 
-The following metrics provide per-call statistics for an Oracle SQL digest query.
+The following metrics provide per call statistics for a SQL statement.
 
-| Metric                                                  | Unit                                            |
-| ------------------------------------------------------- | ----------------------------------------------- |
-| db.sql_tokenized.stats.elapsed_time_per_exec            | Elapsed time per executions (in ms)             |
-| db.sql_tokenized.stats.rows_processed_per_exec          | Rows processed per execution                    |
-| db.sql_tokenized.stats.buffer_gets_per_exec             | Buffer gets per execution                       |
-| db.sql_tokenized.stats.physical_read_requests_per_exec  | Physical reads per execution                    |
-| db.sql_tokenized.stats.physical_write_requests_per_exec | Physical writes per execution                   |
-| db.sql_tokenized.stats.total_sharable_mem_per_exec      | Total shareable memory per execution (in bytes) |
-| db.sql_tokenized.stats.cpu_time_per_exec                | CPU time per execution (in ms)                  |
+| Metric                                              | Unit                             |
+| --------------------------------------------------- | -------------------------------- |
+| db.sql_tokenized.stats.rows_per_call                | Rows per call                    |
+| db.sql_tokenized.stats.avg_latency_per_call         | Average latency per call (in ms) |
+| db.sql_tokenized.stats.shared_blks_hit_per_call     | Block hits per call              |
+| db.sql_tokenized.stats.shared_blks_read_per_call    | Block reads per call             |
+| db.sql_tokenized.stats.shared_blks_written_per_call | Block writes per call            |
+| db.sql_tokenized.stats.shared_blks_dirtied_per_call | Blocks dirtied per call          |
+| db.sql_tokenized.stats.local_blks_hit_per_call      | Local block hits per call        |
+| db.sql_tokenized.stats.local_blks_read_per_call     | Local block reads per call       |
+| db.sql_tokenized.stats.local_blks_dirtied_per_call  | Local block dirtied per call     |
+| db.sql_tokenized.stats.local_blks_written_per_call  | Local block writes per call      |
+| db.sql_tokenized.stats.temp_blks_written_per_call   | Temporary block writes per call  |
+| db.sql_tokenized.stats.temp_blks_read_per_call      | Temporary block reads per call   |
+| db.sql_tokenized.stats.blk_read_time_per_call       | Read time per call (in ms)       |
+| db.sql_tokenized.stats.blk_write_time_per_call      | Write time per call (in ms)      |
 
-## Primary statistics for
+## Primary statistics
 
-Oracle
+for RDS PostgreSQL
 
-The following metrics provide primary statistics for an Oracle SQL query.
+The following SQL statistics are available for PostgreSQL DB instances.
 
-| Metric                               | Unit                              |
-| ------------------------------------ | --------------------------------- |
-| db.sql.stats.executions              | Number of executions              |
-| db.sql.stats.elapsed_time            | Elapsed time (in ms)              |
-| db.sql.stats.rows_processed          | Rows processed                    |
-| db.sql.stats.buffer_gets             | Buffer gets                       |
-| db.sql.stats.physical_read_requests  | Physical reads                    |
-| db.sql.stats.physical_write_requests | Physical writes                   |
-| db.sql.stats.total_sharable_mem      | Total shareable memory (in bytes) |
-| db.sql.stats.cpu_time                | CPU time (in ms)                  |
+| Metric                                     | Unit                              |
+| ------------------------------------------ | --------------------------------- |
+| db.sql_tokenized.stats.calls               | Calls                             |
+| db.sql_tokenized.stats.rows                | Rows                              |
+| db.sql_tokenized.stats.total_time          | Total time (in ms)                |
+| db.sql_tokenized.stats.shared_blks_hit     | Block hits                        |
+| db.sql_tokenized.stats.shared_blks_read    | Block reads                       |
+| db.sql_tokenized.stats.shared_blks_dirtied | Blocks dirtied                    |
+| db.sql_tokenized.stats.shared_blks_written | Block writes                      |
+| db.sql_tokenized.stats.local_blks_hit      | Local block hits                  |
+| db.sql_tokenized.stats.local_blks_read     | Local block reads                 |
+| db.sql_tokenized.stats.local_blks_dirtied  | Local blocks dirtied              |
+| db.sql_tokenized.stats.local_blks_written  | Local block writes                |
+| db.sql_tokenized.stats.temp_blks_written   | Temporary writes                  |
+| db.sql_tokenized.stats.temp_blks_read      | Temporary reads                   |
+| db.sql_tokenized.stats.blk_read_time       | Average concurrent reads (in ms)  |
+| db.sql_tokenized.stats.blk_write_time      | Average concurrent writes (in ms) |
 
-The following metrics provide primary statistics for an Oracle SQL digest query.
-
-| Metric                                         | Unit                              |
-| ---------------------------------------------- | --------------------------------- |
-| db.sql_tokenized.stats.executions              | Number of executions              |
-| db.sql_tokenized.stats.elapsed_time            | Elapsed time (in ms)              |
-| db.sql_tokenized.stats.rows_processed          | Rows processed                    |
-| db.sql_tokenized.stats.buffer_gets             | Buffer gets                       |
-| db.sql_tokenized.stats.physical_read_requests  | Physical reads                    |
-| db.sql_tokenized.stats.physical_write_requests | Physical writes                   |
-| db.sql_tokenized.stats.total_sharable_mem      | Total shareable memory (in bytes) |
-| db.sql_tokenized.stats.cpu_time                | CPU time (in ms)                  |
+For more information about these metrics, see [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html") in the PostgreSQL documentation.

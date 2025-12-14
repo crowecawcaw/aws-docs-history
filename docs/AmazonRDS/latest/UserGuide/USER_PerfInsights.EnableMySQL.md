@@ -1,32 +1,31 @@
-# Determining whether
+# Turn on the Performance Schema for Amazon RDS for MariaDB or MySQL
 
-Performance Insights is managing the Performance Schema
+Assume that Performance Insights is turned on for your DB instance or Multi-AZ DB cluster but isn't
+currently managing the Performance Schema. If you want to allow Performance Insights to manage the Performance Schema automatically,
+complete the following steps.
 
-To find out whether Performance Insights is currently managing the Performance Schema for
-all supported major engine versions, review the following table.
-
-| Setting of performance_schema parameter | Setting of the Source column | Performance Insights is managing the Performance Schema? |
-| --------------------------------------- | ---------------------------- | -------------------------------------------------------- |
-| `0`                                     | `System default`             | Yes                                                      |
-| `0` or `1`                              | `Modified`                   | No                                                       |
-
-In the following procedure, you determine whether Performance Insights is managing the Performance
-Schema automatically.
-
-###### To determine whether Performance Insights is managing the Performance Schema
-
-automatically
+###### To configure the Performance Schema for automatic management
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. Choose **Parameter groups**.
-3. Select the name of the parameter group for your DB instance.
-4. Enter `performance_schema` in the search bar.
-5. Check whether **Source** is the system default and
-   **Value** is **0**. If so, Performance
-   Insights is managing the Performance Schema automatically.
+3. Select the name of the parameter group for your DB instance or Multi-AZ DB cluster.
+4. Choose **Edit**.
+5. Enter `performance_schema` in the search bar.
+6. Select the `performance_schema` parameter.
+7. Choose **Set to default value**.
+8. Confirm by choosing **Set values to default**.
+9. Choose **Save
+   Changes**.
+10. Reboot the DB instance or Multi-AZ DB cluster.
 
-In the example shown here, Performance Insights isn't managing the Performance
-Schema automatically.
+###### Important
 
-![Shows that the settings for the performance_schema parameter are modified.](images/perf_schema_user.png)
+Whenever you turn the Performance Schema on or off, make sure to reboot the DB instance or Multi-AZ DB
+cluster.
+For more information about modifying instance parameters, see [Modifying parameters in a DB parameter group
+in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For more information about
+the dashboard, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.md "USER_PerfInsights.md"). For more information about the
+MySQL performance schema, see [MySQL
+Performance Schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html") (for 8.0) and [MySQL
+Performance Schema](https://dev.mysql.com/doc/refman/8.4/en/performance-schema.html "https://dev.mysql.com/doc/refman/8.4/en/performance-schema.html") (for 8.4) in the MySQL documentation.

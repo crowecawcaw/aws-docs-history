@@ -1,40 +1,54 @@
-# Monitoring the status of a deployment task
+# Changing the SSAS mode
 
-To track the status of your deployment (or download) task, call the
-`rds_fn_task_status` function. It takes two parameters. The first
-parameter should always be `NULL` because it doesn't apply to SSAS. The
-second parameter accepts a task ID.
+You can change the mode in which SSAS runs, either Tabular or Multidimensional. To
+change the mode, use the AWS Management Console or the AWS CLI to modify the options settings in the
+SSAS option.
 
-To see a list of all tasks, set the first parameter to `NULL` and the second
-parameter to `0`, as shown in the following example.
+###### Important
+
+You can only use one SSAS mode at a time. Make sure to delete all of the SSAS
+databases before changing the mode, or you receive an error.
+
+The following Amazon RDS console procedure changes the SSAS mode to Tabular and
+sets the `MAX_MEMORY` parameter to 70 percent.
+
+###### To modify the SSAS option
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Option groups**.
+3. Choose the option group with the `SSAS` option that you want to modify
+   (`ssas-se-2017` in the previous examples).
+4. Choose **Modify option**.
+5. Change the option settings:
+   1. For **Max memory**, enter `70`.
+   2. For **Mode**, choose **Tabular**.
+
+6. Choose **Modify option**.
+   The following AWS CLI example changes the SSAS mode to Tabular and sets the `MAX_MEMORY` parameter to 70
+   percent.
+
+For the CLI command to work, make sure to include all of the required
+parameters, even if you're not modifying them.
+
+###### To modify the SSAS option
+
+- Use one of the following commands.
+
+For Linux, macOS, or Unix:
 
 ```
-SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`0`);
+aws rds add-option-to-option-group \
+    --option-group-name `ssas-se-2017` \
+    --options "OptionName=SSAS,VpcSecurityGroupMemberships=`sg-12345e67`,OptionSettings=[{Name=MAX_MEMORY,Value=70},{Name=MODE,Value=Tabular}]" \
+    --apply-immediately
 ```
 
-To get a specific task, set the first parameter to `NULL` and the second
-parameter to the task ID, as shown in the following example.
+For Windows:
 
 ```
-SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`42`);
+aws rds add-option-to-option-group ^
+    --option-group-name `ssas-se-2017` ^
+    --options OptionName=SSAS,VpcSecurityGroupMemberships=`sg-12345e67`,OptionSettings=[{Name=MAX_MEMORY,Value=70},{Name=MODE,Value=Tabular}] ^
+    --apply-immediately
 ```
-
-The `rds_fn_task_status` function returns the following information.
-
-| Output parameter           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `task_id`                  | The ID of the task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `task_type`                | For SSAS, tasks can have the following task types:<br>• `SSAS_DEPLOY_PROJECT`<br>• `SSAS_ADD_DB_ADMIN_MEMBER`<br>• `SSAS_BACKUP_DB`<br>• `SSAS_RESTORE_DB`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `database_name`            | Not applicable to SSAS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `% complete`               | The progress of the task as a percentage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `duration (mins)`          | The amount of time spent on the task, in minutes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `lifecycle`                | The status of the task. Possible statuses are the following:<br>• `CREATED` – After you call one of the SSAS stored procedures, a task is<br>created and the status is set to `CREATED`.<br>• `IN_PROGRESS` – After a task starts, the status is set to<br>`IN_PROGRESS`. It can take up to five minutes for the status to change from<br>`CREATED` to `IN_PROGRESS`.<br>• `SUCCESS` – After a task completes, the status is set<br>to `SUCCESS`.<br>• `ERROR` – If a task fails, the status is set to<br>`ERROR`. For more information about the error, see the<br>`task_info` column.<br>• `CANCEL_REQUESTED` – After you call `rds_cancel_task`, the<br>status of the task is set to `CANCEL_REQUESTED`.<br>• `CANCELLED` – After a task is successfully canceled,<br>the status of the task is set to `CANCELLED`. |
-| `task_info`                | Additional information about the task. If an error occurs during processing, this column contains information about the error.<br>For more information, see [Troubleshooting SSAS issues](SSAS.md "SSAS.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `last_updated`             | The date and time that the task status was last updated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `created_at`               | The date and time that the task was created.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `S3_object_arn`            | Not applicable to SSAS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `overwrite_S3_backup_file` | Not applicable to SSAS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `KMS_master_key_arn`       | Not applicable to SSAS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `filepath`                 | Not applicable to SSAS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `overwrite_file`           | Not applicable to SSAS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `task_metadata`            | Metadata associated with the SSAS task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |

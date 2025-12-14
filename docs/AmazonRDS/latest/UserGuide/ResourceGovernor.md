@@ -1,53 +1,42 @@
-# Disabling Microsoft SQL Server resource governor for your RDS for SQL Server instance
+# Monitor Microsoft SQL Server resource governor using system views for your RDS for SQL Server instance
 
-When you disable resource governor on RDS for SQL Server,
-the service stops managing workload resources. Before you disable resource governor,
-review how this affects your database connections and configurations.
-
-Disabling resource governor has the following results:
-
-- The classifier function isn't executed when a new connection is opened.
-- New connections are automatically classified into the default workload group.
-- All existing workload group and resource pool settings are reset to their default values.
-- No events are fired when limits are reached.
-- Resource governor configuration changes can be made, but the changes don't take effect until resource governor is enabled.
-  To disable resource governor, remove the `RESOURCE_GOVERNOR` option from its option group.
-
-The following procedure removes the `RESOURCE_GOVERNOR` option.
-
-###### To remove the RESOURCE_GOVERNOR option from its option group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `RESOURCE_GOVERNOR`
-   option (`resource-governor-ee-2022` in the previous examples).
-4. Choose **Delete option**.
-5. Under **Deletion options**, choose **RESOURCE_GOVERNOR**
-   for **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it during the next maintenance window.
-7. Choose **Delete**.
-   The following procedure removes the `RESOURCE_GOVERNOR` option.
-
-###### To remove the RESOURCE_GOVERNOR option from its option group
-
-- Run one of the following commands.
-
-For Linux, macOS, or Unix:
+Resource Governor statistics are cumulative since the last server restart. If you need to collect statistics starting from a certain time, you can reset statistics using the following Amazon RDS stored procedure:
 
 ```
-aws rds remove-option-from-option-group \
-    --option-group-name `resource-governor-ee-2022` \
-    --options RESOURCE_GOVERNOR \
-    --apply-immediately
+EXEC msdb.dbo.rds_alter_resource_governor_configuration
+@reset_statistics = 1;
 ```
 
-For Windows:
+## Resource pool runtime statistics
+
+For each resource pool, resource governor tracks CPU and memory utilization, out-of-memory events,
+memory grants, I/O, and other statistics. For more information,
+see [sys.dm_resource_governor_resource_pools](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17 "https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17").
+
+The following query returns a subset of available statistics for all resource pools:
 
 ```
-aws rds remove-option-from-option-group ^
-    --option-group-name `resource-governor-ee-2022` ^
-    --options RESOURCE_GOVERNOR ^
-    --apply-immediately
+SELECT rp.pool_id,
+       rp.name AS resource_pool_name,
+       wg.workload_group_count,
+       rp.statistics_start_time,
+       rp.total_cpu_usage_ms,
+       rp.target_memory_kb,
+       rp.used_memory_kb,
+       rp.out_of_memory_count,
+       rp.active_memgrant_count,
+       rp.total_memgrant_count,
+       rp.total_memgrant_timeout_count,
+       rp.read_io_completed_total,
+       rp.write_io_completed_total,
+       rp.read_bytes_total,
+       rp.write_bytes_total,
+       rp.read_io_stall_total_ms,
+       rp.write_io_stall_total_ms
+FROM sys.dm_resource_governor_resource_pools AS rp
+OUTER APPLY (
+            SELECT COUNT(1) AS workload_group_count
+            FROM sys.dm_resource_governor_workload_groups AS wg
+            WHERE wg.pool_id = rp.pool_id
+            ) AS wg;
 ```

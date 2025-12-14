@@ -1,39 +1,60 @@
-# Overview of Performance Insights on Amazon RDS
+# Viewing Performance Insights proactive recommendations
 
-###### Important
+Amazon RDS Performance Insights monitors specific metrics and automatically creates thresholds by analyzing what levels might be
+potentially problematic for a specified resource. When the new metric values cross a predefined threshold over a
+given period of time, Performance Insights generates a proactive recommendation. This recommendation helps to prevent future database
+performance impact. To receive these proactive recommendations, you must turn on Performance Insights with a paid tier retention period.
 
-AWS has announced the end-of-life date for Performance Insights: June 30, 2026. After this date, Amazon RDS will no longer support the Performance Insights console experience,
-flexible retention periods (1-24 months), and their associated pricing. The Performance Insights API will continue to exist with no pricing changes. Costs for the
-Performance Insights API will appear in your AWS bill with the cost of CloudWatch Database Insights.
+For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md"). For information about pricing and data
+retention for Performance Insights, see [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md").
 
-We recommend that you upgrade any DB instances
-using the paid tier of Performance Insights to the Advanced mode of Database Insights before June 30, 2026.
-For information about upgrading to the Advanced mode of Database Insights, see
-[Turning on the Advanced mode of Database Insights for Amazon RDS](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
+To find out the regions, DB engines, and instance classes supported for the proactive recommendations, see
+[Amazon RDS DB engine, Region, and instance class support
+for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport").
 
-If you take no action, DB instances using Performance Insights
-will default to using the Standard mode of Database Insights. With Standard mode of Database Insights, you might lose access to performance data history beyond 7 days and might not be able to use execution plans
-and on-demand analysis features in the Amazon RDS console. After June 30, 2026 only the Advanced mode of Database Insights will support execution plans and on-demand analysis.
+You can view the detailed analysis and recommended investigations of proactive recommendations in the recommendation details page.
 
-With CloudWatch Database Insights, you can monitor database load for your fleet of databases and analyze and troubleshoot performance at scale.
-For more information about Database Insights, see [Monitoring Amazon RDS databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
-For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+For more information about recommendations, see [Recommendations from Amazon RDS](monitoring-recommendations.md "monitoring-recommendations.md").
 
-By default, RDS enables Performance Insights in the console create wizard for all Amazon RDS engines. If you have
-more than one database on a DB instance, Performance Insights aggregates performance data.
+###### To view the detailed analysis of a proactive recommendation
 
-You can find an overview of Performance Insights for Amazon RDS
-in the following video.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, do any of the following:
+   - Choose **Recommendations**.
 
-###### Important
+   The **Recommendations** page displays a list of
+   recommendations sorted by the severity for all the resources in your
+   account.
+   - Choose **Databases** and then choose **Recommendations** for a resource in the databases page.
 
-The following topics describe using Amazon RDS Performance Insights with non-Aurora DB engines.
-For information about using Amazon RDS Performance Insights with Amazon Aurora, see [Using Amazon RDS Performance Insights](../AuroraUserGuide/USER_PerfInsights.md "../AuroraUserGuide/USER_PerfInsights.md") in the _Amazon Aurora User Guide_.
+   The **Recommendations** tab displays the recommendations and its details for the selected resource.
 
-###### Topics
+3. Find a proactive recommendation and choose **View details**.
 
-- [Database load](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
-- [Maximum CPU](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
-- [Amazon RDS DB engine, Region, and instance class support
-  for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
-- [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
+The recommendation details page appears. The title provides the name of the affected resource with the issue detected and the severity.
+
+The following are the components on the recommendation details page:
+
+    * **Recommendation summary** – The detected issue, recommendation and issue status, issue
+     start and end time, recommendation modified time, and the engine type.
+
+
+
+    ![Recommendation details page for proactive recommendation showing the Recommendation summary section in the console](images/RecommendationProactive-RecSummary.png)
+    * **Metrics** – The graphs of the detected issue.
+     Each graph displays a threshold determined by the resource's baseline behavior and data of
+     the metric reported from the issue start time.
+
+
+
+    ![Recommendation details page for proactive recommendation showing the Metrics section in the console](images/RecommedationProactive_Metrics.png)
+    * **Analysis and recommendations** – The recommendation and
+     the reason for the suggested recommendation.
+
+
+
+    ![Recommendation details page for proactive recommendation showing the Analysis and recommendations section in the console](images/ProactiveRecommendation-AnalysisAndRec.png)
+
+You can review the cause of the issue and then perform the suggested recommended actions to fix the issue, or
+choose **Dismiss** in the upper right to dismiss the recommendation.

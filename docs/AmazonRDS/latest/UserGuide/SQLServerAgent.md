@@ -1,38 +1,27 @@
-# Adding a user to the SQLAgentUser role
+# Deleting a SQL Server Agent job
 
-To allow an additional login or user to use SQL Server Agent, log in as the master
-user and do the following:
+You use the `sp_delete_job` stored procedure to delete SQL Server Agent jobs on Amazon RDS for Microsoft SQL Server.
 
-1. Create another server-level login by using the `CREATE LOGIN` command.
-2. Create a user in `msdb` using `CREATE USER` command, and then link this user to the login
-   that you created in the previous step.
-3. Add the user to the `SQLAgentUserRole` using the `sp_addrolemember` system stored
-   procedure.
-   For example, suppose that your master user name is `admin`
-   and you want to give access to SQL Server Agent to a user named
-   `theirname` with a password
-   `theirpassword`. In that case, you can use the following
-   procedure.
-
-###### To add a user to the SQLAgentUser role
-
-1. Log in as the master user.
-2. Run the following commands:
+You can't use SSMS to delete SQL Server Agent jobs. If you try to do so, you get an error message similar to the
+following:
 
 ```
---Initially set context to master database
-USE [master];
-GO
---Create a server-level login named theirname with password theirpassword
-CREATE LOGIN [theirname] WITH PASSWORD = 'theirpassword';
-GO
---Set context to msdb database
-USE [msdb];
-GO
---Create a database user named theirname and link it to server-level login theirname
-CREATE USER [theirname] FOR LOGIN [theirname];
-GO
---Added database user theirname in msdb to SQLAgentUserRole in msdb
-EXEC sp_addrolemember [SQLAgentUserRole], [theirname];
+The EXECUTE permission was denied on the object 'xp_regread', database 'mssqlsystemresource', schema 'sys'.
+```
 
+As a managed service, RDS is restricted from running procedures that access the Windows registry. When you use SSMS, it
+tries to run a process (`xp_regread`) for which RDS isn't authorized.
+
+###### Note
+
+On RDS for SQL Server, only members of the sysadmin role are allowed to update or delete jobs owned by a different login.
+For more information,
+see [Leveraging SQLAgentOperatorRole in RDS SQL Server](https://aws.amazon.com/blogs/database/leveraging-sqlagentoperatorrole-in-rds-sql-server/ "https://aws.amazon.com/blogs/database/leveraging-sqlagentoperatorrole-in-rds-sql-server/").
+
+###### To delete a SQL Server Agent job
+
+- Run the following T-SQL statement:
+
+```
+EXEC msdb..sp_delete_job @job_name = '`job_name`';
 ```

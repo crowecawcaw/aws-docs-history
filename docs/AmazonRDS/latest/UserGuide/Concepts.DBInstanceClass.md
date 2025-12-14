@@ -1,317 +1,729 @@
-# DB instance class types
+# Supported DB engines for DB instance classes
 
-Amazon RDS
-supports DB instance classes for the following use cases:
+The following are DB engine–specific considerations for DB instance classes:
 
-- [General-purpose](#Concepts.DBInstanceClass.Types.general-purpose "#Concepts.DBInstanceClass.Types.general-purpose")
-- [Memory-optimized](#Concepts.DBInstanceClass.Types.memory "#Concepts.DBInstanceClass.Types.memory")
-- [Compute-optimized](#Concepts.DBInstanceClass.Types.compute "#Concepts.DBInstanceClass.Types.compute")
-- [Burstable-performance](#Concepts.DBInstanceClass.Types.burstable "#Concepts.DBInstanceClass.Types.burstable")
-- [Optimized Reads](#Concepts.DBInstanceClass.Types.optimized-reads "#Concepts.DBInstanceClass.Types.optimized-reads")
-  For more information about Amazon EC2 instance types, see [Instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in the Amazon EC2
-  documentation.
+**Db2**
 
-## General-purpose instance class types
+DB instance class support varies according to the version and edition of Db2. For
+instance class support by version and edition, see [Amazon RDS for Db2 instance classes](Db2.Concepts.General.md "Db2.Concepts.General.md").
 
-The following general-purpose DB instance classes are available:
+**Microsoft SQL Server**
 
-- db.m8g – General-purpose DB instance classes
-  powered by AWS Graviton4 processors. These instance classes deliver balanced
-  compute, memory, and networking for a broad range of general-purpose workloads.
-  Compared to seventh-generation AWS Graviton3-based M7g instances, these new
-  classes offer larger instance sizes with up to 3x more vCPUs and memory. They are
-  powered by the AWS Nitro System, a combination of dedicated hardware and
-  lightweight hypervisor.
+DB instance class support varies according to the version and edition of SQL
+Server. For instance class support by version and edition, see [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md").
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton4
-processors. To do so, complete the same steps as with any other DB instance
-modification.
+**Oracle**
 
-- db.m7i – General-purpose DB instance classes
-  powered by 4th Generation Intel Xeon Scalable processors. The db.m7i instances are
-  SAP certified and ideal for supporting enterprise applications that need larger
-  instance sizes or high continuous CPU usage. These instance classes deliver balanced
-  compute, memory, and networking for a broad range of general-purpose workloads. This
-  instance class type delivers up to 40,000 Mbps EBS bandwidth and up to 50 Gbps
-  network bandwidth. The db.m7i instances deliver up to 15% better price performance
-  compared to db.m6i instances. They are powered by the AWS Nitro System, a
-  combination of dedicated hardware and lightweight hypervisor.
-- db.m7g – General-purpose DB instance classes
-  powered by AWS Graviton3 processors. These instance classes deliver balanced
-  compute, memory, and networking for a broad range of general-purpose workloads. They
-  are powered by the AWS Nitro System, a combination of dedicated hardware and
-  lightweight hypervisor.
+DB instance class support varies according to the Oracle Database version and
+edition. RDS for Oracle supports additional memory-optimized instance classes. These
+classes have names of the form
+db.r5.`instance_size`.tpc`threads_per_core`.mem`ratio`.
+For the vCPU count and memory allocation for each optimized class, see [Supported RDS for Oracle DB instance
+classes](Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported "Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported").
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton3
-processors. To do so, complete the same steps as with any other DB instance
-modification.
+**RDS Custom**
 
-- db.m6g – General-purpose DB instance classes
-  powered by AWS Graviton2 processors. These instances deliver balanced compute,
-  memory, and networking for a broad range of general-purpose workloads. The db.m6gd
-  instance classes have local NVMe-based SSD block-level storage for applications
-  that need high-speed, low latency local storage.
+For information about the DB instance classes supported in RDS Custom, see [DB instance class support for RDS Custom for Oracle](custom-oracle-feature-support.md#custom-reqs-limits.instances "custom-oracle-feature-support.md#custom-reqs-limits.instances") and [DB instance class support for RDS Custom for SQL Server](custom-reqs-limits.md "custom-reqs-limits.md").
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-processors. To do so, complete the same steps as with any other DB instance
-modification.
+In the following table, you can find details about supported Amazon RDS DB instance classes for each
+Amazon RDS DB engine. The cell for each engine contains one of the following values:
 
-- db.m6i – General-purpose DB instance classes
-  powered by 3rd Generation Intel Xeon Scalable processors. These instances are SAP
-  Certified and ideal for workloads such as backend servers supporting enterprise
-  applications, gaming servers, caching fleets, and application development
-  environments. The db.m6id and db.m6idn instance classes offer up to 7.6 TB of local
-  NVMe-based SSD storage, whereas db.m6in offers EBS-only storage. The db.m6in and
-  db.m6idn classes offer up to 200 Gbps of network bandwidth. They are powered by the
-  AWS Nitro System, a combination of dedicated hardware and lightweight
-  hypervisor.
-- db.m5 –General-purpose DB instance classes that
-  provide a balance of compute, memory, and network resources, and are a good choice
-  for many applications. The db.m5d instance class offers NVMe-based SSD storage that is
-  physically connected to the host server. The db.m5 instance classes provide more
-  computing capacity than the previous db.m4 instance classes. They are powered by the
-  AWS Nitro System, a combination of dedicated hardware and lightweight
-  hypervisor.
-- db.m4 – General-purpose DB instance classes that
-  provide more computing capacity than the previous db.m3 instance classes.
+Yes
 
-For the RDS for Oracle DB engines, Amazon RDS no longer supports db.m4
-DB instance classes. If you had previously created RDS for Oracle db.m4 DB instances, Amazon RDS
-automatically upgrades those DB instances to equivalent db.m5 DB instance classes.
+The instance class is supported for all versions of the DB engine.
 
-For the RDS for MariaDB, RDS for MySQL, RDS for SQL Server, and RDS for PostgreSQL DB engines, Amazon RDS has
-started the end-of-support process for this DB instance class using the following schedule. For
-all RDS DB instances that use this instance class, we recommend that you upgrade to a newer
-generation DB instance class as soon as possible.
+No
 
-| Action or recommendation                                                                                                                                                                                                  | Date              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| Starting on this date, Amazon RDS began automatically upgrading<br>instances using db.m4 to the newer generation db.m5 instance<br>class. Creating DB instances using the db.m4 instance class is no<br>longer supported. | June 1, 2024      |
-| Amazon RDS ends support for db.m4.                                                                                                                                                                                        | December 31, 2024 |
+The instance class isn't supported for the DB engine.
 
-- db.m3 – General-purpose DB instance classes that
-  provide more computing capacity than the previous db.m1 instance classes.
+`specific-versions`
 
-For the RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL DB engines, Amazon RDS has started
-the end-of-life process for db.m3 DB instance classes using the following schedule, which
-includes upgrade recommendations. For all RDS DB instances that use db.m3 DB instance
-classes, we recommend that you upgrade to a higher generation DB instance class as soon as
-possible.
+The instance class is supported only for the specified database versions of
+the DB engine.
 
-| Action or recommendation                                                                                                                 | Dates            |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| You can no longer create RDS DB instances that use db.m3 DB instance classes.                                                            | Now              |
-| Amazon RDS started automatic upgrades of RDS DB instances that use db.m3<br>DB instance classes to equivalent db.m5 DB instance classes. | February 1, 2023 |
+Amazon RDS periodically deprecates major and minor DB engine versions. Not all AWS Regions might
+have support for earlier engine versions. For information about current supported versions,
+see topics for the individual DB engines: [Db2
+versions](Db2.Concepts.VersionMgmt.md "Db2.Concepts.VersionMgmt.md"), [MariaDB
+versions](MariaDB.Concepts.md#MariaDB.Concepts.VersionMgmt.Supported "MariaDB.Concepts.md#MariaDB.Concepts.VersionMgmt.Supported"), [Microsoft SQL
+Server versions](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md"), [MySQL
+versions](MySQL.Concepts.md "MySQL.Concepts.md"), [Oracle versions](Oracle.Concepts.md "Oracle.Concepts.md"),
+and [PostgreSQL
+versions](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md").
 
-## Memory-optimized instance class types
+###### Topics
 
-The memory-optimized Z family supports the following instance
-classes:
+- [Supported DB engines for general-purpose instance
+  classes](#gen-purpose-inst-classes "#gen-purpose-inst-classes")
+- [Supported DB engines for memory-optimized instance
+  classes](#mem-opt-inst-classes "#mem-opt-inst-classes")
+- [Supported DB engines for compute-optimized instance
+  classes](#compute-opt-inst-classes "#compute-opt-inst-classes")
+- [Supported DB engines for burstable-performance instance
+  classes](#burstable-inst-classes "#burstable-inst-classes")
+- [Supported DB engines for Optimized Reads instance
+  classes](#read-opt-inst-classes "#read-opt-inst-classes")
 
-- db.z1d – Instance classes optimized for
-  memory-intensive applications. These instance classes offer both high compute
-  capacity and a high memory footprint. High frequency z1d instances deliver a
-  sustained all-core frequency of up to 4.0 GHz.
+## Supported DB engines for general-purpose instance
 
-The memory-optimized X family supports the following instance classes:
+classes
 
-- db.x2g – Instance classes optimized for
-  memory-intensive applications and powered by AWS Graviton2 processors. These
-  instance classes offer low cost per GiB of memory.
+The following tables show the supported databases and database versions for the
+general-purpose instance classes.
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-processors. To do so, complete the same steps as with any other DB instance
-modification.
+**db.m8g – general-purpose instance classes powered by AWS
+Graviton4 processors**
 
-- db.x2i – Instance classes optimized for
-  memory-intensive applications. The **db.x2iedn** and
-  **db.x2idn** instance class types are powered by
-  third-generation Intel Xeon Scalable processors (Ice Lake). They include up to 3.8
-  TB of local NVMe SSD storage, up to 100 Gbps of networking bandwidth, and up to 4
-  TiB (db.x2iden) or 2 TiB (db.x2idn) of memory. The **db.x2iezn**
-  type is powered by second-generation Intel Xeon Scalable processors (Cascade Lake)
-  with an all-core turbo frequency of up to 4.5 GHz and up to 1.5 TiB of memory and by
-  the AWS Nitro System, a combination of dedicated hardware and lightweight
-  hypervisor.
-- db.x1 – Instance classes optimized for
-  memory-intensive applications. These instance classes offer one of the lowest price
-  per GiB of RAM among the DB instance classes and up to 1,952 GiB of DRAM-based instance
-  memory. The **db.x1e** instance class type offers up to 3,904 GiB
-  of DRAM-based instance memory.
+| Instance class  | Db2 | MariaDB                                                                                                                          | Microsoft SQL Server | MySQL                   | Oracle | PostgreSQL                                                                                                     |
+| --------------- | --- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------------------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| db.m8g.48xlarge | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m8g.24xlarge | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m8g.16xlarge | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m8g.12xlarge | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m8g.8xlarge  | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m8g.4xlarge  | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m8g.2xlarge  | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m8g.xlarge   | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m8g.large    | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
 
-The memory-optimized R family supports the following instance class types:
+**db.m7i – general-purpose instance classes powered by 4th
+generation Intel Xeon Scalable processors**
 
-- db.r8g – Instance classes powered by AWS
-  Graviton4 processors. These instance classes are ideal for running memory-intensive
-  workloads in open-source databases such as MySQL
-  and PostgreSQL. These instances offer larger instance sizes with up to
-  3x more vCPUs and memory than the seventh-generation AWS Graviton3-based db.r7g
-  instances. They are powered by the AWS Nitro System, a combination of dedicated
-  hardware and lightweight hypervisor.
-- You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton4
-  processors. To do so, complete the same steps as with any other DB instance
-  modification.
-- db.r7g – Instance classes powered by AWS Graviton3 processors. These instance
-  classes are ideal for running memory-intensive workloads in open-source databases such as
-  MySQL and PostgreSQL.
+| Instance class    | Db2      | MariaDB                                         | Microsoft SQL Server | MySQL                   | Oracle                             | PostgreSQL                                                                                                     |
+| ----------------- | -------- | ----------------------------------------------- | -------------------- | ----------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| db.m7i.48xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.24xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.16xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.12xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.8xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.4xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.2xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.xlarge     | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.large      | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.metal-48xl | No       | No                                              | No                   | No                      | BYOL only, Enterprise Edition only | No                                                                                                             |
+| db.m7i.metal-24xl | No       | No                                              | No                   | No                      | BYOL only, Enterprise Edition only | No                                                                                                             |
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton3
-processors. To do so, complete the same steps as with any other DB instance modification.
-They are powered by the AWS Nitro System, a combination of dedicated hardware and
-lightweight hypervisor.
+**db.m7g – general-purpose instance classes powered by AWS
+Graviton3 processors**
 
-- db.r7i – Instance classes powered by 4th
-  Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified
-  and are ideal for running memory-intensive workloads
-  in open-source databases such as MySQL and PostgreSQL. You can modify a
-  DB instance to use one of the DB instance classes powered by 4th Generation Intel Xeon Scalable
-  processors. To do so, complete the same steps as with any other DB instance modification.
-  They are powered by the AWS Nitro System, a combination of dedicated hardware and
-  lightweight hypervisor.
-- db.r6g – Instance classes powered by AWS
-  Graviton2 processors. These instance classes are ideal for running memory-intensive
-  workloads in open-source databases such as MySQL
-  and PostgreSQL. The **db.r6gd** type offers local NVMe-based
-  SSD block-level storage for applications that need high-speed, low latency local
-  storage. They are powered by the AWS Nitro System, a combination of
-  dedicated hardware and lightweight hypervisor.
-- You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-  processors. To do so, complete the same steps as with any other DB instance
-  modification.
-- db.r6i – Instance classes powered by 3rd
-  Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified
-  and are an ideal fit for memory-intensive workloads in
-  open-source databases such as MySQL and PostgreSQL. The **db.r6id**,
-  **db.r6in**, and **db.r6idn** instance
-  classes have a memory-to-vCPU ratio of 8:1 and a maximum memory of 1 TiB. The
-  db.r6id and db.r6idn classes offer up to 7.6 TB of direct-attached NVMe-based
-  SSD storage, whereas db.r6in offers EBS-only storage. The db.r6idn and db.r6in
-  classes offer up to 200 Gbps of network bandwidth. They are powered by the AWS
-  Nitro System, a combination of dedicated hardware and lightweight
-  hypervisor.
-- db.r5b – Instance classes that are
-  memory-optimized for throughput-intensive applications. Powered by the AWS Nitro
-  System, db.r5b instances deliver up to 60 Gbps bandwidth and 260,000 IOPS of EBS
-  performance. This is the fastest block storage performance on EC2.
-- db.r5d – Instance classes that are optimized
-  for low latency, very high random I/O performance, and high sequential read
-  throughput.
-- db.r5 – Instance classes optimized for
-  memory-intensive applications. These instance classes offer improved networking
-  performance. They are
-  powered by the AWS Nitro System, a combination of dedicated hardware and
-  lightweight hypervisor.
-- db.r4 – Instance classes that provide
-  improved networking over previous db.r3 instance classes.
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                                           |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| db.m7g.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.m7g.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.m7g.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.m7g.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.m7g.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.m7g.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.m7g.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
 
-For the RDS for Oracle DB engines, Amazon RDS has started the
-end-of-life process for db.r4 DB instance classes using the following schedule,
-which includes upgrade recommendations. For RDS for Oracle DB instances that use db.r4
-instance classes, we recommend that you upgrade to a higher generation instance class as soon as
-possible.
+**db.m6g – general-purpose instance classes powered by AWS
+Graviton2 processors**
 
-| Action or recommendation                                                                                                                            | Dates          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| You can no longer create RDS for Oracle DB instances that use db.r4<br>DB instance classes.                                                         | Now            |
-| Amazon RDS started automatic upgrades of RDS for Oracle DB instances that use<br>db.r4 DB instance classes to equivalent db.r5 DB instance classes. | April 17, 2023 |
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                      |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ------------------------------------------------------------------------------- |
+| db.m6g.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.m6g.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.m6g.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.m6g.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.m6g.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.m6g.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.m6g.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
 
-For the RDS for MariaDB, RDS for MySQL, RDS for SQL Server, and RDS for PostgreSQL DB engines, Amazon RDS has
-started the end-of-support process for this DB instance class using the following schedule. For
-all RDS DB instances that use this instance class, we recommend that you upgrade to a newer
-generation DB instance class as soon as possible.
+**db.m6gd – general-purpose instance classes powered by AWS
+Graviton2 processors and SSD storage**
 
-| Action or recommendation                                                                                                                                                                                                  | Dates             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| Starting on this date, Amazon RDS began automatically upgrading<br>instances using db.r4 to the newer generation db.r5 instance<br>class. Creating DB instances using the db.m4 instance class is no<br>longer supported. | June 1, 2024      |
-| Amazon RDS ends support for db.r4.                                                                                                                                                                                        | December 31, 2024 |
+| Instance class   | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                           |
+| ---------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ------------------------------------------------------------------------------------ |
+| db.m6gd.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, and 14 versions; 13.7 and higher 13 versions; and<br>13.4 |
+| db.m6gd.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, and 14 versions; 13.7 and higher 13 versions; and<br>13.4 |
+| db.m6gd.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, and 14 versions; 13.7 and higher 13 versions; and<br>13.4 |
+| db.m6gd.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, and 14 versions; 13.7 and higher 13 versions; and<br>13.4 |
+| db.m6gd.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, and 14 versions; 13.7 and higher 13 versions; and<br>13.4 |
+| db.m6gd.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, and 14 versions; 13.7 and higher 13 versions; and<br>13.4 |
+| db.m6gd.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, and 14 versions; 13.7 and higher 13 versions; and<br>13.4 |
 
-- db.r3 – Instance classes that provide memory
-  optimization.
+**db.m6id – general-purpose instance classes powered by 3rd
+generation Intel Xeon Scalable processors and SSD storage**
 
-For the RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL DB engines,
-Amazon RDS has started the end-of-life process for db.r3 DB instance classes using the
-following schedule, which includes upgrade recommendations. For all RDS DB instances that
-use db.r3 DB instance classes, we recommend that you upgrade to a higher generation DB instance class as
-soon as possible.
+| Instance class   | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle                             | PostgreSQL                                                                                           |
+| ---------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| db.m6id.32xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6id.24xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6id.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6id.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6id.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6id.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6id.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6id.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6id.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6id.metal    | No  | No                                              | No                   | No                | BYOL only, Enterprise Edition only | No                                                                                                   |
 
-| Action or recommendation                                                                                                                 | Dates            |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| You can no longer create RDS DB instances that use db.r3 DB instance<br>classes.                                                         | Now              |
-| Amazon RDS started automatic upgrades of RDS DB instances that use db.r3<br>DB instance classes to equivalent db.r5 DB instance classes. | February 1, 2023 |
+**db.m6idn – general-purpose instance classes with 3rd
+Generation Intel Xeon Scalable processors, SSD storage, and network
+optimization**
 
-## Compute-optimized instance class
+| Instance class    | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                                           |
+| ----------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| db.m6idn.32xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6idn.24xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6idn.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6idn.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6idn.8xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6idn.4xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6idn.2xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6idn.xlarge   | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.m6idn.large    | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
 
-type
+**db.m6in – general-purpose instance classes powered by 3rd
+generation Intel Xeon Scalable processors and network optimization**
 
-The following compute-optimized instance class types are available:
+| Instance class   | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle                             | PostgreSQL                                                                                                                                                          |
+| ---------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| db.m6in.32xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.m6in.24xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.m6in.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.m6in.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.m6in.8xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.m6in.4xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.m6in.2xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.m6in.xlarge   | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.m6in.large    | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.m6in.metal    | No  | No                                              | No                   | No                | BYOL only, Enterprise Edition only | No                                                                                                                                                                  |
 
-- db.c6gd – Instance classes that are ideal
-  for running advanced compute-intensive workloads. Powered by AWS Graviton2
-  processors, these instance classes offer local NVMe-based SSD block-level storage
-  for applications that need high-speed, low latency local storage.
+**db.m6i – general-purpose instance classes powered by 3rd
+generation Intel Xeon Scalable processors**
 
-###### Note
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle                             | PostgreSQL             |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ---------------------------------- | ---------------------- |
+| db.m6i.32xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Oracle Database 19c                | All available versions |
+| db.m6i.24xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Oracle Database 19c                | All available versions |
+| db.m6i.16xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Oracle Database 19c                | All available versions |
+| db.m6i.12xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Oracle Database 19c                | All available versions |
+| db.m6i.8xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Oracle Database 19c                | All available versions |
+| db.m6i.4xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Oracle Database 19c                | All available versions |
+| db.m6i.2xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Oracle Database 19c                | All available versions |
+| db.m6i.xlarge   | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Oracle Database 19c                | All available versions |
+| db.m6i.large    | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Oracle Database 19c                | All available versions |
+| db.m6i.metal    | No  | No                                              | No                   | No                | BYOL only, Enterprise Edition only | No                     |
 
-The c6gd instance classes are supported only for Multi-AZ DB cluster deployments. They're
-the only instance class supported for Multi-AZ DB clusters that offer the `medium`
-instance size. For more information, see [Multi-AZ DB cluster deployments for Amazon RDS](multi-az-db-clusters-concepts.md "multi-az-db-clusters-concepts.md").
+**db.m5d – general-purpose instance classes powered by Intel
+Xeon Platinum processors and SSD storage**
 
-## Burstable-performance instance
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                                                 |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| db.m5d.24xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.m5d.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.m5d.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.m5d.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.m5d.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.m5d.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.m5d.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.m5d.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
 
-class types
+**db.m5 – general-purpose instance classes 2.5 GHz Intel Xeon
+Platinum processors**
 
-The following burstable-performance DB instance class types are available:
+| Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL                                                                                                             |
+| -------------- | --- | ------- | -------------------- | ----- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| db.m5.24xlarge | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.m5.16xlarge | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.m5.12xlarge | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.m5.8xlarge  | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.m5.4xlarge  | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.m5.2xlarge  | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.m5.xlarge   | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.m5.large    | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
 
-- db.t4g – General-purpose instance classes
-  powered by Arm-based AWS Graviton2 processors. These instance classes deliver
-  better price performance than previous burstable-performance DB instance classes for a
-  broad set of burstable general-purpose workloads. Amazon RDS db.t4g instances are
-  configured for Unlimited mode. This means that they can burst beyond the baseline
-  over a 24-hour window for an additional charge.
+**db.m4 – general-purpose instance classes with Intel Xeon
+processors**
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-processors. To do so, complete the same steps as with any other DB instance
-modification.
+| Instance class | Db2 | MariaDB    | Microsoft SQL Server | MySQL      | Oracle     | PostgreSQL |
+| -------------- | --- | ---------- | -------------------- | ---------- | ---------- | ---------- |
+| db.m4.16xlarge | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.m4.10xlarge | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.m4.4xlarge  | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.m4.2xlarge  | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.m4.xlarge   | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.m4.large    | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
 
-- db.t3 – Instance classes that provide a
-  baseline performance level, with the ability to burst to full CPU usage. The db.t3
-  instances are configured for Unlimited mode. These instance classes provide more
-  computing capacity than the previous db.t2 instance classes. They are powered by the
-  AWS Nitro System, a combination of dedicated hardware and lightweight hypervisor.
-- db.t2 – Instance classes that provide a
-  baseline performance level, with the ability to burst to full CPU usage. The db.t2
-  instances are configured for Unlimited mode. We recommend using these instance classes
-  only for development and test servers, or other non-production servers.
+**db.m3 – general-purpose instance classes**
 
-For the RDS for MariaDB, RDS for MySQL, RDS for SQL Server, and RDS for PostgreSQL DB engines, Amazon RDS has
-started the end-of-support process for this DB instance class using the following schedule. For
-all RDS DB instances that use this instance class, we recommend that you upgrade to a newer
-generation DB instance class as soon as possible.
+| Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle     | PostgreSQL |
+| -------------- | --- | ------- | -------------------- | ----- | ---------- | ---------- |
+| db.m3.2xlarge  | No  | No      | Deprecated           | Yes   | Deprecated | Deprecated |
+| db.m3.xlarge   | No  | No      | Deprecated           | Yes   | Deprecated | Deprecated |
+| db.m3.large    | No  | No      | Deprecated           | Yes   | Deprecated | Deprecated |
+| db.m3.medium   | No  | No      | Deprecated           | Yes   | Deprecated | Deprecated |
 
-| Action or recommendation                                                                                                                                                                                                  | Dates             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| Starting on this date, Amazon RDS began automatically upgrading<br>instances using db.t2 to the newer generation db.t3 instance<br>class. Creating DB instances using the db.t2 instance class is no<br>longer supported. | June 1, 2024      |
-| Amazon RDS ends support for db.t2.                                                                                                                                                                                        | December 31, 2024 |
+## Supported DB engines for memory-optimized instance
 
-###### Note
+classes
 
-The DB instance classes that use the AWS Nitro System (db.m5, db.r5, db.t3) are throttled on combined read
-plus write workload.
+The following tables show the supported databases and database versions for the
+memory-optimized instance classes.
 
-For DB instance class hardware specifications, see [Hardware specifications for DB instance
-classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+**db.z1d – memory-optimized instance classes**
 
-## Optimized Reads instance class types
+| Instance class  | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL |
+| --------------- | --- | ------- | -------------------- | ----- | ------ | ---------- |
+| db.z1d.12xlarge | No  | No      | Yes                  | No    | Yes    | No         |
+| db.z1d.6xlarge  | No  | No      | Yes                  | No    | Yes    | No         |
+| db.z1d.3xlarge  | No  | No      | Yes                  | No    | Yes    | No         |
+| db.z1d.2xlarge  | No  | No      | Yes                  | No    | Yes    | No         |
+| db.z1d.xlarge   | No  | No      | Yes                  | No    | Yes    | No         |
+| db.z1d.large    | No  | No      | Yes                  | No    | Yes    | No         |
 
-The following Optimized Reads instance class types are available:
+**db.x2g – memory-optimized instance classes powered by AWS Graviton2 processors**
 
-- db.m8gd – Instance classes powered by AWS Graviton4 processor.
-  These instance classes are ideal for general purpose workloads that need high-speed, low latency storage.
-  They offer a maximum memory of 786 GiB and up to 11.4 TB of direct-attached NVMe-based SSD storage.
-- db.r8gd – Instance classes powered by Graviton4 processors. These instance classes are ideal
-  for running memory-intensive workloads and offer local NVMe-based SSD block-level storage for applications that need high-speed,
-  low latency local storage. They offer a maximum memory of 1.5 TiB and up to 11.4 TB of direct-attached NVMe-based SSD storage.
-- db.r6gd – Instance classes powered by AWS Graviton2 processors. These instance
-  classes are ideal for running memory-intensive workloads and offer local NVMe-based SSD block-level storage for applications that need high-speed, low latency local storage.
-- db.r6id – Instance classes powered by 3rd Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified and
-  are an ideal fit for memory-intensive workloads. They offer a maximum memory of 1 TiB and up to 7.6 TB of direct-attached NVMe-based SSD storage.
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                      |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ------------------------------------------------------------------------------- |
+| db.x2g.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.x2g.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.x2g.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.x2g.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.x2g.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.x2g.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.x2g.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+
+**db.x2idn – memory-optimized instance classes powered by 3rd generation Intel Xeon Scalable processors**
+
+| Instance class    | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle                             | PostgreSQL                             |
+| ----------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ---------------------------------- | -------------------------------------- |
+| db.x2idn.32xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | Enterprise Edition only            | PostgreSQL 15 versions, 14.6, and 13.9 |
+| db.x2idn.24xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | Enterprise Edition only            | PostgreSQL 15 versions, 14.6, and 13.9 |
+| db.x2idn.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | Enterprise Edition only            | PostgreSQL 15 versions, 14.6, and 13.9 |
+| db.x2idn.metal    | No  | No                                              | No                   | No                | BYOL only, Enterprise Edition only | No                                     |
+
+**db.x2iedn – memory-optimized instance classes with local NVMe-based SSDs, powered by
+3rd generation Intel Xeon Scalable processors**
+
+| Instance class     | Db2 | MariaDB                                         | Microsoft SQL Server                                                       | MySQL             | Oracle                                          | PostgreSQL                                                                                                 |
+| ------------------ | --- | ----------------------------------------------- | -------------------------------------------------------------------------- | ----------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| db.x2iedn.32xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Enterprise and Standard Editions only, SQL Server 2014 12.00 and<br>higher | MySQL 8.4 and 8.0 | Enterprise Edition only                         | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.x2iedn.24xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Enterprise and Standard Editions only, SQL Server 2014 12.00 and<br>higher | MySQL 8.4 and 8.0 | Enterprise Edition only                         | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.x2iedn.16xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Enterprise and Standard Editions only, SQL Server 2014 12.00 and<br>higher | MySQL 8.4 and 8.0 | Enterprise Edition only                         | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.x2iedn.8xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Enterprise and Standard Editions only, SQL Server 2014 12.00 and<br>higher | MySQL 8.4 and 8.0 | Enterprise Edition only                         | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.x2iedn.4xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Enterprise and Standard Editions only, SQL Server 2014 12.00 and<br>higher | MySQL 8.4 and 8.0 | Enterprise Edition and Standard Edition 2 (SE2) | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.x2iedn.2xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Enterprise and Standard Editions only, SQL Server 2014 12.00 and<br>higher | MySQL 8.4 and 8.0 | Enterprise Edition and Standard Edition 2 (SE2) | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.x2iedn.xlarge   | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Enterprise and Standard Editions only, SQL Server 2014 12.00 and<br>higher | MySQL 8.4 and 8.0 | Enterprise Edition and Standard Edition 2 (SE2) | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.x2iedn.metal    | No  | No                                              | No                                                                         | No                | BYOL only, Enterprise Edition only              | No                                                                                                         |
+
+**db.x2iezn – memory-optimized instance classes powered by 2nd generation Intel Xeon
+Scalable processors**
+
+| Instance class    | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                                          | PostgreSQL |
+| ----------------- | --- | ------- | -------------------- | ----- | ----------------------------------------------- | ---------- |
+| db.x2iezn.metal   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only              | No         |
+| db.x2iezn.8xlarge | No  | No      | No                   | No    | Enterprise Edition only                         | No         |
+| db.x2iezn.6xlarge | No  | No      | No                   | No    | Enterprise Edition only                         | No         |
+| db.x2iezn.4xlarge | No  | No      | No                   | No    | Enterprise Edition and Standard Edition 2 (SE2) | No         |
+| db.x2iezn.2xlarge | No  | No      | No                   | No    | Enterprise Edition and Standard Edition 2 (SE2) | No         |
+
+**db.x1e – memory-optimized instance classes**
+
+| Instance class  | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle     | PostgreSQL |
+| --------------- | --- | ------- | -------------------- | ----- | ---------- | ---------- |
+| db.x1e.32xlarge | No  | No      | Deprecated           | No    | Deprecated | No         |
+| db.x1e.16xlarge | No  | No      | Deprecated           | No    | Deprecated | No         |
+| db.x1e.8xlarge  | No  | No      | Deprecated           | No    | Deprecated | No         |
+| db.x1e.4xlarge  | No  | No      | Deprecated           | No    | Deprecated | No         |
+| db.x1e.2xlarge  | No  | No      | Deprecated           | No    | Deprecated | No         |
+| db.x1e.xlarge   | No  | No      | Deprecated           | No    | Deprecated | No         |
+
+**db.x1 – memory-optimized instance classes**
+
+| Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle     | PostgreSQL |
+| -------------- | --- | ------- | -------------------- | ----- | ---------- | ---------- |
+| db.x1.32xlarge | No  | No      | Deprecated           | No    | Deprecated | No         |
+| db.x1.16xlarge | No  | No      | Deprecated           | No    | Deprecated | No         |
+
+**db.r8g – memory-optimized instance classes powered by AWS Graviton4
+processors**
+
+| Instance class  | Db2 | MariaDB                                                                                                                          | Microsoft SQL Server | MySQL                   | Oracle | PostgreSQL                                                                                                     |
+| --------------- | --- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------------------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| db.r8g.48xlarge | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r8g.24xlarge | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r8g.16xlarge | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r8g.12xlarge | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r8g.8xlarge  | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r8g.4xlarge  | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r8g.2xlarge  | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r8g.xlarge   | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r8g.large    | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+
+**db.r7i – memory-optimized instance classes preconfigured for high memory,
+storage, and I/O**
+
+| Instance class            | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                                               | PostgreSQL |
+| ------------------------- | --- | ------- | -------------------- | ----- | ---------------------------------------------------- | ---------- |
+| db.r7i.8xlarge.tpc2.mem3x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.8xlarge.tpc2.mem2x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.6xlarge.tpc2.mem4x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.6xlarge.tpc2.mem2x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.4xlarge.tpc2.mem4x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.4xlarge.tpc2.mem3x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.4xlarge.tpc2.mem2x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.3xlarge.tpc2.mem4x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.2xlarge.tpc2.mem8x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.2xlarge.tpc2.mem4x | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.xlarge.tpc2.mem4x  | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+| db.r7i.xlarge.tpc2.mem2x  | No  | No      | No                   | No    | BYOL only, Enterprise Edition and Standard Edition 2 | No         |
+
+**db.r7i – memory-optimized instance classes powered by 4th
+generation Intel Xeon Scalable processors**
+
+| Instance class    | Db2      | MariaDB                                         | Microsoft SQL Server | MySQL                   | Oracle                             | PostgreSQL                                                                                                     |
+| ----------------- | -------- | ----------------------------------------------- | -------------------- | ----------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| db.r7i.48xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.24xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.16xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.12xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.8xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.4xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.2xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.xlarge     | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.large      | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.metal-48xl | No       | No                                              | No                   | No                      | BYOL only, Enterprise Edition only | No                                                                                                             |
+| db.r7i.metal-24xl | No       | No                                              | No                   | No                      | BYOL only, Enterprise Edition only | No                                                                                                             |
+
+**db.r7g – memory-optimized instance classes powered by AWS Graviton3
+processors**
+
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                                           |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| db.r7g.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.r7g.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.r7g.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.r7g.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.r7g.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.r7g.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+| db.r7g.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.4 and higher 13 versions |
+
+**db.r6g – memory-optimized instance classes powered by AWS Graviton2
+processors**
+
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                      |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ------------------------------------------------------------------------------- |
+| db.r6g.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r6g.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r6g.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r6g.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r6g.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r6g.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r6g.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+
+**db.r6gd – memory-optimized instance classes powered by AWS Graviton2
+processors**
+
+| Instance class   | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                                                   |
+| ---------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ------------------------------------------------------------------------------------------------------------ |
+| db.r6gd.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+
+**db.r6id – memory-optimized instance classes powered by 3rd generation Intel Xeon
+Scalable processors**
+
+| Instance class   | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle                             | PostgreSQL                                                                                           |
+| ---------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| db.r6id.32xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.24xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.metal    | No  | No                                              | No                   | No                | BYOL only, Enterprise Edition only | No                                                                                                   |
+
+**db.r6idn – memory-optimized instance classes powered by 3rd generation
+Intel Xeon Scalable processors**
+
+| Instance class    | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                                           |
+| ----------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| db.r6idn.32xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6idn.24xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6idn.16xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6idn.12xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6idn.8xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6idn.4xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6idn.2xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6idn.xlarge   | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+
+**db.r6in – memory-optimized instance classes powered by 3rd generation Intel Xeon
+Scalable processors**
+
+| Instance class   | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle                             | PostgreSQL                                                                                                                                                          |
+| ---------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| db.r6in.32xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.r6in.24xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.r6in.16xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.r6in.12xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.r6in.8xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.r6in.4xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.r6in.2xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.r6in.xlarge   | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.r6in.large    | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.3 and higher 14 versions, 13.7 and higher 13 versions,<br>12.11 and higher 12 versions, and 11.16 and higher 11 versions |
+| db.r6in.metal    | No  | No                                              | No                   | No                | BYOL only, Enterprise Edition only | No                                                                                                                                                                  |
+
+**db.r6i – memory-optimized instance classes preconfigured for high memory,
+storage, and I/O**
+
+| Instance class            | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                  | PostgreSQL |
+| ------------------------- | --- | ------- | -------------------- | ----- | ----------------------- | ---------- |
+| db.r6i.8xlarge.tpc2.mem4x | No  | No      | No                   | No    | Enterprise Edition only | No         |
+| db.r6i.8xlarge.tpc2.mem3x | No  | No      | No                   | No    | Enterprise Edition only | No         |
+| db.r6i.6xlarge.tpc2.mem4x | No  | No      | No                   | No    | Enterprise Edition only | No         |
+| db.r6i.4xlarge.tpc2.mem4x | No  | No      | No                   | No    | EE and SE2 BYOL         | No         |
+| db.r6i.4xlarge.tpc2.mem3x | No  | No      | No                   | No    | EE and SE2 BYOL         | No         |
+| db.r6i.4xlarge.tpc2.mem2x | No  | No      | No                   | No    | EE and SE2 BYOL         | No         |
+| db.r6i.2xlarge.tpc2.mem8x | No  | No      | No                   | No    | EE and SE2 BYOL         | No         |
+| db.r6i.2xlarge.tpc2.mem4x | No  | No      | No                   | No    | EE and SE2 BYOL         | No         |
+| db.r6i.2xlarge.tpc1.mem2x | No  | No      | No                   | No    | EE and SE2 BYOL         | No         |
+| db.r6i.xlarge.tpc2.mem4x  | No  | No      | No                   | No    | EE and SE2 BYOL         | No         |
+| db.r6i.xlarge.tpc2.mem2x  | No  | No      | No                   | No    | EE and SE2 BYOL         | No         |
+| db.r6i.large.tpc1.mem2x   | No  | No      | No                   | No    | EE and SE2 BYOL         | No         |
+
+**db.r6i – memory-optimized instance classes**
+
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle                             | PostgreSQL                                                                                                                                                           |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| db.r6i.32xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes                                | All PostgreSQL 17, 16, 15, and 14 versions, 13.4 and higher 13 versions, 12.8 and higher 12 versions, 11.13 and higher 11 versions, and 10.21 and higher 10 versions |
+| db.r6i.24xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes                                | All PostgreSQL 17, 16, 15, and 14 versions, 13.4 and higher 13 versions, 12.8 and higher 12 versions, 11.13 and higher 11 versions, and 10.21 and higher 10 versions |
+| db.r6i.16xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes                                | All PostgreSQL 17, 16, 15, and 14 versions, 13.4 and higher 13 versions, 12.8 and higher 12 versions, 11.13 and higher 11 versions, and 10.21 and higher 10 versions |
+| db.r6i.12xlarge | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes                                | All PostgreSQL 17, 16, 15, and 14 versions, 13.4 and higher 13 versions, 12.8 and higher 12 versions, 11.13 and higher 11 versions, and 10.21 and higher 10 versions |
+| db.r6i.8xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes                                | All PostgreSQL 17, 16, 15, and 14 versions, 13.4 and higher 13 versions, 12.8 and higher 12 versions, 11.13 and higher 11 versions, and 10.21 and higher 10 versions |
+| db.r6i.4xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes                                | All PostgreSQL 17, 16, 15, and 14 versions, 13.4 and higher 13 versions, 12.8 and higher 12 versions, 11.13 and higher 11 versions, and 10.21 and higher 10 versions |
+| db.r6i.2xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes                                | All PostgreSQL 17, 16, 15, and 14 versions, 13.4 and higher 13 versions, 12.8 and higher 12 versions, 11.13 and higher 11 versions, and 10.21 and higher 10 versions |
+| db.r6i.xlarge   | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes                                | All PostgreSQL 17, 16, 15, and 14 versions, 13.4 and higher 13 versions, 12.8 and higher 12 versions, 11.13 and higher 11 versions, and 10.21 and higher 10 versions |
+| db.r6i.large    | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes                                | All PostgreSQL 17, 16, 15, and 14 versions, 13.4 and higher 13 versions, 12.8 and higher 12 versions, 11.13 and higher 11 versions, and 10.21 and higher 10 versions |
+| db.r6i.metal    | No  | No                                              | No                   | No                | BYOL only, Enterprise Edition only | No                                                                                                                                                                   |
+
+**db.r5d – memory-optimized instance classes**
+
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                                                 |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| db.r5d.24xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.r5d.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.r5d.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.r5d.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.r5d.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.r5d.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.r5d.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+| db.r5d.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
+
+**db.r5b – memory-optimized instance classes preconfigured for high memory,
+storage, and I/O**
+
+| Instance class            | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL |
+| ------------------------- | --- | ------- | -------------------- | ----- | ------ | ---------- |
+| db.r5b.8xlarge.tpc2.mem3x | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.6xlarge.tpc2.mem4x | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.4xlarge.tpc2.mem4x | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.4xlarge.tpc2.mem3x | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.4xlarge.tpc2.mem2x | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.2xlarge.tpc2.mem8x | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.2xlarge.tpc2.mem4x | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.2xlarge.tpc1.mem2x | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.xlarge.tpc2.mem4x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.xlarge.tpc2.mem2x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5b.large.tpc1.mem2x   | No  | No      | No                   | No    | Yes    | No         |
+
+**db.r5b – memory-optimized instance classes**
+
+| Instance class  | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                      |
+| --------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ------------------------------------------------------------------------------- |
+| db.r5b.24xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r5b.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r5b.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r5b.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | >Yes   | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r5b.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r5b.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r5b.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.r5b.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.4 and 8.0 | Yes    | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+
+**db.r5 – memory-optimized instance classes preconfigured for high memory,
+storage, and I/O**
+
+| Instance class            | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL |
+| ------------------------- | --- | ------- | -------------------- | ----- | ------ | ---------- |
+| db.r5.12xlarge.tpc2.mem2x | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.8xlarge.tpc2.mem3x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.6xlarge.tpc2.mem4x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.4xlarge.tpc2.mem4x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.4xlarge.tpc2.mem3x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.4xlarge.tpc2.mem2x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.2xlarge.tpc2.mem8x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.2xlarge.tpc2.mem4x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.2xlarge.tpc1.mem2x  | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.xlarge.tpc2.mem4x   | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.xlarge.tpc2.mem2x   | No  | No      | No                   | No    | Yes    | No         |
+| db.r5.large.tpc1.mem2x    | No  | No      | No                   | No    | Yes    | No         |
+
+**db.r5 – memory-optimized instance classes**
+
+| Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL                                                                                                             |
+| -------------- | --- | ------- | -------------------- | ----- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| db.r5.24xlarge | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.r5.16xlarge | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.r5.12xlarge | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.r5.8xlarge  | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.r5.4xlarge  | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.r5.2xlarge  | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.r5.xlarge   | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+| db.r5.large    | No  | Yes     | Yes                  | Yes   | Yes    | All PostgreSQL 17, 16, 15, 14, 13, 12, and 11 versions; 10.17 and higher 10 versions; and 9.6.22 and higher 9 versions |
+
+**db.r4 – memory-optimized instance classes**
+
+| Instance class | Db2 | MariaDB    | Microsoft SQL Server | MySQL      | Oracle     | PostgreSQL |
+| -------------- | --- | ---------- | -------------------- | ---------- | ---------- | ---------- |
+| db.r4.16xlarge | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.r4.8xlarge  | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.r4.4xlarge  | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.r4.2xlarge  | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.r4.xlarge   | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.r4.large    | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+
+**db.r3 – memory-optimized instance classes**
+
+| Instance class    | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL | Oracle     | PostgreSQL |
+| ----------------- | --- | ----------------------------------------------- | -------------------- | ----- | ---------- | ---------- |
+| db.r3.8xlarge\*\* | No  | All MariaDB 10.6, 10.5, 10.4, and 10.3 versions | Deprecated           | Yes   | Deprecated | Deprecated |
+| db.r3.4xlarge     | No  | All MariaDB 10.6, 10.5, 10.4, and 10.3 versions | Deprecated           | Yes   | Deprecated | Deprecated |
+| db.r3.2xlarge     | No  | All MariaDB 10.6, 10.5, 10.4, and 10.3 versions | Deprecated           | Yes   | Deprecated | Deprecated |
+| db.r3.xlarge      | No  | All MariaDB 10.6, 10.5, 10.4, and 10.3 versions | Deprecated           | Yes   | Deprecated | Deprecated |
+| db.r3.large       | No  | All MariaDB 10.6, 10.5, 10.4, and 10.3 versions | Deprecated           | Yes   | Deprecated | Deprecated |
+
+## Supported DB engines for compute-optimized instance
+
+classes
+
+The following tables show the supported databases and database versions for the
+compute-optimized instance classes.
+
+**db.c6gd – compute-optimized instance classes (for Multi-AZ DB cluster deployments
+only)**
+
+| Instance class   | Db2 | MariaDB | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                                                   |
+| ---------------- | --- | ------- | -------------------- | ----------------- | ------ | ------------------------------------------------------------------------------------------------------------ |
+| db.c6gd.16xlarge | No  | No      | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions; 14.5 and higher 14 versions; 13.4 and<br>13.7 and higher 13 versions |
+| db.c6gd.12xlarge | No  | No      | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions; 14.5 and higher 14 versions; 13.4 and<br>13.7 and higher 13 versions |
+| db.c6gd.8xlarge  | No  | No      | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions; 14.5 and higher 14 versions; 13.4 and<br>13.7 and higher 13 versions |
+| db.c6gd.4xlarge  | No  | No      | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions; 14.5 and higher 14 versions; 13.4 and<br>13.7 and higher 13 versions |
+| db.c6gd.2xlarge  | No  | No      | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions; 14.5 and higher 14 versions; 13.4 and<br>13.7 and higher 13 versions |
+| db.c6gd.xlarge   | No  | No      | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions; 14.5 and higher 14 versions; 13.4 and<br>13.7 and higher 13 versions |
+| db.c6gd.large    | No  | No      | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions; 14.5 and higher 14 versions; 13.4 and<br>13.7 and higher 13 versions |
+| db.c6gd.medium   | No  | No      | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, and 15 versions; 14.5 and higher 14 versions; 13.4 and<br>13.7 and higher 13 versions |
+
+## Supported DB engines for burstable-performance instance
+
+classes
+
+The following tables show the supported databases and database versions for the
+burstable-performance instance classes.
+
+**db.t4g – burstable-performance instance classes powered by AWS Graviton2
+processors**
+
+| Instance class | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                      |
+| -------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ------------------------------------------------------------------------------- |
+| db.t4g.2xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.t4g.xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.t4g.large   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.t4g.medium  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.t4g.small   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+| db.t4g.micro   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16, 15, 14, and 13 versions; and 12.7 and higher 12 versions |
+
+**db.t3 – burstable-performance instance classes**
+
+| Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                                                                | PostgreSQL                                                                                   |
+| -------------- | --- | ------- | -------------------- | ----- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| db.t3.2xlarge  | Yes | Yes     | Yes                  | Yes   | Yes                                                                   | All PostgreSQL 17, 16, 15, 14, 13, 12, 11, and 10 versions; and 9.6.22 and higher 9 versions |
+| db.t3.xlarge   | Yes | Yes     | Yes                  | Yes   | Yes                                                                   | All PostgreSQL 17, 16, 15, 14, 13, 12, 11, and 10 versions; and 9.6.22 and higher 9 versions |
+| db.t3.large    | Yes | Yes     | Yes                  | Yes   | Yes                                                                   | All PostgreSQL 17, 16, 15, 14, 13, 12, 11, and 10 versions; and 9.6.22 and higher 9 versions |
+| db.t3.medium   | Yes | Yes     | Yes                  | Yes   | Yes                                                                   | All PostgreSQL 17, 16, 15, 14, 13, 12, 11, and 10 versions; and 9.6.22 and higher 9 versions |
+| db.t3.small    | Yes | Yes     | Yes                  | Yes   | Yes                                                                   | All PostgreSQL 17, 16, 15, 14, 13, 12, 11, and 10 versions; and 9.6.22 and higher 9 versions |
+| db.t3.micro    | No  | Yes     | Yes                  | Yes   | Only on Oracle Database 12c Release 1 (12.1.0.2), which is deprecated | All PostgreSQL 17, 16, 15, 14, 13, 12, 11, and 10 versions; and 9.6.22 and higher 9 versions |
+
+**db.t2 – burstable-performance instance classes**
+
+| Instance class | Db2 | MariaDB    | Microsoft SQL Server | MySQL      | Oracle     | PostgreSQL |
+| -------------- | --- | ---------- | -------------------- | ---------- | ---------- | ---------- |
+| db.t2.2xlarge  | No  | Deprecated | No                   | Deprecated | Deprecated | Deprecated |
+| db.t2.xlarge   | No  | Deprecated | No                   | Deprecated | Deprecated | Deprecated |
+| db.t2.large    | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.t2.medium   | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.t2.small    | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+| db.t2.micro    | No  | Deprecated | Deprecated           | Deprecated | Deprecated | Deprecated |
+
+## Supported DB engines for Optimized Reads instance
+
+classes
+
+The following tables show the supported databases and database versions for the Optimized
+Reads instance classes.
+
+**db.m8gd – memory-optimized instance classes that support Optimized Reads and are powered by AWS Graviton4
+processors**
+
+| Instance class   | Db2 | MariaDB                                                                                                     | Microsoft SQL Server | MySQL                                     | Oracle | PostgreSQL                                                                                                            |
+| ---------------- | --- | ----------------------------------------------------------------------------------------------------------- | -------------------- | ----------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
+| db.m8gd.48xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.4 and 8.0                         | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.m8gd.24xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.m8gd.16xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.m8gd.12xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.m8gd.8xlarge  | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.m8gd.4xlarge  | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.m8gd.2xlarge  | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.m8gd.xlarge   | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.m8gd.large    | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+
+**db.r8gd – memory-optimized instance classes that support Optimized Reads and are powered by AWS Graviton4
+processors**
+
+| Instance class   | Db2 | MariaDB                                                                                                     | Microsoft SQL Server | MySQL                                     | Oracle | PostgreSQL                                                                                                            |
+| ---------------- | --- | ----------------------------------------------------------------------------------------------------------- | -------------------- | ----------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
+| db.r8gd.48xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.4 and 8.0                         | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.r8gd.24xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.r8gd.16xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.r8gd.12xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.r8gd.8xlarge  | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.r8gd.4xlarge  | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.r8gd.2xlarge  | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.r8gd.xlarge   | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+| db.r8gd.large    | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher, 11.4.3<br>and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher, 16.6 and<br>higher, 17.2 and higher, 18.1 and higher |
+
+**db.r6gd – memory-optimized instance classes that support Optimized Reads and are powered by AWS Graviton2
+processors**
+
+| Instance class   | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle | PostgreSQL                                                                                                   |
+| ---------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ------ | ------------------------------------------------------------------------------------------------------------ |
+| db.r6gd.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+| db.r6gd.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | No     | All PostgreSQL 17, 16 and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and<br>13.4 |
+
+**db.r6id – memory-optimized instance classes that support Optimized Reads and are powered by 3rd generation Intel Xeon
+Scalable processors**
+
+| Instance class   | Db2 | MariaDB                                         | Microsoft SQL Server | MySQL             | Oracle                             | PostgreSQL                                                                                           |
+| ---------------- | --- | ----------------------------------------------- | -------------------- | ----------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| db.r6id.32xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.24xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.16xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.12xlarge | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.8xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | EE and BYOL only                   | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.4xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.2xlarge  | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.xlarge   | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.large    | No  | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.4 and 8.0 | BYOL only                          | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, and 13.7 and higher 13 versions |
+| db.r6id.metal    | No  | No                                              | No                   | No                | BYOL only, Enterprise Edition only | No                                                                                                   |
