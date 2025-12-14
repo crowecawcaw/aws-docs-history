@@ -144,7 +144,7 @@ viewers**.
 ![The "Project viewers" section of a project page.](images/project-add-viewers-console.png) 4. In the **Project viewers** dialog box, select the check boxes for the
 users to be viewers for this project.
 
-![Shows the "Project viewers" dialog.](/images/iot-sitewise/latest/appguide/images/project-choose-viewers-console.png)
+![Shows the "Project viewers" dialog.](images/project-choose-viewers-console.png)
 
 ###### Note
 

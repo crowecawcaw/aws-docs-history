@@ -32,7 +32,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 1. In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 
@@ -116,6 +116,6 @@ project owners.
 the check boxes for the project owners to receive an email, and then choose **Send
 invitations**.
 
-![The "Project owners" section of the project details page.](/images/iot-sitewise/latest/appguide/images/project-invite-owners-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
+![The "Project owners" section of the project details page.](images/project-invite-owners-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
 with details from your project. You can customize the email before you send it to the
 project owners.

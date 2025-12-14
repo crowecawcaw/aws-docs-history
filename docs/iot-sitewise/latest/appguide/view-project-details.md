@@ -24,4 +24,4 @@ You can review the details for any project to which you have access, including:
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project whose details you want
 to view.
 
-![Screenshot showing the Projects page with "Wind Farm 3" highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
+![Screenshot showing the Projects page with "Wind Farm 3" highlighted.](images/projects-portal-admin-choose-project-console.png)
