@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # AWS Marketplace rule groups
 
@@ -22,8 +22,8 @@ organization must subscribe to it.
 ###### AWS Marketplace Rule Group Pricing
 
 AWS Marketplace rule groups are available with no long-term contracts, and no minimum
-commitments. When you subscribe to a rule group, you are charged a monthly fee (prorated
-hourly) and ongoing request fees based on volume. For more information, see
+commitments. When you subscribe to a rule group, you're charged a monthly fee (prorated hourly) and ongoing request fees based on volume.
+However, you're only charged the subscription fee when you add the subscribed rule group to a web ACL and begin using it. For more information, see
 [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/") and the description
 for each AWS Marketplace rule group at [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace").
 

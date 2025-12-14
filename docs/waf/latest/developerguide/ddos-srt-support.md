@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Managed DDoS event response with Shield Response Team (SRT) support
 
@@ -15,9 +15,11 @@ guidance, see the topics that follow.
 
 ###### Note
 
-To use the services of the Shield Response Team (SRT), you must be subscribed to the [Business Support
-plan](https://aws.amazon.com/premiumsupport/business-support/ "https://aws.amazon.com/premiumsupport/business-support/") or the [Enterprise Support
-plan](https://aws.amazon.com/premiumsupport/enterprise-support/ "https://aws.amazon.com/premiumsupport/enterprise-support/").
+- To use the services of the Shield Response Team (SRT), you must be subscribed to the [Business Support
+  plan](https://aws.amazon.com/premiumsupport/business-support/ "https://aws.amazon.com/premiumsupport/business-support/") or the [Enterprise Support
+  plan](https://aws.amazon.com/premiumsupport/enterprise-support/ "https://aws.amazon.com/premiumsupport/enterprise-support/").
+- Shield Response Team (SRT) provides services in regions where Shield Advanced is available,
+  and for customers in GovCloud regions, AWS GovCloud (US-East) and AWS GovCloud (US-West).
 
 ###### SRT support activities
 

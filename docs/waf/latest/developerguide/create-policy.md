@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Creating an AWS Firewall Manager policy
 
@@ -422,7 +422,8 @@ groups**. 6. For **Region**, choose an AWS Region. 7. Choose **Next**. 8. For **
     Firewall Manager won't distribute system tags added by AWS services into the replica security groups. System tags begin with the `aws:` prefix. Additionally, Firewall Manager won't update the tags of existing security groups or create new security groups if the policy has tags that conflict with the organization's tag policy. For information about tag policies, see [Tag policies](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md") in the AWS Organizations User Guide.
 
 
-    If you choose **Distribute security group references from the primary security group to the security groups created by this policy**, Firewall Manager only distributes the security group references if they have an active peering connection in Amazon VPC. For information about this option, see [Policy rules settings](security-group-policies-common.md#sg-references "security-group-policies-common.md#sg-references").
+    If you choose **Distribute security group references from the primary security group to the security groups created by this policy**, Firewall Manager only distributes the security group references if they have an active peering connection in Amazon VPC. For information about this option, see [Using common security group
+     policies with Firewall Manager](security-group-policies-common.md "security-group-policies-common.md").
     2. For **Primary security groups**, choose **Add security
      groups**, and then choose the security groups that you
      want to use. Firewall Manager populates the list of security groups
@@ -946,7 +947,7 @@ that you provide here. 10. Choose **Next**. 11. Do one of the following, dependi
     	###### Note
 
     	Auto remediation happens automatically for AWS Firewall Manager Network Firewall policies, so you won't see an option to choose not to auto remediate here.
-    * If you're using a **import existing firewalls** firewall management type, in **Resource sets** add one or more resource sets. A resource set defines the existing Network Firewall firewalls owned by your organization's account that you want to centrally manage in this policy. To add a resource set to the policy, you must first create a resource set using the console or the [PutResourceSet](../../../fms/2018-01-01/APIReference/https:/docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PutResourceSet.md "../../../fms/2018-01-01/APIReference/https:/docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PutResourceSet.md") API. For information about resource sets, see [Grouping your resources in Firewall Manager](fms-resource-sets.md "fms-resource-sets.md"). For more information about importing existing firewalls from Network Firewall, see [import existing firewalls.](fms-create-firewall-endpoints.md#import-existing-nwfw-firewalls-limitations "fms-create-firewall-endpoints.md#import-existing-nwfw-firewalls-limitations")
+    * If you're using a **import existing firewalls** firewall management type, in **Resource sets** add one or more resource sets. A resource set defines the existing Network Firewall firewalls owned by your organization's account that you want to centrally manage in this policy. To add a resource set to the policy, you must first create a resource set using the console or the [PutResourceSet](../../../fms/2018-01-01/APIReference/https:/docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PutResourceSet.md "../../../fms/2018-01-01/APIReference/https:/docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PutResourceSet.md") API. For information about resource sets, see [Grouping your resources in Firewall Manager](fms-resource-sets.md "fms-resource-sets.md"). For more information about importing existing firewalls from Network Firewall, see [How Firewall Manager creates firewall endpoints](fms-create-firewall-endpoints.md "fms-create-firewall-endpoints.md").
 
 12. Choose **Next**.
 13. If your policy uses a distributed firewall management type, under **Route management**, choose whether or not Firewall Manager will monitor and alert on the traffic that must be routed through the respective firewall endpoints.

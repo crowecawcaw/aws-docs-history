@@ -1,18 +1,18 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# AWS Firewall Manager integration with AWS Security Hub
+# AWS Firewall Manager integration with AWS Security Hub CSPM
 
-This page explains how to use Firewall Manager and Security Hub together.
+This page explains how to use Firewall Manager and Security Hub CSPM together.
 
 AWS Firewall Manager creates findings for resources that are out of compliance and for attacks that it
-detects, and it sends them to AWS Security Hub. For information about Security Hub findings, see [Findings in AWS Security Hub](../../../securityhub/latest/userguide/securityhub-findings.md "../../../securityhub/latest/userguide/securityhub-findings.md").
+detects, and it sends them to AWS Security Hub CSPM. For information about Security Hub CSPM findings, see [Findings in AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-findings.md "../../../securityhub/latest/userguide/securityhub-findings.md").
 
-When you use Security Hub and Firewall Manager, Firewall Manager automatically sends your findings to Security Hub. For
-information about getting started with Security Hub, see [Setting Up
-AWS Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the [AWS Security Hub User
+When you use Security Hub CSPM and Firewall Manager, Firewall Manager automatically sends your findings to Security Hub CSPM. For
+information about getting started with Security Hub CSPM, see [Setting Up
+AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the [AWS Security Hub CSPM User
 Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
 
 ###### Note
@@ -27,7 +27,7 @@ Firewall Manager doesn't resolve findings for the following:
 
 ###### How do I view my Firewall Manager findings?
 
-To view your Firewall Manager findings in Security Hub, follow the guidance at [Working with Findings in Security Hub](../../../securityhub/latest/userguide/securityhub-findings.md#securityhub-managing-findings "../../../securityhub/latest/userguide/securityhub-findings.md#securityhub-managing-findings") and create a filter using the
+To view your Firewall Manager findings in Security Hub CSPM, follow the guidance at [Working with Findings in Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-findings.md#securityhub-managing-findings "../../../securityhub/latest/userguide/securityhub-findings.md#securityhub-managing-findings") and create a filter using the
 following settings:
 
 - Attribute set to **Product Name**.
@@ -36,7 +36,7 @@ following settings:
 
 ###### Can I disable this?
 
-You can disable the integration of AWS Firewall Manager findings with Security Hub through the Security Hub console. Choose **Integrations** in the navigation bar, then in the Firewall Manager pane, choose **Disable Integration**. For more information, see the [AWS Security Hub User
+You can disable the integration of AWS Firewall Manager findings with Security Hub CSPM through the Security Hub CSPM console. Choose **Integrations** in the navigation bar, then in the Firewall Manager pane, choose **Disable Integration**. For more information, see the [AWS Security Hub CSPM User
 Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
 
 ###### AWS Firewall Manager finding types

@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # AWS WAF Bot Control
 
@@ -36,9 +36,6 @@ website traffic statistics to detect bot-related activity. When you enable machi
 AWS WAF uses statistics about website traffic, such as timestamps, browser
 characteristics, and previous URL visited, to improve the Bot Control machine learning model.
 
-For
-more information about the Bot Control managed rule group, see [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md").
-
 When AWS WAF evaluates a web request against the Bot Control managed rule group, the rule group adds
 labels to requests that it detects as bot related, for example the category of bot and the
 bot name. You can match against these labels in your own AWS WAF rules to customize handling.
@@ -47,3 +44,17 @@ metrics and your protection pack (web ACL) logs.
 
 You can also use AWS Firewall Manager AWS WAF policies to deploy the Bot Control managed rule group across your
 applications in multiple accounts that are part of your organization in AWS Organizations.
+
+For more information about the Bot Control managed rule group, see [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md").
+
+## Web bot authentication for AI agents
+
+AWS WAF Bot Control now supports Web Bot Authentication (WBA) as a cryptographic verification method for bots and AI agents accessing your CloudFront distributions.
+This feature enables legitimate AI crawlers and agents to prove their identity without requiring traditional challenge-response mechanisms.
+
+Version requirement: `AWSManagedRulesBotControlRuleSet` Version_4.0 or later. (The static version must be explicitly selected.)
+For detailed label taxonomy and rule behavior, see:
+
+- [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md")
+- [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md")
+- [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md "aws-managed-rule-groups-changelog.md")

@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Troubleshooting AWS Shield network security director
 
@@ -16,23 +16,20 @@ AWS Shield network security director does not support certain cross-account shar
 | Network Firewall Stateless rule group           | network-firewall:DescribeRuleGroup not supported on shared resources      |
 | EC2 PrefixList                                  | ec2:GetManagedPrefixListEntries not supported on shared resources         |
 
-## Availability of Findings and Suppressions
+## Availability of Resources, Findings, and Suppression
 
-Network security director retains network scan results for 60 days. After this period, you must run a new scan to view current findings.
+If an account leaves an organization or network security director is disabled for an account, the following occurs:
 
-Suppressions are retained as long as you have an active network scan. If a network scan is no longer available because 60 days have lapsed, you must reapply your suppressions to the next network scan.
+- **Findings and Resources:** Findings from the account will be removed once the service is disabled for the account. This process typically takes a few minutes but could be longer.
+- **Suppressions:** Suppressions are deleted within 90 days of disabling the service for an account. If the service is re-enabled for an account within this 90-day period, existing suppressions might still be available, but availability is not guaranteed. Suppressions must be removed before disabling the service for an account to avoid this uncertainty.
 
-## Resource Scan Limitations
+## Performance Considerations
 
-When scanning accounts with a large number of resources, you may encounter the following limitations:
+AWS Shield network security director is designed to provide daily data refreshes for your organization's network analysis. However, performance can vary based on your organization's size and region.
 
-- You may receive a message indicating that a scan is already in progress
-- The service cannot provide estimated completion times for scans
-- Scan duration varies based on the number of resources in your account
+Organizations with a large number of accounts may experience longer refresh cycles, with data refreshes occurring after multiple days for individual accounts. Additionally, performance can vary significantly by Region, with opt-in regions in particular experiencing slow performance and extended refresh times.
 
-###### Note
-
-The scan duration depends on the total number of resources in your account, which is determined during the scanning process itself.
+For improved performance and more frequent data refreshes, we recommend enabling network security director for accounts that are specifically relevant to each region. This recommendation is especially critical for opt-in regions.
 
 ## Additional Resources
 

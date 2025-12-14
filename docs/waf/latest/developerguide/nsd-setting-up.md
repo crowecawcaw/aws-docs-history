@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Setting up your account to use AWS Shield network security director
 
@@ -9,64 +9,142 @@ For more details, see [Working with the updated console experience](working-with
 
 AWS Shield network security director is in public preview release and is subject to change.
 
-This topic describes preliminary steps, such as creating an account, to prepare you to
-use network security director and related services, including Amazon Q Developer. You aren't charged for these preliminary
-items. You are charged only for AWS services that you use.
+AWS Shield network security director requires AWS Organizations to manage security across multiple accounts in your organization. This topic describes the preliminary steps to prepare your AWS environment, including setting up Organizations, designating a delegated administrator, and configuring the necessary IAM permissions. You aren't charged for these preliminary setup steps. You are charged only for AWS services that you use.
 
-## Sign up for an AWS account
+## Prerequisites
 
-If you do not have an AWS account, complete the following steps to create one.
+Before you can use AWS Shield network security director, you must have the following in place:
 
-###### To sign up for an AWS account
+- **AWS Organizations** - AWS Shield network security director works exclusively with AWS Organizations to provide security analysis across multiple accounts. You cannot use AWS Shield network security director with a single standalone account.
+- **Management account access** - You need access to the AWS Organizations management account to designate a delegated administrator for AWS Shield network security director.
+- **Delegated administrator account** - You need to identify or create an account that will serve as the delegated administrator for AWS Shield network security director. This cannot be the Organizations management account.
 
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
+###### Important
 
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
+AWS Shield network security director cannot be used with standalone AWS accounts. You must have AWS Organizations configured with at least one member account in addition to the management account.
 
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
+## Understanding AWS Organizations integration
 
-AWS sends you a confirmation email after the sign-up process is
-complete. At any time, you can view your current account activity and manage your account by
-going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
-Account**.
+AWS Organizations is a global account management service that lets AWS administrators consolidate and manage multiple AWS accounts. AWS Shield network security director integrates with Organizations to provide centralized security analysis and management across your entire organization.
 
-## Create a user with administrative access
+When you integrate AWS Shield network security director with AWS Organizations:
 
-After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you
-don't use the root user for everyday tasks.
+- The Organizations management account designates a delegated administrator for AWS Shield network security director
+- The delegated administrator can enable AWS Shield network security director across multiple accounts and regions
+- Security analysis and findings are centrally managed through the delegated administrator account
+- Service-linked roles are automatically created in member accounts to enable analysis
 
-###### Secure your AWS account root user
+This approach is similar to other AWS security services like AWS Security Hub and provides consistent governance across your security tools.
 
-1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") as the account owner by choosing **Root user** and entering your AWS account email address. On the next page, enter your password.
+## Choosing a delegated administrator
 
-For help signing in by using root user, see [Signing in as the root user](../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial "../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial") in the _AWS Sign-In User Guide_. 2. Turn on multi-factor authentication (MFA) for your root user.
+A delegated administrator is an AWS account in your organization that has been granted permissions to manage AWS Shield network security director on behalf of the organization. The delegated administrator can enable the service, create policies, and manage security findings across all member accounts.
 
-For instructions, see [Enable a virtual MFA device for your AWS account root user (console)](../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md") in the _IAM User Guide_.
+**Delegated administrator requirements:**
 
-###### Create a user with administrative access
+- Must be a member account in your AWS Organizations structure
+- Cannot be the Organizations management account
+- Should have appropriate IAM permissions configured (see next section)
 
-1. Enable IAM Identity Center.
+###### Note
 
-For instructions, see [Enabling
-AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md") in the
-_AWS IAM Identity Center User Guide_. 2. In IAM Identity Center, grant administrative access to a user.
+As a best practice, we recommend using the same delegated administrator account across AWS security services (such as Security Hub, GuardDuty, and AWS Shield network security director) for consistent governance and simplified management.
 
-For a tutorial about using the IAM Identity Center directory as your identity source, see [Configure user access with the default IAM Identity Center directory](../../../singlesignon/latest/userguide/quick-start-default-idc.md "../../../singlesignon/latest/userguide/quick-start-default-idc.md") in the
-_AWS IAM Identity Center User Guide_.
+## IAM requirements for the delegated administrator
 
-###### Sign in as the user with administrative access
+The delegated administrator account requires specific IAM permissions to manage AWS Shield network security director effectively. You must attach the following policy to the IAM user or role that will be managing AWS Shield network security director in the delegated administrator account.
 
-- To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email address when you created the IAM Identity Center user.
+**Required IAM policy for AWS Shield network security director delegated administrator:**
 
-For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md "../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md") in the _AWS Sign-In User Guide_.
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "network-security-director:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRole",
+                "iam:CreateServiceLinkedRole"
+            ],
+            "Resource": [
+                "arn:aws:iam:::role/aws-service-role/AWSServiceRoleForNetworkSecurityDirector"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "organizations:ListRoots",
+                "organizations:ListOrganizationalUnitsForParent",
+                "organizations:ListAccountsForParent",
+                "organizations:ListAccounts",
+                "organizations:ListAWSServiceAccessForOrganization",
+                "organizations:ListDelegatedAdministrators",
+                "organizations:DescribeOrganization",
+                "organizations:CreatePolicy",
+                "organizations:UpdatePolicy",
+                "organizations:DeletePolicy",
+                "organizations:AttachPolicy",
+                "organizations:DetachPolicy",
+                "organizations:EnablePolicyType",
+                "organizations:DisablePolicyType",
+                "organizations:DescribeOrganization",
+                "organizations:DescribeOrganizationalUnit",
+                "organizations:DescribeAccount",
+                "organizations:ListRoots",
+                "organizations:ListOrganizationalUnitsForParent",
+                "organizations:ListParents",
+                "organizations:ListChildren",
+                "organizations:ListAccounts",
+                "organizations:ListAccountsForParent",
+                "organizations:ListTagsForResource",
+                "organizations:ListDelegatedAdministrators",
+                "organizations:ListHandshakesForAccount",
+                "organizations:DescribePolicy",
+                "organizations:DescribeEffectivePolicy",
+                "organizations:ListPolicies",
+                "organizations:ListPoliciesForTarget",
+                "organizations:ListTargetsForPolicy"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
 
-###### Assign access to additional users
+**Policy explanation:**
 
-1. In IAM Identity Center, create a permission set that follows the best practice of applying least-privilege permissions.
+- **network-security-director:\*** - Grants full access to all AWS Shield network security director operations, including enabling the service, creating policies, and managing findings.
+- **IAM permissions** - Allows the delegated administrator to manage the service-linked role that AWS Shield network security director uses to perform analysis across member accounts.
 
-For instructions, see [Create a permission set](../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md "../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md") in the _AWS IAM Identity Center User Guide_. 2. Assign users to a group, and then assign single sign-on access to the group.
+###### To create and attach the IAM policy
 
-For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
+1. Sign in to the AWS Management Console using the delegated administrator account.
+2. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+3. In the navigation pane, choose **Policies**, then choose **Create policy**.
+4. Choose the **JSON** tab and paste the policy document shown above.
+5. Choose **Next: Tags**, then **Next: Review**.
+6. For **Name**, enter `NetworkSecurityDirectorDelegatedAdminPolicy`.
+7. Choose **Create policy**.
+8. Attach this policy to the IAM user or role that will be managing AWS Shield network security director in the delegated administrator account.
+
+## Setup checklist
+
+Before proceeding to enable AWS Shield network security director, ensure you have completed the following setup tasks:
+
+- ✓ AWS Organizations is configured with a management account and at least one member account
+- ✓ You have identified a delegated administrator account (cannot be the management account)
+- ✓ The required IAM policy has been created and attached in the delegated administrator account
+- ✓ You have access to both the Organizations management account and the delegated administrator account
+
+Once you have completed these setup tasks, you can proceed to [Enabling AWS Shield network security director](nsd-enablement.md "nsd-enablement.md") to enable AWS Shield network security director for your organization.

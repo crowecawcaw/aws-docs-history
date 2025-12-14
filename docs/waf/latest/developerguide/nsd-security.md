@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Security in your use of the AWS Shield network security director
 
@@ -13,7 +13,7 @@ This section describes the key security considerations for using this network se
 
 ###### Data sources
 
-When you run an analysis, network security director retrieves information about your [AWS resources](https://aws.amazon.com/resourceexplorer/ "https://aws.amazon.com/resourceexplorer/") using public AWS API endpoints. The information retrieved includes resource attributes that are available to your account through the public AWS APIs. For 60 days after you perform a network analysis, the information from the scan informs the findings and remediation recommendations provided by network security director.
+When you run an analysis, network security director retrieves information about your [AWS resources](https://aws.amazon.com/resourceexplorer/ "https://aws.amazon.com/resourceexplorer/") using public AWS API endpoints. The information retrieved includes resource attributes that are available to your account through the public AWS APIs.
 
 AWS Shield network security director also uses internal AWS data sources and threat intelligence to identify findings and recommend remediations.
 

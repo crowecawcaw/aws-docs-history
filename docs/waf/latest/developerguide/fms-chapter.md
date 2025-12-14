@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # AWS Firewall Manager
 
@@ -43,7 +43,7 @@ more information, see [AWS Firewall Manager Pricing](https://aws.amazon.com/fire
 - [Using Firewall Manager managed lists](working-with-managed-lists.md "working-with-managed-lists.md")
 - [Grouping your resources in Firewall Manager](fms-resource-sets.md "fms-resource-sets.md")
 - [Viewing compliance information for an AWS Firewall Manager policy](fms-compliance.md "fms-compliance.md")
-- [AWS Firewall Manager integration with AWS Security Hub](fms-findings.md "fms-findings.md")
+- [AWS Firewall Manager integration with AWS Security Hub CSPM](fms-findings.md "fms-findings.md")
 - [Security in your use of the AWS Firewall Manager service](fms-security.md "fms-security.md")
 - [AWS Firewall Manager quotas](fms-limits.md "fms-limits.md")
 - [Migrating AWS WAF Classic Web ACLs in Firewall Manager](migrate-waf-classic-fms.md "migrate-waf-classic-fms.md")

@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # AWS WAF Bot Control rule group
 
@@ -158,29 +158,70 @@ Each label reflects the Bot Control rule findings:
 custom namespaces`bot:name:slurp`,
 `bot:name:googlebot`, and
 `bot:name:pocket_parser`.
+  - `awswaf:managed:aws:bot-control:bot:name:`<rfc_name>``– Identifies the specific bot using the RFC product token from the WBA signature.
+This is used to create granular custom rules for specific bots. For example, allow`GoogleBot` but rate-limit other crawlers.
   - `awswaf:managed:aws:bot-control:bot:category:`<category>``– The category of bot, as defined by AWS WAF, for
 example,`bot:category:search_engine`and`bot:category:content_fetcher`.
-  - `awswaf:managed:aws:bot-control:bot:organization:`<organization>``– The bot's publisher, for example,`bot:organization:google`.
-  - `awswaf:managed:aws:bot-control:bot:verified` –
-    Used to indicate a bot that identifies itself and
-    that Bot Control has been able to verify. This is used for common
-    desirable bots, and can be useful when combined with
-    category labels like `bot:category:search_engine`
-    or name labels like `bot:name:googlebot`.
+  - `awswaf:managed:aws:bot-control:bot:account:`<hash>``
+    –For bots using Amazon Bedrock Agent Core only.
+    This label contains an opaque hash uniquely
+    identifying the AWS account that owns the agent.
+    Use this label to create custom rules that allow,
+    block, or rate-limit bots from specific AWS
+    accounts without exposing account IDs in
+    logs.
+  - `awswaf:managed:aws:bot-control:bot:web_bot_auth:`<status>``
+    – Applied when Web Bot Authentication (WBA)
+    validation is performed on a request. The status
+    suffix indicates the verification outcome:
+    - `web_bot_auth:verified` –
+      Signature successfully validated against public
+      key directory
+    - `web_bot_auth:invalid` –
+      Signature present but cryptograpic validation
+      failed
+    - `web_bot_auth:expired` –
+      Signature used an expired cryptograpic key
+    - `web_bot_auth:unrecognized`
+      – Key ID not found in the key
+      directory
 
   ###### Note
 
-  Bot Control uses the IP address from the web request origin
-  to help determine whether a bot is verified. You can’t
-  configure it to use the AWS WAF forwarded IP
-  configuration, to inspect a different IP address source.
-  If you have verified bots that route through a proxy or
-  load balancer, you can add a rule that runs before the
-  Bot Control rule group to help with this. Configure your new
-  rule to use the forwarded IP address and explicitly
-  allow requests from the verified bots. For information
-  about using forwarded IP addresses, see [Using forwarded IP
+  When the `web_bot_auth:verified`
+  label is present, the `CategoryAI` and
+  `TGT_TokenAbsent` rules do not match,
+  allowing verified WBA hosts to proceed.
+  - `awswaf:managed:aws:bot-control:bot:organization:`<organization>``– The bot's publisher, for example,`bot:organization:google`.
+  - `awswaf:managed:aws:bot-control:bot:verified`
+    – Used to indicate a bot that identifies
+    itself and that Bot Control has been able to verify. This
+    is used for common desirable bots, and can be useful
+    when combined with category labels like
+    `bot:category:search_engine` or name
+    labels like `bot:name:googlebot`.
+
+  ###### Note
+
+  Bot Control uses the IP address from the web request
+  origin to help determine whether a bot is
+  verified. You can’t configure it to use the
+  AWS WAF forwarded IP configuration, to inspect a
+  different IP address source. If you have verified
+  bots that route through a proxy or load balancer,
+  you can add a rule that runs before the Bot Control rule
+  group to help with this. Configure your new rule
+  to use the forwarded IP address and explicitly
+  allow requests from the verified bots. For
+  information about using forwarded IP addresses,
+  see [Using forwarded IP
   addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md").
+  - `awswaf:managed:aws:bot-control:bot:vendor:`<vendor_name>``
+    – Identifies the vendor or operator of a
+    verified bot. Currently available only for
+    Agentcore. Use to create custom rules that allow or
+    block specific bot vendors regardless of individual
+    bot names.
   - `awswaf:managed:aws:bot-control:bot:user_triggered:verified`
     – Used to indicate a bot that is similar to a
     verified bot, but that might be directly invoked by end

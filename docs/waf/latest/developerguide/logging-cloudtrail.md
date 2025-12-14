@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Logging AWS Shield network security director API calls with AWS CloudTrail
 
@@ -25,8 +25,6 @@ For more information about creating and managing trails, see:
 
 All network security director API operations are logged by CloudTrail and documented in the API Reference. The following operations are included:
 
-- _StartNetworkSecurityScan_: Initiates a network security scan
-- _GetNetworkSecurityScan_: Retrieves information about a network security scan
 - _ListResources_: Lists resources available in the service
 - _GetResource_: Retrieves detailed information about a specific resource
 - _ListFindings_: Lists security findings
@@ -34,82 +32,55 @@ All network security director API operations are logged by CloudTrail and docume
 - _UpdateFinding_: Updates the status or other attributes of a finding
 - _ListRemediations_: Lists remediation recommendations for a finding
 - _ListInsights_: Lists insights based on findings and resources
+- _ListAccountSummaries_: Lists account summaries for an organization
 
 ## Understanding network security director log file entries
 
-CloudTrail log entries contain information about who made the request, when it was made, and what parameters were used. Here's an example of a StartNetworkSecurityScan action:
+CloudTrail log entries contain information about who made the request, when it was made, and what parameters were used. Here's an example of a ListAccountSummaries action:
 
 ```
 
 {
-    "eventVersion": "1.08",
-    "userIdentity": {
-        "type": "IAMUser",
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+    "arn": "arn:aws:iam::111122223333:user/janedoe",
+    "accountId": "111122223333",
+    "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
         "principalId": "AIDACKCEVSQ6C2EXAMPLE",
         "arn": "arn:aws:iam::111122223333:user/janedoe",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "userName": "janedoe"
-    },
-    "eventTime": "2023-11-28T22:02:58Z",
-    "eventSource": "network-director.amazonaws.com",
-    "eventName": "StartNetworkSecurityScan",
-    "awsRegion": "us-west-2",
-    "sourceIPAddress": "192.0.2.0",
-    "userAgent": "aws-cli/2.9.19 Python/3.9.11 Linux/5.15.0-1031-aws botocore/2.4.5",
-    "requestParameters": {},
-    "responseElements": {
-        "scan": {
-            "state": "RESCANNING",
-            "startTime": "2023-11-28T22:02:58Z"
-        }
-    },
-    "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
-    "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
-    "readOnly": false,
-    "eventType": "AwsApiCall",
-    "managementEvent": true,
-    "recipientAccountId": "111122223333",
-    "eventCategory": "Management"
-}
-
-```
-
-And here's an example of a GetNetworkSecurityScan action:
-
-```
-
-{
-    "eventVersion": "1.08",
-    "userIdentity": {
-        "type": "IAMUser",
-        "principalId": "AIDACKCEVSQ6C2EXAMPLE",
-        "arn": "arn:aws:iam::111122223333:user/janedoe",
-        "accountId": "111122223333",
-        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
-        "userName": "janedoe"
-    },
-    "eventTime": "2023-11-28T22:03:15Z",
-    "eventSource": "network-director.amazonaws.com",
-    "eventName": "GetNetworkSecurityScan",
-    "awsRegion": "us-west-2",
-    "sourceIPAddress": "192.0.2.0",
-    "userAgent": "aws-cli/2.9.19 Python/3.9.11 Linux/5.15.0-1031-aws botocore/2.4.5",
-    "requestParameters": {},
-    "responseElements": {
-        "scan": {
-            "state": "COMPLETE",
-            "startTime": "2023-11-28T22:02:58Z",
-            "completionTime": "2023-11-28T22:03:15Z"
-        }
-    },
-    "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
-    "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
-    "readOnly": true,
-    "eventType": "AwsApiCall",
-    "managementEvent": true,
-    "recipientAccountId": "111122223333",
-    "eventCategory": "Management"
+      },
+      "attributes": {
+        "creationDate": "2025-11-11T02:57:20Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2025-11-11T02:59:53Z",
+  "eventSource": "network-security-director.amazonaws.com",
+  "eventName": "ListAccountSummaries",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/1.18.147 Python/2.7.18 Linux/5.10.244-220.970.amzn2int.x86_64 botocore/1.18.6",
+  "requestParameters": {
+    "status": "ACTIVE",
+    "sortBy": "SEVERITY",
+    "maxResults": 2
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+  "readOnly": true,
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Management"
 }
 
 ```

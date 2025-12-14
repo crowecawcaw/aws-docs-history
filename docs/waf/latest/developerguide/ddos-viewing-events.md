@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Visibility into DDoS events with Shield Advanced
 
@@ -29,7 +29,7 @@ AWS Shield provides visibility into the following categories of events and event
 - **Cross-account event visibility for protected
   resources** – If you use AWS Firewall Manager to manage your Shield Advanced
   protections, you can enable visibility into protections across multiple accounts by
-  using Firewall Manager combined with AWS Security Hub. For more information, see [Viewing Shield Advanced events across multiple AWS accounts with AWS Firewall Manager and AWS Security Hub](ddos-viewing-multiple-accounts.md "ddos-viewing-multiple-accounts.md").
+  using Firewall Manager combined with AWS Security Hub CSPM. For more information, see [Viewing Shield Advanced events across multiple AWS accounts with AWS Firewall Manager and AWS Security Hub CSPM](ddos-viewing-multiple-accounts.md "ddos-viewing-multiple-accounts.md").
   If you enable automatic application layer DDoS mitigation for an application layer protection,
   Shield Advanced adds a rule group to your protection pack (web ACL) that it uses to manage automated protections. This rule
   group generates AWS WAF metrics, but they are not available to view. This is the same as for
@@ -41,4 +41,4 @@ AWS Shield provides visibility into the following categories of events and event
 
 - [Viewing AWS Shield global and account activity](ddos-standard-event-visibility.md "ddos-standard-event-visibility.md")
 - [Viewing AWS Shield Advanced events](ddos-events.md "ddos-events.md")
-- [Viewing Shield Advanced events across multiple AWS accounts with AWS Firewall Manager and AWS Security Hub](ddos-viewing-multiple-accounts.md "ddos-viewing-multiple-accounts.md")
+- [Viewing Shield Advanced events across multiple AWS accounts with AWS Firewall Manager and AWS Security Hub CSPM](ddos-viewing-multiple-accounts.md "ddos-viewing-multiple-accounts.md")

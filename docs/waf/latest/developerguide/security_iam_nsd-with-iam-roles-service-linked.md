@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Using service-linked roles for AWS Shield network security director
 
@@ -308,7 +308,19 @@ AWS Shield network security director is in public preview release and is subject
 
 AWS Shield network security director supports using service-linked roles in following regions and can only retrieve data about your resources in these regions.
 
-| Region Name           | Region     |
-| --------------------- | ---------- |
-| US East (N. Virginia) | us-east-1  |
-| Europe (Stockholm)    | eu-north-1 |
+| Region Name              | Region         |
+| ------------------------ | -------------- |
+| US East (N. Virginia)    | us-east-1      |
+| Europe (Stockholm)       | eu-north-1     |
+| Asia Pacific (Bangkok)   | ap-southeast-7 |
+| Asia Pacific (Mumbai)    | ap-south-1     |
+| US East (Ohio)           | us-east-2      |
+| Asia Pacific (Malaysia)  | ap-southeast-5 |
+| Asia Pacific (Tokyo)     | ap-northeast-1 |
+| US West (Oregon)         | us-west-2      |
+| Europe (Spain)           | eu-south-2     |
+| Europe (Ireland)         | eu-west-1      |
+| Europe (Frankfurt)       | eu-central-1   |
+| Asia Pacific (Hong Kong) | ap-east-1      |
+| Asia Pacific (Singapore) | ap-southeast-1 |
+| Asia Pacific (Sydney)    | ap-southeast-2 |

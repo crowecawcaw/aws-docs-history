@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # AWS Shield network security director (preview)
 
@@ -22,10 +22,11 @@ When network security director becomes generally available, pricing will differ 
 
 AWS accounts have default quotas, formerly referred to as limits, for each AWS service. The following table describes the quota for network security director. For information about quotas that can be changed, see [Service Quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
 
-| Resource                             | Default Quota |
-| ------------------------------------ | ------------- |
-| Maximum resources processed per scan | 300,000       |
+| Resource                                                       | Default Quota |
+| -------------------------------------------------------------- | ------------- |
+| Maximum resources processed per scan                           | 300,000       |
+| Maximum number of edges per resource                           | 200           |
+| Maximum number of accounts enabled per region per organization | 15,000        |
+| Maximum Q prompts per organization per month                   | 200           |
 
-When network security director reaches the maximum number of resources that it can process in a network analysis, the network analysis fails. You are not charged for the failed network analysis.
-
-If your network analysis fails because it exceeds the maximum resources limit, contact AWS Support.
+When network security director reaches the maximum number of resources that it can process in a network analysis or the maximum number of edges per resource, the network analysis fails. You are not charged for the failed network analysis.

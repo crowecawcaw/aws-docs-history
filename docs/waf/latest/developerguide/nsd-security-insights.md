@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Analyze network security with Amazon Q Developer
 
@@ -15,16 +15,18 @@ You can interact with Amazon Q Developer by choosing the Q button or **Explore w
 
 You must have a completed network analysis before you can chat with Amazon Q Developer.
 
-1. Sign in to the AWS Management Console and open the AWS Shield network security director console at [https://console.aws.amazon.com/wafv2/network-director/](https://console.aws.amazon.com/wafv2/network-director/ "https://console.aws.amazon.com/wafv2/network-director/").
+1. Sign in to the AWS Management Console and open the AWS Shield network security director console at [https://console.aws.amazon.com/wafv2/network-security-director/](https://console.aws.amazon.com/wafv2/network-security-director/ "https://console.aws.amazon.com/wafv2/network-security-director/").
 2. From the network security director home page, choose **Dashboard**.
 3. In the **Ask Amazon Q Developer** widget, choose a question to use as a prompt in the Amazon Q Developer chat interface.
 4. In the Amazon Q Developer chat interface, submit your request.
 
-##
+## Example questions
 
 Following are example questions about network security that you can ask Amazon Q Developer:
 
 - Identify my top network security findings
+- Identify my top network security findings in the account 123456789010
+- Identify my top network security findings in us-west-2
 - Summarize the network security of my environment
 - Are my systems at risk of DDoS attacks?
 - How can I improve my network security?
@@ -32,5 +34,3 @@ Following are example questions about network security that you can ask Amazon Q
 - Which resources are not protected from common web vulnerabilities?
 - What are the common network security issues on my EC2 instances?
 - Do I have any WAF web ACLs that aren't protecting anything?
-
-After using Amazon Q Developer to get additional insights, you may want to run another network analysis to verify any improvements in your security configuration. Return to [Run a network analysis](nsd-system-analysis.md "nsd-system-analysis.md") to start a new analysis.

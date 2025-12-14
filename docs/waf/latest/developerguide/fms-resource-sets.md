@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # Grouping your resources in Firewall Manager
 
@@ -11,15 +11,15 @@ An AWS Firewall Manager _resource set_ is a collection of resources, such as fir
 
 You can create and manage resource sets for the following resource and security policy types:
 
-| Resource type                       | Firewall Manager security policy type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS Network Firewall<br>• firewalls | Network Firewall policy<br>• Use resource sets to import existing firewalls from Network Firewall. For information about using resource sets in a Network Firewall policy, see the [Importing existing firewalls](fms-create-firewall-endpoints.md#import-existing-nwfw-firewalls "fms-create-firewall-endpoints.md#import-existing-nwfw-firewalls") step in the [Creating an AWS Firewall Manager policy for<br>AWS Network Firewall](create-policy.md#creating-firewall-manager-policy-for-network-firewall "create-policy.md#creating-firewall-manager-policy-for-network-firewall") procedure. |
+| Resource type                       | Firewall Manager security policy type                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS Network Firewall<br>• firewalls | Network Firewall policy<br>• Use resource sets to import existing firewalls from Network Firewall. For information about using resource sets in a Network Firewall policy, see the Importing existing firewalls step in the [Creating an AWS Firewall Manager policy for<br>AWS Network Firewall](create-policy.md#creating-firewall-manager-policy-for-network-firewall "create-policy.md#creating-firewall-manager-policy-for-network-firewall") procedure. |
 
 The following sections cover requirements for creating and deleting resource sets.
 
 ###### Topics
 
-- [Considerations when working with resource sets in Firewall Manager](#w2aac19c30c15 "#w2aac19c30c15")
+- [Considerations when working with resource sets in Firewall Manager](#fms-resource-sets-considerations "#fms-resource-sets-considerations")
 - [Creating resource sets in Firewall Manager](fms-creating-resource-set.md "fms-creating-resource-set.md")
 - [Deleting a resource set in Firewall Manager](fms-deleting-resource-set.md "fms-deleting-resource-set.md")
 

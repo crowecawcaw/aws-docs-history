@@ -1,7 +1,7 @@
 **Introducing a new console experience for AWS WAF**
 
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
 # AWS Shield Advanced capabilities and options
 
@@ -71,7 +71,7 @@ For more information, see [Visibility into DDoS events with Shield Advanced](ddo
   rules to your web ACLs. Firewall Manager Shield Advanced protection policies are included at
   no additional charge for Shield Advanced customers. You can also centralize your
   Shield Advanced monitoring activities for your accounts by using Firewall Manager with an
-  Amazon Simple Notification Service (SNS) topic or AWS Security Hub.
+  Amazon Simple Notification Service (SNS) topic or AWS Security Hub CSPM.
 
 For more information about using Firewall Manager to manage Shield Advanced protections, see [AWS Firewall Manager](fms-chapter.md "fms-chapter.md")
 and [Using AWS Shield Advanced policies in Firewall Manager](shield-policies.md "shield-policies.md"). For
