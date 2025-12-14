@@ -1,408 +1,153 @@
-# Table JOIN for ANSI SQL
+# Data types for ANSI SQL
 
-This topic provides reference content comparing table join functionality between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the similarities and differences in join syntax and support between these two database systems.
+This topic provides reference content about data type compatibility when migrating from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can use this information to understand how different data types in SQL Server map to their counterparts in Aurora MySQL.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                      | Key differences                                                                                          |
-| ------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [Table Joins](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.tablejoins "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.tablejoins") | Basic syntax compatible. `FULL OUTER`, `APPLY`, and `ANSI SQL 89` outer joins will need to be rewritten. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                   | Key differences                                                         |
+| ------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | [Data Types](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.datatypes "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.datatypes") | Minor syntax and handling differences. No special `UNICODE` data types. |
 
 ## SQL Server Usage
 
-SQL Server supports the standard ANSI join types:
+In SQL Server, each table column, variable, expression, and parameter has an associated data type.
 
-- `<Set A> CROSS JOIN <Set B>` — Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
-- `<Set A> INNER JOIN <Set B> ON <Join Condition>` — Filters the cartesian product to only the rows where the join predicate evaluates to `TRUE`.
-- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
-- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
-- `<Set A> FULL OUTER JOIN <Set B> ON <Join Condition>` — Designates both sets as reserved and adds non matching rows from both, similar to a `LEFT OUTER JOIN` and a `RIGHT OUTER JOIN`.
+SQL Server provides a rich set of built-in data types as summarized in the following table.
 
-### APPLY
-
-SQL Server also supports the `APPLY` operator, which is somewhat similar to a join. However, `APPLY` operators enable the creation of a correlation between `<Set A>` and `<Set B>` such as that `<Set B>` may consist of a subquery, a `VALUES` row value constructor, or a table valued function that is evaluated for each row of `<Set A>` where the `<Set B>` query can reference columns from the current row in `<Set A>`. This functionality isn’t possible with any type of standard `JOIN` operator.
-
-There are two `APPLY` types:
-
-- `<Set A> CROSS APPLY <Set B>` — Similar to a `CROSS JOIN` in the sense that every row from `<Set A>` is matched with every row from `<Set B>`.
-- `<Set A> OUTER APPLY <Set B>` — Similar to a `LEFT OUTER JOIN` in the sense that rows from `<Set A>` are returned even if the sub query for `<Set B>` produces an empty set. In that case, NULL is assigned to all columns of `<Set B>`.
-
-### ANSI SQL 89 JOIN Syntax
-
-Up until SQL Server version 2008 R2, SQL Server also supported the old style `JOIN` syntax including `LEFT` and` RIGHT OUTER JOIN`.
-
-The ANSI syntax for a `CROSS JOIN` operator was to list the sets in the `FROM` clause using commas as separators. Consider the following example:
-
-```
-SELECT *
-FROM Table1,
-    Table2,
-    Table3...
-```
-
-To perform an `INNER JOIN`, you only needed to add the `JOIN` predicate as part of the `WHERE` clause. Consider the following example:
-
-```
-SELECT *
-FROM Table1,
-    Table2
-WHERE Table1.Column1 = Table2.Column1
-```
-
-Although the ANSI standard didn’t specify outer joins at the time, most RDBMS supported them in one way or another. T-SQL supported outer joins by adding an asterisk to the left or the right of equality sign of the join predicate to designate the reserved table. Consider the following example:
-
-```
-SELECT *
-FROM Table1,
-    Table2
-WHERE Table1.Column1 *= Table2.Column1
-```
-
-To perform a `FULL OUTER JOIN`, asterisks were placed on both sides of the equality sign of the join predicate.
-
-As of SQL Server 2008R2, outer joins using this syntax have been deprecated. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
+| Category                | Data Types                                                                                                  |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Numeric                 | `BIT`, `TINYINT`, `SMALLINT`, `INT`, `BIGINT`, `NUMERIC`, `DECIMAL`, `MONEY`, `SMALLMONEY`, `FLOAT`, `REAL` |
+| String and character    | `CHAR`, `VARCHAR`, `NCHAR`, `NVARCHAR`                                                                      |
+| Temporal                | `DATE`, `TIME`, `SMALLDATETIME`, `DATETIME`, `DATETIME2`, `DATETIMEOFFSET`                                  |
+| Binary                  | `BINARY`, `VARBINARY`                                                                                       |
+| Large Object (LOB)      | `TEXT`, `NTEXT`, `IMAGE`, `VARCHAR(MAX)`, `NVARCHAR(MAX)`, `VARBINARY(MAX)`                                 |
+| Cursor                  | `CURSOR`                                                                                                    |
+| GUID                    | `UNIQUEIDENTIFIER`                                                                                          |
+| Hierarchical identifier | `HIERARCHYID`                                                                                               |
+| Spatial                 | `GEOMETRY`, `GEOGRAPHY`                                                                                     |
+| Sets (table type)       | `TABLE`                                                                                                     |
+| XML                     | `XML`                                                                                                       |
+| Other specialty types   | `ROW VERSION`, `SQL_VARIANT`                                                                                |
 
 ###### Note
 
-Even though inner joins using the ANSI SQL 89 syntax are still supported, they are highly discouraged due to being notorious for introducing hard to catch programming bugs.
+You can create custom user-defined data types using T-SQL, and the .NET framework. Custom data types are based on the built-in system data types and are used to simplify development. For more information, see [User-Defined Types](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
 
-### Syntax
+### TEXT, NTEXT, and IMAGE Deprecated Data Types
 
-**CROSS JOIN**
+The `TEXT`, `NTEXT`, and `IMAGE` data types have been deprecated as of SQL Server 2008 R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
 
-```
-FROM <Table Source 1>
-    CROSS JOIN
-    <Table Source 2>
-```
+These data types are legacy types for storing `BLOB` and `CLOB` data. The `TEXT` data type was used to store ASCII text `CLOBS`, the `NTEXT` data type to store `UNICODE CLOBS`, and `IMAGE` was used as a generic data type for storing all `BLOB` data. In SQL Server 2005, Microsoft introduced the new and improved `VARCHAR (MAX)`, `NVARCHAR(MAX)`, and `VARBINARY(MAX)` data types as the new `BLOB` and `CLOB` standard. These new types support a wider range of functions and operations. They also provide enhanced performance over the legacy types.
 
-```
--- ANSI 89
-FROM <Table Source 1>,
-    <Table Source 2>
-```
-
-**INNER / OUTER JOIN**
-
-```
-FROM <Table Source 1>
-    [ { INNER | { { LEFT | RIGHT | FULL } [ OUTER ] } }] JOIN
-    <Table Source 2>
-    ON <JOIN Predicate>
-```
-
-```
--- ANSI 89
-FROM <Table Source 1>,
-    <Table Source 2>
-WHERE <Join Predicate>
-<Join Predicate>:: <Table Source 1 Expression> | = | *= | =* | *=* <Table Source 2 Expression>
-```
-
-**APPLY**
-
-```
-FROM <Table Source 1>
-    { CROSS | OUTER } APPLY
-    <Table Source 2>
-<Table Source 2>:: <SELECT sub-query> | <Table Valued UDF> | <VALUES clause>
-```
+If your code uses `TEXT`, `NTEXT`, or `IMAGE` data types, AWS SCT automatically converts them to the appropriate Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) `BLOB` data type. `TEXT` and `NTEXT` are converted to `LONGTEXT` and image to `LONGBLOB`. Make sure you use the proper collations. For more details, see the [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
 
 ### Examples
 
-Create the `Orders` and `Items` tables.
+Define table columns.
 
 ```
-CREATE TABLE Items
+CREATE TABLE MyTable
 (
-Item VARCHAR(20) NOT NULL
-    PRIMARY KEY
-Category VARCHAR(20) NOT NULL,
-Material VARCHAR(20) NOT NULL
+    Col1 AS INTEGER NOT NULL PRIMARY KEY,
+    Col2 AS NVARCHAR(100) NOT NULL
 );
 ```
 
+Define variable types.
+
 ```
-INSERT INTO Items (Item, Category, Material)
-VALUES
-('M8 Bolt', 'Metric Bolts', 'Stainless Steel'),
-('M8 Nut', 'Metric Nuts', 'Stainless Steel'),
-('M8 Washer', 'Metric Washers', 'Stainless Steel'),
-('3/8" Bolt', 'Imperial Bolts', 'Brass')
+DECLARE @MyXMLType AS XML,
+    @MyTemporalType AS DATETIME2
 ```
 
 ```
-CREATE TABLE OrderItems
+DECLARE @MyTableType
+AS TABLE
 (
-    OrderID INT NOT NULL,
-    Item VARCHAR(20) NOT NULL
-    REFERENCES Items(Item),
-    Quantity SMALLINT NOT NULL,
-    PRIMARY KEY(OrderID, Item)
+    Col1 AS BINARY(16) NOT NULL PRIMARY KEY,
+    Col2 AS XML NULL
 );
 ```
 
-```
-INSERT INTO OrderItems (OrderID, Item, Quantity)
-VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200)
-```
-
-**INNER JOIN**
-
-```
-SELECT *
-FROM Items AS I
-    INNER JOIN
-    OrderItems AS OI
-    ON I.Item = OI.Item;
-
--- ANSI SQL 89
-SELECT *
-FROM Items AS I,
-    OrderItems AS OI
-WHERE I.Item = OI.Item;
-```
-
-**LEFT OUTER JOIN**
-
-Find Items that were never ordered.
-
-```
-SELECT Item
-FROM Items AS I
-    LEFT OUTER JOIN
-    OrderItems AS OI
-    ON I.Item = OI.Item
-WHERE OI.OrderID IS NULL;
-
--- ANSI SQL 89
-SELECT Item
-FROM
-(
-    SELECT I.Item, O.OrderID
-    FROM Items AS I,
-        OrderItems AS OI
-    WHERE I.Item *= OI.Item
-) AS LeftJoined
-WHERE LeftJoined.OrderID IS NULL;
-```
-
-**FULL OUTER JOIN**
-
-```
-CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
-CREATE TABLE T2(Col1 INT, COl2 CHAR(2));
-
-INSERT INTO T1 (Col1, Col2)
-VALUES (1, 'A'), (2,'B');
-
-INSERT INTO T2 (Col1, Col2)
-VALUES (2,'BB'), (3,'CC');
-
-SELECT *
-FROM T1
-    FULL OUTER JOIN
-    T2
-    ON T1.Col1 = T2.Col1;
-```
-
-```
-Result:
-Col1  COl2  Col1  COl2
-1     A     NULL  NULL
-2     B     2     BB
-NULL NULL 3 CC
-```
-
-For more information, see [FROM clause plus JOIN, APPLY, PIVOT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Data types (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the following types of joins in the same way as SQL Server, except for `FULL OUTER JOIN`:
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the following data types:
 
-- `<Set A> CROSS JOIN <Set B>` — Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
-- `<Set A> INNER JOIN <Set B> ON <Join Condition>` — Filters the Cartesian product to only the rows where the join predicate evaluates to `TRUE`.
-- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
-- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
+| Category             | Data Types                                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Numeric              | `BIT`, `INTEGER`, `SMALLINT`, `TINYINT`, `MEDIUMINT`, `BIGINT`, `DECIMAL`, `NUMERIC`, `FLOAT`, `DOUBLE`             |
+| String and character | `CHAR`, `VARCHAR`, `SET`                                                                                            |
+| Temporal             | `DATE`, `DATETIME`, `TIMESTAMP`, `TIME`, `YEAR`                                                                     |
+| Binary               | `BINARY`, `VARBINARY`                                                                                               |
+| Large Object (LOB)   | `BLOB`, `TEXT`                                                                                                      |
+| Cursor               | `CURSOR`                                                                                                            |
+| Spatial              | `GEOMETRY`, `POINT`, `LINESTRING`, `POLYGON`, `MULTIPOINT`, `MULTILINESTRING`, `MULTIPOLYGON`, `GEOMETRYCOLLECTION` |
+| JSON                 | `JSON`                                                                                                              |
 
-In addition, Aurora MySQL supports the following join types not supported by SQL Server:
+Be aware that Aurora MySQL uses different rules than SQL Server for handling out-of-range and overflow situations. SQL Server always raises an error for out-of-range values. Aurora MySQL exhibits different behavior depending on run time settings.
 
-- `<Set A> NATURAL [INNER | LEFT OUTER | RIGHT OUTER ] JOIN <Set B>` — Implicitly assumes that the join predicate consists of all columns with the same name from `<Set A>` and `<Set B>`.
-- `<Set A> STRAIGHT_JOIN <Set B>` — Forces `<Set A>` to be read before `<Set B>` and is used as an optimizer hint.
+For example, a value may be clipped to the first or last value in the range of permitted values for the data type if `STRICT SQL` mode isn’t set.
 
-Aurora MySQL also supports the `USING` clause as an alternative to the `ON` clause. The `USING` clause consists of a list of comma separated columns that must appear in both tables. The join predicate is the equivalent of an `AND` logical operator for equality predicates of each column. For example, the following two joins are equivalent:
+For more information, see [Out-of-Range and Overflow Handling](https://dev.mysql.com/doc/refman/5.7/en/out-of-range-and-overflow.html "https://dev.mysql.com/doc/refman/5.7/en/out-of-range-and-overflow.html") in the _MySQL documentation_.
 
-```
-FROM Table1
-    INNER JOIN
-    Table2
-    ON Table1.Column1 = Table2.column1;
-```
+### Converting from TEXT, NTEXT, and IMAGE SQL Server Deprecated Data Types
 
-```
-FROM Table1
-    INNER JOIN
-    Table2
-    USING (Column1);
-```
+The legacy SQL Server types for storing LOB data are deprecated as of SQL Server 2008 R2.
 
-If `Column1` is the only column with a common name between `Table1` and `Table2`, the following statement is also equivalent:
+When you convert from these types to Aurora MySQL using the AWS Schema Conversion Tool (AWS SCT, they are converted as shown following:
 
-```
-FROM Table1
-    NATURAL JOIN
-    Table2
-```
+| SQL Server LOB Type | Converted to Aurora MySQL data type | Comments                                                                                                                                                      |
+| ------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TEXT`              | `LONGTEXT`                          | Make sure to choose the right collation. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md"). |
+| `NTEXT`             | `LONGTEXT`                          | Make sure to choose the right collation. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md"). |
+| `IMAGE`             | `LONGBLOB`                          |                                                                                                                                                               |
+
+The size cap for all of these types is compatible and is capped at 2 GB of data, which may allow less characters depending on the chosen collation.
 
 ###### Note
 
-Aurora MySQL supports the ANSI SQL 89 syntax for joins using commas in the `FROM` clause, but only for inner joins.
+Aurora MySQL supports UCS-2 collation, which is compatible with SQL Server `UNICODE` types.
 
-###### Note
+While it is safe to use the default conversion types, remember that, unlike SQL Server, Aurora MySQL also provides smaller `BLOB` and `CLOB` types, which may be more efficient for your data.
 
-Aurora MySQL supports neither `APPLY` nor the equivalent `LATERAL JOIN` used by some other database engines.
-
-### Syntax
-
-```
-FROM
-    <Table Source 1> CROSS JOIN <Table Source 2>
-    | <Table Source 1> INNER JOIN <Table Source 2>
-        ON <Join Predicate> | USING (Equality Comparison Column List)
-    | <Table Source 1> {LEFT|RIGHT} [OUTER] JOIN <Table Source 2>
-        ON <Join Predicate> | USING (Equality Comparison Column List)
-    | <Table Source 1> NATURAL [INNER | {LEFT|RIGHT} [OUTER]] JOIN <Table Source 2>
-    | <Table Source 1> STRAIGHT_JOIN <Table Source 2>
-    | <Table Source 1> STRAIGHT_JOIN <Table Source 2>
-        ON <Join Predicate>
-```
-
-### Migration Considerations
-
-For most joins, the syntax should be equivalent and no rewrites should be needed.
-
-- `CROSS JOIN` using either ANSI SQL 89 or ANSI SQL 92 syntax.
-- `INNER JOIN` using either ANSI SQL 89 or ANSI SQL 92 syntax.
-- `OUTER JOIN` using the ANSI SQL 92 syntax only.
-
-`FULL OUTER JOIN` and `OUTER JOIN` using the pre-ANSI SQL 92 syntax aren’t supported, but they can be easily worked around.
-
-`CROSS APPLY` and `OUTER APPLY` aren’t supported and need to be rewritten.
-
-### Examples
-
-Create the `Orders` and `Items` tables.
-
-```
-CREATE TABLE Items
-(
-    Item VARCHAR(20) NOT NULL
-    PRIMARY KEY
-    Category VARCHAR(20) NOT NULL,
-    Material VARCHAR(20) NOT NULL
-);
-```
-
-```
-INSERT INTO Items (Item, Category, Material)
-VALUES
-('M8 Bolt', 'Metric Bolts', 'Stainless Steel'),
-('M8 Nut', 'Metric Nuts', 'Stainless Steel'),
-('M8 Washer', 'Metric Washers', 'Stainless Steel'),
-('3/8" Bolt', 'Imperial Bolts', 'Brass')
-```
-
-```
-CREATE TABLE OrderItems
-(
-    OrderID INT NOT NULL,
-    Item VARCHAR(20) NOT NULL
-    REFERENCES Items(Item),
-    Quantity SMALLINT NOT NULL,
-    PRIMARY KEY(OrderID, Item)
-);
-```
-
-```
-INSERT INTO OrderItems (OrderID, Item, Quantity)
-VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200)
-```
-
-**INNER JOIN and OUTER JOIN**
-
-```
-SELECT *
-FROM Items AS I
-    INNER JOIN
-    OrderItems AS OI
-    ON I.Item = OI.Item;
-
--- ANSI SQL 89
-SELECT *
-FROM Items AS I,
-    Orders AS O
-WHERE I.Item = OI.Item;
-```
-
-**LEFT OUTER JOIN**
-
-```
-SELECT Item
-FROM Items AS I
-    LEFT OUTER JOIN
-    OrderItems AS OI
-    ON I.Item = OI.Item
-WHERE OI.OrderID IS NULL;
-```
-
-**Rewrite for FULL OUTER JOIN**
-
-```
-CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
-CREATE TABLE T2(Col1 INT, COl2 CHAR(2));
-
-INSERT INTO T1 (Col1, Col2)
-VALUES (1, 'A'), (2,'B');
-
-INSERT INTO T2 (Col1, Col2)
-VALUES (2,'BB'), (3,'CC');
-
-SELECT *
-FROM T1
-    LEFT OUTER JOIN
-    T2
-    ON T1.Col1 = T2.Col1
-UNION ALL
-SELECT NULL, NULL, Col1, Col2
-FROM T2
-WHERE Col1 NOT IN (SELECT Col1 FROM T1);
-```
-
-```
-Result:
-Col1  COl2  Col1  COl2
-1     A     NULL  NULL
-2     B     2     BB
-NULL  NULL  3     CC
-```
+Even the basic VARCHAR and VARBINARY data types can store strings up to 32 KB, which is much longer than SQL Server 8 KB limit. If the strings or binary data that you need to store don’t exceed 32 KB, it may be more efficient to store these as non-LOB types in Aurora MySQL.
 
 ## Summary
 
-Table of similarities, differences, and key migration considerations.
+The following table summarizes the key differences and migration considerations for migrating from SQL Server data types to Aurora MySQL data types.
 
-| SQL Server                              | Aurora MySQL    | Comments                                                                 |
-| --------------------------------------- | --------------- | ------------------------------------------------------------------------ |
-| `INNER JOIN` with `ON` clause or commas | Supported       |                                                                          |
-| `OUTER JOIN` with `ON` clause           | Supported       |                                                                          |
-| `OUTER JOIN` with commas                | Not supported   | Requires T-SQL rewrite post SQL Server 2008 R2.                          |
-| `CROSS JOIN` or using commas            | Supported       |                                                                          |
-| `CROSS APPLY` and `OUTER APPLY`         | Not Supported   | Rewrite required.                                                        |
-| Not Supported                           | `NATURAL JOIN`  | Not recommended, may cause unexpected issues if table structure changes. |
-| Not Supported                           | `STRAIGHT_JOIN` |                                                                          |
-| Not Supported                           | `USING` clause  |                                                                          |
+| SQL Server Data Type        | Convert to MySQL Data Type                       | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BIT`                       | `BIT`                                            | Aurora MySQL also supports `BIT(m)`, which can be used to store multiple bit values. In SQL Server, literal bit notation uses the numerical digits 0 and 1. Aurora MySQL uses `b'<value>` or `0b<value>` notations.<br>For more information, see [Bit-Value Type<br>• BIT](https://dev.mysql.com/doc/refman/5.7/en/bit-type.html "https://dev.mysql.com/doc/refman/5.7/en/bit-type.html") and [Bit-Value Literals](https://dev.mysql.com/doc/refman/5.7/en/bit-value-literals.html "https://dev.mysql.com/doc/refman/5.7/en/bit-value-literals.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `TINYINT`                   | `TINYINT`                                        | SQL Server only supports unsigned `TINYINT`, which can store values between 0 and 255. Aurora MySQL supports both signed `TINYINT` and `TINYINT UNSIGNED`. The latter can be used to store values between -128 and 127. The default for integer types in Aurora MySQL is to use signed integers. For compatibility, explicitly specify `TINYINT UNSIGNED`.<br>For more information, see [Integer Types (Exact Value)](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html "https://dev.mysql.com/doc/refman/5.7/en/integer-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `SMALLINT`                  | `SMALLINT`                                       | Compatible type. SQL Server supports only signed `SMALLINT`. Aurora MySQL also supports `SMALLINT UNSIGNED`, which can store values between 0 and 65535. The default for integer types in Aurora MySQL is to use signed integers. Consider using unsigned integers for storage optimization.<br>For more information, see [Integer Types (Exact Value)](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html "https://dev.mysql.com/doc/refman/5.7/en/integer-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `INTEGER`                   | `INTEGER`                                        | Compatible type. SQL Server supports only signed `INTEGER`, which can store values between -2147483648 and 2147483647. Aurora MySQL also supports `INTEGER UNSIGNED`, which can store values between 0 and 4294967295. The default for integer types in Aurora MySQL is to use signed integers. Consider using unsigned integers for storage optimization.<br>Aurora MySQL also supports a `MEDIUMINT` type, which uses only three bytes of storage vs. four bytes for `INTEGER`. For large tables, consider using `MEDIUMINT` instead of `INT` if the value range is within -8388608 to -8388607 for a `SIGNED` type, or 0 to 16777215 for `UNSIGNED` type.<br>For more information, see [Integer Types (Exact Value)](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html "https://dev.mysql.com/doc/refman/5.7/en/integer-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `BIGINT`                    | `BIGINT`                                         | Compatible type. SQL Server supports only signed `BIGINT`. Aurora MySQL also supports `BIGINT UNSIGNED`, which can store values between 0 and 2^64-1. The default for integer types in Aurora MySQL is to use signed integers. Consider using unsigned integers for storage optimization.<br>For more information, see [Integer Types (Exact Value)](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html "https://dev.mysql.com/doc/refman/5.7/en/integer-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `NUMERIC` / `DECIMAL`       | `NUMERIC` / `DECIMAL`                            | Compatible types. DECIMAL and NUMERIC are synonymous.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `MONEY` / `SMALLMONEY`      | N/A                                              | Aurora MySQL doesn’t support dedicated monetary types. Use `NUMERIC` / `DECIMAL` instead. If your application uses literals with monetary signs (for example, $50.23), rewrite to remove the monetary sign.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `FLOAT` / `REAL`            | `FLOAT` / `REAL` / `DOUBLE`                      | Compatible types. In SQL Server, both `REAL` and `FLOAT(n)`, where `n⇐24`, use 4 bytes of storage, are equivalent to `FLOAT` and `REAL` in Aurora MySQL. In SQL Server, `FLOAT(n)`, where `n>24`, uses 8 bytes.<br>The Aurora MySQL<br>`DOUBLE PRECISION` type always uses 8 bytes.<br>Aurora MySQL also supports the nonstandard `FLOAT(M,D)`, `REAL(M,D)` or `DOUBLE PRECISION(M,D)` where `(M,D)` indicates values can be stored with up to M digits in total with D digits after the decimal point.<br>For more information, see [Floating-Point Types (Approximate Value)](https://dev.mysql.com/doc/refman/5.7/en/floating-point-types.html "https://dev.mysql.com/doc/refman/5.7/en/floating-point-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `CHAR`                      | `CHAR` / `VARCHAR`                               | Compatible types up to 255 characters only. SQL Server supports `CHAR` data types up to 8,000 characters. The Aurora MySQL<br>`CHAR` data type is limited to a maximum of 255 characters.<br>For strings requiring more than 255 characters, use `VARCHAR`. When converting from `CHAR` to `VARCHAR`, exercise caution because `VARCHAR` behaves differently than `CHAR`; trailing spaces are trimmed.<br>For more information, see [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/5.7/en/char.html "https://dev.mysql.com/doc/refman/5.7/en/char.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `VARCHAR`                   | `VARCHAR`                                        | Compatible types. SQL Server supports `VARCHAR` columns up to 8,000 characters. Aurora MySQL can store up to 65,535 characters with regard to the maximal row size limit.<br>For more information, see [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/5.7/en/char.html "https://dev.mysql.com/doc/refman/5.7/en/char.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `NCHAR`                     | `CHAR`                                           | Aurora MySQL doesn’t require the use of specific data types for storing `UNICODE` data. Use the `CHAR` data type and define a `UNICODE` collation using the `CHARACTER SET` or `COLLATE` keywords.<br>For more information, see [Unicode Character Sets](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html "https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `NVARCHAR`                  | `VARCHAR`                                        | Aurora MySQL doesn’t require the use of specific data types for storing `UNICODE` data. Use the `VARCHAR` data type and define a `UNICODE` collation using the `CHARACTER SET` or `COLLATE` keywords.<br>For more information, see [Unicode Character Sets](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html "https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `DATE`                      | `DATE`                                           | Compatible types. The range for SQL Server `DATE` data type is '0001-01-01' through '9999-12-31'. The range for Aurora MySQL is '1000-01-01' through '9999-12-31'.<br>Aurora MySQL doesn’t support dates before 1000 AD. For more information, see [Date and Time Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").<br>For more information, see [The DATE, DATETIME, and TIMESTAMP Types](https://dev.mysql.com/doc/refman/5.7/en/datetime.html "https://dev.mysql.com/doc/refman/5.7/en/datetime.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `TIME`                      | `TIME`                                           | Compatible types. SQL Server supports explicit fractional seconds using the format `TIME(n)` where n is between 0 to 7. Aurora MySQL doesn’t allow explicit fractional setting.<br>Aurora MySQL supports up to 6 digits for microsecond resolution of fractional seconds. SQL Server provides one more digit to support a resolution of up to 100 nanoseconds.<br>If your application uses the `TIME(n)` format, rewrite to remove the `(n)` setting.<br>Aurora MySQL also supports `TIME` values that range from `-838:59:59` to `838:59:59`. You can use the hours part to represent the time of day, where hours must be less than 24, or to represent a time interval, which can be greater than 24 hours and have negative values.<br>For more information, see [The TIME Type](https://dev.mysql.com/doc/refman/5.7/en/time.html "https://dev.mysql.com/doc/refman/5.7/en/time.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `SMALLDATETIME`             | `DATETIME` / `TIMESTAMP`                         | Aurora MySQL doesn’t support `SMALLDATETIME`. Use `DATETIME` instead. Use `SMALLDATETIME` for storage space optimization where lower ranges and resolutions are required.<br>For more information, see [Date and Time Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `DATETIME`                  | `DATETIME`                                       | In SQL Server, the `DATETIME` data type supports a value range between `1753-01-01` and `9999-12-31` with a resolution of up to 3.33ms. Aurora MySQL<br>`DATETIME` supports a wider value range between `1000-01-01 00:00:00` and `9999-12-31 23:59:59` with a higher resolution of microseconds and optional six fractional second digits.<br>For more information, see [Date and Time Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").<br>For more information about `DATETIME`, see [The DATE, DATETIME, and TIMESTAMP Types](https://dev.mysql.com/doc/refman/5.7/en/datetime.html "https://dev.mysql.com/doc/refman/5.7/en/datetime.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `DATETIME2`                 | `DATETIME`                                       | In SQL Server, the `DATETIME2` data type supports a value range between `0001-01-01` and `9999-12-31` with a resolution of up to 100 nanoseconds using seven fractional second digits. Aurora MySQL<br>`DATETIME` supports a narrower value range between `1000-01-01 00:00:00` and `9999-12-31 23:59:59` with a lower resolution of microseconds and optional six fractional second digits.<br>For more information, see [Date and Time Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").<br>For more information about `DATETIME`, see [The DATE, DATETIME, and TIMESTAMP Types](https://dev.mysql.com/doc/refman/5.7/en/datetime.html "https://dev.mysql.com/doc/refman/5.7/en/datetime.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `DATETIMEOFFSET`            | `TIMESTAMP`                                      | Aurora MySQL doesn’t support full time zone awareness and management functions. Use the `time_zone` system variable in conjunction with `TIMESTAMP` columns to achieve partial time zone awareness.<br>For more information, see [Server Options](chap-sql-server-aurora-mysql.configuration.md "chap-sql-server-aurora-mysql.configuration.md").<br>In Aurora MySQL, `TIMESTAMP` isn’t the same as in SQL Server. The latter is a synonym for `ROW_VERSION`. Aurora MySQL<br>`TIMESTAMP` is equivalent to the `DATETIME` type with a smaller range.<br>With Aurora MySQL<br>`DATETIME`, you can use values between `1000-01-01 00:00:00` and `9999-12-31 23:59:59`. TIMESTAMP is limited to values between `1970-01-01 00:00:01` and `2038-01-19 03:14:07`.<br>Aurora MySQL converts `TIMESTAMP` values from the current time zone to UTC for storage and back from UTC to the current time zone for retrieval.<br>For more information, see [MySQL Server Time Zone Support](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html "https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html") in the _MySQL documentation_.                                                                                                                                                                                                              |
+| `BINARY`                    | `BINARY` / `VARBINARY`                           | In Aurora MySQL, the `BINARY` data type is considered to be a string data type and is similar to `CHAR`. `BINARY` contains byte strings rather than character strings and uses the binary character set and collation. Comparison and sorting are based on the numeric values of the bytes in the values.<br>SQL Server supports up to 8,000 bytes for a `BINARY` data types. Aurora MySQL<br>`BINARY` is limited to 255 characters, similar to `CHAR`. If larger values are needed, use `VARBINARY`.<br>Literal assignment for Aurora MySQL<br>`BINARY` types use string literals, unlike SQL Server explicit binary `0x` notation.<br>For more information, see [The BINARY and VARBINARY Types](https://dev.mysql.com/doc/refman/5.7/en/binary-varbinary.html "https://dev.mysql.com/doc/refman/5.7/en/binary-varbinary.html") and [The binary Collation Compared to bin Collations](https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html "https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                     |
+| `VARBINARY`                 | `VARBINARY`                                      | In Aurora MySQL, the `VARBINARY` data type is considered a string data type, similar to VARCHAR. `VARBINARY` contains byte strings rather than character strings and has a binary character set. Collation, comparison, and sorting are based on the numeric values of the bytes in the values.<br>Aurora MySQL<br>`VARBINARY` supports up to 65,535 characters, significantly larger than the 8,000 byte limit in SQL Server. Literal assignment for Aurora MySQL BINARY types use string literals, unlike SQL Server explicit binary `0x` notation.<br>For more information, see [The BINARY and VARBINARY Types](https://dev.mysql.com/doc/refman/5.7/en/binary-varbinary.html "https://dev.mysql.com/doc/refman/5.7/en/binary-varbinary.html") and [The binary Collation Compared to bin Collations](https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html "https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                    |
+| `TEXT` / `VARCHAR (MAX)`    | `VARCHAR` / `TEXT` / `MEDIUMTEXT` / `LONGTEXT`   | In SQL Server, a `TEXT` data type is a variable-length ASCII string data type with a maximum string length of 2^31-1 (2 GB).<br>Use the following list to determine the optimal Aurora MySQL data type:<br>• For a string length of 2^16-1 bytes, use `VARCHAR` or `TEXT`.<br>• For a string length of 2^24-1 bytes, use `MEDIUMTEXT`.<br>• For a string length of 2^32-1 bytes, use `LONGTEXT`.<br>For more information, see [The BLOB and TEXT Types](https://dev.mysql.com/doc/refman/5.7/en/blob.html "https://dev.mysql.com/doc/refman/5.7/en/blob.html") and [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html#data-types-storage-reqs-string "https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html#data-types-storage-reqs-string") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `NTEXT` / `NVARCHAR (MAX)`  | `VARCHAR` / `TEXT` / `MEDIUMTEXT` / `LONGTEXT`   | Aurora MySQL doesn’t require the use of specific data types for storing `UNICODE` data. Use the `TEXT` compatible data types listed earlier and define a `UNICODE` collation using the `CHARACTER SET` or `COLLATE` keywords.<br>For more information, see [Unicode Character Sets](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html "https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `IMAGE` / `VARBINARY (MAX)` | `VARBINARY` / `BLOB` / `MEDIUMBLOB` / `LONGBLOB` | In SQL Server, an `IMAGE` data type is a variable-length binary data type with a range of 0 through 2^31-1 (2 GB).<br>Similar to the `BINARY` and `VARBINARY` data types, the `BLOB` data types are considered string data types. `BLOB` data types contain byte strings rather than character strings and use a binary character set. Collation, comparison, and sorting are based on the numeric values of the bytes in the values.<br>Use the following list to determine the optimal Aurora MySQL data type:<br>• For a string length of 2^16-1 bytes, use `VARBINARY` or `BLOB`.<br>• For a string length of 2^24-1 bytes, use `MEDIUMBLOB`.<br>• For a string length of 2^32-1 bytes, use `LONGBLOB`.<br>For more information, see [The BLOB and TEXT Types](https://dev.mysql.com/doc/refman/5.7/en/blob.html "https://dev.mysql.com/doc/refman/5.7/en/blob.html"), [String Type Storage Requirements](https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html#data-types-storage-reqs-strings "https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html#data-types-storage-reqs-strings"), and [The binary Collation Compared to bin Collations](https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html "https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html") in the _MySQL documentation_. |
+| `CURSOR`                    | `CURSOR`                                         | Types are compatible, although in Aurora MySQL a cursor isn’t really considered to be a type. For more information, see [Cursors](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `UNIQUEIDENTIFIER`          | N/A                                              | Aurora MySQL doesn’t support a native unique identifier type. Use `BINARY(16)`, which is the same base type used for the `UNIQUEIDENTIFIER` type in SQL Server. It generates values using the `UUID()` function, which is the equivalent of the `NEW_ID` function in SQL Server.<br>UUID returns a Universal Unique Identifier generated according to RFC 4122. For more information, see [A Universally Unique IDentifier (UUID) URN Namespace](https://www.ietf.org/rfc/rfc4122.txt "https://www.ietf.org/rfc/rfc4122.txt").<br>For more information, see [UUID()](https://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html#function_uuid "https://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html#function_uuid") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `HIERARCHYID`               | N/A                                              | Aurora MySQL doesn’t support native hierarchy representation. Rewrite functionality with custom application code using one the common SQL hierarchical data representation approaches:<br>• Adjacency list.<br>• Nested set.<br>• Closure table.<br>• Materialized path.<br>For more information, see [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list "https://en.wikipedia.org/wiki/Adjacency_list") and [Nested set model](https://en.wikipedia.org/wiki/Nested_set_model "https://en.wikipedia.org/wiki/Nested_set_model").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `GEOMETRY`                  | `GEOMETRY`                                       | In SQL Server, the `GEOMETRY` type represents data in a Euclidean (flat) coordinate system. SQL Server supports a set of methods for this type, which include methods defined by the Open Geospatial Consortium (OGC) standard, and a set of additional extensions.<br>Aurora MySQL supports `GEOMETRY` spatial data, although the syntax and functionality may differ significantly from SQL Server. A rewrite of the code is required.<br>For more information, see [Spatial Data Types](https://dev.mysql.com/doc/refman/5.7/en/spatial-types.html "https://dev.mysql.com/doc/refman/5.7/en/spatial-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `TABLE`                     | N/A                                              | Aurora MySQL doesn’t support a `TABLE` data type. For more information, see [User-Defined Types](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `XML`                       | N/A                                              | Aurora MySQL doesn’t support a native XML data type. However, it does provide full support for JSON data types, which SQL Server doesn’t.<br>Because XML and JSON are text documents, consider migrating the XML formatted documents to JSON or use string BLOBs and custom code to parse and query documents.<br>For more information, see [The JSON Data Type](https://dev.mysql.com/doc/refman/5.7/en/json.html "https://dev.mysql.com/doc/refman/5.7/en/json.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `ROW_VERSION`               | N/A                                              | Aurora MySQL doesn’t support a row version. Use triggers to update a dedicated column from a primary sequence value table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `SQL_VARIANT`               | N/A                                              | Aurora MySQL doesn’t support a hybrid, all-purpose data type similar to `SQL_VARIANT` in SQL Server. Rewrite applications to use explicit types.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-For more information, see [JOIN Clause](https://dev.mysql.com/doc/refman/5.7/en/join.html "https://dev.mysql.com/doc/refman/5.7/en/join.html") in the _MySQL documentation_.
+For more information, see [Data Types](https://dev.mysql.com/doc/refman/5.7/en/data-types.html "https://dev.mysql.com/doc/refman/5.7/en/data-types.html") in the _MySQL documentation_.
