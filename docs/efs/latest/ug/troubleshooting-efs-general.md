@@ -6,22 +6,22 @@ In general, if you encounter issues with Amazon EFS that
 you have trouble resolving, confirm that you're using a recent Linux kernel. If you are
 using an enterprise Linux distribution, we recommend the following:
 
-- Amazon Linux 2 with kernel 4.3 or newer
-- Amazon Linux 2015.09 or newer
+- Amazon Linux 2 with kernel 5.10.245-243 or newer
+- Amazon Linux 2023 or newer
 - RHEL 7.3 or newer
 - All versions of Ubuntu 16.04
 - Ubuntu 14.04 with kernel 3.13.0-83 or newer
 - SLES 12 Sp2 or later
   If you are using another distribution or a custom kernel, we recommend kernel version
-  4.3 or newer.
+  5.10.245-243 or newer.
 
 ###### Note
 
-RHEL 6.9 might be suboptimal for certain workloads due to [Poor performance when opening
-many files in parallel](#open-close-operations-serialized "#open-close-operations-serialized").
+You may experience slower than normal read performance after renaming files on your EFS file system when using NFSv4 due to [Slow reads after renaming files (NFSv4 attribute cache issue)](#nfsv4-rename-cache-issue "#nfsv4-rename-cache-issue").
 
 ###### Topics
 
+- [Slow reads after renaming files (NFSv4 attribute cache issue)](#nfsv4-rename-cache-issue "#nfsv4-rename-cache-issue")
 - [Unable to create an EFS file system](#cant-create-filesystem "#cant-create-filesystem")
 - [Access denied to allowed files on NFS file system](#nfs-16-group-limit "#nfs-16-group-limit")
 - [Errors when accessing the Amazon EFS console](#efs-console-access-errors "#efs-console-access-errors")
@@ -34,6 +34,33 @@ many files in parallel](#open-close-operations-serialized "#open-close-operation
   delays](#custom-nfs-settings-write-delays "#custom-nfs-settings-write-delays")
 - [Creating backups with Oracle Recovery Manager
   is slow](#oracle-backup-slow "#oracle-backup-slow")
+
+## Slow reads after renaming files (NFSv4 attribute cache issue)
+
+You may experience slower than normal read performance after renaming files on your EFS file system when using NFSv4. This is caused by improper attribute cache handling in the Linux kernel, which results in excessive GETATTR operations for renamed files.
+
+**Kernel versions with this bug**
+
+Amazon Linux 2:
+
+- kernel-5.10.242-239.961.amzn2
+- kernel-5.10.244-240.965.amzn2
+- kernel-5.10.244-240.970.amzn2
+- kernel-5.10.245-241.976.amzn2
+- kernel-5.10.245-241.978.amzn2
+
+**Action to take**
+
+Update your kernel to the latest version. For Amazon Linux 2, kernel version kernel-5.10.245-243.979.amzn2 or later contains the fix.
+
+For Amazon Linux 2, run the following commands:
+
+```
+sudo yum -y install `latest version`
+sudo reboot
+```
+
+For other Linux distributions, check with your distribution vendor for kernel updates that address this NFSv4 attribute cache issue.
 
 ## Unable to create an EFS file system
 

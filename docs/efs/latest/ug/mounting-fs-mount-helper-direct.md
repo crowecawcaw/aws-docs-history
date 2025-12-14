@@ -7,7 +7,7 @@ connected to your Amazon VPC with Direct Connect or VPN. The following graphic s
 schematic diagram of the AWS services required in mounting EFS file systems from
 on-premises.
 
-![Mount an EFS file system on an on-premises client when using Direct Connect.](/images/efs/latest/ug/images/efs-directconnect-how-it-works.png)
+![Mount an EFS file system on an on-premises client when using Direct Connect.](images/efs-directconnect-how-it-works.png)
 
 ###### Note
 
@@ -40,7 +40,7 @@ The walkthrough creates all these resources in the US West (Oregon) Region
 All of your resources—your VPC, your mount target, and your EFS file
 system—must be in the same AWS Region, as shown in the following diagram.
 
-![Mount an EFS file system on an on-premises client when using Direct Connect.](/images/efs/latest/ug/images/efs-directconnect-how-it-works.png)
+![Mount an EFS file system on an on-premises client when using Direct Connect.](images/efs-directconnect-how-it-works.png)
 
 ###### Note
 
