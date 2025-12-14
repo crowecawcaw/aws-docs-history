@@ -21,7 +21,7 @@ To apply a configuration to your broker, you must first create the configuration
 2. On the left, expand the navigation panel and choose
    **Configurations**.
 
-![Amazon MQ navigation panel showing Brokers and Configurations options.](/images/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-create-configuration.png) 3. On the **Configurations** page, choose **Create
+![Amazon MQ navigation panel showing Brokers and Configurations options.](images/amazon-mq-tutorials-create-configuration.png) 3. On the **Configurations** page, choose **Create
 configuration**. 4. On the **Create configuration** page, in the
 **Details** section, type the **Configuration
 name** (for example, `MyConfiguration`) and select a
