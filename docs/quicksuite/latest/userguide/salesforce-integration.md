@@ -25,10 +25,18 @@ Before you set up Salesforce integration, make sure you have the following:
 
 ## Step 1: Set up Salesforce connected app
 
+###### Note
+
+Create a connected app in Salesforce. Do not create an external client app. External client apps are not compatible with this integration.
+
 Create a connected app in Salesforce to enable OAuth authentication with Amazon Quick Suite.
 
 1. Sign in to your Salesforce account and navigate to the Setup page using the Setup icon in the top right.
-2. In the Quick Find bar, enter `Apps` and select **App Manager**.
+2. In the Quick Find bar, enter `Apps`, then follow these steps:
+   - Select **External Client Apps**
+   - Select **Settings**
+   - Under Settings, create a new connected app
+
 3. Choose **New Connected App**.
 4. Choose **Create a connected app**.
 5. In the Basic Information section, enter the following required information:
@@ -107,11 +115,6 @@ creation are not available for Salesforce systems.
       - **Token URL** - Salesforce OAuth token endpoint.
       - **Auth URL** - Salesforce OAuth authorization endpoint.
       - **Redirect URL** - OAuth redirect URI configured in your connected app.
-
-   2. For **Service authentication (API Key)**, configure the following fields:
-      - **API Key** - Salesforce API access token or session ID.
-      - **Base URL** - Salesforce instance URL.
-      - **Email** - Associated Salesforce user email.
 
 6. Select **Create and continue**.
 7. Choose users to share the integration with.

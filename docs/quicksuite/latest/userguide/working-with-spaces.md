@@ -125,7 +125,7 @@ time.
 - File uploads are limited to 5 MB for Excel and CSV files, and 50 MB for all
   other supported file types. You will get a "character limit exceeded" error when
   you upload larger documents.
-- Spaces support up to 100 files (compared to 20 files in regular chat
+- Spaces support up to 10,000 files (compared to 20 files in regular chat
   conversations), as long as the total space storage is less than 1 GB.
 - You can add at most 20 resources of a specific resource type (dashboard,
   topic, knowledge base, or action) to a space.

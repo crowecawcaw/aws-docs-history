@@ -86,19 +86,6 @@ Gather the following information from your MCP server configuration:
 - **Client Secret** - Service client secret.
 - **Token URL** - Service token endpoint.
 
-**API Key authentication**
-
-Gather the following information from your MCP server administrator:
-
-- **API Key** - MCP server API key.
-
-**Username/Password authentication**
-
-Gather the following information from your MCP server administrator:
-
-- **Username** - MCP server username.
-- **Password** - MCP server password.
-
 ## Set up MCP integration
 
 After preparing your MCP server configuration and authentication credentials, follow these steps to create your MCP integration:

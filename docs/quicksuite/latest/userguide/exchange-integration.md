@@ -52,7 +52,7 @@ Create a client secret for your Azure application to authenticate with Amazon Qu
 2. Choose **New client secret**.
 3. Enter a description and choose an expiration period.
 4. Choose **Add**.
-5. Copy the **Secret ID** value immediately. This value is only displayed once.
+5. Copy the **Value** immediately. This value is only displayed once.
 
 ## Step 4: Set up Microsoft Outlook action connector
 
