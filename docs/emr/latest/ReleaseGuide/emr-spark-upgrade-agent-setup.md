@@ -56,10 +56,31 @@ Proceed to the **Specify stack details** page, enter the **Stack name**. Enter a
 - **EMRServerlessS3LogPath** - (Optional) S3 path where EMR-Serverless application logs are stored (e.g., s3://my-bucket/emr-serverless-logs or my-bucket/emr-serverless-logs). When provided, grants the IAM role read access to these logs for analysis. Only used when EnableEMRServerless is true
 - **ExecutionRoleToGrantS3Access** - (Optional) IAM Role Name or ARN of existing EMR-EC2/EMR-Serverless execution role to grant Amazon S3 staging bucket access. Only applies when a new staging bucket is created. Useful for granting EMR job execution roles access to the staging bucket. Supports both simple role names and ARNs with paths.
 
-Open the Outputs tab and copy the 1-line instruction `upgrade_local_env_setup_instruction` and execute it in your local environment. Example 1-line instruction:
+You may also download and review [the CloudFormation template](https://github.com/aws-samples/aws-emr-utilities/blob/03c20fece616de23ec0ea5389f0113a5bc65fc3a/utilities/apache-spark-agents/spark-upgrade-agent-cloudformation/spark-upgrade-mcp-setup.yaml "https://github.com/aws-samples/aws-emr-utilities/blob/03c20fece616de23ec0ea5389f0113a5bc65fc3a/utilities/apache-spark-agents/spark-upgrade-agent-cloudformation/spark-upgrade-mcp-setup.yaml"), specify the options above and launch the template by yourself with CloudFormation CLI commands, see below for an example:
 
 ```
-export SMUS_MCP_REGION=us-east-1 && export IAM_ROLE=arn:aws:iam::111122223333:role/spark-upgrade-role-xxxxxx && export STAGING_BUCKET=amzn-s3-spark-upgrade-demo-bucket
+# deploy the stack with CloudFormation CLI commands
+aws cloudformation deploy \
+  --template-file spark-upgrade-mcp-setup.yaml \
+  --stack-name spark-mcp-setup \
+  --region <your mcp server launch region> \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --parameter-overrides \
+    ExecutionRoleToGrantS3Access=<your EMR or EMR Serverless job execution role>
+
+
+# retrieve the 1-line instruction to set the local environment variables, which will be used for the following MCP server configuration
+aws cloudformation describe-stacks \
+  --stack-name spark-mcp-setup \
+  --region <your mcp server launch region> \
+  --query "Stacks[0].Outputs[?OutputKey=='ExportCommand'].OutputValue" \
+  --output text
+```
+
+Open the Outputs tab (or retrieve from the CloudFormation describe-stacks CLI command above) and copy the 1-line instruction `ExportCommand`, then execute it in your local environment. Example 1-line instruction:
+
+```
+export SMUS_MCP_REGION=<your mcp server launch region> && export IAM_ROLE=arn:aws:iam::111122223333:role/spark-upgrade-role-xxxxxx && export STAGING_BUCKET_PATH=<your staging bucket path>
 ```
 
 Then run the following command locally to setup the IAM profile and MCP server configuration
