@@ -18,12 +18,6 @@ To receive both event types, your rule must use the `"source": [
  "aws.health"]` value. Wildcards, such as `"source": [ "aws.health*"]`
 won't match the pattern to monitor for any events.
 
-If you're monitoring public events from an AWS Region, we recommend that you create a
-back up rule. Public events for AWS Health are sent simultaneously to both the impacted
-Region and to a backup Region. It's recommended that you de-duplicate AWS Health events using
-eventARN and communicationId because these remain consistent for AWS Health messages sent to
-the backup Region.
-
 You can identify if an event is public or account-specific in EventBridge, by using the
 eventScopeCode parameter. Events can have the `PUBLIC` or
 `ACCOUNT_SPECIFIC`. You can also filter your rule on this parameter.
@@ -65,3 +59,13 @@ The following event shows an operational issue for Amazon EC2 in the US East (N.
     }
 }
 ```
+
+## Backup rules for AWS Health events
+
+If you're monitoring public events from an AWS Region, we recommend that you create a
+back up rule. Public events for AWS Health are sent simultaneously to both the impacted
+Region and to the backup Region when a valid rule is set in the impacted Region.
+
+AWS Health sends account-specific events to both the impacted Region and to the backup Region, regardless of any rules configured in the impacted Region.
+
+We recommend that you deduplicate AWS Health events using `eventARN` and `communicationId` because these values remain consistent for AWS Health messages that are sent to the backup Region.
