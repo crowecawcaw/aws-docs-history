@@ -1,4 +1,4 @@
-# Amazon Bedrock AgentCore Policy: Evaluate your agent
+# Amazon Bedrock AgentCore Policy: Control Agent-to-Tool Interactions
 
 Amazon Bedrock AgentCore Policy enables developers to define and enforce security controls for AI agent
 interactions with tools by creating a protective boundary around agent operations. AI agents

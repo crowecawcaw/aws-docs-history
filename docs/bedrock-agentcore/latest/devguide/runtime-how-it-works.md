@@ -222,7 +222,7 @@ time to complete. For more information, see [Stream agent responses](response-st
 The AgentCore Runtime provides [WebSocket](runtime-http-protocol-contract.md#ws-endpoint "runtime-http-protocol-contract.md#ws-endpoint")
 support for real-time bidirectional streaming connections for interactive agent communication.
 This enables more responsive and interactive agent experiences. For more information, see
-[Get started with WebSocket streaming in AgentCore Runtime](runtime-get-started-websocket.md "runtime-get-started-websocket.md").
+[Get started with bidirectional streaming using WebSocket](runtime-get-started-websocket.md "runtime-get-started-websocket.md").
 
 ### Protocol support
 

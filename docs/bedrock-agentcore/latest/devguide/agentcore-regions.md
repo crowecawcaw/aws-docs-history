@@ -1,25 +1,14 @@
 # Supported AWS Regions
 
-The following AWS Regions support all features in Amazon Bedrock AgentCore:
+The following table shows which features are supported in each AWS Region:
 
-- US East (N. Virginia)
-- US West (Oregon)
-- Europe (Frankfurt)
-- Asia Pacific (Sydney)
-  The following AWS Regions don't support AgentCore Evaluations or AgentCore Policy:
-
-- US East (Ohio)
-- Europe (Ireland)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Singapore)
-- Asia Pacific (Tokyo)
-  The following AWS Regions only support AgentCore Gateway, AgentCore Identity, and AgentCore Memory:
-
-- Europe (Paris)
-- Asia Pacific (Seoul)
-- Europe (Stockholm)
-- Europe (London)
-- Canada (Central)
-  The following AWS Regions only support AgentCore Memory:
-
-- South America (São Paulo)
+| Feature                  | US East (N. Virginia) | US East (Ohio) | US West (Oregon) | Europe (Frankfurt) | Europe (Ireland) | Europe (London) | Europe (Paris) | Europe (Stockholm) | Asia Pacific (Mumbai) | Asia Pacific (Singapore) | Asia Pacific (Sydney) | Asia Pacific (Tokyo) | Asia Pacific (Seoul) | Canada (Central) | South America (São Paulo) |
+| ------------------------ | --------------------- | -------------- | ---------------- | ------------------ | ---------------- | --------------- | -------------- | ------------------ | --------------------- | ------------------------ | --------------------- | -------------------- | -------------------- | ---------------- | ------------------------- |
+| AgentCore Runtime        | ✓                     | ✓              | ✓                | ✓                  | ✓                |                 |                |                    | ✓                     | ✓                        | ✓                     | ✓                    |                      |                  |                           |
+| AgentCore Memory         | ✓                     | ✓              | ✓                | ✓                  | ✓                | ✓               | ✓              | ✓                  | ✓                     | ✓                        | ✓                     | ✓                    | ✓                    | ✓                | ✓                         |
+| AgentCore Gateway        | ✓                     | ✓              | ✓                | ✓                  | ✓                | ✓               | ✓              | ✓                  | ✓                     | ✓                        | ✓                     | ✓                    | ✓                    | ✓                |                           |
+| AgentCore Identity       | ✓                     | ✓              | ✓                | ✓                  | ✓                | ✓               | ✓              | ✓                  | ✓                     | ✓                        | ✓                     | ✓                    | ✓                    | ✓                |                           |
+| AgentCore Built-in Tools | ✓                     | ✓              | ✓                | ✓                  | ✓                |                 |                |                    | ✓                     | ✓                        | ✓                     | ✓                    |                      |                  |                           |
+| AgentCore Observability  | ✓                     | ✓              | ✓                | ✓                  | ✓                |                 |                |                    | ✓                     | ✓                        | ✓                     | ✓                    |                      |                  |                           |
+| AgentCore Policy         | ✓                     | ✓              | ✓                | ✓                  | ✓                |                 |                |                    | ✓                     | ✓                        | ✓                     | ✓                    |                      |                  |                           |
+| AgentCore Evaluations    | ✓                     |                | ✓                | ✓                  |                  |                 |                |                    |                       |                          | ✓                     |                      |                      |                  |                           |

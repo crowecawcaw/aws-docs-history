@@ -170,7 +170,7 @@ When a policy denies the request:
     "content": [
       {
         "type": "text",
-        "text": "AuthorizeActionException - Tool Execution Denied: Tool call not allowed due to policy enforcement [Policy evaluation denied due to no determining policies]"
+        "text": "AuthorizeActionException - Tool Execution Denied: Tool call not allowed due to policy enforcement [No policy applies to the request (denied by default).]"
       }
     ],
     "isError": true

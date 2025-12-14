@@ -1,4 +1,4 @@
-# Get started with WebSocket streaming in AgentCore Runtime
+# Get started with bidirectional streaming using WebSocket
 
 Amazon Bedrock AgentCore Runtime lets you deploy agents that support WebSocket streaming for real-time
 bidirectional communication. This guide walks you through creating, testing, and deploying
@@ -643,4 +643,5 @@ WebSocket connections use standard close codes for error communication. Common c
 For additional examples using WebSocket bidirectional streaming with AgentCore Runtime, see the [WebSocket bidirectional streaming GitHub samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming"):
 
 - **Sonic implementation (Python)**: Native Amazon Nova Sonic WebSocket implementation with real-time audio conversations, voice selection, and interruption support
+- **Strands implementation (Python)**: Framework-based implementation using the Strands BidiAgent for simplified real-time audio conversations with automatic session management and tool integration
 - **Echo implementation (Python)**: Simple echo server for testing WebSocket connectivity and authentication

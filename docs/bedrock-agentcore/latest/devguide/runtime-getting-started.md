@@ -13,4 +13,4 @@ AgentCore Runtime.
 - [Get started without the starter toolkit](getting-started-custom.md "getting-started-custom.md")
 - [Get started with Amazon Bedrock AgentCore Runtime direct
   code deployment](runtime-get-started-code-deploy.md "runtime-get-started-code-deploy.md")
-- [Get started with WebSocket streaming in AgentCore Runtime](runtime-get-started-websocket.md "runtime-get-started-websocket.md")
+- [Get started with bidirectional streaming using WebSocket](runtime-get-started-websocket.md "runtime-get-started-websocket.md")

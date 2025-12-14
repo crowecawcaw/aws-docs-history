@@ -86,7 +86,7 @@ A resource-based policy is a JSON document with the following structure:
       "Principal": {
         "AWS": "arn:aws:iam::account-id:role/role-name"
       },
-      "Action": "bedrock:ActionName",
+      "Action": "bedrock-agentcore:ActionName",
       "Resource": "*",
       "Condition": {
         "ConditionOperator": {
@@ -102,14 +102,16 @@ A resource-based policy is a JSON document with the following structure:
 
 ### Agent Runtime actions
 
-- `bedrock:InvokeAgentRuntime` - Invoke an agent runtime
-- `bedrock:InvokeAgentRuntimeForUser` - Invoke an agent runtime endpoint with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header
-- `bedrock:StopRuntimeSession` - Stop an active runtime session
-- `bedrock:GetAgentCard` - Retrieve agent card information
+- `bedrock-agentcore:InvokeAgentRuntime` - Invoke an agent runtime
+- `bedrock-agentcore:InvokeAgentRuntimeForUser` - Invoke an agent runtime endpoint with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header
+- `bedrock-agentcore:InvokeAgentRuntimeWithWebSocketStream` - Invoke an agent runtime with WebSocket stream
+- `bedrock-agentcore:InvokeAgentRuntimeWithWebSocketStreamForUser` - Invoke an agent runtime with WebSocket stream with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header
+- `bedrock-agentcore:StopRuntimeSession` - Stop an active runtime session
+- `bedrock-agentcore:GetAgentCard` - Retrieve agent card information
 
 ### Gateway actions
 
-- `bedrock:InvokeGateway` - Invoke a gateway
+- `bedrock-agentcore:InvokeGateway` - Invoke a gateway
 
 ## Condition keys
 
@@ -135,7 +137,7 @@ Grant API access to specific roles in a different AWS account:
           "arn:aws:iam::123456789012:role/AdminRole"
         ]
       },
-      "Action": "bedrock:InvokeAgentRuntime",
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
       "Resource": "*"
     }
   ]
@@ -152,14 +154,18 @@ Block incoming traffic from specific IP address ranges:
   "Statement": [
     {
       "Effect": "Allow",
-      "Principal": "*",
-      "Action": "bedrock:InvokeAgentRuntime",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:role/ApplicationRole"
+      },
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
       "Resource": "*"
     },
     {
       "Effect": "Deny",
-      "Principal": "*",
-      "Action": "bedrock:InvokeAgentRuntime",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:role/ApplicationRole"
+      },
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
       "Resource": "*",
       "Condition": {
         "IpAddress": {
@@ -184,14 +190,18 @@ Restrict access to requests from a specific VPC:
   "Statement": [
     {
       "Effect": "Allow",
-      "Principal": "*",
-      "Action": "bedrock:InvokeAgentRuntime",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:role/ApplicationRole"
+      },
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
       "Resource": "*"
     },
     {
       "Effect": "Deny",
-      "Principal": "*",
-      "Action": "bedrock:InvokeAgentRuntime",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:role/ApplicationRole"
+      },
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
       "Resource": "*",
       "Condition": {
         "StringNotEquals": {
@@ -215,7 +225,7 @@ When your Agent Runtime or Gateway is configured with OAuth authentication, you 
       "Sid": "AllowOAuthFromVPC",
       "Effect": "Allow",
       "Principal": "*",
-      "Action": "bedrock:InvokeAgentRuntime",
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
       "Resource": "*",
       "Condition": {
         "StringEquals": {
@@ -246,8 +256,8 @@ AWS CLI
 Use the `put-resource-policy` command:
 
 ```
-aws bedrock-agent put-resource-policy \
-    --resource-arn arn:aws:bedrock:us-west-2:111122223333:agent/AGENTID \
+aws bedrock-agentcore-control put-resource-policy \
+    --resource-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID \
     --policy file://policy.json
 ```
 
@@ -256,8 +266,8 @@ aws bedrock-agent put-resource-policy \
 Use the `get-resource-policy` command:
 
 ```
-aws bedrock-agent get-resource-policy \
-    --resource-arn arn:aws:bedrock:us-west-2:111122223333:agent/AGENTID
+aws bedrock-agentcore-control get-resource-policy \
+    --resource-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
 ```
 
 ###### Delete a resource policy
@@ -265,8 +275,8 @@ aws bedrock-agent get-resource-policy \
 Use the `delete-resource-policy` command:
 
 ```
-aws bedrock-agent delete-resource-policy \
-    --resource-arn arn:aws:bedrock:us-west-2:111122223333:agent/AGENTID
+aws bedrock-agentcore-control delete-resource-policy \
+    --resource-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
 ```
 
 Python (Boto3)
@@ -276,7 +286,7 @@ The following examples show how to manage resource policies using the AWS Python
 import boto3
 import json
 
-client = boto3.client('bedrock-agent', region_name='us-west-2')
+client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
 
 # Put resource policy
 policy = {
@@ -285,26 +295,26 @@ policy = {
         {
             "Effect": "Allow",
             "Principal": {"AWS": "arn:aws:iam::123456789012:role/MyRole"},
-            "Action": "bedrock:InvokeAgentRuntime",
+            "Action": "bedrock-agentcore:InvokeAgentRuntime",
             "Resource": "*"
         }
     ]
 }
 
 response = client.put_resource_policy(
-    resourceArn='arn:aws:bedrock:us-west-2:111122223333:agent/AGENTID',
+    resourceArn='arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID',
     policy=json.dumps(policy)
 )
 
 # Get resource policy
 response = client.get_resource_policy(
-    resourceArn='arn:aws:bedrock:us-west-2:111122223333:agent/AGENTID'
+    resourceArn='arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID'
 )
 print(response['policy'])
 
 # Delete resource policy
 response = client.delete_resource_policy(
-    resourceArn='arn:aws:bedrock:us-west-2:111122223333:agent/AGENTID'
+    resourceArn='arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID'
 )
 ```
 
@@ -323,7 +333,7 @@ Grant only the minimum permissions necessary for your use case:
       "Principal": {
         "AWS": "arn:aws:iam::111122223333:role/ApplicationRole"
       },
-      "Action": "bedrock:InvokeAgentRuntime",
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
       "Resource": "*"
     }
   ]
@@ -343,7 +353,7 @@ Always use condition keys when granting access to AWS services:
       "Principal": {
         "Service": "lambda.amazonaws.com"
       },
-      "Action": "bedrock:InvokeGateway",
+      "Action": "bedrock-agentcore:InvokeGateway",
       "Resource": "*",
       "Condition": {
         "StringEquals": {
@@ -370,7 +380,7 @@ Use explicit deny statements for security-critical restrictions:
       "Sid": "DenyAllExceptVPC",
       "Effect": "Deny",
       "Principal": "*",
-      "Action": "bedrock:*",
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
       "Resource": "*",
       "Condition": {
         "StringNotEquals": {
