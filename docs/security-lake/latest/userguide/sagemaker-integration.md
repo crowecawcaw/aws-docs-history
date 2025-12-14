@@ -14,7 +14,7 @@ You can generate machine learning insights for Security Lake by using SageMaker 
 Studio is a web integrated development environment (IDE) for machine learning
 that provides tools for data scientists to prepare, build, train, and deploy
 machine learning models. With this solution, you can quickly deploy a base set
-of Python notebooks focusing on [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
+of Python notebooks focusing on [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
 findings in Security Lake, which can also be
 expanded to incorporate other AWS sources or custom data sources in Security Lake. For
 more details, see [Generate machine learning insights for Amazon Security Lake data using

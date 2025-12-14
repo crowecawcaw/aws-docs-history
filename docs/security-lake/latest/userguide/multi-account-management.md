@@ -170,7 +170,7 @@ Security Lake API or, if you’re using the AWS CLI, by running the [create-data
 request, you can also specify certain configuration settings for new
 accounts.
 
-For example, the following AWS CLI command automatically enables Security Lake and the collection of Amazon Route 53 resolver query logs, AWS Security Hub findings, and Amazon Virtual Private Cloud (Amazon VPC) Flow Logs in new organization accounts. This example is formatted for Linux, macOS, or Unix, and it uses the backslash (\) line-continuation character to improve readability.
+For example, the following AWS CLI command automatically enables Security Lake and the collection of Amazon Route 53 resolver query logs, AWS Security Hub CSPM findings, and Amazon Virtual Private Cloud (Amazon VPC) Flow Logs in new organization accounts. This example is formatted for Linux, macOS, or Unix, and it uses the backslash (\) line-continuation character to improve readability.
 
 ```
 `$` `aws securitylake create-data-lake-organization-configuration \
@@ -257,8 +257,8 @@ automatic configuration settings of new member accounts, use the [DeleteDataLake
 Security Lake API, or, if you're using the AWS CLI, the [delete-data-lake-organization-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securitylake/delete-data-lake-organization-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securitylake/delete-data-lake-organization-configuration.html") command. Only the delegated administrator can change these settings for
 the organization.
 
-For example, the following AWS CLI command stops the automatic collection of Security Hub findings from new member accounts that join the organization. New
-member accounts won't contribute Security Hub findings to the data lake after the delegated administrator invokes this operation. This example is formatted for Linux, macOS, or Unix, and it uses the backslash (\) line-continuation character to improve readability.
+For example, the following AWS CLI command stops the automatic collection of Security Hub CSPM findings from new member accounts that join the organization. New
+member accounts won't contribute Security Hub CSPM findings to the data lake after the delegated administrator invokes this operation. This example is formatted for Linux, macOS, or Unix, and it uses the backslash (\) line-continuation character to improve readability.
 
 ```
 `$` `aws securitylake delete-data-lake-organization-configuration \

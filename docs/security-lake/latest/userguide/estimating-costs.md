@@ -17,7 +17,7 @@ To understand the methodology behind Security Lake pricing, watch the following 
 
 **Data ingestion**
 These costs derive from the volume of ingested AWS CloudTrail logs and other AWS service logs and events
-(Amazon Route 53 resolver query logs, AWS Security Hub findings, and Amazon VPC Flow Logs).
+(Amazon Route 53 resolver query logs, AWS Security Hub CSPM findings, and Amazon VPC Flow Logs).
 
 **Data conversion**
 These costs derive from the volume of AWS service logs and events that Security Lake normalizes to

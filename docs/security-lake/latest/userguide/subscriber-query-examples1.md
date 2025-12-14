@@ -43,10 +43,10 @@ Common values for the log source table include the following:
 - `lambda_execution_1_0` – CloudTrail data events for Lambda
 - `s3_data_1_0` – CloudTrail data events for S3
 - `route53_1_0` – Amazon Route 53 resolver query logs
-- `sh_findings_1_0` – AWS Security Hub findings
+- `sh_findings_1_0` – AWS Security Hub CSPM findings
 - `vpc_flow_1_0` – Amazon Virtual Private Cloud (Amazon VPC) Flow Logs
 
-**Example: All Security Hub findings in table `sh_findings_1_0` from us-east-1 Region**
+**Example: All Security Hub CSPM findings in table `sh_findings_1_0` from us-east-1 Region**
 
 ```
 

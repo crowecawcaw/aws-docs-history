@@ -130,7 +130,7 @@ Security Lake collects data from custom sources in addition to the following AWS
 - AWS CloudTrail management and data events (S3, Lambda)
 - Amazon Elastic Kubernetes Service (Amazon EKS) Audit Logs
 - Amazon Route 53 resolver query logs
-- AWS Security Hub findings
+- AWS Security Hub CSPM findings
 - Amazon Virtual Private Cloud (Amazon VPC) Flow Logs
 - AWS WAFv2 Logs
 

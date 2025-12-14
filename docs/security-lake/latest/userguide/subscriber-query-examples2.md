@@ -48,12 +48,12 @@ Common values for the log source table include the following:
 - `lambda_execution_2_0` – CloudTrail data events for Lambda
 - `s3_data_2_0` – CloudTrail data events for S3
 - `route53_2_0` – Amazon Route 53 resolver query logs
-- `sh_findings_2_0` – AWS Security Hub findings
+- `sh_findings_2_0` – AWS Security Hub CSPM findings
 - `vpc_flow_2_0` – Amazon Virtual Private Cloud (Amazon VPC) Flow Logs
 - `eks_audit_2_0` – Amazon Elastic Kubernetes Service (Amazon EKS) Audit Logs
 - `waf_2_0` – AWS WAFv2 Logs
 
-**Example: All Security Hub findings in table
+**Example: All Security Hub CSPM findings in table
 `sh_findings_2_0` from us-east-1 Region**
 
 ```

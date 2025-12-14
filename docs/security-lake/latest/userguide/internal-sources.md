@@ -6,7 +6,7 @@ AWS services:
 - AWS CloudTrail management and data events (S3, Lambda)
 - Amazon Elastic Kubernetes Service (Amazon EKS) Audit Logs
 - Amazon Route 53 resolver query logs
-- AWS Security Hub findings
+- AWS Security Hub CSPM findings
 - Amazon Virtual Private Cloud (Amazon VPC) Flow Logs
 - AWS WAFv2 logs
   Security Lake automatically transforms this data into the [Open Cybersecurity Schema Framework (OCSF) in Security Lake](open-cybersecurity-schema-framework.md "open-cybersecurity-schema-framework.md") and Apache Parquet format.

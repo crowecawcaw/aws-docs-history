@@ -23,14 +23,14 @@ issue from the last 14 days that are impacting the Security Lake service and the
 buckets in which your data is stored. You can further investigate these issues to help
 you mitigate possible security-related impact.
 
-## Integrate with Security Hub
+## Integrate with Security Hub CSPM
 
-Integrate Security Lake and AWS Security Hub to receive Security Hub findings in Security Lake. Security Hub
+Integrate Security Lake and AWS Security Hub CSPM to receive Security Hub CSPM findings in Security Lake. Security Hub CSPM
 generates findings from many different AWS services and third-party integrations.
-Receiving Security Hub findings helps you get an overview of your compliance posture and
+Receiving Security Hub CSPM findings helps you get an overview of your compliance posture and
 whether you're meeting AWS security best practices.
 
-For more information, see [Integration with AWS Security Hub](securityhub-integration.md "securityhub-integration.md").
+For more information, see [Integration with AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md").
 
 ## Delete AWS Lambda
 

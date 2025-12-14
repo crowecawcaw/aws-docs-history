@@ -1,10 +1,10 @@
-# Example Security Lake queries for Security Hub findings
+# Example Security Lake queries for Security Hub CSPM findings
 
-Security Hub provides you with a comprehensive view of your security state in AWS and helps you check your environment
-against security industry standards and best practices. Security Hub produces findings for security checks and receives findings from
+Security Hub CSPM provides you with a comprehensive view of your security state in AWS and helps you check your environment
+against security industry standards and best practices. Security Hub CSPM produces findings for security checks and receives findings from
 third-party services.
 
-Here are some example queries of Security Hub findings:
+Here are some example queries of Security Hub CSPM findings:
 
 **New findings with severity greater than or equal to `MEDIUM` in the last 7 days**
 
@@ -83,7 +83,7 @@ SELECT *
 
 ```
 
-**Count of products that are sending findings from Security Hub in the last 7 days**
+**Count of products that are sending findings from Security Hub CSPM in the last 7 days**
 
 ```
 SELECT

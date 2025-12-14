@@ -27,12 +27,12 @@ Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketpl
 To request to be added as a partner integration or become a Security Lake partner, send an email to
 `<securitylake-partners@amazon.com>`.
 
-If you use third-party integrations that send findings to AWS Security Hub, you can also review
-those findings in Security Lake if the Security Hub integration for Security Lake is enabled. For
-instructions on enabling the integration, see [Integration with AWS Security Hub](securityhub-integration.md "securityhub-integration.md"). For a list of third-party integrations that
-send findings to Security Hub, see [Available
+If you use third-party integrations that send findings to AWS Security Hub CSPM, you can also review
+those findings in Security Lake if the Security Hub CSPM integration for Security Lake is enabled. For
+instructions on enabling the integration, see [Integration with AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md"). For a list of third-party integrations that
+send findings to Security Hub CSPM, see [Available
 third-party partner product integrations](../../../securityhub/latest/userguide/securityhub-partner-providers.md "../../../securityhub/latest/userguide/securityhub-partner-providers.md") in the
-_AWS Security Hub User Guide_.
+_AWS Security Hub CSPM User Guide_.
 
 Before setting up your subscribers verify your subscriber's OCSF log support. For the latest details, review
 your subscriber's documentation.
