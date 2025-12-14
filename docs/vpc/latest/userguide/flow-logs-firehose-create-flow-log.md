@@ -6,6 +6,29 @@ You can create flow logs for your VPCs, subnets, or network interfaces.
 
 - Create the destination Amazon Data Firehose delivery stream. Use **Direct Put**
   as the source. For more information, see [Creating an Amazon Data Firehose delivery stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md").
+- The account creating the flow log must be using an IAM role that grants the following permissions to publish flow logs to Amazon Data Firehose.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogDelivery",
+ "logs:DeleteLogDelivery",
+ "iam:CreateServiceLinkedRole",
+ "firehose:TagDeliveryStream"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
 - If you're publishing flow logs to a different account, create the required IAM roles,
   as described in [IAM roles for cross account delivery](firehose-cross-account-delivery.md "firehose-cross-account-delivery.md").
 
