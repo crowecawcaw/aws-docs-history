@@ -39,6 +39,7 @@ Gateway versions 2.x.x can't be updated to 3.x.x.
 
 | Release Date | Software Version | Release Notes                                                                                                                                                         |
 | ------------ | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2025-12-04   | 3.0.6            | • Updated operating system and software elements to improve security and performance for new and existing gateways                                                    |
 | 2025-11-06   | 3.0.5            | • Updated operating system and software elements to improve security and performance for new and existing gateways                                                    |
 | 2025-10-10   | 3.0.4            | • Updated operating system and software elements to improve security and performance for new and existing gateways                                                    |
 | 2025-09-12   | 3.0.3            | • Updated operating system and software elements to improve security and performance for new and existing gateways                                                    |
@@ -52,6 +53,7 @@ The following table lists the release notes for gateways based on AL2.
 
 | Release Date | Software Version | Release Notes                                                                                                                                                                                                                                                         |
 | ------------ | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2025-12-05   | 2.13.0           | • Updated operating system and software elements to improve security and performance for<br>new and existing gateways                                                                                                                                                 |
 | 2025-11-03   | 2.12.15          | • Updated operating system and software elements to improve security and performance for<br>new and existing gateways                                                                                                                                                 |
 | 2025-10-01   | 2.12.14          | • Updated operating system and software elements to improve security and performance for<br>new and existing gateways                                                                                                                                                 |
 | 2025-09-02   | 2.12.13          | • Updated operating system and software elements to improve security and performance for<br>new and existing gateways                                                                                                                                                 |

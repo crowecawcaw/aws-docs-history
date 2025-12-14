@@ -395,6 +395,7 @@ Storage Gateway supports the following hypervisor versions and hosts:
   distribution may work, but function or performance is not guaranteed. We
   recommend this option if you already have a KVM environment up and running and
   you are already familiar with how KVM works.
+- Nutanix AHV (Acropolis Hypervisor) beginning with version 10.0.1.1 – A KVM-based virtualization platform that is integrated into the Nutanix hyper-converged infrastructure (HCI) solution.
 - Amazon EC2 instance – Storage Gateway provides an Amazon Machine Image (AMI)
   that contains the gateway VM image. Only file, cached volume, and Tape Gateway
   types can be deployed on Amazon EC2. For information about how to deploy a gateway on
