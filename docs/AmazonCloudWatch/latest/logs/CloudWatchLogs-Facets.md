@@ -20,7 +20,7 @@ and include `@aws.region`, `@data_source_name`,
 `@data_source_type`, and `@data_format`. For more information,
 see [Log management](LogManagement.md "LogManagement.md"). Facets are only
 available for logs that are ingested in the account. If you have set up cross account
-observability, the Monitoring account can not view facets based on logs from source
+observability, the monitoring account cannot view facets based on logs from source
 accounts.
 
 To create additional facets, select the fields in your logs that are relevant to your

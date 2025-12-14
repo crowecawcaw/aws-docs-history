@@ -258,9 +258,9 @@ AWS SDKs, or the AWS CLI.
 
 ###### Examples
 
-- [Example 1: Allow full access to CloudWatch Logs](#w2aac53c15c15c23c19b9 "#w2aac53c15c15c23c19b9")
-- [Example 2: Allow read-only access to CloudWatch Logs](#w2aac53c15c15c23c19c11 "#w2aac53c15c15c23c19c11")
-- [Example 3: Allow access to one log group](#w2aac53c15c15c23c19c13 "#w2aac53c15c15c23c19c13")
+- [Example 1: Allow full access to CloudWatch Logs](#w2aac55c15c15c23c19b9 "#w2aac55c15c15c23c19b9")
+- [Example 2: Allow read-only access to CloudWatch Logs](#w2aac55c15c15c23c19c11 "#w2aac55c15c15c23c19c11")
+- [Example 3: Allow access to one log group](#w2aac55c15c15c23c19c13 "#w2aac55c15c15c23c19c13")
 
 #### Example 1: Allow full access to CloudWatch Logs
 

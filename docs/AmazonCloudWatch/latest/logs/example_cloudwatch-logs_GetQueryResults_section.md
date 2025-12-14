@@ -7,6 +7,53 @@ context in the following code example:
 
 - [Run a large query](example_cloudwatch-logs_Scenario_BigQuery_section.md "example_cloudwatch-logs_Scenario_BigQuery_section.md")
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples").
+
+```
+    /// <summary>
+    /// Gets the results of a CloudWatch Logs Insights query.
+    /// </summary>
+    /// <param name="queryId">The ID of the query.</param>
+    /// <returns>The query results response.</returns>
+    public async Task<GetQueryResultsResponse?> GetQueryResultsAsync(string queryId)
+    {
+        try
+        {
+            var request = new GetQueryResultsRequest
+            {
+                QueryId = queryId
+            };
+
+            var response = await _amazonCloudWatchLogs.GetQueryResultsAsync(request);
+            return response;
+        }
+        catch (ResourceNotFoundException ex)
+        {
+            _logger.LogError($"Query not found: {ex.Message}");
+            return null;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"An error occurred while getting query results: {ex.Message}");
+            return null;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [GetQueryResults](../../../goto/DotNetSDKV4/logs-2014-03-28/GetQueryResults.md "../../../goto/DotNetSDKV4/logs-2014-03-28/GetQueryResults.md")
+  in _AWS SDK for .NET API Reference_.
+
 JavaScript
 
 **SDK for JavaScript (v3)**

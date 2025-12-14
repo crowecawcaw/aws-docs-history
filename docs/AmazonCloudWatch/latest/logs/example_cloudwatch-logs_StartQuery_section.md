@@ -7,6 +7,71 @@ context in the following code example:
 
 - [Run a large query](example_cloudwatch-logs_Scenario_BigQuery_section.md "example_cloudwatch-logs_Scenario_BigQuery_section.md")
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples").
+
+```
+    /// <summary>
+    /// Starts a CloudWatch Logs Insights query.
+    /// </summary>
+    /// <param name="logGroupName">The name of the log group to query.</param>
+    /// <param name="queryString">The CloudWatch Logs Insights query string.</param>
+    /// <param name="startTime">The start time for the query (seconds since epoch).</param>
+    /// <param name="endTime">The end time for the query (seconds since epoch).</param>
+    /// <param name="limit">The maximum number of results to return.</param>
+    /// <returns>The query ID if successful, null otherwise.</returns>
+    public async Task<string?> StartQueryAsync(
+        string logGroupName,
+        string queryString,
+        long startTime,
+        long endTime,
+        int limit = 10000)
+    {
+        try
+        {
+            var request = new StartQueryRequest
+            {
+                LogGroupName = logGroupName,
+                QueryString = queryString,
+                StartTime = startTime,
+                EndTime = endTime,
+                Limit = limit
+            };
+
+            var response = await _amazonCloudWatchLogs.StartQueryAsync(request);
+            return response.QueryId;
+        }
+        catch (InvalidParameterException ex)
+        {
+            _logger.LogError($"Invalid parameter for query: {ex.Message}");
+            return null;
+        }
+        catch (ResourceNotFoundException ex)
+        {
+            _logger.LogError($"Log group not found: {ex.Message}");
+            return null;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"An error occurred while starting query: {ex.Message}");
+            return null;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [StartQuery](../../../goto/DotNetSDKV4/logs-2014-03-28/StartQuery.md "../../../goto/DotNetSDKV4/logs-2014-03-28/StartQuery.md")
+  in _AWS SDK for .NET API Reference_.
+
 JavaScript
 
 **SDK for JavaScript (v3)**

@@ -155,7 +155,7 @@ ID, and log group name.
                     "aws:SourceArn": ["arn:aws:logs:`aws-region`:`123456789012`:log-group:`log-group-name`"]
                 }
             }
-        }In
+        }
     ]
 }
 ```
