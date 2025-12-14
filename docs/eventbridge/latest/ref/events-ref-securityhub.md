@@ -1,10 +1,10 @@
-# AWS Security Hub events
+# AWS Security Hub CSPM events
 
-Security Hub sends service events directly to EventBridge, as well as via AWS CloudTrail.
+Security Hub CSPM sends service events directly to EventBridge, as well as via AWS CloudTrail.
 
-## Security Hub service events
+## Security Hub CSPM service events
 
-Security Hub sends the following events directly to EventBridge:
+Security Hub CSPM sends the following events directly to EventBridge:
 
 - Security Hub Insight Results
 - Security Hub Standard Results
@@ -40,11 +40,11 @@ specifying an array of event names to match. For example:
 For more information, see
 [Creating event patterns](../userguide/eb-event-patterns.md#eb-create-pattern "../userguide/eb-event-patterns.md#eb-create-pattern") in the _Amazon EventBridge User Guide_.
 
-## Security Hub events delivered via
+## Security Hub CSPM events delivered via
 
 AWS CloudTrail
 
-AWS CloudTrail sends events originating from Security Hub to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
+AWS CloudTrail sends events originating from Security Hub CSPM to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")
 in the _Amazon EventBridge User Guide_.
 
