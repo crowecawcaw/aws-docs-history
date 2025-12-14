@@ -1,21 +1,89 @@
-# Tutorial: Running a sample application using
+# Migrating to
 
-DynamoDB Accelerator (DAX)
+DAX Node.js SDK V3
 
-This tutorial demonstrates how to launch an Amazon EC2 instance in your default virtual private
-cloud (VPC), connect to the instance, and run a sample application that uses Amazon
-DynamoDB Accelerator (DAX).
+This migration guide will help you transition your existing DAX Node.js
+applications. The new SDK requires Node.js 18 or higher and introduces several
+important changes in how you'll structure your DynamoDB Accelerator code. This
+guide will walk you through the key differences, including syntax changes, new
+import methods, and updated asynchronous programming patterns.
 
-###### Note
+## V2
 
-To complete this tutorial, you must have a DAX cluster running in your default VPC.
-If you haven't created a DAX cluster, see [Creating a DAX cluster](DAX.md "DAX.md") for instructions.
+Node.js DAX usage
 
-###### Topics
+```
+const AmazonDaxClient = require('amazon-dax-client');
+const AWS = require('aws-sdk');
 
-- [Step 1: Launch an Amazon EC2
-  instance](DAX.client.md "DAX.client.md")
-- [Step 2: Create a user and policy](DAX.client.md "DAX.client.md")
-- [Step 3: Configure an Amazon EC2
-  instance](DAX.client.md "DAX.client.md")
-- [Step 4: Run a sample application](DAX.client.md "DAX.client.md")
+var region = "us-west-2";
+
+AWS.config.update({
+  region: region,
+});
+
+var client = new AWS.DynamoDB.DocumentClient();
+
+if (process.argv.length > 2) {
+  var dax = new AmazonDaxClient({
+    endpoints: [process.argv[2]],
+    region: region,
+  });
+  client = new AWS.DynamoDB.DocumentClient({ service: dax });
+}
+
+// Make Get Call using Dax
+var params = {
+    TableName: 'TryDaxTable',
+    pk: 1,
+    sk: 1
+}
+client.get(params, function (err, data) {
+    if (err) {
+        console.error(
+            "Unable to read item. Error JSON:",
+            JSON.stringify(err, null, 2)
+          );
+    } else {
+        console.log(data);
+    }
+});
+```
+
+## V3 Node.js DAX usage
+
+For Using DAX Node.js V3 Node version 18 or above is the preferred
+version. To move to Node 18, use the following:
+
+```
+// Import AWS DAX V3
+import { DaxDocument } from '@amazon-dax-sdk/lib-dax';
+
+// Import AWS SDK V3 DynamoDBDocument ~ DocumentClient in V2
+import { DynamoDBDocument } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBClient } from '@aws-sdk/client-dyanmodb';
+
+// Create DynamoDBDocument
+var client = DynamoDBDocument.from(new DynamoDB({region: 'us-west-2'});
+
+// Override DynamoDBDocument Client with DaxDocument
+if (process.argv.length > 2) {
+  client = new DaxDocument({
+    endpoints: [process.argv[2]],
+    region: 'us-west-2',
+  });
+}
+
+var params = {
+    TableName: 'TryDaxTable',
+    pk: 1,
+    sk: 1
+}
+// Dax Shifted it's API Calls to await/promise
+try {
+  const results = await client.get(params);
+  console.log(results);
+} catch (err) {
+  console.error(err)
+}
+```

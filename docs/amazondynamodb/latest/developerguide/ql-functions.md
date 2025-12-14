@@ -1,29 +1,28 @@
-# Using the BEGINS_WITH function with PartiQL for DynamoDB
+# Using the SIZE function with PartiQL for amazon DynamoDB
 
-Returns `TRUE` if the attribute specified begins with a particular substring.
+Returns a number representing an attribute's size in bytes. The following are valid data types
+for use with size. For more information, see the DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
 
 ## Syntax
 
 ```
-begins_with(`path`, `value` )
+size( `path`)
 ```
 
 ## Arguments
 
 `path`
 
-(Required) The attribute name or document path to use.
+(Required) The attribute name or document path.
 
-`value`
-
-(Required) The string to search for.
+For supported types, see DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
 
 ## Return type
 
-`bool`
+`int`
 
 ## Examples
 
 ```
-SELECT * FROM "Orders" WHERE "OrderID"=1 AND begins_with("Address", '7834 24th')
+ SELECT * FROM "Orders" WHERE "OrderID"=1 AND size("Image") >300
 ```

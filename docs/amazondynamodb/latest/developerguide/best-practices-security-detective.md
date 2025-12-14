@@ -129,13 +129,13 @@ For more information, see [AWS Tagging Strategies](https://aws.amazon.com/answer
 DynamoDB](Tagging.md "Tagging.md").
 
 **Monitor your usage of Amazon DynamoDB as it relates to security best practices by
-using AWS Security Hub.**
+using AWS Security Hub CSPM.**
 
-Security Hub uses security controls to evaluate resource configurations and
+Security Hub CSPM uses security controls to evaluate resource configurations and
 security standards to help you comply with various compliance
 frameworks.
 
-For more information about using Security Hub to evaluate DynamoDB resources, see
+For more information about using Security Hub CSPM to evaluate DynamoDB resources, see
 [Amazon DynamoDB
-controls](../../../securityhub/latest/userguide/dynamodb-controls.md "../../../securityhub/latest/userguide/dynamodb-controls.md") in the _AWS Security Hub User
+controls](../../../securityhub/latest/userguide/dynamodb-controls.md "../../../securityhub/latest/userguide/dynamodb-controls.md") in the _AWS Security Hub CSPM User
 Guide_.

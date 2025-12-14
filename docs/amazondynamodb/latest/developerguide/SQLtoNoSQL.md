@@ -1,35 +1,23 @@
-# Differences between a relational (SQL) database
+# Differences in accessing a relational (SQL)
 
-and DynamoDB when removing a table
+database and DynamoDB
 
-In SQL, you use the `DROP TABLE` statement to remove a table. In Amazon DynamoDB,
-you use the `DeleteTable` operation.
+Before your application can access a database, it must be
+_authenticated_ to ensure that the application is allowed to use
+the database. It must be _authorized_ so that the application can
+perform only the actions for which it has permissions.
 
-###### Topics
+The following diagram shows a client's interaction with a relational database and with
+Amazon DynamoDB.
 
-- [Removing a table with SQL](#SQLtoNoSQL.RemoveTable.SQL "#SQLtoNoSQL.RemoveTable.SQL")
-- [Removing a table in DynamoDB](#SQLtoNoSQL.RemoveTable.DynamoDB "#SQLtoNoSQL.RemoveTable.DynamoDB")
+![Interaction with relational and NoSQL databases.](images/SQLtoNoSQL.png)
+The following table has more details about client interaction tasks.
 
-## Removing a table with SQL
-
-When you no longer need a table and want to discard it permanently, you would use
-the `DROP TABLE` statement in SQL.
-
-```
-DROP TABLE Music;
-```
-
-After a table is dropped, it cannot be recovered. (Some relational databases do
-allow you to undo a `DROP TABLE` operation, but this is vendor-specific
-functionality and it is not widely implemented.)
-
-## Removing a table in DynamoDB
-
-In DynamoDB, `DeleteTable` is a similar operation. In the following
-example, the table is permanently deleted.
-
-```
-{
-    TableName: "Music"
-}
-```
+| Characteristic                          | Relational database management system (RDBMS)                                                                                                                                                                                                                                                                                        | Amazon DynamoDB                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tools for Accessing the<br>Database** | Most relational databases provide a command line interface (CLI)<br>so that you can enter ad hoc SQL statements and see the results<br>immediately.                                                                                                                                                                                  | In most cases, you write application code. You can also use the<br>AWS Management Console, the AWS Command Line Interface (AWS CLI), or NoSQL Workbench to send ad hoc<br>requests to DynamoDB and view the results. [PartiQL](ql-reference.md "ql-reference.md"), a<br>SQL-compatible query language, lets you select, insert, update, and<br>delete data in DynamoDB.                                                                                     |
+| **Connecting to the Database**          | An application program establishes and maintains a network connection<br>with the database. When the application is finished, it terminates the<br>connection.                                                                                                                                                                       | DynamoDB is a web service, and interactions with it are stateless.<br>Applications do not need to maintain persistent network connections.<br>Instead, interaction with DynamoDB occurs using HTTP(S) requests and<br>responses.                                                                                                                                                                                                                            |
+| **Authentication**                      | An application cannot connect to the database until it is<br>authenticated. The RDBMS can perform the authentication itself, or it<br>can offload this task to the host operating system or a directory<br>service.                                                                                                                  | Every request to DynamoDB must be accompanied by a cryptographic<br>signature, which authenticates that particular request. The AWS SDKs<br>provide all of the logic necessary for creating signatures and signing<br>requests. For more information, see [Signing AWS API<br>requests](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md") in the _AWS General Reference_.                    |
+| **Authorization**                       | Applications can perform only the actions for which they have been<br>authorized. Database administrators or application owners can use the<br>SQL `GRANT` and `REVOKE` statements to control<br>access to database objects (such as tables), data (such as rows within a<br>table), or the ability to issue certain SQL statements. | In DynamoDB, authorization is handled by AWS Identity and Access Management (IAM). You can<br>write an IAM policy to grant permissions on a DynamoDB resource (such as<br>a table), and then allow users and roles to use that policy. IAM also<br>features fine-grained access control for individual data items in DynamoDB<br>tables. For more information, see [Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md"). |
+| **Sending a Request**                   | The application issues a SQL statement for every database operation<br>that it wants to perform. Upon receipt of the SQL statement, the RDBMS<br>checks its syntax, creates a plan for performing the operation, and then<br>runs the plan.                                                                                          | The application sends HTTP(S) requests to DynamoDB. The requests contain<br>the name of the DynamoDB operation to perform, along with parameters. DynamoDB<br>runs the request immediately.                                                                                                                                                                                                                                                                 |
+| **Receiving a Response**                | The RDBMS returns the results from the SQL statement. If there is an<br>error, the RDBMS returns an error status and message.                                                                                                                                                                                                        | DynamoDB returns an HTTP(S) response containing the results of the<br>operation. If there is an error, DynamoDB returns an HTTP error status and<br>messages.                                                                                                                                                                                                                                                                                               |

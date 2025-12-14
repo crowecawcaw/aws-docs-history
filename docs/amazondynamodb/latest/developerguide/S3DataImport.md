@@ -1,260 +1,136 @@
-# Import format quotas and validation
+# Amazon S3 import formats for DynamoDB
 
-## Import quotas
+DynamoDB can import data in three formats: CSV, DynamoDB JSON, and Amazon Ion.
 
-DynamoDB Import from Amazon S3 can support up to 50 concurrent import jobs with a total import
-source object size of 15TB at a time in us-east-1, us-west-2, and eu-west-1 regions. In
-all other regions, up to 50 concurrent import tasks with a total size of 1TB is
-supported. Each import job can take up to
-50,000
-Amazon S3 objects in all regions. These default quotas are applied to every account. If you
-feel you need to revise these quotas, please contact your account team, and this will be
-considered on a case-by-case basis. For more details on DynamoDB limits, see [Service Quotas](ServiceQuotas.md "ServiceQuotas.md").
+###### Topics
 
-## Validation errors
+- [CSV](#S3DataImport.Requesting.Formats.CSV "#S3DataImport.Requesting.Formats.CSV")
+- [DynamoDB Json](#S3DataImport.Requesting.Formats.DDBJson "#S3DataImport.Requesting.Formats.DDBJson")
+- [Amazon Ion](#S3DataImport.Requesting.Formats.Ion "#S3DataImport.Requesting.Formats.Ion")
 
-During the import process, DynamoDB may encounter errors while parsing your data.
-For each error, DynamoDB emits a CloudWatch log and keeps a count of the total number of
-errors encountered. If the Amazon S3 object itself is malformed or if its contents cannot form a
-DynamoDB item, then we may skip processing the remaining portion of the object.
+## CSV
+
+A file in CSV format consists of multiple items delimited by newlines. By default,
+DynamoDB interprets the first line of an import file as the header and expects columns
+to be delimited by commas. You can also define headers that will be applied, as long as
+they match the number of columns in the file. If you define headers explicitly, the
+first line of the file will be imported as values.
 
 ###### Note
 
-If the Amazon S3 data source has multiple items that share the same key, the items will overwrite
-until one remains. This can appear as if 1 item was imported and the others were ignored. The
-duplicate items will be overwritten in random order, are not counted as errors, and are not
-emitted to CloudWatch logs.
+When importing from CSV files, all columns other than the hash range and keys of your
+base table and secondary indexes are imported as DynamoDB strings.
 
-Once the import is complete you can see the total count of items imported, total count of errors,
-and total count of items processed. For further troubleshooting you can also check the total size
-of items imported and total size of data processed.
+**Escaping double quotes**
 
-There are three categories of import errors: API validation errors, data validation errors,
-and configuration errors.
-
-### API validation errors
-
-API validation errors are item-level errors from the sync API. Common causes are permissions issues, missing required parameters
-and parameter validation failures. Details on why the API call failed are contained in the exceptions thrown by the `ImportTable` request.
-
-### Data validation errors
-
-Data validation errors can occur at either the item level or file level. During import, items are
-validated based on DynamoDB rules before importing into the target table. When an item fails validation
-and is not imported, the import job skips over that item and continues on with the next item. At the end
-of job, the import status is set to FAILED with a FailureCode, ItemValidationError and the FailureMessage
-"Some of the items failed validation checks and were not imported. Please check CloudWatch error logs
-for more details."
-
-Common causes for data validation errors include objects being unparsable, objects being in the
-incorrect format (input specifies DYNAMODB_JSON but the object is not in DYNAMODB_JSON), and schema mismatch with
-specified source table keys.
-
-### Configuration errors
-
-Configuration errors are typically workflow errors due to permission validation. The Import workflow checks some
-permissions after accepting the request. If there are issues calling any of the required dependencies like Amazon S3 or CloudWatch
-the process marks the import status as FAILED. The `failureCode` and `failureMessage` point to the reason for failure.
-Where applicable, the failure message also contains the request id that you can use to investigate the reason for failure in CloudTrail.
-
-Common configuration errors include having the wrong URL for the Amazon S3 bucket, and not having permission to access the Amazon S3 bucket,
-CloudWatch Logs, and AWS KMS keys used to decrypt the Amazon S3 object. For more information see
-[Using and data keys](encryption.md#dynamodb-kms "encryption.md#dynamodb-kms").
-
-### Validating source Amazon S3 objects
-
-In order to validate source S3 objects, take the following steps.
-
-1. Validate the data format and compression type
-   - Make sure that all matching Amazon S3 objects under the specified prefix have the same format
-     (DYNAMODB_JSON, DYNAMODB_ION, CSV)
-   - Make sure that all matching Amazon S3 objects under the specified prefix are compressed the same way (GZIP, ZSTD, NONE)
-
-   ###### Note
-
-   The Amazon S3 objects do not need to have the corresponding extension (.csv / .json / .ion / .gz / .zstd etc)
-   as the input format specified in ImportTable call takes precedence.
-
-2. Validate that the import data conforms to the desired table schema
-   - Make sure that each item in the source data has the primary key. A sort key is optional for imports.
-   - Make sure that the attribute type associated with the primary key and any sort key matches the attribute type in the
-     Table and the GSI schema, as specified in table creation parameters
-
-### Troubleshooting
-
-#### CloudWatch logs
-
-For Import jobs that fail, detailed error messages are posted to CloudWatch logs. To access these logs,
-first retrieve the ImportArn from the output and describe-import using this command:
+Any double quotes characters that exist in the CSV file must be escaped.
+If they are not escaped, such as in this following example, the import will fail:
 
 ```
-aws dynamodb describe-import --import-arn arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658528578619-c4d4e311
-}
+id,value
+"123",Women's Full "Length" Dress
 ```
 
-Example output:
+This same import will succeed if the quotes are escaped with two sets of double quotes:
 
 ```
-aws dynamodb describe-import --import-arn "arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658528578619-c4d4e311"
-{
-    "ImportTableDescription": {
-        "ImportArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658528578619-c4d4e311",
-        "ImportStatus": "FAILED",
-        "TableArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table",
-        "TableId": "7b7ecc22-302f-4039-8ea9-8e7c3eb2bcb8",
-        "ClientToken": "30f8891c-e478-47f4-af4a-67a5c3b595e3",
-        "S3BucketSource": {
-            "S3BucketOwner": "ACCOUNT",
-            "S3Bucket": "my-import-source",
-            "S3KeyPrefix": "import-test"
-        },
-        "ErrorCount": 1,
-        "CloudWatchLogGroupArn": "arn:aws:logs:us-east-1:ACCOUNT:log-group:/aws-dynamodb/imports:*",
-        "InputFormat": "CSV",
-        "InputCompressionType": "NONE",
-        "TableCreationParameters": {
-            "TableName": "target-table",
-            "AttributeDefinitions": [
-                {
-                    "AttributeName": "pk",
-                    "AttributeType": "S"
-                }
-            ],
-            "KeySchema": [
-                {
-                    "AttributeName": "pk",
-                    "KeyType": "HASH"
-                }
-            ],
-            "BillingMode": "PAY_PER_REQUEST"
-        },
-        "StartTime": 1658528578.619,
-        "EndTime": 1658528750.628,
-        "ProcessedSizeBytes": 70,
-        "ProcessedItemCount": 1,
-        "ImportedItemCount": 0,
-        "FailureCode": "ItemValidationError",
-        "FailureMessage": "Some of the items failed validation checks and were not imported. Please check CloudWatch error logs for more details."
+id,value
+"""123""","Women's Full ""Length"" Dress"
+```
+
+Once the text has been properly escaped and imported, it will appear as it did in the original CSV file:
+
+```
+id,value
+"123",Women's Full "Length" Dress
+```
+
+## DynamoDB Json
+
+A file in DynamoDB JSON format can consist of multiple Item objects. Each individual object
+is in DynamoDB’s standard marshalled JSON format, and newlines are used as item delimiters. As an added
+feature, exports from point in time are supported as an import source by default.
+
+###### Note
+
+New lines are used as item delimiters for a file in DynamoDB JSON format and
+shouldn't be used within an item object.
+
+```
+{"Item": {"Authors": {"SS": ["Author1", "Author2"]}, "Dimensions": {"S": "8.5 x 11.0 x 1.5"}, "ISBN": {"S": "333-3333333333"}, "Id": {"N": "103"}, "InPublication": {"BOOL": false}, "PageCount": {"N": "600"}, "Price": {"N": "2000"}, "ProductCategory": {"S": "Book"}, "Title": {"S": "Book 103 Title"}}}
+{"Item": {"Authors": {"SS": ["Author1", "Author2"]}, "Dimensions": {"S": "8.5 x 11.0 x 1.5"}, "ISBN": {"S": "444-444444444"}, "Id": {"N": "104"}, "InPublication": {"BOOL": false}, "PageCount": {"N": "600"}, "Price": {"N": "2000"}, "ProductCategory": {"S": "Book"}, "Title": {"S": "Book 104 Title"}}}
+{"Item": {"Authors": {"SS": ["Author1", "Author2"]}, "Dimensions": {"S": "8.5 x 11.0 x 1.5"}, "ISBN": {"S": "555-5555555555"}, "Id": {"N": "105"}, "InPublication": {"BOOL": false}, "PageCount": {"N": "600"}, "Price": {"N": "2000"}, "ProductCategory": {"S": "Book"}, "Title": {"S": "Book 105 Title"}}}
+```
+
+## Amazon Ion
+
+[Amazon Ion](https://amzn.github.io/ion-docs/ "https://amzn.github.io/ion-docs/") is a richly-typed,
+self-describing, hierarchical data serialization format built to address
+rapid development, decoupling, and efficiency challenges faced every day
+while engineering large-scale, service-oriented architectures.
+
+When you import data in Ion format, the Ion datatypes are mapped to
+DynamoDB datatypes in the new DynamoDB table.
+
+| S. No. | Ion to DynamoDB datatype conversion                                       | B                         |
+| ------ | ------------------------------------------------------------------------- | ------------------------- |
+| `1`    | `Ion Data Type`                                                           | `DynamoDB Representation` |
+| `2`    | `string`                                                                  | `String (s)`              |
+| `3`    | `bool`                                                                    | `Boolean (BOOL)`          |
+| `4`    | `decimal`                                                                 | `Number (N)`              |
+| `5`    | `blob`                                                                    | `Binary (B)`              |
+| `6`    | `list (with type annotation $dynamodb_SS, $dynamodb_NS, or $dynamodb_BS)` | `Set (SS, NS, BS)`        |
+| `7`    | `list`                                                                    | `List`                    |
+| `8`    | `struct`                                                                  | `Map`                     |
+
+Items in an Ion file are delimited by newlines. Each line begins with an Ion version marker,
+followed by an item in Ion format.
+
+###### Note
+
+In the following example, we've formatted items from an Ion-formatted file on multiple lines to improve readability.
+
+```
+$ion_1_0
+[
+  {
+    Item:{
+      Authors:$dynamodb_SS::["Author1","Author2"],
+      Dimensions:"8.5 x 11.0 x 1.5",
+      ISBN:"333-3333333333",
+      Id:103.,
+      InPublication:false,
+      PageCount:6d2,
+      Price:2d3,
+      ProductCategory:"Book",
+      Title:"Book 103 Title"
     }
-}
+  },
+  {
+    Item:{
+      Authors:$dynamodb_SS::["Author1","Author2"],
+      Dimensions:"8.5 x 11.0 x 1.5",
+      ISBN:"444-4444444444",
+      Id:104.,
+      InPublication:false,
+      PageCount:6d2,
+      Price:2d3,
+      ProductCategory:"Book",
+      Title:"Book 104 Title"
+    }
+  },
+  {
+    Item:{
+      Authors:$dynamodb_SS::["Author1","Author2"],
+      Dimensions:"8.5 x 11.0 x 1.5",
+      ISBN:"555-5555555555",
+      Id:105.,
+      InPublication:false,
+      PageCount:6d2,
+      Price:2d3,
+      ProductCategory:"Book",
+      Title:"Book 105 Title"
+    }
+  }
+]
 ```
-
-Retrieve the log group and the import id from the above response and use it to retrieve the error logs. The import ID is the last path element of the `ImportArn` field.
-The log group name is `/aws-dynamodb/imports`. The error log stream name is `import-id/error`. For this example, it would be `01658528578619-c4d4e311/error`.
-
-#### Missing the key pk in the item
-
-If the source S3 object does not contain the primary key that was provided as a parameter, the import will fail.
-For example, when you define the primary key for the import as column name “pk”.
-
-```
-aws dynamodb import-table —s3-bucket-source S3Bucket=my-import-source,S3KeyPrefix=import-test.csv \
-            —input-format CSV --table-creation-parameters '{"TableName":"target-table","KeySchema":  \
-            [{"AttributeName":"pk","KeyType":"HASH"}],"AttributeDefinitions":[{"AttributeName":"pk","AttributeType":"S"}],"BillingMode":"PAY_PER_REQUEST"}'
-```
-
-The column “pk” is missing from the the source object `import-test.csv` which has the following contents:
-
-```
-title,artist,year_of_release
-The Dark Side of the Moon,Pink Floyd,1973
-```
-
-This import will fail due to item validation error because of the missing primary key in the data source.
-
-Example CloudWatch error log:
-
-```
-aws logs get-log-events —log-group-name /aws-dynamodb/imports —log-stream-name 01658528578619-c4d4e311/error
-{
-"events": [
-{
-"timestamp": 1658528745319,
-"message": "{\"itemS3Pointer\":{\"bucket\":\"my-import-source\",\"key\":\"import-test.csv\",\"itemIndex\":0},\"importArn\":\"arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658528578619-c4d4e311\",\"errorMessages\":[\"One or more parameter values were invalid: Missing the key pk in the item\"]}",
-"ingestionTime": 1658528745414
-}
-],
-"nextForwardToken": "f/36986426953797707963335499204463414460239026137054642176/s",
-"nextBackwardToken": "b/36986426953797707963335499204463414460239026137054642176/s"
-}
-```
-
-This error log indicates that “One or more parameter values were invalid: Missing the key pk in the item”.
-Since this import job failed, the table “target-table” now exists and is empty because no items were imported.
-The first item was processed and the object failed Item Validation.
-
-To fix the issue, first delete “target-table” if it is no longer needed. Then either use a primary key column
-name that exists in the source object, or update the source data to:
-
-```
-pk,title,artist,year_of_release
-Albums::Rock::Classic::1973::AlbumId::ALB25,The Dark Side of the Moon,Pink Floyd,1973
-```
-
-#### Target table exists
-
-When you start an import job and receive a response as follows:
-
-```
-An error occurred (ResourceInUseException) when calling the ImportTable operation: Table already exists: target-table
-```
-
-To fix this error, you will need to choose a table name that doesn’t already exist and retry the import.
-
-#### The specified bucket does not exist
-
-If the source bucket does not exist, the import will fail and log the error message details in CloudWatch.
-
-Example describe import:
-
-```
-aws dynamodb —endpoint-url $ENDPOINT describe-import —import-arn "arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658530687105-e6035287"
-{
-"ImportTableDescription": {
-"ImportArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658530687105-e6035287",
-"ImportStatus": "FAILED",
-"TableArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table",
-"TableId": "e1215a82-b8d1-45a8-b2e2-14b9dd8eb99c",
-"ClientToken": "3048e16a-069b-47a6-9dfb-9c259fd2fb6f",
-"S3BucketSource": {
-"S3BucketOwner": "531234567890",
-"S3Bucket": "BUCKET_DOES_NOT_EXIST",
-"S3KeyPrefix": "import-test"
-},
-"ErrorCount": 0,
-"CloudWatchLogGroupArn": "arn:aws:logs:us-east-1:ACCOUNT:log-group:/aws-dynamodb/imports:*",
-"InputFormat": "CSV",
-"InputCompressionType": "NONE",
-"TableCreationParameters": {
-"TableName": "target-table",
-"AttributeDefinitions": [
-{
-"AttributeName": "pk",
-"AttributeType": "S"
-}
-],
-"KeySchema": [
-{
-"AttributeName": "pk",
-"KeyType": "HASH"
-}
-],
-"BillingMode": "PAY_PER_REQUEST"
-},
-"StartTime": 1658530687.105,
-"EndTime": 1658530701.873,
-"ProcessedSizeBytes": 0,
-"ProcessedItemCount": 0,
-"ImportedItemCount": 0,
-"FailureCode": "S3NoSuchBucket",
-"FailureMessage": "The specified bucket does not exist (Service: Amazon S3; Status Code: 404; Error Code: NoSuchBucket; Request ID: Q4W6QYYFDWY6WAKH; S3 Extended Request ID: ObqSlLeIMJpQqHLRX2C5Sy7n+8g6iGPwy7ixg7eEeTuEkg/+chU/JF+RbliWytMlkUlUcuCLTrI=; Proxy: null)"
-}
-}
-```
-
-The `FailureCode` is `S3NoSuchBucket`, with `FailureMessag` containing details such as
-request id and the service that threw the error.
-Since the error was caught before the data was imported into the table, a new DynamoDB table is not created. In some cases,
-when these errors are encountered after the data import has started, the table with partially imported data is retained.
-
-To fix this error, make sure that the source Amazon S3 bucket exists and then restart the import process.

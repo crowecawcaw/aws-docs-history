@@ -1,308 +1,147 @@
-# Step 3: Deploy in production using the DynamoDB
-
-service
+# Step 1: Deploy and test locally
 
 ###### Topics
 
-- [3.1: Create an IAM role for
-  Amazon EC2](#TicTacToe.DeployInProd.IAMCreateRole "#TicTacToe.DeployInProd.IAMCreateRole")
-- [3.2: Create the games table in
-  Amazon DynamoDB](#TicTacToe.DeployInProd.CreateTable "#TicTacToe.DeployInProd.CreateTable")
-- [3.3: Bundle and deploy
-  the tic-tac-toe application code](#TicTacToe.DeployInProd.IAMBundleDeployCode "#TicTacToe.DeployInProd.IAMBundleDeployCode")
-- [3.4: Set up the AWS Elastic Beanstalk
-  environment](#TicTacToe.DeployInProd.SetUpElasticBeanstalk "#TicTacToe.DeployInProd.SetUpElasticBeanstalk")
-  In the preceding sections, you deployed and tested the Tic-Tac-Toe application locally
-  on your computer using DynamoDB local. Now, you deploy the application in production as
-  follows:
+- [1.1: Download and install the required
+  packages](#TicTacToe.Phase1.InstallApp "#TicTacToe.Phase1.InstallApp")
+- [1.2: Test the game application](#TicTacToe.RunAppLocally "#TicTacToe.RunAppLocally")
+  In this step you download, deploy, and test the Tic-Tac-Toe game application on your
+  local computer. Instead of using the Amazon DynamoDB web service, you will download DynamoDB to
+  your computer, and create the required table there.
 
-- Deploy the application using AWS Elastic Beanstalk, an easy-to-use service for deploying
-  and scaling web applications and services. For more information, see [Deploying a flask
-  application to AWS Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/create-deploy-python-flask.md "../../../elasticbeanstalk/latest/dg/create-deploy-python-flask.md").
+## 1.1: Download and install the required
 
-Elastic Beanstalk launches one or more Amazon Elastic Compute Cloud (Amazon EC2) instances, which you configure
-through Elastic Beanstalk, on which your Tic-Tac-Toe application will
-run.
+packages
 
-- Using the Amazon DynamoDB service, create a `Games` table that exists on
-  AWS rather than locally on your computer.
-  In addition, you also have to configure permissions. Any AWS resources you create,
-  such as the `Games` table in DynamoDB, are private by default. Only the resource
-  owner, that is the AWS account that created the `Games` table, can access
-  this table. Thus, by default your Tic-Tac-Toe application cannot update the
-  `Games` table.
+You will need the following to test this application locally:
 
-To grant necessary permissions, you create an AWS Identity and Access Management (IAM) role and grant this
-role permissions to access the `Games` table. Your Amazon EC2 instance first
-assumes this role. In response, AWS returns temporary security credentials that the
-Amazon EC2 instance can use to update the `Games` table on behalf of the
-Tic-Tac-Toe application. When you configure your Elastic Beanstalk application, you specify the
-IAM role that the Amazon EC2 instance or instances can assume. For more information about
-IAM roles, see [IAM roles for
-amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md") in the _Amazon EC2 User Guide._
+- Python
+- Flask (a microframework for Python)
+- AWS SDK for Python (Boto)
+- DynamoDB running on your computer
+- Git
+
+To get these tools, do the following:
+
+1. Install Python. For step-by-step instructions, see [Download Python](https://www.python.org/downloads/ "https://www.python.org/downloads/").
+
+The Tic-Tac-Toe application has been tested using Python version 2.7. 2. Install Flask and AWS SDK for Python (Boto) using the Python Package
+Installer (PIP):
+
+    * Install PIP.
+
+
+    For instructions, see [Install
+     PIP](http://pip.readthedocs.org/en/stable/installing/ "http://pip.readthedocs.org/en/stable/installing/"). On the installation page, choose the
+     **get-pip.py** link, and then save the file.
+     Then open a command terminal as an administrator, and enter the
+     following at the command prompt.
+
+
+
+    ```
+    python.exe get-pip.py
+    ```
+
+     On Linux, you don't specify the `.exe` extension. You
+     only specify `python get-pip.py`.
+    * Using PIP, install the Flask and Boto packages using the following
+     code.
+
+
+
+    ```
+    pip install Flask
+    pip install boto
+    pip install configparser
+    ```
+
+3. Download DynamoDB to your computer. For instructions on how to run it, see
+   [Setting up DynamoDB local (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md") .
+4. Download the Tic-Tac-Toe application:
+   1. Install Git. For instructions, see [git downloads](http://git-scm.com/downloads "http://git-scm.com/downloads").
+   2. Run the following code to download the application.
+
+   ```
+   git clone https://github.com/awslabs/dynamodb-tictactoe-example-app.git
+   ```
+
+## 1.2: Test the game application
+
+To test the Tic-Tac-Toe application, you need to run DynamoDB locally on your
+computer.
+
+###### To run the tic-tac-toe application
+
+1. Start DynamoDB.
+2. Start the web server for the Tic-Tac-Toe application.
+
+To do so, open a command terminal, navigate to the folder where you
+downloaded the Tic-Tac-Toe application, and run the application locally
+using the following code.
+
+```
+python.exe application.py --mode local --serverPort 5000 --port 8000
+```
+
+On Linux, you don't specify the `.exe` extension. 3. Open your web browser, and enter the following.
+
+```
+http://localhost:5000/
+```
+
+The browser shows the home page.
+
+![Screenshot of the application home page with a create button and links to games, invitations, and recent history.](images/tic-tac-toe-ddb-local-play-5.png) 4. Enter `user1` in the **Log in** box
+to log in as user1.
 
 ###### Note
 
-Before you create Amazon EC2 instances for the Tic-Tac-Toe application, you must first
-decide the AWS Region where you want Elastic Beanstalk to create the instances. After you create
-the Elastic Beanstalk application, you provide the same Region name and endpoint in a
-configuration file. The Tic-Tac-Toe application uses information in this file to
-create the `Games` table and send subsequent requests in a specific AWS
-Region. Both the DynamoDB `Games` table and the Amazon EC2 instances that Elastic Beanstalk
-launches must be in the same Region. For a list of available Regions, see [Amazon DynamoDB](../../../general/latest/gr/rande.md#ddb_region "../../../general/latest/gr/rande.md#ddb_region") in the
-_Amazon Web Services General Reference_.
+This example application does not perform any user authentication. The
+user ID is only used to identify players. If two players log in with the
+same alias, the application works as if you are playing in two different
+browsers. 5. If this is your first time playing the game, a page appears requesting you
+to create the required table (`Games`) in DynamoDB. Choose
+**CREATE TABLE**.
 
-In summary, you do the following to deploy the Tic-Tac-Toe application in
-production:
+![Screenshot of the create table button in the application.](images/tic-tac-toe-ddb-local-play-10.png) 6. Choose **CREATE** to create the first tic-tac-toe
+game. 7. Enter `user2` in the **Choose an
+Opponent** box, and choose **Create
+Game!**
 
-1. Create an IAM role using the IAM service. You attach a policy to this role
-   granting permissions for DynamoDB actions to access the `Games` table.
-2. Bundle the Tic-Tac-Toe application code and a configuration file, and create a
-   `.zip` file. You use this `.zip` file
-   to give the Tic-Tac-Toe application code to Elastic Beanstalk to put on your servers. For
-   more information about creating a bundle, see [Creating an
-   application source bundle](../../../elasticbeanstalk/latest/dg/using-features.deployment.md "../../../elasticbeanstalk/latest/dg/using-features.deployment.md") in the
-   _AWS Elastic Beanstalk Developer Guide_.
+![Screenshot showing the choose an opponent dialog box and create game button.](images/tic-tac-toe-ddb-local-play-20.png)
 
-In the configuration file (`beanstalk.config`), you provide AWS
-Region and endpoint information. The Tic-Tac-Toe application uses this
-information to determine which DynamoDB Region to talk to. 3. Set up the Elastic Beanstalk environment. Elastic Beanstalk launches an Amazon EC2 instance or instances
-and deploys your Tic-Tac-Toe application bundle on them. After the Elastic Beanstalk
-environment is ready, you provide the configuration file name by adding the
-`CONFIG_FILE` environment variable. 4. Create the DynamoDB table. Using the Amazon DynamoDB service, you create the
-`Games` table on AWS, rather than locally on your computer.
-Remember, this table has a simple primary key made of the `GameId`
-partition key of string type. 5. Test the game in production.
-
-## 3.1: Create an IAM role for
-
-Amazon EC2
-
-Creating an IAM role of the **Amazon EC2** type allows the Amazon EC2
-instance that is running your Tic-Tac-Toe application to assume the correct role and
-make application requests to access the `Games` table. When creating the
-role, choose the **Custom Policy** option and copy and paste the
-following policy.
-
-JSON
+Doing this creates the game by adding an item in the `Games`
+table. It sets the game status to `PENDING`. 8. Open another browser window, and enter the following.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Action":[
- "dynamodb:ListTables"
- ],
- "Effect":"Allow",
- "Resource":"*"
- },
- {
- "Action":[
- "dynamodb:*"
- ],
- "Effect":"Allow",
- "Resource":[
- "arn:aws:dynamodb:us-west-2:922852403271:table/Games",
- "arn:aws:dynamodb:us-west-2:922852403271:table/Games/index/*"
- ]
- }
- ]
-}`
-
+http://localhost:5000/
 ```
 
-For further instructions, see [Creating a role for an AWS
-service (AWS Management Console)](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
-_IAM User Guide._
+The browser passes information through cookies, so you should use
+incognito mode or private browsing so that your cookies don't carry
+over. 9. Log in as user2.
 
-## 3.2: Create the games table in
+A page appears that shows a pending invitation from user1.
 
-Amazon DynamoDB
+![Screenshot showing the application home page with a pending invitation.](images/tic-tac-toe-ddb-local-play-30.png) 10. Choose **accept** to accept the invitation.
 
-The `Games` table in DynamoDB stores game data. If the table does not
-exist, the application creates the table for you. In this case, let the application
-create the `Games` table.
+![Screenshot of an empty tic-tac-toe grid with game status in progress.](images/tic-tac-toe-ddb-local-play-40.png)
 
-## 3.3: Bundle and deploy
+The game page appears with an empty tic-tac-toe grid. The page also shows
+relevant game information such as the game ID, whose turn it is, and game
+status. 11. Play the game.
 
-the tic-tac-toe application code
+For each user move, the web service sends a request to DynamoDB to conditionally
+update the game item in the `Games` table. For example, the conditions
+ensure that the move is valid, the square that the user chose is available, and that
+it was the turn of the user who made the move. For a valid move, the update
+operation adds a new attribute corresponding to the selection on the board. The
+update operation also sets the value of the existing attribute to the user who can
+make the next move.
 
-If you followed this example's steps, then you already have the downloaded the
-Tic-Tac-Toe application. If not, download the application and extract all the files
-to a folder on your local computer. For instructions, see [Step 1: Deploy and test locally](TicTacToe.md "TicTacToe.md").
-
-After you extract all files, you will have a `code` folder. To hand off
-this folder to Elastic Beanstalk, you bundle the contents of this folder as a
-`.zip` file. First, you add a configuration file to that
-folder. Your application uses the Region and endpoint information to create a DynamoDB
-table in the specified Region and make subsequent table operation requests using the
-specified endpoint.
-
-1. Switch to the folder where you downloaded the Tic-Tac-Toe
-   application.
-2. In the root folder of the application, create a text file named
-   `beanstalk.config` with the following content.
-
-```
-[dynamodb]
-region=`<AWS region>`
-endpoint=`<DynamoDB endpoint>`
-```
-
-For example, you might use the following content.
-
-```
-[dynamodb]
-region=us-west-2
-endpoint=dynamodb.us-west-2.amazonaws.com
-```
-
-For a list of available Regions, see [Amazon DynamoDB](../../../general/latest/gr/rande.md#ddb_region "../../../general/latest/gr/rande.md#ddb_region") in the
-_Amazon Web Services General Reference._
-
-###### Important
-
-The Region specified in the configuration file is the location where
-the Tic-Tac-Toe application creates the `Games` table in
-DynamoDB. You must create the Elastic Beanstalk application discussed in the next
-section in the same Region.
-
-###### Note
-
-When you create your Elastic Beanstalk application, you request to launch an
-environment where you can choose the environment type. To test the
-Tic-Tac-Toe example application, you can choose the **Single
-Instance** environment type, skip the following, and go to
-the next step.
-
-However, the **Load balancing, autoscaling**
-environment type provides a highly available and scalable environment,
-something you should consider when you create and deploy other
-applications. If you choose this environment type, you also need to
-generate a UUID and add it to the configuration file, as shown
-following.
-
-```
-[dynamodb]
-region=us-west-2
-endpoint=dynamodb.us-west-2.amazonaws.com
-[flask]
-secret_key= 284e784d-1a25-4a19-92bf-8eeb7a9example
-```
-
-In client-server communication, when the server sends a response, for
-security's sake the server sends a signed cookie that the client sends
-back to the server in the next request. When there is only one server,
-the server can locally generate an encryption key when it starts. When
-there are many servers, they all need to know the same encryption key;
-otherwise, they won't be able to read cookies set by the peer servers.
-By adding `secret_key` to the configuration file, you tell
-all servers to use this encryption key. 3. Zip the content of the root folder of the application (which includes the
-`beanstalk.config` file)—for example,
-`TicTacToe.zip`. 4. Upload the `.zip` file to an Amazon Simple Storage Service (Amazon S3) bucket. In
-the next section, you provide this `.zip` file to Elastic Beanstalk
-to upload on the server or servers.
-
-For instructions on how to upload to an Amazon S3 bucket, see [Create a bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md") and
-[Add an object to
-a bucket](../../../AmazonS3/latest/userguide/PuttingAnObjectInABucket.md "../../../AmazonS3/latest/userguide/PuttingAnObjectInABucket.md") in the _Amazon Simple Storage Service User Guide._
-
-## 3.4: Set up the AWS Elastic Beanstalk
-
-environment
-
-In this step, you create an Elastic Beanstalk application, which is a collection of components
-including environments. For this example, you launch one Amazon EC2 instance to deploy
-and run your Tic-Tac-Toe application.
-
-1. Enter the following custom URL to set up an Elastic Beanstalk console to set up the
-   environment.
-
-```
-https://console.aws.amazon.com/elasticbeanstalk/?region=`<AWS-Region>`#/newApplication
-?applicationName=TicTacToe`your-name`
-&solutionStackName=Python
-&sourceBundleUrl=https://s3.amazonaws.com/`<bucket-name>`/`TicTacToe.zip`
-&environmentType=SingleInstance
-&instanceType=t1.micro
-```
-
-For more information about custom URLs, see [Constructing a Launch Now
-URL](../../../elasticbeanstalk/latest/dg/launch-now-url.md "../../../elasticbeanstalk/latest/dg/launch-now-url.md") in the _AWS Elastic Beanstalk Developer
-Guide._ For the URL, note the following:
-
-    * You must provide an AWS Region name (the same as the one you
-     provided in the configuration file), an Amazon S3 bucket name, and the
-     object name.
-    * For testing, the URL requests the **SingleInstance** environment type, and
-     `t1.micro` as the instance type.
-    * The application name must be unique. Thus, in the preceding URL,
-     we suggest you prepend your name to the
-     `applicationName`.
-
-Doing this opens the Elastic Beanstalk console. In some cases, you might need to sign
-in. 2. In the Elastic Beanstalk console, choose **Review and Launch**, and
-then choose **Launch**. 3. Note the URL for future reference. This URL opens your Tic-Tac-Toe
-application home page.
-
-![Application screenshot showing the environment being created message on the home page.](images/tic-tac-toe-beanstalk-setup-50.png) 4. Configure the Tic-Tac-Toe application so it knows the location of the
-configuration file.
-
-After Elastic Beanstalk creates the application, choose
-**Configuration**.
-
-    1. Choose the gear icon next to **Software
-     Configuration**, as shown in the following
-     screenshot.
-
-
-
-    ![Tic-tac-toe application screenshot showing the gear icon next to software configuration.](images/tic-tac-toe-beanstalk-setup-60.png)
-    2. At the end of the **Environment Properties**
-     section, enter `CONFIG_FILE` and its value
-     `beanstalk.config`, and then choose
-     **Save**.
-
-
-    It might take a few minutes for this environment update to
-     complete.
-
-
-
-    ![Application screenshot showing the environment properties section.](images/tic-tac-toe-beanstalk-setup-70.png)After the update completes, you can play the game.
-
-5. In the browser, enter the URL you copied in the previous step, as shown in
-   the following example.
-
-```
-http://`<pen-name>`.elasticbeanstalk.com
-```
-
-Doing this opens the application home page.
-
-![Screenshot of application home page showing the create button, invitations, games in progress, and recent history.](images/tic-tac-toe-inprod-playgame-10.png) 6. Log in as testuser1, and choose **CREATE** to start a new
-tic-tac-toe game. 7. Enter `testuser2` in the **Choose an
-Opponent** box.
-
-![Application screenshot showing the choose an opponent box.](images/tic-tac-toe-inprod-playgame-20.png) 8. Open another browser window.
-
-Make sure that you clear all cookies in your browser window so you won't
-be logged in as same user. 9. Enter the same URL to open the application home page, as shown in the
-following example.
-
-```
-http://`<env-name>`.elasticbeanstalk.com
-```
-
-10. Log in as testuser2.
-11. For the invitation from testuser1 in the list of pending invitations,
-    choose **accept**.
-
-![Application screenshot showing the testuser1 invitation in the invitations list.](images/tic-tac-toe-inprod-playgame-30.png) 12. Now the game page appears.
-
-![Application screenshot showing an empty tic-tac-toe grid.](images/tic-tac-toe-inprod-playgame-40.png)
-
-Both testuser1 and testuser2 can play the game. For each move, the
-application saves the move in the corresponding item in the
-`Games` table.
+On the game page, the application makes asynchronous JavaScript calls every
+second, for up to 5 minutes, to check if the game state in DynamoDB has changed. If it
+has, the application updates the page with new information. After 5 minutes, the
+application stops making the requests, and you need to refresh the page to get
+updated information.

@@ -1,648 +1,257 @@
-# DynamoDB encryption at rest usage notes
+# Managing encrypted tables in DynamoDB
 
-Consider the following when you are using encryption at rest in Amazon DynamoDB.
-
-## All table data is encrypted
-
-Server-side encryption at rest is enabled on all DynamoDB table data and cannot be
-disabled. You cannot encrypt only a subset of items in a table.
-
-Encryption at rest only encrypts data while it is static (at rest) on a persistent
-storage media. If data security is a concern for data in transit or data in use, you
-might need to take additional measures:
-
-- Data in transit: All your data in DynamoDB is encrypted in transit. By default, communications to and from DynamoDB use the HTTPS
-  protocol, which protects network traffic by using Secure Sockets Layer
-  (SSL)/Transport Layer Security (TLS) encryption.
-- Data in use: Protect your data before sending it to DynamoDB using client-side
-  encryption. For more information, see [Client-side and server-side encryption](../../../dynamodb-encryption-client/latest/devguide/client-server-side.md "../../../dynamodb-encryption-client/latest/devguide/client-server-side.md") in the _Amazon DynamoDB Encryption Client
-  Developer Guide_.
-
-You can use streams with encrypted tables. DynamoDB streams are always encrypted with a
-table-level encryption key. For more information, see [Change data capture for DynamoDB Streams](Streams.md "Streams.md").
-
-DynamoDB backups are encrypted, and the table that is restored from a backup also has
-encryption enabled. You can use the AWS owned key, AWS managed key, or customer managed key to
-encrypt your backup data. For more information, see [Backup and restore for DynamoDB](Backup-and-Restore.md "Backup-and-Restore.md").
-
-Local secondary indexes and global secondary indexes are encrypted using the same key
-as the base table.
-
-## Encryption types
-
-###### Note
-
-Customer managed keys are not supported in Global Table Version 2017. If you want
-to use a customer managed key in a DynamoDB Global Table, you need to upgrade the table to Global Table
-Version 2019 and then enable it.
-
-On the AWS Management Console, the encryption type is `KMS` when you use the
-AWS managed key or customer managed key to encrypt your data. The encryption type is
-`DEFAULT` when you use the AWS owned key. In the Amazon DynamoDB API, the
-encryption type is `KMS` when you use the AWS managed key or customer managed key. In the
-absence of encryption type, your data is encrypted using the AWS owned key. You can switch
-between the AWS owned key, AWS managed key, and customer managed key at any given time. You can
-use the console, the AWS Command Line Interface (AWS CLI), or the Amazon DynamoDB API to switch the encryption
-keys.
-
-Note the following limitations when using customer managed keys:
-
-- You cannot use a customer managed key with DynamoDB Accelerator (DAX) clusters. For more information,
-  see [DAX encryption at rest](DAXEncryptionAtRest.md "DAXEncryptionAtRest.md").
-- You can use a customer managed key to encrypt tables that use transactions. However, to
-  ensure durability for propagation of transactions, a copy of the transaction request
-  is temporarily stored by the service and encrypted using an AWS owned key.
-  Committed data in your tables and secondary indexes is always encrypted at rest
-  using your customer managed key.
-- You can use a customer managed key to encrypt tables that use Contributor Insights. However,
-  data that is transmitted to Amazon CloudWatch is encrypted with an
-  AWS owned key.
-- When you transition to a new customer managed key, be sure to keep the original key enabled
-  until the process is complete. AWS will still need the original key to decrypt the
-  data before encrypting it with the new key. The process will be complete when the
-  table's SSEDescription Status is ENABLED and the KMSMasterKeyArn of the new
-  customer managed key is displayed. At this point the original key can be disabled or scheduled
-  for deletion.
-- Once the new customer managed key is displayed, the table and any new on-demand backups are
-  encrypted with the new key.
-- Any existing on-demand backups remain encrypted with the customer managed key that was used
-  when those backups were created. You will need that same key to restore those
-  backups. You can identify the key for the period when each backup was created by
-  using the DescribeBackup API to view that backup's SSEDescription.
-- If you disable your customer managed key or schedule it for deletion, any data in DynamoDB Streams is
-  still subject to a 24-hour lifetime. Any unretrieved activity data is eligible for
-  trimming when it is older than 24 hours.
-- If you disable your customer managed key or schedule it for deletion, Time to Live (TTL) deletes
-  continue for 30 minutes. These TTL deletes continue to be emitted to DynamoDB Streams and are
-  subject to the standard trimming/retention interval.
-
-For more information, see [enabling keys](../../../kms/latest/developerguide/enabling-keys.md "../../../kms/latest/developerguide/enabling-keys.md") and [deleting keys.](../../../kms/latest/developerguide/deleting-keys.md "../../../kms/latest/developerguide/deleting-keys.md")
-
-## Using KMS keys and data keys
-
-The DynamoDB encryption at rest feature uses an AWS KMS key and a hierarchy of data keys
-to protect your table data. DynamoDB uses the same key hierarchy to protect DynamoDB streams, global
-tables, and backups when they are written to durable media.
-
-We recommend that you plan your encryption strategy
-before implementing your table in DynamoDB. If you store sensitive or confidential data in DynamoDB,
-consider including client-side encryption in your plan. This way you can encrypt data as close
-as possible to its origin, and ensure its protection throughout its lifecycle. For more information
-see the [DynamoDB
-encryption client](../../../dynamodb-encryption-client/latest/devguide/what-is-ddb-encrypt.md "../../../dynamodb-encryption-client/latest/devguide/what-is-ddb-encrypt.md") documentation.
-
-**AWS KMS key**
-
-Encryption at rest protects your DynamoDB tables under an AWS KMS key. By default,
-DynamoDB uses an [AWS owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk"), a multi-tenant
-encryption key that is created and managed in a DynamoDB service account. But you can
-encrypt your DynamoDB tables under a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") for DynamoDB
-(`aws/dynamodb`) in your AWS account. You can select a different
-KMS key for each table. The KMS key you select for a table is also used to encrypt
-its local and global secondary indexes, streams, and backups.
-
-You select the KMS key for a table when you create or update the table. You can
-change the KMS key for a table at any time, either in the DynamoDB console or by using
-the [UpdateTable](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md") operation. The
-process of switching keys is seamless and does not require downtime or degrade
-service.
-
-###### Important
-
-DynamoDB supports only [symmetric KMS keys](../../../kms/latest/developerguide/concepts.md#symmetric-cmks "../../../kms/latest/developerguide/concepts.md#symmetric-cmks").
-You cannot use an [asymmetric KMS key](../../../kms/latest/developerguide/symmetric-asymmetric.md#asymmetric-cmks "../../../kms/latest/developerguide/symmetric-asymmetric.md#asymmetric-cmks") to
-encrypt your DynamoDB tables.
-
-Use a customer managed key to get the following features:
-
-- You create and manage the KMS key, including setting the [key policies](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md"), [IAM
-  policies](../../../kms/latest/developerguide/iam-policies.md "../../../kms/latest/developerguide/iam-policies.md") and [grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to control access to the
-  KMS key. You can [enable and disable](../../../kms/latest/developerguide/enabling-keys.md "../../../kms/latest/developerguide/enabling-keys.md") the
-  KMS key, enable and disable [automatic key
-  rotation](../../../kms/latest/developerguide/rotate-keys.md "../../../kms/latest/developerguide/rotate-keys.md"), and [delete the KMS key](../../../kms/latest/developerguide/deleting-keys.md "../../../kms/latest/developerguide/deleting-keys.md")
-  when it is no longer in use.
-- You can use a customer managed key with [imported key
-  material](../../../kms/latest/developerguide/importing-keys.md "../../../kms/latest/developerguide/importing-keys.md") or a customer managed key in a [custom key store](../../../kms/latest/developerguide/custom-key-store-overview.md "../../../kms/latest/developerguide/custom-key-store-overview.md") that you own and manage.
-- You can audit the encryption and decryption of your DynamoDB table by examining the
-  DynamoDB API calls to AWS KMS in [AWS CloudTrail
-  logs](../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-cmk-trail "../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-cmk-trail").
-
-Use the AWS managed key if you need any of the following features:
-
-- You can [view the KMS key](../../../kms/latest/developerguide/viewing-keys.md "../../../kms/latest/developerguide/viewing-keys.md") and [view its key policy](../../../kms/latest/developerguide/key-policy-viewing.md "../../../kms/latest/developerguide/key-policy-viewing.md"). (You cannot change the
-  key policy.)
-- You can audit the encryption and decryption of your DynamoDB table by examining the
-  DynamoDB API calls to AWS KMS in [AWS CloudTrail
-  logs](../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-cmk-trail "../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-cmk-trail").
-
-However, the AWS owned key is free of charge and its use does not count against
-[AWS KMS resource or request quotas](../../../kms/latest/developerguide/limits.md "../../../kms/latest/developerguide/limits.md"). Customer managed keys and
-AWS managed keys [incur a charge](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/") for
-each API call and AWS KMS quotas apply to these KMS keys.
-
-**Table keys**
-
-DynamoDB uses the KMS key for the table to [generate](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") and encrypt a unique
-[data key](../../../kms/latest/developerguide/concepts.md#data-keys "../../../kms/latest/developerguide/concepts.md#data-keys") for the table, known as the _table key_. The table key persists for the lifetime of the
-encrypted table.
-
-The table key is used as a key encryption key. DynamoDB uses this table key to protect
-data encryption keys that are used to encrypt the table data. DynamoDB generates a unique
-data encryption key for each underlying structure in a table, but multiple table items
-might be protected by the same data encryption key.
-
-![Encrypting a DynamoDB table with encryption at rest](images/service-ddb-encrypt.png)
-
-When you first access an encrypted table, DynamoDB sends a request to AWS KMS to use the
-KMS key to decrypt the table key. Then, it uses the plaintext table key to decrypt the
-data encryption keys, and uses the plaintext data encryption keys to decrypt table
-data.
-
-DynamoDB stores and uses the table key and data encryption keys outside of AWS KMS. It
-protects all keys with [Advanced Encryption
-Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard "https://en.wikipedia.org/wiki/Advanced_Encryption_Standard") (AES) encryption and 256-bit encryption keys. Then, it stores the
-encrypted keys with the encrypted data so they are available to decrypt the table data
-on demand.
-
-If you change the KMS key for your table, DynamoDB generates a new table key. Then,
-it uses the new table key to re-encrypt the data encryption keys.
-
-**Table key caching**
-
-To avoid calling AWS KMS for every DynamoDB operation, DynamoDB caches the plaintext table
-keys for each caller in memory. If DynamoDB gets a request for the cached table key after
-five minutes of inactivity, it sends a new request to AWS KMS to decrypt the table key.
-This call will capture any changes made to the access policies of the KMS key in AWS KMS
-or AWS Identity and Access Management (IAM) since the last request to decrypt the table key.
-
-## Authorizing use of your KMS key
-
-If you use a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
-or the [AWS managed key](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") in your account to protect your DynamoDB
-table, the policies on that KMS key must give DynamoDB permission to use it on your behalf. The
-authorization context on the AWS managed key for DynamoDB includes its key policy and grants
-that delegate the permissions to use it.
-
-You have full control over the policies and grants on a customer managed key Because the
-AWS managed key is in your account, you can view its policies and grants. But, because it is
-managed by AWS, you cannot change the policies.
-
-DynamoDB does not need additional authorization to use the default [AWS owned key](../../../kms/latest/developerguide/concepts.md#kms_keys "../../../kms/latest/developerguide/concepts.md#kms_keys") to protect the DynamoDB tables in your AWS account.
+You can use the AWS Management Console or the AWS Command Line Interface (AWS CLI) to specify the encryption key on new
+tables and update the encryption keys on existing tables in Amazon DynamoDB.
 
 ###### Topics
 
-- [Key policy for an AWS managed key](#dynamodb-policies "#dynamodb-policies")
-- [Key policy for a customer managed key](#dynamodb-customer-cmk-policy "#dynamodb-customer-cmk-policy")
-- [Using grants to authorize DynamoDB](#dynamodb-grants "#dynamodb-grants")
+- [Specifying the encryption key for a new
+  table](#encryption.tutorial-creating "#encryption.tutorial-creating")
+- [Updating an encryption key](#encryption.tutorial-update "#encryption.tutorial-update")
 
-### Key policy for an AWS managed key
+## Specifying the encryption key for a new
 
-When DynamoDB uses the [AWS managed key](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") for DynamoDB
-(`aws/dynamodb`) in cryptographic operations, it does so on behalf of the user
-who is accessing the [DynamoDB
-resource](access-control-overview.md "access-control-overview.md"). The key policy on the AWS managed key gives all users in the account
-permission to use the AWS managed key for specified operations. But permission is granted
-only when DynamoDB makes the request on the user's behalf. The
-[ViaService condition](../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service "../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service") in the key policy does
-not allow any user to use the AWS managed key unless the request originates with the DynamoDB
-service.
+table
 
-This key policy, like the policies of all AWS managed keys, is established by AWS.
-You cannot change it, but you can view it at any time. For details, see [Viewing a key policy](../../../kms/latest/developerguide/key-policy-viewing.md "../../../kms/latest/developerguide/key-policy-viewing.md").
+Follow these steps to specify the encryption key on a new table using the Amazon DynamoDB
+console or the AWS CLI.
 
-The policy statements in the key policy have the following effect:
+### Creating an encrypted table
 
-- Allow users in the account to use the AWS managed key for DynamoDB in cryptographic
-  operations when the request comes from DynamoDB on their behalf. The policy also allows
-  users to [create grants](../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-grants "../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-grants") for the KMS key.
-- Allows authorized IAM identities in the account to view the properties of the AWS managed key
-  for DynamoDB and to [revoke the grant](../../../kms/latest/APIReference/API_RevokeGrant.md "../../../kms/latest/APIReference/API_RevokeGrant.md")
-  that allows DynamoDB to use the KMS key. DynamoDB uses [grants](../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-grants "../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-grants") for ongoing maintenance operations.
-- Allows DynamoDB to perform read-only operations to find the AWS managed key for DynamoDB
-  in your account.
+(console)
 
-JSON
+1. Sign in to the AWS Management Console and open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. In the navigation pane on the left side of the console, choose
+   **Tables**.
+3. Choose **Create Table**. For the **Table
+   name**, enter `Music`. For the primary
+   key, enter `Artist`, and for the sort key, enter
+   `SongTitle`, both as strings.
+4. In **Settings**, make sure that **Customize settings**
+   is selected.
 
-```
-`{
- "Version":"2012-10-17",
- "Id" : "auto-dynamodb-1",
- "Statement" : [ {
- "Sid" : "Allow access through Amazon DynamoDB for all principals in the account that are authorized to use Amazon DynamoDB",
- "Effect" : "Allow",
- "Principal" : {
- "AWS" : "*"
- },
- "Action" : [ "kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:CreateGrant", "kms:DescribeKey" ],
- "Resource" : "*",
- "Condition" : {
- "StringEquals" : {
- "kms:CallerAccount" : "111122223333",
- "kms:ViaService" : "dynamodb.us-west-2.amazonaws.com"
- }
- }
- }, {
- "Sid" : "Allow direct access to key metadata to the account",
- "Effect" : "Allow",
- "Principal" : {
- "AWS" : "arn:aws:iam::`111122223333`:root"
- },
- "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*", "kms:RevokeGrant" ],
- "Resource" : "*"
- }, {
- "Sid" : "Allow DynamoDB Service with service principal name dynamodb.amazonaws.com to describe the key directly",
- "Effect" : "Allow",
- "Principal" : {
- "Service" : "dynamodb.amazonaws.com"
- },
- "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*" ],
- "Resource" : "*"
- } ]
-}`
+###### Note
+
+If **Use default settings** is selected, tables are
+encrypted at rest with the AWS owned key at no additional cost. 5. Under **Encryption at rest**, choose an encryption
+type - AWS owned key, AWS managed key, or customer managed key.
+
+    * **Owned by Amazon DynamoDB.** AWS owned key, specifically
+     owned and managed by DynamoDB. You are not charged an additional
+     fee for using this key.
+    * **AWS managed key**. Key alias: `aws/dynamodb`.
+     The key is stored in your account and is managed by AWS Key Management Service (AWS KMS). AWS KMS charges
+     apply.
+    * **Stored in your account, and owned and managed by you.**
+     Customer managed key. The key is stored in your account and is managed by AWS Key Management Service (AWS KMS). AWS KMS charges
+     apply.
+
+
+    ###### Note
+
+    If you select to own and manage your own key, make sure the KMS Key Policy is appropriately set.
+     For more information including examples, see
+     [Key policy for a customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
+
+6. Choose **Create table** to create the encrypted table. To
+   confirm the encryption type, select the table details on the
+   **Overview** tab and review the **Additional details** section.
+
+### Creating an encrypted table
+
+(AWS CLI)
+
+Use the AWS CLI to create a table with the default AWS owned key, the
+AWS managed key, or a customer managed key for Amazon DynamoDB.
+
+###### To create an encrypted table with the default AWS owned key
+
+- Create the encrypted `Music` table as follows.
 
 ```
-
-### Key policy for a customer managed key
-
-When you select a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") to protect a DynamoDB
-table, DynamoDB gets permission to use the KMS key on behalf of the principal who makes the
-selection. That principal, a user or role, must have the permissions on the KMS key that
-DynamoDB requires. You can provide these permissions in a [key
-policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md"), an [IAM policy](../../../kms/latest/developerguide/iam-policies.md "../../../kms/latest/developerguide/iam-policies.md"), or a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md").
-
-At a minimum, DynamoDB requires the following permissions on a customer managed key:
-
-- [kms:Encrypt](../../../kms/latest/APIReference/API_Encrypt.md "../../../kms/latest/APIReference/API_Encrypt.md")
-- [kms:Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md")
-- [kms:ReEncrypt](../../../kms/latest/APIReference/API_ReEncrypt.md "../../../kms/latest/APIReference/API_ReEncrypt.md")\* (for
-  kms:ReEncryptFrom and kms:ReEncryptTo)
-- kms:GenerateDataKey\* (for [kms:GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") and [kms:GenerateDataKeyWithoutPlaintext](../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md "../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md"))
-- [kms:DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md")
-- [kms:CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md")
-
-For example, the following example key policy provides only the required permissions. The
-policy has the following effects:
-
-- Allows DynamoDB to use the KMS key in cryptographic operations and create grants, but
-  only when it is acting on behalf of principals in the account who have permission to use
-  DynamoDB. If the principals specified in the policy statement don't have permission to use
-  DynamoDB, the call fails, even when it comes from the DynamoDB service.
-- The [kms:ViaService](../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service "../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-via-service") condition key
-  allows the permissions only when the request comes from DynamoDB on behalf of the principals
-  listed in the policy statement. These principals can't call these operations directly.
-  Note that the `kms:ViaService` value, `dynamodb.**\***.amazonaws.com`, has an asterisk (\*) in the Region position. DynamoDB
-  requires the permission to be independent of any particular AWS Region so it can make
-  cross-Region calls to support [DynamoDB global
-  tables](GlobalTables.md "GlobalTables.md").
-- Gives the KMS key administrators (users who can assume the `db-team`
-  role) read-only access to the KMS key and permission to revoke grants, including the
-  [grants that DynamoDB requires](#dynamodb-grants "#dynamodb-grants") to protect the
-  table.
-
-Before using an example key policy, replace the example principals with actual principals
-from your AWS account.
-
-JSON
-
-```
-`{
- "Id": "key-policy-dynamodb",
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid" : "Allow access through Amazon DynamoDB for all principals in the account that are authorized to use Amazon DynamoDB",
- "Effect": "Allow",
- "Principal": {"AWS": "`arn:aws:iam::`111122223333`:user/db-lead`"},
- "Action": [
- "kms:Encrypt",
- "kms:Decrypt",
- "kms:ReEncrypt*",
- "kms:GenerateDataKey*",
- "kms:DescribeKey",
- "kms:CreateGrant"
- ],
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "kms:ViaService" : "dynamodb.*.amazonaws.com"
- }
- }
- },
- {
- "Sid": "Allow administrators to view the KMS key and revoke grants",
- "Effect": "Allow",
- "Principal": {
- "AWS": "`arn:aws:iam::`111122223333`:role/db-team`"
- },
- "Action": [
- "kms:Describe*",
- "kms:Get*",
- "kms:List*",
- "kms:RevokeGrant"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+aws dynamodb create-table \
+  --table-name Music \
+  --attribute-definitions \
+      AttributeName=Artist,AttributeType=S \
+      AttributeName=SongTitle,AttributeType=S \
+  --key-schema \
+      AttributeName=Artist,KeyType=HASH \
+      AttributeName=SongTitle,KeyType=RANGE \
+  --provisioned-throughput \
+      ReadCapacityUnits=10,WriteCapacityUnits=5
 ```
 
-### Using grants to authorize DynamoDB
+###### Note
 
-In addition to key policies, DynamoDB uses grants to set permissions on a customer managed key or the
-AWS managed key for DynamoDB (`aws/dynamodb`). To view the grants on a KMS key in your
-account, use the [ListGrants](../../../kms/latest/APIReference/API_ListGrants.md "../../../kms/latest/APIReference/API_ListGrants.md") operation.
-DynamoDB does not need grants, or any additional permissions, to use the
-[AWS owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") to protect your table.
+This table is now encrypted using the default AWS owned key in the
+DynamoDB service account.
 
-DynamoDB uses the grant permissions when it performs background system maintenance and
-continuous data protection tasks. It also uses grants to generate
-[table keys](../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-encrypt "../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-encrypt").
+###### To create an encrypted table with the AWS managed key for DynamoDB
 
-Each grant is specific to a table. If the account includes multiple tables encrypted
-under the same KMS key, there is a grant of each type for each table. The grant is
-constrained by the [DynamoDB encryption
-context](#dynamodb-encryption-context "#dynamodb-encryption-context"), which includes the table name and the AWS account ID, and it includes
-permission to the [retire the grant](../../../kms/latest/APIReference/API_RetireGrant.md "../../../kms/latest/APIReference/API_RetireGrant.md") if
-it is no longer needed.
-
-To create the grants, DynamoDB must have permission to call `CreateGrant` on
-behalf of the user who created the encrypted table. For AWS managed keys, DynamoDB gets
-`kms:CreateGrant` permission from the [key
-policy](#dynamodb-policies "#dynamodb-policies"), which allows account users to call [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") on the KMS key only when
-DynamoDB makes the request on an authorized user's behalf.
-
-The key policy can also allow the account to [revoke the grant](../../../kms/latest/APIReference/API_RevokeGrant.md "../../../kms/latest/APIReference/API_RevokeGrant.md") on the KMS key.
-However, if you revoke the grant on an active encrypted table, DynamoDB will not be able to
-protect and maintain the table.
-
-## DynamoDB encryption context
-
-An [encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is a set of key–value pairs
-that contain arbitrary nonsecret data. When you include an encryption context in a request to
-encrypt data, AWS KMS cryptographically binds the encryption context to the encrypted data. To
-decrypt the data, you must pass in the same encryption context.
-
-DynamoDB uses the same encryption context in all AWS KMS cryptographic operations. If you use a
-[customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") or an
-[AWS managed key](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk")
-to protect your DynamoDB table, you can use the encryption context to
-identify use of the KMS key in audit records and logs. It also appears in plaintext in logs,
-such as [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") and [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
-
-The encryption context can also be used as a condition for authorization in policies and
-grants. DynamoDB uses the encryption context to constrain the [grants](#dynamodb-grants "#dynamodb-grants") that allow access to the customer managed key or AWS managed key in your account and
-region.
-
-In its requests to AWS KMS, DynamoDB uses an encryption context with two key–value
-pairs.
+- Create the encrypted `Music` table as follows.
 
 ```
-"encryptionContextSubset": {
-    "aws:dynamodb:tableName": "Books"
-    "aws:dynamodb:subscriberId": "111122223333"
+aws dynamodb create-table \
+  --table-name Music \
+  --attribute-definitions \
+      AttributeName=Artist,AttributeType=S \
+      AttributeName=SongTitle,AttributeType=S \
+  --key-schema \
+      AttributeName=Artist,KeyType=HASH \
+      AttributeName=SongTitle,KeyType=RANGE \
+  --provisioned-throughput \
+      ReadCapacityUnits=10,WriteCapacityUnits=5 \
+  --sse-specification Enabled=true,SSEType=KMS
+```
+
+The `SSEDescription` status of the table description is set to
+`ENABLED` and the `SSEType` is `KMS`.
+
+```
+"SSEDescription": {
+  "SSEType": "KMS",
+  "Status": "ENABLED",
+  "KMSMasterKeyArn": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-abcd-1234-a123-ab1234a1b234",
 }
 ```
 
-- **Table** – The first key–value pair
-  identifies the table that DynamoDB is encrypting. The key is
-  `aws:dynamodb:tableName`. The value is the name of the table.
+###### To create an encrypted table with a customer managed key for DynamoDB
+
+- Create the encrypted `Music` table as follows.
 
 ```
-"aws:dynamodb:tableName": "`<table-name>`"
+aws dynamodb create-table \
+  --table-name Music \
+  --attribute-definitions \
+      AttributeName=Artist,AttributeType=S \
+      AttributeName=SongTitle,AttributeType=S \
+  --key-schema \
+      AttributeName=Artist,KeyType=HASH \
+      AttributeName=SongTitle,KeyType=RANGE \
+  --provisioned-throughput \
+      ReadCapacityUnits=10,WriteCapacityUnits=5 \
+  --sse-specification Enabled=true,SSEType=KMS,KMSMasterKeyId=abcd1234-abcd-1234-a123-ab1234a1b234
 ```
 
-For example:
+The `SSEDescription` status of the table description is set to
+`ENABLED` and the `SSEType` is
+`KMS`.
 
 ```
-"aws:dynamodb:tableName": "`Books`"
-```
-
-- **Account** – The second key–value pair
-  identifies the AWS account. The key is `aws:dynamodb:subscriberId`. The value
-  is the account ID.
-
-```
-"aws:dynamodb:subscriberId": "`<account-id>`"
-```
-
-For example:
-
-```
-"aws:dynamodb:subscriberId": "111122223333"
-```
-
-## Monitoring DynamoDB interaction with AWS KMS
-
-If you use a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") or an
-[AWS managed key](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") to protect your DynamoDB tables, you can use
-AWS CloudTrail logs to track the requests that DynamoDB sends to AWS KMS on your behalf.
-
-The `GenerateDataKey`, `Decrypt`, and `CreateGrant`
-requests are discussed in this section. In addition, DynamoDB uses a [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") operation to determine whether
-the KMS key you selected exists in the account and region. It also uses a [RetireGrant](../../../kms/latest/APIReference/API_RetireGrant.md "../../../kms/latest/APIReference/API_RetireGrant.md") operation to remove a grant when
-you delete a table.
-
-**GenerateDataKey**
-
-When you enable encryption at rest on a table, DynamoDB creates a unique table key. It
-sends a [GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") request to AWS KMS that specifies the KMS key
-for the table.
-
-The event that records the `GenerateDataKey` operation is similar to the
-following example event. The user is the DynamoDB service account. The parameters include
-the Amazon Resource Name (ARN) of the KMS key, a key specifier that requires a 256-bit
-key, and the [encryption context](#dynamodb-encryption-context "#dynamodb-encryption-context") that
-identifies the table and the AWS account.
-
-```
-{
-    "eventVersion": "1.05",
-    "userIdentity": {
-        "type": "AWSService",
-        "invokedBy": "dynamodb.amazonaws.com"
-    },
-    "eventTime": "2018-02-14T00:15:17Z",
-    "eventSource": "kms.amazonaws.com",
-    "eventName": "GenerateDataKey",
-    "awsRegion": "us-west-2",
-    "sourceIPAddress": "dynamodb.amazonaws.com",
-    "userAgent": "dynamodb.amazonaws.com",
-    "requestParameters": {
-        "encryptionContext": {
-            "aws:dynamodb:tableName": "Services",
-            "aws:dynamodb:subscriberId": "111122223333"
-        },
-        "keySpec": "AES_256",
-        "keyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
-    },
-    "responseElements": null,
-    "requestID": "229386c1-111c-11e8-9e21-c11ed5a52190",
-    "eventID": "e3c436e9-ebca-494e-9457-8123a1f5e979",
-    "readOnly": true,
-    "resources": [
-        {
-            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-            "accountId": "111122223333",
-            "type": "AWS::KMS::Key"
-        }
-    ],
-    "eventType": "AwsApiCall",
-    "recipientAccountId": "111122223333",
-    "sharedEventID": "bf915fa6-6ceb-4659-8912-e36b69846aad"
+"SSEDescription": {
+  "SSEType": "KMS",
+  "Status": "ENABLED",
+  "KMSMasterKeyArn": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-abcd-1234-a123-ab1234a1b234",
 }
 ```
 
-**Decrypt**
+## Updating an encryption key
 
-When you access an encrypted DynamoDB table, DynamoDB needs to decrypt the table key so
-that it can decrypt the keys below it in the hierarchy. It then decrypts the data in the
-table. To decrypt the table key. DynamoDB sends a [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") request to AWS KMS that specifies
-the KMS key for the table.
+You can also use the DynamoDB console or the AWS CLI to update the encryption keys of an
+existing table between an AWS owned key, AWS managed key, and customer managed key at any
+time.
 
-The event that records the `Decrypt` operation is similar to the
-following example event. The user is the principal in your AWS account who is
-accessing the table. The parameters include the encrypted table key (as a ciphertext
-blob) and the [encryption context](#dynamodb-encryption-context "#dynamodb-encryption-context") that
-identifies the table and the AWS account. AWS KMS derives the ID of the KMS key from
-the ciphertext.
+### Updating an encryption key
+
+(console)
+
+1.  Sign in to the AWS Management Console and open the DynamoDB console at
+    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2.  In the navigation pane on the left side of the console, choose
+    **Tables**.
+3.  Choose the table that you want to update.
+4.  Select the **Actions** dropdown,
+    and then select the **Update settings** option.
+5.  Go to the **Additional settings** tab.
+6.  Under **Encryption**, choose **Manage encryption**.
+7.  Choose an encryption type:
+
+        * **Owned by Amazon DynamoDB.** The AWS KMS key is
+         owned and managed by DynamoDB. You are not charged an additional
+         fee for using this key.
+        * **AWS managed key** Key alias: `aws/dynamodb`.
+         The key is stored in your account and is managed by AWS Key Management Service. (AWS KMS). AWS KMS charges
+         apply.
+        * **Stored in your account, and owned and managed by you.**
+         The key is stored in your account and is managed by AWS Key Management Service. (AWS KMS). AWS KMS charges
+         apply.
+
+
+        ###### Note
+
+        If you select to own and manage your own key, make sure the KMS Key Policy is appropriately set.
+         For more information see
+         [Key policy for a customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
+
+    Then choose **Save** to update the encrypted table. To
+    confirm the encryption type, check the table details under the
+    **Overview** tab.
+
+### Updating an encryption key
+
+(AWS CLI)
+
+The following examples show how to update an encrypted table using the
+AWS CLI.
+
+###### To update an encrypted table with the default AWS owned key
+
+- Update the encrypted `Music` table, as in the following
+  example.
 
 ```
-{
-    "eventVersion": "1.05",
-    "userIdentity": {
-        "type": "AssumedRole",
-        "principalId": "AROAIGDTESTANDEXAMPLE:user01",
-        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/user01",
-        "accountId": "111122223333",
-        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
-        "sessionContext": {
-            "attributes": {
-                "mfaAuthenticated": "false",
-                "creationDate": "2018-02-14T16:42:15Z"
-            },
-            "sessionIssuer": {
-                "type": "Role",
-                "principalId": "AROAIGDT3HGFQZX4RY6RU",
-                "arn": "arn:aws:iam::111122223333:role/Admin",
-                "accountId": "111122223333",
-                "userName": "Admin"
-            }
-        },
-        "invokedBy": "dynamodb.amazonaws.com"
-    },
-    "eventTime": "2018-02-14T16:42:39Z",
-    "eventSource": "kms.amazonaws.com",
-    "eventName": "Decrypt",
-    "awsRegion": "us-west-2",
-    "sourceIPAddress": "dynamodb.amazonaws.com",
-    "userAgent": "dynamodb.amazonaws.com",
-    "requestParameters":
-    {
-        "encryptionContext":
-        {
-            "aws:dynamodb:tableName": "Books",
-            "aws:dynamodb:subscriberId": "111122223333"
-        }
-    },
-    "responseElements": null,
-    "requestID": "11cab293-11a6-11e8-8386-13160d3e5db5",
-    "eventID": "b7d16574-e887-4b5b-a064-bf92f8ec9ad3",
-    "readOnly": true,
-    "resources": [
-        {
-            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-            "accountId": "111122223333",
-            "type": "AWS::KMS::Key"
-        }
-    ],
-    "eventType": "AwsApiCall",
-    "recipientAccountId": "111122223333"
+aws dynamodb update-table \
+  --table-name Music \
+  --sse-specification Enabled=false
+```
+
+###### Note
+
+This table is now encrypted using the default AWS owned key in the
+DynamoDB service account.
+
+###### To update an encrypted table with the AWS managed key for DynamoDB
+
+- Update the encrypted `Music` table, as in the following
+  example.
+
+```
+aws dynamodb update-table \
+  --table-name Music \
+  --sse-specification Enabled=true
+```
+
+The `SSEDescription` status of the table description is set to
+`ENABLED` and the `SSEType` is
+`KMS`.
+
+```
+"SSEDescription": {
+  "SSEType": "KMS",
+  "Status": "ENABLED",
+  "KMSMasterKeyArn": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-abcd-1234-a123-ab1234a1b234",
 }
 ```
 
-**CreateGrant**
+###### To update an encrypted table with a customer managed key for DynamoDB
 
-When you use a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
-or an [AWS managed key](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") to protect your DynamoDB table, DynamoDB
-uses [grants](#dynamodb-grants "#dynamodb-grants") to allow the service to perform
-continuous data protection and maintenance and durability tasks. These grants are not
-required on [AWS owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk").
-
-The grants that DynamoDB creates are specific to a table. The principal in the [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request is the user who
-created the table.
-
-The event that records the `CreateGrant` operation is similar to the
-following example event. The parameters include the Amazon Resource Name (ARN) of the
-KMS key for the table, the grantee principal and retiring principal ( the DynamoDB
-service), and the operations that the grant covers. It also includes a constraint that
-requires all encryption operation use the specified [encryption context](#dynamodb-encryption-context "#dynamodb-encryption-context").
+- Update the encrypted `Music` table, as in the following
+  example.
 
 ```
-{
-    "eventVersion": "1.05",
-    "userIdentity":
-    {
-        "type": "AssumedRole",
-        "principalId": "AROAIGDTESTANDEXAMPLE:user01",
-        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/user01",
-        "accountId": "111122223333",
-        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
-        "sessionContext": {
-            "attributes": {
-                "mfaAuthenticated": "false",
-                "creationDate": "2018-02-14T00:12:02Z"
-            },
-            "sessionIssuer": {
-                "type": "Role",
-                "principalId": "AROAIGDTESTANDEXAMPLE",
-                "arn": "arn:aws:iam::111122223333:role/Admin",
-                "accountId": "111122223333",
-                "userName": "Admin"
-            }
-        },
-        "invokedBy": "dynamodb.amazonaws.com"
-    },
-    "eventTime": "2018-02-14T00:15:15Z",
-    "eventSource": "kms.amazonaws.com",
-    "eventName": "CreateGrant",
-    "awsRegion": "us-west-2",
-    "sourceIPAddress": "dynamodb.amazonaws.com",
-    "userAgent": "dynamodb.amazonaws.com",
-    "requestParameters": {
-        "keyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
-        "retiringPrincipal": "dynamodb.us-west-2.amazonaws.com",
-        "constraints": {
-            "encryptionContextSubset": {
-                "aws:dynamodb:tableName": "Books",
-                "aws:dynamodb:subscriberId": "111122223333"
-            }
-        },
-        "granteePrincipal": "dynamodb.us-west-2.amazonaws.com",
-        "operations": [
-            "DescribeKey",
-            "GenerateDataKey",
-            "Decrypt",
-            "Encrypt",
-            "ReEncryptFrom",
-            "ReEncryptTo",
-            "RetireGrant"
-        ]
-    },
-    "responseElements": {
-        "grantId": "5c5cd4a3d68e65e77795f5ccc2516dff057308172b0cd107c85b5215c6e48bde"
-    },
-    "requestID": "2192b82a-111c-11e8-a528-f398979205d8",
-    "eventID": "a03d65c3-9fee-4111-9816-8bf96b73df01",
-    "readOnly": false,
-    "resources": [
-        {
-            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-            "accountId": "111122223333",
-            "type": "AWS::KMS::Key"
-        }
-    ],
-    "eventType": "AwsApiCall",
-    "recipientAccountId": "111122223333"
+aws dynamodb update-table \
+  --table-name Music \
+  --sse-specification Enabled=true,SSEType=KMS,KMSMasterKeyId=abcd1234-abcd-1234-a123-ab1234a1b234
+```
+
+The `SSEDescription` status of the table description is set to
+`ENABLED` and the `SSEType` is `KMS`.
+
+```
+"SSEDescription": {
+  "SSEType": "KMS",
+  "Status": "ENABLED",
+  "KMSMasterKeyArn": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-abcd-1234-a123-ab1234a1b234",
 }
 ```

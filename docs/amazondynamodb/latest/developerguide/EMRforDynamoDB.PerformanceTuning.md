@@ -1,77 +1,46 @@
-# Adjusting the
+# Additional topics
 
-mappers
+The following are some more ways to tune applications that use Hive to access
+DynamoDB.
 
-When Hive launches a Hadoop job, the job is processed by one or more mapper tasks.
-Assuming that your DynamoDB table has sufficient throughput capacity, you can modify
-the number of mappers in the cluster, potentially improving performance.
+## Retry
 
-###### Note
+duration
 
-The number of mapper tasks used in a Hadoop job are influenced by
-_input splits_, where Hadoop subdivides the data into
-logical blocks. If Hadoop does not perform enough input splits, then your write
-operations might not be able to consume all the write throughput available in
-the DynamoDB table.
-
-## Increasing
-
-the number of mappers
-
-Each mapper in an Amazon EMR has a maximum read rate of 1 MiB per second. The
-number of mappers in a cluster depends on the size of the nodes in your cluster.
-(For information about node sizes and the number of mappers per node, see [Task
-Configuration](../../../emr/latest/ReleaseGuide/emr-hadoop-task-config.md "../../../emr/latest/ReleaseGuide/emr-hadoop-task-config.md") in the _Amazon EMR Developer
-Guide_.)
-
-If your DynamoDB table has ample throughput capacity for reads, you can try
-increasing the number of mappers by doing one of the following:
-
-- Increase the size of the nodes in your cluster. For example, if your
-  cluster is using _m1.large_ nodes (three mappers per
-  node), you can try upgrading to _m1.xlarge_ nodes
-  (eight mappers per node).
-- Increase the number of nodes in your cluster. For example, if you have
-  three-node cluster of _m1.xlarge_ nodes, you have a
-  total of 24 mappers available. If you were to double the size of the
-  cluster, with the same type of node, you would have 48 mappers.
-
-You can use the AWS Management Console to manage the size or the number of nodes in your
-cluster. (You might need to restart the cluster for these changes to take
-effect.)
-
-Another way to increase the number of mappers is to modify the
-`mapred.tasktracker.map.tasks.maximum` Hadoop configuration
-parameter. (This is a Hadoop parameter, not a Hive parameter. You cannot modify
-it interactively from the command prompt.). If you increase the value of
-`mapred.tasktracker.map.tasks.maximum`, you can increase the
-number of mappers without increasing the size or number of nodes. However, it is
-possible for the cluster nodes to run out of memory if you set the value too
-high.
-
-You set the value for `mapred.tasktracker.map.tasks.maximum` as a
-bootstrap action when you first launch your Amazon EMR cluster. For more information,
-see [(Optional) Create Bootstrap Actions to Install Additional Software](../../../ElasticMapReduce/latest/ManagementGuide/emr-plan-bootstrap.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-plan-bootstrap.md")
-in the _Amazon EMR Management Guide_.
-
-## Decreasing
-
-the number of mappers
-
-If you use the `SELECT` statement to select data from an external
-Hive table that maps to DynamoDB, the Hadoop job can use as many tasks as
-necessary, up to the maximum number of mappers in the cluster. In this scenario,
-it is possible that a long-running Hive query can consume all of the provisioned
-read capacity of the DynamoDB table, negatively impacting other users.
-
-You can use the `dynamodb.max.map.tasks` parameter to set an upper
-limit for map tasks:
+By default, Hive will rerun a Hadoop job if it has not returned any results
+from DynamoDB within two minutes. You can adjust this interval by modifying the
+`dynamodb.retry.duration` parameter:
 
 ```
-SET dynamodb.max.map.tasks=1
+SET dynamodb.retry.duration=2;
 ```
 
-This value must be equal to or greater than 1. When Hive processes your query,
-the resulting Hadoop job will use no more than
-`dynamodb.max.map.tasks` when reading from the DynamoDB
-table.
+The value must be a nonzero integer, representing the number of minutes in the
+retry interval. The default for `dynamodb.retry.duration` is 2
+(minutes).
+
+## Parallel data requests
+
+Multiple data requests, either from more than one user or more than one
+application to a single table can drain read provisioned throughput and slow
+performance.
+
+## Process
+
+duration
+
+Data consistency in DynamoDB depends on the order of read and write operations on
+each node. While a Hive query is in progress, another application might load new
+data into the DynamoDB table or modify or delete existing data. In this case, the
+results of the Hive query might not reflect changes made to the data while the
+query was running.
+
+## Request
+
+time
+
+Scheduling Hive queries that access a DynamoDB table when there is lower demand
+on the DynamoDB table improves performance. For example, if most of your
+application's users live in San Francisco, you might choose to export daily data
+at 4:00 A.M. PST when the majority of users are asleep and not updating records
+in your DynamoDB database.

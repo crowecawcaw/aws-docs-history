@@ -1,61 +1,56 @@
-# Java 1.x: DynamoDBMapper
+# DynamoDB and optimistic locking with
+
+version number
+
+_Optimistic locking_ is a strategy to ensure that the client-side
+item that you are updating (or deleting) is the same as the item in Amazon DynamoDB. If you
+use this strategy, your database writes are protected from being overwritten by the
+writes of others, and vice versa.
+
+With optimistic locking, each item has an attribute that acts as a version number. If
+you retrieve an item from a table, the application records the version number of that
+item. You can update the item, but only if the version number on the server side has not
+changed. If there is a version mismatch, it means that someone else has modified the
+item before you did. The update attempt fails, because you have a stale version of the
+item. If this happens, try again by retrieving the item and then trying to update it.
+Optimistic locking prevents you from accidentally overwriting changes that were made by
+others. It also prevents others from accidentally overwriting your changes.
+
+While you can implement your own optimistic locking strategy, the AWS SDK for Java provides
+the `@DynamoDBVersionAttribute` annotation. In the mapping class for your
+table, you designate one property to store the version number, and mark it using this
+annotation. When you save an object, the corresponding item in the DynamoDB table will have
+an attribute that stores the version number. The `DynamoDBMapper` assigns a
+version number when you first save the object, and it automatically increments the
+version number each time you update the item. Your update or delete requests succeed
+only if the client-side object version matches the corresponding version number of the
+item in the DynamoDB table.
+
+`ConditionalCheckFailedException` is thrown if:
+
+- You use optimistic locking with `@DynamoDBVersionAttribute` and
+  the version value on the server is different from the value on the client side.
+- You specify your own conditional constraints while saving data by using
+  `DynamoDBMapper` with `DynamoDBSaveExpression` and
+  these constraints failed.
 
 ###### Note
 
-The SDK for Java has two versions: 1.x and 2.x. The end-of-support for 1.x was [announced](https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-java-v1-x-on-december-31-2025/ "https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-java-v1-x-on-december-31-2025/") on January 12, 2024. It will and its end-of-support is due on
-December 31, 2025. For new development, we highly recommend that you use 2.x.
-
-The AWS SDK for Java provides a `DynamoDBMapper` class, allowing you to map your
-client-side classes to Amazon DynamoDB tables. To use `DynamoDBMapper`, you define the
-relationship between items in a DynamoDB table and their corresponding object instances in your
-code. The `DynamoDBMapper` class enables you to perform various create, read,
-update, and delete (CRUD) operations on items, and run queries and scans against
-tables.
-
-###### Topics
-
-- [DynamoDBMapper Class](DynamoDBMapper.md "DynamoDBMapper.md")
-- [Supported data types for DynamoDBMapper for
-  Java](DynamoDBMapper.md "DynamoDBMapper.md")
-- [Java Annotations for DynamoDB](DynamoDBMapper.md "DynamoDBMapper.md")
-- [Optional configuration settings for
-  DynamoDBMapper](DynamoDBMapper.md "DynamoDBMapper.md")
-- [DynamoDB and optimistic locking with
-  version number](DynamoDBMapper.md "DynamoDBMapper.md")
-- [Mapping arbitrary data in
-  DynamoDB](DynamoDBMapper.md "DynamoDBMapper.md")
-- [DynamoDBMapper examples](DynamoDBMapper.md "DynamoDBMapper.md")
-
-###### Note
-
-The `DynamoDBMapper` class does not allow you to create, update, or delete
-tables. To perform those tasks, use the low-level SDK for Java interface instead.
-
-The SDK for Java provides a set of annotation types so that you can map your classes to tables.
-For example, consider a `ProductCatalog` table that has `Id` as the
-partition key.
-
-```
-ProductCatalog(Id, ...)
-```
-
-You can map a class in your client application to the `ProductCatalog` table as
-shown in the following Java code. This code defines a plain old Java object (POJO) named
-`CatalogItem`, which uses annotations to map object fields to DynamoDB attribute
-names.
+- DynamoDB global tables use a “last writer wins” reconciliation between
+  concurrent updates. If you use global tables, last writer policy wins. So in
+  this case, the locking strategy does not work as expected.
+- `DynamoDBMapper` transactional write operations do not support
+  `@DynamoDBVersionAttribute` annotation and condition
+  expressions on the same object. If an object within a transactional write is
+  annotated with `@DynamoDBVersionAttribute` and also has a
+  condition expression, then an SdkClientException will be thrown.
+  For example, the following Java code defines a `CatalogItem` class that has
+  several properties. The `Version` property is tagged with the
+  `@DynamoDBVersionAttribute` annotation.
 
 ###### Example
 
 ```
-package com.amazonaws.codesamples;
-
-import java.util.Set;
-
-import software.amazon.dynamodb.datamodeling.DynamoDBAttribute;
-import software.amazon.dynamodb.datamodeling.DynamoDBHashKey;
-import software.amazon.dynamodb.datamodeling.DynamoDBIgnore;
-import software.amazon.dynamodb.datamodeling.DynamoDBTable;
-
 @DynamoDBTable(tableName="ProductCatalog")
 public class CatalogItem {
 
@@ -64,94 +59,117 @@ public class CatalogItem {
     private String ISBN;
     private Set<String> bookAuthors;
     private String someProp;
+    private Long version;
 
     @DynamoDBHashKey(attributeName="Id")
     public Integer getId() { return id; }
-    public void setId(Integer id) {this.id = id; }
+    public void setId(Integer Id) { this.id = Id; }
 
     @DynamoDBAttribute(attributeName="Title")
-    public String getTitle() {return title; }
+    public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
 
     @DynamoDBAttribute(attributeName="ISBN")
     public String getISBN() { return ISBN; }
-    public void setISBN(String ISBN) { this.ISBN = ISBN; }
+    public void setISBN(String ISBN) { this.ISBN = ISBN;}
 
-    @DynamoDBAttribute(attributeName="Authors")
+    @DynamoDBAttribute(attributeName = "Authors")
     public Set<String> getBookAuthors() { return bookAuthors; }
     public void setBookAuthors(Set<String> bookAuthors) { this.bookAuthors = bookAuthors; }
 
     @DynamoDBIgnore
-    public String getSomeProp() { return someProp; }
-    public void setSomeProp(String someProp) { this.someProp = someProp; }
+    public String getSomeProp() { return someProp;}
+    public void setSomeProp(String someProp) {this.someProp = someProp;}
+
+    @DynamoDBVersionAttribute
+    public Long getVersion() { return version; }
+    public void setVersion(Long version) { this.version = version;}
 }
 ```
 
-In the preceding code, the `@DynamoDBTable` annotation maps the
-`CatalogItem` class to the `ProductCatalog` table. You can store
-individual class instances as items in the table. In the class definition, the
-`@DynamoDBHashKey` annotation maps the `Id` property to the
-primary key.
+You can apply the `@DynamoDBVersionAttribute` annotation to nullable types
+provided by the primitive wrappers classes that provide a nullable type, such as
+`Long` and `Integer`.
 
-By default, the class properties map to the same name attributes in the table. The
-properties `Title` and `ISBN` map to the same name attributes in the
-table.
+Optimistic locking has the following impact on these `DynamoDBMapper`
+methods:
 
-The `@DynamoDBAttribute` annotation is optional when the name of the DynamoDB
-attribute matches the name of the property declared in the class. When they differ, use this
-annotation with the `attributeName` parameter to specify which DynamoDB attribute
-this property corresponds to.
+- `save` — For a new item, the `DynamoDBMapper`
+  assigns an initial version number of 1. If you retrieve an item, update one or
+  more of its properties, and attempt to save the changes, the save operation
+  succeeds only if the version number on the client side and the server side
+  match. The `DynamoDBMapper` increments the version number
+  automatically.
+- `delete` — The `delete` method takes an object as
+  a parameter, and the `DynamoDBMapper` performs a version check before
+  deleting the item. The version check can be disabled if
+  `DynamoDBMapperConfig.SaveBehavior.CLOBBER` is specified in the
+  request.
 
-In the preceding example, the `@DynamoDBAttribute` annotation is added to each
-property to ensure that the property names match exactly with the tables created in a
-previous step, and to be consistent with the attribute names used in other code examples in
-this guide.
+The internal implementation of optimistic locking within
+`DynamoDBMapper` uses conditional update and conditional delete
+support provided by DynamoDB.
 
-Your class definition can have properties that don't map to any attributes in the table.
-You identify these properties by adding the `@DynamoDBIgnore` annotation. In the
-preceding example, the `SomeProp` property is marked with the
-`@DynamoDBIgnore` annotation. When you upload a `CatalogItem`
-instance to the table, your `DynamoDBMapper` instance does not include the
-`SomeProp` property. In addition, the mapper does not return this attribute
-when you retrieve an item from the table.
+- `transactionWrite` —
+  - `Put` — For a new item, the
+    `DynamoDBMapper` assigns an initial version number of 1.
+    If you retrieve an item, update one or more of its properties, and
+    attempt to save the changes, the put operation succeeds only if the
+    version number on the client side and the server side match. The
+    `DynamoDBMapper` increments the version number
+    automatically.
+  - `Update` — For a new item, the
+    `DynamoDBMapper` assigns an initial version number of 1.
+    If you retrieve an item, update one or more of its properties, and
+    attempt to save the changes, the update operation succeeds only if the
+    version number on the client side and the server side match. The
+    `DynamoDBMapper` increments the version number
+    automatically.
+  - `Delete` — The `DynamoDBMapper` performs a
+    version check before deleting the item. The delete operation succeeds
+    only if the version number on the client side and the server side
+    match.
+  - `ConditionCheck` — The
+    `@DynamoDBVersionAttribute` annotation is not supported
+    for `ConditionCheck` operations. An SdkClientException will
+    be thrown when a `ConditionCheck` item is annotated with
+    `@DynamoDBVersionAttribute`.
 
-After you define your mapping class, you can use `DynamoDBMapper` methods to
-write an instance of that class to a corresponding item in the `Catalog` table.
-The following code example demonstrates this technique.
+## Disabling optimistic
+
+locking
+
+To disable optimistic locking, you can change the
+`DynamoDBMapperConfig.SaveBehavior` enumeration value from
+`UPDATE` to `CLOBBER`. You can do this by creating a
+`DynamoDBMapperConfig` instance that skips version checking and use
+this instance for all your requests. For information about
+`DynamoDBMapperConfig.SaveBehavior` and other optional
+`DynamoDBMapper` parameters, see [Optional configuration settings for
+DynamoDBMapper](DynamoDBMapper.md "DynamoDBMapper.md") .
+
+You can also set locking behavior for a specific operation only. For example, the
+following Java snippet uses the `DynamoDBMapper` to save a catalog item.
+It specifies `DynamoDBMapperConfig.SaveBehavior` by adding the optional
+`DynamoDBMapperConfig` parameter to the `save` method.
+
+###### Note
+
+The transactionWrite method does not support DynamoDBMapperConfig.SaveBehavior
+configuration. Disabling optimistic locking for transactionWrite is not
+supported.
+
+###### Example
 
 ```
-AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
-
 DynamoDBMapper mapper = new DynamoDBMapper(client);
 
-CatalogItem item = new CatalogItem();
-item.setId(102);
-item.setTitle("Book 102 Title");
-item.setISBN("222-2222222222");
-item.setBookAuthors(new HashSet<String>(Arrays.asList("Author 1", "Author 2")));
-item.setSomeProp("Test");
-
-mapper.save(item);
+// Load a catalog item.
+CatalogItem item = mapper.load(CatalogItem.class, 101);
+item.setTitle("This is a new title for the item");
+...
+// Save the item.
+mapper.save(item,
+    new DynamoDBMapperConfig(
+        DynamoDBMapperConfig.SaveBehavior.CLOBBER));
 ```
-
-The following code example shows how to retrieve the item and access some of its
-attributes.
-
-```
-CatalogItem partitionKey = new CatalogItem();
-
-partitionKey.setId(102);
-DynamoDBQueryExpression<CatalogItem> queryExpression = new DynamoDBQueryExpression<CatalogItem>()
-    .withHashKeyValues(partitionKey);
-
-List<CatalogItem> itemList = mapper.query(CatalogItem.class, queryExpression);
-
-for (int i = 0; i < itemList.size(); i++) {
-    System.out.println(itemList.get(i).getTitle());
-    System.out.println(itemList.get(i).getBookAuthors());
-}
-```
-
-`DynamoDBMapper` offers an intuitive, natural way of working with DynamoDB data
-within Java. It also provides several built-in features, such as optimistic locking, ACID
-transactions, autogenerated partition key and sort key values, and object versioning.

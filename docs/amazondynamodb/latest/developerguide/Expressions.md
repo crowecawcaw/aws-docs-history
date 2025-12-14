@@ -1,157 +1,196 @@
-# Expression attribute names (aliases)
+# Referring to item attributes when using
 
-in DynamoDB
+expressions in DynamoDB
 
-An _expression attribute name_ is an alias (or placeholder) that you
-use in an Amazon DynamoDB expression as an alternative to an actual attribute name. An expression
-attribute name must begin with a pound sign (`#`) and be followed by one or more
-alphanumeric characters. The underscore (`_`) character is also allowed.
-
-This section describes several situations in which you must use expression attribute
-names.
-
-###### Note
-
-The examples in this section use the AWS Command Line Interface (AWS CLI).
+This section describes how to refer to item attributes in an expression in Amazon DynamoDB.
+You can work with any attribute, even if it is deeply nested within multiple lists and
+maps.
 
 ###### Topics
 
-- [Reserved
-  words](#Expressions.ExpressionAttributeNames.ReservedWords "#Expressions.ExpressionAttributeNames.ReservedWords")
-- [Attribute names containing special characters](#Expressions.ExpressionAttributeNames.AttributeNamesContainingSpecialCharacters "#Expressions.ExpressionAttributeNames.AttributeNamesContainingSpecialCharacters")
-- [Nested
-  attributes](#Expressions.ExpressionAttributeNames.NestedAttributes "#Expressions.ExpressionAttributeNames.NestedAttributes")
-- [Repeatedly referencing attribute names](#Expressions.ExpressionAttributeNames.RepeatingAttributeNames "#Expressions.ExpressionAttributeNames.RepeatingAttributeNames")
+- [Top-level
+  attributes](#Expressions.Attributes.TopLevelAttributes "#Expressions.Attributes.TopLevelAttributes")
+- [Nested attributes](#Expressions.Attributes.NestedAttributes "#Expressions.Attributes.NestedAttributes")
+- [Document paths](#Expressions.Attributes.NestedElements.DocumentPathExamples "#Expressions.Attributes.NestedElements.DocumentPathExamples")
 
-## Reserved
+###### A Sample Item: ProductCatalog
 
-words
-
-Sometimes you might need to write an expression containing an attribute name that
-conflicts with a DynamoDB reserved word. (For a complete list of reserved words, see [Reserved words in DynamoDB](ReservedWords.md "ReservedWords.md").)
-
-For example, the following AWS CLI example would fail because `COMMENT` is a
-reserved word.
+The examples on this page use the following sample item in the
+`ProductCatalog` table. (This table is described in [Example tables and data for use in DynamoDB](AppendixSampleTables.md "AppendixSampleTables.md").)
 
 ```
-aws dynamodb get-item \
-    --table-name ProductCatalog \
-    --key '{"Id":{"N":"123"}}' \
-    --projection-expression "Comment"
+{
+    "Id": 123,
+    "Title": "Bicycle 123",
+    "Description": "123 description",
+    "BicycleType": "Hybrid",
+    "Brand": "Brand-Company C",
+    "Price": 500,
+    "Color": ["Red", "Black"],
+    "ProductCategory": "Bicycle",
+    "InStock": true,
+    "QuantityOnHand": null,
+    "RelatedItems": [
+        341,
+        472,
+        649
+    ],
+    "Pictures": {
+        "FrontView": "http://example.com/products/123_front.jpg",
+        "RearView": "http://example.com/products/123_rear.jpg",
+        "SideView": "http://example.com/products/123_left_side.jpg"
+    },
+    "ProductReviews": {
+	    "FiveStar": [
+	    		"Excellent! Can't recommend it highly enough! Buy it!",
+	    		"Do yourself a favor and buy this."
+	    ],
+	    "OneStar": [
+	    		"Terrible product! Do not buy this."
+	    ]
+    },
+    "Comment": "This product sells out quickly during the summer",
+    "Safety.Warning": "Always wear a helmet"
+ }
 ```
 
-To work around this, you can replace `Comment` with an expression attribute
-name such as `#c`. The `#` (pound sign) is required and indicates
-that this is a placeholder for an attribute name. The AWS CLI example would now look like
-the following.
+Note the following:
 
-```
-aws dynamodb get-item \
-     --table-name ProductCatalog \
-     --key '{"Id":{"N":"123"}}' \
-     --projection-expression "#c" \
-     --expression-attribute-names '{"#c":"Comment"}'
-```
+- The partition key value (`Id`) is `123`. There is no
+  sort key.
+- Most of the attributes have scalar data types, such as `String`,
+  `Number`, `Boolean`, and `Null`.
+- One attribute (`Color`) is a `String Set`.
+- The following attributes are document data types:
+  - A list of `RelatedItems`. Each element is an
+    `Id` for a related product.
+  - A map of `Pictures`. Each element is a short description of
+    a picture, along with a URL for the corresponding image file.
+  - A map of `ProductReviews`. Each element represents a rating
+    and a list of reviews corresponding to that rating. Initially, this map
+    is populated with five-star and one-star reviews.
 
-###### Note
-
-If an attribute name begins with a number, contains a space or contains a reserved
-word, you _must_ use an expression attribute name to replace that
-attribute's name in the expression.
-
-## Attribute names containing special characters
-
-In an expression, a dot (".") is interpreted as a separator character in a document
-path. However, DynamoDB also allows you to use a dot character and other special
-characters, such as a hyphen ("-") as part of an attribute name. This can be ambiguous
-in some cases. To illustrate, suppose that you wanted to retrieve the
-`Safety.Warning` attribute from a `ProductCatalog` item (see
-[Referring to item attributes when using
-expressions in DynamoDB](Expressions.md "Expressions.md")).
-
-Suppose that you wanted to access `Safety.Warning` using a projection
-expression.
-
-```
-aws dynamodb get-item \
-    --table-name ProductCatalog \
-    --key '{"Id":{"N":"123"}}' \
-    --projection-expression "Safety.Warning"
-```
-
-DynamoDB would return an empty result, rather than the expected string ("`Always
- wear a helmet`"). This is because DynamoDB interprets a dot in an expression as a
-document path separator. In this case, you must define an expression attribute name
-(such as `#sw`) as a substitute for `Safety.Warning`. You could
-then use the following projection expression.
-
-```
-aws dynamodb get-item \
-    --table-name ProductCatalog \
-    --key '{"Id":{"N":"123"}}' \
-    --projection-expression "#sw" \
-    --expression-attribute-names '{"#sw":"Safety.Warning"}'
-```
-
-DynamoDB would then return the correct result.
-
-###### Note
-
-If an attribute name contains a dot (".") or a hyphen ("-"), you
-_must_ use an expression attribute name to replace that
-attribute's name in the expression.
-
-## Nested
+## Top-level
 
 attributes
 
-Suppose that you wanted to access the nested attribute
-`ProductReviews.OneStar`. In an expression attribute name, DynamoDB treats
-the dot (".") as a character within an attribute's name. To reference the nested
-attribute, define an expression attribute name for each element in the document
-path:
+An attribute is said to be _top level_ if it is not embedded
+within another attribute. For the `ProductCatalog` item, the top-level
+attributes are as follows:
 
-- `#pr — ProductReviews`
-- `#1star — OneStar`
+- `Id`
+- `Title`
+- `Description`
+- `BicycleType`
+- `Brand`
+- `Price`
+- `Color`
+- `ProductCategory`
+- `InStock`
+- `QuantityOnHand`
+- `RelatedItems`
+- `Pictures`
+- `ProductReviews`
+- `Comment`
+- `Safety.Warning`
 
-You could then use `#pr.#1star` for the projection expression.
+All of these top-level attributes are scalars, except for `Color`
+(list), `RelatedItems` (list), `Pictures` (map), and
+`ProductReviews` (map).
 
-```
-aws dynamodb get-item \
-    --table-name ProductCatalog \
-    --key '{"Id":{"N":"123"}}' \
-    --projection-expression "#pr.#1star"  \
-    --expression-attribute-names '{"#pr":"ProductReviews", "#1star":"OneStar"}'
-```
+## Nested attributes
 
-DynamoDB would then return the correct result.
+An attribute is said to be _nested_ if it is embedded within
+another attribute. To access a nested attribute, you use _dereference
+operators_:
 
-## Repeatedly referencing attribute names
+- `[n]` — for list elements
+- `.` (dot) — for map elements
 
-Expression attribute names are helpful when you need to refer to the same attribute
-name repeatedly. For example, consider the following expression for retrieving some of
-the reviews from a `ProductCatalog` item.
+### Accessing list elements
 
-```
-aws dynamodb get-item \
-    --table-name ProductCatalog \
-    --key '{"Id":{"N":"123"}}' \
-    --projection-expression "ProductReviews.FiveStar, ProductReviews.ThreeStar, ProductReviews.OneStar"
-```
+The dereference operator for a list element is [*N*], where _n_ is the
+element number. List elements are zero-based, so [0] represents the first
+element in the list, [1] represents the second, and so on. Here are some
+examples:
 
-To make this more concise, you can replace `ProductReviews` with an
-expression attribute name such as `#pr`. The revised expression would now
-look like the following.
+- `MyList[0]`
+- `AnotherList[12]`
+- `ThisList[5][11]`
 
-- `#pr.FiveStar, #pr.ThreeStar, #pr.OneStar`
+The element `ThisList[5]` is itself a nested list. Therefore,
+`ThisList[5][11]` refers to the 12th element in that list.
 
-```
-aws dynamodb get-item \
-    --table-name ProductCatalog \
-    --key '{"Id":{"N":"123"}}' \
-    --projection-expression "#pr.FiveStar, #pr.ThreeStar, #pr.OneStar" \
-    --expression-attribute-names '{"#pr":"ProductReviews"}'
-```
+The number within the square brackets must be a non-negative integer.
+Therefore, the following expressions are not valid:
 
-If you define an expression attribute name, you must use it consistently throughout
-the entire expression. Also, you cannot omit the `#` symbol.
+- `MyList[-1]`
+- `MyList[0.4]`
+
+###
+
+Accessing map elements
+
+The dereference operator for a map element is .
+(a dot). Use a dot as a separator between elements in a map:
+
+- `MyMap.nestedField`
+- `MyMap.nestedField.deeplyNestedField`
+
+## Document paths
+
+In an expression, you use a _document path_ to tell DynamoDB where
+to find an attribute. For a top-level attribute, the document path is simply the
+attribute name. For a nested attribute, you construct the document path using
+dereference operators.
+
+The following are some examples of document paths. (Refer to the item shown in
+[Referring to item attributes when using
+expressions in DynamoDB](Expressions.md "Expressions.md").)
+
+- A top-level scalar attribute.
+
+`Description`
+
+- A top-level list attribute. (This returns the entire list, not just some
+  of the elements.)
+
+`RelatedItems`
+
+- The third element from the `RelatedItems` list. (Remember that
+  list elements are zero-based.)
+
+`RelatedItems[2]`
+
+- The front-view picture of the product.
+
+`Pictures.FrontView`
+
+- All of the five-star reviews.
+
+`ProductReviews.FiveStar`
+
+- The first of the five-star reviews.
+
+`ProductReviews.FiveStar[0]`
+
+###### Note
+
+The maximum depth for a document path is 32. Therefore,
+the number of dereferences operators in a path cannot exceed this limit.
+
+You can use any attribute name in a document path as long as they meet these
+requirements:
+
+- The first character is `a-z` or `A-Z` and or
+  `0-9`
+- The second character (if present) is `a-z`,
+  `A-Z`
+
+###### Note
+
+If an attribute name does not meet this requirement, you must define an
+expression attribute name as a placeholder.
+
+For more information, see [Expression attribute names (aliases)
+in DynamoDB](Expressions.md "Expressions.md").

@@ -27,7 +27,7 @@ The following IAM policy grants the permission to enable ABAC and view its statu
 
 ```
 {
-"version": "2012-10-17",&TCX5-2025-waiver;
+"version": "2012-10-17", 		 	 	 &TCX5-2025-waiver;
     "Statement": [
         {
             "Effect": "Allow",
