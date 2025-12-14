@@ -12,7 +12,7 @@ different flag values to the application.
 The following screenshot shows an example of a feature flag with three user-defined
 variants and the default variant.
 
-![An example screenshot of a feature flag with variants.](/images/appconfig/latest/userguide/images/flag-variant-example.png)
+![An example screenshot of a feature flag with variants.](images/flag-variant-example.png)
 
 ###### Topics
 
