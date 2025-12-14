@@ -58,7 +58,7 @@ Identify [input parameters](parameters.md "parameters.md").
 ![Number 2 icon in a pink circle.](images/label-two.png)
 Create a [schema file](ag-schema.md "ag-schema.md") to define your input parameters.
 
-![Pink square icon with a white exclamation mark inside a circle.](/images/proton/latest/userguide/images/label-three.png)
+![Pink square icon with a white exclamation mark inside a circle.](images/label-three.png)
 Create [IaC files](ag-infrastructure-tmp-files.md "ag-infrastructure-tmp-files.md") that reference your input parameters. You can reference
 environment IaC file _outputs_ as _inputs_ for your service IaC files.
 

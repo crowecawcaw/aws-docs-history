@@ -61,7 +61,7 @@ what constitutes a simple AWS Proton workflow.
 As an **Administrator**, you create and register an **Environment Template**
 with AWS Proton, which defines the shared resources.
 
-![Number 2 icon in a pink circle.](/images/proton/latest/userguide/images/label-two.png)
+![Number 2 icon in a pink circle.](images/label-two.png)
 AWS Proton deploys one or more **Environments**, based on an **Environment
 Template**.
 
@@ -70,7 +70,7 @@ As an **Administrator**, you create and register a **Service Template**
 with AWS Proton, which defines the related infrastructure, monitoring, and CI/CD resources as well as compatible **Environment
 Templates**.
 
-![Number 4 in a red circle icon, commonly used to indicate a notification count.](/images/proton/latest/userguide/images/label-four.png)
+![Number 4 in a red circle icon, commonly used to indicate a notification count.](images/label-four.png)
 As a **Developer**, you select a registered **Service Template** and
 provide a link to your **Source code** repository.
 
