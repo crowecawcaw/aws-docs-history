@@ -100,11 +100,11 @@ psql --quiet \
 
 ## Use DBeaver to access Aurora DSQL
 
-DBeaver is an open-source, GUI-based database tool. You can use it to connect to and manage
-your database. To download DBeaver, see the [download
-page](https://dbeaver.io/download/ "https://dbeaver.io/download/") on the _DBeaver Community_ website.
+DBeaver is a universal SQL client that can be used to manage any database that has a JDBC driver. It is widely used among developers and database administrators because of its robust data viewing, editing, and management capabilities. Using DBeaver's cloud connectivity options, you can connect DBeaver to Aurora DSQL natively.
 
-Use the following procedure to connect to your cluster using DBeaver.
+**DBeaver PRO** products ([DBeaver Ultimate](https://dbeaver.com/dbeaver-ultimate/ "https://dbeaver.com/dbeaver-ultimate/"), [DBeaver Team](https://dbeaver.com/dbeaver-team-edition/ "https://dbeaver.com/dbeaver-team-edition/"), [CloudBeaver Enterprise](https://dbeaver.com/cloudbeaver-enterprise/ "https://dbeaver.com/cloudbeaver-enterprise/"), and [CloudBeaver AWS](https://aws.amazon.com/marketplace/pp/prodview-kijugxnqada5i "https://aws.amazon.com/marketplace/pp/prodview-kijugxnqada5i")) offer native integration with Aurora DSQL as of version 25.3 through a dedicated Aurora DSQL connection type as well as via the Cloud Explorer with a seamless authentication experience.
+
+If you are using a different DBeaver version, including DBeaver Community Edition which is the free and open-source version, visit the [download page](https://dbeaver.io/download/ "https://dbeaver.io/download/") for installation instructions. Use the following procedure to connect to your cluster.
 
 ###### To set up a new Aurora DSQL connection in DBeaver
 
@@ -137,10 +137,10 @@ certificates](configure-root-certificates.md "configure-root-certificates.md"). 
 
 ###### Important
 
-The administrative features provided by DBeaver for the PostgreSQL databases (such as
+The administrative features provided by DBeaver for PostgreSQL databases (such as
 **Session Manager** and **Lock
-Manager**) don't apply to a database, due to its unique architecture. While
-accessible, these screens don't provide reliable information on the database health or
+Manager**) don't apply to Aurora DSQL databases due to their unique architecture. While
+accessible, these screens don't provide reliable information about database health or
 status.
 
 ## Use JetBrains
@@ -190,9 +190,9 @@ certificates](configure-root-certificates.md "configure-root-certificates.md"). 
 
 ###### Important
 
-Some views provided by DataGrip for the PostgreSQL databases (such as Sessions) don't apply to
-a database because of its unique architecture. While accessible, these screens don't provide
-reliable information on the actual sessions connected to the database.
+Some views provided by DataGrip for PostgreSQL databases (such as Sessions) don't apply to
+Aurora DSQL databases because of their unique architecture. While accessible, these screens don't provide
+reliable information about the actual sessions connected to the database.
 
 ## Troubleshooting
 
@@ -201,12 +201,12 @@ Clients**
 
 Established sessions remain authenticated for a maximum of 1 hour or until an explicit
 disconnect or a client-side timeout takes place. If new connections need to be established, a
-new authentication token must be generated and provided in the **Password** field of connection. Trying to open a new session (for example, to list
-new tables, or a new SQL console) forces a new authentication attempt. If the authentication
+new authentication token must be generated and provided in the **Password** field of the connection. Trying to open a new session (for example, to list
+new tables, or open a new SQL console) forces a new authentication attempt. If the authentication
 token configured in the **Connection** settings is no longer valid,
 that new session will fail and all previously opened sessions will become invalid. Keep this in
 mind when choosing the duration of your IAM authentication token with the
-`expires-in` option which can be set to 15 minutes by default and can be set to a
+`expires-in` option, which can be set to 15 minutes by default and can be set to a
 maximum value of seven days.
 
 Additionally, see the [Troubleshooting](troubleshooting.md "troubleshooting.md") section of the

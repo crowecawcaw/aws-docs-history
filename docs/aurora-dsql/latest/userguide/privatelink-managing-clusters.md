@@ -328,6 +328,46 @@ String vpcEndpointId = response.vpcEndpoint().vpcEndpointId();
 System.out.println("VPC Endpoint created with ID: " + vpcEndpointId);
 ```
 
+**Additional setup when connecting
+via Direct Connect or Amazon VPC peering**
+
+Some additional setup may be needed to connect to Aurora DSQL
+clusters using an AWS PrivateLink connection endpoint from
+on-premise devices via Amazon VPC peering or Direct Connect. This setup
+is not required if your application is running in the same
+Amazon VPC as your AWS PrivateLink endpoint. The private DNS
+entries created above will not resolve correctly outside the
+endpoint's Amazon VPC, but you can create your own private DNS
+records which resolve to your AWS PrivateLink connection endpoint.
+
+Create a private CNAME DNS record which points to the
+AWS PrivateLink endpoint's fully-qualified domain name. The
+domain name of the created DNS record should be constructed
+from the following components:
+
+1. The service identifier from the service
+   name. For example: `dsql-fnh4`
+2. The AWS Region
+
+Create the CNAME DNS record with a domain name in the
+following format: `*.`service-identifier`.`region`.on.aws`
+
+The format of the domain name is important for two
+reasons:
+
+1. The hostname used to connect to Aurora DSQL must
+   match Aurora DSQL's server certificate when using the
+   `verify-full` SSL mode. This ensures the
+   highest level of connection security.
+2. Aurora DSQL uses the cluster ID portion of the
+   hostname used to connect to Aurora DSQL to identify the
+   connecting cluster.
+
+If creating private DNS records is not possible, you can
+still connect to Aurora DSQL. See [Connecting to an
+Aurora DSQL cluster using an AWS PrivateLink endpoint
+without private DNS](#connecting-cluster-id-option "#connecting-cluster-id-option").
+
 ### Connecting to an Aurora DSQL cluster using an
 
 AWS PrivateLink connection endpoint
@@ -348,7 +388,8 @@ components.
 1. `Your-cluster-id`
 2. The service identifier from the service name. For example:
    `dsql-fnh4`
-3. The AWS Region
+3. The AWS Region. For example:
+   `us-east-1`
 
 Use the following format:
 ``cluster-id`.`service-identifier`.`region`.on.aws`
@@ -367,6 +408,61 @@ export HOSTNAME="$CLUSTERID.$SERVICE_IDENTIFIER.$REGION.on.aws"
 
 # Generate authentication token
 export PGPASSWORD=$(aws dsql --region $REGION generate-db-connect-admin-auth-token --hostname $HOSTNAME)
+
+# Connect using psql
+psql -d postgres -h $HOSTNAME -U admin
+```
+
+#### Connecting to an
+
+Aurora DSQL cluster using an AWS PrivateLink endpoint
+without private DNS
+
+The connection instructions above rely on private DNS
+records. If your application is running in the same
+Amazon VPC as your AWS PrivateLink endpoint, the DNS records
+are created for you. Alternatively, if you are
+connecting from on-premise devices via Amazon VPC peering
+or Direct Connect, then you can create your own private DNS
+records. However, DNS record setup is not always
+possible due to network restrictions imposed by your
+security teams. If your application must connect using
+Direct Connect or from a peered Amazon VPC, and DNS record setup
+is not possible, you can still connect to Aurora DSQL.
+
+Aurora DSQL uses the cluster ID portion of your hostname
+to identify the connecting cluster, but if DNS record
+setup is not possible, Aurora DSQL supports specifying the
+target cluster using the `amzn-cluster-id`
+connection option. With this option, it is possible to
+use your AWS PrivateLink endpoint's fully-qualified
+domain name as your hostname when connecting.
+
+###### Important
+
+When connecting with your AWS PrivateLink endpoint's
+fully-qualified domain name or IP address, the
+`verify-full` SSL mode is not supported.
+For this reason, setting up private DNS is
+preferred.
+
+**Example: Specifying the cluster ID connection option using
+PostgreSQL**
+
+```
+# Set environment variables
+export CLUSTERID=`your-cluster-id`
+export REGION=us-east-1
+export HOSTNAME=vpce-04037adb76c111221-d849uc2p.dsql-fnh4.us-east-1.vpce.amazonaws.com # This should match your endpoint's fully-qualified domain name
+
+# Construct the hostname used to generate the authentication token
+export AUTH_HOSTNAME="$CLUSTERID.dsql.$REGION.on.aws"
+
+# Generate authentication token
+export PGPASSWORD=$(aws dsql --region $REGION generate-db-connect-admin-auth-token --hostname $AUTH_HOSTNAME)
+
+# Specify the amzn-cluster-id connection option
+export PGOPTIONS="-c amzn-cluster-id=$CLUSTERID"
 
 # Connect using psql
 psql -d postgres -h $HOSTNAME -U admin

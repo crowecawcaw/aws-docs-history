@@ -14,6 +14,8 @@ Before you begin, ensure that you meet the following requirements:
 
 - You have at least one Aurora DSQL cluster available. For more information, see [Step 1: Create an Aurora DSQL single-Region
   cluster](getting-started.md#getting-started-create-cluster "getting-started.md#getting-started-create-cluster").
+- Your cluster endpoint is publicly accessible. The Query Editor does not currently support clusters that have public access blocked by resource-based policies or clusters managed through VPC endpoints. For more information, see [Blocking public access with resource-based policies in Aurora DSQL](rbp-block-public-access.md "rbp-block-public-access.md") and [Managing and connecting to Amazon Aurora DSQL
+  clusters using AWS PrivateLink](privatelink-managing-clusters.md "privatelink-managing-clusters.md").
 - Your IAM user or role has the required permissions to access and connect to the cluster. For more information, see [Using database roles and IAM authentication](using-database-and-iam-roles.md "using-database-and-iam-roles.md").
 
 ## Working with the Query Editor
