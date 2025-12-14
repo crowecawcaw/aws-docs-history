@@ -59,7 +59,7 @@ Large Bandwidth Tunnels are available in all Regions except the following:
 | Unavailable AWS Regions | AWS Region               | Description |
 | ----------------------- | ------------------------ | ----------- |
 | ap-southeast-4          | Asia Pacific (Melbourne) |
-| ca-central-1            | Canada (Central)         |
+| ca-west-1               | Canada West (Calgary)    |
 | eu-central-2            | Europe (Zurich)          |
 | il-central-1            | Israel (Tel Aviv)        |
 | me-central-1            | Middle East (UAE)        |

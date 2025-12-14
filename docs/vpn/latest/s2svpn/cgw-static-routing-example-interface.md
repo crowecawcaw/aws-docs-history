@@ -197,7 +197,7 @@ settings.
     specified in the configuration file in the `IPSec Tunnel
 #2` section.
 
-![Check Point Interoperable Shared Secret dialog box](images/check-point-shared-secret.png) 12. Still in the **Advanced Settings** category,
+![Check Point Interoperable Shared Secret dialog box](/images/vpn/latest/s2svpn/images/check-point-shared-secret.png) 12. Still in the **Advanced Settings** category,
 choose **Advanced VPN Properties**, configure the
 properties as follows, and then choose **OK** when
 you're done:
