@@ -50,10 +50,10 @@ events of importance**
 
 Consider applying pattern recognition, anomaly detection, or both to security logs to
 assist in determining potential threats and events of importance to your SAP workload. AWS
-managed services, such as [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") and [Amazon
+managed services, such as [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") and [Amazon
 GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/"), can help, combined with third-party security solutions from the AWS
 Marketplace.
 
 - AWS Video: [An Overview
-  of AWS Security Hub](https://www.youtube.com/watch?v=oBac-GAoZJ8 "https://www.youtube.com/watch?v=oBac-GAoZJ8")
+  of AWS Security Hub CSPM](https://www.youtube.com/watch?v=oBac-GAoZJ8 "https://www.youtube.com/watch?v=oBac-GAoZJ8")
 - AWS Documentation: [Getting started with GuardDuty](../../../guardduty/latest/ug/guardduty_settingup.md "../../../guardduty/latest/ug/guardduty_settingup.md")

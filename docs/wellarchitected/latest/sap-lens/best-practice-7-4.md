@@ -105,7 +105,7 @@ For further information, consider the following resources:
 
 - AWS Marketplace: [SIEM
   Solutions](https://aws.amazon.com/marketplace/solutions/control-tower/siem/ "https://aws.amazon.com/marketplace/solutions/control-tower/siem/")
-- AWS Documentation: [AWS Security Hub](https://aws.amazon.com/security-hub/?aws-security-hub-blogs.sort-by=item.additionalFields.createdDate&aws-security-hub-blogs.sort-order=desc "https://aws.amazon.com/security-hub/?aws-security-hub-blogs.sort-by=item.additionalFields.createdDate&aws-security-hub-blogs.sort-order=desc")
+- AWS Documentation: [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/?aws-security-hub-blogs.sort-by=item.additionalFields.createdDate&aws-security-hub-blogs.sort-order=desc "https://aws.amazon.com/security-hub/?aws-security-hub-blogs.sort-by=item.additionalFields.createdDate&aws-security-hub-blogs.sort-order=desc")
 - SAP Documentation: [SAP Enterprise Threat Detection](https://help.sap.com/viewer/eb42e48f5e9c4c9ab58a7ad73ff3bc66/LATEST/en-US/e12aa17b106c4c6193b7d593328aad48.html "https://help.sap.com/viewer/eb42e48f5e9c4c9ab58a7ad73ff3bc66/LATEST/en-US/e12aa17b106c4c6193b7d593328aad48.html")
 - Well-Architected Framework [Security]: [Security Incident Response](../framework/sec-incresp.md "../framework/sec-incresp.md")
 - AWS Documentation: [AWS Security Incident Response - Technical Whitepaper](../../../whitepapers/latest/aws-security-incident-response-guide/welcome.md "../../../whitepapers/latest/aws-security-incident-response-guide/welcome.md")

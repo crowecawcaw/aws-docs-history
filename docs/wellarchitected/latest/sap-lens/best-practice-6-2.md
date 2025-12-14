@@ -87,7 +87,7 @@ Consider the following services:
   analyze and process threats from multiple data sources. Use it to highlight activity
   that may indicate an instance compromise, such as cryptocurrency mining, denial of
   service activity, EC2 credential compromise, or data exfiltration using DNS.
-- [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") and [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") can be used for aggregation and
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") and [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") can be used for aggregation and
   assessment of operating system based alerts and configuration, along with other AWS
   services.
   For more details, refer to the following information:
