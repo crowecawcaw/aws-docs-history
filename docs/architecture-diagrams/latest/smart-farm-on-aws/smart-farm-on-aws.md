@@ -34,7 +34,7 @@ Diagram
 10. Build and deploy machine learning (ML) models for edge inference with **Amazon SageMaker AI**. Use **Amazon SageMaker Ground Truth** to manage data labeling workflow.
 11. Each time a new file is written into **Amazon S3**, **AWS Glue crawler** crawls the data to infer the schema and make
     it available into the **AWS Glue Data Catalog**. **Amazon Athena** does on-demand querying.
-12. Use a **Lambda** function that imports the **AWS IoT Device Defender** reports into **AWS Security Hub** to centralize incident response.
+12. Use a **Lambda** function that imports the **AWS IoT Device Defender** reports into **AWS Security Hub CSPM** to centralize incident response.
 
 ### Download editable diagram
 
