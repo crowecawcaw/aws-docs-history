@@ -5,6 +5,20 @@
 The query summarization feature is in preview release for
 CloudTrail Lake and is subject to change.
 
+###### Note
+
+CloudTrail will automatically select the optimal region within your geography to process inference requests while summarizing queries.
+This maximizes available compute resources, model availability, and delivers the best customer experience.
+Your data will remain stored only in the region where the request originated, however,
+input prompts and output results may be processed outside that region.
+All data will be transmitted encrypted across Amazon's secure network.
+
+CloudTrail will securely route your inference requests to available compute resources within the geographic area where the request originated, as follows:
+
+- Inference requests originating in the United States will be processed within the United States
+- Inference requests originating within Japan will be processed within Japan
+  To opt out of the query summarization feature, you can explicitly deny or remove the `cloudtrail:GenerateQueryResultsSummary` action from the iam policy you are using.
+
 After your query finishes, you can get a summary of your query results in natural language
 from the **Query results** tab in the query editor. This option uses
 generative artificial intelligence (generative AI) to produce the summary.

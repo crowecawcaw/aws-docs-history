@@ -72,7 +72,8 @@ for these S3 objects are available in Amazon EventBridge. For more information, 
       individual objects deleted by an Amazon S3 DeleteObjects event](filtering-data-events.md#filtering-data-events-deleteobjects "filtering-data-events.md#filtering-data-events-deleteobjects")
 
 - [Aggregating data events](aggregating-data-events.md "aggregating-data-events.md")
-  - [Enabling aggregations for data events for Amazon S3 objects using the AWS CLI](aggregating-data-events.md#aggregating-data-events-cli "aggregating-data-events.md#aggregating-data-events-cli")
+  - [Enabling aggregations for data events using the console](aggregating-data-events.md#aggregating-data-events-console "aggregating-data-events.md#aggregating-data-events-console")
+  - [Enabling aggregations for data events using the AWS CLI](aggregating-data-events.md#aggregating-data-events-cli "aggregating-data-events.md#aggregating-data-events-cli")
     - [Example: API_ACTIVITY aggregated event](aggregating-data-events.md#aggregating-data-events-api-activity-example "aggregating-data-events.md#aggregating-data-events-api-activity-example")
     - [Example: RESOURCE_ACCESS aggregated event](aggregating-data-events.md#aggregating-data-events-resource-access-example "aggregating-data-events.md#aggregating-data-events-resource-access-example")
 

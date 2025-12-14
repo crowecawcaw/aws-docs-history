@@ -10,7 +10,13 @@ You can enable aggregation on data events when creating a new trail or updating 
 - **Resource Access** to get the activity patterns on your AWS resources. Use this to understand how your AWS resources are being accessed, how many times they are being accessed in the 5-minute window, who is accessing the resource, and what actions are being performed.
 - **User Actions** to get activity patterns based on the IAM principal making API calls in your account.
 
-## Enabling aggregations for data events for Amazon S3 objects using the AWS CLI
+## Enabling aggregations for data events using the console
+
+To enable aggregations on trails, you first choose data events logging when you are creating or updating a trail and configuring data events to log events in the trail. Then, in the configure event aggregation step, you can select templates such as **API Activity** and **Resource Access** from the Aggregation templates dropdown as shown in the screenshot below.
+
+![Screenshot of the CloudTrail console showing the Aggregation templates dropdown with API Activity and Resource Access options selected](images/Enable-Aggregation-console.png)
+
+## Enabling aggregations for data events using the AWS CLI
 
 You can configure your trails to aggregate events using the AWS CLI.
 

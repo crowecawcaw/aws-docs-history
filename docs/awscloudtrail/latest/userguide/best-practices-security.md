@@ -100,12 +100,12 @@ in case it detects credentials that were created exclusively for an Amazon EC2 i
 through an instance launch role but are being used from another account within
 AWS. For more information, see the [_Amazon GuardDuty User Guide_](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md").
 
-**Use AWS Security Hub**
+**Use AWS Security Hub CSPM**
 
-Monitor your usage of CloudTrail as it relates to security best practices by using [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
-Security Hub uses detective _security controls_ to evaluate resource configurations and _security standards_ to help you comply with various
-compliance frameworks. For more information about using Security Hub to evaluate CloudTrail resources, see [AWS CloudTrail controls](../../../securityhub/latest/userguide/cloudtrail-controls.md "../../../securityhub/latest/userguide/cloudtrail-controls.md")
-in the _AWS Security Hub User Guide_.
+Monitor your usage of CloudTrail as it relates to security best practices by using [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
+Security Hub CSPM uses detective _security controls_ to evaluate resource configurations and _security standards_ to help you comply with various
+compliance frameworks. For more information about using Security Hub CSPM to evaluate CloudTrail resources, see [AWS CloudTrail controls](../../../securityhub/latest/userguide/cloudtrail-controls.md "../../../securityhub/latest/userguide/cloudtrail-controls.md")
+in the _AWS Security Hub CSPM User Guide_.
 
 ## CloudTrail preventative security best
 
