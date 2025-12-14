@@ -121,7 +121,7 @@ findings**
 
 GuardDuty consolidates your security findings across accounts and displays
 results in the Summary dashboard on the GuardDuty console. You can also retrieve
-findings through the AWS Security Hub API, AWS Command Line Interface, or AWS SDK. With a holistic
+findings through the AWS Security Hub CSPM API, AWS Command Line Interface, or AWS SDK. With a holistic
 view of your current security status, you can identify trends and potential
 issues, and take necessary remediation steps. For more information, see
 [Managing GuardDuty findings](findings_management.md "findings_management.md").
@@ -132,18 +132,18 @@ To further help you analyze and investigate the security trends in your
 AWS environment, consider using the following AWS security-related
 services in combination with GuardDuty.
 
-- **AWS Security Hub** – This service
+- **AWS Security Hub CSPM** – This service
   gives you a comprehensive view of the security state of your AWS
   resources and helps you check your AWS environment against
   security industry standards and best practices. It does this partly
   by consuming, aggregating, organizing, and prioritizing your
   security findings from multiple AWS services (including Amazon Macie)
-  and supported AWS Partner Network (APN) products. Security Hub helps you
+  and supported AWS Partner Network (APN) products. Security Hub CSPM helps you
   analyze your security trends and identify the highest priority
   security issues across your AWS environment.
 
-For information about using GuardDuty and Security Hub together, see [Integrating GuardDuty with AWS Security Hub](guardduty_integrations.md#gd-securityhub "guardduty_integrations.md#gd-securityhub"). To
-learn more about Security Hub, see the [AWS Security Hub User Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
+For information about using GuardDuty and Security Hub CSPM together, see [Integrating GuardDuty with AWS Security Hub CSPM](guardduty_integrations.md#gd-securityhub "guardduty_integrations.md#gd-securityhub"). To
+learn more about Security Hub CSPM, see the [AWS Security Hub CSPM User Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
 
 - **Amazon Detective** – This service
   helps you analyze, investigate, and quickly identify the root cause

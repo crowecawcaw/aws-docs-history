@@ -1,70 +1,70 @@
-# Integrating with AWS Security Hub
+# Integrating with AWS Security Hub CSPM
 
-[AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") provides you with a comprehensive view of your security state in
+[AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") provides you with a comprehensive view of your security state in
 AWS and helps you to check your environment against security industry standards and best
-practices. Security Hub collects security data from across AWS accounts, services, and supported
+practices. Security Hub CSPM collects security data from across AWS accounts, services, and supported
 third-party partner products and helps you to analyze your security trends and identify the
 highest priority security issues.
 
-The Amazon GuardDuty integration with Security Hub enables you to send findings from GuardDuty to Security Hub.
-Security Hub can then include those findings in its analysis of your security posture.
+The Amazon GuardDuty integration with Security Hub CSPM enables you to send findings from GuardDuty to Security Hub CSPM.
+Security Hub CSPM can then include those findings in its analysis of your security posture.
 
 ###### Contents
 
 - [How Amazon GuardDuty sends findings
-  to AWS Security Hub](securityhub-integration.md#securityhub-integration-sending-findings "securityhub-integration.md#securityhub-integration-sending-findings")
+  to AWS Security Hub CSPM](securityhub-integration.md#securityhub-integration-sending-findings "securityhub-integration.md#securityhub-integration-sending-findings")
   - [Types of findings that
-    GuardDuty sends to Security Hub](securityhub-integration.md#securityhub-integration-finding-types "securityhub-integration.md#securityhub-integration-finding-types")
+    GuardDuty sends to Security Hub CSPM](securityhub-integration.md#securityhub-integration-finding-types "securityhub-integration.md#securityhub-integration-finding-types")
     - [Latency for sending
       new findings](securityhub-integration.md#securityhub-integration-finding-latency "securityhub-integration.md#securityhub-integration-finding-latency")
-    - [Retrying when Security Hub is not
+    - [Retrying when Security Hub CSPM is not
       available](securityhub-integration.md#securityhub-integration-retry-send "securityhub-integration.md#securityhub-integration-retry-send")
     - [Updating existing
-      findings in Security Hub](securityhub-integration.md#securityhub-integration-finding-updates "securityhub-integration.md#securityhub-integration-finding-updates")
+      findings in Security Hub CSPM](securityhub-integration.md#securityhub-integration-finding-updates "securityhub-integration.md#securityhub-integration-finding-updates")
 
-- [Viewing GuardDuty findings in AWS Security Hub](securityhub-integration.md#findings-in-securityhub "securityhub-integration.md#findings-in-securityhub")
+- [Viewing GuardDuty findings in AWS Security Hub CSPM](securityhub-integration.md#findings-in-securityhub "securityhub-integration.md#findings-in-securityhub")
   - [Interpreting GuardDuty finding
-    names in AWS Security Hub](securityhub-integration.md#interpreting-findings-in-securityhub "securityhub-integration.md#interpreting-findings-in-securityhub")
+    names in AWS Security Hub CSPM](securityhub-integration.md#interpreting-findings-in-securityhub "securityhub-integration.md#interpreting-findings-in-securityhub")
   - [Typical finding from
     GuardDuty](securityhub-integration.md#securityhub-integration-finding-example "securityhub-integration.md#securityhub-integration-finding-example")
 
 - [Enabling and configuring the
   integration](securityhub-integration.md#securityhub-integration-enable "securityhub-integration.md#securityhub-integration-enable")
 - [Using GuardDuty controls
-  in Security Hub](securityhub-integration.md#securityhub-integration-using-guardduty-controls "securityhub-integration.md#securityhub-integration-using-guardduty-controls")
+  in Security Hub CSPM](securityhub-integration.md#securityhub-integration-using-guardduty-controls "securityhub-integration.md#securityhub-integration-using-guardduty-controls")
 - [Stopping the publication of findings
-  to Security Hub](securityhub-integration.md#securityhub-integration-disable "securityhub-integration.md#securityhub-integration-disable")
+  to Security Hub CSPM](securityhub-integration.md#securityhub-integration-disable "securityhub-integration.md#securityhub-integration-disable")
 
 ## How Amazon GuardDuty sends findings
 
-to AWS Security Hub
+to AWS Security Hub CSPM
 
-In AWS Security Hub, security issues are tracked as findings. Some findings come from issues
-that are detected by other AWS services or by third-party partners. Security Hub also has a
+In AWS Security Hub CSPM, security issues are tracked as findings. Some findings come from issues
+that are detected by other AWS services or by third-party partners. Security Hub CSPM also has a
 set of rules that it uses to detect security issues and generate findings.
 
-Security Hub provides tools to manage findings from across all of these sources. You can view
+Security Hub CSPM provides tools to manage findings from across all of these sources. You can view
 and filter lists of findings and view details for a finding. For more information, see
 [Viewing
-findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub User Guide_. You can
+findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub CSPM User Guide_. You can
 also track the status of an investigation into a finding. For more information, see
 [Taking
-action on findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub User Guide_.
+action on findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub CSPM User Guide_.
 
-All findings in Security Hub use a standard JSON format called the AWS Security Finding
+All findings in Security Hub CSPM use a standard JSON format called the AWS Security Finding
 Format (ASFF). The ASFF includes details about the source of the issue, the affected
 resources, and the current status of the finding. See [AWS Security
-Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
+Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
 
-Amazon GuardDuty is one of the AWS services that sends findings to Security Hub.
+Amazon GuardDuty is one of the AWS services that sends findings to Security Hub CSPM.
 
 ### Types of findings that
 
-GuardDuty sends to Security Hub
+GuardDuty sends to Security Hub CSPM
 
-Once you enable GuardDuty and Security Hub in the same account within the same AWS Region,
-GuardDuty starts sending all the generated findings to Security Hub. These findings are sent to
-Security Hub using the [AWS
+Once you enable GuardDuty and Security Hub CSPM in the same account within the same AWS Region,
+GuardDuty starts sending all the generated findings to Security Hub CSPM. These findings are sent to
+Security Hub CSPM using the [AWS
 Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md"). In ASFF, the `Types` field
 provides the finding type.
 
@@ -72,37 +72,37 @@ provides the finding type.
 
 new findings
 
-When GuardDuty creates a new finding, it is usually sent to Security Hub within five
+When GuardDuty creates a new finding, it is usually sent to Security Hub CSPM within five
 minutes.
 
-#### Retrying when Security Hub is not
+#### Retrying when Security Hub CSPM is not
 
 available
 
-If Security Hub is not available, GuardDuty retries sending the findings until they are
+If Security Hub CSPM is not available, GuardDuty retries sending the findings until they are
 received.
 
 #### Updating existing
 
-findings in Security Hub
+findings in Security Hub CSPM
 
-After it sends a finding to Security Hub, GuardDuty sends updates to reflect additional
-observations of the finding activity to Security Hub. The new observations of these
-findings are sent to Security Hub based on the [Step 5 –
+After it sends a finding to Security Hub CSPM, GuardDuty sends updates to reflect additional
+observations of the finding activity to Security Hub CSPM. The new observations of these
+findings are sent to Security Hub CSPM based on the [Step 5 –
 Frequency for exporting findings](guardduty_exportfindings.md#guardduty_exportfindings-frequency "guardduty_exportfindings.md#guardduty_exportfindings-frequency") settings in your
 AWS account.
 
 When you archive or unarchive a finding, GuardDuty doesn't send that finding to
-Security Hub. Any manually unarchived finding that later become active in GuardDuty is not
-sent to Security Hub.
+Security Hub CSPM. Any manually unarchived finding that later become active in GuardDuty is not
+sent to Security Hub CSPM.
 
-## Viewing GuardDuty findings in AWS Security Hub
+## Viewing GuardDuty findings in AWS Security Hub CSPM
 
-Sign in to the AWS Management Console and open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
+Sign in to the AWS Management Console and open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 
-You can now use either of the following ways to view the GuardDuty findings in the Security Hub console:
+You can now use either of the following ways to view the GuardDuty findings in the Security Hub CSPM console:
 
-**Option 1: Using _Integrations_ in Security Hub**
+**Option 1: Using _Integrations_ in Security Hub CSPM**
 
 1. In the left navigation pane, choose **Integrations**.
 2. On the **Integrations** page, check the **Status**
@@ -110,10 +110,10 @@ You can now use either of the following ways to view the GuardDuty findings in t
    - If the **Status** is **Accepting findings**,
      then choose **See findings** next to **Accepting findings**.
    - If not, then for more information about how **Integrations**
-     work, see [Security Hub integrations](../../../securityhub/latest/userguide/securityhub-findings-providers.md "../../../securityhub/latest/userguide/securityhub-findings-providers.md")
-     in _AWS Security Hub User Guide_.
+     work, see [Security Hub CSPM integrations](../../../securityhub/latest/userguide/securityhub-findings-providers.md "../../../securityhub/latest/userguide/securityhub-findings-providers.md")
+     in _AWS Security Hub CSPM User Guide_.
 
-**Option 2: Using _Findings_ in Security Hub**
+**Option 2: Using _Findings_ in Security Hub CSPM**
 
 1. In the left navigation pane, choose **Findings**.
 2. On the **Findings** page, add the filter
@@ -121,17 +121,17 @@ You can now use either of the following ways to view the GuardDuty findings in t
 
 ### Interpreting GuardDuty finding
 
-names in AWS Security Hub
+names in AWS Security Hub CSPM
 
-GuardDuty sends the findings to Security Hub using the [AWS
+GuardDuty sends the findings to Security Hub CSPM using the [AWS
 Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md"). In ASFF, the `Types` field
 provides the finding type. ASFF types use a different naming scheme than GuardDuty
 types. The table below details all the GuardDuty finding types with their ASFF
-counterpart as they appear in Security Hub.
+counterpart as they appear in Security Hub CSPM.
 
 ###### Note
 
-For some GuardDuty finding types Security Hub assigns different ASFF finding names
+For some GuardDuty finding types Security Hub CSPM assigns different ASFF finding names
 depending on whether the finding detail's **Resource Role** was
 **ACTOR** or **TARGET**. For more
 information see [Finding details](guardduty_findings-summary.md "guardduty_findings-summary.md").
@@ -350,7 +350,7 @@ information see [Finding details](guardduty_findings-summary.md "guardduty_findi
 
 GuardDuty
 
-GuardDuty sends findings to Security Hub using the [AWS
+GuardDuty sends findings to Security Hub CSPM using the [AWS
 Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md").
 
 Here is an example of a typical finding from GuardDuty.
@@ -446,33 +446,33 @@ Here is an example of a typical finding from GuardDuty.
 
 integration
 
-To use the integration with AWS Security Hub, you must enable Security Hub. For information on how
-to enable Security Hub, see [Setting up Security
-Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
+To use the integration with AWS Security Hub CSPM, you must enable Security Hub CSPM. For information on how
+to enable Security Hub CSPM, see [Setting up Security
+Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User Guide_.
 
-When you enable both GuardDuty and Security Hub, the integration is enabled automatically. GuardDuty
-immediately begins to send findings to Security Hub.
+When you enable both GuardDuty and Security Hub CSPM, the integration is enabled automatically. GuardDuty
+immediately begins to send findings to Security Hub CSPM.
 
 ## Using GuardDuty controls
 
-in Security Hub
+in Security Hub CSPM
 
-AWS Security Hub uses security controls to evaluate your AWS resources, and check your
+AWS Security Hub CSPM uses security controls to evaluate your AWS resources, and check your
 compliance against security industry standards and best practices. You can use the
 controls related to GuardDuty resources and selected protection plans. For more information,
 see [Amazon GuardDuty
-controls](../../../securityhub/latest/userguide/guardduty-controls.md "../../../securityhub/latest/userguide/guardduty-controls.md") in the _AWS Security Hub User Guide_.
+controls](../../../securityhub/latest/userguide/guardduty-controls.md "../../../securityhub/latest/userguide/guardduty-controls.md") in the _AWS Security Hub CSPM User Guide_.
 
-For a list of all the controls across AWS services and resources, see [Security Hub
-controls reference](../../../securityhub/latest/userguide/securityhub-controls-reference.md "../../../securityhub/latest/userguide/securityhub-controls-reference.md") in the _AWS Security Hub User Guide_.
+For a list of all the controls across AWS services and resources, see [Security Hub CSPM
+controls reference](../../../securityhub/latest/userguide/securityhub-controls-reference.md "../../../securityhub/latest/userguide/securityhub-controls-reference.md") in the _AWS Security Hub CSPM User Guide_.
 
 ## Stopping the publication of findings
 
-to Security Hub
+to Security Hub CSPM
 
-To stop sending findings to Security Hub, you can use either the Security Hub console or the
+To stop sending findings to Security Hub CSPM, you can use either the Security Hub CSPM console or the
 API.
 
 See [Disabling and enabling the flow of findings from an integration
 (console)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console") or [Disabling the flow of findings from an integration (Security
-Hub API, AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub User Guide_.
+Hub API, AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub CSPM User Guide_.

@@ -13,8 +13,8 @@ new filter you define. You can configure suppression rules to suppress entire fi
 types, or define more granular filter criteria to suppress only specific instances of a
 particular finding type. You can edit the suppression rules at any time.
 
-Suppressed findings are not sent to AWS Security Hub, Amazon Simple Storage Service, Amazon Detective, or Amazon EventBridge,
-reducing finding noise level if you consume GuardDuty findings via Security Hub, a third-party
+Suppressed findings are not sent to AWS Security Hub CSPM, Amazon Simple Storage Service, Amazon Detective, or Amazon EventBridge,
+reducing finding noise level if you consume GuardDuty findings via Security Hub CSPM, a third-party
 SIEM, or other alerting and ticketing applications. If you've enabled [Malware Protection for EC2](malware-protection.md "malware-protection.md"), the
 suppressed GuardDuty findings won't initiate a malware scan.
 
