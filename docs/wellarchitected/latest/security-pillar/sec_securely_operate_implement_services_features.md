@@ -49,7 +49,7 @@ You can subscribe to an
 [AWS Daily Feature Updates](https://aws.amazon.com/blogs/aws/subscribe-to-aws-daily-feature-updates-via-amazon-sns/ "https://aws.amazon.com/blogs/aws/subscribe-to-aws-daily-feature-updates-via-amazon-sns/") topic using Amazon Simple Notification Service (Amazon SNS) for a comprehensive daily
 summary of updates. Some security services, such as
 [Amazon GuardDuty](../../../guardduty/latest/ug/guardduty_sns.md "../../../guardduty/latest/ug/guardduty_sns.md") and
-[AWS Security Hub](../../../securityhub/latest/userguide/securityhub-announcements.md "../../../securityhub/latest/userguide/securityhub-announcements.md"), provide their own SNS topics to stay informed
+[AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-announcements.md "../../../securityhub/latest/userguide/securityhub-announcements.md"), provide their own SNS topics to stay informed
 about new standards, findings, and other updates for those
 particular services.
 

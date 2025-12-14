@@ -39,7 +39,7 @@ a credential report](../../../IAM/latest/UserGuide/id_credentials_getting-report
 We also recommend that you enforce and monitor MFA in your
 identity provider. You can set up
 [AWS Config Rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md"), or use
-[AWS Security Hub Security Standards](../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md#fsbp-iam-3 "../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md#fsbp-iam-3"), to monitor if users have
+[AWS Security Hub CSPM Security Standards](../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md#fsbp-iam-3 "../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md#fsbp-iam-3"), to monitor if users have
 configured MFA. Consider using
 [IAM
 Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../../rolesanywhere/latest/userguide/introduction.md") to provide temporary credentials for machine

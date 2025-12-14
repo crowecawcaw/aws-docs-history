@@ -56,9 +56,9 @@ is not established:** Medium
 
 As described in [SEC01-BP03 Identify and validate control objectives](sec_securely_operate_control_objectives.md "sec_securely_operate_control_objectives.md"), services such as
 [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") and
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") can help you monitor the configuration of
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") can help you monitor the configuration of
 resources in your accounts for adherence to your requirements.
-When non-compliant resources are detected, services such as AWS Security Hub, can help with routing alerts appropriately and
+When non-compliant resources are detected, services such as AWS Security Hub CSPM, can help with routing alerts appropriately and
 remediation. These solutions provide a central place for your
 security investigators to monitor for issues and take corrective
 action.
@@ -78,12 +78,12 @@ permission needed to take corrective action.
 Once you define the desired remediation, you can then determine
 your preferred means for initiating it. AWS Config can
 [initiate
-remediations](../../../config/latest/developerguide/remediation.md "../../../config/latest/developerguide/remediation.md") for you. If you are using Security Hub, you
+remediations](../../../config/latest/developerguide/remediation.md "../../../config/latest/developerguide/remediation.md") for you. If you are using Security Hub CSPM, you
 can do this through
 [custom
 actions](../../../securityhub/latest/userguide/securityhub-cwe-custom-actions.md "../../../securityhub/latest/userguide/securityhub-cwe-custom-actions.md"), which publishes the finding information to
 [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/"). An EventBridge rule can then initiate your
-remediation. You can configure remediations through Security Hub
+remediation. You can configure remediations through Security Hub CSPM
 to run either automatically or manually. 
 
 For programmatic remediation, we recommend that you have
@@ -93,7 +93,7 @@ effectiveness of the automated processes, and identify areas of
 improvement. Capture logs in
 [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") and remediation outcomes as
 [finding
-notes](../../../securityhub/latest/userguide/securityhub-findings.md "../../../securityhub/latest/userguide/securityhub-findings.md") in Security Hub.
+notes](../../../securityhub/latest/userguide/securityhub-findings.md "../../../securityhub/latest/userguide/securityhub-findings.md") in Security Hub CSPM.
 
 As a starting point, consider
 [Automated
@@ -104,7 +104,7 @@ for resolving common security misconfigurations.
 
 1. Analyze and prioritize alerts.
    1. Consolidate security alerts from various AWS services
-      into Security Hub for centralized visibility,
+      into Security Hub CSPM for centralized visibility,
       prioritization, and remediation.
 
 2. Develop remediations.
@@ -124,7 +124,7 @@ for resolving common security misconfigurations.
 4. Review and analyze remediation logs for effectiveness and
    improvement.
    1. Send log output to CloudWatch Logs. Capture outcomes as
-      finding notes in Security Hub.
+      finding notes in Security Hub CSPM.
 
 ## Resources
 

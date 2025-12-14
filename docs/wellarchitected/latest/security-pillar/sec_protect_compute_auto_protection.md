@@ -78,7 +78,7 @@ with before allowing it to run.
 Beyond these preventative controls, you can use automation in your
 detective controls for your compute resources as well.  As one
 example,
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") offers the
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") offers the
 [NIST
 800-53 Rev. 5](../../../securityhub/latest/userguide/nist-standard.md "../../../securityhub/latest/userguide/nist-standard.md") standard that includes checks such
 as [[EC2.8]
@@ -87,7 +87,7 @@ EC2 instances should use Instance Metadata Service Version 2
 authentication, blocking requests that contain an
 X-Forwarded-For HTTP header, and a network TTL
 of 1 to stop traffic originating from external sources to retrieve
-information about the EC2 instance. This check in Security Hub can
+information about the EC2 instance. This check in Security Hub CSPM can
 detect when EC2 instances use IMDSv1 and initiate automated
 remediation. Learn more about automated detection and remediations
 in [SEC04-BP04
@@ -106,7 +106,7 @@ Initiate remediation for non-compliant resources](../framework/sec_detect_invest
    1. Automated configuration management
       using [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/")
    2. Automated security and compliance posture management
-      using [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
+      using [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
 
 3. Automate patching or replacing Amazon Elastic Compute Cloud
    (Amazon EC2) instances. AWS Systems Manager Patch Manager

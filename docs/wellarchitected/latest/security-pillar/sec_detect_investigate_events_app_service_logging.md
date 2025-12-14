@@ -65,7 +65,7 @@ For example, you might use a third-party security information and event manageme
 - **Use logs for alerting:** AWS provides alerting through several security services:
   - [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") monitors and records your AWS resource configurations and allows you to automate the evaluation and remediation against desired configurations.
   - [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/") is a threat detection service that continually monitors for malicious activity and unauthorized behavior to protect your AWS accounts and workloads. GuardDuty ingests, aggregates, and analyzes information from sources, such as AWS CloudTrail management and data events, DNS logs, VPC Flow Logs, and Amazon EKS Audit logs. GuardDuty pulls independent data streams directly from CloudTrail, VPC Flow Logs, DNS query logs, and Amazon EKS. You don’t have to manage Amazon S3 bucket policies or modify the way you collect and store logs. It is still recommended to retain these logs for your own investigation and compliance purposes.
-  - [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") provides a single place that aggregates, organizes, and prioritizes your security alerts or findings from multiple AWS services and optional third-party products to give you a comprehensive view of security alerts and compliance status.
+  - [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") provides a single place that aggregates, organizes, and prioritizes your security alerts or findings from multiple AWS services and optional third-party products to give you a comprehensive view of security alerts and compliance status.
 
 You can also use custom alert generation engines for security alerts not covered by these services or for speciﬁc alerts relevant to your environment. For information on building these alerts and detections, see [Detection in the AWS Security Incident Response Guide](../../../whitepapers/latest/aws-security-incident-response-guide/detection.md "../../../whitepapers/latest/aws-security-incident-response-guide/detection.md").
 
@@ -91,4 +91,4 @@ You can also use custom alert generation engines for security alerts not covered
 **Related examples:**
 
 - [Assisted Log Enabler for AWS](https://github.com/awslabs/assisted-log-enabler-for-aws/ "https://github.com/awslabs/assisted-log-enabler-for-aws/")
-- [AWS Security Hub Findings Historical Export](https://github.com/aws-samples/aws-security-hub-findings-historical-export "https://github.com/aws-samples/aws-security-hub-findings-historical-export")
+- [AWS Security Hub CSPM Findings Historical Export](https://github.com/aws-samples/aws-security-hub-findings-historical-export "https://github.com/aws-samples/aws-security-hub-findings-historical-export")

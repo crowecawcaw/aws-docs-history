@@ -152,7 +152,7 @@ for a failure mode:
   accessed during emergencies, as break-glass procedures can be
   considered a backdoor. Integrate with your security
   information and event management (SIEM) tool or
-  [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") to report and audit all activities during
+  [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") to report and audit all activities during
   the emergency access period. Upon returning to normal
   operations, automatically rotate the emergency access
   credentials, and notify the relevant teams.

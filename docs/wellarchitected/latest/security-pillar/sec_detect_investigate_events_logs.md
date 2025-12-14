@@ -84,7 +84,7 @@ sources such as CloudTrail, Route 53,
 [Amazon EKS](https://aws.amazon.com/eks/ "https://aws.amazon.com/eks/"),
 and
 [VPC
-Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md"). You can also configure AWS Security Hub as a
+Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md"). You can also configure AWS Security Hub CSPM as a
 data source into Security Lake, allowing you to correlate findings
 from other AWS services, such as
 [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/") and
