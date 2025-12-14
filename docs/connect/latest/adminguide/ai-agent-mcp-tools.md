@@ -33,7 +33,7 @@ integrate with existing business systems.
 
 Third-party MCP tools
 
-You can use third-party integrations through AgentCore Gateway. By
+You can use third-party integrations through Amazon Bedrock AgentCore Gateway. By
 registering AgentCore Gateways in the AWS Management Console, similar to
 how third-party applications are registered to Amazon Connect today, you gain access
 to whatever tools are available on those servers, including remote MCP

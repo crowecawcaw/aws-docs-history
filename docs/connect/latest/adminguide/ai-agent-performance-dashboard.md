@@ -15,9 +15,6 @@ Agents metrics such as invocation count, latency, and success rate.
 - [AI agents by version chart](#ai-agents-by-version-chart "#ai-agents-by-version-chart")
 - [AI agents by invocation success rate](#ai-agents-by-invocation-success-chart "#ai-agents-by-invocation-success-chart")
 - [AI prompts by version](#ai-prompts-by-version "#ai-prompts-by-version")
-- [Agent performance evaluation metrics table](#ai-agent-perf-metrics-chart "#ai-agent-perf-metrics-chart")
-- [Agent online time breakdown chart](#ai-agent-online-time-breakdown-chart "#ai-agent-online-time-breakdown-chart")
-- [Agent performance metrics table](#ai-agent-perf-metrics-table "#ai-agent-perf-metrics-table")
 
 ## Enable access to the dashboard
 
@@ -173,52 +170,3 @@ ranges, or other dimensions.
 The following image shows an example **AI prompts by version** chart.
 
 ![The AI prompts by version success rate table.](images/ai-prompts-by-version.png)
-
-## Agent performance evaluation metrics table
-
-You can view the average evaluation score for each of your agents. For example, you can filter for a particular
-agent hierarchy and sort agents by their **Avg. evaluation score**.
-
-You can drill-down into agents to view their score across the different evaluation forms and can also filter the
-table for a particular evaluation form or evaluation source (that is, automated, manual, and more).
-
-The table provides evaluations performed so you can assess if the agent has received enough evaluations for the
-**Avg. evaluation score** to be representative of their performance. You can also check if the
-agent received any automatic fails on their performance evaluations.
-
-You can set custom thresholds that enable you to get an at-a-glance view of agents that are below the desirable
-threshold for their average evaluation score. For more information, see [Modify thresholds for summary widgets and
-tables](dashboard-customize-widgets.md#dashboard-thresholds "dashboard-customize-widgets.md#dashboard-thresholds").
-
-The following image shows an example **Agent performance evaluation metrics** table.
-
-![The Agent performance evaluation metrics chart.](images/agent-perf-evaluation-metrics.png)
-
-## Agent online time breakdown chart
-
-This chart provides a breakdown of the online time spent by agents being on-contact, being idle (while being
-available to take calls), and non-productive (that is, in custom status).
-
-You can then compare the breakdown over time or versus a benchmark (for example, the average of all agents in
-the contact center).
-
-This chart helps you assess whether agents are spending too much time on activities outside of taking contacts,
-so you can take action (for example, driving better adherence to scheduled breaks).
-
-For more information about metrics definitions, see [Metric definitions](metrics-definitions.md "metrics-definitions.md").
-
-The following image shows an example **Agent online time breakdown** chart.
-
-![The Agent online time breakdown chart.](/images/connect/latest/adminguide/images/agent-online-time-breakdown.png)
-
-## Agent performance metrics table
-
-This table provides you with key agent performance metrics. You can sort the table in ascending or descending
-order of the metrics. For example, which agents have the highest **Avg after contact work time**.
-
-You can also edit the chart to add or remove agent performance metrics, and set thresholds for highlighting
-insights.
-
-The following image shows an example **Agent performance metrics** chart.
-
-![The Agent performance metrics table.](images/agent-perf-metrics-table.png)

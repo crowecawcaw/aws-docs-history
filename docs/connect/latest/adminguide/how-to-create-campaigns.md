@@ -22,7 +22,11 @@ post.
 
 ![The Campaign setup page showing the Name field where users enter the campaign name.](images/how-to-create-campaigns-3.png) 4. Select a **[Customer
 Segment](customer-segments-managing-segments.md "customer-segments-managing-segments.md")** to use for this campaign.  Recipients for the campaign will be
-determined at the campaign's scheduled start time using the chosen segment. 5. Choose the **Channel** for the main communication of the campaign. The
+determined at the campaign's scheduled start time using the chosen segment. 
+
+###### Important
+
+If you are running a campaign initiated by a customer event and using segment powered by Spark SQL, the campaign checks the segment membership as of the last time the segment was exported (segment snapshot), not at the point when the campaign is running. This is provided as an API attribute (lastComputedAt). If you receive a 4XX error, you also need to run a new export (segment snapshot). If you need Connect to automatically check membership as the campaign is running, please use Classic Segmentation. 5. Choose the **Channel** for the main communication of the campaign. The
 supported channels include **Agent assisted voice**, **Automated
 voice**, **Email**, and **SMS**.
 

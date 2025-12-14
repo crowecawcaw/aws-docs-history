@@ -206,6 +206,10 @@ and BatchGetCalculatedAttributeForProfile in either of the following Policies:
 **AmazonConnectServiceLinkedRolePolicy** or
 **AmazonConnectServiceCustomerProfileAccess**.
 
+###### Important
+
+If you are checking segment membership for a segment powered by Spark SQL, the segment checked is the last segment created and not updated in real-time. The lastComputedAt API attributes provides the last time the segment snapshot was created. You can run a new segment snapshot to refresh the segment. If you receive a 4XX error, ensure you have created a segment snapshot.
+
 When configuring properties to **Check segment
 membership**, consider the following:
 

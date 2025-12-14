@@ -1,4 +1,4 @@
-# Configure third‑party speech‑to‑text (STT)
+# Configure third-party speech-to-text (STT)
 
 providers
 
@@ -8,7 +8,7 @@ provider.
 ## Prerequisites
 
 - A bot with an existing locale.
-- A third‑party STT provider API key stored in AWS Secrets Manager. For more information
+- A third-party STT provider API key stored in AWS Secrets Manager. For more information
   about storing API keys as secrets in Secrets Manager, see [Create an AWS Secrets Manager
   secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md").
 - An Secrets Manager resource policy allowing Amazon Connect to retrieve the secret. For more
@@ -30,23 +30,23 @@ provider.
 
 ## Step 2: Choose the model type
 
-In the **Model type** dropdown, choose **Speech‑to‑Text
+In the **Model type** dropdown, choose **Speech-to-Text
 (STT)**. This ensures the locale is configured for transcription rather than
-speech‑to‑speech.
+speech-to-speech.
 
 ![The speech model dialog box.](images/Lex/02-speech-model.png)
 
 ## Step 3: Review the default speech model settings
 
-By default, Amazon is selected as the speech‑to‑text provider. Review the current
-settings before switching to a third‑party provider.
+By default, Amazon is selected as the speech-to-text provider. Review the current
+settings before switching to a third-party provider.
 
 ![The speech model dialog box with Amazon selected as the voice provider.](images/Lex/03-speech-model-amazon.png)
 
-## Step 4: Choose a third‑party STT provider
+## Step 4: Choose a third-party STT provider
 
-Open the **Voice provider** dropdown and choose a supported third‑party
-speech‑to‑text provider.
+Open the **Voice provider** dropdown and choose a supported third-party
+speech-to-text provider.
 
 ![The speech model dialog box with Deepgram selected as the voice provider.](images/Lex/04-speech-model-deepgram.png)
 
@@ -54,7 +54,7 @@ speech‑to‑text provider.
 
 1. In **Model ID**, enter the provider's model name.
    - Some providers require a minimum or maximum length.
-   - Model IDs are case‑sensitive and must match provider
+   - Model IDs are case-sensitive and must match provider
      documentation.
 
 2. In **Secrets Manager ARN**, enter the ARN of the secret that contains the
@@ -74,7 +74,7 @@ build.
 
 ## Runtime behavior (STT)
 
-- Amazon Connect routes audio to the chosen third‑party speech‑to‑text provider.
+- Amazon Connect routes audio to the chosen third-party speech-to-text provider.
 - No changes to flows or Lambda functions are required.
 - Errors such as invalid credentials or invalid model IDs appear in logs.
 - Metrics and analytics continue to function normally.

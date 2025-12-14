@@ -26,6 +26,7 @@ shared:
 - [AI Prompt](#data-lake-ai-prompt "#data-lake-ai-prompt")
 - [AI Session](#data-lake-ai-session "#data-lake-ai-session")
 - [AI Tool](#data-lake-ai-tool "#data-lake-ai-tool")
+- [Connect test case execution results](#data-lake-connect-test-case-execution-results "#data-lake-connect-test-case-execution-results")
 - [Contact Lens conversational analytics](#data-lake-contact-lens-conversational-analytics "#data-lake-contact-lens-conversational-analytics")
 - [Contact evaluation
   record](#data-lake-contact-evaluation-record "#data-lake-contact-evaluation-record")
@@ -287,6 +288,30 @@ record
 | ai_tool_arn           | string   | The ARN of the invoked AI tool.                                                                |
 | invocation_success    | boolean  | A boolean field which indicates whether the invocation of the tool has been successful or not. |
 | invocation_latency_ms | float    | The invocation latency for AI tool calling.                                                    |
+
+## Connect test case execution results
+
+| Connect Test Case Execution Results             | Column        | Type                                                                                                              | Description |
+| ----------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------- | ----------- |
+| instance_id                                     | string        | The identifier of the Amazon Connect instance                                                                     |
+| instance_arn                                    | string        | The ARN of the Amazon Connect instance.                                                                           |
+| aws_account_id                                  | string        | The ID of the AWS account that owns the contact.                                                                  |
+| connect_test_case_resource_arn                  | string        | Primary Key<br>• The ARN of the Test Case.                                                                        |
+| connect_test_case_resource_name                 | string        | The name of the Test Case.                                                                                        |
+| connect_test_case_execution_start_timestamp     | timestamp     | Primary Key<br>• The start time of simulated execution.                                                           |
+| connect_test_case_execution_end_timestamp       | timestamp     | The end time of simulated execution.                                                                              |
+| connect_test_case_status                        | string        | Current state of Test. Values: Scheduled, InProgress, Completed, Aborted, Failed                                  |
+| connect_test_case_result                        | string        | The final result of Test execution. Values: Passed, Failed, Skipped, Aborted                                      |
+| connect_test_case_execution_id                  | string        | Primary Key<br>• The unique identifier for Test execution.                                                        |
+| connect_test_case_failure_reasons               | array(string) | The reasons for failed Test.                                                                                      |
+| connect_test_case_type                          | string        | The type of Test executed. Values: ExperienceTest, FlowTest, BotTest                                              |
+| connect_test_case_execution_method              | string        | The method of starting Test execution. Values: Manual, API, Scheduled, ContactRuleTriggered, FlowPublishTriggered |
+| connect_test_case_execution_channel             | string        | The channel of simulated interaction. Values: Chat, Voice, Campaign, Task, Email                                  |
+| connect_test_case_execution_channel_subtype     | string        | The channel subtype of simulated interaction. Values: SMS, WhatsApp                                               |
+| connect_test_case_associated_initial_contact_id | string        | Initial contact ID to start Test.                                                                                 |
+| connect_test_case_associated_contact_ids        | array(string) | List of contact IDs created as part of Test.                                                                      |
+| connect_test_case_initiating_flow_id            | string        | First resource ID Test Execution started with.                                                                    |
+| record_creation_timestamp                       | timestamp     | The time of record creation                                                                                       |
 
 ## Contact Lens conversational analytics
 

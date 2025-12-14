@@ -47,6 +47,12 @@ domain name that's meaningful to you such as your organization name, for
 example, _CustomerProfiles-ExampleCorp_. You can change the
 friendly name using the API at any time.
 
+### Data store
+
+Data store is a service-managed data store required for segmentation powered by Spark SQL and predictive insights and must be enabled to use those features. It is not used in computing calculated attributes or populating Agent Workspace.
+
+Once you enable Data store, it automatically stores you ingest into Customer Profiles. After you enable Data store, you can't disable this feature. To delete data from the Data Store, you can use the DeleteProfile API or delete the object types or the Customer Profile domain.
+
 ### Do you want to use a
 
 dead-letter queue?
@@ -150,16 +156,26 @@ Spark SQL and predictive insights. If you choose not to enable Data store when
 creating a domain, you can enable it after the domain is created and being used. You
 cannot turn off Data store after it has been enabled.
 
-If you have an existing domain without Data store, you can enable it by clicking
-on the enable button in the blue banner on the Customer Profiles page (left hand panel > Customer
-Profiles).
+You can enable Data store by clicking on the enable button in the blue banner on the Customer Profiles page
+(left hand panel > **Customer Profiles**). You will see this blue banner after you have created your domain.
 
 Data store requires a Customer managed key (CMK) and will prompt you to create a
 Customer managed key (CMK) if you have not already enabled one for your domain.
 
-1. Open the Amazon Connect console at
+###### Important
+
+When using Data Vault, Customer Profiles stores your data by object type and encrypts it using your AWS KMS key. Customer Profiles normalizes your object type names by:
+
+1. Converting the name to lowercase
+2. Converting hyphens - to underscores \_
+3. Appending "standard" to any Customer Profiles standard object type
+4. Appending “domain” to any Customer Profiles domain object type
+5. Appending “domain_standard” to any Customer Profiles standard domain object type
+   You can't enable Data Store if Customer Profiles detects naming conflicts. After you enable Data Store, you can't create object types that conflict with existing object type names under these normalization rules.
+
+6. Open the Amazon Connect console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
-2. On the instances page, choose the instance alias. The instance alias is also
+7. On the instances page, choose the instance alias. The instance alias is also
    your **instance name**, which appears in your Amazon Connect
    URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
    around the instance alias.
@@ -298,7 +314,11 @@ AWS KMS key:
 
     ![The Specify KMS key section.](images/customer-profiles-create-kms-key-choose-key.png)
 
-[Show moreShow less](# "#") 8. Choose **Submit**. The completed page looks similar to
+[Show moreShow less](# "#") 8. Under **Data store**, choose whether to enable Data store. It is required to use segmentation powered by Spark SQL and predictive insights. If you choose not to enable Data store when creating a domain, you can enable it after the domain is created and being used. You cannot turn off Data store after it has been enabled.
+
+If you have an existing domain without Data store, you can enable it by clicking on the enable button in the blue banner on the Customer Profiles page (left hand panel > Customer Profiles)
+
+Data store requires a Customer Managed Key (CMK) and will prompt you to create a Customer Managed Key (CMK) if you have not already enabled one for your domain. 9. Choose **Submit**. The completed page looks similar to
 the following image. It shows the name of the customer profiles domain, the
 dead-letter queue, and the KMS key.
 

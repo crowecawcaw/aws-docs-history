@@ -37,8 +37,17 @@ Lambda function.
 Use interaction groups to create simulated interactions with the call center. Each interaction group has three defined steps, described as the following blocks:
 
 Observe
+For each interaction group, you must configure an observe block to
+validate the expected interaction from the system. There are four types of
+event you can observe from, which are test started, message received, action
+triggered, and test completed. ###### Note
 
-This block is mandatory and is used to validate the expected interaction from the system with a matching type (Contains and Similarity match).
+Observe currently supports message received in English only.
+Messages received in other languages are not supported at this
+time and will cause the observe block to fail during test
+execution.
+
+![](images/test-observe-block.png)
 
 Check
 
@@ -46,19 +55,21 @@ This block is optional and is used to validate metadata such as user
 defined attributes, system attributes, and segment attributes. You can
 validate more than one attribute in the check block.
 
+![](images/test-observe-block.png)
+
 Actions
 
 This block is optional and is used to override actions, override
 resources, send instructions, or test control actions. You can use
-override resources such as Lambda, Lex, Queue, or Hours of Operation
-with alternative resources or override actions with response values from
+override resources such as Lambda, Lex, Queue, or Hours of Operation with
+alternative resources or override actions with response values from
 related actions. You can validate the contact experience without
 invoking external resources to speed up test execution and prevent real
 data manipulation, such as preventing replaying a Lambda block that
 charges a credit card in production environment. You can use send
 instructions to simulate input to be sent to the contact center
 experience, such as text/utterance, DTMF tone, or .wav file for
-pre-recorded audio. Additionally, users can use test control action
-types to log data and end the test case execution at any point. Overall,
-you can simulate multiple types of actions in the action block
-configuration.
+pre-recorded audio. Additionally, you can use test control action types
+to log data and end the test case execution at any point.
+
+![](images/test-action-block.png)

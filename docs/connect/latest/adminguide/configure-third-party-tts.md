@@ -1,4 +1,4 @@
-# Configure third‑party text‑to‑speech (TTS)
+# Configure third-party text-to-speech (TTS)
 
 providers
 
@@ -8,7 +8,7 @@ provider.
 ## Prerequisites
 
 - A contact flow exists (or you have permission to create one).
-- A third‑party TTS provider API key stored in AWS Secrets Manager. For more information
+- A third-party TTS provider API key stored in AWS Secrets Manager. For more information
   about storing API keys as secrets in Secrets Manager, see [Create an AWS Secrets Manager
   secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md").
 - An Secrets Manager resource policy allowing Amazon Connect to retrieve the key. For more
@@ -16,7 +16,7 @@ provider.
   policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 - AWS KMS key permissions allowing decryption. For more information, see [Managing secrets and resource
   policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
-- Provider‑specific model and voice values.
+- Provider-specific model and voice values.
 
 ## Step 1: Open the contact flow
 
@@ -30,10 +30,10 @@ provider.
 2. Drag the block onto the canvas or choose an existing one.
 3. Choose the block to open its configuration panel.
 
-## Step 3: Choose a third‑party TTS provider
+## Step 3: Choose a third-party TTS provider
 
-In the **Voice provider** dropdown, choose the third‑party
-text‑to‑speech provider you want to use.
+In the **Voice provider** dropdown, choose the third-party
+text-to-speech provider you want to use.
 
 ![The 'Set voice' configuration pane showing a drop-down list of voice providers.](images/Lex/08-set-voice-amazon.png)
 

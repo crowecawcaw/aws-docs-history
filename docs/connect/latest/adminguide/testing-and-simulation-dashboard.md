@@ -31,6 +31,10 @@ range totaled 103, this represents a 26% decrease compared to your benchmark of 
 completed test runs. Percentages are rounded to the nearest whole number. Red
 coloring indicates negative performance compared to your benchmark.
 
+The following image shows an example of this chart.
+
+![](images/test-simulate-dashboard-summary.png)
+
 The following metrics are displayed on this chart
 
 - Total test runs: The count of test runs that started within the specified time range.
@@ -40,7 +44,10 @@ The following metrics are displayed on this chart
 
 ## Top failing tests
 
-The **Top Failing Tests** chart displays the test cases with the highest failure rates.
+The **Top Failing Tests** chart displays the test cases with the
+highest failure rates.
+
+![](images/test-simulate-dashboard-failure-testcase.png)
 
 The following metrics are displayed on this chart
 
@@ -49,10 +56,12 @@ The following metrics are displayed on this chart
 ## Top failing step type
 
 The **Top Failing Step Type** chart shows the breakdown of
-failures by test case step type. There are four step types: observe event, send
-instruction, assert data, and override system behavior. Each step type represents
-the detailed configuration for interactions you are simulating within your test
-cases.
+failures by test case step type. There are five step types: test initialization,
+observe event, send instruction, assert data, and override system behavior. Each
+step type represents the detailed configuration for interactions you are simulating
+within your test cases.
+
+![](images/test-simulate-dashboard-failure-steptype.png)
 
 The following metrics are displayed on this chart
 
@@ -60,7 +69,8 @@ The following metrics are displayed on this chart
   detailed configured simulated interactions within your test cases. Each
   simulated interaction must have an "observe event" and may optionally
   include "send instruction," "assert data," and "override system behavior"
-  configurations.
+  configurations. Test initialization is executed at beginning of each test
+  case run.
 - **Test case failure rate:** The percentage of failures for each specific test case step type.
 
 ## Average execution duration
@@ -81,6 +91,8 @@ For example:
 - With a "Weekly" time range filter at the widget level, you can view an
   13-week trailing interval trend.
 
+![](images/test-simulate-dashboard-duration.png)
+
 The following metrics are displayed on this chart
 
 - **Average test run duration:** The average duration of
@@ -91,6 +103,8 @@ The following metrics are displayed on this chart
 
 The **Flows with Most Failures** chart displays the flows with
 the highest failure rates from test cases testing those specific flows.
+
+![](images/test-simulate-dashboard-failures-flow.png)
 
 The following metrics are displayed on this chart
 

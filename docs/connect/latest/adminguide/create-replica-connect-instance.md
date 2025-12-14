@@ -181,6 +181,19 @@ increase any other quota in the replica instance, submit a request.
 - Predefined attributes
 - Saved reports
 
+###### Important
+
+While saved reports are replicated, the schedules associated with saved reports are _not_ replicated.
+
+- Views
+- Data tables
+
+###### Important
+
+Data Table values that contain literal ARN references will automatically adjust the region code to the local region when replicated. ARNs constructed using expressions may not automatically adjust the region code.
+
+- Workspaces
+
 [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") also replicates the following associations across
 AWS Regions:
 

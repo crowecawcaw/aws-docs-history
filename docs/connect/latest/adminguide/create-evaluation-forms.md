@@ -86,10 +86,14 @@ options to appear on the form:
      from a list of options, such as **Yes**,
      **No**, or **Good**,
      **Fair**, **Poor**.
+    * **Multiple selection**: The evaluator can choose
+     multiple answers from a list of options, such as list of products that
+     the customer was interested in purchasing, or non-compliant agent behaviours.
     * **Text field**: The evaluator can enter free form
      text.
     * **Number**: The evaluator can enter a number from
      a range that you specify, such as 1-10.
+    * **Date**: The evaluator can choose a date as an answer.
 
 6. Continue to the next step to add answers.
 
@@ -123,9 +127,8 @@ based on answers to other questions. For example, you can configure a follow-up
 question to appear in the form only if it is needed.
 
 1. Choose a question that needs a follow-up question. The question type must
-   be **Single selection**, and it must be not be an optional
-   question (do not select the **Optional question**
-   checkbox).
+   be **Single selection** or **Multiple selection**,
+   and it must be not be an optional question (do not select the **Optional question** checkbox).
 
 For example, in the following image, question 1.1 is _What was
 the reason for the call?_ and the **Optional
@@ -165,9 +168,8 @@ questions:
   disabled.
 - When a question is conditionally disabled, it is by default
   enabled.
-- You can only use **Single-select** questions to
-  conditionally enable or disable other questions. The question cannot be
-  optional.
+- You can only use **Single selection** or **Multiple selection** questions to conditionally enable or disable
+  other questions. The question cannot be optional.
 - You can choose one or more answer options to trigger the condition of a
   conditional question.
 
@@ -252,8 +254,9 @@ evaluations:
 
 - **Contact categories**:
   _Single selection_ questions (for example, did the
-  agent properly greet the customer (Yes/ No)?), can be automatically answered
-  using contact categories defined with rules. For more
+  agent properly greet the customer (Yes/ No)?), and _Multiple selection_
+  questions (for example, what parts of the greeting script did the agent state correctly?)
+  can be automatically answered using contact categories defined with rules. For more
   information, see [Create Contact Lens rules
   using the Amazon Connect admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
 - **Generative AI**: Both _Single
@@ -261,6 +264,10 @@ evaluations:
   be automatically answered using generative AI.
 
 ###### Note
+
+Currently integrated
+generative AI cannot be used to automate evaluations of self-service
+(automated) interactions with Lex bots and AI agents.
 
 - **Metrics**: _Numeric_
   questions (for example, what was the longest that the customer was put on
@@ -326,6 +333,25 @@ question using Generative AI
   Amazon Connect using generative AI](generative-ai-performance-evaluations.md "generative-ai-performance-evaluations.md").
 
 ![A question section, the generative AI Contact Lens option.](images/evaluationforms-automation-genai.png)
+
+###### Example automation for a Multiple selection question using Contact Lens
+
+categories
+
+- Multiple selection questions can be used to capture answer reasoning for a
+  single select question. It can also be used to trigger conditional questions, by
+  checking for customer scenarios, such as call reasons. The following example shows
+  how you can leverage rules that capture customer call reasons to automatically fill
+  answers to a multiple selection question. Unlike single select questions, all of the
+  conditions are executed sequentially to answer a multiple selection question. In the
+  below example, if the categories **StatusCheck** and **ChangeExistingRequest** are both present on the contact, then the answer
+  would be both “Checking status of existing service request” and “Changing a service
+  request”.
+
+![A question section, the automation tab with Contact Lens categories.](images/evaluationforms-automation1b.png)
+
+For information about setting up contact categories, see [Automatically categorize
+contacts](rules.md "rules.md").
 
 ###### Example automation for a Numeric question
 
