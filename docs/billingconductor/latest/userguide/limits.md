@@ -6,17 +6,19 @@ The following table describes quotas and restrictions within AWS Billing Conduct
 
 **Using Billing Conductor as a standalone service**
 
-|                                                                             |        |
-| --------------------------------------------------------------------------- | ------ |
-| Number of billing groups per payer account                                  | 5,000  |
-| Number of accounts per billing group                                        | 1,000  |
-| Number of pricing plans                                                     | 5,000  |
-| Number of pricing rules                                                     | 50,000 |
-| Number of pricing rules that can associate to a pricing plan                | 500    |
-| Number of pricing plans that can associate with a pricing rule              | 1,000  |
-| Number of custom line items                                                 | 50,000 |
-| Number of source values that can associate to a percentage custom line item | 100    |
-| Number of percentage custom that can associate to a flat custom line item   | 100    |
+|                                                                                             |        |
+| ------------------------------------------------------------------------------------------- | ------ |
+| Number of billing groups per payer account                                                  | 5,000  |
+| Number of accounts per billing group                                                        | 1,000  |
+| Number of pricing plans                                                                     | 5,000  |
+| Number of pricing rules                                                                     | 50,000 |
+| Number of pricing rules that can associate to a pricing plan                                | 500    |
+| Number of pricing plans that can associate with a pricing rule                              | 1,000  |
+| Number of custom line items                                                                 | 50,000 |
+| Number of source values that can associate to a percentage custom line item                 | 100    |
+| Number of percentage custom that can associate to a flat custom line item                   | 100    |
+| Number of custom line item that configured line item filters per billing group              | 10     |
+| Number of custom line item that configured "ITEMIZED" as computation rule per billing group | 5      |
 
 **Using Billing Conductor with billing transfer**
 

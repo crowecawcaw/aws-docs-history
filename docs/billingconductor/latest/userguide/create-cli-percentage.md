@@ -20,17 +20,23 @@ Use the following steps to create a custom line item that applies either a credi
 
 A discount line item adds a credit. This reduces the amount that's charged to the
 selected billing group. A markup line item adds a charge. This increases the amount
-that's charged to the selected billing group. All custom line items are in USD. 11. (Optional) For **Resource values**, choose the values to include in the
+that's charged to the selected billing group. All custom line items are in USD. 11. (Optional) For **Reference values**, choose the values to include in the
 calculation. By default, the billing group total cost is selected as a resource. This excludes
 all flat custom line items.
 
-    * (Optional) By default, Savings Plans discounts are included. To exclude them from the
+    1. (Optional) By default, Savings Plans discounts are included. To exclude them from the
      calculation, select the **Exclude Savings Plans discounts** check
      box.
+    2. (Optional) If you want a specific service charges to be executed by the custom line item, select **Choose the custom values using filters** and input the service code under **Value** section.
 
 12. (Optional) Include one of more flat custom line item. Choose each applicable flat custom line item from the table that you want included in the percentage-based calculation.
 
 ###### Note
 
 You can create percentage custom line items with no associated resources. These custom line
-items show a `$0.00` value in your billing data. 13. Choose **Create**.
+items show a `$0.00` value in your billing data. 13. For **Display settings**
+
+    1. You can choose a service that you want the percentage custom line item present in the bills. The default value is `AWSBillingConductor`.
+    2. Or you can select **Itemized** to have the custom line item displayed next to each applicable line item.
+
+14. Choose **Create**.
