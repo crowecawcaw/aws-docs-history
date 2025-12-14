@@ -73,6 +73,15 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | hpc7g.8xlarge   | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 50                         | ✓ Yes |
 | hpc7g.16xlarge  | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 50                         | ✓ Yes |
 
+###### Note
+
+For `hpc6id.32xlarge`, you must attach at least 2 ENIs, to separate network
+cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can achieve up to 170 Gbps.
+
+For `hpc7a.12xlarge`, `hpc7a.24xlarge`, `hpc7a.48xlarge`, `hpc7a.96xlarge`,
+you must attach at least 2 ENIs, to separate network cards, to achieve 300 Gbps throughput. Each ENI attached to a network
+card can achieve up to 150 Gbps.
+
 ## Amazon EBS specifications
 
 The following table indicates which instance types are Amazon EBS optimized by default and which

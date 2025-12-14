@@ -933,15 +933,14 @@ use a network I/O credit mechanism to burst beyond their baseline bandwidth on a
 Other instances types can sustain their maximum performance indefinitely. For more information,
 see [instance network bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md "../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md").
 
-For `r6in.32xlarge`, `r6in.metal`, `r6idn.32xlarge`, and `r6idn.metal`, you must attach at least 2 ENIs, to separate network
+For `r6in.32xlarge`, `r6in.metal`, `r6idn.32xlarge`, `r6idn.metal`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can achieve up to 170 Gbps.
 
-`u-6tb1.metal`, `u-9tb1.metal`, and `u-12tb1.metal` instances
-launched after March 12, 2020 provide network performance of 100 Gbps. `u-6tb1.metal`,
-`u-9tb1.metal`, and `u-12tb1.metal` instances launched before March 12,
-2020 mightonly provide network performance of 25 Gbps. To ensure that instances launched before
-March 12, 2020 have a network performance of 100 Gbps, contact your account team to upgrade your
-instance at no additional cost.
+For `u7in-16tb.224xlarge`, `u7in-24tb.224xlarge`, `u7in-32tb.224xlarge`, `u7inh-32tb.480xlarge`, you must attach at least 2 ENIs, to separate network
+cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can achieve up to 100 Gbps.
+
+For `r8gn.48xlarge`, `r8gn.metal-48xl`, you must attach at least 2 ENIs, to separate network
+cards, to achieve 600 Gbps throughput. Each ENI attached to a network card can achieve up to 300 Gbps.
 
 ## Amazon EBS specifications
 

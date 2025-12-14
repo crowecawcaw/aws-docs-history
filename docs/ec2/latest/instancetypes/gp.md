@@ -735,7 +735,7 @@ use a network I/O credit mechanism to burst beyond their baseline bandwidth on a
 Other instances types can sustain their maximum performance indefinitely. For more information,
 see [instance network bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md "../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md").
 
-For `m6in.32xlarge`, `m6in.metal`, `m6idn.32xlarge`, and `m6idn.metal`, you must attach at least 2 ENIs, to separate network
+For `m6in.32xlarge`, `m6in.metal`, `m6idn.32xlarge`, `m6idn.metal`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can achieve up to 170 Gbps.
 
 ## Amazon EBS specifications
