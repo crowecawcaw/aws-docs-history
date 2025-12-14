@@ -7,6 +7,65 @@ Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wick
 AWS Wickr bots and integrations are regularly updated with new features, improvements, and
 bug fixes. This chapter provides information about the changes in each release.
 
+## Version 6.60 - Release Date: 12/08/2025
+
+AWS Wickr Bots 6.60 is a maintenance release focused on platform modernization, security
+compliance, and infrastructure improvements. This release includes critical updates to support
+Ubuntu 24, Qt 6, and FIPS compliance standards.
+
+## Critical Changes
+
+**Platform Modernization**
+
+- Ubuntu 24 & Qt 6 Upgrade: Major platform modernization for better performance
+  - Upgraded to Ubuntu 24 LTS base operating system
+  - Migrated to Qt 6 framework
+  - Enhanced stability and long-term support
+
+**Security & Compliance**
+
+- FIPS Compliance Support: Added federal security standards compliance
+  - Support for Federal Information Processing Standards (FIPS) 140-2/140-3
+  - Enables deployment in federal and regulated environments requiring FIPS
+    compliance
+  - Cryptographic operations can be configured for FIPS mode
+
+- Security Vulnerability Remediation:
+  - Fixed known CVEs (Common Vulnerabilities and Exposures)
+  - Updated dependencies to address security issues
+
+**Data Standards**
+
+- JSON Data Compliance: Fixed compliance issues with required timestamps and sender/receiver
+  information
+  - Ensures all message payloads include required timestamp fields
+  - Corrected sender and receiver information formatting
+  - Improved data consistency across JSON outputs
+
+**Network Connectivity**
+
+- SOCKS5 Proxy Support: Enhanced network connectivity options
+  - Added support for SOCKS5 proxy protocol
+  - Improved connectivity in restricted or enterprise network environments
+  - Enables deployment behind corporate proxies
+
+## Infrastructure Improvements
+
+**Docker Architecture**
+
+- Reorganized container structure for improved maintainability
+- Unified FIPS dependency management across containers
+
+**Build System**
+
+- Modernized build processes for improved reliability
+- Updated Python dependencies to current versions
+
+**Performance Optimizations**
+
+- Optimized memory usage during bot operations
+- Improved database query performance
+
 ## Version 6.48 - Release Date: 04/14/2025
 
 The 6.48.04.11 release of the bot-cloud and bot-dataretention-govcloud images are focused on
@@ -28,7 +87,9 @@ For more information, see [Version 6.48 announcement](version-6-48-announcement.
 The WickrIO Addon is changed to use ZeroMq for all interactions between integrations and
 WickrIO client. This change will make the bot APIs asynchronous. For more information, see [Version 6.48 announcement](version-6-48-announcement.md "version-6-48-announcement.md").
 
-### Bug Fix: Data Retention Bot failing to publish CloudWatch metrics
+### Bug Fix: Data Retention Bot failing to publish
+
+CloudWatch metrics
 
 Fixed issue where the Data Retention Bot was not publishing metrics to CloudWatch due to a
 missing parameter. This fix will ensure that all the required metrics are published successfully
@@ -39,7 +100,9 @@ to CloudWatch - if users have CloudWatch configured.
 The 6.36.20.02 hotfix release of the bot-enterprise image and the 6.36.09.01 hotfix release
 of Data Retention bot images are focused on the fix described below.
 
-### Fix Bug: The Edit message, delete message and reactions are not being captured
+### Fix Bug: The Edit message, delete message and
+
+reactions are not being captured
 
 The Compliance bot and Data Retention are not processing a few types of control
 messages:
@@ -63,13 +126,17 @@ allot 10 devices for each bot. There are two environment variables that allow yo
 devices older than a specific number of minutes, or change the limit on the number of
 devices.
 
-### Better logging for clientConfig.json bad JSON
+### Better logging for clientConfig.json bad
+
+JSON
 
 Using the clientConfig.json file to automate the start of bots does not generate logs when
 there is a failure to parse the JSON. This fix will output errors when failure to parse the JSON
 occurs.
 
-### Fix Bug: Sending messages to invalid users could hang bot
+### Fix Bug: Sending messages to invalid users could
+
+hang bot
 
 There have been situations where trying to send messages to invalid users will hang a bot.
 This has been easily reproducible using the broadcast bot when sending to a list of users in a
@@ -81,7 +148,9 @@ The 6.34.05.01 release of the bot-cloud and bot-enterprise images are focused on
 described below. The 6.34.02.01 bot-compliance-cloud images include the File Management and SDK
 changes described below.
 
-### Support File Management feature message formats
+### Support File Management feature message
+
+formats
 
 The AWS Wickr control message formats were changed to support the AWS Wickr File
 Management feature. The 6.34 versions of the WickrIO and WickrIO Compliance releases support
@@ -89,13 +158,17 @@ this new message format. The Data Retention / Compliance bots will also download
 referred to in these modified control messages. Details of these updated control messages will
 be detailed in the appropriate WickrIO documentation.
 
-### Bug Fix: Broadcast Bot security group selection failed
+### Bug Fix: Broadcast Bot security group selection
+
+failed
 
 Some AWS Wickr clients have added spaces padding the security group selection which broke
 the broadcast bot processing of that string. Added coding in the broadcast bot to trim the
 padding off of the response string.
 
-### Bug Fix: Bug fixes inherited from lower layer SDK
+### Bug Fix: Bug fixes inherited from lower layer
+
+SDK
 
 Several bug fixes were made to the SDK that bots use to interact with the AWS Wickr
 servers for login and messaging services. Changes made to improve room membership for room
@@ -113,7 +186,9 @@ Some code was found to still have references to the default NPM registry
 (registry.npmjs.org). Changes were made so the Airgap version does not reference any NPM
 registry.
 
-### Bug Fix: Read receipts not working for Broadcast Bot
+### Bug Fix: Read receipts not working for
+
+Broadcast Bot
 
 Software was found to not be decoding read receipt API call responses correctly. Changes
 were made to fix this.
@@ -131,14 +206,18 @@ broadcasts.
 
 The 6.24.06.02 release is focused on the following major changes:
 
-### Bug Fix: Conversations not restored when creating new instance of bot
+### Bug Fix: Conversations not restored when
+
+creating new instance of bot
 
 Found issue where AWS Wickr conversations were not being restored correctly for new
 instances of a bot. This issue would present itself if you created a new instance of a bot and
 then tried to send a message from the bot to a secure room or group conversation. The bot would
 not have restored the connection list and would not have a record of the conversation.
 
-### Bug Fix: Downloading files in multi-domain environments
+### Bug Fix: Downloading files in multi-domain
+
+environments
 
 Found issue where the downloading of files from clients in different domains was not
 working for bots. This change will make sure files are downloaded when a bot downloads a file
@@ -189,7 +268,9 @@ The AWS Wickr bot clients will support running with federated networks that are 
 data retention. When sending messages to clients in federated data retention active the bot
 client will also send the message to the appropriate data retention bot(s).
 
-### Data retention bots support additional user information
+### Data retention bots support additional user
+
+information
 
 The SAAS data retention bot (bot-compliance-cloud) will output additional information about
 the users associated with a message. This new information includes the network ID as well as
@@ -210,7 +291,9 @@ information.
 
 The 6.16.19.01 release is focused on the following major changes:
 
-### Continue using AWS Amazon ECR to host Docker images
+### Continue using AWS Amazon ECR to host Docker
+
+images
 
 We are starting to transition hosting our AWS Wickr bot docker images on AWS Amazon ECR.
 These are the AWS Amazon ECR repositories used to host the AWS Wickr bot docker images:
@@ -242,7 +325,9 @@ broadcast bot the /report command will show the failed users.
 All AWS Wickr bot images will support bot clients created in other AWS Regions, for
 example ca-central-1.
 
-### Fix Broadcast bot not receiving messages from users
+### Fix Broadcast bot not receiving messages from
+
+users
 
 If the bot sends a message to a user, before the user has sent a message to the bot, the
 bot software will not process the message. The creation of the user record in the database was
@@ -253,12 +338,16 @@ administrators. The user record was not created to receive the incoming message 
 the broadcast bot would not respond. In those cases restarting the broadcast bot would fix the
 indication for those users. There may be other situations where this happens.
 
-### More user-friendly bot startup failure indications
+### More user-friendly bot startup failure
+
+indications
 
 If a bot fails to startup the logs indicate this using an error code. To help indicate the
 actual reason for the failure a failure string will also be output to the logs.
 
-### Fix issue where bot startups more than 5 attempts will stop trying to start
+### Fix issue where bot startups more than 5 attempts
+
+will stop trying to start
 
 If a bot fails to start more than 5 times, normally the bot will not attempt to start again
 without some user intervention. In some cases, the bot service will keep trying to start the bot
@@ -268,7 +357,9 @@ also indicate that there was an error in the Misc column. The CLI will also prom
 make sure they want to start the bot, if it was stopped due to it not starting more than 5
 times.
 
-### Update control message to indicate rooms with saved links and files
+### Update control message to indicate rooms with
+
+saved links and files
 
 Certain control messages did not indicate the filevault information associated with saved
 links and files, specifically when new users were added to rooms.
@@ -309,7 +400,9 @@ example of what the new package.json scripts look like:
 "stop": "kill $(cat $(cat pidLocation.json))"
 ```
 
-### Performance improvement for large broadcast
+### Performance improvement for large
+
+broadcast
 
 Performance has been improved for large broadcasts in the broadcast bot. The pre-send
 preparation of the broadcast bot will see an obvious increase in performance for large
@@ -335,7 +428,9 @@ lockups.
 
 This version is a bug fix release.
 
-### Fix for Enterprise updated password not showing
+### Fix for Enterprise updated password not
+
+showing
 
 This version of the enterprise docker image(s) will fix an issue where the changed password
 was not being shown if you run the "debug on" command and then the "debug off" command on the
@@ -393,7 +488,9 @@ docker exec -ti <dockerimagename/id> bash
 If you continue to have the CPU issue after installing this patch, please contact
 support.
 
-### Fix for SAAS Data Retention Network Transmit Failures
+### Fix for SAAS Data Retention Network Transmit
+
+Failures
 
 The 5.116.13.01 wickr/bot-cloud image would have transmit failure when operating in a SAAS
 Data Retention network. This version will fix that problem.
