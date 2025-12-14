@@ -31,4 +31,4 @@ The YAML file used in the test run.
 
 For more information, see [Downloading artifacts in Device Farm](artifacts.md "artifacts.md").
 
-![Device Farm hierarchy of operations in a custom test environment](images/hierarchy.png)
+![Device Farm hierarchy of operations in a custom test environment](/images/devicefarm/latest/developerguide/images/hierarchy.png)
