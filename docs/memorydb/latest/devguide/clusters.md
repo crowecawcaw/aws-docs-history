@@ -1,71 +1,17 @@
-# Adding / Removing nodes from a cluster
+# Managing clusters
 
-You can add or remove nodes from a cluster using the AWS Management Console, the AWS CLI, or the MemoryDB API.
+Most MemoryDB operations are performed at the cluster level.
+You can set up a cluster with a specific number of nodes and
+a parameter group that controls the properties for each node.
+All nodes within a cluster are designed to be of the same node type
+and have the same parameter and security group settings.
 
-######
+Every cluster must have a cluster identifier.
+The cluster identifier is a customer-supplied name for the cluster.
+This identifier specifies a particular cluster when interacting with the MemoryDB API and
+AWS CLI commands.
+The cluster identifier must be unique for that customer in an AWS Region.
 
-1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
-2. From the list of clusters, choose the cluster name from which you want to add or remove a node.
-3. Under the **Shards and nodes** tab, choose **Add/Delete nodes**
-4. In **New number of nodes**, enter the the number of nodes you want.
-5. Choose **Confirm**.
-
-###### Important
-
-If you set the number of nodes to 1, you will no longer be Multi-AZ enabled. You
-can also to choose to enable **Auto failover**.
-
-1. Identify the names of the nodes that you want to remove. For more information, see [Viewing a cluster's details](clusters.md "clusters.md").
-2. Use the `update-cluster` CLI operation with
-   a list of the nodes to remove, as in the following example.
-
-To remove nodes from a cluster using the command-line interface, use the command
-`update-cluster` with
-the following parameters:
-
-    * `--cluster-name` The ID of the cluster that you want to remove
-     nodes from.
-    * `--replica-configuration` – Allows you to set
-     the number of replicas:
-
-
-
-
-    	+ `ReplicaCount` – Set this property to specify the number of replica nodes you want.
-    * `--region` Specifies the AWS Region of the cluster that you want to remove
-     nodes from.
-
-For Linux, macOS, or Unix:
-
-```
-aws memorydb update-cluster \
-    --cluster-name `my-cluster` \
-    --replica-configuration \
-        ReplicaCount=`1` \
-    --region `us-east-1`
-```
-
-For Windows:
-
-```
-aws memorydb update-cluster ^
-    --cluster-name `my-cluster` ^
-    --replica-configuration ^
-        ReplicaCount=`1` ^
-    --region `us-east-1`
-```
-
-For more information, see the AWS CLI topics [`update-cluster`](../../../cli/latest/reference/memorydb/update-cluster.md "../../../cli/latest/reference/memorydb/update-cluster.md").
-
-To remove nodes using the MemoryDB API, call the
-`UpdateCluster` API operation with the cluster name and a list of nodes to remove, as shown:
-
-- `ClusterName` The ID of the cluster that you want to remove nodes
-  from.
-- `ReplicaConfiguration` – Allows you to set
-  the number of replicas:
-  - `ReplicaCount` – Set this property to specify the number of replica nodes you want.
-
-- `Region` Specifies the AWS Region of the cluster that you want to remove a
-  node from.
-  For more information, see [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md").
+MemoryDB clusters are designed to be accessed using an Amazon EC2 instance. You can only launch your
+MemoryDB cluster in a virtual private cloud (VPC) based on the Amazon VPC service, but you can access it from
+outside AWS. For more information, see [Accessing MemoryDB resources from outside AWS](accessing-memorydb.md#access-from-outside-aws "accessing-memorydb.md#access-from-outside-aws").
