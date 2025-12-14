@@ -228,7 +228,7 @@ following:
    preferred method of contact. 3. Choose **Submit**. A confirmation screen with
    your case ID and details will be displayed.
 
-   ![Contact options with language selection and choices for Web, Phone, or Chat communication.](/images/Monitron/latest/user-guide/images/s3-export-8.png)
+   ![Contact options with language selection and choices for Web, Phone, or Chat communication.](images/s3-export-8.png)
 
 An AWS customer support specialist will get back to you as soon as
 possible. If there are any issues with the steps listed, the specialist may ask

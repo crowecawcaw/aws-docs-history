@@ -28,7 +28,7 @@ app
 1. Log into the Amazon Monitron mobile app on your smartphone.
 2. Choose the project or site whose users you want to view.
 
-![Dropdown menu showing Project name 1 with three site options, one highlighted in orange.](/images/Monitron/latest/user-guide/images/site-to-project.png) 3. Choose the menu icon (☰).
+![Dropdown menu showing Project name 1 with three site options, one highlighted in orange.](images/site-to-project.png) 3. Choose the menu icon (☰).
 
 ![Menu icon represented by three horizontal lines (hamburger menu).](images/navigation.png) 4. Choose **Users**.
 
@@ -56,4 +56,4 @@ information to make user management easier:
 A list of all users associated with the project or site is
 displayed.
 
-![Dropdown menu showing Project name 1 with three site options, one highlighted in orange.](/images/Monitron/latest/user-guide/images/site-to-project.png)
+![Dropdown menu showing Project name 1 with three site options, one highlighted in orange.](images/site-to-project.png)
