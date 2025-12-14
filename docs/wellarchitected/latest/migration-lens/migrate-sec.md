@@ -102,7 +102,7 @@ the volume of data from complex architectures and
 applications. Reliance on manual data analysis is not suited
 for the majority of most customer security requirements and
 could impact your ability to investigate potential security
-issues in a timely manner. Use services such as [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") to aggregate security events and alerts
+issues in a timely manner. Use services such as [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") to aggregate security events and alerts
 from other security services, evaluate your security
 posture, and automate remediations. [Amazon
 Detective](https://aws.amazon.com/detective/ "https://aws.amazon.com/detective/") can help you investigate security events by
@@ -133,7 +133,7 @@ your workloads carefully when implementing security
 automations, as you may not be able to fully automate all [remediation
 activities](https://youtu.be/nyh4imv8zuk "https://youtu.be/nyh4imv8zuk").
 
-For more detail, see [Threat management in the cloud: Amazon GuardDuty and AWS Security Hub](https://youtu.be/vhYsm5gq9jE "https://youtu.be/vhYsm5gq9jE").
+For more detail, see [Threat management in the cloud: Amazon GuardDuty and AWS Security Hub CSPM](https://youtu.be/vhYsm5gq9jE "https://youtu.be/vhYsm5gq9jE").
 
 | MIG-SEC-14: Do you have security incident response capabilities in place? |
 | ------------------------------------------------------------------------- |
