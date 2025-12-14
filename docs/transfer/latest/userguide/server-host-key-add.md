@@ -35,7 +35,7 @@ decide to add new types of server host keys.
 3. On the server details page, scroll down to the **Server host
    keys** section.
 
-![The Server host keys console section.](images/server-host-keys.png) 4. Choose **Add host key**.
+![The Server host keys console section.](/images/transfer/latest/userguide/images/server-host-keys.png) 4. Choose **Add host key**.
 
 The **Add server host key** page displays. 5. In the **Server Host Key** section, enter an RSA, ECDSA, or
 ED25519 private key that is used to identify your server when clients connect to

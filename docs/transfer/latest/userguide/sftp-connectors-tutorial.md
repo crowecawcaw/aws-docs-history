@@ -383,7 +383,7 @@ information:
     * For **Maximum concurrent connections**, select an
      integer value from 1 to 5: the default value is 5.
 
-![The Transfer Family SFTP connector console, showing the SFTP configuration settings.](images/create-connector-example-sftp-config.png) 6. After you have confirmed all of your settings, choose **Create
+![The Transfer Family SFTP connector console, showing the SFTP configuration settings.](/images/transfer/latest/userguide/images/create-connector-example-sftp-config.png) 6. After you have confirmed all of your settings, choose **Create
 connector** to create the SFTP connector.
 
 You can also create connectors using the AWS Command Line Interface.

@@ -76,7 +76,7 @@ Range 8192–8200 (Data Channel).
      servers.
     3. Choose **Next**.
 
-![The Choose an endpoint console section with VPC hosted selected.](images/create-server-choose-endpoint-vpc-internal.png) 6. On the **Choose domain** page, choose the AWS storage
+![The Choose an endpoint console section with VPC hosted selected.](/images/transfer/latest/userguide/images/create-server-choose-endpoint-vpc-internal.png) 6. On the **Choose domain** page, choose the AWS storage
 service that you want to use to store and access your data over the selected
 protocol.
 
