@@ -191,7 +191,7 @@ invitations and memberships](member-account-graph-management.md "member-account-
 
 The administrator account uses the analytics and visualizations generated from the behavior
 graph to investigate AWS resources and GuardDuty findings. Using the Detective integrations with GuardDuty
-and AWS Security Hub, you can pivot from a GuardDuty finding in these services directly into the Detective
+and AWS Security Hub CSPM, you can pivot from a GuardDuty finding in these services directly into the Detective
 console.
 
 A Detective investigation focuses on the activity that is connected to the involved AWS
@@ -203,16 +203,16 @@ investigation](detective-investigation-about.md "detective-investigation-about.m
 To further secure your data, workloads, and applications in AWS, consider using the
 following AWS services in combination with Amazon Detective.
 
-AWS Security Hub
+AWS Security Hub CSPM
 
-AWS Security Hub gives you a comprehensive view of the security state of your AWS resources
+AWS Security Hub CSPM gives you a comprehensive view of the security state of your AWS resources
 and helps you check your AWS environment against security industry standards and best
 practices. It does this partly by consuming, aggregating, organizing, and prioritizing your
 security findings from multiple AWS services (including Detective) and supported AWS Partner
-Network (APN) products. Security Hub helps you analyze your security trends and identify the highest
+Network (APN) products. Security Hub CSPM helps you analyze your security trends and identify the highest
 priority security issues across your AWS environment.
 
-To learn more about Security Hub, see the [AWS Security Hub User Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
+To learn more about Security Hub CSPM, see the [AWS Security Hub CSPM User Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
 
 Amazon GuardDuty
 

@@ -44,7 +44,7 @@ This policy includes the following permissions:
   addition to account numbers.
 - `guardduty` – Allows principals to get and archive GuardDuty
   findings from within Detective.
-- `securityhub` – Allows principals to get Security Hub findings from
+- `securityhub` – Allows principals to get Security Hub CSPM findings from
   within Detective.
 
 JSON
@@ -164,7 +164,7 @@ This policy includes the following permissions:
   actions, to enable Detective investigations, and to enable finding groups summary.
 - `guardduty` – Allows principals to get and archive GuardDuty
   findings from within Detective.
-- `securityhub` – Allows principals to get Security Hub findings from within
+- `securityhub` – Allows principals to get Security Hub CSPM findings from within
   Detective.
 - `organizations` – Allows principals to retrieve information
   about the accounts in an organization from AWS Organizations. If an account belongs to an
@@ -262,7 +262,7 @@ This policy includes the following permissions:
   in addition to account numbers. Enables the integration of an AWS service, allows
   register and deregister of the specified member account as a Delegated administrator,
   and allows principals to retrieve Delegated administrator accounts in other security
-  services like Amazon Detective, Amazon GuardDuty, Amazon Macie, and AWS Security Hub.
+  services like Amazon Detective, Amazon GuardDuty, Amazon Macie, and AWS Security Hub CSPM.
 
 JSON
 
@@ -387,7 +387,7 @@ RSS feed on the [Document history page](doc-history.md "doc-history.md").
 | Change                                                                                                                                                                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                     | Date              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | [AmazonDetectiveInvestigatorAccess](#security-iam-awsmanpol-amazondetectiveinvestigatoraccesspolicy "#security-iam-awsmanpol-amazondetectiveinvestigatoraccesspolicy") – Updates to existing policies                                                                                                                                          | Added Detective investigations and finding groups summary<br>actions to the `AmazonDetectiveInvestigatorAccess` policy.<br>These actions allow starting, retrieving, and updating Detective investigations; and<br>obtaining a summary of finding groups from within Detective. | November 26, 2023 |
-| [AmazonDetectiveFullAccess](#security-iam-awsmanpol-amazondetectivefullaccess "#security-iam-awsmanpol-amazondetectivefullaccess") and [AmazonDetectiveInvestigatorAccess](#security-iam-awsmanpol-amazondetectiveorganizationsaccesspolicy "#security-iam-awsmanpol-amazondetectiveorganizationsaccesspolicy") – Updates to existing policies | Detective added Security Hub `GetFindings` actions to the<br>`AmazonDetectiveFullAccess` and `AmazonDetectiveInvestigatorAccess` policies.<br>These actions allow getting Security Hub findings from within Detective.                                                          | May 16, 2023      |
+| [AmazonDetectiveFullAccess](#security-iam-awsmanpol-amazondetectivefullaccess "#security-iam-awsmanpol-amazondetectivefullaccess") and [AmazonDetectiveInvestigatorAccess](#security-iam-awsmanpol-amazondetectiveorganizationsaccesspolicy "#security-iam-awsmanpol-amazondetectiveorganizationsaccesspolicy") – Updates to existing policies | Detective added Security Hub CSPM `GetFindings` actions to the<br>`AmazonDetectiveFullAccess` and `AmazonDetectiveInvestigatorAccess` policies.<br>These actions allow getting Security Hub CSPM findings from within Detective.                                                | May 16, 2023      |
 | [AmazonDetectiveOrganizationsAccess](#security-iam-awsmanpol-amazondetectiveorganizationsaccesspolicy "#security-iam-awsmanpol-amazondetectiveorganizationsaccesspolicy") – New<br>policy                                                                                                                                                      | Detective added `AmazonDetectiveOrganizationsAccess` policy.<br>This policy grants permission to enable and manage Detective within an<br>organization                                                                                                                          | March 02, 2023    |
 | [AmazonDetectiveMemberAccess](#security-iam-awsmanpol-amazondetectivememberaccess "#security-iam-awsmanpol-amazondetectivememberaccess") – New<br>policy                                                                                                                                                                                       | Detective added the `AmazonDetectiveMemberAccess` policy.<br>This policy provides member access to Detective and scoped access to the<br>console UI dependencies.                                                                                                               | January 17, 2023  |
 | [AmazonDetectiveFullAccess](#security-iam-awsmanpol-amazondetectivefullaccess "#security-iam-awsmanpol-amazondetectivefullaccess") – Updates to<br>an existing policy                                                                                                                                                                          | Detective added GuardDuty `GetFindings` actions to the<br>`AmazonDetectiveFullAccess` policy.<br>These actions allow getting GuardDuty findings from within Detective.                                                                                                          | January 17, 2023  |

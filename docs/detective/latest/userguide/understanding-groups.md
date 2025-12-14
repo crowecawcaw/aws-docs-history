@@ -93,5 +93,5 @@ findings, and evidence from Detective. You can select the graph to see an exact
 count of findings by severity.
 
 GuardDuty findings are part of the Detective core package and are ingested by default. All
-other AWS security findings that are aggregated by Security Hub are ingested as
+other AWS security findings that are aggregated by Security Hub CSPM are ingested as
 an optional data source. See [Source data used in a behavior graph](detective-source-data-about.md "detective-source-data-about.md") for more details.

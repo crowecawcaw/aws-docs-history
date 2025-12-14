@@ -11,7 +11,7 @@ the Settings page in the console or through the Detective API.
 A 30 day free trial is provided for this data source. To learn more see [Free trial for optional data sources](free-trial-overview.md#free-trial-datasource "free-trial-overview.md#free-trial-datasource").
 
 Enabling **AWS security findings** allows Detective to
-use the findings from Security Hub aggregated by Security Hub from upstream services in a standard findings format called the AWS Security Format (ASFF), which eliminates the need for time-consuming data conversion efforts. Then it correlates
+use the findings from Security Hub CSPM aggregated by Security Hub from upstream services in a standard findings format called the AWS Security Format (ASFF), which eliminates the need for time-consuming data conversion efforts. Then it correlates
 ingested findings across products to prioritize the most important ones.
 
 ###### \*\*Adding or removing AWS security findings as an optional data
@@ -33,11 +33,11 @@ manually.
 
 ## Currently supported findings
 
-Detective ingests all ASFF findings in Security Hub from services that are owned by Amazon
+Detective ingests all ASFF findings in Security Hub CSPM from services that are owned by Amazon
 or AWS.
 
 - To see the list of supported service integrations, see [Available AWS service
-  integrations](../../../securityhub/latest/userguide/securityhub-internal-providers.md "../../../securityhub/latest/userguide/securityhub-internal-providers.md") in the AWS Security Hub User Guide.
+  integrations](../../../securityhub/latest/userguide/securityhub-internal-providers.md "../../../securityhub/latest/userguide/securityhub-internal-providers.md") in the AWS Security Hub CSPM User Guide.
 - For the list of supported resources, see [Resources](../../../securityhub/latest/userguide/asff-resources.md "../../../securityhub/latest/userguide/asff-resources.md") in the
-  AWS Security Hub User Guide.
+  AWS Security Hub CSPM User Guide.
 - AWS Service Findings with a Compliance status not set to `FAILED` and cross-Region aggregated findings are not ingested.

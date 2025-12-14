@@ -6,7 +6,7 @@ information as a finding with the **Informational** severity. Evidence
 provides supporting information that highlights an unusual activity or unknown behavior
 that is potentially suspicious when viewed within a finding group. This might include
 newly observed geolocations or API calls observed within the scope time of a finding.
-Evidence findings are only viewable in Detective and are not sent to AWS Security Hub.
+Evidence findings are only viewable in Detective and are not sent to AWS Security Hub CSPM.
 
 Detective determines the location of requests using MaxMind GeoIP databases.
 MaxMind reports very high accuracy of their data at the country level,

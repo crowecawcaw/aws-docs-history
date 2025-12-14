@@ -40,12 +40,12 @@ To resolve this, do one of the following:
 
 - Make sure that the entity or finding belongs to one of your member accounts. For
   information on how to review member accounts, see [Viewing the list of accounts](accounts-view-list.md "accounts-view-list.md").
-- Make sure your administrator account is aligned with GuardDuty and/or Security Hub to pivot to Detective
-  from these services. For the recommendations, see [Recommended alignment with GuardDuty and Security Hub](detective-setup.md#detective-recommendations "detective-setup.md#detective-recommendations").
+- Make sure your administrator account is aligned with GuardDuty and/or Security Hub CSPM to pivot to Detective
+  from these services. For the recommendations, see [Recommended alignment with GuardDuty and Security Hub CSPM](detective-setup.md#detective-recommendations "detective-setup.md#detective-recommendations").
 - Verify that the finding occurred after the member account accepted your invitation.
 - Verify the Detective behavior graph is ingesting data from an optional data source package. For more information about source data used in Detective behavior graphs, see [Source data used in a behavior graph](detective-source-data-about.md "detective-source-data-about.md").
 
-- To allow Detective to ingest data from Security Hub and add that data to your behavior graph, you
+- To allow Detective to ingest data from Security Hub CSPM and add that data to your behavior graph, you
   must enable Detective for AWS security findings as a data source package. For more information,
   see [AWS security findings](source-data-types-asff.md "source-data-types-asff.md").
 

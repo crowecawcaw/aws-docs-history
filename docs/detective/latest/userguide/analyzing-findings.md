@@ -4,7 +4,7 @@ A finding is an instance of potentially malicious activity or other risk that wa
 Amazon GuardDuty and AWS security findings are loaded into Amazon Detective so that you can use Detective to
 investigate the activity associated with the involved entities. GuardDuty findings are part of the
 Detective core package and are ingested by default. All other AWS security findings that are
-aggregated by Security Hub are ingested as an optional data source. See [Source data used in a behavior graph](detective-source-data-about.md "detective-source-data-about.md") for more details.
+aggregated by Security Hub CSPM are ingested as an optional data source. See [Source data used in a behavior graph](detective-source-data-about.md "detective-source-data-about.md") for more details.
 
 A Detective finding overview provides detailed information about the finding. It also displays a
 summary of the involved entities, with links to the associated entity profiles.

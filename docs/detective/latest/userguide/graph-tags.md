@@ -7,7 +7,7 @@ to manage access to behavior graph functions in Detective. See [Authorization ba
 Detective behavior graph tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
 
 You also can use tags as a tool for cost reporting. For example, to track costs associated
-with security, you could assign the same tag to your Detective behavior graph, AWS Security Hub hub resource,
+with security, you could assign the same tag to your Detective behavior graph, AWS Security Hub CSPM hub resource,
 and Amazon GuardDuty detectors. In AWS Cost Explorer, you could then search for that tag to see a consolidated
 view of the costs across those resources.
 

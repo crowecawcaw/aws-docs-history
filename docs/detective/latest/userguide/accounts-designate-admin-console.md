@@ -39,7 +39,7 @@ Detective in Organizations.
      administrator account.
 
 
-    If you have a delegated administrator account in Organizations for Amazon GuardDuty, AWS Security Hub, or
+    If you have a delegated administrator account in Organizations for Amazon GuardDuty, AWS Security Hub CSPM, or
      Amazon Macie, then Detective prompts you to select one of those accounts. You can also enter a
      different account.
     * If you do have a delegated administrator account for Detective in Organizations, then you are
@@ -80,7 +80,7 @@ General page (Console)To designate a Detective administrator from the **General*
          administrator account.
 
 
-        If you have a delegated administrator account in Organizations for Amazon GuardDuty, AWS Security Hub, or
+        If you have a delegated administrator account in Organizations for Amazon GuardDuty, AWS Security Hub CSPM, or
          Amazon Macie, then Detective prompts you to select one of those accounts. You can also enter a
          different account.
         * If you do have a delegated administrator account for Detective in Organizations, then you are

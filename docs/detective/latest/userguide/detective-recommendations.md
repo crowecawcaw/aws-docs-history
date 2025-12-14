@@ -4,18 +4,18 @@ Consider following these recommendations before enabling Detective
 
 ## Recommended alignment with GuardDuty and
 
-AWS Security Hub
+AWS Security Hub CSPM
 
-If you are enrolled in GuardDuty and AWS Security Hub, we recommend that your account be an
+If you are enrolled in GuardDuty and AWS Security Hub CSPM, we recommend that your account be an
 administrator account for those services. If the administrator accounts are the same for all
 three services, then the following integration points work seamlessly.
 
-- In GuardDuty or Security Hub, when viewing details for a GuardDuty finding, you can pivot from the
+- In GuardDuty or Security Hub CSPM, when viewing details for a GuardDuty finding, you can pivot from the
   finding details to the Detective finding profile.
 - In Detective, when investigating a GuardDuty finding, you can choose the option to archive
   that finding.
 
-If you have different administrator accounts for GuardDuty and Security Hub, we recommend that you
+If you have different administrator accounts for GuardDuty and Security Hub CSPM, we recommend that you
 align the administrator accounts based on the service you use more frequently.
 
 - If you use GuardDuty more frequently, then enable Detective using the GuardDuty administrator
@@ -24,10 +24,10 @@ align the administrator accounts based on the service you use more frequently.
 If you use AWS Organizations to manage accounts, designate the GuardDuty administrator account as
 the Detective administrator account for the organization.
 
-- If you use Security Hub more frequently, then enable Detective using the Security Hub administrator
+- If you use Security Hub CSPM more frequently, then enable Detective using the Security Hub CSPM administrator
   account.
 
-If you use Organizations to manage accounts, designate the Security Hub administrator account as the
+If you use Organizations to manage accounts, designate the Security Hub CSPM administrator account as the
 Detective administrator account for the organization.
 
 If you cannot use the same administrator accounts across all of the services, then after

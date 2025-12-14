@@ -6,7 +6,7 @@ An entity profile appears when you perform one of the following actions:
   a selected finding.
 
 See [Pivoting to an entity profile or finding overview
-from Amazon GuardDuty or AWS Security Hub](navigate-to-profile.md#profile-pivot-from-service "navigate-to-profile.md#profile-pivot-from-service").
+from Amazon GuardDuty or AWS Security Hub CSPM](navigate-to-profile.md#profile-pivot-from-service "navigate-to-profile.md#profile-pivot-from-service").
 
 - Go to the Detective URL for the entity profile.
 

@@ -33,15 +33,15 @@ An account can be a member account of multiple behavior graphs in the same Regio
 account can only be the administrator account of one behavior graph per Region. An account can be
 an administrator account in different Regions.
 
-## Alignment of administrator accounts with Security Hub and
+## Alignment of administrator accounts with Security Hub CSPM and
 
 GuardDuty
 
-To ensure that the integrations with AWS Security Hub and Amazon GuardDuty work smoothly, we recommend
+To ensure that the integrations with AWS Security Hub CSPM and Amazon GuardDuty work smoothly, we recommend
 that the same account is the administrator account in all of these services.
 
 See [Recommended alignment with GuardDuty and
-AWS Security Hub](detective-recommendations.md#recommended-service-alignment "detective-recommendations.md#recommended-service-alignment").
+AWS Security Hub CSPM](detective-recommendations.md#recommended-service-alignment "detective-recommendations.md#recommended-service-alignment").
 
 ## Granting the required permissions for administrator
 

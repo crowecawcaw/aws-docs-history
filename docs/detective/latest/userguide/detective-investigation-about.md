@@ -47,7 +47,7 @@ damage, and prevent a similar attack from happening again.
 Investigation
 
 Every investigation in Detective has an essential starting point. For example, you might be
-assigned an Amazon GuardDuty or AWS Security Hub finding to investigate. Or you might have a concern about unusual activity
+assigned an Amazon GuardDuty or AWS Security Hub CSPM finding to investigate. Or you might have a concern about unusual activity
 for a specific IP address.
 
 Typical starting points for an investigation include findings detected by GuardDuty and
@@ -66,10 +66,10 @@ detected activity from the finding is a genuine cause for concern.
 
 For more information, see [Analyzing a finding overview in Detective](finding-overview.md "finding-overview.md").
 
-### AWS security findings aggregated by Security Hub
+### AWS security findings aggregated by Security Hub CSPM
 
-AWS Security Hub aggregates security findings from various findings providers in a single place,
-and provides you with a comprehensive view of your security state in AWS. Security Hub eliminates
+AWS Security Hub CSPM aggregates security findings from various findings providers in a single place,
+and provides you with a comprehensive view of your security state in AWS. Security Hub CSPM eliminates
 the complexity of addressing large volumes of findings from multiple providers. It reduces the
 effort required to manage and improve the security of all of your AWS accounts, resources,
 and workloads. Detective provides resources that help you investigate these findings.
@@ -104,7 +104,7 @@ At a high level, the following image shows the process for a Detective Investiga
 
 When looking at a finding in GuardDuty, analysts can choose to investigate an associated
 entity in Detective. See [Pivoting to an entity profile or finding overview
-from Amazon GuardDuty or AWS Security Hub](navigate-to-profile.md#profile-pivot-from-service "navigate-to-profile.md#profile-pivot-from-service").
+from Amazon GuardDuty or AWS Security Hub CSPM](navigate-to-profile.md#profile-pivot-from-service "navigate-to-profile.md#profile-pivot-from-service").
 
 Selecting the entity takes you to the entity profile in Detective.
 

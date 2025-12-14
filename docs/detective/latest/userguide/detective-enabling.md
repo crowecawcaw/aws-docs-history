@@ -14,8 +14,8 @@ Console
 2. Choose **Get started**.
 3. On the **Enable Amazon Detective** page, **Align administrator
    accounts (recommended)** explains the recommendation to align the
-   administrator accounts between Detective and Amazon GuardDuty and AWS Security Hub. See [Recommended alignment with GuardDuty and
-   AWS Security Hub](detective-recommendations.md#recommended-service-alignment "detective-recommendations.md#recommended-service-alignment").
+   administrator accounts between Detective and Amazon GuardDuty and AWS Security Hub CSPM. See [Recommended alignment with GuardDuty and
+   AWS Security Hub CSPM](detective-recommendations.md#recommended-service-alignment "detective-recommendations.md#recommended-service-alignment").
 4. The **Attach IAM policy** button takes you directly to the IAM
    console and opens up the recommended policy, You have the option to attach the
    recommended policy to the principal you use for Detective. If you do not have permissions to

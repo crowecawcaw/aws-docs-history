@@ -54,7 +54,7 @@ Flow Logs without the need for you to enable or store these logs manually. See [
 
 - **AWS security findings**
 
-This optional data source package allows Detective to ingest data from Security Hub and adds that
+This optional data source package allows Detective to ingest data from Security Hub CSPM and adds that
 data to your behavior graph. See [AWS security
 findings](source-data-types-asff.md "source-data-types-asff.md") for details.
 

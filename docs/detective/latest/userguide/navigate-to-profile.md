@@ -5,19 +5,19 @@ overview
 To navigate directly to an entity profile or finding overview in Amazon Detective, you can use one
 of these options.
 
-- From Amazon GuardDuty or AWS Security Hub, you can pivot from a GuardDuty finding to the corresponding Detective
+- From Amazon GuardDuty or AWS Security Hub CSPM, you can pivot from a GuardDuty finding to the corresponding Detective
   finding profile.
 - You can assemble a Detective URL that identifies a finding or entity and sets the scope time to
   use.
 
 ## Pivoting to an entity profile or finding overview
 
-from Amazon GuardDuty or AWS Security Hub
+from Amazon GuardDuty or AWS Security Hub CSPM
 
 From the Amazon GuardDuty console, you can navigate to the entity profile for an entity that is
 related to a finding.
 
-From the GuardDuty and AWS Security Hub consoles, you can also navigate to a finding overview. This
+From the GuardDuty and AWS Security Hub CSPM consoles, you can also navigate to a finding overview. This
 also provides links to the entity profiles for the involved entities.
 
 These links can help to streamline the investigation process. You can quickly use Detective to
@@ -48,11 +48,11 @@ profile.
 If you have not enabled Detective, then the console opens to a landing page that provides an
 overview of Detective. From there, you can choose to enable Detective.
 
-###### To pivot to Detective from the Security Hub console
+###### To pivot to Detective from the Security Hub CSPM console
 
-1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
+1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. If necessary, choose **Findings** in the left navigation pane.
-3. On the Security Hub **Findings** page, choose a GuardDuty finding.
+3. On the Security Hub CSPM **Findings** page, choose a GuardDuty finding.
 4. In the details pane, choose **Investigate in Detective** and then choose
    **Investigate finding**.
 
@@ -61,7 +61,7 @@ tab. The console opens to the finding overview.
 
 The Detective console always opens to the Region where the finding originated, even if you
 pivot from your aggregation Region. For more information about finding aggregation, see [Aggregating
-findings across Regions](../../../securityhub/latest/userguide/finding-aggregation.md "../../../securityhub/latest/userguide/finding-aggregation.md") in the _AWS Security Hub User Guide_.
+findings across Regions](../../../securityhub/latest/userguide/finding-aggregation.md "../../../securityhub/latest/userguide/finding-aggregation.md") in the _AWS Security Hub CSPM User Guide_.
 
 If you have not enabled Detective, the console opens to the Detective landing page. From there,
 you can enable Detective.
@@ -75,7 +75,7 @@ To use the pivot, one of the following must be true:
 - You have assumed a cross-account role that grants you administrator account access to the
   behavior graph.
 
-For more information about the recommendation to align administrator accounts, see [Recommended alignment with Amazon GuardDuty and AWS Security Hub](detective-setup.md#detective-recommendations "detective-setup.md#detective-recommendations").
+For more information about the recommendation to align administrator accounts, see [Recommended alignment with Amazon GuardDuty and AWS Security Hub CSPM](detective-setup.md#detective-recommendations "detective-setup.md#detective-recommendations").
 
 If the pivot does not work, check the following.
 

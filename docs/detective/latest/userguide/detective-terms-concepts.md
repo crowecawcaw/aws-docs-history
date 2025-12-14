@@ -99,7 +99,7 @@ the severity value of **Informational**. Evidence provides supporting
 information that highlights an unusual activity or unknown behavior that is potentially
 suspicious when viewed within a finding group. An example of this might be newly observed
 geolocations or API calls observed within the scope time of a finding. At this time, these
-findings are only viewable in Detective and not sent to Security Hub.
+findings are only viewable in Detective and not sent to Security Hub CSPM.
 
 \***\*Finding overview\*\***
 

@@ -7,7 +7,7 @@ AWS environment and beyond, including the following:
 
 - Log data, including Amazon Virtual Private Cloud (Amazon VPC) and AWS CloudTrail
 - Findings from Amazon GuardDuty
-- Findings from AWS Security Hub
+- Findings from AWS Security Hub CSPM
   To learn more about the source data used in a behavior graph, see [Source
   data used in a behavior graph](detective-source-data-about.md "detective-source-data-about.md").
 
