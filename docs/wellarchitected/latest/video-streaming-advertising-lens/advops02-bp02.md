@@ -21,32 +21,32 @@ metrics:
   fluctuations in advertising workloads. Key metrics to
   monitor include:
   - **Bid requests per
-    second**: Number of bid requests received.
+    second:** Number of bid requests received.
   - **Bid response time:**
     Time taken to respond to bid requests.
   - **Successful bids:**
     Number of successful bids placed.
   - **Bid win rate:**
     Percentage of bids won compared to total bids placed.
-  - **Latency metrics**:
+  - **Latency metrics:**
     Measure network latency, processing time, and database
     query times.
 
 For database metrics for RTB platforms:
 
-- **Read and write latency**:
+- **Read and write latency:**
   Measure the time taken for read and write operations in your
   databases including
   [DynamoDB](../../../amazondynamodb/latest/developerguide/metrics-dimensions.md "../../../amazondynamodb/latest/developerguide/metrics-dimensions.md")
   and
   [Amazon RDS](../../../AmazonRDS/latest/UserGuide/rds-metrics.md "../../../AmazonRDS/latest/UserGuide/rds-metrics.md").
-- **Throughput**: Monitor
+- **Throughput:** Monitor
   [read
   and write capacity units](../../../amazondynamodb/latest/developerguide/metrics-dimensions.md "../../../amazondynamodb/latest/developerguide/metrics-dimensions.md") to verify that your database
   can handle the load.
-- **Error rates**: Track the
+- **Error rates:** Track the
   number of failed read/write operations.
-- **Connection count**: Monitor
+- **Connection count:** Monitor
   the number of
   [active
   connections](../../../AmazonRDS/latest/UserGuide/rds-metrics.md "../../../AmazonRDS/latest/UserGuide/rds-metrics.md") to the database.
@@ -63,13 +63,13 @@ insights:
 Create useful alarms for monitoring and alerting. Configure
 CloudWatch alarms for critical metrics such as:
 
-- **High latency**: Set alarms
+- **High latency:** Set alarms
   for when bid response times exceed a defined threshold (for
   example, 100ms).
-- **Low bid win rate**:
+- **Low bid win rate:**
   Initiate alerts if the bid win rate drops below a specific
   percentage.
-- **Database latency**: Create alarms for read or write
+- **Database latency:** Create alarms for read or write
   latency thresholds to ensure database performance.
 
 Configure your notification mechanisms. Use Amazon Simple Notification Service (Amazon SNS) to send alerts to relevant
@@ -109,6 +109,16 @@ workloads:
   batching techniques to reduce the number of API calls and
   optimize the performance of your monitoring and logging
   solutions.
+- **Ad fraud metrics:** Monitor
+  invalid traffic rates, bot detection rates, and suspicious
+  activity patterns.
+- **Brand safety metrics:**
+  Track content classification accuracy, moderation response
+  times, and policy violation rates.
+- **Measurement consistency:**
+  Monitor cross-system measurement discrepancies,
+  attribution model performance, and conversion path
+  integrity.
 
 ## Resources
 

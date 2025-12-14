@@ -10,10 +10,10 @@ the advertising operations.
 Define operational KPIs and establish SLOs. For example,
 consider the following example criteria:
 
-- **Ad serving**: Ad serving
+- **Ad serving:** Ad serving
   latency
 - **Infrastructure
-  maintenance**: System uptime, maintenance task
+  maintenance:** System uptime, maintenance task
   completion rate, incident response time
 
 ## Key AWS services

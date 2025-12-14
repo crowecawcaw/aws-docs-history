@@ -14,5 +14,5 @@ efficiency of data stores.
 
 ###### Focus areas
 
-- [Data storage selection](data-management-selection.md "data-management-selection.md")
-- [Data management design](data-management-design.md "data-management-design.md")
+- [Data storage selection](advperf03.md "advperf03.md")
+- [Data management design](advperf04.md "advperf04.md")

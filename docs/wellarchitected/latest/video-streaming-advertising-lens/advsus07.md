@@ -1,8 +1,8 @@
 # Process and culture
 
-| ADVSUS07: Do you have an iterative<br>approach for sustainability improvements, including in your<br>development, testing, and deployment processes? |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                      |
+| ADVSUS07: Do you have an iterative approach for sustainability updates, including in your development, testing, and deployment processes? |
+| ----------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                           |
 
 It is important to revisit your approach to sustainability as
 requirements changes and options continue to evolve. Include

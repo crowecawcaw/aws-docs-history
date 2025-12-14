@@ -13,5 +13,7 @@ and reliable delivery of advertising workloads.
 ###### Best practices
 
 - [ADVOPS01-BP01 Assess trade-offs between ad serving architecture options and associated risks](advops01-bp01.md "advops01-bp01.md")
-- [ADVOPS01-BP02 Create RACI (responsible, accountable, consulted, and informed) matrices that clearly define the roles and responsibilities for each key advertising process like infrastructure monitoring](advops01-bp02.md "advops01-bp02.md")
+- [ADVOPS01-BP02 Create RACI matrices that define the roles and
+  responsibilities for each key advertising process like infrastructure monitoring](advops01-bp02.md "advops01-bp02.md")
 - [ADVOPS01-BP03 Establish performance metrics by defining key performance indicators (KPIs) and service-level objectives (SLOs)](advops01-bp03.md "advops01-bp03.md")
+- [ADVOPS01-BP04 Establish data governance and compliance operations](advops01-bp04.md "advops01-bp04.md")

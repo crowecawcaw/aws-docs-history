@@ -14,4 +14,4 @@ maintaining appropriate permissions for authorized users.
 - [ADVSEC01-BP01 Implement user authentication and access control to protect bidding process and content](advsec01-bp01.md "advsec01-bp01.md")
 - [ADVSEC01-BP02 Restrict DSP access to allow only authorized SSPs](advsec01-bp02.md "advsec01-bp02.md")
 - [ADVSEC01-BP03 Restrict DSP outbound traffic to authorized SSPs only](advsec01-bp03.md "advsec01-bp03.md")
-- [ADVSEC01-BP04 Implement authorization by setting access policies, and implement least privilege access for users to protect programmatic advertising workloads](advsec01-bp04.md "advsec01-bp04.md")
+- [ADVSEC01-BP04 Implement authorization by setting access policies, and implement least privilege access to protect programmatic workloads](advsec01-bp04.md "advsec01-bp04.md")

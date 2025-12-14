@@ -21,9 +21,9 @@ This focus area shares guidance and best practices to design,
 configure, and operate efficient
 networking and content delivery solutions in the cloud.
 
-| ADVPERF05: How do you build network architecture to provide efficient performance and improved user experience for your advertising workload? |
-| --------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                               |
+| ADVPERF05: How do you build network architecture to provide efficient performance and improved user experience for your workload? |
+| --------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                   |
 
 By using the various networking services provided by AWS, you
 can build a high- performance, low-latency, and highly available

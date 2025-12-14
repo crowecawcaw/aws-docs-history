@@ -15,9 +15,9 @@ To gain comprehensive visibility into your advertising workload
 and quickly detect, diagnose and resolve issues, use the
 following logging strategy:
 
-- **Use
+- Use
   [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") and
-  [AWS X-Ray](https://aws.amazon.com/xray/ "https://aws.amazon.com/xray/")** to capture key performance metrics,
+  [AWS X-Ray](https://aws.amazon.com/xray/ "https://aws.amazon.com/xray/") to capture key performance metrics,
   error rates, latency data, and detailed logs from ad serving
   infrastructure.
 - Centralize all logs from the advertising stack, including third-party integrations

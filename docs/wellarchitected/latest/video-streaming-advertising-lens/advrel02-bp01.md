@@ -1,4 +1,4 @@
-# ADVREL02-BP01 To allow fast and graceful failure of latency-sensitive services, avoid normal cloud infrastructure best practices of exponential backing off and retry
+# ADVREL02-BP01 To allow fast and graceful failure of latency-sensitive services, avoid exponential backing off and retry
 
 With real-time bidding systems, your workload must handle failures
 in latency-sensitive services. Traditional exponential backoff and

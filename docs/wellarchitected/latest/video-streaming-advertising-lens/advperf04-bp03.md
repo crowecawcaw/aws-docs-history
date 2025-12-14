@@ -33,3 +33,4 @@ Availability Zone.
   II: Distributed Data Stores](https://aws.amazon.com/blogs/startups/distributed-data-stores-for-mere-mortals/ "https://aws.amazon.com/blogs/startups/distributed-data-stores-for-mere-mortals/")
 - [Building globally distributed MySQL applications using write
   forwarding in Amazon Aurora Global Database](https://aws.amazon.com/blogs/database/building-globally-distributed-mysql-applications-using-write-forwarding-in-amazon-aurora-global-database/ "https://aws.amazon.com/blogs/database/building-globally-distributed-mysql-applications-using-write-forwarding-in-amazon-aurora-global-database/")
+- [Amazon Ads Architecture at Scale - ReInvent 2021](https://www.youtube.com/watch?v=YRbIAmzFxxc "https://www.youtube.com/watch?v=YRbIAmzFxxc")

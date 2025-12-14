@@ -48,3 +48,14 @@ issues**
 - Automation to right size Amazon EC2 instances, remove unused resources, and use AWS
   Savings Plans
 - Processes for periodic cost reviews and budget management
+
+**Data management runbook**
+
+- Create runbooks for:
+  - Data pipeline failures
+  - Replication issues
+  - Storage capacity management
+  - Compliance violations
+
+- Include Regional considerations.
+- Document recovery procedures.

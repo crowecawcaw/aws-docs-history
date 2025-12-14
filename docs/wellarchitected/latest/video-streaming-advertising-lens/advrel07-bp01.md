@@ -1,4 +1,4 @@
-# ADVREL07-BP01 Design your advertising workloads to withstand failures of individual components, such as compute instances, queues, databases, and caches
+# ADVREL07-BP01 Design your workloads to withstand failures of individual components, such as compute instances, queues, databases, and caches
 
 Build building resilient advertising systems by identifying
 critical components, and implement fault tolerance through

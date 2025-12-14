@@ -30,7 +30,7 @@ the following benefits:
   isolate processes and resources per application, reducing
   noisy neighbor issues on multi-tenant hosts for more
   predictable performance.
-- **Utilization**: Higher
+- **Utilization:** Higher
   density of containers per host allows full utilization of
   available resources, especially with auto scaling.
 - **Microservices:**

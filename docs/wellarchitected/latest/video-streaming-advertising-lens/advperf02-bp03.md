@@ -17,7 +17,7 @@ for adtech workloads. 
   services like Amazon EC2 Auto Scaling groups for rapid node
   provisioning.
 - **Node pre-warming:**
-  Karpenter's node warm pool allows it to maintain a pool of
+  Although Karpenter does not support prewarmed node pools like Auto Scaling groups, you can use [pod priority](https://aws.amazon.com/blogs/containers/eliminate-kubernetes-node-scaling-lag-with-pod-priority-and-over-provisioning/ "https://aws.amazon.com/blogs/containers/eliminate-kubernetes-node-scaling-lag-with-pod-priority-and-over-provisioning/") to maintain a pool of
   pre-initialized nodes. When new nodes are needed, Karpenter
   can quickly provision them from this pre-warmed pool,
   further reducing the latency associated with node

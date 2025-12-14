@@ -1,4 +1,4 @@
-# ADVPERF02-BP04 Use a specialized instance family
+# ADVPERF02-BP04 Use a specialized instance family and features
 
 For advertising workloads, consider using a specialized instance
 family like compute-optimized for ad serving, storage-optimized
@@ -35,12 +35,14 @@ AWS Inferentia accelerators are designed by AWS to deliver high
 performance at the lowest cost in Amazon EC2 for your deep
 learning (DL) and generative AI inference applications. 
 
+AWS Nitro Enclaves enables customers to create isolated compute environments to further help protect and securely process highly sensitive data such as personally identifiable information (PII) and intellectual property data within their Amazon EC2 instances. Nitro Enclaves assist customers to reduce the threat surface area for their most sensitive data processing applications. Enclaves offers an isolated, hardened, and highly constrained environment to host security-critical applications. Nitro Enclaves enables a range of use cases that deal with the processing of highly sensitive data, such as securing private keys, tokenization, and multi-party collaboration. The isolation, cryptographic attestation, and integration with AWS Key Management Service capabilities of Nitro Enclaves are key features that provide customers with a practical approach to setting up multi-party collaboration.
+
 ## Resources
 
 - [Choosing
   an AWS compute service](../../../decision-guides/latest/compute-on-aws-how-to-choose/choosing-aws-compute-service.md "../../../decision-guides/latest/compute-on-aws-how-to-choose/choosing-aws-compute-service.md")
 - [Scaling
   distributed training with AWS Trainium and Amazon EKS](https://aws.amazon.com/blogs/machine-learning/scaling-distributed-training-with-aws-trainium-and-amazon-eks/ "https://aws.amazon.com/blogs/machine-learning/scaling-distributed-training-with-aws-trainium-and-amazon-eks/")
-- [Scale
-  your machine learning workloads on Amazon ECS powered by AWS Trainium instances](https://aws.amazon.com/blogs/machine-learning/scaling-distributed-training-with-aws-trainium-and-amazon-eks "https://aws.amazon.com/blogs/machine-learning/scaling-distributed-training-with-aws-trainium-and-amazon-eks")
 - [AWS Inferentia2 builds on AWS Inferentia1 by delivering 4x higher throughput and 10x lower latency](https://aws.amazon.com/blogs/machine-learning/aws-inferentia2-builds-on-aws-inferentia1-by-delivering-4x-higher-throughput-and-10x-lower-latency/ "https://aws.amazon.com/blogs/machine-learning/aws-inferentia2-builds-on-aws-inferentia1-by-delivering-4x-higher-throughput-and-10x-lower-latency/")
+- [Introducing Unified ID 2.0 Private Operator Services on AWS Using Nitro Enclaves](https://aws.amazon.com/blogs/industries/introducing-unified-id-2-0-private-operator-services-on-aws-using-nitro-enclaves/ "https://aws.amazon.com/blogs/industries/introducing-unified-id-2-0-private-operator-services-on-aws-using-nitro-enclaves/")
+- [Use AWS Nitro Enclaves to perform computation of multiple sensitive datasets](https://aws.amazon.com/blogs/compute/leveraging-aws-nitro-enclaves-to-perform-computation-of-multiple-sensitive-datasets/ "https://aws.amazon.com/blogs/compute/leveraging-aws-nitro-enclaves-to-perform-computation-of-multiple-sensitive-datasets/")

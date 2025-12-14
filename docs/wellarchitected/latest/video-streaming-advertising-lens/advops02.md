@@ -17,7 +17,8 @@ reliable and predictable advertising experience for your customers.
 
 ###### Best practices
 
-- [ADVOPS02-BP01 Implement comprehensive monitoring across all layers of your advertising stack including ad-serving infrastructure, application performance, and user experience](advops02-bp01.md "advops02-bp01.md")
+- [ADVOPS02-BP01 Implement monitoring across each layer of your
+  advertising stack including infrastructure, applications, and user experience](advops02-bp01.md "advops02-bp01.md")
 - [ADVOPS02-BP02 Collect and analyze detailed metrics for successful operations and ad campaigns](advops02-bp02.md "advops02-bp02.md")
 - [ADVOPS02-BP03 Implement centralized logging to aggregate logs from all components of your advertising stack](advops02-bp03.md "advops02-bp03.md")
 - [ADVOPS02-BP04 Instrument your advertising application code and infrastructure to emit detailed, structured logs and metrics](advops02-bp04.md "advops02-bp04.md")

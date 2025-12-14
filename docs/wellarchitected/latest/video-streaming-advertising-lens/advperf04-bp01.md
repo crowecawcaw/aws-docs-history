@@ -46,7 +46,7 @@ For latency, consider the following:
   - Campaign optimization (performance metrics and engagement data)
   - Attribution (user journeys and conversion paths)
 
-- **High-latency data (batch processing or offline)**: This
+- **High-latency data (batch processing or offline):** This
   data can be processed in batches or offline, as it is typically used for analysis,
   reporting, and long-term decision-making rather than real-time ad delivery or
   optimization.
@@ -58,3 +58,4 @@ For latency, consider the following:
 ## Resources
 
 - [Architecture III: Picking the Right Data Store for Your Workload](https://aws.amazon.com/blogs/startups/how-to-pick-the-right-data-store-for-your-workload-1/ "https://aws.amazon.com/blogs/startups/how-to-pick-the-right-data-store-for-your-workload-1/")
+- [Amazon DynamoDB: Ad tech use cases and design patterns](https://aws.amazon.com/blogs/database/amazon-dynamodb-ad-tech-use-cases-and-design-patterns/ "https://aws.amazon.com/blogs/database/amazon-dynamodb-ad-tech-use-cases-and-design-patterns/")

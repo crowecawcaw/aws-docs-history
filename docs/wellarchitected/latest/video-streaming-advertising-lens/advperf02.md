@@ -21,5 +21,5 @@ and scaling design principles.
 - [ADVPERF02-BP01 Evaluate compute benchmarks and compute options certified by the ISVs if applicable](advperf02-bp01.md "advperf02-bp01.md")
 - [ADVPERF02-BP02 Consider containerization for scalability, low latency, and cost optimization](advperf02-bp02.md "advperf02-bp02.md")
 - [ADVPERF02-BP03 Consider using low latency scaling tools like Karpenter to improve startup and scaling time](advperf02-bp03.md "advperf02-bp03.md")
-- [ADVPERF02-BP04 Use a specialized instance family](advperf02-bp04.md "advperf02-bp04.md")
+- [ADVPERF02-BP04 Use a specialized instance family and features](advperf02-bp04.md "advperf02-bp04.md")
 - [ADVPERF02-BP05 Evaluate ARM architecture for performance considerations by using AWS Graviton](advperf02-bp05.md "advperf02-bp05.md")

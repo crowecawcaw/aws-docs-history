@@ -12,7 +12,7 @@ custom applications.
 Review
 [centralized
 logging with opensearch](https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/ "https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/") to aggregate logs from
-all core components of the advertising workload
+all core components of the advertising workload.
 
 **Amazon OpenSearch Service**
 

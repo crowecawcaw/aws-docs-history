@@ -1,4 +1,6 @@
-# ADVOPS02-BP01 Implement comprehensive monitoring across all layers of your advertising stack including ad-serving infrastructure, application performance, and user experience
+# ADVOPS02-BP01 Implement monitoring across each layer of your
+
+advertising stack including infrastructure, applications, and user experience
 
 Ensuring operational excellence in advertising workloads requires
 a holistic approach to monitoring. This best practice emphasizes

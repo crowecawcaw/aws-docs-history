@@ -1,4 +1,4 @@
-# ADVSEC01-BP04 Implement authorization by setting access policies, and implement least privilege access for users to protect programmatic advertising workloads
+# ADVSEC01-BP04 Implement authorization by setting access policies, and implement least privilege access to protect programmatic workloads
 
 Address the risk of authenticated advertisers and SSPs access to
 data they should not reach.

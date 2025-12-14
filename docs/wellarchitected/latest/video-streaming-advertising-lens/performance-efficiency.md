@@ -41,3 +41,4 @@ efficient advertising workloads in the cloud:
   storage. Monitor database performance metrics, including
   latency, timeouts, and saturation, to identify and fix
   bottlenecks.
+- **Design for data volume and query processing consideration for AWS Clean Rooms collaboration:** Large datasets can impact query performance. Consider data partition, aggregations, and filters to reduce result sets. Complex joins across multiple tables and number of collaborators can impact processing team. As a result, the optimal design for collaborators uses one to many collaboration channels, along with optimized pre-compiled query templates.

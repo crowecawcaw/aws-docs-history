@@ -1,8 +1,8 @@
 # Operate
 
-| ADVOPS03: How do you document runbooks and<br>playbooks to guide your teams in responding to and resolving<br>common operational events or incidents that can impact your<br>advertising workload? |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                                                    |
+| ADVOPS03: How do you document runbooks to guide your teams to respond and resolve<br>operational events that can impact your workload? |
+| -------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                        |
 
 Advertising workloads often involve complex systems and processes
 that are susceptible to various operational events and incidents.
@@ -17,5 +17,7 @@ incidents and establishing clear procedures for managing them.
 
 ###### Best practices
 
-- [ADVOPS03-BP01 Create runbooks for the most common operational events and incidents that can impact your advertising workload](advops03-bp01.md "advops03-bp01.md")
+- [ADVOPS03-BP01 Create runbooks for the most common
+  operational events and incidents that can impact your advertising
+  workload](advops03-bp01.md "advops03-bp01.md")
 - [ADVOPS03-BP02 Automate runbooks to gain operational efficiency](advops03-bp02.md "advops03-bp02.md")

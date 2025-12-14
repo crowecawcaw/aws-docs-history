@@ -14,13 +14,13 @@ Implement AWS PrivateLink on the same Region between
 external entities (like DSPs and SSPs) where both parties are on
 AWS.
 
-## Key AWS services
+For privacy-enhanced collaboration using AWS Clean Rooms, it is recommended to have collaborators in the same Region as the clean room to avoid latency with cross-Region data transfer.
 
-The following are the Key AWS services in context of the best
-practices and Implementation guidance recommendations above
+## Key AWS services
 
 - [Amazon Route 53 (R53)](https://aws.amazon.com/route53/ "https://aws.amazon.com/route53/")
 - [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/")
+- [AWS Clean Rooms](https://aws.amazon.com/clean-rooms/ "https://aws.amazon.com/clean-rooms/")
 
 ## Resources
 

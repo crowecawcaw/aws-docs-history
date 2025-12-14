@@ -28,7 +28,7 @@ where data needs to be shared across multiple stages.
 - **Cost optimization:** Use Amazon EFS lifecycle policies to
   automatically move infrequently accessed files to the [EFS Infrequent Access](https://aws.amazon.com/efs/features/infrequent-access/ "https://aws.amazon.com/efs/features/infrequent-access/") storage class,
   reducing stor
-- **Mount targets:** Create Amazon EFS mount targets in all
+- **High availability:** Create Amazon EFS mount targets in all
   availability zones to provide high availability and low latency access to your file
   system.
 - age costs.
