@@ -4,17 +4,17 @@ This guide covers two architectures for SAP cluster solutions on SLES for SAP â€
 
 ###### Topics
 
-- [Pacemaker - simple-mount architecture](#simple-mount-diagram "#simple-mount-diagram")
-- [Pacemaker - classic architecture](#classic-diagram "#classic-diagram")
+- [Pacemaker - simple-mount architecture](#simple-mount-diagram-nw-sles "#simple-mount-diagram-nw-sles")
+- [Pacemaker - classic architecture](#classic-diagram-nw-sles "#classic-diagram-nw-sles")
 
 ## Pacemaker - simple-mount architecture
 
 See the following image for more details.
 
-![The primary and secondary IP addresses for an instance as shown in the console.](images/sles-simple-mount.png)
+![Simple Mount Achitecture](images/image-pacemaker-nw-sles-simplemount.png)
 
 ## Pacemaker - classic architecture
 
 See the following image for more details.
 
-![The options for the domain model parameter.](images/sles-classic.png)
+![Classic Architecture.](images/image-pacemaker-nw-sles-classic.png)

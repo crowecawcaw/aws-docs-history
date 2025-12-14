@@ -4,5 +4,7 @@ This section covers the following topics.
 
 ###### Topics
 
-- [Analysis and maintenance](rhel-netweaver-ha-operations-topics.md "rhel-netweaver-ha-operations-topics.md")
-- [Testing](rhel-testing.md "rhel-testing.md")
+- [Viewing the cluster state](cluster-state-nw-rhel.md "cluster-state-nw-rhel.md")
+- [Performing planned maintenance](planned-maintenance-nw-rhel.md "planned-maintenance-nw-rhel.md")
+- [Post-failure analysis and reset](analysis-reset-nw-rhel.md "analysis-reset-nw-rhel.md")
+- [Alerting and monitoring](alerting-monitoring-nw-rhel.md "alerting-monitoring-nw-rhel.md")
