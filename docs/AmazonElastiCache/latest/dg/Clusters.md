@@ -1,59 +1,97 @@
-# Managing clusters in ElastiCache
+# Creating a cluster for Memcached
 
-A _cluster_ is a collection of one or more cache nodes,
-all of which run an instance of the Valkey, Memcached, and Redis OSS engine software.
-When you create a cluster, you specify the engine and version for all of the nodes to use.
+The following examples show how to create a cluster using the AWS Management Console, AWS CLI and ElastiCache API.
 
-**Valkey and Redis OSS clusters**
+When you use the Memcached engine, Amazon ElastiCache supports horizontally partitioning your data over multiple nodes.
+Memcached enables auto discovery so you don't need to keep track of the endpoints for each node.
+Memcached tracks each node's endpoint, updating the endpoint list as nodes are added and removed.
+All your application needs to interact with the cluster is the configuration endpoint.
 
-The following diagram illustrates a typical Valkey or Redis OSS cluster.
-These clusters can contain a single node or up to six nodes inside a shard (API/CLI: node group),
-A single-node Valkey or Redis OSS (cluster mode disabled) cluster has no shard, and a multi-node Valkey or Redis OSS (cluster mode disabled) cluster has a single shard.
-Valkey or Redis OSS (cluster mode enabled) clusters can have up to 500 shards, with your data partitioned across the shards. The node or shard limit can be increased to a maximum of 500 per cluster if the engine version is Valkey 7.2 and higher or Redis OSS 5.0.6 and higher. For example, you can choose to configure a 500 node cluster that ranges between
-83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase.
-Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see
-[Creating a subnet group](SubnetGroups.md "SubnetGroups.md"). For versions below 5.0.6,
-the limit is 250 per cluster.
+To create a Memcached cluster via the console, follow the steps at
+[Creating a Valkey (cluster mode disabled) cluster (Console)](Clusters.md#Clusters.Create.CON.RedisCluster "Clusters.md#Clusters.Create.CON.RedisCluster"). When you reach step five, select **Create Memcached cache**.
 
-To request a limit increase, see
-[AWS Service Limits](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md")
-and choose the limit type **Nodes per cluster per instance type**.
+As soon as your cluster's status is _available_, you can grant Amazon EC2 access to it, connect to it, and begin using it.
+For more information, see the similar steps [Step 3. Authorize access to the cluster](SubnetGroups.designing-cluster-pre.md#GettingStarted.AuthorizeAccess.valkey "SubnetGroups.designing-cluster-pre.md#GettingStarted.AuthorizeAccess.valkey")
+and [Step 4. Connect to the cluster's node](SubnetGroups.designing-cluster-pre.md#GettingStarted.ConnectToCacheNode.valkey "SubnetGroups.designing-cluster-pre.md#GettingStarted.ConnectToCacheNode.valkey").
 
-When you have multiple nodes in a Valkey or Redis OSS shard, one of the nodes is a read/write primary node.
-All other nodes in the shard are read-only replicas.
+###### Important
 
-Typical Valkey or Redis OSS clusters look as follows.
+As soon as your cluster becomes available,
+you're billed for each hour or partial hour that the cluster is active,
+even if you're not actively using it.
+To stop incurring charges for this cluster, you must delete it. See [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md").
 
-![Image: Typical Valkey and Redis OSS Clusters](images/ElastiCache-Cluster-Redis.png)
-**Memcached clusters**
+To create a cluster using the AWS CLI, use the `create-cache-cluster` command.
 
-Typical Memcached clusters look as follows.
-Memcached clusters contain from 1 to 60 nodes,
-across which you horizontally partition your data.
+###### Important
 
-![Image: Typical Memcached Cluster](/images/AmazonElastiCache/latest/dg/images/ElastiCache-Cluster-Memcached.png)
-**Elasticache operations for Valkey, Memcached, and Redis OSS**
+As soon as your cluster becomes available,
+you're billed for each hour or partial hour that the cluster is active,
+even if you're not actively using it.
+To stop incurring charges for this cluster, you must delete it. See [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md").
 
-Most ElastiCache operations are performed at the cluster level.
-You can set up a cluster with a specific number of nodes and
-a parameter group that controls the properties for each node.
-All nodes within a cluster are designed to be of the same node type
-and have the same parameter and security group settings.
+### Creating a Memcached Cache Cluster (AWS CLI)
 
-Every cluster must have a cluster identifier.
-The cluster identifier is a customer-supplied name for the cluster.
-This identifier specifies a particular cluster when interacting with the ElastiCache API and
-AWS CLI commands.
-The cluster identifier must be unique for that customer in an AWS Region.
+The following CLI code creates a Memcached cluster with 3 nodes.
 
-ElastiCache supports multiple engine versions.
-Unless you have specific reasons, we recommend using the latest version.
+For Linux, macOS, or Unix:
 
-ElastiCache clusters are designed to be accessed using an Amazon EC2 instance. If you launch your
-cluster in a virtual private cloud (VPC) based on the Amazon VPC service, you can access it from
-outside AWS. For more information, see [Accessing ElastiCache resources from outside AWS](accessing-elasticache.md#access-from-outside-aws "accessing-elasticache.md#access-from-outside-aws").
+```
+aws elasticache create-cache-cluster \
+--cache-cluster-id `my-cluster` \
+--cache-node-type `cache.r4.large` \
+--engine `memcached` \
+--engine-version `1.4.24` \
+--cache-parameter-group `default.memcached1.4` \
+--num-cache-nodes `3`
+```
 
-For a list of supported versions, see
-[Supported engines and versions](VersionManagement.md#supported-engine-versions "VersionManagement.md#supported-engine-versions"),
-[Supported Redis OSS engine versions](engine-versions.md#supported-engine-versions.redis "engine-versions.md#supported-engine-versions.redis"), and
-[Supported ElastiCache for Memcached versions](engine-versions.md#supported-engine-versions-mc "engine-versions.md#supported-engine-versions-mc").
+For Windows:
+
+```
+aws elasticache create-cache-cluster ^
+--cache-cluster-id `my-cluster` ^
+--cache-node-type `cache.r4.large` ^
+--engine `memcached` ^
+--engine-version `1.4.24` ^
+--cache-parameter-group `default.memcached1.4` ^
+--num-cache-nodes `3`
+```
+
+To create a cluster using the ElastiCache API, use the `CreateCacheCluster` action.
+
+###### Important
+
+As soon as your cluster becomes available,
+you're billed for each hour or partial hour that the cluster is active,
+even if you're not using it.
+To stop incurring charges for this cluster, you must delete it. See [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md").
+
+###### Topics
+
+- [Creating a Memcached cluster (ElastiCache API)](#Clusters.Create.API.Memcached "#Clusters.Create.API.Memcached")
+
+### Creating a Memcached cluster (ElastiCache API)
+
+The following code creates a Memcached cluster with 3 nodes (ElastiCache API).
+
+Line breaks are added for ease of reading.
+
+```
+https://elasticache.us-west-2.amazonaws.com/
+    ?Action=CreateCacheCluster
+    &CacheClusterId=my-cluster
+    &CacheNodeType=cache.r4.large
+    &Engine=memcached
+    &NumCacheNodes=3
+    &SignatureVersion=4
+    &SignatureMethod=HmacSHA256
+    &Timestamp=20150508T220302Z
+    &Version=2015-02-02
+    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
+    &X-Amz-Credential=<credential>
+    &X-Amz-Date=20150508T220302Z
+    &X-Amz-Expires=20150508T220302Z
+    &X-Amz-SignedHeaders=Host
+    &X-Amz-Signature=<signature>
+```

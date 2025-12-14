@@ -1623,9 +1623,7 @@ In addition, the following commands are unavailable for serverless caches:
 - `slowlog len`
 - `slowlog reset`
 - `swapdb`
-- `unwatch`
 - `wait`
-- `watch`
 
 ## Supported Memcached commands
 

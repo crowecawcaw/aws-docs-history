@@ -1,76 +1,87 @@
-# Installing the ElastiCache cluster client for .NET
+# Compiling the source code for the ElastiCache cluster client for PHP
 
-You can find the ElastiCache .NET Cluster Client code as open source at [https://github.com/awslabs/elasticache-cluster-config-net](https://github.com/awslabs/elasticache-cluster-config-net "https://github.com/awslabs/elasticache-cluster-config-net").
+This section covers how to obtain and compile the source code for the ElastiCache Cluster Client for PHP.
 
-This section describes how to install, update, and remove the .NET components for the ElastiCache
-Cluster Client on Amazon EC2 instances.
-For more information about auto discovery, see [Automatically identify nodes in your cluster (Memcached)](AutoDiscovery.md "AutoDiscovery.md").
-For sample .NET code to use the
-client, see [Using the ElastiCache Cluster Client for .NET](AutoDiscovery.Using.ModifyApp.md "AutoDiscovery.Using.ModifyApp.md").
+There are two packages you need to pull from GitHub and compile;
+[aws-elasticache-cluster-client-libmemcached](https://github.com/awslabs/aws-elasticache-cluster-client-libmemcached "https://github.com/awslabs/aws-elasticache-cluster-client-libmemcached")
+and [aws-elasticache-cluster-client-memcached-for-php](https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php "https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php").
 
 ###### Topics
 
-- [Installing .NET](#Appendix.DotNETAutoDiscoverySetup.DotNET "#Appendix.DotNETAutoDiscoverySetup.DotNET")
-- [Download the ElastiCache .NET cluster client for ElastiCache](#Appendix.DotNETAutoDiscoverySetup.Downloading "#Appendix.DotNETAutoDiscoverySetup.Downloading")
-- [Install AWS assemblies with NuGet](#Appendix.DotNETAutoDiscoverySetup.Installing "#Appendix.DotNETAutoDiscoverySetup.Installing")
+- [Compiling the libmemcached library](#Appendix.PHPAutoDiscoveryCompile.Libmemcached "#Appendix.PHPAutoDiscoveryCompile.Libmemcached")
+- [Compiling the ElastiCache Memcached auto discovery client for PHP](#Appendix.PHPAutoDiscoveryCompile.Client "#Appendix.PHPAutoDiscoveryCompile.Client")
 
-## Installing .NET
+## Compiling the libmemcached library
 
-You must have .NET 3.5 or later installed to use the AWS .NET SDK for ElastiCache.
-If you don't have .NET 3.5 or later, you can download and install the latest version from
-[http://www.microsoft.com/net](http://www.microsoft.com/net "http://www.microsoft.com/net").
+###### To compile the aws-elasticache-cluster-client-libmemcached library
 
-## Download the ElastiCache .NET cluster client for ElastiCache
+1. Launch an Amazon EC2 instance.
+2. Install the library dependencies.
+   - On Amazon Linux 201509 AMI
 
-###### To download the ElastiCache .NET cluster client
+   ```
+   sudo yum install gcc gcc-c++ autoconf libevent-devel
+   ```
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. On the navigation pane, click **ElastiCache Cluster Client**.
-3. In the **Download ElastiCache Memcached Cluster Client** list, select
-   **.NET**, and then click
-   **Download.**
+   - On Ubuntu 14.04 AMI
 
-## Install AWS assemblies with NuGet
+   ```
+   sudo apt-get update
+   sudo apt-get install libevent-dev gcc g++ make autoconf libsasl2-dev
+   ```
 
-NuGet is a package management system for the .NET platform.
-NuGet is aware of assembly dependencies and installs all required files
-automatically. NuGet installed assemblies are stored with your solution, rather than in
-a central location such as `Program Files`, so you can install versions
-specific to an application without creating compatibility issues.
-
-### Installing NuGet
-
-NuGet can be installed from the Installation Gallery on MSDN; see [https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c "https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c").
-If you are using Visual Studio 2010 or later, NuGet is automatically
-installed.
-
-You can use NuGet from either **Solution Explorer** or **Package Manager Console**.
-
-### Using NuGet from Solution Explorer
-
-###### To use NuGet from Solution Explorer in Visual Studio 2010
-
-1. From the **Tools** menu, select **Library Package Manager**.
-2. Click **Package Manager Console**.
-
-###### To use NuGet from Solution Explorer in Visual Studio 2012 or Visual Studio 2013
-
-1. From the **Tools** menu, select **NuGet Package
-   Manager**.
-2. Click **Package Manager Console**.
-
-From the command line, you can install the assemblies using `Install-Package`,
-as shown following.
+3. Pull the repository and compile the code.
 
 ```
-Install-Package Amazon.ElastiCacheCluster
+Download and install  https://github.com/awslabs/aws-elasticache-cluster-client-libmemcached/archive/v1.0.18.tar.gz
+
 ```
 
-To see a page for every package that is available through NuGet, such as the AWSSDK and
-AWS.Extensions assemblies, see the NuGet website at [http://www.nuget.org](http://www.nuget.org "http://www.nuget.org"). The page for each
-package includes a sample command line for installing the package using the console
-and a list of the previous versions of the package that are available through
-NuGet.
+## Compiling the ElastiCache Memcached auto discovery client for PHP
 
-For more information on **Package Manager Console** commands, see [http://nuget.codeplex.com/wikipage?title=Package%20Manager%20Console%20Command%20Reference%20%28v1.3%29](http://nuget.codeplex.com/wikipage?title=Package%20Manager%20Console%20Command%20Reference%20%28v1.3%29 "http://nuget.codeplex.com/wikipage?title=Package%20Manager%20Console%20Command%20Reference%20%28v1.3%29").
+The following sections describe how to compile the ElastiCache Memcached Auto Discovery Client
+
+###### Topics
+
+- [Compiling the ElastiCache Memcached client for PHP 7](#Appendix.PHPAudiscoveryCompile.Client.PHP7 "#Appendix.PHPAudiscoveryCompile.Client.PHP7")
+- [Compiling the ElastiCache Memcached client for PHP 5](#Appendix.PHPAudiscoveryCompile.PHP5 "#Appendix.PHPAudiscoveryCompile.PHP5")
+
+### Compiling the ElastiCache Memcached client for PHP 7
+
+Run the following set of commands under the code directory.
+
+```
+git clone https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php.git
+cd aws-elasticache-cluster-client-memcached-for-php
+git checkout php7
+sudo yum install php70-devel
+phpize
+./configure --with-libmemcached-dir=`<libmemcached-install-directory>` --disable-memcached-sasl
+make
+make install
+```
+
+###### Note
+
+You can statically link the libmemcached library into the PHP binary so it can be ported across various Linux platforms.
+To do that, run the following command before `make`:
+
+```
+sed -i "s#-lmemcached#`<libmemcached-install-directory>`/lib/libmemcached.a -lcrypt -lpthread -lm -lstdc++ -lsasl2#" Makefile
+```
+
+### Compiling the ElastiCache Memcached client for PHP 5
+
+Compile the `aws-elasticache-cluster-client-memcached-for-php` by
+running the following commands under the `aws-elasticache-cluster-client-memcached-for-php/`
+folder.
+
+```
+git clone https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php.git
+cd aws-elasticache-cluster-client-memcached-for-php
+sudo yum install zlib-devel
+phpize
+./configure --with-libmemcached-dir=`<libmemcached-install-directory>`
+make
+make install
+```

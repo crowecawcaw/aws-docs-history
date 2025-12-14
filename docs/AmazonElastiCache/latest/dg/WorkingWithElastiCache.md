@@ -11,6 +11,7 @@ In this section you can find details about how to manage the various components 
 - [Connecting an EC2 instance and an ElastiCache cache automatically](compute-connection.md "compute-connection.md")
 - [Scaling ElastiCache](Scaling.md "Scaling.md")
 - [Getting started with Bloom filters](BloomFilters.md "BloomFilters.md")
+- [Getting started with Watch in Serverless](ServerlessWatch.md "ServerlessWatch.md")
 - [Getting started with Vector Search](vector-search.md "vector-search.md")
 - [Getting started with JSON for Valkey and Redis OSS](json-gs.md "json-gs.md")
 - [Tagging your ElastiCache resources](Tagging-Resources.md "Tagging-Resources.md")

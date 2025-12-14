@@ -1,263 +1,52 @@
-# Connecting to a cache running in an Amazon VPC
+# Creating a Virtual Private Cloud (VPC)
 
-This example shows how to launch an Amazon EC2 instance in your Amazon VPC.
-You can then log in to this instance and access the ElastiCache cache that is running in the Amazon VPC.
+In this example, you create an Amazon VPC with a private subnet for each Availability
+Zone.
 
-## Connecting to a cache running in an Amazon VPC (Console)
+## Creating an Amazon VPC (Console)
 
-In this example, you create an Amazon EC2 instance in your Amazon VPC. You can use this Amazon EC2
-instance to connect to cache nodes running in the Amazon VPC.
+1. Sign in to the AWS Management Console, and open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the VPC dashboard, choose **Create VPC**.
+3. Under **Resources** to create, choose **VPC and more**.
+4. Under **Number of Availability Zones (AZs)**, choose the number of Availability Zones you want to launch your subnets in.
+5. Under **Number of public subnets**, choose the number of public subnets you want to add to your VPC.
+6. Under **Number of private subnets**, choose the number of private subnets you want to add to your VPC.
 
-###### Note
+###### Tip
 
-For information about using Amazon EC2, see the [Amazon EC2 Getting Started Guide](../../../AWSEC2/latest/GettingStartedGuide.md "../../../AWSEC2/latest/GettingStartedGuide.md") in the [Amazon EC2 documentation](https://aws.amazon.com/documentation/ec2/ "https://aws.amazon.com/documentation/ec2/").
+Make a note of your subnet identifiers, and which are public and private. You will need
+this information later when you launch your clusters and add an
+Amazon EC2 instance to your Amazon VPC. 7. Create an Amazon VPC security group. You will use this group for your cluster and your Amazon EC2
+instance.
 
-###### To create an Amazon EC2 instance in your Amazon VPC using the Amazon EC2 console
+    1. In the navigation pane of the Amazon VPC Management console, choose **Security
+     Groups**.
+    2. Choose **Create Security Group**.
+    3. Type a name and a description for your security group in the corresponding boxes.
+     In the **VPC** box, choose the identifier for your Amazon VPC.
 
-1. Sign in to the AWS Management Console and open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the console, choose **Launch Instance** and follow these steps:
-3. On the **Choose an Amazon Machine Image (AMI)** page,
-   choose the 64-bit Amazon Linux AMI, and then choose **Select**.
-4. On the **Choose an Instance Type** page,
-   choose **3. Configure Instance**.
-5. On the **Configure Instance Details** page,
-   make the following selections:
-   1. In the **Network** list, choose your Amazon VPC.
-   2. In the **Subnet** list, choose your public
-      subnet.
 
-   ![Interface screenshot for choosing your public subnet.](images/vpc-05.png)When the settings are as you want them,
-   choose **4. Add Storage**.
 
-6. On the **Add Storage** page,
-   choose **5. Tag Instance**.
-7. On the **Tag Instance** page,
-   type a name for your Amazon EC2 instance,
-   and then choose **6. Configure Security Group**.
-8. On the **Configure Security Group** page,
-   choose **Select an existing security group**. For more information on security groups,
-   see [Amazon EC2 security groups for Linux instances](../../../AWSEC2/latest/UserGuide/ec2-security-groups.md "../../../AWSEC2/latest/UserGuide/ec2-security-groups.md").
+    ![Image: Create Security Group screen](images/vpc-02.png)
+    4. When the settings are as you want them, choose **Yes, Create**.
 
-![Interface screenshot of selecting an existing security group.](images/vpc-06.png)
+8.  Define a network ingress rule for your security group. This rule will allow you to connect to
+    your Amazon EC2 instance using Secure Shell (SSH).
+    1.  In the navigation list, choose **Security Groups**.
+    2.  Find your security group in the list, and then choose it.
+    3.  Under **Security Group**, choose the **Inbound** tab.
+        In the **Create a new rule** box,
+        choose **SSH**,
+        and then choose **Add Rule**.
+    4.  Set the following values for your new inbound rule to allow HTTP access:
 
-Choose the name of your Amazon VPC security group,
-and then choose **Review and Launch**. 9. On the **Review Instance and Launch** page,
-choose **Launch**. 10. In the **Select an existing key pair or create a new key pair** window,
-specify a key pair that you want to use with this instance.
+            * Type: HTTP
+            * Source: 0.0.0.0/0
 
-###### Note
+        Choose **Apply Rule Changes**.
 
-For information about managing key pairs, see the [Amazon EC2 Getting Started Guide](../../../AWSEC2/latest/GettingStartedGuide.md "../../../AWSEC2/latest/GettingStartedGuide.md"). 11. When you are ready to launch your Amazon EC2 instance,
-choose **Launch**.
+Now you are ready to create a cache subnet group and launch a cluster in your Amazon VPC.
 
-You can now assign an Elastic IP address to the Amazon EC2 instance that you just created.
-You need to use this IP address to connect to the Amazon EC2 instance.
-
-###### To assign an elastic IP address (Console)
-
-1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the navigation list, choose **Elastic IPs**.
-3. Choose **Allocate Elastic IP address**.
-4. In the **Allocate Elastic IP address** dialog box,
-   accept the default **Network Border Group** and choose **Allocate** .
-5. Choose the Elastic IP address that you just allocated from the list and
-   choose **Associate Address**.
-6. In the **Associate Address** dialog box,
-   in the **Instance** box,
-   choose the ID of the Amazon EC2 instance that you launched.
-
-In the **Private IP address** box, select the box to obtain the private IP address and then
-choose **Associate**.
-
-You can now use SSH to connect to the Amazon EC2 instance using the Elastic IP address
-that you created.
-
-### To connect to your Amazon EC2 instance
-
-######
-
-- Open a command window. At the command prompt, issue the following command, replacing
-  _mykeypair.pem_ with the name of your key pair file
-  and _54.207.55.251_ with your Elastic IP address.
-
-```
-ssh -i `mykeypair.pem` ec2-user@`54.207.55.251`
-```
-
-###### Important
-
-Do not log out of your Amazon EC2 instance yet.
-
-You are now ready to interact with your ElastiCache cluster.
-Before you can do that, if you haven't already done so,
-you need to install the _telnet_ utility.
-
-###### To install _telnet_ and interact with your cluster (AWS CLI)
-
-- Open a command window.
-  At the command prompt, issue the following command.
-  At the confirmation prompt, type _y_.
-
-```
-`sudo yum install telnet``Loaded plugins: priorities, security, update-motd, upgrade-helper
-Setting up Install Process
-Resolving Dependencies
---> Running transaction check
-
-...(output omitted)...
-
-Total download size: 63 k
-Installed size: 109 k
-Is this ok [y/N]: y
-Downloading Packages:
-telnet-0.17-47.7.amzn1.x86_64.rpm | 63 kB 00:00
-
-...(output omitted)...
-
-Complete!`
-
-```
-
-You can now connect to a VPC with either Memcached or Redis.
-
-### Connecting to a VPC with Memcached
-
-1. Go to the ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/") and obtain the
-   endpoint for one of the nodes in your cluster. For more information, see [Finding connection endpoints](Endpoints.md "Endpoints.md").
-2. Use _telnet_ to connect to your cache node endpoint
-   over port 11211. Replace the hostname shown below with the hostname of your
-   cache node.
-
-```
-`telnet my-cache-cluster.7wufxa.0001.use1.cache.amazonaws.com 11211`
-```
-
-You are now connected to the cache engine and can issue commands. In this
-example, you add a data item to the cache and then get it immediately
-afterward. Finally, you'll disconnect from the cache node.
-
-To store a key and a value, type the following two lines:
-
-```
-`add mykey 0 3600 28
-This is the value for mykey`
-```
-
-The cache engine responds with the following:
-
-```
-`OK`
-```
-
-To retrieve the value for `mykey`, type the following:
-
-```
-`get mykey`
-```
-
-The cache engine responds with the following:
-
-```
-`VALUE mykey 0 28
-This is the value for my key
-END`
-```
-
-To disconnect from the cache engine, type the following:
-
-```
-`quit`
-```
-
-### Connecting to a VPC with Redis
-
-1. Go to the ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/") and obtain the
-   endpoint for one of the nodes in your cluster. For more information, see
-   [Finding connection endpoints](Endpoints.md "Endpoints.md") for Redis.
-2. Use _telnet_ to connect to your cache node endpoint
-   over port 6379. Replace the hostname shown below with the hostname of your
-   cache node.
-
-```
-`telnet my-cache-cluster.7wufxa.0001.use1.cache.amazonaws.com 6379`
-```
-
-You are now connected to the cache engine and can issue commands. In this
-example, you add a data item to the cache and then get it immediately
-afterward. Finally, you'll disconnect from the cache node.
-
-To store a key and a value, type the following two lines:
-
-```
-`set `mykey` `myvalue``
-```
-
-The cache engine responds with the following:
-
-```
-`OK`
-```
-
-To retrieve the value for `mykey`, type the following:
-
-```
-`get mykey`
-```
-
-To disconnect from the cache engine, type the following:
-
-```
-`quit`
-```
-
-3. Go to the ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/") and obtain the
-   endpoint for one of the nodes in your cluster. For more information,
-
-[Finding connection endpoints](Endpoints.md "Endpoints.md") for Redis OSS. 4. Use _telnet_ to connect to your cache node endpoint
-over port 6379. Replace the hostname shown below with the hostname of your
-cache node.
-
-```
-`telnet my-cache-cluster.7wufxa.0001.use1.cache.amazonaws.com 6379`
-```
-
-You are now connected to the cache engine and can issue commands. In this
-example, you add a data item to the cache and then get it immediately
-afterward. Finally, you'll disconnect from the cache node.
-
-To store a key and a value, type the following:
-
-```
-`set `mykey` `myvalue``
-```
-
-The cache engine responds with the following:
-
-```
-`OK`
-```
-
-To retrieve the value for `mykey`, type the following:
-
-```
-`get mykey`
-```
-
-The cache engine responds with the following:
-
-```
-`get mykey
-`myvalue``
-```
-
-To disconnect from the cache engine, type the following:
-
-```
-`quit`
-```
-
-###### Important
-
-To avoid incurring additional charges on your AWS account, be sure to delete any AWS
-resources you no longer want after trying these examples.
+- [Creating a subnet group](SubnetGroups.md "SubnetGroups.md")
+- [Creating a Memcached cluster (console)](Clusters.md#Clusters.Create.CON.Memcached "Clusters.md#Clusters.Create.CON.Memcached").
+- [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs").

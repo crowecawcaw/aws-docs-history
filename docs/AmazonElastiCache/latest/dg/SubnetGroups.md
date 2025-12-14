@@ -1,19 +1,69 @@
-# Assigning a subnet group to a cache
+# Modifying a subnet group
 
-After you have created a subnet group, you can launch a cache in an Amazon VPC.
-For more information, see the following.
+You can modify a subnet group's description, or modify the list of subnet IDs associated with the subnet group.
+You cannot delete a subnet ID from a subnet group if a cache is currently using that subnet.
 
-- **Memcached cluster** –
-  To launch a Memcached cluster, see [Creating a Memcached cluster (console)](Clusters.md#Clusters.Create.CON.Memcached "Clusters.md#Clusters.Create.CON.Memcached").
-  In step 7.a (**Advanced Memcached Settings**), choose a VPC subnet group.
-- **Standalone Valkey or Redis OSS cluster** –
-  To launch a single-node Valkey or Redis OSS cluster, see [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs").
-  In step 7.a (**Advanced Redis OSS Settings**), choose a VPC subnet group.
-- **Valkey or Redis OSS (cluster mode disabled) replication group** –
-  To launch a Valkey or Redis OSS (cluster mode disabled) replication group in a VPC, see [Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md "Replication.CreatingReplGroup.NoExistingCluster.md").
+The following procedures show you how to modify a subnet group.
 
-In step 7.b (**Advanced Redis OSS Settings**), choose a VPC subnet group.
+## Modifying subnet groups (Console)
 
-- **Valkey or Redis OSS (cluster mode enabled) replication group** –
-  [Creating a Valkey or Redis OSS (Cluster Mode Enabled) cluster (Console)](Replication.CreatingReplGroup.NoExistingCluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON "Replication.CreatingReplGroup.NoExistingCluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON").
-  In step 6.i (**Advanced Redis OSS Settings**), choose a VPC subnet group.
+###### To modify a subnet group
+
+1. Sign in to the AWS Management Console and open the ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. In the navigation pane, choose **Subnet groups**.
+3. In the list of subnet groups, select the radio button of the one you want to modify and choose **Modify**.
+4. In the **Selected subnets** panel, choose **Manage**.
+5. Make any changes to the selected subnets and click **Choose**.
+6. Click **Save changes** to save your changes.
+
+## Modifying subnet groups (AWS CLI)
+
+At a command prompt, use the command `modify-cache-subnet-group` to
+modify a subnet group.
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache modify-cache-subnet-group \
+    --cache-subnet-group-name `mysubnetgroup` \
+    --cache-subnet-group-description `"New description"` \
+    --subnet-ids "`subnet-42df9c3a`" "`subnet-48fc21a9`"
+```
+
+For Windows:
+
+```
+aws elasticache modify-cache-subnet-group ^
+    --cache-subnet-group-name `mysubnetgroup` ^
+    --cache-subnet-group-description `"New description"` ^
+    --subnet-ids "`subnet-42df9c3a`" "`subnet-48fc21a9`"
+```
+
+This command should produce output similar to the following:
+
+```
+{
+    "CacheSubnetGroup": {
+        "VpcId": "vpc-73cd3c17",
+        "CacheSubnetGroupDescription": "New description",
+        "Subnets": [
+            {
+                "SubnetIdentifier": "subnet-42dcf93a",
+                "SubnetAvailabilityZone": {
+                    "Name": "us-west-2a"
+                }
+            },
+            {
+                "SubnetIdentifier": "subnet-48fc12a9",
+                "SubnetAvailabilityZone": {
+                    "Name": "us-west-2a"
+                }
+            }
+        ],
+        "CacheSubnetGroupName": "mysubnetgroup"
+    }
+}
+```
+
+For more information, see the AWS CLI topic modify-cache-subnet-group.

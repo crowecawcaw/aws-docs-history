@@ -4,7 +4,7 @@
 
 Vector search for Amazon ElastiCache is available with Valkey version 8.2 on node-based clusters in all AWS Regions at no additional cost. You can also use vector search on your existing clusters by upgrading from any version of Valkey, or Redis OSS to Valkey 8.2, in a [few clicks with no downtime](VersionManagement.md "VersionManagement.md").
 
-Vector search is available on all ElastiCache supported instance types. Using vector search on t2, t3, and t4g instances requires increasing the memory reserve to at least 50% for micro and 30% for small instances. See [this page](redis-memory-management.md "redis-memory-management.md") to find out more.
+Vector search is currently available on all ElastiCache instance types other than nodes with data tiering. Using vector search on t2, t3, and t4g instances requires increasing the memory reserve to at least 50% for micro and 30% for small instances. See [this page](redis-memory-management.md "redis-memory-management.md") to find out more.
 
 ## Parametric restrictions
 
