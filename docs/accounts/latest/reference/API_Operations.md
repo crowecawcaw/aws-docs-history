@@ -9,6 +9,7 @@ The following actions are supported:
 - [GetAccountInformation](API_GetAccountInformation.md "API_GetAccountInformation.md")
 - [GetAlternateContact](API_GetAlternateContact.md "API_GetAlternateContact.md")
 - [GetContactInformation](API_GetContactInformation.md "API_GetContactInformation.md")
+- [GetGovCloudAccountInformation](API_GetGovCloudAccountInformation.md "API_GetGovCloudAccountInformation.md")
 - [GetPrimaryEmail](API_GetPrimaryEmail.md "API_GetPrimaryEmail.md")
 - [GetRegionOptStatus](API_GetRegionOptStatus.md "API_GetRegionOptStatus.md")
 - [ListRegions](API_ListRegions.md "API_ListRegions.md")

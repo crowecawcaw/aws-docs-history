@@ -18,6 +18,7 @@ Each AWS account has the following quotas related to Account Management.
 | Rate of `GetAccountInformation` requests per<br>caller account             | 3 per second, burst to 3 per second                            |
 | Rate of `GetAlternateContact` requests per account                         | 10 per second, burst to 15 per second                          |
 | Rate of `GetContactInformation` requests per account                       | 10 per second, burst to 15 per second                          |
+| Rate of `GetGovCloudAccountInformation` requests per account               | 3 per second, burst to 5 per second                            |
 | Rate of `GetPrimaryEmail` requests per caller account                      | 3 per second, burst to 3 per second                            |
 | Rate of `GetRegionOptStatus` requests per account                          | 5 per second, burst to 5 per second                            |
 | Rate of `ListRegions` requests per account                                 | 5 per second, burst to 5 per second                            |
