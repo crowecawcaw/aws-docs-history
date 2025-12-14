@@ -70,7 +70,7 @@ App Runner console
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. Choose **Actions**, and then choose **Pause**.
+![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. Choose **Actions**, and then choose **Pause**.
 
 On the service dashboard page, the service **Status** changes to **Operation in progress**, and then
 changes to **Paused**. Your service is now paused.

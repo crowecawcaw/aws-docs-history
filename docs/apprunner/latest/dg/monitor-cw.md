@@ -67,7 +67,7 @@ the CloudWatch console.
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. On the service dashboard page, choose the **Metrics** tab.
+![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. On the service dashboard page, choose the **Metrics** tab.
 
 The console displays a set of metrics graphs.
 
