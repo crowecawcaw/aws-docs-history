@@ -138,7 +138,7 @@ You can use the procedure in this section to view the list of a service's APIs t
 | Amazon SageMaker Runtime                           | `Sagemaker`                         |
 | Savings Plans                                      | `Savings Plans`                     |
 | AWS Secrets Manager                                | `Secrets Manager`                   |
-| AWS Security Hub                                   | `Security Hub`                      |
+| AWS Security Hub CSPM                              | `Security Hub`                      |
 | AWS Server Migration Service                       | `AWS Server Migration Service`      |
 | AWS Service Catalog AppRegistry                    | `Service Catalog AppRegistry`       |
 | Service Quotas                                     | `Service Quotas`                    |

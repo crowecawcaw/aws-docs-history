@@ -134,8 +134,8 @@ const fn = new Function(this, 'DemoFunction', {
 fn.role?.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName('CloudWatchLambdaApplicationSignalsExecutionRolePolicy'));
 ```
 
-3. Replace `$AWS_LAMBDA_LAYER_FOR_OTEL_ARN` with the actual [AWS Lambda Layer for OpenTelemetry ARN](CloudWatch-Application-Signals-Enable-Lambda.md#Enable-Lambda-Layers "CloudWatch-Application-Signals-Enable-Lambda.md#Enable-Lambda-Layers") in the corresponding
-   region.
+3. Replace `$AWS_LAMBDA_LAYER_FOR_OTEL_ARN` with the actual
+   [AWS Lambda Layer for OpenTelemetry ARN](https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns "https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns") for your Region.
 
 ```
 fn.addLayers(LayerVersion.fromLayerVersionArn(
@@ -222,7 +222,8 @@ health. For more information, see [Monitor the operational health of your applic
 Use these steps to manually enable Application Signals for a Lambda function.
 
 1. Add the AWS Lambda Layer for OpenTelemetry to your Lambda runtime. To find
-   the layer ARN, see [AWS Lambda Layer for OpenTelemetry ARNs](#Enable-Lambda-Layers "#Enable-Lambda-Layers").
+   the layer ARN for your Region, see
+   [ADOT Lambda Layer ARNs](https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns "https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns").
 2. Add the environment variable
    `AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-instrument`
 
@@ -281,156 +282,10 @@ instrumentation for other libraries used in your Lambda function.
 
 ## AWS Lambda Layer for OpenTelemetry ARNs
 
-The following tables list the ARNs to use the AWS Lambda Layer for OpenTelemetry for
-each Region where it's supported.
-
-Python
-
-| Region                    | ARN                                                                                |
-| ------------------------- | ---------------------------------------------------------------------------------- |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:615299751070:layer:AWSOpenTelemetryDistroPython:19`      |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:615299751070:layer:AWSOpenTelemetryDistroPython:16`      |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:615299751070:layer:AWSOpenTelemetryDistroPython:23`      |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:615299751070:layer:AWSOpenTelemetryDistroPython:23`      |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:904233096616:layer:AWSOpenTelemetryDistroPython:13`     |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:888577020596:layer:AWSOpenTelemetryDistroPython:13`      |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:796973505492:layer:AWSOpenTelemetryDistroPython:13`     |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:039612877180:layer:AWSOpenTelemetryDistroPython:13` |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:713881805771:layer:AWSOpenTelemetryDistroPython:13` |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:152034782359:layer:AWSOpenTelemetryDistroPython:4`  |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:980416031188:layer:AWSOpenTelemetryDistroPython:4`  |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:615299751070:layer:AWSOpenTelemetryDistroPython:16`     |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:615299751070:layer:AWSOpenTelemetryDistroPython:15` |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:615299751070:layer:AWSOpenTelemetryDistroPython:16` |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:615299751070:layer:AWSOpenTelemetryDistroPython:15` |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:615299751070:layer:AWSOpenTelemetryDistroPython:16` |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:615299751070:layer:AWSOpenTelemetryDistroPython:16` |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:615299751070:layer:AWSOpenTelemetryDistroPython:16`   |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:595944127152:layer:AWSOpenTelemetryDistroPython:4`       |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:615299751070:layer:AWSOpenTelemetryDistroPython:16`   |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:615299751070:layer:AWSOpenTelemetryDistroPython:16`      |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:615299751070:layer:AWSOpenTelemetryDistroPython:16`      |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:257394471194:layer:AWSOpenTelemetryDistroPython:13`     |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:615299751070:layer:AWSOpenTelemetryDistroPython:16`      |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:490004653786:layer:AWSOpenTelemetryDistroPython:13`     |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:615299751070:layer:AWSOpenTelemetryDistroPython:16`     |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:156041407956:layer:AWSOpenTelemetryDistroPython:13`   |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:746669239226:layer:AWSOpenTelemetryDistroPython:13`   |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:980921751758:layer:AWSOpenTelemetryDistroPython:13`     |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:739275441131:layer:AWSOpenTelemetryDistroPython:13`   |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:615299751070:layer:AWSOpenTelemetryDistroPython:16`      |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:610118373846:layer:AWSOpenTelemetryDistroPython:4`    |
-
-Node.js
-
-| Region                    | ARN                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------ |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:615299751070:layer:AWSOpenTelemetryDistroJs:10`      |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:615299751070:layer:AWSOpenTelemetryDistroJs:10`      |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:615299751070:layer:AWSOpenTelemetryDistroJs:10`      |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:615299751070:layer:AWSOpenTelemetryDistroJs:10`      |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:904233096616:layer:AWSOpenTelemetryDistroJs:10`     |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:888577020596:layer:AWSOpenTelemetryDistroJs:10`      |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:796973505492:layer:AWSOpenTelemetryDistroJs:10`     |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:039612877180:layer:AWSOpenTelemetryDistroJs:10` |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:713881805771:layer:AWSOpenTelemetryDistroJs:10` |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:152034782359:layer:AWSOpenTelemetryDistroJs:3`  |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:980416031188:layer:AWSOpenTelemetryDistroJs:3`  |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:615299751070:layer:AWSOpenTelemetryDistroJs:10`     |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:615299751070:layer:AWSOpenTelemetryDistroJs:10` |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:615299751070:layer:AWSOpenTelemetryDistroJs:10` |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:615299751070:layer:AWSOpenTelemetryDistroJs:10` |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:615299751070:layer:AWSOpenTelemetryDistroJs:10` |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:615299751070:layer:AWSOpenTelemetryDistroJs:10` |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:615299751070:layer:AWSOpenTelemetryDistroJs:10`   |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:595944127152:layer:AWSOpenTelemetryDistroJs:3`       |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:615299751070:layer:AWSOpenTelemetryDistroJs:10`   |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:615299751070:layer:AWSOpenTelemetryDistroJs:10`      |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:615299751070:layer:AWSOpenTelemetryDistroJs:10`      |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:257394471194:layer:AWSOpenTelemetryDistroJs:10`     |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:615299751070:layer:AWSOpenTelemetryDistroJs:10`      |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:490004653786:layer:AWSOpenTelemetryDistroJs:10`     |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:615299751070:layer:AWSOpenTelemetryDistroJs:10`     |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:156041407956:layer:AWSOpenTelemetryDistroJs:10`   |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:746669239226:layer:AWSOpenTelemetryDistroJs:10`   |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:980921751758:layer:AWSOpenTelemetryDistroJs:10`     |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:739275441131:layer:AWSOpenTelemetryDistroJs:10`   |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:615299751070:layer:AWSOpenTelemetryDistroJs:10`      |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:610118373846:layer:AWSOpenTelemetryDistroJs:3`    |
-
-.Net
-
-| Region                    | ARN                                                                               |
-| ------------------------- | --------------------------------------------------------------------------------- |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:6`      |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`      |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`      |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`      |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:904233096616:layer:AWSOpenTelemetryDistroDotNet:5`     |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:888577020596:layer:AWSOpenTelemetryDistroDotNet:5`      |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:796973505492:layer:AWSOpenTelemetryDistroDotNet:5`     |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:039612877180:layer:AWSOpenTelemetryDistroDotNet:5` |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:713881805771:layer:AWSOpenTelemetryDistroDotNet:5` |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:152034782359:layer:AWSOpenTelemetryDistroDotNet:1` |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:980416031188:layer:AWSOpenTelemetryDistroDotNet:1` |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`     |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:615299751070:layer:AWSOpenTelemetryDistroDotNet:5` |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:615299751070:layer:AWSOpenTelemetryDistroDotNet:5` |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:5` |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:615299751070:layer:AWSOpenTelemetryDistroDotNet:5` |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:5` |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`   |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:595944127152:layer:AWSOpenTelemetryDistroDotNet:1`      |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`   |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`      |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`      |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:257394471194:layer:AWSOpenTelemetryDistroDotNet:5`     |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`      |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:490004653786:layer:AWSOpenTelemetryDistroDotNet:5`     |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`     |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:156041407956:layer:AWSOpenTelemetryDistroDotNet:5`   |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:746669239226:layer:AWSOpenTelemetryDistroDotNet:5`   |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:980921751758:layer:AWSOpenTelemetryDistroDotNet:5`     |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:739275441131:layer:AWSOpenTelemetryDistroDotNet:5`   |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:615299751070:layer:AWSOpenTelemetryDistroDotNet:5`      |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:610118373846:layer:AWSOpenTelemetryDistroDotNet:1`   |
-
-Java
-
-| Region                    | ARN                                                                             |
-| ------------------------- | ------------------------------------------------------------------------------- |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:615299751070:layer:AWSOpenTelemetryDistroJava:8`      |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:615299751070:layer:AWSOpenTelemetryDistroJava:8`      |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:615299751070:layer:AWSOpenTelemetryDistroJava:8`      |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:615299751070:layer:AWSOpenTelemetryDistroJava:8`      |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:904233096616:layer:AWSOpenTelemetryDistroJava:8`     |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:888577020596:layer:AWSOpenTelemetryDistroJava:8`      |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:796973505492:layer:AWSOpenTelemetryDistroJava:8`     |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:039612877180:layer:AWSOpenTelemetryDistroJava:8` |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:713881805771:layer:AWSOpenTelemetryDistroJava:8` |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:152034782359:layer:AWSOpenTelemetryDistroJava:5` |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:980416031188:layer:AWSOpenTelemetryDistroJava:5` |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:615299751070:layer:AWSOpenTelemetryDistroJava:8`     |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:615299751070:layer:AWSOpenTelemetryDistroJava:8` |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:615299751070:layer:AWSOpenTelemetryDistroJava:8` |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:615299751070:layer:AWSOpenTelemetryDistroJava:8` |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:615299751070:layer:AWSOpenTelemetryDistroJava:8` |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:615299751070:layer:AWSOpenTelemetryDistroJava:8` |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:615299751070:layer:AWSOpenTelemetryDistroJava:8`   |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:595944127152:layer:AWSOpenTelemetryDistroJava:5`      |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:615299751070:layer:AWSOpenTelemetryDistroJava:8`   |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:615299751070:layer:AWSOpenTelemetryDistroJava:8`      |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:615299751070:layer:AWSOpenTelemetryDistroJava:8`      |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:257394471194:layer:AWSOpenTelemetryDistroJava:8`     |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:615299751070:layer:AWSOpenTelemetryDistroJava:8`      |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:490004653786:layer:AWSOpenTelemetryDistroJava:8`     |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:615299751070:layer:AWSOpenTelemetryDistroJava:8`     |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:156041407956:layer:AWSOpenTelemetryDistroJava:8`   |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:746669239226:layer:AWSOpenTelemetryDistroJava:8`   |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:980921751758:layer:AWSOpenTelemetryDistroJava:8`     |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:739275441131:layer:AWSOpenTelemetryDistroJava:8`   |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:610118373846:layer:AWSOpenTelemetryDistroJava:5`   |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:615299751070:layer:AWSOpenTelemetryDistroJava:8`      |
+For the complete list of AWS Lambda Layer for OpenTelemetry ARNs by Region and runtime,
+see [ADOT Lambda Layer ARNs](https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns "https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns")
+in the AWS Distro for OpenTelemetry documentation. The layer is available for Python, Node.js, .NET, and
+Java runtimes.
 
 ## Deploy Lambda functions using Amazon ECR
 

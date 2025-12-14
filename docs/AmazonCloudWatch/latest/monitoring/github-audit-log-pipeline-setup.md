@@ -2,6 +2,10 @@
 
 Log
 
+###### Note
+
+Important: GitHub Enterprise accounts are required to use this connector. GitHub Personal or Organization accounts are not supported.
+
 Collects audit log data from GitHub organizations or enterprises using
 personal access tokens or GitHub App authentication.
 

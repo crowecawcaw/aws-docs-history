@@ -7,45 +7,93 @@ for these extensions in each AWS Region.
 
 Lambda Insights extensions 1.0.317.0 and later don't support Amazon Linux 1.
 
+## 1.0.660.0
+
+Version 1.0.660.0 includes Lambda Insights extension support for Lambda functions running on Lambda Managed Instances. For functions running on Lambda Managed Instances, the extension will send an EMF log event once every minute, creating 12 CloudWatch Metrics at one-minute granularity.
+
+| Region                     | ARN                                                                                      |
+| -------------------------- | ---------------------------------------------------------------------------------------- |
+| US East (N. Virginia)      | `arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension-Arm64:31`           |
+| US East (Ohio)             | `arn:aws:lambda:us-east-2:580247275435:layer:LambdaInsightsExtension-Arm64:33`           |
+| US West (N. California)    | `arn:aws:lambda:us-west-1:580247275435:layer:LambdaInsightsExtension-Arm64:29`           |
+| US West (Oregon)           | `arn:aws:lambda:us-west-2:580247275435:layer:LambdaInsightsExtension-Arm64:31`           |
+| Africa (Cape Town)         | `arn:aws:lambda:af-south-1:012438385374:layer:LambdaInsightsExtension-Arm64:30`          |
+| Asia Pacific (Hong Kong)   | `arn:aws:lambda:ap-east-1:519774774795:layer:LambdaInsightsExtension-Arm64:30`           |
+| Asia Pacific (Hyderabad)   | `arn:aws:lambda:ap-south-2:891564319516:layer:LambdaInsightsExtension-Arm64:18`          |
+| Asia Pacific (Jakarta)     | `arn:aws:lambda:ap-southeast-3:439286490199:layer:LambdaInsightsExtension-Arm64:30`      |
+| Asia Pacific (Malaysia)    | `arn:aws:lambda:ap-southeast-5:590183865173:layer:LambdaInsightsExtension-Arm64:7`       |
+| Asia Pacific (Melbourne)   | `arn:aws:lambda:ap-southeast-4:158895979263:layer:LambdaInsightsExtension-Arm64:7`       |
+| Asia Pacific (Mumbai)      | `arn:aws:lambda:ap-south-1:580247275435:layer:LambdaInsightsExtension-Arm64:33`          |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:727646510379:layer:LambdaInsightsExtension-Arm64:165`     |
+| Asia Pacific (Osaka)       | `arn:aws:lambda:ap-northeast-3:194566237122:layer:LambdaInsightsExtension-Arm64:28`      |
+| Asia Pacific (Seoul)       | `arn:aws:lambda:ap-northeast-2:580247275435:layer:LambdaInsightsExtension-Arm64:30`      |
+| Asia Pacific (Singapore)   | `arn:aws:lambda:ap-southeast-1:580247275435:layer:LambdaInsightsExtension-Arm64:31`      |
+| Asia Pacific (Sydney)      | `arn:aws:lambda:ap-southeast-2:580247275435:layer:LambdaInsightsExtension-Arm64:31`      |
+| Asia Pacific (Taipei)      | `arn:aws:lambda:ap-east-2:145023102084:layer:LambdaInsightsExtension-Arm64:7`            |
+| Asia Pacific (Thailand)    | `arn:aws:lambda:ap-southeast-7:761018874580:layer:LambdaInsightsExtension-Arm64:7`       |
+| Asia Pacific (Tokyo)       | `arn:aws:lambda:ap-northeast-1:580247275435:layer:LambdaInsightsExtension-Arm64:42`      |
+| Canada (Central)           | `arn:aws:lambda:ca-central-1:580247275435:layer:LambdaInsightsExtension-Arm64:29`        |
+| Canada West (Calgary)      | `arn:aws:lambda:ca-west-1:946466191631:layer:LambdaInsightsExtension-Arm64:7`            |
+| China (Beijing)            | `arn:aws-cn:lambda:cn-north-1:488211338238:layer:LambdaInsightsExtension-Arm64:4`        |
+| China (Ningxia)            | `arn:aws-cn:lambda:cn-northwest-1:488211338238:layer:LambdaInsightsExtension-Arm64:4`    |
+| Europe (Frankfurt)         | `arn:aws:lambda:eu-central-1:580247275435:layer:LambdaInsightsExtension-Arm64:31`        |
+| Europe (Ireland)           | `arn:aws:lambda:eu-west-1:580247275435:layer:LambdaInsightsExtension-Arm64:31`           |
+| Europe (London)            | `arn:aws:lambda:eu-west-2:580247275435:layer:LambdaInsightsExtension-Arm64:31`           |
+| Europe (Milan)             | `arn:aws:lambda:eu-south-1:339249233099:layer:LambdaInsightsExtension-Arm64:30`          |
+| Europe (Paris)             | `arn:aws:lambda:eu-west-3:580247275435:layer:LambdaInsightsExtension-Arm64:29`           |
+| Europe (Spain)             | `arn:aws:lambda:eu-south-2:352183217350:layer:LambdaInsightsExtension-Arm64:18`          |
+| Europe (Stockholm)         | `arn:aws:lambda:eu-north-1:580247275435:layer:LambdaInsightsExtension-Arm64:29`          |
+| Europe (Zurich)            | `arn:aws:lambda:eu-central-2:033019950311:layer:LambdaInsightsExtension-Arm64:7`         |
+| Israel (Tel Aviv)          | `arn:aws:lambda:il-central-1:459530977127:layer:LambdaInsightsExtension-Arm64:7`         |
+| Mexico (Central)           | `arn:aws:lambda:mx-central-1:879381266642:layer:LambdaInsightsExtension-Arm64:7`         |
+| Middle East (Bahrain)      | `arn:aws:lambda:me-south-1:285320876703:layer:LambdaInsightsExtension-Arm64:30`          |
+| Middle East (UAE)          | `arn:aws:lambda:me-central-1:732604637566:layer:LambdaInsightsExtension-Arm64:7`         |
+| South America (São Paulo)  | `arn:aws:lambda:sa-east-1:580247275435:layer:LambdaInsightsExtension-Arm64:29`           |
+| AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:122132214140:layer:LambdaInsightsExtension-Arm64:6` |
+| AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:751350123760:layer:LambdaInsightsExtension-Arm64:6` |
+
 ## 1.0.498.0
 
 Version 1.0.498.0 includes bug fixes and performance improvements.
 
-| Region                    | ARN                                                                                       |
-| ------------------------- | ----------------------------------------------------------------------------------------- |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`            |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:580247275435:layer:LambdaInsightsExtension-Arm64:25`            |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`            |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:580247275435:layer:LambdaInsightsExtension-Arm64:25`            |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:012438385374:layer:LambdaInsightsExtension-Arm64:25`           |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:519774774795:layer:LambdaInsightsExtension-Arm64:25`            |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`           |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:891564319516:layer:LambdaInsightsExtension-Arm64:25`           |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`       |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:580247275435:layer:LambdaInsightsExtension-Arm64:25`       |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:439286490199:layer:LambdaInsightsExtension-Arm64:25`       |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:605207715842:layer:LambdaInsightsExtension-Arm64:25`       |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`       |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:580247275435:layer:LambdaInsightsExtension-Arm64:25`       |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:194566237122:layer:LambdaInsightsExtension-Arm64:25`       |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`         |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:761377655185:layer:LambdaInsightsExtension-Arm64:25`            |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`         |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:033019950311:layer:LambdaInsightsExtension-Arm64:25`         |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`            |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:580247275435:layer:LambdaInsightsExtension-Arm64:25`            |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:580247275435:layer:LambdaInsightsExtension-Arm64:25`            |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`           |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:339249233099:layer:LambdaInsightsExtension-Arm64:25`           |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:352183217350:layer:LambdaInsightsExtension-Arm64:25`           |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:066549572091:layer:LambdaInsightsExtension-Arm64:25`         |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:285320876703:layer:LambdaInsightsExtension-Arm64:25`           |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:732604637566:layer:LambdaInsightsExtension-Arm64:25`         |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`            |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:488211338238:layer:LambdaInsightsExtension-Arm64:25`        |
-| China (Ningxia)           | `arn:aws-cn:lambda:cn-northwest-1:488211338238:layer:LambdaInsightsExtension-Arm64:25`    |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:198461476570:layer:LambdaInsightsExtension-Arm64:25` |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:198461476570:layer:LambdaInsightsExtension-Arm64:25` |
+| Region                    | ARN                                                                                      |
+| ------------------------- | ---------------------------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension-Arm64:27`           |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:580247275435:layer:LambdaInsightsExtension-Arm64:29`           |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`           |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:580247275435:layer:LambdaInsightsExtension-Arm64:27`           |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:012438385374:layer:LambdaInsightsExtension-Arm64:26`          |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:519774774795:layer:LambdaInsightsExtension-Arm64:26`           |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:580247275435:layer:LambdaInsightsExtension-Arm64:29`          |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:891564319516:layer:LambdaInsightsExtension-Arm64:14`          |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:580247275435:layer:LambdaInsightsExtension-Arm64:27`      |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:580247275435:layer:LambdaInsightsExtension-Arm64:27`      |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:439286490199:layer:LambdaInsightsExtension-Arm64:26`      |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:158895979263:layer:LambdaInsightsExtension-Arm64:3`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:590183865173:layer:LambdaInsightsExtension-Arm64:3`       |
+| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:761018874580:layer:LambdaInsightsExtension-Arm64:2`       |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:580247275435:layer:LambdaInsightsExtension-Arm64:38`      |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:580247275435:layer:LambdaInsightsExtension-Arm64:26`      |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:194566237122:layer:LambdaInsightsExtension-Arm64:24`      |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`        |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:946466191631:layer:LambdaInsightsExtension-Arm64:3`            |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:580247275435:layer:LambdaInsightsExtension-Arm64:27`        |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:033019950311:layer:LambdaInsightsExtension-Arm64:3`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:580247275435:layer:LambdaInsightsExtension-Arm64:27`           |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:580247275435:layer:LambdaInsightsExtension-Arm64:27`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:580247275435:layer:LambdaInsightsExtension-Arm64:25`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`          |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:339249233099:layer:LambdaInsightsExtension-Arm64:26`          |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:352183217350:layer:LambdaInsightsExtension-Arm64:14`          |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:459530977127:layer:LambdaInsightsExtension-Arm64:3`         |
+| Mexico (Central)          | `arn:aws:lambda:mx-central-1:879381266642:layer:LambdaInsightsExtension-Arm64:2`         |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:285320876703:layer:LambdaInsightsExtension-Arm64:26`          |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:732604637566:layer:LambdaInsightsExtension-Arm64:3`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:580247275435:layer:LambdaInsightsExtension-Arm64:25`           |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:488211338238:layer:LambdaInsightsExtension-Arm64:1`        |
+| China (Ningxia)           | `arn:aws-cn:lambda:cn-northwest-1:488211338238:layer:LambdaInsightsExtension-Arm64:1`    |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:122132214140:layer:LambdaInsightsExtension-Arm64:6` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:751350123760:layer:LambdaInsightsExtension-Arm64:6` |
 
 ## 1.0.404.0
 

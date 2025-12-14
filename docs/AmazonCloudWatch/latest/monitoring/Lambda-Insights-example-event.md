@@ -74,3 +74,106 @@ To analyze these log events, you can use the following methods:
     "agent_memory_max": 10
 }
 ```
+
+The following is an example of a Lambda Insights log event for a Lambda function running on Lambda Managed Instances.
+
+```
+{
+    "total_network": 16443,
+    "tmp_free": 531492864,
+    "total_memory": 2048,
+    "fd_use": 85,
+    "tmp_used": 11984896,
+    "execution_environment_init": false,
+    "version": "3",
+    "event_type": "performance",
+    "agent_memory_max": 6,
+    "fd_max": 1024,
+    "function_name": "cpu-intensive",
+    "tx_bytes": 8404,
+    "memory_utilization": 3,
+    "used_memory_max": 73,
+    "memory_utilization_max": 3,
+    "cpu_system_time": 541,
+    "threads_max": 49,
+    "tmp_max": 543477760,
+    "cpu_utilization_max": 2,
+    "agent_memory_avg": 6,
+    "cpu_total_time": 815,
+    "rx_bytes": 8039,
+    "lambda_mode": "managed-instance",
+    "agent_version": "1.0.660.0",
+    "_aws": {
+        "CloudWatchMetrics": [
+            {
+                "Namespace": "LambdaInsights",
+                "Dimensions": [
+                    [
+                        "function_name"
+                    ],
+                    [
+                        "function_name",
+                        "version"
+                    ]
+                ],
+                "Metrics": [
+                    {
+                        "Name": "cpu_total_time",
+                        "Unit": "Milliseconds"
+                    },
+                    {
+                        "Name": "cpu_utilization",
+                        "Unit": "Percent"
+                    },
+                    {
+                        "Name": "cpu_utilization_max",
+                        "Unit": "Percent"
+                    },
+                    {
+                        "Name": "tx_bytes",
+                        "Unit": "Bytes"
+                    },
+                    {
+                        "Name": "rx_bytes",
+                        "Unit": "Bytes"
+                    },
+                    {
+                        "Name": "total_network",
+                        "Unit": "Bytes"
+                    },
+                    {
+                        "Name": "used_memory_max",
+                        "Unit": "Megabytes"
+                    },
+                    {
+                        "Name": "memory_utilization",
+                        "Unit": "Percent"
+                    },
+                    {
+                        "Name": "memory_utilization_max",
+                        "Unit": "Percent"
+                    },
+                    {
+                        "Name": "total_memory",
+                        "Unit": "Megabytes"
+                    },
+                    {
+                        "Name": "tmp_used",
+                        "Unit": "Bytes"
+                    },
+                    {
+                        "Name": "tmp_free",
+                        "Unit": "Bytes"
+                    }
+                ]
+            }
+        ],
+        "Timestamp": 1764164871353,
+        "LambdaInsights": {
+            "ShareTelemetry": true
+        }
+    },
+    "cpu_utilization": 1,
+    "cpu_user_time": 273
+}
+```

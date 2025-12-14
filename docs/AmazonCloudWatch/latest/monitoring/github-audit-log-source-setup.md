@@ -1,3 +1,7 @@
+###### Note
+
+Important: GitHub Enterprise accounts are required to use this connector. GitHub Personal or Organization accounts are not supported.
+
 # Source configuration for GitHub Audit Log
 
 ## Integrating with GitHub

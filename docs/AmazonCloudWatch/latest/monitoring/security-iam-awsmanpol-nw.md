@@ -36,10 +36,8 @@ Network Synthetic Monitor](monitoring-using-service-linked-roles-nw.md "monitori
 
 managed policies
 
-View details about updates to AWS managed policies for Network Synthetic Monitor since
-this service began tracking these changes in November 2023.
-
-| Change                                                                                                                                                                                                                                                | Description                                    | Date              |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ----------------- |
-| [CloudWatchNetworkMonitorServiceRolePolicy](#security-iam-CloudWatchNetworkMonitorServiceRolePolicy "#security-iam-CloudWatchNetworkMonitorServiceRolePolicy"): New policy.                                                                           | New policy added to Network Synthetic Monitor. | November 27, 2023 |
-| [AWSServiceRoleForNetworkMonitor](monitoring-using-service-linked-roles-nw.md#security-iam-awsmanpol-AWSServiceRoleForNetworkMonitor "monitoring-using-service-linked-roles-nw.md#security-iam-awsmanpol-AWSServiceRoleForNetworkMonitor"). New role. | New role added to Network Synthetic Monitor.   | November 27, 2023 |
+To view details about updates to AWS managed policies for Network Synthetic Monitor since this service
+began tracking these changes,
+see [CloudWatch updates to AWS managed policies](managed-policies-cloudwatch.md#security-iam-awsmanpol-updates "managed-policies-cloudwatch.md#security-iam-awsmanpol-updates").
+For automatic alerts about managed policy changes in CloudWatch, subscribe to the RSS feed on the CloudWatch
+[Document history](DocumentHistory.md "DocumentHistory.md") page.
