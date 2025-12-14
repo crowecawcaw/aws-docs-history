@@ -50,6 +50,9 @@ File Gateway in AWS Storage Gateway.
       - **Linux KVM** – Download, deploy,
         and configure the gateway virtual machine using Linux
         Kernel-based Virtual Machine (KVM).
+      - **Nutanix AHV** – Download, deploy,
+        and configure the gateway virtual machine using the Linux
+        Kernel-based Virtual Machine (KVM). The same image works for both Linux KVM and Nutanix AHV hypervisor environments.
       - **Amazon EC2** – Configure and launch
         an Amazon EC2 instance to host your gateway.
       - **Hardware appliance** – Order a
