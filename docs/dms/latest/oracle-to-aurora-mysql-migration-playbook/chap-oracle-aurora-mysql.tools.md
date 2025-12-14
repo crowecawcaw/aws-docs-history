@@ -1,46 +1,62 @@
-# AWS Schema Conversion Tool
+# Amazon Aurora Backtrack
 
-The AWS Schema Conversion Tool (AWS SCT) is a Java utility that connects to source and target databases, scans the source database schema objects (tables, views, indexes, procedures, and so on), and converts them to target database objects.
+We’ve all been there, you need to make a quick, seemingly simple fix to an important production database. You compose the query, give it a once-over, and let it run. Seconds later you realize that you forgot the `WHERE` clause, dropped the wrong table, or made another serious mistake, and interrupt the query, but the damage has been done. You take a deep breath, whistle through your teeth, wish that reality came with an Undo option.
 
-This section provides a step-by-step process for using AWS SCT to migrate an Oracle database to an Aurora MySQL database cluster. Since AWS SCT can automatically migrate most of the database objects, it greatly reduces manual effort.
+Backtracking rewinds the DB cluster to the time you specify. Backtracking isn’t a replacement for backing up your DB cluster so that you can restore it to a point in time. However, backtracking provides the following advantages over traditional backup and restore:
 
-We recommend to start every migration with the process outlined in this section and then use the rest of the Playbook to further explore manual solutions for objects that couldn’t be migrated automatically. For more information, see the AWS Schema Conversion Tool
-[User Guide](../../../SchemaConversionTool/latest/userguide/Welcome.md "../../../SchemaConversionTool/latest/userguide/Welcome.md").
+- You can easily undo mistakes. If you mistakenly perform a destructive action, such as a `DELETE` without a `WHERE` clause, you can backtrack the DB cluster to a time before the destructive action with minimal interruption of service.
+- You can backtrack a DB cluster quickly. Restoring a DB cluster to a point in time launches a new DB cluster and restores it from backup data or a DB cluster snapshot, which can take hours. Backtracking a DB cluster doesn’t require a new DB cluster and rewinds the DB cluster in minutes.
+- You can explore earlier data changes. You can repeatedly backtrack a DB cluster back and forth in time to help determine when a particular data change occurred. For example, you can backtrack a DB cluster three hours and then backtrack forward in time one hour. In this case, the backtrack time is two hours before the original time.
 
-###### Note
+Amazon Aurora uses a distributed, log-structured storage system (read Design Considerations for High Throughput Cloud-Native Relational Databases to learn a lot more); each change to your database generates a new log record, identified by a Log Sequence Number (LSN). Enabling the backtrack feature provisions a FIFO buffer in the cluster for storage of LSNs. This allows for quick access and recovery times measured in seconds.
 
-This walkthrough uses the AWS Database Migration Service Sample Database. You can download it from [GitHub](https://github.com/aws-samples/aws-database-migration-samples "https://github.com/aws-samples/aws-database-migration-samples").
+When you create a new Aurora MySQL DB cluster, backtracking is configured when you choose **Enable Backtrack** and specify a **Target Backtrack window** value that is greater than zero in the Backtrack section.
 
-## Download the software and drivers
+To create a DB cluster, follow the instructions in [Creating an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md"). The following image shows the Backtrack section.
 
-Download and install AWS SCT. For more information, see [Installing, verifying, and updating](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md") in the AWS Schema Conversion Tool User Guide.
+![How Amazon Aurora Backtrack works](images/pb-amazon-aurora-backtrack.png)
+After a production error, you can simply pause your application, open up the Aurora console, select the cluster, and choose **Backtrack DB cluster**.
 
-Download the [Oracle](http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html "http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html") and [MySQL](https://dev.mysql.com/downloads/connector/j/ "https://dev.mysql.com/downloads/connector/j/") drivers. For more information, see [Installing the required database drivers](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.JDBCDrivers "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.JDBCDrivers").
+Then you select **Backtrack** and choose the point in time just before your epic fail, and choose **Backtrack DB cluster**.
 
-## Configure AWS SCT
+![Backtrack DB cluster](images/pb-backtrack-db-cluster.png)
+Then you wait for the rewind to take place, unpause your application and proceed as if nothing had happened. When you initiate a backtrack, Aurora will pause the database, close any open connections, drop uncommitted writes, and wait for the backtrack to complete. Then it will resume normal operation and be able to accept requests. The instance state will be backtracking while the rewind is underway.
 
-Follow this procedure for configuring `AWSSCT` to streamline your database migration process.
+## Backtrack window
 
-1. Start AWS Schema Conversion Tool (AWS SCT).
-2. Choose **Settings** and then choose **Global settings**.
-3. On the left navigation bar, choose **Drivers**.
-4. Enter the paths for the Oracle and MySQL drivers downloaded in the first step.
+With backtracking, there is a target backtrack window and an actual backtrack window:
 
-![Enter the paths for the Oracle and MySQL drivers](images/pb-oracle-aurora-mysql-configure-aws-sct.png) 5. Choose **Apply** and then **OK**.
+- The target backtrack window is the amount of time you want to be able to backtrack your DB cluster. When you enable backtracking, you specify a target backtrack window. For example, you might specify a target backtrack window of 24 hours if you want to be able to backtrack the DB cluster one day.
+- The actual backtrack window is the actual amount of time you can backtrack your DB cluster, which can be smaller than the target backtrack window. The actual backtrack window is based on your workload and the storage available for storing information about database changes, called change records.
 
-## Create a new migration project
+As you make updates to your Aurora DB cluster with backtracking enabled, you generate change records. Aurora retains change records for the target backtrack window, and you pay an hourly rate for storing them. Both the target backtrack window and the workload on your DB cluster determine the number of change records you store. The workload is the number of changes you make to your DB cluster in a given amount of time. If your workload is heavy, you store more change records in your backtrack window than you do if your workload is light.
 
-Create a new migration project to define the source and target databases, configure migration settings, and launch the replication process.
+You can think of your target backtrack window as the goal for the maximum amount of time you want to be able to backtrack your DB cluster. In most cases, you can backtrack the maximum amount of time that you specified. However, in some cases, the DB cluster can’t store enough change records to backtrack the maximum amount of time, and your actual backtrack window is smaller than your target. Typically, the actual backtrack window is smaller than the target when you have extremely heavy workload on your DB cluster. When your actual backtrack window is smaller than your target, we send you a notification.
 
-1. In AWS SCT, choose **File**, and then choose **New project wizard**. Alternatively, use the keyboard shortcut **Ctrl+W**.
-2. Enter a project name and select a location for the project files. For **Source engine**, choose **Oracle**, and then choose **Next**.
-3. Enter connection details for the source Oracle database and choose **Test connection** to verify. Choose **Next**.
-4. Select the schema or database to migrate and choose **Next**.
-5. The progress bar displays the objects that AWS SCT analyzes. When AWS SCT completes the analysis, the application displays the database migration assessment report. Read the Executive summary and other sections. Note that the information on the screen is only partial. To read the full report, including details of the individual issues, choose **Save to PDF** at the top right and open the PDF document.
+When backtracking is turned on for a DB cluster, and you delete a table stored in the DB cluster, Aurora keeps that table in the backtrack change records. It does this so that you can revert back to a time before you deleted the table. If you don’t have enough space in your backtrack window to store the table, the table might be removed from the backtrack change records eventually.
 
-![Assessment report](images/pb-oracle-aurora-mysql-aws-sct-assessment-report.png) 6. Scroll down to the **Database objects with conversion actions for Amazon Aurora (MySQL compatible)** section.
+## Backtracking limitations
 
-![Assessment report conversion statistics](images/pb-oracle-aurora-mysql-aws-sct-assessment-report-conversion-statistics.png) 7. Scroll further down to the **Detailed recommendations for Amazon Aurora (MySQL compatible) migrations** section and review the migration recommendations. 8. Return to AWS SCT and choose **Next**. Enter the connection details for the target Aurora MySQL database and choose **Finish**. 9. When the connection is complete, AWS SCT displays the main window. In this interface, you can explore the individual issues and recommendations discovered by AWS SCT. 10. Choose the schema, open the context (right-click) menu, and then choose **Create report** to create a report tailored for the target database type. You can view this report in AWS SCT. 11. The progress bar updates while the report is generated. 12. AWS SCT displays the executive summary page of the database migration assessment report. 13. Choose **Action items**. In this window, you can investigate each issue in detail and view the suggested course of action. For each issue, drill down to view all instances of that issue. 14. Choose the database name, open the context (right-click) menu, and choose **Convert schema**. Make sure that you uncheck the `sys` and `information_schema` system schemas. This step doesn’t make any changes to the target database. 15. On the right pane, AWS SCT displays the new virtual schema as if it exists in the target database. Drilling down into individual objects displays the actual syntax generated by AWS SCT to migrate the objects. 16. Choose the database on the right pane, open the context (right-click) menu, and choose either **Apply to database** to automatically run the conversion script against the target database, or choose **Save as SQL** to save to an SQL file. 17. We recommend saving to an SQL file because you can verify and QA the converted code. Also, you can make the adjustments needed for objects that couldn’t be automatically converted.
+The following limitations apply to backtracking:
 
-For more information, see the AWS Schema Conversion Tool
-[User Guide](../../../SchemaConversionTool/latest/userguide/Welcome.md "../../../SchemaConversionTool/latest/userguide/Welcome.md").
+- Backtracking an Aurora DB cluster is available in certain AWS Regions and for specific Aurora MySQL versions only. For more information, see Backtracking in Aurora.
+- Backtracking is only available for DB clusters that were created with the Backtrack feature enabled. You can enable the Backtrack feature when you create a new DB cluster or restore a snapshot of a DB cluster. For DB clusters that were created with the Backtrack feature enabled, you can create a clone DB cluster with the Backtrack feature enabled. Currently, you can’t perform backtracking on DB clusters that were created with the Backtrack feature turned off.
+- The limit for a backtrack window is 72 hours.
+- Backtracking affects the entire DB cluster. For example, you can’t selectively backtrack a single table or a single data update.
+- Backtracking isn’t supported with binary log (binlog) replication. Cross-Region replication must be turned off before you can configure or use backtracking.
+- You can’t backtrack a database clone to a time before that database clone was created. However, you can use the original database to backtrack to a time before the clone was created. For more information about database cloning, see Cloning an Aurora DB cluster volume.
+- Backtracking causes a brief DB instance disruption. You must stop or pause your applications before starting a backtrack operation to ensure that there are no new read or write requests. During the backtrack operation, Aurora pauses the database, closes any open connections, and drops any uncommitted reads and writes. It then waits for the backtrack operation to complete.
+- Backtracking isn’t supported for the following AWS Regions:
+  - Africa (Cape Town)
+  - China (Ningxia)
+  - Asia Pacific (Hong Kong)
+  - Europe (Milan)
+  - Europe (Stockholm)
+  - Middle East (Bahrain)
+  - South America (São Paulo)
+
+- You can’t restore a cross-region snapshot of a backtrack-enabled cluster in an AWS Region that doesn’t support backtracking.
+- You can’t use backtrack with Aurora multi-master clusters.
+- If you perform an in-place upgrade for a backtrack-enabled cluster from Aurora MySQL version 1 to version 2, you can’t backtrack to a point in time before the upgrade happened.
+
+For more information, see: [Amazon Aurora Backtrack — Turn Back Time](https://aws.amazon.com/blogs/aws/amazon-aurora-backtrack-turn-back-time "https://aws.amazon.com/blogs/aws/amazon-aurora-backtrack-turn-back-time").

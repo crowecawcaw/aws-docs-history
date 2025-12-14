@@ -1,171 +1,179 @@
-# Oracle and MySQL views
+# Oracle multitenant and MySQL databases
 
-With AWS DMS, you can create and work with database views in Oracle and MySQL databases. A view is a virtual table that derives its data from one or more underlying tables or views. Views provide a way to present a subset of data from one or more tables, combining data from different tables, or adding additional data transformations.
+With AWS DMS, you can migrate Oracle multitenant databases and MySQL databases to Amazon Aurora.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Four star feature compatibility | Four star automation level         |                           | N/A             |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                     |
+| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, and users across multiple instances. |
 
 ## Oracle usage
 
-Database views store a named SQL query in the Oracle Data Dictionary with a predefined structure. A view doesn’t store actual data and may be considered a virtual table or a logical table based on the data from one or more physical database tables.
+Oracle 12c introduces a new multitenant architecture that provides the ability to create additional independent pluggable databases under a single Oracle instance. Prior to Oracle 12c, a single Oracle database instance only supported running a single Oracle database as shown in the following diagram.
 
-### Privileges
+![A single Oracle database instance runs a single Oracle database](images/pb-oracle-multitenant.png)
 
-Make sure that the user has the `CREATE VIEW` privilege to create a view in their own schema.
+Oracle 12c introduces a new multitenant container database (CDB) that supports one or more pluggable databases (PDB). The CDB can be thought of as a single superset database with multiple pluggable databases. The relationship between an Oracle instance and databases is now 1:N.
 
-Make sure that the user has the `CREATE ANY VIEW` privilege to create a view in any schema.
+![Multitenant container Oracle database](images/pb-multitenant-container-database.png)
 
-Make sure that the owner of the view has all the necessary privileges on the source tables or views on which the view is based (`SELECT` or `DML` privileges).
+Oracle 18c adds following multitenant related features:
 
-### CREATE (OR REPLACE) VIEW Statements
+- **DBCA PDB Clone** — UI interface which allows cloning multiple pluggable databases (PDB).
+- **Refreshable PDB Switchover** — An ability to switch roles between pluggable database clone and its original primary.
+- **CDB Fleet Management** — An ability to group multiple container databases (CDB) into fleets that can be managed as a single logical database.
 
-- `CREATE VIEW` creates a new view.
-- `CREATE OR REPLACE` overwrites an existing view and modifies the view definition without having to manually drop and recreate the original view, and without deleting the previously granted privileges.
+Oracle 19 introduced support to having more than one pluggable database (PDB) in a container database (CDB) in sharded environments.
 
-### Oracle common view parameters
+### Advantages of the Oracle 12c multitenant architecture
 
-| Oracle view parameter    | Description                                                                                                  |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `CREATE OR REPLACE`      | Recreate an existing view (if one exists) or create a new view.                                              |
-| `FORCE`                  | Create the view regardless of the existence of the source tables or views and regardless of view privileges. |
-| `VISIBLE` or `INVISIBLE` | Specify if a column based on the view is visible or invisible.                                               |
-| `WITH READ ONLY`         | Disable DML commands.                                                                                        |
-| `WITH CHECK OPTION`      | Specifies the level of enforcement when performing DML commands on the view.                                 |
+- You can use PDBs to isolate applications from one another.
+- You can use PDBs as portable collection of schemas.
+- You can clone PDBs and transport them to different CDBs/Oracle instances.
+- Management of many databases (individual PDBs) as a whole.
+- Separate security, users, permissions, and resource management for each PDB provides greater application isolation.
+- Enables a consolidated database model of many individual applications sharing a single Oracle server.
+- Provides an easier way to patch and upgrade individual clients and/or applications using PDBs.
+- Backups are supported at both a multitenant container-level as well as at an individual PDB-level (both for physical and logical backups).
+
+### The Oracle multitenant architecture
+
+- A multitenant CDB can support one or more PDBs.
+- Each PDB contains its own copy of `SYSTEM` and application tablespaces.
+- The PDBs share the Oracle Instance memory and background processes. The use of PDBs enables consolidation of many databases and applications into individual containers under the same Oracle instance.
+- A single Root Container (CDB$ROOT) exists in a CDB and contains the Oracle Instance Redo Logs, undo tablespace (unless Oracle 12.2 local undo mode is enabled), and control files.
+- A single Seed PDB exists in a CDB and is used as a template for creating new PDBs.
+
+![Container Oracle database](images/pb-oracle-container-database.png)
+
+### CDB and PDB semantics
+
+Container databases (CDB)
+
+- Created as part of the Oracle 12c software installation.
+- Contains the Oracle control files, its own set of system tablespaces, the instance undo tablespaces (unless Oracle 12.2 local undo mode is enabled), and the instance redo logs.
+- Holds the data dictionary for the root container and for all of the PDBs.
+
+Pluggable databases (PDB)
+
+- An independent database that exists under a CDB. Also known as a container.
+- Used to store application-specific data.
+- You can create a pluggable database from a the `pdb$seed` (template database) or as a clone of an existing PDB.
+- Stores metadata information specific to its own objects (data-dictionary).
+- Has its own set of application data files, system data files, and tablespaces along with temporary files to manage objects.
 
 ### Examples
 
-Views are classified as either simple or complex.
-
-A _simple view_ is a view having a single source table with no aggregate functions. DML operations can be performed on simple views and affect the base table(s). The following example creates and updates a simple View.
+List existing PDBs created in an Oracle CDB instance.
 
 ```
-CREATE OR REPLACE VIEW VW_EMP
-AS
-SELECT EMPLOYEE_ID, LAST_NAME, EMAIL, SALARY
-FROM EMPLOYEES
-WHERE DEPARTMENT_ID BETWEEN 100 AND 130;
-UPDATE VW_EMP
-SET EMAIL=EMAIL||'.org'
-WHERE EMPLOYEE_ID=110;
+SHOW PDBS;
 
-1 row updated.
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
 ```
 
-A _complex view_ is a view with several source tables or views containing joins, aggregate (group) functions, or an order by clause. Performing DML operations on complex views can’t be done directly, but `INSTEAD OF` triggers can be used as a workaround. The following example creates and updates a complex view.
+Provision a new PDB from the template `seed$pdb`.
 
 ```
-CREATE OR REPLACE VIEW VW_DEP
-AS
-SELECT B.DEPARTMENT_NAME, COUNT(A.EMPLOYEE_ID) AS CNT
-FROM EMPLOYEES A JOIN DEPARTMENTS B USING(DEPARTMENT_ID)
-GROUP BY B.DEPARTMENT_NAME;
-UPDATE VW_DEP
-SET CNT=CNT +1
-WHERE DEPARTMENT_NAME=90;
-
-ORA-01732: data manipulation operation not legal on this view
+CREATE PLUGGABLE DATABASE PDB2 admin USER ora_admin
+IDENTIFIED BY ora_admin FILE_NAME_CONVERT=('/pdbseed/','/pdb2/');
 ```
 
-For more information, see [CREATE VIEW](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30") in the _Oracle documentation_.
+Alter a specific PDB to the `READ/WRITE` mode and verify the change.
+
+```
+ALTER PLUGGABLE DATABASE PDB2 OPEN READ WRITE;
+
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
+```
+
+Clone a PDB from an existing PDB.
+
+```
+CREATE PLUGGABLE DATABASE PDB3
+  FROM PDB2 FILE_NAME_CONVERT= ('/pdb2/','/pdb3/');
+
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
+5       PDB3      MOUNTED
+```
+
+For more information, see [Oracle Multitenant](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html") in the _Oracle documentation_.
 
 ## MySQL usage
 
-Similar to Oracle, Aurora MySQL views consist of a `SELECT` statement that references base tables and other views.
+Amazon Aurora MySQL offers a different and simplified architecture to manage and create a multitenant database environment. You can use Aurora MySQL to provide levels of functionality similar but not identical to those offered by Oracle PDBs by creating multiple databases under the same Aurora MySQL cluster and / or using separate Aurora clusters if total isolation of workloads is required.
 
-Aurora MySQL views are created using the `CREATE VIEW` statement. The `SELECT` statement comprising the definition of the view is evaluated only when the view is created and is not affected by subsequent changes to the underlying base tables.
+You can create multiple MySQL databases under a single Amazon Aurora MySQL cluster.
 
-Aurora MySQL views have the following restrictions:
+![DB cluster](images/pb-aurora-mysql-cluster.png)
 
-- A view can’t reference system variables or user-defined variables.
-- When used within a stored procedure or function, the `SELECT` statement can’t reference parameters or local variables.
-- A view can’t reference prepared statement parameters.
-- Make sure that all objects referenced by a view exist when the view is created. If an underlying table or view is later dropped, invoking the view results in an error.
-- Views can’t reference `TEMPORARY` tables.
-- `TEMPORARY` views aren’t supported.
-- Views don’t support triggers.
-- Aliases are limited to a maximum length of 64 characters and not the typical 256 maximum alias length.
+Each Amazon Aurora cluster contains a primary instance that can accept both reads and writes for all cluster databases.
 
-Aurora MySQL provides additional properties that aren’t available in Oracle:
+You can create up to 15 read-only nodes providing scale-out functionality for application reads and high availability.
 
-- The `ALGORITHM` clause is a fixed hint that affects the way the MySQL query processor handles the view physical evaluation operator. The MERGE algorithm uses a dynamic approach where the definition of the view is merged to the outer query. The `TEMPTABLE` algorithm materializes the view data internally. For more information, see [View Processing Algorithms](https://dev.mysql.com/doc/refman/5.7/en/view-algorithms.html "https://dev.mysql.com/doc/refman/5.7/en/view-algorithms.html") in the _MySQL documentation_.
-- You can use the `DEFINER` and `SQL SECURITY` clauses can be used to specify a specific security context for checking view permissions at run time.
+![DB cluster storage volume](images/pb-aurora-cluster-storage-volume.png)
 
-Similar to Oracle, Aurora MySQL supports updatable views and the ANSI standard `CHECK OPTION` to limit inserts and updates to rows referenced by the view.
+An Oracle CDB/Instance is a high-level equivalent to an Amazon Aurora cluster, and an Oracle Pluggable Database (PDB) is equivalent to a MySQL database created inside the Amazon Aurora cluster. Not all features are comparable between Oracle 12c PDBs and Amazon Aurora.
 
-You can use the `LOCAL` and `CASCADED` keywords to determine the scope of violation checks. When you use the `LOCAL` keyword, the `CHECK OPTION` is evaluated only for the view being created. The `CASCADED` option causes evaluation of referenced views. The default option is `CASCADED`.
+Starting with Oracle 18c and 19c, you can use this feature for the following:
 
-In general, only views having a one-to-one relationship between the source rows and the exposed rows are updatable. Adding the following constructs prevents modification of data:
+- PDB Clone
+- Refreshable PDB Switchover
+- CDB Fleet Management
+- More than one pluggable database (PDB) in a container database (CDB) in sharded environments.
 
-- Aggregate functions.
-- `DISTINCT`.
-- `GROUP BY`.
-- `HAVING`.
-- `UNION` or `UNION ALL`.
-- Subquery in the select list.
-- Certain joins.
-- Reference to a non-updatable view.
-- Subquery in the `WHERE` clause that refers to a table in the `FROM` clause.
-- `ALGORITHM = TEMPTABLE`.
-- Multiple references to any column of a base table.
+In the AWS Cloud, these features can be achieved in many ways and each can be optimized using different services.
 
-Make sure that your view has unique column names. Column aliases are derived from the base tables or explicitly specified in the `SELECT` statement of column definition list. `ORDER BY` is permitted in Aurora MySQL, but ignored if the outer query has an `ORDER BY` clause.
+Cloning databases inside the MySQL instance is not so easy. For the same instance, you can use export and import.
 
-A view in Aurora MySQL can invoke functions, which in turn may introduce a change to the database.
+To achieve similar functionality to Refreshable PDB Switchover, it depends on the use case but there are multiple options mostly depended on the required granularity:
 
-Aurora MySQL assesses data access privileges as follows:
+- Databases in the same instance — you can do the failover using `CREATE DATABASE` statement when size and required downtime allow that and use an application failover to point to any of the databases.
+- Database links and replication method — database links or AWS DMS can be used to make sure there are two databases in two different instances that are in sync and have application failover to point to the other database when needed.
 
-- Make sure that the user creating a view has all required privileges to use the top-level objects referenced by the view. For example, for a view referencing table columns, the user must have privilege for each column in the select list of the view definition.
-- If the view definition references a stored function, only the privileges needed to invoke the function are checked. The privileges required at run time can be checked only at run time because different invocations may use different execution paths within the function code.
-- Make sure that the user referencing a view has the appropriate `SELECT`, `INSERT`, `UPDATE`, or `DELETE` privileges, as with a normal table.
-- When a view is referenced, privileges for all objects accessed by the view are evaluated using the privileges for the view `DEFINER` account, or the invoker, depending on whether `SQL SECURITY` is set to `DEFINER` or `INVOKER`.
-- When a view invocation triggers the execution of a stored function, privileges are checked for statements executed within the function based on the function’s `SQL SECURITY` setting. For functions where the security is set to `DEFINER`, the function executes with the privileges of the `DEFINER` account. For functions where it is set to `INVOKER`, the function executes with the privileges determined by the view’s `SQL SECURITY` setting as described above.
-
-### Syntax
-
-```
-CREATE [OR REPLACE]
-  [ALGORITHM = {UNDEFINED | MERGE | TEMPTABLE}]
-  [DEFINER = { <User> | CURRENT_USER }]
-  [SQL SECURITY { DEFINER | INVOKER }]
-  VIEW <View Name> [(<Column List>)]
-  AS <SELECT Statement>
-  [WITH [CASCADED | LOCAL] CHECK OPTION];
-```
+Managing CDB is actually very similar to the AWS orchestration, as you can manage multiple Amazon RDS instances there (CDB) and databases inside (PDB), all monitored centrally and can be managed through the AWS console or AWS CLI.
 
 ### Examples
 
-The following example creates and populate the `Invoices` table.
+Create a new database in MySQL using the `CREATE DATABASE` statement.
 
 ```
-CREATE TABLE Invoices(
-InvoiceID INT NOT NULL PRIMARY KEY,
-Customer VARCHAR(20) NOT NULL,
-TotalAmount DECIMAL(9,2) NOT NULL);
-
-INSERT INTO Invoices (InvoiceID,Customer,TotalAmount)
-VALUES (1, 'John', 1400.23), (2, 'Jeff', 245.00), (3, 'James', 677.22);
+CREATE DATABASE db1;
+CREATE DATABASE db2;
+CREATE DATABASE db3;
 ```
 
-The following example creates the `TotalSales` view.
+List all databases created under an Amazon Aurora MySQL cluster.
 
 ```
-CREATE VIEW TotalSales
-AS
-SELECT Customer, SUM(TotalAmount) AS CustomerTotalAmount
-GROUP BY Customer;
+SHOW DATABASES;
+
+Database
+information_schema
+mysql
+performance_schema
+db1
+db2
+db3
+sys
+tmp
 ```
 
-The following example invokes the view.
+### Independent database backups
 
-```
-SELECT * FROM TotalSales
-ORDER BY CustomerTotalAmount DESC;
+Oracle 12c provides the ability to perform both logical backups using DataPump and physical backups using RMAN at both the CDB and PDB levels. Similarly, Aurora MySQL provides the ability to perform logical backups on all or a specific database using mysqldump. However, for physical backups when using snapshots, the entire cluster and all databases are included in the snapshot. Backing up a specific database with in the cluster is not supported.
 
-Customer  CustomerTotalAmount
-John      1400.23
-James     677.22
-Jeff      245.00
-```
+This is usually not a concern because volume snapshots are extremely fast operations that occur at the storage infrastructure layer, incur minimal overhead, and operate at extremely fast speeds. However, the process of restoring a single MySQL database from an Aurora snapshot requires additional steps such as exporting the specific database after a snapshot restore and importing it back to the original Aurora cluster.
 
-For more information, see [CREATE VIEW Statement](https://dev.mysql.com/doc/refman/5.7/en/create-view.html "https://dev.mysql.com/doc/refman/5.7/en/create-view.html"), [Restrictions on Views](https://dev.mysql.com/doc/refman/5.7/en/view-restrictions.html "https://dev.mysql.com/doc/refman/5.7/en/view-restrictions.html"), and [Updatable and Insertable Views](https://dev.mysql.com/doc/refman/5.7/en/view-updatability.html "https://dev.mysql.com/doc/refman/5.7/en/view-updatability.html") in the _MySQL documentation_.
+For more information, see [CREATE DATABASE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-database.html "https://dev.mysql.com/doc/refman/5.7/en/create-database.html") in the _MySQL documentation_.
