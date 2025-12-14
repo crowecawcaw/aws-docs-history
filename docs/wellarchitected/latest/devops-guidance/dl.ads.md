@@ -1,53 +1,46 @@
-# [DL.ADS.2] Implement automatic rollbacks for failed deployments
+# [DL.ADS.5] Ensure backwards compatibility for data store and schema changes
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Implement an automatic rollback strategy to enhance system
-reliability and minimize service disruptions. The strategy
-should be defined as a proactive measure in case of an
-operational event, which prioritizes customer impact
-mitigation even before identifying whether the new deployment
-is the cause of the issue.
+Backwards compatibility in data stores and schemas ensures
+that as changes are made, previous versions of the system
+continue to operate as expected. This requires careful
+planning, thorough testing, and detailed monitoring. As
+modifications, additions, or deletions are made to data
+structures and schemas, these changes should be designed to
+coexist with previous data structures, allowing both old and
+new versions to operate concurrently. Maintaining backwards
+compatibility helps to avoid breaking changes that could
+disrupt continuous integration and delivery pipelines.
 
-Rollback should be initiated based on alarms linked to key
-metrics like fault rates, latency, CPU usage, memory usage,
-disk usage, and log errors. Additionally, consider both the
-service's overall health and instance-specific
-metrics. Incorporate a waiting period after a deployment to
-closely monitor the system. This allows time to identify
-potential issues that might not be evident immediately,
-especially when the system is under low load. Establish
-methods to prevent deployments during higher-risk times or
-when there are active system issues. This could include
-blocking deployments during when high-severity aggregate
-alarms are raised or during specific time windows. 
+One way to achieve backwards compatibility is by implementing
+versioning in your data schemas. With this method, new changes
+are incorporated into a new version, while older versions
+remain functional for existing applications.
+[Feature
+flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") can also be used to conceal new alterations until
+they're fully ready, facilitating testing and phased rollout
+of updates without affecting existing users.
 
-The rollback process should include the redeployment of the last successful code
-revision, artifact version, or container image, and should employ methods like rolling or
-blue/green deployments, or [feature flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") for a swift
-rollback with minimal disruption. Consider using the advanced deployment methods introduced
-in this capability for more granular control over deployments. Rollback considerations
-should not be limited to the latest deployments, but also account for latent changes that
-may be the source of current issues. To handle these situations, provide the ability for
-developers to select a specific previously deployed release for rollback.
+To ensure the safe implementation of these changes, they
+should be thoroughly tested in a non-production
+environment. Testing typically involves three stages to detect
+potential issues: initially, the change is deployed to a
+fraction of the servers to verify coexistence of software
+versions; next, the deployment is completed across all
+servers; and finally, a rollback deployment is initiated. If
+no errors or unexpected behavior occur during these stages,
+the test is considered successful.
 
-After the rollback, depending on the specific issue being addressed, consider
-proactively rolling back other environments that could potentially also be affected, even
-if they aren't currently showing any customer impact. Alternatively, if the issue appears to
-be environment-specific, wait for the pipeline to roll forward a new release that includes a
-bug fix. These operational decisions should be supported by the ability to compare the
-changes between the current release and the selected rollback release's deployment
-artifacts, including source code changes and changes in library versions.
+In scenarios involving changes that require coordination between different
+microservices, it is important to maintain consistency in the order of deployments across
+environments. For example, in serialization contexts, readers are typically deployed
+before writers during roll-forward, while writers precede readers during rollbacks.
 
 **Related information:**
 
 - [Ensuring
   rollback safety during deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/ "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/")
-- [My
-  CI/CD pipeline is my release captain: Easy and automatic
-  rollbacks](https://aws.amazon.com/builders-library/cicd-pipeline/#Easy_and_automatic_rollbacks "https://aws.amazon.com/builders-library/cicd-pipeline/#Easy_and_automatic_rollbacks")
-- [Automating
-  safe, hands-off deployments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card")
-- [Amazon's
-  approach to high-availability deployment: Rollback
-  alarms](https://youtu.be/bCgD2bX1LI4?t=1669 "https://youtu.be/bCgD2bX1LI4?t=1669")
+- [Using
+  Amazon RDS Blue/Green Deployments for database
+  updates](../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md "../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md")

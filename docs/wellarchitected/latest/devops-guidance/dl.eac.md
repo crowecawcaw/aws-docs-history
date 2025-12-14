@@ -1,59 +1,57 @@
-# [DL.EAC.4] Implement continuous configuration for enhanced application management
+# [DL.EAC.5] Integrate technical and operational documentation into the development lifecycle
 
 **Category:** RECOMMENDED
 
-_Configuration as code_ is the practice of managing and tracking
-configuration changes as code, providing an audit trail and reducing errors from manual
-changes. [Continuous configuration](https://www.allthingsdistributed.com/2021/08/continuous-configuration-on-aws.html "https://www.allthingsdistributed.com/2021/08/continuous-configuration-on-aws.html") uses configuration as code to enhance configuration
-management by allowing configuration changes to be made independently of application code
-deployments.
+Integrating documentation and code involves creating,
+maintaining, and publishing documentation using the same tools
+and processes used for application development. With this
+approach, changes to systems should be immediately reflected
+in documentation, reducing the risk of discrepancies between
+system behavior and documentation. By making documentation
+part of the development lifecycle, it becomes a living
+document that evolves with the system over time.
 
-Configuration should be separated from application code to allow for independent
-tracking and management. Use tools designed for managing configurations as code, such
-as [AWS
-AppConfig](https://aws.amazon.com/systems-manager/features/appconfig/ "https://aws.amazon.com/systems-manager/features/appconfig/"), to manage configuration externally from the application. Create fully
-automated pipelines that perform continuous integration and continuous delivery (CI/CD)
-based on changes to the configuration code. Just like with application deployment
-pipelines, these configuration deployment pipelines should run quality assurance tests,
-followed by deployment in a non-production environment before deploying to production.
+Documentation should be stored in a versioned source code repository and written in a
+machine-readable markup language, such as Markdown. The documentation can be made directly
+accessible through the repository or through knowledge sharing tools capable of rendering
+the markup language, like Git-based wikis, static site generators, or directly in
+developers' integrated development environments (IDEs).
 
-It's important to distinguish between static and dynamic configuration types. Static
-configurations do not change during the software's runtime and are specific to each
-environment. Dynamic configurations can be adjusted at runtime without downtime. [Feature
-flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") are examples of dynamic configurations that can be used to control which
-features are enabled per environment to decouple release from deployment. Operational
-configurations, such as log level, throttling thresholds, connection/request limits,
-alerts, and notifications, can be static or dynamic depending on the use case and need to
-be managed. Application modes, which toggle the application to run as either
-_development_, _test_, or
-_production_, are typically considered to be static configuration
-that is set at startup and do not change.
+Code should include clear, insightful comments and commit
+messages should be structured using a machine-readable
+specification, such
+as [Conventional
+Commits](https://www.conventionalcommits.org/en/v1.0.0/ "https://www.conventionalcommits.org/en/v1.0.0/"). This information can be used as a source to
+generate detailed documentation and change logs using tools
+specific to the programming language and platforms being used.
+Many of these tools can create API references, class diagrams,
+or other technical documents from inline comments in your
+source code, ensuring the documentation is always in line with
+the most recent changes. Automate this process by adding a
+stage to the deployment pipeline to generate documentation
+with every change to a main, releasable branch.
 
-General use cases for continuous configuration include application integration
-tuning, feature toggling, allowing access to premium content through allow lists, and
-addressing operational issues and troubleshooting. To manage your configurations
-effectively, establish a routine to prevent configuration bloat. While it can seem
-tempting to externalize as many variables as possible, an excessively complex
-configuration file can lead to confusion and errors. Carefully evaluate the necessity,
-frequency of change, and runtime requirements of each value to decide if it should be
-included as dynamic configuration. 
-
-For large-scale deployment of configuration as code, a [Dynamic Configuration Pipeline](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html") is recommended. This allows centralized
-management of the entire workload configuration and its components across all
-environments. It ensures that all configurations are version-controlled, adhere to quality
-assurance and code review processes, and is capable of progressively deploying
-configuration changes and performing rollbacks as necessary to minimize system
-disruptions.
-
-Continuous configuration is beneficial in DevOps environments, as it improves
-operational efficiency and scalability. However, not every system requires the complexity
-associated with continuous configuration. Therefore, each workload should be evaluated
-depending on architecture choice, team preferences, and service level objective
-requirements.
+This approach is not only limited to documenting code, but also can be used to store
+operational documentation like incident response procedures, disaster recovery plans,
+training material, and onboarding processes. While some aspects of these documents still
+likely require manual effort to create, the benefits of incorporating these documents into
+the development lifecycle include enforced reviews of changes, ability to write tests to
+suggest updating documentation when changes are significant or made to important
+components, and versioning the documents for auditability.
 
 **Related information:**
 
-- [AWS Cloud Adoption Framework: Operations Perspective
-  - Configuration management](../../../whitepapers/latest/aws-caf-operations-perspective/configuration-management.md "../../../whitepapers/latest/aws-caf-operations-perspective/configuration-management.md")
-- [AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig/ "https://aws.amazon.com/systems-manager/features/appconfig/")
-- [Continuous configuration](https://www.allthingsdistributed.com/2021/08/continuous-configuration-on-aws.html "https://www.allthingsdistributed.com/2021/08/continuous-configuration-on-aws.html")
+- [AWS Well-Architected Reliability Pillar: REL12-BP01 Use
+  playbooks to investigate failures](../reliability-pillar/rel_testing_resiliency_playbook_resiliency.md "../reliability-pillar/rel_testing_resiliency_playbook_resiliency.md")
+- [Write
+  the Docs: Docs as Code](https://www.writethedocs.org/guide/docs-as-code/ "https://www.writethedocs.org/guide/docs-as-code/")
+- [One
+  AWS team's move to docs as code](https://www.youtube.com/watch?v=Cxuo3udElcE "https://www.youtube.com/watch?v=Cxuo3udElcE")
+- [AWS Incident Response Playbook Samples](https://github.com/aws-samples/aws-incident-response-playbooks "https://github.com/aws-samples/aws-incident-response-playbooks")
+- [Using
+  code as documentation to save time and share
+  context](https://github.com/readme/guides/code-as-documentation "https://github.com/readme/guides/code-as-documentation")
+- [DocFx](https://dotnet.github.io/docfx/ "https://dotnet.github.io/docfx/")
+- [How
+  to build an automated C# code documentation generator
+  using AWS DevOps](https://aws.amazon.com/blogs/modernizing-with-aws/how-to-build-an-automated-c-code-documentation-generator-using-aws-devops/ "https://aws.amazon.com/blogs/modernizing-with-aws/how-to-build-an-automated-c-code-documentation-generator-using-aws-devops/")

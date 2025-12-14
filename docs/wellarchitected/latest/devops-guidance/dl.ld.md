@@ -1,28 +1,32 @@
-# [DL.LD.6] Leverage extensible development tools
+# [DL.LD.3] Commit local changes early and often
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Extensible software development tools, primarily integrated
-development environments (IDEs) or text editors, can be
-augmented with plugins or extensions. These plugins enhance
-the functionalities of the software, allowing for improved and
-tailored developer experiences.
+While developing locally, developers should begin to make
+small, frequent commits to save versions of their code changes
+as they develop. Unlike pushing code changes so that they are
+accessible to other team members, local commits deal
+specifically with a developer's individual progress as they
+develop locally. This practice makes local development safer,
+enabling developers to freely innovate without fear of losing
+completed work by capturing snapshots of iterative changes to
+the code base.
 
-Choose development tools that work well with your primary programming languages and
-technologies in your stack. Choosing a widely adopted IDE or text editor enables
-leveraging support communities and extension ecosystems. Teams should be encouraged to
-experiment with and adopt plugins that enhance code quality, simplify integrations, or
-speed up routine tasks. Over time, curate a list of preferred, approved extensions that
-align with your DevOps objectives and security requirements. Verify that there is a
-process in place for regularly updating these tools and extensions to benefit from the
-latest improvements and security patches.
+Use version control tools, like Git, local testing tools for fast feedback,
+and [conventional
+commit](https://www.conventionalcommits.org/en/v1.0.0/ "https://www.conventionalcommits.org/en/v1.0.0/") messages that describe the nature and rationale behind the changes for.
+Strive to make it a habit to locally commit changes as soon as a logical unit of work is
+completed. This can be after fixing a bug, adding a new function, or refining an existing
+piece of code.
+
+Placing emphasis on the significance of making frequent local commits adapts
+developers to the idea of breaking down work into smaller, more manageable batches of work.
+This translates into streamlined integration processes when working in a team and is
+critical for practicing [continuous integration](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/") and [continuous delivery](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/") (CI/CD).
 
 **Related information:**
 
-- [Security
-  in every stage of CI/CD pipeline: IDE tools and
-  plugins](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#pre-commit-hooks#ide-tools-and-plugins "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#pre-commit-hooks#ide-tools-and-plugins")
-- [Tools
-  to Build on AWS](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/")
-- [Dev
-  Environments in CodeCatalyst](../../../codecatalyst/latest/userguide/devenvironment.md "../../../codecatalyst/latest/userguide/devenvironment.md")
+- [Git
+  Basics - Recording Changes to the Repository](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository")
+- [Continuous
+  Integration - Martin Fowler](https://martinfowler.com/articles/continuousIntegration.html "https://martinfowler.com/articles/continuousIntegration.html")

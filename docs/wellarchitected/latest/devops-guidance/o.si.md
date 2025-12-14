@@ -1,67 +1,77 @@
-# [O.SI.3] Instrument all systems for comprehensive telemetry data collection
+# [O.SI.1] Center observability strategies around business and technical outcomes
 
 **Category:** FOUNDATIONAL
 
-All systems should be fully-instrumented to collect the metrics, logs, events, and
-traces necessary for meeting key performance indicators (KPIs), service level objectives,
-and logging and monitoring strategies. Teams should integrate instrumentation libraries into
-the components of new systems and feature enhancements to capture relevant data points,
-while also ensuring that pipelines and associated tools used during build, testing,
-deployment, and release of the system are also instrumented to track development lifecycle
-metrics and best practices. 
+To maximize the impact of observability, it should be closely
+aligned with both business and technical goals. This means not
+only monitoring system performance, uptime, or error rates but
+also understanding how these factors directly or indirectly
+influence business outcomes such as revenue, customer
+satisfaction, and market growth.
 
-Chosen libraries and tools should support the efficient
-collection, normalization, and aggregation of telemetry data.
-Depending on the workload and existing instrumentation, this
-could involve structured log-based metric reporting, or it
-might rely on other established methods like using StatsD,
-Prometheus exporters, or other monitoring solutions. The
-chosen method should align with the workload's specific needs
-and the complexity involved in instrumenting the solution.
-Strike a balance between thorough monitoring and the amount of
-work required to implement and maintain the monitoring
-solution, to avoid falling into an anti-pattern of excessive
-instrumentation.
+Adopting the ethos that _"Everything fails, all the time"_,
+famously stated by Werner Vogels, Amazon Chief Technology Officer, a successful
+observability strategy acknowledges this reality and continuously iterates, adapting to
+changes in business environments, technical architecture, user behaviors, and customer
+needs. It is the shared responsibility of teams, leadership, and stakeholders to establish
+relevant performance-related metrics to collect to measure established key performance
+indicators (KPIs) and desired business outcomes. Effective KPIs must be based on the desired
+business and technical outcomes and be relevant to the system being monitored.
 
-Teams might also consider the use of auto-instrumentation tools to simplify the
-process of collecting data across their systems with little to no manual intervention,
-reducing the risk of human error and inconsistencies. Examples of auto-instrumentation
-include embedding instrumentation tools in shared computer images like AMIs or containers
-being used, automatically gathering telemetry from the compute runtime, or embedding
-instrumentation tools into shared libraries and frameworks.
+An observability strategy must also identify the metrics,
+logs, traces, and events necessary for collection and analysis
+and prescribes appropriate tools and processes for gathering
+this data. To enhance operational efficiency, the strategy
+should propose guidelines for generating actionable alerts and
+define escalation procedures. This way, teams can augment
+these guidelines to suit their unique needs and contexts.
 
-Regardless of how the team chooses to implement it, instrumentation should be
-designed to accommodate the needs of the specific workload and business requirements. This
-includes considering factors such as cost, security, data retention, access, compliance, and
-governance requirements. All collected data must always be protected using appropriate
-security measures, including encryption and least-privilege access controls.
+Use technical KPIs, such as the
+[four
+golden signals](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals "https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals") (latency, traffic, errors, and
+saturation), to provide a set of minimum metrics to focus on
+when monitoring user-facing systems. On the business side,
+teams and leaders should meet regularly to assess how
+technical metrics correlate with business outcomes and adapt
+strategies accordingly. There is no one-size-fits-all approach
+to defining these
+KPIs. Discover
+customer and stakeholder requirements and choose the
+technical and business metrics and KPIs that best fit your
+organization.
+
+For example, one of the most important business-related KPIs for Amazon's e-commerce
+segment is _orders per minute_. A dip below the expected
+value for this metric could signify issues affecting customer experience or transactions,
+which could affect revenue and customer satisfaction. Within Amazon, teams and leaders meet
+regularly during weekly business reviews (WBRs) to assess the validity and quality of these
+metrics against organizational goals. By continuously assessing metrics against business and
+technical strategies, teams can proactively address potential issues before they affect the
+bottom line.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF02-BP03 Collect
-  compute-related metrics](../performance-efficiency-pillar/perf_select_compute_collect_metrics.md "../performance-efficiency-pillar/perf_select_compute_collect_metrics.md")
-- [AWS Well-Architected Reliability Pillar: REL06-BP01 Monitor
-  all components for the workload (Generation)](../reliability-pillar/rel_monitor_aws_resources_monitor_resources.md "../reliability-pillar/rel_monitor_aws_resources_monitor_resources.md")
-- [AWS Well-Architected Cost Optimization Pillar: COST05-BP02
-  Analyze all components of the workload](../cost-optimization-pillar/cost_select_service_analyze_all.md "../cost-optimization-pillar/cost_select_service_analyze_all.md")
+- [AWS Well-Architected Performance Pillar: PERF06-BP02 Define a
+  process to improve workload performance](../performance-efficiency-pillar/perf_continue_having_appropriate_resource_type_define_process.md "../performance-efficiency-pillar/perf_continue_having_appropriate_resource_type_define_process.md")
+- [AWS Well-Architected Sustainability Pillar: SUS02-BP02 Align
+  SLAs with sustainability goals](../sustainability-pillar/sus_sus_user_a3.md "../sustainability-pillar/sus_sus_user_a3.md")
+- [AWS Well-Architected Reliability Pillar: REL11-BP07 Architect
+  your product to meet availability targets and uptime service level agreements (SLAs)](../reliability-pillar/rel_withstand_component_failures_service_level_agreements.md "../reliability-pillar/rel_withstand_component_failures_service_level_agreements.md")
+- [Monitoring
+  and Observability Implementation Priorities](../management-and-governance-guide/implementation-priorities-5.md "../management-and-governance-guide/implementation-priorities-5.md")
+- [AWS Observability Best Practices](https://aws-observability.github.io/observability-best-practices/ "https://aws-observability.github.io/observability-best-practices/")
 - [Instrumenting
   distributed systems for operational visibility](https://aws.amazon.com/builders-library/instrumenting-distributed-systems-for-operational-visibility/?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/instrumenting-distributed-systems-for-operational-visibility/?did=ba_card&trk=ba_card")
-- [AWS Observability Best Practices: Data Types](https://aws-observability.github.io/observability-best-practices "https://aws-observability.github.io/observability-best-practices")
-- [Embedding
-  metrics within logs](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.md")
-- [Application
-  Insights](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md")
-- [Container
-  Insights](../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md "../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md")
-- [Lambda
-  Insights](../../../AmazonCloudWatch/latest/monitoring/Lambda-Insights.md "../../../AmazonCloudWatch/latest/monitoring/Lambda-Insights.md")
-- [Powertools
-  for AWS Lambda](https://github.com/aws-powertools/powertools-lambda-python "https://github.com/aws-powertools/powertools-lambda-python")
-- [AWS Distro
-  for OpenTelemetry](https://aws-otel.github.io "https://aws-otel.github.io")
-- [Build
-  an observability solution using managed AWS services and
-  the OpenTelemetry standard](https://aws.amazon.com/blogs/mt/build-an-observability-solution-using-managed-aws-services-and-the-opentelemetry-standard/ "https://aws.amazon.com/blogs/mt/build-an-observability-solution-using-managed-aws-services-and-the-opentelemetry-standard/")
 - [The
-  Amazon Software Development Process: Monitor
-  Everything](https://youtu.be/52SC80SFPOw?t=1548 "https://youtu.be/52SC80SFPOw?t=1548")
+  Importance of Key Performance Indicators (KPIs) for
+  Large-Scale Cloud Migrations](https://aws.amazon.com/blogs/mt/the-importance-of-key-performance-indicators-kpis-for-large-scale-cloud-migrations/ "https://aws.amazon.com/blogs/mt/the-importance-of-key-performance-indicators-kpis-for-large-scale-cloud-migrations/")
+- [What
+  is the difference between SLA and KPI?](https://aws.amazon.com/what-is/service-level-agreement/#seo-faq-pairs#sla-kpi "https://aws.amazon.com/what-is/service-level-agreement/#seo-faq-pairs#sla-kpi")
+- [The
+  Four Golden Signals](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals "https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals")
+- [Amazon's
+  approach to high-availability deployment: Standard
+  metrics](https://youtu.be/bCgD2bX1LI4?t=2502 "https://youtu.be/bCgD2bX1LI4?t=2502")
+- [The
+  Amazon Software Development Process: Measure
+  Everything](https://youtu.be/52SC80SFPOw?t=1922 "https://youtu.be/52SC80SFPOw?t=1922")

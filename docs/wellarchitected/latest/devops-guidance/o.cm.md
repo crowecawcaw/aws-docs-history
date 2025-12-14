@@ -1,28 +1,25 @@
-# [O.CM.3] Conduct post-incident analysis for continuous improvement
+# [O.CM.6] Gather user experience insights using digital experience monitoring
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Drive the continuous improvement of analysis and response mechanisms by holding
-post-incident retrospectives. The post-incident retrospectives allow teams to identify gaps
-and areas for improvement by analyzing the actions that were taken during an incident. These
-retrospectives should not be used to place blame or point fingers at individuals. Instead,
-they provide the time for teams to optimize their response process for future incidents and
-helps ensure that they are continuously learning and improving their incident response
-capabilities. This approach leads to more efficient and effective resolution of incidents
-over time.
+Digital Experience Monitoring (DEM) involves simulating user
+interactions with applications to measure the performance and
+availability of services from the perspective of end
+users. DEM allows teams to proactively detect and resolve
+issues that may impact user experience. It also helps in
+validating that application updates or changes do not
+negatively impact user experience.
 
-All relevant stakeholders involved with the incident and the system should attend the
-retrospective. At a minimum, this should include the leaders and individual contributors who
-support the system, the customer advocates, those who were impacted by the issue internally,
-as well as those involved with the resolution of the issue. The post-incident retrospective
-findings should be anonymized, as to not place blame onto any individuals, and should be
-well documented and shared with the broader organization so that others may learn as well.
+Implement APM tools, such as synthetic transaction monitoring
+using canaries to simulate user interactions with your
+application and measure the response times and accuracy of the
+results.
+
+DEM is recommended as it provides important insights into the
+user experience and helps detect issues that may impact user
+experience
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF07-BP02 Analyze
-  metrics when events or incidents occur](../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md")
-- [AWS Well-Architected Reliability Pillar: REL12-BP02 Perform
-  post-incident analysis](../reliability-pillar/rel_testing_resiliency_rca_resiliency.md "../reliability-pillar/rel_testing_resiliency_rca_resiliency.md")
-- [AWS Well-Architected Operational Excellence Pillar: OPS11-BP02
-  Perform post-incident analysis](../operational-excellence-pillar/ops_evolve_ops_perform_rca_process.md "../operational-excellence-pillar/ops_evolve_ops_perform_rca_process.md")
+- [Amazon CloudWatch Synthetics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md")
+- [AWS Marketplace - Digital Experience Monitoring](https://aws.amazon.com/marketplace/search/results?searchTerms=Digital+Experience+Monitoring "https://aws.amazon.com/marketplace/search/results?searchTerms=Digital+Experience+Monitoring")

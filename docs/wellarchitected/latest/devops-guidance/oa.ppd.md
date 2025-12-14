@@ -1,14 +1,42 @@
-# [OA.PPD.4] Invest in attracting, developing, and retaining skilled employees
+# [OA.PPD.1] Encourage collaboration, innovation, learning, and continuous growth to foster a generative culture
 
 **Category:** FOUNDATIONAL
 
-Invest in attracting, developing, and retaining skilled employees by providing clear role
-definitions, mentorship programs, career advancement opportunities, and actionable
-feedback. Gather feedback regularly from employees to understand their needs and inform
-training and development initiatives.
+A generative culture, as defined by
+[Dr.
+Ron Westrum's research](https://qualitysafety.bmj.com/content/13/suppl_2/ii22 "https://qualitysafety.bmj.com/content/13/suppl_2/ii22"), provides teams with the
+autonomy and opportunities to experiment and learn from
+failures, creating a space for development and performance
+growth. In a generative culture, individuals feel comfortable
+expressing their ideas and opinions without fear, and
+information is openly shared for improvement.
+This culture is more amenable to successful DevOps adoption
+than pathological and bureaucratic cultures, which are
+characterized by a focus on individual power and authority and
+strict adherence to rules and procedures, respectively.
 
-Regularly collect feedback from employees to gauge their needs, directing training
-and development initiatives accordingly. Build transparent reward and recognition
-programs, and communicate promotion criteria unambiguously to every
-employee. This proactive approach crafts an environment where employees can flourish and
-significantly contribute to the organization's triumph.
+Leaders should promote a culture of openness and inclusivity
+and provide teams the autonomy and opportunities to experiment
+and learn from failures. Encouraging these behaviors allows
+individual contributors to feel comfortable expressing their
+ideas and opinions. Recognize and celebrate successes at all
+levels of the organization, while also providing constructive
+feedback for improvement as part of performance review
+processes. Leaders should model these behaviors and create an
+environment that promotes collaboration, innovation, learning,
+and continuous growth. For example, if individual contributors
+are asked to learn about DevOps, cloud technologies, or
+similar topics, leaders should also strive to become certified
+and knowledgeable about those topics as well, at least at a
+high level.
+
+Leaders should model these behaviors and create an environment that promotes
+collaboration, innovation, learning, and continuous growth. For example, if individual
+contributors are asked to learn about DevOps, cloud technologies, or similar topics,
+leaders should also strive to become knowledgeable about those topics as
+well.
+
+**Related information:**
+
+- [A
+  typology of organisational cultures](https://qualitysafety.bmj.com/content/13/suppl_2/ii22 "https://qualitysafety.bmj.com/content/13/suppl_2/ii22")

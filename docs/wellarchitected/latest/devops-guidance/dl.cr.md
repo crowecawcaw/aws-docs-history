@@ -1,39 +1,29 @@
-# [DL.CR.2] Perform peer review for code changes
+# [DL.CR.4] Comprehensive code reviews with an emphasis on business logic
 
 **Category:** FOUNDATIONAL
 
-A peer review process for code changes is a strategy for
-ensuring code quality and shared responsibility. To support
-separation of duties in a DevOps environment, every change
-should be reviewed and approved by at least one other person
-before merging. Once approved, a pipeline with sufficient
-access will deploy the change.
+Use automated code review tools to detect potential issues before they are merged
+into the code base. This approach provides fast feedback to developers to fix issues before
+a manual review takes place. This also frees manual reviewers from needing to review for
+trivial issues like code style inconsistencies or syntax errors. Reviewers can instead focus
+on more on complex aspects of the code such as business logic, maintainability, and
+scalability, which may be difficult to automate. This accelerates the review process,
+reduces the feedback loop, and promotes rapid iteration.
 
-Most version control systems support protection rules
-enforcing certain workflows, like requiring at least one peer
-review, before merging into designated branches. Use these
-rules to enforce this workflow and provide assurance that all
-code changes adhere to this mandatory review process. 
+Start by identifying the types of issues that can be automated (like code formatting,
+syntax errors, and potential security vulnerabilities). Then, choose suitable tools that fit
+your code base and your team's needs. Integrate these quality assurance (QA) tools into your
+development lifecycle so that the checks are automatically run when code changes are being
+developed and merged.
 
-Incorporating [pair
-programming](https://www.agilealliance.org/glossary/pair-programming/ "https://www.agilealliance.org/glossary/pair-programming/"), where two programmers collaboratively work side-by-side or through
-screen sharing, is method of peer review. By integrating this approach, reviews can be
-integrated into the development lifecycle earlier—while the code is being written, reducing
-the time taken to identify and fix issues. This accelerates review timelines, reduces the
-introduction of bugs or issues, promotes knowledge sharing, and creates a culture
-of quality and continuous improvement.
-
-Some companies require multiple reviewers, or require more
-proof than just pair-programming to adhere to compliance
-requirements. Pick a code review process that works for your
-organization, and enforce it through policies, processes, and
-technology.
+Using automated code review tools is recommended for improved
+efficiency and consistency, but is not absolutely required for
+code reviews as DevOps teams can function and conduct manual
+code reviews without them.
 
 **Related information:**
 
-- [AWS Well-Architected Security Pillar: SEC11-BP04 Manual code
-  reviews](../framework/sec_appsec_manual_code_reviews.md "../framework/sec_appsec_manual_code_reviews.md")
-- [Team
-  Collaboration with Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/")
-- [Code
-  review](https://en.wikipedia.org/wiki/Code_review "https://en.wikipedia.org/wiki/Code_review")
+- [Create
+  code reviews in Amazon CodeGuru Reviewer](../../../codeguru/latest/reviewer-ug/create-code-reviews.md "../../../codeguru/latest/reviewer-ug/create-code-reviews.md")
+- [Automate
+  code reviews with Amazon CodeGuru Reviewer](https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/ "https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/")

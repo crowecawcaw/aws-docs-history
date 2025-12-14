@@ -1,30 +1,41 @@
-# [O.DIP.1] Aggregate logs and events across workloads
+# [O.DIP.6] Standardize telemetry data with common formats
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Logs and events should be aggregated across multiple workloads
-to provide a comprehensive view of the entire system. This
-enables teams to troubleshoot, identify patterns, and resolve
-operational issues.
+Normalize telemetry data using a common format or standard
+schema to enhance consistency in data collection and
+reporting. This facilitates seamless correlation and analysis
+across multiple facets of observability, such as system
+performance, user behaviors, and security events, improving
+the overall speed and accuracy of detection and response in
+any of these areas.
 
-Implement a log aggregation solution that supports collecting logs from various
-sources and provides functions for filtering, searching, visualizing, and alerting. Make
-sure the solution provides real-time data collection, supports necessary data sources, and
-offers visualization options. The tool should be accessible to application teams, allowing
-them to monitor and troubleshoot their system as needed.
+Two notable open-source projects supporting this goal are
+OpenTelemetry and the Open Cybersecurity Alliance Schema
+Framework (OCSF). OpenTelemetry provides a single set of APIs,
+libraries, agents, and collector services to capture
+distributed traces and metrics from your application and send
+them to any observability platform. OCSF, on the other hand,
+is an extensible, vendor-agnostic project designed to simplify
+data ingestion and normalization specifically for
+cybersecurity events.
+
+Utilize a common telemetry format to streamline these
+processes, reduce associated costs of data processing, and
+allow teams to focus more on detecting and responding to
+actionable events. Guidelines should be established for the
+collection and reporting of data, enforcing consistency across
+all teams. Adopting and effectively using standard schemas or
+frameworks like OpenTelemetry and OCSF can provide
+considerable advantages in achieving comprehensive
+observability.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL11-BP01 Monitor
-  all components of the workload to detect failures](../reliability-pillar/rel_withstand_component_failures_monitoring_health.md "../reliability-pillar/rel_withstand_component_failures_monitoring_health.md")
-- [Cross-account
-  cross-Region CloudWatch console](../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md "../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md")
-- [Collect,
-  analyze, and display Amazon CloudWatch Logs in a single
-  dashboard with the Centralized Logging on AWS solution](../../../solutions/latest/centralized-logging-on-aws/welcome.md "../../../solutions/latest/centralized-logging-on-aws/welcome.md")
-- [Centralized
-  Logging with OpenSearch](https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/ "https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/")
-- [Sending
-  Logs Directly to Amazon S3](../../../AmazonCloudWatch/latest/logs/Sending-Logs-Directly-To-S3.md "../../../AmazonCloudWatch/latest/logs/Sending-Logs-Directly-To-S3.md")
-- [One
-  Observability Workshop](https://observability.workshop.aws/ "https://observability.workshop.aws/")
+- [OCSF
+  Schema](https://schema.ocsf.io/ "https://schema.ocsf.io/")
+- [OCSF
+  GitHub](https://github.com/ocsf "https://github.com/ocsf")
+- [AWS Distro
+  for OpenTelemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/")
+- [OpenTelemetry](https://opentelemetry.io/ "https://opentelemetry.io/")

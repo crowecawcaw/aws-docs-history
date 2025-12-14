@@ -1,38 +1,42 @@
-# [AG.DEP.3] Enable deployment to the landing zone
+# [AG.DEP.4] Codify environment vending
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Dedicate an environment for each system to host the resources
-and tools required to perform controlled and uniform
-application deployments to related non-production and
-production environments. These deployment environments can
-include infrastructure or services such as pipelines and build
-agents.
+A core benefit of the DevOps model is team autonomy and reducing cross-team
+dependencies. Through infrastructure as code (IaC), teams can establish and manage their
+environments autonomously in a self-service manner, shifting from traditional methods
+where operations teams would oversee these responsibilities.
 
-At a minimum, each system should have a set of deployment, test, and production
-environments to support the development lifecycle. Having these environments at the system
-level, as opposed to sharing environments across multiple systems or at the team level,
-provides multiple benefits:
+By provisioning environments, and the accounts operating them,
+as IaC or API calls, teams are empowered with the flexibility
+to create environments according to their specific
+requirements and ways of working. Codifying the environment
+provisioning process provides teams with the flexibility to
+create both persistent and ephemeral environments based on
+their specific needs and workflows. In particular, this
+code-based approach enables the easy creation of ephemeral
+environments that can be automatically setup and torn down
+when not in use, optimizing resource utilization and cost.
 
-- **Isolation of systems:** Each system's resources are
-  isolated, reducing the risk of cross-system interference, reaching quotas, and security
-  breaches.
-- **Tailored environments:** The environments can be
-  customized according to the specific needs of each system, improving efficiency and
-  reducing unnecessary resource usage.
-- **Separation of concerns:** Each environment handles a
-  specific aspect of the application lifecycle (deployment, testing, production), ensuring
-  a clean and organized workflow.
-  The deployment environment should include resources and tools to support building,
-  validation, promotion, and deployment of the system. A deployment environment may not be
-  necessary for all organizations and scenarios, such as if your development lifecycle tools
-  are hosted on-premises or outside of your landing zone. For these use cases, you will need
-  to verify network connectivity between your external tools and your landing zone
-  environments.
+Use shared libraries or services that allow teams to request
+and manage environments using IaC. These libraries should
+encapsulate best practices for environment configuration and
+should be designed to be used directly in deployment
+pipelines, enabling individual teams to manage their
+environments autonomously. This reduces the need for manual
+requests or interactions with a developer portal, as well as
+reduces the reliance on platform teams for provisioning and
+managing environments on their behalf. This approach promotes
+consistency and reduces overhead from cross-team
+collaboration.
 
 **Related information:**
 
-- [Spaces
-  in CodeCatalyst](../../../codecatalyst/latest/userguide/spaces.md "../../../codecatalyst/latest/userguide/spaces.md")
-- [Deployments
-  OU](../../../whitepapers/latest/organizing-your-aws-environment/deployments-ou.md "../../../whitepapers/latest/organizing-your-aws-environment/deployments-ou.md")
+- [What
+  is the AWS CDK?](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
+- [Create
+  an AWS Proton environment](../../../proton/latest/userguide/ag-create-env.md "../../../proton/latest/userguide/ag-create-env.md")
+- [Provision
+  and manage accounts with Account Factory](../../../controltower/latest/userguide/account-factory.md "../../../controltower/latest/userguide/account-factory.md")
+- [Provision
+  Accounts Through Service Catalog](../../../controltower/latest/userguide/service-catalog.md "../../../controltower/latest/userguide/service-catalog.md")

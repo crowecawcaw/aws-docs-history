@@ -1,50 +1,34 @@
-# [DL.CD.4] Automate the entire deployment process
+# [DL.CD.7] Remove manual approvals to practice continuous deployment
 
-**Category:** FOUNDATIONAL
+**Category:** OPTIONAL
 
-Automate as many stages of the delivery process as possible. Exceptions for
-continuous delivery might include optional manual approval gates. Automation reduces the
-risk of human error, brings consistency to deployments, and accelerates the delivery
-process.
+Fully automate all stages of the deployment process, allowing developers to push new
+code into the production environment using fully automated delivery pipelines—with no
+manual approval stages required. This is referred to as continuous deployment. Removing
+all manual deployment steps reduces potential errors and increases deployment speed. It
+allows developers to focus more on coding and less on deployment logistics, improving
+efficiency and productivity.
 
-Use the delivery pipeline to automate every stage of deploying changes, from copying
-the build artifact to setting up any required configurations. While optional manual approval
-gates can exist, all other stages should be automated, maintaining the integrity of the
-artifact and reducing the likelihood of errors. Humans should not have access to the target
-environments or have the ability to inject code, parameters, configuration, or interfere
-with the integrity of the artifact in any way.
+Create fully automated pipelines which perform continuous
+integration and continuous deployment. A pipeline should
+trigger upon code changes being merged into the main release
+branch. This pipeline should perform all necessary quality
+assurance tests, build the application, and deploy the new
+version to the production environment. Automated governance
+capabilities ensure that guardrails are being followed, while
+observability functions such as alerts and logs provide
+visibility.
 
-Some organizations might still require manual oversight at certain stages as they
-evolve their DevOps capabilities. If the organization is early in its DevOps adoption or
-operates in a highly regulated environment, there might be a need for manual interventions
-or approvals at certain stages. These could be due to governance or regulatory requirements
-or simply the need for a human decision at a critical point in the deployment process. Over
-time, even for these organizations, the goal should be to have no manual deployment stages
-in the deployment of changes.
+This level of automation is a hallmark of mature DevOps
+practices. However, it is an optional capability as it is not
+always achievable or desired, especially in heavily regulated
+industries or in organizations with strict governance
+controls.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL08-BP05 Deploy
-  changes with automation](../reliability-pillar/rel_tracking_change_management_automated_changemgmt.md "../reliability-pillar/rel_tracking_change_management_automated_changemgmt.md")
-- [AWS Well-Architected Security Pillar: SEC11-BP06 Deploy
-  software programmatically](../framework/sec_appsec_deploy_software_programmatically.md "../framework/sec_appsec_deploy_software_programmatically.md")
-- [What
-  is Continuous Delivery?](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/")
-- [Amazon CodeCatalyst](https://codecatalyst.aws/explore "https://codecatalyst.aws/explore")
-- [Building
-  the pipeline](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/building-the-pipeline.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/building-the-pipeline.md")
-- [Going
-  faster with continuous delivery](https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery/ "https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery/")
-- [AWS Deployment Pipeline Reference Architecture](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture")
-- [Deploy
-  container applications in a multicloud environment using
-  Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/deploy-container-applications-in-a-multicloud-environment-using-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/deploy-container-applications-in-a-multicloud-environment-using-amazon-codecatalyst/")
-- [Amazon's
-  approach to high-availability deployment: Release guidance
-  lifecycle](https://youtu.be/bCgD2bX1LI4?t=855 "https://youtu.be/bCgD2bX1LI4?t=855")
-- [Testing
-  software and systems at Amazon: Continuous integration and
-  deployment](https://youtu.be/o1sc3cK9bMU?t=1206 "https://youtu.be/o1sc3cK9bMU?t=1206")
-- [The
-  Amazon Software Development Process: Continuous
-  Delivery](https://youtu.be/52SC80SFPOw?t=814 "https://youtu.be/52SC80SFPOw?t=814")
+- [Continuous
+  Delivery vs. Continuous Deployment](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/")
+- [Practicing
+  Continuous Integration and Continuous Delivery on
+  AWS](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/implementing-continuous-integration-and-continuous-delivery.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/implementing-continuous-integration-and-continuous-delivery.md")

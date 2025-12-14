@@ -1,35 +1,53 @@
-# [QA.FT.1] Ensure individual component functionality with unit tests
+# [QA.FT.3] Confirm end-user experience and functional correctness with acceptance tests
 
 **Category:** FOUNDATIONAL
 
-Unit tests evaluate the functionality of one individual part of an application,
-called _units_. The goal of unit tests is to provide fast, thorough
-feedback while reducing the risk of introducing flaws when making changes. This feedback is
-accomplished by writing tests cases that cover a sufficient amount of the code. These test
-cases run the code using predefined inputs and set expectations for a specific output.
+Acceptance tests evaluate the observable functional behavior
+of the system from the perspective of the end user in a
+production-like environment. These tests encompass functional
+correctness of user interfaces, general application behavior,
+and ensuring that user interface elements lead to expected
+user experiences.
 
-Unit tests should be isolated to a single class, function, or method within the code.
-Fakes or mocks are used in place of external or infrastructure components to help ensure
-that the scope is isolated. These tests should be fast, repeatable, and provide assertions
-that lead to a pass or fail outcome. Teams should be able to run unit tests locally as well
-as through continuous integration pipelines.
+By considering all facets of user interactions and expectations, acceptance testing
+provides a comprehensive evaluation of an application's readiness for production deployment.
+There are various forms of functional acceptance tests which should be used throughout
+development lifecycle:
 
-Ideally, teams adopt [Test-Driven Development (TDD)](https://www.agilealliance.org/glossary/tdd/ "https://www.agilealliance.org/glossary/tdd/") practices and write tests before the software is
-developed. This approach can lead to faster feedback, more effective tests, and introducing
-less defects when writing code.
+- **End-To-End (E2E) Testing:** Acceptance tests performed by
+  the development team through delivery pipelines to validate integrated components and
+  user flows. Begin by identifying the most impactful user flows and create test cases for
+  them. Ideally, teams practice [Behavior-Driven Development (BDD)](https://www.agilealliance.org/glossary/bdd/ "https://www.agilealliance.org/glossary/bdd/") to define how the system will be designed
+  to be tested before code is written. Next, adopt a suitable automated testing framework,
+  such as [AWS Device Farm](https://aws.amazon.com/device-farm/ "https://aws.amazon.com/device-farm/") or [Selenium](https://www.selenium.dev/documentation/ "https://www.selenium.dev/documentation/"). Using the continuous
+  delivery pipeline, trigger the testing tool to run scripted tests cases against the
+  system while it is running in the test environment.
+- **User Acceptance Testing (UAT):** Acceptance tests
+  performed by external end-users of the system to validate that the system aligns with
+  business needs and requirements. The users measure the application against defined
+  acceptance criteria by interacting with the system and providing feedback based on if
+  the system behaves as expected. The development team engages, instructs, and supports
+  these users as they test the system. Log the results of the test by gathering feedback
+  from the users, using the acceptance criteria as a guide. Feedback should highlight
+  areas where the system met or exceeded expectations as well as areas where the system
+  did not meet expectations.
+- **Synthetic Testing:** Continuously run simulations of user
+  behavior in a live testing environment to proactively spot issues. Define the metrics
+  you want to test, such as response times or error rates. Choose a preferred tool that
+  integrates well with your desired programming tools and frameworks. Write automated test
+  scripts which simulate user interactions against the user interface and APIs of the
+  system. These scripts should be regularly run by the synthetic testing tool in the
+  testing environment. Synthetic tests can also be used to perform continuous application
+  performance monitoring in production environments for observability purposes.
+  **Related information:**
 
-**Related information:**
-
+- [AWS Well-Architected Performance Pillar: PERF01-BP06 Benchmark
+  existing workloads](../performance-efficiency-pillar/perf_performing_architecture_benchmark.md "../performance-efficiency-pillar/perf_performing_architecture_benchmark.md")
 - [AWS Well-Architected Reliability Pillar: REL12-BP03 Test
   functional requirements](../reliability-pillar/rel_testing_resiliency_test_functional.md "../reliability-pillar/rel_testing_resiliency_test_functional.md")
-- [Building
-  hexagonal architectures on AWS - Write and run tests from
-  the beginning](../../../prescriptive-guidance/latest/hexagonal-architectures/best-practices.md "../../../prescriptive-guidance/latest/hexagonal-architectures/best-practices.md")
+- [Behavior
+  Driven Development (BDD)](https://www.agilealliance.org/glossary/bdd/ "https://www.agilealliance.org/glossary/bdd/")
+- [Amazon CloudWatch Synthetics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md")
 - [AWS Deployment Pipeline Reference Architecture](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/application-pipeline/index.html "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/application-pipeline/index.html")
-- [Testing
-  software and systems at Amazon: Unit tests](https://youtu.be/o1sc3cK9bMU?t=930 "https://youtu.be/o1sc3cK9bMU?t=930")
-- [Adopt
-  a test-driven development approach using AWS CDK](../../../prescriptive-guidance/latest/best-practices-cdk-typescript-iac/development-best-practices.md "../../../prescriptive-guidance/latest/best-practices-cdk-typescript-iac/development-best-practices.md")
 - [Getting
   started with testing serverless applications](https://aws.amazon.com/blogs/compute/getting-started-with-testing-serverless-applications/ "https://aws.amazon.com/blogs/compute/getting-started-with-testing-serverless-applications/")
-- [TestDouble](https://martinfowler.com/bliki/TestDouble.html "https://martinfowler.com/bliki/TestDouble.html")

@@ -1,27 +1,36 @@
-# [AG.ACG.7] Use automated tools for scalable cost management
+# [AG.ACG.5] Automate compliance for data regulations and policies
 
 **Category:** RECOMMENDED
 
-Automated cost management tools enable teams to remain agile
-and innovative while maintaining budgetary control. As
-deployment frequency increases due to DevOps improvements, it
-becomes important to put in place guardrails to control
-costs. 
+The rapid pace of development and decentralized nature of
+operating under in a DevOps environment can pose challenges
+for maintaining data privacy compliance. Automation and
+guardrails can greatly ease this process by integrating
+compliance checks and remediation actions throughout the
+development lifecycle. This extends to automated enforcement
+of data access and handling protocols, continuous monitoring
+of resource configurations for data sovereignty and residency
+requirements, and automated auditing and risk assessment.
 
-Use automated cost tracking mechanisms, such as cost budgets
-and alerts, and tag resources for cost allocation. Use cloud
-native cost management tools to monitor and report cloud
-expenditure continuously. Ensure these tools can alert teams
-when costs are approaching or exceeding budgeted amounts, and
-where possible, consider implementing auto-remediation methods
-to optimize resource usage, apply savings plans or reserved
-instances, and decommission unused resources.
+Implement automated tools that can enforce data access and
+handling policies. Set up continuous monitoring systems to
+assess compliance with data sovereignty and residency
+requirements. These tools should also be capable of automated
+auditing, risk assessment, and triggering incident response
+mechanisms when anomalies or threats are detected. By doing
+so, your organization can adapt swiftly to changing data
+privacy laws and regulations, bolster your data security
+governance, and reduce the risk of data breaches or
+non-compliance.
+
+Automating this process is categorized as recommended because
+not all organization practicing DevOps handle applicable
+personal data.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST02-BP05
-  Implement cost controls](../cost-optimization-pillar/cost_govern_usage_controls.md "../cost-optimization-pillar/cost_govern_usage_controls.md")
-- [Cloud
-  Financial Management](../management-and-governance-guide/cloudfinancialmanagement.md "../management-and-governance-guide/cloudfinancialmanagement.md")
-- [AWS Billing and Cost Management Conductor](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/")
-- [AWS Cost Anomaly Detection](https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/ "https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/")
+- [Data
+  Protection & Privacy at AWS](https://aws.amazon.com/compliance/data-protection "https://aws.amazon.com/compliance/data-protection")
+- [Amazon
+  Information Request Report](https://d1.awsstatic.com/Security/pdfs/Amazon_Information_Request_Report.pdf "https://d1.awsstatic.com/Security/pdfs/Amazon_Information_Request_Report.pdf")
+- [AWS Security Blog: Data Privacy](https://aws.amazon.com/blogs/security/ "https://aws.amazon.com/blogs/security/")

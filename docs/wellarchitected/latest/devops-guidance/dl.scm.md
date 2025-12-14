@@ -1,33 +1,23 @@
-# [DL.SCM.10] Generate a comprehensive software inventory for each build
+# [DL.SCM.7] Standardize vulnerability disclosure processes
 
 **Category:** RECOMMENDED
 
-Maintain a comprehensive inventory of the components and dependencies that make up
-your software assists with identifying vulnerabilities and managing risks. This inventory,
-often taking the form of a [Software Bill of Materials (SBOM)](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md"), provides valuable insights into the
-composition of your software.
+A standard vulnerability disclosure policy helps ensure consistent reporting and
+handling of potential vulnerabilities, which in turn enhances the security of the software
+development lifecycle. Implementing standardized vulnerability disclosure practices is
+recommended for optimizing DevOps, as it promotes security, helps manage risk effectively,
+and encourages the responsible reporting and handling of discovered vulnerabilities.
 
-Generate a comprehensive inventory as part of each build. This
-forms a continuous record of your software's composition,
-enabling quick and efficient identification and management of
-potential vulnerabilities or risks. Tracking inventory that is
-machine readable enhances visibility and aids in identifying
-vulnerabilities and risks, enhancing the security posture of
-your software at scale.
-
-Use a tool to create and manage SBOMs, centralizing them with other build artifacts
-for easier accessibility. Open-source tool sets provided by Open Worldwide Application
-Security Project ([OWASP](https://owasp.org/ "https://owasp.org/")) and the [Linux Foundation](https://www.linuxfoundation.org/ "https://www.linuxfoundation.org/") offer options for
-creating and managing SBOMs in standardized formats.
+A method for implementation is provided in RFC 9116, _A File Format to Aid
+in Security Vulnerability Disclosure_ (Foudil, Shafranovich, & Nightwatch
+Cybersecurity, 2022). This guidance provides a standardized process for vulnerability
+disclosure using a machine readable `security.txt` file, which contains contact
+details and the vulnerability disclosure policy. This file is to be placed in
+the `/.well-known/` path of  a domain name or IP address to enable security
+researchers to find the right information to report vulnerabilities they discover easily.
 
 **Related information:**
 
-- [Exporting
-  SBOMs with Amazon Inspector](../../../inspector/latest/user/sbom-export.md "../../../inspector/latest/user/sbom-export.md")
-- [SPDX
-  Becomes Internationally Recognized Standard for Software
-  Bill of Materials](https://www.linuxfoundation.org/press/featured/spdx-becomes-internationally-recognized-standard-for-software-bill-of-materials "https://www.linuxfoundation.org/press/featured/spdx-becomes-internationally-recognized-standard-for-software-bill-of-materials")
-- [Software
-  Supply Chain Best Practices](https://project.linuxfoundation.org/hubfs/CNCF_SSCP_v1.pdf "https://project.linuxfoundation.org/hubfs/CNCF_SSCP_v1.pdf")
-- [OWASP
-  CycloneDX](https://owasp.org/www-project-cyclonedx/ "https://owasp.org/www-project-cyclonedx/")
+- [RFC
+  9116 - A File Format to Aid in Security Vulnerability
+  Disclosure](https://www.rfc-editor.org/rfc/rfc9116 "https://www.rfc-editor.org/rfc/rfc9116")
