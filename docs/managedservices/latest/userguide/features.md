@@ -31,7 +31,7 @@ based on templates and available EBS snapshots of the impacted Stacks.
 AMS provides endpoint security (EPS) such as configuring anti-virus and anti-malware
 protection. You can also use your own EPS tool and processes and not use AMS for EPS using a feature called
 bring your own EPS (BYOEPS). AMS also configures default
-AWS security capabilities that are approved by you during onboarding, such as AWS Identity and Access Management (IAM) roles and Amazon EC2 security groups, and uses standard AWS tools (e.g. AWS Security Hub,
+AWS security capabilities that are approved by you during onboarding, such as AWS Identity and Access Management (IAM) roles and Amazon EC2 security groups, and uses standard AWS tools (e.g. AWS Security Hub CSPM,
 Amazon Macie, Amazon GuardDuty) to monitor and respond to security issues. You manage your users through an
 approved directory service provided by you. For a list of approved directory services,
 see [Supported configurations](supported-configs.md "supported-configs.md").

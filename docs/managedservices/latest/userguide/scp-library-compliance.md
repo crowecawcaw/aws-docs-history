@@ -457,9 +457,9 @@ Prevent the deletion of IAM Access Analyzer.
 }
 ```
 
-## SCP-AMS-024: Prevent modifications to Security Hub
+## SCP-AMS-024: Prevent modifications to Security Hub CSPM
 
-Prevent the deletion of AWS Security Hub.
+Prevent the deletion of AWS Security Hub CSPM.
 
 ```
 {
