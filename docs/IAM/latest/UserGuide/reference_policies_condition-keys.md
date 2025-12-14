@@ -1982,7 +1982,7 @@ based on the account that owns the resource.
     - `route53:AssociateVpcWithHostedZone`
     - `route53:CreateVPCAssociationAuthorization`
 
-  - AWS Security Hub
+  - AWS Security Hub CSPM
     - `securityhub:AcceptAdministratorInvitation`
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
@@ -2132,7 +2132,7 @@ AWS Organizations entity path](access_policies_last-accessed-view-data-orgs.md#a
     - `route53:AssociateVpcWithHostedZone`
     - `route53:CreateVPCAssociationAuthorization`
 
-  - AWS Security Hub
+  - AWS Security Hub CSPM
     - `securityhub:AcceptAdministratorInvitation`
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String") (list)
@@ -2255,7 +2255,7 @@ the requested resource belongs with the identifier specified in the policy.
     - `route53:AssociateVpcWithHostedZone`
     - `route53:CreateVPCAssociationAuthorization`
 
-  - AWS Security Hub
+  - AWS Security Hub CSPM
     - `securityhub:AcceptAdministratorInvitation`
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")

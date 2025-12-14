@@ -76,7 +76,7 @@ analyzer per month. For more details about pricing, see [IAM Access Analyzer pri
 - [Monitoring AWS Identity and Access Management Access Analyzer with
   Amazon EventBridge](access-analyzer-eventbridge.md "access-analyzer-eventbridge.md")
 - [Integrate IAM Access Analyzer with
-  AWS Security Hub](access-analyzer-securityhub-integration.md "access-analyzer-securityhub-integration.md")
+  AWS Security Hub CSPM](access-analyzer-securityhub-integration.md "access-analyzer-securityhub-integration.md")
 - [Logging IAM Access Analyzer API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [IAM Access Analyzer filter keys](access-analyzer-reference-filter-keys.md "access-analyzer-reference-filter-keys.md")
 - [Using service-linked roles for

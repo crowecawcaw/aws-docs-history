@@ -10,10 +10,10 @@ for security best practices.
 ###### Tip
 
 You can monitor your usage of IAM as it relates to security best practices by using
-[AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). Security Hub uses security controls to evaluate resource configurations and
+[AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). Security Hub CSPM uses security controls to evaluate resource configurations and
 security standards to help you comply with various compliance frameworks. For more information
-about using Security Hub to evaluate IAM resources, see [AWS Identity and Access Management controls](../../../securityhub/latest/userguide/iam-controls.md "../../../securityhub/latest/userguide/iam-controls.md") in the
-AWS Security Hub User Guide.
+about using Security Hub CSPM to evaluate IAM resources, see [AWS Identity and Access Management controls](../../../securityhub/latest/userguide/iam-controls.md "../../../securityhub/latest/userguide/iam-controls.md") in the
+AWS Security Hub CSPM User Guide.
 
 ###### Contents
 

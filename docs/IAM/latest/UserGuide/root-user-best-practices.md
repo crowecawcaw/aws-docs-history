@@ -253,11 +253,11 @@ member accounts are evaluated as **not applicable**.
   AWS Config managed rules to help you [enforce MFA for
   root user credentials](../../../config/latest/developerguide/root-account-mfa-enabled.md "../../../config/latest/developerguide/root-account-mfa-enabled.md"). AWS Config can also [identify access keys
   for the root user](../../../config/latest/developerguide/iam-root-access-key-check.md "../../../config/latest/developerguide/iam-root-access-key-check.md").
-- Security Hub provides you with a comprehensive view of your security state in AWS and
+- Security Hub CSPM provides you with a comprehensive view of your security state in AWS and
   helps you assess your AWS environment against security industry standards and best
   practices, such as having MFA on the root user and not having root user access keys. For
   details on the rules available, see [AWS Identity and Access Management controls](../../../securityhub/latest/userguide/iam-controls.md#iam-4 "../../../securityhub/latest/userguide/iam-controls.md#iam-4")
-  in the _Security Hub User Guide_.
+  in the _Security Hub CSPM User Guide_.
 - Trusted Advisor provides a security check so you know if MFA isn't enabled on the root user
   account. For more information, see [MFA on Root
   Account](../../../awssupport/latest/user/security-checks.md#mfa-root-account "../../../awssupport/latest/user/security-checks.md#mfa-root-account") in the _AWS Support User Guide_.
