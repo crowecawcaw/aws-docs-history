@@ -63,6 +63,12 @@ Regional services](https://aws.amazon.com/about-aws/global-infrastructure/region
 
 AWS Application Migration Service regional support includes [AWS Local Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#concepts-local-zones "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#concepts-local-zones") associated with the above supported regions.
 
+###### Important
+
+Application Migration Service supports IPv6 in the regions where Amazon EC2 dual-stack endpoints are present. For the list
+of EC2 dual-stack endpoints, see [Dual-stack (IPv4 and IPv6) endpoints](../../../ec2/latest/devguide/ec2-endpoints.md#ipv6 "../../../ec2/latest/devguide/ec2-endpoints.md#ipv6")
+in the _Amazon EC2 Developer Guide_.
+
 ## Using the AWS Migration Hub with AWS MGN
 
 AWS Application Migration Service works with the AWS Migration Hub (MGH), allowing you to

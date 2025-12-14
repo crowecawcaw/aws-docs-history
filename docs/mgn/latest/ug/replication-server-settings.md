@@ -13,16 +13,19 @@ settings.
 
 The replication server options, include:
 
-- The subnet within which the replication server is launched
+- The subnet within which the replication server is launched. The subnet can
+  use both IPv4 and IPv6 CIDRs.
 - Replication Server instance type
 - Amazon EBS volume types
 - Amazon EBS encryption
 - Security groups
+- IP Version - you can choose IPv4 or IPv6.
 
 ## Staging area subnet
 
 Choose the **Staging area subnet** that you want
-to allocate as the staging area subnet for all of your replication servers.
+to allocate as the staging area subnet for all of your replication servers. If you chose to
+use IPv6, you must choose a subnet that uses IPv6 CIDRs.
 
 The best practice is to create a single dedicated, separate subnet for all of
 your migration waves using your AWS account. Learn more about creating subnets
@@ -413,6 +416,7 @@ AWS Direct Connect, or VPC peering in the AWS Console.
 
 ###### Note
 
+- Use of private IP is not supported for IPv6.
 - If you selected the Default subnet, it is highly unlikely that
   the private IP is used for that subnet. Ensure that Private IP
   (VPN, AWS Direct Connect, or VPC peering) is used for

@@ -20,6 +20,8 @@ update your account-level launch template.
 - You can change the settings for specific servers without affecting the launch template
   as described in [Edit replication settings for
   a server](replication-settings-template.md#edit-replication-settings "replication-settings-template.md#edit-replication-settings") .
+- See [Assign an IPv6 address to an instance](../../../WSEC2/latest/UserGuide/working-with-ipv6-addresses.md#assign-ipv6-address "../../../WSEC2/latest/UserGuide/working-with-ipv6-addresses.md#assign-ipv6-address") in the _Amazon EC2 User Guide_
+  for a list of instance types that do not support IPv6 addresses
 
 ###### Topics
 
@@ -46,7 +48,7 @@ define:
   hourly basis to identify the Private IP and uses the private IP of the primary
   network interface. Make sure that the IP range of the
   subnet you set in the EC2 Launch Template includes the private IP address for this
-  feature to work.
+  feature to work. Copy private IP is not supported for IPv6.
 - **Transfer server tags**: Select if you want
   AWS Application Migration Service to transfer user-configured custom tags from your source servers to
   your test or cutover instance. If selected, server tags are transferred. These

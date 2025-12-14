@@ -56,40 +56,40 @@ The command line indicates when the installer has been successfully downloaded.
 This table contains the installer download link by supported
 AWS Region:
 
-| Region name               | Region identity | Download Link                                                                                                                        |
-| ------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| US East (Ohio)            | us-east-2       | https://aws-application-migration-service-us-east-2.s3.us-east-2.amazonaws.com/latest/linux/aws-replication-installer-init           |
-| US East (N. Virginia)     | us-east-1       | https://aws-application-migration-service-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init           |
-| US West (N. California)   | us-west-1       | https://aws-application-migration-service-us-west-1.s3.us-west-1.amazonaws.com/latest/linux/aws-replication-installer-init           |
-| US West (Oregon)          | us-west-2       | https://aws-application-migration-service-us-west-2.s3.us-west-2.amazonaws.com/latest/linux/aws-replication-installer-init           |
-| Africa (Cape Town)        | af-south-1      | https://aws-application-migration-service-af-south-1.s3.af-south-1.amazonaws.com/latest/linux/aws-replication-installer-init         |
-| Asia Pacific (Thailand)   | ap-southeast-7  | https://aws-application-migration-service-ap-southeast-7.s3.ap-southeast-7.amazonaws.com/latest/linux/aws-replication-installer-init |
-| Asia Pacific (Hong Kong)  | ap-east-1       | https://aws-application-migration-service-ap-east-1.s3.ap-east-1.amazonaws.com/latest/linux/aws-replication-installer-init           |
-| Asia Pacific (Jakarta)    | ap-southeast-3  | https://aws-application-migration-service-ap-southeast-3.s3.ap-southeast-3.amazonaws.com/latest/linux/aws-replication-installer-init |
-| Asia Pacific (Malaysia)   | ap-southeast-5  | https://aws-application-migration-service-ap-southeast-5.s3.ap-southeast-5.amazonaws.com/latest/linux/aws-replication-installer-init |
-| Asia Pacific (Mumbai)     | ap-south-1      | https://aws-application-migration-service-ap-south-1.s3.ap-south-1.amazonaws.com/latest/linux/aws-replication-installer-init         |
-| Asia Pacific (Osaka)      | ap-northeast-3  | https://aws-application-migration-service-ap-northeast-3.s3.ap-northeast-3.amazonaws.com/latest/linux/aws-replication-installer-init |
-| Asia Pacific (Seoul)      | ap-northeast-2  | https://aws-application-migration-service-ap-northeast-2.s3.ap-northeast-2.amazonaws.com/latest/linux/aws-replication-installer-init |
-| Asia Pacific (Singapore)  | ap-southeast-1  | https://aws-application-migration-service-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/latest/linux/aws-replication-installer-init |
-| Asia Pacific (Sydney)     | ap-southeast-2  | https://aws-application-migration-service-ap-southeast-2.s3.ap-southeast-2.amazonaws.com/latest/linux/aws-replication-installer-init |
-| Asia Pacific (Tokyo)      | ap-northeast-1  | https://aws-application-migration-service-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/latest/linux/aws-replication-installer-init |
-| Canada (Central)          | ca-central-1    | https://aws-application-migration-service-ca-central-1.s3.ca-central-1.amazonaws.com/latest/linux/aws-replication-installer-init     |
-| Europe (Frankfurt)        | eu-central-1    | https://aws-application-migration-service-eu-central-1.s3.eu-central-1.amazonaws.com/latest/linux/aws-replication-installer-init     |
-| Europe (Ireland)          | eu-west-1       | https://aws-application-migration-service-eu-west-1.s3.eu-west-1.amazonaws.com/latest/linux/aws-replication-installer-init           |
-| Europe (London)           | eu-west-2       | https://aws-application-migration-service-eu-west-2.s3.eu-west-2.amazonaws.com/latest/linux/aws-replication-installer-init           |
-| Europe (Milan)            | eu-south-1      | https://aws-application-migration-service-eu-south-1.s3.eu-south-1.amazonaws.com/latest/linux/aws-replication-installer-init         |
-| Europe (Paris)            | eu-west-3       | https://aws-application-migration-service-eu-west-3.s3.eu-west-3.amazonaws.com/latest/linux/aws-replication-installer-init           |
-| Europe (Stockholm)        | eu-north-1      | https://aws-application-migration-service-eu-north-1.s3.eu-north-1.amazonaws.com/latest/linux/aws-replication-installer-init         |
-| Middle East (Bahrain)     | me-south-1      | https://aws-application-migration-service-me-south-1.s3.me-south-1.amazonaws.com/latest/linux/aws-replication-installer-init         |
-| South America (São Paulo) | sa-east-1       | https://aws-application-migration-service-sa-east-1.s3.sa-east-1.amazonaws.com/latest/linux/aws-replication-installer-init           |
-| Middle East (UAE)         | me-central-1    | https://aws-application-migration-service-me-central-1.s3.me-central-1.amazonaws.com/latest/linux/aws-replication-installer-init     |
-| Asia Pacific (Melbourne)  | ap-southeast-4  | https://aws-application-migration-service-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/latest/linux/aws-replication-installer-init |
-| Asia Pacific (Hyderabad)  | ap-south-2      | https://aws-application-migration-service-ap-south-2.s3.ap-south-2.amazonaws.com/latest/linux/aws-replication-installer-init         |
-| Europe (Zurich)           | eu-central-2    | https://aws-application-migration-service-eu-central-2.s3.eu-central-2.amazonaws.com/latest/linux/aws-replication-installer-init     |
-| Europe (Spain)            | eu-south-2      | https://aws-application-migration-service-eu-south-2.s3.eu-south-2.amazonaws.com/latest/linux/aws-replication-installer-init         |
-| Israel (Tel Aviv)         | il-central-1    | https://aws-application-migration-service-il-central-1.s3.il-central-1.amazonaws.com/latest/linux/aws-replication-installer-init     |
-| AWS GovCloud (US-East)    | us-gov-east-1   | https://aws-application-migration-service-us-gov-east-1.s3.us-gov-east-1.amazonaws.com/latest/linux/aws-replication-installer-init   |
-| AWS GovCloud (US-West)    | us-gov-west-1   | https://aws-application-migration-service-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/latest/linux/aws-replication-installer-init   |
+| Region name               | Region identity | Download Link                                                                                                                                                                                                                                                                                                                |
+| ------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| US East (Ohio)            | us-east-2       | **IPv4 -\*<br>• https://aws-application-migration-service-us-east-2.s3.us-east-2.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-us-east-2.s3.dualstack.us-east-2.amazonaws.com/latest/linux/aws-replication-installer-init                     |
+| US East (N. Virginia)     | us-east-1       | **IPv4 -\*<br>• https://aws-application-migration-service-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-us-east-1.s3.dualstack.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init                     |
+| US West (N. California)   | us-west-1       | **IPv4 -\*<br>• https://aws-application-migration-service-us-west-1.s3.us-west-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-us-west-1.s3.dualstack.us-west-1.amazonaws.com/latest/linux/aws-replication-installer-init                     |
+| US West (Oregon)          | us-west-2       | **IPv4 -\*<br>• https://aws-application-migration-service-us-west-2.s3.us-west-2.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-us-west-2.s3.dualstack.us-west-2.amazonaws.com/latest/linux/aws-replication-installer-init                     |
+| Africa (Cape Town)        | af-south-1      | **IPv4 -\*<br>• https://aws-application-migration-service-af-south-1.s3.af-south-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-af-south-1.s3.dualstack.af-south-1.amazonaws.com/latest/linux/aws-replication-installer-init                 |
+| Asia Pacific (Thailand)   | ap-southeast-7  | **IPv4 -\*<br>• https://aws-application-migration-service-ap-southeast-7.s3.ap-southeast-7.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-southeast-7.s3.dualstack.ap-southeast-7.amazonaws.com/latest/linux/aws-replication-installer-init |
+| Asia Pacific (Hong Kong)  | ap-east-1       | **IPv4 -\*<br>• https://aws-application-migration-service-ap-east-1.s3.ap-east-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-east-1.s3.dualstack.ap-east-1.amazonaws.com/latest/linux/aws-replication-installer-init                     |
+| Asia Pacific (Jakarta)    | ap-southeast-3  | **IPv4 -\*<br>• https://aws-application-migration-service-ap-southeast-3.s3.ap-southeast-3.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-southeast-3.s3.dualstack.ap-southeast-3.amazonaws.com/latest/linux/aws-replication-installer-init |
+| Asia Pacific (Malaysia)   | ap-southeast-5  | **IPv4 -\*<br>• https://aws-application-migration-service-ap-southeast-5.s3.ap-southeast-5.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-southeast-5.s3.dualstack.ap-southeast-5.amazonaws.com/latest/linux/aws-replication-installer-init |
+| Asia Pacific (Mumbai)     | ap-south-1      | **IPv4 -\*<br>• https://aws-application-migration-service-ap-south-1.s3.ap-south-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-south-1.s3.dualstack.ap-south-1.amazonaws.com/latest/linux/aws-replication-installer-init                 |
+| Asia Pacific (Osaka)      | ap-northeast-3  | **IPv4 -\*<br>• https://aws-application-migration-service-ap-northeast-3.s3.ap-northeast-3.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-northeast-3.s3.dualstack.ap-northeast-3.amazonaws.com/latest/linux/aws-replication-installer-init |
+| Asia Pacific (Seoul)      | ap-northeast-2  | **IPv4 -\*<br>• https://aws-application-migration-service-ap-northeast-2.s3.ap-northeast-2.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-northeast-2.s3.dualstack.ap-northeast-2.amazonaws.com/latest/linux/aws-replication-installer-init |
+| Asia Pacific (Singapore)  | ap-southeast-1  | **IPv4 -\*<br>• https://aws-application-migration-service-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-southeast-1.s3.dualstack.ap-southeast-1.amazonaws.com/latest/linux/aws-replication-installer-init |
+| Asia Pacific (Sydney)     | ap-southeast-2  | **IPv4 -\*<br>• https://aws-application-migration-service-ap-southeast-2.s3.ap-southeast-2.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-southeast-2.s3.dualstack.ap-southeast-2.amazonaws.com/latest/linux/aws-replication-installer-init |
+| Asia Pacific (Tokyo)      | ap-northeast-1  | **IPv4 -\*<br>• https://aws-application-migration-service-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-northeast-1.s3.dualstack.ap-northeast-1.amazonaws.com/latest/linux/aws-replication-installer-init |
+| Canada (Central)          | ca-central-1    | **IPv4 -\*<br>• https://aws-application-migration-service-ca-central-1.s3.ca-central-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ca-central-1.s3.dualstack.ca-central-1.amazonaws.com/latest/linux/aws-replication-installer-init         |
+| Europe (Frankfurt)        | eu-central-1    | **IPv4 -\*<br>• https://aws-application-migration-service-eu-central-1.s3.eu-central-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-eu-central-1.s3.dualstack.eu-central-1.amazonaws.com/latest/linux/aws-replication-installer-init         |
+| Europe (Ireland)          | eu-west-1       | **IPv4 -\*<br>• https://aws-application-migration-service-eu-west-1.s3.eu-west-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-eu-west-1.s3.dualstack.eu-west-1.amazonaws.com/latest/linux/aws-replication-installer-init                     |
+| Europe (London)           | eu-west-2       | **IPv4 -\*<br>• https://aws-application-migration-service-eu-west-2.s3.eu-west-2.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-eu-west-2.s3.dualstack.eu-west-2.amazonaws.com/latest/linux/aws-replication-installer-init                     |
+| Europe (Milan)            | eu-south-1      | **IPv4 -\*<br>• https://aws-application-migration-service-eu-south-1.s3.eu-south-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-eu-south-1.s3.dualstack.eu-south-1.amazonaws.com/latest/linux/aws-replication-installer-init                 |
+| Europe (Paris)            | eu-west-3       | **IPv4 -\*<br>• https://aws-application-migration-service-eu-west-3.s3.eu-west-3.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-eu-west-3.s3.dualstack.eu-west-3.amazonaws.com/latest/linux/aws-replication-installer-init                     |
+| Europe (Stockholm)        | eu-north-1      | **IPv4 -\*<br>• https://aws-application-migration-service-eu-north-1.s3.eu-north-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-eu-north-1.s3.dualstack.eu-north-1.amazonaws.com/latest/linux/aws-replication-installer-init                 |
+| Middle East (Bahrain)     | me-south-1      | **IPv4 -\*<br>• https://aws-application-migration-service-me-south-1.s3.me-south-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-me-south-1.s3.dualstack.me-south-1.amazonaws.com/latest/linux/aws-replication-installer-init                 |
+| South America (São Paulo) | sa-east-1       | **IPv4 -\*<br>• https://aws-application-migration-service-sa-east-1.s3.sa-east-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-sa-east-1.s3.dualstack.sa-east-1.amazonaws.com/latest/linux/aws-replication-installer-init                     |
+| Middle East (UAE)         | me-central-1    | **IPv4 -\*<br>• https://aws-application-migration-service-me-central-1.s3.me-central-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-me-central-1.s3.dualstack.me-central-1.amazonaws.com/latest/linux/aws-replication-installer-init         |
+| Asia Pacific (Melbourne)  | ap-southeast-4  | **IPv4 -\*<br>• https://aws-application-migration-service-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-southeast-4.s3.dualstack.ap-southeast-4.amazonaws.com/latest/linux/aws-replication-installer-init |
+| Asia Pacific (Hyderabad)  | ap-south-2      | **IPv4 -\*<br>• https://aws-application-migration-service-ap-south-2.s3.ap-south-2.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-ap-south-2.s3.dualstack.ap-south-2.amazonaws.com/latest/linux/aws-replication-installer-init                 |
+| Europe (Zurich)           | eu-central-2    | **IPv4 -\*<br>• https://aws-application-migration-service-eu-central-2.s3.eu-central-2.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-eu-central-2.s3.dualstack.eu-central-2.amazonaws.com/latest/linux/aws-replication-installer-init         |
+| Europe (Spain)            | eu-south-2      | **IPv4 -\*<br>• https://aws-application-migration-service-eu-south-2.s3.eu-south-2.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-eu-south-2.s3.dualstack.eu-south-2.amazonaws.com/latest/linux/aws-replication-installer-init                 |
+| Israel (Tel Aviv)         | il-central-1    | **IPv4 -\*<br>• https://aws-application-migration-service-il-central-1.s3.il-central-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-il-central-1.s3.dualstack.il-central-1.amazonaws.com/latest/linux/aws-replication-installer-init         |
+| AWS GovCloud (US-East)    | us-gov-east-1   | **IPv4 -\*<br>• https://aws-application-migration-service-us-gov-east-1.s3.us-gov-east-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-us-gov-east-1.s3.dualstack.us-gov-east-1.amazonaws.com/latest/linux/aws-replication-installer-init     |
+| AWS GovCloud (US-West)    | us-gov-west-1   | **IPv4 -\*<br>• https://aws-application-migration-service-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/latest/linux/aws-replication-installer-init<br>**Dual-stack -\*<br>• https://aws-application-migration-service-us-gov-west-1.s3.dualstack.us-gov-west-1.amazonaws.com/latest/linux/aws-replication-installer-init     |
 
 3. [Generate the temporary credentials](credentials.md "credentials.md") that are required
    to install the AWS Replication Agent.
@@ -178,9 +178,15 @@ Available parameters include:
     * --endpoint
 
 
-    Use this parameter to specify the private link endpoint you created for AWS Application Migration Service if
-     you do not wish to open your firewall ports to access the default Application Migration Service endpoint. [Learn more about installing the Agent on a blocked
-     network.](installing-agent-blocked.md "installing-agent-blocked.md")
+    Use this parameter:
+
+
+
+
+    	+ To specify the private link endpoint you created for AWS Application Migration Service if
+    	 you do not wish to open your firewall ports to access the default Application Migration Service endpoint. [Learn more about installing the Agent on a blocked
+    	 network.](installing-agent-blocked.md "installing-agent-blocked.md")
+    	+ When using dual-stack, to specify a Application Migration Service dual-stack endpoint. You must also specify the `--dualstack` flag.
     * --no-replication
 
 
@@ -193,6 +199,10 @@ Available parameters include:
      `--no-replication` attribute you can start replication by using the "Start
      Replication" option from Replication menu for the source server in the AWS MGN Dashboard or
      by using AWS CLI [start-replication](../APIReference/API_StartReplication.md "../APIReference/API_StartReplication.md")
+    * --dualstack
+
+
+    This parameter enables the agent to run in a dual-stack Application Migration Service configuration. When using this flag, you must also use the `--endpoint` flag to specify a Application Migration Service dual-stack endpoint.
 
 The installer confirms that the installation of the AWS Replication Agent has
 started.

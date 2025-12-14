@@ -34,7 +34,7 @@ Launch settings are composed of the following:
   them manually through the Amazon EC2 Console.
 - **Copy private IP** – Choose whether you want Application
   Migration Service to verify that the private IP used by the test or cutover instance matches
-  the private IP used by the source server.
+  the private IP used by the source server (not supported for IPv6).
 - **Transfer server tags** – Choose whether you want AWS Application Migration Service
   to transfer any user-configured custom tags from your source servers to your test or cutover
   instance.

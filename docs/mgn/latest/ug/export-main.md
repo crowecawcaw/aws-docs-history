@@ -6,6 +6,10 @@ The **Export** feature allows you to easily export your
 inventory of servers, applications, and waves to a CSV file that is saved in your local disk
 or an S3 bucket.
 
+###### Note
+
+The export feature is not supported for IPv6.
+
 ## Defining required permissions for export
 
 In order to use the export feature, you will need to create a role with the following policies (or any extension of them):

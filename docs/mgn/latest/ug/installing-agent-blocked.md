@@ -7,7 +7,7 @@ endpoints. If your on premises network is not open to Application Migration Serv
 install the Agent with the aid of PrivateLink.
 
 You can connect your on premises network to the subnet in your staging area VPC using
-AWS Virtual Private Network or AWS Direct Connect. To use the Site-to-Site VPN or Direct Connect, you must [use private IP in the replication settings](replication-server-settings.md#use-private-ip "replication-server-settings.md#use-private-ip").
+AWS Virtual Private Network or AWS Direct Connect. To use the Site-to-Site VPN or Direct Connect, you must [use private IP in the replication settings](replication-server-settings.md#use-private-ip "replication-server-settings.md#use-private-ip") (not supported for IPv6).
 
 ## Create a VPC endpoint for AWS Application Migration Service
 

@@ -44,7 +44,12 @@ These are the main system components of agentless replication:
   driver (that is used by the AWS Replication Agent)
 - Application Migration Service Service
 - Application Migration Service console
-  This diagram illustrates the high level interaction between the different
-  agentless replication system components:
+
+###### Note
+
+Agentless replication does not work in IPv6-only source environments.
+
+This diagram illustrates the high level interaction between the different
+agentless replication system components:
 
 ![Diagram showing agentless replication from corporate data center to AWS Cloud with staging and migration steps.](images/agentless-architecture.png)

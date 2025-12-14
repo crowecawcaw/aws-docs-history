@@ -31,8 +31,8 @@ settings](detailed-considerations.md "detailed-considerations.md") before creati
 Customers that do not have a default VPC must modify the EC2 launch template and
 explicitly define the subnet in which to launch. Failure to do so results in errors when
 launching test or cutover instances. 3. **Private IP** – If you use the **Copy
-private IP** feature, then do not add your own IP to the EC2 launch
-template. 4. **Private IP and Subnet** – Each subnet contains a CIDR
+private IP** feature, then do not add your own IP to the EC2 launch template.
+Private IP is not supported for IPv6. 4. **Private IP and Subnet** – Each subnet contains a CIDR
 block of IP ranges. If you use the **Copy private IP** feature,
 then ensure that this IP is included in the CIDR block range. Otherwise, instance launch fails. 5. **Private IP and ENI** – Make sure that you deactivate the
 **Copy private IP** feature if you wish to define an ENI to use

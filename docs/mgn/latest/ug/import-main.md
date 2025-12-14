@@ -6,6 +6,10 @@ The **Import** feature allows you to easily import your
 inventory of servers, applications, and waves from a CSV file that is saved in your local disk
 or an S3 bucket.
 
+###### Note
+
+The import feature is not supported for IPv6.
+
 ###### Topics
 
 - [Define required permissions for importing](#import-required-permissions "#import-required-permissions")

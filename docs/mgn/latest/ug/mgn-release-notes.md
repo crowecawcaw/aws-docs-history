@@ -2,6 +2,11 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Release notes
 
+## December 2025
+
+- You can now use Application Migration Service over Internet Protocol version 6 (IPv6) for both service
+  communication and application migrations.
+
 ## September 2025
 
 - Specify your operating system licensing approach (BYOL / LI) and tenancy when importing inventory. Learn more in [Import parameters](import-main.md#import-parameters "import-main.md#import-parameters").

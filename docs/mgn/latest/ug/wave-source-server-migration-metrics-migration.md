@@ -9,7 +9,7 @@ an aggregated overview of the migration lifecycle of the wave's associated serve
 look up an individual source server's **Migration lifecycle**
 status at the **Source servers** table at the bottom of the page.
 
-![Pie chart showing migration lifecycle status: equal distribution among three server states.](/images/mgn/latest/ug/images/app-9.png)
+![Pie chart showing migration lifecycle status: equal distribution among three server states.](images/app-9.png)
 The source server's **Migration lifecycle** can have one of
 the following values:
 

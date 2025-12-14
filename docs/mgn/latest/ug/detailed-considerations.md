@@ -113,7 +113,7 @@ Each disk is composed of the following fields:
     field in the AWS MGN launch settings is copied to this field.
   - **Secondary IP** - Define a secondary IP, if
     needed.
-  - **IPv6 IPs** – Define IPv6 IPs, if needed.
+  - **IPv6 IPs** – Define IPv6 IPs if needed.
   - **Security groups** – Choose a security group. If no
     security group is chosen, then the default VPC security group is used by
     default.

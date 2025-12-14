@@ -88,7 +88,7 @@ field and then press **Enter**:
 
 ###### Note
 
-    * If you have a significant amount of VMs in your vCenter environment, it may take some
+    * If you have a significant number of VMs in your vCenter environment, it may take some
      time for all of the VMs to become visible in the Application Migration Service console.
     * The Application Migration Service vCenter Appliance is excluded from the discovered servers list.
 

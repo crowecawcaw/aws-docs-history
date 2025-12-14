@@ -2,10 +2,8 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Review source server information
 
-The **Server info** tab shows a variety of general server
-information, hardware, and network information.
-
-This tab shows you general information about the source server:
+The **Server info** tab displays general server information,
+hardware, and network information:
 
 - **General information**
   - **Last updated**: when was the data in this tab
@@ -43,5 +41,5 @@ This tab shows you general information about the source server:
 - **Operating system** information
 - **CPUs**
 - **RAM**
-- **Network interfaces**
+- **Primary network interface** Displays the IPv6 address of the interface.
 - **Recommended instance type**

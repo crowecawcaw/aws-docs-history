@@ -15,6 +15,7 @@ Click **Yes** if you want to use a private IP. The IP is shown in brackets next 
 
 ###### Note
 
+- Private IP is not supported for IPv6.
 - Removing a private IP from a specific server's settings does not remove it from the launch template.
 - If you chose **Yes**, ensure that the IP range of the
   subnet you set in the EC2 launch template includes the private IP address.

@@ -44,10 +44,15 @@ However, if you have specific requirements to use the Local Zone for the staging
 
 ### Staging area subnet network requirements
 
-- The replication servers launched by Application Migration Service in your staging area subnet need to
-  be able to send data over TCP port 443 to the Application Migration Service API endpoint at
-  `https://mgn.{region}.amazonaws.com/`. Replace “{region}” with the AWS Region code you are
-  replicating to, for example “us-east-1” .
+- The replication servers launched by Application Migration Service in your staging area subnet need to be able to
+  send data over TCP port 443 to either the
+  - IPv4 compatible Application Migration Service API endpoint at
+    `https://mgn.`aws-region`.amazonaws.com/`. Replace `aws-region` with the
+    AWS Region code you are replicating to, for example “us-east-1”
+  - Dual-stack compatible Application Migration Service API endpoint at
+    `https://mgn.dualstack.`aws-region`.amazonaws.com`. Replace `aws-region` with the
+    AWS Region code you are replicating to, for example “us-east-1”
+
 - The source servers on which the AWS Replication Agent is installed need be able to send
   data over TCP port 1500 to the replication servers in the staging area subnet. They also need to
   be able to send data to the Application Migration Service API endpoint at `https://mgn.{region}.amazonaws.com/`. Replace
