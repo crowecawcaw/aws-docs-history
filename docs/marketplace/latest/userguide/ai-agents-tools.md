@@ -10,7 +10,7 @@ Agentic tools are specialized components that enhance AI agent capabilities, inc
 
 - Knowledge bases for domain-specific information
 - Guardrails for safety and compliance
-- Integration protocols like Model Context Protocol (MCP)
+- Integration protocols like AWS MCP Server (MCP)
 - Specialized APIs and microservices
 - Business logic components and workflows
 
@@ -44,7 +44,7 @@ Agents that assist with software development, testing, and deployment. Examples 
 
 **Agentic tools**
 
-Specialized components that enhance other AI agents, including knowledge bases, guardrails, and integration protocols such as Model Context Protocol (MCP).
+Specialized components that enhance other AI agents, including knowledge bases, guardrails, and integration protocols such as AWS MCP Server (MCP).
 
 ## Deployment options for AI agent products
 
