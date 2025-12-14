@@ -2,7 +2,7 @@
 
 Amazon FSx for Lustre provides two file system deployment options: **persistent**
 and **scratch**. It provides three storage classes: **SSD** (solid state drive),
-**Intelligent-Tiering**, and **HDD** (hard disk drive).
+**AWS Interconnect**, and **HDD** (hard disk drive).
 
 You choose the file system deployment type and storage class when you create a new file
 system, using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or the Amazon FSx for Lustre API. For more information, see [Step 1: Create your FSx for Lustre file system](getting-started.md#getting-started-step1 "getting-started.md#getting-started-step1") and [CreateFileSystem](../APIReference/API_CreateFileSystem.md "../APIReference/API_CreateFileSystem.md") in the _Amazon FSx API Reference_.
@@ -111,7 +111,7 @@ Amazon FSx for Lustre Intelligent-Tiering file systems support a maximum of 512 
 
 ## FSx for Lustre storage classes
 
-Amazon FSx for Lustre offers solid state drive (SSD), Intelligent-Tiering, and hard disk drive (HDD) storage classes
+Amazon FSx for Lustre offers solid state drive (SSD), AWS Interconnect, and hard disk drive (HDD) storage classes
 that are optimized for different data processing requirements:
 
 - The SSD storage class provides low-latency (sub-millisecond) access to your full dataset. The SSD storage class
