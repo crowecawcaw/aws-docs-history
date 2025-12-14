@@ -8,13 +8,13 @@ events. For information about how you can use EventBridge to monitor and process
 [Processing findings with
 Amazon EventBridge](findings-monitor-events-eventbridge.md "findings-monitor-events-eventbridge.md").
 
-You can configure Macie to automatically publish findings to AWS Security Hub too, using destination
+You can configure Macie to automatically publish findings to AWS Security Hub CSPM too, using destination
 options that you specify in the publication settings for your account. With these options,
 you can configure Macie to publish only policy findings, only sensitive data findings, or
-both policy and sensitive data findings to Security Hub. You can also configure Macie to stop
-publishing any findings to Security Hub. For information about how you can use Security Hub to evaluate
+both policy and sensitive data findings to Security Hub CSPM. You can also configure Macie to stop
+publishing any findings to Security Hub CSPM. For information about how you can use Security Hub CSPM to evaluate
 and process findings, see [Evaluating findings with
-AWS Security Hub](securityhub-integration.md "securityhub-integration.md").
+AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md").
 
 For policy findings, the timing with which Macie publishes a finding to another
 AWS service depends on whether the finding is new and the publication frequency that you
@@ -39,14 +39,14 @@ words, Macie doesn't publish suppressed findings to other AWS services.
 for findings
 
 You can configure Amazon Macie to automatically publish policy and sensitive data
-findings to AWS Security Hub in addition to Amazon EventBridge. By default, Macie publishes only new and
-updated policy findings to Security Hub. To change or extend the default configuration, adjust
+findings to AWS Security Hub CSPM in addition to Amazon EventBridge. By default, Macie publishes only new and
+updated policy findings to Security Hub CSPM. To change or extend the default configuration, adjust
 the publication destination settings for your account.
 
 When you adjust your destination settings, you choose the categories of findings that you
-want Macie to publish to Security Hub—only policy findings, only sensitive data
+want Macie to publish to Security Hub CSPM—only policy findings, only sensitive data
 findings, or both policy and sensitive data findings. You can also choose to stop
-publishing any category of finding to Security Hub.
+publishing any category of finding to Security Hub CSPM.
 
 If you change your destination settings, your change applies only to the current
 AWS Region. If you're the Macie administrator for an organization, your change applies only to
@@ -63,32 +63,31 @@ API.
 2. In the navigation pane, choose **Settings**.
 3. In the **Publication of findings** section, under
    **Destinations**, choose from the following options:
-   - **Publish policy findings to Security Hub** – Select this checkbox to
-     start publishing new and updated policy findings to Security Hub automatically.
-     To stop publishing new and updated policy findings to Security Hub, clear this
+   - **Publish policy findings to Security Hub CSPM** – Select this checkbox to
+     start publishing new and updated policy findings to Security Hub CSPM automatically.
+     To stop publishing new and updated policy findings to Security Hub CSPM, clear this
      checkbox.
 
    If you select this checkbox and you have existing policy findings, Macie doesn't
-   publish them to Security Hub. Instead, Macie publishes only those policy
+   publish them to Security Hub CSPM. Instead, Macie publishes only those policy
    findings that it creates or updates after you save your change.
-   - **Publish sensitive data findings to Security Hub** – Select this checkbox to
-     start publishing new sensitive data findings to Security Hub
-     automatically. To stop publishing new sensitive data findings to Security Hub,
+   - **Publish sensitive data findings to Security Hub CSPM** – Select this checkbox to
+     start publishing new sensitive data findings to Security Hub CSPM
+     automatically. To stop publishing new sensitive data findings to Security Hub CSPM,
      clear this checkbox.
 
    If you select this checkbox and you have existing sensitive data findings, Macie
-   doesn't publish them to Security Hub. Instead, Macie publishes only those
+   doesn't publish them to Security Hub CSPM. Instead, Macie publishes only those
    sensitive data findings that it creates after you save your
    change.
 
 4. Choose **Save**.
 
-If you chose to publish any category of finding to Security Hub, make sure that you also enable
-Security Hub in the current Region and configure it to accept findings from Macie. Otherwise,
-you won't be able to access the findings in Security Hub. To learn how to accept findings in
-Security Hub, see [Enabling and managing
-integrations](../../../securityhub/latest/userguide/securityhub-findings-providers.md "../../../securityhub/latest/userguide/securityhub-findings-providers.md") in the _AWS Security Hub User
-Guide_.
+If you chose to publish any category of finding to Security Hub CSPM, make sure that you also enable
+Security Hub CSPM in the current Region and configure it to accept findings from Macie. Otherwise,
+you won't be able to access the findings in Security Hub CSPM. To learn how to accept findings in
+Security Hub CSPM, see [Understanding integrations in Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-findings-providers.md "../../../securityhub/latest/userguide/securityhub-findings-providers.md")
+in the _AWS Security Hub User Guide_.
 
 ## Changing the publication frequency
 
@@ -102,13 +101,13 @@ determine when to publish a finding to another AWS service:
   finding as part of processing the finding. Immediately after Macie finishes
   processing the finding, it publishes the finding to Amazon EventBridge as a new event.
   Depending on the publication settings for your account, Macie also publishes the
-  finding as a new finding in AWS Security Hub.
+  finding as a new finding in AWS Security Hub CSPM.
 - **Updated findings** – When Macie detects
   a subsequent occurrence of an existing policy finding, it updates the existing
   finding by adding details about the subsequent occurrence and incrementing the
   count of occurrences. Macie also publishes these updates to the existing EventBridge
   event and, depending on the publication settings for your account, the existing
-  Security Hub finding. By default, Macie publishes updates every 15 minutes as part of a
+  Security Hub CSPM finding. By default, Macie publishes updates every 15 minutes as part of a
   recurring publication cycle. This means any policy findings that are updated
   after the most recent publication cycle will be held, updated again as
   necessary, and included in the next publication cycle (approximately 15 minutes

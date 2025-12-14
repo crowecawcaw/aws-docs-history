@@ -32,10 +32,10 @@ through interface endpoints.
 
 If you create an interface endpoint for Macie, consider doing the same for other
 AWS services that integrate with Macie and with AWS PrivateLink, such as Amazon EventBridge and
-AWS Security Hub. Macie and those services can then use the interface endpoints for the
+AWS Security Hub CSPM. Macie and those services can then use the interface endpoints for the
 integration. For example, if you create an interface endpoint for Macie and an interface
-endpoint for Security Hub, Macie can use its interface endpoint when it publishes findings to
-Security Hub. Security Hub can use its interface endpoint when it receives the findings. For
+endpoint for Security Hub CSPM, Macie can use its interface endpoint when it publishes findings to
+Security Hub CSPM. Security Hub CSPM can use its interface endpoint when it receives the findings. For
 information about supported services, see [AWS services
 that integrate with AWS PrivateLink](../../../vpc/latest/privatelink/aws-services-privatelink-support.md "../../../vpc/latest/privatelink/aws-services-privatelink-support.md") in the
 _AWS PrivateLink Guide_.

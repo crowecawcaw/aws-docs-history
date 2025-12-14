@@ -52,17 +52,17 @@ through delivery channels that you specify. To learn about using EventBridge eve
 monitor and process findings, see [Processing findings with
 Amazon EventBridge](findings-monitor-events-eventbridge.md "findings-monitor-events-eventbridge.md").
 
-AWS Security Hub
+AWS Security Hub CSPM
 
 For additional, broader analysis of your organization's security posture, you can also
-publish findings to AWS Security Hub. Security Hub is a service that collects security data
+publish findings to AWS Security Hub CSPM. Security Hub CSPM is a service that collects security data
 from AWS services and supported AWS Partner Network security solutions to provide you
 with a comprehensive view of your security state across your AWS environment.
-Security Hub also helps you check your environment against security industry standards
-and best practices. To learn more about Security Hub, see the [AWS Security Hub User
-Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). To learn about using Security Hub to evaluate and process findings,
+Security Hub CSPM also helps you check your environment against security industry standards
+and best practices. To learn more about Security Hub CSPM, see the [AWS Security Hub User
+Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). To learn about using Security Hub CSPM to evaluate and process findings,
 see [Evaluating findings with
-AWS Security Hub](securityhub-integration.md "securityhub-integration.md").
+AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md").
 
 In addition to findings, Macie creates sensitive data discovery results for S3 objects that
 it analyzes to discover sensitive data. A _sensitive data discovery

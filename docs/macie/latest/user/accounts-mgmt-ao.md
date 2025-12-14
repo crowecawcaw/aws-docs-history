@@ -12,7 +12,7 @@ AWS Organizations is a global account management service that enables AWS admini
 consolidate and centrally manage multiple AWS accounts. It provides account management and
 consolidated billing features that are designed to support budgetary, security, and
 compliance needs. It’s offered at no additional charge and it integrates with multiple
-AWS services, including Macie, AWS Security Hub, and Amazon GuardDuty. To learn more, see the [AWS Organizations User Guide](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md").
+AWS services, including Macie, AWS Security Hub CSPM, and Amazon GuardDuty. To learn more, see the [AWS Organizations User Guide](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md").
 
 To integrate Macie with AWS Organizations, you start by designating an account as the delegated
 Macie administrator account for the organization. The Macie administrator then enables Macie for other accounts

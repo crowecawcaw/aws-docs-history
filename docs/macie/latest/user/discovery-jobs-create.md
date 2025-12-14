@@ -125,7 +125,7 @@ of these buckets, spanning as many as 1,000 accounts.
    purpose buckets for your account in the current Region.
 5. In the **Select S3 buckets** section, optionally
    choose refresh (
-   ![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
+   ![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
    ) to retrieve the latest bucket metadata
    from Amazon S3.
 
@@ -502,7 +502,7 @@ settings for the repository. To learn how, see [Storing and retaining
 sensitive data discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md"). After you enter
 the settings, return to the **Review and create** page and
 choose refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
 ) in the **Repository for sensitive
 data discovery results** section of the page.
 

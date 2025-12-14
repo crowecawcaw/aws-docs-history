@@ -23,7 +23,7 @@ Severity levels appear directly on the Amazon Macie console. They're also availa
 representations of findings on the Macie console, from the Amazon Macie API, and in
 sensitive data discovery results that correlate to sensitive data findings. Severity
 levels are also included in finding events that Macie publishes to Amazon EventBridge and
-findings that Macie publishes to AWS Security Hub.
+findings that Macie publishes to AWS Security Hub CSPM.
 
 Severity score
 
@@ -41,7 +41,7 @@ Severity scores don't appear directly on the Amazon Macie console. However, they
 in JSON representations of findings on the Macie console, from the Amazon Macie API, and
 in sensitive data discovery results that correlate to sensitive data findings.
 Severity scores are also included in finding events that Macie publishes to Amazon EventBridge.
-They aren't included in findings that Macie publishes to AWS Security Hub.
+They aren't included in findings that Macie publishes to AWS Security Hub CSPM.
 
 The topics in this section indicate how Macie determines the severity of policy findings
 and sensitive data findings.

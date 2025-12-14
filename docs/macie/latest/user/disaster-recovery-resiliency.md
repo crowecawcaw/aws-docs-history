@@ -24,7 +24,7 @@ includes new findings and updates to existing policy findings. (It doesn't inclu
 that you archive automatically using suppression rules.) By using EventBridge, you can send
 findings data to your preferred storage platform and store the data for as long as you like.
 Depending on publication settings that you choose, Macie can also publish policy and
-sensitive data findings to AWS Security Hub. For more information, see [Monitoring and processing Macie findings](findings-monitor.md "findings-monitor.md").
+sensitive data findings to AWS Security Hub CSPM. For more information, see [Monitoring and processing Macie findings](findings-monitor.md "findings-monitor.md").
 
 You also have the option of using Macie API operations to retrieve findings and other
 types of data programmatically. You can then process and send the data to your preferred

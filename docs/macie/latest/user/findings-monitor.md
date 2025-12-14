@@ -4,7 +4,7 @@ To support integration with other applications, services, and systems, such as m
 or event management systems, Amazon Macie automatically publishes policy and sensitive data
 findings to Amazon EventBridge as events. For additional support and broader analysis of your
 organization's security posture, you can configure Macie to also publish policy and
-sensitive data findings to AWS Security Hub.
+sensitive data findings to AWS Security Hub CSPM.
 
 Amazon EventBridge
 
@@ -25,27 +25,27 @@ notifications in a central location on the AWS Management Console. To learn more
 [Monitoring findings with
 AWS User Notifications](findings-monitor-events-uno.md "findings-monitor-events-uno.md").
 
-AWS Security Hub
+AWS Security Hub CSPM
 
-AWS Security Hub is a security service that provides you with a comprehensive view of
+AWS Security Hub CSPM is a security service that provides you with a comprehensive view of
 your security state across your AWS environment. It collects security data
 from AWS services and supported AWS Partner Network security solutions, and helps you
 check your environment against security industry standards and best practices.
 It also helps you analyze security trends and identify high-priority
 issues.
 
-With Security Hub, you can review and evaluate Macie findings as part of a broader
+With Security Hub CSPM, you can review and evaluate Macie findings as part of a broader
 analysis of your organization's security posture. You can also aggregate
 findings from multiple AWS Regions, and monitor and process aggregated
 findings data from a single Region. To learn more, see [Evaluating findings with
-AWS Security Hub](securityhub-integration.md "securityhub-integration.md").
+AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md").
 
 When Macie creates a finding, it automatically publishes the finding to EventBridge as a new
 event. Depending on the publication settings that you choose for your account, Macie can
-also publish the finding to Security Hub. Macie publishes each new finding immediately after it
+also publish the finding to Security Hub CSPM. Macie publishes each new finding immediately after it
 finishes processing the finding. If Macie detects a subsequent occurrence of an existing
 policy finding, it publishes an update to the existing EventBridge event for the finding. Depending
-on your publication settings, Macie can also publish the update to Security Hub. Macie publishes
+on your publication settings, Macie can also publish the update to Security Hub CSPM. Macie publishes
 these updates on a recurring basis, using a publication frequency that you specify in the
 publication settings for your account.
 
@@ -66,6 +66,6 @@ the [Amazon Macie API Reference](../APIReference/welcome.md "../APIReference/wel
 - [Monitoring findings with
   AWS User Notifications](findings-monitor-events-uno.md "findings-monitor-events-uno.md")
 - [Evaluating findings with
-  AWS Security Hub](securityhub-integration.md "securityhub-integration.md")
+  AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md")
 - [Amazon EventBridge event schema for
   findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md")

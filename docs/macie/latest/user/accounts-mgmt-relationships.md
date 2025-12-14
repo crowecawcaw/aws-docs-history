@@ -66,7 +66,7 @@ In the table:
    exclude specific accounts. If a member creates a suppression rule, Macie doesn’t
    apply the rule to policy findings for the member’s account.
 3. Only the account that owns an affected resource can publish policy findings for
-   the resource to AWS Security Hub. Both administrator and member accounts automatically
+   the resource to AWS Security Hub CSPM. Both administrator and member accounts automatically
    publish policy findings for an affected resource to Amazon EventBridge.
 4. If an administrator enables automated sensitive data discovery or configures a job to analyze
    objects in S3 buckets that a member account owns, Macie stores the sensitive data

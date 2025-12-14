@@ -21,7 +21,7 @@ the security posture of your Amazon S3 data and where sensitive data might resid
 The statistics and information can guide your decisions to perform deeper investigations of
 specific S3 buckets and objects. You can review and analyze findings, statistics, and other
 information by using the Amazon Macie console or the Amazon Macie API. You can also leverage Macie
-integration with Amazon EventBridge and AWS Security Hub to monitor, process, and remediate findings by using other
+integration with Amazon EventBridge and AWS Security Hub CSPM to monitor, process, and remediate findings by using other
 services, applications, and systems.
 
 ###### Topics
@@ -124,9 +124,9 @@ AWS Lambda functions and Amazon Simple Notification Service (Amazon SNS) topics.
 findings in near real time as part of your existing security and compliance workflows.
 
 You can configure Macie to also [publish findings
-to AWS Security Hub](securityhub-integration.md "securityhub-integration.md"). Security Hub is a service that provides a comprehensive view of your security
+to AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md"). Security Hub CSPM is a service that provides a comprehensive view of your security
 posture across your AWS environment and helps you check your environment against security
-industry standards and best practices. With Security Hub, you can more easily evaluate and process
+industry standards and best practices. With Security Hub CSPM, you can more easily evaluate and process
 findings as part of a broader analysis of your organization's security posture in AWS. You
 can also aggregate findings from multiple AWS Regions, and then evaluate and process
 aggregated findings data from a single Region.
@@ -236,17 +236,17 @@ trial](account-mgmt-free-trial.md "account-mgmt-free-trial.md").
 To further secure your data, workloads, and applications in AWS, consider using the
 following AWS services in combination with Amazon Macie.
 
-AWS Security Hub
+AWS Security Hub CSPM
 
-AWS Security Hub gives you a comprehensive view of the security state of your AWS resources
+AWS Security Hub CSPM gives you a comprehensive view of the security state of your AWS resources
 and helps you check your AWS environment against security industry standards and best
 practices. It does this partly by consuming, aggregating, organizing, and prioritizing your
 security findings from multiple AWS services (including Macie) and supported AWS Partner
-Network (APN) products. Security Hub helps you analyze your security trends and identify the highest
+Network (APN) products. Security Hub CSPM helps you analyze your security trends and identify the highest
 priority security issues across your AWS environment.
 
-To learn more about Security Hub, see the [AWS Security Hub User Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). To
-learn about using Macie and Security Hub together, see [Evaluating Macie findings with AWS Security Hub](securityhub-integration.md "securityhub-integration.md").
+To learn more about Security Hub CSPM, see the [AWS Security Hub User Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
+To learn about using Macie and Security Hub CSPM together, see [Evaluating Macie findings with AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md").
 
 Amazon GuardDuty
 

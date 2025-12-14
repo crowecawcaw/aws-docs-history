@@ -12,7 +12,7 @@ filter criteria, a name, and, optionally, a description.
 If you change the criteria of a suppression rule, findings that were previously suppressed
 by the rule continue to be suppressed. The findings continue to have a status of
 _archived_ and Macie doesn't publish them to
-Amazon EventBridge or AWS Security Hub. Macie applies the new criteria only to new sensitive data
+Amazon EventBridge or AWS Security Hub CSPM. Macie applies the new criteria only to new sensitive data
 findings, new policy findings, and subsequent occurrences of existing policy
 findings.
 

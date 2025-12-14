@@ -17,7 +17,7 @@ the rule's criteria. However, Macie automatically changes the status of the find
 _archived_. This means that the findings don't
 appear by default on the Amazon Macie console, but they persist in Macie until they expire.
 (Macie stores findings for 90 days.) This also means that Macie doesn't publish the
-findings to Amazon EventBridge as events or to AWS Security Hub.
+findings to Amazon EventBridge as events or to AWS Security Hub CSPM.
 
 Note that suppression rules might work differently for your account, if your account
 is part of an organization that centrally manages multiple Macie accounts. This depends

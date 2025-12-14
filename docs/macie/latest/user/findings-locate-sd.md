@@ -29,7 +29,7 @@ A sensitive data finding can provide details such as:
   container or Apache Parquet file.
   You can access these details by using the Amazon Macie console or the Amazon Macie API. You can
   also access these details in findings that Macie publishes to other AWS services, both
-  Amazon EventBridge and AWS Security Hub. To learn about the JSON structures that Macie uses to report these
+  Amazon EventBridge and AWS Security Hub CSPM. To learn about the JSON structures that Macie uses to report these
   details, see [Schema for reporting the location of sensitive
   data](findings-locate-sd-schema.md "findings-locate-sd-schema.md"). To learn how to access the details in
   findings that Macie publishes to other AWS services, see [Monitoring and processing

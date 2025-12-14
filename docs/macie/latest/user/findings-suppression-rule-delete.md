@@ -13,7 +13,7 @@ the rule's criteria have a status of _current_ (not
 _archived_). This means that they appear by default
 on the Amazon Macie console. In addition, Macie publishes them to Amazon EventBridge as events.
 Depending on the [publication settings](findings-publish-frequency.md "findings-publish-frequency.md")
-for your account, Macie also publishes the findings to AWS Security Hub.
+for your account, Macie also publishes the findings to AWS Security Hub CSPM.
 
 ###### To delete a suppression rule for findings
 

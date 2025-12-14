@@ -21,7 +21,7 @@ _archived_. This means that the findings don't appear
 by default on the Amazon Macie console, but they persist in Macie until they expire. Macie
 stores findings for 90 days.
 
-In addition, Macie doesn't publish suppressed findings to Amazon EventBridge as events or to AWS Security Hub.
+In addition, Macie doesn't publish suppressed findings to Amazon EventBridge as events or to AWS Security Hub CSPM.
 Macie does, however, continue to create and store [sensitive data discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md") that
 correlate to sensitive data findings that you suppress. This helps ensure that you have an immutable history of sensitive data findings for data privacy and protection audits or investigations that you perform.
 

@@ -19,8 +19,8 @@ services, and systems. Depending on the [suppression
 rules](findings-suppression.md "findings-suppression.md") for your account, Macie can publish sample findings to Amazon EventBridge as events.
 The example data in these events can help you develop and test automated solutions for
 monitoring and processing findings with EventBridge. Depending on the [publication settings](findings-publish-frequency.md "findings-publish-frequency.md") for your account, Macie
-can also publish sample findings to AWS Security Hub. This means that you can also use sample
-findings to develop and test solutions for evaluating Macie findings with Security Hub. For
+can also publish sample findings to AWS Security Hub CSPM. This means that you can also use sample
+findings to develop and test solutions for evaluating Macie findings with Security Hub CSPM. For
 information about publishing findings to these services, see [Monitoring and processing
 findings](findings-monitor.md "findings-monitor.md").
 
