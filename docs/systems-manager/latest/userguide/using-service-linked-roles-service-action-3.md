@@ -19,7 +19,7 @@ actions on the specified resources:
 
 - Systems Manager Explorer requires that a service-linked role grant permission to update
   a security finding when an OpsItem is updated, create and update an OpsItem,
-  and turn off the Security Hub data source when an SSM managed rule is deleted
+  and turn off the Security Hub CSPM data source when an SSM managed rule is deleted
   by customers.
 
 The managed policy that is used to provide permissions for the
@@ -93,15 +93,15 @@ minutes and try the operation again.
 
 The procedure for deleting Systems Manager resources used by the
 `AWSServiceRoleForSystemsManagerOpsDataSync` role depends on if you've configured Explorer or
-OpsCenter to integrate with Security Hub.
+OpsCenter to integrate with Security Hub CSPM.
 
 ###### To delete Systems Manager resources used by the `AWSServiceRoleForSystemsManagerOpsDataSync`
 
 role
 
-- To stop Explorer from creating new OpsItems for Security Hub findings, see [How to stop
+- To stop Explorer from creating new OpsItems for Security Hub CSPM findings, see [How to stop
   receiving findings](explorer-securityhub-integration.md#explorer-securityhub-integration-disable-receive "explorer-securityhub-integration.md#explorer-securityhub-integration-disable-receive").
-- To stop OpsCenter from creating new OpsItems for Security Hub findings, see
+- To stop OpsCenter from creating new OpsItems for Security Hub CSPM findings, see
 
 **To manually delete the `AWSServiceRoleForSystemsManagerOpsDataSync`
 service-linked role using IAM**

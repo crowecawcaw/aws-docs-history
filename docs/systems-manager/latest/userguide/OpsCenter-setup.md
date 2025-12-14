@@ -64,8 +64,8 @@ After you enable OpsCenter, you can do the following from
   alarms to create OpsItems](OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md "OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md").
 - Enable operational insights. For more information, see [Analyzing operational
   insights to reduce OpsItems](OpsCenter-working-operational-insights.md "OpsCenter-working-operational-insights.md").
-- Enable AWS Security Hub findings alarms. For more information, see [Understanding OpsCenter
-  integration with AWS Security Hub](OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub "OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub").
+- Enable AWS Security Hub CSPM findings alarms. For more information, see [Understanding OpsCenter
+  integration with AWS Security Hub CSPM](OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub "OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub").
 
 ###### Contents
 

@@ -21,7 +21,7 @@ following:
 - The Explorer tool uses the service-linked role
   `AWSServiceRoleForAmazonSSM` to enable viewing OpsData and OpsItems from
   multiple accounts. This service-linked role also allows Explorer to
-  create a managed rule when you enable Security Hub as a data source from
+  create a managed rule when you enable Security Hub CSPM as a data source from
   Explorer or OpsCenter.
 
 ###### Important

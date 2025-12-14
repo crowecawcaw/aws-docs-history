@@ -39,7 +39,7 @@ configure CloudWatch alarms that create OpsItems.
 - Amazon Elastic Block Store (EBS): disk space utilization reaches a threshold
   The following list includes types of EventBridge rules customer configure to create OpsItems.
 
-- AWS Security Hub: security alert issued
+- AWS Security Hub CSPM: security alert issued
 - DynamoDB: a throttling event
 - Amazon EC2 Auto Scaling: failure to launch an instance
 - Systems Manager: failure to run an automation
@@ -48,7 +48,7 @@ configure CloudWatch alarms that create OpsItems.
   `Stopped`
   OpsCenter is also integrated with Amazon CloudWatch Application Insights for .NET and SQL Server.
   This means you can automatically create OpsItems for problems detected in your applications.
-  You can also integrate OpsCenter with AWS Security Hub to aggregate and take action on your
+  You can also integrate OpsCenter with AWS Security Hub CSPM to aggregate and take action on your
   security, performance, and operational issues in Systems Manager.
 
 Operations engineers and IT professionals can create, view, and edit OpsItems by using the

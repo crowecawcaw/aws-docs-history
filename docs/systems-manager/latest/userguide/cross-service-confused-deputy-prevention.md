@@ -124,8 +124,8 @@ JSON
 ###### Note
 
 The ARN in the policy example enables the system to encrypt OpsData
-from all sources except AWS Security Hub. If you need to encrypt Security Hub data,
-for example if you use Explorer to collect Security Hub data, then you must
+from all sources except AWS Security Hub CSPM. If you need to encrypt Security Hub CSPM data,
+for example if you use Explorer to collect Security Hub CSPM data, then you must
 attach an additional policy that specifies the following ARN:
 
 `"aws:SourceArn":

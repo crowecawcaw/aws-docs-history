@@ -49,4 +49,4 @@ described in more detail in this section.
 - [Creating and managing patch
   groups](patch-manager-tag-a-patch-group.md "patch-manager-tag-a-patch-group.md")
 - [Integrating Patch Manager with
-  AWS Security Hub](patch-manager-security-hub-integration.md "patch-manager-security-hub-integration.md")
+  AWS Security Hub CSPM](patch-manager-security-hub-integration.md "patch-manager-security-hub-integration.md")

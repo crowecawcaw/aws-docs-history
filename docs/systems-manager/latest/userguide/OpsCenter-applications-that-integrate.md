@@ -21,7 +21,7 @@ OpsItems automatically:
   automatically:
 
 - [Amazon DevOps Guru](#OpsCenter-integrate-with-devops-guru "#OpsCenter-integrate-with-devops-guru")
-- [AWS Security Hub](#OpsCenter-integrate-with-security-hub "#OpsCenter-integrate-with-security-hub")
+- [AWS Security Hub CSPM](#OpsCenter-integrate-with-security-hub "#OpsCenter-integrate-with-security-hub")
   When any of these services create an OpsItem, you can manage and remediate the OpsItem from
   OpsCenter. For more information, see [Manage OpsItems](OpsCenter-working-with-OpsItems.md "OpsCenter-working-with-OpsItems.md") and [Remediate OpsItem issues](OpsCenter-remediating.md "OpsCenter-remediating.md").
 
@@ -41,7 +41,7 @@ see the following topics.
 - [Understanding OpsCenter integration
   with AWS Config](#OpsCenter-about-AWS-config "#OpsCenter-about-AWS-config")
 - [Understanding OpsCenter
-  integration with AWS Security Hub](#OpsCenter-integrate-with-security-hub "#OpsCenter-integrate-with-security-hub")
+  integration with AWS Security Hub CSPM](#OpsCenter-integrate-with-security-hub "#OpsCenter-integrate-with-security-hub")
 - [Understanding OpsCenter
   integration with Incident Manager](#OpsCenter-about-incident-manager "#OpsCenter-about-incident-manager")
 
@@ -147,7 +147,7 @@ registry.
 
 Following are some rules that you can configure in EventBridge to create an OpsItem:
 
-- Security Hub: security alert issued
+- Security Hub CSPM: security alert issued
 - Amazon DynamoDB a throttling event
 - Amazon Elastic Compute Cloud Auto Scaling: failure to launch an instance
 - Systems Manager: failure to run an automation
@@ -185,48 +185,48 @@ monitoring](https://aws.amazon.com/blogs/mt/using-aws-systems-manager-opscenter-
 
 ## Understanding OpsCenter
 
-integration with AWS Security Hub
+integration with AWS Security Hub CSPM
 
-AWS Security Hub collects security data, called _findings_, from across AWS accounts and services. Using a set of
-rules to detect and generate findings, Security Hub helps you identify, prioritize, and
+AWS Security Hub CSPM collects security data, called _findings_, from across AWS accounts and services. Using a set of
+rules to detect and generate findings, Security Hub CSPM helps you identify, prioritize, and
 remediate security issues for the resources you manage. After you configure
-integration, as described in this topic, Systems Manager creates OpsItems for Security Hub findings in
+integration, as described in this topic, Systems Manager creates OpsItems for Security Hub CSPM findings in
 OpsCenter.
 
 ###### Note
 
-OpsCenter has bidirectional integration with Security Hub. This means that if you
+OpsCenter has bidirectional integration with Security Hub CSPM. This means that if you
 update the **Status** or **Severity** field
 for an OpsItem related to a security finding, the system synchronizes the changes
-with Security Hub. Likewise, any changes to a finding are automatically updated in the
+with Security Hub CSPM. Likewise, any changes to a finding are automatically updated in the
 corresponding OpsItems in OpsCenter.
 
-When an OpsItem is created from a Security Hub finding, Security Hub metadata is automatically
+When an OpsItem is created from a Security Hub CSPM finding, Security Hub CSPM metadata is automatically
 added to the operational data field of the OpsItem. If this metadata is deleted,
 the bidirectional updates no longer function.
 
 By default, Systems Manager creates OpsItems for critical and high severity findings. You can
 manually configure OpsCenter to create OpsItems for medium and low severity findings.
 OpsCenter doesn’t create OpsItems for informational findings as they don't require
-remediation. For more information about Security Hub severity levels, see [Severity](../../../securityhub/1.0/APIReference/API_Severity.md "../../../securityhub/1.0/APIReference/API_Severity.md") in the _AWS Security Hub API Reference_.
+remediation. For more information about Security Hub CSPM severity levels, see [Severity](../../../securityhub/1.0/APIReference/API_Severity.md "../../../securityhub/1.0/APIReference/API_Severity.md") in the _AWS Security Hub CSPM API Reference_.
 
 ###### Before you begin
 
-Before you configure OpsCenter to create OpsItems based on Security Hub findings, verify
-that you completed the Security Hub set up tasks. For more information, see [Setting up
-Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
+Before you configure OpsCenter to create OpsItems based on Security Hub CSPM findings, verify
+that you completed the Security Hub CSPM set up tasks. For more information, see [Setting up
+Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User Guide_.
 
-When you integrate Security Hub with OpsCenter, the system creates OpsItems by using the
+When you integrate Security Hub CSPM with OpsCenter, the system creates OpsItems by using the
 `AWSServiceRoleForSystemsManagerOpsDataSync` IAM service-linked
 role. For more information about this role, see [Using roles to create OpsData and OpsItems for Explorer](using-service-linked-roles-service-action-3.md "using-service-linked-roles-service-action-3.md").
 
 ###### Warning
 
 Note the following important information about pricing for OpsCenter
-integration with Security Hub:
+integration with Security Hub CSPM:
 
-- If you are logged into the Security Hub administrator account when you
-  configure OpsCenter and Security Hub integration, the system creates OpsItems for
+- If you are logged into the Security Hub CSPM administrator account when you
+  configure OpsCenter and Security Hub CSPM integration, the system creates OpsItems for
   findings in the administrator _and_ all member
   accounts. The OpsItems are all created _in the administrator
   account_. Depending on a variety of factors, this can lead
@@ -234,30 +234,30 @@ integration with Security Hub:
 
 If you are logged into a member account when you configure
 integration, the system only creates OpsItems for findings in that
-individual account. For more information about the Security Hub administrator
+individual account. For more information about the Security Hub CSPM administrator
 account, member accounts, and their relation to the EventBridge event feed for
-findings, see [Types of Security Hub integration with EventBridge](../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md "../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md") in the
-_AWS Security Hub User Guide_.
+findings, see [Types of Security Hub CSPM integration with EventBridge](../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md "../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md") in the
+_AWS Security Hub CSPM User Guide_.
 
 - For each finding that creates an OpsItem, you are charged the regular
   price for creating the OpsItem. You are also charged if you edit the OpsItem
-  or if the corresponding finding is updated in Security Hub (which triggers an
+  or if the corresponding finding is updated in Security Hub CSPM (which triggers an
   OpsItem update).
-- OpsItems that are created by an integration with AWS Security Hub are
+- OpsItems that are created by an integration with AWS Security Hub CSPM are
   _not_ currently limited by the maximum quota of
   500,000 OpsItems per account in a Region. It is therefore possible for
-  Security Hub alerts to create more than 500,000 chargeable OpsItems in each Region
+  Security Hub CSPM alerts to create more than 500,000 chargeable OpsItems in each Region
   in an account.
 
 For high-production environments, we therefore recommend limiting the
-scope of Security Hub findings to high severity issues only.
+scope of Security Hub CSPM findings to high severity issues only.
 
-###### To configure OpsCenter to create OpsItems for Security Hub findings
+###### To configure OpsCenter to create OpsItems for Security Hub CSPM findings
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **OpsCenter**.
 3. Choose **Settings**.
-4. In the **Security Hub findings** section, choose
+4. In the **Security Hub CSPM findings** section, choose
    **Edit.**
 5. Choose the slider to change **Disabled** to
    **Enabled**.
@@ -266,32 +266,32 @@ scope of Security Hub findings to high severity issues only.
 7. Choose **Save** to save your configuration.
 
 Use the following procedure if you no longer want the system to create OpsItems for
-Security Hub findings.
+Security Hub CSPM findings.
 
-###### To stop receiving OpsItems for Security Hub findings
+###### To stop receiving OpsItems for Security Hub CSPM findings
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **OpsCenter**.
 3. Choose **Settings**.
-4. In the **Security Hub findings** section, choose
+4. In the **Security Hub CSPM findings** section, choose
    **Edit.**
 5. Choose the slider to change **Enabled** to
    **Disabled**. If you aren't able to toggle the slider,
-   Security Hub hasn't been enabled for your AWS account.
+   Security Hub CSPM hasn't been enabled for your AWS account.
 6. Choose **Save** to save your configuration. OpsCenter no
-   longer creates OpsItems based on Security Hub findings.
+   longer creates OpsItems based on Security Hub CSPM findings.
 
 ###### Important
 
 A Systems Manager delegated administrator or the AWS Organizations management account can enable
-Security Hub findings in OpsCenter for multiple accounts and AWS Regions by creating
-a resource data sync in Explorer. If the **Security Hub** source is
+Security Hub CSPM findings in OpsCenter for multiple accounts and AWS Regions by creating
+a resource data sync in Explorer. If the **Security Hub CSPM** source is
 enabled in Explorer and a resource data sync exists that targets the member
-account where you disabled Security Hub integration, then the settings selected by your
-administrator take precedence. OpsCenter continues to create OpsItems for Security Hub
-findings. To stop creating OpsItems for Security Hub findings in a member account targeted
+account where you disabled Security Hub CSPM integration, then the settings selected by your
+administrator take precedence. OpsCenter continues to create OpsItems for Security Hub CSPM
+findings. To stop creating OpsItems for Security Hub CSPM findings in a member account targeted
 by a resource data sync, contact your administrator and ask them to remove your
-account from the resource data sync or turn off the **Security Hub**
+account from the resource data sync or turn off the **Security Hub CSPM**
 source in Explorer. For information about changing settings in Explorer, see
 [Editing Systems Manager Explorer data
 sources](Explorer-using-editing-data-sources.md "Explorer-using-editing-data-sources.md").

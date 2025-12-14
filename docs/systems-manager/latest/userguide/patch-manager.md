@@ -59,7 +59,7 @@ updates and other types of updates. It provides several key benefits:
   define what constitutes patch compliance for your organization through custom
   patch baselines that specify which patches are approved for installation.
 - **Integration with other AWS services**
-  – Patch Manager integrates with AWS Organizations, AWS Security Hub, AWS CloudTrail, and AWS Config
+  – Patch Manager integrates with AWS Organizations, AWS Security Hub CSPM, AWS CloudTrail, and AWS Config
   for enhanced management and security.
 - **Deterministic upgrades** – Support for
   deterministic upgrades through versioned repositories for operating systems like
@@ -278,11 +278,11 @@ Patch Manager integrates with the following other AWS services:
 - **AWS CloudTrail** – Use CloudTrail to record an
   auditable history of patching operation events initiated by users, roles, or
   groups. For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md "monitoring-cloudtrail-logs.md").
-- **AWS Security Hub** – Patch compliance data from
-  Patch Manager can be sent to AWS Security Hub. Security Hub gives you a comprehensive view of your
+- **AWS Security Hub CSPM** – Patch compliance data from
+  Patch Manager can be sent to AWS Security Hub CSPM. Security Hub CSPM gives you a comprehensive view of your
   high-priority security alerts and compliance status. It also monitors the
   patching status of your fleet. For more information, see [Integrating Patch Manager with
-  AWS Security Hub](patch-manager-security-hub-integration.md "patch-manager-security-hub-integration.md").
+  AWS Security Hub CSPM](patch-manager-security-hub-integration.md "patch-manager-security-hub-integration.md").
 - **AWS Config** – Set up recording in AWS Config to
   view Amazon EC2 instance management data in the Patch Manager Dashboard. For more
   information, see [Viewing patch Dashboard

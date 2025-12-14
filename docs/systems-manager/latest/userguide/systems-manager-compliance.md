@@ -11,10 +11,10 @@ Patch Manager and associations in State Manager. (Patch Manager and State Manage
 AWS Systems Manager.) To get started with Compliance, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/compliance "https://console.aws.amazon.com//systems-manager/compliance"). In the navigation pane, choose
 **Compliance**.
 
-Patch compliance data from Patch Manager can be sent to AWS Security Hub. Security Hub gives you a
+Patch compliance data from Patch Manager can be sent to AWS Security Hub CSPM. Security Hub CSPM gives you a
 comprehensive view of your high-priority security alerts and compliance status. It also
 monitors the patching status of your fleet. For more information, see [Integrating Patch Manager with
-AWS Security Hub](patch-manager-security-hub-integration.md "patch-manager-security-hub-integration.md").
+AWS Security Hub CSPM](patch-manager-security-hub-integration.md "patch-manager-security-hub-integration.md").
 
 Compliance offers the following additional benefits and features:
 

@@ -157,9 +157,9 @@ non-compliant AWS Config rules, the number of compliant and non-compliant resour
 and specific details about each (when you drill down into a non-compliant rule
 or resource).
 
-- **AWS Security Hub**
+- **AWS Security Hub CSPM**
 
-Data displayed in Explorer includes: overall summary of Security Hub findings, the
+Data displayed in Explorer includes: overall summary of Security Hub CSPM findings, the
 number of each finding grouped by severity, and specific details about
 finding.
 

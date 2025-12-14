@@ -51,11 +51,11 @@ Generally, you can edit the following configurable data for an OpsItem:
 The Amazon SNS topic must exist in the same AWS Region as the OpsItem. If
 the topic and the OpsItem are in different Regions, the system returns an
 error.
-OpsCenter has bidirectional integration with AWS Security Hub. When you update an OpsItem
+OpsCenter has bidirectional integration with AWS Security Hub CSPM. When you update an OpsItem
 status and severity related to a security finding, those changes are automatically
-sent to Security Hub to ensure you always see the latest and correct information.
+sent to Security Hub CSPM to ensure you always see the latest and correct information.
 
-When an OpsItem is created from a Security Hub finding, Security Hub metadata is automatically
+When an OpsItem is created from a Security Hub CSPM finding, Security Hub CSPM metadata is automatically
 added to the operational data field of the OpsItem. If this metadata is deleted, the
 bidirectional updates no longer function.
 

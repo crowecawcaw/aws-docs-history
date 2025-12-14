@@ -55,9 +55,9 @@ technical documentation.
 - Use Patch Manager, a tool in AWS Systems Manager, to roll out patches at scale and increase fleet
   compliance visibility across your nodes.
 - [Integrate Patch Manager with
-  AWS Security Hub](patch-manager-security-hub-integration.md "patch-manager-security-hub-integration.md") to receive alerts when nodes in your fleet go out of compliance
+  AWS Security Hub CSPM](patch-manager-security-hub-integration.md "patch-manager-security-hub-integration.md") to receive alerts when nodes in your fleet go out of compliance
   and monitor the patching status of your fleets from a security point of view. There
-  is a charge to use Security Hub. For more information, see [Pricing](https://aws.amazon.com/security-hub/pricing/ "https://aws.amazon.com/security-hub/pricing/").
+  is a charge to use Security Hub CSPM. For more information, see [Pricing](https://aws.amazon.com/security-hub/pricing/ "https://aws.amazon.com/security-hub/pricing/").
 - Use only one method at a time for scanning managed nodes for patch compliance to
   [avoid unintentionally
   overwriting compliance data](patch-manager-compliance-data-overwrites.md "patch-manager-compliance-data-overwrites.md").

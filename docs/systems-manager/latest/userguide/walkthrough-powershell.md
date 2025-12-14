@@ -38,8 +38,6 @@ specific users.
   document](#walkthrough-powershell-domain-join "#walkthrough-powershell-domain-join")
 - [Send Windows metrics to
   Amazon CloudWatch Logs using the AWS-ConfigureCloudWatch document](#walkthrough-powershell-windows-metrics "#walkthrough-powershell-windows-metrics")
-- [Update EC2Config using
-  the AWS-UpdateEC2Config document](#walkthrough-powershell-update-ec2config "#walkthrough-powershell-update-ec2config")
 - [Turn on or turn
   off Windows automatic update using the
   AWS-ConfigureWindowsUpdate document](#walkthrough-powershell-enable-windows-update "#walkthrough-powershell-enable-windows-update")
@@ -484,62 +482,6 @@ $cloudWatchMetricsCommand = Send-SSMCommand `
     -InstanceID `instance-ID` `
     -DocumentName "AWS-ConfigureCloudWatch" `
     -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"PerformanceCounter", "FullName":"AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"CategoryName":"Memory", "CounterName":"Available MBytes", "InstanceName":"", "MetricName":"AvailableMemory", "Unit":"Megabytes","DimensionName":"", "DimensionValue":""}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"AccessKey":"", "SecretKey":"","Region":"`region`", "NameSpace":"Windows-Default"}}], "Flows":{"Flows":["PerformanceCounter,CloudWatch"]}}}'}
-```
-
-## Update EC2Config using
-
-the `AWS-UpdateEC2Config` document
-
-Using Run Command and the `AWS-EC2ConfigUpdate` document, you can
-update the EC2Config service running on your Windows Server managed nodes. This
-command can update the EC2Config service to the latest version or a version you
-specify.
-
-**View the description and available parameters**
-
-```
-Get-SSMDocumentDescription `
-    -Name "AWS-UpdateEC2Config"
-```
-
-**View more information about parameters**
-
-```
-Get-SSMDocumentDescription `
-    -Name "AWS-UpdateEC2Config" | Select -ExpandProperty Parameters
-```
-
-### Update EC2Config to the latest version
-
-```
-$ec2ConfigCommand = Send-SSMCommand `
-    -InstanceId `instance-ID` `
-    -DocumentName "AWS-UpdateEC2Config"
-```
-
-###### Get command information with response data for the managed
-
-node
-
-This command returns the output of the specified command from the
-previous `Send-SSMCommand`.
-
-```
-Get-SSMCommandInvocation `
-    -CommandId $ec2ConfigCommand.CommandId `
-    -Details $true `
-    -InstanceId `instance-ID` | Select -ExpandProperty CommandPlugins
-```
-
-### Update EC2Config to a specific version
-
-The following command downgrades EC2Config to an older version.
-
-```
-Send-SSMCommand `
-    -InstanceId `instance-ID` `
-    -DocumentName "AWS-UpdateEC2Config" `
-    -Parameter @{'version'='4.9.3519'; 'allowDowngrade'='true'}
 ```
 
 ## Turn on or turn

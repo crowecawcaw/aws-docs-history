@@ -40,7 +40,7 @@ Integrated Setup performs the following tasks:
   - Systems Manager Inventory
   - AWS Trusted Advisor (You must have either a Business or Enterprise Support
     plan to activate this source.)
-  - AWS Security Hub
+  - AWS Security Hub CSPM
 
 ###### Note
 

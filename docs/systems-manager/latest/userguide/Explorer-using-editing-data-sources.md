@@ -18,12 +18,12 @@ to add or remove data sources:
 - AWS Compute Optimizer
 - AWS Support Center cases
 - AWS Config rule and resource compliance
-- AWS Security Hub findings
+- AWS Security Hub CSPM findings
 
 ###### Note
 
 For the Asia Pacific (Osaka) Region, Explorer doesn't display data from
-AWS Compute Optimizer and AWS Security Hub findings.
+AWS Compute Optimizer and AWS Security Hub CSPM findings.
 
 For the [AWS opt-in Regions](../../../global-infrastructure/latest/regions/aws-regions.md#regions-opt-in-status "../../../global-infrastructure/latest/regions/aws-regions.md#regions-opt-in-status"), Explorer displays data from the following
 sources:
