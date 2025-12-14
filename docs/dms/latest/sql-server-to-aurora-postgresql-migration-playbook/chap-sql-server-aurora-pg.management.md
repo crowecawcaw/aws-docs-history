@@ -1,117 +1,163 @@
-# Monitoring features
+# Maintenance plans
 
-This topic provides reference information about monitoring capabilities in Microsoft SQL Server and Amazon Aurora PostgreSQL. You can use various tools and services to monitor and maintain the performance of your database systems.
+This topic provides reference information comparing database maintenance tasks between Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand the key differences in how these two database systems handle common maintenance operations such as backups, index management, statistics updates, and consistency checks.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                                                                                                                                                                  |
-| -------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Use Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md") in the _Amazon Relational Database Service User Guide_. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                              |
+| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Backups using the Amazon RDS services. Table maintenance using SQL commands. |
 
 ## SQL Server Usage
 
-Monitoring server performance and behavior is a critical aspect of maintaining service quality and includes ad-hoc data collection, ongoing data collection, root cause analysis, preventative actions, and reactive actions. SQL Server provides an array of interfaces to monitor and collect server data.
+A _maintenance plan_ is a set of automated tasks used to optimize a database, performs regular backups, and ensure it is free of inconsistencies. Maintenance plans are implemented as SQL Server Integration Services (SSIS) packages and are run by SQL Server Agent jobs. You can run them manually or automatically at scheduled time intervals.
 
-SQL Server 2017 introduces several new dynamic management views:
+SQL Server provides a variety of pre-configured maintenance tasks. You can create custom tasks using TSQL scripts or operating system batch files.
 
-- `sys.dm_db_log_stats` exposes summary level attributes and information on transaction log files, helpful for monitoring transaction log health.
-- `sys.dm_tran_version_store_space_usage` tracks version store usage for each database, useful for proactively planning `tempdb` sizing based on the version store usage for each database.
-- `sys.dm_db_log_info` exposes VLF information to monitor, alert, and avert potential transaction log issues.
-- `sys.dm_db_stats_histogram` is a new dynamic management view for examining statistics.
-- `sys.dm_os_host_info` provides operating system information for both Windows and Linux.
+Maintenance plans are typically used for the following tasks:
 
-SQL Server 2019 adds new configuration parameter, `LIGHTWEIGHT_QUERY_PROFILING`. It turns on or turns off the lightweight query profiling infrastructure. The lightweight query profiling infrastructure (LWP) provides query performance data more efficiently than standard profiling mechanisms and is enabled by default. For more information, see [Query Profiling Infrastructure](https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-profiling-infrastructure?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-profiling-infrastructure?view=sql-server-ver15") in the _SQL Server documentation_.
+- Backing up database and transaction log files.
+- Performing cleanup of database backup files in accordance with retention policies.
+- Performing database consistency checks.
+- Rebuilding or reorganizing indexes.
+- Decreasing data file size by removing empty pages (shrink a database).
+- Updating statistics to help the query optimizer obtain updated data distributions.
+- Running SQL Server Agent jobs for custom actions.
+- Running a T-SQL task.
 
-### Windows Operating System Level Tools
+Maintenance plans can include tasks for operator notifications and history or maintenance cleanup. They can also generate reports and output the contents to a text file or the maintenance plan tables in the `msdb` database.
 
-You can use the Windows Scheduler to trigger run of script files such as CMD, PowerShell, and so on to collect, store, and process performance data.
+You can create and manage maintenance plans using the maintenance plan wizard in SQL Server Management Studio, Maintenance Plan Design Surface (provides enhanced functionality over the wizard), Management Studio Object Explorer, and T-SQL system stored procedures.
 
-System Monitor is a graphical tool for measuring and recording performance of SQL Server and other Windows-related metrics using the Windows Management Interface (WMI) performance objects.
+For more information, see [SQL Server Agent and PostgreSQL Scheduled Lambda](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md").
 
-###### Note
+### Deprecated DBCC Index and Table Maintenance Commands
 
-Performance objects can also be accessed directly from T-SQL using the SQL Server Operating System Related DMVs. For a full list of the DMVs, see [SQL Server Operating System Related Dynamic Management Views (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+The DBCC DBREINDEX, INDEXDEFRAG, and SHOWCONTIG commands have been deprecated as of SQL Server 2008R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
 
-Performance counters exist for real-time measurements such as CPU Utilization and for aggregated history such as average active transactions. For a full list of the object hierarchy, see: [Use SQL Server Objects](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-ver15") in the _SQL Server documentation_.
+In place of the deprecated DBCC, SQL Server provides newer syntax alternatives as detailed in the following table.
 
-### SQL Server Extended Events
+| Deprecated DBCC command | Use instead                      |
+| ----------------------- | -------------------------------- |
+| `DBCC DBREINDEX`        | `ALTER INDEX …​ REBUILD`         |
+| `DBCC INDEXDEFRAG`      | `ALTER INDEX …​ REORGANIZE`      |
+| `DBCC SHOWCONTIG`       | `sys.dm_db_index_physical_stats` |
 
-SQL Server’s latest tracing framework provides very lightweight and robust event collection and storage. SQL Server Management Studio features the New Session Wizard and New Session graphic user interfaces for managing and analyzing captured data. SQL Server Extended Events consists of the following items:
+For the Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) alternatives to these maintenance commands, see [Aurora PostgreSQL Maintenance Plans](#chap-sql-server-aurora-pg.management.maintenanceplans.pg "#chap-sql-server-aurora-pg.management.maintenanceplans.pg").
 
-- SQL Server Extended Events Package is a logical container for Extended Events objects.
-- SQL Server Extended Events Targets are consumers of events. Targets include Event File, which writes data to the file Ring Buffer for retention in memory, or for processing aggregates such as Event Counters and Histograms.
-- SQL Server Extended Events Engine is a collection of services and tools that comprise the framework.
-- SQL Server Extended Events Sessions are logical containers mapped many-to-many with packages, events, and filters.
+### Examples
 
-The following example creates a session that logs lock escalations and lock timeouts to a file.
+Enable Agent XPs, which are disabled by default.
 
 ```
-CREATE EVENT SESSION Locking_Demo
-ON SERVER
-    ADD EVENT sqlserver.lock_escalation,
-    ADD EVENT sqlserver.lock_timeout
-    ADD TARGET package0.etw_classic_sync_target
-        (SET default_etw_session_logfile_path = N'C:\ExtendedEvents\Locking\Demo_20180502.etl')
-    WITH (MAX_MEMORY=8MB, MAX_EVENT_SIZE=8MB);
-GO
+EXEC [sys].[sp_configure] @configname = 'show advanced options', @configvalue = 1 RECONFIGURE ;
 ```
 
-### SQL Server Tracing Framework and the SQL Server Profiler Tool
+```
+EXEC [sys].[sp_configure] @configname = 'agent xps', @configvalue = 1 RECONFIGURE;
+```
 
-The SQL Server trace framework is the predecessor to the Extended Events framework and remains popular among database administrators. The lighter and more flexible Extended Events Framework is recommended for development of new monitoring functionality. For more information, see [SQL Server Profiler](https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15") in the _SQL Server documentation_.
+Create a T-SQL maintenance plan for a single index rebuild.
 
-### SQL Server Management Studio
+```
+USE msdb;
+```
 
-SQL Server Management Studio (SSMS) provides several monitoring extensions:
+Add the Index Maintenance `IDX1` job to SQL Server Agent.
 
-- **SQL Server Activity Monitor** is an in-process, real-time, basic high-level information graphical tool.
-- **Query Graphical Show Plan** provides easy exploration of estimated and actual query run plans.
-- **Query Live Statistics** displays query run progress in real time.
-- **Replication Monitor** presents a publisher-focused view or distributor-focused view of all replication activity. For more information, see [Overview of the Replication Monitor Interface](https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/overview-of-the-replication-monitor-interface?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/overview-of-the-replication-monitor-interface?view=sql-server-ver15") in the _SQL Server documentation_.
-- **Log Shipping Monitor** displays the status of any log shipping activity whose status is available from the server instance to which you are connected. For more information, see [View the Log Shipping Report (SQL Server Management Studio)](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/view-the-log-shipping-report-sql-server-management-studio?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/view-the-log-shipping-report-sql-server-management-studio?view=sql-server-ver15") in the _SQL Server documentation_.
-- **Standard Performance Reports** is set of reports that show the most important performance metrics such as change history, memory usage, activity, transactions, HA, and more.
+```
+EXEC dbo.sp_add_job @job_name = N'Index Maintenance IDX1', @enabled = 1, @description = N'Optimize IDX1 for INSERT' ;
+```
 
-### T-SQL
+Add the T-SQL job step `Rebuild IDX1 to 50 percent fill`.
 
-From the T-SQL interface, SQL Server provides many system stored procedures, system views, and functions for monitoring data.
+```
+EXEC dbo.sp_add_jobstep @job_name = N'Index Maintenance IDX1', @step_name = N'Rebuild IDX1 to 50 percent fill', @subsystem = N'TSQL',
+@command = N'Use MyDatabase; ALTER INDEX IDX1 ON Shcema.Table REBUILD WITH ( FILL_FACTOR = 50), @retry_attempts = 5, @retry_interval = 5;
+```
 
-System stored procedures such as `sp_who` and `sp_lock` provide real-time information. The `sp_monitor` procedure provides aggregated data.
+Add a schedule to run every day at 01:00 AM.
 
-Built in functions such as `@@CONNECTIONS`, `@@IO_BUSY`, `@@TOTAL_ERRORS`, and others provide high level server information.
+```
+EXEC dbo.sp_add_schedule @schedule_name = N'Daily0100', @freq_type = 4, @freq_interval = 1, @active_start_time = 010000;
+```
 
-A rich set of System Dynamic Management functions and views are provided for monitoring almost every aspect of the server. These functions reside in the sys schema and are prefixed with `dm_string`. For more information, see [System Dynamic Management Views](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views?view=sql-server-ver15") in the _SQL Server documentation_.
+Associate the schedule `Daily0100` with the job index maintenance `IDX1`.
 
-### Trace Flags
+```
+EXEC sp_attach_schedule @job_name = N'Index Maintenance IDX1' @schedule_name = N'Daily0100' ;
+```
 
-You can set trace flags to log events. For example, set trace flag 1204 to log deadlock information. For more information, see [DBCC TRACEON - Trace Flags (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### SQL Server Query Store
-
-Query Store is a database-level framework supporting automatic collection of queries, run plans, and run time statistics. This data is stored in system tables. You can use this data to diagnose performance issues, understand patterns, and understand trends. It can also be set to automatically revert plans when a performance regression is detected.
-
-For more information, see [Monitoring performance by using the Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Maintenance Plans](https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-Amazon Relational Database Service (Amazon RDS) provides a rich monitoring infrastructure for Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) clusters and instances with the Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md") and [Monitoring OS metrics with Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md") in the _Amazon Relational Database Service User Guide_.
+Amazon Relational Database Service (Amazon RDS) performs automated database backups by creating storage volume snapshots that back up entire instances, not individual databases.
 
-You can also use the AWS Performance Insights tool to monitor PostgreSQL.
+Amazon RDS creates snapshots during the backup window for individual database instances and retains snapshots in accordance with the backup retention period. You can use the snapshots to restore a database to any point in time within the backup retention period.
 
-PostgreSQL can also be monitored by querying system catalog table and views.
+###### Note
 
-Starting with PostgreSQL 12, you can monitor progress of `CREATE INDEX`, `REINDEX`, `CLUSTER`, and `VACUUM FULL` operations by querying system views `pg_stat_progress_create_index` and `pg_stat_progress_cluster`.
+The state of a database instance must be ACTIVE for automated backups to occur.
 
-Starting with PostgreSQL 13, you can monitor progress of `ANALYZE` operations by querying system view `pg_stat_progress_analyze`. Also, you can monitor shared memory usage with system view `pg_shmem_allocations`.
+You can backup database instances manually by creating an explicit database snapshot. Use the AWS console, the AWS CLI, or the AWS API to take manual snapshots.
 
-### Example
+### Examples
 
-The following walkthrough demonstrates how to access the Amazon Aurora Performance Insights Console.
+**Create a manual database snapshot using the Amazon RDS console**
 
-1. In the AWS console, choose **RDS**, and then choose **Performance insights**.
-2. The web page displays a dashboard containing current and past database performance metrics. You can choose the period of the displayed performance data (5 minutes, 1 hour, 6 hours, or 24 hours) as well as different criteria to filter and slice the information such as waits, SQL, hosts, users, and so on.
+1. In the AWS console, choose **RDS**, and then choose **Databases**.
+2. Choose your Aurora PostgreSQL instance, and for **Instance actions** choose **Take snapshot**.
 
-![Performance insights](images/pb-sql-server-aurora-pg-performance-insights.png)
+![Take snapshot](images/pb-sql-server-aurora-pg-take-snapshot.png)
 
-### Turning on Performance Insights
+**Restore a snapshot using the Amazon RDS console**
 
-Performance insights are turned on by default for Amazon Aurora clusters. If you have more than one database in your Amazon Aurora cluster, performance data for all databases is aggregated. Database performance data is retained for 24 hours.
+1. In the AWS console, choose **RDS**, and then choose **Snapshots**.
+2. Choose the snapshot to restore, and for **Actions** choose **Restore snapshot**.
 
-For more information, see [Monitoring DB load with Performance Insights on Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md") in the _Amazon Relational Database Service User Guide_.
+This action creates a new instance. 3. Enter the required configuration options in the wizard for creating a new Amazon Aurora database instance. Choose **Restore DB Instance**.
+
+You can also restore a database instance to a point-in-time. For more information, see [Backup and Restore](chap-sql-server-aurora-pg.hadr.md "chap-sql-server-aurora-pg.hadr.md").
+
+For all other tasks, use a third-party or a custom application scheduler.
+
+**Rebuild and reorganize a table**
+
+Aurora PostgreSQL supports the `VACUUM`, `ANALYZE`, and `REINDEX` commands, which are similar to the `REORGANIZE` option of SQL Server indexes.
+
+```
+VACUUM MyTable;
+ANALYZE MyTable;
+REINDEX TABLE MyTable;
+```
+
+- `VACUUM` reclaims storage.
+- `ANALYZE` collects statistics.
+- `REINDEX` recreates all indexes.
+
+For more information, see [ANALYZE](https://www.postgresql.org/docs/13/sql-analyze.html "https://www.postgresql.org/docs/13/sql-analyze.html"), [VACUUM](https://www.postgresql.org/docs/13/sql-vacuum.html "https://www.postgresql.org/docs/13/sql-vacuum.html"), and [REINDEX](https://www.postgresql.org/docs/13/sql-reindex.html "https://www.postgresql.org/docs/13/sql-reindex.html") in the _PostgreSQL documentation_.
+
+**Convert deprecated DBCC index and table maintenance commands**
+
+| Deprecated DBCC command | Aurora PostgreSQL equivalent                           |
+| ----------------------- | ------------------------------------------------------ |
+| `DBCC DBREINDEX`        | `REINDEX INDEX` or `REINDEX TABLE`                     |
+| `DBCC INDEXDEFRAG`      | `VACUUM table_name` or `VACUUM table_name column_name` |
+
+**Update statistics to help the query optimizer get updated data distribution**
+
+For more information, see [SQL Server Managing Statistics and PostgreSQL Table Statistics](chap-sql-server-aurora-pg.tuning.md "chap-sql-server-aurora-pg.tuning.md").
+
+## Summary
+
+The following table summarizes the key tasks that use SQL Server maintenance plans and a comparable Aurora PostgreSQL solutions.
+
+| Task                                                                        | SQL Server                                 | Aurora PostgreSQL                          |
+| --------------------------------------------------------------------------- | ------------------------------------------ | ------------------------------------------ |
+| Rebuild or reorganize indexes                                               | `ALTER INDEX` or `ALTER TABLE`             | `REINDEX INDEX` or `REINDEX TABLE`         |
+| Decrease data file size by removing empty pages                             | `DBCC SHRINKDATABASE` or `DBCC SHRINKFILE` | `VACUUM`                                   |
+| Update statistics to help the query optimizer get updated data distribution | `UPDATE STATISTICS` or `sp_updatestats`    | `ANALYZE`                                  |
+| Perform database consistency checks                                         | `DBCC CHECKDB` or `DBCC CHECKTABLE`        | N/A                                        |
+| Back up the database and transaction log files                              | `BACKUP DATABASE` or `BACKUP LOG`          | Automatically (for example, using AWS CLI) |
+| Run SQL Server Agent jobs for custom actions                                | `sp_start_job` or `scheduled`              | N/A                                        |
+
+For more information, see [Working with backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _PostgreSQL documentation_.
