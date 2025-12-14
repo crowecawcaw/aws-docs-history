@@ -253,7 +253,7 @@ review
    Confirm the name and location of your file, make any needed changes, and then initiate a new
    code review.
 
-   ![The Details section of a code review. No file detected appears under Analysis configuration file.](images/code-review-no-file-detected.png)
+   ![The Details section of a code review. No file detected appears under Analysis configuration file.](/images/codeguru/latest/reviewer-ug/images/code-review-no-file-detected.png)
 
 For more information about using an `aws-codeguru-reviewer.yml` file, see [Suppress
 recommendations](recommendation-suppression.md "recommendation-suppression.md").
