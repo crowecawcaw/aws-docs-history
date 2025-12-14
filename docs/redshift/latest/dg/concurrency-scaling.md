@@ -43,9 +43,9 @@ Concurrency scaling supports frequently used write operations, such as extract, 
 especially useful when you want to maintain consistent response times when your cluster receives a large number of requests. It improves
 throughput for write operations contending for resources on the main cluster.
 
-Concurrency scaling supports COPY, INSERT, DELETE, UPDATE, and CREATE TABLE AS
-(CTAS) statements. Additionally, concurrency scaling supports manual refresh of
-materialized views (MVs). Other data-manipulation language (DML) statements and
+Concurrency scaling supports COPY, INSERT, DELETE, UPDATE, CREATE TABLE AS
+(CTAS), and VACUUM statements. Additionally, concurrency scaling supports manual refresh of
+materialized views (MVs) and automatic vacuum operations. Other data-manipulation language (DML) statements and
 data-definition language (DDL) statements aren't supported. When non-supported write
 statements, such as CREATE without TABLE AS, are included in an explicit transaction
 before the supported write statements, none of the write statements will run on
@@ -80,7 +80,7 @@ The following are limitations for using Amazon Redshift concurrency scaling:
 For more information about resource policies, see [Policy types](../../../IAM/latest/UserGuide/access_policies.md#access_policy-types "../../../IAM/latest/UserGuide/access_policies.md#access_policy-types") in the AWS Identity and Access Management user guide
 and [Controlling access from VPC endpoints with bucket policies](../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md "../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md").
 
-- Amazon Redshift concurrency scaling for write operations is not supported for DDL operations, such as CREATE TABLE or ALTER TABLE.
+- Amazon Redshift concurrency scaling for write operations is not supported for most DDL operations, such as CREATE TABLE.
 - It doesn't support ANALYZE for the COPY command.
 - It doesn't support write operations on a target table where DISTSTYLE is set to ALL.
 - It doesn't support COPY from the following file formats:
