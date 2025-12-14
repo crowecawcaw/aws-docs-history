@@ -27,7 +27,7 @@ the experiment.
 Experiment runs that are automatically created by SageMaker AI jobs and containers are
 visible in the Experiments Studio Classic UI by default. To hide runs created by SageMaker AI jobs
 for a given experiment, choose the settings icon (
-![Black square icon representing a placeholder or empty image.](/images/sagemaker/latest/dg/images/icons/Settings_squid.png)
+![Black square icon representing a placeholder or empty image.](images/icons/Settings_squid.png)
 ) and toggle **Show jobs**.
 
 ![A list of experiment runs in the SageMaker Experiments UI](images/experiments-classic/experiments-runs-overview.png) 3. Double-click a run to display information about a specific run.

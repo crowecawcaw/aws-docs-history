@@ -14,7 +14,7 @@ Enable reasoning by adding the `reasoning_effort` parameter to the `inference` s
 
 ```
 run:
-  name: eval-job-name                                    # [MODIFIABLE] Unique identifier for your evaluation job
+  name: reasoning-eval-job-name                          # [MODIFIABLE] Unique identifier for your evaluation job
   model_type: amazon.nova-2-lite-v1:0:256k               # [FIXED] Must be a reasoning-supported model
   model_name_or_path: nova-lite-2/prod                   # [FIXED] Path to model checkpoint or identifier
   replicas: 1                                            # [MODIFIABLE] Number of replicas for SageMaker Training job
@@ -23,13 +23,13 @@ run:
 
 evaluation:
   task: mmlu                                             # [MODIFIABLE] Evaluation task
-  strategy: generate                                     # [MODIFIABLE] Evaluation strategy
-  metric: all                                            # [MODIFIABLE] Metric calculation method
+  strategy: zs_cot                                       # [MODIFIABLE] Evaluation strategy
+  metric: accuracy                                       # [MODIFIABLE] Metric calculation method
 
 inference:
   reasoning_effort: high                                 # [MODIFIABLE] Enables reasoning mode; options: low/high or null to disable
-  max_new_tokens: 200                                    # [MODIFIABLE] Maximum tokens to generate
-  top_k: 50                                              # [MODIFIABLE] Top-k sampling parameter
+  max_new_tokens: 32768                                  # [MODIFIABLE] Maximum tokens to generate, recommended value when reasoning_effort set to high
+  top_k: -1                                              # [MODIFIABLE] Top-k sampling parameter
   top_p: 1.0                                             # [MODIFIABLE] Nucleus sampling parameter
   temperature: 0                                         # [MODIFIABLE] Sampling temperature (0 = deterministic)
 ```

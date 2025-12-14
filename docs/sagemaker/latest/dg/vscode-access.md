@@ -30,6 +30,24 @@ If you have the HyperPod CLI installed, you can use this simplified command:
 hyp create hyp-space-access --name <space-name> --connection-type vscode-remote
 ```
 
+### Using kubectl
+
+You can also use the `kubectl` command line to create a connection request.
+
+```
+kubectl create -f - -o yaml <<EOF
+apiVersion: connection.workspace.jupyter.org/v1alpha1
+kind: WorkspaceConnection
+metadata:
+  namespace: <space-namespace>
+spec:
+  workspaceName: <space-name>
+  workspaceConnectionType: vscode-remote
+EOF
+```
+
+The URL is present in the `status.workspaceConnectionUrl` of the output of this command.
+
 ## Connecting with VS Code
 
 1. Generate the VS Code connection URL using one of the methods above

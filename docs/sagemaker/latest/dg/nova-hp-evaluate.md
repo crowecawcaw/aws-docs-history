@@ -22,5 +22,4 @@ the Amazon Bedrock runtime APIs.
 - [Starting an evaluation job](customize-fine-tune-evaluate-start-job.md "customize-fine-tune-evaluate-start-job.md")
 - [Accessing and analyzing
   evaluation results](customize-fine-tune-evaluate-access-results.md "customize-fine-tune-evaluate-access-results.md")
-- [Rubric Based Judge](nova-hp-evaluate-rubric-judge.md "nova-hp-evaluate-rubric-judge.md")
 - [RFT evaluation](nova-hp-evaluate-rft.md "nova-hp-evaluate-rft.md")

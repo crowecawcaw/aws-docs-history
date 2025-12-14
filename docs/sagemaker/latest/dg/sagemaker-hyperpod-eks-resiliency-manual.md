@@ -20,7 +20,7 @@ not ready’ in Events
 `kubectl delete pods `<pod-name>` --grace-period=0 --force`
 ```
 
-SageMaker SageMaker HyperPod offers two methods for manual node recovery. The preferred
+SageMaker HyperPod offers two methods for manual node recovery. The preferred
 approach is using the SageMaker HyperPod Reboot and Replace APIs, which provides a faster and more transparent
 recovery process that works across all orchestrators. Alternatively, you can use kubectl commands
 to label nodes for reboot and replace operations. Both methods activate the same SageMaker HyperPod recovery

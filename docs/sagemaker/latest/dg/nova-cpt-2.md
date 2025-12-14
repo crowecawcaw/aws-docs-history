@@ -160,9 +160,6 @@ memorizes popularity and then fails when asked to choose among options.
 Show the situation first, then the options, then the decision. If the model should
 also learn about outcomes or explanations, put them after the decision.
 
-Reports and hides appear before the status. The model learns to follow engagement
-heuristics rather than the written rules.
-
 ### Packing samples for CPT
 
 ###### What is packing?

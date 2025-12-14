@@ -15,6 +15,9 @@ run:
   replicas: 1
   data_s3_path: ""
   output_s3_path: s3://output_path
+  mlflow_tracking_uri: ""
+  mlflow_experiment_name : ""
+  mlflow_run_name : ""
 ```
 
 - `name`: (Required) A descriptive name for your evaluation job. This helps
@@ -24,12 +27,14 @@ run:
   - `amazon.nova-micro-v1:0:128k`
   - `amazon.nova-lite-v1:0:300k`
   - `amazon.nova-pro-v1:0:300k`
+  - `amazon.nova-2-lite-v1:0:256k`
 
 - `model_name_or_path`: (Required) The path to the base model or S3 path
   for the post-trained checkpoint. Options include:
   - `nova-micro/prod`
   - `nova-lite/prod`
   - `nova-pro/prod`
+  - `nova-lite-2/prod`
   - (S3 path for the post-trained checkpoint) `s3://<escrow
 bucket>/<job id>/outputs/checkpoints`
 
@@ -70,10 +75,13 @@ Supported task list:
     + strong\_reject
     + gen\_qa
     + ifeval
-    + mmmu
     + llm\_judge
     + humaneval
     + mm\_llm\_judge
+    + rubric\_llm\_judge
+    + aime\_2024
+    + calendar\_scheduling
+    + humaneval
 
 - `strategy`: (Required) Defines the evaluation approach:
   - zs_cot: Zero-shot Chain-of-Thought - An approach to prompt large language models
@@ -157,6 +165,7 @@ inference:
   top_p: 1.0
   temperature: 0
   top_logprobs: 10
+  reasoning_effort: null  # options: low/high to enable reasoning or null to disable reasoning
 ```
 
 - `max_new_tokens`: The maximum number of tokens to generate. This must be
@@ -172,6 +181,10 @@ inference:
   inference response. This value must be an integer from 0 to 20. Logprobs contain the
   considered output tokens and log probabilities of each output token returned in the
   message content.
+- `reasoning_effort`: controls the reasoning behavior for reasoning-capable
+  models. Set `reasoning_effort` only when `model_type` specifies a reasoning-capable model
+  (currently `amazon.nova-2-lite-v1:0:256k`). Available options are `null` (default value if
+  not set; disables reasoning), `low`, or `high`.
   Note that for `humaneval`, we recommend the following inference
   configuration:
 
@@ -187,10 +200,12 @@ inference:
 The following is an MLFlow configuration and an explanation of the parameters involved. All parameters are optional.
 
 ```
-mlflow:
-  experiment_name: "" # It organizes and group related ML runs
-  run_name: "" # It is the identifier for a specific execution or training iteration within an experiment
+run:
+  mlflow_tracking_uri: ""
+  mlflow_experiment_name: ""
+  mlflow_run_name: ""
 ```
 
-- `experiment_name`: An experiment groups together runs and models for a specific task.
-- `run_name`: Represent the training iteration within an experiment
+- `mlflow_tracking_uri`: Optional) The location of the MLflow tracking server (only needed on SMHP)
+- `mlflow_experiment_name`: (Optional) Name of the experiment to group related ML runs together
+- `mlflow_run_name`: (Optional) Custom name for a specific training run within an experiment

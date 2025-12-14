@@ -21,7 +21,7 @@ node replacement is the more appropriate solution.
 
 ## Ways to manually reboot or replace nodes
 
-SageMaker SageMaker HyperPod offers two methods for manual node recovery. The preferred
+SageMaker HyperPod offers two methods for manual node recovery. The preferred
 approach is using the SageMaker HyperPod Reboot and Replace APIs, which provides a faster and more transparent
 recovery process that works across all orchestrators. Alternatively, you can use traditional Slurm commands
 like `scontrol update`, though this legacy method requires direct access to the Slurm's controller node. Both
@@ -35,9 +35,9 @@ reboot a faulty node in your SageMaker HyperPod cluster.
 Here is an example of running the reboot operation on two Instances of a cluster using the AWS Command Line Interface:
 
 ```
- aws sagemaker-dev batch-reboot-cluster-nodes \
+ aws sagemaker batch-reboot-cluster-nodes \
                 --cluster-name arn:aws:sagemaker:ap-northeast-1:123456789:cluster/test-cluster \
-                --node-ids i-abc123 i-def456
+                --node-ids i-0123456789abcdef0 i-0fedcba9876543210
 ```
 
 ## Manually replace a node using replace API
@@ -48,9 +48,9 @@ replace a faulty node in your SageMaker HyperPod cluster.
 Here is an example of running the replace operation on two Instances of a cluster using the AWS Command Line Interface:
 
 ```
- aws sagemaker-dev batch-replace-cluster-nodes \
+ aws sagemaker batch-replace-cluster-nodes \
                 --cluster-name arn:aws:sagemaker:ap-northeast-1:123456789:cluster/test-cluster \
-                --node-ids i-abc123 i-def456
+                --node-ids i-0123456789abcdef0 i-0fedcba9876543210
 ```
 
 ## Manually reboot a node using Slurm

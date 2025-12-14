@@ -73,7 +73,7 @@ training jobs training for Nova 2 models.
 
 | Nova 2 Training Requirements                  | Training Technique | Minimum Instances | Instance Type | GPU Count                                       | Notes               | Supported Models |
 | --------------------------------------------- | ------------------ | ----------------- | ------------- | ----------------------------------------------- | ------------------- | ---------------- |
-| SFT (LoRA)                                    | 2                  | P5.48xlarge       | 16            | Parameter-efficient fine-tuning                 | Nova 1, Nova 2 Lite |
+| SFT (LoRA)                                    | 4                  | P5.48xlarge       | 16            | Parameter-efficient fine-tuning                 | Nova 1, Nova 2 Lite |
 | SFT (Full Rank)                               | 4                  | P5.48xlarge       | 32            | Full model fine-tuning                          | Nova 1, Nova 2 Lite |
 | RFT on SageMaker AI Training Jobs (LoRA)      | 2                  | P5.48xlarge       | 16            | Custom Reward Functions in your AWS Environment | Nova 2 Lite         |
 | RFT on SageMaker AI Training Jobs (Full Rank) | 4                  | P5.48xlarge       | 32            | 32K context length                              | Nova 2 Lite         |

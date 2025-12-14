@@ -31,6 +31,24 @@ command:
 hyp create hyp-space-access --name <space-name> --connection-type web-ui
 ```
 
+**Using kubectl**
+
+You can also use the `kubectl` command line to create a connection request.
+
+```
+kubectl create -f - -o yaml <<EOF
+apiVersion: connection.workspace.jupyter.org/v1alpha1
+kind: WorkspaceConnection
+metadata:
+  namespace: <space-namespace>
+spec:
+  workspaceName: <space-name>
+  workspaceConnectionType: web-ui
+EOF
+```
+
+The URL is present in the `status.workspaceConnectionUrl` of the output of this command.
+
 ## Accessing Your Development Space
 
 1. _Generate the web UI URL_ using one of

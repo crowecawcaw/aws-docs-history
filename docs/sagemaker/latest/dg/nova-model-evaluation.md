@@ -52,19 +52,22 @@ specify the following benchmarks in the `eval_task` parameter.
 
 **Available benchmarks for model evaluation**
 
-| Benchmark     | Modality            | Description                                                                                                                                                                                                                                                          | Metrics     | Strategy | Subtask available |
-| ------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------- | ----------------- |
-| mmlu          | Text                | Multi-task Language Understanding – Tests knowledge across 57<br>subjects.                                                                                                                                                                                           | accuracy    | zs_cot   | Yes               |
-| mmlu_pro      | Text                | MMLU – Professional Subset – Focuses on professional domains<br>such as law, medicine, accounting, and engineering.                                                                                                                                                  | accuracy    | zs_cot   | No                |
-| bbh           | Text                | Advanced Reasoning Tasks – A collection of challenging<br>problems that test higher-level cognitive and problem-solving<br>skills.                                                                                                                                   | accuracy    | fs_cot   | Yes               |
-| gpqa          | Text                | General Physics Question Answering – Assesses comprehension of<br>physics concepts and related problem-solving abilities.                                                                                                                                            | accuracy    | zs_cot   | No                |
-| math          | Text                | Mathematical Problem Solving – Measures mathematical reasoning<br>across topics including algebra, calculus, and word<br>problems.                                                                                                                                   | exact_match | zs_cot   | Yes               |
-| strong_reject | Text                | Quality-Control Task – Tests the model’s ability to detect and<br>reject inappropriate, harmful, or incorrect content.                                                                                                                                               | deflection  | zs       | Yes               |
-| ifeval        | Text                | Instruction-Following Evaluation – Gauges how accurately a<br>model follows given instructions and completes tasks to<br>specification.                                                                                                                              | accuracy    | zs       | No                |
-| gen_qa        | Multi-Modal (image) | Custom Dataset Evaluation – Lets you supply your own dataset<br>for benchmarking, comparing model outputs to reference answers<br>with metrics such as ROUGE and BLEU. `gen_qa`<br>supports image inference for Amazon Nova Lite or Amazon Nova Pro based<br>models. | all         | gen_qa   | No                |
-| mmmu          | Multi-Modal         | Massive Multidiscipline Multimodal Understanding (MMMU) –<br>College-level benchmark comprising multiple-choice and<br>open-ended questions from 30 disciplines.                                                                                                     | accuracy    | zs_cot   | Yes               |
-| llm_judge     | Text                | LLM-as-a-Judge Preference Comparison – Uses a Nova Judge model<br>to determine preference between paired responses (B compared<br>with A) for your prompts, calculating the probability of B being<br>preferred over A.                                              | all         | judge    | No                |
-| mm_llm_judge  | Multi-Modal (image) | This new benchmark behaves the same as the text-based<br>`llm_judge`above. The only difference is that it<br>supports image inference.                                                                                                                               | all         | judge    | No                |
+| Benchmark           | Modality            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Metrics     | Strategy | Subtask available |
+| ------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | -------- | ----------------- |
+| mmlu                | Text                | Multi-task Language Understanding – Tests knowledge across 57<br>subjects.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | accuracy    | zs_cot   | Yes               |
+| mmlu_pro            | Text                | MMLU – Professional Subset – Focuses on professional domains<br>such as law, medicine, accounting, and engineering.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | accuracy    | zs_cot   | No                |
+| bbh                 | Text                | Advanced Reasoning Tasks – A collection of challenging<br>problems that test higher-level cognitive and problem-solving<br>skills.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | accuracy    | fs_cot   | Yes               |
+| gpqa                | Text                | General Physics Question Answering – Assesses comprehension of<br>physics concepts and related problem-solving abilities.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | accuracy    | zs_cot   | No                |
+| math                | Text                | Mathematical Problem Solving – Measures mathematical reasoning<br>across topics including algebra, calculus, and word<br>problems.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | exact_match | zs_cot   | Yes               |
+| strong_reject       | Text                | Quality-Control Task – Tests the model’s ability to detect and<br>reject inappropriate, harmful, or incorrect content.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | deflection  | zs       | Yes               |
+| ifeval              | Text                | Instruction-Following Evaluation – Gauges how accurately a<br>model follows given instructions and completes tasks to<br>specification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | accuracy    | zs       | No                |
+| gen_qa              | Multi-Modal (image) | Custom Dataset Evaluation – Lets you supply your own dataset<br>for benchmarking, comparing model outputs to reference answers<br>with metrics such as ROUGE and BLEU. `gen_qa`<br>supports image inference for Amazon Nova Lite or Amazon Nova Pro<br>based models. Also supports Bring-Your-Own Metrics lambda. (For<br>RFT evaluation, please use RFT eval recipe)                                                                                                                                                                                                                                  | all         | gen_qa   | No                |
+| llm_judge           | Text                | LLM-as-a-Judge Preference Comparison – Uses a Nova Judge model<br>to determine preference between paired responses (B compared<br>with A) for your prompts, calculating the probability of B being<br>preferred over A.                                                                                                                                                                                                                                                                                                                                                                                | all         | judge    | No                |
+| mm_llm_judge        | Multi-Modal (image) | This new benchmark behaves the same as the text-based<br>`llm_judge`above. The only difference is that it<br>supports image inference.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | all         | judge    | No                |
+| rubric_llm_judge    | Text                | Rubric Judge is an enhanced LLM-as-a-judge evaluation model<br>built on Nova 2.0 Lite. Unlike the [original judge model](https://aws.amazon.com/blogs/machine-learning/evaluating-generative-ai-models-with-amazon-nova-llm-as-a-judge-on-amazon-sagemaker-ai/ "https://aws.amazon.com/blogs/machine-learning/evaluating-generative-ai-models-with-amazon-nova-llm-as-a-judge-on-amazon-sagemaker-ai/") that only provides preference<br>verdicts, Rubric Judge dynamically generates custom evaluation<br>criteria tailored to each prompt and assigns granular scores<br>across multiple dimensions. | all         | judge    | No                |
+| aime_2024           | Text                | AIME 2024<br>• American Invitational Mathematics Examination<br>problems testing advanced mathematical reasoning and<br>problem-solving                                                                                                                                                                                                                                                                                                                                                                                                                                                                | exact_match | zs_cot   | No                |
+| calendar_scheduling | Text                | Natural Plan<br>• Calendar Scheduling task testing planning<br>abilities for scheduling meetings across multiple days and<br>people                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | exact_match | fs       | No                |
+| humaneval           | Text                | HumanEval<br>• A benchmark dataset designed to evaluate the code<br>generation capabilities of large language models                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | pass@1      | zs       | No                |
 
 ## Evaluation specific
 
@@ -82,10 +85,13 @@ modifying your recipes
 ```
 run:
   name: eval_job_name
-  model_type: amazon.nova-micro-v1:0:128k
-  model_name_or_path: nova-micro/prod
+  model_type: amazon.nova-2-lite-v1:0:256k
+  model_name_or_path: nova-lite-2/prod # or s3://escrow_bucket/model_location
   replicas: 1
   data_s3_path: ""
+  mlflow_tracking_uri: ""
+  mlflow_experiment_name : ""
+  mlflow_run_name : ""
 ```
 
 - `name`: A descriptive name for your evaluation job.
@@ -94,12 +100,14 @@ run:
   - amazon.nova-micro-v1:0:128k
   - amazon.nova-lite-v1:0:300k
   - amazon.nova-pro-v1:0:300k
+  - amazon.nova-2-lite-v1:0:256k
 
 - `model_name_or_path`: The path to the base model or s3 path
   for post trained checkpoint. Options include:
   - nova-micro/prod
   - nova-lite/prod
   - nova-pro/prod
+  - nova-lite-2/prod
   - S3 path for post trained checkpoint path
     (`s3:customer-escrow-111122223333-smtj-<unique_id>/<training_run_name>`)
 
@@ -129,6 +137,9 @@ run:
   training jobs, not SageMaker HyperPod.
 - `data_s3_path`: The input dataset Amazon S3 path. This field is
   required but should always left empty.
+- `mlflow_tracking_uri`: (Optional) The location of the MLflow tracking server (only needed on SMHP)
+- `mlflow_experiment_name`: (Optional) Name of the experiment to group related ML runs together
+- `mlflow_run_name`: (Optional) Custom name for a specific training run within an experiment
 
 **Evaluation configuration**
 
@@ -150,9 +161,12 @@ evaluation:
   - `strong_reject`
   - `gen_qa`
   - `ifeval`
-  - `mmmu`
   - `llm_judge`
   - `mm_llm_judge`
+  - `rubric_llm_judge`
+  - `aime_2024`
+  - `calendar_scheduling`
+  - `humaneval`
 
 - `strategy`: Defines the evaluation approach.
   - `zs_cot`: Zero-shot Chain of Thought - an approach
@@ -263,6 +277,7 @@ inference:
   top_p: 1.0
   temperature: 0
   top_logprobs: 10
+  reasoning_effort: null  # options: low/high to enable reasoning or null to disable reasoning
 ```
 
 - `max_new_tokens`: Maximum number of tokens to generate.
@@ -278,61 +293,10 @@ inference:
   in the inference response. This value must be an integer from 0 to 20.
   Logprobs contain the considered output tokens and log probabilities of
   each output token returned in the message content.
-
-### Reasoning model support for
-
-evaluation
-
-Amazon Nova Lite 2.0 (amazon.nova-2-lite-v1:0:256k) supports an explicit reasoning
-mode that enables the model to perform internal reasoning steps before
-generating final responses. This capability is controlled through the
-`reasoning_effort` parameter in your evaluation recipe.
-
-```
-run:
-  name: "nova-evaluation-with-reasoning"
-  model_type: "amazon.nova-2-lite-v1:0:256k"
-  model_name_or_path: "nova-lite-2/prod"
-  replicas: 1
-  data_s3_path: "s3://your-bucket/evaluation-data.jsonl"
-  output_s3_path: "s3://your-bucket/evaluation-results/"
-
-evaluation:
-  task: "mmlu"
-  strategy: "generate"
-  metric: "all"
-
-inference:
-  reasoning_effort: "high"
-  max_new_tokens: 200
-  top_k: 50
-  top_p: 1.0
-  temperature: 0
-```
-
-**Enable reasoning (low or high) for:**
-
-- Mathematical problem-solving
-- Multi-step logical deductions
-- Code generation and debugging
-- Complex analytical questions requiring intermediate steps
-- Tasks where showing your work improves accuracy
-
-**Use non-reasoning mode (omit parameter)
-for:**
-
-- Simple Q&A or factual queries
-- Creative writing tasks
-- Classification tasks
-- When faster response times are critical
-- Performance benchmarking where reasoning overhead should be
-  excluded
-
-###### Important
-
-Only `amazon.nova-2-lite-v1:0:256k` currently supports
-reasoning mode. Using `reasoning_effort` with unsupported models
-will fail with a ConfigValidationError.
+- `reasoning_effort`: controls the reasoning behavior for
+  reasoning-capable models. Set `reasoning_effort` only when
+  `model_type` specifies a reasoning-capable model (currently `amazon.nova-2-lite-v1:0:256k`).
+  Available options are null (default value if not set; disables reasoning), low, or high.
 
 ### Evaluation recipe
 
@@ -348,18 +312,6 @@ Amazon Nova models across a comprehensive suite of text-only benchmarks.
 
 Recipe format:
 `xxx_general_text_benchmark_eval.yaml`.
-
-These recipes enable you to evaluate the fundamental capabilities of
-Amazon Nova models across a comprehensive suite of multi-modality benchmarks.
-
-Recipe format:
-`xxx_general_multi_modal_benchmark_eval.yaml`.
-
-**Multi-modal benchmark
-requirements**
-
-- Model support - Only support nova-lite and nova-pro base model
-  and its post-trained variants.
 
 These recipes enable you to bring your own dataset for benchmarking
 and compare model outputs to reference answers using different types of
@@ -590,6 +542,7 @@ JSON
 ```
 processor:
   lambda_arn: arn:aws:lambda:us-east-1:111122223333:function:name
+  lambda_type: "custom_metrics"
   preprocessing:
     enabled: true
   postprocessing:
@@ -600,13 +553,14 @@ processor:
     * `lambda-arn`: The Amazon Resource Name
      (ARN) for your Lambda function that handles
      preprocessing and postprocessing.
+    * `lambda_type`: "custom\_metrics" or "rft".
     * `preprocessing`: Whether to enable
-     custom pre-processing operations
+     custom pre-processing operations.
     * `postprocessing`: Whether to enable
-     custom post-processing operations
+     custom post-processing operations.
     * `aggregation`: Built-in aggregation
      function (valid options: min, max, average,
-     sum)
+     sum).
 
 **Limitations**
 
@@ -793,8 +747,9 @@ evaluation:
 
 jobs
 
-Start a training job using the following sample Jupyter notebook. For more
-information, see [Use a SageMaker AI estimator to run a training job](docker-containers-adapt-your-own-private-registry-estimator.md "docker-containers-adapt-your-own-private-registry-estimator.md").
+Start a training job using the following sample Jupyter notebook. Please refer to
+below notebook as example to run the evaluation training job. For more information,
+see [Use a SageMaker AI estimator to run a training job](docker-containers-adapt-your-own-private-registry-estimator.md "docker-containers-adapt-your-own-private-registry-estimator.md").
 
 ### Reference tables
 
@@ -811,9 +766,9 @@ image URI and instance configurations.
 
 | Model             | Job type             | Instance type | Recommended instance count | Allowed instance count |
 | ----------------- | -------------------- | ------------- | -------------------------- | ---------------------- |
-| Amazon Nova Micro | Evaluation (SFT/DPO) | g5.12xlarge   | 1                          | 1                      |
-| Amazon Nova Lite  | Evaluation (SFT/DPO) | g5.12xlarge   | 1                          | 1                      |
-| Amazon Nova Pro   | Evaluation (SFT/DPO) | p5.48xlarge   | 1                          | 1                      |
+| Amazon Nova Micro | Evaluation (SFT/DPO) | g5.12xlarge   | 1                          | 1<br>• 16              |
+| Amazon Nova Lite  | Evaluation (SFT/DPO) | g5.12xlarge   | 1                          | 1<br>• 16              |
+| Amazon Nova Pro   | Evaluation (SFT/DPO) | p5.48xlarge   | 1                          | 1<br>• 16              |
 
 ### Sample notebook
 
@@ -822,6 +777,9 @@ job.
 
 ```
 # install python SDK
+
+# Do not use sagemaker v3, as sagemaker v3 introduced breaking changes
+
 !pip install sagemaker==2.254.1
 
 import os
@@ -986,47 +944,41 @@ The following lists some best practices for the evaluation process.
 You can use CloudWatch log group `/aws/sagemaker/TrainingJobs` for
 training job error logs.
 
-#### CUDA Out of Memory
-
-Error
+#### Engine core Failure
 
 **Issue**:
 
-When running model evaluation, you receive the following error:
+If you are seeing:
 
 ```
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate X MiB.
-GPU 0 has a total capacity of Y GiB of which Z MiB is free.
+RuntimeError: Engine core initialization failed.
 ```
 
 **Cause**:
 
-This error occurs when you attempt to load a model that requires more GPU
-memory than what's available on your current instance type.
+Although this is a general error that can have multiple causes, it
+typically occurs when there is a mismatch between the model checkpoint
+you're trying to load and the model type specified. E.g. you want to
+evaluate a fine-tuned Nova 2.0 lite model checkpoint but the model type you
+provide is 1.0 model type. e.g. `amazon.nova-micro-v1:0:128k`
 
-**Solution**:
+The correct mapping should be
 
-Choose an instance type with more GPU memory. For example, if you use
-G5.12xlarge (96 GiB GPU memory), upgrade to G5.48xlarge (192 GiB GPU
-memory)
+```
+model_type: amazon.nova-2-lite-v1:0:256k
+model_name_or_path: nova-lite-2/prod # or s3://escrow_bucket/model_location
+```
 
 **Prevention**:
 
-Before running model evaluation, do the following.
-
-- Estimate your model's memory requirements
-- Ensure your selected instance type has sufficient GPU
-  memory
-- Consider the memory overhead needed for model loading and
-  inference
+Double check the `model_name_or_path` is mapped to the right `model_type` before submitting the evaluation job.
 
 ## Available subtasks
 
 The following lists available subtasks for model evaluation across multiple
 domains including MMLU (Massive Multitask Language Understanding), BBH (Big Bench
-Hard), mathematics, and MMMU (Massive Multi-discipline Multimodal Understanding).
-These subtasks allow you to assess your model's performance on specific capabilities
-and knowledge areas.
+Hard), and MATH. These subtasks allow you to assess your model's performance on
+specific capabilities and knowledge areas.
 
 **MMLU**
 
@@ -1137,44 +1089,6 @@ MATH_SUBTASKS = [
     "number_theory",
     "prealgebra",
     "precalculus",
-]
-```
-
-**MMMU**
-
-```
-MATH_SUBTASKS = [
-    "Accounting",
-    "Agriculture",
-    "Architecture_and_Engineering",
-    "Art",
-    "Art_Theory",
-    "Basic_Medical_Science",
-    "Biology",
-    "Chemistry",
-    "Clinical_Medicine",
-    "Computer_Science",
-    "Design",
-    "Diagnostics_and_Laboratory_Medicine",
-    "Economics",
-    "Electronics",
-    "Energy_and_Power",
-    "Finance",
-    "Geography",
-    "History",
-    "Literature",
-    "Manage",
-    "Marketing",
-    "Materials",
-    "Math",
-    "Mechanical_Engineering",
-    "Music",
-    "Pharmacy",
-    "Physics",
-    "Psychology",
-    "Public_Health",
-    "Sociology",
-]
 ```
 
 Evaluate your customized Nova models using various evaluation methods and
