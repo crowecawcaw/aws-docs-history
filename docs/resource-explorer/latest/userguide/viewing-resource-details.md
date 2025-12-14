@@ -26,10 +26,10 @@ link to the resource's native console.
 If additional AWS services are enabled in your AWS account, the
 Overview tab also displays the following information:
 
-- **[AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")** — This integration displays a
+- **[AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")** — This integration displays a
   total number of [Security findings](../../../securityhub/latest/userguide/securityhub-control-manage-findings.md "../../../securityhub/latest/userguide/securityhub-control-manage-findings.md")
   and a total number of Critical and High ranked findings. If available, choosing the **Total findings** link directs you to
-  the Security Hub console.
+  the Security Hub CSPM console.
 - **[AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md")** — This integration displays the resource's
   **Cost** over the past 14 days. Choosing the **cost value** link directs you
   to the resource's cost details page in the AWS Cost Explorer console.

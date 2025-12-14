@@ -33,8 +33,8 @@ Not all AWS services are HIPAA-eligible. For more information, see the
   assesses how well your resource configurations comply with internal practices,
   industry guidelines, and regulations. In the Resource Explorer console, the details view of a
   selected resource shows its compliance with AWS Config Compliance Rules.
-- [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
+- [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
   – This AWS service provides a comprehensive view of your security state
   within AWS that helps you check your compliance with security industry standards
   and best practices. In the Resource Explorer console, the details view of a selected resource
-  shows findings from AWS Security Hub.
+  shows findings from AWS Security Hub CSPM.
