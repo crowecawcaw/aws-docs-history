@@ -10,6 +10,9 @@ There are two ways to share data with other users in Amazon SageMaker Unified St
   the projects you specify right away, without needing a subscription process.
   In both cases, you can track and manage access to your data in the **Project catalog** page of your project in Amazon SageMaker Unified Studio. You have the option to choose whether to grant read-only or read and write access.
 
+Amazon SageMaker Unified Studio grants access to subscribed assets using Amazon S3 Access Grants. When a subscription is revoked, a project member may still get Amazon S3 Access Grants credentials for up to 5 minutes, and credentials can be used for 15 minutes.
+As a result, a user may have access to the data for up to 20 minutes after the access is revoked in SageMaker Unified Studio.
+
 ## Publish Amazon S3 data to the catalog
 
 When you publish data to the Amazon SageMaker Catalog, other projects in your Amazon SageMaker Unified Studio domain can create

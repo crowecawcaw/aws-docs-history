@@ -381,4 +381,4 @@ you can add them to your project.
    enter the access role ARN from your admin.
 9. Choose **Add S3 location**.
 
-The S3 data is then accessible within your project in the left navigation on the **Data** page.
+The Amazon S3 data is then accessible within your project in the left navigation on the **Data** page.
