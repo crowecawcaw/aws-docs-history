@@ -34,7 +34,7 @@ Narrow your search using filters for:
 - **Pricing model** - Pay-as-you-go, contract, or free trial
 - **Industry vertical** - Healthcare, financial services, retail, etc.
 - **Compliance requirements** - SOC 2, HIPAA, GDPR certifications
-- **Integration protocol** - Model Context Protocol support
+- **Integration protocol** - AWS MCP Server support
 
 ## Product detail pages
 

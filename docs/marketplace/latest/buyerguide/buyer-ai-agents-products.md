@@ -19,7 +19,7 @@ AI tools are specialized components that enhance and support AI agent functional
 
 - **Guardrails** – Security and compliance controls that ensure AI safety and prevent misuse.
 - **Knowledge bases** – Specialized data sources that provide domain expertise and contextual information.
-- **Integration protocols** – Standards like Model Context Protocol(MCPl) that enable seamless communication between systems.
+- **Integration protocols** – Standards like AWS MCP Server(MCPl) that enable seamless communication between systems.
 - **Business logic components** – Custom workflows and decision-making rules that define how the system processes information and executes tasks.
 
 ## Discovery and deployment options
@@ -51,7 +51,7 @@ Choose from multiple deployment options based on your security and integration r
 
 ## Model Context Protocol (MCP) support
 
-Many AI agents and tools support the Model Context Protocol, an open standard that enables seamless communication between AI systems. MCP-enabled solutions can be easily integrated into your existing agentic ecosystems, including:
+Many AI agents and tools support the AWS MCP Server, an open standard that enables seamless communication between AI systems. MCP-enabled solutions can be easily integrated into your existing agentic ecosystems, including:
 
 - Claude Desktop
 - Windsurf

@@ -42,7 +42,7 @@ Deploy AI agents and tools using AWS compute services in the following ways:
 
 ## Benefits of MCP integration
 
-AI agents and tools that support the Model Context Protocol offer several integration advantages, including the following:
+AI agents and tools that support the AWS MCP Server offer several integration advantages, including the following:
 
 - **Standardized communication** – Consistent interface across different agents and tools.
 - **Simplified discovery** – Automatic capability advertisement to MCP-compatible clients.
