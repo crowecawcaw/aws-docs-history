@@ -56,7 +56,7 @@ practice is not established:** High
   default encryption for S3 buckets and EBS volumes.
   1.  Automated remediation is an example of a control.
       Automated remediation can be implement using
-      [AWS Security Hub custom actions](../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md "../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md"), AWS Config
+      [AWS Security Hub CSPM custom actions](../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md "../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md"), AWS Config
       integration with
       [Systems
       Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md") documents, and
@@ -72,7 +72,7 @@ practice is not established:** High
 - AWS
   [Systems
   Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md")
-- [AWS Security Hub custom actions](../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md "../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md")
+- [AWS Security Hub CSPM custom actions](../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md "../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md")
 
 **Related partner solutions:**
 
