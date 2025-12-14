@@ -28,7 +28,7 @@ auto-remediation to accelerate the resolution of dangerous
 misconfigurations and enforce compliance; automated reversion of
 unauthorized modifications to cloud accounts; and just-in-time
 privileged elevation with out-of-band authorization for IAM
-actions. Checkpoint findings are also integrated to AWS Security Hub.
+actions. Checkpoint findings are also integrated to AWS Security Hub CSPM.
 
 [CloudCheckr](https://aws.amazon.com/marketplace/solutions/control-tower/cost-management-and-governance/#CloudCheckr "https://aws.amazon.com/marketplace/solutions/control-tower/cost-management-and-governance/#CloudCheckr")
 CMx is a unique, end-to-end governance solution that enables users
@@ -62,7 +62,7 @@ visibility and control of cloud workloads.
 provides out-of-the box compliance checks to help enterprises
 auto-align with established standards like NIST and CIS, and
 delivers the flexibility to create custom checks. Auto-remediation
-and integrations with AWS Security Hub are also available.
+and integrations with AWS Security Hub CSPM are also available.
 [Kion](https://aws.amazon.com/marketplace/solutions/control-tower/cost-management-and-governance/#cloudtamer.io "https://aws.amazon.com/marketplace/solutions/control-tower/cost-management-and-governance/#cloudtamer.io")
 allows enterprises to manage their cloud presence at scale with
 automation and orchestration, financial management, and continuous
@@ -78,7 +78,7 @@ threat intelligence from over 30 feeds to provide comprehensive
 visibility. Risk-ranked alerts prevent remediation fatigue and
 one-click compliance reporting helps ease auditing across even the
 most complex distributed environments. Prisma findings are also
-integrated to AWS Security Hub.
+integrated to AWS Security Hub CSPM.
 
 [Sonrai
 Dig](https://aws.amazon.com/marketplace/solutions/control-tower/security/#Sonrai_Security "https://aws.amazon.com/marketplace/solutions/control-tower/security/#Sonrai_Security") is an enterprise cloud security platform providing

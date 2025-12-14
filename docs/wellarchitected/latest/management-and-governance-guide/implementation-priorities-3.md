@@ -69,7 +69,7 @@ environments that includes the ability to correlate events from
 multiple sources.
 
 Prevent changes to this configuration with specific controls and
-guardrails. AWS Security Hub and AWS Partner tools provide
+guardrails. AWS Security Hub CSPM and AWS Partner tools provide
 dashboards across a multi-account environment and should be
 integrated with
 [event-triggering

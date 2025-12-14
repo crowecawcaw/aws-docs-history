@@ -5,7 +5,7 @@ when choosing an AWS Partner solution for network and
 connectivity:
 
 - Does it support features you are considering using from Amazon VPC and Amazon EC2 instances?
-- Does it integrate with AWS services such as AWS Firewall Manager, AWS Security Hub, AWS Transit Gateway, Amazon GuardDuty, Gateway Load Balancer, AWS WAF, and AWS Network
+- Does it integrate with AWS services such as AWS Firewall Manager, AWS Security Hub CSPM, AWS Transit Gateway, Amazon GuardDuty, Gateway Load Balancer, AWS WAF, and AWS Network
   Firewall?
 - Does it support automatic scaling?
 - Can it be provisioned from an infrastructure as code template

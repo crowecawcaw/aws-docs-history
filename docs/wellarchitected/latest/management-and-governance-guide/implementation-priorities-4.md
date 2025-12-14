@@ -82,7 +82,7 @@ and validating your configuration and connectivity.
 1. Configuring AWS management and governance services
 
 AWS Service Management Connectors enable integration features for Service Catalog, AWS Config,
-AWS Systems Manager Automation, AWS Systems Manager OpsCenter, and AWS Security Hub. AWS Service Management
+AWS Systems Manager Automation, AWS Systems Manager OpsCenter, and AWS Security Hub CSPM. AWS Service Management
 Connectors requires baseline configurations and permissions to these services. For more
 information on these specific requirements, refer to the following documentation:
 

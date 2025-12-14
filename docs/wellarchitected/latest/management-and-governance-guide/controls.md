@@ -116,17 +116,17 @@ this M&G Guide by reviewing their
 [case
 study](https://aws.amazon.com/solutions/case-studies/bpx-energy/ "https://aws.amazon.com/solutions/case-studies/bpx-energy/").
 
-Both AWS Control Tower and AWS Security Hub continually evaluate all
+Both AWS Control Tower and AWS Security Hub CSPM continually evaluate all
 of your AWS accounts and workloads and provide dashboards so you can
 quickly identify areas of deviation from established guardrails.
 These insights can be used to improve and maintain your security
 posture across your AWS environments. For instance, AWS Control Tower applies a mandatory set of guardrails during the provisioning
 and management of your landing zone that indicate how your landing
-zone is compliant with best practices. AWS Security Hub provides a
+zone is compliant with best practices. AWS Security Hub CSPM provides a
 mechanism to deploy and categorize security-focused detective
 guardrails. This mechanism allows you to aggregate, organize,
 prioritize, and automate the remediation of the findings across your
-multi-account environment. There is an inclusive set of Security Hub
+multi-account environment. There is an inclusive set of Security Hub CSPM
 standards that can be used to align to your specific compliance and
 security framework. These include
 [AWS Foundational Security Best Practices](../../../securityhub/latest/userguide/securityhub-standards-fsbp.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp.md"), the
@@ -134,7 +134,7 @@ security framework. These include
 AWS Foundations Benchmark](../../../securityhub/latest/userguide/securityhub-standards-cis.md "../../../securityhub/latest/userguide/securityhub-standards-cis.md"), and the
 [Payment
 Card Industry Data Security Standard (PCI DSS)](../../../securityhub/latest/userguide/securityhub-standards-pcidss.md "../../../securityhub/latest/userguide/securityhub-standards-pcidss.md"). You can
-investigate findings via the AWS Security Hub integration with
+investigate findings via the AWS Security Hub CSPM integration with
 Amazon Detective, and you can build automated or semiautomated
 remediation actions using the Amazon EventBridge integration.
 

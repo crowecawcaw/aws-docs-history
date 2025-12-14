@@ -19,7 +19,7 @@ ServiceNow administrators can:
   on ServiceNow with the AWS Service Management Connector.
 - Define new resource types based on ServiceNow CMDB tables and
   synchronize these with AWS Config custom resources.
-- Configure syncing AWS Security Hub findings to ServiceNow
+- Configure syncing AWS Security Hub CSPM findings to ServiceNow
   incidents or problems.
 
 The AWS Service Management Connector for Jira Service Management

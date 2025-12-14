@@ -22,7 +22,7 @@ can quickly set up and configure a new AWS environment, automate
 ongoing policy management, and view policy-level summaries of your
 AWS environments.
 
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") provides a single place that aggregates,
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") provides a single place that aggregates,
 organizes, and prioritizes your security alerts, or findings, from
 multiple AWS services. These include Amazon GuardDuty, Amazon Inspector, Amazon Macie, AWS Firewall Manager, AWS Systems Manager
 Patch Manager, AWS Config, AWS IAM Access Analyzer, as well as

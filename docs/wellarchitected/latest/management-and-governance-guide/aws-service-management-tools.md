@@ -59,10 +59,10 @@ status, compliance, and the relationships of your provisioned AWS resources. [Ge
 with AWS Config](../../../config/latest/developerguide/getting-started.md "../../../config/latest/developerguide/getting-started.md") entails turning on recording and establishing the right detective
 controls based on your governance and compliance requirements.
 
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") is a service that gives you a comprehensive view
-of your security alerts and security posture across your AWS accounts. With Security Hub, you have a single place that
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") is a service that gives you a comprehensive view
+of your security alerts and security posture across your AWS accounts. With Security Hub CSPM, you have a single place that
 aggregates, organizes, and prioritizes your security alerts, or
-findings. Security Hub findings can also enable your organization
+findings. Security Hub CSPM findings can also enable your organization
 to create incidents within ITSM tooling via integrations depending
 on the finding’s severity level.
 

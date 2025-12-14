@@ -3,12 +3,12 @@
 The following AWS services can be used to help you meet the
 prescribed benefits of the M&G Guide:
 
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") is a cloud security posture management service
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") is a cloud security posture management service
 that performs security best practice checks, aggregates alerts,
-and enables automated remediation. AWS Security Hub aggregates,
+and enables automated remediation. AWS Security Hub CSPM aggregates,
 organizes, and prioritizes your findings from multiple AWS
 services as well as from AWS Partner solutions, enabling you to
-quickly assess the security posture across your AWS accounts. AWS Security Hub runs automated configurations and compliance checks
+quickly assess the security posture across your AWS accounts. AWS Security Hub CSPM runs automated configurations and compliance checks
 based on open standards, such as CIS Benchmarks, NIST frameworks,
 and AWS Foundational Security Best Practices.
 
@@ -20,19 +20,19 @@ GuardDuty analyzes tens of billions of events across multiple AWS
 data sources, such as AWS CloudTrail event logs, Amazon VPC Flow
 Logs, and DNS logs.
 
-Both AWS Security Hub and Amazon GuardDuty have the concept of an
+Both AWS Security Hub CSPM and Amazon GuardDuty have the concept of an
 _administrator_ and _member_
 account. The administrator account can view the aggregated
 findings of all member accounts within a Region. You should
-delegate administration of Security Hub and GuardDuty to the
+delegate administration of Security Hub CSPM and GuardDuty to the
 security audit account provisioned by AWS Control Tower.
 
-[AWS Security Hub Automated Response and Remediation](https://aws.amazon.com/solutions/implementations/aws-security-hub-automated-response-and-remediation/ "https://aws.amazon.com/solutions/implementations/aws-security-hub-automated-response-and-remediation/") is a solution
-that uses AWS Security Hub to provide a ready-to-deploy
+[AWS Security Hub CSPM Automated Response and Remediation](https://aws.amazon.com/solutions/implementations/aws-security-hub-automated-response-and-remediation/ "https://aws.amazon.com/solutions/implementations/aws-security-hub-automated-response-and-remediation/") is a solution
+that uses AWS Security Hub CSPM to provide a ready-to-deploy
 architecture and a library of automated playbooks. The solution
 creates an Service Catalog portfolio of predefined security
 response and remediation actions called playbooks. Individual
-playbooks are deployed in the Security Hub primary account. Each
+playbooks are deployed in the Security Hub CSPM primary account. Each
 playbook contains the necessary custom actions, AWS Identity and Access Management (IAM) roles, Amazon CloudWatch Events, Systems
 Manager automation documents, AWS Lambda functions, and AWS Step Functions needed to start a remediation workflow within a single
 AWS account, or across multiple accounts.

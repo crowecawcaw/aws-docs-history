@@ -45,7 +45,7 @@ scripts most enterprises use for managing their public cloud
 accounts into one open source tool. It uses a stateless rules
 engine for policy definition and enforcement, with metrics,
 structured outputs and detailed reporting for clouds
-infrastructure. Cloud Custodian's integration with Security Hub
+infrastructure. Cloud Custodian's integration with Security Hub CSPM
 allows it to both send findings to Security and receive findings
 for response and remediation actions.
 
@@ -94,18 +94,18 @@ included out-of-the-box; no configuration needed to get insights;
 and no direct cost associated to its use. Prowler's checks follow
 guidelines from the CIS Amazon Web Services Foundations Benchmark
 and performs additional checks related to GDPR, PCI, and HIPAA.
-Prowler supports natively sending findings to AWS Security Hub.
+Prowler supports natively sending findings to AWS Security Hub CSPM.
 
 [Qualys](https://aws.amazon.com/security-hub/partners/ "https://aws.amazon.com/security-hub/partners/")
-The Qualys integration with AWS Security Hub provides customers
+The Qualys integration with AWS Security Hub CSPM provides customers
 the ability to consume security and compliance findings about
-their AWS Instances and accounts within the AWS Security Hub
+their AWS Instances and accounts within the AWS Security Hub CSPM
 console. Customers have access to critical vulnerabilities,
 missing patches, open ports, as well as the compliance to CIS,
 PCI, NIST, HIPAA, and security policies of their Instances and
 AMIs. Customers can also assess misconfigurations of VPCs,
 Security Groups, Amazon S3, and IAM against the CIS Benchmark. The
-Qualys integration with AWS Security Hub allows customers to
+Qualys integration with AWS Security Hub CSPM allows customers to
 prioritize their risks and automate remediation using services,
 such as AWS Lambda.
 
@@ -115,9 +115,9 @@ the Insight platform to provide visibility across your modern
 ecosystem, prioritize risk using attacker analytics, and remediate
 or contain threats with SecOps agility. With InsightVM,
 vulnerabilities are discovered in real time and prioritized
-actionably. By integrating InsightVM with AWS Security Hub,
+actionably. By integrating InsightVM with AWS Security Hub CSPM,
 vulnerabilities detected in a business's Amazon EC2 instances are
-automatically sent to AWS Security Hub for a holistic view of its
+automatically sent to AWS Security Hub CSPM for a holistic view of its
 cloud security posture. With additional vulnerability context from
 InsightVM, businesses can prioritize its team’s security tasks
 more efficiently and reduce measurable risk in its AWS Cloud.

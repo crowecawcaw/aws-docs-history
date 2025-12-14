@@ -61,7 +61,7 @@ recommended](../../../controltower/latest/userguide/strongly-recommended-guardra
 _[elective](../../../controltower/latest/userguide/elective-guardrails.md "../../../controltower/latest/userguide/elective-guardrails.md")_
 detective guardrails AWS Control Tower provides, and choose which
 guardrails to apply. Use the AWS Security Foundations best
-practices in AWS Security Hub to identify controls that apply to
+practices in AWS Security Hub CSPM to identify controls that apply to
 your enterprise, and add any specific open standard controls
 required for your workloads. Create additional preventive controls
 as required, and group them by OUs to align them to your
@@ -94,7 +94,7 @@ level objectives alongside updating your runbooks and playbooks.
 ## Select an aggregated view of your guardrails and findings
 
 Centrally view the resource configuration and compliance data
-recorded in your observability findings. AWS Security Hub is a
+recorded in your observability findings. AWS Security Hub CSPM is a
 security and compliance service that provides security and
 compliance posture management, as a service. It uses AWS Config
 and AWS Config rules as its primary mechanism to evaluate the
@@ -135,7 +135,7 @@ logs to locate where, and how to appropriately integrate log
 aggregation.
 
 You might need to register new accounts with your security tools
-(SIEM, GuardDuty, Security Hub, etc.), or deploy security
+(SIEM, GuardDuty, Security Hub CSPM, etc.), or deploy security
 capabilities to specific accounts (XDR, CSPM, etc.).
 
 As you create new accounts, it is important to align them with
