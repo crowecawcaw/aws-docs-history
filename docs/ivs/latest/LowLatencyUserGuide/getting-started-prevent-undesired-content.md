@@ -14,3 +14,8 @@ in IVS](undesired-content.md "undesired-content.md").
 To constrain playback to specific origins and/or countries, use a playback restriction
 policy. Note that these policies can be used only with public channels. [Undesired Content and Viewers in IVS](undesired-content.md "undesired-content.md") also
 discusses the use of private channels to control undesired content.
+
+Note that playback restriction policies (such as geo-blocking) cannot be used simultaneously
+with playback authorization. If playback authorization is enabled for a channel, any configured playback
+restriction policies will be ignored. To enforce geo-restrictions on a private channel, validate the
+user's location within your token generation logic before issuing a playback token.

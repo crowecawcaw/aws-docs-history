@@ -6,6 +6,11 @@ A channel’s authorization requirement can be configured when the channel is cr
 later (using an update operation). Note that the steps are the same whether you want to
 enable or disable playback authorization.
 
+Note that playback restriction policies (such as geo-blocking) cannot be used simultaneously with
+playback authorization. If playback authorization is enabled for a channel, any configured playback restriction
+policies will be ignored. To enforce geo-restrictions on a private channel, validate the user's location within
+your token generation logic before issuing a playback token.
+
 ## Console Instructions
 
 To enable authorization when creating a channel:

@@ -3,6 +3,27 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## December 11, 2025
+
+### Amazon IVS Broadcast SDK:
+
+Android 1.37.1 (Low-Latency Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                      |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Android Broadcast SDK<br>1.37.1](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.37.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.37.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.37.1/android/")<br>• Stability improvement in the networking stack. |
+
+#### Broadcast SDK Size:
+
+Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 1.953 MB        | 5.320 MB          |
+| armeabi-v7a  | 1.713 MB        | 3.681 MB          |
+| x86_64       | 2.036 MB        | 5.665 MB          |
+| x86          | 2.062 MB        | 5.454 MB          |
+
 ## December 5, 2025
 
 ### IVS Broadcast SDK: Web 1.31.0
