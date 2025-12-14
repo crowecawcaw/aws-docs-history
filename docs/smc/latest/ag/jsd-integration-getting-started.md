@@ -31,10 +31,10 @@ files](https://servicecatalogconnector.s3.amazonaws.com/SM_ConnectorForJSD_2.0.7
   to OpsItems in AWS OpsCenter, see [Working with Related Resources](../../../systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.md#OpsCenter-working-with-OpsItems-related-resources "../../../systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.md#OpsCenter-working-with-OpsItems-related-resources") . For more information to
   associate automation documents to OpsItems in AWS OpsCenter, see
   [Remediating OpsItem issues using Systems Manager automation](../../../systems-manager/latest/userguide/OpsCenter-remediating.md "../../../systems-manager/latest/userguide/OpsCenter-remediating.md").
-- To use AWS Security Hub with the Connector, you must enable the service
+- To use AWS Security Hub CSPM with the Connector, you must enable the service
   in all Regions and accounts where you want to sync Findings. For
   more information, see [Setting up Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md"). We recommend you connect Jira
-  Service Management with the primary AWS account for AWS Security Hub. For
+  Service Management with the primary AWS account for AWS Security Hub CSPM. For
   more information, see [Managing administrator and member accounts.](../../../securityhub/latest/userguide/securityhub-accounts.md "../../../securityhub/latest/userguide/securityhub-accounts.md")
 - To use Support with the Connector, your account must have a [Business](https://aws.amazon.com/premiumsupport/plans/business/ "https://aws.amazon.com/premiumsupport/plans/business/") or [Enterprise](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/") Support plan to use support
   integration.

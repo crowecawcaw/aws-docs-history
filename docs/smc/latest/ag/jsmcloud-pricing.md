@@ -19,7 +19,7 @@ your account manager or an AWS Sales representative for more
 information.
 
 - [AWS Service Catalog](https://aws.amazon.com/servicecatalog/pricing/ "https://aws.amazon.com/servicecatalog/pricing/")
-- [AWS Security Hub](https://aws.amazon.com/security-hub/pricing/ "https://aws.amazon.com/security-hub/pricing/")
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/pricing/ "https://aws.amazon.com/security-hub/pricing/")
 - [AWS Systems Manager Incident Manager](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/")
 - [AWS Systems Manager
   Automation](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/")

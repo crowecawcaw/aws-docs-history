@@ -19,12 +19,12 @@ You need an AWS account to configure your AWS portfolios and
 products. For details, refer to [Setting up for
 Service Catalog](../../../servicecatalog/latest/adminguide/setup.md "../../../servicecatalog/latest/adminguide/setup.md").
 
-- **AWS Security Hub**
+- **AWS Security Hub CSPM**
 
 You must enable the service in all Regions and accounts where
 you want to sync Findings. For details, refer to [Setting up Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md"). We recommend you connect Jira
 Service Management with the primary (main) AWS account for
-AWS Security Hub. For more information, refer to [Managing administrator and member accounts](../../../securityhub/latest/userguide/securityhub-accounts.md "../../../securityhub/latest/userguide/securityhub-accounts.md").
+AWS Security Hub CSPM. For more information, refer to [Managing administrator and member accounts](../../../securityhub/latest/userguide/securityhub-accounts.md "../../../securityhub/latest/userguide/securityhub-accounts.md").
 
 - **AWS Systems Manager Incident Manager**
 

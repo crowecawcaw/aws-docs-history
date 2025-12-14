@@ -30,9 +30,9 @@ the existing AWS Health integration.
 
 - Supports the latest ServiceNow platform releases Xanadu (X), Washington DC (W), and Vancouver (V).
 
-**AWS Security Hub**
+**AWS Security Hub CSPM**
 
-- Fix an issue with date and timestamp for AWS Security Hub findings to show the correct format.
+- Fix an issue with date and timestamp for AWS Security Hub CSPM findings to show the correct format.
 
 ###### Note
 
@@ -54,7 +54,7 @@ To maintain the integration capabilities of the Xanadu ServiceNow release, upgra
 
 **AWS ServiceNow Connector Core Features**
 
-- Dashboard that displays reports/charts for AWS Service Catalog, AWS Config, and AWS Security Hub
+- Dashboard that displays reports/charts for AWS Service Catalog, AWS Config, and AWS Security Hub CSPM
   integrations in the ServiceNow platform.
 - Support for China Regions (Beijing and Ningxia) for all AWS services compatible
   with China Regions.
@@ -142,9 +142,9 @@ To maintain the integration capabilities of the Xanadu ServiceNow release, upgra
 - Syncs Support case severity back into ServiceNow incident.
 - Supports AWS accounts with different service accesses.
 
-**AWS Security Hub**
+**AWS Security Hub CSPM**
 
-- Provides revised AWS Security Hub Findings form to show remediation
+- Provides revised AWS Security Hub CSPM Findings form to show remediation
   information.
 
 **AWS Systems Manager Change Manager**
@@ -175,9 +175,9 @@ To maintain the integration capabilities of the Xanadu ServiceNow release, upgra
 
 - Uses GovCloud accounts with Support integration.
 
-**AWS Security Hub**
+**AWS Security Hub CSPM**
 
-- Syncs ServiceNow Incident state updates to AWS Security Hub Findings.
+- Syncs ServiceNow Incident state updates to AWS Security Hub CSPM Findings.
 
 ## Version 4.0.0
 
@@ -213,7 +213,7 @@ To maintain the integration capabilities of the Xanadu ServiceNow release, upgra
 
 **AWS ServiceNow Connector Core Features**
 
-- Enhances AWS services (AWS Service Catalog, AWS Config, AWS Systems Manager, AWS Security Hub) synchronization to ServiceNow into separate, distinct scheduled
+- Enhances AWS services (AWS Service Catalog, AWS Config, AWS Systems Manager, AWS Security Hub CSPM) synchronization to ServiceNow into separate, distinct scheduled
   jobs.
 - Renames 'Sync all Accounts' scheduled job to 'Synchronize changes to all AWS
   accounts' based on synchronization enhancements.
@@ -240,6 +240,6 @@ To maintain the integration capabilities of the Xanadu ServiceNow release, upgra
   Cloud Subnet, DynamoDB, EC2, ELB, RDS, Storage volume, Security groups, and
   VPC.
 
-**AWS Security Hub**
+**AWS Security Hub CSPM**
 
 - Synchronizes UserDefinedFields JSON blob for Security Hub Findings.

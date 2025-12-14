@@ -134,7 +134,7 @@ For more information on Change model system properties, see [IT Service Manageme
 | `x_126749_aws_sc_account_admin`           | Role (scoped app)                   | Onboard and manage AWS accounts                                                     |
 | `x_126749_ aws_sc.appregistry_manager`    | Role (scoped app)                   | View AppRegistry applications and attribute groups                                  |
 | `x_126749_aws_sc.automation_manager`      | Role (scoped app)                   | Manage Automation Documents and view Automation<br>executions                       |
-| `x_126749_aws_sc.finding_manager`         | Role (scoped app)                   | View AWS Security Hub findings                                                      |
+| `x_126749_aws_sc.finding_manager`         | Role (scoped app)                   | View AWS Security Hub CSPM findings                                                 |
 | `x_126749_aws_sc.opscenter_manager`       | Role (scoped app)                   | Default access control for OpsItem integration.                                     |
 | `x_126749_aws_sc.change_manager_manager`  | Role (scoped app)                   | Manage AWS Systems Manager Change Manager change templates                          |
 | `x_126749_aws_sc.support_case_manager`    | Role (scoped app)                   | Manage Support services and categories                                              |

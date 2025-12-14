@@ -112,7 +112,7 @@ services
 
 For a new installation of Connector, Service Management Connector
 enables the default project configuration for all Connector features
-(AWS Service Catalog, AWS Systems Manager Incident Manager, and AWS Security Hub). If you are upgrading an
+(AWS Service Catalog, AWS Systems Manager Incident Manager, and AWS Security Hub CSPM). If you are upgrading an
 existing installation, Service Management Connector does not initially
 enable new features.
 
@@ -223,12 +223,12 @@ Management request types. You can configure which features are enabled for
 each Jira project.
 
 **Configure Jira projects for
-AWS Service Catalog,AWS Systems Manager Incident Manager, AWS Security Hub, Support, AWS Systems Manager Automation,
+AWS Service Catalog,AWS Systems Manager Incident Manager, AWS Security Hub CSPM, Support, AWS Systems Manager Automation,
 AWS Systems Manager OpsCenter and AWS Health**
 
 ###### To configure the Jira projects for AWS Service Catalog, AWS Systems Manager Incident Manager,
 
-AWS Security Hub, Support, and AWS Systems Manager Automation
+AWS Security Hub CSPM, Support, and AWS Systems Manager Automation
 
 1. Navigate to the **Settings** menu, and then
    choose **Apps**.
@@ -257,19 +257,19 @@ issues in the Jira project and Permission to Request in the Jira
 settings for the AWS Account for at least one portfolio with
 products.
 
-###### AWS Security Hub configuration
+###### AWS Security Hub CSPM configuration
 
 1. Navigate to the **Settings** menu, and then
    choose **Apps**.
 2. Choose **AWS Service Management Connector**,
    and then navigate to **Connector settings**.
-3. Under **Security Hub configuration**, choose
+3. Under **Security Hub CSPM configuration**, choose
    **CRITICAL**, **HIGH**,
    **MEDIUM**, **LOW**, or
    **INFORMATIONAL** to configure the findings synched
    to Jira Service Management.
 
-**SQS queue name** is the queue from which Security Hub
+**SQS queue name** is the queue from which Security Hub CSPM
 findings are synched. The default value is
 `AwsSmcJsmCloudForgeSecurityHubQueue`. The configured
 queue is available in all AWS accounts and regions and where you

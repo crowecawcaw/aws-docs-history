@@ -22,7 +22,7 @@ an integration with AWS Systems Manager Incident Manager cases and Jira incident
   ‘resolved’ status between a Jira issue and a corresponding AWS
   incident.
   The latest version also includes prior integrations to AWS services,
-  such as Support, AWS Security Hub, AWS Service Catalog, AWS Config, AWS Systems Manager automation, and
+  such as Support, AWS Security Hub CSPM, AWS Service Catalog, AWS Config, AWS Systems Manager automation, and
   AWS Systems Manager OpsCenter.
 
 **Support**
@@ -31,14 +31,14 @@ an integration with AWS Systems Manager Incident Manager cases and Jira incident
   Management incidents.
 - View, create, resolve and add correspondences to Support tickets
   directly from Jira Incident.
-  **AWS Security Hub integration**
+  **AWS Security Hub CSPM integration**
 
-- Configure synchronization of AWS Security Hub Findings within Jira
+- Configure synchronization of AWS Security Hub CSPM Findings within Jira
   Service Management.
-- Create, view, investigate and resolve AWS Security Hub Findings as Jira
+- Create, view, investigate and resolve AWS Security Hub CSPM Findings as Jira
   issues.
 - View updates from synced security Findings Jira Issues in
-  AWS Security Hub.
+  AWS Security Hub CSPM.
   **AWS Service Catalog**
 
 - Render AWS Service Catalog portfolios and products in the Jira Service

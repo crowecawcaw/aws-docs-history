@@ -15,7 +15,7 @@ ServiceNow administrators can:
   Service Management Connector.
 - Define new resource types based on ServiceNow CMDB tables and synchronize these
   with AWS Config custom resources.
-- Sync AWS Security Hub findings to ServiceNow incidents or problems.
+- Sync AWS Security Hub CSPM findings to ServiceNow incidents or problems.
   ServiceNow end users can:
 
 - Browse, request, and provision pre-secured AWS solutions.
@@ -24,7 +24,7 @@ ServiceNow administrators can:
 - View, update, and resolve Incidents from AWS Systems Manager OpsItems.
 - View configuration item details.
 - Execute workflows in ServiceNow on AWS resources.
-- View, update, and resolve ServiceNow incidents or problems through AWS Security Hub findings.
+- View, update, and resolve ServiceNow incidents or problems through AWS Security Hub CSPM findings.
 - View, create, add correspondence and resolve Support cases from ServiceNow
   (including AMS Accelerate support cases).
 - View and execute AWS Systems Manager Change Requests from a curated list of
@@ -69,8 +69,8 @@ into this Connector:
   interface so you can view operational data from multiple AWS services,
   investigate and resolve operational issues through OpsCenter and Incident Manager, and
   automate operational tasks across your AWS resources.
-- [AWS Security Hub](https://aws.amazon.com/security-hub/?aws-security-hub-blogs.sort-by=item.additionalFields.createdDate&aws-security-hub-blogs.sort-order=desc "https://aws.amazon.com/security-hub/?aws-security-hub-blogs.sort-by=item.additionalFields.createdDate&aws-security-hub-blogs.sort-order=desc") gives you a comprehensive view of your security alerts and
-  security posture across your AWS accounts. With AWS Security Hub, there is a
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/?aws-security-hub-blogs.sort-by=item.additionalFields.createdDate&aws-security-hub-blogs.sort-order=desc "https://aws.amazon.com/security-hub/?aws-security-hub-blogs.sort-by=item.additionalFields.createdDate&aws-security-hub-blogs.sort-order=desc") gives you a comprehensive view of your security alerts and
+  security posture across your AWS accounts. With AWS Security Hub CSPM, there is a
   single place that aggregates, organizes, and prioritizes your security alerts, or
   findings.
 - [AWS Health](../../../health.md "../../../health.md")

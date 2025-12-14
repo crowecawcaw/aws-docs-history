@@ -40,7 +40,7 @@ the Connector.
    Choose AWS Systems Manager Automation if you want to execute automation
    documents (runbook) to remediate incidents from OpsItems.
    - Integrate with AWS Systems Manager OpsCenter
-   - Integrate with AWS Security Hub
+   - Integrate with AWS Security Hub CSPM
    - Integrate with Support
    - Integrate with AWS Systems Manager Change Manager
    - Integrate with AWS Health

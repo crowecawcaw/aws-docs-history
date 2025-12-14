@@ -48,12 +48,12 @@ integration**
 - Resolves an intermittent issue with the Incident Manager integration
   that delays ticket creation.
 
-**AWS Security Hub integration
+**AWS Security Hub CSPM integration
 enhancement**
 
 - Resolves an issue with duplicate fields that causes an _Error in Data_ issue when viewing the
-  Security Hub details panel.
-- Enhances logging for Security Hub integration.
+  Security Hub CSPM details panel.
+- Enhances logging for Security Hub CSPM integration.
 
 ## Version 5.7.0
 
@@ -66,7 +66,7 @@ enhancement**
 
 **Core features**
 
-- Resolved site-specific issues with AWS Security Hub sync
+- Resolved site-specific issues with AWS Security Hub CSPM sync
 - Improved throttling exception handing for AWS Systems Manager Automation
   sync
 - Package dependency update
@@ -89,7 +89,7 @@ integration**
 
 ## Version 4.4.0
 
-**AWS Security Hub integration**
+**AWS Security Hub CSPM integration**
 
 - Corrected the invalid request type message to appear on the
   "update product issue" action only, and excluded from display on the
@@ -97,9 +97,9 @@ integration**
 
 ## Version 4.2.0
 
-**AWS Security Hub integration**
+**AWS Security Hub CSPM integration**
 
-- Enhanced logging for AWS Security Hub integration
+- Enhanced logging for AWS Security Hub CSPM integration
 
 **Core features**
 
@@ -120,7 +120,7 @@ integration**
 
 ## Version 3.9.0
 
-**AWS Security Hub integration
+**AWS Security Hub CSPM integration
 enhancement**
 
 - Additional error trapping and enhanced logging for configuration
@@ -142,11 +142,11 @@ enhancement**
   Availability Zones, Image ID, Instance ID, KeyPair, Security Group,
   and VPC
 
-**AWS Security Hub integration**
+**AWS Security Hub CSPM integration**
 
-- Configure synchronization behavior of AWS Security Hub Findings within
+- Configure synchronization behavior of AWS Security Hub CSPM Findings within
   Jira Service Management Cloud
-- Create, view, update, investigate and resolve AWS Security Hub Findings
+- Create, view, update, investigate and resolve AWS Security Hub CSPM Findings
   as Jira issues
 
 **AWS Systems Manager Incident Manager integration**

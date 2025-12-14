@@ -17,7 +17,7 @@ representatives for more information.
 | AWS Service Catalog        | [https://aws.amazon.com/servicecatalog/pricing/](https://aws.amazon.com/servicecatalog/pricing/ "https://aws.amazon.com/servicecatalog/pricing/")                               |
 | AWS Config                 | [https://aws.amazon.com/config/pricing](http://aws.amazon.com/config/pricing "http://aws.amazon.com/config/pricing")                                                            |
 | AWS Systems Manager        | [https://aws.amazon.com/systems-manager/pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/")                             |
-| AWS Security Hub           | [https://aws.amazon.com/security-hub/pricing/?nc=sn&loc=3](https://aws.amazon.com/security-hub/pricing/?nc=sn&loc=3 "https://aws.amazon.com/security-hub/pricing/?nc=sn&loc=3") |
+| AWS Security Hub CSPM      | [https://aws.amazon.com/security-hub/pricing/?nc=sn&loc=3](https://aws.amazon.com/security-hub/pricing/?nc=sn&loc=3 "https://aws.amazon.com/security-hub/pricing/?nc=sn&loc=3") |
 | AWS Health and AWS Support | [https://aws.amazon.com/premiumsupport/pricing/](https://aws.amazon.com/premiumsupport/pricing/ "https://aws.amazon.com/premiumsupport/pricing/")                               |
 
 AWS Service Management Connector is a ServiceNow scoped application certified and

@@ -15,4 +15,4 @@ Service Management installation procedures.
 - [Validating Support integration](jsd-support-validation.md "jsd-support-validation.md")
 - [Validating AWS Systems Manager Incident Manager
   integration](validate-sys-man-incident.md "validate-sys-man-incident.md")
-- [Validating AWS Security Hub integration](jsd-security-hub.md "jsd-security-hub.md")
+- [Validating AWS Security Hub CSPM integration](jsd-security-hub.md "jsd-security-hub.md")

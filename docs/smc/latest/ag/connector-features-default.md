@@ -8,17 +8,17 @@ services
 
 For a new installation of Connector, we enable the default
 project configuration for all Connector features (AWS Service Catalog, AWS Config,
-AWS Systems Manager Automation, AWS Systems Manager OpsCenter, and AWS Security Hub). If you
+AWS Systems Manager Automation, AWS Systems Manager OpsCenter, and AWS Security Hub CSPM). If you
 are upgrading an existing installation, for security reasons, we do
 not intially enable new features.
 
 ###### Note
 
-If you are using the AWS Security Hub integration, we recommend you
+If you are using the AWS Security Hub CSPM integration, we recommend you
 also turn on AWS Config.
 
 If you use the AWS Config integration with JSM, this might add more
-resource details in JSM issues created for AWS Security Hub Findings. For
+resource details in JSM issues created for AWS Security Hub CSPM Findings. For
 example, if the original Finding has limited resource details, the
 Config resource enrichment provides fuller information.
 

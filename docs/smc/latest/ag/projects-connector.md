@@ -9,7 +9,7 @@ enabled for each Jira project.
 
 ###### To configure the Jira projects for AWS Service Catalog, AWS Config, AWS Systems Manager
 
-Automation, AWS Systems Manager OpsCenter, AWS Security Hub, Support, and
+Automation, AWS Systems Manager OpsCenter, AWS Security Hub CSPM, Support, and
 AWS Systems Manager Incident Manager.
 
 1. In the left navigation menu, under **AWS

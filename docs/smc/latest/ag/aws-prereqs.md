@@ -23,9 +23,9 @@ Make sure you have AWS and ServiceNow prerequisites configured before you get st
   with Automation Runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../../../systems-manager/latest/userguide/automation-documents.md").
 - **AWS Systems Manager OpsCenter with the Connector** — You must enable the service in all Regions and accounts where you want to
   sync OpsItems. For more information, see [Getting started with OpsCenter](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md")
-- **AWS Security Hub with the Connector** — You must enable the service in all Regions and accounts where you want to
+- **AWS Security Hub CSPM with the Connector** — You must enable the service in all Regions and accounts where you want to
   sync Findings. For details, see [Setting up Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md"). We recommend you connect ServiceNow
-  with the primary (main) AWS account for AWS Security Hub. For
+  with the primary (main) AWS account for AWS Security Hub CSPM. For
   more information, see [Managing administrator and member accounts](../../../securityhub/latest/userguide/securityhub-accounts.md "../../../securityhub/latest/userguide/securityhub-accounts.md").
 - **Support with the Connector** — Your account must have a [Business](https://aws.amazon.com/premiumsupport/plans/business/ "https://aws.amazon.com/premiumsupport/plans/business/") or [Enterprise](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/") Support plan to use support integration with the
   Connector.

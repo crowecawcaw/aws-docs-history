@@ -18,7 +18,7 @@ service integration instead of waiting for Scheduled Jobs to run.
 | Sync all ServiceNow resources to AWS Config       | Syncs ServiceNow resources mapped to AWS Config custom<br>resources                                        | 6 Hours               |
 | Synchronize changes to all AWS Accounts           | Syncs changes to AWS services opted into each AWS<br>account associated to the Connector                   | 1 Day                 |
 | Synchronize AWS Config                            | Syncs resource details or relationships from AWS Config into the ServiceNow CMDB                           | 31 minutes            |
-| Synchronize AWS Security Hub                      | Syncs bi-directionally security findings from AWS Security Hub<br>to ServiceNow incidents or problems      | 31 minutes            |
+| Synchronize AWS Security Hub CSPM                 | Syncs bi-directionally security findings from AWS Security Hub CSPM<br>to ServiceNow incidents or problems | 31 minutes            |
 | Synchronize AWS Service Catalog                   | Syncs AWS Service Catalog products into ServiceNow Service Catalog<br>request items                        | 31 minutes            |
 | Synchronize AWS Systems Manager Automation        | Syncs AWS Systems Manager Automation runbooks (documents) into<br>ServiceNow Service Catalog request items | 31 minutes            |
 | Synchronize AWS Systems Manager OpsCenter         | Syncs bi-directionally OpsItems from AWS Systems Manager OpsCenter<br>to ServiceNow incidents              | 31 minutes            |

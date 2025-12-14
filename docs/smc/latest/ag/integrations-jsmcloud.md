@@ -19,7 +19,7 @@ can
 
 - Provide pre-approved, secured, and governed AWS resources to Jira
   agents and internal customers through AWS Service Catalog.
-- Configure synchronization and associate Jira projects for AWS Security Hub
+- Configure synchronization and associate Jira projects for AWS Security Hub CSPM
   integration.
 - Configure incident resolution behavior and associate Jira projects
   for AWS Systems Manager Incident Manager.
@@ -31,7 +31,7 @@ can
   Jira agents** can
 
 - Browse, request, and provide pre-secured AWS solutions.
-- View, update, and resolve AWS Security Hub findings as Jira issues.
+- View, update, and resolve AWS Security Hub CSPM findings as Jira issues.
 - View and resolve incidents affecting AWS-hosted applications
   through AWS Systems Manager Incident Manager.
 - View, create, add correspondences, and resolve Support cases from Jira
@@ -45,7 +45,7 @@ can
 AWS Service Management Connector is built using [Forge](https://developer.atlassian.com/platform/forge/ "https://developer.atlassian.com/platform/forge/") for
 Atlassian's Jira Service Management and is available at no charge in the
 [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1221283/aws-service-management-connector-for-jsm-cloud "https://marketplace.atlassian.com/apps/1221283/aws-service-management-connector-for-jsm-cloud"). This feature is generally available in all
-AWS Regions where AWS Service Catalog, AWS Security Hub, AWS Systems Manager Incident Manager Support, and
+AWS Regions where AWS Service Catalog, AWS Security Hub CSPM, AWS Systems Manager Incident Manager Support, and
 AWS Systems Manager Automation services are available.
 
 The following AWS services
@@ -57,9 +57,9 @@ It can help your organization establish consistent governance and
 compliance requirements while limiting users to deploying only approved
 AWS services.
 
-[AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") provides
+[AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") provides
 a comprehensive view of security alerts and security posture across your
-AWS accounts. Security Hub provides a single location that aggregates,
+AWS accounts. Security Hub CSPM provides a single location that aggregates,
 organizes, and prioritizes alerts (findings).
 
 [AWS Systems Manager Incident Manager](https://aws.amazon.com/incident-manager/ "https://aws.amazon.com/incident-manager/") helps you mitigate and recover from incidents
