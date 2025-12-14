@@ -40,7 +40,7 @@ Amazon Chime displays the webhooks associated with the chat room.
 You can have multiple webhooks in a single Amazon Chime chat room.
 
 For example, in an **Amazon Chime** chat room, one webhook could send
-notifications for Amazon CloudWatch alarms and another webhook could send AWS Security Hub security
+notifications for Amazon CloudWatch alarms and another webhook could send AWS Security Hub CSPM security
 alerts. Each webhook receives notifications only for the SNS topics subscribed to it.
 All chat room members can see all of the notifications from each of the SNS topics. 4. For the webhook, choose **Copy URL** and choose
 **Done**.

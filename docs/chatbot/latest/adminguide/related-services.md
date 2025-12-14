@@ -2,7 +2,7 @@ AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-r
 
 # Monitoring AWS services using Amazon Q Developer in chat applications
 
-You can use Amazon Q Developer in chat applications to monitor and receive notifications about other AWS services. Amazon Q Developer in chat applications works with a number of AWS services, including [Amazon CloudWatch](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"), [AWS Security Hub](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/"), and [Amazon GuardDuty](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/"). All services that work with Amazon Q Developer in chat applications use
+You can use Amazon Q Developer in chat applications to monitor and receive notifications about other AWS services. Amazon Q Developer in chat applications works with a number of AWS services, including [Amazon CloudWatch](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"), [AWS Security Hub CSPM](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/"), and [Amazon GuardDuty](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/"). All services that work with Amazon Q Developer in chat applications use
 [Amazon SNS topics](../../../sns/latest/dg.md "../../../sns/latest/dg.md") as targets to send event and alarm notifications.
 You may already have established Amazon SNS topics that send notifications to DevOps and development
 personnel as emails. Because Amazon Q Developer in chat applications redirects those Amazon SNS topics' notifications to chat rooms,
@@ -30,7 +30,7 @@ messages for your application events, you can use custom notifications. For more
 - [AWS Config](#aws-config "#aws-config")
 - [Amazon GuardDuty](#aws-guardduty "#aws-guardduty")
 - [AWS Health](#aws-health "#aws-health")
-- [AWS Security Hub](#security-hub "#security-hub")
+- [AWS Security Hub CSPM](#security-hub "#security-hub")
 - [AWS Systems Manager](#system-manager "#system-manager")
 - [AWS Systems Manager Runbooks](#runbooks "#runbooks")
 - [AWS Systems Manager Incident Manager](#incidentManager "#incidentManager")
@@ -113,7 +113,7 @@ an event to the Amazon Q Developer in chat applications for processing. The Amaz
 [Creating an EventBridge Rule that sends notifications to Amazon Q Developer in chat applications](create-eventbridge-rule.md "create-eventbridge-rule.md").
 
 Amazon Q Developer in chat applications can process most AWS service events handled by EventBridge. This includes AWS Config, Amazon GuardDuty,
-AWS Health, AWS Security Hub, and AWS Systems Manager. Amazon Q Developer in chat applications only supports EventBridge events from AWS services. For an exhaustive list of supported service events, see [EventBridge Event Examples from Supported AWS Services](../../../eventbridge/latest/userguide/event-types.md "../../../eventbridge/latest/userguide/event-types.md") in the _EventBridge User Guide_.
+AWS Health, AWS Security Hub CSPM, and AWS Systems Manager. Amazon Q Developer in chat applications only supports EventBridge events from AWS services. For an exhaustive list of supported service events, see [EventBridge Event Examples from Supported AWS Services](../../../eventbridge/latest/userguide/event-types.md "../../../eventbridge/latest/userguide/event-types.md") in the _EventBridge User Guide_.
 
 ###### Note
 
@@ -167,24 +167,24 @@ AWS Health, and specify an SNS topic mapped in Amazon Q Developer in chat applic
 For more information, see [Monitoring AWS Health Events with Amazon CloudWatch Events](../../../health/latest/ug/cloudwatch-events-health.md "../../../health/latest/ug/cloudwatch-events-health.md") in the
 _AWS Health User Guide_.
 
-## [AWS Security Hub](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/")
+## [AWS Security Hub CSPM](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/")
 
-AWS Security Hub provides a comprehensive view of high-priority security alerts and compliance
-status across your AWS accounts. Security Hub aggregates, organizes, and prioritizes security
-findings from multiple AWS services, including Amazon GuardDuty, Amazon Inspector, and Amazon Macie. Security Hub reduces
+AWS Security Hub CSPM provides a comprehensive view of high-priority security alerts and compliance
+status across your AWS accounts. Security Hub CSPM aggregates, organizes, and prioritizes security
+findings from multiple AWS services, including Amazon GuardDuty, Amazon Inspector, and Amazon Macie. Security Hub CSPM reduces
 the effort of collecting and prioritizing security findings across accounts, from AWS
 services, and from AWS partner tools.
 
-Security Hub supports two types of integration with [CloudWatch Events rules](../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md "../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md"),
+Security Hub CSPM supports two types of integration with [CloudWatch Events rules](../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md "../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md"),
 both
 of which Amazon Q Developer in chat applications supports:
 
-- **Standard CloudWatch Events**. [Security Hub automatically sends all findings
+- **Standard CloudWatch Events**. [Security Hub CSPM automatically sends all findings
   to CloudWatch Events](../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md "../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md"). You can define CloudWatch Events rules that automatically route generated
   findings to an Amazon Simple Storage Service (Amazon S3) bucket, a remediation workflow, or an SNS topic. Use this
-  method to automatically send all Security Hub findings, or all findings with specific
+  method to automatically send all Security Hub CSPM findings, or all findings with specific
   characteristics, to an SNS topic to which Amazon Q Developer in chat applications subscribes.
-- **Security Hub Custom Actions**.[Define custom actions in Security Hub](https://aws.amazon.com/blogs/apn/how-to-enable-custom-actions-in-aws-security-hub/ "https://aws.amazon.com/blogs/apn/how-to-enable-custom-actions-in-aws-security-hub/") and configure [CloudWatch Events rules](../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md "../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md")
+- **Security Hub CSPM Custom Actions**.[Define custom actions in Security Hub CSPM](https://aws.amazon.com/blogs/apn/how-to-enable-custom-actions-in-aws-security-hub/ "https://aws.amazon.com/blogs/apn/how-to-enable-custom-actions-in-aws-security-hub/") and configure [CloudWatch Events rules](../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md "../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md")
   to
   respond to those actions. The event rule uses its SNS topic setting to forward its
   notifications to the SNS topic to which Amazon Q Developer in chat applications subscribes.
