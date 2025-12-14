@@ -93,7 +93,14 @@ The following release notes are in chronological order, with the latest updates 
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
 
-Amazon GameLift Servers customers can now use the Windows Server 2022 operating system to host their game servers. Windows Server 2022 offers several improvements over Windows Server 2016 including security. This operating system is available in all AWS Regions with the exception of the China Regions.
+Amazon GameLift Servers now provides AI-powered assistance in the web console, leveraging Amazon Q Developer to provide tailored guidance for game developers. This new feature integrates specialized Amazon GameLift Servers knowledge to help customers navigate complex workflows, troubleshoot issues, and optimize their game server deployments more efficiently.
+
+This new feature provides AI-assisted recommendations for game server integration, fleet configuration, and performance optimization directly within the Amazon GameLift Servers console. This enhancement aims to streamline decision making processes, reduce troubleshooting time, and improve overall resource utilization, leading to cost savings and better player experiences.
+
+###### **Learn more:**
+
+- [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift "https://console.aws.amazon.com/gamelift")
+  Amazon GameLift Servers customers can now use the Windows Server 2022 operating system to host their game servers. Windows Server 2022 offers several improvements over Windows Server 2016 including security. This operating system is available in all AWS Regions with the exception of the China Regions.
 
 Customers can use the newer Windows operating systems and continue to receive critical security updates when support ends for Windows Server 2016 in January 2027. Support for Windows Server 2022 continues through October 13, 2031.
 

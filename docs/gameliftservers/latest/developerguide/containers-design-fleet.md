@@ -6,6 +6,7 @@ containers. You can choose to use any or all of these features.
 ###### Topics
 
 - [Set resource limits](#containers-design-fleet-limits "#containers-design-fleet-limits")
+- [Configuring NVMe Drive Access](#containers-design-fleet-nvme "#containers-design-fleet-nvme")
 - [Designate essential containers](#containers-design-fleet-essential "#containers-design-fleet-essential")
 - [Configure network connections](#containers-custom-network "#containers-custom-network")
 - [Set up health checks for containers](#containers-design-fleet-health "#containers-design-fleet-health")
@@ -94,6 +95,16 @@ group:
   MiB).
 - Total CPU limit: 13312 CPU. This value exceeds the sum of the CPU limit (1024+512
   CPU).
+
+## Configuring NVMe Drive Access
+
+On d-type instances, the NVMe drive automatically mounts to the `/data` directory during host startup. To enable containers to access the SSD storage, set the following `ContainerGroupDefinition` property `MountPoints`:
+
+- `InstancePath` – Set to `/data` to reference the auto-mounted NVMe drive on the host instance.
+- `AccessLevel` – Choose the appropriate access level for your container's needs (e.g., READ_ONLY or READ_WRITE).
+- `ContainerPath` – (Optional) Specify the path where the instance path will be mounted inside the container. If not specified, it defaults to the instance path.
+
+For more information about mount points, see [ContainerMountPoint](../apireference/API_ContainerMountPoint.md "../apireference/API_ContainerMountPoint.md") in the Amazon GameLift Servers API Reference.
 
 ## Designate essential containers
 
