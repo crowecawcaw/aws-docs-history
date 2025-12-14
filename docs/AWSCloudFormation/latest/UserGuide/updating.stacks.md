@@ -172,7 +172,7 @@ Resources:
     Properties:
       ImageId: !Ref LatestAmiId
       InstanceType: !Ref InstanceType
-      SecurityGroups:
+      SecurityGroupIds:
         - !Ref WebServerSecurityGroup
       UserData:
         Fn::Base64: !Sub |
@@ -426,7 +426,7 @@ WebServerInstance:
     ImageId: !Ref LatestAmiId
     InstanceType: !Ref InstanceType
     KeyName: !Ref KeyName
-    SecurityGroups:
+    SecurityGroupIds:
       - !Ref WebServerSecurityGroup
 ```
 
@@ -460,8 +460,8 @@ The stack we have built so far uses a t3.micro Amazon EC2 instance. Let's suppos
 newly created website is getting more traffic than a t3.micro instance can handle, and now you
 want to move to an m5.large Amazon EC2 instance type. If the architecture of the instance type
 changes, the instance must be created with a different AMI. However, both the t3.micro and
-m5.large use the same CPU architectures and run Amazon Linux 2 (x86_64) AMIs . For more information, go
-to [Compatibility for changing the instance type](../../../AWSEC2/latest/UserGuide/resize-limitations.md "../../../AWSEC2/latest/UserGuide/resize-limitations.md") in the
+m5.large use the same CPU architectures and run Amazon Linux 2 (x86_64) AMIs . For more information,
+see [Compatibility for changing the instance type](../../../AWSEC2/latest/UserGuide/resize-limitations.md "../../../AWSEC2/latest/UserGuide/resize-limitations.md") in the
 _Amazon EC2 User Guide_.
 
 Let's use the template that we modified in the previous step to change the instance type.
@@ -569,7 +569,7 @@ Resources:
       ImageId: !Ref LatestAmiId
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyName
-      SecurityGroups:
+      SecurityGroupIds:
         - !Ref WebServerSecurityGroup
       UserData:
         Fn::Base64: !Sub |
@@ -668,8 +668,8 @@ application.
 
 ###### To update the AMI with custom application code
 
-1. Create your new AMIs containing your application or operating system changes. For more
-   information, go to [Create an Amazon EBS-backed
+1. Create your new AMI containing your application or operating system changes. For more
+   information, see [Create an Amazon EBS-backed
    AMI](../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md "../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md") in the _Amazon EC2 User Guide_.
 2. Update your template to incorporate the new AMI ID.
 3. Update the stack using the same steps as explained in [Step 2: Update the application](#update-stack-update-application "#update-stack-update-application").
