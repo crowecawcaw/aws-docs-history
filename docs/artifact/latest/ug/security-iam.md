@@ -27,8 +27,6 @@ _IAM User Guide_.
 ###### Contents
 
 - [Granting user access](grant-access.md "grant-access.md")
-- [Migrating to fine-grained permissions for AWS Artifact reports](migrating-reports-to-v2-permissions.md "migrating-reports-to-v2-permissions.md")
-- [Migrating to fine-grained permissions for AWS Artifact agreements](migrating-agreements-to-v2-permissions.md "migrating-agreements-to-v2-permissions.md")
 - [Example IAM policies in commercial AWS Regions](example-iam-policies.md "example-iam-policies.md")
 - [Example IAM policies in AWS GovCloud (US) Regions](example-govcloud-iam-policies.md "example-govcloud-iam-policies.md")
 - [Using AWS managed policies](security-iam-awsmanpol.md "security-iam-awsmanpol.md")

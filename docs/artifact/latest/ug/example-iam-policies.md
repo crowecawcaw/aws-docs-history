@@ -37,7 +37,8 @@ The following policy grants permission to download all AWS reports through fine-
  "artifact:ListReports",
  "artifact:GetReportMetadata",
  "artifact:GetReport",
- "artifact:GetTermForReport"
+ "artifact:GetTermForReport",
+ "artifact:ListReportVersions"
  ],
  "Resource": "*"
  }
@@ -64,7 +65,8 @@ The following policy grants permission to download only the AWS SOC, PCI, and IS
  "Action": [
  "artifact:GetReportMetadata",
  "artifact:GetReport",
- "artifact:GetTermForReport"
+ "artifact:GetTermForReport",
+ "artifact:ListReportVersions"
  ],
  "Resource": "*",
  "Condition": {

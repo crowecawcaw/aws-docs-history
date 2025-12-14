@@ -33,10 +33,10 @@ access AWS reports (for example, SOC 1/2/3, PCI, C5, and so on). On the **Third-
 tab, you can access reports from independent software vendors (ISVs) who sell their products on AWS Marketplace. 3. (Optional) To find a report, enter a keyword in the search field. You can also perform targeted searches
 for reports based on individual columns, including report title, category, series, and description. For example,
 to find the Cloud Computing Compliance Controls Catalogue (C5) report, you can search the **Title**
-column using "Title", the "contains" operator (:), and the term "C5" (`Title : C5`). 4. (Optional) For more information about a report, choose the title of the report to open its details page. 5. Select a report, and then choose **Download report**. 6. You might be prompted to accept terms and conditions (**Accept terms to download report**)
+column using "Title", the "contains" operator (:), and the term "C5" (`Title : C5`). 4. (Optional) For more information about a report, choose the title of the report to open its details page. 5. (Optional) If you want to **download a previous version of a report**, you can open the details page of the report by choosing the report title. On the details page, look for the **Previous versions** section, and in the desired version row, choose **Download** to download that specific version of the report. 6. Select a report, and then choose **Download report**. 7. You might be prompted to accept terms and conditions (**Accept terms to download report**)
 for the specific report that you're downloading. We recommend that you read the terms and conditions closely.
 When you're finished reading, select **I have read and agree to the terms**,
-and then choose **Accept terms and download report**. 7. Open the downloaded file via a PDF viewer. Review the terms and conditions for acceptance and scroll
+and then choose **Accept terms and download report**. 8. Open the downloaded file via a PDF viewer. Review the terms and conditions for acceptance and scroll
 down to find the audit report. Reports could have additional information embedded as attachments within the PDF document,
 so make sure to check for attachments within the PDF file for supporting documentation. For instructions on how to view attachments, see [Viewing attachments in PDF documents](#view-attachments-in-pdf "#view-attachments-in-pdf").
 
