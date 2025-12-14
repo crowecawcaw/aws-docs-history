@@ -109,10 +109,10 @@ matches your intent.
    component or combination of components that is blocking the path (under
    **Explanations**, **Details**). For example, in the
    following explanation, a security group is missing a required inbound rule.
-
-![Example explanation details](images/unreachable-path.png) 2. Update the configuration of the component so that the desired traffic can traverse the component. 3. Choose **Analyze path** to confirm that the path is now reachable. You
-can optionally specify the Amazon Resource Name (ARN) of a resource that the path must
-traverse.
+2. Update the configuration of the component so that the desired traffic can traverse the component.
+3. Choose **Analyze path** to confirm that the path is now reachable. You
+   can optionally specify the Amazon Resource Name (ARN) of a resource that the path must
+   traverse.
 
 ###### To remove connectivity for a reachable path
 
@@ -120,9 +120,9 @@ traverse.
    shortest route found between the source and destination. It includes all components between the
    source and destination. For example, the following diagram shows the components that traffic
    traverses from the source internet gateway to the destination EC2 instance.
-
-![Example visual representation of a reachable path](images/reachable-path.png) 2. Identify the component that is overly permissive and update its configuration. 3. Choose **Analyze path** to confirm that the path is no longer
-reachable.
+2. Identify the component that is overly permissive and update its configuration.
+3. Choose **Analyze path** to confirm that the path is no longer
+   reachable.
 
 ## Step 5: Delete the path
 
