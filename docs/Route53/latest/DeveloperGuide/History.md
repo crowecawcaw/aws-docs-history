@@ -64,7 +64,7 @@ Amazon Route 53 now supports alias records for OpenSearch Service custom domain
 see [Routing traffic to Amazon OpenSearch Service domain endpoint](routing-to-open-search-service.md "routing-to-open-search-service.md").
 
 **January 13, 2025**
-Added Resolver DNS Firewall findings to the Security Hub. For more information, see [Sending findings from Resolver DNS Firewall to Security Hub](securityhub-integration.md "securityhub-integration.md").
+Added Resolver DNS Firewall findings to the Security Hub CSPM. For more information, see [Sending findings from Resolver DNS Firewall to Security Hub CSPM](securityhub-integration.md "securityhub-integration.md").
 
 ## 2024 releases
 
