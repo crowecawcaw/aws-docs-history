@@ -44,7 +44,7 @@ The following naming rules apply to tables and namespaces within table buckets:
 
 - Names must be between 1 and 255 characters long.
 - Names can consist only of lowercase letters, numbers, and underscores (`_`).
-- Names must begin and end with a letter or number.
+- Names must begin with a letter or number.
 - Names must not contain hyphens (`-`) or periods (`.`).
 - A table name must be unique within a namespace.
 - A namespace must be unique within a table bucket.

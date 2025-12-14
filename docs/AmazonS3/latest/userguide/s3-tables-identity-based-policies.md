@@ -57,13 +57,17 @@ JSON
  "Sid": "AllowBucketActions",
  "Effect": "Allow",
  "Action": [
+ "s3tables:GetTableBucket",
+ "s3tables:ListTables",
  "s3tables:CreateTable",
  "s3tables:PutTableData",
  "s3tables:GetTableData",
+ "s3tables:GetTable",
  "s3tables:GetTableMetadataLocation",
  "s3tables:UpdateTableMetadataLocation",
  "s3tables:GetNamespace",
- "s3tables:CreateNamespace"
+ "s3tables:CreateNamespace",
+ "s3tables:ListNamespaces"
  ],
  "Resource": [
  "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/`amzn-s3-demo-bucket`",

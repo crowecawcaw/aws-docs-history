@@ -594,23 +594,23 @@ affected object, the types and number of occurrences of the sensitive data
 that Macie found, and additional details to help you investigate the
 affected S3 bucket and object. For more information, see the [Amazon Macie User Guide](../../../macie/latest/user/what-is-macie.md "../../../macie/latest/user/what-is-macie.md").
 
-**AWS Security Hub**
+**AWS Security Hub CSPM**
 
-AWS Security Hub is a security-posture management service that performs security
+AWS Security Hub CSPM is a security-posture management service that performs security
 best-practice checks, aggregates alerts and findings from multiple sources into
 a single format, and enables automated remediation.
 
-Security Hub collects and provides security findings data from integrated
+Security Hub CSPM collects and provides security findings data from integrated
 AWS Partner Network security solutions and AWS services, including Amazon Detective, Amazon GuardDuty,
 IAM Access Analyzer, and Amazon Macie. It also generates its own findings by running
 continuous, automated security checks based on AWS best practices and
 supported industry standards.
 
-Security Hub then correlates and consolidates findings across providers to help you prioritize and process the most significant
+Security Hub CSPM then correlates and consolidates findings across providers to help you prioritize and process the most significant
 findings. It also provides support for custom actions, which you can use to invoke responses or remediation actions for specific
 classes of findings.
 
-With Security Hub, you can assess the security and compliance status of your Amazon S3
+With Security Hub CSPM, you can assess the security and compliance status of your Amazon S3
 resources, and you can do so as part of a broader analysis of your
 organization's security posture in individual AWS Regions and across multiple
 Regions. This includes analyzing security trends and identifying the
@@ -618,4 +618,4 @@ highest-priority security issues. You can also aggregate findings from multiple
 AWS Regions, and monitor and process aggregated findings data from a single
 Region.
 
-For more information, see [Amazon Simple Storage Service controls](../../../securityhub/latest/userguide/s3-controls.md "../../../securityhub/latest/userguide/s3-controls.md") in the _AWS Security Hub User Guide_.
+For more information, see [Amazon Simple Storage Service controls](../../../securityhub/latest/userguide/s3-controls.md "../../../securityhub/latest/userguide/s3-controls.md") in the _AWS Security Hub CSPM User Guide_.

@@ -34,6 +34,5 @@ aws cloudwatch get-metric-statistics \
 
 ## Related Resources
 
-- [S3 Tables CloudWatch Metrics](https://console.harmony.a2z.com/link-to-metrics-documentation "https://console.harmony.a2z.com/link-to-metrics-documentation")
 - [Amazon CloudWatch Concepts](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md")
 - [Using Amazon CloudWatch Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md")
