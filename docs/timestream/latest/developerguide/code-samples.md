@@ -1,133 +1,145 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Write SDK client
+# Describe scheduled query
 
-You can use the following code snippets to create a Timestream client for the Write SDK.
-The Write SDK is used to perform CRUD operations and to insert your time series data into
-Timestream.
-
-###### Note
-
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
+You can use the following code snippets to describe a scheduled query.
 
 Java
 
 ```
-    private static AmazonTimestreamWrite buildWriteClient() {
-        final ClientConfiguration clientConfiguration = new ClientConfiguration()
-                .withMaxConnections(5000)
-                .withRequestTimeout(20 * 1000)
-                .withMaxErrorRetry(10);
-
-        return AmazonTimestreamWriteClientBuilder
-                .standard()
-                .withRegion("us-east-1")
-                .withClientConfiguration(clientConfiguration)
-                .build();
+public void describeScheduledQueries(String scheduledQueryArn) {
+    System.out.println("Describing Scheduled Query");
+    try {
+        DescribeScheduledQueryResult describeScheduledQueryResult = queryClient.describeScheduledQuery(new DescribeScheduledQueryRequest().withScheduledQueryArn(scheduledQueryArn));
+        System.out.println(describeScheduledQueryResult);
     }
+    catch (ResourceNotFoundException e) {
+        System.out.println("Scheduled Query doesn't exist");
+        throw e;
+    }
+    catch (Exception e) {
+        System.out.println("Describe Scheduled Query failed: " + e);
+        throw e;
+    }
+}
 ```
 
 Java v2
 
 ```
-    private static TimestreamWriteClient buildWriteClient() {
-        ApacheHttpClient.Builder httpClientBuilder =
-                ApacheHttpClient.builder();
-        httpClientBuilder.maxConnections(5000);
-
-        RetryPolicy.Builder retryPolicy =
-                RetryPolicy.builder();
-        retryPolicy.numRetries(10);
-
-        ClientOverrideConfiguration.Builder overrideConfig =
-                ClientOverrideConfiguration.builder();
-        overrideConfig.apiCallAttemptTimeout(Duration.ofSeconds(20));
-        overrideConfig.retryPolicy(retryPolicy.build());
-
-        return TimestreamWriteClient.builder()
-                .httpClientBuilder(httpClientBuilder)
-                .overrideConfiguration(overrideConfig.build())
-                .region(Region.US_EAST_1)
-                .build();
+public void describeScheduledQueries(String scheduledQueryArn) {
+    System.out.println("Describing Scheduled Query");
+    try {
+        DescribeScheduledQueryResponse describeScheduledQueryResult =
+                queryClient.describeScheduledQuery(DescribeScheduledQueryRequest.builder()
+                        .scheduledQueryArn(scheduledQueryArn)
+                        .build());
+        System.out.println(describeScheduledQueryResult);
     }
+    catch (ResourceNotFoundException e) {
+        System.out.println("Scheduled Query doesn't exist");
+        throw e;
+    }
+    catch (Exception e) {
+        System.out.println("Describe Scheduled Query failed: " + e);
+        throw e;
+    }
+}
 ```
 
 Go
 
 ```
-tr := &http.Transport{
-        ResponseHeaderTimeout: 20 * time.Second,
-        // Using DefaultTransport values for other parameters: https://golang.org/pkg/net/http/#RoundTripper
-        Proxy: http.ProxyFromEnvironment,
-        DialContext: (&net.Dialer{
-            KeepAlive: 30 * time.Second,
-            DualStack: true,
-            Timeout:   30 * time.Second,
-        }).DialContext,
-        MaxIdleConns:          100,
-        IdleConnTimeout:       90 * time.Second,
-        TLSHandshakeTimeout:   10 * time.Second,
-        ExpectContinueTimeout: 1 * time.Second,
-    }
+func (timestreamBuilder TimestreamBuilder) DescribeScheduledQuery(scheduledQueryArn string) error {
 
-    // So client makes HTTP/2 requests
-    http2.ConfigureTransport(tr)
+     describeScheduledQueryInput := &timestreamquery.DescribeScheduledQueryInput{
+         ScheduledQueryArn: aws.String(scheduledQueryArn),
+     }
+     describeScheduledQueryOutput, err := timestreamBuilder.QuerySvc.DescribeScheduledQuery(describeScheduledQueryInput)
 
-    sess, err := session.NewSession(&aws.Config{ Region: aws.String("us-east-1"), MaxRetries: aws.Int(10), HTTPClient: &http.Client{ Transport: tr }})
-    writeSvc := timestreamwrite.New(sess)
+     if err != nil {
+         if aerr, ok := err.(awserr.Error); ok {
+             switch aerr.Code() {
+             case timestreamquery.ErrCodeResourceNotFoundException:
+                 fmt.Println(timestreamquery.ErrCodeResourceNotFoundException, aerr.Error())
+             default:
+                 fmt.Printf("Error: %s", err.Error())
+             }
+         } else {
+             fmt.Printf("Error: %s", aerr.Error())
+         }
+         return err
+     } else {
+         fmt.Println("DescribeScheduledQuery is successful, below is the output:")
+         fmt.Println(describeScheduledQueryOutput.ScheduledQuery)
+         return nil
+     }
+ }
 ```
 
 Python
 
 ```
-write_client = session.client('timestream-write', config=Config(read_timeout=20, max_pool_connections = 5000, retries={'max_attempts': 10})) 
+def describe_scheduled_query(self, scheduled_query_arn):
+    print("\nDescribing Scheduled Query")
+    try:
+        response = self.query_client.describe_scheduled_query(ScheduledQueryArn=scheduled_query_arn)
+        if 'ScheduledQuery' in response:
+            response = response['ScheduledQuery']
+            for key in response:
+                print("{} :{}".format(key, response[key]))
+    except self.query_client.exceptions.ResourceNotFoundException as err:
+        print("Scheduled Query doesn't exist")
+        raise err
+    except Exception as err:
+        print("Scheduled Query describe failed:", err)
+        raise err
 ```
 
 Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
-
-An additional command import is shown here. The `CreateDatabaseCommand` import is not required to create the client.
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
 
 ```
-import { TimestreamWriteClient, CreateDatabaseCommand } from "@aws-sdk/client-timestream-write";
-const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
-```
-
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
-
-```
-var https = require('https');
-var agent = new https.Agent({
-    maxSockets: 5000
-});
-writeClient = new AWS.TimestreamWrite({
-        maxRetries: 10,
-        httpOptions: {
-            timeout: 20000,
-            agent: agent
-        }
-    });
-
+async function describeScheduledQuery(scheduledQueryArn) {
+     console.log("Describing Scheduled Query");
+     var params = {
+         ScheduledQueryArn: scheduledQueryArn
+     }
+     try {
+         const data = await queryClient.describeScheduledQuery(params).promise();
+         console.log(data.ScheduledQuery);
+     } catch (err) {
+         console.log("Describe Scheduled Query failed: ", err);
+         throw err;
+     }
+ }
 ```
 
 .NET
 
 ```
-var writeClientConfig = new AmazonTimestreamWriteConfig
-{
-    RegionEndpoint = RegionEndpoint.USEast1,
-    Timeout = TimeSpan.FromSeconds(20),
-    MaxErrorRetry = 10
-};
-
-var writeClient = new AmazonTimestreamWriteClient(writeClientConfig);
+private async Task DescribeScheduledQuery(string scheduledQueryArn)
+ {
+     try
+     {
+         Console.WriteLine("Describing Scheduled Query");
+         DescribeScheduledQueryResponse response = await _amazonTimestreamQuery.DescribeScheduledQueryAsync(
+             new DescribeScheduledQueryRequest()
+             {
+                 ScheduledQueryArn = scheduledQueryArn
+             });
+         Console.WriteLine($"{JsonConvert.SerializeObject(response.ScheduledQuery)}");
+     }
+     catch (ResourceNotFoundException e)
+     {
+         Console.WriteLine($"Scheduled Query doesn't exist: {e}");
+         throw;
+     }
+     catch (Exception e)
+     {
+         Console.WriteLine($"Describe Scheduled Query failed: {e}");
+         throw;
+     }
+ }
 ```
-
-We recommend you use the following configuration.
-
-- Set the SDK retry count to `10`.
-- Use `SDK DEFAULT_BACKOFF_STRATEGY`.
-- Set `RequestTimeout` to `20` seconds.
-- Set the max connections to `5000` or higher.
