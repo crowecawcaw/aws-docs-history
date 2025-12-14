@@ -415,8 +415,8 @@ to monitor your security posture and manually react to events.
 Automating responses improve manual processes, reduce containment
 time, and prevent alert fatigue by the incident response teams,
 leaving your human processes to handle the sensitive and unique
-incidents. Leverage AWS Security Hub to automate and detect
-security incidents. Security Hub continuously monitors your
+incidents. Leverage AWS Security Hub CSPM to automate and detect
+security incidents. Security Hub CSPM continuously monitors your
 environment using automated checks and you can take action on the
 security findings with event based automation tools such as AWS Lambda, AWS Step Functions, and AWS Config Rules. The automated
 response approach should be tested in your non-production
