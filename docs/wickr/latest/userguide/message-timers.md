@@ -15,7 +15,7 @@ steps.
 2. In the navigation pane, find and select the name of the user who you want to
    set message expiration and burn timers for.
 3. Select the information icon (
-   ![Information icon](/images/wickr/latest/userguide/images/icon-wickr-user-information.png)
+   ![Information icon](images/icon-wickr-user-information.png)
    ) in the message window to view contact details.
 4. In the **Contact Details** pane that appears, choose one of
    the following options:

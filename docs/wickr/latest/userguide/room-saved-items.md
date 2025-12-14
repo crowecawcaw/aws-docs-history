@@ -13,7 +13,7 @@ Complete the following steps to view items saved for a room or a group.
 2. In the navigation pane, locate and choose the name of the room or group for
    which you want to view saved items.
 3. Choose
-   ![Information icon](images/icon-wickr-room-information.png)
+   ![Information icon](/images/wickr/latest/userguide/images/icon-wickr-room-information.png)
    in the room or group window to view details.
 4. In the **Room Details** or **Group Details**
    pane that appears, choose **Saved Items** to view the items
