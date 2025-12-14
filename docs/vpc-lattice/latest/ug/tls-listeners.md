@@ -33,6 +33,12 @@ The following considerations apply to TLS listeners:
   - Auth policies are limited to anonymous principals
   - Lambda targets are not supported
 
+- Websocket connections can use TLS Listeners to connect to ,
+  VPC Lattice services. The following limitations exist:
+  - Connection duration is limited to 10 minutes
+  - Auth policies are limited to anonymous principals
+  - Lambda targets are not supported
+
 - Encrypted Client Hello (ECH) isn't supported.
 - Encrypted Server Name Indication (ESNI) isn't supported.
 

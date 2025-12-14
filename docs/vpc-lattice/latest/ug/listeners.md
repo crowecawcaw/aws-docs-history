@@ -38,4 +38,4 @@ between protocols and versions. For more information, see [Protocol version](tar
 You can create a TLS listener to ensure that your application decrypts the encrypted
 traffic instead of VPC Lattice. For more information, see [TLS listeners](tls-listeners.md "tls-listeners.md").
 
-VPC Lattice does not support WebSockets.
+VPC Lattice does not natively support WebSockets. However, you can still connect to Websocket-based services by using TLS Listeners or routing through VPC Lattice resources.
