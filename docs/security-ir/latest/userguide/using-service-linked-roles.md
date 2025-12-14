@@ -94,7 +94,7 @@ The service uses the role to perform actions on the following resources:
   This action is performed on any AWS resource managed by `triage.security-ir.amazonaws.com`.
 - _Amazon GuardDuty:_ Allows the service to tune security services to reduce alert noise and gather
   information to investigate potential incidents. This action is performed on any AWS resource.
-- _AWS Security Hub:_ Allows the service to tune security services to reduce alert noise and gather
+- _AWS Security Hub CSPM:_ Allows the service to tune security services to reduce alert noise and gather
   information to investigate potential incidents. This action is performed on any AWS resource.
 
 ### Managing the role

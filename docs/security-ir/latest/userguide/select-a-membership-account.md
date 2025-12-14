@@ -3,7 +3,7 @@
 A membership account is the AWS account used to configure account details, add and remove
 details for your incident response team, and where all active and historical security events
 can be created and managed. It is recommended that you align your AWS Security Incident Response membership account
-to the same account that you have enabled for services such as Amazon GuardDuty and AWS Security Hub.
+to the same account that you have enabled for services such as Amazon GuardDuty and AWS Security Hub CSPM.
 
 You have two options for selecting your AWS Security Incident
 Response membership account using AWS Organizations. You can either create a

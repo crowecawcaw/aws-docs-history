@@ -1,7 +1,7 @@
 # Detect and Analyze
 
 AWS Security Incident Response monitors, triages, investigates security findings from Amazon GuardDuty and integrations
-through AWS Security Hub. Additional actions that can significantly enhance the scope and effectiveness of
+through AWS Security Hub CSPM. Additional actions that can significantly enhance the scope and effectiveness of
 AWS Security Incident Response's monitoring and investigation capabilities include:
 
 **Enabling supported sources of detection**
@@ -23,19 +23,19 @@ reference
 Enabling GuardDuty provides AWS Security Incident Response access to critical threat detection data, enhancing its ability to identify and
 respond to potential security issues in your AWS environment.
 
-_AWS Security Hub_
+_AWS Security Hub CSPM_
 
-Security Hub can ingest security findings from several AWS services and supported third-party security solutions.
+Security Hub CSPM can ingest security findings from several AWS services and supported third-party security solutions.
 These integrations can help AWS Security Incident Response monitor and investigate findings coming from other detection tools.
 
-To enable Security Hub with Organizations integration please refer to the
-[AWS Security Hub User Guide](../../../securityhub/latest/userguide/securityhub-settingup.md#securityhub-orgs-setup-overviews "../../../securityhub/latest/userguide/securityhub-settingup.md#securityhub-orgs-setup-overviews").
+To enable Security Hub CSPM with Organizations integration please refer to the
+[AWS Security Hub CSPM User Guide](../../../securityhub/latest/userguide/securityhub-settingup.md#securityhub-orgs-setup-overviews "../../../securityhub/latest/userguide/securityhub-settingup.md#securityhub-orgs-setup-overviews").
 
-There are multiple ways of enabling integrations on Security Hub. For third-party product integrations, you may need to purchase
+There are multiple ways of enabling integrations on Security Hub CSPM. For third-party product integrations, you may need to purchase
 the integration from the AWS Marketplace, and then configure the integration. The integration information provides links to complete
-these tasks. Learn more about [how to enable AWS Security Hub integrations](../../../securityhub/latest/userguide/securityhub-integration-enable.md "../../../securityhub/latest/userguide/securityhub-integration-enable.md").
+these tasks. Learn more about [how to enable AWS Security Hub CSPM integrations](../../../securityhub/latest/userguide/securityhub-integration-enable.md "../../../securityhub/latest/userguide/securityhub-integration-enable.md").
 
-AWS Security Incident Response can monitor and investigate findings from the following tools when they're integrated with AWS Security Hub:
+AWS Security Incident Response can monitor and investigate findings from the following tools when they're integrated with AWS Security Hub CSPM:
 
 - [_CrowdStrike – CrowdStrike Falcon_](../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-crowdstrike-falcon "../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-crowdstrike-falcon")
 - [_Lacework – Lacework_](../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-lacework "../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-lacework")

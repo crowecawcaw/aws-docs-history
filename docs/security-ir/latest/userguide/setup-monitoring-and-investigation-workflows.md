@@ -8,10 +8,10 @@ If you experience any onboarding issues, then please
 any errors you may have seen during the setup process.
 
 **Proactive response and alert triaging:** AWS Security Incident Response monitors and investigates
-alerts generated from Amazon GuardDuty and Security Hub integrations. To use this feature, [Amazon GuardDuty must be enabled](../../../guardduty/latest/ug/guardduty_settingup.md "../../../guardduty/latest/ug/guardduty_settingup.md").
+alerts generated from Amazon GuardDuty and Security Hub CSPM integrations. To use this feature, [Amazon GuardDuty must be enabled](../../../guardduty/latest/ug/guardduty_settingup.md "../../../guardduty/latest/ug/guardduty_settingup.md").
 AWS Security Incident Response triages low-priority alerts with service automation
 so your team can focus on the most critical issues. For additional information on how AWS Security Incident Response works with
-Amazon GuardDuty and AWS Security Hub, please review the [Detect and Analyze](detect-and-analyze.md "detect-and-analyze.md") section of the user guide.
+Amazon GuardDuty and AWS Security Hub CSPM, please review the [Detect and Analyze](detect-and-analyze.md "detect-and-analyze.md") section of the user guide.
 
 This feature enables AWS Security Incident Response to monitor and investigate findings across all covered accounts
 and active supported AWS Regions in your organization. To facilitate this functionality, AWS Security Incident Response automatically creates a

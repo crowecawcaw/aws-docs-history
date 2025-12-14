@@ -1,6 +1,6 @@
 # Monitoring and investigation
 
-AWS Security Incident Response reviews and triages security alerts from Amazon GuardDuty and AWS Security Hub, then configures suppression
+AWS Security Incident Response reviews and triages security alerts from Amazon GuardDuty and AWS Security Hub CSPM, then configures suppression
 rules based on your environment to prevent unnecessary alerts. The AWS CIRT team investigates
 non-triaged findings and quickly escalates and guides your team to rapidly contain potential issues. If desired, you can grant
 AWS Security Incident Response permission to implement containment actions on your behalf.
