@@ -76,7 +76,7 @@ you can:
   activity** by analyzing logs for security and
   compliance purposes.
 - **Integrate with Amazon CloudWatch or
-  AWS Security Hub** to create alerts based on unusual Amazon SNS
+  AWS Security Hub CSPM** to create alerts based on unusual Amazon SNS
   actions.
 
 For more information, see the [Logging AWS SNS API calls using
