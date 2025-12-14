@@ -166,15 +166,14 @@ functionalities of AWS Transform.
             "GET"
         ],
         "AllowedOrigins": [
-            "https://.transform.eu-central-1.on.aws",
-  "https://.transform.ap-south-1.on.aws",
-  "https://.transform.sa-east-1.on.aws",
-  "https://.transform.ap-northeast-1.on.aws",
-  "https://.transform.ap-northeast-2.on.aws",
-  "https://.transform.ap-southeast-2.on.aws",
-  "https://.transform.ca-central-1.on.aws",
-  "https://.transform.eu-west-2.on.aws",
-           "https://.transform.us-east-1.on.aws"
+              "https://.transform.eu-central-1.on.aws",
+              "https://.transform.ap-south-1.on.aws",
+              "https://.transform.ap-northeast-1.on.aws",
+              "https://.transform.ap-northeast-2.on.aws",
+              "https://.transform.ap-southeast-2.on.aws",
+              "https://.transform.ca-central-1.on.aws",
+              "https://.transform.eu-west-2.on.aws",
+              "https://.transform.us-east-1.on.aws"
         ],
         "ExposeHeaders": [],
         "MaxAgeSeconds": 0
@@ -345,7 +344,9 @@ data analysis.
 
 ### Data lineage
 
-AWS Transform provides multiple views based on the data relationships that need to be understood across the code base being modernized. The three table views available in data lineage include:
+AWS Transform provides multiple views based on the data relationships that need to be
+understood across the code base being modernized. The four table views available
+in data lineage include:
 
 - **Data sets**: This view provides a
   comprehensive impact analysis, including operation tracking to help

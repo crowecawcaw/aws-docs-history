@@ -84,7 +84,7 @@ AWS Transform chat is integrated with:
 
 [Experience-Based
 Acceleration (EBA)](https://aws.amazon.com/experience-based-acceleration/ "https://aws.amazon.com/experience-based-acceleration/") is offered through AWS Transform chat. It enables you to perform EBA
-assessment for Windows workloads and generate a plan. You can start by either importing
+assessment for Windows workloads and generate a plan. You can start by importing
 assessment results from CAST. It helps you discover your application portfolio, after
 which you can use AWS Transform chat to select applications that meet your business needs
 (example filtering applications based on complexity or lines of code). You can then perform

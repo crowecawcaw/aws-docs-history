@@ -47,9 +47,13 @@ Evaluator](https://aws.amazon.com/migration-evaluator/ "https://aws.amazon.com/m
 
 Your VPCs and their subnets are automatically tagged with these tags so that their subnets appear in AWS Transform's list of available subnets:
 
-- Key: `CreatedFor` Value:
+- **Key:**
+  `CreatedFor`
+  **Value:**
   `AWSTransform`
-- Key: `ATWorkspace` Value:
+- **Key:**
+  `ATWorkspace`
+  **Value:**
   `workspace ID`
 
 ## Migrate waves

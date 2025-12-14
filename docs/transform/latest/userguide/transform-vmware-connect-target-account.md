@@ -27,7 +27,7 @@ servers and applications will reside in AWS.
 ###### Important
 
 If you specify a connector with a target AWS Region that is
-different from the discovery AWS Region, that means AWS Transform will be
+different from the AWS Transform Region, that means AWS Transform will be
 transferring your data across AWS Regions. 3. Choose **Continue**.
 
 ###### To create a new connector

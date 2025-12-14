@@ -8,7 +8,7 @@ When you experience VMware module configuration errors follow these steps to ver
 
 - Log-in to the discovery tool VM, open Remote Console in vCenter
   - Username: discovery
-  - Password: collector
+  - Password: password
 
 ###### Test vCenter Connectivity
 
@@ -21,7 +21,7 @@ curl -v --insecure -u <username>:<password> https://<vcenter-ip-or-hostname>:443
 2. Expected Success Output:
 
 ```
-[ec2-user@discoverycollector ~]$ curl -v --insecure -u <user>:<password> https://vcsa/mob > tmp.txt
+[ec2-user@discoverytool ~]$ curl -v --insecure -u <user>:<password> https://vcsa/mob > tmp.txt
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 192.168.2.125:443...
@@ -44,7 +44,7 @@ openssl s_client -showcerts -servername <hostname> -connect <hostname>:443
    - Verifies SSL/TLS connectivity on port 443
 
 ```
-[ec2-user@discoverycollector ~]$ openssl s_client -showcerts -servername vcsa -connect vcsa:443
+[ec2-user@discoverytool ~]$ openssl s_client -showcerts -servername vcsa -connect vcsa:443
 CONNECTED(00000003)
 depth=0 CN = vcsa.onpremsim.env, C = US
 verify error:num=20:unable to get local issuer certificate
@@ -99,7 +99,7 @@ Enter-PSSession -ComputerName <HOST> -Credential $cred -Port 5985 -SessionOption
 
 - Log-in to the discovery tool VM, open Remote Console in vCenter
   - Username: discovery
-  - Password: collector
+  - Password: password
 
 ###### Install SNMP Tools (if needed)
 

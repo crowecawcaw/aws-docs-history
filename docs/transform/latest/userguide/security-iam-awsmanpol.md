@@ -21,6 +21,9 @@ View details about updates to AWS managed policies for AWS Transform since March
 
 | Change                                                                                                                                                                                                 | Description                                                                                                                                                                                                                | Date               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSTransformCustomFullAccess](#security-iam-awsmanpol-AWSTransformCustomFullAccess "#security-iam-awsmanpol-AWSTransformCustomFullAccess") – New policy                                               | Added a new AWS managed policy that provides full access to AWS Transform custom.                                                                                                                                          | December 5, 2025   |
+| [AWSTransformCustomExecuteTransformations](#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations "#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations") – New policy           | Added a new AWS managed policy that provides access to execute transformations in AWS Transform custom.                                                                                                                    | December 5, 2025   |
+| [AWSTransformCustomManageTransformations](#security-iam-awsmanpol-AWSTransformCustomManageTransformations "#security-iam-awsmanpol-AWSTransformCustomManageTransformations") – New policy              | Added a new AWS managed policy that provides access to create, update, read, and delete transformation resources in AWS Transform custom, as well as execute transformations.                                              | December 5, 2025   |
 | [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                                        | Added permissions to access the AWS Transform service-linked secret used to store the client secret for external identity providers.<br>Added permissions to create a premium support case from the AWS Transform web app. | December 1, 2025   |
 | [AWSTransformApplicationECSDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationECSDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationECSDeploymentPolicy") – Updated policy | Added IAM role inspection permissions, ECS service-linked role creation, and KMS permissions for ECR encryption support.                                                                                                   | November 22, 2025  |
 | [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy") – Updated<br>policy       | Added EC2 networking permissions, IAM role inspection permissions, S3 bucket listing permissions, and KMS encryption support for enhanced deployment capabilities.                                                         | November 22, 2025  |
@@ -113,4 +116,58 @@ AWSTransform-managed resources within the same AWS account.
 **Permissions details**
 
 To view the policy permission details see [AWSTransformApplicationECSDeploymentPolicy](../../../aws-managed-policy/latest/reference/AWSTransformApplicationECSDeploymentPolicy.md "../../../aws-managed-policy/latest/reference/AWSTransformApplicationECSDeploymentPolicy.md") in the AWS Managed Policy Reference
+Guide.
+
+## AWS managed
+
+policy: AWSTransformCustomFullAccess
+
+This policy provides full access to AWS Transform custom.
+
+**Description**
+
+This policy includes the following permissions:
+
+- **AWS Transform Custom** – Allows all actions on all AWS Transform custom resources. This provides complete administrative access to the service.
+
+**Permissions details**
+
+To view the policy permission details see [AWSTransformCustomFullAccess](../../../aws-managed-policy/latest/reference/AWSTransformCustomFullAccess.md "../../../aws-managed-policy/latest/reference/AWSTransformCustomFullAccess.md") in the AWS Managed Policy Reference
+Guide.
+
+## AWS managed
+
+policy: AWSTransformCustomExecuteTransformations
+
+This policy provides access to execute transformations in AWS Transform custom.
+
+**Description**
+
+This policy includes the following permissions:
+
+- **AWS Transform Custom** – Allows streaming conversations, executing transformations, and managing campaigns. Includes permissions to get campaign details, update campaign repository status, and update campaigns.
+
+**Permissions details**
+
+To view the policy permission details see [AWSTransformCustomExecuteTransformations](../../../aws-managed-policy/latest/reference/AWSTransformCustomExecuteTransformations.md "../../../aws-managed-policy/latest/reference/AWSTransformCustomExecuteTransformations.md") in the AWS Managed Policy Reference
+Guide.
+
+## AWS managed
+
+policy: AWSTransformCustomManageTransformations
+
+This policy provides access to create, update, read, and delete transformation resources in AWS Transform custom, as well as execute transformations.
+
+**Description**
+
+This policy includes the following permissions:
+
+- **AWS Transform Custom** – Allows comprehensive management of transformation resources including streaming conversations, executing transformations, and managing transformation packages. Permits creating, getting, and deleting transformation package URLs and completing package uploads.
+- **Knowledge Management** – Allows listing, getting, deleting, and updating knowledge items and their configurations and status.
+- **Campaign Management** – Allows getting campaign details, updating campaign repository status, and updating campaigns.
+- **Resource Tagging** – Allows listing, adding, and removing tags for AWS Transform custom resources.
+
+**Permissions details**
+
+To view the policy permission details see [AWSTransformCustomManageTransformations](../../../aws-managed-policy/latest/reference/AWSTransformCustomManageTransformations.md "../../../aws-managed-policy/latest/reference/AWSTransformCustomManageTransformations.md") in the AWS Managed Policy Reference
 Guide.

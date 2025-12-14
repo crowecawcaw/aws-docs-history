@@ -28,14 +28,26 @@ The following AWS-managed transformations are currently available:
 - `AWS/python-boto2-to-boto3` - Migrate Python applications from boto2 to boto3, based on the official AWS migration documentation.
 - `AWS/nodejs-aws-sdk-v2-to-v3` - Upgrade Node.js applications from AWS SDK for JavaScript v2 to v3 to leverage modular architecture, first-class TypeScript support, middleware stack, and improved performance while ensuring all AWS service interactions continue to function correctly, without modifying the underlying Node.js version.
 
-**Early Access Transformations:**
-
-- `AWS/early-access-comprehensive-codebase-analysis` - [Early Access] This transformation performs deep static analysis of codebases to generate hierarchical, cross-referenced documentation covering all aspects of the system. It combines behavioral analysis, architectural documentation, and business intelligence extraction to create a comprehensive knowledge base organized for maximum usability and navigation. The transformation places special emphasis on technical debt analysis, providing prominent, actionable insights on outdated components, security vulnerabilities, and maintenance concerns at the root level.
-- `AWS/early-access-java-x86-to-graviton` - [Early Access] Perform Java compatibility analysis and migration of existing code to support execution on Arm64 architecture for running on Graviton EC2 instances.
+**Early Access Transformations**
 
 ###### Note
 
-Early access transformations are functional but may receive frequent updates based on customer feedback.
+Early access transformations are functional but might be frequently updated based on customer
+feedback.
+
+- `AWS/early-access-comprehensive-codebase-analysis` - [Early Access] This transformation performs deep static analysis of codebases to generate hierarchical,
+  cross-referenced documentation covering all aspects of the system. It combines behavioral analysis, architectural documentation, and business intelligence extraction
+  to create a comprehensive knowledge base organized for maximum usability and navigation. The transformation places special emphasis on technical debt analysis, providing prominent, actionable
+  insights on outdated components, security vulnerabilities, and maintenance concerns at the root level.
+- `AWS/early-access-java-x86-to-graviton` - [Early Access] Validates Java application compatibility with Arm64 architecture for running on
+  AWS Graviton Processors. Identifies and resolves Arm64 incompatibilities by updating dependencies, detecting architecture-specific code patterns,
+  and recompiling native libraries when source code is available. Makes targeted code modifications necessary for Arm64 support, such as architecture detection, and native library loading,
+  but does not perform general code refactoring. Maintains current Java version and JDK distribution and validates compatibility through build and test execution.
+  For optimal results, run in an Arm64-based environment.
+
+###### Note
+
+Many modern Java applications are already Arm64-compatible.
 
 ## Customizing AWS-Managed Transformations
 

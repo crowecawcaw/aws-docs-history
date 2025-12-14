@@ -28,9 +28,9 @@ These are the prerequisites for using AWS Transform discovery tool:
 
 1.  Sign in to vCenter as a VMware administrator.
 2.  Use one of these ways to install the OVA file:
-    1. **Use the UI:** Choose **File**, choose **Deploy OVF Template**, select the collector OVA file you downloaded in the previous section, and then complete the wizard. Ensure the proxy settings in the server management dashboard are configured correctly.
-    2. **Use the command line:** To install the collector OVA file from the command line, download and use the VMware Open Virtualization Format Tool (ovftool).
-       To download ovftool, select a release from the [OVF Tool Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/ovf-tool-user-s-guide/using-ovf-tool-commands/command-line-options.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/ovf-tool-user-s-guide/using-ovf-tool-commands/command-line-options.html") page. This is an example of using the ovftool command line tool to install the collector OVA file.
+    1. **Use the UI:** Choose **File**, choose **Deploy OVF Template**, select the discovery tool OVA file you downloaded in the previous section, and then complete the wizard. Ensure the proxy settings in the server management dashboard are configured correctly.
+    2. **Use the command line:** To install the discovery tool OVA file from the command line, download and use the VMware Open Virtualization Format Tool (ovftool).
+       To download ovftool, select a release from the [OVF Tool Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/ovf-tool-user-s-guide/using-ovf-tool-commands/command-line-options.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/ovf-tool-user-s-guide/using-ovf-tool-commands/command-line-options.html") page. This is an example of using the ovftool command line tool to install the discovery tool OVA file.
 
     ```
     ovftool --acceptAllEulas --name='discovery tool' --datastore=datastore1 -dm=thin ATX-Transform-discovery-tool.ova 'vi://username:password@vcenterurl/Datacenter/host/esxi/'
@@ -40,13 +40,13 @@ These are the prerequisites for using AWS Transform discovery tool:
 
         * The name is the name that you want to use for your discovery tool VM.
         * The datastore is the name of the datastore in your vCenter.
-        * The OVA file name is the name of the downloaded collector OVA file.
+        * The OVA file name is the name of the downloaded discovery tool OVA file.
         * The username/password are your vCenter credentials.
         * The vcenterurl is the URL of your vCenter.
         * The vi path is the path to your VMware ESXi host.
 
 3.  Locate the deployed discovery tool in your vCenter. Right-click the VM, and then choose **Power**, **Power On**.
-4.  After a few minutes, the IP address of the collector displays in vCenter. You use this IP address to connect to the collector.
+4.  After a few minutes, the IP address of the discovery tool displays in vCenter. You use this IP address to connect to the discovery tool.
 
 #### Discovery tool virtual machine specifications
 
@@ -58,11 +58,21 @@ These are the prerequisites for using AWS Transform discovery tool:
 
 ### Accessing the discovery tool VM
 
-- The collector VM comes by default with a username and password ("discovery", "collector"). For strong security users are highly encouraged to update the password using `sudo passwd discovery` after logging into the VM through vSphere Client → Discovery Tool VM → "Launch Web Console".
-- SSH access is disabled by default. Users can use preconfigured `enablessh` and `disablessh` aliases to enable/disable
-  SSH access to the collector VM. Users can SSH into the VM via `ssh discovery@<VM-IP>` after enabling SSH access.
-  Users are encouraged to keep SSH access disabled most of the times and enable it only while actively required. Password change is enforced when running `enablessh`.
-- To access collector data directory at `/home/ec2-user/.local/share/DiscoveryCollector`, we recommend switching to `ec2-user` by running `sudo su ec2-user`.
+- The discovery tool VM comes by default with a username and password ("discovery", "password").
+  For strong security users are highly encouraged to update the password using
+  `sudo passwd discovery` after logging into the VM through vSphere
+  Client → Discovery Tool VM → "Launch Web Console".
+- SSH access is disabled by default. Users can use preconfigured `enablessh` and
+  `disablessh` aliases to enable/disable SSH access to the
+  discovery tool VM. Users can SSH into the VM via `ssh
+discovery@<VM-IP>` after enabling SSH access. Users are
+  encouraged to keep SSH access disabled most of the times and enable it only
+  while actively required. Password change is enforced when running
+  `enablessh`.
+- To access the discovery tool data directory at
+  `/home/ec2-user/.local/share/DiscoveryTool`, we recommend
+  switching to `ec2-user` by running `sudo su
+ec2-user`.
 
 ## Configure krb5.conf For Kerberos Authentication
 
@@ -70,9 +80,9 @@ Protocol (optional)
 
 krb5.conf configuration may not be required if your environment has proper DNS SRV records configured for Kerberos service discovery. However, explicit configuration is recommended for: Environments without DNS-based Kerberos discovery, Custom or non-standard Kerberos setups.
 
-To configure the Kerberos authentication protocol on your collector VM:
+To configure the Kerberos authentication protocol on your discovery tool VM:
 
-1. Ssh to Discovery Collector VM
+1. SSH to Discovery tool VM
 2. Open krb5.conf configuration file in the `/etc` folder. To do so, you can use the following example `sudo nano /etc/krb5.conf`
 3. Update the krb5.conf configuration file with at least the following information.
 
@@ -91,30 +101,36 @@ default_domain = <domain_name>
 
 Replace the placeholders with your actual values:
 
-- `<KERBEROS_REALM>` - Your Kerberos realm (all uppercase, e.g., COLLECTOR.EXAMPLE.COM)
+- `<KERBEROS_REALM>` - Your Kerberos realm (all uppercase, e.g.,
+  TOOL.EXAMPLE.COM)
 - `<KDC_hostname>` - Hostname or IP address of your Key Distribution Center (e.g., domain-controller.example.com)
 - `<domain_name>` - Your domain name (e.g., example.com)
 
 For detailed configuration options, refer to [the MIT Kerberos krb5.conf
 documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html") and [Sample krb5.conf file](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#sample-krb5-conf-file "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#sample-krb5-conf-file")
 
-Verify kerberos setup is working in the collector VM by running `kinit <principal>` and `klist` to obtain and view the ticket. `<principal>` = username@DOMAIN (DOMAIN in all caps) e.g., testuser@EXAMPLE.COM).
+Verify kerberos setup is working in the discovery tool VM by running `kinit
+ <principal>` and `klist` to obtain and view the ticket.
+`<principal>` = username@DOMAIN (DOMAIN in all caps) e.g.,
+testuser@EXAMPLE.COM).
 
-Upon verifying, provide the principal and password in the collector UI.
+Upon verifying, provide the principal and password in the discovery tool UI.
 
-## Import a self-signed certificate authority into the collector (Optional)
+## Import a self-signed certificate
 
-This is required when you use WinRM over HTTPS and target servers using WinRM HTTPS certificates signed by a self-signed Certificate Authority (CA), and you want to enable "Validate server SSL certificate" on the collector.
+authority into the discovery tool (Optional)
+
+This is required when you use WinRM over HTTPS and target servers using WinRM HTTPS certificates signed by a self-signed Certificate Authority (CA), and you want to enable "Validate server SSL certificate" on the discovery tool.
 
 ### Prerequisites
 
 1. Self-signed CA certificate that was used to sign the WinRM HTTPS certificates on target servers
 2. Certificate in PEM format (.pem or .crt extension)
 
-To import a self-signed certificate authority on the collector VM:
+To import a self-signed certificate authority on the discovery tool VM:
 
-1. Ssh to Discovery Collector VM
-2. Place the CA certificate(s) that signed your target servers' WinRM certificates into trust store directory `/etc/pki/ca-trust/source/anchors/` on the collector VM. For example: `sudo cp winrm-ca.pem /etc/pki/ca-trust/source/anchors/winrm-ca.pem`. Note: If your target servers use certificates signed by different CAs, copy all relevant CA certificates to this directory.
+1. Ssh to Discovery tool VM
+2. Place the CA certificate(s) that signed your target servers' WinRM certificates into trust store directory `/etc/pki/ca-trust/source/anchors/` on the discovery tool VM. For example: `sudo cp winrm-ca.pem /etc/pki/ca-trust/source/anchors/winrm-ca.pem`. Note: If your target servers use certificates signed by different CAs, copy all relevant CA certificates to this directory.
 3. Update the certificate trust store: `sudo update-ca-trust`
 4. Reboot the VM
 5. (Optional) To verify that certificates have been successfully imported, you can run the following command. `sudo trust list —filter=ca-anchors | grep -A 5 "<certificate_name>"`
@@ -139,7 +155,7 @@ The discovery tool begins to collect vCenter information, as described in
 
 After initial configuration choose **Edit vCenter access** in the **Discovery tool status** frame to change your vCenter access settings.
 
-## Configure the collector for OS access
+## Configure the discovery tool for OS access
 
 Configure OS access so that the discovery tool can:
 
