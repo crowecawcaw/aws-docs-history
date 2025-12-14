@@ -31,6 +31,6 @@ regulations. Amazon Web Services provides the following resources to help with c
 - [Evaluating Resources with Rules in the AWS Config Developer Guide](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md")– The
   AWS Config service assesses how well your resource configurations comply with
   internal practices, industry guidelines, and regulations.
-- [Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – This Amazon Web Services service provides a comprehensive view of your security
+- [Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – This Amazon Web Services service provides a comprehensive view of your security
   state within Amazon Web Services that helps you check your compliance with security industry
   standards and best practices.
