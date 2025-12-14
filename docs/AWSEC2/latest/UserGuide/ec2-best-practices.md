@@ -16,8 +16,8 @@ following best practices.
 - Use Amazon Inspector to automatically discover and scan Amazon EC2 instances for software
   vulnerabilities and unintended network exposure. For more information, see the
   [Amazon Inspector User Guide](../../../inspector/latest/user/what-is-inspector.md "../../../inspector/latest/user/what-is-inspector.md").
-- Use AWS Security Hub controls to monitor your Amazon EC2 resources against security best
-  practices and security standards. For more information about using Security Hub, see [Amazon Elastic Compute Cloud controls](../../../securityhub/latest/userguide/ec2-controls.md "../../../securityhub/latest/userguide/ec2-controls.md") in the _AWS Security Hub User
+- Use AWS Security Hub CSPM controls to monitor your Amazon EC2 resources against security best
+  practices and security standards. For more information about using Security Hub CSPM, see [Amazon Elastic Compute Cloud controls](../../../securityhub/latest/userguide/ec2-controls.md "../../../securityhub/latest/userguide/ec2-controls.md") in the _AWS Security Hub CSPM User
   Guide_.
 
 ###### Storage

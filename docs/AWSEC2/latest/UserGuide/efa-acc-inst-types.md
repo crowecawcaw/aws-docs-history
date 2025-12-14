@@ -160,8 +160,6 @@ interfaces.
 
 ```
 
-## EFA configuration for a P5 and P5e instances
-
 `p5.48xlarge` and `p5e.48xlarge` instances support 32 network
 cards and have a total network bandwidth capacity of 3,200 Gbps, of which up to 800
 Gbps can be utilized for IP network traffic. Because EFA and IP network traffic share
@@ -197,20 +195,25 @@ launch for internet connectivity.
 - For the primary network interface (network card index 0, device index 0),
   use an EFA (EFA with ENA) network interface.
 - For the remaining interfaces, do the following:
-  - Specify EFA-only network interfaces on network card indexes 1, 2, and 3,
-    and use device index 1.
-  - Specify one EFA (EFA with ENA) network interface and three EFA-only network
-    interfaces **in each** of the following network
-    card index subsets, and use device index 1 for all of them:
-    - [4,5,6,7]
-    - [8,9,10,11]
-    - [12,13,14,15]
-    - [16,17,18,19]
-    - [20,21,22,23]
-    - [24,25,26,27]
-    - [28,29,30,31]
 
-The following example illustrates this configuration:
+      + Specify EFA-only network interfaces on network card indexes 1, 2, and 3,
+       and use device index 1.
+      + Specify one EFA (EFA with ENA) network interface and three EFA-only network
+       interfaces **in each** of the following network
+       card index subsets, and use device index 1 for all of them:
+
+
+
+
+      	- [4,5,6,7]
+      	- [8,9,10,11]
+      	- [12,13,14,15]
+      	- [16,17,18,19]
+      	- [20,21,22,23]
+      	- [24,25,26,27]
+      	- [28,29,30,31]
+
+  The following example illustrates this configuration:
 
 ```
 $ aws --region $REGION ec2 run-instances \
@@ -253,8 +256,6 @@ $ aws --region $REGION ec2 run-instances \
 ...
 ```
 
-## EFA configuration for a P6-B200 instances
-
 P6-B200 instances have a total network bandwidth capacity of 3,200 Gbps, of which up to 1600 Gbps can be
 utilized for ENA. They have 8 GPUs and 8 network cards, where each network card supports up to 400 Gbps EFA
 bandwidth and 200 Gbps ENA bandwidth. Since EFA and ENA traffic share the same underlying resources, bandwidth
@@ -277,15 +278,11 @@ of EFA bandwidth and 1600 Gbps of ENA bandwidth.
 
 - For the primary network interface (network card index 0, device index 0) and the remaining 7 network
   cards (network card indexes 1-7, device index 1), use EFA (EFA with ENA) network interfaces.
-
-## EFA configuration for a P6e-GB200 instances
-
-P6e-GB200 instances can be configured with up to 17 network cards. The following image
-shows the physical network interface card (NIC) layout for P6e-GB200 instances, along with
-the mapping of network card indexes (NCIs).
+  P6e-GB200 instances can be configured with up to 17 network cards. The following image
+  shows the physical network interface card (NIC) layout for P6e-GB200 instances, along with
+  the mapping of network card indexes (NCIs).
 
 ![Physical network interface card (NIC) and network card index (NCI) mapping for P6e-GB200 instances.](images/p6e.png)
-
 The primary NCI (index 0) supports up to 100 Gbps of ENA bandwidth. NCIs with the following
 indexes support EFA-only network interfaces and 400 Gbps EFA bandwidth: [1, 3, 5, 7, 9, 11,
 13, 15]. NCIs with the following indexes support up to 200 Gbps ENA or EFA bandwidth: [2, 4,
@@ -301,11 +298,10 @@ The NCIs in the following groups share an underlying physical NIC on the host:
 - [11 and 12]
 - [13 and 14]
 - [15 and 16]
-
-Each physical NIC supports up 400 Gbps of bandwidth. Because the NCIs in these groups
-share the same underlying physical NIC, bandwidth used by one will reduce the bandwidth
-that is available to the other. For example, if NCI 2 uses 200 Gbps of ENA bandwidth,
-NCI 1 can use up to 200 Gbps of EFA bandwidth at the same time.
+  Each physical NIC supports up 400 Gbps of bandwidth. Because the NCIs in these groups
+  share the same underlying physical NIC, bandwidth used by one will reduce the bandwidth
+  that is available to the other. For example, if NCI 2 uses 200 Gbps of ENA bandwidth,
+  NCI 1 can use up to 200 Gbps of EFA bandwidth at the same time.
 
 Each underlying GPU on the host can send traffic directly over the following pairs of
 NCIs:
@@ -314,13 +310,12 @@ NCIs:
 - [5 and 7]
 - [9 and 11]
 - [13 and 15]
-
-Each GPU supports up to 400 Gbps of EFA bandwidth. Because the network cards in these
-groups share the same GPU, bandwidth used by one will reduce the bandwidth that is
-available to the other. For example, if NCI 1 uses 200 Gbps of EFA bandwidth, NCI 3 can
-use up to 200 Gbps of EFA bandwidth at the same time. Therefore, to achieve maximum EFA
-performance, we recommend that you do **one of the following**
-to achieve a total of 1,600 Gbps EFA bandwidth:
+  Each GPU supports up to 400 Gbps of EFA bandwidth. Because the network cards in these
+  groups share the same GPU, bandwidth used by one will reduce the bandwidth that is
+  available to the other. For example, if NCI 1 uses 200 Gbps of EFA bandwidth, NCI 3 can
+  use up to 200 Gbps of EFA bandwidth at the same time. Therefore, to achieve maximum EFA
+  performance, we recommend that you do **one of the following**
+  to achieve a total of 1,600 Gbps EFA bandwidth:
 
 - Add an EFA-only network interface to only one NCI in each group to achieve 400
   Gbps per network interface (_4 EFA network interfaces x 400 Gbps_).
@@ -334,7 +329,95 @@ networking bandwidth using only the primary NCI (index 0).
 - For the primary NCI (network card index 0, device index 0), use an ENA network
   interface.
 - Add EFA-only network interfaces to the following:
-  - NCI 1, device index 0
-  - NCI 5, device index 0
-  - NCI 9, device index 0
-  - NCI 13, device index 0
+
+      + NCI 1, device index 0
+      + NCI 5, device index 0
+      + NCI 9, device index 0
+      + NCI 13, device index 0
+
+  P6-B300 instances have a total network bandwidth capacity of up to 6400 Gbps for EFA
+  traffic, and up to 3870 Gbps for ENA traffic. They have 8 GPUs and 17 network cards,
+  where the primary network card supports only an ENA network interface with up to 350
+  Gbps of bandwidth. The secondary network cards support up to 400 Gbps EFA and up to
+  220 Gbps of ENA bandwidth. Since EFA and ENA traffic share the same underlying resources,
+  bandwidth used by one will reduce the bandwidth that is available to the other.
+
+![Physical network interface card (NIC) and network card index (NCI) mapping for P6-B300 instances.](images/p6-b300.png)
+
+###### Use case 1: Save IP addresses
+
+This configuration consumes at least one private IP address per instance and
+supports up to 6400 Gbps of EFA bandwidth and up to 350 Gbps of ENA bandwidth.
+
+- For the primary network interface (network card index 0, device index 0),
+  use an ENA network interface.
+- For the remaining network cards (network card indexes 1-16, device index 1),
+  use EFA-only network interfaces.
+
+```
+--network-interfaces \
+"NetworkCardIndex=**0**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**1**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**2**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**3**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**4**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**5**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**6**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**7**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**8**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**9**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**10**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**11**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**12**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**13**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**14**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**15**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**16**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**
+```
+
+###### Use case 2: Maximum EFA and ENA bandwidth
+
+This configuration consumes at least 17 private IP address per instance and supports
+up to 6400 Gbps of EFA bandwidth and up to 3870 Gbps of ENA bandwidth.
+
+- For the primary network interface (network card index 0, device index 0) use an
+  ENA network interface.
+- For the remaining network cards, create an EFA-only interface (network card indexes
+  1-16 device index 1) and an ENA interface network card indexes 1-16 device index 2).
+
+```
+--network-interfaces \
+"NetworkCardIndex=**0**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**1**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**2**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**3**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**4**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**5**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**6**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**7**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**8**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**9**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**10**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**11**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**12**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**13**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**14**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**15**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**16**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**1**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**2**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**3**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**4**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**5**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**6**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**7**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**8**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**9**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**10**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**11**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**12**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**13**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**14**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**15**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
+"NetworkCardIndex=**16**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**
+```

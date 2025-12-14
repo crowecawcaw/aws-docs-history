@@ -10,6 +10,7 @@ This section covers how you (the capacity owner) can create, modify, reclaim, an
 - [View your interruptible Capacity Reservation](#view-interruptible-cr "#view-interruptible-cr")
 - [Modifying your interruptible Capacity Reservation](#modify-interruptible-cr "#modify-interruptible-cr")
 - [Reclamation process and tracking](#reclamation-process "#reclamation-process")
+- [Sharing interruptible reservations](#sharing-interruptible-reservations "#sharing-interruptible-reservations")
 
 ## Creating an interruptible Capacity Reservation
 
@@ -168,7 +169,7 @@ The response shows these fields within the `interruptibleCapacityAllocation` obj
 - `target-instance-count`: Requested quantity after reclamation
 - `status`: **updating** during reclamation and **active** when complete
 
-### Sharing interruptible reservations
+## Sharing interruptible reservations
 
 You can share interruptible reservations only within your AWS organization using AWS Resource Access Manager (RAM).
 

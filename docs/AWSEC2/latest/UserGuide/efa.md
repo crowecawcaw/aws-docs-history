@@ -125,6 +125,9 @@ Nitro v6
 | Compute Optimized     |
 | c8a.48xlarge          | Yes               | Yes                |
 | c8a.metal-48xl        | Yes               | Yes                |
+| c8gb.16xlarge         | Yes               | Yes                |
+| c8gb.24xlarge         | Yes               | Yes                |
+| c8gb.metal-24xl       | Yes               | Yes                |
 | c8gn.16xlarge         | Yes               | Yes                |
 | c8gn.24xlarge         | Yes               | Yes                |
 | c8gn.48xlarge         | Yes               | Yes                |

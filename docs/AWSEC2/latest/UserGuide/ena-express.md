@@ -264,6 +264,11 @@ Compute optimized
 | `c8g.48xlarge`    | arm64        |
 | `c8g.metal-24xl`  | arm64        |
 | `c8g.metal-48xl`  | arm64        |
+| `c8gb.8xlarge`    | arm64        |
+| `c8gb.12xlarge`   | arm64        |
+| `c8gb.16xlarge`   | arm64        |
+| `c8gb.24xlarge`   | arm64        |
+| `c8gb.metal-24xl` | arm64        |
 | `c8gd.12xlarge`   | arm64        |
 | `c8gd.16xlarge`   | arm64        |
 | `c8gd.24xlarge`   | arm64        |

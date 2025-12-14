@@ -155,6 +155,17 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `c8a.48xlarge`      | 32                               | 128                              | 768                             |
 | `c8a.metal-24xl`    | 16                               | 128                              | 384                             |
 | `c8a.metal-48xl`    | 32                               | 128                              | 768                             |
+| **C8gb**            |
+| `c8gb.medium`       | 1                                | 1                                | 2                               |
+| `c8gb.large`        | 2                                | 2                                | 6                               |
+| `c8gb.xlarge`       | 4                                | 4                                | 16                              |
+| `c8gb.2xlarge`      | 8                                | 8                                | 32                              |
+| `c8gb.4xlarge`      | 8                                | 16                               | 64                              |
+| `c8gb.8xlarge`      | 8                                | 32                               | 128                             |
+| `c8gb.12xlarge`     | 16                               | 64                               | 192                             |
+| `c8gb.16xlarge`     | 16                               | 64                               | 256                             |
+| `c8gb.24xlarge`     | 16                               | 128                              | 384                             |
+| `c8gb.metal-24xl`   | 32                               | 128                              | 768                             |
 | **C8gn**            |
 | `c8gn.medium`       | 1                                | 1                                | 2                               |
 | `c8gn.large`        | 2                                | 2                                | 6                               |

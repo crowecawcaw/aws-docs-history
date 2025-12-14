@@ -111,7 +111,7 @@ Consider the following options for controlling network traffic to your EC2 insta
   and respond to potential threats to your instances. For more information, see
   [How Runtime Monitoring works with
   Amazon EC2 instances](../../../guardduty/latest/ug/how-runtime-monitoring-works-ec2.md "../../../guardduty/latest/ug/how-runtime-monitoring-works-ec2.md").
-- Use [AWS Security Hub](../../../securityhub/latest/userguide.md "../../../securityhub/latest/userguide.md"),
+- Use [AWS Security Hub CSPM](../../../securityhub/latest/userguide.md "../../../securityhub/latest/userguide.md"),
   [Reachability Analyzer](../../../vpc/latest/reachability.md "../../../vpc/latest/reachability.md"), or
   [Network Access Analyzer](../../../vpc/latest/network-access-analyzer.md "../../../vpc/latest/network-access-analyzer.md")
   to check for unintended network accessibility from your instances.
