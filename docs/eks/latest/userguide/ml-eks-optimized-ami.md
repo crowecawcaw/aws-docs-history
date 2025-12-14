@@ -8,14 +8,14 @@ Amazon EKS supports EKS-optimized Amazon Linux and Bottlerocket AMIs for GPU ins
 
 The table below shows the supported GPU instance types for each EKS-optimized accelerated AMI variant. See the EKS-optimized [AL2023 releases](https://github.com/awslabs/amazon-eks-ami/releases "https://github.com/awslabs/amazon-eks-ami/releases") and [Bottlerocket releases](https://github.com/bottlerocket-os/bottlerocket/blob/develop/CHANGELOG.md "https://github.com/bottlerocket-os/bottlerocket/blob/develop/CHANGELOG.md") on GitHub for the latest updates to the AMI variants.
 
-| EKS AMI variant                           | EC2 instance types                                                             |
-| ----------------------------------------- | ------------------------------------------------------------------------------ |
-| AL2023 x86_64 NVIDIA                      | p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
-| AL2023 ARM NVIDIA                         | p6e-gb200, g5g                                                                 |
-| AL2023 x86_64 Neuron                      | inf1, inf2, trn1, trn2                                                         |
-| Bottlerocket x86_64 aws-k8s-nvidia        | p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
-| Bottlerocket aarch64/arm64 aws-k8s-nvidia | g5g                                                                            |
-| Bottlerocket x86_64 aws-k8s               | inf1, inf2, trn1, trn2                                                         |
+| EKS AMI variant                           | EC2 instance types                                                                      |
+| ----------------------------------------- | --------------------------------------------------------------------------------------- |
+| AL2023 x86_64 NVIDIA                      | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
+| AL2023 ARM NVIDIA                         | p6e-gb200, g5g                                                                          |
+| AL2023 x86_64 Neuron                      | inf1, inf2, trn1, trn2                                                                  |
+| Bottlerocket x86_64 aws-k8s-nvidia        | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
+| Bottlerocket aarch64/arm64 aws-k8s-nvidia | g5g                                                                                     |
+| Bottlerocket x86_64 aws-k8s               | inf1, inf2, trn1, trn2                                                                  |
 
 ## EKS-optimized NVIDIA AMIs
 
@@ -42,9 +42,9 @@ In addition to the standard EKS AMI components, the EKS-optimized AL2023 NVIDIA 
 
 For details on the NVIDIA CUDA user mode driver and the CUDA runtime/libraries used within application containers, see the [NVIDIA documentation](https://docs.nvidia.com/deploy/cuda-compatibility/why-cuda-compatibility.html#why-cuda-compatibility "https://docs.nvidia.com/deploy/cuda-compatibility/why-cuda-compatibility.html#why-cuda-compatibility"). The CUDA version shown from `nvidia-smi` is the version of the NVIDIA CUDA user mode driver installed on the host, which must be compatible with the CUDA runtime/libraries used in application containers.
 
-To track the status of the EKS-optimized NVIDIA AMIs upgrade to NVIDIA driver 580 version, see [GitHub issue #2470](https://github.com/awslabs/amazon-eks-ami/issues/2470 "https://github.com/awslabs/amazon-eks-ami/issues/2470"). The NVIDIA 580 driver is required to use CUDA 13+.
+The EKS-optimized AL2023 NVIDIA AMIs support kernel 6.12 for Kubernetes versions 1.33 and above, and the NVIDIA driver 580 version for all Kubernetes versions. The NVIDIA 580 driver is required to use CUDA 13+.
 
-See the EKS AL2023 NVIDIA AMI [installation script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/provisioners/install-nvidia-driver.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/provisioners/install-nvidia-driver.sh") and [kernel loading script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/runtime/gpu/nvidia-kmod-load.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/runtime/gpu/nvidia-kmod-load.sh") for details on how the EKS AMIs configure the NVIDIA dependencies. See the EKS-optimized [AL2023 releases](https://github.com/awslabs/amazon-eks-ami/releases "https://github.com/awslabs/amazon-eks-ami/releases") on GitHub to see the component versions included in the AMIs. You can find the list of installed packages and their versions on a running EC2 instance with the `dnf list installed` command.
+See the EKS-optimized [AL2023 releases](https://github.com/awslabs/amazon-eks-ami/releases "https://github.com/awslabs/amazon-eks-ami/releases") on GitHub for details of the component versions included in the AMIs. See the EKS AL2023 NVIDIA AMI [installation script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/provisioners/install-nvidia-driver.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/provisioners/install-nvidia-driver.sh") and [kernel loading script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/runtime/gpu/nvidia-kmod-load.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/runtime/gpu/nvidia-kmod-load.sh") for details on how the EKS AMIs configure the NVIDIA dependencies. You can find the list of installed packages and their versions on a running EC2 instance with the `dnf list installed` command.
 
 When building custom AMIs with the EKS-optimized AMIs as the base, it is not recommended or supported to run an operating system upgrade (ie. `dnf upgrade`) or upgrade any of the Kubernetes or GPU packages that are included in the EKS-optimized AMIs, as this risks breaking component compatibility. If you do upgrade the operating system or packages that are included in the EKS-optimized AMIs, it is recommended to thoroughly test in a development or staging environment before deploying to production.
 
@@ -68,7 +68,7 @@ In addition to the standard EKS AMI components, the EKS-optimized Bottlerocket N
 
 For details on the NVIDIA CUDA user mode driver and the CUDA runtime/libraries used within application containers, see the [NVIDIA documentation](https://docs.nvidia.com/deploy/cuda-compatibility/why-cuda-compatibility.html#why-cuda-compatibility "https://docs.nvidia.com/deploy/cuda-compatibility/why-cuda-compatibility.html#why-cuda-compatibility"). The CUDA version shown from `nvidia-smi` is the version of the NVIDIA CUDA user mode driver installed on the host, which must be compatible with the CUDA runtime/libraries used in application containers.
 
-See the Bottlerocket Version Information in the [Bottlerocket documentation](https://bottlerocket.dev/en/ "https://bottlerocket.dev/en/") for details on the installed packages and their versions. The EKS-optimized Bottlerocket NVIDIA AMIs support kernel 6.12 and NVIDIA driver 580 version for Kubernetes versions 1.33 and above. The NVIDIA 580 driver is required to use CUDA 13+.
+See the Bottlerocket Version Information in the [Bottlerocket documentation](https://bottlerocket.dev/en/ "https://bottlerocket.dev/en/") for details on the installed packages and their versions. The EKS-optimized Bottlerocket NVIDIA AMIs support kernel 6.12 for Kubernetes versions 1.33 and above, and the NVIDIA driver 580 version for Kubernetes versions 1.34 and above. The NVIDIA 580 driver is required to use CUDA 13+.
 
 ## EKS-optimized Neuron AMIs
 

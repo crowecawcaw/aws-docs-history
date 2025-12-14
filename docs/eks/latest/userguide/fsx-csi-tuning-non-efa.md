@@ -23,7 +23,7 @@ The example script defined in this topic performs these operations:
 
 ### `# 1. Install Lustre client`
 
-- Automatically detects your OS version: Amazon Linux 2 (AL2) or Amazon Linux 2023 (AL2023).
+- Automatically detects your Amazon Linux (AL) OS version.
 - Installs the appropriate Lustre client package.
 
 ### `# 2. Apply network and RPC tunings`
@@ -66,7 +66,7 @@ The example script defined in this topic performs these operations:
 ### `# 8. Setup persistence`
 
 - You must adjust the values for your environment in this section as well.
-- Automatically detects your OS version (AL2 or AL2023) to determine which `Systemd` service to apply.
+- Automatically detects your OS version (AL2023) to determine which `Systemd` service to apply.
 - System starts.
 - `Systemd` starts `lustre-tunings` service (due to `WantedBy=multi-user.target`).
 - Service runs `apply_lustre_tunings.sh` which:

@@ -15,10 +15,6 @@ You can retrieve the image ID of the latest recommended Amazon EKS optimized Ama
   - Use `amazon-linux-2023/x86_64/nvidia` for the latest approved AL2023 NVIDIA `x86` based instances.
   - Use `amazon-linux-2023/arm64/nvidia` for the latest approved AL2023 NVIDIA `arm64` based instances.
   - Use `amazon-linux-2023/x86_64/neuron` for the latest AL2023 [AWS Neuron](https://aws.amazon.com/machine-learning/neuron/ "https://aws.amazon.com/machine-learning/neuron/") instances.
-  - Use `amazon-linux-2` for Amazon Linux 2 (AL2) `x86` based instances.
-  - Use `amazon-linux-2-arm64` for AL2 ARM instances, such as [AWS Graviton](https://aws.amazon.com/ec2/graviton/ "https://aws.amazon.com/ec2/graviton/") based instances.
-  - Use `amazon-linux-2-gpu` for AL2 [hardware accelerated](../../../AWSEC2/latest/UserGuide/accelerated-computing-instances.md "../../../AWSEC2/latest/UserGuide/accelerated-computing-instances.md")
-    `x86` based instances for NVIDIA GPU, [Inferentia](https://aws.amazon.com/machine-learning/inferentia/ "https://aws.amazon.com/machine-learning/inferentia/"), and [Trainium](https://aws.amazon.com/machine-learning/trainium/ "https://aws.amazon.com/machine-learning/trainium/") based workloads.
 
 - Replace `<region-code>` with an [Amazon EKS supported AWS Region](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") for which you want the AMI ID.
 

@@ -34,14 +34,29 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
   aws eks describe-cluster --name my-cluster --query cluster.certificateAuthority --output text
   ```
 
-  The returned output is a long string. 3. Replace `cluster-endpoint` and `certificate-authority` in the following commands with the values returned in the output from the previous commands. For more information about specifying bootstrap arguments when launching self-managed nodes, see [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md") and [Create self-managed Microsoft Windows nodes](launch-windows-workers.md "launch-windows-workers.md").
+  The returned output is a long string. 3. Replace the values of `apiServerEndpoint` and `certificateAuthority` in the NodeConfig object with the values returned in the output from the previous commands. For more information about specifying bootstrap arguments when launching self-managed Amazon Linux 2023 nodes, see [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md") and [Create self-managed Microsoft Windows nodes](launch-windows-workers.md "launch-windows-workers.md").
 
       + For Linux nodes:
 
 
 
       ```
-      --apiserver-endpoint cluster-endpoint --b64-cluster-ca certificate-authority
+      ---
+      MIME-Version: 1.0
+      Content-Type: multipart/mixed; boundary="BOUNDARY"
+
+      --BOUNDARY
+      Content-Type: application/node.eks.aws
+
+      ---
+      apiVersion: node.eks.aws/v1alpha1
+      kind: NodeConfig
+      spec:
+        cluster:
+          name: my-cluster
+          apiServerEndpoint: [.replaceable]https://EXAMPLE108C897D9B2F1B21D5EXAMPLE.sk1.region-code.eks.amazonaws.com
+          certificateAuthority: [.replaceable]Y2VydGlmaWNhdGVBdXRob3JpdHk=
+          ...
       ```
 
       For additional arguments, see the [bootstrap script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh") on GitHub.

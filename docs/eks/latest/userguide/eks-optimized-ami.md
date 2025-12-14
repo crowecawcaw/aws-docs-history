@@ -4,23 +4,18 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Create nodes with optimized Amazon Linux AMIs
 
-The Amazon EKS-optimized Amazon Linux AMIs are built on top of Amazon Linux 2 (AL2) and Amazon Linux 2023 (AL2023). They are configured to serve as the base images for Amazon EKS nodes. The AMIs are configured to work with Amazon EKS and they include the following components:
+Amazon Elastic Kubernetes Service (Amazon EKS) provides specialized Amazon Machine Images (AMIs) optimized for running Kubernetes worker nodes. These EKS-optimized Amazon Linux (AL) AMIs are pre-configured with essential components—such as `kubelet`, the AWS IAM Authenticator, and `containerd`—to ensure seamless integration and security within your clusters. This guide details the available AMI versions and outlines specialized options for accelerated computing and Arm-based architectures.
 
-- `kubelet`
-- AWS IAM Authenticator
-- `containerd`
-
-###### Note
+## Considerations
 
 - You can track security or privacy events for Amazon Linux at the [Amazon Linux security center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") by choosing the tab for your desired version. You can also subscribe to the applicable RSS feed. Security and privacy events include an overview of the issue, what packages are affected, and how to update your instances to correct the issue.
 - Before deploying an accelerated or Arm AMI, review the information in [Amazon EKS-optimized accelerated Amazon Linux AMIs](#gpu-ami "#gpu-ami") and [Amazon EKS-optimized Arm Amazon Linux AMIs](#arm-ami "#arm-ami").
 - Amazon EC2 `P2` instances aren’t supported on Amazon EKS because they require `NVIDIA` driver version 470 or earlier.
-- Any newly created managed node groups in clusters on version `1.30` or newer will automatically default to using AL2023 as the node operating system. Previously, new node groups would default to AL2. You can continue to use AL2 by choosing it as the AMI type when creating a new node group.
-- Amazon EKS will no longer publish EKS-optimized Amazon Linux 2 (AL2) AMIs after November 26th, 2025. Additionally, Kubernetes version `1.32` is the last version for which Amazon EKS will release AL2 AMIs. From version `1.33` onwards, Amazon EKS will continue to release AL2023 and Bottlerocket based AMIs.
+- Any newly created managed node groups in clusters on version `1.30` or newer will automatically default to using AL2023 as the node operating system.
 
 ## Amazon EKS-optimized accelerated Amazon Linux AMIs
 
-The Amazon EKS-optimized accelerated Amazon Linux AMIs are built on top of the standard Amazon EKS-optimized Amazon Linux AMIs. They are configured to serve as optional images for Amazon EKS nodes to support GPU, [Inferentia](https://aws.amazon.com/machine-learning/inferentia/ "https://aws.amazon.com/machine-learning/inferentia/"), and [Trainium](https://aws.amazon.com/machine-learning/trainium/ "https://aws.amazon.com/machine-learning/trainium/") based workloads.
+Amazon EKS-optimized accelerated Amazon Linux (AL) AMIs are built on top of the standard EKS-optimized Amazon Linux AMIs. They are configured to serve as optional images for Amazon EKS nodes to support GPU, [Inferentia](https://aws.amazon.com/machine-learning/inferentia/ "https://aws.amazon.com/machine-learning/inferentia/"), and [Trainium](https://aws.amazon.com/machine-learning/trainium/ "https://aws.amazon.com/machine-learning/trainium/") based workloads.
 
 For more information, see [Use EKS-optimized accelerated AMIs for GPU instances](ml-eks-optimized-ami.md "ml-eks-optimized-ami.md").
 

@@ -256,3 +256,5 @@ The following tables provide a detailed comparison of changes in IngressClassPar
 | `elbv2.k8s.aws/v1beta1`        | `eks.amazonaws.com/v1`     | API version change                             |
 | `spec.targetType` optional     | `spec.targetType` required | Explicit target type specification             |
 | `spec.networking.ingress.from` | Not supported              | No longer supports NLB without security groups |
+
+To use the custom TargetGroupBinding feature, you must tag the target group with the eks:eks-cluster-name tag with cluster name to grant the controller the necessary IAM permissions. Be aware that the controller will delete the target group when the TargetGroupBinding resource or the cluster is deleted.

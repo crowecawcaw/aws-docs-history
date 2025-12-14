@@ -9,3 +9,4 @@ This section is designed to help you deploy and operate real-time online inferen
 ###### Topics
 
 - [Best Practices Cluster Setup Guide for Real-Time Inference on Amazon EKS](ml-realtime-inference-cluster.md "ml-realtime-inference-cluster.md")
+- [Quickstart: High-throughput LLM inference with vLLM on Amazon EKS](ml-realtime-inference-llm-inference-vllm.md "ml-realtime-inference-llm-inference-vllm.md")

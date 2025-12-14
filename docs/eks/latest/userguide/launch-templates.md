@@ -4,13 +4,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Customize managed nodes with launch templates
 
-For the highest level of customization, you can deploy managed nodes using your own launch template. Using a launch template allows capabilities such as the following:
+For the highest level of customization, you can deploy managed nodes with your own launch template based on the steps on this page. Using a launch template allows capabilities such as to provide bootstrap arguments during deployment of a node (e.g., extra [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/") arguments), assign IP addresses to Pods from a different CIDR block than the IP address assigned to the node, deploy your own custom AMI to nodes, or deploy your own custom CNI to nodes.
 
-- Provide bootstrap arguments at deployment of a node, such as extra [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/") arguments.
-- Assign IP addresses to Pods from a different CIDR block than the IP address assigned to the node.
-- Deploy your own custom AMI to nodes.
-- Deploy your own custom CNI to nodes.
-  When you give your own launch template upon first creating a managed node group, you will also have greater flexibility later. As long as you deploy a managed node group with your own launch template, you can iteratively update it with a different version of the same launch template. When you update your node group to a different version of your launch template, all nodes in the group are recycled to match the new configuration of the specified launch template version.
+When you give your own launch template upon first creating a managed node group, you will also have greater flexibility later. As long as you deploy a managed node group with your own launch template, you can iteratively update it with a different version of the same launch template. When you update your node group to a different version of your launch template, all nodes in the group are recycled to match the new configuration of the specified launch template version.
 
 Managed node groups are always deployed with a launch template to be used with the Amazon EC2 Auto Scaling group. When you don’t provide a launch template, the Amazon EKS API creates one automatically with default values in your account. However, we don’t recommend that you modify auto-generated launch templates. Furthermore, existing node groups that don’t use a custom launch template can’t be updated directly. Instead, you must create a new node group with a custom launch template to do so.
 

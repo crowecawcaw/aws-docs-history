@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 This topic describes how to connect hybrid nodes running Bottlerocket to an Amazon EKS cluster. [Bottlerocket](https://aws.amazon.com/bottlerocket/ "https://aws.amazon.com/bottlerocket/") is an open source Linux distribution that is sponsored and supported by AWS. Bottlerocket is purpose-built for hosting container workloads. With Bottlerocket, you can improve the availability of containerized deployments and reduce operational costs by automating updates to your container infrastructure. Bottlerocket includes only the essential software to run containers, which improves resource usage, reduces security threats, and lowers management overhead.
 
-Only VMware variants of Bottlerocket version v1.37.0 and above are supported with EKS Hybrid Nodes. VMware variants of Bottlerocket are available for Kubernetes versions v1.28 and above. The OS images for these variants include the kubelet, containerd, aws-iam-authenticator and other software prerequisites for EKS Hybrid Nodes. You can configure these components using a Bottlerocket [settings](https://github.com/bottlerocket-os/bottlerocket?tab=readme-ov-file#settings "https://github.com/bottlerocket-os/bottlerocket?tab=readme-ov-file#settings") file that includes base64 encoded user-data for the Bottlerocket bootstrap and admin containers. Configuring these settings enables Bottlerocket to use your hybrid nodes credentials provider to authenticate hybrid nodes to your cluster. After your hybrid nodes join the cluster, they will appear with status `Not Ready` in the Amazon EKS console and in Kubernetes-compatible tooling such as `kubectl`. After completing the steps on this page, proceed to [Configure CNI for hybrid nodes](hybrid-nodes-cni.md "hybrid-nodes-cni.md") to make your hybrid nodes ready to run applications.
+Only VMware variants of Bottlerocket version v1.37.0 and above are supported with EKS Hybrid Nodes. VMware variants of Bottlerocket are available for Kubernetes versions v1.28 and above. The OS images for these variants include the kubelet, containerd, aws-iam-authenticator and other software prerequisites for EKS Hybrid Nodes. You can configure these components using a Bottlerocket [settings](https://github.com/bottlerocket-os/bottlerocket#settings "https://github.com/bottlerocket-os/bottlerocket#settings") file that includes base64 encoded user-data for the Bottlerocket bootstrap and admin containers. Configuring these settings enables Bottlerocket to use your hybrid nodes credentials provider to authenticate hybrid nodes to your cluster. After your hybrid nodes join the cluster, they will appear with status `Not Ready` in the Amazon EKS console and in Kubernetes-compatible tooling such as `kubectl`. After completing the steps on this page, proceed to [Configure CNI for hybrid nodes](hybrid-nodes-cni.md "hybrid-nodes-cni.md") to make your hybrid nodes ready to run applications.
 
 ## Prerequisites
 
@@ -21,6 +21,10 @@ Before connecting hybrid nodes to your Amazon EKS cluster, make sure you have co
 
 To configure Bottlerocket for hybrid nodes, you need to create a `settings.toml` file with the necessary configuration. The contents of the TOML file will differ based on the credential provider you are using (SSM or IAM Roles Anywhere). This file will be passed as user data when provisioning the Bottlerocket instance.
 
+###### Note
+
+The TOML files provided below only represent the minimum required settings for initializing a Bottlerocket VMWare machine as a node on an EKS cluster. Bottlerocket provides a wide range of settings to address several different use cases, so for further configuration options beyond hybrid node initialization, please refer to the [Bottlerocket documentation](https://bottlerocket.dev/en "https://bottlerocket.dev/en") for the comprehensive list of all documented settings for the Bottlerocket version you are using (for example, [here](https://bottlerocket.dev/en/os/1.51.x/api/settings-index "https://bottlerocket.dev/en/os/1.51.x/api/settings-index") are all the settings available for Bottlerocket 1.51.x).
+
 ### SSM
 
 If you are using AWS Systems Manager as your credential provider, create a `settings.toml` file with the following content:
@@ -34,12 +38,25 @@ hostname-override = "<hostname>"
 provider-id = "eks-hybrid:///<region>/<cluster-name>/<hostname>"
 authentication-mode = "aws"
 cloud-provider = ""
+server-tls-bootstrap = true
 
 [settings.network]
 hostname = "<hostname>"
 
 [settings.aws]
 region = "<region>"
+
+[settings.kubernetes.credential-providers.ecr-credential-provider]
+enabled = true
+cache-duration = "12h"
+image-patterns = [
+    "*.dkr.ecr.*.amazonaws.com",
+    "*.dkr.ecr.*.amazonaws.com.cn",
+    "*.dkr.ecr.*.amazonaws.eu",
+    "*.dkr.ecr-fips.*.amazonaws.com",
+    "*.dkr.ecr-fips.*.amazonaws.eu",
+    "public.ecr.aws"
+]
 
 [settings.kubernetes.node-labels]
 "eks.amazonaws.com/compute-type" = "hybrid"
@@ -96,6 +113,7 @@ hostname-override = "<hostname>"
 provider-id = "eks-hybrid:///<region>/<cluster-name>/<hostname>"
 authentication-mode = "aws"
 cloud-provider = ""
+server-tls-bootstrap = true
 
 [settings.network]
 hostname = "<hostname>"
@@ -103,6 +121,18 @@ hostname = "<hostname>"
 [settings.aws]
 region = "<region>"
 config = "<base64-encoded-aws-config-file>"
+
+[settings.kubernetes.credential-providers.ecr-credential-provider]
+enabled = true
+cache-duration = "12h"
+image-patterns = [
+    "*.dkr.ecr.*.amazonaws.com",
+    "*.dkr.ecr.*.amazonaws.com.cn",
+    "*.dkr.ecr.*.amazonaws.eu",
+    "*.dkr.ecr-fips.*.amazonaws.com",
+    "*.dkr.ecr-fips.*.amazonaws.eu",
+    "public.ecr.aws"
+]
 
 [settings.kubernetes.node-labels]
 "eks.amazonaws.com/compute-type" = "hybrid"

@@ -99,17 +99,7 @@ The `public-info-viewer` RBAC role continues to apply for the health check endpo
 
 ### Amazon Linux 2 AMI deprecation
 
-For Kubernetes versions 1.33 and later, EKS will not provide pre-built optimized Amazon Linux 2 (AL2) Amazon Machine Images (AMIs).
-
-AWS suggests adopting EKS Auto Mode, or migrating to a more recent operating system, such as Amazon Linux 2023 (AL2023) or Bottlerocket.
-
-- [Migrate from EKS Managed Node Groups to EKS Auto Mode](auto-migrate-mng.md "auto-migrate-mng.md")
-- [Upgrade from Amazon Linux 2 to Amazon Linux 2023](al2023.md "al2023.md")
-- [Create nodes with optimized Bottlerocket AMIs](eks-optimized-ami-bottlerocket.md "eks-optimized-ami-bottlerocket.md")
-
-###### Note
-
-This update applies to EKS-optimized AL2 AMIs. For more information about the operating system itself, see [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/").
+Kubernetes version `1.32` is the last version for which Amazon EKS released AL2 AMIs. From version `1.33` onwards, Amazon EKS will continue to release AL2023 and Bottlerocket based AMIs. For more information, see [Guide to EKS AL2 & AL2-Accelerated AMIs transition features](eks-ami-deprecation-faqs.md "eks-ami-deprecation-faqs.md").
 
 ## Kubernetes 1.31
 

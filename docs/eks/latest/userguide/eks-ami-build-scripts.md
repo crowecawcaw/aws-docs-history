@@ -4,11 +4,11 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Build a custom EKS-optimized Amazon Linux AMI
 
-###### Important
+###### Warning
 
-Amazon EKS will no longer publish EKS-optimized Amazon Linux 2 (AL2) AMIs after November 26th, 2025. Additionally, Kubernetes version `1.32` is the last version for which Amazon EKS will release AL2 AMIs. From version `1.33` onwards, Amazon EKS will continue to release AL2023 and Bottlerocket based AMIs. For more information, see [Guide to EKS AL2 & AL2-Accelerated AMIs transition features](eks-ami-deprecation-faqs.md "eks-ami-deprecation-faqs.md").
+Amazon EKS stopped publishing EKS-optimized Amazon Linux 2 (AL2) AMIs on November 26, 2025. AL2023 and Bottlerocket based AMIs for Amazon EKS are available for all supported Kubernetes versions including 1.33 and higher.
 
-The Amazon EKS-optimized Amazon Linux (AL) AMIs are built on top of AL2 and AL2023, specifically for use as nodes in Amazon EKS clusters. Amazon EKS provides open-source build scripts in the [Amazon EKS AMI Build Specification](https://github.com/awslabs/amazon-eks-ami "https://github.com/awslabs/amazon-eks-ami") repository that you can use to view the configurations for `kubelet`, the runtime, the AWS IAM Authenticator for Kubernetes, and build your own AL-based AMI from scratch.
+Amazon EKS provides open-source build scripts in the [Amazon EKS AMI Build Specification](https://github.com/awslabs/amazon-eks-ami "https://github.com/awslabs/amazon-eks-ami") repository that you can use to view the configurations for `kubelet`, the runtime, the AWS IAM Authenticator for Kubernetes, and build your own AL-based AMI from scratch.
 
 This repository contains the specialized [bootstrap script for AL2](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh") and [nodeadm tool for AL2023](https://awslabs.github.io/amazon-eks-ami/nodeadm/ "https://awslabs.github.io/amazon-eks-ami/nodeadm/") that runs at boot time. These scripts configure your instance’s certificate data, control plane endpoint, cluster name, and more. The scripts are considered the source of truth for Amazon EKS-optimized AMI builds, so you can follow the GitHub repository to monitor changes to our AMIs.
 

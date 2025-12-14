@@ -12,13 +12,7 @@ This topic gives important changes to be aware of for each Kubernetes version in
 
 Kubernetes `1.30` is now available in Amazon EKS. For more information about Kubernetes `1.30`, see the [official release announcement](https://kubernetes.io/blog/2024/04/17/kubernetes-v1-30-release/ "https://kubernetes.io/blog/2024/04/17/kubernetes-v1-30-release/").
 
-###### Important
-
-- Starting with Amazon EKS version `1.30` or newer, any newly created managed node groups will automatically default to using Amazon Linux 2023 (AL2023) as the node operating system. Previously, new node groups would default to Amazon Linux 2 (AL2). You can continue to use AL2 by choosing it as the AMI type when creating a new node group.
-  - For information about migrating from AL2 to AL2023, see [Upgrade from Amazon Linux 2 to Amazon Linux 2023](al2023.md "al2023.md").
-  - For more information about Amazon Linux, see [Comparing AL2 and AL2023](../../../linux/al2023/ug/compare-with-al2.md "../../../linux/al2023/ug/compare-with-al2.md") in the Amazon Linux User Guide.
-  - For more information about specifiying the operating system for a managed node group, see [Create a managed node group for your cluster](create-managed-node-group.md "create-managed-node-group.md").
-
+- Starting with Amazon EKS version `1.30` or newer, any newly created managed node groups will automatically default to using Amazon Linux 2023 (AL2023) as the node operating system. For more information about specifiying the operating system for a managed node group, see [Create a managed node group for your cluster](create-managed-node-group.md "create-managed-node-group.md").
 - With Amazon EKS `1.30`, the `topology.k8s.aws/zone-id` label is added to worker nodes. You can use Availability Zone IDs (AZ IDs) to determine the location of resources in one account relative to the resources in another account. For more information, see [Availability Zone IDs for your AWS resources](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md") in the _AWS RAM User Guide_.
 - Starting with `1.30`, Amazon EKS no longer includes the `default` annotation on the `gp2 StorageClass` resource applied to newly created clusters. This has no impact if you are referencing this storage class by name. You must take action if you were relying on having a default `StorageClass` in the cluster. You should reference the `StorageClass` by the name `gp2`. Alternatively, you can deploy the Amazon EBS recommended default storage class by setting the `defaultStorageClass.enabled` parameter to true when installing version `1.31.0` or later of the `aws-ebs-csi-driver add-on`.
 - The minimum required IAM policy for the Amazon EKS cluster IAM role has changed. The action `ec2:DescribeAvailabilityZones` is required. For more information, see [Amazon EKS cluster IAM role](cluster-iam-role.md "cluster-iam-role.md").

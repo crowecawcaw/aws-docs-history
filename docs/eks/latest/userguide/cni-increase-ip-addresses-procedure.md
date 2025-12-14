@@ -78,11 +78,23 @@ You can replace the example values with a value greater than zero.
     kubectl set env ds aws-node -n kube-system MINIMUM_IP_TARGET=2
     ```
 
-4. Create one of the following types of node groups with at least one Amazon EC2 Nitro Amazon Linux 2 instance type. For a list of Nitro instance types, see [Instances built on the Nitro System](../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances") in the Amazon EC2 User Guide. This capability is not supported on Windows. For the options that include `110`, replace it with either the value from step 3 (recommended), or your own value.
-   - **Self-managed** – Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md"). Specify the following text for the **BootstrapArguments** parameter.
+4. Create one of the following types of node groups with at least one Amazon EC2 Nitro Amazon Linux 2023 instance type. For a list of Nitro instance types, see [Instances built on the Nitro System](../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances") in the Amazon EC2 User Guide. This capability is not supported on Windows. For the options that include `110`, replace it with either the value from step 3 (recommended), or your own value.
+   - **Self-managed** – Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md"). Before creating the CloudFormation stack, open the template file and adjust the `UserData` in the `NodeLaunchTemplate` to be like the following
 
    ```
-   --use-max-pods false --kubelet-extra-args '--max-pods=110'
+   ...
+               apiVersion: node.eks.aws/v1alpha1
+               kind: NodeConfig
+               spec:
+                 cluster:
+                   name: ${ClusterName}
+                   apiServerEndpoint: ${ApiServerEndpoint}
+                   certificateAuthority: ${CertificateAuthorityData}
+                   cidr: ${ServiceCidr}
+                 kubelet:
+                   config:
+                     maxPods: 110
+   ...
    ```
 
    If you’re using `eksctl` to create the node group, you can use the following command.
@@ -93,12 +105,28 @@ You can replace the example values with a value greater than zero.
 
    - **Managed** – Deploy your node group using one of the following options:
      - **Without a launch template or with a launch template without an AMI ID specified** – Complete the procedure in [Create a managed node group for your cluster](create-managed-node-group.md "create-managed-node-group.md"). Managed node groups automatically calculates the Amazon EKS recommended `max-pods` value for you.
-     - **With a launch template with a specified AMI ID** – In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes arguments into the `bootstrap.sh` file. For more information about the bootstrap file, see [bootstrap.sh](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh") on GitHub.
+     - **With a launch template with a specified AMI ID** – In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes a `NodeConfig` object to be read by the `nodeadm` tool on the node. For more information about `nodeadm`, see [the nodeadm documentation](https://awslabs.github.io/amazon-eks-ami/nodeadm "https://awslabs.github.io/amazon-eks-ami/nodeadm").
 
      ```
-     /etc/eks/bootstrap.sh my-cluster \
-       --use-max-pods false \
-       --kubelet-extra-args '--max-pods=110'
+     MIME-Version: 1.0
+     Content-Type: multipart/mixed; boundary="//"
+
+     --//
+     Content-Type: application/node.eks.aws
+
+     ---
+     apiVersion: node.eks.aws/v1alpha1
+     kind: NodeConfig
+     spec:
+      cluster:
+        apiServerEndpoint: [.replaceable]`my-cluster`
+        certificateAuthority: [.replaceable]`LS0t...`
+        cidr: [.replaceable]`10.100.0.0/16`
+        name: [.replaceable]`my-cluster
+      kubelet:
+        config:
+          maxPods: [.replaceable]`110`
+     --//--
      ```
 
      If you’re using `eksctl` to create the node group, you can use the following command.

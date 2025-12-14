@@ -79,19 +79,19 @@ When migrating to EKS Auto Mode for load balancing, several changes in service a
 
 ### Service annotations
 
-| Previous                                                                         | New           | Description                                                           |
-| -------------------------------------------------------------------------------- | ------------- | --------------------------------------------------------------------- |
-| `service.beta.kubernetes.io/load-balancer-source-ranges`                         | Not supported | Use `spec.loadBalancerSourceRanges` on Service                        |
-| `service.beta.kubernetes.io/aws-load-balancer-type`                              | Not supported | Use `spec.loadBalancerClass` on Service                               |
-| `service.beta.kubernetes.io/aws-load-balancer-internal`                          | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-scheme`             |
-| Various load balancer attributes                                                 | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes`         |
-| `service.beta.kubernetes.io/aws-load-balancer-proxy-protocol`                    | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead |
-| `service.beta.kubernetes.io/aws-load-balancer-access-log-enabled`                | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead |
-| `service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-name`         | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead |
-| `service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-prefix`       | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead |
-| `service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled` | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead |
+| Previous                                                                         | New           | Description                                                                        |
+| -------------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------------------------- |
+| `service.beta.kubernetes.io/load-balancer-source-ranges`                         | Not supported | Use `spec.loadBalancerSourceRanges` on Service                                     |
+| `service.beta.kubernetes.io/aws-load-balancer-type`                              | Not supported | Use `spec.loadBalancerClass` on Service                                            |
+| `service.beta.kubernetes.io/aws-load-balancer-internal`                          | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-scheme`                          |
+| `service.beta.kubernetes.io/aws-load-balancer-proxy-protocol`                    | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-target-group-attributes` instead |
+| Various load balancer attributes                                                 | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes`                      |
+| `service.beta.kubernetes.io/aws-load-balancer-access-log-enabled`                | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead              |
+| `service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-name`         | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead              |
+| `service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-prefix`       | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead              |
+| `service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled` | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead              |
 
-To migrate from deprecated load balancer attribute annotations, consolidate these settings into the `service.beta.kubernetes.io/aws-load-balancer-attributes` annotation. This annotation accepts a comma-separated list of key-value pairs for various load balancer attributes. For example, to specify proxy protocol, access logging, and cross-zone load balancing, use the following format:
+To migrate from deprecated load balancer attribute annotations, consolidate these settings into the `service.beta.kubernetes.io/aws-load-balancer-attributes` annotation. This annotation accepts a comma-separated list of key-value pairs for various load balancer attributes. For example, to specify access logging, and cross-zone load balancing, use the following format:
 
 ```
 service.beta.kubernetes.io/aws-load-balancer-attributes: access_logs.s3.enabled=true,access_logs.s3.bucket=my-bucket,access_logs.s3.prefix=my-prefix,load_balancing.cross_zone.enabled=true
@@ -106,3 +106,5 @@ This consolidated format provides a more consistent and flexible way to configur
 | `elbv2.k8s.aws/v1beta1`        | `eks.amazonaws.com/v1`     | API version change                             |
 | `spec.targetType` optional     | `spec.targetType` required | Explicit target type specification             |
 | `spec.networking.ingress.from` | Not supported              | No longer supports NLB without security groups |
+
+Note: To use the custom TargetGroupBinding feature, you must tag the target group with the `eks:eks-cluster-name` tag with cluster name to grant the controller the necessary IAM permissions. Be aware that the controller will delete the target group when the TargetGroupBinding resource or the cluster is deleted.

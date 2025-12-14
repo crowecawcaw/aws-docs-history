@@ -389,21 +389,32 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
 
      - **With a launch template with a specified AMI ID**
        1. Determine the Amazon EKS recommended number of maximum Pods for your nodes. Follow the instructions in [Amazon EKS recommended maximum Pods for each Amazon EC2 instance type](choosing-instance-type.md#determine-max-pods "choosing-instance-type.md#determine-max-pods"), adding `--cni-custom-networking-enabled` to step 3 in that topic. Note the output for use in the next step.
-       2. In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes arguments into the `bootstrap.sh` file. For more information about the bootstrap file, see [bootstrap.sh](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh") on GitHub. You can replace `20` with either the value from the previous step (recommended) or your own value.
+       2. In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes arguments into the `NodeConfig` specification. For more information about NodeConfig, see the [NodeConfig API reference](https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/api/#nodeconfig "https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/api/#nodeconfig"). You can replace `20` with either the value from the previous step (recommended) or your own value.
 
        ```
-       /etc/eks/bootstrap.sh my-custom-networking-cluster --use-max-pods false --kubelet-extra-args '--max-pods=20'
+       ---
+       MIME-Version: 1.0
+       Content-Type: multipart/mixed; boundary="BOUNDARY"
+       --BOUNDARY
+       Content-Type: application/node.eks.aws
+
+       ---
+       apiVersion: node.eks.aws/v1alpha1
+       kind: NodeConfig
+       spec:
+         cluster:
+           name: my-cluster
+           ...
+           kubelet:
+             config:
+               maxPods: 20
        ```
 
        If you’ve created a custom AMI that is not built off the Amazon EKS optimized AMI, then you need to custom create the configuration yourself.
 
    - **Self-managed**
      1. Determine the Amazon EKS recommended number of maximum Pods for your nodes. Follow the instructions in [Amazon EKS recommended maximum Pods for each Amazon EC2 instance type](choosing-instance-type.md#determine-max-pods "choosing-instance-type.md#determine-max-pods"), adding `--cni-custom-networking-enabled` to step 3 in that topic. Note the output for use in the next step.
-     2. Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md"). Specify the following text for the **BootstrapArguments** parameter. You can replace `20` with either the value from the previous step (recommended) or your own value.
-
-     ```
-     --use-max-pods false --kubelet-extra-args '--max-pods=20'
-     ```
+     2. Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md").
 
 ###### Note
 

@@ -91,7 +91,7 @@ To deploy a node group that:
 1. Download the latest version of the AWS CloudFormation template.
 
 ```
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-eks-nodegroup.yaml
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-26/amazon-eks-nodegroup.yaml
 ```
 
 2.  Wait for your cluster status to show as `ACTIVE`. If you launch your nodes before the cluster is active, the nodes fail to register with the cluster and you will have to relaunch them.
@@ -112,36 +112,26 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/
         3. Choose the **Networking** tab.
         4. Use the **Additional security groups** value as a reference when selecting from the **ClusterControlPlaneSecurityGroup** dropdown list.
 
+    - **ApiServerEndpoint**: Enter the API Server Endpoint for your EKS Cluster. This can be found in the Details section of the EKS Cluster Console
+    - **CertificateAuthorityData**: Enter the base64 encoded Certificate Authority data which can also be found in the EKS Cluster Console’s Deatils section.
+    - **ServiceCidr**: Enter the CIDR range used for allocating IP addresses to Kubernetes services within the cluster. This is found within the networking tab of the EKS Cluster Console.
+    - **AuthenticationMode**: Select the Authentication Mode in use in the EKS Cluster by reviewing the access tab within the EKS Cluster Console.
     - **NodeGroupName**: Enter a name for your node group. This name can be used later to identify the Auto Scaling node group that’s created for your nodes. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters.
     - **NodeAutoScalingGroupMinSize**: Enter the minimum number of nodes that your node Auto Scaling group can scale in to.
     - **NodeAutoScalingGroupDesiredCapacity**: Enter the desired number of nodes to scale to when your stack is created.
     - **NodeAutoScalingGroupMaxSize**: Enter the maximum number of nodes that your node Auto Scaling group can scale out to.
     - **NodeInstanceType**: Choose an instance type for your nodes. For more information, see [Choose an optimal Amazon EC2 node instance type](choosing-instance-type.md "choosing-instance-type.md").
-    - **NodeImageIdSSMParam**: Pre-populated with the Amazon EC2 Systems Manager parameter of a recent Amazon EKS optimized AMI for a variable Kubernetes version. To use a different Kubernetes minor version supported with Amazon EKS, replace `1.XX` with a different [supported version](kubernetes-versions.md "kubernetes-versions.md"). We recommend specifying the same Kubernetes version as your cluster.
+    - **NodeImageIdSSMParam**: Pre-populated with the Amazon EC2 Systems Manager parameter of a recent Amazon EKS optimized Amazon Linux 2023 AMI for a variable Kubernetes version. To use a different Kubernetes minor version supported with Amazon EKS, replace `1.XX` with a different [supported version](kubernetes-versions.md "kubernetes-versions.md"). We recommend specifying the same Kubernetes version as your cluster.
 
-    You can also replace `amazon-linux-2` with a different AMI type. For more information, see [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md "retrieve-ami-id.md").
+    You can also replace `amazon-linux-2023` with a different AMI type. For more information, see [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md "retrieve-ami-id.md").
 
     ###### Note
 
-    The Amazon EKS node AMIs are based on Amazon Linux. You can track security or privacy events for Amazon Linux 2 at the [Amazon Linux Security Center](https://alas.aws.amazon.com/alas2.html "https://alas.aws.amazon.com/alas2.html") or subscribe to the associated [RSS feed](https://alas.aws.amazon.com/AL2/alas.rss "https://alas.aws.amazon.com/AL2/alas.rss"). Security and privacy events include an overview of the issue, what packages are affected, and how to update your instances to correct the issue.
+    The Amazon EKS node AMIs are based on Amazon Linux. You can track security or privacy events for Amazon Linux 2023 at the [Amazon Linux Security Center](https://alas.aws.amazon.com/alas2023.html "https://alas.aws.amazon.com/alas2023.html") or subscribe to the associated [RSS feed](https://alas.aws.amazon.com/AL2023/alas.rss "https://alas.aws.amazon.com/AL2023/alas.rss"). Security and privacy events include an overview of the issue, what packages are affected, and how to update your instances to correct the issue.
     - **NodeImageId**: (Optional) If you’re using your own custom AMI (instead of an Amazon EKS optimized AMI), enter a node AMI ID for your AWS Region. If you specify a value here, it overrides any values in the **NodeImageIdSSMParam** field.
     - **NodeVolumeSize**: Specify a root volume size for your nodes, in GiB.
     - **NodeVolumeType**: Specify a root volume type for your nodes.
     - **KeyName**: Enter the name of an Amazon EC2 SSH key pair that you can use to connect using SSH into your nodes with after they launch. If you don’t already have an Amazon EC2 key pair, you can create one in the AWS Management Console. For more information, see [Amazon EC2 key pairs](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the _Amazon EC2 User Guide_.
-
-    ###### Note
-
-    If you don’t provide a key pair here, the AWS CloudFormation stack creation fails.
-    - **BootstrapArguments**: Specify any optional arguments to pass to the node bootstrap script, such as extra `kubelet` arguments. For more information, view the [bootstrap script usage information](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh") on GitHub.
-
-    To deploy a node group that:
-
-        + can assign a significantly higher number of IP addresses to Pods than the default configuration, see [Assign more IP addresses to Amazon EKS nodes with prefixes](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md").
-        + can assign `IPv4` addresses to Pods from a different CIDR block than that of the instance, see [Deploy Pods in alternate subnets with custom networking](cni-custom-network.md "cni-custom-network.md").
-        + can assign `IPv6` addresses to Pods and services, see [Learn about IPv6 addresses to clusters, Pods, and services](cni-ipv6.md "cni-ipv6.md").
-        + don’t have outbound internet access, see [Deploy private clusters with limited internet access](private-clusters.md "private-clusters.md").
-
-    - **DisableIMDSv1**: By default, each node supports the Instance Metadata Service Version 1 (IMDSv1) and IMDSv2. You can disable IMDSv1. To prevent future nodes and Pods in the node group from using MDSv1, set **DisableIMDSv1** to **true**. For more information about IMDS, see [Configuring the instance metadata service](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md"). For more information about restricting access to it on your nodes, see [Restrict access to the instance profile assigned to the worker node](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node").
     - **VpcId**: Enter the ID for the [VPC](creating-a-vpc.md "creating-a-vpc.md") that you created.
     - **Subnets**: Choose the subnets that you created for your VPC. If you created your VPC using the steps that are described in [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md"), specify only the private subnets within the VPC for your nodes to launch into. You can see which subnets are private by opening each subnet link from the **Networking** tab of your cluster.
 
@@ -153,14 +143,14 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/
 
 9.  Select your desired choices on the **Configure stack options** page, and then choose **Next**.
 10. Select the check box to the left of **I acknowledge that AWS CloudFormation might create IAM resources.**, and then choose **Create stack**.
-11. When your stack has finished creating, select it in the console and choose **Outputs**.
-12. Record the **NodeInstanceRole** for the node group that was created. You need this when you configure your Amazon EKS nodes.
+11. When your stack has finished creating, select it in the console and choose **Outputs**. If you are using the `EKS API` or `EKS API and ConfigMap` Authentication Modes, this is the last step.
+12. If you are using the `ConfigMap` Authentication Mode, record the **NodeInstanceRole** for the node group that was created.
 
 **Step 2: Enable nodes to join your cluster**
 
 ###### Note
 
-If you launched nodes inside a private VPC without outbound internet access, make sure to enable nodes to join your cluster from within the VPC.
+The following two steps are only needed if using the Configmap Authentication Mode within the EKS Cluster. Additionally, if you launched nodes inside a private VPC without outbound internet access, make sure to enable nodes to join your cluster from within the VPC.
 
 1. Check to see if you already have an `aws-auth`
    `ConfigMap`.

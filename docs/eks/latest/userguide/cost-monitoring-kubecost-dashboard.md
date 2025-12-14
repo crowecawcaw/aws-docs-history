@@ -15,12 +15,21 @@ kubectl get pods --namespace kubecost
 ## Access Kubecost Dashboard
 
 1. On your device, enable port-forwarding to expose the Kubecost dashboard.
+   - If kubecost is installed using helm:
 
-```
-kubectl port-forward deployment/kubecost-cost-analyzer 9090 --namespace kubecost
-```
+   ```
+   kubectl port-forward deployment/kubecost-cost-analyzer 9090 --namespace kubecost
+   ```
 
-Alternatively, you can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md") to expose Kubecost and use Amazon Cognito for authentication, authorization, and user management. For more information, see [How to use Application Load Balancer and Amazon Cognito to authenticate users for your Kubernetes web apps](https://aws.amazon.com/blogs/containers/how-to-use-application-load-balancer-and-amazon-cognito-to-authenticate-users-for-your-kubernetes-web-apps "https://aws.amazon.com/blogs/containers/how-to-use-application-load-balancer-and-amazon-cognito-to-authenticate-users-for-your-kubernetes-web-apps"). 2. On the same device that you completed the previous step on, open a web browser and enter the following address.
+   - If kubecost is installed using Amazon EKS add-on:
+
+   ```
+   kubectl port-forward deployment/cost-analyzer 9090 --namespace kubecost
+   ```
+
+   Alternatively, you can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md") to expose Kubecost and use Amazon Cognito for authentication, authorization, and user management. For more information, see [How to use Application Load Balancer and Amazon Cognito to authenticate users for your Kubernetes web apps](https://aws.amazon.com/blogs/containers/how-to-use-application-load-balancer-and-amazon-cognito-to-authenticate-users-for-your-kubernetes-web-apps "https://aws.amazon.com/blogs/containers/how-to-use-application-load-balancer-and-amazon-cognito-to-authenticate-users-for-your-kubernetes-web-apps").
+
+2. On the same device that you completed the previous step on, open a web browser and enter the following address.
 
 ```
 http://localhost:9090

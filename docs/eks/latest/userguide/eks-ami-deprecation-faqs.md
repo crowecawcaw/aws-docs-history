@@ -4,6 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Guide to EKS AL2 & AL2-Accelerated AMIs transition features
 
+###### Warning
+
+Amazon EKS stopped publishing EKS-optimized Amazon Linux 2 (AL2) AMIs on November 26, 2025. AL2023 and Bottlerocket based AMIs for Amazon EKS are available for all supported Kubernetes versions including 1.33 and higher.
+
 AWS will end support for EKS AL2-optimized and AL2-accelerated AMIs, effective November 26, 2025. While you can continue using EKS AL2 AMIs after the end-of-support (EOS) date (November 26, 2025), EKS will no longer release any new Kubernetes versions or updates to AL2 AMIs, including minor releases, patches, and bug fixes after this date. We recommend upgrading to Amazon Linux 2023 (AL2023) or Bottlerocket AMIs:
 
 - AL2023 enables a secure-by-default approach with preconfigured security policies, SELinux in permissive mode, IMDSv2-only mode enabled by default, optimized boot times, and improved package management for enhanced security and performance, well-suited for infrastructure requiring significant customizations like direct OS-level access or extensive node changes. To learn more, see [AL2023 FAQs](https://aws.amazon.com/linux/amazon-linux-2023/faqs/ "https://aws.amazon.com/linux/amazon-linux-2023/faqs/") or view our detailed migration guidance at [Upgrade from Amazon Linux 2 to Amazon Linux 2023](al2023.md "al2023.md").
@@ -67,8 +71,8 @@ Kubernetes version 1.32 is the last version for which Amazon EKS will release AL
 | Component                                                                                                                                                                                                                            | EKS AL2 AMI    | EKS AL2023 AMI  | EKS Bottlerocket AMI |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | --------------- | -------------------- |
 | Base OS Compatibility                                                                                                                                                                                                                | RHEL7/CentOS 7 | Fedora/CentOS 9 | N/A                  |
-| [CUDA user mode driver](https://docs.nvidia.com/deploy/cuda-compatibility/why-cuda-compatibility.html#why-cuda-compatibility "https://docs.nvidia.com/deploy/cuda-compatibility/why-cuda-compatibility.html#why-cuda-compatibility") | 12.x           | 12.x            | 12.x,13.x            |
-| NVIDIA GPU Driver                                                                                                                                                                                                                    | R570           | R570            | R570, R580           |
+| [CUDA user mode driver](https://docs.nvidia.com/deploy/cuda-compatibility/why-cuda-compatibility.html#why-cuda-compatibility "https://docs.nvidia.com/deploy/cuda-compatibility/why-cuda-compatibility.html#why-cuda-compatibility") | 12.x           | 12.x,13.x       | 12.x,13.x            |
+| NVIDIA GPU Driver                                                                                                                                                                                                                    | R570           | R580            | R570, R580           |
 | AWS Neuron Driver                                                                                                                                                                                                                    | 2.20+          | 2.20+           | 2.20+                |
 | Linux Kernel                                                                                                                                                                                                                         | 5.10           | 6.1, 6.12       | 6.1, 6.12            |
 
