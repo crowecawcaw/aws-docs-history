@@ -257,10 +257,11 @@ Management policies help you centrally configure and manage AWS services and the
   services opt-out policies](orgs_manage_policies_ai-opt-out.md "orgs_manage_policies_ai-opt-out.md")** allow you to control
   data collection for AWS AI services for all the accounts in an
   organization.
-- **[Security Hub policies](orgs_manage_policies_security_hub.md "orgs_manage_policies_security_hub.md")** allow you to address security
+- **[Security Hub CSPM policies](orgs_manage_policies_security_hub.md "orgs_manage_policies_security_hub.md")** allow you to address security
   coverage gaps that align with your organization's security requirements and
   centrally applying them across an organization.
 - **[Amazon Inspector policies](orgs_manage_policies_inspector.md "orgs_manage_policies_inspector.md")** allow you to centrally enable and manage Amazon Inspector across accounts in your AWS organization.
 - **[Amazon Bedrock policies](orgs_manage_policies_bedrock.md "orgs_manage_policies_bedrock.md")** allow you to enforce safeguards configured in Amazon Bedrock Guardrails automatically across any element in your organization structure for all model inference calls to Amazon Bedrock.
 - **[Upgrade rollout policies](orgs_manage_policies_upgrade_rollout.md "orgs_manage_policies_upgrade_rollout.md")** allow you to centrally manage and stagger automatic upgrades across multiple AWS resources and accounts in your organization.
 - **[Amazon S3 policies](orgs_manage_policies_s3.md "orgs_manage_policies_s3.md")** allow you to centrally manage configurations for Amazon S3 resources at scale across the accounts in an organization.
+- **[AWS Shield Network Security Director policies](orgs_manage_policies_network_security_director.md "orgs_manage_policies_network_security_director.md")** allow you to centrally enable and manage AWS Shield Network Security Director across the accounts in an organization.

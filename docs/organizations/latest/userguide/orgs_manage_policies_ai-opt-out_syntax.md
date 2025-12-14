@@ -104,6 +104,7 @@ elements:
     	- `codeguruprofiler`
     	- `codewhisperer`
     	- `comprehend`
+    	- `connect`
     	- `connectamd`
     	- `connectoptimization`
     	- `contactlens`
@@ -118,7 +119,6 @@ elements:
     	- `q`
     	- `quicksightq`
     	- `rekognition`
-    	- `sagemakerunifiedstudiomcp`
     	- `securitylake`
     	- `textract`
     	- `transcribe`

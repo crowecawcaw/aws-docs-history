@@ -52,6 +52,15 @@ the resources they need. Review the information in [Enforce tagging consistency]
 workflows described in [Getting started with tag
 policies](orgs_manage_policies_tag-policies-getting-started.md "orgs_manage_policies_tag-policies-getting-started.md").
 
+## Be aware of tagging limits
+
+AWS services generally have a limit of 50 user-defined tags that cannot be modified.
+When using features like Report Required Tags, ensure your organization's effective policies don't
+exceed 50 required tags for any given resource type. Exceeding this limit can cause two issues:
+resources may be unable to achieve compliance status in compliance summaries, and
+Infrastructure as Code (IaC) platforms may fail to create resources when more than 50 tags
+are defined as required.
+
 ## Consider creating an SCP to set guardrails around
 
 resource creation requests

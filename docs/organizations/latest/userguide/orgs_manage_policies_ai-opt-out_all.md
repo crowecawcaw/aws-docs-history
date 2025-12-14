@@ -65,5 +65,4 @@ The following is a list of AWS services supported by the AI services opt-out pol
 - [Amazon Transcribe](../../../transcribe.md "../../../transcribe.md")
 - [AWS Transform](../../../transform/latest/userguide/what-is.md "../../../transform/latest/userguide/what-is.md")
 - [Amazon Translate](../../../translate.md "../../../translate.md")
-- [AWS Security Hub](../../../securityhub.md "../../../securityhub.md")
-- [Amazon SageMaker Unified Studio MCP](https://aws.amazon.com/sagemaker/unified-studio/ "https://aws.amazon.com/sagemaker/unified-studio/")
+- [AWS Security Hub CSPM](../../../securityhub.md "../../../securityhub.md")

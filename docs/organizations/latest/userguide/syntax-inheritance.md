@@ -19,6 +19,7 @@ of management policy you choose. Management policy types include:
 - [Upgrade rollout
   policies](orgs_manage_policies_upgrade_rollout.md "orgs_manage_policies_upgrade_rollout.md")
 - [S3 policies](orgs_manage_policies_s3.md "orgs_manage_policies_s3.md")
+- [AWS Shield Network Security Director policies](orgs_manage_policies_network_security_director.md "orgs_manage_policies_network_security_director.md")
   The syntax for management policy types includes _[Inheritance operators](policy-operators.md "policy-operators.md")_, which
   enable you to specify with fine granularity what elements from the parent policies are
   applied and what elements can be overridden or modified when inherited by child OUs and

@@ -21,7 +21,7 @@ AWS accounts.
   policy](#tag_chatbot-policies "#tag_chatbot-policies")
 - [Edit tags attached to an AI services
   opt-out policy](#tag-ai-opt-out-policy-procedure "#tag-ai-opt-out-policy-procedure")
-- [Edit tags attached to a Security Hub
+- [Edit tags attached to a Security Hub CSPM
   policy](#tag-security-hub-policy-procedure "#tag-security-hub-policy-procedure")
 
 ## Edit tags attached to a service control policy
@@ -414,16 +414,16 @@ a AI services opt-out policy:
 - AWS CLI: [tag-resource](../../../cli/latest/reference/organizations/tag-resource.md "../../../cli/latest/reference/organizations/tag-resource.md") and [untag-resource](../../../cli/latest/reference/organizations/untag-resource.md "../../../cli/latest/reference/organizations/untag-resource.md")
 - AWS SDKs: [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") and [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
 
-## Edit tags attached to a Security Hub
+## Edit tags attached to a Security Hub CSPM
 
 policy
 
 When you sign in to your organization's management account, you can add or remove the
-tags attached to a Security Hub policy. For more information about tagging, see [Tagging AWS Organizations resources](orgs_tagging.md "orgs_tagging.md").
+tags attached to a Security Hub CSPM policy. For more information about tagging, see [Tagging AWS Organizations resources](orgs_tagging.md "orgs_tagging.md").
 
 ###### Minimum permissions
 
-To edit the tags attached to a Security Hub policy in your organization, you must have
+To edit the tags attached to a Security Hub CSPM policy in your organization, you must have
 the following permissions:
 
 - `organizations:DescribeOrganization`– required only when using the Organizations console
@@ -433,7 +433,7 @@ the following permissions:
 
 AWS Management Console
 
-###### To edit the tags attached to a Security Hub policy
+###### To edit the tags attached to a Security Hub CSPM policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -461,10 +461,10 @@ AWS Management Console
 
 AWS CLI & AWS SDKs
 
-###### To edit the tags attached to a Security Hub policy
+###### To edit the tags attached to a Security Hub CSPM policy
 
 You can use one of the following commands to edit the tags attached to
-a Security Hub policy:
+a Security Hub CSPM policy:
 
 - AWS CLI: [tag-resource](../../../cli/latest/reference/organizations/tag-resource.md "../../../cli/latest/reference/organizations/tag-resource.md") and [untag-resource](../../../cli/latest/reference/organizations/untag-resource.md "../../../cli/latest/reference/organizations/untag-resource.md")
 - AWS SDKs: [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") and [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")

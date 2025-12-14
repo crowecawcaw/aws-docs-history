@@ -17,7 +17,7 @@ defines the controls that you want to apply to a group of AWS accounts.
   policy](#update-chatbot-policy-procedure "#update-chatbot-policy-procedure")
 - [Update an AI services opt-out
   policy](#update-ai-opt-out-policy-procedure "#update-ai-opt-out-policy-procedure")
-- [Update a Security Hub policy](#update-security-hub-policy-procedure "#update-security-hub-policy-procedure")
+- [Update a Security Hub CSPM policy](#update-security-hub-policy-procedure "#update-security-hub-policy-procedure")
 
 ## Update a service control policy (SCP)
 
@@ -797,11 +797,11 @@ following text:
 
 - AWS SDKs: [UpdatePolicy](../APIReference/API_UpdatePolicy.md "../APIReference/API_UpdatePolicy.md")
 
-## Update a Security Hub policy
+## Update a Security Hub CSPM policy
 
 ###### Minimum permissions
 
-To update a Security Hub policy, you must have permission to run the following
+To update a Security Hub CSPM policy, you must have permission to run the following
 actions:
 
 - `organizations:UpdatePolicy` with a `Resource`
@@ -813,7 +813,7 @@ actions:
 
 AWS Management Console
 
-###### To update a Security Hub policy
+###### To update a Security Hub CSPM policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -825,9 +825,9 @@ AWS Management Console
 4. You can enter a new **Policy name**,
    **Policy description**, or edit the
    **JSON** policy text. For information about
-   Security Hub policy syntax, see [Security Hub policy syntax and
+   Security Hub CSPM policy syntax, see [Security Hub CSPM policy syntax and
    examples](orgs_manage_policies_security_hub_syntax.md "orgs_manage_policies_security_hub_syntax.md"). For
-   example policies that you can use as a starting point, see [Security Hub policy examples](orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples "orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples").
+   example policies that you can use as a starting point, see [Security Hub CSPM policy examples](orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples "orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples").
 5. When you're finished updating the policy, choose **Save
    changes**.
 
@@ -839,7 +839,7 @@ You can use one of the following to update a policy:
 
 - AWS CLI: [update-policy](../../../cli/latest/reference/organizations/update-policy.md "../../../cli/latest/reference/organizations/update-policy.md")
 
-The following example renames a Security Hub policy.
+The following example renames a Security Hub CSPM policy.
 
 ```
 `$` **aws organizations update-policy \
@@ -858,7 +858,7 @@ The following example renames a Security Hub policy.
 }`
 ```
 
-The following example adds or changes the description for a Security Hub
+The following example adds or changes the description for a Security Hub CSPM
 policy.
 
 ```
