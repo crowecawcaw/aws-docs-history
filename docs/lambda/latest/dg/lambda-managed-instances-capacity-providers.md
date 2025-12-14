@@ -6,7 +6,7 @@ When you create a capacity provider, you specify:
 
 - **VPC configuration** - The subnets and security groups where instances will run
 - **Permissions** - IAM roles for Lambda to manage EC2 resources
-- **Instance requirements** (optional) - Architecture and instance type preferences
+- **Instance requirements** (optional) - Architecture and [instance type](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High "https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High") preferences
 - **Scaling configuration** (optional) - How Lambda scales your instances
 
 ## Understanding capacity providers as security boundary
@@ -29,7 +29,7 @@ You can create a capacity provider using the AWS CLI, AWS Management Console, or
 aws lambda create-capacity-provider \
   --capacity-provider-name my-capacity-provider \
   --vpc-config SubnetIds=subnet-12345,subnet-67890,subnet-11111,SecurityGroupIds=sg-12345 \
-  --permissions-config InstanceProfileArn=arn:aws:iam::123456789012:instance-profile/MyInstanceProfile,CapacityProviderOperatorRoleArn=arn:aws:iam::123456789012:role/MyOperatorRole \
+  --permissions-config CapacityProviderOperatorRoleArn=arn:aws:iam::123456789012:role/MyOperatorRole \
   --instance-requirements Architectures=x86_64 \
   --capacity-provider-scaling-config ScalingMode=Auto
 ```
@@ -49,13 +49,12 @@ aws lambda create-capacity-provider \
 **PermissionsConfig**
 
 - **CapacityProviderOperatorRoleArn** (required): IAM role that allows Lambda to manage EC2 resources in your capacity provider
-- **InstanceProfileArn** (required): IAM instance profile for Lambda execution
 
 ### Optional parameters
 
 **InstanceRequirements**
 
-Specify the architecture and instance types for your capacity provider:
+Specify the architecture and [instance types](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High "https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High") for your capacity provider:
 
 - **Architectures**: Choose `x86_64` or `arm64`. Default is `x86_64`
 - **AllowedInstanceTypes**: Specify allowed instance types. Example: `m5.8xlarge`
@@ -68,7 +67,7 @@ By default, Lambda chooses the best instance types for your workload. We recomme
 Configure how Lambda scales your instances:
 
 - **ScalingMode**: Set to `Auto` for automatic scaling or `Manual` for manual control. Default is `Auto`
-- **MaxVCpuCount**: Maximum number of vCPUs for the capacity provider. Default is no maximum
+- **MaxVCpuCount**: Maximum number of vCPUs for the capacity provider. Default is 400.
 - **ScalingPolicies**: Define target tracking scaling policies for CPU and memory utilization
 
 **KmsKeyArn**

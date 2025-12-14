@@ -671,7 +671,7 @@ deleted the function or modified its permissions policies.
 
 1. In the Lambda console page for your function, choose the **Test** tab.
 
-![Lambda console Test tab.](images/test-tab.png) 2. For **Event name**, enter `MyTestEvent`. 3. In the **Event JSON**, paste the following test event. Be sure to replace these values:
+![Lambda console Test tab.](/images/lambda/latest/dg/images/test-tab.png) 2. For **Event name**, enter `MyTestEvent`. 3. In the **Event JSON**, paste the following test event. Be sure to replace these values:
 
     * Replace `us-east-1` with the region you created your Amazon S3 bucket in.
     * Replace both instances of `amzn-s3-demo-bucket` with the name of your own Amazon S3 bucket.

@@ -161,22 +161,18 @@ type BatchResult struct {
 
 func HandleRequest(ctx context.Context, event events.DynamoDBEvent) (*BatchResult, error) {
 	var batchItemFailures []BatchItemFailure
-	curRecordSequenceNumber := ""
 
 	for _, record := range event.Records {
 		// Process your record
-		curRecordSequenceNumber = record.Change.SequenceNumber
+		if err := processRecord(record); err != nil {
+			// Only add to failures if processing actually failed
+			batchItemFailures = append(batchItemFailures, BatchItemFailure{
+				ItemIdentifier: record.Change.SequenceNumber,
+			})
+		}
 	}
 
-	if curRecordSequenceNumber != "" {
-		batchItemFailures = append(batchItemFailures, BatchItemFailure{ItemIdentifier: curRecordSequenceNumber})
-	}
-
-	batchResult := BatchResult{
-		BatchItemFailures: batchItemFailures,
-	}
-
-	return &batchResult, nil
+	return &BatchResult{BatchItemFailures: batchItemFailures}, nil
 }
 
 func main() {

@@ -231,9 +231,9 @@ example, configure a CloudWatch alarm with a maximum setting to 30000 (30 second
 ## Security best practices
 
 **Monitor your usage of AWS Lambda as it relates to security best practices by using
-AWS Security Hub.** Security Hub uses security controls to evaluate resource configurations and security standards to help
-you comply with various compliance frameworks. For more information about using Security Hub to evaluate Lambda
-resources, see [AWS Lambda controls](../../../securityhub/latest/userguide/lambda-controls.md "../../../securityhub/latest/userguide/lambda-controls.md") in the AWS Security Hub User Guide.
+AWS Security Hub CSPM.** Security Hub CSPM uses security controls to evaluate resource configurations and security standards to help
+you comply with various compliance frameworks. For more information about using Security Hub CSPM to evaluate Lambda
+resources, see [AWS Lambda controls](../../../securityhub/latest/userguide/lambda-controls.md "../../../securityhub/latest/userguide/lambda-controls.md") in the AWS Security Hub CSPM User Guide.
 
 **Monitor Lambda network activity logs using Amazon GuardDuty Lambda Protection.** GuardDuty Lambda protection
 helps you identify potential security threats when Lambda functions are invoked in your AWS account. For example, if one of your

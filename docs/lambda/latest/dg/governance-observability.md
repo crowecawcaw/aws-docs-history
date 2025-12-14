@@ -75,25 +75,25 @@ For more information on actions that you can take, see the [Addressing the obser
 
 ## Visibility into Lambda function boundaries
 
-using Security Hub
+using Security Hub CSPM
 
-![Diagram of example AWS Security Hub inputs for Lambda, such as resource policy, runtime, and code](images/governance-observability-4.png)
+![Diagram of example AWS Security Hub CSPM inputs for Lambda, such as resource policy, runtime, and code](images/governance-observability-4.png)
 
 To ensure that AWS services including Lambda are used securely, AWS introduced the
 Foundational Security Best Practices v1.0.0. This set of best practices provides clear guidelines
 for securing resources and data in the AWS environment, emphasizing the importance of maintaining
-a strong security posture. The AWS Security Hub complements this by offering a unified security
+a strong security posture. The AWS Security Hub CSPM complements this by offering a unified security
 and compliance center. It aggregates, organizes, and prioritizes security findings from multiple
 AWS services like Amazon Inspector, AWS Identity and Access Management Access Analyzer, and Amazon GuardDuty.
 
-If you have Security Hub, Amazon Inspector, IAM Access Analyzer, and GuardDuty enabled
-within your AWS organization, Security Hub automatically aggregates findings from these services.
-For instance, let's consider Amazon Inspector. Using Security Hub, you can efficiently identify
-code and package vulnerabilities in Lambda functions. In the Security Hub console, navigate to the
+If you have Security Hub CSPM, Amazon Inspector, IAM Access Analyzer, and GuardDuty enabled
+within your AWS organization, Security Hub CSPM automatically aggregates findings from these services.
+For instance, let's consider Amazon Inspector. Using Security Hub CSPM, you can efficiently identify
+code and package vulnerabilities in Lambda functions. In the Security Hub CSPM console, navigate to the
 bottom section labeled **Latest findings from AWS integrations**. Here, you can view and
 analyze findings sourced from various integrated AWS services.
 
-![Security Hub console "Latest findings from AWS integrations" section](images/governance-observability-5.png)
+![Security Hub CSPM console "Latest findings from AWS integrations" section](images/governance-observability-5.png)
 
 To see details, choose the **See findings** link in the second
 column. This displays a list of findings filtered by product, such as Amazon Inspector. To limit your search to Lambda functions, set `ResourceType` to `AwsLambdaFunction`. This displays findings from Amazon Inspector related to Lambda functions.
@@ -140,7 +140,7 @@ about each Lambda function, its dependencies, and other critical metadata. A CMD
 resource for auditing, compliance checks, and identifying function owners.
 
 As the landscape of serverless infrastructure continually evolves, it's essential to adopt a
-proactive stance towards monitoring. With tools like AWS Config, Security Hub, and Amazon Inspector, potential anomalies or non-compliant configurations can be swiftly identified. However,
+proactive stance towards monitoring. With tools like AWS Config, Security Hub CSPM, and Amazon Inspector, potential anomalies or non-compliant configurations can be swiftly identified. However,
 tools alone cannot ensure total compliance or optimal configurations. It's crucial to pair these
 tools with well-documented processes and best practices.
 

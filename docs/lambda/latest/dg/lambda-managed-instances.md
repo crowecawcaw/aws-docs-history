@@ -2,11 +2,13 @@
 
 Lambda Managed Instances enables you to run Lambda functions on your current-generation Amazon EC2 instances, including Graviton4, network-optimized instances, and other specialized compute options, without managing instance lifecycles, operating system and language runtime patching, routing, load balancing, or scaling policies. With Lambda Managed Instances, you benefit from EC2 pricing advantages, including EC2 Savings Plans and Reserved Instances.
 
+For a list of supported instance types, go to the [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High "https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High") page and select your AWS Region.
+
 ## Key capabilities
 
 Lambda Managed Instances provides the following capabilities:
 
-- **Choose suitable instances** - Select appropriate instances based on performance and cost requirements, including access to the latest CPUs like Graviton4, configurable memory-CPU ratios, and high-bandwidth networking.
+- **Choose suitable instances** - Select [appropriate instances](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High "https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High") based on performance and cost requirements, including access to the latest CPUs like Graviton4, configurable memory-CPU ratios, and high-bandwidth networking.
 - **Automatic provisioning** - AWS automatically provisions suitable instances and spins up function execution environments.
 - **Dynamic scaling** - Instances scale dynamically based on your function traffic patterns.
 - **Fully managed experience** - AWS handles infrastructure management, scaling, patching, and routing, with the same extensive event-source integrations you're familiar with.
