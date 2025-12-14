@@ -112,7 +112,7 @@ To use a custom vocabulary with a streaming transcription, see the following for
 2. In the navigation pane, choose **Real-time transcription**. Scroll down to
    **Customizations** and expand this field if it is minimized.
 
-![Amazon Transcribe console screenshot: the 'real-time transcription' page.](/images/transcribe/latest/dg/images/stream-main.png) 3. Toggle on **Custom vocabulary** and select a custom vocabulary from the
+![Amazon Transcribe console screenshot: the 'real-time transcription' page.](images/stream-main.png) 3. Toggle on **Custom vocabulary** and select a custom vocabulary from the
 dropdown menu.
 
 ![Amazon Transcribe console screenshot: the expanded 'customizations' pane.](images/vocab-stream2.png)
