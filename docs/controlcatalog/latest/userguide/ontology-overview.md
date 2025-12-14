@@ -38,7 +38,7 @@ Common control.
 - **Control implementations and control evidence.** The
   ontology has a concept of _Control implementations_ (L6) that can
   represent either a specific control implementation in AWS, for example, an
-  AWS Control Tower control, an AWS Security Hub check, an AWS Config rule, and so forth, or a non-technical
+  AWS Control Tower control, an AWS Security Hub CSPM check, an AWS Config rule, and so forth, or a non-technical
   implementation outside AWS, such as process guidance. A separate concept of
   _Control evidence_ (L7) represents data sources that can be
   used as evidence for controls by AWS Audit Manager, third-party tools, or customers
