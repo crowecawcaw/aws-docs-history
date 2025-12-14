@@ -300,7 +300,7 @@ If you will be using Seamless Domain Join or WorkSpaces, you must also
 enable **Write** permissions so that the Active
 Directory can create computer objects.
 
-![Delegation of Control Wizard - Under Show these permissions, general, property-specific, and read are selected.](/images/directoryservice/latest/admin-guide/images/aduc_delegate_join_permissions.png) 11. Verify the information on the **Completing the Delegation of
+![Delegation of Control Wizard - Under Show these permissions, general, property-specific, and read are selected.](images/aduc_delegate_join_permissions.png) 11. Verify the information on the **Completing the Delegation of
 Control Wizard** page, and click **Finish**. 12. Create a user account with a strong password and add that user to the
 `Connectors` group. This user will be
 known as your AD Connector service account and since it is now a member of
