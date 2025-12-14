@@ -1,6 +1,6 @@
-# Security Hub controls for Elastic Beanstalk
+# Security Hub CSPM controls for Elastic Beanstalk
 
-These AWS Security Hub controls evaluate the AWS Elastic Beanstalk service and resources.
+These AWS Security Hub CSPM controls evaluate the AWS Elastic Beanstalk service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -61,9 +61,9 @@ For instructions on how to enable enhanced health reporting, see [Enabling enhan
 
 **Parameters:**
 
-| Parameter     | Description          | Type | Allowed custom values | Security Hub default value |
-| ------------- | -------------------- | ---- | --------------------- | -------------------------- |
-| `UpdateLevel` | Version update level | Enum | `minor`, `patch`      | No default value           |
+| Parameter     | Description          | Type | Allowed custom values | Security Hub CSPM default value |
+| ------------- | -------------------- | ---- | --------------------- | ------------------------------- |
+| `UpdateLevel` | Version update level | Enum | `minor`, `patch`      | No default value                |
 
 This control checks whether managed platform updates are enabled for an Elastic Beanstalk
 environment. The control fails if no managed platform updates are enabled. By default, the control passes if any
@@ -95,9 +95,9 @@ To enable managed platform updates, see [To configure managed platform updates u
 
 **Parameters:**
 
-| Parameter         | Description                                         | Type | Allowed custom values                                                                                              | Security Hub default value |
-| ----------------- | --------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------ | -------------------------- |
-| `RetentionInDays` | Number of days to keep log events before expiration | Enum | `1`, `3`, `5`, `7`, `14`, `30`,<br>`60`, `90`, `120`, `150`, `180`, `365`<br>, `400`, `545`, `731`, `1827`, `3653` | No default value           |
+| Parameter         | Description                                         | Type | Allowed custom values                                                                                              | Security Hub CSPM default value |
+| ----------------- | --------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
+| `RetentionInDays` | Number of days to keep log events before expiration | Enum | `1`, `3`, `5`, `7`, `14`, `30`,<br>`60`, `90`, `120`, `150`, `180`, `365`<br>, `400`, `545`, `731`, `1827`, `3653` | No default value                |
 
 This control checks whether an Elastic Beanstalk environment is configured to send logs to CloudWatch Logs. The control fails if an
 Elastic Beanstalk environment isn't configured to send logs to CloudWatch Logs. Optionally, you can provide a custom value for the

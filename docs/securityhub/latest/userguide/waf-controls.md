@@ -1,6 +1,6 @@
-# Security Hub controls for AWS WAF
+# Security Hub CSPM controls for AWS WAF
 
-These AWS Security Hub controls evaluate the AWS WAF service and resources. The controls might
+These AWS Security Hub CSPM controls evaluate the AWS WAF service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 

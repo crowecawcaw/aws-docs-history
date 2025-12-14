@@ -1,6 +1,6 @@
-# Security Hub controls for Secrets Manager
+# Security Hub CSPM controls for Secrets Manager
 
-These AWS Security Hub controls evaluate the AWS Secrets Manager service and resources.
+These AWS Security Hub CSPM controls evaluate the AWS Secrets Manager service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -23,9 +23,9 @@ Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-
 
 **Parameters:**
 
-| Parameter                         | Description                                                  | Type    | Allowed custom values | Security Hub default value |
-| --------------------------------- | ------------------------------------------------------------ | ------- | --------------------- | -------------------------- |
-| `maximumAllowedRotationFrequency` | Maximum number of days allowed for secret rotation frequency | Integer | `1` to `365`          | No default value           |
+| Parameter                         | Description                                                  | Type    | Allowed custom values | Security Hub CSPM default value |
+| --------------------------------- | ------------------------------------------------------------ | ------- | --------------------- | ------------------------------- |
+| `maximumAllowedRotationFrequency` | Maximum number of days allowed for secret rotation frequency | Integer | `1` to `365`          | No default value                |
 
 This control checks whether a secret stored in AWS Secrets Manager is configured with automatic
 rotation. The control fails if the secret isn't configured with automatic rotation. If you
@@ -111,12 +111,12 @@ For help diagnosing and fixing common errors related to secrets rotation, see [T
 
 **Parameters:**
 
-| Parameter       | Description                                            | Type    | Allowed custom values | Security Hub default value |
-| --------------- | ------------------------------------------------------ | ------- | --------------------- | -------------------------- |
-| `unusedForDays` | Maximum number of days that a secret can remain unused | Integer | `1` to `365`          | `90`                       |
+| Parameter       | Description                                            | Type    | Allowed custom values | Security Hub CSPM default value |
+| --------------- | ------------------------------------------------------ | ------- | --------------------- | ------------------------------- |
+| `unusedForDays` | Maximum number of days that a secret can remain unused | Integer | `1` to `365`          | `90`                            |
 
 This control checks whether an AWS Secrets Manager secret has been accessed within the specified time
-frame. The control fails if a secret is unused beyond the specified time frame. Unless you provide a custom parameter value for the access period, Security Hub uses a default value of 90 days.
+frame. The control fails if a secret is unused beyond the specified time frame. Unless you provide a custom parameter value for the access period, Security Hub CSPM uses a default value of 90 days.
 
 Deleting unused secrets is as important as rotating secrets. Unused secrets can be abused
 by their former users, who no longer need access to these secrets. Also, as more users get
@@ -148,13 +148,13 @@ in the _AWS Secrets Manager User Guide_.
 
 **Parameters:**
 
-| Parameter              | Description                                               | Type    | Allowed custom values | Security Hub default value |
-| ---------------------- | --------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `maxDaysSinceRotation` | Maximum number of days that a secret can remain unchanged | Integer | `1` to `180`          | `90`                       |
+| Parameter              | Description                                               | Type    | Allowed custom values | Security Hub CSPM default value |
+| ---------------------- | --------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `maxDaysSinceRotation` | Maximum number of days that a secret can remain unchanged | Integer | `1` to `180`          | `90`                            |
 
 This control checks whether an AWS Secrets Manager secret is rotated at least once within the specified time frame. The control
 fails if a secret isn't rotated at least this frequently. Unless you provide a custom parameter value for the rotation
-period, Security Hub uses a default value of 90 days.
+period, Security Hub CSPM uses a default value of 90 days.
 
 Rotating secrets can help you to reduce the risk of an unauthorized use of your secrets in
 your AWS account. Examples include database credentials, passwords, third-party API keys, and
@@ -186,15 +186,15 @@ You must choose and configure an AWS Lambda function for rotation.
 **Resource type:**
 `AWS::SecretsManager::Secret`
 
-**AWS Config rule:** `tagged-secretsmanager-secret` (custom Security Hub rule)
+**AWS Config rule:** `tagged-secretsmanager-secret` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an AWS Secrets Manager secret has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the secret doesn’t have any tag keys or if it doesn’t have all the keys specified in the

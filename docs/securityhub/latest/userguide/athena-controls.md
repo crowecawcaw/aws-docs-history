@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon Athena
+# Security Hub CSPM controls for Amazon Athena
 
-These AWS Security Hub controls evaluate the Amazon Athena service and resources. The controls might
+These AWS Security Hub CSPM controls evaluate the Amazon Athena service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -10,7 +10,7 @@ rest
 
 ###### Important
 
-Security Hub retired this control in April 2024.
+Security Hub CSPM retired this control in April 2024.
 For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md").
 
 **Category:** Protect > Data protection > Encryption of
@@ -60,15 +60,15 @@ section, select **Encrypt query results**.
 `AWS::Athena::DataCatalog`
 
 **AWS Config rule:**
-`tagged-athena-datacatalog` (custom Security Hub rule)
+`tagged-athena-datacatalog` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon Athena data catalog has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the data catalog doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -105,15 +105,15 @@ To add tags to an Athena data catalog, see [Tagging Athena resources](../../../a
 `AWS::Athena::WorkGroup`
 
 **AWS Config rule:**
-`tagged-athena-workgroup` (custom Security Hub rule)
+`tagged-athena-workgroup` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon Athena workgroup has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the workgroup doesn’t have any tag keys or if it doesn’t have all the keys specified in the

@@ -1,6 +1,6 @@
-# Security Hub for Elasticsearch
+# Security Hub CSPM for Elasticsearch
 
-These AWS Security Hub controls evaluate the Elasticsearch service and resources.
+These AWS Security Hub CSPM controls evaluate the Elasticsearch service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -73,7 +73,7 @@ Elasticsearch domains deployed within a VPC can communicate with VPC resources o
 private AWS network, without the need to traverse the public internet. This configuration
 increases the security posture by limiting access to the data in transit. VPCs provide a number
 of network controls to secure access to Elasticsearch domains, including network ACL and
-security groups. Security Hub recommends that you migrate public Elasticsearch domains to VPCs to take
+security groups. Security Hub CSPM recommends that you migrate public Elasticsearch domains to VPCs to take
 advantage of these controls.
 
 ### Remediation
@@ -163,13 +163,13 @@ For information on how to enable log publishing, see [Enabling log publishing (c
 `AWS::Elasticsearch::Domain`
 
 **AWS Config rule:**
-`elasticsearch-audit-logging-enabled` (custom Security Hub rule)
+`elasticsearch-audit-logging-enabled` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-- `cloudWatchLogsLogGroupArnList` (not customizable). Security Hub does not populate this
+- `cloudWatchLogsLogGroupArnList` (not customizable). Security Hub CSPM does not populate this
   parameter. Comma-separated list of CloudWatch Logs log groups that should be configured for audit
   logs.
 
@@ -200,7 +200,7 @@ audit logs](../../../opensearch-service/latest/developerguide/audit-logs.md#audi
 `AWS::Elasticsearch::Domain`
 
 **AWS Config rule:**
-`elasticsearch-data-node-fault-tolerance` (custom Security Hub rule)
+`elasticsearch-data-node-fault-tolerance` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -239,7 +239,7 @@ distribution across Availability Zones. 5. Choose **Submit**.
 `AWS::Elasticsearch::Domain`
 
 **AWS Configrule:**
-`elasticsearch-primary-node-fault-tolerance` (custom Security Hub rule)
+`elasticsearch-primary-node-fault-tolerance` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -282,7 +282,7 @@ resource capacity and cluster operations if a node fails.
 `AWS::Elasticsearch::Domain`
 
 **AWS Config rule:**
-`elasticsearch-https-required` (custom Security Hub rule)
+`elasticsearch-https-required` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -314,15 +314,15 @@ To enable TLS encryption, use the [UpdateDomainConfig](../../../opensearch-servi
 `AWS::Elasticsearch::Domain`
 
 **AWS Config rule:**
-`tagged-elasticsearch-domain` (custom Security Hub rule)
+`tagged-elasticsearch-domain` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Elasticsearch domain has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the domain doesn’t have any tag keys or if it doesn’t have all the keys specified in the

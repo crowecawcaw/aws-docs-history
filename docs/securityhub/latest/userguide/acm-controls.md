@@ -1,6 +1,6 @@
-# Security Hub controls for AWS Certificate Manager
+# Security Hub CSPM controls for AWS Certificate Manager
 
-These AWS Security Hub controls evaluate the AWS Certificate Manager (ACM) service and resources. The controls
+These AWS Security Hub CSPM controls evaluate the AWS Certificate Manager (ACM) service and resources. The controls
 might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -23,13 +23,13 @@ NIST.800-53.r5 SC-7(16), NIST.800-171.r2 3.13.15, PCI DSS v4.0.1/4.2.1
 
 **Parameters:**
 
-| Parameter          | Description                                                     | Type    | Allowed custom values | Security Hub default value |
-| ------------------ | --------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `daysToExpiration` | Number of days within which the ACM certificate must be renewed | Integer | `14` to `365`         | `30`                       |
+| Parameter          | Description                                                     | Type    | Allowed custom values | Security Hub CSPM default value |
+| ------------------ | --------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `daysToExpiration` | Number of days within which the ACM certificate must be renewed | Integer | `14` to `365`         | `30`                            |
 
 This control checks whether an AWS Certificate Manager (ACM) certificate is renewed within the specified time period. It checks both imported certificates and certificates provided by
 ACM. The control fails if the certificate isn't renewed within the specified time period. Unless you provide a custom parameter value for the renewal
-period, Security Hub uses a default value of 30 days.
+period, Security Hub CSPM uses a default value of 30 days.
 
 ACM can automatically renew certificates that use DNS validation. For certificates that
 use email validation, you must respond to a domain validation email. ACM doesn't
@@ -108,15 +108,15 @@ For more information about importing certificates into ACM, see
 **Resource type:**
 `AWS::ACM::Certificate`
 
-**AWS Config rule:** `tagged-acm-certificate` (custom Security Hub rule)
+**AWS Config rule:** `tagged-acm-certificate` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an AWS Certificate Manager (ACM) certificate has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the certificate doesn’t have any tag keys or if it doesn’t have all the keys specified in the

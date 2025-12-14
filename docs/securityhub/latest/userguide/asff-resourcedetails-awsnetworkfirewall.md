@@ -3,7 +3,7 @@
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsNetworkFirewall`
 resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsNetworkFirewallFirewall
@@ -14,7 +14,7 @@ AWS Network Firewall firewall.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsNetworkFirewallFirewall` object. To view descriptions of
 `AwsNetworkFirewallFirewall` attributes, see [AwsNetworkFirewallFirewallDetails](../../1.0/APIReference/API_AwsNetworkFirewallFirewallDetails.md "../../1.0/APIReference/API_AwsNetworkFirewallFirewallDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -47,7 +47,7 @@ firewall policy. A firewall policy defines the behavior of a network firewall.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsNetworkFirewallFirewallPolicy` object. To view descriptions of
 `AwsNetworkFirewallFirewallPolicy` attributes, see [AwsNetworkFirewallFirewallPolicyDetails](../../1.0/APIReference/API_AwsNetworkFirewallFirewallPolicyDetails.md "../../1.0/APIReference/API_AwsNetworkFirewallFirewallPolicyDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -87,7 +87,7 @@ Rule groups are referenced in firewall policies.
 The following examples show the AWS Security Finding Format (ASFF) for the
 `AwsNetworkFirewallRuleGroup` object. To view descriptions of
 `AwsNetworkFirewallRuleGroup` attributes, see [AwsNetworkFirewallRuleGroupDetails](../../1.0/APIReference/API_AwsNetworkFirewallRuleGroupDetails.md "../../1.0/APIReference/API_AwsNetworkFirewallRuleGroupDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example – stateless rule group**
 

@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon S3
+# Security Hub CSPM controls for Amazon S3
 
-These AWS Security Hub controls evaluate the Amazon Simple Storage Service (Amazon S3) service and resources. The controls
+These AWS Security Hub CSPM controls evaluate the Amazon Simple Storage Service (Amazon S3) service and resources. The controls
 might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -420,9 +420,9 @@ SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(4), NIST.800-171.r2 3.3.8
 
 **Parameters:**
 
-| Parameter    | Description                      | Type                           | Allowed custom values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Security Hub default value |
-| ------------ | -------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `eventTypes` | List of preferred S3 event types | EnumList (maximum of 28 items) | `s3:IntelligentTiering, s3:LifecycleExpiration:*, s3:LifecycleExpiration:Delete, s3:LifecycleExpiration:DeleteMarkerCreated, s3:LifecycleTransition, s3:ObjectAcl:Put, s3:ObjectCreated:*, s3:ObjectCreated:CompleteMultipartUpload, s3:ObjectCreated:Copy, s3:ObjectCreated:Post, s3:ObjectCreated:Put, s3:ObjectRemoved:*, s3:ObjectRemoved:Delete, s3:ObjectRemoved:DeleteMarkerCreated, s3:ObjectRestore:*, s3:ObjectRestore:Completed, s3:ObjectRestore:Delete, s3:ObjectRestore:Post, s3:ObjectTagging:*, s3:ObjectTagging:Delete, s3:ObjectTagging:Put, s3:ReducedRedundancyLostObject, s3:Replication:*, s3:Replication:OperationFailedReplication, s3:Replication:OperationMissedThreshold, s3:Replication:OperationNotTracked, s3:Replication:OperationReplicatedAfterThreshold, s3:TestEvent` | No default value           |
+| Parameter    | Description                      | Type                           | Allowed custom values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Security Hub CSPM default value |
+| ------------ | -------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `eventTypes` | List of preferred S3 event types | EnumList (maximum of 28 items) | `s3:IntelligentTiering, s3:LifecycleExpiration:*, s3:LifecycleExpiration:Delete, s3:LifecycleExpiration:DeleteMarkerCreated, s3:LifecycleTransition, s3:ObjectAcl:Put, s3:ObjectCreated:*, s3:ObjectCreated:CompleteMultipartUpload, s3:ObjectCreated:Copy, s3:ObjectCreated:Post, s3:ObjectCreated:Put, s3:ObjectRemoved:*, s3:ObjectRemoved:Delete, s3:ObjectRemoved:DeleteMarkerCreated, s3:ObjectRestore:*, s3:ObjectRestore:Completed, s3:ObjectRestore:Delete, s3:ObjectRestore:Post, s3:ObjectTagging:*, s3:ObjectTagging:Delete, s3:ObjectTagging:Put, s3:ReducedRedundancyLostObject, s3:Replication:*, s3:Replication:OperationFailedReplication, s3:Replication:OperationMissedThreshold, s3:Replication:OperationNotTracked, s3:Replication:OperationReplicatedAfterThreshold, s3:TestEvent` | No default value                |
 
 This control checks whether S3 Event Notifications are enabled on an Amazon S3 general purpose bucket.
 The control fails if S3 Event Notifications are not enabled on the bucket. If you provide custom values for
@@ -487,11 +487,11 @@ To create an IAM user policy on an S3 bucket, see [Controlling access to a bucke
 
 **Parameters:**
 
-| Parameter                      | Description                                                                                     | Type    | Allowed custom values                                                                            | Security Hub default value |
-| ------------------------------ | ----------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------ | -------------------------- |
-| `targetTransitionDays`         | Number of days after object creation when objects are transitioned to a specified storage class | Integer | `1` to `36500`                                                                                   | No default value           |
-| `targetExpirationDays`         | Number of days after object creation when objects are deleted                                   | Integer | `1` to `36500`                                                                                   | No default value           |
-| `targetTransitionStorageClass` | Destination S3 storage class type                                                               | Enum    | `STANDARD_IA,<br>INTELLIGENT_TIERING,<br>ONEZONE_IA,<br>GLACIER,<br>GLACIER_IR,<br>DEEP_ARCHIVE` | No default value           |
+| Parameter                      | Description                                                                                     | Type    | Allowed custom values                                                                            | Security Hub CSPM default value |
+| ------------------------------ | ----------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------ | ------------------------------- |
+| `targetTransitionDays`         | Number of days after object creation when objects are transitioned to a specified storage class | Integer | `1` to `36500`                                                                                   | No default value                |
+| `targetExpirationDays`         | Number of days after object creation when objects are deleted                                   | Integer | `1` to `36500`                                                                                   | No default value                |
+| `targetTransitionStorageClass` | Destination S3 storage class type                                                               | Enum    | `STANDARD_IA,<br>INTELLIGENT_TIERING,<br>ONEZONE_IA,<br>GLACIER,<br>GLACIER_IR,<br>DEEP_ARCHIVE` | No default value                |
 
 This control checks whether an Amazon S3 general purpose bucket has a Lifecycle configuration. The control fails if the
 bucket doesn't have a Lifecycle configuration. If you provide custom values for one or more of the preceding parameters, the
@@ -562,9 +562,9 @@ To use versioning on an S3 bucket, see [Enabling versioning on buckets](../../..
 
 **Parameters:**
 
-| Parameter | Description                   | Type | Allowed custom values      | Security Hub default value |
-| --------- | ----------------------------- | ---- | -------------------------- | -------------------------- |
-| `mode`    | S3 Object Lock retention mode | Enum | `GOVERNANCE`, `COMPLIANCE` | No default value           |
+| Parameter | Description                   | Type | Allowed custom values      | Security Hub CSPM default value |
+| --------- | ----------------------------- | ---- | -------------------------- | ------------------------------- |
+| `mode`    | S3 Object Lock retention mode | Enum | `GOVERNANCE`, `COMPLIANCE` | No default value                |
 
 This control checks whether an Amazon S3 general purpose bucket has Object Lock enabled. The control fails if Object Lock
 isn't enabled for the bucket. If you provide a custom value for the `mode` parameter, the control passes only if
@@ -802,7 +802,7 @@ in the _Amazon Simple Storage Service User Guide_.
 `AWS::S3::MultiRegionAccessPoint`
 
 **AWS Config rule:**
-`s3-mrap-public-access-blocked` (custom Security Hub rule)
+`s3-mrap-public-access-blocked` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -838,9 +838,9 @@ configurations
 
 **Parameters:**
 
-| Parameter              | Description                                                               | Type    | Allowed custom values | Security Hub default value |
-| ---------------------- | ------------------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `targetExpirationDays` | The number of days, after object creation, when objects should<br>expire. | Integer | `1` to `2147483647`   | No default value           |
+| Parameter              | Description                                                               | Type    | Allowed custom values | Security Hub CSPM default value |
+| ---------------------- | ------------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `targetExpirationDays` | The number of days, after object creation, when objects should<br>expire. | Integer | `1` to `2147483647`   | No default value                |
 
 This control checks whether lifecycle rules are configured for an S3 directory bucket.
 The control fails if lifecycle rules aren't configured for the directory bucket, or a

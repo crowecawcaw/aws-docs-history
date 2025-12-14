@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon GuardDuty
+# Security Hub CSPM controls for Amazon GuardDuty
 
-These AWS Security Hub controls evaluate the Amazon GuardDuty service and resources. The controls might
+These AWS Security Hub CSPM controls evaluate the Amazon GuardDuty service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -49,15 +49,15 @@ To enable GuardDuty, see [Getting started with GuardDuty](../../../guardduty/lat
 
 **Resource type:** `AWS::GuardDuty::Filter`
 
-**AWS Config rule:** `tagged-guardduty-filter` (custom Security Hub rule)
+**AWS Config rule:** `tagged-guardduty-filter` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon GuardDuty filter has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the filter doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -92,15 +92,15 @@ To add tags to a GuardDuty filter, see [TagResource](../../../guardduty/latest/A
 
 **Resource type:** `AWS::GuardDuty::IPSet`
 
-**AWS Config rule:** `tagged-guardduty-ipset` (custom Security Hub rule)
+**AWS Config rule:** `tagged-guardduty-ipset` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon GuardDuty IPSet has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the IPSet doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -135,15 +135,15 @@ To add tags to a GuardDuty IPSet, see [TagResource](../../../guardduty/latest/AP
 
 **Resource type:** `AWS::GuardDuty::Detector`
 
-**AWS Config rule:** `tagged-guardduty-detector` (custom Security Hub rule)
+**AWS Config rule:** `tagged-guardduty-detector` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon GuardDuty detector has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the detector doesn’t have any tag keys or if it doesn’t have all the keys specified in the

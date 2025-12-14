@@ -1,6 +1,6 @@
-# Security Hub controls for AWS Lambda
+# Security Hub CSPM controls for AWS Lambda
 
-These AWS Security Hub controls evaluate the AWS Lambda service and resources. The controls might
+These AWS Security Hub CSPM controls evaluate the AWS Lambda service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -103,7 +103,7 @@ python3.10, python3.9, ruby3.4, ruby3.3, ruby3.2` (not
 
 This control checks whether AWS Lambda function runtime settings match the expected
 values set for the supported runtimes in each language. The control fails if the Lambda
-function doesn't use a supported runtime, as noted in the Parameters section. Security Hub
+function doesn't use a supported runtime, as noted in the Parameters section. Security Hub CSPM
 ignores functions that have a package type of `Image`.
 
 Lambda runtimes are built around a combination of operating system, programming
@@ -148,7 +148,7 @@ configuration
 **Parameters:** None
 
 This control checks whether a Lambda function is deployed in a virtual private cloud
-(VPC). The control fails if the Lambda function isn't deployed in a VPC. Security Hub doesn't
+(VPC). The control fails if the Lambda function isn't deployed in a VPC. Security Hub CSPM doesn't
 evaluate the VPC subnet routing configuration to determine public reachability. You
 might see failed findings for Lambda@Edge resources.
 
@@ -187,14 +187,14 @@ SI-13(5)
 
 **Parameters:**
 
-| Parameter           | Description                          | Type | Allowed custom values | Security Hub default value |
-| ------------------- | ------------------------------------ | ---- | --------------------- | -------------------------- |
-| `availabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                        |
+| Parameter           | Description                          | Type | Allowed custom values | Security Hub CSPM default value |
+| ------------------- | ------------------------------------ | ---- | --------------------- | ------------------------------- |
+| `availabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                             |
 
 This control checks if an AWS Lambda function that connects to a virtual private cloud
 (VPC) operates in at least the specified number of Availability Zone (AZs). The control
 fails if the function doesn't operate in at least the specified number of AZs. Unless
-you provide a custom parameter value for the minimum number of AZs, Security Hub uses a default
+you provide a custom parameter value for the minimum number of AZs, Security Hub CSPM uses a default
 value of two AZs.
 
 Deploying resources across multiple AZs is an AWS best practice to ensure high
@@ -223,15 +223,15 @@ zone.
 `AWS::Lambda::Function`
 
 **AWS Config rule:**
-`tagged-lambda-function` (custom Security Hub rule)
+`tagged-lambda-function` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an AWS Lambda function has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the function

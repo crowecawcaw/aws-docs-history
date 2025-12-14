@@ -72,6 +72,8 @@ Stages](apigateway-controls.md#apigateway-9 "apigateway-controls.md#apigateway-9
 
 [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 
+[[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+
 [[CloudFront.1] CloudFront distributions should have a default
 root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 
@@ -136,6 +138,12 @@ unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#c
 
 [[Cognito.3] Password policies for Cognito user pools should
 have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+
+[[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+
+[[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+
+[[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 
 [[Config.1] AWS Config should be enabled and use the service-linked role for resource recording](config-controls.md#config-1 "config-controls.md#config-1")
 
@@ -280,6 +288,8 @@ source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec
 [[EC2.181] EC2 launch templates should enable encryption
 for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 
+[[EC2.182] Amazon EBS Snapshots should not be publicly accessible](ec2-controls.md#ec2-182 "ec2-controls.md#ec2-182")
+
 [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 
 [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
@@ -306,6 +316,8 @@ definitions](ecs-controls.md#ecs-1 "ecs-controls.md#ecs-1")
 [[ECS.12] ECS clusters should use Container Insights](ecs-controls.md#ecs-12 "ecs-controls.md#ecs-12")
 
 [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
+
+[[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
 
 [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 
@@ -755,6 +767,8 @@ initial instance count greater than 1](sagemaker-controls.md#sagemaker-4 "sagema
 [[SecretsManager.4] Secrets Manager secrets should be rotated within a specified number of days](secretsmanager-controls.md#secretsmanager-4 "secretsmanager-controls.md#secretsmanager-4")
 
 [[ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only](servicecatalog-controls.md#servicecatalog-1 "servicecatalog-controls.md#servicecatalog-1")
+
+[[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 
 [[SNS.4] SNS topic access policies should not allow public access](sns-controls.md#sns-4 "sns-controls.md#sns-4")
 

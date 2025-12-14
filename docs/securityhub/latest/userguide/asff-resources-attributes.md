@@ -138,7 +138,7 @@ Note that if the finding size exceeds the maximum of 240 KB, then the
 `Details` object is removed from the finding. For control findings that
 use AWS Config rules, you can view the resource details on the AWS Config console.
 
-Security Hub provides a set of available resource details for its supported resource types.
+Security Hub CSPM provides a set of available resource details for its supported resource types.
 These details correspond to values of the `Type` object. Use the provided
 types whenever possible.
 
@@ -260,10 +260,10 @@ the finding activity or the actor that performed the activity.
 
 This field provides tag key and value information for the resource
 involved in a finding. You can tag [resources that are supported](../../../resourcegroupstagging/latest/APIReference/supported-services.md "../../../resourcegroupstagging/latest/APIReference/supported-services.md") by the `GetResources`
-operation of the AWS Resource Groups Tagging API. Security Hub calls this operation though the [service-linked role](using-service-linked-roles.md "using-service-linked-roles.md") and retrieves the resource tags if the AWS Security Finding Format (ASFF)
+operation of the AWS Resource Groups Tagging API. Security Hub CSPM calls this operation though the [service-linked role](using-service-linked-roles.md "using-service-linked-roles.md") and retrieves the resource tags if the AWS Security Finding Format (ASFF)
 `Resource.Id` field is populated with the AWS resource ARN. Invalid resource IDs are ignored.
 
-You can add resource tags to findings that Security Hub ingests, including findings from integrated
+You can add resource tags to findings that Security Hub CSPM ingests, including findings from integrated
 AWS services and third-party products.
 
 Adding tags tells you the

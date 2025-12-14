@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCloudFront` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsCloudFrontDistribution
@@ -13,7 +13,7 @@ distribution configuration.
 The following is an example `AwsCloudFrontDistribution` finding in the
 AWS Security Finding Format (ASFF). To view descriptions of
 `AwsCloudFrontDistribution` attributes, see [AwsCloudFrontDistributionDetails](../../1.0/APIReference/API_AwsCloudFrontDistributionDetails.md "../../1.0/APIReference/API_AwsCloudFrontDistributionDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 

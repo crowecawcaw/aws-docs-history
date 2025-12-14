@@ -1,6 +1,6 @@
-# Security Hub controls for CloudFormation
+# Security Hub CSPM controls for CloudFormation
 
-These Security Hub controls evaluate the AWS CloudFormation service and resources.
+These Security Hub CSPM controls evaluate the AWS CloudFormation service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -9,7 +9,7 @@ Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-
 
 ###### Important
 
-Security Hub retired this control in April 2024.
+Security Hub CSPM retired this control in April 2024.
 For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md").
 
 **Related requirements:** NIST.800-53.r5 SI-4(12), NIST.800-53.r5 SI-4(5)
@@ -49,15 +49,15 @@ in the _AWS CloudFormation User Guide_.
 **Resource type:**
 `AWS::CloudFormation::Stack`
 
-**AWS Config rule:** `tagged-cloudformation-stack` (custom Security Hub rule)
+**AWS Config rule:** `tagged-cloudformation-stack` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an AWS CloudFormation stack has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the stack doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -84,3 +84,33 @@ _AWS General Reference_.
 
 To add tags to a CloudFormation stack, see [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md")
 in the _AWS CloudFormation API Reference_.
+
+## [CloudFormation.3] CloudFormation stacks should have termination protection enabled
+
+**Category:** Protect > Data Protection > Data deletion protection
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::CloudFormation::Stack`
+
+**AWS Config rule:** `cloudformation-termination-protection-check`
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an AWS CloudFormation stack has termination protection enabled. The control fails if termination protection is not enabled on a CloudFormation stack.
+
+CloudFormation helps to manage related resources as a single unit called a Stack. You can prevent a stack from being accidentally deleted by enabling termination protection on the stack. If a user attempts to delete a stack with termination protection enabled, the deletion fails and the stack, including its status, remains unchanged.
+You can set termination protection on a stack with any status except `DELETE_IN_PROGRESS` or `DELETE_COMPLETE`.
+
+###### Note
+
+Enabling or disabling termination protection on a stack passes the same choice on to any nested stacks belonging to that stack as well. You can't enable or disable termination protection directly on a nested stack.
+You can't directly delete a nested stack belonging with a stack that has termination protection enabled. If NESTED is displayed next to the stack name, the stack is a nested stack. You can only change termination protection on the root stack to which the nested stack belongs.
+
+### Remediation
+
+To enable termination protection on a CloudFormation stack, see [Protect CloudFormation stacks from being deleted](../../../AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.md")
+in the _AWS CloudFormation User Guide_.

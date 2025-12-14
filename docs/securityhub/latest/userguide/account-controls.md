@@ -1,6 +1,6 @@
-# Security Hub controls for AWS accounts
+# Security Hub CSPM controls for AWS accounts
 
-These Security Hub controls evaluate AWS accounts.
+These Security Hub CSPM controls evaluate AWS accounts.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").

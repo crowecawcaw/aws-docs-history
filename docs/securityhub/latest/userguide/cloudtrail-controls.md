@@ -1,6 +1,6 @@
-# Security Hub controls for AWS CloudTrail
+# Security Hub CSPM controls for AWS CloudTrail
 
-These AWS Security Hub controls evaluate the AWS CloudTrail service and resources. The controls might not
+These AWS Security Hub CSPM controls evaluate the AWS CloudTrail service and resources. The controls might not
 be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -170,7 +170,7 @@ CloudTrail log file validation creates a digitally signed digest file that conta
 each log that CloudTrail writes to Amazon S3. You can use these digest files to determine whether a log
 file was changed, deleted, or unchanged after CloudTrail delivered the log.
 
-Security Hub recommends that you enable file validation on all trails. Log file validation
+Security Hub CSPM recommends that you enable file validation on all trails. Log file validation
 provides additional integrity checks of CloudTrail logs.
 
 ### Remediation
@@ -216,7 +216,7 @@ logs to CloudWatch Logs.
 For a trail that is enabled in all Regions in an account, CloudTrail sends log files from all of
 those Regions to a CloudWatch Logs log group.
 
-Security Hub recommends that you send CloudTrail logs to CloudWatch Logs. Note that this recommendation is
+Security Hub CSPM recommends that you send CloudTrail logs to CloudWatch Logs. Note that this recommendation is
 intended to ensure that account activity is captured, monitored, and appropriately alarmed on.
 You can use CloudWatch Logs to set this up with your AWS services. This recommendation does not preclude
 the use of a different solution.
@@ -242,7 +242,7 @@ publicly accessible
 **Resource type:**
 `AWS::S3::Bucket`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic and change
 triggered
@@ -255,11 +255,11 @@ list (ACL), applied to the S3 bucket that CloudTrail logs to prevents public acc
 CloudTrail logs. Allowing public access to CloudTrail log content might aid an adversary in
 identifying weaknesses in the affected account's use or configuration.
 
-To run this check, Security Hub first uses custom logic to look for the S3 bucket where
+To run this check, Security Hub CSPM first uses custom logic to look for the S3 bucket where
 your CloudTrail logs are stored. It then uses the AWS Config managed rules to check that
 bucket is publicly accessible.
 
-If you aggregate your logs into a single centralized S3 bucket, then Security Hub only
+If you aggregate your logs into a single centralized S3 bucket, then Security Hub CSPM only
 runs the check against the account and Region where the centralized S3 bucket is
 located. For other accounts and Regions, the control status is **No
 data**.
@@ -284,7 +284,7 @@ S3 bucket
 **Resource type:**
 `AWS::S3::Bucket`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -302,11 +302,11 @@ that might affect objects in a target bucket. Configuring logs to be placed in a
 separate bucket enables access to log information, which can be useful in security
 and incident response workflows.
 
-To run this check, Security Hub first uses custom logic to look for the bucket where your
+To run this check, Security Hub CSPM first uses custom logic to look for the bucket where your
 CloudTrail logs are stored and then uses the AWS Config managed rule to check if logging is
 enabled.
 
-If CloudTrail delivers log files from multiple AWS accounts into a single destination Amazon S3 bucket, Security Hub
+If CloudTrail delivers log files from multiple AWS accounts into a single destination Amazon S3 bucket, Security Hub CSPM
 evaluates this control only against the destination bucket in the Region where it's located. This streamlines your findings.
 However, you should turn on CloudTrail in all accounts that deliver logs to the destination bucket.
 For all accounts except the one that holds the destination bucket, the control status is **No
@@ -325,15 +325,15 @@ To enable server access logging for your CloudTrail S3 bucket, see [Enabling Ama
 **Resource type:**
 `AWS::CloudTrail::Trail`
 
-**AWS Config rule:** `tagged-cloudtrail-trail` (custom Security Hub rule)
+**AWS Config rule:** `tagged-cloudtrail-trail` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an AWS CloudTrail trail has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the trail doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -380,9 +380,9 @@ NIST.800-53.r5 SI-7(6)
 
 **Parameters:**
 
-| Parameter    | Description                                                                                                                                                                                               | Type                            | Allowed custom values                                                                                                         | Security Hub default value |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `kmsKeyArns` | A list of Amazon Resource Names (ARNs) of AWS KMS keys to<br>include in the evaluation. The control generates a<br>`FAILED` finding if an event data store isn't<br>encrypted with a KMS key in the list. | StringList (maximum of 3 items) | 1–3 ARNs of existing KMS keys. For example:<br>`arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`. | No default value           |
+| Parameter    | Description                                                                                                                                                                                               | Type                            | Allowed custom values                                                                                                         | Security Hub CSPM default value |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `kmsKeyArns` | A list of Amazon Resource Names (ARNs) of AWS KMS keys to<br>include in the evaluation. The control generates a<br>`FAILED` finding if an event data store isn't<br>encrypted with a KMS key in the list. | StringList (maximum of 3 items) | 1–3 ARNs of existing KMS keys. For example:<br>`arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`. | No default value                |
 
 This control checks whether an AWS CloudTrail Lake event data store is encrypted at rest
 with a customer managed AWS KMS key. The control fails if the event data store isn't

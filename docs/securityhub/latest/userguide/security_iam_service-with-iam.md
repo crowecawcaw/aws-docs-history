@@ -1,10 +1,10 @@
 # How Security Hub works with IAM
 
-Before you use AWS Identity and Access Management (IAM) to manage access to AWS Security Hub, learn which IAM
-features are available to use with Security Hub.
+Before you use AWS Identity and Access Management (IAM) to manage access to AWS Security Hub CSPM, learn which IAM
+features are available to use with Security Hub CSPM.
 
-| IAM features you can use with AWS Security Hub                                                                                                           | IAM feature | Security Hub support |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------------------- |
+| IAM features you can use with AWS Security Hub CSPM                                                                                                      | IAM feature | Security Hub CSPM support |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------- |
 | [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | Yes         |
 | [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | No          |
 | [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                    | Yes         |
@@ -17,11 +17,11 @@ features are available to use with Security Hub.
 | [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                          | No          |
 | [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                        | Yes         |
 
-For a high-level view of how Security Hub and other AWS services work with most IAM features,
+For a high-level view of how Security Hub CSPM and other AWS services work with most IAM features,
 see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based policies for Security Hub
+## Identity-based policies for Security Hub CSPM
 
 **Supports identity-based policies:**
 
@@ -38,10 +38,10 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-Security Hub supports identity-based policies. For more information, see [Identity-based policy examples for
-AWS Security Hub](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+Security Hub CSPM supports identity-based policies. For more information, see [Identity-based policy examples for
+AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based policies for Security Hub
+## Resource-based policies for Security Hub CSPM
 
 **Supports resource-based policies:**
 
@@ -57,9 +57,9 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-Security Hub does not support resource-based policies. You can't attach an IAM policy directly to a Security Hub resource.
+Security Hub CSPM does not support resource-based policies. You can't attach an IAM policy directly to a Security Hub CSPM resource.
 
-## Policy actions for Security Hub
+## Policy actions for Security Hub CSPM
 
 **Supports policy actions:**
 
@@ -71,18 +71,18 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 The `Action` element of a JSON policy describes the
 actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-Policy actions in Security Hub use the following prefix before the action:
+Policy actions in Security Hub CSPM use the following prefix before the action:
 
 ```
 securityhub:
 ```
 
 For example, to grant a user permission to
-enable Security Hub, which is an action that corresponds to the `EnableSecurityHub` operation of the
-Security Hub API, include
+enable Security Hub CSPM, which is an action that corresponds to the `EnableSecurityHub` operation of the
+Security Hub CSPM API, include
 the `securityhub:EnableSecurityHub` action in their policy.
 Policy statements must include either an `Action` or
-`NotAction` element. Security Hub defines its own set of actions that
+`NotAction` element. Security Hub CSPM defines its own set of actions that
 describe tasks that you can perform with this service.
 
 ```
@@ -115,12 +115,12 @@ The user must have access to the `DescribeStandardsControl` operation in order t
 The user must have access to the `UpdateStandardsControls` operation in order to have access to
 `BatchUpdateStandardsControlAssociations`, and `UpdateSecurityControl`.
 
-For a list of Security Hub actions, see [Actions defined by AWS Security Hub](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions") in the
-_Service Authorization Reference_. For examples of policies that specify Security Hub
+For a list of Security Hub CSPM actions, see [Actions defined by AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions") in the
+_Service Authorization Reference_. For examples of policies that specify Security Hub CSPM
 actions, see [Identity-based policy examples for
-AWS Security Hub](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy resources for Security Hub
+## Policy resources for Security Hub CSPM
 
 **Supports policy resources:**
 
@@ -135,7 +135,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-Security Hub defines the following resource types:
+Security Hub CSPM defines the following resource types:
 
 - Hub
 - Product
@@ -145,14 +145,14 @@ Security Hub defines the following resource types:
 
 You can specify these types of resources in policies by using ARNs.
 
-For a list of Security Hub resource types and the ARN syntax for each one, see
-[Resource types defined by AWS Security Hub](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-resources-for-iam-policies") in the _Service Authorization Reference_. To learn which
-actions you can specify for each type of resource, see [Actions defined by AWS Security Hub](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions") in the
+For a list of Security Hub CSPM resource types and the ARN syntax for each one, see
+[Resource types defined by AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-resources-for-iam-policies") in the _Service Authorization Reference_. To learn which
+actions you can specify for each type of resource, see [Actions defined by AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions") in the
 _Service Authorization Reference_. For examples of policies that specify resources, see
 [Identity-based policy examples for
-AWS Security Hub](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy condition keys for Security Hub
+## Policy condition keys for Security Hub CSPM
 
 **Supports service-specific policy condition keys:**
 
@@ -167,13 +167,13 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-For a list of Security Hub condition keys, see [Condition keys for AWS Security Hub](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-policy-keys "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-policy-keys") in the
+For a list of Security Hub CSPM condition keys, see [Condition keys for AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-policy-keys "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-policy-keys") in the
 _Service Authorization Reference_. To learn which actions and resources you can use
-a condition key with, see [Actions defined by AWS Security Hub](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions"). For examples of policies that use
+a condition key with, see [Actions defined by AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions"). For examples of policies that use
 condition keys, see [Identity-based policy examples for
-AWS Security Hub](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in Security Hub
+## Access control lists (ACLs) in Security Hub CSPM
 
 **Supports ACLs:**
 
@@ -182,10 +182,10 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-Security Hub doesn't support ACLs, which means you can't attach an ACL to a Security Hub
+Security Hub CSPM doesn't support ACLs, which means you can't attach an ACL to a Security Hub CSPM
 resource.
 
-## Attribute-based access control (ABAC) with Security Hub
+## Attribute-based access control (ABAC) with Security Hub CSPM
 
 **Supports ABAC (tags in policies):**
 
@@ -202,19 +202,19 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-You can attach tags to Security Hub resources. You can also control
+You can attach tags to Security Hub CSPM resources. You can also control
 access to resources by providing tag information in the `Condition`
 element of a policy.
 
-For information about tagging Security Hub resources, see [Tagging
+For information about tagging Security Hub CSPM resources, see [Tagging
 Security Hub
 resources](tagging-resources.md "tagging-resources.md"). For an example of
 an identity-based policy that controls access to a resource based on tags, see [Identity-based policy examples for
-AWS Security Hub](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Using temporary
 
-credentials with Security Hub
+credentials with Security Hub CSPM
 
 **Supports temporary credentials:**
 
@@ -230,11 +230,11 @@ You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security
 credentials by calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md").
 
-Security Hub supports the use of temporary credentials.
+Security Hub CSPM supports the use of temporary credentials.
 
 ## Forward access
 
-sessions for Security Hub
+sessions for Security Hub CSPM
 
 **Supports forward access sessions (FAS):**
 
@@ -243,27 +243,27 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-For example, Security Hub makes FAS requests to downstream AWS services when you
-integrate Security Hub with AWS Organizations and when you designate the delegated Security Hub
+For example, Security Hub CSPM makes FAS requests to downstream AWS services when you
+integrate Security Hub CSPM with AWS Organizations and when you designate the delegated Security Hub CSPM
 administrator account for an organization in Organizations.
 
-For other tasks, Security Hub uses a service-linked role to perform actions on your behalf. For
-details about this role, see [Service-linked roles for AWS Security Hub](using-service-linked-roles.md "using-service-linked-roles.md").
+For other tasks, Security Hub CSPM uses a service-linked role to perform actions on your behalf. For
+details about this role, see [Service-linked roles for AWS Security Hub CSPM](using-service-linked-roles.md "using-service-linked-roles.md").
 
-## Service roles for Security Hub
+## Service roles for Security Hub CSPM
 
-Security Hub doesn't assume or use service roles. To perform actions on your behalf,
-Security Hub uses a service-linked role. For details about this role, see [Service-linked roles for AWS Security Hub](using-service-linked-roles.md "using-service-linked-roles.md").
+Security Hub CSPM doesn't assume or use service roles. To perform actions on your behalf,
+Security Hub CSPM uses a service-linked role. For details about this role, see [Service-linked roles for AWS Security Hub CSPM](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ###### Warning
 
 Changing the permissions for a service role may create operational issues with
-your use of Security Hub. Edit service roles only when Security Hub provides guidance to do
+your use of Security Hub CSPM. Edit service roles only when Security Hub CSPM provides guidance to do
 so.
 
 ## Service-linked
 
-roles for Security Hub
+roles for Security Hub CSPM
 
 **Supports service-linked roles:**
 
@@ -273,5 +273,5 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-Security Hub uses a service-linked role to perform actions on your behalf. For details about this
-role, see [Service-linked roles for AWS Security Hub](using-service-linked-roles.md "using-service-linked-roles.md").
+Security Hub CSPM uses a service-linked role to perform actions on your behalf. For details about this
+role, see [Service-linked roles for AWS Security Hub CSPM](using-service-linked-roles.md "using-service-linked-roles.md").

@@ -518,6 +518,7 @@ The following controls are not supported in the Asia Pacific (Hong Kong) Region.
   configurations](s3-controls.md#s3-25 "s3-controls.md#s3-25")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[WAF.1] AWS WAF Classic Global Web ACL logging should be enabled](waf-controls.md#waf-1 "waf-controls.md#waf-1")
 - [[WAF.6] AWS WAF Classic global rules should have at least one condition](waf-controls.md#waf-6 "waf-controls.md#waf-6")
 - [[WAF.7] AWS WAF Classic global rule groups should have at least one rule](waf-controls.md#waf-7 "waf-controls.md#waf-7")
@@ -546,6 +547,7 @@ The following controls are not supported in the Asia Pacific (Hyderabad) Region.
 - [[AppSync.6] AWS AppSync API caches should be encrypted in transit](appsync-controls.md#appsync-6 "appsync-controls.md#appsync-6")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -788,6 +790,7 @@ The following controls are not supported in the Asia Pacific (Hyderabad) Region.
 - [[SageMaker.7] SageMaker images should be tagged](sagemaker-controls.md#sagemaker-7 "sagemaker-controls.md#sagemaker-7")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
 - [[SQS.2] SQS queues should be tagged](sqs-controls.md#sqs-2 "sqs-controls.md#sqs-2")
 - [[SQS.3] SQS queue access policies should not allow public access](sqs-controls.md#sqs-3 "sqs-controls.md#sqs-3")
@@ -826,6 +829,7 @@ The following controls are not supported in the Asia Pacific (Jakarta) Region.
 - [[AppSync.6] AWS AppSync API caches should be encrypted in transit](appsync-controls.md#appsync-6 "appsync-controls.md#appsync-6")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -1057,6 +1061,7 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -1107,6 +1112,9 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
 - [[Cognito.3] Password policies for Cognito user pools should
   have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+- [[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+- [[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -1485,6 +1493,7 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
 - [[SageMaker.8] SageMaker notebook instances should run on supported platforms](sagemaker-controls.md#sagemaker-8 "sagemaker-controls.md#sagemaker-8")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only](servicecatalog-controls.md#servicecatalog-1 "servicecatalog-controls.md#servicecatalog-1")
 - [[SNS.4] SNS topic access policies should not allow public access](sns-controls.md#sns-4 "sns-controls.md#sns-4")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
@@ -1542,6 +1551,7 @@ The following controls are not supported in the Asia Pacific (Melbourne) Region.
 - [[Batch.1] Batch job queues should be tagged](batch-controls.md#batch-1 "batch-controls.md#batch-1")
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -1799,6 +1809,7 @@ The following controls are not supported in the Asia Pacific (Melbourne) Region.
 - [[SageMaker.8] SageMaker notebook instances should run on supported platforms](sagemaker-controls.md#sagemaker-8 "sagemaker-controls.md#sagemaker-8")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
 - [[SQS.2] SQS queues should be tagged](sqs-controls.md#sqs-2 "sqs-controls.md#sqs-2")
 - [[SQS.3] SQS queue access policies should not allow public access](sqs-controls.md#sqs-3 "sqs-controls.md#sqs-3")
@@ -1891,7 +1902,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 
 - [[ACM.1] Imported and ACM-issued certificates should be renewed after a specified time period](acm-controls.md#acm-1 "acm-controls.md#acm-1")
 - [[ACM.2] RSA certificates managed by ACM should use a key length of at least 2,048 bits](acm-controls.md#acm-2 "acm-controls.md#acm-2")
-- [[ACM.3] ACM certificates should be tagged](acm-controls.md#acm-3 "acm-controls.md#acm-3")
 - [[Account.1] Security contact information should be provided for an AWS account](account-controls.md#account-1 "account-controls.md#account-1")
 - [[Account.2] AWS accounts should be part of an AWS Organizations organization](account-controls.md#account-2 "account-controls.md#account-2")
 - [[APIGateway.1] API Gateway REST and WebSocket API execution logging
@@ -1930,7 +1940,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[AutoScaling.3] Amazon EC2 Auto Scaling group launch configurations should configure EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)](autoscaling-controls.md#autoscaling-3 "autoscaling-controls.md#autoscaling-3")
 - [[AutoScaling.6] Amazon EC2 Auto Scaling groups should use multiple instance types in multiple Availability Zones](autoscaling-controls.md#autoscaling-6 "autoscaling-controls.md#autoscaling-6")
 - [[AutoScaling.9] Amazon EC2 Auto Scaling groups should use Amazon EC2 launch templates](autoscaling-controls.md#autoscaling-9 "autoscaling-controls.md#autoscaling-9")
-- [[AutoScaling.10] EC2 Amazon EC2 Auto Scaling groups should be tagged](autoscaling-controls.md#autoscaling-10 "autoscaling-controls.md#autoscaling-10")
 - [[Autoscaling.5] Amazon EC2 instances launched using Amazon EC2 Auto Scaling group launch configurations should not have Public IP addresses](autoscaling-controls.md#autoscaling-5 "autoscaling-controls.md#autoscaling-5")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.2] AWS Backup recovery points should be tagged](backup-controls.md#backup-2 "backup-controls.md#backup-2")
@@ -1941,7 +1950,7 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[Batch.2] Batch scheduling policies should be tagged](batch-controls.md#batch-2 "batch-controls.md#batch-2")
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
-- [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -1974,7 +1983,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
 - [[CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
   S3 bucket](cloudtrail-controls.md#cloudtrail-7 "cloudtrail-controls.md#cloudtrail-7")
-- [[CloudTrail.9] CloudTrail trails should be tagged](cloudtrail-controls.md#cloudtrail-9 "cloudtrail-controls.md#cloudtrail-9")
 - [[CloudTrail.10] CloudTrail Lake event data stores should be encrypted with customer managed AWS KMS keys](cloudtrail-controls.md#cloudtrail-10 "cloudtrail-controls.md#cloudtrail-10")
 - [[CloudWatch.17] CloudWatch alarm actions should be activated](cloudwatch-controls.md#cloudwatch-17 "cloudwatch-controls.md#cloudwatch-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
@@ -1993,6 +2001,9 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
 - [[Cognito.3] Password policies for Cognito user pools should
   have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+- [[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+- [[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -2028,7 +2039,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
   transit](documentdb-controls.md#documentdb-6 "documentdb-controls.md#documentdb-6")
 - [[DynamoDB.3] DynamoDB Accelerator (DAX) clusters should be encrypted at rest](dynamodb-controls.md#dynamodb-3 "dynamodb-controls.md#dynamodb-3")
 - [[DynamoDB.4] DynamoDB tables should be present in a backup plan](dynamodb-controls.md#dynamodb-4 "dynamodb-controls.md#dynamodb-4")
-- [[DynamoDB.5] DynamoDB tables should be tagged](dynamodb-controls.md#dynamodb-5 "dynamodb-controls.md#dynamodb-5")
 - [[DynamoDB.6] DynamoDB tables should have deletion protection enabled](dynamodb-controls.md#dynamodb-6 "dynamodb-controls.md#dynamodb-6")
 - [[DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit](dynamodb-controls.md#dynamodb-7 "dynamodb-controls.md#dynamodb-7")
 - [[EC2.4] Stopped EC2 instances should be removed
@@ -2053,33 +2063,9 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
   be tagged](ec2-controls.md#ec2-33 "ec2-controls.md#ec2-33")
 - [[EC2.34] EC2 transit gateway route tables should
   be tagged](ec2-controls.md#ec2-34 "ec2-controls.md#ec2-34")
-- [[EC2.35] EC2 network interfaces should be
-  tagged](ec2-controls.md#ec2-35 "ec2-controls.md#ec2-35")
-- [[EC2.36] EC2 customer gateways should be
-  tagged](ec2-controls.md#ec2-36 "ec2-controls.md#ec2-36")
-- [[EC2.37] EC2 Elastic IP addresses should be
-  tagged](ec2-controls.md#ec2-37 "ec2-controls.md#ec2-37")
-- [[EC2.38] EC2 instances should be tagged](ec2-controls.md#ec2-38 "ec2-controls.md#ec2-38")
-- [[EC2.39] EC2 internet gateways should be
-  tagged](ec2-controls.md#ec2-39 "ec2-controls.md#ec2-39")
 - [[EC2.40] EC2 NAT gateways should be
   tagged](ec2-controls.md#ec2-40 "ec2-controls.md#ec2-40")
-- [[EC2.41] EC2 network ACLs should be
-  tagged](ec2-controls.md#ec2-41 "ec2-controls.md#ec2-41")
-- [[EC2.42] EC2 route tables should be
-  tagged](ec2-controls.md#ec2-42 "ec2-controls.md#ec2-42")
-- [[EC2.43] EC2 security groups should be
-  tagged](ec2-controls.md#ec2-43 "ec2-controls.md#ec2-43")
-- [[EC2.44] EC2 subnets should be tagged](ec2-controls.md#ec2-44 "ec2-controls.md#ec2-44")
-- [[EC2.45] EC2 volumes should be tagged](ec2-controls.md#ec2-45 "ec2-controls.md#ec2-45")
-- [[EC2.46] Amazon VPCs should be tagged](ec2-controls.md#ec2-46 "ec2-controls.md#ec2-46")
-- [[EC2.47] Amazon VPC endpoint services should be
-  tagged](ec2-controls.md#ec2-47 "ec2-controls.md#ec2-47")
 - [[EC2.48] Amazon VPC flow logs should be tagged](ec2-controls.md#ec2-48 "ec2-controls.md#ec2-48")
-- [[EC2.49] Amazon VPC peering connections should be
-  tagged](ec2-controls.md#ec2-49 "ec2-controls.md#ec2-49")
-- [[EC2.50] EC2 VPN gateways should be
-  tagged](ec2-controls.md#ec2-50 "ec2-controls.md#ec2-50")
 - [[EC2.51] EC2 Client VPN endpoints should have client
   connection logging enabled](ec2-controls.md#ec2-51 "ec2-controls.md#ec2-51")
 - [[EC2.52] EC2 transit gateways should be
@@ -2115,6 +2101,7 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
 - [[EC2.181] EC2 launch templates should enable encryption
   for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
+- [[EC2.182] Amazon EBS Snapshots should not be publicly accessible](ec2-controls.md#ec2-182 "ec2-controls.md#ec2-182")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -2131,11 +2118,9 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[ECS.9] ECS task definitions should have a logging configuration](ecs-controls.md#ecs-9 "ecs-controls.md#ecs-9")
 - [[ECS.10] ECS Fargate services should run on the latest Fargate platform version](ecs-controls.md#ecs-10 "ecs-controls.md#ecs-10")
 - [[ECS.12] ECS clusters should use Container Insights](ecs-controls.md#ecs-12 "ecs-controls.md#ecs-12")
-- [[ECS.13] ECS services should be tagged](ecs-controls.md#ecs-13 "ecs-controls.md#ecs-13")
-- [[ECS.14] ECS clusters should be tagged](ecs-controls.md#ecs-14 "ecs-controls.md#ecs-14")
-- [[ECS.15] ECS task definitions should be tagged](ecs-controls.md#ecs-15 "ecs-controls.md#ecs-15")
 - [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 - [[ECS.17] ECS task definitions should not use host network mode](ecs-controls.md#ecs-17 "ecs-controls.md#ecs-17")
+- [[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
@@ -2299,7 +2284,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[KMS.5] KMS keys should not be publicly accessible](kms-controls.md#kms-5 "kms-controls.md#kms-5")
 - [[Lambda.5] VPC Lambda functions should operate in multiple
   Availability Zones](lambda-controls.md#lambda-5 "lambda-controls.md#lambda-5")
-- [[Lambda.6] Lambda functions should be tagged](lambda-controls.md#lambda-6 "lambda-controls.md#lambda-6")
 - [[Lambda.7] Lambda functions should have AWS X-Ray active
   tracing enabled](lambda-controls.md#lambda-7 "lambda-controls.md#lambda-7")
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
@@ -2374,12 +2358,7 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[RDS.25] RDS database instances should use a custom administrator username](rds-controls.md#rds-25 "rds-controls.md#rds-25")
 - [[RDS.26] RDS DB instances should be protected by a backup plan](rds-controls.md#rds-26 "rds-controls.md#rds-26")
 - [[RDS.27] RDS DB clusters should be encrypted at rest](rds-controls.md#rds-27 "rds-controls.md#rds-27")
-- [[RDS.28] RDS DB clusters should be tagged](rds-controls.md#rds-28 "rds-controls.md#rds-28")
-- [[RDS.29] RDS DB cluster snapshots should be tagged](rds-controls.md#rds-29 "rds-controls.md#rds-29")
-- [[RDS.30] RDS DB instances should be tagged](rds-controls.md#rds-30 "rds-controls.md#rds-30")
 - [[RDS.31] RDS DB security groups should be tagged](rds-controls.md#rds-31 "rds-controls.md#rds-31")
-- [[RDS.32] RDS DB snapshots should be tagged](rds-controls.md#rds-32 "rds-controls.md#rds-32")
-- [[RDS.33] RDS DB subnet groups should be tagged](rds-controls.md#rds-33 "rds-controls.md#rds-33")
 - [[RDS.34] Aurora MySQL DB clusters should publish audit logs to CloudWatch Logs](rds-controls.md#rds-34 "rds-controls.md#rds-34")
 - [[RDS.35] RDS DB clusters should have automatic minor version upgrade enabled](rds-controls.md#rds-35 "rds-controls.md#rds-35")
 - [[RDS.36] RDS for PostgreSQL DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-36 "rds-controls.md#rds-36")
@@ -2409,7 +2388,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[Redshift.11] Redshift clusters should be tagged](redshift-controls.md#redshift-11 "redshift-controls.md#redshift-11")
 - [[Redshift.12] Redshift event notification subscriptions should be tagged](redshift-controls.md#redshift-12 "redshift-controls.md#redshift-12")
 - [[Redshift.13] Redshift cluster snapshots should be tagged](redshift-controls.md#redshift-13 "redshift-controls.md#redshift-13")
-- [[Redshift.14] Redshift cluster subnet groups should be tagged](redshift-controls.md#redshift-14 "redshift-controls.md#redshift-14")
 - [[Redshift.15] Redshift security groups should allow ingress on the cluster port only from restricted origins](redshift-controls.md#redshift-15 "redshift-controls.md#redshift-15")
 - [[Redshift.16] Redshift cluster subnet groups should have subnets from multiple Availability Zones](redshift-controls.md#redshift-16 "redshift-controls.md#redshift-16")
 - [[Redshift.17] Redshift cluster parameter groups should be
@@ -2456,13 +2434,12 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[SageMaker.8] SageMaker notebook instances should run on supported platforms](sagemaker-controls.md#sagemaker-8 "sagemaker-controls.md#sagemaker-8")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1 "secretsmanager-controls.md#secretsmanager-1")
 - [[SecretsManager.2] Secrets Manager secrets configured with automatic rotation should rotate successfully](secretsmanager-controls.md#secretsmanager-2 "secretsmanager-controls.md#secretsmanager-2")
 - [[SecretsManager.3] Remove unused Secrets Manager secrets](secretsmanager-controls.md#secretsmanager-3 "secretsmanager-controls.md#secretsmanager-3")
 - [[SecretsManager.4] Secrets Manager secrets should be rotated within a specified number of days](secretsmanager-controls.md#secretsmanager-4 "secretsmanager-controls.md#secretsmanager-4")
-- [[SecretsManager.5] Secrets Manager secrets should be tagged](secretsmanager-controls.md#secretsmanager-5 "secretsmanager-controls.md#secretsmanager-5")
 - [[ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only](servicecatalog-controls.md#servicecatalog-1 "servicecatalog-controls.md#servicecatalog-1")
-- [[SNS.3] SNS topics should be tagged](sns-controls.md#sns-3 "sns-controls.md#sns-3")
 - [[SNS.4] SNS topic access policies should not allow public access](sns-controls.md#sns-4 "sns-controls.md#sns-4")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
 - [[SQS.2] SQS queues should be tagged](sqs-controls.md#sqs-2 "sqs-controls.md#sqs-2")
@@ -2923,6 +2900,7 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -2974,6 +2952,9 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
 - [[Cognito.3] Password policies for Cognito user pools should
   have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+- [[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+- [[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -3096,6 +3077,7 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
 - [[EC2.181] EC2 launch templates should enable encryption
   for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
+- [[EC2.182] Amazon EBS Snapshots should not be publicly accessible](ec2-controls.md#ec2-182 "ec2-controls.md#ec2-182")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -3117,6 +3099,7 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
 - [[ECS.15] ECS task definitions should be tagged](ecs-controls.md#ecs-15 "ecs-controls.md#ecs-15")
 - [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 - [[ECS.17] ECS task definitions should not use host network mode](ecs-controls.md#ecs-17 "ecs-controls.md#ecs-17")
+- [[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
@@ -3437,6 +3420,7 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
 - [[SageMaker.8] SageMaker notebook instances should run on supported platforms](sagemaker-controls.md#sagemaker-8 "sagemaker-controls.md#sagemaker-8")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1 "secretsmanager-controls.md#secretsmanager-1")
 - [[SecretsManager.2] Secrets Manager secrets configured with automatic rotation should rotate successfully](secretsmanager-controls.md#secretsmanager-2 "secretsmanager-controls.md#secretsmanager-2")
 - [[SecretsManager.3] Remove unused Secrets Manager secrets](secretsmanager-controls.md#secretsmanager-3 "secretsmanager-controls.md#secretsmanager-3")
@@ -3525,6 +3509,7 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -3575,6 +3560,9 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
 - [[Cognito.3] Password policies for Cognito user pools should
   have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+- [[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+- [[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -3667,6 +3655,7 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
 - [[EC2.181] EC2 launch templates should enable encryption
   for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
+- [[EC2.182] Amazon EBS Snapshots should not be publicly accessible](ec2-controls.md#ec2-182 "ec2-controls.md#ec2-182")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -3682,6 +3671,7 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[ECS.12] ECS clusters should use Container Insights](ecs-controls.md#ecs-12 "ecs-controls.md#ecs-12")
 - [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 - [[ECS.17] ECS task definitions should not use host network mode](ecs-controls.md#ecs-17 "ecs-controls.md#ecs-17")
+- [[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
@@ -3962,6 +3952,7 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[SageMaker.8] SageMaker notebook instances should run on supported platforms](sagemaker-controls.md#sagemaker-8 "sagemaker-controls.md#sagemaker-8")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only](servicecatalog-controls.md#servicecatalog-1 "servicecatalog-controls.md#servicecatalog-1")
 - [[SNS.4] SNS topic access policies should not allow public access](sns-controls.md#sns-4 "sns-controls.md#sns-4")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
@@ -4163,6 +4154,7 @@ The following controls are not supported in the Canada West (Calgary) Region.
 - [[Batch.1] Batch job queues should be tagged](batch-controls.md#batch-1 "batch-controls.md#batch-1")
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -4571,6 +4563,7 @@ The following controls are not supported in the Canada West (Calgary) Region.
 - [[SageMaker.8] SageMaker notebook instances should run on supported platforms](sagemaker-controls.md#sagemaker-8 "sagemaker-controls.md#sagemaker-8")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only](servicecatalog-controls.md#servicecatalog-1 "servicecatalog-controls.md#servicecatalog-1")
 - [[SNS.4] SNS topic access policies should not allow public access](sns-controls.md#sns-4 "sns-controls.md#sns-4")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
@@ -4666,6 +4659,9 @@ The following controls are not supported in the China (Beijing) Region.
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
 - [[Cognito.3] Password policies for Cognito user pools should
   have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+- [[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+- [[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -4884,6 +4880,7 @@ The following controls are not supported in the China (Beijing) Region.
 - [[SageMaker.7] SageMaker images should be tagged](sagemaker-controls.md#sagemaker-7 "sagemaker-controls.md#sagemaker-7")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only](servicecatalog-controls.md#servicecatalog-1 "servicecatalog-controls.md#servicecatalog-1")
 - [[SSM.5] SSM documents should be tagged](ssm-controls.md#ssm-5 "ssm-controls.md#ssm-5")
 - [[SSM.6] SSM Automation should have CloudWatch logging
@@ -4967,6 +4964,9 @@ The following controls are not supported in the China (Ningxia) Region.
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
 - [[Cognito.3] Password policies for Cognito user pools should
   have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+- [[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+- [[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -5157,6 +5157,7 @@ The following controls are not supported in the China (Ningxia) Region.
 - [[SageMaker.6] SageMaker app image configurations should be
   tagged](sagemaker-controls.md#sagemaker-6 "sagemaker-controls.md#sagemaker-6")
 - [[SageMaker.7] SageMaker images should be tagged](sagemaker-controls.md#sagemaker-7 "sagemaker-controls.md#sagemaker-7")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only](servicecatalog-controls.md#servicecatalog-1 "servicecatalog-controls.md#servicecatalog-1")
 - [[SSM.5] SSM documents should be tagged](ssm-controls.md#ssm-5 "ssm-controls.md#ssm-5")
 - [[SSM.7] SSM documents should have the block public sharing
@@ -5602,6 +5603,7 @@ The following controls are not supported in the Europe (Spain) Region.
 - [[AppSync.6] AWS AppSync API caches should be encrypted in transit](appsync-controls.md#appsync-6 "appsync-controls.md#appsync-6")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -5850,6 +5852,7 @@ The following controls are not supported in the Europe (Spain) Region.
 - [[SageMaker.5] SageMaker models should have network isolation enabled](sagemaker-controls.md#sagemaker-5 "sagemaker-controls.md#sagemaker-5")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
 - [[SQS.2] SQS queues should be tagged](sqs-controls.md#sqs-2 "sqs-controls.md#sqs-2")
 - [[SQS.3] SQS queue access policies should not allow public access](sqs-controls.md#sqs-3 "sqs-controls.md#sqs-3")
@@ -5986,6 +5989,7 @@ The following controls are not supported in the Europe (Zurich) Region.
 - [[AppSync.6] AWS AppSync API caches should be encrypted in transit](appsync-controls.md#appsync-6 "appsync-controls.md#appsync-6")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -6220,6 +6224,7 @@ The following controls are not supported in the Europe (Zurich) Region.
 - [[SageMaker.7] SageMaker images should be tagged](sagemaker-controls.md#sagemaker-7 "sagemaker-controls.md#sagemaker-7")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
 - [[SQS.2] SQS queues should be tagged](sqs-controls.md#sqs-2 "sqs-controls.md#sqs-2")
 - [[SQS.3] SQS queue access policies should not allow public access](sqs-controls.md#sqs-3 "sqs-controls.md#sqs-3")
@@ -6262,6 +6267,7 @@ The following controls are not supported in the Israel (Tel Aviv) Region.
 - [[Batch.1] Batch job queues should be tagged](batch-controls.md#batch-1 "batch-controls.md#batch-1")
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -6624,6 +6630,7 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -6674,6 +6681,9 @@ The following controls are not supported in the Mexico (Central) Region.
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
 - [[Cognito.3] Password policies for Cognito user pools should
   have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+- [[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+- [[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -6766,6 +6776,7 @@ The following controls are not supported in the Mexico (Central) Region.
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
 - [[EC2.181] EC2 launch templates should enable encryption
   for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
+- [[EC2.182] Amazon EBS Snapshots should not be publicly accessible](ec2-controls.md#ec2-182 "ec2-controls.md#ec2-182")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -6781,6 +6792,7 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[ECS.12] ECS clusters should use Container Insights](ecs-controls.md#ecs-12 "ecs-controls.md#ecs-12")
 - [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 - [[ECS.17] ECS task definitions should not use host network mode](ecs-controls.md#ecs-17 "ecs-controls.md#ecs-17")
+- [[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
@@ -7065,6 +7077,7 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[SageMaker.8] SageMaker notebook instances should run on supported platforms](sagemaker-controls.md#sagemaker-8 "sagemaker-controls.md#sagemaker-8")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1 "secretsmanager-controls.md#secretsmanager-1")
 - [[SecretsManager.2] Secrets Manager secrets configured with automatic rotation should rotate successfully](secretsmanager-controls.md#secretsmanager-2 "secretsmanager-controls.md#secretsmanager-2")
 - [[SecretsManager.3] Remove unused Secrets Manager secrets](secretsmanager-controls.md#secretsmanager-3 "secretsmanager-controls.md#secretsmanager-3")
@@ -7273,6 +7286,7 @@ The following controls are not supported in the Middle East (UAE) Region.
 - [[AutoScaling.1] Amazon EC2 Auto Scaling groups associated with a load balancer should use ELB health checks](autoscaling-controls.md#autoscaling-1 "autoscaling-controls.md#autoscaling-1")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
+- [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -7486,6 +7500,7 @@ The following controls are not supported in the Middle East (UAE) Region.
 - [[SageMaker.5] SageMaker models should have network isolation enabled](sagemaker-controls.md#sagemaker-5 "sagemaker-controls.md#sagemaker-5")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
 - [[SQS.2] SQS queues should be tagged](sqs-controls.md#sqs-2 "sqs-controls.md#sqs-2")
 - [[SQS.3] SQS queue access policies should not allow public access](sqs-controls.md#sqs-3 "sqs-controls.md#sqs-3")
@@ -7542,6 +7557,7 @@ The following controls are not supported in the South America (São Paulo) Regio
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
 - [[CodeGuruReviewer.1] CodeGuru Reviewer repository associations should be
   tagged](codegurureviewer-controls.md#codegurureviewer-1 "codegurureviewer-controls.md#codegurureviewer-1")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -7666,6 +7682,9 @@ The following controls are not supported in the AWS GovCloud (US-East) Region.
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
 - [[Cognito.3] Password policies for Cognito user pools should
   have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+- [[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+- [[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -7904,6 +7923,7 @@ The following controls are not supported in the AWS GovCloud (US-East) Region.
 - [[SageMaker.7] SageMaker images should be tagged](sagemaker-controls.md#sagemaker-7 "sagemaker-controls.md#sagemaker-7")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SNS.4] SNS topic access policies should not allow public access](sns-controls.md#sns-4 "sns-controls.md#sns-4")
 - [[SQS.3] SQS queue access policies should not allow public access](sqs-controls.md#sqs-3 "sqs-controls.md#sqs-3")
 - [[SSM.4] SSM documents should not be public](ssm-controls.md#ssm-4 "ssm-controls.md#ssm-4")
@@ -8005,6 +8025,9 @@ The following controls are not supported in the AWS GovCloud (US-West) Region.
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
 - [[Cognito.3] Password policies for Cognito user pools should
   have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+- [[Cognito.4] Cognito user pools should have threat protection activated with full function enforcement mode for custom authentication](cognito-controls.md#cognito-4 "cognito-controls.md#cognito-4")
+- [[Cognito.5] MFA should be enabled for Cognito user pools](cognito-controls.md#cognito-5 "cognito-controls.md#cognito-5")
+- [[Cognito.6] Cognito user pools should have deletion protection enabled](cognito-controls.md#cognito-6 "cognito-controls.md#cognito-6")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[DataSync.2] DataSync tasks should be tagged](datasync-controls.md#datasync-2 "datasync-controls.md#datasync-2")
@@ -8236,6 +8259,7 @@ The following controls are not supported in the AWS GovCloud (US-West) Region.
 - [[SageMaker.6] SageMaker app image configurations should be
   tagged](sagemaker-controls.md#sagemaker-6 "sagemaker-controls.md#sagemaker-6")
 - [[SageMaker.7] SageMaker images should be tagged](sagemaker-controls.md#sagemaker-7 "sagemaker-controls.md#sagemaker-7")
+- [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
 - [[SNS.4] SNS topic access policies should not allow public access](sns-controls.md#sns-4 "sns-controls.md#sns-4")
 - [[SQS.3] SQS queue access policies should not allow public access](sqs-controls.md#sqs-3 "sqs-controls.md#sqs-3")
 - [[SSM.4] SSM documents should not be public](ssm-controls.md#ssm-4 "ssm-controls.md#ssm-4")

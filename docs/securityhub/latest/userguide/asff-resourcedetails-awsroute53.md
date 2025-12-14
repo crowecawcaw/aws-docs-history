@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsRoute53` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsRoute53HostedZone
@@ -13,7 +13,7 @@ to a single parent domain name.
 
 The following example shows the AWS Security Finding Format (ASFF) for the `AwsRoute53HostedZone` object. To view descriptions of `AwsRoute53HostedZone` attributes, see
 [AwsRoute53HostedZoneDetails](../../1.0/APIReference/API_AwsRoute53HostedZoneDetails.md "../../1.0/APIReference/API_AwsRoute53HostedZoneDetails.md")
-in the _AWS Security Hub API Reference_.
+in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

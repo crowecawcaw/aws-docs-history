@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEfs` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsEfsAccessPoint
@@ -13,7 +13,7 @@ Amazon Elastic File System.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEfsAccessPoint` object. To view descriptions of
 `AwsEfsAccessPoint` attributes, see [AwsEfsAccessPointDetails](../../1.0/APIReference/API_AwsEfsAccessPointDetails.md "../../1.0/APIReference/API_AwsEfsAccessPointDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 

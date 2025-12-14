@@ -3,7 +3,7 @@
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAppSync`
 resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsAppSyncGraphQLApi
@@ -14,7 +14,7 @@ application.
 The following example shows the ASFF for the `AwsAppSyncGraphQLApi` object. To view
 descriptions of `AwsAppSyncGraphQLApi` attributes, see
 [AwsAppSyncGraphQLApi](../../1.0/APIReference/API_AwsAppSyncGraphQLApiDetails.md "../../1.0/APIReference/API_AwsAppSyncGraphQLApiDetails.md")
-in the _AWS Security Hub API Reference_.
+in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

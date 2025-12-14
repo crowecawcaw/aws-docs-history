@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon Redshift
+# Security Hub CSPM controls for Amazon Redshift
 
-These AWS Security Hub controls evaluate the Amazon Redshift service and resources. The controls might
+These AWS Security Hub CSPM controls evaluate the Amazon Redshift service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -91,14 +91,14 @@ Set `require_ssl` to **True**.
 
 **Parameters:**
 
-| Parameter             | Description                               | Type    | Allowed custom values | Security Hub default value |
-| --------------------- | ----------------------------------------- | ------- | --------------------- | -------------------------- |
-| `​MinRetentionPeriod` | Minimum snapshot retention period in days | Integer | `7` to `35`           | `7`                        |
+| Parameter             | Description                               | Type    | Allowed custom values | Security Hub CSPM default value |
+| --------------------- | ----------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `​MinRetentionPeriod` | Minimum snapshot retention period in days | Integer | `7` to `35`           | `7`                             |
 
 This control checks whether an Amazon Redshift cluster has automated snapshots enabled, and a retention period greater
 than or equal to the specified time frame. The control fails if automated snapshots aren't enabled for the cluster, or if
 the retention period is less than the specified time frame. Unless you provide a custom parameter value for the snapshot retention
-period, Security Hub uses a default value of 7 days.
+period, Security Hub CSPM uses a default value of 7 days.
 
 Backups help you to recover more quickly from a security incident. They strengthen the
 resilience of your systems. Amazon Redshift takes periodic snapshots by default. This control checks
@@ -123,7 +123,7 @@ For **Backup**, set **Snapshot retention** to a value of 7 or greater.
 `AWS::Redshift::Cluster`
 
 **AWS Config rule:**
-`redshift-cluster-audit-logging-enabled` (custom Security Hub rule)
+`redshift-cluster-audit-logging-enabled` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -283,15 +283,15 @@ To modify a Redshift cluster to use KMS encryption, see [Changing cluster encryp
 `AWS::Redshift::Cluster`
 
 **AWS Config rule:**
-`tagged-redshift-cluster` (custom Security Hub rule)
+`tagged-redshift-cluster` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon Redshift cluster has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the cluster doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -328,15 +328,15 @@ To add tags to a Redshift cluster, see [Tagging resources in Amazon Redshift](..
 `AWS::Redshift::EventSubscription`
 
 **AWS Config rule:**
-`tagged-redshift-eventsubscription` (custom Security Hub rule)
+`tagged-redshift-eventsubscription` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon Redshift cluster snapshot has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the cluster snapshot doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -373,15 +373,15 @@ To add tags to a Redshift event notification subscription, see [Tagging resource
 `AWS::Redshift::ClusterSnapshot`
 
 **AWS Config rule:**
-`tagged-redshift-clustersnapshot` (custom Security Hub rule)
+`tagged-redshift-clustersnapshot` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon Redshift cluster snapshot has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the cluster snapshot doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -418,15 +418,15 @@ To add tags to a Redshift cluster snapshot, see [Tagging resources in Amazon Red
 `AWS::Redshift::ClusterSubnetGroup`
 
 **AWS Config rule:**
-`tagged-redshift-clustersubnetgroup` (custom Security Hub rule)
+`tagged-redshift-clustersubnetgroup` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon Redshift cluster subnet group has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the cluster subnet group doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -526,9 +526,9 @@ tagged
 
 **Parameters:**
 
-| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon Redshift cluster parameter group has the tag keys
 specified by the `requiredKeyTags` parameter. The control fails if

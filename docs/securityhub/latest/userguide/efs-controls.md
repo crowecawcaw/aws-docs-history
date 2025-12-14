@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon EFS
+# Security Hub CSPM controls for Amazon EFS
 
-These Security Hub controls evaluate the Amazon Elastic File System (Amazon EFS) service and resources. The controls
+These Security Hub CSPM controls evaluate the Amazon Elastic File System (Amazon EFS) service and resources. The controls
 might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -141,15 +141,15 @@ To enforce a user identity for an Amazon EFS access point, see [Enforcing a user
 **Resource type:**
 `AWS::EFS::AccessPoint`
 
-**AWS Configrule:** `tagged-efs-accesspoint` (custom Security Hub rule)
+**AWS Configrule:** `tagged-efs-accesspoint` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EFS access point has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the access point doesn’t have any tag keys or if it doesn’t have all the keys specified in the

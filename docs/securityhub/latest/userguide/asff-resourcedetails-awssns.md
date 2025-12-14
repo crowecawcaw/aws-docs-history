@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsSns` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsSnsTopic
@@ -11,7 +11,7 @@ The `AwsSnsTopic` object contains details about an Amazon Simple Notification Se
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsSnsTopic` object. To view descriptions of `AwsSnsTopic`
-attributes, see [AwsSnsTopicDetails](../../1.0/APIReference/API_AwsSnsTopicDetails.md "../../1.0/APIReference/API_AwsSnsTopicDetails.md") in the _AWS Security Hub API Reference_.
+attributes, see [AwsSnsTopicDetails](../../1.0/APIReference/API_AwsSnsTopicDetails.md "../../1.0/APIReference/API_AwsSnsTopicDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

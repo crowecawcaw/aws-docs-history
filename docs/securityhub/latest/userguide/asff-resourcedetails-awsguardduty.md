@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsGuardDuty` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsGuardDutyDetector
@@ -13,7 +13,7 @@ required for GuardDuty to become operational.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsGuardDutyDetector` object. To view descriptions of
-`AwsGuardDutyDetector` attributes, see [AwsGuardDutyDetector](../../1.0/APIReference/API_AwsGuardDutyDetectorDetails.md "../../1.0/APIReference/API_AwsGuardDutyDetectorDetails.md") in the _AWS Security Hub API Reference_.
+`AwsGuardDutyDetector` attributes, see [AwsGuardDutyDetector](../../1.0/APIReference/API_AwsGuardDutyDetectorDetails.md "../../1.0/APIReference/API_AwsGuardDutyDetectorDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

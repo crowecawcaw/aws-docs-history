@@ -147,7 +147,7 @@ policy: AWSSecurityHubServiceRolePolicy
 
 You can't attach `AWSSecurityHubServiceRolePolicy` to your IAM entities.
 This policy is attached to a service-linked role that allows Security Hub CSPM to perform actions on
-your behalf. For more information, see [Service-linked roles for AWS Security Hub](using-service-linked-roles.md "using-service-linked-roles.md").
+your behalf. For more information, see [Service-linked roles for AWS Security Hub CSPM](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants administrative permissions that allow the service-linked role to
 perform tasks such as run security checks for Security Hub CSPM controls.
@@ -184,7 +184,7 @@ Security Hub is in preview release and subject to change.
 This policy allows Security Hub to manage AWS Config rules and Security Hub resources for your
 organization and on your behalf. This policy is attached to a service-linked role that
 allows the service to perform actions on your behalf. You cannot attach this policy to
-your IAM identities. For more information, see [Service-linked roles for AWS Security Hub](using-service-linked-roles.md "using-service-linked-roles.md").
+your IAM identities. For more information, see [Service-linked roles for AWS Security Hub CSPM](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ###### Permissions details
 

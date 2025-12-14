@@ -48,7 +48,7 @@ Amazon EventBridge to trigger automatic responses to specific findings.
 - [Subscribing to Security Hub CSPM announcements with
   Amazon SNS](securityhub-announcements.md "securityhub-announcements.md")
 - [Disabling Security Hub CSPM](securityhub-disable.md "securityhub-disable.md")
-- [Security in AWS Security Hub](security.md "security.md")
+- [Security in AWS Security Hub CSPM](security.md "security.md")
 - [Logging
   Security Hub
   API calls with CloudTrail](securityhub-ct.md "securityhub-ct.md")

@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon ECS
+# Security Hub CSPM controls for Amazon ECS
 
-These Security Hub controls evaluate the Amazon Elastic Container Service (Amazon ECS) service and resources. The controls
+These Security Hub CSPM controls evaluate the Amazon Elastic Container Service (Amazon ECS) service and resources. The controls
 might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -61,7 +61,7 @@ task with the new task definition.
 `AWS::ECS::Service`
 
 **AWS Config rule:**
-`ecs-service-assign-public-ip-disabled` (custom Security Hub rule)
+`ecs-service-assign-public-ip-disabled` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -332,15 +332,15 @@ To use Container Insights, see [Updating a service](../../../AmazonCloudWatch/la
 **Resource type:**
 `AWS::ECS::Service`
 
-**AWS Config rule:** `tagged-ecs-service` (custom Security Hub rule)
+**AWS Config rule:** `tagged-ecs-service` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon ECS service has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the service doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -376,15 +376,15 @@ To add tags to an ECS service, see [Tagging your Amazon ECS resources](../../../
 **Resource type:**
 `AWS::ECS::Cluster`
 
-**AWS Config rule:** `tagged-ecs-cluster` (custom Security Hub rule)
+**AWS Config rule:** `tagged-ecs-cluster` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon ECS cluster has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the cluster doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -420,15 +420,15 @@ To add tags to an ECS cluster, see [Tagging your Amazon ECS resources](../../../
 **Resource type:**
 `AWS::ECS::TaskDefinition`
 
-**AWS Config rule:** `tagged-ecs-taskdefinition` (custom Security Hub rule)
+**AWS Config rule:** `tagged-ecs-taskdefinition` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon ECS task definition has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the task definition doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -466,7 +466,7 @@ To add tags to an ECS task definition, see [Tagging your Amazon ECS resources](.
 **Resource type:**
 `AWS::ECS::TaskSet`
 
-**AWS Config rule:** `ecs-taskset-assign-public-ip-disabled` (custom Security Hub rule)
+**AWS Config rule:** `ecs-taskset-assign-public-ip-disabled` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -527,3 +527,30 @@ task definition and specifying a different network mode, see [Updating an Amazon
 If the Amazon ECS task definition was created by AWS Batch, see [Networking modes for
 AWS Batch jobs](../../../batch/latest/userguide/networking-modes-jobs.md "../../../batch/latest/userguide/networking-modes-jobs.md") to learn about networking modes and typical usage for
 AWS Batch job types and to choose a secure option.
+
+## [ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes
+
+**Category:** Protect > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ECS::TaskDefinition`
+
+**AWS Config rule:** `ecs-task-definition-efs-encryption-enabled`
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether the latest active revision of an Amazon ECS task definition
+uses in-transit encryption for EFS volumes. The control fails if the latest active revision of
+the ECS task definition has in-transit encryption disabled for EFS volumes.
+
+Amazon EFS volumes provide simple, scalable, and persistent shared file storage for use with your Amazon ECS tasks. Amazon EFS supports encryption of data in transit with Transport Layer Security (TLS).
+When encryption of data in transit is declared as a mount option for your EFS file system, Amazon EFS establishes a secure TLS connection with your EFS file system upon mounting your file system.
+
+### Remediation
+
+For information about enabling in-transit encryption for Amazon ECS Task Definition with EFS volumes, see [Step 5: Create a task definition](../../../AmazonECS/latest/developerguide/tutorial-efs-volumes.md#efs-task-def "../../../AmazonECS/latest/developerguide/tutorial-efs-volumes.md#efs-task-def") in the _Amazon Elastic Container Service
+Developer Guide_.

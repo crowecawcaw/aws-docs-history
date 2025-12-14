@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEks` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsEksCluster
@@ -11,7 +11,7 @@ The `AwsEksCluster` object provides details about an Amazon EKS cluster.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEksCluster` object. To view descriptions of
-`AwsEksCluster` attributes, see [AwsEksClusterDetails](../../1.0/APIReference/API_AwsEksClusterDetails.md "../../1.0/APIReference/API_AwsEksClusterDetails.md") in the _AWS Security Hub API Reference_.
+`AwsEksCluster` attributes, see [AwsEksClusterDetails](../../1.0/APIReference/API_AwsEksClusterDetails.md "../../1.0/APIReference/API_AwsEksClusterDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

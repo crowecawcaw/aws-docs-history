@@ -48,12 +48,9 @@ Security Hub CSPM currently supports the following standards:
   generally applies to organizations that store, process, or transmit cardholder
   data.
 - **Service-managed standard, AWS Control Tower** –
-  This standard helps you configure the proactive controls provided by AWS Control Tower
-  alongside the detective controls provided by Security Hub CSPM. AWS Control Tower offers a
-  straightforward way to set up and govern an AWS multi-account environment,
-  following prescriptive best practices. By enabling both proactive and detective
-  controls for your AWS environment, you can enhance your security posture at
-  different development stages.
+  This standard helps you configure the detective controls provided by Security Hub CSPM from AWS Control Tower.
+  AWS Control Tower offers a straightforward way to set up and govern an AWS multi-account environment,
+  following prescriptive best practices.
   Security Hub CSPM standards and controls don't guarantee compliance with any regulatory frameworks or
   audits. Instead, they provide a way to evaluate and monitor the state of your AWS accounts
   and resources. We recommend enabling each standard that's relevant to your business needs,

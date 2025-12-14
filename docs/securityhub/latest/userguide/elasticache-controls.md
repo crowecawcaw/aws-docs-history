@@ -1,6 +1,6 @@
-# Security Hub controls for ElastiCache
+# Security Hub CSPM controls for ElastiCache
 
-These AWS Security Hub controls evaluate the Amazon ElastiCache service and resources. The controls might
+These AWS Security Hub CSPM controls evaluate the Amazon ElastiCache service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -24,14 +24,14 @@ automatic backups enabled
 
 **Parameters:**
 
-| Parameter                 | Description                               | Type    | Allowed custom values | Security Hub default value |
-| ------------------------- | ----------------------------------------- | ------- | --------------------- | -------------------------- |
-| `snapshotRetentionPeriod` | Minimum snapshot retention period in days | Integer | `1` to `35`           | `1`                        |
+| Parameter                 | Description                               | Type    | Allowed custom values | Security Hub CSPM default value |
+| ------------------------- | ----------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `snapshotRetentionPeriod` | Minimum snapshot retention period in days | Integer | `1` to `35`           | `1`                             |
 
 This control evaluates whether an Amazon ElastiCache (Redis OSS) cluster has automatic backups
 enabled. The control fails if the `SnapshotRetentionLimit` for the Redis OSS
 cluster is less than the specified time period. Unless you provide a custom parameter
-value for the snapshot retention period, Security Hub uses a default value of 1 day.
+value for the snapshot retention period, Security Hub CSPM uses a default value of 1 day.
 
 ElastiCache (Redis OSS) clusters can back up their data. You can use the backup to restore a
 cluster or seed a new cluster. The backup consists of the cluster's metadata, along with

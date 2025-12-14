@@ -1,6 +1,6 @@
-# Security Hub controls for CodeBuild
+# Security Hub CSPM controls for CodeBuild
 
-These Security Hub controls evaluate the AWS CodeBuild service and resources.
+These Security Hub CSPM controls evaluate the AWS CodeBuild service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -154,7 +154,7 @@ For more information on how to configure CodeBuild project log settings, see [Cr
 
 ###### Important
 
-Security Hub retired this control in April 2024.
+Security Hub CSPM retired this control in April 2024.
 For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md").
 
 **Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2)

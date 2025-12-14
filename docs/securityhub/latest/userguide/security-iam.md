@@ -1,4 +1,4 @@
-# AWS Identity and Access Management for Security Hub
+# AWS Identity and Access Management for Security Hub CSPM
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
@@ -12,10 +12,10 @@ use with no additional charge.
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
 - [How Security Hub works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Identity-based policy examples for
-  AWS Security Hub](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Service-linked roles for AWS Security Hub](using-service-linked-roles.md "using-service-linked-roles.md")
+  AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Service-linked roles for AWS Security Hub CSPM](using-service-linked-roles.md "using-service-linked-roles.md")
 - [AWS managed policies for Security Hub](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Troubleshooting AWS Security Hub identity and
+- [Troubleshooting AWS Security Hub CSPM identity and
   access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
@@ -23,13 +23,13 @@ use with no additional charge.
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting AWS Security Hub identity and
+  administrator if you cannot access features (see [Troubleshooting AWS Security Hub CSPM identity and
   access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
   submit permission requests (see [How Security Hub works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
   access (see [Identity-based policy examples for
-  AWS Security Hub](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 

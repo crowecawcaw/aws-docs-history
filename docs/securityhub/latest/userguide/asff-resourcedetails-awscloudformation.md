@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCloudFormation` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsCloudFormationStack
@@ -13,7 +13,7 @@ stack that is nested as a resource in a top-level template.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsCloudFormationStack` object. To view descriptions of
 `AwsCloudFormationStack` attributes, see [AwsCloudFormationStackDetails](../../1.0/APIReference/API_AwsCloudFormationStackDetails.md "../../1.0/APIReference/API_AwsCloudFormationStackDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 

@@ -4,7 +4,7 @@ AWS Security Hub can generate exposure findings for AWS Identity and Access Mana
 
 On the Security Hub console, the IAM user involved in an exposure finding and its identifying information are listed in
 the **Resources** section of the finding details. Programmatically, you can retrieve resource
-details with the [GetFindingsV2](../../1.0/APIReference/API_GetFindingsV2.md "../../1.0/APIReference/API_GetFindingsV2.md") operation of the Security Hub API.
+details with the [GetFindingsV2](../../1.0/APIReference/API_GetFindingsV2.md "../../1.0/APIReference/API_GetFindingsV2.md") operation of the Security Hub CSPM API.
 
 After identifying the resource involved in an exposure finding, you can delete the resource if you don't need it.
 Deleting a nonessential resource can reduce your exposure profile and AWS costs. If the resource is essential,

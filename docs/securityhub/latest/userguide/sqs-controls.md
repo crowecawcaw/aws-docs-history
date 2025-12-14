@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon SQS
+# Security Hub CSPM controls for Amazon SQS
 
-These AWS Security Hub controls evaluate the Amazon Simple Queue Service (Amazon SQS) service and resources. The
+These AWS Security Hub CSPM controls evaluate the Amazon Simple Queue Service (Amazon SQS) service and resources. The
 controls might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -16,7 +16,7 @@ Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-
 `AWS::SQS::Queue`
 
 **AWS Config rule:**
-`sqs-queue-encrypted` (custom Security Hub rule)
+`sqs-queue-encrypted` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -41,15 +41,15 @@ To configure SSE for an SQS queue, see [Configuring server-side encryption (SSE)
 **Resource type:**
 `AWS::SQS::Queue`
 
-**AWS Config rule:** `tagged-sqs-queue` (custom Security Hub rule)
+**AWS Config rule:** `tagged-sqs-queue` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon SQS queue has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the queue doesn’t have any tag keys or if it doesn’t have all the keys specified in the

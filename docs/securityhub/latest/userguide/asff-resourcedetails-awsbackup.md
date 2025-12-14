@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsBackup` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsBackupBackupPlan
@@ -12,7 +12,7 @@ backup plan. An AWS Backup backup plan is a policy expression that defines when 
 want to back up your AWS resources.
 
 The following example shows the AWS Security Finding Format (ASFF) for the `AwsBackupBackupPlan`
-object. To view descriptions of `AwsBackupBackupPlan` attributes, see [AwsBackupBackupPlan](../../1.0/APIReference/API_AwsBackupBackupPlanDetails.md "../../1.0/APIReference/API_AwsBackupBackupPlanDetails.md") in the _AWS Security Hub API Reference_.
+object. To view descriptions of `AwsBackupBackupPlan` attributes, see [AwsBackupBackupPlan](../../1.0/APIReference/API_AwsBackupBackupPlanDetails.md "../../1.0/APIReference/API_AwsBackupBackupPlanDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -75,7 +75,7 @@ backups.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsBackupBackupVault` object. To view descriptions of
-`AwsBackupBackupVault` attributes, see [AwsBackupBackupVault](../../1.0/APIReference/API_AwsBackupBackupVaultDetails.md "../../1.0/APIReference/API_AwsBackupBackupVaultDetails.md") in the _AWS Security Hub API Reference_.
+`AwsBackupBackupVault` attributes, see [AwsBackupBackupVault](../../1.0/APIReference/API_AwsBackupBackupVaultDetails.md "../../1.0/APIReference/API_AwsBackupBackupVaultDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -117,7 +117,7 @@ content of a resource at a specified time.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsBackupRecoveryPoint` object. To view descriptions of
-`AwsBackupBackupVault` attributes, see [AwsBackupRecoveryPoint](../../1.0/APIReference/API_AwsBackupRecoveryPointDetails.md "../../1.0/APIReference/API_AwsBackupRecoveryPointDetails.md") in the _AWS Security Hub API Reference_.
+`AwsBackupBackupVault` attributes, see [AwsBackupRecoveryPoint](../../1.0/APIReference/API_AwsBackupRecoveryPointDetails.md "../../1.0/APIReference/API_AwsBackupRecoveryPointDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

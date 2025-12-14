@@ -1,6 +1,6 @@
-# Security Hub controls for Neptune
+# Security Hub CSPM controls for Neptune
 
-These AWS Security Hub controls evaluate the Amazon Neptune service and resources.
+These AWS Security Hub CSPM controls evaluate the Amazon Neptune service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -178,14 +178,14 @@ enabled
 
 **Parameters:**
 
-| Parameter                      | Description                             | Type    | Allowed custom values | Security Hub default value |
-| ------------------------------ | --------------------------------------- | ------- | --------------------- | -------------------------- |
-| `minimumBackupRetentionPeriod` | Minimum backup retention period in days | Integer | `7` to `35`           | `7`                        |
+| Parameter                      | Description                             | Type    | Allowed custom values | Security Hub CSPM default value |
+| ------------------------------ | --------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `minimumBackupRetentionPeriod` | Minimum backup retention period in days | Integer | `7` to `35`           | `7`                             |
 
 This control checks whether a Neptune DB cluster has automated backups enabled, and
 a backup retention period greater than or equal to the specified time frame. The control fails if backups
 aren't enabled for the Neptune DB cluster, or if the retention period is less than the specified time frame.
-Unless you provide a custom parameter value for the backup retention period, Security Hub uses a default value of 7 days.
+Unless you provide a custom parameter value for the backup retention period, Security Hub CSPM uses a default value of 7 days.
 
 Backups help you recover more quickly from a security incident and strengthen the
 resilience of your systems. By automating backups for your Neptune DB clusters, you'll

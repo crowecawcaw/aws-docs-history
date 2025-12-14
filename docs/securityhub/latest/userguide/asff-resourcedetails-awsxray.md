@@ -3,7 +3,7 @@
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsXray`
 resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsXrayEncryptionConfig
@@ -14,7 +14,7 @@ encryption configuration for AWS X-Ray.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsXrayEncryptionConfig` object. To view descriptions of
 `AwsXrayEncryptionConfig` attributes, see [AwsXrayEncryptionConfigDetails](../../1.0/APIReference/API_AwsXrayEncryptionConfigDetails.md "../../1.0/APIReference/API_AwsXrayEncryptionConfigDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 

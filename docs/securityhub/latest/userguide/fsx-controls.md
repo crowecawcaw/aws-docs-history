@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon FSx
+# Security Hub CSPM controls for Amazon FSx
 
-These AWS Security Hub controls evaluate the Amazon FSx service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by
+These AWS Security Hub CSPM controls evaluate the Amazon FSx service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [FSx.1] FSx for OpenZFS file systems should be configured to copy tags to backups and volumes
@@ -103,9 +103,9 @@ For information about deployment types and options for FSx for OpenZFS file syst
 
 **Parameters:**
 
-| Parameter         | Description                                                                                                                                                                         | Type | Allowed custom values      | Security Hub default value |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------- | -------------------------- |
-| `deploymentTypes` | A list of deployment types to include in the evaluation. The control generates a `FAILED` finding if a file system isn't configured to use a deployment type specified in the list. | Enum | `MULTI_AZ_1`, `MULTI_AZ_2` | `MULTI_AZ_1`, `MULTI_AZ_2` |
+| Parameter         | Description                                                                                                                                                                         | Type | Allowed custom values      | Security Hub CSPM default value |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------- | ------------------------------- |
+| `deploymentTypes` | A list of deployment types to include in the evaluation. The control generates a `FAILED` finding if a file system isn't configured to use a deployment type specified in the list. | Enum | `MULTI_AZ_1`, `MULTI_AZ_2` | `MULTI_AZ_1`, `MULTI_AZ_2`      |
 
 This control checks whether an Amazon FSx for NetApp ONTAP file system is configured to use a multiple Availability Zones (Multi-AZ) deployment type. The
 control fails if the file system isn't configured to use a Multi-AZ deployment type. You can optionally specify a list of deployment

@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEventBridge` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsEventSchemasRegistry
@@ -13,7 +13,7 @@ registries are containers that collect and logically group your schemas.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEventSchemasRegistry` object. To view descriptions of
-`AwsEventSchemasRegistry` attributes, see [AwsEventSchemasRegistry](../../1.0/APIReference/API_AwsEventSchemasRegistryDetails.md "../../1.0/APIReference/API_AwsEventSchemasRegistryDetails.md") in the _AWS Security Hub API Reference_.
+`AwsEventSchemasRegistry` attributes, see [AwsEventSchemasRegistry](../../1.0/APIReference/API_AwsEventSchemasRegistryDetails.md "../../1.0/APIReference/API_AwsEventSchemasRegistryDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -32,7 +32,7 @@ global endpoint. The endpoint can improve your application’s availability by m
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEventsEndpoint` object. To view descriptions of
-`AwsEventsEndpoint` attributes, see [AwsEventsEndpointDetails](../../1.0/APIReference/API_AwsEventsEndpointDetails.md "../../1.0/APIReference/API_AwsEventsEndpointDetails.md") in the _AWS Security Hub API Reference_.
+`AwsEventsEndpoint` attributes, see [AwsEventsEndpointDetails](../../1.0/APIReference/API_AwsEventsEndpointDetails.md "../../1.0/APIReference/API_AwsEventsEndpointDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -76,7 +76,7 @@ global endpoint. The endpoint can improve your application’s availability by m
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEventsEventbus` object. To view descriptions of
-`AwsEventsEventbus` attributes, see [AwsEventsEventbusDetails](../../1.0/APIReference/API_AwsEventsEventbusDetails.md "../../1.0/APIReference/API_AwsEventsEventbusDetails.md") in the _AWS Security Hub API Reference_.
+`AwsEventsEventbus` attributes, see [AwsEventsEventbusDetails](../../1.0/APIReference/API_AwsEventsEventbusDetails.md "../../1.0/APIReference/API_AwsEventsEventbusDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

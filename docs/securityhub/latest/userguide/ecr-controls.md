@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon ECR
+# Security Hub CSPM controls for Amazon ECR
 
-These Security Hub controls evaluate the Amazon Elastic Container Registry (Amazon ECR) service and resources.
+These Security Hub CSPM controls evaluate the Amazon Elastic Container Registry (Amazon ECR) service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -106,15 +106,15 @@ in the _Amazon Elastic Container Registry User Guide_.
 **Resource type:**
 `AWS::ECR::PublicRepository`
 
-**AWS Config rule:** `tagged-ecr-publicrepository` (custom Security Hub rule)
+**AWS Config rule:** `tagged-ecr-publicrepository` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon ECR public repository has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the public repository doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -164,9 +164,9 @@ NIST.800-53.r5 AU-9
 
 **Parameters:**
 
-| Parameter    | Description                                                                                                                                                                                             | Type                             | Allowed custom values                                                                                                         | Security Hub default value |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `kmsKeyArns` | A list of Amazon Resource Names (ARNs) of AWS KMS keys to<br>include in the evaluation. The control generates a<br>`FAILED` finding if an ECR repository isn't encrypted<br>with a KMS key in the list. | StringList (maximum of 10 items) | 1–10 ARNs of existing KMS keys. For example:<br>`arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` | No default value           |
+| Parameter    | Description                                                                                                                                                                                             | Type                             | Allowed custom values                                                                                                         | Security Hub CSPM default value |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `kmsKeyArns` | A list of Amazon Resource Names (ARNs) of AWS KMS keys to<br>include in the evaluation. The control generates a<br>`FAILED` finding if an ECR repository isn't encrypted<br>with a KMS key in the list. | StringList (maximum of 10 items) | 1–10 ARNs of existing KMS keys. For example:<br>`arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` | No default value                |
 
 This control checks whether an Amazon ECR repository is encrypted at rest with a customer
 managed AWS KMS key. The control fails if the ECR repository isn't encrypted with a

@@ -1,6 +1,6 @@
-# Security Hub controls for AWS KMS
+# Security Hub CSPM controls for AWS KMS
 
-These AWS Security Hub controls evaluate the AWS Key Management Service (AWS KMS) service and resources. The
+These AWS Security Hub CSPM controls evaluate the AWS Key Management Service (AWS KMS) service and resources. The
 controls might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -117,7 +117,7 @@ protection
 **Resource type:**
 `AWS::KMS::Key`
 
-**AWS Config rule:** `kms-cmk-not-scheduled-for-deletion-2` (custom Security Hub rule)
+**AWS Config rule:** `kms-cmk-not-scheduled-for-deletion-2` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 

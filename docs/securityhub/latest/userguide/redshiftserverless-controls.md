@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon Redshift Serverless
+# Security Hub CSPM controls for Amazon Redshift Serverless
 
-These AWS Security Hub controls evaluate the Amazon Redshift Serverless service and resources. The controls might
+These AWS Security Hub CSPM controls evaluate the Amazon Redshift Serverless service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -116,9 +116,9 @@ SI-7(6)
 
 **Parameters:**
 
-| Parameter    | Description                                                                                                                                                                                                        | Type                            | Allowed custom values                                                                                                         | Security Hub default value |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `kmsKeyArns` | A list of Amazon Resource Names (ARNs) of AWS KMS keys to include in the<br>evaluation. The control generates a `FAILED` finding if a Redshift Serverless namespace<br>isn't encrypted with a KMS key in the list. | StringList (maximum of 3 items) | 1–3 ARNs of existing KMS keys. For example:<br>`arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`. | No default value           |
+| Parameter    | Description                                                                                                                                                                                                        | Type                            | Allowed custom values                                                                                                         | Security Hub CSPM default value |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `kmsKeyArns` | A list of Amazon Resource Names (ARNs) of AWS KMS keys to include in the<br>evaluation. The control generates a `FAILED` finding if a Redshift Serverless namespace<br>isn't encrypted with a KMS key in the list. | StringList (maximum of 3 items) | 1–3 ARNs of existing KMS keys. For example:<br>`arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`. | No default value                |
 
 This control checks whether an Amazon Redshift Serverless namespace is encrypted at rest with a customer
 managed AWS KMS key. The control fails if the Redshift Serverless namespace isn't encrypted with a

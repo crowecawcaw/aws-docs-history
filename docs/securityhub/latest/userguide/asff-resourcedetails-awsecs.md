@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEcs` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsEcsCluster
@@ -12,7 +12,7 @@ cluster.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEcsCluster` object. To view descriptions of
-`AwsEcsCluster` attributes, see [AwsEcsClusterDetails](../../1.0/APIReference/API_AwsEcsClusterDetails.md "../../1.0/APIReference/API_AwsEcsClusterDetails.md") in the _AWS Security Hub API Reference_.
+`AwsEcsCluster` attributes, see [AwsEcsClusterDetails](../../1.0/APIReference/API_AwsEcsClusterDetails.md "../../1.0/APIReference/API_AwsEcsClusterDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -55,7 +55,7 @@ container.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEcsContainer` object. To view descriptions of
-`AwsEcsContainer` attributes, see [AwsEcsContainerDetails](../../1.0/APIReference/API_AwsEcsContainerDetails.md "../../1.0/APIReference/API_AwsEcsContainerDetails.md") in the _AWS Security Hub API Reference_.
+`AwsEcsContainer` attributes, see [AwsEcsContainerDetails](../../1.0/APIReference/API_AwsEcsContainerDetails.md "../../1.0/APIReference/API_AwsEcsContainerDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -78,7 +78,7 @@ cluster.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEcsService` object. To view descriptions of
-`AwsEcsService` attributes, see [AwsEcsServiceDetails](../../1.0/APIReference/API_AwsEcsServiceDetails.md "../../1.0/APIReference/API_AwsEcsServiceDetails.md") in the _AWS Security Hub API Reference_.
+`AwsEcsService` attributes, see [AwsEcsServiceDetails](../../1.0/APIReference/API_AwsEcsServiceDetails.md "../../1.0/APIReference/API_AwsEcsServiceDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -165,7 +165,7 @@ The `AwsEcsTask` object provides details about an Amazon ECS task.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEcsTask` object. To view descriptions of `AwsEcsTask`
 attributes, see [AwsEcsTask](../../1.0/APIReference/API_AwsEcsTaskDetails.md "../../1.0/APIReference/API_AwsEcsTaskDetails.md") in
-the _AWS Security Hub API Reference_.
+the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -205,7 +205,7 @@ task.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEcsTaskDefinition` object. To view descriptions of
 `AwsEcsTaskDefinition` attributes, see [AwsEcsTaskDefinitionDetails](../../1.0/APIReference/API_AwsEcsTaskDefinitionDetails.md "../../1.0/APIReference/API_AwsEcsTaskDefinitionDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 

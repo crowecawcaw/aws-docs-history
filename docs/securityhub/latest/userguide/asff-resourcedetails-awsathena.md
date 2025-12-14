@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAthena` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsAthenaWorkGroup
@@ -13,7 +13,7 @@ teams, applications, or workloads. It also helps you set limits on data processi
 The following example shows the ASFF for the `AwsAthenaWorkGroup` object. To view
 descriptions of `AwsAthenaWorkGroup` attributes, see
 [AwsAthenaWorkGroup](../../1.0/APIReference/API_AwsAthenaWorkGroupDetails.md "../../1.0/APIReference/API_AwsAthenaWorkGroupDetails.md")
-in the _AWS Security Hub API Reference_.
+in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

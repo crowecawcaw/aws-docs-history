@@ -1,6 +1,6 @@
-# Security Hub controls for WorkSpaces
+# Security Hub CSPM controls for WorkSpaces
 
-These AWS Security Hub controls evaluate the Amazon WorkSpaces service and resources.
+These AWS Security Hub CSPM controls evaluate the Amazon WorkSpaces service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").

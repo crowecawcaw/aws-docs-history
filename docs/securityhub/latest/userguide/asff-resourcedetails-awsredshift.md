@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsRedshift` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsRedshiftCluster
@@ -13,7 +13,7 @@ cluster.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsRedshiftCluster` object. To view descriptions of
 `AwsRedshiftCluster` attributes, see [AwsRedshiftClusterDetails](../../1.0/APIReference/API_AwsRedshiftClusterDetails.md "../../1.0/APIReference/API_AwsRedshiftClusterDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 

@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon RDS
+# Security Hub CSPM controls for Amazon RDS
 
-These AWS Security Hub controls evaluate the Amazon Relational Database Service (Amazon RDS) and Amazon RDS resources. The controls
+These AWS Security Hub CSPM controls evaluate the Amazon Relational Database Service (Amazon RDS) and Amazon RDS resources. The controls
 might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -221,9 +221,9 @@ _Amazon RDS User Guide_.
 
 **Parameters:**
 
-| Parameter            | Description                                                      | Type | Allowed custom values            | Security Hub default value |
-| -------------------- | ---------------------------------------------------------------- | ---- | -------------------------------- | -------------------------- |
-| `monitoringInterval` | Number of seconds between monitoring metric collection intervals | Enum | `1`, `5`, `10`, `15`, `30`, `60` | No default value           |
+| Parameter            | Description                                                      | Type | Allowed custom values            | Security Hub CSPM default value |
+| -------------------- | ---------------------------------------------------------------- | ---- | -------------------------------- | ------------------------------- |
+| `monitoringInterval` | Number of seconds between monitoring metric collection intervals | Enum | `1`, `5`, `10`, `15`, `30`, `60` | No default value                |
 
 This control checks whether enhanced monitoring is enabled for an Amazon Relational Database Service (Amazon RDS) DB
 instance. The control fails if enhanced monitoring isn't enabled for the instance. If you provide a custom value for the
@@ -412,14 +412,14 @@ To activate IAM database authentication on an RDS DB instance, see [Enabling and
 
 **Parameters:**
 
-| Parameter                | Description                                                            | Type    | Allowed custom values | Security Hub default value |
-| ------------------------ | ---------------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `backupRetentionMinimum` | Minimum backup retention period in days                                | Integer | `7` to `35`           | `7`                        |
-| `checkReadReplicas`      | Checks whether RDS DB instances have backups enabled for read replicas | Boolean | Not customizable      | `false`                    |
+| Parameter                | Description                                                            | Type    | Allowed custom values | Security Hub CSPM default value |
+| ------------------------ | ---------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `backupRetentionMinimum` | Minimum backup retention period in days                                | Integer | `7` to `35`           | `7`                             |
+| `checkReadReplicas`      | Checks whether RDS DB instances have backups enabled for read replicas | Boolean | Not customizable      | `false`                         |
 
 This control checks whether an Amazon Relational Database Service instance has automated backups enabled, and a backup retention period greater
 than or equal to the specified time frame. Read replicas are excluded from evaluation. The control fails if backups aren't enabled for the instance, or if the retention period is less than
-the specified time frame. Unless you provide a custom parameter value for the backup retention period, Security Hub uses a default value
+the specified time frame. Unless you provide a custom parameter value for the backup retention period, Security Hub CSPM uses a default value
 of 7 days.
 
 Backups help you more quickly recover from a security incident and strengthens the resilience of your systems. Amazon RDS
@@ -524,9 +524,9 @@ For **Auto minor version upgrade**, select **Yes**.
 
 **Parameters:**
 
-| Parameter                | Description                                          | Type   | Allowed custom values | Security Hub default value |
-| ------------------------ | ---------------------------------------------------- | ------ | --------------------- | -------------------------- |
-| `BacktrackWindowInHours` | Number of hours to backtrack an Aurora MySQL cluster | Double | `0.1` to `72`         | No default value           |
+| Parameter                | Description                                          | Type   | Allowed custom values | Security Hub CSPM default value |
+| ------------------------ | ---------------------------------------------------- | ------ | --------------------- | ------------------------------- |
+| `BacktrackWindowInHours` | Number of hours to backtrack an Aurora MySQL cluster | Double | `0.1` to `72`         | No default value                |
 
 This control checks whether an Amazon Aurora cluster has backtracking enabled. The control fails if the cluster doesn't
 have backtracking enabled. If you provide a custom value for the `BacktrackWindowInHours` parameter, the control passes
@@ -594,7 +594,7 @@ snapshots
 `AWS::RDS::DBCluster`
 
 **AWS Config rule:**
-`rds-cluster-copy-tags-to-snapshots-enabled` (custom Security Hub rule)
+`rds-cluster-copy-tags-to-snapshots-enabled` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -632,7 +632,7 @@ Guide_.
 `AWS::RDS::DBInstance`
 
 **AWS Config rule:**
-`rds-instance-copy-tags-to-snapshots-enabled` (custom Security Hub rule)
+`rds-instance-copy-tags-to-snapshots-enabled` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -662,7 +662,7 @@ Resources within VPC
 `AWS::RDS::DBInstance`
 
 **AWS Config rule:**
-`rds-deployed-in-vpc` (custom Security Hub rule)
+`rds-deployed-in-vpc` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -692,7 +692,7 @@ monitoring
 `AWS::RDS::EventSubscription`
 
 **AWS Config rule:**
-`rds-cluster-event-notifications-configured` (custom Security Hub rule)
+`rds-cluster-event-notifications-configured` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -735,7 +735,7 @@ monitoring
 `AWS::RDS::EventSubscription`
 
 **AWS Config rule:**
-`rds-instance-event-notifications-configured` (custom Security Hub rule)
+`rds-instance-event-notifications-configured` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -778,7 +778,7 @@ monitoring
 `AWS::RDS::EventSubscription`
 
 **AWS Config rule:**
-`rds-pg-event-notifications-configured` (custom Security Hub rule)
+`rds-pg-event-notifications-configured` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -819,7 +819,7 @@ monitoring
 `AWS::RDS::EventSubscription`
 
 **AWS Config rule:**
-`rds-sg-event-notifications-configured` (custom Security Hub rule)
+`rds-sg-event-notifications-configured` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -859,7 +859,7 @@ To subscribe to RDS instance event notifications, see [Subscribing to Amazon RDS
 `AWS::RDS::DBInstance`
 
 **AWS Config rule:**
-`rds-no-default-ports` (custom Security Hub rule)
+`rds-no-default-ports` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -973,9 +973,9 @@ NIST.800-53.r5 SI-13(5)
 
 **Parameters:**
 
-| Parameter              | Description                                                                                                             | Type    | Allowed custom values | Security Hub default value |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `backupVaultLockCheck` | The control produces a `PASSED` finding if the parameter is set to true and the resource<br>uses AWS Backup Vault Lock. | Boolean | `true` or `false`     | No default value           |
+| Parameter              | Description                                                                                                             | Type    | Allowed custom values | Security Hub CSPM default value |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `backupVaultLockCheck` | The control produces a `PASSED` finding if the parameter is set to true and the resource<br>uses AWS Backup Vault Lock. | Boolean | `true` or `false`     | No default value                |
 
 This control evaluates if Amazon RDS DB instances are covered by a backup plan. This control fails if the RDS DB instance isn't
 covered by a backup plan. If you set the `backupVaultLockCheck`
@@ -1038,15 +1038,15 @@ _Amazon Aurora User Guide_.
 **Resource type:**
 `AWS::RDS::DBCluster`
 
-**AWS Config rule:**`tagged-rds-dbcluster` (custom Security Hub rule)
+**AWS Config rule:**`tagged-rds-dbcluster` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon RDS DB cluster has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the DB cluster doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -1082,15 +1082,15 @@ To add tags to an RDS DB cluster, see [Tagging Amazon RDS resources](../../../Am
 **Resource type:**
 `AWS::RDS::DBClusterSnapshot`
 
-**AWS Config rule:**`tagged-rds-dbclustersnapshot` (custom Security Hub rule)
+**AWS Config rule:**`tagged-rds-dbclustersnapshot` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon RDS DB cluster snapshot has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the DB cluster snapshot doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -1126,15 +1126,15 @@ To add tags to an RDS DB cluster snapshot, see [Tagging Amazon RDS resources](..
 **Resource type:**
 `AWS::RDS::DBInstance`
 
-**AWS Config rule:**`tagged-rds-dbinstance` (custom Security Hub rule)
+**AWS Config rule:**`tagged-rds-dbinstance` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon RDS DB instance has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the DB instance doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -1170,15 +1170,15 @@ To add tags to an RDS DB instance, see [Tagging Amazon RDS resources](../../../A
 **Resource type:**
 `AWS::RDS::DBSecurityGroup`
 
-**AWS Config rule:**`tagged-rds-dbsecuritygroup` (custom Security Hub rule)
+**AWS Config rule:**`tagged-rds-dbsecuritygroup` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon RDS DB security group has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the DB security group doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -1214,15 +1214,15 @@ To add tags to an RDS DB security group, see [Tagging Amazon RDS resources](../.
 **Resource type:**
 `AWS::RDS::DBSnapshot`
 
-**AWS Config rule:**`tagged-rds-dbsnapshot` (custom Security Hub rule)
+**AWS Config rule:**`tagged-rds-dbsnapshot` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon RDS DB snapshot has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the DB snapshot doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -1258,15 +1258,15 @@ To add tags to an RDS DB snapshot, see [Tagging Amazon RDS resources](../../../A
 **Resource type:**
 `AWS::RDS::DBSubnetGroup`
 
-**AWS Config rule:**`tagged-rds-dbsubnetgroups` (custom Security Hub rule)
+**AWS Config rule:**`tagged-rds-dbsubnetgroups` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon RDS DB subnet group has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the DB subnet group doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -1396,9 +1396,9 @@ _Amazon RDS User Guide_.
 
 **Parameters:**
 
-| Parameter  | Description                                                          | Type       | Allowed custom values | Security Hub default value |
-| ---------- | -------------------------------------------------------------------- | ---------- | --------------------- | -------------------------- |
-| `logTypes` | Comma-separated list of log types to be published to CloudWatch Logs | StringList | Not customizable      | `postgresql`               |
+| Parameter  | Description                                                          | Type       | Allowed custom values | Security Hub CSPM default value |
+| ---------- | -------------------------------------------------------------------- | ---------- | --------------------- | ------------------------------- |
+| `logTypes` | Comma-separated list of log types to be published to CloudWatch Logs | StringList | Not customizable      | `postgresql`                    |
 
 This control checks whether an Amazon RDS for PostgreSQL DB instance is configured to publish logs to Amazon CloudWatch Logs. The
 control fails if the PostgreSQL DB instance isn't configured to publish the log types mentioned in the `logTypes`
@@ -1519,9 +1519,9 @@ NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8)
 
 **Parameters:**
 
-| Parameter  | Description                                                                                                                                                                                                                          | Type                          | Allowed custom values | Security Hub default value |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | --------------------- | -------------------------- |
-| `logTypes` | A list of the types of logs that an RDS for SQL Server DB instance should be<br>configured to publish to CloudWatch Logs. This control fails if a DB instance<br>isn't configured to publish a type of log specified in the<br>list. | EnumList (maximum of 2 items) | `agent`, `error`      | `agent`, `error`           |
+| Parameter  | Description                                                                                                                                                                                                                          | Type                          | Allowed custom values | Security Hub CSPM default value |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | --------------------- | ------------------------------- |
+| `logTypes` | A list of the types of logs that an RDS for SQL Server DB instance should be<br>configured to publish to CloudWatch Logs. This control fails if a DB instance<br>isn't configured to publish a type of log specified in the<br>list. | EnumList (maximum of 2 items) | `agent`, `error`      | `agent`, `error`                |
 
 This control checks whether an Amazon RDS for Microsoft SQL Server DB instance is configured to publish
 logs to Amazon CloudWatch Logs. The control fails if the RDS for SQL Server DB instance isn't configured to
@@ -1594,9 +1594,9 @@ SC-7(10), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8
 
 **Parameters:**
 
-| Parameter  | Description                                                                                                                                                                                                                                 | Type                          | Allowed custom values                       | Security Hub default value |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------------------------------------------- | -------------------------- |
-| `logTypes` | A list of the types of logs that a MariaDB DB instance should be<br>configured to publish to CloudWatch Logs. The control generates a<br>`FAILED` finding if a DB instance isn't configured to<br>publish a log type specified in the list. | EnumList (maximum of 4 items) | `audit`, `error`, `general`,<br>`slowquery` | `audit, error`             |
+| Parameter  | Description                                                                                                                                                                                                                                 | Type                          | Allowed custom values                       | Security Hub CSPM default value |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------------------------------------------- | ------------------------------- |
+| `logTypes` | A list of the types of logs that a MariaDB DB instance should be<br>configured to publish to CloudWatch Logs. The control generates a<br>`FAILED` finding if a DB instance isn't configured to<br>publish a log type specified in the list. | EnumList (maximum of 4 items) | `audit`, `error`, `general`,<br>`slowquery` | `audit, error`                  |
 
 This control checks whether an Amazon RDS for MariaDB DB instance is configured to publish
 certain types of logs to Amazon CloudWatch Logs. The control fails if the MariaDB DB instance isn't

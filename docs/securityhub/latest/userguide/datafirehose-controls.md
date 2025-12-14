@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon Data Firehose
+# Security Hub CSPM controls for Amazon Data Firehose
 
-These Security Hub controls evaluate the Amazon Data Firehose service and resources.
+These Security Hub CSPM controls evaluate the Amazon Data Firehose service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").

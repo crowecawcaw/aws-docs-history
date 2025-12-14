@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon SNS
+# Security Hub CSPM controls for Amazon SNS
 
-These AWS Security Hub controls evaluate the Amazon Simple Notification Service (Amazon SNS) service and resources. The
+These AWS Security Hub CSPM controls evaluate the Amazon Simple Notification Service (Amazon SNS) service and resources. The
 controls might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -47,7 +47,7 @@ messages. For more information, see [Configuring AWS KMS permissions](../../../s
 
 ###### Important
 
-Security Hub retired this control in April 2024.
+Security Hub CSPM retired this control in April 2024.
 For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md").
 
 **Related requirements:** NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2
@@ -91,15 +91,15 @@ To configure delivery status logging for a topic, see [Amazon SNS message delive
 **Resource type:**
 `AWS::SNS::Topic`
 
-**AWS Config rule:** `tagged-sns-topic` (custom Security Hub rule)
+**AWS Config rule:** `tagged-sns-topic` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon SNS topic has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the topic doesn’t have any tag keys or if it doesn’t have all the keys specified in the

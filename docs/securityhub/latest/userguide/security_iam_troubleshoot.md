@@ -1,27 +1,27 @@
-# Troubleshooting AWS Security Hub identity and
+# Troubleshooting AWS Security Hub CSPM identity and
 
 access
 
 Use the following information to help you diagnose and fix common issues that you might
-encounter when working with AWS Security Hub and IAM.
+encounter when working with AWS Security Hub CSPM and IAM.
 
 ###### Topics
 
 - [I am not
-  authorized to perform an action in Security Hub](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+  authorized to perform an action in Security Hub CSPM](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 - [I am not authorized to
   perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
 - [I want programmatic
-  access to Security Hub](#security_iam_troubleshoot-access-keys "#security_iam_troubleshoot-access-keys")
+  access to Security Hub CSPM](#security_iam_troubleshoot-access-keys "#security_iam_troubleshoot-access-keys")
 - [I'm an
-  administrator and want to allow others to access Security Hub](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
+  administrator and want to allow others to access Security Hub CSPM](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
 - [I want to
-  allow people outside my AWS account to access my Security Hub
+  allow people outside my AWS account to access my Security Hub CSPM
   resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
 ## I am not
 
-authorized to perform an action in Security Hub
+authorized to perform an action in Security Hub CSPM
 
 If the AWS Management Console tells you that you're not authorized to perform an
 action, then you must contact your administrator for assistance. Your
@@ -67,7 +67,7 @@ If you need help, contact your AWS administrator. Your administrator is the pers
 
 ## I want programmatic
 
-access to Security Hub
+access to Security Hub CSPM
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 
@@ -82,7 +82,7 @@ To grant users programmatic access, choose one of the following options.
 
 ## I'm an
 
-administrator and want to allow others to access Security Hub
+administrator and want to allow others to access Security Hub CSPM
 
 To provide access, add permissions to your users, groups, or roles:
 
@@ -101,7 +101,7 @@ in the _IAM User Guide_.
 
 ## I want to
 
-allow people outside my AWS account to access my Security Hub
+allow people outside my AWS account to access my Security Hub CSPM
 resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who

@@ -1,6 +1,6 @@
-# Security Hub controls for Kinesis
+# Security Hub CSPM controls for Kinesis
 
-These AWS Security Hub controls evaluate the Amazon Kinesis service and resources.
+These AWS Security Hub CSPM controls evaluate the Amazon Kinesis service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -45,15 +45,15 @@ the _Amazon Kinesis Developer Guide_.
 **Resource type:**
 `AWS::Kinesis::Stream`
 
-**AWS Configrule:** `tagged-kinesis-stream` (custom Security Hub rule)
+**AWS Configrule:** `tagged-kinesis-stream` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon Kinesis data stream has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the data stream doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -93,13 +93,13 @@ To add tags to a Kinesis data stream, see [Tagging your streams in Amazon Kinesi
 
 **Parameters:**
 
-| Parameter                      | Description                                               | Type   | Allowed custom values | Security Hub default value |
-| ------------------------------ | --------------------------------------------------------- | ------ | --------------------- | -------------------------- |
-| `minimumBackupRetentionPeriod` | Minimum number of hours that the data should be retained. | String | 24 to 8760            | 168                        |
+| Parameter                      | Description                                               | Type   | Allowed custom values | Security Hub CSPM default value |
+| ------------------------------ | --------------------------------------------------------- | ------ | --------------------- | ------------------------------- |
+| `minimumBackupRetentionPeriod` | Minimum number of hours that the data should be retained. | String | 24 to 8760            | 168                             |
 
 This control checks whether an Amazon Kinesis data stream has a data retention period greater than or equal to the
 specified time frame. The control fails if the data retention period is less than the specified time frame. Unless you provide a
-custom parameter value for the data retention period, Security Hub uses a default value of 168 hours.
+custom parameter value for the data retention period, Security Hub CSPM uses a default value of 168 hours.
 
 In Kinesis Data Streams, a data stream is an ordered sequence of data records meant to be written to and read from in
 real time. Data records are stored in shards in your stream temporarily. The time period from when a record is added to when it is

@@ -1,6 +1,6 @@
-# Security Hub controls for AWS Identity and Access Management
+# Security Hub CSPM controls for AWS Identity and Access Management
 
-These AWS Security Hub controls evaluate the AWS Identity and Access Management (IAM) service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by
+These AWS Security Hub CSPM controls evaluate the AWS Identity and Access Management (IAM) service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [IAM.1] IAM policies should not allow full "\*" administrative privileges
@@ -50,7 +50,7 @@ You should remove IAM policies that have a statement with `"Effect": "Allow"` wi
 
 ###### Note
 
-AWS Config should be enabled in all Regions in which you use Security Hub. However, global
+AWS Config should be enabled in all Regions in which you use Security Hub CSPM. However, global
 resource recording can be enabled in a single Region. If you only record global resources in a
 single Region, then you can disable this control in all Regions except the Region where you
 record global resources.
@@ -95,7 +95,7 @@ receive or retain excessive privileges.
 
 ###### Note
 
-AWS Config should be enabled in all Regions in which you use Security Hub. However, global
+AWS Config should be enabled in all Regions in which you use Security Hub CSPM. However, global
 resource recording can be enabled in a single Region. If you only record global resources in a
 single Region, you can disable this control in all Regions except the Region where you
 record global resources.
@@ -149,7 +149,7 @@ To learn more about protecting your access keys and account, see [Best practices
 for managing AWS access keys](../../../general/latest/gr/aws-access-keys-best-practices.md "../../../general/latest/gr/aws-access-keys-best-practices.md") in the _AWS General Reference_.
 Also see the blog post [Guidelines for protecting your AWS account while using programmatic access](https://aws.amazon.com/blogs/security/guidelines-for-protecting-your-aws-account-while-using-programmatic-access/ "https://aws.amazon.com/blogs/security/guidelines-for-protecting-your-aws-account-while-using-programmatic-access/").
 
-If you already have an access key, Security Hub recommends that you rotate the access keys every
+If you already have an access key, Security Hub CSPM recommends that you rotate the access keys every
 90 days. Rotating access keys reduces the chance that an access key that is associated with a
 compromised or terminated account is used. It also ensures that data cannot be accessed with an
 old key that might have been lost, cracked, or stolen. Always update your applications after you
@@ -169,7 +169,7 @@ AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../
 
 ###### Note
 
-AWS Config should be enabled in all Regions in which you use Security Hub. However, global
+AWS Config should be enabled in all Regions in which you use Security Hub CSPM. However, global
 resource recording can be enabled in a single Region. If you only record global resources in a
 single Region, then you can disable this control in all Regions except the Region where you
 record global resources.
@@ -201,7 +201,7 @@ This control checks whether the root user access key is present.
 The root user is the most privileged user in an AWS account. AWS access keys provide
 programmatic access to a given account.
 
-Security Hub recommends that you remove all access keys that are associated with the root user.
+Security Hub CSPM recommends that you remove all access keys that are associated with the root user.
 This limits that vectors that can be used to compromise your account. It also encourages the
 creation and use of role-based accounts that are least privileged.
 
@@ -242,7 +242,7 @@ possess a device that emits a time-sensitive key and must have knowledge of a cr
 
 ###### Note
 
-AWS Config should be enabled in all Regions in which you use Security Hub. However, global
+AWS Config should be enabled in all Regions in which you use Security Hub CSPM. However, global
 resource recording can be enabled in a single Region. If you only record global resources in a
 single Region, then you can disable this control in all Regions except the Region where you
 record global resources.
@@ -275,7 +275,7 @@ see [Assign a virtual MFA device (console)](../../../IAM/latest/UserGuide/id_cre
 
 ###### Note
 
-Security Hub evaluates this control based on the presence of root user credentials (login profile) in an AWS account. The control generates `PASSED` findings in the following cases:
+Security Hub CSPM evaluates this control based on the presence of root user credentials (login profile) in an AWS account. The control generates `PASSED` findings in the following cases:
 
 - Root user credentials are present in the account and hardware MFA is enabled for the root user.
 - Root user credentials aren’t present in the account.
@@ -305,22 +305,22 @@ PCI DSS v4.0.1/8.3.9, PCI DSS v4.0.1/8.3.10.1, PCI DSS v4.0.1/8.6.3
 
 **Parameters:**
 
-| Parameter                    | Description                                                       | Type    | Allowed custom values | Security Hub default value |
-| ---------------------------- | ----------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `RequireUppercaseCharacters` | Require at least one uppercase character in password              | Boolean | `true` or `false`     | `true`                     |
-| `RequireLowercaseCharacters` | Require at least one lowercase character in password              | Boolean | `true` or `false`     | `true`                     |
-| `RequireSymbols`             | Require at least one symbol in password                           | Boolean | `true` or `false`     | `true`                     |
-| `RequireNumbers`             | Require at least one number in password                           | Boolean | `true` or `false`     | `true`                     |
-| `MinimumPasswordLength`      | Minimum number of characters in the password                      | Integer | `8` to `128`          | `8`                        |
-| `PasswordReusePrevention`    | Number of password rotations before an old password can be reused | Integer | `12` to `24`          | No default value           |
-| `MaxPasswordAge`             | Number of days before password expiration                         | Integer | `1` to `90`           | No default value           |
+| Parameter                    | Description                                                       | Type    | Allowed custom values | Security Hub CSPM default value |
+| ---------------------------- | ----------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `RequireUppercaseCharacters` | Require at least one uppercase character in password              | Boolean | `true` or `false`     | `true`                          |
+| `RequireLowercaseCharacters` | Require at least one lowercase character in password              | Boolean | `true` or `false`     | `true`                          |
+| `RequireSymbols`             | Require at least one symbol in password                           | Boolean | `true` or `false`     | `true`                          |
+| `RequireNumbers`             | Require at least one number in password                           | Boolean | `true` or `false`     | `true`                          |
+| `MinimumPasswordLength`      | Minimum number of characters in the password                      | Integer | `8` to `128`          | `8`                             |
+| `PasswordReusePrevention`    | Number of password rotations before an old password can be reused | Integer | `12` to `24`          | No default value                |
+| `MaxPasswordAge`             | Number of days before password expiration                         | Integer | `1` to `90`           | No default value                |
 
 This control checks whether the account password policy for IAM users uses strong configurations.
 The control fails if the password policy doesn't use strong configurations. Unless you provide custom parameter values,
-Security Hub uses the default values mentioned in the preceding table. The `PasswordReusePrevention` and `MaxPasswordAge` parameters have no default value, so
-if you exclude these parameters, Security Hub ignores number of password rotations and password age when evaluating this control.
+Security Hub CSPM uses the default values mentioned in the preceding table. The `PasswordReusePrevention` and `MaxPasswordAge` parameters have no default value, so
+if you exclude these parameters, Security Hub CSPM ignores number of password rotations and password age when evaluating this control.
 
-To access the AWS Management Console, IAM users need passwords. As a best practice, Security Hub highly
+To access the AWS Management Console, IAM users need passwords. As a best practice, Security Hub CSPM highly
 recommends that instead of creating IAM users, you use federation. Federation allows users to
 use their existing corporate credentials to log into the AWS Management Console. Use AWS IAM Identity Center (IAM Identity Center) to
 create or federate the user, and then assume an IAM role into an account.
@@ -329,7 +329,7 @@ To learn more about identity providers and federation, see [Identity providers a
 federation](../../../IAM/latest/UserGuide/id_roles_providers.md "../../../IAM/latest/UserGuide/id_roles_providers.md") in the _IAM User Guide_. To learn more
 about IAM Identity Center, see the [_AWS IAM Identity Center User Guide_](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md").
 
-If you need to use IAM users, Security Hub recommends that you enforce the creation of strong
+If you need to use IAM users, Security Hub CSPM recommends that you enforce the creation of strong
 user passwords. You can set a password policy on your AWS account to specify complexity
 requirements and mandatory rotation periods for passwords. When you create or change a password
 policy, most of the password policy settings are enforced the next time users change their
@@ -368,13 +368,13 @@ not been used for 90 days.
 IAM users can access AWS resources using different types of credentials, such as
 passwords or access keys.
 
-Security Hub recommends that you remove or deactivate all credentials that were unused for 90 days
+Security Hub CSPM recommends that you remove or deactivate all credentials that were unused for 90 days
 or more. Disabling or removing unnecessary credentials reduces the window of opportunity for
 credentials associated with a compromised or abandoned account to be used.
 
 ###### Note
 
-AWS Config should be enabled in all Regions in which you use Security Hub. However, global
+AWS Config should be enabled in all Regions in which you use Security Hub CSPM. However, global
 resource recording can be enabled in a single Region. If you only record global resources in a
 single Region, then you can disable this control in all Regions except the Region where you
 record global resources.
@@ -470,7 +470,7 @@ following minimum PCI DSS configurations.
 
 ###### Note
 
-On May 30, 2025, Security Hub removed this control from the PCI DSS v4.0.1 standard. PCI DSS v4.0.1 now
+On May 30, 2025, Security Hub CSPM removed this control from the PCI DSS v4.0.1 standard. PCI DSS v4.0.1 now
 requires passwords to have a minimum of 8 characters. This control continues to
 apply to the PCI DSS v3.2.1 standard, which has different password requirements.
 
@@ -478,7 +478,7 @@ To evaluate account password policies against PCI DSS v4.0.1 requirements, you c
 [IAM.7 control](#iam-7 "#iam-7"). This control requires passwords to
 have a minimum of 8 characters. It also supports custom values for password length
 and other parameters. The IAM.7 control is part of the PCI DSS v4.0.1 standard in
-Security Hub.
+Security Hub CSPM.
 
 ### Remediation
 
@@ -748,7 +748,7 @@ manage incidents with Support.
 
 ###### Note
 
-AWS Config should be enabled in all Regions in which you use Security Hub. However, global
+AWS Config should be enabled in all Regions in which you use Security Hub CSPM. However, global
 resource recording can be enabled in a single Region. If you only record global resources in a
 single Region, then you can disable this control in all Regions except the Region where you
 record global resources.
@@ -817,7 +817,7 @@ enabled.
 
 ###### Note
 
-AWS Config should be enabled in all Regions in which you use Security Hub. However, global
+AWS Config should be enabled in all Regions in which you use Security Hub CSPM. However, global
 resource recording can be enabled in a single Region. If you only record global resources in a
 single Region, then you can disable this control in all Regions except the Region where you
 record global resources.
@@ -830,7 +830,7 @@ To add MFA for IAM users, see [Enabling MFA devices for users in AWS](../../../I
 
 ###### Important
 
-Security Hub retired this control in April 2024.
+Security Hub CSPM retired this control in April 2024.
 For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md").
 
 **Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.1
@@ -842,7 +842,7 @@ For more information, see [Change log for Security Hub CSPM controls](controls-c
 **Resource type:**
 `AWS::IAM::User`
 
-**AWS Config rule:** `use-of-root-account-test` (custom Security Hub rule)
+**AWS Config rule:** `use-of-root-account-test` (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -871,9 +871,9 @@ This check results in a `FAILED` finding if one or more of the following stateme
 
 This check results in a control status of `NO_DATA` if one or more of the following statements is true:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region
   where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the
   account that owns the trail.
 
 This check results in a control status of `WARNING` if one or more of the following statements is true:
@@ -888,10 +888,10 @@ We recommend using organization trails to log events from many accounts in an
 organization. Organization trails are multi-Region trails by default and can only be
 managed by the AWS Organizations management account or the CloudTrail delegated administrator
 account. Using an organization trail results in a control status of NO_DATA for
-controls evaluated in organization member accounts. In member accounts, Security Hub only
+controls evaluated in organization member accounts. In member accounts, Security Hub CSPM only
 generates findings for member-owned resources. Findings that pertain to organization
 trails are generated in the resource owner's account. You can see these findings in
-your Security Hub delegated administrator account by using cross-Region aggregation.
+your Security Hub CSPM delegated administrator account by using cross-Region aggregation.
 
 As a best practice, use your root user credentials only when required to [perform account and service management tasks](../../../general/latest/gr/aws_tasks-that-require-root.md "../../../general/latest/gr/aws_tasks-that-require-root.md"). Apply IAM policies directly
 to groups and roles but not to users. For instructions on setting up an administrator
@@ -1068,7 +1068,7 @@ policy size limits.
 
 ###### Note
 
-AWS Config should be enabled in all Regions in which you use Security Hub. However, global
+AWS Config should be enabled in all Regions in which you use Security Hub CSPM. However, global
 resource recording can be enabled in a single Region. If you only record global resources in a
 single Region, then you can disable this control in all Regions except the Region where you
 record global resources.
@@ -1111,7 +1111,7 @@ be visible to this control.
 
 ###### Note
 
-AWS Config should be enabled in all Regions in which you use Security Hub. However, you can enable
+AWS Config should be enabled in all Regions in which you use Security Hub CSPM. However, you can enable
 recording of global resources in a single Region. If you only record global
 resources in a single Region, then you can disable this control in all Regions
 except the Region where you record global resources.
@@ -1139,15 +1139,15 @@ deactivate them. For instructions, see [Creating, changing, or deleting an IAM u
 **Resource type:**
 `AWS::AccessAnalyzer::Analyzer`
 
-**AWS Config rule:** `tagged-accessanalyzer-analyzer` (custom Security Hub rule)
+**AWS Config rule:** `tagged-accessanalyzer-analyzer` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an analyzer managed by AWS Identity and Access Management Access Analyzer (IAM Access Analyzer) has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the analyzer doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -1183,15 +1183,15 @@ To add tags to an analyzer, see [TagResource](../../../access-analyzer/latest/AP
 **Resource type:**
 `AWS::IAM::Role`
 
-**AWS Config rule:** `tagged-iam-role` (custom Security Hub rule)
+**AWS Config rule:** `tagged-iam-role` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an AWS Identity and Access Management (IAM) role has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the role doesn’t have any tag keys or if it doesn’t have all the keys specified in the
@@ -1227,15 +1227,15 @@ To add tags to an IAM role, see [Tagging IAM resources](../../../IAM/latest/User
 **Resource type:**
 `AWS::IAM::User`
 
-**AWS Config rule:** `tagged-iam-user` (custom Security Hub rule)
+**AWS Config rule:** `tagged-iam-user` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an AWS Identity and Access Management (IAM) user has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the user doesn’t have any tag keys or if it doesn’t have all the keys specified in the

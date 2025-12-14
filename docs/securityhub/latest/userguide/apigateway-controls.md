@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon API Gateway
+# Security Hub CSPM controls for Amazon API Gateway
 
-These AWS Security Hub controls evaluate the Amazon API Gateway service and resources. The controls might not
+These AWS Security Hub CSPM controls evaluate the Amazon API Gateway service and resources. The controls might not
 be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -27,13 +27,13 @@ NIST.800-53.r5 SI-7(8)
 
 **Parameters:**
 
-| Parameter      | Description   | Type | Allowed custom values | Security Hub default value |
-| -------------- | ------------- | ---- | --------------------- | -------------------------- |
-| `loggingLevel` | Logging level | Enum | `ERROR`, `INFO`       | `No default value`         |
+| Parameter      | Description   | Type | Allowed custom values | Security Hub CSPM default value |
+| -------------- | ------------- | ---- | --------------------- | ------------------------------- |
+| `loggingLevel` | Logging level | Enum | `ERROR`, `INFO`       | `No default value`              |
 
 This control checks whether all stages of an Amazon API Gateway REST or WebSocket API have logging
 enabled. The control fails if the `loggingLevel` isn't `ERROR` or `INFO` for all stages of the API.
-Unless you provide custom parameter values to indicate that a specific log type should be enabled, Security Hub produces a passed finding if the
+Unless you provide custom parameter values to indicate that a specific log type should be enabled, Security Hub CSPM produces a passed finding if the
 logging level is either `ERROR` or `INFO`.
 
 API Gateway REST or WebSocket API stages should have relevant logs enabled. API Gateway REST and
@@ -166,7 +166,7 @@ rest
 **Resource type:**
 `AWS::ApiGateway::Stage`
 
-**AWS Config rule:** `api-gw-cache-encrypted` (custom Security Hub rule)
+**AWS Config rule:** `api-gw-cache-encrypted` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -174,7 +174,7 @@ rest
 
 This control checks whether all methods in API Gateway REST API stages that have cache enabled are
 encrypted. The control fails if any method in an API Gateway REST API stage is configured to cache and
-the cache is not encrypted. Security Hub evaluates the encryption of a particular method only when caching
+the cache is not encrypted. Security Hub CSPM evaluates the encryption of a particular method only when caching
 is enabled for that method.
 
 Encrypting data at rest reduces the risk of data stored on disk being accessed by a user not
@@ -210,9 +210,9 @@ CM-2, NIST.800-53.r5 CM-2(2)
 
 **Parameters:**
 
-| Parameter           | Description                          | Type | Allowed custom values      | Security Hub default value |
-| ------------------- | ------------------------------------ | ---- | -------------------------- | -------------------------- |
-| `authorizationType` | Authorization type of the API routes | Enum | `AWS_IAM`, `CUSTOM`, `JWT` | No default value           |
+| Parameter           | Description                          | Type | Allowed custom values      | Security Hub CSPM default value |
+| ------------------- | ------------------------------------ | ---- | -------------------------- | ------------------------------- |
+| `authorizationType` | Authorization type of the API routes | Enum | `AWS_IAM`, `CUSTOM`, `JWT` | No default value                |
 
 This control checks if Amazon API Gateway routes have an authorization type. The control fails if the
 API Gateway route doesn't have any authorization type. Optionally, you can provide a custom parameter value

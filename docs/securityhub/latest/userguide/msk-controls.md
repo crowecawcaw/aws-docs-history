@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon MSK
+# Security Hub CSPM controls for Amazon MSK
 
-These AWS Security Hub controls evaluate the Amazon Managed Streaming for Apache Kafka (Amazon MSK) service and resources. The
+These AWS Security Hub CSPM controls evaluate the Amazon Managed Streaming for Apache Kafka (Amazon MSK) service and resources. The
 controls might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -109,7 +109,7 @@ transit
 `AWS::KafkaConnect::Connector`
 
 **AWS Config rule:**
-`msk-connect-connector-encrypted` (custom Security Hub rule)
+`msk-connect-connector-encrypted` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 

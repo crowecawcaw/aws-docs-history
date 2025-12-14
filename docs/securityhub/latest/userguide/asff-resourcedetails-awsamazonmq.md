@@ -3,7 +3,7 @@
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAmazonMQ`
 resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsAmazonMQBroker
@@ -12,7 +12,7 @@ AWS Security Hub normalizes findings from various sources into ASFF. For backgro
 is a message broker environment running on Amazon MQ.
 
 The following example shows the ASFF for the `AwsAmazonMQBroker` object. To
-view descriptions of `AwsAmazonMQBroker` attributes, see [AwsAmazonMQBroker](../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md "../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md") in the _AWS Security Hub API Reference_.
+view descriptions of `AwsAmazonMQBroker` attributes, see [AwsAmazonMQBroker](../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md "../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md") in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

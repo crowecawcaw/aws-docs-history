@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon CloudWatch
+# Security Hub CSPM controls for Amazon CloudWatch
 
-These AWS Security Hub controls evaluate the Amazon CloudWatch service and resources. The controls might not
+These AWS Security Hub CSPM controls evaluate the Amazon CloudWatch service and resources. The controls might not
 be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -17,7 +17,7 @@ NIST.800-171.r2 3.14.7, PCI DSS v3.2.1/7.2.1
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -34,14 +34,14 @@ directly to groups and roles but not users. For a tutorial on how to set up an
 administrator for daily use, see [Creating your first IAM admin user and group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in
 the _IAM User Guide_
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 1.7 in the [CIS AWS Foundations Benchmark v1.4.0](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -49,16 +49,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -102,7 +102,7 @@ v1.2.0/3.1, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -115,14 +115,14 @@ CIS recommends that you create a metric filter and alarm for unauthorized API
 calls. Monitoring unauthorized API calls helps reveal application errors and might
 reduce time to detect malicious activity.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 3.1 in the [CIS AWS Foundations Benchmark v1.2](https://d1.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf "https://d1.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -130,16 +130,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -181,7 +181,7 @@ _Amazon CloudWatch User Guide_. Use the following values:
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -194,14 +194,14 @@ CIS recommends that you create a metric filter and alarm console logins that
 aren't protected by MFA. Monitoring for single-factor console logins increases
 visibility into accounts that aren't protected by MFA.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 3.2 in the [CIS AWS Foundations Benchmark v1.2](https://d1.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf "https://d1.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -209,16 +209,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -262,7 +262,7 @@ NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -277,7 +277,7 @@ authorization controls remain intact.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -285,16 +285,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -345,7 +345,7 @@ NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -358,14 +358,14 @@ CIS recommends that you create a metric filter and alarm for changes to CloudTra
 configuration settings. Monitoring these changes helps ensure sustained visibility
 to activities in the account.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 4.5 in the [CIS AWS Foundations Benchmark v1.4.0](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -373,16 +373,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -426,7 +426,7 @@ NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -440,14 +440,14 @@ authentication attempts. Monitoring failed console logins might decrease lead ti
 to detect an attempt to brute-force a credential, which might provide an indicator,
 such as source IP, that you can use in other event correlations.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 4.6 in the [CIS AWS Foundations Benchmark v1.4.0](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -455,16 +455,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -508,7 +508,7 @@ NIST.800-171.r2 3.13.16, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -521,7 +521,7 @@ CIS recommends that you create a metric filter and alarm for customer managed ke
 changed state to disabled or scheduled deletion. Data encrypted with disabled or
 deleted keys is no longer accessible.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 4.7 in the [CIS AWS Foundations Benchmark v1.4.0](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters. The control also fails if
@@ -530,7 +530,7 @@ added to the metric filters. The control also fails if
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -538,16 +538,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -591,7 +591,7 @@ NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -604,14 +604,14 @@ CIS recommends that you create a metric filter and alarm for changes to S3 bucke
 policies. Monitoring these changes might reduce time to detect and correct
 permissive policies on sensitive S3 buckets.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 4.8 in the [CIS AWS Foundations Benchmark v1.4.0](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -619,16 +619,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -672,7 +672,7 @@ NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -685,14 +685,14 @@ CIS recommends that you create a metric filter and alarm for changes to AWS Conf
 configuration settings. Monitoring these changes helps ensure sustained visibility
 of configuration items in the account.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 4.9 in the [CIS AWS Foundations Benchmark v1.4.0](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -700,16 +700,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -753,7 +753,7 @@ NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -767,14 +767,14 @@ CIS recommends that you create a metric filter and alarm for changes to security
 groups. Monitoring these changes helps ensure that resources and services aren't
 unintentionally exposed.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 4.10 in the [CIS AWS Foundations Benchmark v1.4.0](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -782,16 +782,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -835,7 +835,7 @@ NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -849,14 +849,14 @@ CIS recommends that you create a metric filter and alarm for changes to NACLs.
 Monitoring these changes helps ensure that AWS resources and services aren't
 unintentionally exposed.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 4.11 in the [CIS AWS Foundations Benchmark v1.4.0](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -864,16 +864,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -917,7 +917,7 @@ NIST.800-171.r2 3.13.1
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -931,14 +931,14 @@ CIS recommends that you create a metric filter and alarm for changes to network
 gateways. Monitoring these changes helps ensure that all ingress and egress traffic
 traverses the VPC border via a controlled path.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 4.12 in the [CIS AWS Foundations Benchmark v1.2](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -946,16 +946,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -999,7 +999,7 @@ NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -1015,7 +1015,7 @@ expected path.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -1023,16 +1023,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -1081,7 +1081,7 @@ NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
 
 **Resource type:** `AWS::Logs::MetricFilter`, `AWS::CloudWatch::Alarm`, `AWS::CloudTrail::Trail`, `AWS::SNS::Topic`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
@@ -1096,14 +1096,14 @@ CIS recommends that you create a metric filter and alarm for changes to VPCs.
 Monitoring these changes helps ensure that authentication and authorization controls
 remain intact.
 
-To run this check, Security Hub uses custom logic to perform the exact audit steps
+To run this check, Security Hub CSPM uses custom logic to perform the exact audit steps
 prescribed for control 4.14 in the [CIS AWS Foundations Benchmark v1.4.0](https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1 "https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:2e5fec5c-5e99-4fb5-b08d-bb46b14754c1#pageNum=1"). This control fails if the exact
 metric filters prescribed by CIS are not used. Additional fields or terms cannot be
 added to the metric filters.
 
 ###### Note
 
-When Security Hub performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
+When Security Hub CSPM performs the check for this control, it looks for CloudTrail trails that the current account uses. These trails might be organization trails that belong to another account. Multi-Region trails also might be based in a different Region.
 
 The check results in `FAILED` findings in the following cases:
 
@@ -1111,16 +1111,16 @@ The check results in `FAILED` findings in the following cases:
 - The available trails that are in the current Region and that are owned by current account do not meet the control requirements.
   The check results in a control status of `NO_DATA` in the following cases:
 
-- A multi-Region trail is based in a different Region. Security Hub can only generate findings in the Region where the trail is based.
-- A multi-Region trail belongs to a different account. Security Hub can only generate findings for the account that owns the trail.
+- A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
+- A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
 We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
-accounts. In member accounts, Security Hub only generates findings for member-owned resources. Findings that pertain to organization trails
-are generated in the resource owner's account. You can see these findings in your Security Hub delegated administrator account by using cross-Region
+accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
+are generated in the resource owner's account. You can see these findings in your Security Hub CSPM delegated administrator account by using cross-Region
 aggregation.
-For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub generates `WARNING` findings for the control.
+For the alarm, the current account must either own the referenced Amazon SNS topic, or must get access to the Amazon SNS topic by calling `ListSubscriptionsByTopic`. Otherwise Security Hub CSPM generates `WARNING` findings for the control.
 
 ### Remediation
 
@@ -1173,11 +1173,11 @@ NIST.800-53.r5 SI-4(5), NIST.800-171.r2 3.3.4, NIST.800-171.r2 3.14.6
 
 **Parameters:**
 
-| Parameter                        | Description                                                                                                                                                   | Type    | Allowed custom values | Security Hub default value |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `alarmActionRequired`            | The control produces a `PASSED` finding if the parameter is set to `true`<br>and the alarm has an action when the alarm state changes to `ALARM`.             | Boolean | Not customizable      | `true`                     |
-| `insufficientDataActionRequired` | The control produces a `PASSED` finding if the parameter is set to `true`<br>and the alarm has an action when the alarm state changes to `INSUFFICIENT_DATA`. | Boolean | `true` or `false`     | `false`                    |
-| `okActionRequired`               | The control produces a `PASSED` finding if the parameter is set to `true`<br>and the alarm has an action when the alarm state changes to `OK`.                | Boolean | `true` or `false`     | `false`                    |
+| Parameter                        | Description                                                                                                                                                   | Type    | Allowed custom values | Security Hub CSPM default value |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `alarmActionRequired`            | The control produces a `PASSED` finding if the parameter is set to `true`<br>and the alarm has an action when the alarm state changes to `ALARM`.             | Boolean | Not customizable      | `true`                          |
+| `insufficientDataActionRequired` | The control produces a `PASSED` finding if the parameter is set to `true`<br>and the alarm has an action when the alarm state changes to `INSUFFICIENT_DATA`. | Boolean | `true` or `false`     | `false`                         |
+| `okActionRequired`               | The control produces a `PASSED` finding if the parameter is set to `true`<br>and the alarm has an action when the alarm state changes to `OK`.                | Boolean | `true` or `false`     | `false`                         |
 
 This control checks whether an Amazon CloudWatch alarm has at least one action configured for the `ALARM` state. The control
 fails if the alarm doesn't have an action configured for the `ALARM` state. Optionally, you can include custom
@@ -1185,7 +1185,7 @@ parameter values to also require alarm actions for the `INSUFFICIENT_DATA` or `O
 
 ###### Note
 
-Security Hub evaluates this control based on CloudWatch metric alarms. Metric alarms may be part of composite alarms
+Security Hub CSPM evaluates this control based on CloudWatch metric alarms. Metric alarms may be part of composite alarms
 that have the specified actions configured. The control generates `FAILED` findings in the following cases:
 
 - The specified actions aren't configured for a metric alarm.
@@ -1227,13 +1227,13 @@ NIST.800-53.r5 SI-12
 
 **Parameters:**
 
-| Parameter          | Description                                                | Type | Allowed custom values            | Security Hub default value |
-| ------------------ | ---------------------------------------------------------- | ---- | -------------------------------- | -------------------------- |
-| `minRetentionTime` | Minimum retention period in days for CloudWatch log groups | Enum | `365, 400, 545, 731, 1827, 3653` | `365`                      |
+| Parameter          | Description                                                | Type | Allowed custom values            | Security Hub CSPM default value |
+| ------------------ | ---------------------------------------------------------- | ---- | -------------------------------- | ------------------------------- |
+| `minRetentionTime` | Minimum retention period in days for CloudWatch log groups | Enum | `365, 400, 545, 731, 1827, 3653` | `365`                           |
 
 This control checks whether an Amazon CloudWatch log group has a retention period of at least the specified number of days.
 The control fails if the retention period is less than the specified number. Unless you provide a custom parameter value for the
-retention period, Security Hub uses a default value of 365 days.
+retention period, Security Hub CSPM uses a default value of 365 days.
 
 CloudWatch Logs centralize logs from all of your systems, applications, and AWS services in a single, highly scalable service.
 You can use CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (EC2) instances, AWS CloudTrail, Amazon Route 53, and other sources.
@@ -1269,7 +1269,7 @@ This control checks whether CloudWatch alarm actions are activated (`ActionEnabl
 
 ###### Note
 
-Security Hub evaluates this control based on CloudWatch metric alarms. Metric alarms may be part of composite alarms
+Security Hub CSPM evaluates this control based on CloudWatch metric alarms. Metric alarms may be part of composite alarms
 that have the alarm actions activated. The control generates `FAILED` findings in the following cases:
 
 - The specified actions aren't configured for a metric alarm.

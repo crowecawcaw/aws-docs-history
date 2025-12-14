@@ -1,6 +1,6 @@
-# Security Hub controls for ELB
+# Security Hub CSPM controls for ELB
 
-These AWS Security Hub controls evaluate the Elastic Load Balancing service and resources. The controls might
+These AWS Security Hub CSPM controls evaluate the Elastic Load Balancing service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -86,7 +86,7 @@ AWS Certificate Manager (ACM). The control fails if the Classic Load Balancer co
 does not use a certificate provided by ACM.
 
 To create a certificate, you can use either ACM or a tool that supports the SSL and
-TLS protocols, such as OpenSSL. Security Hub recommends that you use ACM to create or import
+TLS protocols, such as OpenSSL. Security Hub CSPM recommends that you use ACM to create or import
 certificates for your load balancer.
 
 ACM integrates with Classic Load Balancers so that you can deploy the certificate on your load
@@ -311,7 +311,7 @@ NIST.800-53.r5 CM-2
 `AWS::ElasticLoadBalancing::LoadBalancer`
 
 **AWS Config rule:**
-`elb-connection-draining-enabled` (custom Security Hub rule)
+`elb-connection-draining-enabled` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
@@ -433,14 +433,14 @@ SI-13(5)
 
 **Parameters:**
 
-| Parameter              | Description                          | Type | Allowed custom values | Security Hub default value |
-| ---------------------- | ------------------------------------ | ---- | --------------------- | -------------------------- |
-| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                        |
+| Parameter              | Description                          | Type | Allowed custom values | Security Hub CSPM default value |
+| ---------------------- | ------------------------------------ | ---- | --------------------- | ------------------------------- |
+| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                             |
 
 This control checks whether a Classic Load Balancer has been configured to span at least the specified
 number of Availability Zones (AZs). The control fails if the Classic Load Balancer does not span at
 least the specified number of AZs. Unless you provide a custom parameter value for the
-minimum number of AZs, Security Hub uses a default value of two AZs.
+minimum number of AZs, Security Hub CSPM uses a default value of two AZs.
 
 A Classic Load Balancer can be set up to distribute incoming requests across Amazon EC2 instances in a
 single Availability Zone or multiple Availability Zones. A Classic Load Balancer that does not span
@@ -512,15 +512,15 @@ SI-13(5)
 
 **Parameters:**
 
-| Parameter              | Description                          | Type | Allowed custom values | Security Hub default value |
-| ---------------------- | ------------------------------------ | ---- | --------------------- | -------------------------- |
-| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                        |
+| Parameter              | Description                          | Type | Allowed custom values | Security Hub CSPM default value |
+| ---------------------- | ------------------------------------ | ---- | --------------------- | ------------------------------- |
+| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                             |
 
 This control checks whether an Elastic Load Balancer V2 (Application, Network, or
 Gateway Load Balancer) has registered instances from at least the specified number of Availability Zones
 (AZs). The control fails if an Elastic Load Balancer V2 doesn't have instances
 registered in at least the specified number of AZs. Unless you provide a custom
-parameter value for the minimum number of AZs, Security Hub uses a default value of two
+parameter value for the minimum number of AZs, Security Hub CSPM uses a default value of two
 AZs.
 
 ELB automatically distributes your incoming traffic across multiple targets, such as

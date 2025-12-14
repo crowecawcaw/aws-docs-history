@@ -123,12 +123,12 @@ Region
 
 The [AWS Control Tower
 service-managed standard](service-managed-standard-aws-control-tower.md "service-managed-standard-aws-control-tower.md") is available only in AWS Regions that AWS Control Tower
-supports, including AWS GovCloud (US) Regions. For a list of Regions that AWS Control Tower currently
+supports. For a list of Regions that AWS Control Tower currently
 supports, see [How AWS Regions Work With
 AWS Control Tower](../../../controltower/latest/userguide/region-how.md "../../../controltower/latest/userguide/region-how.md") in the _AWS Control Tower User Guide_.
 
 The [AWS Resource Tagging standard](standards-tagging.md "standards-tagging.md") isn't
-available in the Asia Pacific (New Zealand) and Asia Pacific (Taipei) Regions.
+available in the Asia Pacific (Taipei) Region.
 
 Other security standards are available in all the Regions where Security Hub CSPM is currently available.
 

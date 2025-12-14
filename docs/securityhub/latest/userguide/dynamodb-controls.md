@@ -1,6 +1,6 @@
-# Security Hub controls for DynamoDB
+# Security Hub CSPM controls for DynamoDB
 
-These AWS Security Hub controls evaluate the Amazon DynamoDB service and resources. The controls might
+These AWS Security Hub CSPM controls evaluate the Amazon DynamoDB service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -22,12 +22,12 @@ Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-
 
 **Parameters:**
 
-| Parameter                     | Description                                                                  | Type    | Valid custom values | Security Hub default value |
-| ----------------------------- | ---------------------------------------------------------------------------- | ------- | ------------------- | -------------------------- |
-| `minProvisionedReadCapacity`  | Minimum number of provisioned read capacity units for DynamoDB auto scaling  | Integer | `1` to `40000`      | No default value           |
-| `targetReadUtilization`       | Target utilization percentage for read capacity                              | Integer | `20` to `90`        | No default value           |
-| `minProvisionedWriteCapacity` | Minimum number of provisioned write capacity units for DynamoDB auto scaling | Integer | `1` to `40000`      | No default value           |
-| `targetWriteUtilization`      | Target utilization percentage for write capacity                             | Integer | `20` to `90`        | No default value           |
+| Parameter                     | Description                                                                  | Type    | Valid custom values | Security Hub CSPM default value |
+| ----------------------------- | ---------------------------------------------------------------------------- | ------- | ------------------- | ------------------------------- |
+| `minProvisionedReadCapacity`  | Minimum number of provisioned read capacity units for DynamoDB auto scaling  | Integer | `1` to `40000`      | No default value                |
+| `targetReadUtilization`       | Target utilization percentage for read capacity                              | Integer | `20` to `90`        | No default value                |
+| `minProvisionedWriteCapacity` | Minimum number of provisioned write capacity units for DynamoDB auto scaling | Integer | `1` to `40000`      | No default value                |
+| `targetWriteUtilization`      | Target utilization percentage for write capacity                             | Integer | `20` to `90`        | No default value                |
 
 This control checks whether an Amazon DynamoDB table can scale its read and write capacity as
 needed. The control fails if the table doesn't use on-demand capacity mode or provisioned mode
@@ -133,9 +133,9 @@ NIST.800-53.r5 SI-13(5)
 
 **Parameters:**
 
-| Parameter              | Description                                                                                                               | Type    | Allowed custom values | Security Hub default value |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `backupVaultLockCheck` | The control produces a `PASSED` finding if the parameter is set to `true` and<br>the resource uses AWS Backup Vault Lock. | Boolean | `true` or `false`     | No default value           |
+| Parameter              | Description                                                                                                               | Type    | Allowed custom values | Security Hub CSPM default value |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `backupVaultLockCheck` | The control produces a `PASSED` finding if the parameter is set to `true` and<br>the resource uses AWS Backup Vault Lock. | Boolean | `true` or `false`     | No default value                |
 
 This control evaluates whether an Amazon DynamoDB table in `ACTIVE` state is covered by a backup plan. The control
 fails if the DynamoDB table isn't covered by a backup plan. If you set the `backupVaultLockCheck`
@@ -159,15 +159,15 @@ To add a DynamoDB table to an AWS Backup backup plan, see [Assigning resources t
 **Resource type:**
 `AWS::DynamoDB::Table`
 
-**AWS Config rule:** `tagged-dynamodb-table` (custom Security Hub rule)
+**AWS Config rule:** `tagged-dynamodb-table` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon DynamoDB table has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the table doesn’t have any tag keys or if it doesn’t have all the keys specified in the

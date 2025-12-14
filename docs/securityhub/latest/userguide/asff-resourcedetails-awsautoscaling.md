@@ -2,7 +2,7 @@
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAutoScaling` resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsAutoScalingAutoScalingGroup
@@ -13,7 +13,7 @@ automatic scaling group.
 The following is an example `AwsAutoScalingAutoScalingGroup` finding in the
 AWS Security Finding Format (ASFF). To view descriptions of
 `AwsAutoScalingAutoScalingGroup` attributes, see [AwsAutoScalingAutoScalingGroupDetails](../../1.0/APIReference/API_AwsAutoScalingAutoScalingGroupDetails.md "../../1.0/APIReference/API_AwsAutoScalingAutoScalingGroupDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 
@@ -67,7 +67,7 @@ the AWS Security Finding Format (ASFF).
 
 To view descriptions of `AwsAutoScalingLaunchConfiguration` attributes, see
 [AwsAutoScalingLaunchConfigurationDetails](../../1.0/APIReference/API_AwsAutoScalingLaunchConfigurationDetails.md "../../1.0/APIReference/API_AwsAutoScalingLaunchConfigurationDetails.md") in the
-_AWS Security Hub API Reference_.
+_AWS Security Hub CSPM API Reference_.
 
 **Example**
 

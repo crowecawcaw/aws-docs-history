@@ -1,6 +1,6 @@
-# Security Hub controls for Step Functions
+# Security Hub CSPM controls for Step Functions
 
-These AWS Security Hub controls evaluate the AWS Step Functions service and resources.
+These AWS Security Hub CSPM controls evaluate the AWS Step Functions service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -25,9 +25,9 @@ logging turned on
 
 **Parameters:**
 
-| Parameter  | Description           | Type | Allowed custom values | Security Hub default value |
-| ---------- | --------------------- | ---- | --------------------- | -------------------------- |
-| `logLevel` | Minimum logging level | Enum | `ALL, ERROR, FATAL`   | No default value           |
+| Parameter  | Description           | Type | Allowed custom values | Security Hub CSPM default value |
+| ---------- | --------------------- | ---- | --------------------- | ------------------------------- |
+| `logLevel` | Minimum logging level | Enum | `ALL, ERROR, FATAL`   | No default value                |
 
 This controls checks whether an AWS Step Functions state machine has logging turned on. The control fails if a state machine
 doesn't have logging turned on. If you provide a custom value for the `logLevel` parameter, the control passes
@@ -52,15 +52,15 @@ To turn on logging for a Step Functions state machine, see [Configure logging](.
 **Resource type:**
 `AWS::StepFunctions::Activity`
 
-**AWS Config rule:**`tagged-stepfunctions-activity` (custom Security Hub rule)
+**AWS Config rule:**`tagged-stepfunctions-activity` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an AWS Step Functions activity has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the activity doesn’t have any tag keys or if it doesn’t have all the keys specified in the

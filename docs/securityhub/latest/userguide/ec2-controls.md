@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon EC2
+# Security Hub CSPM controls for Amazon EC2
 
-These AWS Security Hub controls evaluate the Amazon Elastic Compute Cloud (Amazon EC2) service and resources. The
+These AWS Security Hub CSPM controls evaluate the Amazon Elastic Compute Cloud (Amazon EC2) service and resources. The
 controls might not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
@@ -164,14 +164,14 @@ NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
 
 **Parameters:**
 
-| Parameter     | Description                                                                                                | Type    | Allowed custom values | Security Hub default value |
-| ------------- | ---------------------------------------------------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `AllowedDays` | Number of days the EC2 instance is allowed to be in a<br>stopped state before generating a failed finding. | Integer | `1` to `365`          | `30`                       |
+| Parameter     | Description                                                                                                | Type    | Allowed custom values | Security Hub CSPM default value |
+| ------------- | ---------------------------------------------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `AllowedDays` | Number of days the EC2 instance is allowed to be in a<br>stopped state before generating a failed finding. | Integer | `1` to `365`          | `30`                            |
 
 This control checks whether an Amazon EC2 instance has been stopped for longer than the
 allowed number of days. The control fails if an EC2 instance is stopped for
 longer than the maximum allowed time period. Unless you provide a custom parameter value
-for the maximum allowed time period, Security Hub uses a default value of 30 days.
+for the maximum allowed time period, Security Hub CSPM uses a default value of 30 days.
 
 When an EC2 instance has not run for a significant period of time, it creates a
 security risk because the instance is not being actively maintained (analyzed, patched,
@@ -225,7 +225,7 @@ traffic going to and from network interfaces in your VPC. After you create a flo
 you can view and retrieve its data in CloudWatch Logs. To reduce cost, you can also send your flow
 logs to Amazon S3.
 
-Security Hub recommends that you enable flow logging for packet rejects for VPCs. Flow logs
+Security Hub CSPM recommends that you enable flow logging for packet rejects for VPCs. Flow logs
 provide visibility into network traffic that traverses the VPC and can detect anomalous
 traffic or provide insight during security workflows.
 
@@ -316,7 +316,7 @@ These vulnerabilities could be used to try to access the IMDS.
 - Server-side request forgery (SSRF) vulnerabilities
 - Open Layer 3 firewalls and network address translation (NAT)
 
-Security Hub recommends that you configure your EC2 instances with IMDSv2.
+Security Hub CSPM recommends that you configure your EC2 instances with IMDSv2.
 
 ### Remediation
 
@@ -413,9 +413,9 @@ This control checks whether a service endpoint for Amazon EC2 is created for eac
 control fails if a VPC does not have a VPC endpoint created for the Amazon EC2 service.
 
 This control evaluates resources in single account. It cannot describe resources that
-are outside of the account. Because AWS Config and Security Hub do not conduct cross-account checks,
+are outside of the account. Because AWS Config and Security Hub CSPM do not conduct cross-account checks,
 you will see `FAILED` findings for VPCs that are shared across accounts.
-Security Hub recommends that you suppress these `FAILED` findings.
+Security Hub CSPM recommends that you suppress these `FAILED` findings.
 
 To improve the security posture of your VPC, you can configure Amazon EC2 to use an
 interface VPC endpoint. Interface endpoints are powered by AWS PrivateLink, a technology
@@ -697,10 +697,10 @@ Security group configuration
 
 **Parameters:**
 
-| Parameter            | Description                  | Type                                                    | Allowed custom values | Security Hub default value |
-| -------------------- | ---------------------------- | ------------------------------------------------------- | --------------------- | -------------------------- |
-| `authorizedTcpPorts` | List of authorized TCP ports | IntegerList (minimum of 1 item and maximum of 32 items) | `1` to `65535`        | `[80,443]`                 |
-| `authorizedUdpPorts` | List of authorized UDP ports | IntegerList (minimum of 1 item and maximum of 32 items) | `1` to `65535`        | No default value           |
+| Parameter            | Description                  | Type                                                    | Allowed custom values | Security Hub CSPM default value |
+| -------------------- | ---------------------------- | ------------------------------------------------------- | --------------------- | ------------------------------- |
+| `authorizedTcpPorts` | List of authorized TCP ports | IntegerList (minimum of 1 item and maximum of 32 items) | `1` to `65535`        | `[80,443]`                      |
+| `authorizedUdpPorts` | List of authorized UDP ports | IntegerList (minimum of 1 item and maximum of 32 items) | `1` to `65535`        | No default value                |
 
 This control checks whether an Amazon EC2 security group permits unrestricted incoming
 traffic from unauthorized ports. The control status is determined as follows:
@@ -888,7 +888,7 @@ not associated with an Amazon EC2 instance or an elastic network interface.
 
 ###### Important
 
-On September 20, 2023, Security Hub removed this control from the AWS Foundational
+On September 20, 2023, Security Hub CSPM removed this control from the AWS Foundational
 Security Best Practices and NIST SP 800-53 Revision 5 standards. This control continues to
 be part of the AWS Control Tower service-managed standard. This control produces a passed
 finding if security groups are attached to EC2 instances or an elastic
@@ -1040,9 +1040,9 @@ CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5)
 
 **Parameters:**
 
-| Parameter              | Description                                                                                                                  | Type    | Allowed custom values | Security Hub default value |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `backupVaultLockCheck` | The control produces a `PASSED` finding if the<br>parameter is set to `true` and the resource uses AWS Backup<br>Vault Lock. | Boolean | `true` or `false`     | No default value           |
+| Parameter              | Description                                                                                                                  | Type    | Allowed custom values | Security Hub CSPM default value |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `backupVaultLockCheck` | The control produces a `PASSED` finding if the<br>parameter is set to `true` and the resource uses AWS Backup<br>Vault Lock. | Boolean | `true` or `false`     | No default value                |
 
 This control evaluates if an Amazon EBS volume in `in-use` state is covered by a
 backup plan. The control fails if an EBS volume isn't covered by a backup plan. If you
@@ -1070,15 +1070,15 @@ be tagged
 `AWS::EC2::TransitGatewayAttachment`
 
 **AWS Config rule:**
-`tagged-ec2-transitgatewayattachment` (custom Security Hub rule)
+`tagged-ec2-transitgatewayattachment` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 transit gateway attachment has tags with the
 specific keys defined in the parameter `requiredTagKeys`. The control fails
@@ -1125,15 +1125,15 @@ be tagged
 `AWS::EC2::TransitGatewayRouteTable`
 
 **AWS Config rule:**
-`tagged-ec2-transitgatewayroutetable` (custom Security Hub rule)
+`tagged-ec2-transitgatewayroutetable` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 transit gateway route table has tags with the
 specific keys defined in the parameter `requiredTagKeys`. The control fails
@@ -1180,15 +1180,15 @@ tagged
 `AWS::EC2::NetworkInterface`
 
 **AWS Config rule:**
-`tagged-ec2-networkinterface` (custom Security Hub rule)
+`tagged-ec2-networkinterface` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 network interface has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the network
@@ -1234,15 +1234,15 @@ tagged
 `AWS::EC2::CustomerGateway`
 
 **AWS Config rule:**
-`tagged-ec2-customergateway` (custom Security Hub rule)
+`tagged-ec2-customergateway` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 customer gateway has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the customer
@@ -1288,15 +1288,15 @@ tagged
 `AWS::EC2::EIP`
 
 **AWS Config rule:**
-`tagged-ec2-eip` (custom Security Hub rule)
+`tagged-ec2-eip` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 Elastic IP address has tags with the specific
 keys defined in the parameter `requiredTagKeys`. The control fails if the
@@ -1341,15 +1341,15 @@ resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "..
 `AWS::EC2::Instance`
 
 **AWS Config rule:**
-`tagged-ec2-instance` (custom Security Hub rule)
+`tagged-ec2-instance` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 instance has tags with the specific keys defined
 in the parameter `requiredTagKeys`. The control fails if the instance doesn’t
@@ -1395,15 +1395,15 @@ tagged
 `AWS::EC2::InternetGateway`
 
 **AWS Config rule:**
-`tagged-ec2-internetgateway` (custom Security Hub rule)
+`tagged-ec2-internetgateway` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 internet gateway has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the internet
@@ -1449,15 +1449,15 @@ tagged
 `AWS::EC2::NatGateway`
 
 **AWS Config rule:**
-`tagged-ec2-natgateway` (custom Security Hub rule)
+`tagged-ec2-natgateway` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 network address translation (NAT) gateway has
 tags with the specific keys defined in the parameter `requiredTagKeys`. The
@@ -1504,15 +1504,15 @@ tagged
 `AWS::EC2::NetworkAcl`
 
 **AWS Config rule:**
-`tagged-ec2-networkacl` (custom Security Hub rule)
+`tagged-ec2-networkacl` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 network access control list (network ACL) has
 tags with the specific keys defined in the parameter `requiredTagKeys`. The
@@ -1559,15 +1559,15 @@ tagged
 `AWS::EC2::RouteTable`
 
 **AWS Config rule:**
-`tagged-ec2-routetable` (custom Security Hub rule)
+`tagged-ec2-routetable` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 route table has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the route
@@ -1613,15 +1613,15 @@ tagged
 `AWS::EC2::SecurityGroup`
 
 **AWS Config rule:**
-`tagged-ec2-securitygroup` (custom Security Hub rule)
+`tagged-ec2-securitygroup` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 security group has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the security
@@ -1665,15 +1665,15 @@ resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "..
 `AWS::EC2::Subnet`
 
 **AWS Config rule:**
-`tagged-ec2-subnet` (custom Security Hub rule)
+`tagged-ec2-subnet` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 subnet has tags with the specific keys defined in
 the parameter `requiredTagKeys`. The control fails if the subnet doesn’t have
@@ -1717,15 +1717,15 @@ resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "..
 `AWS::EC2::Volume`
 
 **AWS Config rule:**
-`tagged-ec2-volume` (custom Security Hub rule)
+`tagged-ec2-volume` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 volume has tags with the specific keys defined in
 the parameter `requiredTagKeys`. The control fails if the volume doesn’t have
@@ -1769,15 +1769,15 @@ resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "..
 `AWS::EC2::VPC`
 
 **AWS Config rule:**
-`tagged-ec2-vpc` (custom Security Hub rule)
+`tagged-ec2-vpc` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon Virtual Private Cloud (Amazon VPC) has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the Amazon VPC
@@ -1823,15 +1823,15 @@ tagged
 `AWS::EC2::VPCEndpointService`
 
 **AWS Config rule:**
-`tagged-ec2-vpcendpointservice` (custom Security Hub rule)
+`tagged-ec2-vpcendpointservice` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon VPC endpoint service has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the endpoint
@@ -1876,15 +1876,15 @@ _AWS PrivateLink Guide_.
 `AWS::EC2::FlowLog`
 
 **AWS Config rule:**
-`tagged-ec2-flowlog` (custom Security Hub rule)
+`tagged-ec2-flowlog` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon VPC flow log has tags with the specific keys defined
 in the parameter `requiredTagKeys`. The control fails if the flow log doesn’t
@@ -1930,15 +1930,15 @@ tagged
 `AWS::EC2::VPCPeeringConnection`
 
 **AWS Config rule:**
-`tagged-ec2-vpcpeeringconnection` (custom Security Hub rule)
+`tagged-ec2-vpcpeeringconnection` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon VPC peering connection has tags with the specific
 keys defined in the parameter `requiredTagKeys`. The control fails if the
@@ -1985,15 +1985,15 @@ tagged
 `AWS::EC2::VPNGateway`
 
 **AWS Config rule:**
-`tagged-ec2-vpngateway` (custom Security Hub rule)
+`tagged-ec2-vpngateway` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 VPN gateway has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the VPN
@@ -2080,15 +2080,15 @@ tagged
 `AWS::EC2::TransitGateway`
 
 **AWS Config rule:**
-`tagged-ec2-transitgateway` (custom Security Hub rule)
+`tagged-ec2-transitgateway` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
 This control checks whether an Amazon EC2 transit gateway has tags with the specific keys
 defined in the parameter `requiredTagKeys`. The control fails if the transit
@@ -2143,10 +2143,10 @@ Security group configuration
 
 **Parameters:**
 
-| Parameter       | Description                                      | Type        | Allowed custom values | Security Hub default value |
-| --------------- | ------------------------------------------------ | ----------- | --------------------- | -------------------------- |
-| `ipType`        | The IP version                                   | String      | Not customizable      | `IPv4`                     |
-| `restrictPorts` | List of ports that should reject ingress traffic | IntegerList | Not customizable      | `22,3389`                  |
+| Parameter       | Description                                      | Type        | Allowed custom values | Security Hub CSPM default value |
+| --------------- | ------------------------------------------------ | ----------- | --------------------- | ------------------------------- |
+| `ipType`        | The IP version                                   | String      | Not customizable      | `IPv4`                          |
+| `restrictPorts` | List of ports that should reject ingress traffic | IntegerList | Not customizable      | `22,3389`                       |
 
 This control checks whether an Amazon EC2 security group allows ingress from 0.0.0.0/0 to
 remote server administration ports (ports 22 and 3389). The control fails if the
@@ -2188,10 +2188,10 @@ Security group configuration
 
 **Parameters:**
 
-| Parameter       | Description                                      | Type        | Allowed custom values | Security Hub default value |
-| --------------- | ------------------------------------------------ | ----------- | --------------------- | -------------------------- |
-| `ipType`        | The IP version                                   | String      | Not customizable      | `IPv6`                     |
-| `restrictPorts` | List of ports that should reject ingress traffic | IntegerList | Not customizable      | `22,3389`                  |
+| Parameter       | Description                                      | Type        | Allowed custom values | Security Hub CSPM default value |
+| --------------- | ------------------------------------------------ | ----------- | --------------------- | ------------------------------- |
+| `ipType`        | The IP version                                   | String      | Not customizable      | `IPv6`                          |
+| `restrictPorts` | List of ports that should reject ingress traffic | IntegerList | Not customizable      | `22,3389`                       |
 
 This control checks whether an Amazon EC2 security group allows ingress from ::/0 to remote
 server administration ports (ports 22 and 3389). The control fails if the security group
@@ -2228,10 +2228,10 @@ rule that allows access to port 22 or port 3389.
 
 **Parameters:**
 
-| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub default value |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | -------------------------- |
-| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ecr.api`                  |
-| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value           |
+| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub CSPM default value |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | ------------------------------- |
+| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ecr.api`                       |
+| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value                |
 
 This control checks whether a virtual private cloud (VPC) that you manage has an interface VPC endpoint for Amazon ECR API. The control fails if the VPC doesn't have an interface VPC endpoint for ECR API.
 This control evaluates resources in a single account.
@@ -2258,10 +2258,10 @@ To configure a VPC endpoint, see [Access an AWS service using an interface VPC e
 
 **Parameters:**
 
-| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub default value |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | -------------------------- |
-| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ecr.dkr`                  |
-| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value           |
+| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub CSPM default value |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | ------------------------------- |
+| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ecr.dkr`                       |
+| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value                |
 
 This control checks whether a virtual private cloud (VPC) that you manage has an interface VPC endpoint for Docker Registry. The control fails if the VPC doesn't have an interface VPC endpoint for Docker Registry.
 This control evaluates resources in a single account.
@@ -2288,10 +2288,10 @@ To configure a VPC endpoint, see [Access an AWS service using an interface VPC e
 
 **Parameters:**
 
-| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub default value |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | -------------------------- |
-| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ssm`                      |
-| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value           |
+| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub CSPM default value |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | ------------------------------- |
+| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ssm`                           |
+| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value                |
 
 This control checks whether a virtual private cloud (VPC) that you manage has an interface VPC endpoint for AWS Systems Manager. The control fails if the VPC doesn't have an interface VPC endpoint for Systems Manager.
 This control evaluates resources in a single account.
@@ -2320,10 +2320,10 @@ Contacts
 
 **Parameters:**
 
-| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub default value |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | -------------------------- |
-| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ssm-contacts`             |
-| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value           |
+| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub CSPM default value |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | ------------------------------- |
+| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ssm-contacts`                  |
+| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value                |
 
 This control checks whether a virtual private cloud (VPC) that you manage has an interface VPC endpoint for AWS Systems Manager Incident Manager Contacts. The control fails if the VPC doesn't have an interface VPC endpoint for Systems Manager
 Incident Manager Contacts. This control evaluates resources in a single account.
@@ -2350,10 +2350,10 @@ To configure a VPC endpoint, see [Access an AWS service using an interface VPC e
 
 **Parameters:**
 
-| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub default value |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | -------------------------- |
-| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ssm-incidents`            |
-| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value           |
+| Parameter      | Required | Description                                                                                                                                                                                 | Type       | Allowed custom values              | Security Hub CSPM default value |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------- | ------------------------------- |
+| `serviceNames` | Required | The name of the service that the control evaluates                                                                                                                                          | String     | Not customizable                   | `ssm-incidents`                 |
+| `vpcIds`       | Optional | Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the control fails if the services specified in<br>the `serviceName` parameter don't have one of these VPC endpoints. | StringList | Customize with one or more VPC IDs | No default value                |
 
 This control checks whether a virtual private cloud (VPC) that you manage has an interface VPC endpoint for AWS Systems Manager Incident Manager. The control fails if the VPC doesn't have an interface VPC endpoint for Systems Manager Incident
 Manager. This control evaluates resources in a single account.
@@ -2447,15 +2447,15 @@ internet gateway traffic
 `AWS::EC2::VPCBlockPublicAccessOptions`
 
 **AWS Config rule:**
-`ec2-vpc-bpa-internet-gateway-blocked` (custom Security Hub rule)
+`ec2-vpc-bpa-internet-gateway-blocked` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter                        | Description                               | Type | Allowed custom values                     | Security Hub default value |
-| -------------------------------- | ----------------------------------------- | ---- | ----------------------------------------- | -------------------------- |
-| `vpcBpaInternetGatewayBlockMode` | String value of the VPC BPA options mode. | Enum | `block-bidirectional`,<br>`block-ingress` | No default value           |
+| Parameter                        | Description                               | Type | Allowed custom values                     | Security Hub CSPM default value |
+| -------------------------------- | ----------------------------------------- | ---- | ----------------------------------------- | ------------------------------- |
+| `vpcBpaInternetGatewayBlockMode` | String value of the VPC BPA options mode. | Enum | `block-bidirectional`,<br>`block-ingress` | No default value                |
 
 This control checks whether Amazon EC2 VPC Block Public Access (BPA) settings are
 configured to block internet gateway traffic for all Amazon VPCs in the AWS account.
@@ -2551,9 +2551,9 @@ Guide_.
 
 **Parameters:**
 
-| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 DHCP option set has the tag keys specified by the
 `requiredKeyTags` parameter. The control fails if the option set
@@ -2602,9 +2602,9 @@ Guide_.
 
 **Parameters:**
 
-| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 launch template has the tag keys specified by the
 `requiredKeyTags` parameter. The control fails if the launch
@@ -2653,9 +2653,9 @@ Guide_.
 
 **Parameters:**
 
-| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 prefix list has the tag keys specified by the
 `requiredKeyTags` parameter. The control fails if the prefix list
@@ -2706,9 +2706,9 @@ tagged
 
 **Parameters:**
 
-| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 traffic mirror session has the tag keys specified
 by the `requiredKeyTags` parameter. The control fails if the session
@@ -2759,9 +2759,9 @@ tagged
 
 **Parameters:**
 
-| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 traffic mirror filter has the tag keys specified
 by the `requiredKeyTags` parameter. The control fails if the filter
@@ -2812,9 +2812,9 @@ tagged
 
 **Parameters:**
 
-| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 traffic mirror target has the tag keys specified
 by the `requiredKeyTags` parameter. The control fails if the target
@@ -2946,3 +2946,29 @@ of the default version when it launches the instance. For more information, see
 [Modify
 a launch template](../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md "../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md") in the _Amazon EC2 User
 Guide_.
+
+## [EC2.182] Amazon EBS Snapshots should not be publicly accessible
+
+**Category:** Protect > Secure network configuration > Resources not publicly accessible
+
+**Severity:** High
+
+**Resource type:**
+`AWS::EC2::SnapshotBlockPublicAccess`
+
+**AWS Config rule:** `ebs-snapshot-block-public-access`
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+The control checks whether block public access is enabled to block all sharing of Amazon EBS snapshots. The control fails if block public access is not enabled to block all sharing for all Amazon EBS snapshots.
+
+To prevent public sharing of your Amazon EBS snapshots, you can enable block public access for snapshots. Once block public access for snapshots is enabled in a Region, any attempt to publicly share snapshots in that Region is automatically blocked.
+This helps improve the security of the snapshots and protect the snapshot data from unauthorized or unintended access.
+
+### Remediation
+
+To enable block public access for snapshots, see
+[Configure block public access for Amazon EBS snapshots](../../../ebs/latest/userguide/block-public-access-snapshots-enable.md "../../../ebs/latest/userguide/block-public-access-snapshots-enable.md") in the _Amazon EBS User
+Guide_. For **Block public access**, choose **Block all public access**.

@@ -3,7 +3,7 @@
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsMsk`
 resources.
 
-AWS Security Hub normalizes findings from various sources into ASFF. For background information about ASFF, see
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 ## AwsMskCluster
@@ -12,7 +12,7 @@ The `AwsMskCluster` object provides information about an Amazon Managed Streamin
 
 The following example shows the AWS Security Finding Format (ASFF) for the `AwsMskCluster` object. To view descriptions of `AwsMskCluster` attributes, see
 [AwsMskClusterDetails](../../1.0/APIReference/API_AwsMskClusterDetails.md "../../1.0/APIReference/API_AwsMskClusterDetails.md")
-in the _AWS Security Hub API Reference_.
+in the _AWS Security Hub CSPM API Reference_.
 
 **Example**
 

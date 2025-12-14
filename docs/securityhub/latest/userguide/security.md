@@ -1,4 +1,4 @@
-# Security in AWS Security Hub
+# Security in AWS Security Hub CSPM
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
 data center and network architecture that is built to meet the requirements of the most
@@ -14,23 +14,23 @@ _in_ the cloud:
   auditors regularly test and verify the effectiveness of our security as part of the
   [AWS compliance
   programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to
-  AWS Security Hub, see [AWS
+  AWS Security Hub CSPM, see [AWS
   Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - **Security in the cloud** – Your responsibility
   is determined by the AWS service that you use. You are also responsible for other
   factors including the sensitivity of your data, your company’s requirements, and
   applicable laws and regulations.
   This documentation helps you understand how to apply the shared responsibility model when
-  using Security Hub. The following topics show you how to configure Security Hub to meet your security and
+  using Security Hub CSPM. The following topics show you how to configure Security Hub CSPM to meet your security and
   compliance objectives. You also learn how to use other AWS services that help you to
-  monitor and secure your Security Hub resources.
+  monitor and secure your Security Hub CSPM resources.
 
 ###### Topics
 
-- [Data protection in AWS Security Hub](data-protection.md "data-protection.md")
-- [AWS Identity and Access Management for Security Hub](security-iam.md "security-iam.md")
-- [Compliance validation for AWS Security Hub](securityhub-compliance.md "securityhub-compliance.md")
+- [Data protection in AWS Security Hub CSPM](data-protection.md "data-protection.md")
+- [AWS Identity and Access Management for Security Hub CSPM](security-iam.md "security-iam.md")
+- [Compliance validation for AWS Security Hub CSPM](securityhub-compliance.md "securityhub-compliance.md")
 - [Resilience in AWS Security Hub](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in AWS Security Hub](infrastructure-security.md "infrastructure-security.md")
-- [AWS Security Hub and interface VPC endpoints
+- [Infrastructure security in AWS Security Hub CSPM](infrastructure-security.md "infrastructure-security.md")
+- [AWS Security Hub CSPM and interface VPC endpoints
   (AWS PrivateLink)](security-vpc-endpoints.md "security-vpc-endpoints.md")

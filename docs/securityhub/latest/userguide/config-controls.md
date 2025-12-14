@@ -1,6 +1,6 @@
-# Security Hub controls for AWS Config
+# Security Hub CSPM controls for AWS Config
 
-These Security Hub controls evaluate the AWS Config service and resources.
+These Security Hub CSPM controls evaluate the AWS Config service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -15,15 +15,15 @@ Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-
 
 **Resource type:** `AWS::::Account`
 
-**AWS Config rule:** None (custom Security Hub rule)
+**AWS Config rule:** None (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 
 **Parameters:**
 
-| Parameter                             | Description                                                                                                      | Type    | Allowed custom values | Security Hub default value |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | -------------------------- |
-| `includeConfigServiceLinkedRoleCheck` | The control doesn’t evaluate whether AWS Config uses the service-linked role if the parameter is set to `false`. | Boolean | `true` or `false`     | `true`                     |
+| Parameter                             | Description                                                                                                      | Type    | Allowed custom values | Security Hub CSPM default value |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `includeConfigServiceLinkedRoleCheck` | The control doesn’t evaluate whether AWS Config uses the service-linked role if the parameter is set to `false`. | Boolean | `true` or `false`     | `true`                          |
 
 This control checks whether AWS Config is enabled in your account in the current AWS Region, records all
 resources that correspond to controls that are enabled in the current Region, and uses the [service-linked AWS Config role](../../../config/latest/developerguide/using-service-linked-roles.md "../../../config/latest/developerguide/using-service-linked-roles.md").
@@ -53,14 +53,14 @@ automatic enablement of new controls or have a central configuration policy that
 automatically enables new controls. In these cases, if you don't record all resources, you must
 configure recording for resources that are associated with new controls in order to receive a `PASSED` finding.
 
-Security Hub security checks work as intended only if you enable AWS Config in all Regions and configure resource recording for
+Security Hub CSPM security checks work as intended only if you enable AWS Config in all Regions and configure resource recording for
 controls that require it.
 
 ###### Note
 
-Config.1 requires that AWS Config is enabled in all Regions in which you use Security Hub.
+Config.1 requires that AWS Config is enabled in all Regions in which you use Security Hub CSPM.
 
-Since Security Hub is a Regional service, the check performed for this control evaluates only the
+Since Security Hub CSPM is a Regional service, the check performed for this control evaluates only the
 current Region for the account.
 
 To allow security checks against IAM global resources in a Region, you must record IAM
@@ -71,7 +71,7 @@ identical across AWS Regions, we recommend that you record IAM global resources 
 global resource recording is turned on.
 
 The IAM globally recorded resource types that AWS Config supports are IAM users, groups, roles, and
-customer managed policies. You can consider disabling Security Hub controls that check these resource types in Regions where global
+customer managed policies. You can consider disabling Security Hub CSPM controls that check these resource types in Regions where global
 resource recording is turned off. For more information, see [Suggested controls to disable in Security Hub CSPM](controls-to-disable.md "controls-to-disable.md").
 
 ### Remediation

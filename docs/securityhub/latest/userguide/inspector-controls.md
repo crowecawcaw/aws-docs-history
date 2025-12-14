@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon Inspector
+# Security Hub CSPM controls for Amazon Inspector
 
-These AWS Security Hub controls evaluate the Amazon Inspector service and resources.
+These AWS Security Hub CSPM controls evaluate the Amazon Inspector service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -74,7 +74,7 @@ registry. This replaces basic scanning, which is provided at no charge by Amazon
 billed through Amazon Inspector. Enhanced scanning gives you the benefit of vulnerability scanning for both operating system and programming
 language packages at the registry level. You can review findings discovered using enhanced scanning at the image level, for each
 layer of the image, on the Amazon ECR console. Additionally, you can review and work with these findings in other services not available
-for basic scanning findings, including AWS Security Hub and Amazon EventBridge.
+for basic scanning findings, including AWS Security Hub CSPM and Amazon EventBridge.
 
 ### Remediation
 

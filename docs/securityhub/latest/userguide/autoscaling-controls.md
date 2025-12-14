@@ -1,6 +1,6 @@
-# Security Hub controls for Amazon EC2 Auto Scaling
+# Security Hub CSPM controls for Amazon EC2 Auto Scaling
 
-These Security Hub controls evaluate the Amazon EC2 Auto Scaling service and resources.
+These Security Hub CSPM controls evaluate the Amazon EC2 Auto Scaling service and resources.
 
 These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
@@ -52,13 +52,13 @@ To add ELB health checks, see [Add ELB health checks](../../../autoscaling/ec2/u
 
 **Parameters:**
 
-| Parameter              | Description                          | Type | Allowed custom values | Security Hub default value |
-| ---------------------- | ------------------------------------ | ---- | --------------------- | -------------------------- |
-| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                        |
+| Parameter              | Description                          | Type | Allowed custom values | Security Hub CSPM default value |
+| ---------------------- | ------------------------------------ | ---- | --------------------- | ------------------------------- |
+| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                             |
 
 This control checks whether an Amazon EC2 Auto Scaling group spans at least the specified number of Availability Zones (AZs). The
 control fails if an Amazon EC2 Auto Scaling group doesn't span at least the specified number of AZs. Unless you provide a custom parameter
-value for the minimum number of AZs, Security Hub uses a default value of two AZs.
+value for the minimum number of AZs, Security Hub CSPM uses a default value of two AZs.
 
 An Amazon EC2 Auto Scaling group that doesn't span multiple AZs can't launch instances in another AZ to compensate if the configured single
 AZ becomes unavailable. However, an Amazon EC2 Auto Scaling group with a single Availability Zone may be preferred in some use cases, such as batch
@@ -106,7 +106,7 @@ launch configuration with IMDSv2 enabled. For more information, see [Configure i
 
 ###### Important
 
-Security Hub retired this control in April 2024.
+Security Hub CSPM retired this control in April 2024.
 For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md").
 
 **Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
@@ -195,7 +195,7 @@ For more information about updating Amazon EC2 Auto Scaling instances, see [Upda
 
 This control checks whether an Amazon EC2 Amazon EC2 Auto Scaling group uses multiple instance types. The control fails if the Amazon EC2 Auto Scaling group has only one instance type defined.
 
-You can enhance availability by deploying your application across multiple instance types running in multiple Availability Zones. Security Hub
+You can enhance availability by deploying your application across multiple instance types running in multiple Availability Zones. Security Hub CSPM
 recommends using multiple instance types so that the Amazon EC2 Auto Scaling group can launch another instance type if there is insufficient instance capacity in your chosen Availability Zones.
 
 ### Remediation
@@ -241,15 +241,15 @@ For information about how to replace a launch configuration with a launch templa
 **Resource type:**
 `AWS::AutoScaling::AutoScalingGroup`
 
-**AWS Config rule:** `tagged-autoscaling-autoscalinggroup` (custom Security Hub rule)
+**AWS Config rule:** `tagged-autoscaling-autoscalinggroup` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
 This control checks whether an Amazon EC2 Auto Scaling group has tags with the specific keys defined in the parameter
 `requiredTagKeys`. The control fails if the Amazon EC2 Auto Scaling group doesn’t have any tag keys or if it doesn’t have all the keys specified in the
