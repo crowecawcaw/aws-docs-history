@@ -65,9 +65,9 @@ The Marketplace link in the left navigation of the AWS Control Tower console is 
 
 GDPR compliance is not required for services that reside only in the United States; therefore, it is not implemented in AWS Control Tower in AWS GovCloud (US) Regions.
 
-- **Security Hub controls**
+- **Security Hub CSPM controls**
 
-Some controls in the Security Hub standard named **Service-Managed Standard: AWS Control Tower** are not supported in AWS GovCloud (US) Regions. For a complete list of these controls by Region, see [Security Hub](govcloud-ash.md "govcloud-ash.md").
+Some controls in the Security Hub CSPM standard named **Service-Managed Standard: AWS Control Tower** are not supported in AWS GovCloud (US) Regions. For a complete list of these controls by Region, see [Security Hub CSPM](govcloud-ash.md "govcloud-ash.md").
 
 - **AWS Control Tower Account Factory for Terraform (AFT)** cannot be deployed by new AFT customers in AWS GovCloud (US) Regions, because AWS CodeStar Connections is not available to connect to a third-party version control system (VCS):
 - **Resource control policy (RCP) controls** are not available in AWS GovCloud (US) Regions.

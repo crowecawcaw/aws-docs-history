@@ -29,7 +29,7 @@ We strongly recommend that you do not use the root user for your everyday tasks,
 - [Tasks in AWS GovCloud (US) Regions that require root user access keys](#govcloud-tasks-require-root-user "#govcloud-tasks-require-root-user")
 - [Restore IAM Administrator access to the AWS Management Console for AWS GovCloud (US)](#restore-root-user-keys "#restore-root-user-keys")
 - [Edit or delete an Amazon S3 bucket policy for a bucket where I accidentally denied everyone access](#edit-s3-bucket-denied-access "#edit-s3-bucket-denied-access")
-- [Remediation of AWS Security Hub findings](#remediate-security-findings "#remediate-security-findings")
+- [Remediation of AWS Security Hub CSPM findings](#remediate-security-findings "#remediate-security-findings")
 - [Rotate my AWS GovCloud (US) account root user access keys](#rotate-access-keys "#rotate-access-keys")
 - [Deleting my AWS GovCloud (US) account root user access keys](#delete-govcloud-root-access-key "#delete-govcloud-root-access-key")
 - [Securing my AWS GovCloud (US) account root user access keys](#secure-govcloud-root-access-key "#secure-govcloud-root-access-key")
@@ -61,13 +61,13 @@ For info on removing root user access keys, see [Deleting my AWS GovCloud (US) a
 
 ### Method 2
 
-If AWS Security Hub is enabled on your account, the following Security Hub controls have a Failed compliance status when root access keys exist in your AWS GovCloud (US) account.
+If AWS Security Hub CSPM is enabled on your account, the following Security Hub CSPM controls have a Failed compliance status when root access keys exist in your AWS GovCloud (US) account.
 
 - [CIS AWS Foundations Benchmark standard: 1.12 – Ensure no root user access key exists](../../../securityhub/latest/userguide/securityhub-cis-controls.md#securityhub-cis-controls-1.12 "../../../securityhub/latest/userguide/securityhub-cis-controls.md#securityhub-cis-controls-1.12")
 - [Payment Card Industry Data Security Standard (PCI DSS): [PCI.IAM.1 IAMroot user access key should not exist](../../../securityhub/latest/userguide/securityhub-pci-controls.md#pcidss-iam-1 "../../../securityhub/latest/userguide/securityhub-pci-controls.md#pcidss-iam-1")]
 - [AWS Foundational Security Best Practices standard: [IAM.4 IAMroot user access key should not exist](../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md#fsbp-iam-4 "../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md#fsbp-iam-4")]
 
-For more information on AWS Security Hub, see the [AWS Security Hub User Guide](../../../securityhub/latest/userguide/index.md "../../../securityhub/latest/userguide/index.md").
+For more information on AWS Security Hub CSPM, see the [AWS Security Hub CSPM User Guide](../../../securityhub/latest/userguide/index.md "../../../securityhub/latest/userguide/index.md").
 
 To remediate these findings, see [Deleting my AWS GovCloud (US) account root user access keys](#delete-govcloud-root-access-key "#delete-govcloud-root-access-key").
 
@@ -390,7 +390,7 @@ We recommend that you use an IAM user with appropriate permissions to [perform t
 
 - [Restore IAM Administrator access to the AWS Management Console for AWS GovCloud (US)](#restore-root-user-keys "#restore-root-user-keys")
 - [Edit or delete an Amazon S3 bucket policy for a bucket where I accidentally denied everyone access](#edit-s3-bucket-denied-access "#edit-s3-bucket-denied-access")
-- [Remediation of AWS Security Hub findings](#remediate-security-findings "#remediate-security-findings")
+- [Remediation of AWS Security Hub CSPM findings](#remediate-security-findings "#remediate-security-findings")
 - [Rotate my AWS GovCloud (US) account root user access keys](#rotate-access-keys "#rotate-access-keys")
 - [Deleting my AWS GovCloud (US) account root user access keys](#delete-govcloud-root-access-key "#delete-govcloud-root-access-key")
 - [Securing my AWS GovCloud (US) account root user access keys](#secure-govcloud-root-access-key "#secure-govcloud-root-access-key")
@@ -510,9 +510,9 @@ To learn how to work with files on your operating system in the AWS CLI, see [Lo
 aws s3api delete-bucket-policy --profile govcloudroot --region us-gov-west-1 --bucket my-bucket
 ```
 
-## Remediation of AWS Security Hub findings
+## Remediation of AWS Security Hub CSPM findings
 
-The following AWS Security Hub findings can be remediated by deleting all root access keys in the AWS GovCloud (US) account. To learn how, see [Deleting my AWS GovCloud (US) account root user access keys](#delete-govcloud-root-access-key "#delete-govcloud-root-access-key").
+The following AWS Security Hub CSPM findings can be remediated by deleting all root access keys in the AWS GovCloud (US) account. To learn how, see [Deleting my AWS GovCloud (US) account root user access keys](#delete-govcloud-root-access-key "#delete-govcloud-root-access-key").
 
 - [CIS AWS Foundations Benchmark standard: 1.12 – Ensure no root user access key exists](../../../securityhub/latest/userguide/securityhub-cis-controls.md#securityhub-cis-controls-1.12 "../../../securityhub/latest/userguide/securityhub-cis-controls.md#securityhub-cis-controls-1.12")
 - [Payment Card Industry Data Security Standard (PCI DSS): [PCI.IAM.1](../../../securityhub/latest/userguide/securityhub-pci-controls.md#pcidss-iam-1 "../../../securityhub/latest/userguide/securityhub-pci-controls.md#pcidss-iam-1")

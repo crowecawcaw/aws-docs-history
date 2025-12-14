@@ -75,7 +75,7 @@ The following sections describe the differences between the AWS GovCloud (US) Re
 - [AWS Resource Groups in AWS GovCloud (US)](govcloud-arg.md "govcloud-arg.md")
 - [AWS SDK for SAP ABAP in AWS GovCloud (US)](govcloud-abapsdk.md "govcloud-abapsdk.md")
 - [AWS Secrets Manager in AWS GovCloud (US)](govcloud-asm.md "govcloud-asm.md")
-- [AWS Security Hub in AWS GovCloud (US)](govcloud-ash.md "govcloud-ash.md")
+- [AWS Security Hub CSPM in AWS GovCloud (US)](govcloud-ash.md "govcloud-ash.md")
 - [Service Catalog in AWS GovCloud (US)](govcloud-sc.md "govcloud-sc.md")
 - [AWS Serverless Application Repository in AWS GovCloud (US)](govcloud-sar.md "govcloud-sar.md")
 - [AWS Server Migration Service in AWS GovCloud (US)](govcloud-sms.md "govcloud-sms.md")
