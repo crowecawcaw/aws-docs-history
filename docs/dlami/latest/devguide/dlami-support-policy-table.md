@@ -10,8 +10,7 @@ Policy](support-policy.md "support-policy.md").
 | PyTorch    | 2.8.0           | 12.9         | 2025-08-06 | 2026-08-06   |
 | PyTorch    | 2.7.0           | 12.8         | 2025-04-23 | 2026-04-23   |
 | PyTorch    | 2.6.0           | 12.6         | 2025-01-29 | 2026-01-29   |
-| PyTorch    | 2.5.1           | 12.4         | 2024-11-24 | 2025-11-24   |
-| TensorFlow | 2.18.0          | 12.5         | 2024-10-24 | 2025-10-24   |
+| TensorFlow | 2.18.0          | 12.5         | 2024-10-24 | 2026-10-24   |
 
 ## Supported Operating System Versions
 
@@ -28,6 +27,7 @@ Versions listed in this table will appear for 2 years past their support date.
 
 | Framework  | Current version | CUDA version | GitHub GA  | End of patch |
 | ---------- | --------------- | ------------ | ---------- | ------------ |
+| PyTorch    | 2.5.1           | 12.4         | 2024-11-24 | 2025-11-24   |
 | PyTorch    | 2.4.1           | 12.4         | 2024-07-24 | 2025-07-24   |
 | PyTorch    | 2.3.0           | 12.1         | 2024-04-24 | 2025-04-24   |
 | PyTorch    | 2.2.0           | 12.1         | 2024-01-30 | 2025-01-30   |
@@ -67,6 +67,9 @@ historical information for reference purposes.
 
 ###### Release Notes
 
+- [GPU PyTorch 2.5 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
+- [GPU PyTorch 2.5 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
+- [ARM64 AMI GPU PyTorch 2.5 (Ubuntu 22.04)](aws-deep-learning-arm64-gpu-pytorch-2.md "aws-deep-learning-arm64-gpu-pytorch-2.md")
 - [GPU PyTorch 2.4 (Ubuntu 22.04)](aws-deep-learning-ami-gpu-pytorch-2.md "aws-deep-learning-ami-gpu-pytorch-2.md")
 - [ARM64 AMI GPU PyTorch 2.4 (Ubuntu 22.04)](aws-deep-learning-arm64-ami-gpu-pytorch-2.md "aws-deep-learning-arm64-ami-gpu-pytorch-2.md")
 

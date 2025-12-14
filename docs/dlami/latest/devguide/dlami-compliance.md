@@ -24,6 +24,6 @@ to help with compliance:
   Resources with AWS Config Rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") in the _AWS Config Developer Guide_ – The AWS Config service assesses how well your resource
   configurations comply with internal practices, industry guidelines, and
   regulations.
-- [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – This AWS service provides a comprehensive view of your security state within AWS.
-  Security Hub uses security controls to evaluate your AWS resources and to check your compliance against security industry
+- [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – This AWS service provides a comprehensive view of your security state within AWS.
+  Security Hub CSPM uses security controls to evaluate your AWS resources and to check your compliance against security industry
   standards and best practices.
