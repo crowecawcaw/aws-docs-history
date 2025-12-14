@@ -1,95 +1,163 @@
-# Step 2: Configure a Source Amazon RDS for SQL Server Database
+# Step 6: Create an AWS DMS Task
 
-One of the primary considerations when setting up AWS DMS replication is the load that it induces on the source database. During full load, AWS DMS tasks initiate two or three connections for each table that is configured for parallel load. Because AWS DMS settings and data volumes vary across tasks, workloads, and even across different runs of the same task, providing an estimate of resource utilization that applies for all use cases is difficult.
+After you configured the replication instance and endpoints, you need to analyze your source database. A good understanding of the workload helps plan an effective migration approach and minimize configuration issues. Find some of the important considerations following and learn how they apply to our walkthrough.
 
-Ongoing replication is single-threaded and it usually consumes less resources than full load. Providing estimates for change data capture (CDC) resource utilization has the same challenges described before.
+**Size and number of records**
 
-That said, you can estimate the expected increase in load on your source Amazon RDS instance, by running test AWS DMS tasks on replicas of your source Amazon RDS for SQL Server instance and monitoring the CPU, memory, IO and throughput metrics.
+The volume of migrated records affects the full load completion time. It is difficult to predict the full load time upfront, but testing with a replica of a production instance should provide a baseline. Use this estimate to decide whether you should parallelize full load by using multiple tasks or by using the parallel load option.
 
-For our source database, we use an `m5.xlarge`
-Amazon RDS instance running Microsoft SQL Server 2019. While the steps for Amazon RDS for SQL Server creation are out of scope for this walkthrough (for more information, see [Prerequisties for migrating from an Amazon RDS for SQL Server database to an Amazon S3 data lake](chap-rdssqlserver2s3datalake.md "chap-rdssqlserver2s3datalake.md")), make sure that your Amazon RDS instance has **Automatic Backups** turned on so that the recovery model for the database is set to **FULL**. This is a pre-requisite for ongoing replication with AWS DMS. You can turn on these settings when you create or modify an existing Amazon RDS instance.
+The `Sales` schema includes 19 tables. The `CreditCard` table is the largest table containing 100,000 records. We can increase the number of tables loaded in parallel to 19 if the full load is slow. The default value for the number of tables loaded in parallel is eight.
 
-The following image displays the database settings required for ongoing replication with AWS DMS.
+**Transactions per second**
 
-![Database backup settings required for ongoing replication.](images/sbs-rdssqlserver2s3datalake-backup-settings.png)
-To perform the full load phase, AWS DMS requires read privileges to the tables in scope for migration. For more information about required permissions, see [Permissions for full load only tasks](../userguide/CHAP_Source.md#CHAP_Source.SQLServer.Permissions "../userguide/CHAP_Source.md#CHAP_Source.SQLServer.Permissions").
+While full load is affected by the number of records, the ongoing replication performance relies on the number of transactions on the source Amazon RDS for SQL Server database. Performance issues during change data capture (CDC) generally stem from resource constraints on the source database, replication instance, target database, and network bandwidth or throughput. Knowing average and peak TPS on the source and recording CDC throughput and latency metrics help baseline
+(AWS DMS) performance and identify an optimal task configuration. For more information, see [Replication task metrics](../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics.Task "../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics.Task").
 
-Connect to the Amazon RDS for SQL Server instance and run the following queries. Use a login with master user privileges for both full load and CDC.
+In this walkthrough, we will track the CDC latency and throughput values after the task moves into the ongoing replication phase to baseline AWS DMS performance.
+
+**LOB columns**
+
+AWS DMS handles large binary objects (LOBs) columns differently compared to other data types. For more information, see [Migrating large binary objects (LOBs)](../userguide/CHAP_BestPractices.md#CHAP_BestPractices.LOBS "../userguide/CHAP_BestPractices.md#CHAP_BestPractices.LOBS").
+
+Because AWS DMS does not support **Full LOB mode** for Amazon S3 endpoints, we need to identify a suitable **LOB Max Size**.
+
+A detailed explanation of LOB handling by AWS DMS is out of scope for this walkthrough. However, remember that increasing the **LOB Max Size** increases the tasks memory utilization. Because of that, it is recommended not to set **LOB Max Size** to a large value.
+
+For more information about LOB settings, see [Task Configuration](#chap-rdssqlserver2s3datalake.steps.createtask.configuration "#chap-rdssqlserver2s3datalake.steps.createtask.configuration").
+
+**Unsupported data types**
+
+Identify data types used in tables and check that AWS DMS supports these data types. For more information, see [Source data types for SQL Server](../userguide/CHAP_Source.md#CHAP_Source.SQLServer.DataTypes "../userguide/CHAP_Source.md#CHAP_Source.SQLServer.DataTypes").
+
+Validate that the target Amazon S3 has the corresponding data types. For more information, see [Target data types for S3 Parquet](../userguide/CHAP_Target.md#CHAP_Target.S3.DataTypes "../userguide/CHAP_Target.md#CHAP_Target.S3.DataTypes").
+
+After running the initial load test, validate that AWS DMS converted data as you expected. You can also initiate a pre-migration assessment to identify any unsupported data types in the migration scope. For more information, see [Specifying individual assessments](../userguide/CHAP_Tasks.md#CHAP_Tasks.AssessmentReport1.Individual "../userguide/CHAP_Tasks.md#CHAP_Tasks.AssessmentReport1.Individual").
+
+###### Note
+
+The preceding list is not complete. For more information, see [Best practices](../userguide/CHAP_BestPractices.md "../userguide/CHAP_BestPractices.md").
+
+Combining the considerations from the preceding list, we start with a single task that migrates all 19 tables. Based on the full load run time and resource utilization metrics on the source SQL Server database instance and replication instance, we can evaluate if we should parallelize the load further to improve performance.
+
+## Task Configuration
+
+In an AWS DMS task, you can specify the schema or table to migrate, the type of migration, and the configurations for the migration. You can choose one of the following options for your task.
+
+- **Full Load only** — migrate existing data.
+- **Full Load + CDC** — migrate existing data and replicate ongoing changes.
+- **CDC only** — replicate ongoing changes.
+
+For more information about the task creation steps and available configuration options, see [Creating a task](../userguide/CHAP_Tasks.md "../userguide/CHAP_Tasks.md").
+
+In this walkthrough, we will focus on the following settings.
+
+**Table mappings**
+
+Use selection rules to define the schemas and tables that the AWS DMS task will migrate. For more information, see [Selection rules and actions](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+
+Because we need to identify monthly sales for a specific year, one possible approach can restrict the migration to `SalesOrder%` tables in the `Sales` schema and keep adding new tables to the task when additional reporting is required. This approach saves cost and minimizes the load, but increases operational overhead by requiring repeated configurations, performance baselining, and so on. For the walkthrough, we will migrate all tables (`%`) from the `Sales` schema.
+
+**Using transformation rules to include LSN column**
+
+In the previous section we discussed using the `TimestampColumnName` endpoint setting to serialize ongoing replication events. For more information about using the `TimestampColumnName` endpoint setting, see [Serialize ongoing replication events](chap-rdssqlserver2s3datalake.steps.md#chap-rdssqlserver2s3datalake.steps.targetendpoint.considerations.serialize "chap-rdssqlserver2s3datalake.steps.md#chap-rdssqlserver2s3datalake.steps.targetendpoint.considerations.serialize").
+
+Because the source database transaction log precision is limited to milliseconds, multiple events can have the same timestamp. To address this issue, you can use task level transformation rules to include source table headers to the Amazon S3 target files as described in the task creation section.
+
+Source table headers add an additional column that contains the log sequence number (LSN) value of the operation from the source SQL Server database instance. You can use this information in our Amazon S3 data lake scenario for downstream serialization. For more information about source table headers, see [Replicating source table headers using expressions](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers").
+
+To include headers, add the following transformation rule in the JSON editor in table mapping. This rule adds a new `transact-id` column with the LSN to all tables that the task migrates. For more information, see [Specifying table selection and transformations rules using JSON](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md").
 
 ```
-USE AdventureWorks;
-CREATE LOGIN dms_user WITH PASSWORD = 'password'
-CREATE USER dms_user FOR LOGIN dms_user
-ALTER ROLE [db_datareader] ADD MEMBER dms_user
-ALTER ROLE [db_owner] ADD MEMBER dms_user
-GRANT VIEW DATABASE STATE to dms_user
-
-USE master;
-GRANT VIEW SERVER STATE TO dms_user
+{
+    "rule-type": "transformation",
+    "rule-id": "2",
+    "rule-name": "2",
+    "rule-target": "column",
+    "object-locator": {
+        "schema-name": "%",
+        "table-name": "%"
+    },
+    "rule-action": "add-column",
+    "value": "transact_id",
+    "expression": "$AR_H_STREAM_POSITION",
+    "data-type": {
+        "type": "string",
+        "length": 50
+    }
+}
 ```
 
 ###### Note
 
-Here, we create a new user to perform the migration. You can skip this step if you plan to use existing logins and users that have the required privileges.
+Mapping rules are applied at the task level. You need to add a mapping rule to each task that replicates data to your data lake.
 
-Turn on MS-CDC for your Amazon RDS for SQL Server database instance at the database level.
+**LOB settings**
 
-```
-exec msdb.dbo.rds_cdc_enable_db 'AdventureWorks'
-```
-
-Because we migrate all tables in the `Sales` schema of the `AdventureWorks` database, we need to identify the total number of tables.
+Use the **sys** schema to identify the LOB columns in the tables of the `Sales` schema.
 
 ```
-SELECT TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE
-FROM information_schema.tables
-WHERE TABLE_SCHEMA = 'Sales'
-ORDER BY TABLE_NAME
+SELECT s.name AS SchemaName,
+t.name AS TableName,
+c.name AS ColumnName,
+y.name AS DataType
+FROM sys.tables AS t
+INNER JOIN sys.schemas AS s ON s.schema_id = t.schema_id
+INNER JOIN sys.columns AS c ON t.object_id = c.object_id
+INNER JOIN sys.types AS y ON y.user_type_id = c.user_type_id
+WHERE (c.user_type_id in (34,35,99,129,130,241,256) OR (c.user_type_id in (165,167,231) AND c.max_length = -1))
+AND s.name = 'Sales'
+ORDER BY t.name;
 ```
 
-Then we need to divide tables in the following groups:
-
-- Tables with a primary key.
-- Tables with a unique index without primary key.
-- Tables without a primary key and unique index.
-  We use the information_schema to identify tables that have a primary key or a unique index without a primary key.
+The Sales.Store table includes one LOB column. Use the following query to identify the size of the largest LOB in the migrated tables.
 
 ```
-SELECT a.TABLE_SCHEMA, a.TABLE_NAME, a.CONSTRAINT_TYPE, CONSTRAINT_NAME
-FROM information_schema.table_constraints a
-JOIN information_schema.tables b ON a.TABLE_SCHEMA = b.TABLE_SCHEMA
-AND a.TABLE_NAME = b.TABLE_NAME
-WHERE b.TABLE_TYPE = 'BASE TABLE'
-AND a.TABLE_SCHEMA = 'Sales'
-AND a.CONSTRAINT_TYPE in ('UNIQUE','PRIMARY KEY')
-ORDER BY a.TABLE_SCHEMA, a.TABLE_NAME
+select max(datalength(Demographics)) as "Size in Bytes" from Sales.Store
 ```
 
-The query results show that the task has 19 tables and all of them have primary keys. For all these tables, run the following query to turn on MS-CDC at the table level.
+The size of the largest LOB is 1,000 bytes. Because of that, we will leave the default value for `LOB Max Size`, which is 32 KB. If the size of the largest LOB is more than 32 KB, it is recommended to factor in LOB growth over time, include some buffer, and set that as the `LOB Max Size` value.
 
-```
-exec sys.sp_cdc_enable_table
-@source_schema = N'Sales',
-@source_name = N'table_name',
-@role_name = NULL,
-@supports_net_changes = 1
-```
+**Other task settings**
 
-Now, set the retention period for changes to be available on the source using the following commands. Set the `pollinginterval` value to 86399 seconds to increase the retention of changes on the Amazon RDS for SQL Server instance.
-
-```
-EXEC sys.sp_cdc_change_job @job_type = 'capture', @pollinginterval = 86399
-exec sys.sp_cdc_stop_job @job_type = 'capture'
-exec sys.sp_cdc_start_job @job_type = 'capture'
-exec sys.sp_cdc_help_jobs
-```
-
-Set the polling interval on your secondary database to 86399 seconds too. For most use cases these settings should be enough. For databases that have a large number of transactions, you need to make additional configuration changes to make sure that the transaction log has optimal retention. For more information, see [Optional settings when using Amazon RDS for SQL Server as a source](../userguide/CHAP_Source.md#CHAP_Source.SQLServer.OptionalSettings "../userguide/CHAP_Source.md#CHAP_Source.SQLServer.OptionalSettings").
-
-For more information about ongoing replication, see [Setting up ongoing replication on a Cloud SQL Server DB instance](../userguide/CHAP_Source.md#CHAP_Source.SQLServer.Configuration "../userguide/CHAP_Source.md#CHAP_Source.SQLServer.Configuration").
+Choose **Enable CloudWatch Logs** to upload the AWS DMS task execution log to Amazon CloudWatch. You can use these logs to troubleshoot issues because they include error and warning messages, start and end times of the run, configuration issues, and so on. Changes to the task logging setting, such as enabling debug or trace can also be helpful to diagnose performance issues.
 
 ###### Note
 
-AWS DMS does not support replicating ongoing changes from views. For more information, see [Selection rules and actions](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+CloudWatch log usage is charged at standard rates. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-In this walkthrough, we focus on migrating the tables and do not include views in the migration scope. You should also look at estimating the number of records in the tables you are going to migrate as this is a useful consideration while configuring AWS DMS tasks.
+For **Target table preparation mode**, choose one of the following options: `Do nothing`, `truncate`, and `Drop`. Use `Truncate` in data pipelines where the downstream systems rely on a fresh dump of clean data and do not rely on historical data. In this walkthrough, we choose **Do nothing** because we want to control the retention of files from previous runs.
+
+For **Maximum number of tables to load in parallel**, enter the number of parallel threads that AWS DMS initiates during full load. You can increase this value to improve the full load performance and minimize the load time when you have numerous tables.
+
+###### Note
+
+Increasing this parameter induces additional load on the source database, replication instance, and target database.
+
+## Create an AWS DMS Task
+
+After you completed all settings configurations, you can create an AWS DMS database migration task.
+
+To create a database migration task, do the following:
+
+1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+2. Choose **Database migration tasks**, and then choose **Create task**.
+3. On the **Create database migration task** page, enter the following information.
+
+| For This Parameter                               | Do This                                                                             |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| **Task identifier**                              | Enter **AdventureWorks-to-S3-data-lake**.                                           |
+| **Replication instance**                         | Choose \*_datalake-migration-ri_<br>• (the value that you configured on Step 1).    |
+| **Source database endpoint**                     | Choose \*_datalake-source-db_<br>• (the value that you configured on Step 3).       |
+| **Target database endpoint**                     | Choose \*_adventure-works-datalake_<br>• (the value that you configured on Step 4). |
+| **Migration type**                               | Choose **Migrate existing data and replicate ongoing changes**.                     |
+| **Editing mode**                                 | Choose **Wizard**.                                                                  |
+| **Custom CDC stop mode for source transactions** | Choose **Disable custom CDC stop mode**.                                            |
+| **Target table preparation mode**                | Choose **Do nothing**.                                                              |
+| **Stop task after full load completes**          | Choose **Don’t stop**.                                                              |
+| **Include LOB columns in replication**           | Choose **Limited LOB mode**.                                                        |
+| **Maximum LOB size (KB)**                        | Enter **32**.                                                                       |
+| **Enable validation**                            | Turn off because Amazon S3 does not support validation.                             |
+| **Enable CloudWatch logs**                       | Turn on.                                                                            |
+
+4. Leave the default values in the other fields and choose **Create task**.
+5. The task begins immediately. The **Database migration tasks** section shows you the status of the migration task.

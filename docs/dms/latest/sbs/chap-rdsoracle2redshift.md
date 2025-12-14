@@ -1,18 +1,28 @@
-# Prerequisites for migrating from Amazon RDS for Oracle to Amazon Redshift
+# Migration architecture for migrating from Amazon RDS for Oracle to Amazon Redshift
 
-The following prerequisites are also required to complete this walkthrough:
+This walkthrough uses AWS CloudFormation to create a simple network topology for database migration that includes the source database, the replication instance, and the target database in the same VPC. For more information about AWS CloudFormation, see the [AWS CloudFormation documentation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
 
-- Familiarity with Amazon RDS, Amazon Redshift, the applicable database technologies, and SQL.
-- The custom scripts that include creating the tables to be migrated and SQL queries for confirming the migration, as listed following:
-  - `Oracle_Redshift_For_DMSDemo.template` — an AWS CloudFormation template.
-  - `Oraclesalesstarschema.sql` — SQL statements to build the **SH** schema.
+We provision the AWS resources that are required for this AWS DMS walkthrough through AWS CloudFormation. These resources include a VPC and Amazon RDS instance for Oracle and an Amazon Redshift cluster. We provision through AWS CloudFormation because it simplifies the process, so we can concentrate on tasks related to data migration. When you create a stack from the AWS CloudFormation template, it provisions the following resources:
 
-  These scripts are available at the following link: `dms-sbs-RDSOracle2Redshift.zip`.
+- A VPC with CIDR (10.0.0.0/24) with two public subnets in your region, DBSubnet1 at the address 10.0.0.0/26 in Availability Zone (AZ) 1 and DBSubnet2 at the address 10.0.0.64/26, in AZ 12.
+- A DB subnet group that includes DBSubnet1 and DBSubnet2.
+- Oracle RDS Standard Edition Two with these deployment options:
+  - License Included
+  - Single-AZ setup
+  - db.m3.medium or equivalent instance class
+  - Port 1521
+  - Default option and parameter groups
 
-  Each step in the walkthrough also contains a link to download the file involved or includes the exact query in the step.
+- Amazon Redshift cluster with these deployment options:
+  - dc1.large
+  - Port 5439
+  - Default parameter group
 
-- A user with AWS Identity and Access Management (IAM) credentials that allow you to launch Amazon RDS, AWS Database Migration Service (AWS DMS) instances, and Amazon Redshift clusters in your AWS Region. For information about IAM credentials, see [Setting up for Amazon RDS](../../../AmazonRDS/latest/UserGuide/CHAP_SettingUp.md#CHAP_SettingUp.IAM "../../../AmazonRDS/latest/UserGuide/CHAP_SettingUp.md#CHAP_SettingUp.IAM").
-- Basic knowledge of the Amazon Virtual Private Cloud (Amazon VPC) service and of security groups. For information about using Amazon VPC with Amazon RDS, see [Virtual Private Clouds (VPCs) and Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md"). For information about Amazon RDS security groups, see [Amazon RDS Security Groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md"). For information about using Amazon Redshift in a VPC, see [Managing Clusters in an Amazon Virtual Private Cloud (VPC)](../../../redshift/latest/mgmt/managing-clusters-vpc.md "../../../redshift/latest/mgmt/managing-clusters-vpc.md").
-- An understanding of the supported features and limitations of AWS DMS. For information about AWS DMS, see [https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html](../userguide/Welcome.md "../userguide/Welcome.md").
-- Knowledge of the supported data type conversion options for Oracle and Amazon Redshift. For information about data types for Oracle as a source, see [Using an Oracle database as a source](../userguide/CHAP_Source.md "../userguide/CHAP_Source.md"). For information about data types for Amazon Redshift as a target, see [Using an Amazon Redshift Database as a Target](../userguide/CHAP_Target.md "../userguide/CHAP_Target.md").
-  For more information about AWS DMS, see [Getting started with Database Migration Service](../userguide/CHAP_GettingStarted.md "../userguide/CHAP_GettingStarted.md").
+- A security group with ingress access from your computer or 0.0.0.0/0 (access from anywhere) based on the input parameter
+  We have designed the AWS CloudFormation template to require few inputs from the user. It provisions the necessary AWS resources with minimum recommended configurations. However, if you want to change some of the configurations and parameters, such as the VPC CIDR block and Amazon RDS instance types, feel free to update the template.
+
+We use the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") to provision the AWS DMS resources, such as the replication instance, endpoints, and tasks. You install client tools such as SQL Workbench/J and the AWS Schema Conversion Tool (AWS SCT) on your local computer to connect to the Amazon RDS instances.
+
+Following is an illustration of the migration architecture for this walkthrough.
+
+![replication instance](images/sbs-rdsor2RedshiftMigrationArchitecture.png)

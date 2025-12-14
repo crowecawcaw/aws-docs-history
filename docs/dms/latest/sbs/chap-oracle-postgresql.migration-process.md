@@ -1,36 +1,37 @@
-# Database migration script/ETL/report conversion
+# Oracle application future state architecture design
 
-ETL is an acronym that stands for Extract, Transform and Load. The ETL process plays a central role in data integration strategies. ETL allows businesses to gather data from multiple sources and consolidate it into a single, centralized location. ETL also makes it possible for different types of data to work together.
+When you migrate an Oracle application to use a different database like PostgreSQL you must capture the architecture of the existing application to ensure that all considerations are covered, we call that the current state architecture. The current state architecture describes the part of the application that matters to the migration from an architectural point of view. The same is true for the future state architecture which takes the new database platform into account. We don’t need to describe everything, but some things, like external dependencies, are very important, and help us determine what work to do.
 
-ELT is similar to ETL. However, the primary difference between them is that the data transformation processes occur after the Raw data from the source have been extracted and loaded into a staging area. The transformation of the data may occur in the destination database or in the middle tier or via serverless tools that might reduce the cost of the data processing.
+You may already have some favorite drawing tools for architecture diagrams such as Lucidchart, Visio or the freely available [Diagrams.net](http://diagrams.net/ "http://diagrams.net/") which are all great choices as they supports AWS infrastructure symbols along with many others to describe the current and future environment. But the tool is less important than what is captured in the diagrams.
 
-Transforming the data is a critical process that may provide significant value to the data. It’s also the stage where the data could be cleansed, standardized, deduplicated, verified, sorted, shared, and much more.
+The architecture diagrams also serve the important role of defining the context of what is inside and outside the scope of work as a team collaborates on the task.
 
-The role of ELT or ETL in database migration projects is critical for any successful migration.
+## Current State Architecture
 
-For the remainder of this document, ETL will also refer to ELT patterns.
+There may be existing documentation on the database application which should be examined for currency and relevance. Let us review what is important for the migration work before we decide if more documentation is needed.
 
-ETL can be implemented in the database itself, in external scripts or in third-party tools such as Informatica, Talend, and so on. If the ETL is done using Oracle stored procedure, the freely available AWS Schema Conversion Tool (AWS SCT) is capable of converting the ETL code to AWS Glue. For more information, see [Automation](chap-oracle-postgresql.md#chap-oracle-postgresql.automation "chap-oracle-postgresql.md#chap-oracle-postgresql.automation").
+A **network diagram** is useful because It typically connects servers to each other, and servers to databases. It may also show the division into multiple availability or disaster recovery zones. This is useful because it shows potential server and network dependencies that must be addressed in the new architecture. A network diagram may also highlight important security considerations like multiple networks and internet connectivity.
 
-## Process for Conversion to AWS Glue
+A **component diagram** is useful if the application is comprised of multiple parts using different technologies which each may present the migration with their own challenges to address.
 
-If Python/Glue is a desired future state architecture for ETL code, and the ETL is implemented in the database, the conversion process works like this:
+A **class diagram** is useful if it shows a specific persistence layer or a query factory where the migration can focus while leaving the rest of the application untouched.
 
-1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.md "chap-oracle-postgresql.migration-process.md").
-2. Run AWS SCT, select the code involved in ETL and automatically convert the ETL code to AWS Glue. For more information, see [Converting ETL processes](../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.md "../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.md").
-3. Fix any warnings and errors in the ETL code conversion.
+A **data flow diagram** is useful because it directly shows parts of the value chain of information flowing inside and outside the application highlighting what additional code may needs to be changed.
 
-## Process for Conversion of Stored Procedures
+The following image shows a simple network diagram that can help easily communicate current architecture.
 
-If ETL or report process is implemented in the database, then the database conversion takes care of converting the code, and only the method to call the stored procedures need to change.
+![A simple network diagram](images/oracle-postgresql-current-architecture.png)
 
-## Process for Conversion of Scripts, Reports, and Third-Party ETL
+## Future State Architecture
 
-If the ETL or Report code is available in scripts or hosted in third-party tools and those tools will be used in the future, then a custom process will have to be implemented:
+The future state architecture envisions the application using the new database, and potentially other services in the environment. It’s a new version of the current state architecture diagrams with certain parts replaced with the new components. This document will focus mainly on replacing Amazon RDS for Oracle with Amazon RDS for PostgreSQL or Aurora PostgreSQL.
 
-1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.md "chap-oracle-postgresql.migration-process.md").
-2. Extract PL/SQL statements from the third-party ETL or reporting tool into flat files, unless already available.
-3. Write YAML configuration files for AWS SCT CLI to convert external files.
-4. Run AWS SCT CLI on the external scripts using the YAML configuration files. For more information, see [AWS Schema Conversion Tool CLI and Interactive Mode Reference](https://s3.amazonaws.com/publicsctdownload/AWS+SCT+CLI+Reference.pdf "https://s3.amazonaws.com/publicsctdownload/AWS+SCT+CLI+Reference.pdf").
-5. Fix any warnings and errors in the ETL or report code conversion.
-6. Insert the converted PL/pgSQL code back into the third-party ETL or reporting tool, unless they stay as flat files.
+## Transition Architecture
+
+Depending on how involved your migration is, you may need a transition architecture by which we mean, infrastructure that is there only for migration purposes. Examples of transition architecture includes AWS DMS servers and other mediating or transformation platforms. Such infrastructure has to be provisioned, secured and removed after the migration to avoid additional vulnerability and cost.
+
+The following image shows a transition architecture diagram.
+
+![A transition architecture diagram](images/oracle-postgresql-transition-architecture.png)
+
+For more information, see [AWS Well-Architected Framework](../../../wellarchitected/latest/framework/welcome.md "../../../wellarchitected/latest/framework/welcome.md").
