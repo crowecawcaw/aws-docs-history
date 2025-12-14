@@ -634,7 +634,15 @@ ephemeral port range from `49153–65535` is used.
 Don't attempt to specify a host port in the ephemeral port
 range. This is because these are reserved for automatic
 assignment. In general, ports under `32768` are
-outside of the ephemeral port range.
+outside of the ephemeral port range. You may use
+`ECS_DYNAMIC_HOST_PORT_RANGE` setting in ECS
+container agent configuration to specify a custom range
+for dynamically assigned host ports. That may be helpful
+if your tasks are failing to start due to port conflicts
+with other processes on the container instance such as
+outbound connections that also use ports from the ephemeral
+port range. For more information, see
+[Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md").
 
 The default reserved ports are `22` for SSH,
 the Docker ports `2375` and

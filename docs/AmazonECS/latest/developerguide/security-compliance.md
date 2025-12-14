@@ -43,12 +43,12 @@ direct all container logs to Amazon CloudWatch. For information about using the 
 for infrastructure security, see [Infrastructure Protection](../../../wellarchitected/latest/security-pillar/infrastructure-protection.md "../../../wellarchitected/latest/security-pillar/infrastructure-protection.md") in _Security Pillar AWS
 Well‐Architected Framework_.
 
-## AWS Security Hub
+## AWS Security Hub CSPM
 
-Use AWS Security Hub. This AWS service provides a comprehensive
-view of your security state within AWS. Security Hub uses security controls to evaluate your
+Use AWS Security Hub CSPM. This AWS service provides a comprehensive
+view of your security state within AWS. Security Hub CSPM uses security controls to evaluate your
 AWS resources and to check your compliance against security industry standards and
-best practices. For a list of supported services and controls, see [Security Hub
+best practices. For a list of supported services and controls, see [Security Hub CSPM
 controls reference](../../../securityhub/latest/userguide/securityhub-controls-reference.md "../../../securityhub/latest/userguide/securityhub-controls-reference.md").
 
 ## Amazon GuardDuty with Amazon ECS Runtime Monitoring

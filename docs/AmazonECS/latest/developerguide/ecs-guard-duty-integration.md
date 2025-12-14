@@ -41,7 +41,7 @@ instance.
 
 The GuardDuty security agent collects data from the following resources, and then sends
 the data to GuardDuty to process. You can view the findings in the GuardDuty console. You can
-also send them to other AWS services such as AWS Security Hub, or a third-party security
+also send them to other AWS services such as AWS Security Hub CSPM, or a third-party security
 vendor for aggregation and remediation. For information about how to view and manage
 findings, see [Managing
 Amazon GuardDuty findings](../../../guardduty/latest/ug/findings_management.md "../../../guardduty/latest/ug/findings_management.md") in the _Amazon GuardDuty User Guide_.

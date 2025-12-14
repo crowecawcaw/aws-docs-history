@@ -107,9 +107,9 @@ vulnerabilities or upgrading a particular package to a newer version. By using
 Docker scan, developers can resolve potential security issues before pushing
 their images to the registry.
 
-- [Automating image compliance using Amazon ECR and AWS Security Hub](https://aws.amazon.com/blogs/containers/automating-image-compliance-for-amazon-eks-using-amazon-elastic-container-registry-and-aws-security-hub/ "https://aws.amazon.com/blogs/containers/automating-image-compliance-for-amazon-eks-using-amazon-elastic-container-registry-and-aws-security-hub/")
+- [Automating image compliance using Amazon ECR and AWS Security Hub CSPM](https://aws.amazon.com/blogs/containers/automating-image-compliance-for-amazon-eks-using-amazon-elastic-container-registry-and-aws-security-hub/ "https://aws.amazon.com/blogs/containers/automating-image-compliance-for-amazon-eks-using-amazon-elastic-container-registry-and-aws-security-hub/")
   explains how to surface vulnerability information from Amazon ECR in
-  AWS Security Hub and automate remediation by blocking access to vulnerable
+  AWS Security Hub CSPM and automate remediation by blocking access to vulnerable
   images.
 
 ## Remove

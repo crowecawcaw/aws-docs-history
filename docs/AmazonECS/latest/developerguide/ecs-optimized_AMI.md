@@ -108,6 +108,12 @@ version, you can run the following command on your Amazon EC2 instance.
 `yum update --security`
 ```
 
+###### Warning
+
+Updating docker or containerd packages will stop all running containers on the host,
+which means all running Amazon ECS tasks will be stopped. Plan accordingly to minimize
+service disruption.
+
 If you want to re-enable security updates at launch, you can add the following line to
 the `#cloud-config` section of the cloud-init user data when launching your
 Amazon EC2 instance. For more information, see [Using cloud-init on Amazon Linux 2](../../../linux/al2/ug/amazon-linux-cloud-init.md "../../../linux/al2/ug/amazon-linux-cloud-init.md") in

@@ -434,6 +434,16 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | c8g.48xlarge      | 14                              | 120                          |
 | c8g.metal-24xl    | 14                              | 120                          |
 | c8g.metal-48xl    | 14                              | 120                          |
+| c8gb.medium       | 1                               | 4                            |
+| c8gb.large        | 2                               | 10                           |
+| c8gb.xlarge       | 3                               | 20                           |
+| c8gb.2xlarge      | 3                               | 40                           |
+| c8gb.4xlarge      | 7                               | 60                           |
+| c8gb.8xlarge      | 9                               | 60                           |
+| c8gb.12xlarge     | 11                              | 60                           |
+| c8gb.16xlarge     | 15                              | 120                          |
+| c8gb.24xlarge     | 23                              | 120                          |
+| c8gb.metal-24xl   | 23                              | 120                          |
 | c8gd.medium       | 1                               | 4                            |
 | c8gd.large        | 2                               | 10                           |
 | c8gd.xlarge       | 3                               | 20                           |
