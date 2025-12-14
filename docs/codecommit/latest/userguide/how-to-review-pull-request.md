@@ -42,7 +42,7 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
 
 
 
-    ![A general comment on the changes in a pull request.](images/codecommit-commenting-changecomment.png)
+    ![A general comment on the changes in a pull request.](/images/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
     * To add a comment to a file in the commit, in
      **Changes**, find the name of the file. Choose the
      comment icon
@@ -52,7 +52,7 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
 
 
 
-    ![Adding a comment on a file in a pull request.](images/codecommit-commenting-addfilecomment.png)
+    ![Adding a comment on a file in a pull request.](/images/codecommit/latest/userguide/images/codecommit-commenting-addfilecomment.png)
     * To add a comment to a changed line in the pull request, in
      **Changes**, go to the line you want to comment on.
      Choose the comment icon

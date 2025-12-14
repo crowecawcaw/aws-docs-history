@@ -22,7 +22,7 @@ references) in the template have rules created for them. So, for example, if you
 defined in the template is only applied to pull requests if the destination branch is
 `main`.
 
-![An approval rule template that requires 1 approver from a defined approval rule if a pull request is created on a branch named main, associated with two repositories](images/codecommit-approval-rule-template.png)
+![An approval rule template that requires 1 approver from a defined approval rule if a pull request is created on a branch named main, associated with two repositories](/images/codecommit/latest/userguide/images/codecommit-approval-rule-template.png)
 
 ###### Topics
 
