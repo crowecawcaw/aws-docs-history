@@ -6,6 +6,7 @@ To get started with using AWS Systems Manager for SAP, ensure that you complete 
 
 - [Attach Systems Manager for SAP permissions to Amazon EC2 instance running SAP HANA database](#ec2-permissions "#ec2-permissions")
 - [Amazon EC2 tag](#ec2-tag "#ec2-tag")
+- [Identify or create SAP HANA user](#identify-create-hana-user "#identify-create-hana-user")
 - [Register SAP HANA database credentials in AWS Secrets Manager](#register-secrets "#register-secrets")
 - [Verify AWS Systems Manager Agent (SSM Agent) is running](#verify-ssm-agent "#verify-ssm-agent")
 - [Verify setup before registering your SAP HANA database](#verification "#verification")
@@ -27,11 +28,20 @@ AWS Systems Manager for SAP communicates with the Amazon EC2 instance where your
 | Key   | `SSMForSAPManaged` |
 | Value | `True`             |
 
-## Register SAP HANA database credentials in AWS Secrets Manager
+## Identify or create SAP HANA user
 
-You must create a secret with the username and password of a database. A separate secret is required for each one of your databases running on an Amazon EC2 instance.
+The SAP HANA database user credentials that you provide to AWS Systems Manager for SAP must have specific privileges based on the operations you intend to perform.
 
-The following special characters are not allowed in a SAP HANA password:
+You must provide credentials for the SYSTEM_DB user, which requires [SAP HANA system privileges](https://help.sap.com/docs/SAP_BW4HANA/900e6cdd1edb48448d0a25075eae9ac0/a20457c7784948928e4c320c33d77948.html?locale=en-US "https://help.sap.com/docs/SAP_BW4HANA/900e6cdd1edb48448d0a25075eae9ac0/a20457c7784948928e4c320c33d77948.html?locale=en-US"). The following table shows the required privileges for different operations:
+
+| Operation                              | Required Privileges        |
+| -------------------------------------- | -------------------------- |
+| Application registration and discovery | CATALOG READ               |
+| Backup operations with AWS Backup      | BACKUP ADMIN, INFILE ADMIN |
+
+You can use an existing SYSTEM_DB user with the required privileges, or create a new dedicated user for AWS Systems Manager for SAP operations. Optionally, you can also provide credentials for individual tenant database users.
+
+When creating or identifying the SAP HANA user, ensure that the password does not contain the following special characters:
 
 - angle brackets (<>)
 - backslashes (/)
@@ -39,6 +49,10 @@ The following special characters are not allowed in a SAP HANA password:
 - pipelines (|)
 - question marks (?)
 - semicolons (;)
+
+## Register SAP HANA database credentials in AWS Secrets Manager
+
+You must create a secret with the username and password of the SAP HANA users identified or created in the previous section. A separate secret is required for each user of your databases running on an Amazon EC2 instance.
 
 Use the following steps to register your SAP HANA database credentials in AWS Secrets Manager.
 
@@ -107,7 +121,7 @@ AWS Systems Manager Agent (SSM Agent) is pre-installed in several Amazon Machine
 
 - Ensure that you are running SAP HANA 2.x.
 - Ensure that your Amazon EC2 instance has `/run` mount point mounted on `tmpfs`. Use the `df | grep tmpfs` command for verification.
-- Ensure that your Amazon EC2 instance has Python 3.5 or higher version installed.
+- Ensure that your EC2 instance has Python 3.5 or later installed. SSM-SAP automatically uses the latest Python version available on your system. For custom-built or compiled Python installations, ensure that the \_lzma module is included in the build and available within your Python environment.
 - Ensure that the `hdbcli` Python library is installed in the `/opt/aws/ssm-sap/` directory on your Amazon EC2 instance, if the revision of your SAP HANA 2.0 server is below 056.00.
 - Ensure that the boto3 version is higher than 1.7.0 if boto3 is installed.
 

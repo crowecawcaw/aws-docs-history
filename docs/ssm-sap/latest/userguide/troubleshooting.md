@@ -29,6 +29,7 @@
 - [ListConfigurationCheckOperations ResourceNotFoundException](#troubleshoot-25 "#troubleshoot-25")
 - [ListSubcheckResults Operation ValidationException](#troubleshoot-26 "#troubleshoot-26")
 - [ListSubcheckRuleResults SubCheck Result ValidationException](#troubleshoot-27 "#troubleshoot-27")
+- [ListSubcheckRuleResults - Unknown Rules](#troubleshoot-28 "#troubleshoot-28")
 
 ## Database registration failure
 
@@ -279,3 +280,11 @@ _Problem_ – `An error occurred (ValidationException): "SubCheckResult Not Foun
 _Possible cause_ – The specified subcheck result ID cannot be found in the system.
 
 _Resolution_ – Verify the subcheck result ID is correct and associated with the specified operation.
+
+## ListSubcheckRuleResults - Unknown Rules
+
+_Problem_ – Unknown rules are encountered during configuration checks.
+
+_Possible cause_ – This occurs when there is a mismatch between your environment’s configuration and the supported rule definitions in Systems Manager for SAP.
+
+_Resolution_ – Contact AWS Support with the operation ID, timestamp, AWS Region, and rule name. AWS Support will investigate the configuration mismatch and provide guidance for your environment.

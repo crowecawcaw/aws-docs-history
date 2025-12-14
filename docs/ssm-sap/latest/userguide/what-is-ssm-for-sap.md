@@ -19,6 +19,8 @@ AWS Systems Manager for SAP provides the following features for your SAP workloa
 - List discovered SAP applications
 - List configurations of discovered SAP applications
 - Integration with AWS Backup – using [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup"), enable automatic backup and restore operations of SAP HANA databases.
+- Run configuration checks on your registered SAP applications to validate their setup and identify configuration issues.
+- Integration with AWS EventBridge Scheduler – using [AWS EventBridge Scheduler](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md"), schedule SAP management operations such as start, stop, and configuration check operations.
 
 ## Supported Regions
 
@@ -35,6 +37,7 @@ The following services are related to AWS Systems Manager for SAP on AWS.
 - [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md")
 - [SAP HANA on AWS](../../../sap/latest/sap-hana/welcome.md "../../../sap/latest/sap-hana/welcome.md")
 - [AWS Backint Agent for SAP HANA](../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md "../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md")
+- [AWS EventBridge Scheduler](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md")
 
 ## Pricing
 
