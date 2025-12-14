@@ -1,53 +1,125 @@
-# UPDATE
+# SELECT
 
-Use the `UPDATE` statement to modify a row in a table.
+Use a SELECT statement to query data.
 
 Syntax
 
 ```
-**update\_statement** ::=  UPDATE table_name
-                      [ USING update_parameter ( AND update_parameter )* ]
-                      SET assignment ( ',' assignment )*
-                      WHERE where_clause
-                      [ IF ( EXISTS | condition ( AND condition )*) ]
-**update\_parameter** ::=  ( integer | bind_marker )
-**assignment**       ::=  simple_selection '=' term
-                     | column_name '=' column_name ( '+' | '-' ) term
-                     | column_name '=' list_literal '+' column_name
-**simple\_selection** ::=  column_name
-                     | column_name '[' term ']'
-                     | column_name '.' `field_name
-**condition**        ::=  simple_selection operator term
+**select\_statement** ::=  SELECT  [ JSON ] ( select_clause | '*' )
+                      FROM table_name
+                      [ WHERE 'where_clause' ]
+                      [ ORDER BY 'ordering_clause' ]
+                      [ LIMIT (integer | bind_marker) ]
+                      [ ALLOW FILTERING ]
+**select\_clause**    ::=  selector [ AS identifier ] ( ',' selector [ AS identifier ] )
+**selector**         ::=  column_name
+                      | term
+                      | CAST '(' selector AS cql_type ')'
+                      | function_name '(' [ selector ( ',' selector )* ] ')'
+**where\_clause**     ::=  relation ( AND relation )*
+**relation**         ::=  column_name operator term
+                      TOKEN
+**operator**         ::=  '=' | '<' | '>' | '<=' | '>=' | IN | CONTAINS | CONTAINS KEY
+**ordering\_clause**  ::=  column_name [ ASC | DESC ] ( ',' column_name [ ASC | DESC ] )*
 
 
 ```
+
+Examples
+
+```
+SELECT name, id, manager_id FROM "myGSGKeyspace".employees_tbl ;
+
+SELECT JSON name, id, manager_id FROM "myGSGKeyspace".employees_tbl ;
+```
+
+For a table that maps JSON-encoded data types to Amazon Keyspaces data types, see [JSON encoding of Amazon Keyspaces data types](cql.md#cql.data-types.JSON "cql.md#cql.data-types.JSON").
+
+Using the `IN` keyword
+
+The `IN` keyword specifies equality for one or more values. It can be
+applied to the partition key and the clustering column. Results are returned in the order the
+keys are presented in the `SELECT`
+statement.
+
+Examples
+
+```
+SELECT * from `mykeyspace.mytable` WHERE primary.key1 IN (1,2) and clustering.key1 = 2;
+SELECT * from `mykeyspace.mytable` WHERE primary.key1 IN (1,2) and clustering.key1 <= 2;
+SELECT * from `mykeyspace.mytable` WHERE primary.key1 = 1 and clustering.key1 IN (1, 2);
+SELECT * from `mykeyspace.mytable` WHERE primary.key1 <= 2 and clustering.key1 IN (1, 2) ALLOW FILTERING;
+```
+
+For more information about the `IN` keyword and how Amazon Keyspaces processes the
+statement, see [Use the IN operator with the SELECT statement in a query in Amazon Keyspaces](in.md "in.md").
+
+Ordering results
+
+The `ORDER BY` clause specifies the sort order of the returned results.
+It takes as arguments a list of column names along with the sort order for each
+column. You can only specify clustering columns in ordering clauses. Non-clustering
+columns are not allowed. The sort order options are `ASC` for ascending
+and `DESC` for descending sort order. If the sort order is omitted, the
+default ordering of the clustering column is used. For possible sort orders, see
+[Order results with ORDER BY in Amazon Keyspaces](ordering-results.md "ordering-results.md").
 
 Example
 
 ```
-UPDATE "myGSGKeyspace".employees_tbl SET pay_scale = 5 WHERE id = '567-89-0123' AND division = 'Marketing' ;
+SELECT name, id, division, manager_id FROM "myGSGKeyspace".employees_tbl WHERE id = '012-34-5678' ORDER BY division;
 ```
 
-To increment a `counter`, use the following syntax. For more
-information, see [Counters](cql.md#cql.data-types.numeric.counters "cql.md#cql.data-types.numeric.counters").
+When using `ORDER BY` with the `IN` keyword, results are ordered within a page.
+Full re-ordering with disabled pagination is
+not supported.
+
+TOKEN
+
+You can apply the `TOKEN` function to the `PARTITION KEY`
+column in `SELECT` and `WHERE` clauses. With the `TOKEN` function, Amazon Keyspaces returns rows
+based on the mapped token value of the `PARTITION_KEY` rather than on the
+value of the `PARTITION KEY`.
+
+`TOKEN` relations are not supported with the `IN` keyword.
+
+Examples
 
 ```
-UPDATE ActiveUsers SET counter = counter + 1  WHERE user = A70FE1C0-5408-4AE3-BE34-8733E5K09F14 AND action = 'click';
+SELECT TOKEN(id) from `my_table`;
+
+SELECT TOKEN(id) from `my_table` WHERE TOKEN(id) > 100 and TOKEN(id) < 10000;
 ```
 
-Update parameters
+TTL function
 
-`UPDATE` supports the following values as
-`update_parameter`:
+You can use the `TTL` function with the `SELECT` statement to retrieve the
+expiration time in seconds that is stored for a column. If no `TTL` value is set, the function returns `null`.
 
-- `TTL` – A time value in seconds. The maximum configurable value is 630,720,000 seconds, which is the equivalent of 20 years.
-- `TIMESTAMP` – A `bigint` value representing the number of microseconds since the standard base time
-  known as the epoch: January 1 1970 at 00:00:00 GMT.
-  A timestamp in Amazon Keyspaces has to fall between the range of 2 days in the past and 5 minutes in the future.
-  Example
+Example
 
 ```
-UPDATE `my_table` (userid, time, subject, body, user)
-        VALUES (B79CB3BA-745E-5D9A-8903-4A02327A7E09, 96a29100-5e25-11ec-90d7-b5d91eceda0a, 'Message', 'Hello again','205.212.123.123')
-        USING TIMESTAMP '2022-11-03 13:30:54+0400';
+SELECT TTL(`my_column`) from `my_table`;
 ```
+
+The `TTL` function can’t be used on multi-cell columns such as collections.
+
+WRITETIME function
+
+You can use the `WRITETIME` function with the `SELECT`
+statement to retrieve the timestamp that is stored as metadata for the value of a
+column only if the table uses client-side timestamps. For more information, see
+[Client-side timestamps in Amazon Keyspaces](client-side-timestamps.md "client-side-timestamps.md").
+
+```
+SELECT WRITETIME(`my_column`) from `my_table`;
+```
+
+The `WRITETIME` function can’t be used on multi-cell columns such as collections.
+
+###### Note
+
+For compatibility with established Cassandra driver behavior, tag-based authorization policies
+are not enforced when you perform operations on system tables by using Cassandra
+Query Language (CQL) API calls through Cassandra drivers and developer tools.
+For more information, see [Amazon Keyspaces resource access based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags").
