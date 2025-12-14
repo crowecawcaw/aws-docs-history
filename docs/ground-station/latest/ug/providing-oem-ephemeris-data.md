@@ -4,37 +4,37 @@
 
 The ephemeris API is currently in a Preview state
 
-Access to the Ephemeris API is provided only on an as-needed basis. If you require the ability
-to upload custom ephemeris data, you should contact `<aws-groundstation@amazon.com>`.
+Access to the Ephemeris API is provided only on an as-needed basis. If you require the
+ability to upload custom ephemeris data, you should contact `<aws-groundstation@amazon.com>`
+.
 
 ## Overview
 
-Orbit Ephemeris Message (OEM) is a standardized format for representing spacecraft trajectory data. The Ephemeris
-API allows OEM ephemerides to be uploaded to AWS Ground Station for use with a satellite. These ephemerides override the
-default ephemerides from [Space-Track](https://www.space-track.org/ "https://www.space-track.org/") (see:
-[Default ephemeris data](default-ephemeris-data.md "default-ephemeris-data.md")).
+Orbit Ephemeris Message (OEM) is a standardized format for representing spacecraft
+trajectory data. The Ephemeris API allows OEM ephemerides to be uploaded to AWS Ground Station for use
+with a satellite. These ephemerides override the default ephemerides from [Space-Track](https://www.space-track.org/ "https://www.space-track.org/") (see: [Default ephemeris data](default-ephemeris-data.md "default-ephemeris-data.md")).
 
 AWS Ground Station treats ephemerides as [Individualized
-Usage Data](https://aws.amazon.com/service-terms "https://aws.amazon.com/service-terms"). If you use this optional feature, AWS will use your ephemeris data to provide
-troubleshooting support.
+Usage Data](https://aws.amazon.com/service-terms "https://aws.amazon.com/service-terms"). If you use this optional feature, AWS will use your ephemeris data to
+provide troubleshooting support.
 
-Uploading custom OEM ephemerides can improve the quality of tracking, handle early operations where no
-[Space-Track](https://www.space-track.org/ "https://www.space-track.org/") ephemerides are available to AWS Ground Station,
-and account for maneuvers.
+Uploading custom OEM ephemerides can improve the quality of tracking, handle early
+operations where no [Space-Track](https://www.space-track.org/ "https://www.space-track.org/") ephemerides
+are available to AWS Ground Station, and account for maneuvers.
 
 ###### Note
 
 When providing custom ephemeris before a satellite catalog number is assigned for your
-satellite, you can use `satelliteId` for the `OBJECT_ID` portion of the OEM.
+satellite, you can use `satelliteId` for the `OBJECT_ID` portion
+of the OEM.
 
 For more information about the format of OEMs, see [OEM ephemeris format](#oem-ephemeris-format "#oem-ephemeris-format").
 
 ## OEM ephemeris format
 
-AWS Ground Station processes OEM Customer Provided Ephemerides according to the
-[CCSDS standard](https://ccsds.org/wp-content/uploads/gravity_forms/5-448e85c647331d9cbaf66c096458bdd5/2025/01//502x0b3e1.pdf "https://ccsds.org/wp-content/uploads/gravity_forms/5-448e85c647331d9cbaf66c096458bdd5/2025/01//502x0b3e1.pdf")
-with some extra restrictions. OEM files should be in KVN format. The following table outlines the different fields
-in an OEM and how AWS Ground Station differs from the CCSDS standard.
+AWS Ground Station processes OEM Customer Provided Ephemerides according to the [CCSDS standard](https://ccsds.org/Pubs/502x0b3e1.pdf "https://ccsds.org/Pubs/502x0b3e1.pdf") with some extra
+restrictions. OEM files should be in KVN format. The following table outlines the different
+fields in an OEM and how AWS Ground Station differs from the CCSDS standard.
 
 | Section              | Field            | CCSDS required  | AWS Ground Station required                                                        | Notes               |
 | -------------------- | ---------------- | --------------- | ---------------------------------------------------------------------------------- | ------------------- |
@@ -73,7 +73,8 @@ in an OEM and how AWS Ground Station differs from the CCSDS standard.
 | COV_REF_FRAME        | No               | No              |                                                                                    |
 | COVARIANCE_STOP      | No               | No              |                                                                                    |
 
-\* If any rows that aren't supported by AWS Ground Station are included in the provided OEM, the OEM will fail validation.
+\* If any rows that aren't supported by AWS Ground Station are included in the provided OEM, the OEM
+will fail validation.
 
 The important deviations from the CCSDS standard for AWS Ground Station are:
 
@@ -82,11 +83,13 @@ The important deviations from the CCSDS standard for AWS Ground Station are:
 - `REF_FRAME_EPOCH` is not supported by AWS Ground Station.
 - `CENTER_NAME` is required to be `Earth`.
 - `TIME_SYSTEM` is required to be `UTC`.
-- `INTERPOLATION` and `INTERPOLATION_DEGREE` are both required for AWS Ground Station customer provided ephemeris.
+- `INTERPOLATION` and `INTERPOLATION_DEGREE` are both
+  required for AWS Ground Station customer provided ephemeris.
 
 ## Example OEM ephemeris in KVN format
 
-Following is a truncated example of an OEM ephemeris in KVN format for the JPSS-1 public broadcaster satellite.
+Following is a truncated example of an OEM ephemeris in KVN format for the JPSS-1 public
+broadcaster satellite.
 
 ```
 CCSDS_OEM_VERS = 2.0
@@ -119,24 +122,22 @@ META_STOP
 
 ## Creating an OEM ephemeris
 
-An OEM ephemeris can be created using the
-[CreateEphemeris](../APIReference/API_CreateEphemeris.md "../APIReference/API_CreateEphemeris.md") action in the AWS Ground Station API.
-This action will upload an ephemeris using data either in the request body or from a specified S3 bucket.
+An OEM ephemeris can be created using the [CreateEphemeris](../APIReference/API_CreateEphemeris.md "../APIReference/API_CreateEphemeris.md") action in the AWS Ground Station
+API. This action will upload an ephemeris using data either in the request body or from a
+specified S3 bucket.
 
-It is important to note that uploading an ephemeris sets the ephemeris to `VALIDATING` and starts an asynchronous
-workflow that will validate and generate potential contacts from your ephemeris. Only once an ephemeris has passed
-this workflow and become `ENABLED` will it be used for contacts.
-You should poll [DescribeEphemeris](../APIReference/API_DescribeEphemeris.md "../APIReference/API_DescribeEphemeris.md")
+It is important to note that uploading an ephemeris sets the ephemeris to `VALIDATING` and starts an asynchronous workflow that will validate and generate
+potential contacts from your ephemeris. Only once an ephemeris has passed this workflow and
+become `ENABLED` will it be used for contacts. You should poll [DescribeEphemeris](../APIReference/API_DescribeEphemeris.md "../APIReference/API_DescribeEphemeris.md")
 for the ephemeris status or use CloudWatch events to track the ephemeris' status changes.
 
-To troubleshoot an invalid ephemeris see:
-[Troubleshoot invalid ephemerides](troubleshooting-invalid-ephemerides.md "troubleshooting-invalid-ephemerides.md")
+To troubleshoot an invalid ephemeris see: [Troubleshoot invalid ephemerides](troubleshooting-invalid-ephemerides.md "troubleshooting-invalid-ephemerides.md")
 
 ## Example: Uploading OEM ephemeris data from an S3 bucket
 
-It is also possible to upload an OEM ephemeris file directly from an S3 bucket by pointing to the bucket and object
-key. AWS Ground Station will retrieve the object on your behalf. Information about the encryption of data at rest
-in AWS Ground Station is detailed in: [Data encryption at rest for AWS Ground Station](security.md "security.md").
+It is also possible to upload an OEM ephemeris file directly from an S3 bucket by
+pointing to the bucket and object key. AWS Ground Station will retrieve the object on your behalf.
+Information about the encryption of data at rest in AWS Ground Station is detailed in: [Data encryption at rest for AWS Ground Station](security.md "security.md").
 
 Below is an example of uploading an OEM ephemeris file from an S3 bucket
 
@@ -206,9 +207,8 @@ print(f"Created OEM ephemeris with ID: {s3_oem_ephemeris['ephemerisId']}")
 
 ```
 
-Below is an example returned data from the
-[DescribeEphemeris](../APIReference/API_DescribeEphemeris.md "../APIReference/API_DescribeEphemeris.md") action being called for the OEM
-ephemeris uploaded in the previous block of example code.
+Below is an example returned data from the [DescribeEphemeris](../APIReference/API_DescribeEphemeris.md "../APIReference/API_DescribeEphemeris.md") action being called for
+the OEM ephemeris uploaded in the previous block of example code.
 
 ```
 {

@@ -1,18 +1,16 @@
-# Public broadcast satellite utilizing a dataflow endpoint (demodulated and decoded)
+# Public broadcast satellite utilizing a dataflow endpoint (narrowband)
 
 This example builds off the analysis done in the [JPSS-1 - Public broadcast satellite (PBS) -
 Evaluation](examples.md#examples.pbs-definition "examples.md#examples.pbs-definition") section of the user guide.
 
 To complete this example, you'll need to assume a scenario -- you want to capture
-the HRD communication path as demodulated and decoded direct broadcast data using a dataflow
-endpoint. This example is a good starting point if you plan to process the data using NASA
-Direct Readout Labs software (RT-STPS and IPOPP).
+the HRD communication path as digital intermediate frequency (DigIF) and process it as it's
+received by a dataflow endpoint application on an Amazon EC2 instance using an SDR.
 
 ## Communication paths
 
-This section represents
-[Plan your dataflow communication paths](getting-started.md "getting-started.md")
-of getting started. For this example, you will be creating two sections in your CloudFormation template: Parameters and Resources sections.
+This section represents [Plan your dataflow communication paths](getting-started.md "getting-started.md") of getting started.
+For this example, you will be creating two sections in your CloudFormation template: Parameters and Resources sections.
 
 ###### Note
 
@@ -121,10 +119,6 @@ application, and create one or more dataflow endpoint groups.
 
           exit 0
 
-```
-
-```
-
   # The AWS Ground Station Dataflow Endpoint Group that defines the endpoints that AWS Ground
   # Station will use to send/receive data to/from your satellite.
   DataflowEndpointGroup:
@@ -144,6 +138,20 @@ application, and create one or more dataflow endpoint groups.
             SubnetIds:
               - !Ref ReceiverSubnet
             RoleArn: !GetAtt DataDeliveryServiceRole.Arn
+
+  # The security group for your EC2 instance.
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: AWS Ground Station receiver instance security group.
+      VpcId: !Ref ReceiverVPC
+      SecurityGroupIngress:
+        # To allow SSH access to the instance, add another rule allowing tcp port 22 from your CidrIp
+        - IpProtocol: udp
+          FromPort: 55888
+          ToPort: 55888
+          SourceSecurityGroupId: !Ref DataflowEndpointSecurityGroup
+          Description: "AWS Ground Station Downlink Stream"
 
   # The security group that the ENI created by AWS Ground Station belongs to.
   DataflowEndpointSecurityGroup:
@@ -174,37 +182,25 @@ application, and create one or more dataflow endpoint groups.
     Properties:
       Strategy: cluster
 
-  # The security group for your EC2 instance.
-  InstanceSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: AWS Ground Station receiver instance security group.
-      VpcId: !Ref ReceiverVPC
-      SecurityGroupIngress:
-        # To allow SSH access to the instance, add another rule allowing tcp port 22 from your CidrIp
-        - IpProtocol: udp
-          FromPort: 55888
-          ToPort: 55888
-          SourceSecurityGroupId: !Ref DataflowEndpointSecurityGroup
-          Description: "AWS Ground Station Downlink Stream"
-
   ReceiverVPC:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: `"10.0.0.0/16"`
       Tags:
         - Key: "Name"
-          Value: "AWS Ground Station - PBS to dataflow endpoint Demod Decode Example VPC"
+          Value: "AWS Ground Station - PBS to dataflow endpoint Example VPC"
         - Key: "Description"
           Value: "VPC for EC2 instance receiving AWS Ground Station data"
 
   ReceiverSubnet:
     Type: AWS::EC2::Subnet
     Properties:
+      # Ensure your CidrBlock will always have at least one available IP address per dataflow endpoint.
+      # See https://docs.aws.amazon.com/vpc/latest/userguide/subnet-sizing.html for subent sizing guidelines.
       CidrBlock: `"10.0.0.0/24"`
       Tags:
         - Key: "Name"
-          Value: "AWS Ground Station - PBS to dataflow endpoint Demod Decode Example Subnet"
+          Value: "AWS Ground Station - PBS to dataflow endpoint Example Subnet"
         - Key: "Description"
           Value: "Subnet for EC2 instance receiving AWS Ground Station data"
       VpcId: !Ref ReceiverVPC
@@ -227,16 +223,9 @@ application, and create one or more dataflow endpoint groups.
       InstanceId: !Ref ReceiverInstance
       NetworkInterfaceId: !Ref ReceiverInstanceNetworkInterface
 
-  # The instance profile for your EC2 instance.
-  GeneralInstanceProfile:
-    Type: AWS::IAM::InstanceProfile
-    Properties:
-      Roles:
-        - !Ref InstanceRole
-
 ```
 
-You'll also need the appropriate policies, roles, and profiles to allow AWS Ground Station to create an elastic network interface (ENI) in
+In addition, you'll also need to create the appropriate policies and roles to allow AWS Ground Station to create an elastic network interface (ENI) in
 your account.
 
 ```
@@ -290,13 +279,20 @@ your account.
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
 
+  # The instance profile for your EC2 instance.
+  GeneralInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref InstanceRole
+
 ```
 
 ## AWS Ground Station configs
 
 This section represents
 [Create configs](getting-started.md "getting-started.md")
-of the user guide.
+of getting started.
 
 You'll need a _tracking-config_ to set your preference on using
 autotrack. Selecting _PREFERRED_ as autotrack can improve the signal
@@ -316,130 +312,35 @@ quality.
 ```
 
 Based on the communication path, you'll need to define an
-_antenna-downlink-demod-decode_ config to represent the satellite portion, as
-well as a _dataflow-endpoint_ config to refer to the dataflow endpoint group
-that defines the endpoint details.
-
-###### Note
-
-For details on how to set the values for `DemodulationConfig`, and
-`DecodeConfig`, please see
-[Antenna Downlink Demod
-Decode Config](how-it-works.md#how-it-works.config-antenna-downlink-demod-decode "how-it-works.md#how-it-works.config-antenna-downlink-demod-decode") .
+_antenna-downlink_ config to represent the satellite portion, as well as a
+_dataflow-endpoint_ config to refer to the dataflow endpoint group that
+defines the endpoint details.
 
 ```
 
   # The AWS Ground Station Antenna Downlink Config that defines the frequency spectrum used to
   # downlink data from your satellite.
-  JpssDownlinkDemodDecodeAntennaConfig:
+  SnppJpssDownlinkDigIfAntennaConfig:
     Type: AWS::GroundStation::Config
     Properties:
-      Name: "JPSS Downlink Demod Decode Antenna Config"
+      Name: "SNPP JPSS Downlink DigIF Antenna Config"
       ConfigData:
-        AntennaDownlinkDemodDecodeConfig:
+        AntennaDownlinkConfig:
           SpectrumConfig:
-            CenterFrequency:
-              Value: 7812
-              Units: "MHz"
-            Polarization: "RIGHT_HAND"
             Bandwidth:
-              Value: 30
               Units: "MHz"
-          DemodulationConfig:
-            UnvalidatedJSON: '{
-              "type":"QPSK",
-              "qpsk":{
-                "carrierFrequencyRecovery":{
-                  "centerFrequency":{
-                    "value":7812,
-                    "units":"MHz"
-                  },
-                  "range":{
-                    "value":250,
-                    "units":"kHz"
-                  }
-                },
-                "symbolTimingRecovery":{
-                  "symbolRate":{
-                    "value":15,
-                    "units":"Msps"
-                  },
-                  "range":{
-                    "value":0.75,
-                    "units":"ksps"
-                  },
-                  "matchedFilter":{
-                    "type":"ROOT_RAISED_COSINE",
-                    "rolloffFactor":0.5
-                  }
-                }
-              }
-            }'
-          DecodeConfig:
-            UnvalidatedJSON: '{
-              "edges":[
-                {
-                  "from":"I-Ingress",
-                  "to":"IQ-Recombiner"
-                },
-                {
-                  "from":"Q-Ingress",
-                  "to":"IQ-Recombiner"
-                },
-                {
-                  "from":"IQ-Recombiner",
-                  "to":"CcsdsViterbiDecoder"
-                },
-                {
-                  "from":"CcsdsViterbiDecoder",
-                  "to":"NrzmDecoder"
-                },
-                {
-                  "from":"NrzmDecoder",
-                  "to":"UncodedFramesEgress"
-                }
-              ],
-              "nodeConfigs":{
-                "I-Ingress":{
-                  "type":"CODED_SYMBOLS_INGRESS",
-                  "codedSymbolsIngress":{
-                    "source":"I"
-                  }
-                },
-                "Q-Ingress":{
-                  "type":"CODED_SYMBOLS_INGRESS",
-                  "codedSymbolsIngress":{
-                    "source":"Q"
-                  }
-                },
-                "IQ-Recombiner":{
-                  "type":"IQ_RECOMBINER"
-                },
-                "CcsdsViterbiDecoder":{
-                  "type":"CCSDS_171_133_VITERBI_DECODER",
-                  "ccsds171133ViterbiDecoder":{
-                    "codeRate":"ONE_HALF"
-                  }
-                },
-                "NrzmDecoder":{
-                  "type":"NRZ_M_DECODER"
-                },
-                "UncodedFramesEgress":{
-                  "type":"UNCODED_FRAMES_EGRESS"
-                }
-              }
-            }'
-
-```
-
-```
+              Value: 30
+            CenterFrequency:
+              Units: "MHz"
+              Value: 7812
+            Polarization: "RIGHT_HAND"
 
   # The AWS Ground Station Dataflow Endpoint Config that defines the endpoint used to downlink data
   # from your satellite.
-  DownlinkDemodDecodeEndpointConfig:
+  DownlinkDigIfEndpointConfig:
     Type: AWS::GroundStation::Config
     Properties:
-      Name: "Aqua SNPP JPSS Downlink Demod Decode Endpoint Config"
+      Name: "Aqua SNPP JPSS Downlink DigIF Endpoint Config"
       ConfigData:
         DataflowEndpointConfig:
           DataflowEndpointName: !Join [ "-" , [ !Ref "AWS::StackName" , "Downlink" ] ]
@@ -450,7 +351,7 @@ Decode Config](how-it-works.md#how-it-works.config-antenna-downlink-demod-decode
 ## AWS Ground Station mission profile
 
 This section represents
-[Create mission profile](getting-started.md "getting-started.md") of the user guide.
+[Create mission profile](getting-started.md "getting-started.md") of getting started.
 
 Now that you have the associated configs, you can use them to construct the dataflow. You'll use
 the defaults for the remaining parameters.
@@ -468,8 +369,8 @@ the defaults for the remaining parameters.
       MinimumViableContactDurationSeconds: 180
       TrackingConfigArn: !Ref TrackingConfig
       DataflowEdges:
-        - Source: !Join [ "/", [ !Ref JpssDownlinkDemodDecodeAntennaConfig, "UncodedFramesEgress" ] ]
-          Destination: !Ref DownlinkDemodDecodeEndpointConfig
+        - Source: !Ref SnppJpssDownlinkDigIfAntennaConfig
+          Destination: !Ref DownlinkDigIfEndpointConfig
 
 ```
 
@@ -481,10 +382,11 @@ synchronous data delivery from any of your onboarded AWS Ground Station [AWS Gro
 The following is a complete CloudFormation template that includes all resources described
 in this section combined into a single template that can be directly used in CloudFormation.
 
-The CloudFormation template named `AquaSnppJpss.yml` is designed to give you quick access to
-start receiving data for the Aqua, SNPP, and JPSS-1/NOAA-20 satellites.
-It contains an Amazon EC2 instance and the required AWS Ground Station resources to schedule contacts and
-receive demodulated and decoded direct broadcast data.
+The CloudFormation template named `AquaSnppJpssTerraDigIF.yml` is designed to give you quick
+access to start receiving digitized intermediate frequency (DigIF) data for the Aqua, SNPP,
+JPSS-1/NOAA-20, and Terra satellites.
+It contains an Amazon EC2 instance and the required CloudFormation resources to receive raw DigIF direct
+broadcast data.
 
 If Aqua, SNPP, JPSS-1/NOAA-20, and Terra are not onboarded to your account, see
 [Onboard satellite](getting-started.md "getting-started.md").
@@ -503,25 +405,25 @@ both YAML and JSON format. To use JSON, replace the `.yml` file extension with
 To download the template using AWS CLI, use the following command:
 
 ```
-aws s3 cp s3://groundstation-cloudformation-templates-us-west-2/AquaSnppJpss.yml .
+aws s3 cp s3://groundstation-cloudformation-templates-us-west-2/AquaSnppJpssTerraDigIF.yml .
 ```
 
 You can view and download the template in the console by navigating to the following URL in
 your browser:
 
 ```
-https://s3.console.aws.amazon.com/s3/object/groundstation-cloudformation-templates-us-west-2/AquaSnppJpss.yml
+https://s3.console.aws.amazon.com/s3/object/groundstation-cloudformation-templates-us-west-2/AquaSnppJpssTerraDigIF.yml
 ```
 
 You can specify the template directly in CloudFormation using the following link:
 
 ```
-https://groundstation-cloudformation-templates-us-west-2.s3.us-west-2.amazonaws.com/AquaSnppJpss.yml
+https://groundstation-cloudformation-templates-us-west-2.s3.us-west-2.amazonaws.com/AquaSnppJpssTerraDigIF.yml
 ```
 
 **What additional resources does the template define?**
 
-The `AquaSnppJpss` template includes the following additional resources:
+The `AquaSnppJpssTerraDigIF` template includes the following additional resources:
 
 - (Optional) **CloudWatch Event Triggers** - AWS Lambda
   Function that is triggered using CloudWatch Events sent by AWS Ground Station before and after a contact.
@@ -535,9 +437,8 @@ The `AquaSnppJpss` template includes the following additional resources:
 * The option to select what software is installed in your instance and the AMI of your
   choice.
   The software options include `DDX 2.6.2 Only` and `DDX 2.6.2 with qRadio
-3.6.0`. If you want to use Wideband DigIF Data Delivery and the AWS Ground Station Agent, please
-  see [Public broadcast satellite utilizing AWS Ground Station Agent (wideband)](examples.md "examples.md"). These options will continue to expand as
-  additional software updates and features are released.
+3.6.0`. These options will continue to expand as additional software updates and
+  features are released.
 
 - **Additional mission profiles**
 
