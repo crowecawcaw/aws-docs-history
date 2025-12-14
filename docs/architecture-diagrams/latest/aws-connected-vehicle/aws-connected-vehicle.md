@@ -117,8 +117,8 @@ Secure your connected vehicles with provisioning, OCSP, and certificate rotation
    status to active. The ECU can retry the connection and communicate to topics
    in **AWS IoT Core**.
 6. **AWS IoT Device Defender** publishes audit findings
-   such as certificate expiring and certificate revoked to **AWS Security Hub**.
-   **Security Hub** sends events to **Amazon EventBridge**,
+   such as certificate expiring and certificate revoked to **AWS Security Hub CSPM**.
+   **Security Hub CSPM** sends events to **Amazon EventBridge**,
    which initiates targets such as an **AWS Step Functions** workflow
    to rotate the certificate. **EventBridge** can also send audit
    findings to your vehicle security operations center.
@@ -174,9 +174,9 @@ Secure your connected vehicles with AWS encryption and monitoring services.
    can generate a finding when it detects abnormal rates of authorization
    failures (cloud-side metric) or anomalous traffic flow (device-side metrics)
    for an ECU.
-8. **AWS IoT Device Defender** sends findings to **AWS Security Hub**
+8. **AWS IoT Device Defender** sends findings to **AWS Security Hub CSPM**
    where security findings from other AWS services and partner products are
-   aggregated and normalized. **Security Hub** sends findings
+   aggregated and normalized. **Security Hub CSPM** sends findings
    to **EventBridge**, which routes them to a remediation
    workflow implemented using **Step Functions**. You can
    also send findings to your vehicle security operations center.
