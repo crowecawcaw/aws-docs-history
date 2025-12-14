@@ -13,8 +13,7 @@ you as a single object called an _interconnect_.
 
 ###### Note
 
-AWS Interconnect was announced in Preview at re:Invent 2025 with Google Cloud. Customers will be able to begin onboarding to the new service in the weeks immediately following the event. At that
-time, you will be able to create a preview 1Gbps connection per customer that you can use at no cost for the duration of the Public Preview. At the time AWS Interconnect becomes Generally Available, any
+AWS Interconnect is in Public Preview with Google Cloud. You can create a preview 1Gbps Interconnect in the supported Regions and use it at no cost for the duration of the Public Preview (one per customer). At the time AWS Interconnect becomes Generally Available, any
 “preview” 1Gbps connections will be removed from your account. Pricing for AWS Interconnect will be announced before General Availability.
 Your use of AWS Interconnect is governed by the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/"), including the terms regarding access to “Betas and Previews”. Therefore, we advise that you
 do not route any production traffic through your preview connection during the Public Preview.
