@@ -67,14 +67,18 @@ ListKeysReponse keys = kmsAsync.listKeys().get();
 Consider running the following tests with hybrid cipher suites on your applications that
 call AWS KMS.
 
-- Run load tests and benchmarks. The hybrid cipher suites perform differently than
-  traditional key exchange algorithms. You might need to adjust your connection timeouts
-  to allow for the longer handshake times. If you’re running inside an AWS Lambda function,
-  extend the execution timeout setting.
+- View the `tlsDetails` section in the CloudTrail log entry for an
+  AWS KMS API call made by your application. The `keyExchange` field should
+  mention a hybrid algorithm such as `X25519MLKEM768`. For an example, see
+  [Decrypt with a standard symmetric encryption
+  key over a post-quantum TLS connection](ct-decrypt.md#ct-decrypt-default-pqtls "ct-decrypt.md#ct-decrypt-default-pqtls").
+- Run benchmarks using hybrid post-quantum TLS. Hybrid key exchange increases the
+  size and processing time of some messages in the TLS handshake, but the overall performance
+  impact should be imperceptible in most cases.
 - Try connecting from different locations. Depending on the network path your request
-  takes, you might discover that intermediate hosts, proxies, or firewalls with deep
-  packet inspection (DPI) block the request. This might result from using the new cipher
-  suites in the [ClientHello](https://tools.ietf.org/html/rfc5246#section-7.4.1.2 "https://tools.ietf.org/html/rfc5246#section-7.4.1.2") part of the TLS handshake, or from the larger key exchange
+  takes, you might discover that legacy intermediate hosts, proxies, or firewalls with deep
+  packet inspection (DPI) block the request. This might result from using the new key exchange
+  groups in the [ClientHello](https://datatracker.ietf.org/doc/html/rfc8446#section-4.1.2 "https://datatracker.ietf.org/doc/html/rfc8446#section-4.1.2") part of the TLS handshake, or from the larger key exchange
   messages. If you have trouble resolving these issues, work with your security team or IT
-  administrators to update the relevant configuration and unblock the new TLS cipher
-  suites.
+  administrators to update the relevant configuration and unblock the new TLS key exchange
+  groups.

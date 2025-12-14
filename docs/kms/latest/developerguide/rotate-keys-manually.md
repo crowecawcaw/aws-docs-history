@@ -1,17 +1,17 @@
 # Rotate keys manually
 
 You might want to create a new KMS key and use it in place of a current KMS key
-instead of using automatic or on-demand key rotation. When the new KMS key has different
-cryptographic material than the current KMS key, using the new KMS key has the same
-effect as changing the key material in an existing KMS key. The process of replacing
-one KMS key with another is known as _manual key
+instead of using automatic or on-demand key rotation. When the new KMS key has
+different cryptographic material than the current KMS key, using the new KMS key has
+the same effect as changing the key material in an existing KMS key. The process of
+replacing one KMS key with another is known as _manual key
 rotation_.
 
 ![Diagram showing manual key rotation process with application, old key, and new key.](images/key-rotation-manual.png)
 Manual rotation is a good choice when you want to rotate KMS keys that are not
-eligible for automatic or on-demand key rotation, such as asymmetric KMS keys, HMAC KMS keys,
-KMS keys in [custom key stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview"), and multi-Region
-KMS keys with [imported key material](importing-keys.md "importing-keys.md").
+eligible for automatic or on-demand key rotation, such as asymmetric KMS keys, HMAC
+KMS keys, and KMS keys in [custom key
+stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview").
 
 ###### Note
 
@@ -28,17 +28,10 @@ the target KMS key of the alias. For details, see [Learn how to use aliases in y
 ###### Note
 
 Aliases that point to the latest version of a manually rotated KMS key are a
-good solution for [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md"), [GetPublicKey](../APIReference/API_GetPublicKey.md "../APIReference/API_GetPublicKey.md") and cryptographic operations like
-[DeriveSharedSecret](../APIReference/API_DeriveSharedSecret.md "../APIReference/API_DeriveSharedSecret.md"),
-[Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md"),
-[GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md"),
-[GenerateDataKeyPair](../APIReference/API_GenerateDataKeyPair.md "../APIReference/API_GenerateDataKeyPair.md"),
-[GenerateMac](../APIReference/API_GenerateMac.md "../APIReference/API_GenerateMac.md"),
-[VerifyMac](../APIReference/API_VerifyMac.md "../APIReference/API_VerifyMac.md"),
-[Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md") and
-[Verify](../APIReference/API_Verify.md "../APIReference/API_Verify.md").
-Aliases are not permitted in operations that manage KMS keys, such as
-[DisableKey](../APIReference/API_DisableKey.md "../APIReference/API_DisableKey.md") or [ScheduleKeyDeletion](../APIReference/API_ScheduleKeyDeletion.md "../APIReference/API_ScheduleKeyDeletion.md").
+good solution for [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md"), [GetPublicKey](../APIReference/API_GetPublicKey.md "../APIReference/API_GetPublicKey.md") and cryptographic operations like [DeriveSharedSecret](../APIReference/API_DeriveSharedSecret.md "../APIReference/API_DeriveSharedSecret.md"),
+[Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md"), [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md"), [GenerateDataKeyPair](../APIReference/API_GenerateDataKeyPair.md "../APIReference/API_GenerateDataKeyPair.md"),
+[GenerateMac](../APIReference/API_GenerateMac.md "../APIReference/API_GenerateMac.md"), [VerifyMac](../APIReference/API_VerifyMac.md "../APIReference/API_VerifyMac.md"), [Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md") and [Verify](../APIReference/API_Verify.md "../APIReference/API_Verify.md"). Aliases are not permitted in
+operations that manage KMS keys, such as [DisableKey](../APIReference/API_DisableKey.md "../APIReference/API_DisableKey.md") or [ScheduleKeyDeletion](../APIReference/API_ScheduleKeyDeletion.md "../APIReference/API_ScheduleKeyDeletion.md").
 
 When calling the [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md")
 operation on manually rotated symmetric encryption KMS keys, omit the

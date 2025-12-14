@@ -48,11 +48,11 @@ that the KMS key is still being used and probably should not be deleted. For mor
 information, see [Create an alarm that detects use of a
 KMS key pending deletion](deleting-keys-creating-cloudwatch-alarm.md "deleting-keys-creating-cloudwatch-alarm.md").
 
-**AWS Security Hub**
+**AWS Security Hub CSPM**
 
 You can monitor your AWS KMS usage for security industry standards and best practices
-compliance using AWS Security Hub. Security Hub uses security controls to evaluate resource
+compliance using AWS Security Hub CSPM. Security Hub CSPM uses security controls to evaluate resource
 configurations and security standards to help you comply with various compliance
 frameworks. For more information, see
 [AWS Key Management Service controls](../../../securityhub/latest/userguide/kms-controls.md "../../../securityhub/latest/userguide/kms-controls.md") in the
-_AWS Security Hub User Guide_.
+_AWS Security Hub CSPM User Guide_.

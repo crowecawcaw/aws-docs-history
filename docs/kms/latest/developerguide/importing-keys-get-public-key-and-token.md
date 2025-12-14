@@ -152,7 +152,7 @@ You can import key material only into an KMS key with an
 This indicates that the KMS key was created with no key material. To add the
 **Origin** column to your table, in the upper-right corner of the
 page, choose the settings icon (
-![Gear or cog icon representing settings or configuration options.](images/console-icon-settings-new.png)
+![Gear or cog icon representing settings or configuration options.](/images/kms/latest/developerguide/images/console-icon-settings-new.png)
 ). Turn on **Origin**, and then choose
 **Confirm**. 5. Choose the alias or key ID of the KMS key that is pending import. 6. Choose the **Cryptographic configuration** tab and view its values.
 The tabs are below the **General configuration** section.

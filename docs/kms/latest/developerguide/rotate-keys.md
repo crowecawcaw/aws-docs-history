@@ -13,35 +13,38 @@ initiate key material rotation, you can perform _on-demand
 rotation_, regardless of whether or not automatic key rotation is enabled.
 On-demand rotations do not change existing automatic rotation schedules.
 
-You can [track the rotation](#monitor-key-rotation "#monitor-key-rotation") of key material for your
-KMS keys in Amazon CloudWatch, AWS CloudTrail, and the AWS Key Management Service console. You can also use [GetKeyRotationStatus](../APIReference/API_GetKeyRotationStatus.md "../APIReference/API_GetKeyRotationStatus.md") operation
+You can [track the rotation](#monitor-key-rotation "#monitor-key-rotation") of key material for
+your KMS keys in Amazon CloudWatch, AWS CloudTrail, and the AWS Key Management Service console. You can also use [GetKeyRotationStatus](../APIReference/API_GetKeyRotationStatus.md "../APIReference/API_GetKeyRotationStatus.md") operation
 to verify whether automatic rotation is enabled for a KMS key and identify any in progress
 on-demand rotations. You can use [ListKeyRotations](../APIReference/API_ListKeyRotations.md "../APIReference/API_ListKeyRotations.md") operation to view the details of completed rotations.
 
-Key rotation changes only the _current key material_, which is
-the cryptographic secret that is used in encryption operations. When you use the rotated KMS key
-to decrypt ciphertext, AWS KMS uses the key material that was used to encrypt it. You cannot select
-a particular key material for decrypt operations, AWS KMS automatically chooses the correct key material.
-Because AWS KMS transparently decrypts with the appropriate key material, you can safely use a rotated
-KMS key in applications and AWS services without code changes.
+Key rotation changes only the _current key material_,
+which is the cryptographic secret that is used in encryption operations. When you use the
+rotated KMS key to decrypt ciphertext, AWS KMS uses the key material that was used to
+encrypt it. You cannot select a particular key material for decrypt operations, AWS KMS
+automatically chooses the correct key material. Because AWS KMS transparently decrypts with
+the appropriate key material, you can safely use a rotated KMS key in applications and
+AWS services without code changes.
 
-The KMS key is the same
-logical resource, regardless of whether or how many times its key material changes. The
-properties of the KMS key do not change, as shown in the following image.
+The KMS key is the same logical resource, regardless of whether or how many times its
+key material changes. The properties of the KMS key do not change, as shown in the
+following image.
 
 ![Key rotation process showing key material change while Key ID remains constant.](images/key-rotation-auto.png)
 You might decide to create a new KMS key and use it in place of the original KMS key.
 This has the same effect as rotating the key material in an existing KMS key, so it's
 often thought of as [manually rotating the key](rotate-keys-manually.md "rotate-keys-manually.md").
 Manual rotation is a good choice when you want to rotate KMS keys that are not eligible
-for automatic or on-demand key rotation, including [asymmetric
-KMS keys](symmetric-asymmetric.md "symmetric-asymmetric.md"), [HMAC KMS keys](hmac.md "hmac.md"), KMS keys in [custom key stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview"), and multi-Region KMS keys with [imported key material](importing-keys.md "importing-keys.md").
+for automatic or on-demand key rotation, including [asymmetric KMS keys](symmetric-asymmetric.md "symmetric-asymmetric.md"), [HMAC KMS keys](hmac.md "hmac.md"), KMS keys
+in [custom key stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview"), and multi-Region
+KMS keys with [imported key material](importing-keys.md "importing-keys.md").
 
 ###### Note
 
-Key rotation has no effect on the data that the KMS key protects. It does not rotate the
-data keys that the KMS key generated or re-encrypt any data protected by the KMS key. Key rotation
-will not mitigate the effect of a compromised data key.
+Key rotation has no effect on the data that the KMS key protects. It does not
+rotate the data keys that the KMS key generated or re-encrypt any data protected by
+the KMS key. Key rotation will not mitigate the effect of a compromised data
+key.
 
 ###### Key rotation and pricing
 
@@ -97,8 +100,8 @@ almost never reused enough to risk key exhaustion.
 Despite this very low exhaustion risk, you might be required to rotate your KMS keys
 due to business or contract rules or government regulations. When you are compelled to
 rotate KMS keys, we recommend that you use automatic key rotation where it is
-supported, use on-demand rotation if automatic rotation is not supported, and
-manual key rotation when neither automatic nor on-demand key rotation is supported.
+supported, use on-demand rotation if automatic rotation is not supported, and manual key
+rotation when neither automatic nor on-demand key rotation is supported.
 
 You might consider performing on-demand rotations to demonstrate key material rotation
 capabilities or to validate automation scripts. We recommend using on-demand rotations
@@ -115,12 +118,14 @@ AWS KMS rotates the KMS key automatically on the next rotation date
 defined by your rotation period. You don't need to remember or schedule the
 update.
 
-Automatic key rotation is supported only on symmetric encryption KMS keys with key
-material that AWS KMS generates (`AWS_KMS` origin).
+Automatic key rotation is supported only on symmetric encryption
+KMS keys with key material that AWS KMS generates (`AWS_KMS`
+origin).
 
-Automatic rotation is optional for customer managed KMS keys. AWS KMS always rotates
-the key material for AWS managed KMS keys every year. Rotation of AWS owned KMS keys
-is managed by the AWS service that owns the key.
+Automatic rotation is optional for customer managed KMS keys. AWS KMS
+always rotates the key material for AWS managed KMS keys every year.
+Rotation of AWS owned KMS keys is managed by the AWS service that owns
+the key.
 
 **On-demand rotation**
 
@@ -128,35 +133,35 @@ Immediately initiate rotation of the key material associated with your
 KMS key, regardless of whether or not automatic key rotation is
 enabled.
 
-On-demand key rotation is supported on symmetric encryption KMS keys with key
-material that AWS KMS generates (`AWS_KMS` origin) and single-Region,
-symmetric encryption KMS keys with imported key material (`EXTERNAL`
-origin).
+On-demand key rotation is supported on symmetric encryption KMS keys
+with key material that AWS KMS generates (`AWS_KMS` origin) and
+symmetric encryption KMS keys with imported key material
+(`EXTERNAL` origin).
 
-**Manual rotation**
+**Manual
+rotation**
 
-Neither automatic nor on-demand key rotation is supported for the following types of KMS keys,
-but you can [rotate these KMS keys manually](rotate-keys-manually.md "rotate-keys-manually.md").
+Neither automatic nor on-demand key rotation is supported for the
+following types of KMS keys, but you can [rotate these KMS keys
+manually](rotate-keys-manually.md "rotate-keys-manually.md").
 
 - [Asymmetric
   KMS keys](symmetric-asymmetric.md "symmetric-asymmetric.md")
 - [HMAC KMS keys](hmac.md "hmac.md")
 - KMS keys in [custom key
   stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview")
-- Multi-Region KMS keys with [imported key
-  material](importing-keys.md "importing-keys.md")
 
 **Managing key material**
 
-AWS KMS retains all key material for a KMS key with `AWS_KMS` origin, even
-if key rotation is disabled. AWS KMS deletes key material only when you delete the
-KMS key.
+AWS KMS retains all key material for a KMS key with `AWS_KMS`
+origin, even if key rotation is disabled. AWS KMS deletes key material only
+when you delete the KMS key.
 
-You manage the key materials for symmetric encryption keys with `EXTERNAL`
-origin. You can delete any key material using the
-[DeleteImportedKeyMaterial](../APIReference/API_DeleteImportedKeyMaterial.md "../APIReference/API_DeleteImportedKeyMaterial.md")
-operation or set an expiration time when importing the material. The KMS key becomes unusable
-as soon as any of its materials expires or is deleted.
+You manage the key materials for symmetric encryption keys with
+`EXTERNAL` origin. You can delete any key material using the
+[DeleteImportedKeyMaterial](../APIReference/API_DeleteImportedKeyMaterial.md "../APIReference/API_DeleteImportedKeyMaterial.md") operation or set an expiration time
+when importing the material. The KMS key becomes unusable as soon as any
+of its materials expires or is deleted.
 
 **Using key material**
 
@@ -179,12 +184,11 @@ You can use the [kms:RotationPeriodInDays](conditions-kms.md#conditions-kms-rota
 values that principals can specify in the `RotationPeriodInDays`
 parameter.
 
-**Rotation
-date**
+**Rotation date**
 
-Rotation date reflects the date when the current key material for a KMS key
-was updated either as a result of automatic (scheduled) rotation or an on-demand
-key rotation.
+Rotation date reflects the date when the current key material for a
+KMS key was updated either as a result of automatic (scheduled) rotation
+or an on-demand key rotation.
 
 **Rotation date**
 
@@ -193,12 +197,12 @@ your rotation period. The default rotation period is 365 days.
 
 **Customer managed keys**
 
-Because automatic key rotation is optional on [customer managed keys](concepts.md#customer-mgn-key "concepts.md#customer-mgn-key") and can be enabled
-and disabled at any time, the rotation date depends on the date
-that rotation was most recently enabled. The date can change if
-you modify the rotation period for a key that you previously
-enabled automatic key rotation on. The rotation date can change
-many times over the life of the key.
+Because automatic key rotation is optional on [customer managed keys](concepts.md#customer-mgn-key "concepts.md#customer-mgn-key") and can be
+enabled and disabled at any time, the rotation date depends on
+the date that rotation was most recently enabled. The date can
+change if you modify the rotation period for a key that you
+previously enabled automatic key rotation on. The rotation date
+can change many times over the life of the key.
 
 For example, if you create a customer managed key on January 1, 2022,
 and enable automatic key rotation with the default rotation
@@ -265,9 +269,8 @@ in the user guide or developer guide for the service.
 
 You can enable and disable automatic rotation and perform on-demand
 rotation of the key material in symmetric encryption [multi-Region keys](multi-region-keys-overview.md "multi-region-keys-overview.md") with
-`AWS_KMS` origin. Key
-rotation is a [shared property](multi-region-keys-overview.md#mrk-sync-properties "multi-region-keys-overview.md#mrk-sync-properties") of
-multi-Region keys.
+`AWS_KMS` origin. Key rotation is a [shared property](multi-region-keys-overview.md#mrk-sync-properties "multi-region-keys-overview.md#mrk-sync-properties") of multi-Region
+keys.
 
 You enable and disable automatic key rotation only on the primary key. You
 initiate on-demand rotation only on the primary key.
@@ -295,9 +298,9 @@ key was created.
 
 **AWS services**
 
-You can enable automatic key rotation on the [customer managed keys](concepts.md#customer-mgn-key "concepts.md#customer-mgn-key") that you use for server-side encryption in AWS
-services. The annual rotation is transparent and compatible with AWS
-services.
+You can enable automatic key rotation on the [customer managed keys](concepts.md#customer-mgn-key "concepts.md#customer-mgn-key") that you use for
+server-side encryption in AWS services. The annual rotation is transparent
+and compatible with AWS services.
 
 **Monitoring key rotation**
 

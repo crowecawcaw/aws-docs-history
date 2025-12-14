@@ -17,14 +17,15 @@ use the AWS KMS console to view the number of remaining on-demand rotations avai
 a KMS key.
 
 On-demand key rotation is supported only on [symmetric
-encryption KMS keys](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks"). You cannot perform on-demand rotation of [asymmetric KMS keys](symmetric-asymmetric.md "symmetric-asymmetric.md"), [HMAC KMS keys](hmac.md "hmac.md"), multi-Region KMS keys with [imported key
-material](importing-keys.md "importing-keys.md"), or KMS keys in a [custom
+encryption KMS keys](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks"). You cannot perform on-demand rotation of [asymmetric KMS keys](symmetric-asymmetric.md "symmetric-asymmetric.md"), [HMAC KMS keys](hmac.md "hmac.md"), or KMS keys in a [custom
 key store](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview"). To perform on-demand rotation of a set of related [multi-Region keys](rotate-keys.md#multi-region-rotate "rotate-keys.md#multi-region-rotate"), invoke the on-demand
 rotation on the primary key.
 
-Authorized users with `kms:RotateKeyOnDemand` and `kms:GetKeyRotationStatus`
-permissions can use the AWS KMS console and the AWS KMS API to initiate on-demand key rotation and
-view the key rotation status. Use [ListKeyRotations](../APIReference/API_ListKeyRotations.md "../APIReference/API_ListKeyRotations.md") to view completed rotations for a KMS key.
+Authorized users with `kms:RotateKeyOnDemand` and
+`kms:GetKeyRotationStatus` permissions can use the AWS KMS console and the
+AWS KMS API to initiate on-demand key rotation and view the key rotation status. Use
+[ListKeyRotations](../APIReference/API_ListKeyRotations.md "../APIReference/API_ListKeyRotations.md") to view
+completed rotations for a KMS key.
 
 ###### Topics
 
@@ -44,22 +45,27 @@ view the key rotation status. Use [ListKeyRotations](../APIReference/API_ListKey
 4. Choose the alias or key ID of a KMS key.
 5. Choose the **Key material and rotations** tab.
 
-The **Key material and rotations** tab appears only on the detail page
-of symmetric encryption KMS keys that support automatic or on-demand rotation. This includes
-KMS keys with key material that AWS KMS generated (**AWS_KMS** origin) and
-single-Region KMS keys with imported key material (**EXTERNAL** origin).
+The **Key material and rotations** tab appears only on
+the detail page of symmetric encryption KMS keys that support automatic or
+on-demand rotation. This includes KMS keys with key material that AWS KMS
+generated (**AWS_KMS** origin) and KMS keys with imported
+key material (**EXTERNAL** origin)
 
 You cannot perform on-demand rotation of asymmetric KMS keys, HMAC
-KMS keys, multi-Region KMS keys with [imported key
-material](importing-keys.md "importing-keys.md"), or KMS keys in [custom key stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview"). However,
-you can [rotate them
-manually](rotate-keys-manually.md "rotate-keys-manually.md"). 6. Choose **Rotate now**. For single-Region, symmetric encryption keys with
-imported key material, the **Rotate now** option is available only if
-you have previously [imported new key material](importing-keys-import-key-material.md#import-new-key-material "importing-keys-import-key-material.md#import-new-key-material")
-and it is in **Pending rotation** state. 7. Read and consider the warning and the information about the number of
-remaining on-demand rotations for the key. You will also see information such as the ID,
-description, and expiration time of the key material that will become current after rotation.
-If you decide that you do not want to proceed with the on-demand rotation, choose
+KMS keys, or KMS keys in [custom key
+stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview"). However, you can [rotate them manually](rotate-keys-manually.md "rotate-keys-manually.md"). 6. Choose **Rotate now**. For symmetric encryption keys with
+imported key material, the **Rotate now** option is
+available only if you have previously [imported new key material](importing-keys-import-key-material.md#import-new-key-material "importing-keys-import-key-material.md#import-new-key-material") and
+it is in **Pending rotation** state.
+
+###### Note
+
+For multi-Region keys, only the primary Region key can be
+rotated. 7. Read and consider the warning and the information about the number of
+remaining on-demand rotations for the key. You will also see information
+such as the ID, description, and expiration time of the key material that
+will become current after rotation. If you decide that you do not want to
+proceed with the on-demand rotation, choose
 **Cancel**. 8. Choose **Rotate key** to confirm on-demand
 rotation.
 
@@ -89,8 +95,8 @@ encryption KMS key and uses the [GetKeyRotationStatus](../APIReference/API_GetKe
 operation to verify that the on-demand rotation is in progress. The
 `OnDemandRotationStartDate` in the
 `kms:GetKeyRotationStatus` response identifies the date and time that
-an in progress on-demand rotation was initiated. In this example, the KMS key also has
-automatic rotation enabled with a period of 365 days.
+an in progress on-demand rotation was initiated. In this example, the KMS key also
+has automatic rotation enabled with a period of 365 days.
 
 ```
 `$` `aws kms rotate-key-on-demand --key-id `1234abcd-12ab-34cd-56ef-1234567890ab``
@@ -109,9 +115,9 @@ automatic rotation enabled with a period of 365 days.
 
 ```
 
-If the KMS key does not support automatic rotation or does not have automatic rotation enabled,
-the `kms:GetKeyRotationStatus` response would have fewer fields as shown in the
-following example:
+If the KMS key does not support automatic rotation or does not have automatic
+rotation enabled, the `kms:GetKeyRotationStatus` response would have
+fewer fields as shown in the following example:
 
 ```
 `$` `aws kms rotate-key-on-demand --key-id `1234abcd-12ab-34cd-56ef-1234567890ab``

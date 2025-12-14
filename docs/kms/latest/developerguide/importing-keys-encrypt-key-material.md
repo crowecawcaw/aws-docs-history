@@ -293,8 +293,7 @@ In this example command:
 
 Concatenate the file with the encrypted key material and the file with the
 encrypted AES key. Save them in the `EncryptedKeyMaterial.bin` file,
-which is the file that you'll import in the [Step 4: Import the
-key material](importing-keys-import-key-material.md "importing-keys-import-key-material.md").
+which is the file that you'll import in the [Step 4: Import the key material](importing-keys-import-key-material.md "importing-keys-import-key-material.md").
 
 In this example command:
 
@@ -392,8 +391,7 @@ In this example command:
 Concatenate the file with the encrypted key material and the file with the
 encrypted AES key. Save them in the
 `EncryptedKeyMaterial.bin` file, which is the file that
-you'll import in the [Step 4: Import the
-key material](importing-keys-import-key-material.md "importing-keys-import-key-material.md").
+you'll import in the [Step 4: Import the key material](importing-keys-import-key-material.md "importing-keys-import-key-material.md").
 
 In this example command:
 
@@ -407,5 +405,4 @@ In this example command:
 `$` `cat `aes-key-wrapped.bin` `key-material-wrapped.bin` > ``EncryptedKeyMaterial.bin```
 ````
 
-Proceed to [Step 4: Import the
-key material](importing-keys-import-key-material.md "importing-keys-import-key-material.md").
+Proceed to [Step 4: Import the key material](importing-keys-import-key-material.md "importing-keys-import-key-material.md").

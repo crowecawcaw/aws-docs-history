@@ -52,9 +52,9 @@ AWS KMS key material to expire.
 
 ###### Important
 
-Single-Region, symmetric encryption keys can have multiple key materials associated with
-them. The entire KMS key becomes unusable as soon as you delete any one of those key
-materials or if any one of those key materials expires (unless the deleted or expiring key
-material is `PENDING_ROTATION`). You must reimport any expired or deleted key
-materials associated with such a key before the key becomes usable for cryptographic
-operations.
+Symmetric encryption keys can have multiple key materials associated with them. The
+entire KMS key becomes unusable as soon as you delete any one of those key materials or
+if any one of those key materials expires (unless the deleted or expiring key material is
+`PENDING_ROTATION` or `PENDING_MULTI_REGION_IMPORT_AND_ROTATION`). You
+must reimport any expired or deleted key materials associated with such a key before the key
+becomes usable for cryptographic operations.

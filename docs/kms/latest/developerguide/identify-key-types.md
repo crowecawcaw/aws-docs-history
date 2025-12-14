@@ -142,7 +142,7 @@ KMS key displays the **Origin**, which identifies the source of the
 key material for the KMS key. For KMS keys with imported key material, the origin
 value is always **External (Import Key material)**. The details page
 also includes a **Key material** tab that provides detailed
-information about the imported key material. Single-Region, symmetric encryption keys
+information about the imported key material. Symmetric encryption keys
 with `EXTERNAL` origin support on-demand rotations and can have multiple key
 materials associated with them. For such keys, the tab is labeled **Key material and
 rotations**.

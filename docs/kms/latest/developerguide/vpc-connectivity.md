@@ -286,14 +286,14 @@ value.
 
 Cross AWS account
 When your VPC endpoint service is owned by another AWS account you
-must add both AWS KMS and your external key store to the **Allow
+must add both AWS KMS and your account to the **Allow
 principals** list. This allows AWS KMS and your external key
 store to create interface endpoints to your VPC endpoint service. If
 AWS KMS is not an allowed principal, attempts to create an external key
 store will fail with an
 `XksProxyVpcEndpointServiceNotFoundException`
-exception. You'll need to provide the AWS account ARN where the xks
-resides.
+exception. You'll need to provide the AWS account ARN where
+the external key store resides.
 
 Follow the instructions in the [Manage permissions](../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions "../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions") topic in the _AWS PrivateLink Guide_. Use the following required
 value.

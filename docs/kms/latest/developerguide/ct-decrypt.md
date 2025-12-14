@@ -18,6 +18,8 @@ plaintext in the response are omitted.
   store](#ct-decrypt-xks "#ct-decrypt-xks")
 - [Decrypt failure with a KMS key in an external key
   store](#ct-decrypt-xks-fail "#ct-decrypt-xks-fail")
+- [Decrypt with a standard symmetric encryption
+  key over a post-quantum TLS connection](#ct-decrypt-default-pqtls "#ct-decrypt-default-pqtls")
 
 ## Decrypt with a standard symmetric encryption
 
@@ -308,5 +310,74 @@ For help with `Decrypt` requests in external key stores, see [Decryption errors]
     "managementEvent": true,
     "recipientAccountId": "111122223333",
     "eventCategory": "Management"
+}
+```
+
+## Decrypt with a standard symmetric encryption
+
+key over a post-quantum TLS connection
+
+The following is an example CloudTrail log entry for a `Decrypt` operation with a
+standard symmetric encryption key over a post-quantum TLS connection. The keyExchange
+field in the `tlsDetails` section mentions `X25519MLKEM768`. This
+is a _hybrid_ algorithm that combines
+[Elliptic Curve
+Diffie-Hellman](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman "https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman") (ECDH) over [Curve
+25519](https://en.wikipedia.org/wiki/Curve25519 "https://en.wikipedia.org/wiki/Curve25519"), a classic key exchange algorithm used today in TLS, with
+[Module-Lattice-Based
+Key-Encapsulation Mechanism](https://csrc.nist.gov/pubs/fips/203/final "https://csrc.nist.gov/pubs/fips/203/final") (ML-KEM), a public-key encryption and
+key-establishment algorithm that the National Institute for Standards and Technology (NIST)
+[has designated as its first
+standard](https://csrc.nist.gov/pubs/fips/203/final "https://csrc.nist.gov/pubs/fips/203/final") post-quantum key-agreement algorithm.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "EX_PRINCIPAL_ID",
+        "arn": "arn:aws:iam::111122223333:user/Alice",
+        "accountId": "111122223333",
+        "accessKeyId": "EXAMPLE_KEY_ID",
+        "userName": "Alice"
+    },
+    "eventTime": "2025-11-12T15:16:26Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "Decrypt",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "192.0.2.0",
+    "userAgent": "aws-sdk-java/2.30.22 md/io#async md/http#AwsCommonRuntime ...",
+    "requestParameters": {
+        "encryptionAlgorithm": "SYMMETRIC_DEFAULT",
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+        "encryptionContext": {
+            "Department": "Engineering",
+            "Project": "Alpha"
+        }
+    },
+    "responseElements": null,
+    "additionalEventData": {
+        "keyMaterialId": "123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0"
+    },
+    "requestID": "12345126-30d5-4b28-98b9-9153da559963",
+    "eventID": "abcde202-ba1a-467c-b4ba-f729d45ae521",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_256_GCM_SHA384",
+        "clientProvidedHostHeader": "kms.us-west-2.amazonaws.com",
+        "keyExchange": "X25519MLKEM768"
+    }
 }
 ```

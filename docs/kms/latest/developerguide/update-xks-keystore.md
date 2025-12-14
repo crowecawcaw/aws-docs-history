@@ -59,7 +59,7 @@ You can edit your external key store's properties in the AWS KMS console or by u
 [UpdateCustomKeyStore](../APIReference/API_UpdateCustomKeyStore.md "../APIReference/API_UpdateCustomKeyStore.md")
 operation.
 
-When you edit an key store, you can change any of the editable values. Some
+When you edit a key store, you can change any of the editable values. Some
 changes require that the external key store be disconnected from its external
 key store proxy.
 

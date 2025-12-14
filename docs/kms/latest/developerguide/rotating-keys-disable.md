@@ -1,12 +1,12 @@
 # Disable automatic key rotation
 
-After enabling automatic key rotation on a customer managed key, you can choose to disable
-it at any time.
+After enabling automatic key rotation on a customer managed key, you can choose to disable it at
+any time.
 
-If you disable automatic key rotation, the KMS key
-continues to use the version of the key material it was using when rotation was
-disabled. If you enable automatic key rotation again, AWS KMS rotates the key material
-based on the new rotation-enable date.
+If you disable automatic key rotation, the KMS key continues to use the version of
+the key material it was using when rotation was disabled. If you enable automatic key
+rotation again, AWS KMS rotates the key material based on the new rotation-enable
+date.
 
 Disabling automatic rotation does not impact your ability to [perform on-demand rotations](rotating-keys-on-demand.md "rotating-keys-on-demand.md"), nor does it
 cancel any in progress on-demand rotations.
@@ -48,9 +48,9 @@ disable automatic key rotation and view the current rotation status of any
 customer managed key. This example uses the [AWS Command Line Interface
 (AWS CLI)](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"), but you can use any supported programming language.
 
-The [DisableKeyRotation](../APIReference/API_DisableKeyRotation.md "../APIReference/API_DisableKeyRotation.md") operation disables automatic key rotation. To identify the KMS key
-in this operation, use its [key ID](concepts.md#key-id-key-id "concepts.md#key-id-key-id") or [key ARN](concepts.md#key-id-key-ARN "concepts.md#key-id-key-ARN"). By default, key rotation is
-disabled for customer managed keys.
+The [DisableKeyRotation](../APIReference/API_DisableKeyRotation.md "../APIReference/API_DisableKeyRotation.md") operation disables automatic key rotation. To
+identify the KMS key in this operation, use its [key ID](concepts.md#key-id-key-id "concepts.md#key-id-key-id") or [key ARN](concepts.md#key-id-key-ARN "concepts.md#key-id-key-ARN"). By default,
+key rotation is disabled for customer managed keys.
 
 The following example disables automatic key rotation on the specified
 symmetric encryption KMS key and uses the [GetKeyRotationStatus](../APIReference/API_GetKeyRotationStatus.md "../APIReference/API_GetKeyRotationStatus.md") operation to see the result.

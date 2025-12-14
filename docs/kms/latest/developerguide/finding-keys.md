@@ -106,7 +106,7 @@ If you choose the CloudHSM cluster ID, it opens the
 Where: General configuration section
 
 Symmetric encryption keys with `AWS_KMS` origin support both automatic and
-on-demand rotation. Single-Region, symmetric encryption keys with `EXTERNAL`
+on-demand rotation. Symmetric encryption keys with `EXTERNAL`
 origin support on-demand rotation. These keys can have multiple key materials associated
 with the key. The most recently rotated key material can be used for both encryption
 and decryption. This key material is identified as the current key material. Other key
@@ -167,7 +167,7 @@ Where: Key material tab
 The date and time when the key material for the KMS key expires.
 This field appears only for KMS keys with [imported key material](importing-keys.md "importing-keys.md"), that is, when
 the **Origin** is **External** and the
-KMS key has key material that expires. Single-Region, symmetric encryption
+KMS key has key material that expires. Symmetric encryption
 keys can have multiple key materials associated with them. For such keys,
 this field indicates the earliest date and time when one of the associated
 key materials expires.

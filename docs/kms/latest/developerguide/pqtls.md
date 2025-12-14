@@ -100,17 +100,7 @@ AWS Common Runtime, such as the AWS SDK for Java 2.x. For an example, see [Confi
 
 **AWS KMS Endpoints**
 
-When using the hybrid cipher suites, use the standard AWS KMS endpoint. AWS KMS does not support
-hybrid post-quantum TLS for [FIPS 140-3 validated endpoints](../../../general/latest/gr/kms.md "../../../general/latest/gr/kms.md").
-
-When you configure a HTTP client to prefer post-quantum TLS connections with
-s2n-tls, the post-quantum ciphers are first in the cipher preference list.
-However, the preference list includes the classic, non-hybrid ciphers lower in the preference
-order for compatibility. When you configure an HTTP client to prefer post-quantum TLS with an AWS KMS FIPS 140-3
-validated endpoint, s2n-tls negotiates a classic, non-hybrid key exchange
-cipher.
-
-For a list of AWS KMS endpoints for each AWS Region, see [AWS Key Management Service endpoints and quotas](../../../general/latest/gr/kms.md "../../../general/latest/gr/kms.md") in the _Amazon Web Services General Reference_. For information about FIPS endpoints, see [FIPS endpoints](../../../general/latest/gr/rande.md#FIPS-endpoints "../../../general/latest/gr/rande.md#FIPS-endpoints") in the _Amazon Web Services General Reference_.
+AWS KMS supports hybrid post-quantum TLS on all endpoints including [FIPS 140-3 validated endpoints](../../../general/latest/gr/kms.md "../../../general/latest/gr/kms.md").
 
 ## Learn more about post-quantum TLS in AWS KMS
 

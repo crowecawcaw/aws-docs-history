@@ -26,7 +26,7 @@ expiration time arrives, AWS KMS [deletes the key material](importing-keys-delet
 in any cryptographic operation. To restore the key, you must reimport the same key
 material into the key.
 
-**You cannot change the key material for asymmetric, HMAC, and multi-Region keys**
+**You cannot change the key material for asymmetric, and HMAC keys**
 
 When you import key material into a KMS key, the KMS key is permanently
 associated with that key material. You can [reimport the same key material](importing-keys-import-key-material.md#reimport-key-material "importing-keys-import-key-material.md#reimport-key-material"), but you cannot import different key material
@@ -34,9 +34,9 @@ into that KMS key. Also, you cannot [enable automatic key
 rotation](rotate-keys.md "rotate-keys.md") for a KMS key with imported key material. However, you can [manually rotate a KMS key](rotate-keys-manually.md "rotate-keys-manually.md") with imported key
 material.
 
-**You can perform on-demand rotation on single-Region, symmetric encryption keys**
+**You can perform on-demand rotation on symmetric encryption keys**
 
-Single-Region symmetric encryption keys with imported key material support on-demand
+Symmetric encryption keys with imported key material support on-demand
 rotation. You can [import multiple key materials](importing-keys-import-key-material.md#import-new-key-material "importing-keys-import-key-material.md#import-new-key-material") into these keys and use [on-demand
 rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md") to update the current key material. The current key material is used
 for both encryption and decryption but other (non-current) key materials can only be
@@ -62,8 +62,8 @@ expires.
 Multi-Region with imported key material have the features of KMS keys with
 imported key material, and can interoperate between AWS Regions. To create a
 multi-Region key with imported key material, you must import the same key material into
-the primary KMS key and into each replica key. Multi-Region symmetric encryption keys
-do not support on-demand rotation.
+the primary KMS key and into each replica key. For more details on importing key materials for
+multi-Region keys, see [Multi-Region keys](importing-keys-import-key-material.md#mrk-generalized-import-steps "importing-keys-import-key-material.md#mrk-generalized-import-steps").
 
 **Asymmetric keys and HMAC keys are portable and interoperable**
 

@@ -1,46 +1,71 @@
-# Step 4: Import the
-
-key material
+# Step 4: Import the key material
 
 After you [encrypt your key
 material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md"), you can import the key material to use with an AWS KMS key. To import key
 material, you upload the encrypted key material from [Step 3: Encrypt the
-key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md") and the import token that you
-downloaded at [Step 2:
-Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md"). You must import key material
-into the same KMS key that you specified when you [downloaded the public key and import
+key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md") and the import token that you downloaded
+at [Step 2:
+Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md"). You must import key material into
+the same KMS key that you specified when you [downloaded the public key and import
 token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md"). When key material is successfully imported, the [key
 state](key-state.md "key-state.md") of the KMS key changes to `Enabled`, and you can use the KMS key
 in cryptographic operations.
 
 When you import key material, you can [set an
 optional expiration time](#importing-keys-expiration "#importing-keys-expiration") for the key material. When the key material expires, AWS KMS
-deletes the key material and the KMS key becomes unusable. After you import your key
-material, you cannot set, change, or cancel the expiration date for the current import. To
-change these values, you must [reimport](#reimport-key-material "#reimport-key-material") the same
-key material.
+deletes the key material and the KMS key becomes unusable. After you import your key material,
+you cannot set, change, or cancel the expiration date for the current import. To change these
+values, you must [reimport](#reimport-key-material "#reimport-key-material") the same key
+material.
 
-For all KMS keys with `EXTERNAL` origin, the first key material imported into it becomes current and
-permanently associated with it. Single-Region, symmetric encryption keys with `EXTERNAL` origin
-support on-demand rotation. You can associate multiple key materials with imported keys that support on-demand
-rotation. You must set the `importType` parameter to `NEW_KEY_MATERIAL` with the
-[ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") action to associate new key
-material with a KMS key. This key material is not permanently associated with the key until you perform
-the [RotateKeyOnDemand](../APIReference/API_RotateKeyOnDemand.md "../APIReference/API_RotateKeyOnDemand.md") action.
-Until then, this key material is in `PENDING_ROTATION` state. The default value of the optional
-`ImportType` parameter is `EXISTING_KEY_MATERIAL`. When you omit the
-`ImportType` parameter or specify it as `EXISTING_KEY_MATERIAL`, you must import a
-key material that is previously associated with the KMS key.
+###### Key material import considerations by key
 
-For asymmetric, HMAC or multi-Region KMS keys with `EXTERNAL` origin, only one key material can
-ever be associated with the key. AWS KMS will reject [ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") API requests with the `ImportType` parameter.
+type
 
-When all key materials permanently associated with a KMS key are imported, the KMS key is available
-for use in cryptographic operations. If any one of these key materials is deleted or allowed to expire, the
-KMS key state changes to `PendingImport` and the key is unusable for cryptographic operations.
+_Symmetric encryption keys_
 
-To import key material, you can use the [AWS KMS
-console](#importing-keys-import-key-material-console "#importing-keys-import-key-material-console") or the [ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") API. You can use the
+For all KMS keys with `EXTERNAL` origin, the first key material imported
+into it becomes current and permanently associated with it. Symmetric encryption keys with
+`EXTERNAL` origin support on-demand rotation. You can associate multiple key
+materials with imported keys that support on-demand rotation. You must set the
+`importType` parameter to `NEW_KEY_MATERIAL` with the [ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") action to
+associate new key material with a KMS key. This key material is not permanently
+associated with the key until you perform the [RotateKeyOnDemand](../APIReference/API_RotateKeyOnDemand.md "../APIReference/API_RotateKeyOnDemand.md") action. Until
+then, this key material is in `PENDING_ROTATION` state. The default value of
+the optional `ImportType` parameter is `EXISTING_KEY_MATERIAL`. When
+you omit the `ImportType` parameter or specify it as
+`EXISTING_KEY_MATERIAL`, you must import a key material that is previously
+associated with the KMS key.
+
+_Asymmetric and HMAC keys_
+
+For asymmetric, or HMAC KMS keys with `EXTERNAL` origin,
+only one key material can ever be associated with the key. AWS KMS will reject [ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") API requests
+with the `ImportType` parameter.
+
+_Multi-Region
+keys_
+
+You can import new key materials into multi-Region symmetric keys. To do so, you must
+create the primary and replica Region keys. Then you must import the new key material to
+the primary Region key. You cannot directly import new key materials to replica Region
+keys. After importing new key material into the primary Region key, you can import the
+same key material into the replica Region keys.
+
+If a key material in a primary or replica Region key is deleted or expires, only that
+specific key is affected. Replica Region keys that have all their permanently associated key
+materials imported can be used in cryptographic operations.
+
+You can only set or change the key material description for the primary Region key with multi-Region keys.
+
+_Key states when importing key material_
+
+When all key materials permanently associated with a KMS key are imported, the
+KMS key is available for use in cryptographic operations. If any one of these key
+materials is deleted or allowed to expire, the KMS key state changes to
+`PendingImport` and the key is unusable for cryptographic operations.
+
+To import key material, you can use the [AWS KMS console](#importing-keys-import-key-material-console "#importing-keys-import-key-material-console") or the [ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") API. You can use the
 API directly by making HTTP requests, or by using an [AWS SDKs](https://aws.amazon.com/tools/#sdk "https://aws.amazon.com/tools/#sdk"),
 [AWS Command Line Interface](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") or [AWS Tools for PowerShell](../../../powershell/latest/userguide.md "../../../powershell/latest/userguide.md").
 
@@ -71,8 +96,8 @@ it expires. You can also use your CloudTrail logs to audit operations that [impo
 operation to [delete expired key
 material](ct-deleteexpiredkeymaterial.md "ct-deleteexpiredkeymaterial.md").
 
-AWS KMS cannot restore, recover, or reproduce the deleted key material. Instead of setting an expiration
-time, you can programmatically [delete](importing-keys-delete-key-material.md "importing-keys-delete-key-material.md") and [reimport](#reimport-key-material "#reimport-key-material") the imported key material periodically, but
+AWS KMS cannot restore, recover, or reproduce the deleted key material. Instead of setting
+an expiration time, you can programmatically [delete](importing-keys-delete-key-material.md "importing-keys-delete-key-material.md") and [reimport](#reimport-key-material "#reimport-key-material") the imported key material periodically, but
 the requirements for retaining a copy of the original key material are the same.
 
 You determine whether and when imported key material expires when you import the key
@@ -84,10 +109,12 @@ from the import data; there is no minimum, but the time must be in the future.
 
 ## Set key material description
 
-Single-Region, symmetric encryption keys with `EXTERNAL` origin can have multiple key materials
-associated with them. You can specify an optional key material description when importing key material into
-such keys. The description can be used to keep track of where the corresponding key
-material is durably maintained outside AWS KMS.
+Symmetric encryption keys with `EXTERNAL` origin can have multiple key
+materials associated with them. You can specify an optional key material description when
+importing key material into such keys. The description can be used to keep track of where the
+corresponding key material is durably maintained outside AWS KMS.
+
+You can only set or change the key material description for the primary Region key with multi-Region keys.
 
 ## Reimport key material
 
@@ -99,12 +126,14 @@ You can reimport key material at any time, on any schedule that meets your secur
 requirements. You do not have to wait until the key material is at or close to its expiration
 time.
 
-The procedure to reimport key material is the same procedure that you use to
-import the key material the first time, with the following exceptions.
+The procedure to reimport key material is the same procedure that you use to import the
+key material the first time, with the following exceptions.
 
 - Use an existing KMS key, instead of creating a new KMS key. You can skip [Step 1](importing-keys-create-cmk.md "importing-keys-create-cmk.md") of the import procedure.
-- When you reimport key material, you can change the expiration model and expiration
-  date.
+- When you reimport key material, you can change the expiration model, expiration date,
+  and key material description.
+
+You can only set or change the key material description for the primary Region key with multi-Region keys.
 
 Each time you import key material to a KMS key, you need to [download and use a new wrapping key and
 import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md") for the KMS key. The wrapping procedure does not affect the content of
@@ -113,13 +142,34 @@ algorithms to import the same key material.
 
 ## Import new key material
 
-To perform on-demand rotation on a symmetric encryption KMS key with imported key material,
-you'll first need to import new key material, not previously associated with the key. Use the
-[ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") operation with the
-`ImportType` parameter set to `NEW_KEY_MATERIAL` to accomplish this task. Key material
-imported in this manner will be in `PENDING_ROTATION` state until you perform the
-[RotateKeyOnDemand](../APIReference/API_RotateKeyOnDemand.md "../APIReference/API_RotateKeyOnDemand.md") operation or rotate the key in
-the AWS Management Console. A KMS key can have at most one key material in `PENDING_ROTATION` state at any time.
+To perform on-demand rotation on a symmetric encryption KMS key with imported key
+material, you'll first need to import new key material, not previously associated with the
+key.
+
+- **Single Region keys**
+  - Use the [ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") operation with the `ImportType` parameter set
+    to `NEW_KEY_MATERIAL` to accomplish this task. Key material imported in
+    this manner will be in `PENDING_ROTATION` state until you perform the
+    [RotateKeyOnDemand](../APIReference/API_RotateKeyOnDemand.md "../APIReference/API_RotateKeyOnDemand.md")
+    operation or rotate the key in the AWS Management Console. A KMS key can have at most one key
+    material in `PENDING_ROTATION` state at any time.
+
+- **Multi-Region keys**
+  - To import key material into a multi-Region key, you must first import the new key
+    material to the primary Region key. You cannot directly import new key materials to
+    replica Region keys. After importing new key material to the primary Region key, you
+    can import the same key materials into the replica Region keys.
+  - Use the [`ImportKeyMaterial`](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") operation with the `ImportType`
+    parameter set to `NEW_KEY_MATERIAL` for the primary Region key to
+    accomplish this task. For the replica Region key, use the
+    `EXISTING_KEY_MATERIAL` parameter for `ImportType`
+    for the `ImportKeyMaterial` operation.
+  - The key material for multi-Region keys must be imported into all the
+    replica Region keys and primary Region keys before the key material state changes to
+    `PENDING_ROTATION` state. Until then, the state of the new key material
+    is `PENDING_MULTI_REGION_IMPORT_AND_ROTATION`. A KMS key can have at most
+    one key material in `PENDING_ROTATION` or
+    `PENDING_MULTI_REGION_IMPORT_AND_ROTATION`state at any time.
 
 ## Import key material
 
@@ -140,15 +190,23 @@ You can use the AWS Management Console to import key material.
 
 You can only import key material into KMS keys with an **Origin**
 of **External (Import key material)**. For information about
-creating KMS keys with imported key material, see [Importing key material for AWS KMS keys](importing-keys.md "importing-keys.md"). 7. For asymmetric, HMAC and multi-Region keys, choose the **Key material** tab
-and then choose **Import key material**. For single-Region, symmetric encryption keys,
-choose the **Key material and rotations** tab. Then, choose either **Import
-initial key material** or **Import new key material** or **Reimport
-key material**. The **Reimport key material** option is available in the
-`Actions` menu in the key materials table.
+creating KMS keys with imported key material, see [Importing key material for AWS KMS keys](importing-keys.md "importing-keys.md"). 7. For asymmetric and HMAC keys, choose the **Key
+material** tab and then choose **Import key material**. For
+symmetric encryption keys, choose the **Key material and
+rotations** tab. Then, choose either **Import initial key
+material** or **Import new key material** or
+**Reimport key material**. The **Reimport key
+material** option is available in the `Actions` menu in the key
+materials table.
 
 If you downloaded the key material, import token, and encrypted the key material,
-choose **Next**. 8. In the **Encrypted key material and import token** section, do the
+choose **Next**.
+
+###### Note
+
+For Multi-Region keys, you must first import the new key material into the primary
+Region key. Then you can import the same key material into the replica Region
+keys. 8. In the **Encrypted key material and import token** section, do the
 following.
 
     1. Under **Wrapped key material**, choose **Choose
@@ -161,8 +219,8 @@ following.
    material expires. To set an expiration date and time, choose **Key material
    expires**, and use the calendar to select a date and time. You can specify a
    date up to 365 days from the current date and time.
-10. For symmetric encryption keys, you can optionally specify a description for the key material
-    being imported.
+10. For symmetric encryption keys, you can optionally specify a description for the key
+    material being imported.
 11. Choose **Import key material**.
 
 ## Import key material
@@ -173,6 +231,8 @@ To import key material, use the [ImportKeyMaterial](../APIReference/API_ImportKe
 language.
 
 To use this example:
+
+You can only set or change the key material description for the primary Region key with multi-Region keys.
 
 1. Replace `1234abcd-12ab-34cd-56ef-1234567890ab` with a key ID of
    the KMS key that you specified when you downloaded the public key and import token. To
@@ -208,11 +268,11 @@ omit the `valid-to` parameter from the command.
  --expiration-model `KEY_MATERIAL_DOES_NOT_EXPIRE``
 ```
 
-5. If you want to import new key material, not previously associated with the KMS key, set the
-   `ImportType` parameter to `NEW_KEY_MATERIAL`. This option can only be used
-   with single-Region symmetric encryption keys. For these keys, you can also use the optional
-   `KeyMaterialDescription` parameter to set a description for the imported key material
-   in the following command line example:
+5. If you want to import new key material, not previously associated with the KMS key,
+   set the `ImportType` parameter to `NEW_KEY_MATERIAL`. This option
+   can only be used with symmetric encryption keys. For these keys, you can also use the
+   optional `KeyMaterialDescription` parameter to set a description for the
+   imported key material in the following command line example:
 
 ```
 `$` `aws kms import-key-material --key-id `1234abcd-12ab-34cd-56ef-1234567890ab` \

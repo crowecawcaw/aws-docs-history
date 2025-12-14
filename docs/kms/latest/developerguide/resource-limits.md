@@ -20,10 +20,10 @@ Region.
 | Quota name                                                                                    | Default value | Applies to               | Adjustable |
 | --------------------------------------------------------------------------------------------- | ------------- | ------------------------ | ---------- |
 | [AWS KMS keys](#kms-keys-limit "#kms-keys-limit")                                             | 100,000       | Customer managed keys    | Yes        |
-| [Aliases per KMS key](#aliases-per-key "#aliases-per-key")                                    | 50            | Customer created aliases | Yes        |
+| [Aliases per KMS key](#aliases-per-key "#aliases-per-key")                                    | 10            | Customer created aliases | Yes        |
 | [Grants per KMS key](#grants-per-key "#grants-per-key")                                       | 50,000        | Customer managed keys    | Yes        |
 | [Custom key store resource quota](#cks-resource-quota "#cks-resource-quota")                  | 10            | AWS account and Region   | Yes        |
-| [On-demand rotation](#on-demand-rotation-resource-quota "#on-demand-rotation-resource-quota") | 10            | Customer managed keys    | No         |
+| [On-demand rotation](#on-demand-rotation-resource-quota "#on-demand-rotation-resource-quota") | 50            | Customer managed keys    | No         |
 
 In addition to resource quotas, AWS KMS uses request quotas to ensure the responsiveness of the
 service. For details, see [Request quotas](requests-per-second.md "requests-per-second.md").
