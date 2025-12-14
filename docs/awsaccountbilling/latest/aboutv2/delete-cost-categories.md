@@ -12,4 +12,8 @@ You can delete your cost categories using the following procedure.
 
 ###### Note
 
-The deletion of a cost category takes effect starting the current billing month. For example, if you deleted `CostCategoryA` on September 15th, `CostCategoryA` would no longer be visible in reports generated from September onwards. However, it would appear in AWS Cost Explorer reports for the periods prior to September.
+The deletion of a cost category takes effect starting the current billing month.
+For example, if you deleted `CostCategoryA` on September 15th,
+`CostCategoryA` would no longer be visible in reports generated from
+September onwards. However, it would appear in AWS Cost Explorer reports for the periods
+prior to September.

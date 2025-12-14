@@ -110,8 +110,8 @@ category values.
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, choose
    **Cost Categories**.
-3. Choose **Create cost category**. You can use the cost preview panel
-   as reference as you update your rules.
+3. Choose **Create cost category**. You can use the cost
+   preview panel as reference as you update your rules.
 4. Next to **Group your costs**, enter the name of your
    cost category. Your cost category name must be unique within your
    account.
@@ -127,8 +127,10 @@ by account or tag (Inherit rule)**. 8. For regular rule, choose if your costs me
 
     1. For a regular rule type, you can choose **Accounts**,
      **Service**, **Charge Type** (for
-     example, `recurring reservation fee`), **Tag key**,
-     **Region**, **Usage Type**, **Cost Category**, or **Billing Entity**. (You can choose **Cost
+     example, `recurring reservation fee`),
+     **Tag key**, **Region**,
+     **Usage Type**, **Cost Category**,
+     or **Billing Entity**. (You can choose **Cost
      Category** to create hierarchical relationships among your
      cost categories.)
     2. For an inherited value rule type, you can choose
@@ -153,10 +155,12 @@ against account name, and not account ID. 11. Choose a filtered value or enter y
 The **Account** dimension uses account names, not account
 IDs for the inherited cost category value. 12. Choose **Add a condition** as needed and repeat steps 9 - 11. 13. For **Group costs together as**, enter a cost category
 value. 14. Choose **Create rule**. 15. (Optional) Add a default value. It categorizes all unmatched costs to this
-value. 16. (Optional) To rearrange the rule order, use the arrows or change the number on the top
-right of each rule.
+value. 16. (Optional) To rearrange the rule order, use the arrows or change the number on
+the top right of each rule.
 
-Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that cost category value. 17. (Optional) To remove a rule, select the rule and choose
+Rules are processed in order. If there are multiple rules that match the line
+item, then the first rule to match is used to determine that cost category
+value. 17. (Optional) To remove a rule, select the rule and choose
 **Delete**. 18. Choose **Next**. 19. (Optional) To split your cost, choose **Add a split
 charges**. For more information about split charge rules, see [Splitting charges within
 cost categories](splitcharge-cost-categories.md "splitcharge-cost-categories.md").
@@ -181,17 +185,24 @@ cost categories](splitcharge-cost-categories.md "splitcharge-cost-categories.md"
     enter a key and value.
 23. Choose **Create cost category**.
 
-## Understanding the cost preview panel
+## Understanding the cost preview
 
-The cost preview panel shows you in real time how your costs group together or split apart
-as you create or update your cost categories rules. The results you see in the
-cost preview panel is an estimate based on your month-to-date net amortized
-cost.
+panel
+
+The cost preview panel shows you in real time how your costs group together or
+split apart as you create or update your cost categories rules. The results you
+see in the cost preview panel is an estimate based on your month-to-date net
+amortized cost.
 
 Here are some things to keep in mind as you use the cost preview panel:
 
-- The cost preview results might not be accurate if your rules have complex conditions. For example, containing too many matched values with `Contains`, `Starts With`, `Ends With` operators.
+- The cost preview results might not be accurate if your rules have complex
+  conditions. For example, containing too many matched values with
+  `Contains`, `Starts With`, `Ends With`
+  operators.
 
-For a more precise results, save your rules and check the cost categories details page.
+For a more precise results, save your rules and check the
+cost categories details page.
 
-- If your rules are too complex or takes too long to calculate in real time, the preview will not show a cost breakdown.
+- If your rules are too complex or takes too long to calculate in real time,
+  the preview will not show a cost breakdown.

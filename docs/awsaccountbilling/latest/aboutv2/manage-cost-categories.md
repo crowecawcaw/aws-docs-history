@@ -106,6 +106,8 @@ costs across specified cost category values.
 - [Deleting cost categories](delete-cost-categories.md "delete-cost-categories.md")
 - [Splitting charges within
   cost categories](splitcharge-cost-categories.md "splitcharge-cost-categories.md")
+- [Using cost categories with
+  other cost management and optimization services](cost-categories-other-cost-management.md "cost-categories-other-cost-management.md")
 
 ## Supported dimensions
 
@@ -114,6 +116,12 @@ rules. These billing dimensions are used to group your data. For example, assume
 you wanted to group a set of accounts to form a team. You need to choose the account
 billing dimension, and then choose the list of accounts that you want to include in the
 team.
+
+###### Note
+
+Some dimensions might have limited support if you associate resources with a
+cost category. For more information, see [Using cost categories with
+other cost management and optimization services](cost-categories-other-cost-management.md "cost-categories-other-cost-management.md").
 
 The following billing dimensions are supported.
 
@@ -159,7 +167,10 @@ hours of Amazon EC2 t2.micro instances.
 
 **Billing Entity**
 
-Billing entities are the units to identify if your invoices or transactions are for AWS Marketplace or for purchases of other AWS services. For example, the AWS Marketplace billing entity filters by the invoices or transactions for purchases of AWS Marketplace.
+Billing entities are the units to identify if your invoices or
+transactions are for AWS Marketplace or for purchases of other AWS services. For
+example, the AWS Marketplace billing entity filters by the invoices or transactions
+for purchases of AWS Marketplace.
 
 ## Supported operations
 

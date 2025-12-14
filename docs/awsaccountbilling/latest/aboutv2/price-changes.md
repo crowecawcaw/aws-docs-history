@@ -23,10 +23,9 @@ To help you use the AWS Price List, the following are its key concepts:
 
 **Service**
 
-An AWS service, such as Amazon EC2 or Savings Plans. For example, a Savings Plan for
-Amazon EC2 might be `AWSComputeSavingsPlan` and a Savings Plan for
-machine learning (ML) might be
-`AWSMachineLearningSavingsPlans`.
+An AWS service, such as `Amazon EC2` or Savings Plans, for example: a Savings Plan for
+Amazon EC2 is `AWSComputeSavingsPlan` or a service representing limited AWS Marketplace offerings,
+for example: `AmazonBedrockFoundationModels`.
 
 **Product**
 

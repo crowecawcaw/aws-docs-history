@@ -10,8 +10,8 @@ or an application that parses the JSON.
 The service Region index file consists of two main sections:
 
 - Metadata about the service Region index file
-- List of all AWS Regions in which AWS services or Savings Plan are
-  available
+- List of all AWS Regions in which AWS services, Savings Plan or a service representing
+  limited AWS Marketplace offerings are available.
   The information about a service Region includes the URL where you can download the
   prices for that service for the specified time period and Region.
 

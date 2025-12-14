@@ -21,8 +21,7 @@ text application or a program that parses the JSON.
 The service index file has two main sections:
 
 - Metadata about the service index file
-- Either a list of the services that AWS offers (for the service index file)
-  and a list of AWS Regions where a service is offered (for the service Region index file)
+- Either a list of the services that AWS offers or via AWS Marketplace.
 
 The information about the service index file includes the URL where you can download
 the prices and a URL for the service Region index file for that service.
