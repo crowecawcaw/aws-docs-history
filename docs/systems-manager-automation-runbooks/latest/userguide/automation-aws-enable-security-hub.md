@@ -2,9 +2,9 @@
 
 **Description**
 
-The `AWSConfigRemediation-EnableSecurityHub` runbook enables AWS Security Hub
-(Security Hub) for the AWS account and AWS Region where you run the automation. For
-information about Security Hub, see [What is AWS Security Hub?](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") in the _AWS Security Hub User Guide_ .
+The `AWSConfigRemediation-EnableSecurityHub` runbook enables AWS Security Hub CSPM
+(Security Hub CSPM) for the AWS account and AWS Region where you run the automation. For
+information about Security Hub CSPM, see [What is AWS Security Hub CSPM?](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") in the _AWS Security Hub CSPM User Guide_ .
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableSecurityHub "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableSecurityHub")
 
@@ -37,7 +37,7 @@ Type: Boolean
 Default: true
 
 Description: (Required) If set to `true` , the default
-security standards designated by Security Hub are enabled.
+security standards designated by Security Hub CSPM are enabled.
 **Required IAM permissions**
 
 The `AutomationAssumeRole` parameter requires the following actions to
@@ -50,6 +50,6 @@ use the runbook successfully.
 
 **Document Steps**
 
-- `aws:executeAwsApi` - Enables Security Hub in the current account and
+- `aws:executeAwsApi` - Enables Security Hub CSPM in the current account and
   Region.
-- `aws:executeAwsApi` - Verifies that Security Hub has been enabled.
+- `aws:executeAwsApi` - Verifies that Security Hub CSPM has been enabled.

@@ -82,7 +82,7 @@ For information about running automations, see [Running a simple automation](../
 - [Amazon SES](automation-ref-ses.md "automation-ref-ses.md")
 - [SageMaker AI](automation-ref-sm.md "automation-ref-sm.md")
 - [Secrets Manager](automation-ref-asm.md "automation-ref-asm.md")
-- [Security Hub](automation-ref-ash.md "automation-ref-ash.md")
+- [Security Hub CSPM](automation-ref-ash.md "automation-ref-ash.md")
 - [AWS Shield](automation-ref-shd.md "automation-ref-shd.md")
 - [Amazon SNS](automation-ref-sns.md "automation-ref-sns.md")
 - [Amazon SQS](automation-ref-sqs.md "automation-ref-sqs.md")
