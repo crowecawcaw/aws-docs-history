@@ -4,7 +4,7 @@ AWS MCP Server provides the following tools to help you complete AWS tasks throu
 
 ## Agent SOP Tools
 
-- `retrieve_agent_sop` - Search for Agent SOPs or retrieve detailed information about a specific SOP.
+- `aws___retrieve_agent_sop` - Search for Agent SOPs or retrieve detailed information about a specific SOP.
   Lists all available SOPs or gets the complete workflow for a particular SOP.
 
 ## AWS Knowledge Tools
@@ -22,14 +22,14 @@ AWS MCP Server provides the following tools to help you complete AWS tasks throu
 
 ## AWS API Tools
 
-- `call_aws` - Execute authenticated AWS API calls with proper syntax validation and error handling.
+- `aws___call_aws` - Execute authenticated AWS API calls with proper syntax validation and error handling.
   Supports most of the 15,000+ AWS APIs with automatic credential management.
 
 ###### Note
 
 APIs that require filesystem access or stream responses are not reliably supported.
 
-- `suggest_aws_commands` - Get descriptions and syntax help for relevant AWS APIs, including
+- `aws___suggest_aws_commands` - Get descriptions and syntax help for relevant AWS APIs, including
   newly released APIs that may not be in the AI model's training data.
 
 These tools work together to provide comprehensive AWS task completion: Agent SOPs guide the workflow, knowledge

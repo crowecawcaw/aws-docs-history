@@ -28,3 +28,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
+
+###### Note
+
+The AWS MCP Server doesn't support FIPS endpoints.

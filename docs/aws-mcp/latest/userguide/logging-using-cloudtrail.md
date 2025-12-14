@@ -78,7 +78,7 @@ The following example shows a CloudTrail log entry that demonstrates the `CallTo
       ...
   },
   "eventTime": "...",
-  "eventSource": "aws-api-mcp.amazonaws.com",
+  "eventSource": "aws-mcp.us-east-1.api.aws",
   "eventName": "CallTool",
   "awsRegion": "us-east-1",
   "sourceIPAddress": "...",
@@ -114,7 +114,7 @@ The following example shows a CloudTrail log entry that demonstrates the `CallTo
     "sessionId": "sess_xyz789_YXJuOmF3czppYW06OjEyMzQ1Njc4OTAxMjpkZXZlbG9wZXI=",
     "mcpProtocolVersion": "2024-11-05",
     "serverVersion": "1.0.0",
-    "mcpServerName": "aws-api-mcp.us-east-1.api.aws",
+    "mcpServerName": "aws-mcp.us-east-1.api.aws",
     "executionTimeMs": 250,
     ...
   }

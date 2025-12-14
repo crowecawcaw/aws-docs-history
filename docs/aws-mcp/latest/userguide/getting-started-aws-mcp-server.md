@@ -104,6 +104,11 @@ The server uses these credentials to authenticate your requests.
 You can use the SigV4 via Proxy to authenticate the AWS MCP Server. SigV4 via Proxy uses your available
 AWS credentials and requires the [MCP Proxy for AWS](https://github.com/aws/mcp-proxy-for-aws "https://github.com/aws/mcp-proxy-for-aws").
 
+###### Note
+
+If your authentication step worked previously but you have encountered an authentication error, you might
+need to refresh your credentials and try again.
+
 1. Install the AWS CLI by following the instructions at
    [Installing the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 2. Configure your AWS credentials using one of these methods:
@@ -146,13 +151,13 @@ aws sts get-caller-identity
 ###### On macOS and Linux
 
 ```
-curl -LsSf https://astral.sh/uv/install.sh | less
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ###### Windows
 
 ```
-powershell -c "irm https://astral.sh/uv/install.ps1 | more“
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 ### Step 3: Configure your MCP client
@@ -244,7 +249,7 @@ Skip this step if you're using an administrator role.
         {
             "Effect": "Allow",
             "Action": [
-                "aws-mcp:InvokeMCP",
+                "aws-mcp:InvokeMcp",
                 "aws-mcp:CallReadOnlyTool",
                 "aws-mcp:CallReadWriteTool"
             ],
@@ -269,5 +274,5 @@ Or to see installed MCP servers:
 
 `/mcp`
 
-You should see tools like `aws___search_documentation` and `retrieve_agent_sop` listed. For
+You should see tools like `aws__search_documentation` and `retrieve_agent_sop` listed. For
 more information about the tools, see [Understanding the MCP Server tools](understanding-mcp-server-tools.md "understanding-mcp-server-tools.md").
