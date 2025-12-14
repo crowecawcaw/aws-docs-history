@@ -49,7 +49,7 @@ invocations.
 
 Set up centralized log storage in Amazon S3 or CloudWatch Logs
 for secure retention and analysis. Use CloudWatch Alarms or
-AWS Security Hub to automatically alert on suspicious or
+AWS Security Hub CSPM to automatically alert on suspicious or
 unauthorized activities, and regularly review logs to detect
 unusual patterns or potential security incidents.
 
