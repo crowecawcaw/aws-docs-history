@@ -1,24 +1,30 @@
-# MODE
+# CONVERT_TIMEZONE
 
-Returns the mode, the number that appears most often, from the selected source columns
-in a new column. Any non-number is ignored. For multiple modes, the mode is calculated
-with the modal function.
+Converts a time value from the source column into a new column based on a
+specified timezone.
 
 ###### Parameters
 
-- `sourceColumns` – A JSON-encoded string representing a list of existing columns.
-- `targetColumn` – A name for the newly created column.
+- `sourceColumn` – The name of an existing column. The source column can be of type `string`, `date`, or `timestamp`.
+- `fromTimeZone` – Source value timezone. If nothing is
+  specified, the default timezone is UTC.
+- `toTimeZone` – Timezone to be converted to. If nothing is specified, the default timezone is UTC.
+- `targetColumn` – A name for the newly-created
+  column.
+- `dateTimeFormat` – Optional. A format string for the date. If the format isn't specified, the default format is used: `yyyy-mm-dd HH:MM:SS`.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "MODE",
+        "Operation": "CONVERT_TIMEZONE",
         "Parameters": {
-            "modeType": "MINIMUM",
-            "sourceColumns": "[\"years_in_service\",\"age\"]",
-            "targetColumn": "MODE Column 1"
+            "sourceColumn": "DATETIME Column 1",
+            "fromTimeZone": "UTC+08:00",
+            "toTimeZone": "UTC+08:00",
+            "targetColumn": "DATETIME Column CONVERT_TIMEZONE",
+            "dateTimeFormat": "yyyy-mm-dd HH:MM:SS"
         }
     }
 }

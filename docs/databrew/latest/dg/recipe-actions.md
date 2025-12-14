@@ -1,31 +1,25 @@
-# FILL_WITH_MODE
+# TO_STRING_COLUMN
 
-Returns a column with missing data replaced by the mode of all values.
+Changes the data type of an existing column to STRING.
 
-You can also specify tie-breaker logic, where some of the values are identical. For
-example, consider the following values:
+###### Note
 
-`1 2 2 3 3 4`
-
-A `modeType` of `MINIMUM` causes `FILL_WITH_MODE` to
-return 2 as the mode value. If `modeType` is `MAXIMUM`, the mode
-is 3. For `AVERAGE`, the mode is 2.5.
+We recommend using CHANGE_DATA_TYPE recipe action rather than TO_STRING_COLUMN.
 
 ###### Parameters
 
 - `sourceColumn` – The name of an existing column.
-- `modeType` – How to resolve tie values in the data. This
-  value must be `MINIMUM`, `NONE`, `AVERAGE`, or
-  `MAXIMUM`.
+- `columnDataType` – A value that must be
+  `string`.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "FILL_WITH_MODE",
+        "Operation": "TO_STRING_COLUMN",
         "Parameters": {
-            "modeType": "MAXIMUM",
+            "columnDataType": "string",
             "sourceColumn": "age"
         }
     }
