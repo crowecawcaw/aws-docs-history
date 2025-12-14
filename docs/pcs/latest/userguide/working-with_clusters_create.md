@@ -100,7 +100,7 @@ AWS CLI
 
    ###### Note
 
-   AWS PCS currently supports Slurm 25.05, 24.11 and 24.05.
+   AWS PCS currently supports Slurm 25.05 and 24.11.
    - Replace `SMALL` with any supported cluster size. This
      determines how many concurrent jobs and compute nodes can be managed by the AWS PCS
      cluster. It can only be set when the cluster is created. For more information on sizing,

@@ -104,7 +104,6 @@ Parameters:
     Default: 25.05
     Description: Version of Slurm to use
     AllowedValues:
-         - 24.05
          - 24.11
          - 25.05
 

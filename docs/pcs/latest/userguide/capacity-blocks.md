@@ -13,7 +13,7 @@ when it launches instances for a compute node group.
 
 ###### Note
 
-AWS PCS only supports Capacity Blocks with Slurm version 24.05 or later.
+AWS PCS introduced support for Capacity Blocks since Slurm version 24.05.
 
 ## Limitations
 
