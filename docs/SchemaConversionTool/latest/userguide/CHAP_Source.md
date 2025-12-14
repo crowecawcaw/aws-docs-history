@@ -1,94 +1,190 @@
-# Connecting to IBM DB2 for z/OS Databases with the AWS Schema Conversion Tool
+# Connect Microsoft SQL Servers with AWS Schema Conversion Tool
 
-You can use AWS SCT to convert schemas, code objects, and application code from IBM Db2 for z/OS
-to the following targets.
+You can use AWS SCT to convert schemas, database code objects, and application code
+from SQL Server to the following targets:
 
 - Amazon RDS for MySQL
 - Amazon Aurora MySQL-Compatible Edition
 - Amazon RDS for PostgreSQL
 - Amazon Aurora PostgreSQL-Compatible Edition
+- Amazon RDS for SQL Server
+- Amazon RDS for MariaDB
 
-## Prerequisites for Db2 for z/OS as a source database
+###### Note
 
-The IBM Db2 for z/OS version 12 function level 100 database version doesn't support most new capabilities
-of IBM Db2 for z/OS version 12. This database version provides support for fallback to Db2 version 11 and
-data sharing with Db2 version 11. To avoid the conversion of unsupported features of Db2 version 11, we
-recommend that you use an IBM Db2 for z/OS database function level 500 or higher as a source for AWS SCT.
+AWS SCT does not support using Amazon RDS for SQL server as a source.
 
-You can use the following code example to check the version of your source IBM Db2 for z/OS database.
+You can use AWS SCT to create an assessment report for the migration of
+schemas, database code objects, and application code from SQL Server to Babelfish for Aurora PostgreSQL, as described following.
 
-```
-SELECT GETVARIABLE('SYSIBM.VERSION') as version FROM SYSIBM.SYSDUMMY1;
-```
+###### Topics
 
-Make sure that this code returns version `DSN12015` or higher.
+- [Privileges for Microsoft SQL Server as a source](#CHAP_Source.SQLServer.Permissions "#CHAP_Source.SQLServer.Permissions")
+- [Using Windows Authentication when using Microsoft SQL Server as a source](#CHAP_Source.SQLServer.Permissions.WinAuth "#CHAP_Source.SQLServer.Permissions.WinAuth")
+- [Connecting to SQL Server as a source](#CHAP_Source.SQLServer.Connecting "#CHAP_Source.SQLServer.Connecting")
+- [Converting SQL Server to MySQL](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md")
+- [Migrating from SQL Server to PostgreSQL with AWS Schema Conversion Tool](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md")
+- [Migrating from SQL Server to Amazon RDS for SQL Server with AWS Schema Conversion Tool](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md")
 
-You can use the following code example to check the value of the `APPLICATION COMPATIBILITY`
-special register in your source IBM Db2 for z/OS database.
+## Privileges for Microsoft SQL Server as a source
 
-```
-SELECT CURRENT APPLICATION COMPATIBILITY as version FROM SYSIBM.SYSDUMMY1;
-```
+The privileges required for Microsoft SQL Server as a source
+are as follows:
 
-Make sure that this code returns version `V12R1M500` or higher.
+- VIEW DEFINITION
+- VIEW DATABASE STATE
 
-## Privileges for Db2 for z/OS as a source database
+The `VIEW DEFINITION` privilege enables users that have public
+access to see object definitions. AWS SCT uses the `VIEW DATABASE STATE`
+privilege to check the features of the SQL Server Enterprise edition.
 
-The privileges needed to connect to a Db2 for z/OS database and read system
-catalogs and tables are as follows:
+Repeat the grant for each database whose schema you are converting.
 
-- SELECT ON SYSIBM.LOCATIONS
-- SELECT ON SYSIBM.SYSCHECKS
-- SELECT ON SYSIBM.SYSCOLUMNS
-- SELECT ON SYSIBM.SYSDATABASE
-- SELECT ON SYSIBM.SYSDATATYPES
-- SELECT ON SYSIBM.SYSDUMMY1
-- SELECT ON SYSIBM.SYSFOREIGNKEYS
-- SELECT ON SYSIBM.SYSINDEXES
-- SELECT ON SYSIBM.SYSKEYCOLUSE
-- SELECT ON SYSIBM.SYSKEYS
-- SELECT ON SYSIBM.SYSKEYTARGETS
-- SELECT ON SYSIBM.SYSJAROBJECTS
-- SELECT ON SYSIBM.SYSPACKAGE
-- SELECT ON SYSIBM.SYSPARMS
-- SELECT ON SYSIBM.SYSRELS
-- SELECT ON SYSIBM.SYSROUTINES
-- SELECT ON SYSIBM.SYSSEQUENCES
-- SELECT ON SYSIBM.SYSSEQUENCESDEP
-- SELECT ON SYSIBM.SYSSYNONYMS
-- SELECT ON SYSIBM.SYSTABCONST
-- SELECT ON SYSIBM.SYSTABLES
-- SELECT ON SYSIBM.SYSTABLESPACE
-- SELECT ON SYSIBM.SYSTRIGGERS
-- SELECT ON SYSIBM.SYSVARIABLES
-- SELECT ON SYSIBM.SYSVIEWS
+In addition, grant the following privileges on the `master` database:
 
-To convert Db2 for z/OS tables to PostgreSQL partitioned tables, gather statistics
-on tablespaces and tables in your database using the `RUNSTATS` utility
-as shown following.
+- VIEW SERVER STATE
+- VIEW ANY DEFINITION
+
+AWS SCT uses the `VIEW SERVER STATE` privilege to collect server
+settings and configuration. Make sure that you grant the `VIEW ANY DEFINITION`
+privilege to view endpoints.
+
+To read information about Microsoft Analysis Services, run the following command
+on the `master` database.
 
 ```
-LISTDEF YOURLIST INCLUDE TABLESPACES DATABASE `YOURDB`
-RUNSTATS TABLESPACE
-LIST YOURLIST
-TABLE (ALL) INDEX (ALL KEYCARD)
-UPDATE ALL
-REPORT YES
-SHRLEVEL REFERENCE
+EXEC master..sp_addsrvrolemember @loginame = N'`<user_name>`', @rolename = N'sysadmin'
 ```
 
-In the preceding example, replace the `YOURDB`
-placeholder with the name of the source database.
+In the preceding example, replace the
+`<user_name>` placeholder with the
+name of the user that you granted with the privileges before.
 
-## Connecting to Db2 for z/OS as a source
+To read information about SQL Server Agent, add your user to the
+`SQLAgentUser` role. Run the following command on the `msdb`
+database.
 
-Use the following procedure to connect to your Db2 for z/OS source database with
-AWS SCT.
+```
+EXEC sp_addrolemember `<SQLAgentRole>`, `<user_name>`;
+```
 
-###### To connect to an IBM Db2 for z/OS source database
+In the preceding example, replace the
+`<SQLAgentRole>` placeholder with
+the name of the SQL Server Agent role. Then replace the
+`<user_name>` placeholder with the
+name of the user that you granted with the privileges before. For more information, see
+[Adding a user to the SQLAgentUser role](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md#SQLServerAgent.AddUser "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md#SQLServerAgent.AddUser") in the
+_Amazon RDS User Guide_.
+
+To detect log shipping, grant the `SELECT on dbo.log_shipping_primary_databases`
+privilege on the `msdb` database.
+
+To use the notification approach of the DDL replication, grant the `RECEIVE ON
+ `<schema_name>`.`<queue_name>`  privilege on your source databases. In this example, replace the
+ `<schema_name>`placeholder with the
+ schema name of your database. Then, replace the
+`<queue_name>`` placeholder with the
+name of a queue table.
+
+## Using Windows Authentication when using Microsoft SQL Server as a source
+
+If your application runs on a Windows-based intranet, you might be able to use
+Windows Authentication for database access. Windows Authentication uses the current Windows
+identity established on the operating system thread to access the SQL Server database. You can
+then map the Windows identity to a SQL Server database and permissions. To connect to SQL
+Server using Windows Authentication, you must specify the Windows identity that your
+application is using. You must also grant the Windows identity access to the SQL Server
+database.
+
+SQL Server has two modes of access: Windows Authentication mode and Mixed Mode. Windows
+Authentication mode enables Windows Authentication and disables SQL Server Authentication.
+Mixed Mode enables both Windows Authentication and SQL Server Authentication. Windows
+Authentication is always available and cannot be disabled. For more information about Windows
+Authentication, see the Microsoft Windows documentation.
+
+The possible example for creating a user in TEST_DB is shown following.
+
+```
+USE [TEST_DB]
+CREATE USER [TestUser] FOR LOGIN [TestDomain\TestUser]
+GRANT VIEW DEFINITION TO [TestUser]
+GRANT VIEW DATABASE STATE TO [TestUser]
+```
+
+### Using Windows Authentication with a JDBC connection
+
+The JDBC driver does not support Windows Authentication when the driver is
+used on non-Windows operating systems. Windows Authentication credentials, such as user name
+and password, are not automatically specified when connecting to SQL Server from non-Windows operating systems. In such
+cases, the applications must use SQL Server Authentication instead.
+
+In JDBC connection string, the parameter `integratedSecurity` must
+be specified to connect using Windows Authentication. The JDBC driver supports Integrated
+Windows Authentication on Windows operating systems through the
+`integratedSecurity` connection string parameter.
+
+To use integrated authentication
+
+1. Install the JDBC driver.
+2. Copy the `sqljdbc_auth.dll` file to a directory on the Windows system path on
+   the computer where the JDBC driver is installed.
+
+The `sqljdbc_auth.dll` files are installed in the
+following location:
+
+<_installation
+directory_>\sqljdbc\_<_version_>\<_language_>\auth\
+
+When you try to establish a connection to SQL Server database using Windows
+Authentication, you might get this error: This driver is not configured for
+integrated authentication. This problem can be solved by performing the following
+actions:
+
+- Declare two variables that point to the installed path of your JDBC:
+
+`variable name: SQLJDBC_HOME; variable value: D:\lib\JDBC4.1\enu` (where your sqljdbc4.jar exists);
+
+`variable name: SQLJDBC_AUTH_HOME; variable value:
+ D\lib\JDBC4.1\enu\auth\x86` (if you are running 32bit OS) or
+`D\lib\JDBC4.1\enu\auth\x64` (if you are running 64bit OS). This is where your
+`sqljdbc_auth.dll` is located.
+
+- Copy `sqljdbc_auth.dll` to the folder where your JDK/JRE is running. You
+  may copy to lib folder, bin folder, and so on. As an example, you might copy
+  to the following folder.
+
+```
+[JDK_INSTALLED_PATH]\bin;
+[JDK_INSTALLED_PATH]\jre\bin;
+[JDK_INSTALLED_PATH]\jre\lib;
+[JDK_INSTALLED_PATH]\lib;
+```
+
+- Ensure that in your JDBC library folder, you have only the SQLJDBC4.jar file. Remove any other
+  sqljdbc\*.jar files from that folder (or copy them to another folder). If you
+  are adding the driver as part of your program, ensure that you add only
+  SQLJDBC4.jar as the driver to use.
+- Copy sqljdbc_auth.dll the file in the folder with your application.
+
+###### Note
+
+If you are running a 32-bit Java Virtual Machine (JVM), use the sqljdbc_auth.dll file in the x86 folder, even if the operating system is the x64 version. If you are running a 64-bit JVM on a x64 processor, use the sqljdbc_auth.dll file in the x64 folder.
+
+When you connect to a SQL Server database, you can choose either
+**Windows Authentication** or **SQL Server
+Authentication** for the **Authentication**
+option.
+
+## Connecting to SQL Server as a source
+
+Use the following procedure to connect to your Microsoft SQL Server source database
+with the AWS Schema Conversion Tool.
+
+###### To connect to a Microsoft SQL Server source database
 
 1. In the AWS Schema Conversion Tool, choose **Add source**.
-2. Choose **Db2 for z/OS**, then choose **Next**.
+2. Choose **Microsoft SQL Server**, then choose
+   **Next**.
 
 The **Add source** dialog box appears. 3. For **Connection name**, enter a name for your database.
 AWS SCT displays this name in the tree in the left panel. 4. Use database credentials from AWS Secrets Manager or enter them manually:
@@ -104,182 +200,24 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     	2. Choose **Populate** to automatically fill in
     	 all values in the database connection dialog box from Secrets Manager.
     For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
-    * To enter the IBM Db2 for z/OS source database connection information
-     manually, use the following instructions:
+    * To enter the Microsoft SQL Server source database connection
+     information manually, use the following instructions:
 
 
 
 
     | Parameter | Action |
     | --- | --- |
-    | **Server name** | Enter the Domain Name System (DNS) name or IP<br>address of your source database server. |
+    | **Server name** | Enter the Domain Name Service (DNS) name or IP address of your<br>source database server.<br>You can connect to your source SQL Server database using an IPv6 address protocol. To do so,<br>make sure that you use square brackets to enter the IP address, as shown in the following<br>example.<br>```<br>[2001:db8:ffff:ffff:ffff:ffff:ffff:fffe]<br>``` |
     | **Server port** | Enter the port used to connect to your source database server. |
-    | **Location** | Enter the unique name of the Db2 location you want to access. |
-    | **User name*<br>• and **Password** | Enter the database credentials to connect to your source database server.<br>AWS SCT uses the password to connect to your source database only when<br>you choose to connect to your database in a project. To guard against<br>exposing the password for your source database, AWS SCT doesn't store<br>the password by default. If you close your AWS SCT project and reopen it,<br>you are prompted for the password to connect to your source database as needed. |
-    | **Use SSL** | Choose this option if you want to use Secure Sockets Layer (SSL) to connect<br>to your database. Provide the following additional information, as applicable,<br>on the **SSL*<br>• tab:<br>+ **Trust store**: The location of a trust store<br>containing certificates. For this location to appear here, make sure<br>to add it in **Global settings**. |
-    | **Store password** | AWS SCT creates a secure vault to store SSL certificates and database passwords.<br>By turning this option on, you can store the database password and connect quickly<br>to the database without having to enter the password. |
-    | **Db2 for z/OS driver path** | Enter the path to the driver to use to connect to the source database.<br>For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").<br>If you store the driver path in the global project settings, the driver path<br>doesn't appear on the connection dialog box. For more information, see [Storing driver paths in the global settings](CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings"). |
+    | **Instance name** | Enter the instance name for the SQL Server database. To find the<br>instance name, run the query `SELECT @@servername;` on your<br>SQL Server database. |
+    | **Authentication** | Choose the authentication type from **Windows Authentication**<br>and **SQL Server Authentication**. |
+    | **User name*<br>• and **Password** | Enter the database credentials to connect to your source database server.<br>AWS SCT uses the password to connect to your source database only when you choose<br>to connect to your database in a project. To guard against exposing the password for<br>your source database, AWS SCT doesn't store the password by default. If you close<br>your AWS SCT project and reopen it, you are prompted for the password to connect<br>to your source database as needed. |
+    | **Use SSL** | Choose this option to use Secure Sockets Layer (SSL) to connect to your database.<br>Provide the following additional information, as applicable, on the<br>**SSL*<br>• tab:<br>+ **Trust server certificate**: Select this option<br>to trust the server certificate.<br>+ **Trust store**: The location of a trust store<br>containing certificates. For this location to appear in the<br>**Global settings*<br>• section, make sure to add it. |
+    | **Store password** | AWS SCT creates a secure vault to store SSL certificates and database passwords.<br>Enabling this option lets you store the database password and to connect quickly<br>to the database without having to enter the password. |
+    | **Sql Server Driver Path** | Enter the path to the driver to use to connect to the source database. For more<br>information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").<br>If you store the driver path in the global project settings, the driver path<br>doesn't appear on the connection dialog box. For more information, see [Storing driver paths in the global settings](CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings"). |
+    | **Windows Authentication library** | Enter the path to the `sqljdbc_auth.dll` file.<br>By default, this file is installed in the following location:<br>``<installation directory of the JDBC<br>driver>`sqljdbc_`<version>`\`<language>`\auth\` |
 
-5. Choose **Test Connection** to verify that AWS SCT can connect
-   to your source database.
+5. Choose **Test Connection** to verify
+   that AWS SCT can connect to your source database.
 6. Choose **Connect** to connect to your source database.
-
-## Privileges for MySQL as a target database
-
-The privileges required for MySQL as a target are as follows:
-
-- CREATE ON \*.\*
-- ALTER ON \*.\*
-- DROP ON \*.\*
-- INDEX ON \*.\*
-- REFERENCES ON \*.\*
-- SELECT ON \*.\*
-- CREATE VIEW ON \*.\*
-- SHOW VIEW ON \*.\*
-- TRIGGER ON \*.\*
-- CREATE ROUTINE ON \*.\*
-- ALTER ROUTINE ON \*.\*
-- EXECUTE ON \*.\*
-- SELECT ON mysql.proc
-- INSERT, UPDATE ON AWS_DB2ZOS_EXT.\*
-- INSERT, UPDATE, DELETE ON AWS_DB2ZOS_EXT_DATA.\*
-- CREATE TEMPORARY TABLES ON AWS_DB2ZOS_EXT_DATA.\*
-
-You can use the following code example to create a database user and grant the privileges.
-
-```
-CREATE USER '`user_name`' IDENTIFIED BY '`your_password`';
-GRANT CREATE ON *.* TO '`user_name`';
-GRANT ALTER ON *.* TO '`user_name`';
-GRANT DROP ON *.* TO '`user_name`';
-GRANT INDEX ON *.* TO '`user_name`';
-GRANT REFERENCES ON *.* TO '`user_name`';
-GRANT SELECT ON *.* TO '`user_name`';
-GRANT CREATE VIEW ON *.* TO '`user_name`';
-GRANT SHOW VIEW ON *.* TO '`user_name`';
-GRANT TRIGGER ON *.* TO '`user_name`';
-GRANT CREATE ROUTINE ON *.* TO '`user_name`';
-GRANT ALTER ROUTINE ON *.* TO '`user_name`';
-GRANT EXECUTE ON *.* TO '`user_name`';
-GRANT SELECT ON mysql.proc TO '`user_name`';
-GRANT INSERT, UPDATE ON AWS_DB2ZOS_EXT.* TO '`user_name`';
-GRANT INSERT, UPDATE, DELETE ON AWS_DB2ZOS_EXT_DATA.* TO '`user_name`';
-GRANT CREATE TEMPORARY TABLES ON AWS_DB2ZOS_EXT_DATA.* TO '`user_name`';
-```
-
-In the preceding example, replace `user_name` with the name of your user.
-Then, replace `your_password` with a secure password.
-
-To use Amazon RDS for MySQL as a target, set the `log_bin_trust_function_creators` parameter
-to true, and the `character_set_server` to `latin1`. To configure these parameters,
-create a new DB parameter group or modify an existing DB parameter group.
-
-To use Aurora MySQL as a target, set the `log_bin_trust_function_creators` parameter
-to true, and the `character_set_server` to `latin1`.
-Also, set the `lower_case_table_names` parameter to true. To configure these
-parameters, create a new DB parameter group or modify an existing DB parameter group.
-
-## Privileges for PostgreSQL as a target database
-
-To use PostgreSQL as a target, AWS SCT requires the `CREATE ON DATABASE` privilege.
-Make sure that you grant this privilege for each target PostgreSQL database.
-
-To use Amazon RDS for PostgreSQL as a target, AWS SCT requires the `rds_superuser` privilege.
-
-To use the converted public synonyms, change the database default search path to
-`"$user", public_synonyms, public`.
-
-You can use the following code example to create a database user and grant the privileges.
-
-```
-CREATE ROLE `user_name` LOGIN PASSWORD '`your_password`';
-GRANT CREATE ON DATABASE `db_name` TO `user_name`;
-GRANT rds_superuser TO `user_name`;
-ALTER DATABASE `db_name` SET SEARCH_PATH = "$user", public_synonyms, public;
-```
-
-In the preceding example, replace `user_name` with the name of your user.
-Then, replace `db_name` with the name of your target database.
-Finally, replace `your_password` with a secure password.
-
-In PostgreSQL, only the schema owner or a `superuser` can drop a schema. The owner can drop a schema
-and all objects that this schema includes even if the owner of the schema doesn't own some of its objects.
-
-When you use different users to convert and apply different schemas to your target database,
-you can get an error message when AWS SCT can't drop a schema. To avoid this error message,
-use the `superuser` role.
-
-## Db2 for z/OS to PostgreSQL conversion settings
-
-To edit Db2 for z/OS to PostgreSQL conversion settings, choose **Settings**,
-and then choose **Conversion settings**. From the upper list, choose
-**Db2 for z/OS**, and then choose **Db2 for z/OS – PostgreSQL**
-or **Db2 for z/OS – Amazon Aurora (PostgreSQL compatible)**.
-AWS SCT displays all available settings for IBM Db2 for z/OS to PostgreSQL conversion.
-
-Db2 for z/OS to PostgreSQL conversion settings in AWS SCT include options for the
-following:
-
-- To limit the number of comments with action items in the converted
-  code.
-
-For **Add comments in the converted code for the action items of selected severity and higher**,
-choose the severity of action items. AWS SCT adds comments in the converted code
-for action items of the selected severity and higher.
-
-For example, to minimize the number of comments in your converted code, choose
-**Errors only**. To include comments for all action items in your
-converted code, choose **All messages**.
-
-- To generate unique names for constraints in the target database.
-
-In PostgreSQL, all constraint names that you use must be unique. AWS SCT
-can generate unique names for constraints in the converted code by adding a
-prefix with the table name to the name of your constraint. To make sure that
-AWS SCT generates unique names for your constraints, select
-**Generate unique names for constraints**.
-
-- To keep the formatting of column names, expressions, and clauses
-  in DML statements in the converted code.
-
-AWS SCT can keep the layout of column names, expressions, and clauses
-in DML statements in the similar position and order as in the source code.
-To do so, select **Yes** for **Keep the formatting
-of column names, expressions, and clauses in DML statements**.
-
-- To exclude table partitions from the conversion scope.
-
-AWS SCT can skip all partitions of a source table during the conversion.
-To do so, select **Exclude table partitions from the conversion scope**.
-
-- To use automatic partitioning for tables that are partitioned by growth.
-
-For data migration, AWS SCT can automatically partition all tables that are
-larger than the specified size. To use this option, select
-**Enforce partition of tables larger than**, and enter the tables
-size in gigabytes. Next, enter the number of partitions. AWS SCT considers the
-direct access storage device (DASD) size of your source database when you turn on
-this option.
-
-AWS SCT can determine the number of partitions automatically. To do so, select
-**Increase the number of partitions proportionally**, and enter
-the maximum number of partitions.
-
-- To return dynamic result sets as an array of values of the refcursor data type.
-
-AWS SCT can convert source procedures that return dynamic result sets into procedures
-which have an array of open refcursors as an additional output parameter. To do so, select
-**Use an array of refcursors to return all dynamic result sets**.
-
-- To specify the standard to use for the conversion of date and time values to string
-  representations.
-
-AWS SCT can convert date and time values to string representations using one of the
-supported industry formats. To do so, select **Use string representations of
-date values** or **Use string representations of time values**.
-Next, choose one of the following standards.
-
-    + International Standards Organization (ISO)
-    + IBM European Standard (EUR)
-    + IBM USA Standard (USA)
-    + Japanese Industrial Standard Christian Era (JIS)

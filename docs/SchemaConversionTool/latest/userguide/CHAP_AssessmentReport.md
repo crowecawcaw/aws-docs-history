@@ -1,24 +1,18 @@
-# Configuring an assessment report in AWS Schema Conversion Tool
+# Viewing an assessment report in AWS Schema Conversion Tool
 
-You can configure the amount of details that AWS SCT includes into
-assessment reports.
+After you create an assessment report, the assessment report view opens, showing
+the following tabs:
 
-###### To configure a database migration assessment report
+- **Summary**
+- **Action Items**
+  The **Summary** tab shows items that were automatically
+  converted or not converted.
 
-1. On the **Settings** menu, choose
-   **Global settings**, and then choose
-   **Assessment report**.
-2. For **Action item occurrences**, choose
-   **First five issues only** to limit the number of
-   action items of a single type in the assessment report. Choose
-   **All issues** to include all action items of each
-   type in the assessment report.
-3. For **SQL script analyzed files**, choose
-   **List not more than `X` files**
-   to limit the number of SQL script files in the assessment report to
-   `X`. Enter the number of files. Choose
-   **List all analyzed files** to include all SQL script files
-   in the assessment report.
-4. Select **Open reports after saving** to automatically open
-   the file after you save a local copy of the database migration assessment report.
-   For more information, see .
+The **Action Items** tab shows items that couldn't be
+converted automatically, and recommendations on what to do about them.
+
+###### Topics
+
+- [Assessment report summary](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
+- [Assessment report action items](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
+- [Assessment report warning message](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
