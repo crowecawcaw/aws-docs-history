@@ -130,7 +130,7 @@ The “string to sign” is the actual input to the signing algorithm, and inclu
 
 ###### The structure is as follows:
 
-1. The `Algorithm` is a string that indicates how the signature is calculated. It must be one of `AWS4-X509-RSA-SHA256`, `AWS4-X509-ECDSA-SHA256` or `AWS4-X509-MLDSA` and MUST be supported by the key type of the signing certificate's private key. For example, if the signing certificate has an RSA private key, the full algorithm string will be `AWS4-X509-RSA-SHA256`.
+1. The `Algorithm` is a string that indicates how the signature is calculated. It must be one of `AWS4-X509-RSA-SHA256` or `AWS4-X509-ECDSA-SHA256` and MUST be supported by the key type of the signing certificate's private key. For example, if the signing certificate has an RSA private key, the full algorithm string will be `AWS4-X509-RSA-SHA256`.
 2. The `RequestDateTime` is a string derived at time of the signing operation, at second granularity, in UTC, formatted as ISO8601 basic, YYYYMMDD’T’HHMMSS’Z’. For example, `20211101T121030Z`.
 3. The CredentialScope is structured field of the form `Date + '/' + Region + '/' + Service + '/aws4_request’`. The Region and service name strings must be UTF-8 encoded. For example, `20211101/us-east-1/rolesanywhere/aws4_request`.
 4. Finally, append a newline followed by the HashedCanonicalRequest computed in the previous step.
@@ -147,15 +147,12 @@ SigningAlgorithm must be one of the following algorithms
 
 - SHA256WithRSA
 - SHA256WithECDSA
-- ML-DSA-44
-- ML-DSA-65
-- ML-DSA-87
 
 ## Task 4: Add the signature to the HTTP request
 
 The signature derived from the previous step is added to the HTTP request in the `Authorization` header field. The `Authorization` header is attached to the request and validated for authentication. It is partitioned into multiple fields – signing algorithm, credentials, signed headers, and the actual signature. The header of the authentication mechanism based on X.509 differs from a SigV4 header in two ways:
 
-- Algorithm. As described above, instead of `AWS4-HMAC-SHA256`, the algorithm field will have the values of the form `AWS4-X509-RSA-SHA256`, `AWS4-X509-ECDSA-SHA256` or `AWS4-X509-MLDSA` depending on whether an RSA, Elliptic Curve algorithm or ML-DSA is used. This, in turn, is determined by the key bound to the signing certificate.
+- Algorithm. As described above, instead of `AWS4-HMAC-SHA256`, the algorithm field will have the values of the form `AWS4-X509-RSA-SHA256` or `AWS4-X509-ECDSA-SHA256` depending on whether an RSA or Elliptic Curve algorithm. This, in turn, is determined by the key bound to the signing certificate.
 - Scope field/credentials. As specified above, the serial number of the certificate used to sign the request will be in place of the Access Key ID (credential) in the Scope field.
 
 ###### The structure of the field is as follows:
@@ -166,7 +163,7 @@ The signature derived from the previous step is added to the HTTP request in the
 
 ```
 
-1. The `Algorithm` must be one of `AWS4-X509-RSA-SHA256`, `AWS4-X509-ECDSA-SHA256` or `AWS4-X509-MLDSA`.
+1. The `Algorithm` must be one of `AWS4-X509-RSA-SHA256` or `AWS4-X509-ECDSA-SHA256`.
 2. The `Credential` is constructed via `{SerialNumber}/{Scope}` where serial number is the decimal representation of the serial number of the signing certificate, and `Scope` is the value constructed as input to the `StringToSign`. For example:
 
 ```

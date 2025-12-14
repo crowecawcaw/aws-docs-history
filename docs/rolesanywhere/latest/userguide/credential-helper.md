@@ -322,10 +322,6 @@ Specifies the private key to use for signing. This can be:
 
 Not required when using `--cert-selector` as the private key is inferred from the OS certificate store.
 
-###### Note
-
-ML-DSA private keys are not supported in the credential helper.
-
 `--tpm-key-password` (string)
 Password for TPM-protected private keys. Required when using password-protected TPM keys.
 
@@ -378,11 +374,6 @@ This option should only be used under specific, tightly controlled scenarios, su
 An identifier for the role session. Please see
 [The relationship between CreateSession and AssumeRole](authentication-create-session.md#create-session-and-assume-role "authentication-create-session.md#create-session-and-assume-role")
 section for more details on how this option will affect the `CreateSession` operation.
-
-###### Note
-
-ML-DSA private keys and certificates are not supported by the credential helper.
-However, certificates using RSA or ECDSA keys that are signed by a CA using ML-DSA (ML-DSA-44, ML-DSA-65, ML-DSA-87) is currently supported.
 
 ### Output
 

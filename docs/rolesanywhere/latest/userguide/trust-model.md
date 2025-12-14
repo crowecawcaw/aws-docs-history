@@ -64,7 +64,7 @@ For more information, see:
 
 To authenticate a request for credentials, IAM Roles Anywhere validates the incoming
 signature by using the signature validation algorithm required by the key type of the
-certificate, for example RSA, ECDSA or ML-DSA. After validating the signature, IAM Roles Anywhere checks that
+certificate, for example RSA or ECDSA. After validating the signature, IAM Roles Anywhere checks that
 the certificate was issued by a certificate authority configured as a trust anchor in the
 account using algorithms defined by public key infrastructure X.509 (PKIX) standards.
 
