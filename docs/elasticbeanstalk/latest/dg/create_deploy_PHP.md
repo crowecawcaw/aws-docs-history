@@ -1,121 +1,383 @@
-# Adding an Amazon RDS DB instance to your PHP Elastic Beanstalk environment
+# Using the Elastic Beanstalk PHP platform
 
-This topic provides instructions to create an Amazon RDS using the Elastic Beanstalk console.
-You can use an Amazon Relational Database Service (Amazon RDS) DB instance to store data gathered and modified by your
-application. The database can be coupled to your environment and managed by Elastic Beanstalk, or it can be created as decoupled
-and managed externally by another service.
-In these instructions the database is coupled to your environment and managed by Elastic Beanstalk. For more information about integrating an Amazon RDS with
-Elastic Beanstalk, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+AWS Elastic Beanstalk provides and supports various **platform branches** for different versions of PHP. The platforms support PHP web applications that run stand-alone or under Composer. See [PHP](../platforms/platforms-supported.md#platforms-supported.PHP "../platforms/platforms-supported.md#platforms-supported.PHP") in the _AWS Elastic Beanstalk Platforms_ document for a full list of supported platform branches.
 
-###### Sections
+Elastic Beanstalk provides [configuration options](command-options.md "command-options.md") that you can use to customize the software that runs on the Amazon EC2 instances in
+your Elastic Beanstalk environment. You can [configure environment variables](environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console "environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console") required by your
+application, enable log rotation to Amazon S3, map folders in your application source that contain static files to paths served by the proxy server, and set
+common PHP initialization settings.
 
-- [Adding a DB instance to your environment](#php-rds-create "#php-rds-create")
-- [Downloading a driver](#php-rds-drivers "#php-rds-drivers")
-- [Connecting to a database with a PDO or MySQLi](#php-rds-connect "#php-rds-connect")
-- [Connecting to a database with Symfony](#php-rds-symfony "#php-rds-symfony")
+Configuration options are available in the Elastic Beanstalk console for
+[modifying the configuration of a running
+environment](environment-configuration-methods-after.md "environment-configuration-methods-after.md"). To avoid losing your environment's configuration when you terminate it, you can
+use [saved configurations](environment-configuration-savedconfig.md "environment-configuration-savedconfig.md") to save
+your settings and later apply them to another environment.
 
-## Adding a DB instance to your environment
+To save settings in your source code, you can include
+[configuration files](ebextensions.md "ebextensions.md"). Settings in configuration files are
+applied every time you create an environment or deploy your application. You
+can also use configuration files to install packages, run scripts, and perform other instance
+customization operations during deployments.
 
-###### To add a DB instance to your environment
+If you use Composer, you can [include a composer.json file](#php-configuration-composer "#php-configuration-composer") in your source bundle
+to install packages during deployment.
+
+For advanced PHP configuration and PHP settings that are not provided as configuration options, you can [use
+configuration files to provide an INI file](#php-configuration-phpini "#php-configuration-phpini") that can extend and override the default settings applied by Elastic Beanstalk, or install
+additional extensions.
+
+Settings applied in the Elastic Beanstalk console override the same
+settings in configuration files, if they exist. This lets you have default settings in configuration
+files, and override them with environment-specific settings in the console. For more information
+about precedence, and other methods of changing settings, see [Configuration options](command-options.md "command-options.md").
+
+For details about the various ways you can extend an Elastic Beanstalk Linux-based platform, see [Extending Elastic Beanstalk Linux platforms](platforms-linux-extend.md "platforms-linux-extend.md").
+
+###### PHP platform topics
+
+- [Installing the AWS SDK for PHP](#php-development-environment-sdk "#php-development-environment-sdk")
+- [Considerations for PHP 8.1 on Amazon Linux 2](#php-8-1-considerations "#php-8-1-considerations")
+- [Configuring your PHP environment](#php-console "#php-console")
+- [Namespaces for configuration](#php-namespaces "#php-namespaces")
+- [Installing dependencies](#php-configuration-composer "#php-configuration-composer")
+- [Updating Composer](#php-configuration-composerupdate "#php-configuration-composerupdate")
+- [Extending php.ini](#php-configuration-phpini "#php-configuration-phpini")
+
+## Installing the AWS SDK for PHP
+
+If you need to manage AWS resources from within your application, install the AWS SDK for PHP. For example, with the SDK for PHP, you can use Amazon DynamoDB (DynamoDB)
+to store user and session information without creating a relational database.
+
+To install the SDK for PHP with Composer
+
+```
+$ `composer require aws/aws-sdk-php`
+```
+
+For more information, see the [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/ "https://aws.amazon.com/sdk-for-php/") homepage. For instructions, see [Install the AWS SDK for PHP](../../../sdk-for-php/v3/developer-guide/getting-started_installation.md "../../../sdk-for-php/v3/developer-guide/getting-started_installation.md").
+
+## Considerations for PHP 8.1 on Amazon Linux 2
+
+Read this section if you're using the _PHP 8.1 on Amazon Linux 2_ platform branch.
+
+###### Note
+
+The information in this topic only applies to the _PHP 8.1 on
+Amazon Linux 2_ platform branch. It does not apply to the PHP platform branches based on
+AL2023. It also does not apply to the _PHP 8.0 Amazon Linux 2_
+platform branch.
+
+Elastic Beanstalk stores the PHP 8.1 related RPM packages for the _PHP 8.1 on Amazon Linux 2_
+platform branch on the EC2 instances in a local directory, instead of the Amazon Linux repository. You
+can use **rpm -i** to install packages. Starting with [PHP
+8.1 Platform Version 3.5.0](../relnotes/release-2022-10-03-linux.md "../relnotes/release-2022-10-03-linux.md"), Elastic Beanstalk stores the PHP 8.1 related RPM packages in the
+following local EC2 directory.
+
+`/opt/elasticbeanstalk/RPMS`
+
+The following example installs the php-debuginfo package.
+
+```
+$`rpm -i /opt/elasticbeanstalk/RPMS/php-debuginfo-8.1.8-1.amzn2.x86_64.rpm`
+```
+
+The version in the package name will vary according to the actual version that's listed in the EC2 local directory
+`/opt/elasticbeanstalk/RPMS`. Use the same syntax to install other PHP 8.1 RPM packages.
+
+Expand the following section to display a list of RPM packages we provide.
+
+The following list provides the RMP packages that the Elastic Beanstalk PHP 8.1 platform provides on Amazon Linux 2. These are located in the local directory
+`/opt/elasticbeanstalk/RPMS`.
+
+The version numbers _8.1.8-1_ and _3.7.0-1_ in the listed package names are only an example.
+
+- `php-8.1.8-1.amzn2.x86_64.rpm`
+- `php-bcmath-8.1.8-1.amzn2.x86_64.rpm`
+- `php-cli-8.1.8-1.amzn2.x86_64.rpm`
+- `php-common-8.1.8-1.amzn2.x86_64.rpm`
+- `php-dba-8.1.8-1.amzn2.x86_64.rpm`
+- `php-dbg-8.1.8-1.amzn2.x86_64.rpm`
+- `php-debuginfo-8.1.8-1.amzn2.x86_64.rpm`
+- `php-devel-8.1.8-1.amzn2.x86_64.rpm`
+- `php-embedded-8.1.8-1.amzn2.x86_64.rpm`
+- `php-enchant-8.1.8-1.amzn2.x86_64.rpm`
+- `php-fpm-8.1.8-1.amzn2.x86_64.rpm`
+- `php-gd-8.1.8-1.amzn2.x86_64.rpm`
+- `php-gmp-8.1.8-1.amzn2.x86_64.rpm`
+- `php-intl-8.1.8-1.amzn2.x86_64.rpm`
+- `php-ldap-8.1.8-1.amzn2.x86_64.rpm`
+- `php-mbstring-8.1.8-1.amzn2.x86_64.rpm`
+- `php-mysqlnd-8.1.8-1.amzn2.x86_64.rpm`
+- `php-odbc-8.1.8-1.amzn2.x86_64.rpm`
+- `php-opcache-8.1.8-1.amzn2.x86_64.rpm`
+- `php-pdo-8.1.8-1.amzn2.x86_64.rpm`
+- `php-pear-1.10.13-1.amzn2.noarch.rpm`
+- `php-pgsql-8.1.8-1.amzn2.x86_64.rpm`
+- `php-process-8.1.8-1.amzn2.x86_64.rpm`
+- `php-pspell-8.1.8-1.amzn2.x86_64.rpm`
+- `php-snmp-8.1.8-1.amzn2.x86_64.rpm`
+- `php-soap-8.1.8-1.amzn2.x86_64.rpm`
+- `php-sodium-8.1.8-1.amzn2.x86_64.rpm`
+- `php-xml-8.1.8-1.amzn2.x86_64.rpm`
+- `php-pecl-imagick-3.7.0-1.amzn2.x86_64.rpm`
+- `php-pecl-imagick-debuginfo-3.7.0-1.amzn2.x86_64.rpm`
+- `php-pecl-imagick-devel-3.7.0-1.amzn2.noarch.rpm`
+  You can use the PEAR and PECL packages to install common extensions. For more information about PEAR, see the [PEAR PHP
+  Extension and Application Repository](https://pear.php.net "https://pear.php.net") website. For more information about PECL, see the [PECL extension](https://pecl.php.net "https://pecl.php.net")
+  website.
+
+The following example commands install the Memcached extensions.
+
+```
+$`pecl install memcache`
+```
+
+Or you could also use the following:
+
+```
+$`pear install pecl/memcache`
+```
+
+The following example commands install the Redis extensions.
+
+```
+$`pecl install redis`
+```
+
+Or you could also use the following:
+
+```
+$`pear install pecl/redis`
+```
+
+## Configuring your PHP environment
+
+You can use the Elastic Beanstalk console to enable log rotation to Amazon S3, configure variables that your application can read from the environment, and change
+PHP settings.
+
+###### To configure your PHP environment in the Elastic Beanstalk console
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
    and in the **Regions** list, select your AWS Region.
 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
 3. In the navigation pane, choose **Configuration**.
-4. In the **Database** configuration category, choose **Edit**.
-5. Choose a DB engine, and enter a user name and password.
-6. To save the changes choose **Apply** at the bottom of the page.
+4. In the **Updates, monitoring, and logging** configuration category, choose **Edit**.
 
-Adding a DB instance takes about 10 minutes. When the environment update is complete, the DB instance's hostname and other connection information are
-available to your application through the following environment properties:
+### PHP settings
 
-| Property name  | Description                                                                                    | Property value                                                                         |
-| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
-| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
-| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
-| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
-| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
+- **Proxy server** – The proxy server to use on your environment instances. By default, nginx is used.
+- **Document root** – The folder that contains your site's default page. If your welcome page is not at the root of your
+  source bundle, specify the folder that contains it relative to the root path. For example, `/public` if the welcome page is in a folder
+  named `public`.
+- **Memory limit** – The maximum amount of memory that a script is allowed to allocate. For example,
+  `512M`.
+- **Zlib output compression** – Set to `On` to compress responses.
+- **Allow URL fopen** – Set to `Off` to prevent scripts from downloading files from remote locations.
+- **Display errors** – Set to `On` to show internal error messages for debugging.
+- **Max execution time** – The maximum time in seconds that a script is allowed to run before the environment terminates
+  it.
 
-For more information about configuring a database instance coupled with an Elastic Beanstalk environment,
-see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+### Log options
 
-## Downloading a driver
+The Log Options section has two settings:
 
-To use PHP Data Objects (PDO) to connect to the database, install the driver that matches the database engine that you chose.
+- **Instance profile**– Specifies the instance profile that has permission to access the Amazon S3 bucket associated with
+  your application.
+- **Enable log file rotation to Amazon S3** – Specifies whether log files
+  for your application's Amazon EC2 instances are copied to the Amazon S3
+  bucket associated with your application.
 
-- **MySQL** – [`PDO_MYSQL`](http://php.net/manual/en/ref.pdo-mysql.php "http://php.net/manual/en/ref.pdo-mysql.php")
-- **PostgreSQL** – [`PDO_PGSQL`](http://php.net/manual/en/ref.pdo-pgsql.php "http://php.net/manual/en/ref.pdo-pgsql.php")
-- **Oracle** – [`PDO_OCI`](http://php.net/manual/en/ref.pdo-oci.php "http://php.net/manual/en/ref.pdo-oci.php")
-- **SQL Server** – [`PDO_SQLSRV`](http://php.net/manual/en/ref.pdo-sqlsrv.php "http://php.net/manual/en/ref.pdo-sqlsrv.php")
+### Static files
 
-For more information, see [http://php.net/manual/en/pdo.installation.php](http://php.net/manual/en/pdo.installation.php "http://php.net/manual/en/pdo.installation.php").
+To improve performance, you can use the **Static files** section to configure the proxy server to serve
+static files (for example, HTML or images) from a set of directories inside your web application.
+For each directory, you set the virtual path to directory mapping. When the proxy server receives a request for a file under the specified path,
+it serves the file directly instead of routing the request to your application.
 
-## Connecting to a database with a PDO or MySQLi
+For details about configuring static files using configuration files or the Elastic Beanstalk console, see [Serving static files](environment-cfg-staticfiles.md "environment-cfg-staticfiles.md").
 
-You can use `$_SERVER[``VARIABLE``]` to read connection information from the environment.
+### Environment properties
 
-For a PDO, create a Data Source Name (DSN) from the host, port, and name. Pass the DSN to the [constructor for the PDO](https://php.net/manual/en/pdo.construct.php "https://php.net/manual/en/pdo.construct.php") with the database user name and password.
+The **Environment Properties** section lets you specify environment configuration settings on the Amazon EC2 instances that are
+running your application. These settings are passed in as key-value pairs to the application.
 
-###### Example Connect to an RDS database with PDO - MySQL
-
-```
-<?php
-$dbhost = $_SERVER['RDS_HOSTNAME'];
-$dbport = $_SERVER['RDS_PORT'];
-$dbname = $_SERVER['RDS_DB_NAME'];
-$charset = 'utf8' ;
-
-$dsn = "`mysql`:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}";
-$username = $_SERVER['RDS_USERNAME'];
-$password = $_SERVER['RDS_PASSWORD'];
-
-$pdo = new PDO($dsn, $username, $password);
-?>
-```
-
-For other drivers, replace `mysql` with the name of your driver – `pgsql`, `oci`, or
-`sqlsrv`.
-
-For MySQLi, pass the hostname, user name, password, database name, and port to the `mysqli` constructor.
-
-###### Example Connect to an RDS database with mysqli_connect()
+Your application code can access environment properties by using `$_SERVER` or the `get_cfg_var` function.
 
 ```
-$link = new mysqli($_SERVER['RDS_HOSTNAME'], $_SERVER['RDS_USERNAME'], $_SERVER['RDS_PASSWORD'], $_SERVER['RDS_DB_NAME'], $_SERVER['RDS_PORT']);
+$endpoint = $_SERVER['API_ENDPOINT'];
 ```
 
-## Connecting to a database with Symfony
+See [Environment variables and other software settings](environments-cfg-softwaresettings.md "environments-cfg-softwaresettings.md")
+for more information.
 
-For Symfony version 3.2 and newer, you can use `%env(`PROPERTY_NAME`)%` to set database parameters in a
-configuration file based on the environment properties set by Elastic Beanstalk.
+## Namespaces for configuration
 
-###### Example app/config/parameters.yml
+You can use a [configuration file](ebextensions.md "ebextensions.md") to set configuration
+options and perform other instance configuration tasks during deployments. Configuration options can be [platform specific](command-options-specific.md "command-options-specific.md")
+or apply to [all platforms](command-options-general.md "command-options-general.md") in the Elastic Beanstalk service as a whole. Configuration options are organized into
+_namespaces_.
 
-```
-parameters:
-    database_driver:   pdo_mysql
-    database_host:     '%env(RDS_HOSTNAME)%'
-    database_port:     '%env(RDS_PORT)%'
-    database_name:     '%env(RDS_DB_NAME)%'
-    database_user:     '%env(RDS_USERNAME)%'
-    database_password: '%env(RDS_PASSWORD)%'
-```
+The following namespaces configure both your proxy service and PHP specific options:
 
-See [External Parameters (Symfony 3.4)](http://symfony.com/doc/3.4/configuration/external_parameters.html "http://symfony.com/doc/3.4/configuration/external_parameters.html") for more
-information.
+- [aws:elasticbeanstalk:environment:proxy:staticfiles](command-options-general.md#command-options-general-environmentproxystaticfiles "command-options-general.md#command-options-general-environmentproxystaticfiles")
+  – configure the environment proxy to serve static files. You define mappings of virtual paths to application directories.
+- [aws:elasticbeanstalk:environment:proxy](command-options-specific.md#command-options-php "command-options-specific.md#command-options-php") – specify the environment's proxy server.
+- [aws:elasticbeanstalk:container:php:phpini](command-options-specific.md#command-options-php "command-options-specific.md#command-options-php") – configure PHP specific options. This
+  namespace includes `composer_options`, which is not available on the Elastic Beanstalk console. This option sets the custom options to use when
+  installing dependencies using Composer through the `composer.phar install` command. For more information about this command,
+  including available options, see [install](https://getcomposer.org/doc/03-cli.md#install-i "https://getcomposer.org/doc/03-cli.md#install-i") on the _getcomposer.org_ website.
 
-For earlier versions of Symfony, environment variables are only accessible if they start with `SYMFONY__`. This means that the
-Elastic Beanstalk-defined environment properties are not accessible, and you must define your own environment properties to pass the connection information to
-Symfony.
+The following example [configuration file](ebextensions.md "ebextensions.md") specifies a static files option that maps a directory named
+`staticimages` to the path `/images`, and shows settings for each of the options available in the
+`aws:elasticbeanstalk:container:php:phpini` namespace:
 
-To connect to a database with Symfony 2, [create an environment property](create_deploy_PHP.md#php-console-properties "create_deploy_PHP.md#php-console-properties") for each parameter. Then, use
-`%`property.name`%` to access the Symfony-transformed variable in a configuration file. For example, an
-environment property named `SYMFONY__DATABASE__USER` is accessible as `database.user`.
+###### Example .ebextensions/php-settings.config
 
 ```
-    database_user:     "%database.user%"
+option_settings:
+  aws:elasticbeanstalk:environment:proxy:
+    ProxyServer: apache
+  aws:elasticbeanstalk:environment:proxy:staticfiles:
+    /images: staticimages
+  aws:elasticbeanstalk:container:php:phpini:
+    document_root: /public
+    memory_limit: 128M
+    zlib.output_compression: "Off"
+    allow_url_fopen: "On"
+    display_errors: "Off"
+    max_execution_time: 60
+    composer_options: vendor/package
 ```
 
-See [External Parameters (Symfony 2.8)](http://symfony.com/doc/2.8/configuration/external_parameters.html "http://symfony.com/doc/2.8/configuration/external_parameters.html") for more
-information.
+###### Note
+
+The `aws:elasticbeanstalk:environment:proxy:staticfiles` namespace isn't defined on Amazon Linux AMI PHP platform branches (preceding
+Amazon Linux 2).
+
+Elastic Beanstalk provides many configuration options for customizing your environment. In
+addition to configuration files, you can also set configuration options using the console, saved configurations, the EB CLI, or the AWS CLI.
+See [Configuration options](command-options.md "command-options.md") for more information.
+
+## Installing your Elastic Beanstalk PHP application's dependencies
+
+This topic describes how to configure you application to install other PHP packages that it requires. Your application might have dependencies on
+other PHP packages. You can configure your application to install these dependencies on the environment's Amazon Elastic Compute Cloud (Amazon EC2) instances. Alternatively, you
+can include your application's dependencies in the source bundle and deploy them with the application. The following section discuss both of these
+ways.
+
+### Use a Composer file to install dependencies on instances
+
+Use a `composer.json` file in the root of your project source to use composer to install packages that your application requires
+on your environment's Amazon EC2 instances.
+
+###### Example composer.json
+
+```
+{
+    "require": {
+        "monolog/monolog": "1.0.*"
+    }
+}
+```
+
+When a `composer.json` file is present, Elastic Beanstalk runs `composer.phar install` to install dependencies. You can add
+options to append to the command by setting the [composer_options option](#php-namespaces "#php-namespaces") in the
+`aws:elasticbeanstalk:container:php:phpini` namespace.
+
+### Include dependencies in source bundle
+
+If your application has a large number of dependencies, installing them might take a long time. This can increase deployment and scaling operations,
+because dependencies are installed on every new instance.
+
+To avoid the negative impact on deployment time, use Composer in your development environment to resolve dependencies and install them into the
+`vendor` folder.
+
+###### To include dependencies in your application source bundle
+
+1. Run the following command:
+
+```
+`%` composer install
+```
+
+2. Include the generated `vendor` folder in the root of your application source bundle.
+
+When Elastic Beanstalk finds a `vendor` folder on the instance, it ignores the `composer.json` file (even if it exists).
+Your application then uses dependencies from the `vendor` folder.
+
+## Updating Composer on Elastic Beanstalk
+
+This topic describes how to configure Elastic Beanstalk to keep Composer up to date. You may have to update Composer if you see an error when you try to install
+packages with a Composer file, or if you're unable to use the latest platform version. Between platform updates, you can update Composer in your
+environment instances through the use of configuration files in your [.ebextensions](ebextensions.md "ebextensions.md") folder.
+
+You can self-update Composer with the following configuration.
+
+```
+commands:
+  01updateComposer:
+    command: /usr/bin/composer.phar self-update `2.7.0`
+```
+
+The following [option setting](command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment "command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment") sets the `COMPOSER_HOME`
+environment variable, which configures the location of the Composer cache.
+
+```
+option_settings:
+  - namespace: aws:elasticbeanstalk:application:environment
+    option_name: COMPOSER_HOME
+    value: /home/webapp/composer-home
+```
+
+You can combine both of these in the same configuration file in your `.ebextensions` folder.
+
+###### Example .ebextensions/composer.config
+
+```
+commands:
+  01updateComposer:
+    command: /usr/bin/composer.phar self-update `2.7.0`
+
+option_settings:
+  - namespace: aws:elasticbeanstalk:application:environment
+    option_name: COMPOSER_HOME
+    value: /home/webapp/composer-home
+```
+
+###### Note
+
+Due to updates to the Composer installation in the [February 22, 2024](../relnotes/release-2024-02-22-al2023.md "../relnotes/release-2024-02-22-al2023.md"), AL2023 platform release and the [February 28, 2024](../relnotes/release-2024-02-28-al2.md "../relnotes/release-2024-02-28-al2.md"), AL2 platform release, the Composer self-update may fail
+if `COMPOSER_HOME` is set when the self-update executes.
+
+The following combined commands will fail to execute: `export COMPOSER_HOME=/home/webapp/composer-home && /usr/bin/composer.phar
+ self-update 2.7.0`
+
+However, the previous example will work. In the previous example, the option setting for `COMPOSER_HOME` will not be passed to the
+`01updateComposer` execution, and it will not be set when the self-update command executes.
+
+###### Important
+
+If you omit the version number from the `composer.phar self-update` command, Composer will update to the latest version available every
+time you deploy your source code, and when new instances are provisioned by Amazon EC2 Auto Scaling. This could cause scaling operations and deployments to fail if a
+version of Composer is released that is incompatible with your application.
+
+For more information about the Elastic Beanstalk PHP Platforms, including the version of Composer, see [PHP platform versions](../platforms/platforms-supported.md#platforms-supported.PHP "../platforms/platforms-supported.md#platforms-supported.PHP") in the document
+_AWS Elastic Beanstalk Platforms_.
+
+## Extending php.ini in your Elastic Beanstalk configuration
+
+Use a configuration file with a `files` block to add a `.ini` file to `/etc/php.d/` on the instances
+in your environment. The main configuration file, `php.ini`, pulls in settings from files in this folder in alphabetical order. Many
+extensions are enabled by default by files in this folder.
+
+###### Example .ebextensions/mongo.config
+
+```
+files:
+  "/etc/php.d/99mongo.ini":
+    mode: "000755"
+    owner: root
+    group: root
+    content: |
+      extension=mongo.so
+```

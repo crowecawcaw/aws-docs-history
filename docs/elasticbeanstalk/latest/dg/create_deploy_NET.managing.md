@@ -1,69 +1,102 @@
-# Configuring Amazon EC2 Auto Scaling using the AWS toolkit for Visual Studio
+# Configuring EC2 server instances using the AWS toolkit for Visual Studio
 
-Amazon EC2 Auto Scaling is an Amazon web service designed to automatically launch or terminate Amazon EC2 instances based on user-defined triggers. Users can set
-up _Amazon EC2 Auto Scaling groups_ and associate _triggers_ with these groups to automatically scale computing resources based
-on metrics such as bandwidth usage or CPU utilization. Amazon EC2 Auto Scaling works with Amazon CloudWatch to retrieve metrics for the server instances running your
-application.
+Amazon Elastic Compute Cloud (Amazon EC2) is a web service that you use to launch and manage server instances in Amazon's data centers. You can use
+Amazon EC2 server instances at any time, for as long as you need, and for any legal purpose. Instances are available in different sizes and
+configurations. For more information, go to [Amazon EC2](https://aws.amazon.com/ec2/ "https://aws.amazon.com/ec2/").
 
-Amazon EC2 Auto Scaling lets you take a group of Amazon EC2 instances and set various parameters to have this group automatically increase or decrease in
-number. Amazon EC2 Auto Scaling can add or remove Amazon EC2 instances from that group to help you seamlessly deal with traffic changes to your application.
+You can edit the Elastic Beanstalk environment's Amazon EC2 instance configuration with the **Server** tab inside your application environment
+tab in the AWS Toolkit for Visual Studio.
 
-Amazon EC2 Auto Scaling also monitors the health of each Amazon EC2 instance that it launches. If any instance terminates unexpectedly, Amazon EC2 Auto Scaling detects the
-termination and launches a replacement instance. This capability enables you to maintain a fixed, desired number of Amazon EC2 instances automatically.
+![Elastic Beanstalk servers configuration panel](images/aeb-vs-server.png)
 
-Elastic Beanstalk provisions Amazon EC2 Auto Scaling for your application. You can edit the Elastic Beanstalk environment's Amazon EC2 instance configuration with the
-**Amazon EC2 Auto Scaling** tab inside your application environment tab in the AWS Toolkit for Visual Studio.
+## Amazon EC2 instance types
 
-![Elastic Beanstalk Amazon EC2 Auto Scaling configuration panel](images/aeb-vs-autoscaling.png)
-The following section discusses how to configure Amazon EC2 Auto Scaling parameters for your application.
+**Instance type** displays the
+instance types available to your Elastic Beanstalk application. Change the instance type
+to select a server with the characteristics (including memory size
+and CPU power) that are most appropriate to your application. For example,
+applications with intensive and long-running operations can require more CPU or
+memory.
 
-## Launch the configuration
+For more information about the Amazon EC2 instance types available for your Elastic Beanstalk
+application, see [Instance Types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in the _Amazon Elastic Compute Cloud
+User Guide_.
 
-You can edit the launch configuration to control how your Elastic Beanstalk application provisions Amazon EC2 Auto Scaling resources.
+## Amazon EC2 security groups
 
-The **Minimum Instance Count** and **Maximum Instance Count** boxes let you specify the minimum and maximum size
-of the Amazon EC2 Auto Scaling group that your Elastic Beanstalk application uses.
+You can control access to your Elastic Beanstalk application using an _Amazon EC2 Security Group_. A security group defines firewall rules
+for your instances. These rules specify which ingress (i.e., incoming) network traffic should be delivered to your instance. All other ingress traffic
+will be discarded. You can modify rules for a group at any time. The new rules are automatically enforced for all running instances and instances
+launched in the future.
 
-![Elastic Beanstalk Amazon EC2 Auto Scaling launch config configuration window](images/aeb-vs-autoscaling-launchconfig.png)
-
-###### Note
-
-To maintain a fixed number of Amazon EC2 instances, set **Minimum Instance Count** and **Maximum Instance
-Count** to the same value.
-
-The **Availability Zones** box lets you specify the number of Availability Zones you want your Amazon EC2 instances to be in. It is
-important to set this number if you want to build fault-tolerant applications. If one Availability Zone goes down, your instances will still be running
-in your other Availability Zones.
+You can set up your Amazon EC2 security groups using the AWS Management Console or by using the AWS Toolkit for Visual Studio. You can specify which
+Amazon EC2 Security Groups control access to your Elastic Beanstalk application by entering the names of one or more Amazon EC2 security group names (delimited by
+commas) into the **EC2 Security Groups** text box.
 
 ###### Note
 
-Currently, it is not possible to specify which Availability Zone your instance will be in.
+Make sure port 80 (HTTP) is accessible from 0.0.0.0/0 as the source CIDR range if you want to enable health checks for your application. For more
+information about health checks, see [Health checks](create_deploy_NET.managing.md#create_deploy_NET.managing.elb.healthchecks "create_deploy_NET.managing.md#create_deploy_NET.managing.elb.healthchecks").
 
-## Triggers
+###### To create a security group using the AWS toolkit for Visual Studio
 
-A _trigger_ is an Amazon EC2 Auto Scaling mechanism that you set to tell the system when you want to increase (_scale
-out_) the number of instances, and when you want to decrease (_scale in_) the number of instances. You can configure
-triggers to _fire_ on any metric published to Amazon CloudWatch, such as CPU utilization, and determine if the conditions you
-specified have been met. When the upper or lower thresholds of the conditions you have specified for the metric have been breached for the specified
-period of time, the trigger launches a long-running process called a _Scaling Activity_.
+1. In Visual Studio, in **AWS Explorer**, expand the **Amazon EC2** node, and then double-click
+   **Security Groups**.
+2. Click **Create Security Group**, and enter a name and description for your security group.
+3. Click **OK**.
 
-You can define a scaling trigger for your Elastic Beanstalk application using AWS Toolkit for Visual Studio.
+For more information on Amazon EC2 Security Groups, see [Using
+Security Groups](../../../AWSEC2/latest/UserGuide/using-network-security.md "../../../AWSEC2/latest/UserGuide/using-network-security.md") in the _Amazon Elastic Compute Cloud User Guide_.
 
-![Elastic Beanstalk Amazon EC2 Auto Scaling trigger](images/aeb-vs-autoscaling-triggers.png)
+## Amazon EC2 key pairs
 
-Amazon EC2 Auto Scaling triggers work by watching a specific Amazon CloudWatch metric for an instance. Triggers include CPU utilization, network traffic, and
-disk activity. Use the **Trigger Measurement** setting to select a metric for your trigger.
+You can securely log in to the Amazon EC2 instances provisioned for your Elastic Beanstalk application with an Amazon EC2 key pair.
 
-The following list describes the trigger parameters you can configure using the AWS Management Console.
+###### Important
 
-- You can specify which statistic the trigger should use. You can select **Minimum**, **Maximum**,
-  **Sum**, or **Average** for **Trigger Statistic**.
-- For **Unit of Measurement**, specify the unit for the trigger measurement.
-- The value in the **Measurement Period** box specifies how frequently Amazon CloudWatch measures the metrics for your trigger.
-  The **Breach Duration** is the amount of time a metric can be beyond its defined limit (as specified for the **Upper
-  Threshold** and **Lower Threshold**) before the trigger fires.
-- For **Upper Breach Scale Increment** and **Lower Breach Scale Increment**, specify how many Amazon EC2
-  instances to add or remove when performing a scaling activity.
+You must create an Amazon EC2 key pair and configure your Elastic Beanstalk–provisioned Amazon EC2 instances to use the Amazon EC2 key pair before you
+can access your Elastic Beanstalk–provisioned Amazon EC2 instances. You can create your key pair using the **Publish to AWS** wizard inside
+the AWS Toolkit for Visual Studio when you deploy your application to Elastic Beanstalk. If you want to create additional key pairs using the Toolkit, follow the
+steps below. Alternatively, you can set up your Amazon EC2 key pairs using the [AWS Management
+Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). For instructions on creating a key pair for Amazon EC2, see the [Amazon Elastic Compute Cloud Getting Started Guide](../../../AWSEC2/latest/GettingStartedGuide.md "../../../AWSEC2/latest/GettingStartedGuide.md").
 
-For more information on Amazon EC2 Auto Scaling, see the _Amazon EC2 Auto Scaling_ section on [Amazon Elastic Compute Cloud
-Documentation](https://aws.amazon.com/documentation/ec2/ "https://aws.amazon.com/documentation/ec2/").
+The **Existing Key Pair** text box lets you specify the name of an Amazon EC2 key pair you can use to securely log in to the
+Amazon EC2 instances running your Elastic Beanstalk application.
+
+###### To specify the name of an Amazon EC2 key pair
+
+1. Expand the **Amazon EC2** node and double-click **Key Pairs**.
+2. Click **Create Key Pair** and enter the key pair name.
+3. Click **OK**.
+
+For more information about Amazon EC2 key pairs, go to [Using Amazon EC2
+Credentials](../../../AWSEC2/latest/UserGuide/using-credentials.md "../../../AWSEC2/latest/UserGuide/using-credentials.md") in the _Amazon Elastic Compute Cloud User Guide_. For more information about connecting to Amazon EC2
+instances, see [Listing and connecting to server instances](create_deploy_NET.md "create_deploy_NET.md").
+
+## Monitoring interval
+
+By default, only basic Amazon CloudWatch metrics are enabled. They return
+data in five-minute periods. You can enable more granular one-minute CloudWatch
+metrics by selecting **1 minute** for the **Monitoring
+Interval** in the **Server** section of the **Configuration** tab for your environment in the AWS Toolkit for Eclipse.
+
+###### Note
+
+Amazon CloudWatch service charges can apply for one-minute interval
+metrics. See [Amazon
+CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") for more information.
+
+## Custom AMI ID
+
+You can override the default AMI used for your Amazon EC2 instances with your own
+custom AMI by entering the identifier of your custom AMI into the
+**Custom AMI ID** box in the **Server** section of the **Configuration** tab for your environment in the AWS Toolkit for Eclipse.
+
+###### Important
+
+Using your own AMI is an advanced task that you should do with
+care. If you need a custom AMI, we recommend you start with the default
+Elastic Beanstalk AMI and then modify it. To be considered healthy, Elastic Beanstalk
+expects Amazon EC2 instances to meet a set of requirements, including having a
+running host manager. If these requirements are not met, your environment
+might not work properly.

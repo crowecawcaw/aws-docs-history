@@ -1,83 +1,93 @@
-# Using Elastic Beanstalk with Amazon S3
+# Finding and tracking Elastic Beanstalk resources with AWS Config
 
-This topic explains how Elastic Beanstalk utilizes Amazon Simple Storage Service (Amazon S3) and the types of objects that it stores in S3 buckets. It also notes which objects you must
-delete manually after you terminate your Elastic Beanstalk environment and provides instructions to do so.
+[AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") provides a detailed view of the configuration of AWS resources in your AWS account. You can see
+how resources are related, get a history of configuration changes, and see how relationships and configurations change over time. You can use AWS Config to define
+rules that evaluate resource configurations for data compliance.
 
-## The Elastic Beanstalk Amazon S3 customer account bucket
+Several Elastic Beanstalk resource types are integrated with AWS Config:
 
-Elastic Beanstalk creates an encrypted Amazon S3 bucket named `elasticbeanstalk-`region`-`account-id`` for
-each region in which you create environments. Your AWS account owns this bucket. Elastic Beanstalk stores temporary configuration files and other objects for the proper operation of your
-application in this bucket. Elastic Beanstalk requires enabled ACLs for service-managed buckets and therefore enables this bucket's Access Control List (ACL).
+- Applications
+- Application Versions
+- Environments
+  The following section shows how to configure AWS Config to record resources of these types.
 
-Be aware that Amazon S3 disables bucket Access Control Lists (ACLs) by default. Furthermore, the [ACL overview](../../../AmazonS3/latest/userguide/acl-overview.md "../../../AmazonS3/latest/userguide/acl-overview.md") topic in the _Amazon S3 User Guide_ recommends that you
-keep ACLs disabled, except for specific use cases. The Elastic Beanstalk service-managed buckets fall into a use case that requires enabled ACLs. To maintain
-security Elastic Beanstalk deployments enforce that this bucket is owned by the account running the application.
+For more information about AWS Config, see the [AWS Config Developer Guide](../../../config/latest/developerguide.md "../../../config/latest/developerguide.md"). For pricing information, see the [AWS Config pricing
+information page](https://aws.amazon.com/config/pricing/ "https://aws.amazon.com/config/pricing/").
 
-Elastic Beanstalk retains the default encryption provided by Amazon S3 buckets. For more information about bucket encryption, see [Amazon S3 default encryption](../../../AmazonS3/latest/userguide/bucket-encryption.md "../../../AmazonS3/latest/userguide/bucket-encryption.md") in the _Amazon Simple Storage Service User Guide_.
+## Setting up AWS Config
 
-## Contents of the Elastic Beanstalk Amazon S3 customer account bucket
+To initially set up AWS Config, see the following topics in the [AWS Config Developer Guide](../../../config/latest/developerguide.md "../../../config/latest/developerguide.md").
 
-The following table lists some objects that Elastic Beanstalk stores in your customer account bucket. The table also shows which objects have to be deleted
-manually. To avoid unnecessary storage costs, and to ensure that personal information isn't retained, be sure to manually delete these objects when you no
-longer need them.
+- [Setting up AWS Config with the Console](../../../config/latest/developerguide/gs-console.md "../../../config/latest/developerguide/gs-console.md")
+- [Setting up AWS Config with the AWS CLI](../../../config/latest/developerguide/gs-cli.md "../../../config/latest/developerguide/gs-cli.md")
 
-| **Object**                                                                                                  | **When stored?**                                                                                                                                                                                                                                          | **When deleted?**                                                                                                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Application versions](applications-versions.md "applications-versions.md")                                 | When you create an environment or deploy your application code to an existing environment, Elastic Beanstalk stores an application version in Amazon S3 and<br>associates it with the environment.                                                        | During application deletion, and according to [Version lifecycle](applications-lifecycle.md "applications-lifecycle.md").                                                                                                                                           |
-| [Source bundles](applications-versions.md "applications-versions.md")                                       | When you upload a new application version using the Elastic Beanstalk console or the EB CLI, Elastic Beanstalk stores a copy of it in Amazon S3, and sets it as your<br>environment's source bundle.                                                      | _Manually.<br>• When you delete an application version, you can choose \*\*Delete versions from Amazon S3_<br>• to<br>also delete the related source bundle. For details, see [Managing application versions](applications-versions.md "applications-versions.md"). |
-| **Custom platforms**                                                                                        | When you create a custom platform, Elastic Beanstalk temporarily stores related data in Amazon S3.                                                                                                                                                        | Upon successful completion of the custom platform's creation.                                                                                                                                                                                                       |
-| [Log files](using-features.md "using-features.md")                                                          | You can request Elastic Beanstalk to retrieve instance log files (tail or bundle logs) and store them in Amazon S3. You can also enable log rotation and<br>configure your environment to publish logs automatically to Amazon S3 after they are rotated. | Tail and bundle logs: 15 minutes after they are created.<br>Rotated logs: _Manually._                                                                                                                                                                               |
-| [Saved configurations](environment-configuration-savedconfig.md "environment-configuration-savedconfig.md") | _Manually._                                                                                                                                                                                                                                               | _Manually._                                                                                                                                                                                                                                                         |
+## Configuring AWS Config to record Elastic Beanstalk resources
 
-## Deleting objects in the Elastic Beanstalk Amazon S3 bucket
+By default, AWS Config records configuration changes for all supported types of _regional resources_ that it discovers in the region in
+which your environment is running. You can customize AWS Config to record changes only for specific resource types, or changes to _global
+resources_.
 
-When you terminate an environment or delete an application, Elastic Beanstalk deletes most related objects from Amazon S3. To minimize storage costs of a running
-application, routinely delete objects that your application doesn't need. In addition, pay attention to objects that you have to delete manually, as
-listed in [Contents of the Elastic Beanstalk Amazon S3 customer account bucket](#AWSHowTo.S3.content "#AWSHowTo.S3.content"). To ensure that private information isn't unnecessarily retained,
-delete these objects when you don't need them anymore.
+For example, you can configure AWS Config to record changes for Elastic Beanstalk resources and a subset of other AWS resources that Elastic Beanstalk starts
+for you. Using the [AWS Config Console](../../../config/latest/developerguide/gs-console.md "../../../config/latest/developerguide/gs-console.md"),
+you can select Elastic Beanstalk as a resource in the AWS Config **Settings** page from the **Specific Types** field.
+From there you can choose to record any of the Elastic Beanstalk resource types:
+**Application**, **ApplicationVersion**, and **Environment**.
 
-- Delete application versions that you don't expect to use in your application anymore. When you delete an application version, you can select
-  **Delete versions from Amazon S3** to also delete the related source bundle—a copy of your application's source code and
-  configurations files, which Elastic Beanstalk uploaded to Amazon S3 when you deployed an application or uploaded an application version. To learn how to delete an
-  application version, see [Managing application versions](applications-versions.md "applications-versions.md").
-- Delete rotated logs that you don't need. Alternatively, download them or move them to Amazon Glacier for further analysis.
-- Delete saved configurations that you aren't going to use in any environment anymore.
+The following figure shows the AWS Config **Settings** page, with Elastic Beanstalk resource types that you can choose to record:
+**Application**, **ApplicationVersion**, and **Environment**.
 
-## Deleting the Elastic Beanstalk Amazon S3 bucket
+![AWS Config settings page showing a list of resource types to choose to record](images/cc-settings-resource-types.png)
 
-When Elastic Beanstalk creates a bucket it also creates a bucket policy that it applies to the new bucket. This policy servers two purposes:
+After you select a few resource types, this is how the **Specific types** list appears.
 
-- To allow environments to write to the bucket.
-- To prevent accidental deletion of the bucket.
+![AWS Config settings page showing selected resource types to record](images/cc-settings-resource-types-selected.png)
 
-Due to the policy that Elastic Beanstalk applies to the buckets that it creates for your environments, you're not be allowed to delete these buckets, unless you
-deliberately delete the bucket policy first. You can delete the bucket policy from the **Permissions** section of the bucket properties
-in the Amazon S3 console.
+To learn about _regional_ vs. _global_ resources, and for the full customization procedure, see [Selecting which Resources AWS Config Records](../../../config/latest/developerguide/select-resources.md "../../../config/latest/developerguide/select-resources.md").
 
-###### Warning
+## Viewing Elastic Beanstalk configuration details in the AWS Config console
 
-**We recommend that you delete specific unnecessary objects from your Elastic Beanstalk Amazon S3 bucket, instead of deleting the entire
-bucket.**
+You can use the AWS Config console to look for Elastic Beanstalk resources, and get current and historical details about their configurations. The following example
+shows how to find information about an Elastic Beanstalk environment.
 
-If you delete a bucket that Elastic Beanstalk created in your account, and you still have existing applications and running environments in the corresponding
-region, your applications might stop working correctly. For example:
+###### To find an Elastic Beanstalk environment in the AWS Config console
 
-- When an environment scales out, Elastic Beanstalk should be able to find the environment's application version in the Amazon S3 bucket and use it to start new
-  Amazon EC2 instances.
-- When you create a custom platform, Elastic Beanstalk uses temporary Amazon S3 storage during the creation process.
-  For more information about the implications of deleting an S3 bucket, see the considerations listed in [Deleting a bucket](../../../AmazonS3/latest/userguide/delete-bucket.md "../../../AmazonS3/latest/userguide/delete-bucket.md") in the _Amazon S3 User Guide_.
+1. Open the [AWS Config console](https://console.aws.amazon.com/config "https://console.aws.amazon.com/config").
+2. Choose **Resources**.
+3. On the **Resource inventory** page, choose **Resources**.
+4. Open the **Resource type** menu, scroll to **ElasticBeanstalk**, and then choose one or more of the Elastic Beanstalk
+   resource types.
 
-###### To delete an Elastic Beanstalk storage bucket (console)
+###### Note
 
-The general procedure to delete an S3 bucket is also described in [Deleting a bucket](../../../AmazonS3/latest/userguide/delete-bucket.md "../../../AmazonS3/latest/userguide/delete-bucket.md") in the _Amazon S3 User Guide_. Since we're deleting a bucket created by Elastic Beanstalk in the following
-procedure, we include additional steps to delete the bucket policy first.
+To view configuration details for other resources that Elastic Beanstalk created for your application, choose additional resource types. For example, you
+can choose **Instance** under **EC2**. 5. Choose **Look up**.
 
-1. Open the [Amazon S3 console](https://console.aws.amazon.com/s3 "https://console.aws.amazon.com/s3").
-2. Open the Elastic Beanstalk storage bucket's page by choosing the bucket name.
-3. Choose the **Permissions** tab.
-4. Choose **Bucket Policy**.
-5. Choose **Delete**.
-6. Go back to the Amazon S3 console's main page, and then select the Elastic Beanstalk storage bucket.
-7. Choose **Delete Bucket**.
-8. Confirm that you want to delete the bucket by entering the bucket name into the text field, and then choose **Delete
-   bucket**.
+See **2** in the following figure.
+
+![AWS Config resource inventory page showing a list of resource types to look up](images/cc-resources-dropdown.png) 6. Choose a resource ID in the list of resources that AWS Config displays.
+
+![AWS Config resource inventory page showing a list of resources](images/cc-resources-list.png)
+
+AWS Config displays configuration details and other information about the resource you selected.
+
+![AWS Config resource details page showing configuration details for an Elastic Beanstalk environment](images/cc-resources-resource-details.png)
+
+To see the full details of the recorded configuration, choose **View Details**.
+
+![AWS Config resource details page showing configuration details for an Elastic Beanstalk environment](images/cc-resources-view-details.png)
+
+To learn more ways to find a resource and view information on this page, see [Viewing AWS Resource
+Configurations and History](../../../config/latest/developerguide/view-manage-resource.md "../../../config/latest/developerguide/view-manage-resource.md") in the _AWS Config Developer Guide_.
+
+## Evaluating Elastic Beanstalk resources using AWS Config rules
+
+You can create AWS Config rules, which represent the ideal configuration settings for your Elastic Beanstalk resources. You can use predefined _AWS Managed
+Config Rules_, or define custom rules. AWS Config continuously tracks changes to the configuration of your resources to determine whether those
+changes violate any of the conditions in your rules. The AWS Config console shows the compliance status of your rules and resources.
+
+If a resource violates a rule and is flagged as _noncompliant_, AWS Config can alert you using an [Amazon Simple Notification Service (Amazon SNS)](https://aws.amazon.com/sns/ "https://aws.amazon.com/sns/") topic. To programmatically consume the data in these AWS Config alerts, use an [Amazon Simple Queue Service
+(Amazon SQS)](https://aws.amazon.com/sqs/ "https://aws.amazon.com/sqs/") queue as the notification endpoint for the Amazon SNS topic. For example, you might want to write code that starts a workflow when someone
+modifies your environment's Amazon EC2 Auto Scaling group configuration.
+
+To learn more about setting up and using rules, see [Evaluating Resources with AWS Config Rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") in the
+_AWS Config Developer Guide_.

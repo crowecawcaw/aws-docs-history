@@ -47,9 +47,6 @@ Creates the private key file on the instance. Replace `private key
  contents` with the contents of the private key used to create the
 certificate request or self-signed certificate.
 
-- The `container_commands` key restarts the nginx server after everything is
-  configured so that the server loads the nginx configuration file.
-
 ###### Example .ebextensions/https-instance.config
 
 ```
@@ -65,10 +62,6 @@ files:
       -----BEGIN RSA PRIVATE KEY-----
       `private key contents` # See note below.
       -----END RSA PRIVATE KEY-----
-
-container_commands:
-  01restart_nginx:
-    command: "service nginx restart"
 ```
 
 ###### Note
