@@ -1,11 +1,12 @@
 # Ingest alarms into AWS Incident Detection and Response
 
-AWS Incident Detection and Response supports alarm ingestion through [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/"). This section describes
-how to integrate AWS Incident Detection and Response with different Application Performance Monitoring (APM)
-tools, including Amazon CloudWatch, APMs with direct integration with Amazon EventBridge (for example,
-Datadog and New Relic), and APMs without direct integration with Amazon EventBridge. For a
-complete list of APMs with direct integration to Amazon EventBridge, see [Amazon EventBridge
-integrations](https://aws.amazon.com/eventbridge/integrations "https://aws.amazon.com/eventbridge/integrations").
+AWS Incident Detection and Response supports alarm ingestion through [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/"). This section describes how to integrate
+AWS Incident Detection and Response with different Application Performance Monitoring (APM) tools, including
+Amazon CloudWatch, APMs with direct integration with Amazon EventBridge (for example, Datadog and New
+Relic), and APMs without direct integration with Amazon EventBridge. For a complete list of APMs
+with direct integration to Amazon EventBridge, see [Amazon EventBridge integrations](https://aws.amazon.com/eventbridge/integrations "https://aws.amazon.com/eventbridge/integrations").
+
+To learn more about using the Incident Detection and Response Command Line Interface (CLI) to help automate these steps, see [AWS Incident Detection and Response CLI](idr-cli.md "idr-cli.md").
 
 ###### Topics
 

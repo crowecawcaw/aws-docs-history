@@ -1,6 +1,6 @@
 # Use webhooks to ingest alarms from APMs without direct integration with Amazon EventBridge
 
-AWS Incident Detection and Response supports using webhooks for alarm ingestion from third party APMs that don't have direct integration with Amazon EventBridge.
+AWS Incident Detection and Response supports using webhooks for alarm ingestion from third party APMs that don't have direct integration with Amazon EventBridge. To learn more about using the Incident Detection and Response Command Line Interface (CLI) to help automate these steps, see [AWS Incident Detection and Response CLI](idr-cli.md "idr-cli.md").
 
 For a list of APMs with direct integrations with Amazon EventBridge, see [Amazon EventBridge integrations](https://aws.amazon.com/eventbridge/integrations/ "https://aws.amazon.com/eventbridge/integrations/").
 

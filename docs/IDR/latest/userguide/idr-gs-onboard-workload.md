@@ -1,9 +1,8 @@
 # Onboarding to Incident Detection and Response
 
 AWS works with you to onboard your workload and alarms to AWS Incident Detection and Response. You provide key
-information to AWS in the [Workload onboarding and alarm ingestion questionnaires in Incident Detection and Response](idr-gs-questionnaire.md "idr-gs-questionnaire.md"). It's a best practice that you also register
-your workloads on AppRegistry. For more information, see the [AppRegistry User
-Guide](../../../servicecatalog/latest/arguide/getting-started-ar.md "../../../servicecatalog/latest/arguide/getting-started-ar.md").
+information to AWS about your workload and the alarms you'd like to onboard by using
+the [Incident Detection and Response Customer Command Line Interface (CLI) tool](https://github.com/awslabs/CLI-for-AWS-Incident-Detection-and-Response "https://github.com/awslabs/CLI-for-AWS-Incident-Detection-and-Response"), or in the [Workload onboarding and alarm ingestion questionnaires in Incident Detection and Response](idr-gs-questionnaire.md "idr-gs-questionnaire.md").
 
 The following diagram shows the flow for workload onboarding and alarm ingestion in
 Incident Detection and Response:

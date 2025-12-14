@@ -24,9 +24,12 @@ Incident Detection and Response uses Amazon CloudWatch and other AWS services to
 
 Because observability is a continuous process that may not be completed in one exercise or time frame, AWS Incident Detection and Response implements observability in two phases:
 
-- **Onboarding phase**: Observability during onboarding is focused on detecting when the business outcomes of your application are impaired.
-  To this end, observability during the onboarding phase is focused on defining the key business outcome metrics at the application layer to notify
-  AWS of disruptions to your workloads. This way AWS can promptly respond to these disruption and provide you help toward recovery.
+- **Onboarding phase**: Observability during onboarding is focused on detecting
+  when the business outcomes of your application are impaired. To this end,
+  observability during the onboarding phase is focused on defining the key
+  business outcome metrics at the application layer to notify AWS of disruptions
+  to your workloads. This way AWS can promptly respond to these disruption and
+  provide you help toward recovery. To learn more about using the Incident Detection and Response Command Line Interface (CLI) to help automate these steps, see [AWS Incident Detection and Response CLI](idr-cli.md "idr-cli.md").
 - **Post-onboarding phase**: AWS Incident Detection and Response offers a number of proactive services for observability including the definition of infrastructure
   level metrics, metric tuning, and setting up traces and logs depending, on the maturity level of the customer. The implementation of these services
   may span several months and involve multiple teams. AWS Incident Detection and Response provides guidance on observability setup and customers

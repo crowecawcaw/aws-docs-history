@@ -27,6 +27,8 @@ AWS infrastructure. We ask that alarms adhere to the following criteria when def
 
 For more details, see [AWS Incident Detection and Response monitoring and observability](observe-idr.md "observe-idr.md").
 
+If you prefer to use automation tools to onboard alarms, the Incident Detection and Response Command Line Interface (CLI) helps you deploy and onboard your alarms. For more details, see [AWS Incident Detection and Response CLI](idr-cli.md "idr-cli.md").
+
 **Key outputs:**
 
 - Definition and configuration of alarms on your workloads.

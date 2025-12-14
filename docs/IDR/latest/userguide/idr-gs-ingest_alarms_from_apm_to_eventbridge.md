@@ -5,6 +5,8 @@ AWS Incident Detection and Response from Application Performance Monitoring (APM
 integration with Amazon EventBridge, such as Datadog and Splunk. For a complete list of APMs
 that have direct integration with EventBridge, see [Amazon EventBridge integrations](https://aws.amazon.com/eventbridge/integrations "https://aws.amazon.com/eventbridge/integrations").
 
+To learn more about using the Incident Detection and Response Command Line Interface (CLI) to help automate these steps, see [AWS Incident Detection and Response CLI](idr-cli.md "idr-cli.md").
+
 ![Notifications to Incident Detection and Response path.](images/third-party-amps2.png)
 Use the following steps to set up integration with AWS Incident Detection and Response. Before performing these steps, verify that the AWS service-linked role (SLR) `AWSServiceRoleForHealth_EventProcessor`, is [installed](idr-gs-access-prov.md "idr-gs-access-prov.md") in your accounts.
 
