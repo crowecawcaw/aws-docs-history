@@ -21,7 +21,7 @@ management:**
 - [Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/")
 - [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/")
 - [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/")
-- [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
 
 **Infrastructure protection:**
 
@@ -44,4 +44,4 @@ management:**
 - [Amazon Detective](https://aws.amazon.com/detective/ "https://aws.amazon.com/detective/")
 - [Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/")
 - [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/")
-- [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")

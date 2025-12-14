@@ -33,7 +33,7 @@ operational excellence are as follows:
 - [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/")
 - [AWS Systems Manager](https://aws.amazon.com/systems-manager "https://aws.amazon.com/systems-manager")
 - [AWS X-Ray](https://aws.amazon.com/xray/ "https://aws.amazon.com/xray/")
-- [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
 - [AWS Audit Manager](https://aws.amazon.com/audit-manager/ "https://aws.amazon.com/audit-manager/")
 
 **Evolve:**

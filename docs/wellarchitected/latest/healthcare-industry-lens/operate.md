@@ -95,7 +95,7 @@ of technical controls you may require. For example, you may
 combine your configuration posture with additional findings,
 from third-party solutions or AWS security services like
 Amazon GuardDuty. Technical controls and findings should be
-grouped together as evidence using a solution such as AWS Security Hub.
+grouped together as evidence using a solution such as AWS Security Hub CSPM.
 
 **Map technical controls
 to compliance requirements using automation.**
@@ -108,7 +108,7 @@ controls on the configuration of each AWS resource to verify
 encryption is enabled.
 
 AWS Audit Manager helps automate evidence collection from a
-variety of sources within AWS, including Security Hub and
+variety of sources within AWS, including Security Hub CSPM and
 Config. Bundling multiple pieces of evidence together under a
 single policy makes it easier to demonstrate compliance with a
 specific framework or regulation. You can use Audit Manager’s
@@ -120,7 +120,7 @@ artifacts.**
 
 The creation of artifacts that document the compliance posture
 of a cloud environment should be automated. Use services such
-as AWS Config, AWS Audit Manager, and AWS Security Hub to
+as AWS Config, AWS Audit Manager, and AWS Security Hub CSPM to
 automatically collect and report the compliance state of a
 cloud environment.
 
@@ -155,7 +155,7 @@ In developing automated remediations, there are several steps
 you can follow:
 
 1. **Specify controls:** Define the evidence and
-   configuration you want to track. Use AWS Config and Security Hub to identify and surface
+   configuration you want to track. Use AWS Config and Security Hub CSPM to identify and surface
    findings.
 2. **Identify when configuration changes happen:** Use AWS
    services that support event-driven architectures for identification. For example,
