@@ -107,6 +107,7 @@ Create the STONITH resource using resource agent **`fence_aws`**:
 # pcs stonith create <stonith_resource_name> fence_aws \
 pcmk_host_map="<hostname_1>:<instance_id_1>;<hostname_2>:<instance_id_2>" \
 region="<aws_region>" \
+skip_os_shutdown="true" \
 pcmk_delay_max="10" \
 pcmk_reboot_timeout="600" \
 pcmk_reboot_retries="4" \
@@ -122,12 +123,16 @@ Details:
 - **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient.
 - **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
 - **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
+- **skip_os_shutdown** (NEW) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
+  - [Red Hat Solution 4963741 - fence_aws fence action fails with "Timed out waiting to power OFF"](https://access.redhat.com/solutions/4963741 "https://access.redhat.com/solutions/4963741") (requires Red Hat Customer Portal access)
+
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
 # pcs stonith create rsc_fence_aws fence_aws \
 pcmk_host_map="hanahost01:i-xxxxinstidforhost1;hanahost02:i-xxxxinstidforhost2" \
 region="us-east-1" \
+skip_os_shutdown="true" \
 pcmk_delay_max="10" \
 pcmk_reboot_timeout="600" \
 pcmk_reboot_retries="4" \

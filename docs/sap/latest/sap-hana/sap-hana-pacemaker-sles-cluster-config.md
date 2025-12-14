@@ -27,7 +27,7 @@ Run the following command to put the cluster in maintenance mode:
 To verify the current maintenance state:
 
 ```
-$ crm status
+# crm status
 ```
 
 ###### Note
@@ -118,7 +118,10 @@ op monitor interval="300" timeout="60"
 
 Details:
 
-- \* **tag** - EC2 instance tag key name that associates instances with this cluster configuration. This tag key must be unique within the AWS account and have a value which matches the instance hostname. See [Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent](sap-hana-pacemaker-sles-ec2-configuration.md#create-cluster-tags "sap-hana-pacemaker-sles-ec2-configuration.md#create-cluster-tags") for EC2 instance tagging configuration. \* **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used. \* **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. Historically set to higher values (45s), but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient. \* _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
+- **tag** - EC2 instance tag key name that associates instances with this cluster configuration. This tag key must be unique within the AWS account and have a value which matches the instance hostname. See [Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent](sap-hana-pacemaker-sles-ec2-configuration.md#create-cluster-tags "sap-hana-pacemaker-sles-ec2-configuration.md#create-cluster-tags") for EC2 instance tagging configuration.
+- **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
+- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. Historically set to higher values (45s), but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient.
+- _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
 # crm configure primitive res_stonith_ec2 stonith:external/ec2 \
@@ -428,7 +431,7 @@ Create the primitive using the SAPHana Resource Agent
 
 ```
 # crm configure primitive rsc_SAPHana_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHana \
-params SID="<SID>"
+params SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
 PREFER_SITE_TAKEOVER="true" \
 DUPLICATE_PRIMARY_TIMEOUT="7200" \
