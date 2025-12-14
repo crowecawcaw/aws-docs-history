@@ -20,4 +20,5 @@ After you set up your web portal, you can perform the following actions to manag
 - [Using the session management dashboard in Amazon WorkSpaces Secure Browser](session-management.md "session-management.md")
 - [Protecting data in transit with FIPS endpoints and Amazon WorkSpaces Secure Browser](fips-endpoints.md "fips-endpoints.md")
 - [Managing data protection settings in Amazon WorkSpaces Secure Browser](data-protection-settings.md "data-protection-settings.md")
+- [Branding customization in Amazon WorkSpaces Secure Browser](branding-customization.md "branding-customization.md")
 - [Managing toolbar controls in Amazon WorkSpaces Secure Browser](toolbar-controls.md "toolbar-controls.md")
