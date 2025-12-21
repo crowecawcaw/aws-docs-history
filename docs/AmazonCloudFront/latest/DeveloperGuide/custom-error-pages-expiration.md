@@ -49,6 +49,13 @@ The `Cache-Control: max-age` and `Cache-Control: s-maxage`
 values cannot be greater than the **Maximum TTL** value set for the
 cache behavior for which the error page is being fetched.
 
+If the origin adds a `Cache-Control: no-store`, `Cache-Control:
+ no-cache`, or `Cache-Control: private` directive for error codes
+404, 410, 414, or 501, CloudFront does not cache the error response. For all other error
+codes, CloudFront ignores the `no-store`, `no-cache`, and
+`private` directives and caches the error response for the value of
+**Error Caching Minimum TTL**.
+
 If the origin adds other `Cache-Control` directives or adds no headers,
 CloudFront caches error responses for the value of **Error Caching Minimum
 TTL**.

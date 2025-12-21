@@ -100,7 +100,7 @@ console
 
 ###### To deploy using the CloudFormation console
 
-1. [Launch this solution in the CloudFormation console](cloudformation/home.md#/stacks/new?stackName=amazon-cloudfront-secure-static-site-templates-main&templateURL=https://s3.amazonaws.com/solution-builders-us-east-1/amazon-cloudfront-secure-static-site/latest/main.yaml "cloudformation/home.md#/stacks/new?stackName=amazon-cloudfront-secure-static-site-templates-main&templateURL=https://s3.amazonaws.com/solution-builders-us-east-1/amazon-cloudfront-secure-static-site/latest/main.yaml"). If necessary, sign in to your AWS account.
+1. [Launch this solution in the CloudFormation console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=amazon-cloudfront-secure-static-site-templates-main&templateURL=https://s3.amazonaws.com/solution-builders-us-east-1/amazon-cloudfront-secure-static-site/latest/main.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=amazon-cloudfront-secure-static-site-templates-main&templateURL=https://s3.amazonaws.com/solution-builders-us-east-1/amazon-cloudfront-secure-static-site/latest/main.yaml"). If necessary, sign in to your AWS account.
 2. The **Create stack** wizard opens in the CloudFormation
    console, with prepopulated fields that specify this solution’s CloudFormation
    template.

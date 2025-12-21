@@ -15,7 +15,7 @@ Flat-rate pricing plans include the following features for a simple monthly pric
 - Serverless edge compute
 - Amazon S3 storage credits each month
   Plans are available in Free, Pro, Business, and Premium tiers to match your application's
-  needs. Plans do not require an annual commitment to get the best available rates. Start with
+  needs. Plans don't require an annual commitment to get the best available rates. Start with
   the Free plan and upgrade to access more capabilities and larger usage allowances.
 
 ###### Topics
@@ -70,8 +70,8 @@ costs on services that charge based on usage.
 
 ## Features by pricing plan tier
 
-Each pricing plan covers one CloudFront distribution with up to one domain that combines
-essential features and services into one monthly price. Each plan also includes
+Each pricing plan covers one CloudFront distribution with up to one apex (root) domain that
+combines essential features and services into one monthly price. Each plan also includes
 additional S3 storage credits.
 
 Plans on higher tiers include all features from lower tier plans as well as additional
@@ -130,6 +130,7 @@ Amazon S3 features included in each pricing plan tier.
 | **Origin Access Control (OAC)**<br>Maintain a private S3 bucket and only allow access through<br>your designated CloudFront distribution, ensuring your content is<br>protected by your WAF rules, rate limits, and other security<br>controls configured in your CloudFront distribution.                                                                                         | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
 | **Free TLS certificate**<br>Free TLS certificate for your domain with automatic renewal<br>through AWS Certificate Manager.                                                                                                                                                                                                                                                        | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
 | **Signed URLs**<br>Create secure URLs that provide temporary access to private<br>content for specific users. Commonly used to share private<br>documents with authorized users or grant secure access to<br>protected content after payment verification.                                                                                                                         | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
+| **Mutual TLS (mTLS)**<br>Restrict access to your application using mTLS authentication, ensuring only trusted clients with valid certificates can connect.                                                                                                                                                                                                                         |            |            |            | Yes<br>Yes |
 | **Edge<br>Compute**                                                                                                                                                                                                                                                                                                                                                                |            |            |            |            |
 | **Serverless edge compute**<br>Run lightweight JavaScript at the edge to modify URLs, HTTP<br>headers, and request/response elements in milliseconds using<br>[CloudFront<br>Functions](cloudfront-functions.md "cloudfront-functions.md").                                                                                                                                        | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
 | **Edge key-value store**<br>Store data at the edge using [KeyValueStore](kvs-with-functions.md "kvs-with-functions.md") for fast<br>and dynamic content customization with CloudFront Functions.                                                                                                                                                                                   |            | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
@@ -137,7 +138,7 @@ Amazon S3 features included in each pricing plan tier.
 | **IPv6**<br>Deliver content over both modern IPv6 and traditional IPv4<br>connections from CloudFront to viewers and origins. Enables end-to-end<br>IPv6 support for your applications.                                                                                                                                                                                            | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
 | **HTTP/2**<br>Enable faster page loads through modern protocol features like<br>multiplexing, header compression, and stream prioritization.<br>Automatically used when supported by browsers and<br>clients.                                                                                                                                                                      | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
 | **HTTP/3**<br>Deliver content using QUIC to browsers and clients that<br>support it, enabling faster connections and improved<br>performance. Particularly benefits mobile users and maintains<br>connections when network conditions change.                                                                                                                                      | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
-| **TLS 1.3**<br>Deliver faster HTTPS connections through a handshake process<br>that requires one round-trip compared to two in TLS 1.2. Reduces<br>first byte latency by up to 33% compared to previous TLS<br>versions.                                                                                                                                                           | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
+| **TLS 1.3**<br>Deliver faster HTTPS connections through a handshake process<br>that requires one round-trip compared to two in TLS 1.2. Reduces<br>first byte latency by up to 33% compared to previous TLS<br>versions. Enabled end-to-end for your applications.                                                                                                                 | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
 | **WebSockets**<br>Enable real-time, persistent two-way communication between<br>browsers and servers. Ideal for AI chat applications,<br>multi-player gaming, collaborative workspaces, and real-time<br>data feeds like financial trading platforms.                                                                                                                              | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
 | **Logging and<br>Monitoring**                                                                                                                                                                                                                                                                                                                                                      |            |            |            |            |
 | **Access Logs**<br>Access detailed CloudFront [request logs](standard-logs-reference.md "standard-logs-reference.md") to<br>understand security and delivery traffic patterns, with Amazon CloudWatch<br>Logs ingestion is included at no extra cost.                                                                                                                              |            | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
@@ -150,8 +151,8 @@ Amazon S3 features included in each pricing plan tier.
 | **Storage**                                                                                                                                                                                                                                                                                                                                                                        |            |            |            |            |
 | **Amazon S3 storage**<br>Amazon S3 storage credits that offset any S3 Standard storage costs<br>in your AWS account. Not limited to CloudFront content or subject to<br>plan usage allowances.                                                                                                                                                                                     | 5 GB       | 50 GB      | 1 TB       | 5 TB       |
 | **Support and<br>Reliability**                                                                                                                                                                                                                                                                                                                                                     |            |            |            |            |
-| **24x7 account and billing support**<br>One-on-one responses to account and billing questions. If you have a paid support<br>plans, you're eligible to receive support on all flat-rate<br>plans.                                                                                                                                                                                  | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
-| **Documentation and AWS Support forums**<br>Access product documentation, technical papers, best practices<br>guides, AWS re:Post community forums, and service health<br>information to help plan and troubleshoot.                                                                                                                                                               | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
+| **24x7 account and billing support**<br>One-on-one responses to account and billing questions.<br>If you have a paid support<br>plan, you're eligible to receive support on all flat-rate<br>plans.                                                                                                                                                                                | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
+| **Documentation and AWS Support forums**<br>Access product documentation, technical papers, best practices<br>guides, AWS re:Post community forums, and service health<br>information to help you plan and troubleshoot.                                                                                                                                                           | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes | Yes<br>Yes |
 | **Uptime SLA**<br>Service Level Agreements (SLA) for Amazon CloudFront, AWS WAF, Amazon Route 53,<br>and Amazon CloudWatch provide service availability commitments. In the<br>event AWS does not meet the associated SLA's commitment, you<br>will be eligible to receive a service credit.                                                                                       |            |            | Yes<br>Yes | Yes<br>Yes |
 
 ## Monthly usage allowances
@@ -159,15 +160,21 @@ Amazon S3 features included in each pricing plan tier.
 Each flat-rate plan includes a monthly usage allowance designed for optimal
 performance at that tier. You can track your usage allowance in the CloudFront console at any
 time. You will also receive automatic email notifications when you reach 50%, 80%, and
-100% of your allowance.
+100% of your allowance, although notifications may be delayed.
 
-If you exceed your allowance, you will not incur any overage charges. This allows you
-to operate your application without worrying about costs from unexpected traffic spikes
-or attacks. If you outgrow your plan, upgrade to the next tier to access more features
-and increase your monthly usage allowance. If your usage exceeds the allowances in your
-CloudFront flat-rate pricing plan, AWS may take appropriate action, which may include
-reducing your performance (for example, throttling) or requiring a change to your
-pricing structure.
+Select a plan where the monthly usage allowance accommodates your baseline traffic on both
+requests and data transfer. If you exceed your allowance, you will not incur any overage
+charges. This allows you to operate your application without worrying about costs from
+unexpected traffic spikes or attacks. If you outgrow your plan's features or have a
+change in your baseline traffic, upgrade to the next tier to access more features and
+increase your monthly usage allowance. If your usage exceeds the allowances in your CloudFront
+flat-rate pricing plan, AWS may take appropriate action, which may include reducing
+your performance (for example, serving your traffic from fewer or more distant edge
+locations, reducing throughput, or throttling) or requiring a change to your pricing
+structure.
+
+If your application's baseline usage exceeds 500 M requests or 50 TB per month, [contact us](https://aws.amazon.com/contact-us/sales-support/ "https://aws.amazon.com/contact-us/sales-support/") for custom
+pricing.
 
 | Monthly usage allowances per plan tier |        | Free  | Pro   | Business | Premium |
 | -------------------------------------- | ------ | ----- | ----- | -------- | ------- |
@@ -215,6 +222,8 @@ zone must meet the following requirements:
 - Maintain the number of records allowed per hosted zone for your plan
   tier
 - Cover the domain used by your CloudFront distribution
+
+If your hosted zone is not attached to your plan, it will remain on pay-as-you-go pricing, where you're responsible for all standard Route 53 costs.
 
 #### Understanding
 
@@ -404,10 +413,8 @@ resources will then switch to pay-as-you-go pricing at the start of the next bil
 
 ### Cancel a pending plan change
 
-If you downgraded or canceled your flat-rate pricing plan, you must wait until the
-end of the current billing cycle before your changes are in effect. To keep your
-existing flat-rate pricing plan, upgrade, or downgrade your pricing plan again, you
-must first cancel your pending plan change.
+If you downgraded or canceled your flat-rate pricing plan, you must wait until the end of the current billing cycle before your changes are in effect.
+To keep your existing flat-rate pricing plan, upgrade, or downgrade your pricing plan again, you must first cancel your pending plan change.
 
 ###### To cancel a pending pricing plan change
 
@@ -591,7 +598,7 @@ pricing
 
 Flat-rate plans and pay-as-you-go pricing offer different advantages based on your
 needs. With flat-rate plans, you pay one price that includes multiple AWS services
-like CloudFront, AWS WAF, Route 53, and CloudWatch Logs ingestion and never face
+like CloudFront, AWS WAF, Route 53, and CloudWatch Logs ingestion and never face
 overage charges, even during traffic spikes or attacks.
 
 With pay-as-you-go pricing, you're billed separately for each service and feature
