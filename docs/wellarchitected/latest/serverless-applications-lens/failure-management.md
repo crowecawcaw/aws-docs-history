@@ -17,14 +17,13 @@ transactions.
   Record Age** and **Destination on Failure** to
   respectively control retry while processing data records, and effectively remove
   poison-pill messages from the batch by sending its metadata to an [Amazon SQS](https://aws.amazon.com/sqs/ "https://aws.amazon.com/sqs/") dead-letter queue for further analysis.
-
-AWS SDKs provide back-off and retry mechanisms by default when talking to other AWS
-services that are sufficient in most cases. However, [review and tune
-them](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-retry-timeout-sdk/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-retry-timeout-sdk/") to suit your needs, especially `HTTP keepalive`,
-`connection`, and `socket timeouts`. Whenever possible, use Step Functions to
-minimize the amount of custom try/catch, back-off, and retry logic within your Serverless
-applications. For example, you can use a Step Functions integration to save failed state runs and
-their state into a DLQ. For more information on costs trade-offs, see the [cost optimization](cost-optimization.md "cost-optimization.md") pillar section.
+  AWS SDKs provide back-off and retry mechanisms by default when talking to other AWS
+  services that are sufficient in most cases. However, [review and tune
+  them](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-retry-timeout-sdk/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-retry-timeout-sdk/") to suit your needs, especially `HTTP keepalive`,
+  `connection`, and `socket timeouts`. Whenever possible, use Step Functions to
+  minimize the amount of custom try/catch, back-off, and retry logic within your Serverless
+  applications. For example, you can use a Step Functions integration to save failed state runs and
+  their state into a DLQ. For more information on costs trade-offs, see the [cost optimization](cost-optimization.md "cost-optimization.md") pillar section.
 
 ![Diagram showing a Step Functions state machine with DLQ step](images/step-functions-state-machine-with-DLQ-setup.png)
 
