@@ -15,7 +15,11 @@ This procedure describes how to create a connector using the AWS Management Cons
    **Next**.
 5. Enter a name and, optionally, a description.
 6. Choose the cluster that you want to connect to.
-7. Specify the connector configuration. The configuration parameters that you
+7. In the **Connector network settings** section, choose one of the following for network type:
+   - **IPv4** (default) - For connectivity to destinations over IPv4 only
+   - **Dual-stack** - For connectivity to destinations over both IPv4 and IPv6 (only available if your subnets have IPv4 and IPv6 CIDR blocks associated with them)
+
+8. Specify the connector configuration. The configuration parameters that you
    need to specify depend on the type of connector that you want to create.
    However, some parameters are common to all connectors, for example, the
    `connector.class` and `tasks.max` parameters. The
@@ -37,22 +41,22 @@ value.converter=org.apache.kafka.connect.storage.StringConverter
 schema.compatibility=NONE
 ```
 
-8. Next, you configure your connector capacity. You can choose between two
+9. Next, you configure your connector capacity. You can choose between two
    capacity modes: provisioned and auto scaled. For information about these two
    options, see [Understand connector capacity](msk-connect-capacity.md "msk-connect-capacity.md").
-9. Choose either the default worker configuration or a custom worker
-   configuration. For information about creating custom worker configurations, see
-   [Understand MSK Connect workers](msk-connect-workers.md "msk-connect-workers.md").
-10. Next, you specify the service execution role. This must be an IAM role that
+10. Choose either the default worker configuration or a custom worker
+    configuration. For information about creating custom worker configurations, see
+    [Understand MSK Connect workers](msk-connect-workers.md "msk-connect-workers.md").
+11. Next, you specify the service execution role. This must be an IAM role that
     MSK Connect can assume, and that grants the connector all the permissions that
     it needs to access the necessary AWS resources. Those permissions depend on
     the logic of the connector. For information about how to create this role, see
     [Understand service execution role](msk-connect-service-execution-role.md "msk-connect-service-execution-role.md").
-11. Choose **Next**, review the security information, then
+12. Choose **Next**, review the security information, then
     choose **Next** again.
-12. Specify the logging options that you want, then choose
+13. Specify the logging options that you want, then choose
     **Next**. For information about logging, see [Logging for MSK Connect](msk-connect-logging.md "msk-connect-logging.md").
-13. Choose **Create connector**.
+14. On the **Review and create** page, review your connector configuration and choose **Create connector**.
     To use the MSK Connect API to create a connector, see [CreateConnector](../../../MSKC/latest/mskc/API_CreateConnector.md "../../../MSKC/latest/mskc/API_CreateConnector.md").
 
 You can use `UpdateConnector` API to modify the connector's configuration.

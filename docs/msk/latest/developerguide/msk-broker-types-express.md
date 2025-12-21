@@ -15,7 +15,8 @@ Here are some key factors and capabilities to consider when using Express broker
 - Express brokers work with Apache Kafka APIs, but don't yet fully support KStreams API.
 - Express brokers are only available in a 3AZs configuration.
 - Express brokers are only available on select instance sizes. See [Amazon MSK pricing](https://aws.amazon.com/msk/pricing/ "https://aws.amazon.com/msk/pricing/") for the updated list.
-- Express brokers are supported on Apache Kafka versions 3.6 and 3.8.
+- Express brokers are supported on the following Apache Kafka versions: 3.6, 3.8, and 3.9.
+- Express brokers can be created with KRaft mode from Apache Kafka version 3.9 onwards.
 
 ###### See these blogs
 
