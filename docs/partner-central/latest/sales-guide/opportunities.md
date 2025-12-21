@@ -27,4 +27,5 @@ Partners can share and receive opportunities to collaborate on with AWS. These o
 - [Opportunity contacts](contact-roles.md "contact-roles.md")
 - [Creating a collaboration channel on Slack](slack-collaboration-channel.md "slack-collaboration-channel.md")
 - [Search and filter opportunities](search-filter-opportunities.md "search-filter-opportunities.md")
+- [Tagging AWS partition for opportunities](esc-aws-partition.md "esc-aws-partition.md")
 - [Bulk actions](bulk-actions.md "bulk-actions.md")
