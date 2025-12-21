@@ -1,254 +1,320 @@
-# Top fetch for T-SQL
+# Pivot and unpivot for T-SQL
 
-This topic provides reference information about feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically focusing on result set limiting and paging. You can understand how SQL Server’s TOP and FETCH clauses compare to PostgreSQL’s LIMIT and OFFSET functionality. The topic explains the differences in syntax and capabilities, helping you navigate the transition from SQL Server to Aurora PostgreSQL.
+This topic provides reference information about feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically regarding the PIVOT and UNPIVOT operators. You can understand the differences in functionality and learn how to adapt your SQL queries when migrating from SQL Server to Aurora PostgreSQL.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                  | Key differences                 |
-| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
-| Four star feature compatibility | Four star automation level         | [TOP and FETCH](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.fetch "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.fetch") | PostgreSQL doesn’t support TOP. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                      | Key differences                                        |
+| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Three star feature compatibility | No automation                      | [PIVOT and UNPIVOT](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.pivot "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.pivot") | Straightforward rewrite to use traditional SQL syntax. |
 
 ## SQL Server Usage
 
-SQL Server supports two options for limiting and paging result sets returned to the client. `TOP` is a legacy, proprietary T-SQL keyword that is still supported due to its wide usage. The ANSI compliant syntax of `FETCH` and `OFFSET` were introduced in SQL Server 2012 and are recommended for paginating results sets.
+`PIVOT` and `UNPIVOT` are relational operations used to transform a set by rotating rows into columns and columns into rows.
 
-### TOP
+### PIVOT
 
-The `TOP (n)` operator is used in the `SELECT` list and limits the number of rows returned to the client based on the `ORDER BY` clause.
+The `PIVOT` operator consists of several clauses and implied expressions.
 
-###### Note
+The _anchor column_ isn’t pivoted and results in a single row for each unique value, similar to `GROUP BY`.
 
-When `TOP` is used with no `ORDER BY` clause, the query is non-deterministic and may return any rows up to the number specified by the `TOP` operator.
+The pivoted columns are derived from the `PIVOT` clause and are the row values transformed into columns. The values for these columns are derived from the source column defined in the `PIVOT` clause.
 
-You can use `TOP (n)` with two modifier options:
-
-- `TOP (n) PERCENT` is used to designate a percentage of the rows to be returned instead of a fixed maximal row number `limit (n)`. When you use `PERCENT`, `n` can be any value from 1-100.
-- `TOP (n) WITH TIES` is used to allow overriding the n maximal number or percentage of rows specified in case there are additional rows with the same ordering values as the last row.
-
-If you use `TOP (n)` without `WITH TIES` and there are additional rows that have the same ordering value as the last row in the group of n rows, the query is also non-deterministic because the last row may be any of the rows that share the same ordering value.
-
-### Syntax
+#### PIVOT Syntax
 
 ```
-ORDER BY <Ordering Expression> [ ASC | DESC ] [ ,...n ]
-OFFSET <Offset Expression> { ROW | ROWS }
-[FETCH { FIRST | NEXT } <Page Size Expression> { ROW | ROWS } ONLY ]
-```
-
-### Examples
-
-The following example creates the OrderItems table.
-
-```
-CREATE TABLE OrderItems
+SELECT <Anchor column>,
+  [Pivoted Column 1] AS <Alias>,
+  [Pivoted column 2] AS <Alias>
+  ...n
+FROM
+  (<SELECT Statement of Set to be Pivoted>)
+  AS <Set Alias>
+PIVOT
 (
-  OrderID INT NOT NULL,
-  Item VARCHAR(20) NOT NULL,
-  Quantity SMALLINT NOT NULL,
-  PRIMARY KEY(OrderID, Item)
+  <Aggregate Function>(<Aggregated Column>)
+FOR
+[<Column With the Values for the Pivoted Columns Names>]
+  IN ( [Pivoted Column 1], [Pivoted column 2] ...)
+) AS <Pivot Table Alias>;
+```
+
+#### PIVOT Examples
+
+The following example creates and populates the Orders table.
+
+```
+CREATE TABLE Orders
+(
+  OrderID INT NOT NULL
+  IDENTITY(1,1) PRIMARY KEY,
+  OrderDate DATE NOT NULL,
+  Customer VARCHAR(20) NOT NULL
 );
 ```
 
 ```
-INSERT INTO OrderItems (OrderID, Item, Quantity)
+INSERT INTO Orders (OrderDate, Customer)
 VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200),
-(3, 'M6 Locking Nut', 300);
+('20180101', 'John'),
+('20180201', 'Mitch'),
+('20180102', 'John'),
+('20180104', 'Kevin'),
+('20180104', 'Larry'),
+('20180104', 'Kevin'),
+('20180104', 'Kevin');
 ```
 
-The following example retrieves the 3 most ordered items by quantity.
+The following example creates a simple PIVOT for the number of orders for each day. Days of month from 5 to 31 are omitted for example simplicity.
 
 ```
--- Using TOP
-SELECT TOP (3) *
-FROM OrderItems
-ORDER BY Quantity DESC;
-
--- USING FETCH
-SELECT *
-FROM OrderItems
-ORDER BY Quantity DESC
-OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY;
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-2        M8 Nut          100
-```
-
-The following example includes rows with ties.
-
-```
-SELECT TOP (3) WITH TIES *
-FROM OrderItems
-ORDER BY Quantity DESC;
+SELECT 'Number of Orders for Day' AS DayOfMonth,
+  [1], [2], [3], [4] /*...[31]*/
+FROM (
+  SELECT OrderID,
+    DAY(OrderDate) AS OrderDay
+  FROM Orders
+  ) AS SourceSet
+PIVOT
+(
+  COUNT(OrderID)
+  FOR OrderDay IN ([1], [2], [3], [4] /*...[31]*/)
+) AS PivotSet;
 ```
 
 For the preceding example, the result looks as shown following.
 
 ```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-2        M8 Nut          100
-1        M8 Bolt         100
+DayOfMonth                1  2  3  4  /*...[31]*/
+Number of Orders for Day  2  1  0  4
 ```
 
-The following example retrieves half the rows based on quantity.
+The result set is now oriented in rows against columns. The first column is the description of the columns to follow.
+
+PIVOT for number of orders for each day, for each customer.
 
 ```
-SELECT TOP (50) PERCENT *
-FROM OrderItems
-ORDER BY Quantity DESC;
+SELECT Customer,
+  [1], [2], [3], [4] /*...[31]*/
+FROM (
+  SELECT OrderID,
+    Customer,
+    DAY(OrderDate) AS OrderDay
+  FROM Orders
+  ) AS SourceSet
+PIVOT
+(
+  COUNT(OrderID)
+  FOR OrderDay IN ([1], [2], [3], [4] /*...[31]*/)
+) AS PivotSet;
+```
+
+```
+Customer  1  2  3  4
+John      1  1  0  0
+Kevin     0  0  0  3
+Larry     0  0  0  1
+Mitch     1  0  0  0
+```
+
+### UNPIVOT
+
+`UNPIVOT` is similar to `PIVOT` in reverse, but spreads existing column values into rows.
+
+The source set is similar to the result of the `PIVOT` with values pertaining to particular entities listed in columns. Because the result set has more rows than the source, aggregations aren’t required.
+
+It is less commonly used than `PIVOT` because most data in relational databases have attributes in columns; not the other way around.
+
+#### UNPIVOT Examples
+
+The following example creates and populates the pivot-like `EmployeeSales` table. This is most likely a view or a set from an external source.
+
+```
+CREATE TABLE EmployeeSales
+(
+  SaleDate DATE NOT NULL PRIMARY KEY,
+  John INT,
+  Kevin INT,
+  Mary INT
+);
+```
+
+```
+INSERT INTO EmployeeSales
+VALUES
+('20180101', 150, 0, 300),
+('20180102', 0, 0, 0),
+('20180103', 250, 50, 0),
+('20180104', 500, 400, 100);
+```
+
+The following example unpivots employee sales for each date into individual rows for each employee.
+
+```
+SELECT SaleDate,
+  Employee,
+  SaleAmount
+FROM
+(
+  SELECT SaleDate, John, Kevin, Mary
+  FROM EmployeeSales
+) AS SourceSet
+UNPIVOT (
+  SaleAmount
+  FOR Employee IN (John, Kevin, Mary)
+  )AS UnpivotSet;
 ```
 
 For the preceding example, the result looks as shown following.
 
 ```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
+SaleDate    Employee  SaleAmount
+2018-01-01  John      150
+2018-01-01  Kevin     0
+2018-01-01  Mary      300
+2018-01-02  John      0
+2018-01-02  Kevin     0
+2018-01-02  Mary      0
+2018-01-03  John      250
+2018-01-03  Kevin     50
+2018-01-03  Mary      0
+2018-01-04  John      500
+2018-01-04  Kevin     400
+2018-01-04  Mary      100
 ```
 
-For more information, see [SELECT - ORDER BY Clause (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15") and [TOP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [FROM - Using PIVOT and UNPIVOT](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?view=sql-server-ver15&viewFallbackFrom=sqlserver-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?view=sql-server-ver15&viewFallbackFrom=sqlserver-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports the non-ANSI compliant but popular with other engines `LIMIT…​ OFFSET` operator for paging results sets.
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t support the `PIVOT` and `UNPIVOT` relational operators.
 
-The `LIMIT` clause limits the number of rows returned and doesn’t require an `ORDER BY` clause, although that would make the query non-deterministic.
+You can rewrite the functionality of these operators to use standard SQL syntax, as shown in the following examples.
 
-The `OFFSET` clause is zero-based, similar to SQL Server and used for pagination. `OFFSET 0` is the same as omitting the `OFFSET` clause, as is `OFFSET` with a NULL argument.
+### PIVOT Examples
 
-### Syntax
-
-```
-SELECT select_list
-  FROM table_expression
-  [ ORDER BY ... ]
-  [ LIMIT { number | ALL } ] [ OFFSET number ]
-```
-
-### Migration Considerations
-
-You can use the `LIMIT…​ OFFSET` syntax to replace the functionality of `TOP(n)` and `FETCH…​ OFFSET` in SQL Server. It is automatically converted by the AWS Schema Conversion Tool (AWS SCT) except for the `WITH TIES` and `PERCENT` modifiers.
-
-To replace the `PERCENT` option, first calculate how many rows the query returns and then calculate the fixed number of rows to be returned based on that number.
-
-###### Note
-
-Because this technique involves added complexity and accessing the table twice, consider changing the logic to use a fixed number instead of percentage.
-
-To replace the `WITH TIES` option, rewrite the logic to add another query that checks for the existence of additional rows that have the same ordering value as the last row returned from the `LIMIT` clause.
-
-###### Note
-
-Because this technique introduces significant added complexity and three accesses to the source table, consider changing the logic to introduce a tie-breaker into the `ORDER BY` clause.
-
-### Examples
-
-The following example creates the OrderItems table.
+The following example creates and populates the Orders table.
 
 ```
-CREATE TABLE OrderItems
+CREATE TABLE Orders
 (
-  OrderID INT NOT NULL,
-  Item VARCHAR(20) NOT NULL,
-  Quantity SMALLINT NOT NULL,
-  PRIMARY KEY(OrderID, Item)
+  OrderID SERIAL PRIMARY KEY,
+  OrderDate DATE NOT NULL,
+  Customer VARCHAR(20) NOT NULL
 );
 ```
 
 ```
-INSERT INTO OrderItems (OrderID, Item, Quantity)
+INSERT INTO Orders (OrderDate, Customer)
 VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200),
-(3, 'M6 Locking Nut', 300);
+('20180101', 'John'),
+('20180201', 'Mitch'),
+('20180102', 'John'),
+('20180104', 'Kevin'),
+('20180104', 'Larry'),
+('20180104', 'Kevin'),
+('20180104', 'Kevin');
 ```
 
-The following example retrieves the three most ordered items by quantity.
+The following example creates a simple PIVOT for the number of orders for each day. Days of month from 5 to 31 are omitted for example simplicity.
 
 ```
-SELECT *
-FROM OrderItems
-ORDER BY Quantity DESC
-LIMIT 3 OFFSET 0;
+SELECT 'Number of Orders for Day' AS DayOfMonth,
+COUNT(CASE WHEN date_part('day', OrderDate) = 1 THEN 'OrderDate' ELSE NULL END) AS "1",
+COUNT(CASE WHEN date_part('day', OrderDate) = 2 THEN 'OrderDate' ELSE NULL END) AS "2",
+COUNT(CASE WHEN date_part('day', OrderDate) = 3 THEN 'OrderDate' ELSE NULL END) AS "3",
+COUNT(CASE WHEN date_part('day', OrderDate) = 4 THEN 'OrderDate' ELSE NULL END) AS "4" /*...[31]*/
+FROM Orders AS O;
 ```
 
 For the preceding example, the result looks as shown following.
 
 ```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-1        M8 Bolt         100
+DayOfMonth                1  2  3  4  /*...[31]*/
+Number of Orders for Day  2  1  0  4
 ```
 
-The following example includes rows with ties.
+PIVOT for number of orders for each day, for each customer.
 
 ```
-SELECT *
-FROM
+SELECT Customer,
+COUNT(CASE WHEN date_part('day', OrderDate) = 1 THEN 'OrderDate' ELSE NULL END) AS "1",
+COUNT(CASE WHEN date_part('day', OrderDate) = 2 THEN 'OrderDate' ELSE NULL END) AS "2",
+COUNT(CASE WHEN date_part('day', OrderDate) = 3 THEN 'OrderDate' ELSE NULL END) AS "3",
+COUNT(CASE WHEN date_part('day', OrderDate) = 4 THEN 'OrderDate' ELSE NULL END) AS "4" /*...[31]*/
+FROM Orders AS O
+GROUP BY Customer;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+Customer  1  2  3  4
+John      1  1  0  0
+Kevin     0  0  0  3
+Larry     0  0  0  1
+Mitch     1  0  0  0
+```
+
+### UNPIVOT Examples
+
+The following example creates and populates the pivot-like `EmployeeSales` table. In real life this will most likely be a view, or a set from an external source.
+
+```
+CREATE TABLE EmployeeSales
 (
-  SELECT *
-  FROM OrderItems
-  ORDER BY Quantity DESC
-  LIMIT 3 OFFSET 0
-) AS X
-UNION
-SELECT *
-FROM OrderItems
-WHERE Quantity = (
-  SELECT Quantity
-  FROM OrderItems
-  ORDER BY Quantity DESC
-  LIMIT 1 OFFSET 2
-)
-ORDER BY Quantity DESC
+  SaleDate DATE NOT NULL PRIMARY KEY,
+  John INT,
+  Kevin INT,
+  Mary INT
+);
+```
+
+```
+INSERT INTO EmployeeSales
+VALUES
+('20180101', 150, 0, 300),
+('20180102', 0, 0, 0),
+('20180103', 250, 50, 0),
+('20180104', 500, 400, 100);
+```
+
+The following example unpivots employee sales for each date into individual rows for each employee.
+
+```
+SELECT SaleDate, Employee, SaleAmount
+FROM (
+  SELECT SaleDate,
+    Employee,
+    CASE
+      WHEN Employee = 'John' THEN 'John'
+      WHEN Employee = 'Kevin' THEN 'Kevin'
+      WHEN Employee = 'Mary' THEN 'Mary'
+    END AS SaleAmount
+  FROM EmployeeSales as emp
+  CROSS JOIN
+  (
+    SELECT 'John' AS Employee
+    UNION ALL
+    SELECT 'Kevin'
+    UNION ALL
+    SELECT 'Mary'
+  ) AS Employees
+) AS UnpivotedSet;
 ```
 
 For the preceding example, the result looks as shown following.
 
 ```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-2        M8 Nut          100
-1        M8 Bolt         100
+SaleDate    Employee  SaleAmount
+2018-01-01  John      150
+2018-01-01  Kevin     0
+2018-01-01  Mary      300
+2018-01-02  John      0
+2018-01-02  Kevin     0
+2018-01-02  Mary      0
+2018-01-03  John      250
+2018-01-03  Kevin     50
+2018-01-03  Mary      0
+2018-01-04  John      500
+2018-01-04  Kevin     400
+2018-01-04  Mary      100
 ```
-
-The following example retrieves half the rows based on quantity.
-
-```
-CREATE or replace FUNCTION getOrdersPct(int) RETURNS SETOF OrderItems AS $$
-SELECT * FROM OrderItems
-ORDER BY Quantity desc LIMIT (SELECT COUNT(*)*$1/100 FROM OrderItems) OFFSET 0;
-$$ LANGUAGE SQL;
-```
-
-```
-SELECT * from getOrdersPct(50);
-or
-SELECT getOrdersPct(50);
-
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-```
-
-## Summary
-
-| SQL Server          | Aurora PostgreSQL | Comments                    |
-| ------------------- | ----------------- | --------------------------- |
-| `TOP (n)`           | `LIMIT n`         |                             |
-| `TOP (n) WITH TIES` | Not supported     | See examples for workaround |
-| `TOP (n) PERCENT`   | Not supported     | See examples for workaround |
-| `OFFSET…​ FETCH`    | `LIMIT…​ OFFSET`  |                             |
-
-For more information, see [LIMIT and OFFSET](https://www.postgresql.org/docs/13/queries-limit.html "https://www.postgresql.org/docs/13/queries-limit.html") in the _PostgreSQL documentation_.

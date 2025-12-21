@@ -1,41 +1,219 @@
-# Derived tables for ANSI SQL
+# Views for ANSI SQL
 
-This topic provides reference information about derived tables in SQL Server and PostgreSQL, focusing on their compatibility in the context of migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can understand how derived tables function similarly in both database systems, enabling you to write complex join queries.
+This topic provides reference information about migrating views from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can understand the similarities and differences in view functionality between these two database systems, which is crucial for planning and executing a successful migration. The topic covers basic view concepts, usage patterns, and specific features like indexed views, partitioned views, and updateable views.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Five star feature compatibility | Five star automation level         | N/A                       | N/A             |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                           |
+| ------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | N/A                       | PostgreSQL doesn’t support indexed and partitioned views. |
 
 ## SQL Server Usage
 
-SQL Server implements derived tables as specified in ANSI SQL:2011. Derived tables are similar to CTEs, but the reference to another query is used inside the `FROM` clause of a query.
+Views are schema objects that provide stored definitions for virtual tables. Similar to tables, views are data sets with uniquely named columns and rows. With the exception of indexed views, view objects don’t store data. They consist only of a query definition and are reevaluated for each invocation.
 
-This feature enables you to write more sophisticated, complex join queries.
+Views are used as abstraction layers and security filters for the underlying tables. They can `JOIN` and `UNION` data from multiple source tables and use aggregates, window functions, and other SQL features as long as the result is a semi-proper set with uniquely identifiable columns and no order to the rows. You can use distributed views to query other databases and data sources using linked servers.
+
+As an abstraction layer, a view can decouple application code from the database schema. You can change the underlying tables without the need to modify the application code as long as the expected results of the view don’t change. You can use this approach to provide backward compatible views of data.
+
+As a security mechanism, a view can screen and filter source table data. You can perform permission management at the view level without explicit permissions to the base objects, provided the ownership chain is maintained. For more information, see [Overview of SQL Server Security](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/overview-of-sql-server-security "https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/overview-of-sql-server-security").
+
+View definitions are evaluated when they are created and aren’t affected by subsequent changes to the underlying tables. For example, a view that uses `SELECT *` doesn’t display columns that were added later to the base table. Similarly, if a column was dropped from the base table, invoking the view results in an error. Use the `SCHEMABINDING` option to prevent changes to base objects.
+
+### Modifying Data Through Views
+
+Updatable Views can both select and modify data. Updatable views meet the following conditions:
+
+- The DML targets only one base table.
+- Columns being modified must be directly referenced from the underlying base tables. Computed columns, set operators, functions, aggregates, or any other expressions aren’t permitted.
+- If a view is created with the CHECK OPTION, rows being updated can’t be filtered out of the view definition as the result of the update.
+
+### Special View Types
+
+SQL Server provides three types of specialized views:
+
+- **Indexed views**. These views are also known as materialized views or persisted views. Indexed vires are standard views that have been evaluated and persisted in a unique clustered index, much like a normal clustered primary key table. Each time the source data changes, SQL Server re-evaluates the indexed views automatically and updates them. Indexed views are typically used as a means to optimize performance by pre-processing operators such as aggregations, joins, and others. Queries needing this pre-processing don’t have to wait for it to be reevaluated on every query run.
+- **Partitioned views** rejoin horizontally partitioned data sets from multiple underlying tables, each containing only a subset of the data. The view uses a `UNION ALL` query where the underlying tables can reside locally or in other databases (or even other servers). These types of views are called Distributed Partitioned Views (DPV).
+- **System views** access server and object meta data. SQL Server also supports a set of standard `INFORMATION_SCHEMA` views for accessing object meta data.
+
+### Syntax
+
+```
+CREATE [OR ALTER] VIEW [<Schema Name>.] <View Name> [(<Column Aliases> ])]
+[WITH [ENCRYPTION][SCHEMABINDING][VIEW_METADATA]]
+AS <SELECT Query>
+[WITH CHECK OPTION][;]
+```
 
 ### Examples
 
+The following example creates a view that aggregates items for each customer.
+
 ```
-SELECT name, salary, average_salary
-FROM (SELECT AVG(salary)
-  FROM employee) AS workers (average_salary), employee
-WHERE salary > average_salary
-ORDER BY salary DESC;
+CREATE TABLE Orders
+(
+  OrderID INT NOT NULL PRIMARY KEY,
+  OrderDate DATETIME NOT NULL
+  DEFAULT GETDATE()
+);
 ```
 
-For more information, see [FROM clause plus JOIN, APPLY, PIVOT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+```
+CREATE TABLE OrderItems
+(
+  OrderID INT NOT NULL
+  REFERENCES Orders(OrderID),
+  Item VARCHAR(20) NOT NULL,
+  Quantity SMALLINT NOT NULL,
+  PRIMARY KEY(OrderID, Item)
+);
+```
+
+```
+CREATE VIEW SalesView
+AS
+SELECT O.Customer,
+  OI.Product,
+  SUM(CAST(OI.Quantity AS BIGINT)) AS TotalItemsBought
+FROM Orders AS O
+  INNER JOIN
+  OrderItems AS OI
+  ON O.OrderID = OI.OrderID;
+```
+
+The following example creates an indexed view that pre-aggregates items for each customer
+
+```
+CREATE VIEW SalesViewIndexed
+AS
+SELECT O.Customer,
+  OI.Product,
+  SUM_BIG(OI.Quantity) AS TotalItemsBought
+FROM Orders AS O
+  INNER JOIN
+  OrderItems AS OI
+  ON O.OrderID = OI.OrderID;
+```
+
+```
+CREATE UNIQUE CLUSTERED INDEX IDX_SalesView
+ON SalesViewIndexed (Customer, Product);
+```
+
+The following example creates a partitioned view.
+
+```
+CREATE VIEW dbo.PartitioneView
+WITH SCHEMABINDING
+AS
+SELECT *
+FROM Table1
+UNION ALL
+SELECT *
+FROM Table2
+UNION ALL
+SELECT *
+FROM Table3
+```
+
+For more information, see [Views](https://docs.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15"), [Modify Data Through a View](https://docs.microsoft.com/en-us/sql/relational-databases/views/modify-data-through-a-view?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/views/modify-data-through-a-view?view=sql-server-ver15"), and [CREATE VIEW (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-PostgreSQL implements derived tables and is fully compatible with SQL Server derived tables.
+The basic form of views is similar between PostgreSQL and SQL Server. A view defines a stored query based on one or more physical database tables that runs every time the view is accessed.
+
+More complex option such as indexed views or partitioned views aren’t supported, and may require a redesign or might application rewrite.
+
+###### Note
+
+For Amazon Relational Database Service (Amazon RDS), starting with PostgreSQL 13, you can rename view columns using `ALTER VIEW` command. This option helps DBAs avoid dropping and recreating the view to change a column name.
+
+Use the following syntax to rename a column name in a view: `ALTER VIEW [ IF EXISTS ] name RENAME [ COLUMN ] column_name TO new_column_name`.
+
+For PostgreSQL versions lower than 13, you can change the column name in a view using the `ALTER TABLE` command.
+
+### PostgreSQL View Privileges
+
+To create a view, make sure that you grant `SELECT` and `DML` privileges on the base tables or views to your role or user. For more information, see [GRANT](https://www.postgresql.org/docs/13/sql-grant.html "https://www.postgresql.org/docs/13/sql-grant.html") in the _PostgreSQL documentation_.
+
+### PostgreSQL View Parameters
+
+**CREATE [OR REPLACE] VIEW**
+
+When you re-create an existing view, make sure that the new view has the same column structure as generated by the original view. The column structure includes column names, column order, and data types. It is sometimes preferable to drop the view and use the `CREATE VIEW` statement instead.
+
+```
+hr=# CREATE [OR REPLACE] VIEW VW_NAME AS
+SELECT COLUMNS
+FROM TABLE(s)
+[WHERE CONDITIONS];
+
+hr=# DROP VIEW [IF EXISTS] VW_NAME;
+```
+
+In the example preceding, the `IF EXISTS` parameter is optional.
+
+**WITH [ CASCADED | LOCAL ] CHECK OPTION**
+
+DML `INSERT` and `UPDATE` operations are verified against the view-based tables to ensure new rows satisfy the original structure conditions or the view-defining condition. If a conflict is detected, the DML operation fails.
+
+- `LOCAL`. Verifies the view without a hierarchical check.
+- `CASCADED`. Verifies all underlying base views using a hierarchical check.
+
+**Running DML Commands On Views**
+
+PostgreSQL simple views are automatically updatable. No restrictions exist when performing DML operations on views. An updatable view may contain a combination of updatable and non-updatable columns. A column is updatable if it references an updatable column of the underlying base table. If not, the column is read-only and an error is raised if an `INSERT` or `UPDATE` statement is attempted on the column.
+
+### Syntax
+
+```
+CREATE [ OR REPLACE ] [ TEMP | TEMPORARY ] [ RECURSIVE ] VIEW name [ ( column_name [,...] ) ]
+[ WITH ( view_option_name [= view_option_value] [, ... ] ) ]
+AS query
+[ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
+```
 
 ### Examples
 
+The following example creates and updates a view without the `CHECK OPTION` parameter.
+
 ```
-SELECT name, salary, average_salary
-FROM (SELECT AVG(salary)
-  FROM employee) AS workers (average_salary), employee
-WHERE salary > average_salary
-ORDER BY salary DESC;
+CREATE OR REPLACE VIEW VW_DEP AS
+  SELECT DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID
+  FROM DEPARTMENTS
+  WHERE LOCATION_ID=1700;
+
+view VW_DEP created.
+
+UPDATE VW_DEP SET LOCATION_ID=1600;
+
+21 rows updated.
 ```
 
-For more information, see [Table Expressions](https://www.postgresql.org/docs/13/queries-table-expressions.html "https://www.postgresql.org/docs/13/queries-table-expressions.html") in the _PostgreSQL documentation_.
+The following example creates and updates a view with the LOCAL CHECK OPTION parameter.
+
+```
+CREATE OR REPLACE VIEW VW_DEP AS
+  SELECT DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID
+  FROM DEPARTMENTS
+  WHERE LOCATION_ID=1700
+  WITH LOCAL CHECK OPTION;
+
+view VW_DEP created.
+
+UPDATE VW_DEP SET LOCATION_ID=1600;
+
+SQL Error: ERROR: new row violates check option for view "vw_dep"
+```
+
+## Summary
+
+| Feature                  | SQL Server                      | Aurora PostgreSQL                                   |
+| ------------------------ | ------------------------------- | --------------------------------------------------- |
+| Indexed views            | Supported                       | N/A                                                 |
+| Partitioned views        | Supported                       | N/A                                                 |
+| Updateable views         | Supported                       | Supported                                           |
+| Prevent schema conflicts | `SCHEMABINDING` option          | N/A                                                 |
+| Triggers on views        | `INSTEAD OF`                    | `INSTEAD OF`                                        |
+| Temporary Views          | `CREATE VIEW #View…​`           | `CREATE [ OR REPLACE ] [ TEMP ] [ TEMPORARY ] VIEW` |
+| Refresh view definition  | `sp_refreshview` / `ALTER VIEW` | `ALTER VIEW`                                        |
+
+For more information, see [Views](https://www.postgresql.org/docs/13/tutorial-views.html "https://www.postgresql.org/docs/13/tutorial-views.html") and [CREATE VIEW](https://www.postgresql.org/docs/13/sql-createview.html "https://www.postgresql.org/docs/13/sql-createview.html") in the _PostgreSQL documentation_.
