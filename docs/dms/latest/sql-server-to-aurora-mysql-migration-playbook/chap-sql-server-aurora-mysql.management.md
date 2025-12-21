@@ -1,196 +1,73 @@
-# Maintenance plans
+# Viewing server logs
 
-This topic provides reference information about migrating maintenance tasks from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can understand the key differences in how routine database maintenance is handled between these two systems.
+This topic provides reference information about logging capabilities in SQL Server and Amazon Aurora MySQL. You can gain insights into how these database systems handle error logging, slow query logging, and general logging.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                            |
-| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Use Amazon RDS for backups. Use SQL for table maintenance. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                          |
+| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | View logs from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. |
 
 ## SQL Server Usage
 
-A _maintenance plan_ is a set of automated tasks used to optimize a database, performs regular backups, and ensure it is free of inconsistencies. Maintenance plans are implemented as SQL Server Integration Services (SSIS) packages and are run by SQL Server Agent jobs. You can run them manually or automatically at scheduled time intervals.
+SQL Server logs system and user generated events to the _SQL Server Error Log_ and to the _Windows Application Log_. It logs recovery messages, kernel messages, security events, maintenance events, and other general server level error and informational messages. The Windows Application Log contains events from all windows applications including SQL Server and SQL Server agent.
 
-SQL Server provides a variety of pre-configured maintenance tasks. You can create custom tasks using TSQL scripts or operating system batch files.
+SQL Server Management Studio Log Viewer unifies all logs into a single consolidated view. You can also view the logs with any text editor.
 
-Maintenance plans are typically used for the following tasks:
+Administrators typically use the SQL Server Error Log to confirm successful completion of processes, such as backup or batches, and to investigate the cause of run time errors. These logs can help detect current risks or potential future problem areas.
 
-- Backing up database and transaction log files.
-- Performing cleanup of database backup files in accordance with retention policies.
-- Performing database consistency checks.
-- Rebuilding or reorganizing indexes.
-- Decreasing data file size by removing empty pages (shrink a database).
-- Updating statistics to help the query optimizer obtain updated data distributions.
-- Running SQL Server Agent jobs for custom actions.
-- Running a T-SQL task.
+To view the log for SQL Server, SQL Server Agent, Database Mail, and Windows applications, open the SQL Server Management Studio Object Explorer pane, navigate to **Management**, **SQL Server Logs**, and choose the current log.
 
-Maintenance plans can include tasks for operator notifications and history or maintenance cleanup. They can also generate reports and output the contents to a text file or the maintenance plan tables in the `msdb` database.
+The following table identifies some common error codes database administrators typically look for in the error logs:
 
-You can create and manage maintenance plans using the maintenance plan wizard in SQL Server Management Studio, Maintenance Plan Design Surface (provides enhanced functionality over the wizard), Management Studio Object Explorer, and T-SQL system stored procedures.
-
-For more information, see [SQL Server Agent and MySQL Agent](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
-
-### Deprecated DBCC Index and Table Maintenance Commands
-
-The DBCC DBREINDEX, INDEXDEFRAG, and SHOWCONTIG commands have been deprecated as of SQL Server 2008R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
-
-In place of the deprecated DBCC, SQL Server provides newer syntax alternatives as detailed in the following table.
-
-| Deprecated DBCC command | Use instead                      |
-| ----------------------- | -------------------------------- |
-| `DBCC DBREINDEX`        | `ALTER INDEX …​ REBUILD`         |
-| `DBCC INDEXDEFRAG`      | `ALTER INDEX …​ REORGANIZE`      |
-| `DBCC SHOWCONTIG`       | `sys.dm_db_index_physical_stats` |
-
-For the Aurora MySQL alternatives to these maintenance commands, see [Aurora MySQL Maintenance Plans](#chap-sql-server-aurora-mysql.management.maintenanceplans.mysql "#chap-sql-server-aurora-mysql.management.maintenanceplans.mysql").
+| Error code | Error message                 |
+| ---------- | ----------------------------- |
+| 1105       | Couldn’t allocate space.      |
+| 3041       | Backup failed.                |
+| 9002       | Transaction log full.         |
+| 14151      | Replication agent failed.     |
+| 17053      | Operating system error.       |
+| 18452      | Login failed.                 |
+| 9003       | Possible database corruption. |
 
 ### Examples
 
-Enable Agent XPs, which are turned off by default.
+The following screenshot shows the typical log file viewer content:
 
-```
-EXEC [sys].[sp_configure] @configname = 'show advanced options', @configvalue = 1 RECONFIGURE ;
-```
+![Log file viewer](images/pb-sql-server-aurora-mysql-log-file-viewer.png)
 
-```
-EXEC [sys].[sp_configure] @configname = 'agent xps', @configvalue = 1 RECONFIGURE;
-```
-
-Create a T-SQL maintenance plan for a single index rebuild.
-
-```
-USE msdb;
-```
-
-Add the Index Maintenance `IDX1` job to SQL Server Agent.
-
-```
-EXEC dbo.sp_add_job @job_name = N'Index Maintenance IDX1', @enabled = 1, @description = N'Optimize IDX1 for INSERT' ;
-```
-
-Add the T-SQL job step `Rebuild IDX1 to 50 percent fill`.
-
-```
-EXEC dbo.sp_add_jobstep @job_name = N'Index Maintenance IDX1', @step_name = N'Rebuild IDX1 to 50 percent fill', @subsystem = N'TSQL',
-@command = N'Use MyDatabase; ALTER INDEX IDX1 ON Shcema.Table REBUILD WITH ( FILL_FACTOR = 50), @retry_attempts = 5, @retry_interval = 5;
-```
-
-Add a schedule to run every day at 01:00 AM.
-
-```
-EXEC dbo.sp_add_schedule @schedule_name = N'Daily0100', @freq_type = 4, @freq_interval = 1, @active_start_time = 010000;
-```
-
-Associate the schedule `Daily0100` with the job index maintenance `IDX1`.
-
-```
-EXEC sp_attach_schedule @job_name = N'Index Maintenance IDX1' @schedule_name = N'Daily0100' ;
-```
-
-For more information, see [Maintenance Plans](https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Monitoring the Error Logs](https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Relational Database Service (Amazon RDS) performs automated database backups by creating storage volume snapshots that back up entire instances, not individual databases.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides administrators with access to the MySQL error log, slow query log, and the general log.
 
-Amazon RDS creates snapshots during the backup window for individual database instances and retains snapshots in accordance with the backup retention period. You can use the snapshots to restore a database to any point in time within the backup retention period.
+The MySQL Error Log is generated by default. To generate the slow query and general logs, set the corresponding parameters in the database parameter group. For more information, see [Server Options](chap-sql-server-aurora-mysql.configuration.md "chap-sql-server-aurora-mysql.configuration.md").
 
-###### Note
+You can view Aurora MySQL logs directly from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. You can also direct the logs to a database table in the main database and use SQL queries to view the data. To download a binary log, use the `mysqlbinlog` utility.
 
-The state of a database instance must be ACTIVE for automated backups to occur.
+The system writes error events to the `mysql-error.log` file, which you can view using the Amazon RDS console. Alternatively, you can use the Amazon RDS API, the Amazon RDS CLI, or the AWS SDKs retrieve to retrieve the log.
 
-You can backup database instances manually by creating an explicit database snapshot. Use the AWS console, the AWS CLI, or the AWS API to take manual snapshots.
+The `mysql-error.log` file buffers are flushed every five minutes and are appended to the `filemysql-error-running.log`. The `mysql-error-running.log` file is rotated every hour and retained for 24 hours.
+
+Aurora MySQL writes to the error log only on server startup, server shutdown, or when an error occurs. A database instance may run for long periods without generating log entries.
+
+You can turn on and configure the Aurora MySQL Slow Query and general logs to write log entries to a file or a database table by setting the corresponding parameters in the database parameter group. The following list identifies he parameters that control the log options:
+
+- `slow_query_log` — Set to 1 to create the Slow Query Log. The default is 0.
+- `general_log` — Set to 1 to create the General Log. The default is 0.
+- `long_query_time` — Specify a value in seconds for the shortest query run time to be logged. The default is 10 seconds; the minimum is 0.
+- `log_queries_not_using_indexes` — Set to 1 to log all queries not using indexes to the slow query log. The default is 0. Queries using indexes are logged even if their run time is less than the value of the `long_query_time` parameter.
+- `log_output` — Specify one of the following options:
+  - **TABLE** — Write general queries to the `mysql.general_log` table and slow queries to the `mysql.slow_log` table. This option is set by default.
+  - **FILE** — Write both general and slow query logs to the file system. Log files are rotated hourly.
+  - **NONE** — Disable logging.
 
 ### Examples
 
-**Create a manual database snapshot using the Amazon RDS console**
+The following walkthrough demonstrates how to view the Aurora PostgreSQL error logs in the Amazon RDS console.
 
 1. In the AWS console, choose **RDS**, and then choose **Databases**.
-2. Choose your Aurora PostgreSQL instance, and for **Instance actions** choose **Take snapshot**.
+2. Choose the instance for which you want to view the error log.
 
-![Take snapshot](images/pb-sql-server-aurora-mysql-take-snapshot.png)
+![Log file viewer](images/pb-sql-server-aurora-mysql-view-error-log.png) 3. Scroll down to the logs section and choose the log name. The log viewer displays the log content.
 
-**Restore a database from a snapshot**
-
-1. In the AWS console, choose **RDS**, and then choose **Snapshots**.
-2. Choose the snapshot to restore, and for **Actions** choose **Restore snapshot**.
-
-This action creates a new instance. 3. Enter the required configuration options in the wizard for creating a new Amazon Aurora database instance. Choose **Restore DB Instance**.
-
-You can also restore a database instance to a point-in-time. For more information, see [Backup and Restore](chap-sql-server-aurora-mysql.hadr.md "chap-sql-server-aurora-mysql.hadr.md").
-
-For all other tasks, use a third-party or a custom application scheduler.
-
-**Rebuild and reorganize an index**
-
-Aurora MySQL supports the `OPTIMIZE TABLE` command, which is similar to the `REORGANIZE` option of SQL Server indexes.
-
-```
-OPTIMIZE TABLE MyTable;
-```
-
-To perform a full table rebuild with all secondary indexes, perform a null altering action using either `ALTER TABLE <table> FORCE` or `ALTER TABLE <table> ENGINE = <current engine>`.
-
-```
-ALTER TABLE MyTable FORCE;
-```
-
-```
-ALTER TABLE MyTable ENGINE = InnoDB
-```
-
-### Perform Database Consistency Checks
-
-Use the `CHECK TABLE` command to perform a database consistency check.
-
-```
-CHECK TABLE <table name> [FOR UPGRADE | QUICK]
-```
-
-The `FOR UPGRADE` option checks if the table is compatible with the current version of MySQL to determine whether there have been any incompatible changes in any of the table’s data types or indexes since the table was created. The `QUICK` options doesn’t scan the rows to check for incorrect links.
-
-For routine checks of a table, use the `QUICK` option.
-
-###### Note
-
-In most cases, Aurora MySQL will find all errors in the data file. When an error is found, the table is marked as corrupted and can’t be used until it is repaired.
-
-### Converting Deprecated DBCC Index and Table Maintenance Commands
-
-| Deprecated DBCC command | Aurora MySQL equivalent |
-| ----------------------- | ----------------------- |
-| `DBCC DBREINDEX`        | `ALTER TABLE …​ FORCE`  |
-| `DBCC INDEXDEFRAG`      | `OPTIMIZE TABLE`        |
-| `DBCC SHOWCONTIG`       | `CHECK TABLE`           |
-
-### Decrease Data File Size by Removing Empty Pages
-
-Unlike SQL Server that uses a single set of files for an entire database, Aurora MySQL uses one file for each database table. Therefore you don’t need to shrink an entire database.
-
-### Update Statistics to Help the Query Optimizer Get Updated Data Distribution
-
-Aurora MySQL uses both persistent and non-persistent table statistics. Non-persistent statistics are deleted on server restart and after some operations. The statistics are then recomputed on the next table access. Therefore, different estimates could be produced when recomputing statistics leading to different choices in run plans and variations in query performance.
-
-Persistent optimizer statistics survive server restarts and provide better plan stability resulting in more consistent query performance. Persistent optimizer statistics provide the following control and flexibility options:
-
-- Set the `innodb_stats_auto_recalc` configuration option to control whether statistics are updated automatically when changes to a table cross a threshold.
-- Set the `STATS_PERSISTENT`, `STATS_AUTO_RECALC`, and `STATS_SAMPLE_PAGES` clauses with `CREATE TABLE` and `ALTER TABLE` statements to configure custom statistics settings for individual tables.
-- View optimizer statistics in the `mysql.innodb_table_stats` and `mysql.innodb_index_stats` tables.
-- View the `last_update` column of the `mysql.innodb_table_stats` and `mysql.innodb_index_stats` tables to see when statistics were last updated.
-- Modify the `mysql.innodb_table_stats` and `mysql.innodb_index_stats` tables to force a specific query optimization plan or to test alternative plans without modifying the database.
-
-For more information, see [Managing Statistics](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
-
-## Summary
-
-The following table summarizes the key tasks that use SQL Server maintenance plans and a comparable Aurora MySQL solutions.
-
-| Task                                                                        | SQL Server                                | Aurora MySQL                                                                             | Comments                                                                                                                     |
-| --------------------------------------------------------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Rebuild or reorganize indexes                                               | `ALTER INDEX` / `ALTER TABLE`             | `OPTIMIZE TABLE` / `ALTER TABLE`                                                         |                                                                                                                              |
-| Decrease data file size by removing empty pages                             | `DBCC SHRINKDATABASE` / `DBCC SHRINKFILE` | Files are for each table; not for each database. Rebuilding a table optimizes file size. | Not needed                                                                                                                   |
-| Update statistics to help the query optimizer get updated data distribution | `UPDATE STATISTICS` / `sp_updatestats`    | Set `innodb_stats_auto_recalc` to `ON` in the instance global parameter group.           |                                                                                                                              |
-| Perform database consistency checks                                         | `DBCC CHECKDB` / `DBCC CHECKTABLE`        | `CHECK TABLE`                                                                            |                                                                                                                              |
-| Back up the database and transaction log files                              | `BACKUP DATABASE` / `BACKUP LOG`          | Automated backups and snapshots                                                          | For more information, see [Backup and Restore](chap-sql-server-aurora-mysql.hadr.md "chap-sql-server-aurora-mysql.hadr.md"). |
-| Run SQL Server Agent jobs for custom actions                                | `sp_start_job`, `scheduled`               | Not supported                                                                            |                                                                                                                              |
-
-For more information, see [CHECK TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/check-table.html "https://dev.mysql.com/doc/refman/5.7/en/check-table.html") in the _MySQL documentation_ and [Working with backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon Relational Database Service User Guide_.
+For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
