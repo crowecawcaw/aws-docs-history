@@ -25,7 +25,7 @@ you will complete the following steps:
   deployment targets.
 
 For a comprehensive overview of the available AWS Blu Age Runtime options, including managed and
-non-managed versions, deployment targets, and their respective characteristics, see [AWS Blu Age Runtime options](ba-runtime-options.md "ba-runtime-options.md") documentation.
+non-managed versions, deployment targets, and their respective characteristics, see [AWS Blu Age Runtime](ba-runtime-options.md "ba-runtime-options.md") documentation.
 
 This guide will help you understand the differences between the runtime options and choose
 the most suitable one for your modernization project.
@@ -35,6 +35,7 @@ the most suitable one for your modernization project.
 - [AWS Blu Age releases](ba-releases.md "ba-releases.md")
 - [AWS Blu Age Runtime concepts](ba-shared-concept.md "ba-shared-concept.md")
 - [Set up configuration for AWS Blu Age Runtime](ba-runtime-config.md "ba-runtime-config.md")
+- [AWS Blu Age Runtime Error Codes](ba-runtime-error-codes.md "ba-runtime-error-codes.md")
 - [AWS Blu Age Runtime APIs](ba-runtime-endpoints.md "ba-runtime-endpoints.md")
 - [Set up AWS Blu Age Runtime (non-managed)](ba-runtime-setup.md "ba-runtime-setup.md")
 - [Modify the source code with Blu Age Developer IDE](ba-modify-source.md "ba-modify-source.md")

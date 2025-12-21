@@ -19,7 +19,7 @@ AWS Blu Age versions. And [AWS Blu Age lifecycle](ba-lifecycle.md "ba-lifecycle.
 ###### Topics
 
 - [AWS Blu Age versioning](ba-versioning.md "ba-versioning.md")
-- [AWS Blu Age Runtime options](ba-runtime-options.md "ba-runtime-options.md")
+- [AWS Blu Age Runtime](ba-runtime-options.md "ba-runtime-options.md")
 - [AWS Blu Age release notes](ba-release-notes.md "ba-release-notes.md")
 - [AWS Blu Age security vulnerabilities](ba-security-cve.md "ba-security-cve.md")
 - [Upgrading instructions for AWS Blu Age](ba-migration-notes.md "ba-migration-notes.md")
