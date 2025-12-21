@@ -67,7 +67,7 @@ systems are mounted to EC2 instances in an Amazon VPC.
 The following illustration shows multiple EC2 instances accessing an Amazon EFS file system
 that is configured for multiple Availability Zones in an AWS Region.
 
-![Regional file system with mount targets in three Availability Zones within a VPC on EC2 instances.](images/efs-ec2-how-it-works-Regional_china-world.png)
+![Regional file system with mount targets in three Availability Zones within a VPC on EC2 instances.](/images/efs/latest/ug/images/efs-ec2-how-it-works-Regional_china-world.png)
 
 In this illustration, the virtual private cloud (VPC) has three
 Availability Zones. Because the file system is Regional, a mount target was

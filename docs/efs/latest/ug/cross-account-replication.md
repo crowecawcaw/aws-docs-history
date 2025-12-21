@@ -139,7 +139,7 @@ You cannot restrict access to resources over TLS connection. If you include the
 `"aws:SecureTransport": "false"` condition in your statement, the NFS client
 connection will fail.
 
-#### Policy for the destination file
+### Policy for the destination file
 
 system
 
@@ -188,7 +188,7 @@ JSON
 
 ```
 
-#### Policy for the source file
+### Policy for the source file
 
 system
 
