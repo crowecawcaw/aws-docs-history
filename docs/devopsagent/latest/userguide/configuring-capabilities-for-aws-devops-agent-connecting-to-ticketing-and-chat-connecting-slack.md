@@ -35,3 +35,7 @@ After registering Slack in your DevOps Agent Space, you can associate it with yo
 ###### Note
 
 The agent’s bot user must be added to private channels before it can post messages.
+
+###### Important
+
+Uninstalling the Slack app may result in the Slack app not being able to be reinstalled. Avoid uninstalling the Slack app during the public preview.

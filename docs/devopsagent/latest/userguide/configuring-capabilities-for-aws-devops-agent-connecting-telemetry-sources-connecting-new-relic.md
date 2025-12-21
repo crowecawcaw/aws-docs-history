@@ -76,3 +76,22 @@ Send the body as a JSON string.
 Send webhooks with New Relic [https://newrelic.com/instant-observability/webhook-notifications](https://newrelic.com/instant-observability/webhook-notifications "https://newrelic.com/instant-observability/webhook-notifications") (note select no authorization and instead use the custom header option)
 
 Learn more: [https://docs.newrelic.com/docs/agentic-ai/mcp/overview/](https://docs.newrelic.com/docs/agentic-ai/mcp/overview/ "https://docs.newrelic.com/docs/agentic-ai/mcp/overview/")
+
+## Removal
+
+The telemetry source is connected at two levels at the agent space level and at account level. To completely remove it you must first remove from all agentspaces where it is used and then it can be unregistered.
+
+### Step 1: Remove from agent space
+
+1. From the agent spaces page, select an agent space and press view details
+2. Select the Capabilities tab
+3. Scroll down to the Telemetry section
+4. Select New Relic
+5. Press remove
+
+### Step 2: Remove from agent space
+
+1. Open the hamburger menu and select Settings
+2. Scroll to the **Currently registered** section.
+3. Check the agent space count is zero (if not repeat Step 1 above in your other agent spaces)
+4. Press Deregister next to New Relic

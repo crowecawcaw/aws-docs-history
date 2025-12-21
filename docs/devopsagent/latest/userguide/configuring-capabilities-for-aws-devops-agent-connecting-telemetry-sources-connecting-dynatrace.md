@@ -59,3 +59,22 @@ Activate Dynatrace in a specific Agent space and configure appropriate scoping
 ### Step 3: Configure your Dynatrace environment
 
 To complete your Dynatrace set up you will need to perform certain setup steps in your Dynatrace environment. Follow the instructions here: [https://docs.dynatrace.com/docs/shortlink/aws-devops-agent](https://docs.dynatrace.com/docs/shortlink/aws-devops-agent "https://docs.dynatrace.com/docs/shortlink/aws-devops-agent")
+
+## Removal
+
+The telemetry source is connected at two levels at the agent space level and at account level. To completely remove it you must first remove from all agentspaces where it is used and then it can be unregistered.
+
+### Step 1: Remove from agent space
+
+1. From the agent spaces page, select an agent space and press view details
+2. Select the Capabilities tab
+3. Scroll down to the Telemetry section
+4. Select Dynatrace
+5. Press remove
+
+### Step 2: Remove from agent space
+
+1. Open the hamburger menu and select Settings
+2. Scroll to the **Currently registered** section.
+3. Check the agent space count is zero (if not repeat Step 1 above in your other agent spaces)
+4. Press Deregister next to Dynatrace

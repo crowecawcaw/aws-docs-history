@@ -120,7 +120,7 @@ After registering an MCP server at the account level, you can configure which to
 2. Go to the **Capabilities** tab
 3. In the **MCP Servers** section, click **Add**
 4. Select the registered MCP server you want to connect to this Agent Space
-5. xConfigure which tools from this MCP server should be available to the Agent Space:
+5. Configure which tools from this MCP server should be available to the Agent Space:
    - **Allow all tools** – Makes all tools from the MCP server available
    - **Select specific tools** – Allows you to choose which tools to allowlist
 

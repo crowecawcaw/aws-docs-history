@@ -14,8 +14,8 @@ Before configuring webhook access, ensure you have:
 
 AWS DevOps Agent supports two types of webhooks:
 
-- **Integration-specific webhooks** – Automatically generated when you configure third-party integrations like Dynatrace, Splunk, Datadog, New Relic, ServiceNow, or Slack. These webhooks are associated with the specific integration and use authentication methods determined by the integration type.
-- **Generic webhooks** – Can be manually created for triggering investigations from any source not covered by a specific integration. Generic webhooks currently use HMAC authentication.
+- **Integration-specific webhooks** – Automatically generated when you configure third-party integrations like Dynatrace, Splunk, Datadog, New Relic, ServiceNow, or Slack. These webhooks are associated with the specific integration and use authentication methods determined by the integration type
+- **Generic webhooks** – Can be manually created for triggering investigations from any source not covered by a specific integration. Generic webhooks currently use **HMAC** authentication (bearer token not currently available).
 
 ## Webhook authentication methods
 
@@ -169,7 +169,7 @@ fetch(webhookUrl, {
 });
 ```
 
-**Version 1 (HMAC authentication) - JavaScript:**
+**Version 1 (HMAC authentication) - cURL:**
 
 ```
 #!/bin/bash
