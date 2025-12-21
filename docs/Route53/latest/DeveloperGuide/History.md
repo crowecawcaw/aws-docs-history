@@ -23,9 +23,12 @@ For notification about updates to this documentation, you can subscribe to an RS
 
 ## 2025 releases
 
+**December 15, 2025**
+Added detailed CloudWatch metrics for Route 53 Resolver endpoints. The new metrics provide enhanced monitoring capabilities at the Resolver Network Interface and Target Name Server levels, including P90 response latency of DNS queries, tracking of SERVFAIL, NXDOMAIN, REFUSED, and FORMERR response statuses, and availability monitoring of target name servers for outbound Resolver endpoints. For more information, see [CloudWatch Detailed Metrics for Route 53 VPC Resolver](monitoring-resolver-with-cloudwatch.md#cloudwatch-detailed-metrics-resolver "monitoring-resolver-with-cloudwatch.md#cloudwatch-detailed-metrics-resolver").
+
 **June 26, 2025**
 Added `ResolverEndpointCapacityStatus` to the `AWS/Route53Resolver` namespace.
-For more information, see [Metrics for Resolver endpoints](monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-endpoint "monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-endpoint").
+For more information, see [Metrics for Route 53 VPC Resolver endpoints](monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-endpoint "monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-endpoint").
 
 **June 25, 2025**
 Amazon Route 53 now supports alias records for VPC Lattice service

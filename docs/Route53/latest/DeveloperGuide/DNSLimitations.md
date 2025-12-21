@@ -126,7 +126,7 @@ Resolver generates redundant outbound queries for each DNS request that it
 receives. As a result, the QPS for each outbound network interface will not
 match the QPS sent to Route 53 VPC Resolver. Use CloudWatch metrics to measure how
 many queries are being sent to each network interface. For more information, see
-[Metrics for VPC Resolver IP addresses](monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-ip-address "monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-ip-address"). If your maximum
+[Metrics for Route 53 VPC Resolver IP addresses](monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-ip-address "monitoring-resolver-with-cloudwatch.md#cloudwatch-metrics-resolver-ip-address"). If your maximum
 query rate exceeds 50% of the capacity for any network interface in the
 endpoint, you can add more network interfaces to increase the endpoint
 capacity.

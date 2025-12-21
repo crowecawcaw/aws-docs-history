@@ -29,14 +29,14 @@ Security Hub CSPM also has its own security controls that it uses to detect secu
 
 Security Hub CSPM provides tools to manage findings from across all of these sources. You can view and
 filter lists of findings and view details of a finding. For information, see [Reviewing finding details and finding history in Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in
-the _AWS Security Hub CSPM User Guide_. You can also automatically update findings or send them to a custom action.
+the _AWS Security Hub User Guide_. You can also automatically update findings or send them to a custom action.
 For more information, see [Automatically modifying and taking action on Security Hub CSPM findings](../../../securityhub/latest/userguide/automations.md "../../../securityhub/latest/userguide/automations.md")
-in the _AWS Security Hub CSPM User Guide_.
+in the _AWS Security Hub User Guide_.
 
 All findings in Security Hub CSPM use a standard JSON format called the AWS Security Finding Format
 (ASFF). The ASFF includes details about the source of the security issue, the affected resources, and
 the current status of the finding. For more information, see [AWS Security Finding
-Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
+Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
 DNS Firewall is one of the AWS services that sends findings to Security Hub CSPM.
 
@@ -154,10 +154,10 @@ Here is an example of a typical finding from DNS Firewall in ASFF.
 ## Enabling and configuring the integration
 
 To integrate DNS Firewall with Security Hub CSPM, you must first enable Security Hub CSPM. For information about enabling
-Security Hub CSPM, see [Enabling Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User Guide_.
+Security Hub CSPM, see [Enabling Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
 
 ## Stopping the delivery of findings to Security Hub CSPM
 
 To stop sending DNS Firewall findings to Security Hub CSPM, you can use the Security Hub CSPM console or the Security Hub CSPM API.
 
-For instructions, see [Disabling the flow of findings from an integration](../../../securityhub/latest/userguide/securityhub-findings-providers.md#securityhub-integration-disable "../../../securityhub/latest/userguide/securityhub-findings-providers.md#securityhub-integration-disable") in the _AWS Security Hub CSPM User Guide_.
+For instructions, see [Disabling the flow of findings from an integration](../../../securityhub/latest/userguide/securityhub-findings-providers.md#securityhub-integration-disable "../../../securityhub/latest/userguide/securityhub-findings-providers.md#securityhub-integration-disable") in the _AWS Security Hub User Guide_.
