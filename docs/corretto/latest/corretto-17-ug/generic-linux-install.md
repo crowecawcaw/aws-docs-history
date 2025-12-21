@@ -207,6 +207,12 @@ command:
 apk add amazon-corretto-17
 ```
 
+You can install Corretto 17 JRE by running
+
+```
+apk add amazon-corretto-17-jre
+```
+
 ### Uninstall Amazon Corretto 17
 
 You can uninstall Amazon Corretto 17 by using the following
