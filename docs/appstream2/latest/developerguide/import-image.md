@@ -42,9 +42,9 @@ EBS
 
 ### Operating System Properties
 
-Windows Server 2022 **Full Base**
+Windows Server 2022/2025 **Full Base**
 
-- Windows Server 2022 **Core** is not supported
+- Windows Server **Core** is not supported
 - Windows with SQL Server is not supported
 
 Agents
@@ -60,10 +60,10 @@ Drivers
 Library Support
 
 - .NET Framework 4.8 or greater
-  - Installed by default in Windows Server 2022
+  - Installed by default in Windows Server 2022/2025
 
 - PowerShell 5.1 or greater
-  - Installed by default in Windows Server 2022
+  - Installed by default in Windows Server 2022/2025
 
 - Windows Features: Remote Desktop Services Licensing and Remote Desktop Services Session Host must not be installed
 - Ports: Ports 8000, 8300, and 8443 must be unblocked and unoccupied

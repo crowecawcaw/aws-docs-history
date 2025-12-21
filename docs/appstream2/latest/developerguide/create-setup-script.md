@@ -15,7 +15,7 @@ application installation.
 
 Use the following links to download the example scripts:
 
-- [Amazon Linux 2 bash
+- [Ubuntu Pro 24.04 LTS and Amazon Linux 2 bash
   script](samples/Linux-mount-vhd-script2.md "samples/Linux-mount-vhd-script2.md")
 - [Microsoft Windows
   Powershell script](samples/Windows-mount-vhd-script3.md "samples/Windows-mount-vhd-script3.md")
@@ -28,9 +28,19 @@ letters.
 WorkSpaces Applications downloads the setup script and VHD to a directory on the fleet streaming
 instance, then runs the setup script. The setup script runs on the operating system
 with full administrator rights. The setup script runs in the `SYSTEM`
-context on Microsoft Windows, and as the `root` user on Amazon Linux 2.
+context on Microsoft Windows, and as the `root` user on Amazon Linux
+2 or Ubuntu Pro 24.04 LTS.
 
 File system location for the VHD and setup script:
+
+- Ubuntu Pro 24.04 LTS:
+
+`/opt/appstream/AppBlocks/`appblock-name`/`
+
+**`appblock-name`**
+
+The name of the app block that the VHD and setup script
+correspond to.
 
 - Amazon Linux 2:
 

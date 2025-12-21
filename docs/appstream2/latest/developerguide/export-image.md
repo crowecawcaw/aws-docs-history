@@ -8,7 +8,7 @@ During export following components will be removed from your images
 
 - WorkSpaces Applications agent
 - Microsoft license included applications, which were added using Image Builder
-- Only Microsoft Windows Server 2022 images can be exported.
+- Only Microsoft Windows Server 2022 and 2025 images can be exported.
 
 ## IAM Role Requirements
 

@@ -1,12 +1,19 @@
 # Dimensions for Amazon WorkSpaces Applications Metrics
 
-To filter the metrics provided by Amazon WorkSpaces Applications, use the following dimensions.
+The `AWS/AppStream` namespace includes the following dimensions and dimension groups.
 
-| Metric Type            | Dimension     | Description              | Metrics                            |
-| ---------------------- | ------------- | ------------------------ | ---------------------------------- |
-| Fleet metrics          | `Fleet`       | The name of the fleet.   | Fleet capacity metrics             |
-| Fleet Instance Metrics | `Fleet Name`  | The name of the fleet.   | Fleet instance performance metrics |
-| Fleet Instance Metrics | `Instance Id` | The instance identifier. | Fleet instance performance metrics |
-| Fleet Session Metrics  | `Fleet Name`  | The name of the fleet.   | Fleet session performance metrics  |
-| Fleet Session Metrics  | `Instance Id` | The instance identifier. | Fleet session performance metrics  |
-| Fleet Session Metrics  | `Session Id`  | The session identifier.  | Fleet session performance metrics  |
+| Dimension    | Description                                     |
+| ------------ | ----------------------------------------------- |
+| `Fleet`      | Filters the metric data by name of the Fleet.   |
+| `FleetName`  | Filters the metric data by name of the Fleet.   |
+| `SessionId`  | Filters the metric data by session identifier.  |
+| `InstanceId` | Filters the metric data by instance identifier. |
+| `UserId`     | Filters the metric data by user identifier.     |
+
+| Dimension                                    | Where Available in Amazon CloudWatch Metrics |
+| -------------------------------------------- | -------------------------------------------- |
+| `[Fleet]`                                    | Fleet Metrics                                |
+| `[FleetName, InstanceId]`                    | Fleet Instance Metrics                       |
+| `[FleetName, InstanceId, SessionId]`         | Fleet Session Metrics                        |
+| `[UserId]`                                   | UserId                                       |
+| `[FleetName, InstanceId, SessionId, UserId]` | FleetName, InstanceId, SessionId, UserId     |

@@ -49,9 +49,8 @@ image builder. For more information, see [Networking and Access for Amazon WorkS
 
 error that the operating system version is not supported.
 
-Only applications that can be installed on Windows Server 2012 R2, Windows Server
-2016, and Windows Server 2019 can be added to an WorkSpaces Applications image. Check if your
-application is supported on one of these three operating systems, as applicable for
+Only applications that can be installed on Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025 can be added to an WorkSpaces Applications image. Check if your
+application is supported on one of these operating systems, as applicable for
 your image builder.
 
 ## I want to use a Windows PowerShell script to open my applications.

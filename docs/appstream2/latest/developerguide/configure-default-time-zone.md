@@ -8,7 +8,7 @@ the steps in either of the following two procedures.
 - [Specify a Default Time Zone (Windows
   Server 2012 R2)](#configure-default-time-zone "#configure-default-time-zone")
 - [Specify a Default Time Zone
-  (Windows Server 2016, Windows Server 2019, and Windows Server 2022)](#configure-default-time-zone-2016-2019 "#configure-default-time-zone-2016-2019")
+  (Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025)](#configure-default-time-zone-2016-2019 "#configure-default-time-zone-2016-2019")
 
 ###### Note
 
@@ -72,7 +72,7 @@ instances.
 
 ## Specify a Default Time Zone
 
-(Windows Server 2016, Windows Server 2019, and Windows Server 2022)
+(Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025)
 
 1. Connect to the image builder that you want to use and sign in with an
    account that has local administrator permissions. To do so, do either of the

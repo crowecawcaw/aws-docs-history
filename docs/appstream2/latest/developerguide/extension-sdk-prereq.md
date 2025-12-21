@@ -12,6 +12,6 @@ Supported WorkSpaces Applications clients:
 WorkSpaces Applications web access doesn't support the Amazon DCV Extension SDK.
 Supported WorkSpaces Applications streaming instances:
 
-- Windows Server 2016 and 2019
+- Windows Server 2016, 2019, 2022, and 2025
 - WorkSpaces Applications agent version for Windows releaed on May 8, 2023 or later
 - Managed WorkSpaces Applications image updates released on May 8, 2023 or later

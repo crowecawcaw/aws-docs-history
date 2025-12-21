@@ -23,7 +23,7 @@ If you choose to install antivirus software on your image, we recommend that you
 
 Even if you do not enable automatic updates for your antivirus software, the antivirus software may perform hard drive scans or other operations that may impact the performance of your fleet instances during user sessions.
 
-WorkSpaces Applications Windows Server 2012 R2 base images do not include any antivirus software. On WorkSpaces Applications Windows Server 2016 and Windows Server 2019 base images published on or after September 10, 2019, Windows Defender is not enabled by default. On WorkSpaces Applications Windows Server 2016 and Windows Server 2019 base images published on June 24, 2019, Windows Defender is enabled by default.
+On WorkSpaces Applications Windows Server 2025/2022/2019/2016 base images published on or after September 10, 2019, Windows Defender is not enabled by default. On WorkSpaces Applications Windows Server 2016 and Windows Server 2019 base images published on June 24, 2019, Windows Defender is enabled by default.
 
 ###### To enable Windows Defender manually
 
@@ -45,7 +45,7 @@ so, complete the following steps.
 11. Open the Microsoft Management Console (MMC) **Services** snap-in (`services.msc`).
 12. In the list of services, do one of the following.
 
-If you are using Microsoft Windows Server 2022, do either of the
+If you are using Microsoft Windows Server 2022/2025, do either of the
 following:
 
     * Right-click **Microsoft Defender Antivirus Service**, and choose

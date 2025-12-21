@@ -21,9 +21,9 @@ available in 32-bit and 64-bit architecture:
      architecture. For example, you can't mix 32-bit applications with
      64-bit applications.
     + Microsoft Office, Visio, and Project 2021 Standard/Professional
-     versions are supported on Microsoft Windows Server 2019 and 2022.
+     versions are supported on Microsoft Windows Server 2019/2022/2025.
      Microsoft Office, Visio, and Project 2024 Standard/Professional
-     versions are supported on Microsoft Windows Server 2022.
+     versions are supported on Microsoft Windows Server 2022 and 2025.
     + To enable this feature, you must use an WorkSpaces Applications Image Builder that
      uses an WorkSpaces Applications agent released on or after October 2, 2025. For more
      information, see [Manage WorkSpaces Applications Agent Versions](base-images-agent.md "base-images-agent.md") . Or, your

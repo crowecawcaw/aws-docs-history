@@ -89,8 +89,10 @@ Amazon EC2 instance, or an WorkSpaces Applications image builder.
 
 ###### To create a VHD for Linux
 
-1. From an Amazon Linux 2 EC2 instance, Amazon Linux 2 WorkSpaces Applications image
-   builder, or Amazon Linux 2 WorkSpaces, open a terminal session.
+1. Open a terminal:
+   - For Amazon Linux 2: Use EC2 instance, WorkSpaces Applications image builder, or WorkSpaces powered by Amazon Linux 2
+   - For Ubuntu Pro 24.04 LTS: Use EC2 instance, or WorkSpaces powered by Ubuntu Pro
+
 2. Create the unformatted and uninitialized VHD file:
 
 **dd if=/dev/zero of=`<name of file>`
@@ -129,6 +131,4 @@ before you can safely upload it to an Amazon S3 bucket.
 1. Open a terminal session, and enter the following command:
 
 **sudo umount
-`/path/to/mount/point`** 2. The VHD has now been detached, and can be tested on another Amazon Linux 2
-Amazon EC2 instance, Amazon Linux 2 WorkSpaces Applications image builder, or Amazon Linux 2
-WorkSpaces.
+`/path/to/mount/point`** 2. The VHD has now been detached, and can be tested on another Amazon Linux 2/Ubuntu Pro 24.04 LTS Amazon EC2 instance, Amazon Linux 2 WorkSpaces Applications image builder, or Amazon Linux 2/Ubuntu WorkSpaces Personal.

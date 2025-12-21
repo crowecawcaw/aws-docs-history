@@ -13,5 +13,5 @@ namespace includes the following metrics.
 
 - [Fleet Usage Metrics for Single-session Fleets](appstream-dimensions.md "appstream-dimensions.md")
 - [Fleet Usage Metrics for Multi-session Fleets](usage-metrics-multi-session.md "usage-metrics-multi-session.md")
-- [Instance and Session Performance Metrics for Multi-session Fleets](instance-session-metrics-multi-session.md "instance-session-metrics-multi-session.md")
+- [Instance and Session Performance Metrics for Single-session and Multi-session Fleets](instance-session-metrics-single-session-multi-session.md "instance-session-metrics-single-session-multi-session.md")
 - [Dimensions for Amazon WorkSpaces Applications Metrics](dimensions-metrics.md "dimensions-metrics.md")
