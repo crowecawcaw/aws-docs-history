@@ -15,7 +15,7 @@ of requests that arrive over a specified period of time.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsWafRateBasedRule` object. To view descriptions of
 `AwsWafRateBasedRule` attributes, see [AwsWafRateBasedRuleDetails](../../1.0/APIReference/API_AwsWafRateBasedRuleDetails.md "../../1.0/APIReference/API_AwsWafRateBasedRuleDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -44,7 +44,7 @@ requests that arrive over a specified period of time.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsWafRegionalRateBasedRule` object. To view descriptions of
 `AwsWafRegionalRateBasedRule` attributes, see [AwsWafRegionalRateBasedRuleDetails](../../1.0/APIReference/API_AwsWafRegionalRateBasedRuleDetails.md "../../1.0/APIReference/API_AwsWafRegionalRateBasedRuleDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -72,7 +72,7 @@ count.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsWafRegionalRule` object. To view descriptions of
 `AwsWafRegionalRule` attributes, see [AwsWafRegionalRuleDetails](../../1.0/APIReference/API_AwsWafRegionalRuleDetails.md "../../1.0/APIReference/API_AwsWafRegionalRuleDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -98,7 +98,7 @@ web access control list (web ACL).
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsWafRegionalRuleGroup` object. To view descriptions of
 `AwsWafRegionalRuleGroup` attributes, see [AwsWafRegionalRuleGroupDetails](../../1.0/APIReference/API_AwsWafRegionalRuleGroupDetails.md "../../1.0/APIReference/API_AwsWafRegionalRuleGroupDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -128,7 +128,7 @@ want to allow, block, or count.
 The following is an example `AwsWafRegionalWebAcl` finding in the AWS
 Security Finding Format (ASFF). To view descriptions of
 `AwsApiGatewayV2Stage` attributes, see [AwsWafRegionalWebAclDetails](../../1.0/APIReference/API_AwsWafRegionalWebAclDetails.md "../../1.0/APIReference/API_AwsWafRegionalWebAclDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -167,7 +167,7 @@ identifies the web requests that you want to allow, block, or count.
 
 The following is an example `AwsWafRule` finding in the AWS Security
 Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Stage`
-attributes, see [AwsWafRuleDetails](../../1.0/APIReference/API_AwsWafRuleDetails.md "../../1.0/APIReference/API_AwsWafRuleDetails.md") in the _AWS Security Hub CSPM API Reference_.
+attributes, see [AwsWafRuleDetails](../../1.0/APIReference/API_AwsWafRuleDetails.md "../../1.0/APIReference/API_AwsWafRuleDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 
@@ -192,7 +192,7 @@ rule group is a collection of predefined rules that you add to a web access cont
 
 The following is an example `AwsWafRuleGroup` finding in the AWS Security
 Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Stage`
-attributes, see [AwsWafRuleGroupDetails](../../1.0/APIReference/API_AwsWafRuleGroupDetails.md "../../1.0/APIReference/API_AwsWafRuleGroupDetails.md") in the _AWS Security Hub CSPM API Reference_.
+attributes, see [AwsWafRuleGroupDetails](../../1.0/APIReference/API_AwsWafRuleGroupDetails.md "../../1.0/APIReference/API_AwsWafRuleGroupDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 
@@ -220,7 +220,7 @@ group.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsWafv2RuleGroup` object. To view descriptions of
 `AwsWafv2RuleGroup` attributes, see [AwsWafv2RuleGroupDetails](../../1.0/APIReference/API_AwsWafv2RuleGroupDetails.md "../../1.0/APIReference/API_AwsWafv2RuleGroupDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -269,7 +269,7 @@ The `AwsWafWebAcl` object provides details about an AWS WAF web ACL.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsWafWebAcl` object. To view descriptions of `AwsWafWebAcl`
-attributes, see [AwsWafWebAclDetails](../../1.0/APIReference/API_AwsWafWebAclDetails.md "../../1.0/APIReference/API_AwsWafWebAclDetails.md") in the _AWS Security Hub CSPM API Reference_.
+attributes, see [AwsWafWebAclDetails](../../1.0/APIReference/API_AwsWafWebAclDetails.md "../../1.0/APIReference/API_AwsWafWebAclDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 
@@ -306,7 +306,7 @@ ACL.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsWafv2WebAcl` object. To view descriptions of
-`AwsWafv2WebAcl` attributes, see [AwsWafv2WebAclDetails](../../1.0/APIReference/API_AwsWafv2WebAclDetails.md "../../1.0/APIReference/API_AwsWafv2WebAclDetails.md") in the _AWS Security Hub CSPM API Reference_.
+`AwsWafv2WebAcl` attributes, see [AwsWafv2WebAclDetails](../../1.0/APIReference/API_AwsWafv2WebAclDetails.md "../../1.0/APIReference/API_AwsWafv2WebAclDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 

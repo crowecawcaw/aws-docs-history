@@ -12,7 +12,7 @@ AWS Security Hub CSPM normalizes findings from various sources into ASFF. For ba
 is a message broker environment running on Amazon MQ.
 
 The following example shows the ASFF for the `AwsAmazonMQBroker` object. To
-view descriptions of `AwsAmazonMQBroker` attributes, see [AwsAmazonMQBroker](../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md "../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md") in the _AWS Security Hub CSPM API Reference_.
+view descriptions of `AwsAmazonMQBroker` attributes, see [AwsAmazonMQBroker](../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md "../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 

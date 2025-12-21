@@ -14,7 +14,7 @@ instance.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsSsmPatchCompliance` object. To view descriptions of
 `AwsSsmPatchCompliance` attributes, see [AwsSsmPatchComplianceDetails](../../1.0/APIReference/API_AwsSsmPatchComplianceDetails.md "../../1.0/APIReference/API_AwsSsmPatchComplianceDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

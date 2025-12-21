@@ -13,7 +13,7 @@ teams, applications, or workloads. It also helps you set limits on data processi
 The following example shows the ASFF for the `AwsAthenaWorkGroup` object. To view
 descriptions of `AwsAthenaWorkGroup` attributes, see
 [AwsAthenaWorkGroup](../../1.0/APIReference/API_AwsAthenaWorkGroupDetails.md "../../1.0/APIReference/API_AwsAthenaWorkGroupDetails.md")
-in the _AWS Security Hub CSPM API Reference_.
+in the _AWS Security Hub API Reference_.
 
 **Example**
 

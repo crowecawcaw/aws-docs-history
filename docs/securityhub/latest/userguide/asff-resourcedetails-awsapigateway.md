@@ -13,7 +13,7 @@ version 1 of Amazon API Gateway.
 The following is an example `AwsApiGatewayRestApi` finding in the AWS
 Security Finding Format (ASFF). To view descriptions of
 `AwsApiGatewayRestApi` attributes, see [AwsApiGatewayRestApiDetails](../../1.0/APIReference/API_AwsApiGatewayRestApiDetails.md "../../1.0/APIReference/API_AwsApiGatewayRestApiDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -43,7 +43,7 @@ Amazon API Gateway stage.
 The following is an example `AwsApiGatewayStage` finding in the AWS
 Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayStage`
 attributes, see [AwsApiGatewayStageDetails](../../1.0/APIReference/API_AwsApiGatewayStageDetails.md "../../1.0/APIReference/API_AwsApiGatewayStageDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -101,7 +101,7 @@ in Amazon API Gateway.
 The following is an example `AwsApiGatewayV2Api` finding in the AWS
 Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Api`
 attributes, see [AwsApiGatewayV2ApiDetails](../../1.0/APIReference/API_AwsApiGatewayV2ApiDetails.md "../../1.0/APIReference/API_AwsApiGatewayV2ApiDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -141,7 +141,7 @@ Amazon API Gateway.
 The following is an example `AwsApiGatewayV2Stage` finding in the AWS
 Security Finding Format (ASFF). To view descriptions of
 `AwsApiGatewayV2Stage` attributes, see [AwsApiGatewayV2StageDetails](../../1.0/APIReference/API_AwsApiGatewayV2StageDetails.md "../../1.0/APIReference/API_AwsApiGatewayV2StageDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

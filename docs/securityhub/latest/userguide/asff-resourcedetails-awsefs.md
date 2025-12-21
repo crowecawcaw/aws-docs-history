@@ -13,7 +13,7 @@ Amazon Elastic File System.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEfsAccessPoint` object. To view descriptions of
 `AwsEfsAccessPoint` attributes, see [AwsEfsAccessPointDetails](../../1.0/APIReference/API_AwsEfsAccessPointDetails.md "../../1.0/APIReference/API_AwsEfsAccessPointDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

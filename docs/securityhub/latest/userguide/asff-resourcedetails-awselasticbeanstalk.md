@@ -13,7 +13,7 @@ AWS Elastic Beanstalk environment.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsElasticBeanstalkEnvironment` object. To view descriptions of
 `AwsElasticBeanstalkEnvironment` attributes, see [AwsElasticBeanstalkEnvironmentDetails](../../1.0/APIReference/API_AwsElasticBeanstalkEnvironmentDetails.md "../../1.0/APIReference/API_AwsElasticBeanstalkEnvironmentDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

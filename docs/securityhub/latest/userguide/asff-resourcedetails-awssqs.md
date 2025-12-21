@@ -12,7 +12,7 @@ queue.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsSqsQueue` object. To view descriptions of `AwsSqsQueue`
-attributes, see [AwsSqsQueueDetails](../../1.0/APIReference/API_AwsSqsQueueDetails.md "../../1.0/APIReference/API_AwsSqsQueueDetails.md") in the _AWS Security Hub CSPM API Reference_.
+attributes, see [AwsSqsQueueDetails](../../1.0/APIReference/API_AwsSqsQueueDetails.md "../../1.0/APIReference/API_AwsSqsQueueDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 

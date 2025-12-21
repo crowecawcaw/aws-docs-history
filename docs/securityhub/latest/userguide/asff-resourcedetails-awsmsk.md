@@ -12,7 +12,7 @@ The `AwsMskCluster` object provides information about an Amazon Managed Streamin
 
 The following example shows the AWS Security Finding Format (ASFF) for the `AwsMskCluster` object. To view descriptions of `AwsMskCluster` attributes, see
 [AwsMskClusterDetails](../../1.0/APIReference/API_AwsMskClusterDetails.md "../../1.0/APIReference/API_AwsMskClusterDetails.md")
-in the _AWS Security Hub CSPM API Reference_.
+in the _AWS Security Hub API Reference_.
 
 **Example**
 

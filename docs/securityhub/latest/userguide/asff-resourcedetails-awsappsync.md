@@ -14,7 +14,7 @@ application.
 The following example shows the ASFF for the `AwsAppSyncGraphQLApi` object. To view
 descriptions of `AwsAppSyncGraphQLApi` attributes, see
 [AwsAppSyncGraphQLApi](../../1.0/APIReference/API_AwsAppSyncGraphQLApiDetails.md "../../1.0/APIReference/API_AwsAppSyncGraphQLApiDetails.md")
-in the _AWS Security Hub CSPM API Reference_.
+in the _AWS Security Hub API Reference_.
 
 **Example**
 

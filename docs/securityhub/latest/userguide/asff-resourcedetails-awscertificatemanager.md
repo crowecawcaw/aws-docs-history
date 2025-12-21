@@ -13,7 +13,7 @@ AWS Certificate Manager (ACM) certificate.
 The following is an example `AwsCertificateManagerCertificate` finding in
 the AWS Security Finding Format (ASFF). To view descriptions of
 `AwsCertificateManagerCertificate` attributes, see [AwsCertificateManagerCertificateDetails](../../1.0/APIReference/API_AwsCertificateManagerCertificateDetails.md "../../1.0/APIReference/API_AwsCertificateManagerCertificateDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

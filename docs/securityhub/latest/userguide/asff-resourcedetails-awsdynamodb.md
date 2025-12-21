@@ -12,7 +12,7 @@ table.
 
 The following is an example `AwsDynamoDbTable` finding in the AWS
 Security Finding Format (ASFF). To view descriptions of `AwsDynamoDbTable`
-attributes, see [AwsDynamoDbTableDetails](../../1.0/APIReference/API_AwsDynamoDbTableDetails.md "../../1.0/APIReference/API_AwsDynamoDbTableDetails.md") in the _AWS Security Hub CSPM API Reference_.
+attributes, see [AwsDynamoDbTableDetails](../../1.0/APIReference/API_AwsDynamoDbTableDetails.md "../../1.0/APIReference/API_AwsDynamoDbTableDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 

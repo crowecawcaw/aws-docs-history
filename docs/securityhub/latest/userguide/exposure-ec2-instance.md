@@ -68,7 +68,7 @@ For more information, see [Modify instance metadata options for existing instanc
 
 ###### Apply updates to instances in an Auto Scaling group
 
-If your instance is part of an Amazon EC2 Auto Scaling group, update your launch template or launch configuration with a new configuration, and perform an instance refresh.
+If your instance is part of an Auto Scaling group, update your launch template or launch configuration with a new configuration, and perform an instance refresh.
 
 ### The IAM role associated with the Amazon EC2 instance has an administrative access policy
 
@@ -161,7 +161,7 @@ If service-level administrative permissions are necessary for the instance, cons
   Permission boundaries establish the maximum permissions a role can have, providing guardrails for roles with administrative access.
   For more information, see [Use permissions boundaries to delegate permissions management within an account](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the _AWS Identity and Access Management User Guide_.
 
-###### Apply updates to instances in Amazon EC2 Auto Scaling group
+###### Apply updates to instances in Auto Scaling group
 
 For Amazon EC2 instances in an AWS auto scaling group, update the launch template or launch configuration with the new instance profile, and perform an instance refresh.
 For information about updating a launch template, see [Modify a launch template (manage launch template versions)](../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md "../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md") in the _Amazon Elastic Compute Cloud User Guide_.

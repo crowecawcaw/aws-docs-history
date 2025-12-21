@@ -13,7 +13,7 @@ watch a metric or perform an action when an alarm changes state.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsCloudWatchAlarm` object. To view descriptions of
 `AwsCloudWatchAlarm` attributes, see [AwsCloudWatchAlarmDetails](../../1.0/APIReference/API_AwsCloudWatchAlarmDetails.md "../../1.0/APIReference/API_AwsCloudWatchAlarmDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

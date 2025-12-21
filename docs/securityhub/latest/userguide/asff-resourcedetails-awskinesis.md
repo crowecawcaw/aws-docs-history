@@ -12,7 +12,7 @@ The `AwsKinesisStream` object provides details about Amazon Kinesis Data Streams
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsKinesisStream` object. To view descriptions of
-`AwsKinesisStream` attributes, see [AwsKinesisStreamDetails](../../1.0/APIReference/API_AwsKinesisStreamDetails.md "../../1.0/APIReference/API_AwsKinesisStreamDetails.md") in the _AWS Security Hub CSPM API Reference_.
+`AwsKinesisStream` attributes, see [AwsKinesisStreamDetails](../../1.0/APIReference/API_AwsKinesisStreamDetails.md "../../1.0/APIReference/API_AwsKinesisStreamDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 

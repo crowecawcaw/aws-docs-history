@@ -14,7 +14,7 @@ encryption configuration for AWS X-Ray.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsXrayEncryptionConfig` object. To view descriptions of
 `AwsXrayEncryptionConfig` attributes, see [AwsXrayEncryptionConfigDetails](../../1.0/APIReference/API_AwsXrayEncryptionConfigDetails.md "../../1.0/APIReference/API_AwsXrayEncryptionConfigDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

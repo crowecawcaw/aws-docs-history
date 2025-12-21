@@ -13,7 +13,7 @@ project.
 The following is an example `AwsCodeBuildProject` finding in the AWS
 Security Finding Format (ASFF). To view descriptions of `AwsCodeBuildProject`
 attributes, see [AwsCodeBuildProjectDetails](../../1.0/APIReference/API_AwsCodeBuildProjectDetails.md "../../1.0/APIReference/API_AwsCodeBuildProjectDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

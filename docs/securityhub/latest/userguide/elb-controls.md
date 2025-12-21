@@ -321,7 +321,7 @@ This control checks whether Classic Load Balancers have connection draining enab
 
 Enabling connection draining on Classic Load Balancers ensures that the load balancer stops sending
 requests to instances that are de-registering or unhealthy. It keeps the existing
-connections open. This is particularly useful for instances in Amazon EC2 Auto Scaling groups, to ensure
+connections open. This is particularly useful for instances in Auto Scaling groups, to ensure
 that connections aren't severed abruptly.
 
 ### Remediation

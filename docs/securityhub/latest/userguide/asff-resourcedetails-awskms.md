@@ -12,7 +12,7 @@ The `AwsKmsKey` object provides details about an AWS KMS key.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsKmsKey` object. To view descriptions of `AwsKmsKey`
-attributes, see [AwsKmsKeyDetails](../../1.0/APIReference/API_AwsKmsKeyDetails.md "../../1.0/APIReference/API_AwsKmsKeyDetails.md") in the _AWS Security Hub CSPM API Reference_.
+attributes, see [AwsKmsKeyDetails](../../1.0/APIReference/API_AwsKmsKeyDetails.md "../../1.0/APIReference/API_AwsKmsKeyDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 

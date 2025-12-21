@@ -5,7 +5,7 @@ ASFF
 The following example shows the AWS Security Finding Format (ASFF) syntax for the
 `Container` object. To view descriptions of `Container`
 attributes, see [ContainerDetails](../../1.0/APIReference/API_ContainerDetails.md "../../1.0/APIReference/API_ContainerDetails.md") in
-the _AWS Security Hub CSPM API Reference_. For background information about ASFF, see
+the _AWS Security Hub API Reference_. For background information about ASFF, see
 [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 **Example**

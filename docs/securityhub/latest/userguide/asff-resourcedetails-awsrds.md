@@ -13,7 +13,7 @@ cluster.
 The following example shows the AWS Security Finding Format (ASFF) for the `AwsRdsDbCluster` object. To view
 descriptions of `AwsRdsDbCluster` attributes, see
 [AwsRdsDbClusterDetails](../../1.0/APIReference/API_AwsRdsDbClusterDetails.md "../../1.0/APIReference/API_AwsRdsDbClusterDetails.md")
-in the _AWS Security Hub CSPM API Reference_.
+in the _AWS Security Hub API Reference_.
 
 **Example**
 
@@ -96,7 +96,7 @@ cluster snapshot.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsRdsDbClusterSnapshot` object. To view descriptions of
 `AwsRdsDbClusterSnapshot` attributes, see [AwsRdsDbClusterSnapshotDetails](../../1.0/APIReference/API_AwsRdsDbClusterSnapshotDetails.md "../../1.0/APIReference/API_AwsRdsDbClusterSnapshotDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -139,7 +139,7 @@ instance.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsRdsDbInstance` object. To view descriptions of
-`AwsRdsDbInstance` attributes, see [AwsRdsDbInstanceDetails](../../1.0/APIReference/API_AwsRdsDbInstanceDetails.md "../../1.0/APIReference/API_AwsRdsDbInstanceDetails.md") in the _AWS Security Hub CSPM API Reference_.
+`AwsRdsDbInstance` attributes, see [AwsRdsDbInstanceDetails](../../1.0/APIReference/API_AwsRdsDbInstanceDetails.md "../../1.0/APIReference/API_AwsRdsDbInstanceDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 
@@ -271,7 +271,7 @@ Amazon Relational Database Service
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsRdsDbSecurityGroup` object. To view descriptions of
 `AwsRdsDbSecurityGroup` attributes, see [AwsRdsDbSecurityGroupDetails](../../1.0/APIReference/API_AwsRdsDbSecurityGroupDetails.md "../../1.0/APIReference/API_AwsRdsDbSecurityGroupDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -306,7 +306,7 @@ snapshot.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsRdsDbSnapshot` object. To view descriptions of
-`AwsRdsDbSnapshot` attributes, see [AwsRdsDbSnapshotDetails](../../1.0/APIReference/API_AwsRdsDbSnapshotDetails.md "../../1.0/APIReference/API_AwsRdsDbSnapshotDetails.md") in the _AWS Security Hub CSPM API Reference_.
+`AwsRdsDbSnapshot` attributes, see [AwsRdsDbSnapshotDetails](../../1.0/APIReference/API_AwsRdsDbSnapshotDetails.md "../../1.0/APIReference/API_AwsRdsDbSnapshotDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 
@@ -351,7 +351,7 @@ topic.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsRdsEventSubscription` object. To view descriptions of
 `AwsRdsEventSubscription` attributes, see [AwsRdsEventSubscriptionDetails](../../1.0/APIReference/API_AwsRdsEventSubscriptionDetails.md "../../1.0/APIReference/API_AwsRdsEventSubscriptionDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

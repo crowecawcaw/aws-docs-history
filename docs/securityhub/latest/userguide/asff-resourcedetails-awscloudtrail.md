@@ -13,7 +13,7 @@ trail.
 The following is an example `AwsCloudTrailTrail` finding in the AWS
 Security Finding Format (ASFF). To view descriptions of `AwsCloudTrailTrail`
 attributes, see [AwsCloudTrailTrailDetails](../../1.0/APIReference/API_AwsCloudTrailTrailDetails.md "../../1.0/APIReference/API_AwsCloudTrailTrailDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

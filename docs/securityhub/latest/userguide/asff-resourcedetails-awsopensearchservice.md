@@ -14,7 +14,7 @@ Amazon OpenSearch Service domain.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsOpenSearchServiceDomain` object. To view descriptions of
 `AwsOpenSearchServiceDomain` attributes, see [AwsOpenSearchServiceDomainDetails](../../1.0/APIReference/API_AwsOpenSearchServiceDomainDetails.md "../../1.0/APIReference/API_AwsOpenSearchServiceDomainDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

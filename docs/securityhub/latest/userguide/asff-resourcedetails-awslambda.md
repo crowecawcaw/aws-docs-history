@@ -14,7 +14,7 @@ configuration.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsLambdaFunction` object. To view descriptions of
 `AwsLambdaFunction` attributes, see [AwsLambdaFunctionDetails](../../1.0/APIReference/API_AwsLambdaFunctionDetails.md "../../1.0/APIReference/API_AwsLambdaFunctionDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -76,7 +76,7 @@ version.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsLambdaLayerVersion` object. To view descriptions of
 `AwsLambdaLayerVersion` attributes, see [AwsLambdaLayerVersionDetails](../../1.0/APIReference/API_AwsLambdaLayerVersionDetails.md "../../1.0/APIReference/API_AwsLambdaLayerVersionDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

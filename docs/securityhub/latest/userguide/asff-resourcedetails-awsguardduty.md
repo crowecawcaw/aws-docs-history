@@ -13,7 +13,7 @@ required for GuardDuty to become operational.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsGuardDutyDetector` object. To view descriptions of
-`AwsGuardDutyDetector` attributes, see [AwsGuardDutyDetector](../../1.0/APIReference/API_AwsGuardDutyDetectorDetails.md "../../1.0/APIReference/API_AwsGuardDutyDetectorDetails.md") in the _AWS Security Hub CSPM API Reference_.
+`AwsGuardDutyDetector` attributes, see [AwsGuardDutyDetector](../../1.0/APIReference/API_AwsGuardDutyDetectorDetails.md "../../1.0/APIReference/API_AwsGuardDutyDetectorDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 

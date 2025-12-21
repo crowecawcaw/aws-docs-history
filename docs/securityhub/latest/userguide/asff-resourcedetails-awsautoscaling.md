@@ -13,7 +13,7 @@ automatic scaling group.
 The following is an example `AwsAutoScalingAutoScalingGroup` finding in the
 AWS Security Finding Format (ASFF). To view descriptions of
 `AwsAutoScalingAutoScalingGroup` attributes, see [AwsAutoScalingAutoScalingGroupDetails](../../1.0/APIReference/API_AwsAutoScalingAutoScalingGroupDetails.md "../../1.0/APIReference/API_AwsAutoScalingAutoScalingGroupDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -67,7 +67,7 @@ the AWS Security Finding Format (ASFF).
 
 To view descriptions of `AwsAutoScalingLaunchConfiguration` attributes, see
 [AwsAutoScalingLaunchConfigurationDetails](../../1.0/APIReference/API_AwsAutoScalingLaunchConfigurationDetails.md "../../1.0/APIReference/API_AwsAutoScalingLaunchConfigurationDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

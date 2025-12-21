@@ -121,11 +121,11 @@ requirement.
 - [[APIGateway.9] Access logging should be configured for API Gateway V2
   Stages](apigateway-controls.md#apigateway-9 "apigateway-controls.md#apigateway-9")
 - [[AppSync.5] AWS AppSync GraphQL APIs should not be authenticated with API keys](appsync-controls.md#appsync-5 "appsync-controls.md#appsync-5")
-- [[AutoScaling.1] Amazon EC2 Auto Scaling groups associated with a load balancer should use ELB health checks](autoscaling-controls.md#autoscaling-1 "autoscaling-controls.md#autoscaling-1")
+- [[AutoScaling.1] Auto Scaling groups associated with a load balancer should use ELB health checks](autoscaling-controls.md#autoscaling-1 "autoscaling-controls.md#autoscaling-1")
 - [[AutoScaling.2] Amazon EC2 Auto Scaling group should cover multiple Availability Zones](autoscaling-controls.md#autoscaling-2 "autoscaling-controls.md#autoscaling-2")
-- [[AutoScaling.3] Amazon EC2 Auto Scaling group launch configurations should configure EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)](autoscaling-controls.md#autoscaling-3 "autoscaling-controls.md#autoscaling-3")
-- [[Autoscaling.5] Amazon EC2 instances launched using Amazon EC2 Auto Scaling group launch configurations should not have Public IP addresses](autoscaling-controls.md#autoscaling-5 "autoscaling-controls.md#autoscaling-5")
-- [[AutoScaling.6] Amazon EC2 Auto Scaling groups should use multiple instance types in multiple Availability Zones](autoscaling-controls.md#autoscaling-6 "autoscaling-controls.md#autoscaling-6")
+- [[AutoScaling.3] Auto Scaling group launch configurations should configure EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)](autoscaling-controls.md#autoscaling-3 "autoscaling-controls.md#autoscaling-3")
+- [[Autoscaling.5] Amazon EC2 instances launched using Auto Scaling group launch configurations should not have Public IP addresses](autoscaling-controls.md#autoscaling-5 "autoscaling-controls.md#autoscaling-5")
+- [[AutoScaling.6] Auto Scaling groups should use multiple instance types in multiple Availability Zones](autoscaling-controls.md#autoscaling-6 "autoscaling-controls.md#autoscaling-6")
 - [[AutoScaling.9] Amazon EC2 Auto Scaling groups should use Amazon EC2 launch templates](autoscaling-controls.md#autoscaling-9 "autoscaling-controls.md#autoscaling-9")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[CloudFront.1] CloudFront distributions should have a default

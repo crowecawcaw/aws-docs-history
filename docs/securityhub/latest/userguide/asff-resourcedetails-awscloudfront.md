@@ -13,7 +13,7 @@ distribution configuration.
 The following is an example `AwsCloudFrontDistribution` finding in the
 AWS Security Finding Format (ASFF). To view descriptions of
 `AwsCloudFrontDistribution` attributes, see [AwsCloudFrontDistributionDetails](../../1.0/APIReference/API_AwsCloudFrontDistributionDetails.md "../../1.0/APIReference/API_AwsCloudFrontDistributionDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

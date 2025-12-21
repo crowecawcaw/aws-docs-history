@@ -12,7 +12,7 @@ connection, data store type, and location information about your data store.
 
 The following example shows the AWS Security Finding Format (ASFF) for the `AwsDmsEndpoint` object. To view descriptions of `AwsDmsEndpoint` attributes, see
 [AwsDmsEndpointDetails](../../1.0/APIReference/API_AwsDmsEndpointDeatils.md "../../1.0/APIReference/API_AwsDmsEndpointDeatils.md")
-in the _AWS Security Hub CSPM API Reference_.
+in the _AWS Security Hub API Reference_.
 
 **Example**
 
@@ -40,7 +40,7 @@ the target data store.
 
 The following example shows the AWS Security Finding Format (ASFF) for the `AwsDmsReplicationInstance` object. To view descriptions of `AwsDmsReplicationInstance` attributes, see
 [AwsDmsReplicationInstanceDetails](../../1.0/APIReference/API_AwsDmsReplicationInstanceDetails.md "../../1.0/APIReference/API_AwsDmsReplicationInstanceDetails.md")
-in the _AWS Security Hub CSPM API Reference_.
+in the _AWS Security Hub API Reference_.
 
 **Example**
 
@@ -74,7 +74,7 @@ A replication task moves a set of data from the source endpoint to the target en
 
 The following example shows the AWS Security Finding Format (ASFF) for the `AwsDmsReplicationInstance` object. To view descriptions of `AwsDmsReplicationInstance` attributes, see
 [AwsDmsReplicationInstance](../../1.0/APIReference/API_AwsDmsReplicationTaskDetails.md "../../1.0/APIReference/API_AwsDmsReplicationTaskDetails.md")
-in the _AWS Security Hub CSPM API Reference_.
+in the _AWS Security Hub API Reference_.
 
 **Example**
 

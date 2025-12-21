@@ -11,7 +11,7 @@ The `AwsSnsTopic` object contains details about an Amazon Simple Notification Se
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsSnsTopic` object. To view descriptions of `AwsSnsTopic`
-attributes, see [AwsSnsTopicDetails](../../1.0/APIReference/API_AwsSnsTopicDetails.md "../../1.0/APIReference/API_AwsSnsTopicDetails.md") in the _AWS Security Hub CSPM API Reference_.
+attributes, see [AwsSnsTopicDetails](../../1.0/APIReference/API_AwsSnsTopicDetails.md "../../1.0/APIReference/API_AwsSnsTopicDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 

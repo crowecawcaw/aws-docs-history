@@ -13,7 +13,7 @@ secret.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsSecretsManagerSecret` object. To view descriptions of
 `AwsSecretsManagerSecret` attributes, see [AwsSecretsManagerSecretDetails](../../1.0/APIReference/API_AwsSecretsManagerSecretDetails.md "../../1.0/APIReference/API_AwsSecretsManagerSecretDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

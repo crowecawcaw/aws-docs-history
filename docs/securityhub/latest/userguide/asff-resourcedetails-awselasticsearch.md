@@ -13,7 +13,7 @@ domain.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsElasticSearchDomain` object. To view descriptions of
 `AwsElasticSearchDomain` attributes, see [AwsElasticSearchDomainDetails](../../1.0/APIReference/API_AwsElasticsearchDomainDetails.md "../../1.0/APIReference/API_AwsElasticsearchDomainDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

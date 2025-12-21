@@ -12,7 +12,7 @@ The `AwsElbLoadBalancer` object contains details about a Classic Load Balancer.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsElbLoadBalancer` object. To view descriptions of
 `AwsElbLoadBalancer` attributes, see [AwsElbLoadBalancerDetails](../../1.0/APIReference/API_AwsElbLoadBalancerDetails.md "../../1.0/APIReference/API_AwsElbLoadBalancerDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 
@@ -117,7 +117,7 @@ balancer.
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsElbv2LoadBalancer` object. To view descriptions of
 `AwsElbv2LoadBalancer` attributes, see [AwsElbv2LoadBalancerDetails](../../1.0/APIReference/API_AwsElbv2LoadBalancerDetails.md "../../1.0/APIReference/API_AwsElbv2LoadBalancerDetails.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 **Example**
 

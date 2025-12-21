@@ -11,7 +11,7 @@ The `AwsEksCluster` object provides details about an Amazon EKS cluster.
 
 The following example shows the AWS Security Finding Format (ASFF) for the
 `AwsEksCluster` object. To view descriptions of
-`AwsEksCluster` attributes, see [AwsEksClusterDetails](../../1.0/APIReference/API_AwsEksClusterDetails.md "../../1.0/APIReference/API_AwsEksClusterDetails.md") in the _AWS Security Hub CSPM API Reference_.
+`AwsEksCluster` attributes, see [AwsEksClusterDetails](../../1.0/APIReference/API_AwsEksClusterDetails.md "../../1.0/APIReference/API_AwsEksClusterDetails.md") in the _AWS Security Hub API Reference_.
 
 **Example**
 
