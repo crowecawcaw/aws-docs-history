@@ -6,12 +6,13 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ###### Important
 
-Amazon EKS Local Clusters on Outposts only supports nodes created from the following Amazon EKS-optimized Amazon Linux 2 AMIs:
+Amazon EKS Local Clusters on Outposts only supports nodes created from the following Amazon EKS-optimized Amazon Linux 2023 AMIs:
 
-- Standard Amazon Linux 2 (`amazon-linux-2`)
-- GPU-enabled Amazon Linux 2 (`amazon-linux-2-gpu`)
-- Arm64-based Amazon Linux 2 (`amazon-linux-2-arm64`)
-  Nodes on Local Clusters that run Amazon Linux 2023 (AL2023) AMIs aren’t supported and fail to join the cluster.
+- Standard Amazon Linux 2023 (`amazon-linux-2023/x86_64/standard`)
+- Accelerated Nvidia Amazon Linux 2023 (`amazon-linux-2023/x86_64/nvidia`)
+- Accelerated Neuron Amazon Linux 2023 (`amazon-linux-2023/x86_64/neuron`)
+
+AWS ended support for EKS AL2-optimized and AL2-accelerated AMIs, effective November 26, 2025. While you can continue using EKS AL2 AMIs after the end-of-support (EOS) date (November 26, 2025), EKS will no longer release any new Kubernetes versions or updates to AL2 AMIs, including minor releases, patches, and bug fixes after this date. See [this](eks-ami-deprecation-faqs.md "eks-ami-deprecation-faqs.md") for more information on AL2 deprecation.
 
 This topic describes how you can launch Auto Scaling groups of Amazon Linux nodes on an Outpost that register with your Amazon EKS cluster. The cluster can be on the AWS Cloud or on an Outpost.
 
@@ -39,7 +40,7 @@ You can create a self-managed node group for local cluster with the following to
 
 1. Install version `0.215.0` or later of the `eksctl` command line tool installed on your device or AWS CloudShell. To install or update `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
 2. If your cluster is on the AWS Cloud and the **AmazonEKS_CNI_Policy** managed IAM policy is attached to your [Amazon EKS node IAM role](create-node-role.md "create-node-role.md"), we recommend assigning it to an IAM role that you associate to the Kubernetes `aws-node` service account instead. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md"). If your cluster in on your Outpost, the policy must be attached to your node role.
-3. The following command creates a node group in an existing cluster. The cluster must have been created using `eksctl`. Replace `al-nodes` with a name for your node group. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters. Replace `my-cluster` with the name of your cluster. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in. If your cluster exists on an Outpost, replace `id` with the ID of an Outpost subnet. If your cluster exists on the AWS Cloud, replace `id` with the ID of a subnet that you didn’t specify when you created your cluster. Replace `instance-type` with an instance type supported by your Outpost. Replace the remaining example values with your own values. The nodes are created with the same Kubernetes version as the control plane, by default.
+3. The following command creates a node group in an existing cluster. The cluster must have been created using `eksctl`. Replace `al-nodes` with a name for your node group. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters. Replace `my-cluster` with the name of your cluster. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in. If your cluster exists on an Outpost, replace `id` with the ID of an Outpost subnet. If your cluster exists on the AWS Cloud, replace `id` with the ID of a subnet that you didn’t specify when you created your cluster. Replace the remaining example values with your own values. The nodes are created with the same Kubernetes version as the control plane, by default.
 
 Replace `instance-type` with an instance type available on your Outpost.
 
@@ -49,7 +50,9 @@ Create your node group with the following command.
 
 ```
 eksctl create nodegroup --cluster my-cluster --name al-nodes --node-type instance-type \
-    --nodes 3 --nodes-min 1 --nodes-max 4 --managed=false --node-volume-type gp2 --subnet-ids subnet-id
+    --nodes 3 --nodes-min 1 --nodes-max 4 --managed=false \
+    --node-volume-type gp2 --subnet-ids subnet-id \
+    --node-ami-family AmazonLinux2023
 ```
 
 If your cluster is deployed on the AWS Cloud:
@@ -77,7 +80,7 @@ For a complete list of all available options and defaults, see [AWS Outposts Sup
 1. Download the latest version of the AWS CloudFormation template.
 
 ```
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-eks-nodegroup.yaml
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/amazon-eks-outpost-nodegroup.yaml
 ```
 
 2.  Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -85,7 +88,11 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/
 4.  For **Specify template**, select **Upload a template file** and then select **Choose file**. Select the `amazon-eks-nodegroup.yaml` file that you downloaded in a previous step and then select **Next**.
 5.  On the **Specify stack details** page, enter the following parameters accordingly, and then choose **Next**:
     - **Stack name**: Choose a stack name for your AWS CloudFormation stack. For example, you can call it `al-nodes`. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
+    - **ApiServerEndpoint**: Enter the Kubernetes API Server endpoint, visible in EKS console or via DescribeCluster API.
     - **ClusterName**: Enter the name of your cluster. If this name doesn’t match your cluster name, your nodes can’t join the cluster.
+    - **ClusterId**: Enter the id assigned to the cluster by EKS service. Visible via DescribeCluster API. If this id doesn’t match your cluster id, your nodes can’t join the cluster.
+    - **CertificateAuthority**: Enter base64 encoded string of the Kubernetes Certificate Authority. Visible in EKS console or via DescribeCluster API.
+    - **ServiceCidr**: Enter the Kubernetes Services CIDR. Visible in EKS console or via DescribeCluster API.
     - **ClusterControlPlaneSecurityGroup**: Choose the **SecurityGroups** value from the AWS CloudFormation output that you generated when you created your [VPC](creating-a-vpc.md "creating-a-vpc.md").
 
     The following steps show one operation to retrieve the applicable group.
@@ -102,7 +109,7 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/
     - **NodeInstanceType**: Choose an instance type for your nodes. If your cluster is running on the AWS Cloud, then for more information, see [Choose an optimal Amazon EC2 node instance type](choosing-instance-type.md "choosing-instance-type.md"). If your cluster is running on an Outpost, then you can only select an instance type that is available on your Outpost.
     - **NodeImageIdSSMParam**: Pre-populated with the Amazon EC2 Systems Manager parameter of a recent Amazon EKS optimized AMI for a variable Kubernetes version. To use a different Kubernetes minor version supported with Amazon EKS, replace `1.XX` with a different [supported version](kubernetes-versions.md "kubernetes-versions.md"). We recommend specifying the same Kubernetes version as your cluster.
 
-    To use an Amazon EKS optimized accelerated AMI, replace `amazon-linux-2` with `amazon-linux-2-gpu`. To use an Amazon EKS optimized Arm AMI, replace `amazon-linux-2` with `amazon-linux-2-arm64`.
+    To use an Amazon EKS optimized accelerated AMI, update `NodeImageIdSSMParam` value to the desired SSM parameter. See how to retrieve EKS AMI IDs from SSM [here](retrieve-ami-id.md "retrieve-ami-id.md").
 
     ###### Note
 
@@ -115,22 +122,6 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/
     ###### Note
 
     If you don’t provide a key pair here, the AWS CloudFormation stack creation fails.
-    - **BootstrapArguments**: There are several optional arguments that you can pass to your nodes. For more information, view the [bootstrap script usage information](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh") on GitHub. If you’re adding nodes to an Amazon EKS Local Cluster on AWS Outposts (where the Kubernetes control plane instances run on AWS Outposts) and the cluster doesn’t have ingress and egress internet connection (also known as private clusters), then you must provide the following bootstrap arguments (as a single line).
-
-    ```
-    --b64-cluster-ca ${CLUSTER_CA} --apiserver-endpoint https://${APISERVER_ENDPOINT} --enable-local-outpost true --cluster-id ${CLUSTER_ID}
-    ```
-
-    To retrieve the values for `CLUSTER_CA`, `APISERVER_ENDPOINT`, and `CLUSTER_ID` of your Amazon EKS local cluster, run the following AWS CLI commands. Replace cluster-name with the name of your cluster and region (for example, us-east-1) with your cluster’s AWS Region.
-
-    ```
-    echo "CLUSTER_CA=$(aws eks describe-cluster --name cluster-name --region region --query cluster.certificateAuthority.data --output text)"
-
-    echo "APISERVER_ENDPOINT=$(aws eks describe-cluster --name cluster-name --region region --query cluster.endpoint --output text)"
-
-    echo "CLUSTER_ID=$(aws eks describe-cluster --name cluster-name --region region --query cluster.id --output text)"
-    ```
-
     - **DisableIMDSv1**: By default, each node supports the Instance Metadata Service Version 1 (IMDSv1) and IMDSv2. You can disable IMDSv1. To prevent future nodes and Pods in the node group from using IMDSv1, set **DisableIMDSv1** to **true**. For more information about IMDS, see [Configuring the instance metadata service](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md"). For more information about restricting access to it on your nodes, see [Restrict access to the instance profile assigned to the worker node](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node").
     - **VpcId**: Enter the ID for the [VPC](creating-a-vpc.md "creating-a-vpc.md") that you created. Before choosing a VPC, review [VPC requirements and considerations](eks-outposts-vpc-subnet-requirements.md#outposts-vpc-requirements "eks-outposts-vpc-subnet-requirements.md#outposts-vpc-requirements").
     - **Subnets**: If your cluster is on an Outpost, then choose at least one private subnet in your VPC. Before choosing subnets, review [Subnet requirements and considerations](eks-outposts-vpc-subnet-requirements.md#outposts-subnet-requirements "eks-outposts-vpc-subnet-requirements.md#outposts-subnet-requirements"). You can see which subnets are private by opening each subnet link from the **Networking** tab of your cluster.

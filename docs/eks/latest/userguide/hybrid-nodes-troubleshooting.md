@@ -63,10 +63,18 @@ When running `nodeadm init`, if you see errors related to `operation error` or `
 
 **Hybrid Nodes IAM role missing permissions for the `eks:DescribeCluster` action**
 
-When running `nodeadm init`, `nodeadm` attempts to gather information about your EKS cluster by calling Describe Cluster. If your Hybrid Nodes IAM role does not have permission for the `eks:DescribeCluster` action. For more information on the required permissions for the Hybrid Nodes IAM role, see [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md").
+When running `nodeadm init`, `nodeadm` attempts to gather information about your EKS cluster by calling the EKS `DescribeCluster` action. If your Hybrid Nodes IAM role does not have permission for the `eks:DescribeCluster` action, then you must pass your Kubernetes API endpoint, cluster CA bundle, and service IPv4 CIDR in the node configuration you pass to `nodeadm` when you run `nodeadm init`. For more information on the required permissions for the Hybrid Nodes IAM role, see [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md").
 
 ```
 "msg":"Command failed","error":"operation error EKS: DescribeCluster, https response error StatusCode: 403 ... AccessDeniedException"
+```
+
+**Hybrid Nodes IAM role missing permissions for the `eks:ListAccessEntries` action**
+
+When running `nodeadm init`, `nodeadm` attempts to validate whether your EKS cluster has an access entry of type `HYBRID_LINUX` associated with the Hybrid Nodes IAM role by calling the EKS `ListAccessEntries` action. If your Hybrid Nodes IAM role does not have permission for the `eks:ListAccessEntries` action, then you must pass the `--skip cluster-access-validation` flag when you run the `nodeadm init` command. For more information on the required permissions for the Hybrid Nodes IAM role, see [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md").
+
+```
+"msg":"Command failed","error":"operation error EKS: ListAccessEntries, https response error StatusCode: 403 ... AccessDeniedException"
 ```
 
 **Node IP not in remote node network CIDR**

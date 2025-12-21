@@ -44,6 +44,7 @@ When using Network Flow Monitor in EKS, you can maintain your existing observabi
 1. As mentioned above, if you enable Container Network Observability from the EKS console, the underlying NFM resource dependencies (Scope and Monitor) will be automatically created on your behalf, and you will be guided through the installation process of the EKS add-on for NFM.
 2. If you want to enable this feature using Infrastructure as Code (IaC) like Terraform, you will have to define the following dependencies in your IaC: NFM Scope, NFM Monitor, EKS add-on for NFM. In addition, you’ll have to grant the [relevant permissions](../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md") to the EKS add-on using [Pod Identity](pod-id-agent-setup.md "pod-id-agent-setup.md") or [IAM roles for service accounts (IRSA)](iam-roles-for-service-accounts.md "iam-roles-for-service-accounts.md").
 3. You must be running a minimum version of 1.1.0 for the NFM agent’s EKS add-on.
+4. You have to use v6.21.0 or higher of the [Terraform AWS Provider](https://github.com/hashicorp/terraform-provider-aws "https://github.com/hashicorp/terraform-provider-aws") for support of Network Flow Monitor resources.
 
 ### Required IAM permissions
 
@@ -345,3 +346,5 @@ _Cluster view_
 - To enable Container Network Observability in EKS using Infrastructure as Code (IaC) like [Terraform](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkflowmonitor_monitor "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkflowmonitor_monitor"), you need to have these dependencies defined and created in your configurations: NFM scope, NFM monitor and the NFM agent.
 - Network Flow Monitor supports up to approximately 5 million flows per minute. This is approximately 5,000 EC2 instances (EKS worker nodes) with the Network Flow Monitor agent installed. Installing agents on more than 5000 instances may affect monitoring performance until additional capacity is available.
 - You must be running a minimum version of 1.1.0 for the NFM agent’s EKS add-on.
+- You have to use v6.21.0 or higher of the [Terraform AWS Provider](https://github.com/hashicorp/terraform-provider-aws "https://github.com/hashicorp/terraform-provider-aws") for support of Network Flow Monitor resources.
+- To enrich the network flows with pod metadata, your pods should be running in their own isolated network namespace, not the host network namespace.

@@ -86,6 +86,10 @@ To use Spot Instances inside a managed node group, create a managed node group b
 
 - Amazon EKS adds the following Kubernetes label to all nodes in your managed node group that specifies the capacity type: `eks.amazonaws.com/capacityType: SPOT`. You can use this label to schedule fault tolerant applications on Spot nodes.
 
+###### Important
+
+EC2 issues a [Spot interruption notice](../../../AWSEC2/latest/UserGuide/spot-instance-termination-notices.md "../../../AWSEC2/latest/UserGuide/spot-instance-termination-notices.md") two minutes prior to terminating your Spot Instance. However, Pods on Spot nodes may not receive the full 2-minute window for graceful shutdown. When EC2 issues the notice, there is a delay before Amazon EKS begins evicting Pods. Evictions occur sequentially to protect the Kubernetes API server, so during multiple simultaneous Spot reclamations, some Pods may receive delayed eviction notices. Pods may be forcibly terminated without receiving termination signals, particularly on nodes with high Pod density, during concurrent reclamations, or when using long termination grace periods. For Spot workloads, we recommend designing applications to be interruption-tolerant, using termination grace periods of 30 seconds or less, avoiding long-running preStop hooks, and monitoring Pod eviction metrics to understand actual grace periods in your clusters. For workloads requiring guaranteed graceful termination, we recommend using On-Demand capacity instead.
+
 When deciding whether to deploy a node group with On-Demand or Spot capacity, you should consider the following conditions:
 
 - Spot Instances are a good fit for stateless, fault-tolerant, flexible applications. These include batch and machine learning training workloads, big data ETLs such as Apache Spark, queue processing applications, and stateless API endpoints. Because Spot is spare Amazon EC2 capacity, which can change over time, we recommend that you use Spot capacity for interruption-tolerant workloads. More specifically, Spot capacity is suitable for workloads that can tolerate periods where the required capacity isn’t available.

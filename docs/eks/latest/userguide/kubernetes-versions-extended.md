@@ -8,6 +8,22 @@ Amazon EKS supports Kubernetes versions longer than they are supported upstream,
 
 This topic gives important changes to be aware of for each Kubernetes version in extended support. When upgrading, carefully review the changes that have occurred between the old and new versions for your cluster.
 
+## Kubernetes 1.31
+
+Kubernetes `1.31` is now available in Amazon EKS. For more information about Kubernetes `1.31`, see the [official release announcement](https://kubernetes.io/blog/2024/08/13/kubernetes-v1-31-release/ "https://kubernetes.io/blog/2024/08/13/kubernetes-v1-31-release/").
+
+###### Important
+
+- The kubelet flag `--keep-terminated-pod-volumes` deprecated since 2017 has been removed as part of the version `1.31` release. This change impacts how terminated pod volumes are handled by the kubelet. If you are using this flag in your node configurations, you must update your bootstrap scripts and launch templates to remove it before upgrading.
+
+- The beta `VolumeAttributesClass` feature gate and API resource is enabled in Amazon EKS version `1.31`. This feature allows cluster operators to modify mutable properties of Persistent Volumes (PVs) managed by compatible CSI Drivers, including the Amazon EBS CSI Driver. To leverage this feature, ensure that your CSI Driver supports the `VolumeAttributesClass` feature (for the Amazon EBS CSI Driver, upgrade to version `1.35.0` or later to automatically enable the feature). You will be able to create `VolumeAttributesClass` objects to define the desired volume attributes, such as volume type and throughput, and associate them with your Persistent Volume Claims (PVCs). See the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ "https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/") as well as the documentation of your CSI driver for more information.
+  - For more information about the Amazon EBS CSI Driver, see [Use Kubernetes volume storage with Amazon EBS](ebs-csi.md "ebs-csi.md").
+
+- Kubernetes support for [AppArmor](https://apparmor.net/ "https://apparmor.net/") has graduated to stable and is now generally available for public use. This feature allows you to protect your containers with AppArmor by setting the `appArmorProfile.type` field in the container’s `securityContext`. Prior to Kubernetes version `1.30`, AppArmor was controlled by annotations. Starting with version `1.30`, it is controlled using fields. To leverage this feature, we recommend migrating away from annotations and using the `appArmorProfile.type` field to ensure that your workloads are compatible.
+- The PersistentVolume last phase transition time feature has graduated to stable and is now generally available for public use in Kubernetes version `1.31`. This feature introduces a new field, `.status.lastTransitionTime`, in the PersistentVolumeStatus, which provides a timestamp of when a PersistentVolume last transitioned to a different phase. This enhancement allows for better tracking and management of PersistentVolumes, particularly in scenarios where understanding the lifecycle of volumes is important.
+
+For the complete Kubernetes `1.31` changelog, see [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md")
+
 ## Kubernetes 1.30
 
 Kubernetes `1.30` is now available in Amazon EKS. For more information about Kubernetes `1.30`, see the [official release announcement](https://kubernetes.io/blog/2024/04/17/kubernetes-v1-30-release/ "https://kubernetes.io/blog/2024/04/17/kubernetes-v1-30-release/").
@@ -35,13 +51,3 @@ kubectl get cm kube-apiserver-legacy-service-account-token-tracking -n kube-syst
 ```
 
 For the complete Kubernetes `1.29` changelog, see [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.29.md#changelog-since-v1280](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.29.md#changelog-since-v1280 "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.29.md#changelog-since-v1280").
-
-## Kubernetes 1.28
-
-Kubernetes `1.28` is now available in Amazon EKS. For more information about Kubernetes `1.28`, see the [official release announcement](https://kubernetes.io/blog/2023/08/15/kubernetes-v1-28-release/ "https://kubernetes.io/blog/2023/08/15/kubernetes-v1-28-release/").
-
-- Kubernetes `v1.28` expanded the supported skew between core node and control plane components by one minor version, from `n-2` to `n-3`, so that node components (`kubelet` and `kube-proxy`) for the oldest supported minor version can work with control plane components (`kube-apiserver`, `kube-scheduler`, `kube-controller-manager`, `cloud-controller-manager`) for the newest supported minor version.
-- Metrics `force_delete_pods_total` and `force_delete_pod_errors_total` in the `Pod GC Controller` are enhanced to account for all forceful pods deletion. A reason is added to the metric to indicate whether the pod is forcefully deleted because it’s terminated, orphaned, terminating with the out-of-service taint, or terminating and unscheduled.
-- The `PersistentVolume (PV)` controller has been modified to automatically assign a default `StorageClass` to any unbound `PersistentVolumeClaim` with the `storageClassName` not set. Additionally, the `PersistentVolumeClaim` admission validation mechanism within the API server has been adjusted to allow changing values from an unset state to an actual `StorageClass` name.
-
-For the complete Kubernetes `1.28` changelog, see [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.28.md#changelog-since-v1270](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.28.md#changelog-since-v1270 "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.28.md#changelog-since-v1270").

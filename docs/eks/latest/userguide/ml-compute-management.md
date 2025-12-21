@@ -10,3 +10,4 @@ This section is designed to help you manage compute resources for machine learni
 
 - [Create a managed node group with Capacity Blocks for ML](capacity-blocks-mng.md "capacity-blocks-mng.md")
 - [Create self-managed nodes with Capacity Blocks for ML](capacity-blocks.md "capacity-blocks.md")
+- [Use P6e-GB200 UltraServers with Amazon EKS](ml-eks-nvidia-ultraserver.md "ml-eks-nvidia-ultraserver.md")

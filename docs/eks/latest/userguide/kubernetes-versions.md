@@ -19,7 +19,6 @@ The following Kubernetes versions are currently available in Amazon EKS standard
 - `1.34`
 - `1.33`
 - `1.32`
-- `1.31`
 
 For important changes to be aware of for each version in standard support, see [Kubernetes versions standard support](kubernetes-versions-standard.md "kubernetes-versions-standard.md").
 
@@ -27,9 +26,9 @@ For important changes to be aware of for each version in standard support, see [
 
 The following Kubernetes versions are currently available in Amazon EKS extended support:
 
+- `1.31`
 - `1.30`
 - `1.29`
-- `1.28`
 
 For important changes to be aware of for each version in extended support, see [Kubernetes versions extended support](kubernetes-versions-extended.md "kubernetes-versions-extended.md").
 
@@ -55,7 +54,6 @@ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/clus
 | `1.31`             | August 13, 2024   | September 26, 2024 | November 26, 2025       | November 26, 2026       |
 | `1.30`             | April 17, 2024    | May 23, 2024       | July 23, 2025           | July 23, 2026           |
 | `1.29`             | December 13, 2023 | January 23, 2024   | March 23, 2025          | March 23, 2026          |
-| `1.28`             | August 15, 2023   | September 26, 2023 | November 26, 2024       | November 26, 2025       |
 
 ## Get version information with AWS CLI
 

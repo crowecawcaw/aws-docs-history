@@ -100,19 +100,3 @@ The `public-info-viewer` RBAC role continues to apply for the health check endpo
 ### Amazon Linux 2 AMI deprecation
 
 Kubernetes version `1.32` is the last version for which Amazon EKS released AL2 AMIs. From version `1.33` onwards, Amazon EKS will continue to release AL2023 and Bottlerocket based AMIs. For more information, see [Guide to EKS AL2 & AL2-Accelerated AMIs transition features](eks-ami-deprecation-faqs.md "eks-ami-deprecation-faqs.md").
-
-## Kubernetes 1.31
-
-Kubernetes `1.31` is now available in Amazon EKS. For more information about Kubernetes `1.31`, see the [official release announcement](https://kubernetes.io/blog/2024/08/13/kubernetes-v1-31-release/ "https://kubernetes.io/blog/2024/08/13/kubernetes-v1-31-release/").
-
-###### Important
-
-- The kubelet flag `--keep-terminated-pod-volumes` deprecated since 2017 has been removed as part of the version `1.31` release. This change impacts how terminated pod volumes are handled by the kubelet. If you are using this flag in your node configurations, you must update your bootstrap scripts and launch templates to remove it before upgrading.
-
-- The beta `VolumeAttributesClass` feature gate and API resource is enabled in Amazon EKS version `1.31`. This feature allows cluster operators to modify mutable properties of Persistent Volumes (PVs) managed by compatible CSI Drivers, including the Amazon EBS CSI Driver. To leverage this feature, ensure that your CSI Driver supports the `VolumeAttributesClass` feature (for the Amazon EBS CSI Driver, upgrade to version `1.35.0` or later to automatically enable the feature). You will be able to create `VolumeAttributesClass` objects to define the desired volume attributes, such as volume type and throughput, and associate them with your Persistent Volume Claims (PVCs). See the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ "https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/") as well as the documentation of your CSI driver for more information.
-  - For more information about the Amazon EBS CSI Driver, see [Use Kubernetes volume storage with Amazon EBS](ebs-csi.md "ebs-csi.md").
-
-- Kubernetes support for [AppArmor](https://apparmor.net/ "https://apparmor.net/") has graduated to stable and is now generally available for public use. This feature allows you to protect your containers with AppArmor by setting the `appArmorProfile.type` field in the container’s `securityContext`. Prior to Kubernetes version `1.30`, AppArmor was controlled by annotations. Starting with version `1.30`, it is controlled using fields. To leverage this feature, we recommend migrating away from annotations and using the `appArmorProfile.type` field to ensure that your workloads are compatible.
-- The PersistentVolume last phase transition time feature has graduated to stable and is now generally available for public use in Kubernetes version `1.31`. This feature introduces a new field, `.status.lastTransitionTime`, in the PersistentVolumeStatus, which provides a timestamp of when a PersistentVolume last transitioned to a different phase. This enhancement allows for better tracking and management of PersistentVolumes, particularly in scenarios where understanding the lifecycle of volumes is important.
-
-For the complete Kubernetes `1.31` changelog, see [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md")

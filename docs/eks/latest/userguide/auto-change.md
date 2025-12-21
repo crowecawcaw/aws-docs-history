@@ -12,6 +12,14 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## November 19, 2025
+
+**Feature**: Enabled Seekable OCI (SOCI) parallel pull and unpack for G, P, and Trn family instances with local NVMe storage. SOCI parallel pull and unpack is always used for these instance families with EKS Auto Mode and there are no configuration changes required to enable it. For more information on SOCI, see the [launch blog](https://aws.amazon.com/blogs/containers/introducing-seekable-oci-parallel-pull-mode-for-amazon-eks/ "https://aws.amazon.com/blogs/containers/introducing-seekable-oci-parallel-pull-mode-for-amazon-eks/").
+
+## November 19, 2025
+
+**Feature**: Added support for static-capacity node pools that maintain a fixed number of nodes. For more information, see [Static-Capacity Node Pools in EKS Auto Mode](auto-static-capacity.md "auto-static-capacity.md").
+
 ## October 23, 2025
 
 **Feature:** Users with clusters in US regions can now request to use FIPS compatible AMIs by specifying `spec.advancedSecurity.fips` in their NodeClass definition.
@@ -87,7 +95,3 @@ DRA is not currently supported by EKS Auto Mode.
 ## March 14, 2025
 
 **Feature**: `IPv4` egress enabled in `IPv6` clusters. `IPv4` traffic egressing from `IPv6` Auto Mode clusters will now be automatically translated to the `v4` address of the node primary ENI.
-
-## November 19, 2025
-
-**Feature**: Supports static-capacity node pools that maintain a fixed number of nodes.

@@ -32,13 +32,13 @@ aws eks describe-cluster --name my-cluster --query cluster.version --output text
 
 ### Minimum VPC CNI version
 
-Version `1.14` or later of the Amazon VPC CNI plugin for Kubernetes on your cluster. You can see which version that you currently have with the following command.
+To create both standard Kubernetes network policies and admin network policies, you need to run version `1.21` of the VPC CNI plugin. You can see which version that you currently have with the following command.
 
 ```
 kubectl describe daemonset aws-node --namespace kube-system | grep amazon-k8s-cni: | cut -d : -f 3
 ```
 
-If your version is earlier than `1.14`, see [Update the Amazon VPC CNI (Amazon EKS add-on)](vpc-add-on-update.md "vpc-add-on-update.md") to upgrade to version `1.14` or later.
+If your version is earlier than `1.21`, see [Update the Amazon VPC CNI (Amazon EKS add-on)](vpc-add-on-update.md "vpc-add-on-update.md") to upgrade to version `1.21` or later.
 
 ### Minimum Linux kernel version
 
@@ -62,7 +62,7 @@ env:
 
 ## Step 2: Enable the network policy parameter for the add-on
 
-The network policy feature uses port `8162` on the node for metrics by default. Also, the feature used port `8163` for health probes. If you run another application on the nodes or inside pods that needs to use these ports, the app fails to run. In VPC CNI version `v1.14.1` or later, you can change these ports.
+The network policy feature uses port `8162` on the node for metrics by default. Also, the feature uses port `8163` for health probes. If you run another application on the nodes or inside pods that needs to use these ports, the app fails to run. From VPC CNI version `v1.14.1` or later, you can change these ports.
 
 Use the following procedure to enable the network policy parameter for the add-on.
 
@@ -219,6 +219,6 @@ There are 2 containers in the `aws-node` pods in versions `1.14` and later. In p
 
 You can now deploy Kubernetes network policies to your cluster.
 
-To implement Kubernetes network policies you create Kubernetes `NetworkPolicy` objects and deploy them to your cluster. `NetworkPolicy` objects are scoped to a namespace. You implement policies to allow or deny traffic between Pods based on label selectors, namespaces, and IP address ranges. For more information about creating `NetworkPolicy` objects, see [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource "https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource") in the Kubernetes documentation.
+To implement Kubernetes network policies, you can create Kubernetes `NetworkPolicy` or `ClusterNetworkPolicy` objects and deploy them to your cluster. `NetworkPolicy` objects are scoped to a namespace, while `ClusterNetworkPolicy` objects can be scoped to the whole cluster or multiple namespaces. You implement policies to allow or deny traffic between Pods based on label selectors, namespaces, and IP address ranges. For more information about creating `NetworkPolicy` objects, see [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource "https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource") in the Kubernetes documentation.
 
 Enforcement of Kubernetes `NetworkPolicy` objects is implemented using the Extended Berkeley Packet Filter (eBPF). Relative to `iptables` based implementations, it offers lower latency and performance characteristics, including reduced CPU utilization and avoiding sequential lookups. Additionally, eBPF probes provide access to context rich data that helps debug complex kernel level issues and improve observability. Amazon EKS supports an eBPF-based exporter that leverages the probes to log policy results on each node and export the data to external log collectors to aid in debugging. For more information, see the [eBPF documentation](https://ebpf.io/what-is-ebpf/#what-is-ebpf "https://ebpf.io/what-is-ebpf/#what-is-ebpf").

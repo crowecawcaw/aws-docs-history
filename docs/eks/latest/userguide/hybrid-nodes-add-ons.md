@@ -128,7 +128,7 @@ spec:
         enableCredentialsFile: true # <-- Add this
 ```
 
-This will configure `nodeadm` to create a credentials file to be configured on the node under `/eks-hybrid/.aws/credentials`, which will be used by `eks-pod-identity-agent` pods. This credentials file will contain temporary AWS credentials that will be refreshed periodically. 2. After you update the `nodeadm` config on _each_ node, run the following `nodeadm init` command with your `nodeConfig.yaml` to join your hybrid nodes to your Amazon EKS cluster. If your nodes have joined the cluster previous, still run the `init` command again.
+This will configure `nodeadm` to create a credentials file to be configured on the node under `/eks-hybrid/.aws/credentials`, which will be used by `eks-pod-identity-agent` pods. This credentials file will contain temporary AWS credentials that will be refreshed periodically. 2. After you update the `nodeadm` config on _each_ node, run the following `nodeadm init` command with your `nodeConfig.yaml` to join your hybrid nodes to your Amazon EKS cluster. If your nodes have joined the cluster previous, still run the `nodeadm init` command again.
 
 ```
 nodeadm init -c file://nodeConfig.yaml

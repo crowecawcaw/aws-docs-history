@@ -12,10 +12,11 @@ Before you can connect hybrid nodes to your Amazon EKS cluster, you must create 
 
 The Hybrid Nodes IAM role must have the following permissions.
 
-- Permissions for `nodeadm` to use the `eks:DescribeCluster` action to gather information about the cluster used for connecting hybrid nodes to the cluster. If you do not enable the `eks:DescribeCluster` action, then you must pass your Kubernetes API endpoint, cluster CA bundle, and service IPv4 CIDR in the node configuration you pass to `nodeadm` when you run `nodeadm` init.
+- Permissions for `nodeadm` to use the `eks:DescribeCluster` action to gather information about the cluster to which you want to connect hybrid nodes. If you do not enable the `eks:DescribeCluster` action, then you must pass your Kubernetes API endpoint, cluster CA bundle, and service IPv4 CIDR in the node configuration you pass to the `nodeadm init` command.
+- Permissions for `nodeadm` to use the `eks:ListAccessEntries` action to list the access entries on the cluster to which you want to connect hybrid nodes. If you do not enable the `eks:ListAccessEntries` action, then you must pass the `--skip cluster-access-validation` flag when you run the `nodeadm init` command.
 - Permissions for the kubelet to use container images from Amazon Elastic Container Registry (Amazon ECR) as defined in the
   [AmazonEC2ContainerRegistryPullOnly](../../../aws-managed-policy/latest/reference/AmazonEC2ContainerRegistryPullOnly.md "../../../aws-managed-policy/latest/reference/AmazonEC2ContainerRegistryPullOnly.md") policy.
-- If using AWS SSM, permissions for `nodeadm` init to use AWS SSM hybrid activations as defined in the
+- If using AWS SSM, permissions for `nodeadm init` to use AWS SSM hybrid activations as defined in the
   [aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md") policy.
 - If using AWS SSM, permissions to use the `ssm:DeregisterManagedInstance` action and `ssm:DescribeInstanceInformation` action for `nodeadm uninstall` to deregister instances.
 - (Optional) Permissions for the Amazon EKS Pod Identity Agent to use the `eks-auth:AssumeRoleForPodIdentity` action to retrieve credentials for pods.

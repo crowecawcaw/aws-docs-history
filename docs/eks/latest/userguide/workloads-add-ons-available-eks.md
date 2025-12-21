@@ -488,7 +488,7 @@ To learn more about the add-on, please refer to the [AWS Secrets Manager documen
 
 ## Amazon SageMaker Spaces
 
-The Amazon SageMaker Spaces Add-on provides ability to run IDEs and Notebooks on EKS or HyperPod-EKS clusters. Administrators can use EKS Console to install the add-on on their cluster, and define default space configurations such as images, compute resources, local storage for notebook settings (additional storage to be attached to their spaces), file systems, and initialization scripts. Admins can use the kubectl to install the operator, create default settings, and manage all spaces in a centralized location.
+The Amazon SageMaker Spaces Add-on provides ability to run IDEs and Notebooks on EKS or HyperPod-EKS clusters. Administrators can use EKS Console to install the add-on on their cluster, and define default space configurations such as images, compute resources, local storage for notebook settings (additional storage to be attached to their spaces), file systems, and initialization scripts.
 
 AI developers can use kubectl to create, update, and delete spaces. They have the flexibility to use default configurations provided by admins or customize settings. AI developers can access their spaces on EKS or HyperPod-EKS using their local VS Code IDEs, and/or their web browser that hosts their JupyterLab or CodeEditor IDE on custom DNS domain configured by their admins. They can also use kubernetes’ port forwarding feature to access spaces in their web browsers.
 

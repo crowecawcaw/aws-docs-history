@@ -4,13 +4,105 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Limit Pod traffic with Kubernetes network policies
 
+## Overview
+
 By default, there are no restrictions in Kubernetes for IP addresses, ports, or connections between any Pods in your cluster or between your Pods and resources in any other network. You can use Kubernetes _network policy_ to restrict network traffic to and from your Pods. For more information, see [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/ "https://kubernetes.io/docs/concepts/services-networking/network-policies/") in the Kubernetes documentation.
 
-If you have version `1.13` or earlier of the Amazon VPC CNI plugin for Kubernetes on your cluster, you need to implement a third party solution to apply Kubernetes network policies to your cluster. Version `1.14` or later of the plugin can implement network policies, so you don’t need to use a third party solution. In this topic, you learn how to configure your cluster to use Kubernetes network policy on your cluster without using a third party add-on.
+## Standard network policy
 
-Network policies in the Amazon VPC CNI plugin for Kubernetes are supported in the following configurations.
+You can use the standard `NetworkPolicy` to segment pod-to-pod traffic in the cluster. These network policies operate at layers 3 and 4 of the OSI network model, allowing you to control traffic flow at the IP address or port level within your Amazon EKS cluster. Standard network policies are scoped to the namespace level.
 
-- Version 1.14 or later of the Amazon VPC CNI plugin for Kubernetes on your cluster.
+### Use cases
+
+- Segment network traffic between workloads to ensure that only related applications can talk to each other.
+- Isolate tenants at the namespace level using policies to enforce network separation.
+
+### Example
+
+In the policy below, egress traffic from the _webapp_ pods in the _sun_ namespace is restricted.
+
+```
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: webapp-egress-policy
+  namespace: sun
+spec:
+  podSelector:
+    matchLabels:
+      role: webapp
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: moon
+      podSelector:
+        matchLabels:
+          role: frontend
+    ports:
+    - protocol: TCP
+      port: 8080
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: stars
+      podSelector:
+        matchLabels:
+          role: frontend
+    ports:
+    - protocol: TCP
+      port: 8080
+```
+
+The policy applies to pods with the label `role: webapp` in the `sun` namespace.
+
+- Allowed traffic: Pods with the label `role: frontend` in the `moon` namespace on TCP port `8080`
+- Allowed traffic: Pods with the label role: frontend in the `stars` namespace on TCP port `8080`
+- Blocked traffic: All other outbound traffic from `webapp` pods is implicitly denied
+
+## Admin (or cluster) network policy
+
+![llustration of the evaluation order for network policies in EKS](images/evaluation-order.png)
+
+You can use the `ClusterNetworkPolicy` to enforce a network security standard that applies to the whole cluster. Instead of repetitively defining and maintaining a distinct policy for each namespace, you can use a single policy to centrally manage network access controls for different workloads in the cluster, irrespective of their namespace.
+
+### Use cases
+
+- Centrally manage network access controls for all (or a subset of) workloads in your EKS cluster.
+- Define a default network security posture across the cluster.
+- Extend organizational security standards to the scope of the cluster in a more operationally efficient way.
+
+### Example
+
+In the policy below, you can explicitly block cluster traffic from other namespaces to prevent network access to a sensitive workload namespace.
+
+```
+apiVersion: networking.k8s.aws/v1alpha1
+kind: ClusterNetworkPolicy
+metadata:
+  name: protect-sensitive-workload
+spec:
+  tier: Admin
+  priority: 10
+  subject:
+    namespaces:
+      matchLabels:
+        kubernetes.io/metadata.name: earth
+  ingress:
+    - action: Deny
+      from:
+      - namespaces:
+          matchLabels: {} # Match all namespaces.
+      name: select-all-deny-all
+```
+
+## Important notes
+
+Network policies in the Amazon VPC CNI plugin for Kubernetes are supported in the configurations listed below.
+
+- Version 1.21.0 (or later) of Amazon VPC CNI plugin for both standard and admin network policies.
 - Cluster configured for `IPv4` or `IPv6` addresses.
 - You can use network policies with [security groups for Pods](security-groups-for-pods.md "security-groups-for-pods.md"). With network policies, you can control all in-cluster communication. With security groups for Pods, you can control access to AWS services from applications within a Pod.
 - You can use network policies with _custom networking_ and _prefix delegation_.
@@ -28,6 +120,17 @@ Network policies in the Amazon VPC CNI plugin for Kubernetes are supported in th
 - You can apply multiple network policies to the same Pod. When two or more policies that select the same Pod are configured, all policies are applied to the Pod.
 - The maximum number of combinations of ports and protocols for a single IP address range (CIDR) is 24 across all of your network policies. Selectors such as `namespaceSelector` resolve to one or more CIDRs. If multiple selectors resolve to a single CIDR or you specify the same direct CIDR multiple times in the same or different network policies, these all count toward this limit.
 - For any of your Kubernetes services, the service port must be the same as the container port. If you’re using named ports, use the same name in the service spec too.
+
+**Admin Network Policies**
+
+1. **Admin tier policies (evaluated first)**: All Admin tier ClusterNetworkPolicies are evaluated before any other policies. Within the Admin tier, policies are processed in priority order (lowest priority number first). The action type determines what happens next.
+   - **Deny action (highest precedence)**: When an Admin policy with a Deny action matches traffic, that traffic is immediately blocked regardless of any other policies. No further ClusterNetworkPolicy or NetworkPolicy rules are processed. This ensures that organization-wide security controls cannot be overridden by namespace-level policies.
+   - **Allow action**: After Deny rules are evaluated, Admin policies with Allow actions are processed in priority order (lowest priority number first). When an Allow action matches, the traffic is accepted and no further policy evaluation occurs. These policies can grant access across multiple namespaces based on label selectors, providing centralized control over which workloads can access specific resources.
+   - **Pass action**: Pass actions in Admin tier policies delegate decision-making to lower tiers. When traffic matches a Pass rule, evaluation skips all remaining Admin tier rules for that traffic and proceeds directly to the NetworkPolicy tier. This allows administrators to explicitly delegate control for certain traffic patterns to application teams. For example, you might use Pass rules to delegate intra-namespace traffic management to namespace administrators while maintaining strict controls over external access.
+
+2. **Network policy tier**: If no Admin tier policy matches with Deny or Allow, or if a Pass action was matched, namespace-scoped NetworkPolicy resources are evaluated next. These policies provide fine-grained control within individual namespaces and are managed by application teams. Namespace-scoped policies can only be more restrictive than Admin policies. They cannot override an Admin policy’s Deny decision, but they can further restrict traffic that was allowed or passed by Admin policies.
+3. **Baseline tier Admin policies**: If no Admin or namespace-scoped policies match the traffic, Baseline tier ClusterNetworkPolicies are evaluated. These provide default security postures that can be overridden by namespace-scoped policies, allowing administrators to set organization-wide defaults while giving teams flexibility to customize as needed. Baseline policies are evaluated in priority order (lowest priority number first).
+4. **Default deny (if no policies match)**: This deny-by-default behavior ensures that only explicitly permitted connections are allowed, maintaining a strong security posture.
 
 **Migration**
 
