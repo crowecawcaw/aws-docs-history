@@ -1,67 +1,135 @@
-# Deleting a parameter group
+# Creating a parameter group
 
-You can delete a custom parameter group using the MemoryDB console, the AWS CLI, or the MemoryDB API.
+You need to create a new parameter group if there is one or more parameter values that you want
+changed from the default values.
+You can create a parameter group using the MemoryDB console, the AWS CLI, or the MemoryDB API.
 
-You cannot delete a parameter group if it is associated with any clusters.
-Nor can you delete any of the default parameter groups.
+## Creating a parameter group (Console)
 
-## Deleting a parameter group (Console)
+The following procedure shows how to create a parameter group using the MemoryDB console.
 
-The following procedure shows how to delete a parameter group using the MemoryDB console.
-
-###### To delete a parameter group using the MemoryDB console
+###### To create a parameter group using the MemoryDB console
 
 1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
 2. To see a list of all available parameter groups,
    in the left hand navigation pane choose **Parameter Groups**.
-3. Choose the parameter groups you want to delete by choosing the radio button to the left of
-   the parameter group's name.
+3. To create a parameter group, choose **Create parameter group**.
 
-Choose **Actions** and then choose **Delete**. 4. The **Delete Parameter Groups** confirmation screen will appear. 5. To delete the parameter groups enter **Delete** in the confirmation text box.
+The **Create parameter group** page appears. 4. In the **Name** box, type in a unique name for this parameter group.
 
-To keep the parameter groups, choose **Cancel**.
+When creating a cluster
+or modifying a cluster's parameter group, you will choose the parameter group by its name.
+Therefore, we recommend that the name be informative and somehow identify the parameter group's family.
 
-## Deleting a parameter group (AWS CLI)
+Parameter group naming constraints are as follows:
 
-To delete a parameter group using the AWS CLI,
-use the command `delete-parameter-group`.
-For the parameter group to delete, the parameter group specified by
-`--parameter-group-name` cannot have any clusters associated with it,
-nor can it be a default parameter group.
+    * Must begin with an ASCII letter.
+    * Can only contain ASCII letters, digits, and hyphens.
+    * Must be 1–255 characters long.
+    * Can't contain two consecutive hyphens.
+    * Can't end with a hyphen.
 
-The following sample code deletes the _myRedis6x_ parameter group.
+5. In the **Description** box, type in a description for the parameter group.
+6. In the engine version compatibility box, choose an engine version that this parameter group corresponds to.
+7. In the **Tags**, optionally add tags to search and filter your parameter groups or track your AWS costs.
+8. To create the parameter group, choose **Create**.
+
+To terminate the process without creating the parameter group, choose **Cancel**. 9. When the parameter group is created, it will have the family's default values.
+To change the default values you must modify the parameter group.
+For more information, see [Modifying a parameter group](parametergroups.md "parametergroups.md").
+
+## Creating a parameter group (AWS CLI)
+
+To create a parameter group using the AWS CLI, use the command `create-parameter-group` with
+these parameters.
+
+- `--parameter-group-name` —
+  The name of the parameter group.
+
+Parameter group naming constraints are as follows:
+
+    + Must begin with an ASCII letter.
+    + Can only contain ASCII letters, digits, and hyphens.
+    + Must be 1–255 characters long.
+    + Can't contain two consecutive hyphens.
+    + Can't end with a hyphen.
+
+- `--family` —
+  The engine and version family for the parameter group.
+- `--description` —
+  A user supplied description for the parameter group.
+
+The following example creates a parameter group named _myRedis6x_ using the memorydb_redis6
+family as the template.
 
 For Linux, macOS, or Unix:
 
 ```
-aws memorydb delete-parameter-group \
-    --parameter-group-name `myRedis6x`
+aws memorydb create-parameter-group \
+    --parameter-group-name `myRedis6x`  \
+    --family `memorydb_redis6` \
+    --description `"My first parameter group"`
 ```
 
 For Windows:
 
 ```
-aws memorydb delete-parameter-group ^
-    --parameter-group-name `myRedis6x`
+aws memorydb create-parameter-group ^
+    --parameter-group-name `myRedis6x`  ^
+    --family `memorydb_redis6` ^
+    --description `"My first parameter group"`
 ```
 
-For more information, see [delete-parameter-group](../../../cli/latest/reference/memorydb/delete-parameter-group.md "../../../cli/latest/reference/memorydb/delete-parameter-group.md").
+The output from this command should look something like this.
 
-## Deleting a parameter group (MemoryDB API)
+```
+{
+    "ParameterGroup": {
+        "Name": "myRedis6x",
+        "Family": "memorydb_redis6",
+        "Description": "My first parameter group",
+        "ARN": "arn:aws:memorydb:us-east-1:012345678912:parametergroup/myredis6x"
+    }
+}
+```
 
-To delete a parameter group using the MemoryDB API,
-use the `DeleteParameterGroup` action.
-For the parameter group to delete, the parameter group specified by
-`ParameterGroupName`
-cannot have any clusters associated with it,
-nor can it be a default parameter group.
+When the parameter group is created, it will have the family's default values.
+To change the default values you must modify the parameter group.
+For more information, see [Modifying a parameter group](parametergroups.md "parametergroups.md").
 
-The following sample code deletes the _myRedis6x_ parameter group.
+For more information, see [`create-parameter-group`](../../../cli/latest/reference/memorydb/create-parameter-group.md "../../../cli/latest/reference/memorydb/create-parameter-group.md").
+
+## Creating a parameter group (MemoryDB API)
+
+To create a parameter group using the MemoryDB API, use the `CreateParameterGroup` action with
+these parameters.
+
+- `ParameterGroupName` —
+  The name of the parameter group.
+
+Parameter group naming constraints are as follows:
+
+    + Must begin with an ASCII letter.
+    + Can only contain ASCII letters, digits, and hyphens.
+    + Must be 1–255 characters long.
+    + Can't contain two consecutive hyphens.
+    + Can't end with a hyphen.
+
+- `Family` —
+  The engine and version family for the parameter group. For example,
+  `memorydb_redis6`.
+- `Description` —
+  A user supplied description for the parameter group.
+
+The following example creates a parameter group named _myRedis6x_ using the memorydb_redis6
+family as the template.
 
 ```
 https://memory-db.us-east-1.amazonaws.com/
-   ?Action=DeleteParameterGroup
+   ?Action=CreateParameterGroup
+   &Family=`memorydb_redis6`
    &ParameterGroupName=`myRedis6x`
+   &Description=`My%20first%20parameter%20group`
    &SignatureVersion=4
    &SignatureMethod=HmacSHA256
    &Timestamp=20210802T192317Z
@@ -69,4 +137,26 @@ https://memory-db.us-east-1.amazonaws.com/
    &X-Amz-Credential=<credential>
 ```
 
-For more information, see [`DeleteParameterGroup`](../APIReference/API_DeleteParameterGroup.md "../APIReference/API_DeleteParameterGroup.md").
+The response from this action should look something like this.
+
+```
+<CreateParameterGroupResponse xmlns="http://memory-db.us-east-1.amazonaws.com/doc/2021-01-01/">
+  <CreateParameterGroupResult>
+    <ParameterGroup>
+      <Name>myRedis6x</Name>
+      <Family>memorydb_redis6</Family>
+      <Description>My first parameter group</Description>
+      <ARN>arn:aws:memorydb:us-east-1:012345678912:parametergroup/myredis6x</ARN>
+    </ParameterGroup>
+  </CreateParameterGroupResult>
+  <ResponseMetadata>
+    <RequestId>d8465952-af48-11e0-8d36-859edca6f4b8</RequestId>
+  </ResponseMetadata>
+</CreateParameterGroupResponse>
+```
+
+When the parameter group is created, it will have the family's default values.
+To change the default values you must modify the parameter group.
+For more information, see [Modifying a parameter group](parametergroups.md "parametergroups.md").
+
+For more information, see [`CreateParameterGroup`](../APIReference/API_CreateParameterGroup.md "../APIReference/API_CreateParameterGroup.md").
