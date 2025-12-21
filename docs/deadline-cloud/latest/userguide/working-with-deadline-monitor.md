@@ -20,6 +20,7 @@ The Deadline Cloud monitor also helps you monitor usage and manage costs. For mo
 
 - [Share the Deadline Cloud monitor URL](share-monitor-url.md "share-monitor-url.md")
 - [Open the Deadline Cloud monitor](open-deadline-cloud-monitor.md "open-deadline-cloud-monitor.md")
+- [Submit a job bundle](submit-job-bundle-monitor.md "submit-job-bundle-monitor.md")
 - [View queue and fleet details in Deadline Cloud](view-queue-and-fleet.md "view-queue-and-fleet.md")
 - [Manage jobs, steps, and tasks in Deadline Cloud](view-jobs-steps-tasks.md "view-jobs-steps-tasks.md")
 - [View and manage job details in Deadline Cloud](view-a-job.md "view-a-job.md")

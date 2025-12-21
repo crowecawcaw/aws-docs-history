@@ -77,11 +77,11 @@ Deadline Cloud works with the following AWS services:
 - **Amazon EC2**–This AWS service provides virtual servers
   that run your applications in the cloud. You can configure your projects to use Amazon EC2 instances
   for your workloads. For more information, see [Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/ec2-instances-and-amis.md "../../../AWSEC2/latest/UserGuide/ec2-instances-and-amis.md").
-- **Amazon EC2 Auto Scaling**– With Amazon EC2 Auto Scaling, you can automatically
-  increase or decrease the number of instances as the demand on your instances changes. Amazon EC2 Auto Scaling
+- **Amazon EC2 Auto Scaling**– With Auto Scaling, you can automatically
+  increase or decrease the number of instances as the demand on your instances changes. Auto Scaling
   helps to make sure that you're running your desired number of instances, even if an instance
-  fails. If you enable Amazon EC2 Auto Scaling with Deadline Cloud, instances that are launched by Amazon EC2 Auto Scaling are automatically
-  registered with the workload. Likewise, instances that are terminated by Amazon EC2 Auto Scaling are automatically
+  fails. If you enable Auto Scaling with Deadline Cloud, instances that are launched by Auto Scaling are automatically
+  registered with the workload. Likewise, instances that are terminated by Auto Scaling are automatically
   de-registered from the workload. For more information, see the [Amazon EC2 Auto Scaling User
   Guide](../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md "../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md").
 - **AWS PrivateLink**– AWS PrivateLink provides private
