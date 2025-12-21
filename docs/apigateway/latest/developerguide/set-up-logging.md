@@ -16,7 +16,7 @@ sensitive request parameters from the logged data.
 
 To improve your security posture, we recommend that you use execution logging at the `ERROR` or
 `INFO` level. You might need to do this to comply with various compliance frameworks. For more information, see [Amazon API Gateway controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md")
-in the _AWS Security Hub CSPM User Guide_.
+in the _AWS Security Hub User Guide_.
 
 When you deploy an API, API Gateway creates a log group and log streams under the log group. The log group is named
 following the `API-Gateway-Execution-Logs_{rest-api-id}/{stage_name}` format. Within each log group,

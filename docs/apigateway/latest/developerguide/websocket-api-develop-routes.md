@@ -102,7 +102,7 @@ routes. For more information, see [Overview of WebSocket APIs in API Gateway](ap
 In the CLI, you can create routes before or after you create integrations, and you
 can reuse the same integration for multiple routes.
 
-#### Create a route using
+### Create a route using
 
 the API Gateway console
 
@@ -121,7 +121,7 @@ in the route key name. This prefix is reserved for predefined
 routes. 4. Select and configure the integration type for the route. For more information, see [Set up
 a WebSocket API integration request using the API Gateway console](apigateway-websocket-api-integration-requests.md#apigateway-websocket-api-integration-request-using-console "apigateway-websocket-api-integration-requests.md#apigateway-websocket-api-integration-request-using-console").
 
-#### Create a route using
+### Create a route using
 
 the AWS CLI
 
@@ -142,7 +142,7 @@ The output will look like a following:
 }
 ```
 
-#### Specify route
+### Specify route
 
 request settings for `$connect`
 
@@ -179,7 +179,7 @@ called on every connection.
   with usage plans to control and track access to your APIs. For more
   information, see [Usage plans and API keys for REST APIs in API Gateway](api-gateway-api-usage-plans.md "api-gateway-api-usage-plans.md").
 
-#### Set
+### Set
 
 up the `$connect` route request using the API Gateway console
 

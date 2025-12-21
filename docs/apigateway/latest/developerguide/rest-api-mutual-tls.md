@@ -43,13 +43,13 @@ API by using a custom domain name that has mutual TLS enabled, clients must pres
 in API requests. You can find more information at [Custom domain name for public
 REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md").
 
-#### Using AWS Certificate Manager issued certificates
+### Using AWS Certificate Manager issued certificates
 
 You can request a publicly trusted certificate directly from ACM or import public
 or self-signed certificates. To setup a certificate in ACM, go to [ACM](https://console.aws.amazon.com/acm/ "https://console.aws.amazon.com/acm/"). If you would like to import a certificate,
 continue reading in the following section.
 
-#### Using an imported or AWS Private Certificate Authority certificate
+### Using an imported or AWS Private Certificate Authority certificate
 
 To use a certificate imported into ACM or a certificate from AWS Private Certificate Authority with mutual TLS, API Gateway needs an
 `ownershipVerificationCertificate` issued by ACM. This ownership certificate is only used to

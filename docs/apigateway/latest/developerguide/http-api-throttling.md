@@ -16,7 +16,7 @@ exceptions, the client can resubmit the failed requests in a way that is rate li
 As an API developer, you can set the target limits for individual API stages or routes to improve overall
 performance across all APIs in your account.
 
-### Account-level
+## Account-level
 
 throttling per Region
 
@@ -30,7 +30,7 @@ Per-account limits are applied to all APIs in an account in a specified Region. 
 limit can be increased upon request - higher limits are possible with APIs that have shorter timeouts and
 smaller payloads. To request an increase of account-level throttling limits per Region, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). For more information, see [Amazon API Gateway quotas](limits.md "limits.md"). Note that these limits can't be higher than the AWS throttling limits.
 
-### Route-level throttling
+## Route-level throttling
 
 You can set route-level throttling to override the account-level request throttling limits for a specific stage or for individual routes in your API. The default route throttling limits can't exceed account-level rate limits.
 

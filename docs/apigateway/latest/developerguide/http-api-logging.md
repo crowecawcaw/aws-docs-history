@@ -5,7 +5,7 @@ content of your logs.
 
 To improve your security posture, we recommend that you write logs to CloudWatch Logs for all stages of your HTTP API.
 You might need to do this to comply with various compliance frameworks. For more information, see [Amazon API Gateway controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md") in
-the _AWS Security Hub CSPM User Guide_.
+the _AWS Security Hub User Guide_.
 
 To turn on logging for an HTTP API, you must do the following.
 

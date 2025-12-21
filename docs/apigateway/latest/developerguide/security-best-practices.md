@@ -46,4 +46,4 @@ For details, see [Monitoring API Gateway API configuration with AWS Config](apig
 Monitor your usage of API Gateway as it relates to security best practices by using [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). Security Hub CSPM uses _security controls_
 to evaluate resource configurations and _security standards_ to help you comply with various compliance
 frameworks. For more information about using Security Hub CSPM to evaluate API Gateway resources, see [Amazon API Gateway controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md")
-in the _AWS Security Hub CSPM User Guide_.
+in the _AWS Security Hub User Guide_.
