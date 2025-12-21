@@ -160,7 +160,7 @@ node represents your specific Lambda function. The following example shows a tra
 are named **my-function**, but one has an origin of `AWS::Lambda` and the other has
 an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.
 
-![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](/images/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
+![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](images/V2_sandbox_images/my-function-2-v1.png)
 
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.
 

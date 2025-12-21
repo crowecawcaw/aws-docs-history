@@ -1,11 +1,11 @@
 # Scaling Lambda Managed Instances
 
-Lambda Managed Instances does not scale when invocations arrive and does not support cold starts. Instead, it scales asynchronously using resource consumption signals. Managed Instances currently scales based on CPU resource utilization only.
+Lambda Managed Instances does not scale when invocations arrive and does not support cold starts. Instead, it scales asynchronously using resource consumption signals. Managed Instances currently scales based on CPU resource utilization and multi-concurrency saturation.
 
 **Key differences:**
 
 - **Lambda (default):** Scales when there is no free execution environment to handle an incoming invocation (cold start)
-- **Lambda Managed Instances:** Scales asynchronously based on CPU resource utilization of execution environments
+- **Lambda Managed Instances:** Scales asynchronously based on CPU resource utilization and multi-concurrency saturation of execution environments
   If your traffic more than doubles within 5 minutes, you may see throttles as Lambda scales up instances and execution environments to meet demand.
 
 ## The scaling lifecycle

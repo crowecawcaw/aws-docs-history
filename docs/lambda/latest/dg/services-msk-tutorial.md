@@ -788,7 +788,7 @@ You can provide function code to your Lambda using the console.
 3. In the **Code source** pane, select your source code file and edit it in the integrated code editor.
 4. In the **DEPLOY** section, choose **Deploy** to update your function's code:
 
-![Deploy button in the Lambda console code editor](images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](/images/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 ## Test your Lambda function to verify it is connected to your Amazon MSK topic
 
