@@ -49,7 +49,7 @@ recommendations to right-size your compute resources.
   - [Attribute-based
     instance type selection for Amazon EC2 Fleet](../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md "../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md")
   - [Create
-    an Amazon EC2 Auto Scaling group using attribute-based instance
+    an Auto Scaling group using attribute-based instance
     type selection](../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md "../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md")
   - [Optimizing
     your Kubernetes compute costs with Karpenter

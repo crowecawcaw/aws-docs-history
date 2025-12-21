@@ -43,7 +43,7 @@ For each workload that needs to be restored after a degradation event, evaluate 
 
 Consider changing the control action to a data plane action:
 
-- Amazon EC2 Auto Scaling (control plane) to pre-scaled Amazon EC2 resources (data plane)
+- Auto Scaling (control plane) to pre-scaled Amazon EC2 resources (data plane)
 - Amazon EC2 instance scaling (control plane) to AWS Lambda scaling (data plane)
 - Assess any designs using Kubernetes and the nature of the control plane actions. Adding pods is a data plane action in Kubernetes. Actions should be limited to adding pods and not adding nodes. Using [over-provisioned nodes](https://www.eksworkshop.com/docs/autoscaling/compute/cluster-autoscaler/overprovisioning/ "https://www.eksworkshop.com/docs/autoscaling/compute/cluster-autoscaler/overprovisioning/") is the preferred method to limit control plane actions
 

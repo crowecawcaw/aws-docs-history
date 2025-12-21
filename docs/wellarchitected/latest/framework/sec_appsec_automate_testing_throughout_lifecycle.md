@@ -38,8 +38,7 @@ lifecycle.
 - Automating test cases with frequently changing requirements.
 - Failing to provide guidance on how to address the results of
   security tests.
-
-**Benefits of establishing this best practice:**
+  **Benefits of establishing this best practice:**
 
 - Reduced dependency on people evaluating the security
   properties of systems.
@@ -52,7 +51,6 @@ lifecycle.
 - Increased visibility of systemic or repeated behavior across
   multiple workstreams, which can be used to drive
   organization-wide improvements.
-
   **Level of risk exposed if this best practice is not established:** Medium
 
 ## Implementation guidance

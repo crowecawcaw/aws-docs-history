@@ -73,10 +73,10 @@ Another consideration for latency-sensitive workloads is cross-zone load balanci
 cross-zone load balancing, each load balancer node distributes traffic across the registered
 targets in all allowed Availability Zones.
 
-Use Amazon EC2 Auto Scaling integrated with your load balancer. One of the key aspects of a performance
+Use Auto Scaling integrated with your load balancer. One of the key aspects of a performance
 efficient system has to do with right-sizing your backend resources. To do this, you can
 leverage load balancer integrations for backend target resources. Using the load balancer
-integration with Amazon EC2 Auto Scaling groups, targets will be added or removed from the load balancer as
+integration with Auto Scaling groups, targets will be added or removed from the load balancer as
 required in response to incoming traffic. Load balancers can also integrate with [Amazon ECS](../../../AmazonECS/latest/developerguide/service-load-balancing.md "../../../AmazonECS/latest/developerguide/service-load-balancing.md") and [Amazon EKS](../../../eks/latest/userguide/alb-ingress.md "../../../eks/latest/userguide/alb-ingress.md") for containerized workloads.
 
 - [Amazon ECS - Service load
@@ -155,7 +155,7 @@ required in response to incoming traffic. Load balancers can also integrate with
   Application Load Balancers](../../../elasticloadbalancing/latest/application/load-balancer-monitoring.md "../../../elasticloadbalancing/latest/application/load-balancer-monitoring.md")
 - [Monitor your
   Network Load Balancer](../../../elasticloadbalancing/latest/network/load-balancer-monitoring.md "../../../elasticloadbalancing/latest/network/load-balancer-monitoring.md")
-- [Use ELB to distribute traffic across the instances in your Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md "../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md")
+- [Use ELB to distribute traffic across the instances in your Auto Scaling group](../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md "../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md")
 
 **Related videos:**
 

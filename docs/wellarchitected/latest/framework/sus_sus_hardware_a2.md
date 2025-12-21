@@ -39,7 +39,7 @@ operate your cloud resource and meet your business needs.
     I choose the appropriate Amazon EC2 instance type for my workload?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-choose-type-for-workload/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-choose-type-for-workload/")
   - [Attribute-based instance type selection for Amazon EC2 Fleet.](../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md "../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md")
   - [Create
-    an Amazon EC2 Auto Scaling group using attribute-based instance type selection.](../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md "../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md")
+    an Auto Scaling group using attribute-based instance type selection.](../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md "../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md")
 
 - **Scale:** Use small increments to scale variable
   workloads.
@@ -73,7 +73,7 @@ operate your cloud resource and meet your business needs.
 **Related documents:**
 
 - [Optimizing your AWS Infrastructure for Sustainability, Part I: Compute](https://aws.amazon.com/blogs/architecture/optimizing-your-aws-infrastructure-for-sustainability-part-i-compute/ "https://aws.amazon.com/blogs/architecture/optimizing-your-aws-infrastructure-for-sustainability-part-i-compute/")
-- [Attirbute based Instance Type Selection for Amazon EC2 Auto Scaling for Amazon EC2 Fleet](https://aws.amazon.com/blogs/aws/new-attribute-based-instance-type-selection-for-ec2-auto-scaling-and-ec2-fleet/ "https://aws.amazon.com/blogs/aws/new-attribute-based-instance-type-selection-for-ec2-auto-scaling-and-ec2-fleet/")
+- [Attirbute based Instance Type Selection for Auto Scaling for Amazon EC2 Fleet](https://aws.amazon.com/blogs/aws/new-attribute-based-instance-type-selection-for-ec2-auto-scaling-and-ec2-fleet/ "https://aws.amazon.com/blogs/aws/new-attribute-based-instance-type-selection-for-ec2-auto-scaling-and-ec2-fleet/")
 - [AWS Compute Optimizer Documentation](../../../compute-optimizer/index.md "../../../compute-optimizer/index.md")
 - [Operating Lambda:
   Performance optimization](https://aws.amazon.com/blogs/compute/operating-lambda-performance-optimization-part-2/ "https://aws.amazon.com/blogs/compute/operating-lambda-performance-optimization-part-2/")

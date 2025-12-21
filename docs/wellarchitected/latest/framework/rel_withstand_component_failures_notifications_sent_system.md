@@ -84,7 +84,7 @@ monitored, such as:
 - [Infrastructure
   alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") indicate when to scale resources. Alarms
   can be visually displayed on dashboards, send alerts
-  through Amazon SNS or email, and work with Amazon EC2 Auto Scaling to
+  through Amazon SNS or email, and work with Auto Scaling to
   scale workload resources in or out.
 - Simple
   [static

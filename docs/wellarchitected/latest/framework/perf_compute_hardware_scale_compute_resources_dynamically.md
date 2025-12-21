@@ -73,20 +73,20 @@ and scale-down events.
   - The metric should be a valid utilization metric and
     describe how busy an instance is.
   - The metric value must increase or decrease
-    proportionally to the number of instances in the Amazon EC2 Auto Scaling group.
+    proportionally to the number of instances in the Auto Scaling group.
 
 - Make sure that you use
   [dynamic
   scaling](../../../autoscaling/ec2/userguide/as-scale-based-on-demand.md "../../../autoscaling/ec2/userguide/as-scale-based-on-demand.md") instead of
   [manual
-  scaling](../../../autoscaling/ec2/userguide/as-manual-scaling.md "../../../autoscaling/ec2/userguide/as-manual-scaling.md") for your Amazon EC2 Auto Scaling group. We also
+  scaling](../../../autoscaling/ec2/userguide/as-manual-scaling.md "../../../autoscaling/ec2/userguide/as-manual-scaling.md") for your Auto Scaling group. We also
   recommend that you use
   [target
   tracking scaling policies](../../../autoscaling/ec2/userguide/as-scaling-target-tracking.md "../../../autoscaling/ec2/userguide/as-scaling-target-tracking.md") in your dynamic scaling.
 - Verify that workload deployments can handle both scaling
   events (up and down). As an example, you can use
   [Activity
-  history](../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md "../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md") to verify a scaling activity for an Amazon EC2 Auto Scaling group.
+  history](../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md "../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md") to verify a scaling activity for an Auto Scaling group.
 - Evaluate your workload for predictable patterns and
   proactively scale as you anticipate predicted and planned
   changes in demand. With predictive scaling, you can
@@ -111,7 +111,7 @@ and scale-down events.
 - [Processor
   State Control for Your Amazon EC2 Instance](../../../AWSEC2/latest/UserGuide/processor_state_control.md "../../../AWSEC2/latest/UserGuide/processor_state_control.md")
 - [Deep
-  Dive on Amazon ECS Cluster Amazon EC2 Auto Scaling](https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/ "https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/")
+  Dive on Amazon ECS Cluster Auto Scaling](https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/ "https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/")
 - [Introducing
   Karpenter – An Open-Source High-Performance Kubernetes Cluster
   Autoscaler](https://aws.amazon.com/blogs/aws/introducing-karpenter-an-open-source-high-performance-kubernetes-cluster-autoscaler/ "https://aws.amazon.com/blogs/aws/introducing-karpenter-an-open-source-high-performance-kubernetes-cluster-autoscaler/")
