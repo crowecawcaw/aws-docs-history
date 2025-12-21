@@ -356,10 +356,11 @@ JSON
  "ssm:StartAutomationExecution"
  ],
  "Resource": [
- "arn:aws:ssm:*:*:automation-definition/AWS-StartEC2Instance:*",
- "arn:aws:ssm:*:*:automation-definition/AWS-StopEC2Instance:*",
- "arn:aws:ssm:*:*:automation-definition/AWS-StartRdsInstance:*",
- "arn:aws:ssm:*:*:automation-definition/AWS-StopRdsInstance:*"
+ "arn:aws:ssm:*:*:document/AWS-StartEC2Instance",
+ "arn:aws:ssm:*:*:document/AWS-StopEC2Instance",
+ "arn:aws:ssm:*:*:document/AWS-StartRdsInstance",
+ "arn:aws:ssm:*:*:document/AWS-StopRdsInstance",
+ "arn:aws:ssm:*:*:automation-execution/*"
  ]
  }
  ]

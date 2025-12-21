@@ -261,7 +261,8 @@ EC2**, **Amazon Redshift**,
 
 A label that you can use to track the costs associated with specific areas
 or entities within your business. For more information about working with
-tags, see [Applying User-Defined Cost Allocation Tags](../../../awsaccountbilling/latest/aboutv2/custom-tags.md#allocation-how "../../../awsaccountbilling/latest/aboutv2/custom-tags.md#allocation-how").
+tags, see [Applying User-Defined Cost Allocation Tags](../../../awsaccountbilling/latest/aboutv2/custom-tags.md#allocation-how "../../../awsaccountbilling/latest/aboutv2/custom-tags.md#allocation-how") and [User attributes for Cost Allocation](../../../awsaccountbilling/latest/aboutv2/user-attributes-cost-allocation.md "../../../awsaccountbilling/latest/aboutv2/user-attributes-cost-allocation.md"), and
+[Account tags for Cost Allocation](../../../awsaccountbilling/latest/aboutv2/account-tags-cost-allocation.md "../../../awsaccountbilling/latest/aboutv2/account-tags-cost-allocation.md").
 
 **Tenancy**
 

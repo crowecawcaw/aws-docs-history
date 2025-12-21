@@ -13,3 +13,4 @@ can view, but not edit the permissions for service-linked roles.
   allocation data](split-cost-allocation-data-SLR.md "split-cost-allocation-data-SLR.md")
 - [Service-linked roles for Data Exports](data-exports-SLR.md "data-exports-SLR.md")
 - [Service-linked roles for Budgets](budgets-SLR.md "budgets-SLR.md")
+- [Service-linked roles for user attributes for cost allocation](ubca-SLR.md "ubca-SLR.md")

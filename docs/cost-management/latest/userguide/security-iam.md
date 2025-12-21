@@ -25,6 +25,7 @@ use with no additional charge.
 - [Service-linked
   roles for AWS Cost Management](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
 - [Using service-linked roles](cost-management-SLR.md "cost-management-SLR.md")
+- [AWS managed policies for AWS Billing and Cost Management](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 
 ## User types and billing permissions
 

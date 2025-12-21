@@ -66,3 +66,7 @@ Cost Optimization Hub generates recommendations for the following resources:
 - MemoryDB reserved instances
 - DynamoDB reserved capacity
 - Amazon Aurora DB cluster storage
+- NAT Gateway
+
+Resource rightsizing and idle resource recommendations are provided by AWS Compute Optimizer. To see what type of recommendations are supported for each resource, see
+[AWS resources supported by Compute Optimizer](../../../compute-optimizer/latest/ug/supported-resources.md "../../../compute-optimizer/latest/ug/supported-resources.md").

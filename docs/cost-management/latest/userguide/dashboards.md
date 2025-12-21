@@ -45,5 +45,6 @@ Key features of Dashboards:
 - [Getting started with dashboards](dashboards-getting-started.md "dashboards-getting-started.md")
 - [Creating custom dashboards](create-custom-dashboards.md "create-custom-dashboards.md")
 - [Adding widgets to dashboards](add-widgets-to-dashboards.md "add-widgets-to-dashboards.md")
+- [Exporting dashboards](export-dashboards.md "export-dashboards.md")
 - [Sharing dashboards](share-dashboards.md "share-dashboards.md")
 - [Managing dashboards](manage-dashboards.md "manage-dashboards.md")
