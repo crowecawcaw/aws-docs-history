@@ -26,14 +26,14 @@ work with a Classic Load Balancer.
 | [HTTPCode_Backend_4XX](ts-elb-http-errors.md#ts-elb-error-metrics-Backend_4XX "ts-elb-http-errors.md#ts-elb-error-metrics-Backend_4XX") |
 | [HTTPCode_Backend_5XX](ts-elb-http-errors.md#ts-elb-error-metrics-Backend_5XX "ts-elb-http-errors.md#ts-elb-error-metrics-Backend_5XX") |
 
-| Health check issues                                                                                                                                                                           | Issue |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| [Health check target page error](ts-elb-healthcheck.md#ts-elb-healthcheck-targetpage "ts-elb-healthcheck.md#ts-elb-healthcheck-targetpage")                                                   |
-| [Connection to the instances has timed out](ts-elb-healthcheck.md#ts-elb-healthcheck-failed "ts-elb-healthcheck.md#ts-elb-healthcheck-failed")                                                |
-| [Public key authentication is<br>failing](ts-elb-healthcheck.md#ts-elb-healthcheck-publickey "ts-elb-healthcheck.md#ts-elb-healthcheck-publickey")                                            |
-| [Instance is not receiving traffic from the load balancer](ts-elb-healthcheck.md#ts-elb-healthcheck-securitygroup "ts-elb-healthcheck.md#ts-elb-healthcheck-securitygroup")                   |
-| [Ports on instance are not open](ts-elb-healthcheck.md#ts-elb-healthcheck-ports "ts-elb-healthcheck.md#ts-elb-healthcheck-ports")                                                             |
-| [Instances in an Amazon EC2 Auto Scaling group are failing the ELB health check](ts-elb-healthcheck.md#ts-elb-healthcheck-autoscaling "ts-elb-healthcheck.md#ts-elb-healthcheck-autoscaling") |
+| Health check issues                                                                                                                                                                | Issue |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| [Health check target page error](ts-elb-healthcheck.md#ts-elb-healthcheck-targetpage "ts-elb-healthcheck.md#ts-elb-healthcheck-targetpage")                                        |
+| [Connection to the instances has timed out](ts-elb-healthcheck.md#ts-elb-healthcheck-failed "ts-elb-healthcheck.md#ts-elb-healthcheck-failed")                                     |
+| [Public key authentication is<br>failing](ts-elb-healthcheck.md#ts-elb-healthcheck-publickey "ts-elb-healthcheck.md#ts-elb-healthcheck-publickey")                                 |
+| [Instance is not receiving traffic from the load balancer](ts-elb-healthcheck.md#ts-elb-healthcheck-securitygroup "ts-elb-healthcheck.md#ts-elb-healthcheck-securitygroup")        |
+| [Ports on instance are not open](ts-elb-healthcheck.md#ts-elb-healthcheck-ports "ts-elb-healthcheck.md#ts-elb-healthcheck-ports")                                                  |
+| [Instances in an Auto Scaling group are failing the ELB health check](ts-elb-healthcheck.md#ts-elb-healthcheck-autoscaling "ts-elb-healthcheck.md#ts-elb-healthcheck-autoscaling") |
 
 | Connectivity issues                                                                                                                                                                    | Issue |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |

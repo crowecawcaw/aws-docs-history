@@ -26,8 +26,8 @@ If an instance becomes unhealthy, the load balancer reports the instance state a
 instance, they are completed. The maximum timeout limit does not apply to connections to
 unhealthy instances.
 
-If your instances are part of an Amazon EC2 Auto Scaling group and connection draining is enabled for
-your load balancer, Amazon EC2 Auto Scaling waits for the in-flight requests to complete, or for the
+If your instances are part of an Auto Scaling group and connection draining is enabled for
+your load balancer, Auto Scaling waits for the in-flight requests to complete, or for the
 maximum timeout to expire, before terminating instances due to a scaling event or health
 check replacement.
 
