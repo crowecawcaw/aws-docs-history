@@ -4,7 +4,7 @@ AWS Secrets Manager helps you protect secrets needed to access your applications
 
 ## How AWS Secrets Manager differs for AWS GovCloud (US)
 
-This service has no differences between the AWS GovCloud (US) and the standard AWS Regions.
+- Managed External Secrets are not supported.
 
 ## Documentation for AWS Secrets Manager
 

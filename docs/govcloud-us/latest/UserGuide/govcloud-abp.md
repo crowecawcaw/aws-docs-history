@@ -4,6 +4,8 @@ Amazon API Gateway is a fully managed service that makes it easy for developers 
 
 ## How Amazon API Gateway differs for AWS GovCloud (US)
 
+- Policy that start with `SecurityPolicy_` are not supported.
+- Portals are not supported.
 - Amazon API Gateway edge-optimized API and edge-optimized custom domain name are not supported.
 - The Amazon Route 53 Hosted Zone ID for the regional endpoint in the AWS GovCloud (US-West) Region is Z1K6XKP9SAGWDV. The Amazon Route 53 Hosted Zone ID for the regional endpoint in the AWS GovCloud (US-East) Region is Z3SE9ATJYCRCZJ.
 - HTTP API private integrations aren’t supported in AWS GovCloud (US-East).

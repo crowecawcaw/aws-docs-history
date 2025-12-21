@@ -20,7 +20,7 @@ For more information about AWS Auto Scaling and Application Auto Scaling, see [A
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
-- Amazon EC2 Auto Scaling is not permitted to contain export-controlled data.
+- Auto Scaling is not permitted to contain export-controlled data.
 - For example, do not enter export-controlled data in the following fields:
   - Scaling plan names
   - Scaling policy names

@@ -4,7 +4,6 @@ AWS Private Certificate Authority (AWS Private CA) is a managed private CA servi
 
 ## How AWS Private CA differs for AWS GovCloud (US)
 
-- Online Certificate Status Protocol (OCSP) is not supported in the AWS GovCloud (US) Regions.
 - To connect to AWS Private CA by using the command line or API, use the following [endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md"):
   - `https://acm-pca.us-gov-west-1.amazonaws.com`
   - `https://acm-pca.us-gov-east-1.amazonaws.com`
