@@ -95,7 +95,7 @@ continuous deployment pipeline.
 
 Elastic Beanstalk will begin creating a sample environment for you
 to deploy your application to. It will create an Amazon EC2
-instance, a security group, an Amazon EC2 Auto Scaling group, an Amazon S3
+instance, a security group, an Auto Scaling group, an Amazon S3
 bucket, Amazon CloudWatch alarms, and a domain name for your
 application.
 
