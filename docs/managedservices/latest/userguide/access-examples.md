@@ -17,7 +17,7 @@ Required data:
 
 ###### Note
 
-An Amazon EC2 instance created through an Amazon EC2 Amazon EC2 Auto Scaling group will have an IP address that cycles
+An Amazon EC2 instance created through an Amazon EC2 Auto Scaling group will have an IP address that cycles
 in and out and you have to use your Amazon EC2 console to find that IP address.
 
 - **User name** (for example `DOMAIN_FQDN\`\`USERNAME`) and 

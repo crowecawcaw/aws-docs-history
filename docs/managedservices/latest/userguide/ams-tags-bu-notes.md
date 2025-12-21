@@ -10,7 +10,7 @@ Notes on bulk update tags:
 - Supported services:
   - For [Tag | Bulk Update (Managed automation)](../ctref/management-advanced-tag-bulk-update-review-required.md "../ctref/management-advanced-tag-bulk-update-review-required.md"): All.
   - For [Tag | Bulk Update](../ctref/management-advanced-tag-bulk-update.md "../ctref/management-advanced-tag-bulk-update.md"):
-    - Amazon EC2 Auto Scaling
+    - Auto Scaling
     - Amazon EC2
     - ELB
     - Amazon RDS

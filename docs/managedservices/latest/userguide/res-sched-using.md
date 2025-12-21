@@ -6,7 +6,7 @@ For an example of using the AMS Resource Scheduler change types, see
 [AMS Resource Scheduler](../ctref/management-ams-resource-scheduler-section.md "../ctref/management-ams-resource-scheduler-section.md").
 
 To select resources to be managed by AMS Resource Scheduler, following deployment and schedule creation, you use the AMS Tag Create CTs to
-tag Amazon EC2 Auto Scaling groups, Amazon RDS stacks, and Amazon EC2 resources with that tag key you provided during deployment, and the defined schedule as the
+tag Auto Scaling groups, Amazon RDS stacks, and Amazon EC2 resources with that tag key you provided during deployment, and the defined schedule as the
 tag value. After the resources are tagged, the resources are scheduled for start or stop per your defined Resource Scheduler schedule.
 
 There is no additional cost to using AMS Resource Scheduler. However the solution makes use of several AWS services and you're charged for

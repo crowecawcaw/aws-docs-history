@@ -6,7 +6,7 @@
 - _AWS Management Console_: Many AWS consoles can be useful for viewing AMS information, for example:
 
       + *Amazon EC2 console*: Use to view instance information including bastion IP addresses,
-       Amazon EC2 Amazon EC2 Auto Scaling groups, and load balancers.
+       Amazon EC2 Auto Scaling groups, and load balancers.
       + *Multi-Account Landing Zone AWS Config Rules compliance*: You can view compliance
        status across your accounts and identify non-compliant resources.
       + *AWS CloudFormation console*: Use to view stack information including stack IDs (you can find
