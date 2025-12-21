@@ -150,8 +150,8 @@ Asia Pacific (Jakarta) Regions.
 
 ## Migration effort
 
-The **Migration effort** column on the **EC2 Amazon EC2 Auto Scaling groups
-recommendations** and **EC2 Amazon EC2 Auto Scaling groups details** pages lists the level of
+The **Migration effort** column on the **EC2 Auto Scaling groups
+recommendations** and **EC2 Auto Scaling groups details** pages lists the level of
 effort that might be required to migrate from the current instance type to the recommended
 instance type. The following shows examples of the different levels of migration effort.
 

@@ -5,7 +5,7 @@ account that you’re signed in with. Before you can use the service, you must o
 addition, you can also opt in or opt out using the Compute Optimizer API, AWS Command Line Interface (AWS CLI), or SDKs.
 
 By opting in, you're authorizing Compute Optimizer to analyze the specifications and utilization metrics
-of your AWS resources. Examples include EC2 instances and EC2 Amazon EC2 Auto Scaling groups.
+of your AWS resources. Examples include EC2 instances and EC2 Auto Scaling groups.
 
 ###### Note
 

@@ -11,7 +11,7 @@ console.
   resources that are supported by Compute Optimizer:
 
 - [Amazon EC2 instances](view-ec2-recommendations.md "view-ec2-recommendations.md")
-- [EC2 Amazon EC2 Auto Scaling groups](view-asg-recommendations.md "view-asg-recommendations.md")
+- [EC2 Auto Scaling groups](view-asg-recommendations.md "view-asg-recommendations.md")
 - [Amazon EBS volumes](view-ebs-recommendations.md "view-ebs-recommendations.md")
 - [AWS Lambda functions](view-lambda-recommendations.md "view-lambda-recommendations.md")
 - [Amazon ECS services on Fargate](view-ecs-recommendations.md "view-ecs-recommendations.md")

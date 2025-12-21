@@ -55,8 +55,8 @@ This policy includes the following permissions.
 - `cloudwatch` – Grants access to CloudWatch resource metrics for
   the purpose of analyzing them and generating Compute Optimizer resource
   recommendations.
-- `autoscaling` – Grants access to EC2 Amazon EC2 Auto Scaling groups and the
-  instances in EC2 Amazon EC2 Auto Scaling groups for validation purposes.
+- `autoscaling` – Grants access to EC2 Auto Scaling groups and the
+  instances in EC2 Auto Scaling groups for validation purposes.
 - `Ec2` – Grants access to Amazon EC2 instances and volumes.
 
 JSON
@@ -177,7 +177,7 @@ This policy includes the following:
   resource recommendations.
 - `ec2` – Grants read-only access to Amazon EC2 instances and Amazon EBS
   volumes.
-- `autoscaling` – Grants read-only access to EC2 Amazon EC2 Auto Scaling
+- `autoscaling` – Grants read-only access to EC2 Auto Scaling
   groups.
 - `lambda` – Grants read-only access to AWS Lambda functions
   and their configurations.

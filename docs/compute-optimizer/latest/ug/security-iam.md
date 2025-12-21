@@ -20,7 +20,7 @@ Account](../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md "../
   `ec2:DescribeInstances` permission.
 - To view recommendations for EBS volumes, an IAM user requires the
   `ec2:DescribeVolumes` permission.
-- To view recommendations for EC2 Amazon EC2 Auto Scaling groups, an IAM user requires the
+- To view recommendations for EC2 Auto Scaling groups, an IAM user requires the
   `autoscaling:DescribeAutoScalingGroups` and
   `autoscaling:DescribeAutoScalingInstances` permissions.
 - To view recommendations for Lambda functions, an IAM user requires the
@@ -361,7 +361,7 @@ JSON
 ```
 
 **Grant access to manage recommendation preferences for EC2
-Amazon EC2 Auto Scaling groups only**
+Auto Scaling groups only**
 
 JSON
 

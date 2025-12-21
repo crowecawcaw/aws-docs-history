@@ -12,7 +12,7 @@ information, see [Using the AWS Compute Optimizer dashboard](viewing-dashboard.m
 ###### Note
 
 - To generate recommendations for
-  Amazon EC2 instances, EC2 Amazon EC2 Auto Scaling groups, Amazon EBS volumes, Lambda functions, and commercial software licenses, Compute Optimizer uses
+  Amazon EC2 instances, EC2 Auto Scaling groups, Amazon EBS volumes, Lambda functions, and commercial software licenses, Compute Optimizer uses
   the maximum utilization point within each five-minute time interval over the lookback period. For ECS
   services on Fargate recommendations, Compute Optimizer uses the maximum utilization point within each
   one-minute time interval.

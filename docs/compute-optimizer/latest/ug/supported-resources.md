@@ -11,7 +11,7 @@ instance types that Compute Optimizer supports, see [Supported Amazon EC2 instan
 
 - **Amazon EC2 Auto Scaling groups**
 
-Compute Optimizer generates recommendations for EC2 Amazon EC2 Auto Scaling groups. For more information, see [Supported Amazon EC2 Amazon EC2 Auto Scaling groups](#supported-asg "#supported-asg").
+Compute Optimizer generates recommendations for EC2 Auto Scaling groups. For more information, see [Supported Amazon EC2 Auto Scaling groups](#supported-asg "#supported-asg").
 
 - **Amazon Elastic Block Store (Amazon EBS) volumes**
 
@@ -38,6 +38,10 @@ information, see [Commercial software license requirements](requirements.md#requ
 Compute Optimizer generates Aurora and RDS DB instances, RDS DB instance storage, and Aurora DB cluster recommendations for RDS for MySQL, RDS for PostgreSQL, and
 Amazon Aurora databases. For more information about the specific Amazon RDS resources supported by Compute Optimizer, see [Supported Amazon Aurora and RDS databases](#supported-rds "#supported-rds").
 
+- **Amazon NAT Gateway**
+
+Compute Optimizer generates idle recommendations for NAT Gateway. For more information, see [Viewing idle resource recommendations](view-idle-recommendations.md "view-idle-recommendations.md").
+
 ###### Note
 
 In order to generate recommendations for each resource, the resources must meet Compute Optimizer's metric and
@@ -46,7 +50,7 @@ resource-specific requirements. For a list of the requiremtents for each resourc
 ###### Topics
 
 - [Supported Amazon EC2 instance types](#supported-ec2-instances "#supported-ec2-instances")
-- [Supported Amazon EC2 Amazon EC2 Auto Scaling groups](#supported-asg "#supported-asg")
+- [Supported Amazon EC2 Auto Scaling groups](#supported-asg "#supported-asg")
 - [Supported Amazon EBS volume types](#supported-ebs-volumes "#supported-ebs-volumes")
 - [Supported Amazon Aurora and RDS databases](#supported-rds "#supported-rds")
 - [Additional resources](#supported-add-resources "#supported-add-resources")
@@ -76,13 +80,13 @@ The following table lists the EC2 instance types that are supported by Compute O
 - If an EC2 instance isn't listed, then it isn't supported by Compute Optimizer.
 - Compute Optimizer doesn't generate EC2 rightsizing recommendations for Spot Instances.
 
-## Supported Amazon EC2 Amazon EC2 Auto Scaling groups
+## Supported Amazon EC2 Auto Scaling groups
 
 Compute Optimizer generates rightsizing and idle recommendations for Amazon EC2 Auto Scaling groups. This section outlines what Compute Optimizer supports for both types of recommendations.
 
 ### Rightsizing recommendations
 
-Compute Optimizer supports rightsizing recommendations for EC2 Amazon EC2 Auto Scaling groups that have the following:
+Compute Optimizer supports rightsizing recommendations for EC2 Auto Scaling groups that have the following:
 
 - Single EC2 instance types
 - Mixed EC2 instance types
@@ -97,7 +101,7 @@ Compute Optimizer supports rightsizing recommendations for EC2 Amazon EC2 Auto S
 
 ###### Note
 
-Compute Optimizer doesn't support rightsizing recommendations for EC2 Amazon EC2 Auto Scaling groups that have the following:
+Compute Optimizer doesn't support rightsizing recommendations for EC2 Auto Scaling groups that have the following:
 
 - EC2 instance types that aren’t [supported by Compute Optimizer](supported-resources.md#supported-ec2-instances "supported-resources.md#supported-ec2-instances")
 - Spot Instances
@@ -110,7 +114,7 @@ Compute Optimizer doesn't support rightsizing recommendations for EC2 Amazon EC2
 
 ### Idle recommendations
 
-Compute Optimizer supports idle recommendations for EC2 Amazon EC2 Auto Scaling groups that use most of the [Supported Amazon EC2 instance types](#supported-ec2-instances "#supported-ec2-instances"). This includes EC2 Amazon EC2 Auto Scaling groups that have the following:
+Compute Optimizer supports idle recommendations for EC2 Auto Scaling groups that use most of the [Supported Amazon EC2 instance types](#supported-ec2-instances "#supported-ec2-instances"). This includes EC2 Auto Scaling groups that have the following:
 
 - EC2 Spot Instances
 - Mixed instance types containing any of the instance families that Compute Optimizer supports (including G and P instance families)

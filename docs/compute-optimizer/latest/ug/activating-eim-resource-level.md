@@ -24,7 +24,7 @@ resource level
 
 ###### Note
 
-For an EC2 instance that's part of an EC2 Amazon EC2 Auto Scaling group, the EC2 Amazon EC2 Auto Scaling group
+For an EC2 instance that's part of an EC2 Auto Scaling group, the EC2 Auto Scaling group
 recommendation preference overrides the preference of the individual
 instance. 3. In the resource recommendations page, select the resource for which you
 want to activate or deactivate enhanced infrastructure metrics.

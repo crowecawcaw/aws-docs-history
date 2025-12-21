@@ -1,7 +1,7 @@
 # Inferred workload type
 
 Inferred workload type is a feature that's included with AWS Compute Optimizer that infers the applications that
-might be running on your AWS resources, such as EC2 instances and EC2 Amazon EC2 Auto Scaling groups. Inferred workload type does
+might be running on your AWS resources, such as EC2 instances and EC2 Auto Scaling groups. Inferred workload type does
 this by analyzing the attributes of your resources. These resources include resource names,
 tags, and configuration. Compute Optimizer currently can infer if your instances are running Amazon EMR, Apache
 Cassandra, Apache Hadoop, Memcached, NGINX, PostgreSQL, Redis, Kafka, or SQL Server. By inferring the
@@ -17,7 +17,7 @@ Asia Pacific (Jakarta) Regions.
 
 The inferred workload types and migration effort are listed in the **Inferred
 workload types** and **Migration effort** columns of the EC2
-instances and EC2 Amazon EC2 Auto Scaling groups recommendations pages. For more information, see [Viewing EC2 instance recommendations](view-ec2-recommendations.md "view-ec2-recommendations.md") and [Viewing EC2 Amazon EC2 Auto Scaling group recommendations](view-asg-recommendations.md "view-asg-recommendations.md").
+instances and EC2 Auto Scaling groups recommendations pages. For more information, see [Viewing EC2 instance recommendations](view-ec2-recommendations.md "view-ec2-recommendations.md") and [Viewing EC2 Auto Scaling group recommendations](view-asg-recommendations.md "view-asg-recommendations.md").
 
 ## Required permissions
 
