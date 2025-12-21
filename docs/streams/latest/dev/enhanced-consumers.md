@@ -40,7 +40,6 @@ The diagram shows the following:
 - [Differences between shared throughput
   consumer and enhanced fan-out consumer](#enhanced-consumers-differences "#enhanced-consumers-differences")
 - [Regions supported for up to 50 enhanced fan-out consumers (On-demand Advantage only)](#supported-regions "#supported-regions")
--
 - [Manage enhanced fan-out consumers with the AWS CLI or APIs](building-enhanced-consumers-console.md "building-enhanced-consumers-console.md")
 
 ## Differences between shared throughput
