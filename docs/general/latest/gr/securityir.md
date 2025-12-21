@@ -16,6 +16,11 @@ The following are the service endpoints and service quotas for this service.
 | US East (Ohio)            | us-east-2      | security-ir.us-east-2.api.aws      | HTTPS    |
 | US East (N. Virginia)     | us-east-1      | security-ir.us-east-1.api.aws      | HTTPS    |
 | US West (Oregon)          | us-west-2      | security-ir.us-west-2.api.aws      | HTTPS    |
+| Africa (Cape Town)        | af-south-1     | security-ir.af-south-1.api.aws     | HTTPS    |
+| Asia Pacific (Hong Kong)  | ap-east-1      | security-ir.ap-east-1.api.aws      | HTTPS    |
+| Asia Pacific (Hyderabad)  | ap-south-2     | security-ir.ap-south-2.api.aws     | HTTPS    |
+| Asia Pacific (Jakarta)    | ap-southeast-3 | security-ir.ap-southeast-3.api.aws | HTTPS    |
+| Asia Pacific (Melbourne)  | ap-southeast-4 | security-ir.ap-southeast-4.api.aws | HTTPS    |
 | Asia Pacific (Mumbai)     | ap-south-1     | security-ir.ap-south-1.api.aws     | HTTPS    |
 | Asia Pacific (Seoul)      | ap-northeast-2 | security-ir.ap-northeast-2.api.aws | HTTPS    |
 | Asia Pacific (Singapore)  | ap-southeast-1 | security-ir.ap-southeast-1.api.aws | HTTPS    |
@@ -25,8 +30,13 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Frankfurt)        | eu-central-1   | security-ir.eu-central-1.api.aws   | HTTPS    |
 | Europe (Ireland)          | eu-west-1      | security-ir.eu-west-1.api.aws      | HTTPS    |
 | Europe (London)           | eu-west-2      | security-ir.eu-west-2.api.aws      | HTTPS    |
+| Europe (Milan)            | eu-south-1     | security-ir.eu-south-1.api.aws     | HTTPS    |
 | Europe (Paris)            | eu-west-3      | security-ir.eu-west-3.api.aws      | HTTPS    |
+| Europe (Spain)            | eu-south-2     | security-ir.eu-south-2.api.aws     | HTTPS    |
 | Europe (Stockholm)        | eu-north-1     | security-ir.eu-north-1.api.aws     | HTTPS    |
+| Europe (Zurich)           | eu-central-2   | security-ir.eu-central-2.api.aws   | HTTPS    |
+| Middle East (Bahrain)     | me-south-1     | security-ir.me-south-1.api.aws     | HTTPS    |
+| Middle East (UAE)         | me-central-1   | security-ir.me-central-1.api.aws   | HTTPS    |
 | South America (São Paulo) | sa-east-1      | security-ir.sa-east-1.api.aws      | HTTPS    |
 
 ## Service quotas

@@ -11,10 +11,6 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name           | Region    | Endpoint                          | Protocol |
-| --------------------- | --------- | --------------------------------- | -------- |
-| US East (N. Virginia) | us-east-1 | deepracer.us-east-1.amazonaws.com |          |
-
 ## Service quotas
 
 | Name            | Default                   | Adjustable                                                                                                                                                                             | Description                                                                          |

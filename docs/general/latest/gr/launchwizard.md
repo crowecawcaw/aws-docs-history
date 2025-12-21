@@ -28,6 +28,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Seoul)      | ap-northeast-2 | launchwizard.ap-northeast-2.amazonaws.com | HTTPS    |
 | Asia Pacific (Singapore)  | ap-southeast-1 | launchwizard.ap-southeast-1.amazonaws.com | HTTPS    |
 | Asia Pacific (Sydney)     | ap-southeast-2 | launchwizard.ap-southeast-2.amazonaws.com | HTTPS    |
+| Asia Pacific (Thailand)   | ap-southeast-7 | launchwizard.ap-southeast-7.amazonaws.com | HTTPS    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | launchwizard.ap-northeast-1.amazonaws.com | HTTPS    |
 | Canada (Central)          | ca-central-1   | launchwizard.ca-central-1.amazonaws.com   | HTTPS    |
 | Canada West (Calgary)     | ca-west-1      | launchwizard.ca-west-1.amazonaws.com      | HTTPS    |

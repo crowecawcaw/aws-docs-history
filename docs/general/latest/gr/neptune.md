@@ -36,6 +36,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Paris)            | eu-west-3      | rds.eu-west-3.amazonaws.com                                           | HTTP and HTTPS                   |
 | Europe (Spain)            | eu-south-2     | rds.eu-south-2.amazonaws.com                                          | HTTP and HTTPS                   |
 | Europe (Stockholm)        | eu-north-1     | rds.eu-north-1.amazonaws.com                                          | HTTP and HTTPS                   |
+| Europe (Zurich)           | eu-central-2   | rds.eu-central-2.amazonaws.com                                        | HTTP and HTTPS                   |
 | Israel (Tel Aviv)         | il-central-1   | rds.il-central-1.amazonaws.com                                        | HTTP and HTTPS                   |
 | Middle East (Bahrain)     | me-south-1     | rds.me-south-1.amazonaws.com                                          | HTTP and HTTPS                   |
 | Middle East (UAE)         | me-central-1   | rds.me-central-1.amazonaws.com                                        | HTTP and HTTPS                   |

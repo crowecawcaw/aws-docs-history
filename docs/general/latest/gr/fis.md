@@ -34,6 +34,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Stockholm)        | eu-north-1     | fis.eu-north-1.amazonaws.com                                          | HTTPS          |
 | Europe (Zurich)           | eu-central-2   | fis.eu-central-2.amazonaws.com                                        | HTTPS          |
 | Middle East (Bahrain)     | me-south-1     | fis.me-south-1.amazonaws.com                                          | HTTPS          |
+| Middle East (UAE)         | me-central-1   | fis.me-central-1.amazonaws.com                                        | HTTPS          |
 | South America (São Paulo) | sa-east-1      | fis.sa-east-1.amazonaws.com                                           | HTTPS          |
 | AWS GovCloud (US-East)    | us-gov-east-1  | fis.us-gov-east-1.amazonaws.com                                       | HTTPS          |
 | AWS GovCloud (US-West)    | us-gov-west-1  | fis.us-gov-west-1.amazonaws.com                                       | HTTPS          |

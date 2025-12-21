@@ -30,6 +30,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Seoul)      | ap-northeast-2 | sso.ap-northeast-2.amazonaws.com<br>sso.ap-northeast-2.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Singapore)  | ap-southeast-1 | sso.ap-southeast-1.amazonaws.com<br>sso.ap-southeast-1.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Sydney)     | ap-southeast-2 | sso.ap-southeast-2.amazonaws.com<br>sso.ap-southeast-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Taipei)     | ap-east-2      | sso.ap-east-2.amazonaws.com<br>sso.ap-east-2.api.aws           | HTTPS<br>HTTPS |
 | Asia Pacific (Thailand)   | ap-southeast-7 | sso.ap-southeast-7.amazonaws.com<br>sso.ap-southeast-7.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | sso.ap-northeast-1.amazonaws.com<br>sso.ap-northeast-1.api.aws | HTTPS<br>HTTPS |
 | Canada (Central)          | ca-central-1   | sso.ca-central-1.amazonaws.com<br>sso.ca-central-1.api.aws     | HTTPS<br>HTTPS |

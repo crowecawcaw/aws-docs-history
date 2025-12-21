@@ -17,17 +17,21 @@ The following are the service endpoints and service quotas for this service.
 | US East (N. Virginia)     | us-east-1      | observabilityadmin.us-east-1.amazonaws.com      |          |
 | US West (N. California)   | us-west-1      | observabilityadmin.us-west-1.amazonaws.com      |          |
 | US West (Oregon)          | us-west-2      | observabilityadmin.us-west-2.amazonaws.com      |          |
+| Asia Pacific (Hong Kong)  | ap-east-1      | observabilityadmin.ap-east-1.amazonaws.com      |          |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | observabilityadmin.ap-southeast-5.amazonaws.com |          |
 | Asia Pacific (Mumbai)     | ap-south-1     | observabilityadmin.ap-south-1.amazonaws.com     |          |
 | Asia Pacific (Osaka)      | ap-northeast-3 | observabilityadmin.ap-northeast-3.amazonaws.com |          |
 | Asia Pacific (Seoul)      | ap-northeast-2 | observabilityadmin.ap-northeast-2.amazonaws.com |          |
 | Asia Pacific (Singapore)  | ap-southeast-1 | observabilityadmin.ap-southeast-1.amazonaws.com |          |
 | Asia Pacific (Sydney)     | ap-southeast-2 | observabilityadmin.ap-southeast-2.amazonaws.com |          |
+| Asia Pacific (Thailand)   | ap-southeast-7 | observabilityadmin.ap-southeast-7.amazonaws.com |          |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | observabilityadmin.ap-northeast-1.amazonaws.com |          |
 | Canada (Central)          | ca-central-1   | observabilityadmin.ca-central-1.amazonaws.com   |          |
 | Europe (Frankfurt)        | eu-central-1   | observabilityadmin.eu-central-1.amazonaws.com   |          |
 | Europe (Ireland)          | eu-west-1      | observabilityadmin.eu-west-1.amazonaws.com      |          |
 | Europe (London)           | eu-west-2      | observabilityadmin.eu-west-2.amazonaws.com      |          |
 | Europe (Paris)            | eu-west-3      | observabilityadmin.eu-west-3.amazonaws.com      |          |
+| Europe (Spain)            | eu-south-2     | observabilityadmin.eu-south-2.amazonaws.com     |          |
 | Europe (Stockholm)        | eu-north-1     | observabilityadmin.eu-north-1.amazonaws.com     |          |
 | South America (São Paulo) | sa-east-1      | observabilityadmin.sa-east-1.amazonaws.com      |          |
 
