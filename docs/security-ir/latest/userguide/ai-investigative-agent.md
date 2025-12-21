@@ -2,9 +2,9 @@
 
 ## Overview
 
-The AI-powered investigation agent works alongside customers and AWS Customer Incident Response Team (CIRT) responders
+The AI-powered investigation agent works alongside customers and AWS Security Indcident Response engineers
 to expedite security investigations. When a customer creates an AWS-supported case, the agent automatically activates
-in parallel with CIRT engagement, reducing resolution time from days to hours.
+in parallel with Security Incident Response engineer engagement, reducing resolution time from days to hours.
 
 Security Incident Response cases can be created by customers or proactively by AWS Security Incident Response during customer escalations.
 The investigative agent is automatically triggered whenever a new AWS-supported case is created, and all cases can be
@@ -12,7 +12,7 @@ managed through the console, API, or Amazon EventBridge integrations.
 
 **Key benefits**
 
-- **Parallel investigation** – The agent works simultaneously with CIRT
+- **Parallel investigation** – The agent works simultaneously with
   responders—providing both AI-powered automation and human expertise.
 - **Automated evidence gathering** – Eliminates manual log analysis by
   automatically querying AWS CloudTrail, IAM, Amazon EC2, and Cost Explorer.
@@ -36,7 +36,7 @@ The AI investigation agent follows a structured workflow when analyzing AWS-supp
 1. **Case creation** – Customer creates an AWS-supported case in the
    Security Incident Response console describing the security concern.
 2. **Parallel activation**
-   - The AWS Customer Incident Response Team (CIRT) engages with the case.
+   - Security Indcident Response engineers engage with the case.
    - Simultaneously, the AI agent begins its investigation workflow.
 
 3. **Contextual questions (optional)** – The agent may ask clarifying

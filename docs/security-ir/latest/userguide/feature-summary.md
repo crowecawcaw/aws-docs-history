@@ -27,7 +27,7 @@ Access AWS best practices and vetted tools for security assessment and rapid inc
 
 ## Expedited assistance
 
-Connect with the AWS Customer Incident Response Team (CIRT) to investigate, contain,
+Connect with Security Incident Response engineers to investigate, contain,
 and receive guidance on ways to recover from security events.
 
 ## Preparedness and readiness

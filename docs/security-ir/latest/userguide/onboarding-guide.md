@@ -1,6 +1,6 @@
 # Onboarding Guide
 
-The AWS onboarding guide will walk you through prerequisites, security incident response onboarding and CIRT containment actions to perform threat containment actions during onboarding.
+The AWS onboarding guide will walk you through prerequisites, security incident response onboarding and security incident response containment actions to perform threat containment actions during onboarding.
 
 ###### Important
 

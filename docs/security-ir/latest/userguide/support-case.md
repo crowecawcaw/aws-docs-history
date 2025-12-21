@@ -1,6 +1,6 @@
 # AWS Supported Case
 
-AWS Security Incident Response provides a subscription-based case management portal where your organization directly engages with our CIRT. We assist with security investigations and active incidents with a 15-minute SLO, with no limit on reactive cases. Please refer to our Create an AWS Supported Case documentation.
+AWS Security Incident Response provides a subscription-based case management portal where your organization directly engages with our Security Incident Response engineers. We assist with security investigations and active incidents with a 15-minute SLO, with no limit on reactive cases. Please refer to our Create an AWS Supported Case documentation.
 
 **Expand the Investigation Team**
 

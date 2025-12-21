@@ -6,7 +6,7 @@ the case at any status. A case typically reaches the status
 **Ready to Close** before it is
 permanently closed. If you close a case prematurely at any other
 status than **Ready to Close**,
-you are requesting that AWS CIRT will stop working on this
+you are requesting that AWS Security Incident Response engineers will stop working on this
 AWS supported case. 
 
 If your incident response team is the responder, select

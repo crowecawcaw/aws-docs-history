@@ -22,7 +22,7 @@ You can change the additional fields: 
     response support and services.
   - **Investigations**: Investigations
     allow you to get support for perceived security incidents where
-    the AWS CIRT can support in log dive and secondary confirmation
+    the AWS Security Incident Response engineers can support in log dive and secondary confirmation
     of the security event.
 
 - **Start date estimate**: Change this field if you

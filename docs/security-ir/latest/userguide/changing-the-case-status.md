@@ -18,4 +18,4 @@ A case will be in one of the following states:
 
 Choose **Action/Update Status**
 to change the status of the case for self-managed cases. For
-AWS supported cases, the status is set by the AWS CIRT responder.
+AWS supported cases, the status is set by the AWS Security Incident Response engineers.

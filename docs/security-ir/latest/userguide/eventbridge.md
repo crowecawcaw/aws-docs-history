@@ -11,6 +11,12 @@ memberships to ensure all environments maintain a strong security posture.
 
 For more information you can review the [What is Amazon EventBridge?](../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md "../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md")
 
+###### Note
+
+For the latest updates on Amazon EventBridge integration with AWS Security Incident Response, including ITSM integrations, see
+[AWS Security Incident Response now supports ITSM integrations](https://aws.amazon.com/about-aws/whats-new/2025/08/aws-security-incident-response-itsm-integrations/ "https://aws.amazon.com/about-aws/whats-new/2025/08/aws-security-incident-response-itsm-integrations/")
+on the AWS What's New page.
+
 ###### Contents
 
 - [Managing Security Incident Response events using Amazon EventBridge](eventbridge-integration-full.md "eventbridge-integration-full.md")

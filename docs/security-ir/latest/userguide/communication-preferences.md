@@ -9,29 +9,21 @@ You can configure communication preferences for individuals in your incident res
 Follow these steps to manage team member communication settings:
 
 1. Navigate to the incident response team page from your dashboard
-2. Select a teammate whose communication preferences you want to update
-3. Choose **Edit** to modify their settings, or choose **Add teammate** to add a new team member
-4. In the form, configure the communication preferences as needed
-5. Save your changes
+2. Do one of the following:
+   - To update an existing team member: Select the teammate whose communication preferences you want to modify, then choose **Edit**
+   - To add a new team member: Choose **Add**
 
-![](images/Dashboard.jpg)
-
-###### Configure Your Personal Communication Preferences
-
-Follow these steps to customize your personal communication settings:
-
-1. Navigate to the Incident Response Team page
-2. Select either a member to Edit or Add to create a new team member
 3. At the bottom of the form you will see Communications
-4. Select the checkboxes for communications you want to receive
-5. Clear the checkboxes for communications you do not want to receive
-6. Choose Save to apply your changes
+   1. Select the checkboxes for communications you want to receive
+   2. Clear the checkboxes for communications you do not want to receive
 
-![](images/CommPref.png)
+![](images/CommPref.png) 4. Save your changes
+
+![](images/CommPreferencesDashboard.png)
 
 ###### Default Communication Settings
 
-By default, the two contacts configured during initial sign-up will have all communications enabled in the incident response team page. You can modify these settings at any time using the steps above.
+By default, incident response team members will have all communications enabled. You can modify these settings at any time using the steps above.
 
 ###### Communication Options
 

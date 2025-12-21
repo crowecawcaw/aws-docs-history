@@ -1,12 +1,12 @@
 # Create an AWS supported case
 
 You can create an AWS supported case for AWS Security Incident Response through the Console, the API, or the AWS Command Line Interface.
-AWS supported cases allow you to receive support from the AWS Customer Incident Response Team (CIRT).
+AWS supported cases allow you to receive support from Security Indcident Response engineers.
 
 ###### Note
 
-AWS CIRT will respond to your case within 15 minutes. Response time is for a first response
-from AWS CIRT. We will make every reasonable effort to respond to your initial request within
+AWS Security Incident Response engineers will respond to your case within 15 minutes. Response time is for a first response
+from AWS Security Incident Response engineers. We will make every reasonable effort to respond to your initial request within
 this time frame. This response time does not apply to subsequent responses.
 
 The following example covers use of the console.
@@ -21,7 +21,7 @@ The following example covers use of the console.
       response support and services.
    2. **Investigations**: Investigations
       allow you to get support for perceived security incidents where
-      the AWS CIRT can support in log dive and secondary confirmation of
+      the AWS Security Incident Response engineers can support in log dive and secondary confirmation of
       incident response investigation.
 
 5. Set the start date estimate to the date of your earliest
@@ -74,7 +74,7 @@ The following example covers use of the console.
        **Remove** option for
        that tag.
 
-After a AWS supported case has been created, the AWS CIRT and your
+After a AWS supported case has been created, the AWS Security Incident Response engineers and your
 incident response team are immediately notified.
 
 **To create an AWS-supported case with AI investigation**
@@ -90,7 +90,7 @@ incident response team are immediately notified.
 7. Provide additional information about affected AWS services, regions, and other relevant details.
 8. Choose **Create case**.
 
-After case creation, both the CIRT team and AI agent begin working simultaneously.
+After case creation, both the Security Incident Response engineers and AI agent begin working simultaneously.
 
 **To respond to AI clarifying questions (optional)**
 
@@ -98,8 +98,7 @@ After case creation, both the CIRT team and AI agent begin working simultaneousl
 2. Review any clarifying questions presented by the AI agent.
 3. Respond to the questions or choose **Skip** if you prefer not to answer.
 4. Choose **Submit** to continue. All fields are optional.
-
-**Responsible AI disclosure**
+   **Responsible AI disclosure**
 
 Investigation summaries are generated using AWS Generative AI capabilities. You are responsible for evaluating
 AI-generated recommendations in your specific context, implementing appropriate oversight mechanisms, verifying

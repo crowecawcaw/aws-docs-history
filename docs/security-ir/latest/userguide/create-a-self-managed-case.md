@@ -1,7 +1,7 @@
 # Create a self-managed case
 
 You can create a self-managed for AWS Security Incident Response through the Console, API, or AWS Command Line Interface.
-This type of case _DOES NOT_ engage the AWS CIRT.
+This type of case _DOES NOT_ engage the AWS Security Incident Response engineers.
 The following example covers use of the console.
 
 1. Sign into AWS Security Incident Response via the AWS Management Console at [https://console.aws.amazon.com/security-ir/](https://console.aws.amazon.com "https://console.aws.amazon.com").

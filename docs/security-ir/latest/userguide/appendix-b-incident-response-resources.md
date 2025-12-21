@@ -10,7 +10,7 @@ external GitHub public repository. Following are some resources that provide exa
 - [Incident Response Playbook Samples](https://github.com/aws-samples/aws-incident-response-playbooks "https://github.com/aws-samples/aws-incident-response-playbooks") -
   Playbooks covering common scenarios faced by AWS customers.
 - [AWS
-  CIRT announces the release of five publicly available workshops](https://aws.amazon.com/blogs/security/aws-cirt-announces-the-release-of-five-publicly-available-workshops/ "https://aws.amazon.com/blogs/security/aws-cirt-announces-the-release-of-five-publicly-available-workshops/").
+  announces the release of five publicly available workshops](https://aws.amazon.com/blogs/security/aws-cirt-announces-the-release-of-five-publicly-available-workshops/ "https://aws.amazon.com/blogs/security/aws-cirt-announces-the-release-of-five-publicly-available-workshops/").
 
 ## Forensic resources
 

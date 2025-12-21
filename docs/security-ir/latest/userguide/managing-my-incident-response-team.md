@@ -1,7 +1,7 @@
 # Managing my Incident Response Team
 
 Your incident response teams contains stakeholders for the incident response process.
-You can configure up to ten stakeholders as part of your membership. 
+You can configure up to ten stakeholders as part of your membership.
 
 Examples for internal stakeholders include members
 of your incident response team, security analysts, application
@@ -24,9 +24,4 @@ will be automatically added to any case. You can add or remove
 individual teammates at any time after a case has been created.
 
 The incident response team will receive an email notification on
-the following events:
-
-- Case (create, delete, update)
-- Comment (create, delete, update)
-- Attachment (create, delete, update)
-- Membership (create, update, cancel, resume)
+the events listed in [communication preferences](../APIReference/API_IncidentResponder.md#securityir-Type-IncidentResponder-communicationPreferences "../APIReference/API_IncidentResponder.md#securityir-Type-IncidentResponder-communicationPreferences").

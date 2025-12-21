@@ -1,8 +1,8 @@
 # Monitoring and investigation
 
 AWS Security Incident Response reviews and triages security alerts from Amazon GuardDuty and AWS Security Hub CSPM, then configures suppression
-rules based on your environment to prevent unnecessary alerts. The AWS CIRT team investigates
-non-triaged findings and quickly escalates and guides your team to rapidly contain potential issues. If desired, you can grant
+rules based on your environment to prevent unnecessary alerts. Security Indcident Response engineers investigate
+findings and quickly escalates and guides your team to rapidly contain potential issues. If desired, you can grant
 AWS Security Incident Response permission to implement containment actions on your behalf.
 
 AWS Security Incident Response aligns to the NIST 800-61r2
@@ -13,7 +13,7 @@ consistent approach to security event management and adhere to
 best practices in securing and responding to security events in
 your AWS environment.
 
-When the AWS Security Incident Response service identifies a security alert or you request security assistance, the AWS CIRT investigates.
+When the AWS Security Incident Response service identifies a security alert or you request security assistance, Security Indcident Response engineers investigate.
 The team collects log events and service data such as GuardDuty alerts, triages and analyzes that data, performs
 remediation and containment activities, and provides post-incident reporting.
 

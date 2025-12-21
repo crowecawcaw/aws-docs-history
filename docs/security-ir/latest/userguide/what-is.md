@@ -7,8 +7,7 @@ attacks.
 
 AWS Security Incident Response triages
 findings, escalates security events, and manages cases that require your immediate
-attention. Additionally, you have access to the
-AWS Customer Incident Response Team (CIRT), who will
+attention. Additionally, you have access to Security Incident Response engineers, who will
 investigate impacted resources.
 
 ###### Note

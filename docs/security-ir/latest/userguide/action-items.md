@@ -1,6 +1,6 @@
 # Action Items
 
-An AWS CIRT responder working on the case may request
+An AWS Security Incident Response engineer working on the case may request
 actions from your internal team.
 
 Action items that appear after a case has been created include:

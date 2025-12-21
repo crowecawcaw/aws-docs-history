@@ -13,7 +13,7 @@ quickly (days to weeks) with high-value changes to prevent
 future events. The later phases can focus on longer-term changes
 (for example, infrastructure changes), and ongoing work to keep
 the enterprise as secure as possible. Each case is unique and
-AWS CIRT will work with you to assess necessary actions. 
+AWS Security Incident Response engineers will work with you to assess necessary actions. 
 
 Consider the following:
 

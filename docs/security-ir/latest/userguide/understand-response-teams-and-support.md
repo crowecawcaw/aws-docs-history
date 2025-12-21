@@ -17,19 +17,19 @@ Support](../../../awssupport/latest/user/getting-started.md#accessing-support ".
 
 Additionally, if you need to report abuse, contact the [AWS Tust and Safety team](https://aws.amazon.com/forms/report-abuse "https://aws.amazon.com/forms/report-abuse").
 
-## AWS Customer Incident Response Team (CIRT)
+## Security Incident Response engineers
 
-The AWS Customer Incident Response Team (CIRT) is a specialized always available global AWS team
+Security Incident Response engineers are a specialized always available global AWS team
 that provides support to customers during active security events on the customer side
 of the [AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").
 
-When the AWS CIRT supports you, you will receive assistance with triage and recovery
+When Security Incident Response engineers support you, you will receive assistance with triage and recovery
 for an active security event on AWS. They will assist in root cause analysis through
 the use of AWS service logs and provide you with recommendations for recovery. They
 will also provide security recommendations and best practices to help you avoid
 security events in the future.
 
-AWS customers can engage the AWS CIRT through an [AWS support case](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md").
+AWS customers can engage Security Incident Response engineers through an [AWS support case](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md").
 
 - **All Customers**:
   1.  Account and billing

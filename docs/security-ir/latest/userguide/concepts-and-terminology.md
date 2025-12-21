@@ -41,10 +41,9 @@ system or network to produce an adverse effect on the system, network, or inform
 **Cybersecurity Incident**: A violation or imminent threat of violation
 of computer security policies, acceptable use policies, or standard security practices.
 
-**Incident Response Team**: A group of
+**Security Incident Response engineers**: A group of
 individuals who provide support during active security events.
-For AWS supported cases, this is the AWS Customer
-Incident Response Team (CIRT).
+For AWS supported cases, this is the Security Incident Response engineers.
 
 **Incident Response Workflow**: The
 defined sequence of steps and activities involved in the end-to-end
@@ -79,7 +78,7 @@ provides a single, centralized dashboard in the AWS Management Console to manage
 
 **Responder Generated Intelligence**:
 indicators of compromise; tactics, techniques, and procedures; and associated
-patterns observed by AWS CIRT investigations.
+patterns observed by AWS investigations.
 
 **Security Event Expertise**: The
 specialized knowledge and skills required to effectively respond to
