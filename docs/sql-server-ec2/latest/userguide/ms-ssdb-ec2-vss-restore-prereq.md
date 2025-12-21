@@ -146,7 +146,7 @@ JSON
  ],
  "Resource": [
  "arn:aws:ec2:*:*:instance/*",
- "arn:aws:ssm:*:*:automation-definition/AWSEC2-RestoreSqlServerDatabaseWithVss",
+ "arn:aws:ssm:*:*:document/AWSEC2-RestoreSqlServerDatabaseWithVss",
  "arn:aws:ssm:*:*:document/AWS-ConfigureAWSPackage",
  "arn:aws:ssm:*:*:document/AWSEC2-PrepareVssRestore",
  "arn:aws:ssm:*:*:document/AWSEC2-RunVssRestoreForSqlDatabase"
