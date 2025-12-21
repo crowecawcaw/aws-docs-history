@@ -39,7 +39,7 @@ Use the following AWS CLI command to create a fleet with a host configuration sc
 Replace the `placeholder` text with your information.
 
 ```
-aws deadline-internal create-fleet \
+aws deadline create-fleet \
 --farm-id `farm-12345` \
 --display-name "`fleet-name`" \
 --max-worker-count 1 \

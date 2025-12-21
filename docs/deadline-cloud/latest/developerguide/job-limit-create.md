@@ -6,7 +6,7 @@ create a limit, you can associate it with one or more queues.
 
 ###### To create a limit
 
-1. From the Deadline Cloud console ([https://console.aws.amazon.com/deadlinecloud/home](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home")) dashboard, select the farm
+1. From the Deadline Cloud console ([Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home")) dashboard, select the farm
    that you want to create a queue for.
 2. Choose the farm to add the limit to, choose the **Limits** tab,
    and then choose **Create limit**.

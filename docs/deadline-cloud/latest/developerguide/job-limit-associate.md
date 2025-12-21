@@ -7,7 +7,7 @@ You create an association with a queue using the Deadline Cloud console or the [
 
 ###### To associate a queue with a limit
 
-1. From the Deadline Cloud console ([https://console.aws.amazon.com/deadlinecloud/home](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home")) dashboard, select the farm
+1. From the Deadline Cloud console ([Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home")) dashboard, select the farm
    where you want to associate a limit with a queue.
 2. Choose the **Limits** tab, choose the limit to associate a queue
    with, and then choose **Edit limit**.

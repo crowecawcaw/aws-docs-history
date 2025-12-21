@@ -81,7 +81,7 @@ Deadline Cloud usage-based licensing (UBL) is also available when not using serv
 ### Custom licensing
 
 You might use an application that is not supported by Deadline Cloud UBL or you might have preexisting licenses that are still valid. In this scenario, you are responsible for configuring the network path from your workers (customer- or service-managed) to the license servers.
-For more information about custom licensing, see [connect an SMF to a custom license server](../../../smf-byol.md "../../../smf-byol.md").
+For more information about custom licensing, see [Connect service-managed fleets to a custom license server](smf-byol.md "smf-byol.md").
 
 ## Asset access
 
@@ -133,7 +133,7 @@ In a service-managed fleet, Deadline Cloud takes responsibility for the worker h
 
 ### Customer-managed fleets
 
-You use customer-managed fleets when you need more control over the worker hosts and their environment. Customer-managed fleets are best suited when using Deadline Cloud on-premises. To learn more, see [Create and use Deadline Cloud customer-managed fleets](../../../cmf-manage.md "../../../cmf-manage.md").
+You use customer-managed fleets when you need more control over the worker hosts and their environment. Customer-managed fleets are best suited when using Deadline Cloud on-premises. To learn more, see [Create and use Deadline Cloud customer-managed fleets](manage-cmf.md "manage-cmf.md").
 
 ## Example architectures
 

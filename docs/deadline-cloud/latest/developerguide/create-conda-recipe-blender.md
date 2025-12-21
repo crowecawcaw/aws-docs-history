@@ -27,7 +27,7 @@ condaPlatforms:
 ```
 
 Review the files in the `recipe` directory. The metadata for the recipe is in
-[recipe/meta.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.2/recipe/meta.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.2/recipe/meta.yaml"). You can also read the conda build [meta.yaml](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html "https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html") documentation to learn more, such as how the file is a template to
+[recipe/recipe.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.2/recipe/recipe.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.2/recipe/recipe.yaml"). You can also read the conda build [meta.yaml](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html "https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html") documentation to learn more, such as how the file is a template to
 generate YAML. The template is used to specify the version number just once, and to provide
 different values based on the operating system.
 

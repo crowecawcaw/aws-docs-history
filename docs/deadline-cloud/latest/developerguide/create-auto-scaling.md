@@ -1,12 +1,12 @@
-# Create fleet infrastructure with an Amazon EC2 Amazon EC2 Auto Scaling
+# Create fleet infrastructure with an Amazon EC2 Auto Scaling
 
 group
 
 This section explains how to create an Amazon EC2 Auto Scaling fleet.
 
-Use the CloudFormation YAML template below to create an Amazon EC2 Auto Scaling (Amazon EC2 Auto Scaling) group, an Amazon Virtual Private Cloud (Amazon VPC)
+Use the CloudFormation YAML template below to create an Amazon EC2 Auto Scaling (Auto Scaling) group, an Amazon Virtual Private Cloud (Amazon VPC)
 with two subnets, an instance profile, and an instance access role. These are required to launch
-instance using Amazon EC2 Auto Scaling in the subnets.
+instance using Auto Scaling in the subnets.
 
 You should review and update the list of instance types to fit your rendering needs.
 
@@ -227,7 +227,7 @@ the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-cons
 
 recommendation feature
 
-Deadline Cloud leverages an Amazon EC2 Auto Scaling (Amazon EC2 Auto Scaling) group to scale the Amazon EC2 customer-managed fleet (CMF)
+Deadline Cloud leverages an Amazon EC2 Auto Scaling (Auto Scaling) group to scale the Amazon EC2 customer-managed fleet (CMF)
 automatically. You need to configure the fleet mode as well as deploy the required
 infrastructure in your account to make your fleet auto scale. The infrastructure you deployed
 will work for all fleets, so you only need to set it up once.
@@ -236,7 +236,7 @@ The basic workflow is: you configure your fleet mode to auto scale, and then Dea
 send out an EventBridge event for that fleet whenever recommended fleet size changes (one event
 contains fleet id, recommended fleet size, and other metadata). You will have an EventBridge rule to
 filter the relevant events and have a Lambda to consume them. The Lambda will integrate with
-Amazon EC2 Amazon EC2 Auto Scaling `AutoScalingGroup` to scale the Amazon EC2 fleet automatically.
+Amazon EC2 Auto Scaling `AutoScalingGroup` to scale the Amazon EC2 fleet automatically.
 
 ### Set fleet mode to
 
@@ -269,7 +269,7 @@ aws deadline create-fleet \
 The following is an example of `configuration.json` used in the CLI commands
 above (`--configuration file://configuration.json`).
 
-- To enable Amazon EC2 Auto Scaling on your fleet, you should set the mode to
+- To enable Auto Scaling on your fleet, you should set the mode to
   `EVENT_BASED_AUTO_SCALING`.
 - The `workerCapabilities` are the default values assigned to the CMF when
   you created it. You can change these values if you need to increase resources available
@@ -299,10 +299,10 @@ fleet.
 }
 ```
 
-#### Deploy Amazon EC2 Auto Scaling stack using the CloudFormation template
+#### Deploy Auto Scaling stack using the CloudFormation template
 
 You can set up an EventBridge rule to filter events, a Lambda to consume the events and
-control Amazon EC2 Auto Scaling, and an SQS queue to store unprocessed events. Use the following CloudFormation
+control Auto Scaling, and an SQS queue to store unprocessed events. Use the following CloudFormation
 template to deploy everything in a stack. After you deploy the resources successfully, you
 can submit a job and the fleet will automatically scale up.
 
