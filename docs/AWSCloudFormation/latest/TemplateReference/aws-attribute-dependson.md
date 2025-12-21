@@ -124,7 +124,7 @@ same template.
 Currently, the following resources depend on a VPC-gateway attachment when they have
 an associated public IP address and are in a VPC.
 
-- Amazon EC2 Auto Scaling groups
+- Auto Scaling groups
 - Amazon EC2 instances
 - ELB load balancers
 - Elastic IP addresses
@@ -208,10 +208,10 @@ EC2Host:
         Ref: PublicSubnet
 ```
 
-### Amazon ECS service and Amazon EC2 Auto Scaling group
+### Amazon ECS service and Auto Scaling group
 
-When you use Amazon EC2 Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create container instances for an Amazon ECS
-cluster, the Amazon ECS service resource must have a dependency on the Amazon EC2 Auto Scaling group or
+When you use Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create container instances for an Amazon ECS
+cluster, the Amazon ECS service resource must have a dependency on the Auto Scaling group or
 Amazon EC2 instances, as shown in the following snippet. That way the container instances
 are available and associated with the Amazon ECS cluster before CloudFormation creates the
 Amazon ECS service.

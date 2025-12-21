@@ -157,7 +157,7 @@ _Required_: No
 
 ## Examples
 
-### Amazon EC2 Auto Scaling group
+### Auto Scaling group
 
 The following example shows how to add a creation policy to an Amazon EC2 Auto Scaling group. The
 creation policy requires three success signals and times out after 15 minutes. Use the [cfn-signal](cfn-signal.md "cfn-signal.md") helper script to signal when an instance creation

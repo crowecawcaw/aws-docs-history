@@ -392,7 +392,7 @@ MyDatabase:
 
 #### Conditional update policies
 
-The following snippet provides an Amazon EC2 Auto Scaling update policy only if the
+The following snippet provides an Auto Scaling update policy only if the
 `RollingUpdates` condition evaluates to true. If the condition evaluates to
 false, CloudFormation removes the `AutoScalingRollingUpdate` update policy.
 

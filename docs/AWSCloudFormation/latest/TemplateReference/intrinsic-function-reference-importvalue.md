@@ -26,7 +26,7 @@ Similarly, the `ImportValue` function can't include `Ref` or `GetAtt` functions 
 - After another stack imports an output value, you can't delete the stack that is exporting the output value or modify the exported output value. All the imports
   must be removed before you can delete the exporting stack or modify the output value.
 
-### JSON
+## JSON
 
 Stack A Export
 
@@ -45,7 +45,7 @@ Stack A Export
 }
 ```
 
-### YAML
+## YAML
 
 Stack A Export
 
@@ -69,7 +69,7 @@ Outputs:
         'Fn::Sub': '${AWS::StackName}-SecurityGroupID'
 ```
 
-### JSON
+## JSON
 
 Stack B Import
 
@@ -92,7 +92,7 @@ Stack B Import
 }
 ```
 
-### YAML
+## YAML
 
 Stack B Import
 
