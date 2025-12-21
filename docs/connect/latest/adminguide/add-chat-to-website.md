@@ -54,6 +54,7 @@ For more information, see [Amazon Connect service quotas](amazon-connect-service
   communications widget](ts-cw.md "ts-cw.md")
 - [Add a pre-contact or pre-chat
   form](add-precontact-form.md "add-precontact-form.md")
+- [Post-chat survey](enable-post-chat-survey.md "enable-post-chat-survey.md")
 
 ## Supported browsers
 

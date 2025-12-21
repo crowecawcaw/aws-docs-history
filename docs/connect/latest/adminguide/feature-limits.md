@@ -98,37 +98,40 @@ The following table ists the specifications for WhatsApp business messaging
 
 planning, and scheduling feature specifications
 
-| Item                                                   | Feature Specification                           |
-| ------------------------------------------------------ | ----------------------------------------------- |
-| Agents per schedule generation run                     | 800                                             |
-| Agents per staffing group                              | 200                                             |
-| Capacity plans per instance                            | 500                                             |
-| Capacity scenarios per instance                        | 500                                             |
-| Capacity plan user data uploads per instance           | 500                                             |
-| Capacity plan override uploads per instance            | 5000                                            |
-| Concurrent uploads per instance                        | 20                                              |
-| File size per upload of agent time off data            | 1GB                                             |
-| File size per upload of time off group allowance data  | 1GB<br>The .csv file can cover up to 13 months. |
-| File size per upload of capacity plan user data        | 1GB                                             |
-| File size per upload of capacity plan overrides        | 250MB                                           |
-| File size per upload of forecast overrides             | 250MB                                           |
-| File size per upload of historical actuals             | 1GB                                             |
-| Forecast groups per instance                           | 500                                             |
-| Forecast override uploads per instance                 | 500                                             |
-| Historical actuals uploads per instance                | 50                                              |
-| Queues per forecast group                              | 200                                             |
-| Schedules per instance                                 | 1000                                            |
-| Shift activities per instance                          | 500                                             |
-| Shift activities per shift profile                     | 10                                              |
-| Shift profiles per instance                            | 2500                                            |
-| Shift rotation steps per pattern                       | 52                                              |
-| Shift rotation weeks per pattern                       | 52                                              |
-| Shift rotations associated with a single shift profile | 1300                                            |
-| Shift rotations per instance                           | 1300                                            |
-| Staffing groups per forecast group                     | 100                                             |
-| Staffing groups per instance                           | 1300                                            |
-| Staffing groups per supervisor/manager                 | 250                                             |
-| Supervisors/managers per staffing group                | 100                                             |
+| Item                                                                   | Feature Specification                           |
+| ---------------------------------------------------------------------- | ----------------------------------------------- |
+| Agents per schedule generation run                                     | 800                                             |
+| Agents per staffing group                                              | 200                                             |
+| Capacity plans per instance                                            | 500                                             |
+| Capacity scenarios per instance                                        | 500                                             |
+| Capacity plan user data uploads per instance                           | 500                                             |
+| Capacity plan override uploads per instance                            | 5000                                            |
+| Concurrent uploads per instance                                        | 20                                              |
+| File size per upload of agent time off data                            | 1GB                                             |
+| File size per upload of time off group allowance data                  | 1GB<br>The .csv file can cover up to 13 months. |
+| File size per upload of capacity plan user data                        | 1GB                                             |
+| File size per upload of capacity plan overrides                        | 250MB                                           |
+| File size per upload of forecast overrides                             | 250MB                                           |
+| File size per upload of historical actuals                             | 1GB                                             |
+| Historical actuals 15 or 30 minute interval aggregated file size limit | 2GB                                             |
+| Historical actuals daily interval aggregated file size limit           | 2GB                                             |
+| Forecast groups per instance                                           | 500                                             |
+| Forecast override uploads per instance                                 | 500                                             |
+| Historical actuals 15 or 30 minute interval file count                 | 300                                             |
+| Historical actuals daily interval file count                           | 300                                             |
+| Queues per forecast group                                              | 200                                             |
+| Schedules per instance                                                 | 1000                                            |
+| Shift activities per instance                                          | 500                                             |
+| Shift activities per shift profile                                     | 10                                              |
+| Shift profiles per instance                                            | 2500                                            |
+| Shift rotation steps per pattern                                       | 52                                              |
+| Shift rotation weeks per pattern                                       | 52                                              |
+| Shift rotations associated with a single shift profile                 | 1300                                            |
+| Shift rotations per instance                                           | 1300                                            |
+| Staffing groups per forecast group                                     | 100                                             |
+| Staffing groups per instance                                           | 1300                                            |
+| Staffing groups per supervisor/manager                                 | 250                                             |
+| Supervisors/managers per staffing group                                | 100                                             |
 
 ## Integration
 

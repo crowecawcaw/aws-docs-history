@@ -118,7 +118,7 @@ order to associate it to the interaction.
 
 ![Autopopulated results in multiple profiles for the same call or chat.](images/example4-autopop-cp-1.png)
 
-![Autopopulated results in multiple profiles for the same call or chat.](images/example4-autopop-cp-2.png)
+![Autopopulated results in multiple profiles for the same call or chat.](/images/connect/latest/adminguide/images/example4-autopop-cp-2.png)
 
 ![Autopopulated results in multiple profiles for the same call or chat.](images/example4-autopop-cp-3.png)
 

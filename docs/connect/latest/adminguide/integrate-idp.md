@@ -15,6 +15,8 @@ Console](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md
 
 ## Important things to know
 
+- Agent failover is only supported when using the global sign-in
+  endpoint.
 - To perform the steps in this topic, you'll need your instance ID.
   For instructions about how to find it, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 - You will also need to know the source Region of your Amazon Connect

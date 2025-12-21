@@ -5,7 +5,7 @@ troubleshooting
 When you open an AWS Support ticket for issues with screen recordings, include the
 log files for Amazon Connect Client Application and shared worker from the agent desktop.
 
-### Amazon Connect Client Application log files (Windows)
+## Amazon Connect Client Application log files (Windows)
 
 On the agent's desktop, navigate to:
 
@@ -21,12 +21,12 @@ browser and Client Application, and another Websocket connection between
 This file contains logs for screen recording activities. (Not
 applicable for version 1.x.)
 
-### Shared Worker logs (Windows and ChromeOS)
+## Shared Worker logs (Windows and ChromeOS)
 
 Open your CCP. It must be open so you can view the
 **ClientAppInterface** shared worker.
 
-#### Chrome
+### Chrome
 
 1. Open a Chrome browser. For the URL type
    `chrome://inspect/#workers`.
@@ -38,7 +38,7 @@ Open your CCP. It must be open so you can view the
    dump, and then select **Save as...** to store the
    log dump to a local file.
 
-#### Firefox
+### Firefox
 
 1. Open a Firefox browser. For the URL type
    `about:debugging#workers`.
@@ -49,7 +49,7 @@ Open your CCP. It must be open so you can view the
    **Save all Messages to File** to store the log
    dump to a local file.
 
-#### Edge (Chromium)
+### Edge (Chromium)
 
 1. Open a Chrome browser. For the URL type
    `edge://inspect/#workers`.

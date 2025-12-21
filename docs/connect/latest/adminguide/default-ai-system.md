@@ -79,6 +79,8 @@ After the transcript and customer details are compiled, it then it hands
 off to either the **QinConnectEmailResponsePrompt** or
 **QinConnectEmailGenerativeAnswerPrompt**.
 
+- **QinConnectCaseSummarizationPrompt** **(used by QinConnectCaseSummarizationAIAgent)**: Generates a summary of a Case by analyzing and summarizing key Case fields and items in the activity feed.
+
 ## Default AI agents
 
 - **QinConnectAnswerRecommendationAIAgent**
@@ -87,3 +89,4 @@ off to either the **QinConnectEmailResponsePrompt** or
 - **QinConnectEmailResponseAIAgent**
 - **QinConnectEmailOverviewAIAgent**
 - **QinConnectEmailGenerativeAnswerAIAgent**
+- **QinConnectCaseSummarizationAIAgent**

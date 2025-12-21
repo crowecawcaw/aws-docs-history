@@ -74,6 +74,4 @@ assign them to multiple instances across AWS Regions. To
 do this, use the [UpdatePhoneNumber](../APIReference/API_UpdatePhoneNumber.md "../APIReference/API_UpdatePhoneNumber.md") API to assign the numbers to a
 traffic distribution group. 4. [Update your traffic
 distribution](update-telephony-traffic-distribution.md "update-telephony-traffic-distribution.md"). Use the [UpdateTrafficDistribution](../APIReference/API_UpdateTrafficDistribution.md "../APIReference/API_UpdateTrafficDistribution.md") API to distribute traffic across the
-linked instances in 10% increments. 5. If you're using Amazon Connect Global Resiliency and external voice transfer to
-transfer calls to an external system, see [Set up Amazon Connect Global Resiliency for
-external voice transfer](acgr-external-voice-transfer.md "acgr-external-voice-transfer.md") for additional steps.
+linked instances in 10% increments.

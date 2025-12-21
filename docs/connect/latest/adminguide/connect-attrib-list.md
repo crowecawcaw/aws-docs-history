@@ -25,6 +25,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 - [User-defined attributes](#user-defined-attributes "#user-defined-attributes")
 - [Flow attributes](#flow-attributes "#flow-attributes")
 - [Flow modules attributes](#flow-modules-attributes "#flow-modules-attributes")
+- [Data Table attributes](#data-table-attributes "#data-table-attributes")
 - [Apple Messages for Business attributes](#apple-messages-for-business-attributes "#apple-messages-for-business-attributes")
 - [Customer Profiles attributes](#customer-profiles-attributes "#customer-profiles-attributes")
 - [Outbound campaign attributes](#campaign-attributes "#campaign-attributes")
@@ -358,6 +359,39 @@ The following table lists the flow modules attributes available in Amazon Connec
 | Input                                | The input data provide access to the input passed into the module. This is returned as a JSON object and the specific format is defined by module input schema.                 | Modules | $.Modules.Input      |
 | Result                               | The result data captures the branch name returned from the module excluding the error branch. This is returned as a string.                                                     | Modules | $.Modules.Result     |
 | Output (Attribute reference from UI) | The output data captures the result-data generated from the module execution. This is returned as a JSON object and the specific format is defined by the module output schema. | Modules | $.Modules.ResultData |
+
+## Data Table attributes
+
+Attributes returned by Data Table block operations. Use these to access data retrieved from data tables within your contact flows.
+
+### Evaluate Data Table Values attributes
+
+Attributes returned when using the Evaluate action in a Data Table block to query specific attribute values.
+
+- If the query returns no results or the attribute is not found, the reference will be empty or null.
+
+| Attribute                         | Description                                                                                                                                                                                                     | Type       | JSONPath Reference                       |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------------- |
+| Data Table evaluated query result | The value of a specific attribute retrieved by a named query. Replace `<QueryName>` with the unique name assigned to your query, and `<AttributeName>` with the name of the attribute you selected to retrieve. | Data Table | $.DataTables.<QueryName>.<AttributeName> |
+
+### List Data Table Values attributes
+
+Attributes returned when using the List action in a Data Table block to retrieve complete records.
+
+- The list returns complete records (all attributes), not just selected ones.
+- If no matching records are found, the primaryKeyGroups array will be empty.
+- When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name: `$.DataTableList.Result.primaryKeyGroups.default[index]`.
+- The List namespace has a maximum data limit of 32 KB.
+
+| Attribute          | Description                                                                                                                                          | Type            | JSONPath Reference                                                                           |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------- |
+| Data table ID      | The unique identifier of the data table from which records were retrieved.                                                                           | Data Table List | $.DataTableList.Result.dataTableId                                                           |
+| Lock version       | The lock version information for the data table.                                                                                                     | Data Table List | $.DataTableList.Result.lockVersion.dataTable                                                 |
+| Default group name | When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name.                         | Data Table List | $.DataTableList.Result.primaryKeyGroups.default[index]                                       |
+| Primary key groups | The collection of retrieved records organized by primary value group name. Replace `<GroupName>` with the name assigned to your primary value group. | Data Table List | $.DataTableList.Result.primaryKeyGroups.<GroupName>                                          |
+| Specific row       | Access a specific row within a primary key group. Replace `<GroupName>` with your group name and `[index]` with the zero-based index of the row.     | Data Table List | $.DataTableList.Result.primaryKeyGroups.<GroupName>[index]                                   |
+| Primary key value  | Access the value of a primary key attribute in a specific row.                                                                                       | Data Table List | $.DataTableList.Result.primaryKeyGroups.<GroupName>[index].primaryKeys[index].attributeValue |
+| Attribute value    | Access the value of a non-primary attribute in a specific row.                                                                                       | Data Table List | $.DataTableList.Result.primaryKeyGroups.<GroupName>[index].attributes[index].attributeValue  |
 
 ## Apple Messages for Business attributes
 

@@ -1,22 +1,13 @@
-# Create a task in
+# Create a rule that generates a task
 
-Contact Lens when a contact is categorized in real-time or after
-a call or chat
+Amazon Connect rules enables you to generate tasks. This helps you create traceable actions with owners and provides you visibility on task completion and productivity out the box.
 
-An especially powerful use of Contact Lens rules is to build rules that
-generate tasks. This helps you identify issues in your contact center for you to
-follow up, and creates traceable actions with owners. Following are some
-examples:
+Following are some examples:
 
-- Create a task to review a contact when the customer is fraudulent. For
-  example, you can create a follow-up task when a customer utters words or
-  phrases that makes them appear potentially fraudulent.
-- Follow up when the customer mentions specific topics that you want to
-  later on upsell or provide additional support by reaching out.
-- Follow up when there is a serious quality issue. In addition to
-  contacts being categorized and getting alerts, you can route a task so
-  you have owners. You also have contact records for these tasks, so you
-  can search for and trace them.
+- Review a contact when the customer is fraudulent. For example, you can create a follow-up task when a customer utters words or phrases that makes them appear potentially fraudulent.
+- Follow up when the customer mentions specific topics that you want to later on upsell or provide additional support by reaching out.
+- Evaluate agent performance in specific scenarios, e.g. customer sentiment was very low during the conversation and the customer expressed frustration.
+- Take operational actions, such as assigning additional agents to queues on which avg. queue answer time in the last hour has exceeded acceptable thresholds.
 
 ###### To create a rule that creates a task
 
@@ -36,17 +27,23 @@ examples:
      characters.
 
 
-    ###### Tip
-
-    In **Name** and
-     **Description**, use [ ] to choose from
-     a menu of dynamic values: **ContactId**,
-     **AgentId**,
-     **QueueId**, and
-     **RuleName**.
+    ###### Note
 
 
-    ![The Create task section, the Description field, a list of dynamic values.](images/contact-lens-rules-add-tasks-brackets.png)
+     In Name and Description, use **@ to add dynamic variables** that are populated during execution of the rule.
+     For conversational analytics rules and evaluation forms rules, you can add **rule name, instance URL, contact, agent** and **queue** information for the contact that matched the rule.
+     Evaluation forms rules additionally enable you to insert the **evaluation ID**.
+
+
+
+    ![The task action with dynamic variables.](images/rules-create-task-dynamic-variables.png)
+    Other rule types support different variables::
+
+
+
+    	* Real-time metrics rules enable you to enter **rule name, instance URL and list of agents, queues, flows or routing profile**
+    	 that breached the threshold to trigger the alert.
+    	* Rules for cases allow you to insert **rule name, instance URL** and **case ID**.
     4. **Task reference name**: This is a default
      reference that automatically appears in the agent's CCP.
 
@@ -83,7 +80,7 @@ In this example, the agent sees the following values for
 
 4. Choose **Next**. Review and then choose
    **Save** the task.
-5. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Contact Lens analyzes conversations.
+5. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.
 

@@ -11,12 +11,11 @@ endpoints:
 - Outbound campaigns
 - Voice ID
 - Amazon Q in Connect
-  The core Amazon Connect service does not support AWS PrivateLink or VPC endpoints.
-
-Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you to privately access Amazon Connect APIs
-without an internet gateway, NAT device, VPN connection, or Direct Connect connection.
-Instances in your VPC don't need public IP addresses to communicate with the Amazon Connect APIs
-that integrate with AWS PrivateLink.
+- Amazon Connect Service
+  Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you to privately access Amazon Connect APIs
+  without an internet gateway, NAT device, VPN connection, or Direct Connect connection.
+  Instances in your VPC don't need public IP addresses to communicate with the Amazon Connect APIs
+  that integrate with AWS PrivateLink.
 
 For more information, see the [AWS PrivateLink Guide](../../../vpc/latest/privatelink.md "../../../vpc/latest/privatelink.md").
 
@@ -37,6 +36,8 @@ Amazon Connect supports the following service names:
 - com.amazonaws.`region`.voiceid
 - com.amazonaws.`region`.wisdom (This is for
   Amazon Q in Connect.)
+- com.amazonaws.`region`.connect
+- com.amazonaws.`region`.connect-fips (This is for creating an endpoint for Amazon Connect Service that complies with the Federal Information Processing Standard (FIPS).)
 
 If you enable private DNS for an interface endpoint, you can make API requests to
 Amazon Connect using the default DNS name for the Region. For example,

@@ -4,8 +4,8 @@ This topic defines the flow block for sending a message to a customer.
 
 ###### Important
 
-Before using this block, claim a phone number or originating identity in
-AWS End User Messaging SMS and then import the number into Amazon Connect. For instructions, see [Set up SMS messaging](setup-sms-messaging.md "setup-sms-messaging.md").
+Before using this block for sending text messages, enable SMS messaging or WhatsApp
+Business messaging. For instructions, see [Set up SMS messaging](setup-sms-messaging.md "setup-sms-messaging.md") or [Set up WhatsApp Business messaging](whatsapp-integration.md "whatsapp-integration.md").
 
 ## Description
 
@@ -16,14 +16,14 @@ AWS End User Messaging SMS and then import the number into Amazon Connect. For i
 
 This flow block is designed to be used in the following scenarios:
 
-- Send an automatic acknowledgement when you receive a new email or SMS
-  contact, for example, "Thank you for your message. We will get back to you
-  in 24 hours."
-- Send automated email or SMS responses that resolve the contact. For
-  example, if a customer sends a text asking "How do I reset my password?" you
-  can send a templated or generated email response that provides instructions.
-- Send survey emails or SMS messages. For example, "Thank you for your time
-  today. How did we do?" Use a Disconnect flow type for this use case.
+- Send an automatic acknowledgement when you receive a new email, SMS, or
+  WhatsApp contact, for example, "Thank you for your message. We will get back
+  to you in 24 hours."
+- Send automated email, SMS, or WhatsApp responses that resolve the contact.
+  For example, if a customer sends a text asking "How do I reset my password?"
+  you can send a templated or generated email response that provides instructions.
+- Send survey emails, SMS, or WhatsApp messages. For example, "Thank you for
+  your time today. How did we do?" Use a Disconnect flow type for this use case.
 
 ## Contact types
 
@@ -77,7 +77,7 @@ message** block in any outbound flow type:
 - Set the **No Match** branch of the **Check
   attribute block** to use the **Send message**
   block. The **No Match** branch should route any VOICE, CHAT
-  (including subtypes like SMS), or TASK contacts to the **Send
+  (including subtypes like SMS and WhatsApp), or TASK contacts to the **Send
   message** block as part of the flow.
 
 Implementing these safeguards will help prevent scenarios where outbound email
@@ -105,8 +105,8 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 
 ## Required permissions
 
-To configure this block to send SMS or email messages, you need the following
-permissions on your security profile:
+To configure this block to send SMS, WhatsApp, or email messages, you need the
+following permissions on your security profile:
 
 - **Channels and flows > Phone numbers > View**: To view
   the drop-down menu of phone numbers.
@@ -114,7 +114,8 @@ permissions on your security profile:
   the dropdown menu of From email addresses.
 - **Content Management** - **Message
   templates** - **View**: To view the dropdown
-  menu of message templates that are available for SMS messages and emails.
+  menu of message templates that are available for SMS messages, WhatsApp messages,
+  and emails.
 
 If you don't have these permissions, you can still set the properties dynamically.
 For example, if a phone number has been set manually already on the block, and you
@@ -130,6 +131,7 @@ or by using the [StartOutboundChatContact](../APIReference/contact-actions-start
 ###### Configuration sections
 
 - [Send an SMS (text message)](#sendmessage-block-sms "#sendmessage-block-sms")
+- [Send a WhatsApp Message](#sendmessage-block-whatsapp "#sendmessage-block-whatsapp")
 - [Send an email](#sendmessage-block-email "#sendmessage-block-email")
 - [About using
   templates](#sendmessage-block-email "#sendmessage-block-email")
@@ -214,6 +216,89 @@ Configure the following properties on the page to send an SMS message:
 
   In some situations, you may not want to link the contact to
   avoid sending repetitive outbound SMS messages. For example, if
+  the flow is configured to send the customer the message
+  _Thank you for your message! We will get back to
+  you within 24 hours._ every time you receive a
+  contact.
+
+### Send a WhatsApp Message
+
+The following image shows the **Send message** properties
+page when it's configured to send an WhatsApp message.
+
+![The properties page of the Send message block.](images/send-message-block-properties-whatsapp.png)
+
+Configure the following properties on the page to send an WhatsApp message:
+
+- **From**: The phone number that the message is to be
+  sent from. The dropdown menu shows a list of WhatsApp numbers that are
+  imported into your Amazon Connect instance.
+  - **Set manually**: Use the dropdown menu to
+    search for a WhatsApp number that has been imported into your Amazon Connect
+    instance.
+
+  You must have the [required permission](#sendmessage-block-perms "#sendmessage-block-perms") in your security profile to view
+  the dropdown list of templates.
+  - **Set dynamically**: Accepts an attribute
+    based on a **Namespace** and
+    **Key** that points to an ARN of a WhatsApp
+    number that has been imported into your Amazon Connect
+    instance.
+
+- **To**: The WhatsApp number that the message is to be
+  sent to.
+  - **Set manually**: Enter the customer's WhatsApp
+    number. This is where the WhatsApp message will be sent. You can
+    enter only one WhatsApp number. This is useful for testing the
+    block.
+  - **Set dynamically**: Accepts an attribute
+    based on a **Namespace** and
+    **Key** that is a WhatsApp number string the
+    message is sent to. This must be in E.164 format.
+
+- **Message template**: The template containing the
+  message that will be sent to the customer.
+  - Use the dropdown menu to choose from a list of WhatsApp templates.
+    Selecting a template is required for sending WhatsApp messages to customers.
+
+  A WhatsApp template is a complete WhatsApp message structure
+  that can contain plain text, interactive components, and media content.
+  It provides the entire response or notification to the customer.
+
+  ###### Note
+
+  Whenever a WhatsApp user messages or calls a business, a 24-hour timer called
+  a [customer service window](https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages#customer-service-windows "https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages#customer-service-windows")
+  starts (or refreshes if one has already been started). Businesses can only send
+  template messages to customers outside this window.
+
+  If a customer has not messaged your business within the past 24 hours, they are
+  outside the customer service window. In this case, you can still send them message from
+  this Send Message flow block but subsequent messages from Play Prompt flow blocks
+  will fail to deliver because they are not templated messages.
+
+  You must have the [required permission](#sendmessage-block-perms "#sendmessage-block-perms") in your security profile to view
+  the dropdown list of templates.
+
+- **Flow**: The Amazon Connect flow that will
+  handle the outbound contact created. This flow can be used to assign the
+  outbound contact to an agent to respond to the customer.
+  - **Set manually**: Use the drop-down menu to
+    choose from a list of published flows.
+  - **Set dynamically**: Accepts an attribute
+    based on a **Namespace** and
+    **Key** that points to a flow ARN.
+
+- **Link to contact**: This property gives you the
+  option to link the outbound contact that is created to the inbound
+  contact that initiated the flow. In some situations, you may not want to
+  link the outbound contact that is created to avoid repetitive contact
+  associations.
+  - This property gives you the option to link the outbound WhatsApp
+    contact to the inbound contact that initiated the flow.
+
+  In some situations, you may not want to link the contact to
+  avoid sending repetitive outbound WhatsApp messages. For example, if
   the flow is configured to send the customer the message
   _Thank you for your message! We will get back to
   you within 24 hours._ every time you receive a

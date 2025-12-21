@@ -137,5 +137,3 @@ See these topics for scenarios that use this block:
 
 - [Set up contact transfers in Amazon Connect](transfer.md "transfer.md")
 - [Set up outbound caller ID in Amazon Connect](queues-callerid.md "queues-callerid.md")
-- [Set up Amazon Connect external voice transfer to an
-  on-premise voice system](external-voice-transfer.md "external-voice-transfer.md")

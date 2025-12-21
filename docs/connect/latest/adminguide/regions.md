@@ -24,8 +24,6 @@ available.
 - [Customer Profiles](#customerprofiles_region "#customerprofiles_region")
 - [Customer Profiles
   calculated attributes API](#customerprofiles_calculatedattributesregion "#customerprofiles_calculatedattributesregion")
-- [External voice
-  transfer](#external-voice-transfer-region "#external-voice-transfer-region")
 - [Forecasting, capacity planning, and
   scheduling](#optimization_region "#optimization_region")
 - [Generative Voice](#gv_region "#gv_region")
@@ -130,6 +128,7 @@ applications
 | ------------------------ | -------------- | ------------------------------------------------------------------- | -------------- |
 | US East (N. Virginia)    | us-east-1      | cases.us-east-1.amazonaws.com<br>cases-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
 | US West (Oregon)         | us-west-2      | cases.us-west-2.amazonaws.com<br>cases-fips.us-west-2.amazonaws.com | HTTPS<br>HTTPS |
+| Africa (Cape Town)       | af-south-1     | cases.af-south-1.amazonaws.com                                      | HTTPS          |
 | Asia Pacific (Seoul)     | ap-northeast-2 | cases.ap-northeast-2.amazonaws.com                                  | HTTPS          |
 | Asia Pacific (Singapore) | ap-southeast-1 | cases.ap-southeast-1.amazonaws.com                                  | HTTPS          |
 | Asia Pacific (Sydney)    | ap-southeast-2 | cases.ap-southeast-2.amazonaws.com                                  | HTTPS          |
@@ -241,16 +240,6 @@ The calculated attributes API is available in the following AWS Regions:
 - Africa (Cape Town)
 - Asia Pacific (Seoul)
 - Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Asia Pacific (Tokyo)
-- Canada (Central)
-- Europe (Frankfurt)
-- Europe (London)
-
-## External voice transfer
-
-- US East (N. Virginia)
-- US West (Oregon)
 - Asia Pacific (Sydney)
 - Asia Pacific (Tokyo)
 - Canada (Central)

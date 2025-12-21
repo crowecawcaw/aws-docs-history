@@ -1,8 +1,6 @@
-# Create Contact Lens rules that
+# Create rules that send email notifications
 
-send email notifications
-
-You can create Contact Lens rules that send email notifications to
+You can create rules that send email notifications to
 people in your organization. This helps you to respond more expediently to
 potential issues in your contact center. For example, you can create a rule to
 notify:
@@ -14,7 +12,7 @@ notify:
 - A designated person in your contact center when a disagreement occurs
   during the call.
 - An agent who had handled the contact that was analyzed or evaluated
-  with Contact Lens.
+  with Amazon Connect conversational analytics.
 
 ###### Important
 
@@ -24,9 +22,7 @@ notify:
   **Email address** is empty inside Amazon Connect. When email notifications are sent for SAML users, they must have
   a secondary email configured in order to get it. If a secondary email is not configured, the user won't receive the email.
 
-###### To create a Contact Lens rule that sends an email
-
-notification
+###### To create a rule that sends an email notification
 
 1. Log in to Amazon Connect with a user account that has the [required permissions](permissions-for-rules.md "permissions-for-rules.md") to
    create rules.
@@ -71,27 +67,22 @@ agent who handled the contact.
 **Body**, add the contents of the email
 notification.
 
-To specify contact attributes in the body of the email, type
-**[** and a list of available attributes appears,
-as shown in the following image. The available attributes are
-**ContactId**, **AgentId**,
-**QueueId**, **RuleName**, and
-**instance_url** for Conversational Analytics
-rules.
+Use **@ to add dynamic variables** that are populated during execution of the rule.
+For conversational analytics rules and evaluation forms rules, you can add **rule name, instance URL, contact, agent** and **queue** information for the contact that matched the rule.
+Evaluation forms rules additionally enable you to insert the **evaluation ID**.
+
+![The body of the email, the list of available variables.](images/rules-send-email-dynamic-variables.png)
 
 ###### Note
 
-Supported attributes can be different for other rule types:
+Other rule types support different variables:
 
-    * Real-time Metrics rules only support
-     **RuleName** and
-     **instance\_url**.
-    * Cases rules only support **RuleName**,
-     **instance\_url**, and
-     **CaseId**.
+    * Real-time metrics rules enable you to enter **rule name, instance URL** and list of **agents, queues, flows or routing profile** that breached the threshold to trigger the alert.
+    * Rules for cases allow you to insert **rule name, instance URL** and **case ID**.
 
-![The body of the email, the list of available attributes.](images/contact-lens-rules-email-attributes.png) 8. Choose **Next**. Review your selections, and then
-choose **Save**. 9. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Contact Lens analyzes conversations.
+8. Choose **Next**. Review your selections, and then
+   choose **Save**.
+9. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.
 

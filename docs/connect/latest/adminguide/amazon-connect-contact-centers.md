@@ -51,5 +51,3 @@ After you create an Amazon Connect instance, you can:
 - [Set up agents](connect-agents.md "connect-agents.md")
 - [Provide access to the
   CCP](amazon-connect-contact-control-panel.md "amazon-connect-contact-control-panel.md")
-- [Set up external voice transfer to an
-  on-premise voice system](external-voice-transfer.md "external-voice-transfer.md")

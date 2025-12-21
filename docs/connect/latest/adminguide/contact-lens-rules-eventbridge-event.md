@@ -13,6 +13,11 @@ There's a lot you can do with this data. For example:
   of day, all of a certain type of events go to a certain inbox. The
   payload tells you the contact, agent, and queue.
 
+###### Note
+
+For real-time metrics rules, the resources triggering the rule will be listed under **resources**.
+For example, if you create a rule that alerts you on queue metrics such as avg. queue answer time, the list of queues that breached the threshold will be listed under resources.
+
 ###### To create a rule that generates an EventBridge event
 
 1. When you create your rule, choose **Generate EventBridge
@@ -30,7 +35,7 @@ them. For example, you have 200 category names, but only 50 have a
 specific action name, such as NOTIFY_CUSTOMER_RETENTION.
 
 ![The take these actions section, the assign contact category section, the Generate an EventBridge event section.](images/contact-lens-rules-add-eb-action.png) 3. Choose **Next**. Review and then
-**Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Contact Lens analyzes conversations.
+**Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations. 5. To leverage the EventBridge data, subscribe to the EventBridge event type. See the
 next procedure.
@@ -43,16 +48,15 @@ To subscribe to EventBridge event types, create a custom EventBridge rule that m
 the following:
 
 - "source" = "aws.connect"
-- "detail-type" = "Contact Lens Analysis State Change" or one
+- "detail-type" = "Contact Lens Post Call Rules Matched" or one
   of the following:
-  - **Contact Lens Post Call Rules
-    Matched**
   - **Contact Lens Realtime Rules
     Matched**
   - **Contact Lens Realtime Chat Rules
     Matched**
   - **Contact Lens Post Chat Rules
     Matched**
+  - **Contact Lens Evaluation Rules Matched**
   - **Metrics Rules Matched**
 
 The following image shows these settings in the Event pattern section of

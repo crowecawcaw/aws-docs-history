@@ -430,13 +430,6 @@ of 0 to the section, the subsection, or the entire evaluation form. Previously t
 assigned a score of 0 to the entire form. For more information, see [Step 5: Assign scores and ranges to
 answers](create-evaluation-forms.md#step-assignscores "create-evaluation-forms.md#step-assignscores") in [Create an evaluation form in Amazon Connect](create-evaluation-forms.md "create-evaluation-forms.md").
 
-### Per-day pricing for external voice connectors
-
-Amazon Connect external voice connectors are now priced at $100 per connector per day. The new daily
-rate provides customers with more granular billing options. The per-day rate is effective July
-24, 2025, for new and existing connectors. For more information, see [Set up Amazon Connect external voice transfer to an
-on-premise voice system](external-voice-transfer.md "external-voice-transfer.md").
-
 ### Direct signing of calls from US numbers to North American
 
 Numbering Plan (NANP) destinations
@@ -793,12 +786,6 @@ Town), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), As
 
 For more information, see the [Create calculated
 attributes in Amazon Connect](calculated-attributes-admin-website-create.md "calculated-attributes-admin-website-create.md").
-
-### External voice transfer available in five
-
-more Regions
-
-Amazon Connect external voice transfer is now available in additional Regions. For a list, see [External voice transfer](regions.md#external-voice-transfer-region "regions.md#external-voice-transfer-region").
 
 ### Enhanced hold duration tracking for multiparty calls
 
@@ -1563,20 +1550,6 @@ across cohorts of agents over time.. For more information, see [Create an evalua
 
 You can integrate WhatsApp with Amazon Connect and enable customers to use WhatsApp to message your
 call centers. For more information, see [Set up WhatsApp Business messaging](whatsapp-integration.md "whatsapp-integration.md").
-
-#### Amazon Connect supports external voice transfers to
-
-other voice systems
-
-You can integrate Amazon Connect with other voice systems to directly transfer voice calls and
-metadata without using the public telephone network. You can use Amazon Connect telephony and
-Interactive Voice Response (IVR) with your existing voice systems to help improve customer
-experience and reduce costs. Enterprises migrating their contact center to Amazon Connect can start with
-Amazon Connect telephony and IVR for immediate modernization, and then at a later date migrate their
-agents to Amazon Connect.
-
-For more information, see [Set up Amazon Connect external voice transfer to an
-on-premise voice system](external-voice-transfer.md "external-voice-transfer.md").
 
 #### Integrate Amazon Connect Contact Lens with
 

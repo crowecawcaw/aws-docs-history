@@ -13,6 +13,6 @@ the action.
 ![The new rule page, the add action dropdown menu, the end tasks option.](images/contact-lens-rules-ends-tasks-2.png)
 
 ![The end tasks option.](images/contact-lens-rules-ends-tasks-3.png) 3. Choose **Next**. Review and then choose
-**Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Contact Lens analyzes conversations.
+**Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.

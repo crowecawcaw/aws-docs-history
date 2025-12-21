@@ -14,13 +14,10 @@ console. No coding is required.
 - [Automatically categorize contacts by matching
   conversations with natural language statements, or specific words and
   phrases](rules.md "rules.md")
-- [Create a task in
-  Contact Lens when a contact is categorized in real-time or after
-  a call or chat](contact-lens-rules-create-task.md "contact-lens-rules-create-task.md")
+- [Create a rule that generates a task](contact-lens-rules-create-task.md "contact-lens-rules-create-task.md")
 - [Create a
   Contact Lens rule that generates an EventBridge event](contact-lens-rules-eventbridge-event.md "contact-lens-rules-eventbridge-event.md")
-- [Create Contact Lens rules that
-  send email notifications](contact-lens-rules-email.md "contact-lens-rules-email.md")
+- [Create rules that send email notifications](contact-lens-rules-email.md "contact-lens-rules-email.md")
 - [Notify supervisors and agents about
   performance evaluations](create-evaluation-rules.md "create-evaluation-rules.md")
 - [Create alerts on real-time metrics in

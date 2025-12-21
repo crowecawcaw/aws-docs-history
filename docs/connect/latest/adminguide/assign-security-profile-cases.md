@@ -82,3 +82,9 @@ fields** and **Case templates** options in their left
 navigation menu, as shown in the following image:
 
 ![The navigation menu, the agent applications option.](images/cases-agent-application-case-fields-menu.png)
+
+## Required Agent Application permissions
+
+To be able to generate a summary for a case in the agent application, agents need permission to view AI agents in the agent application, as shown in the following image.
+
+![Screenshot showing AI agent permissions in security profile.](images/case-summary-ai-agent-permissions.png)

@@ -165,6 +165,6 @@ the chat, how long until they sent the first message to the customer.
    - [Generate
      an EventBridge event](contact-lens-rules-eventbridge-event.md "contact-lens-rules-eventbridge-event.md")
 
-![The add action dropdown menu, a list of actions.](images/contact-lens-add-action-no-wisdom.png) 2. Choose **Next**. 3. Review and make any edits, then choose **Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Contact Lens analyzes conversations.
+![The add action dropdown menu, a list of actions.](images/contact-lens-add-action-no-wisdom.png) 2. Choose **Next**. 3. Review and make any edits, then choose **Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.

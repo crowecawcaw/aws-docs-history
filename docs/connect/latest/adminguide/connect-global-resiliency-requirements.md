@@ -46,7 +46,3 @@ ARN.
     Region where the flow is run, as shown in the following example.
 
   ![The properties page of the check contact attributes block.](images/acgr-requirements.png)
-
-- If you're using external voice transfer to an on-premise voice system, after
-  you set up Amazon Connect Global Resiliency, there are additional steps. See [Set up Amazon Connect Global Resiliency for
-  external voice transfer](acgr-external-voice-transfer.md "acgr-external-voice-transfer.md").

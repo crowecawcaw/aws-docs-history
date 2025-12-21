@@ -180,6 +180,11 @@ on the event source.
      an EventBridge event](contact-lens-rules-eventbridge-event.md "contact-lens-rules-eventbridge-event.md"): Use **Metrics Rules
      Matched** for the detail type.
 
-![The add action dropdown menu, a list of actions.](images/contact-lens-add-action-no-wisdom.png) 2. Choose **Next**. 3. Review and make any edits, then choose **Save**. 4. After you add rules, they are applied to new evaluation submissions
-that occur after the rule was added. You cannot apply rules to past,
-stored evaluations.
+![The add action dropdown menu, a list of actions.](images/contact-lens-add-action-no-wisdom.png)
+
+###### Note
+
+You can type @ to include the list of **agents, queues, flows or routing profile** that breached the metrics threshold within the **email** and **task** notifications.
+This list is automatically included within **resources** in EventBridge notifications.
+
+![The task action with variable injection.](images/rules-rtm-task-action.png) 2. Choose **Next**. 3. Review and make any edits, then choose **Save**.
