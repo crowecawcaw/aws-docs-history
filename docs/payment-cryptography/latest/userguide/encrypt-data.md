@@ -93,7 +93,7 @@ For this operation, the key must have KeyModesOfUse set to `Encrypt` and KeyUsag
 For PKCS #7 or other padding schemes not currently supported, please apply prior to calling the service and select no padding by omitting the padding indicator _'Asymmetric={}'_
 
 ```
-`$` `aws payment-cryptography-data encrypt-data --key-identifier arn:aws:payment-cryptography:us-east-2::key/thfezpmsalcfwmsg --plain-text 31323334313233343132333431323334 --encryption-attributes 'Asymmetric={PaddingType=OAEP_SHA256}'`
+`$` `aws payment-cryptography-data encrypt-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/thfezpmsalcfwmsg --plain-text 31323334313233343132333431323334 --encryption-attributes 'Asymmetric={PaddingType=OAEP_SHA256}'`
 
 ```
 

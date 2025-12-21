@@ -146,7 +146,7 @@ The following example shows a CloudTrail log entry that demonstrates the AWS Pay
  userAgent=Coral/Apache-HttpClient5,
  responseElements=CreateKeyOutput(
  key=Key(
- keyArn=arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp,
+ keyArn=arn:aws:payment-cryptography:us-east-2:111122223333:key/5rplquuwozodpwsp,
  keyAttributes=KeyAttributes(
  KeyUsage=TR31_B0_BASE_DERIVATION_KEY,
  keyClass=SYMMETRIC_KEY,
@@ -300,7 +300,7 @@ The following example shows a CloudTrail log entry that demonstrates the AWS Pay
  "sourceIPAddress": "192.158.1.38",
  "userAgent": "aws-cli/2.17.6 md/awscrt#0.20.11 ua/2.0 os/macos#23.4.0 md/arch#x86_64 lang/python#3.11.8 md/pyimpl#CPython cfg/retry-mode#standard md/installer#exe md/prompt#off md/command#payment-cryptography-data.generate-card-validation-data",
  "requestParameters": {
- "key_identifier": "arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp",
+ "key_identifier": "arn:aws:payment-cryptography:us-east-2:111122223333:key/5rplquuwozodpwsp",
  "primary_account_number": "*** Sensitive Data Redacted ***",
  "generation_attributes": {
  "CardVerificationValue2": {
@@ -316,7 +316,7 @@ The following example shows a CloudTrail log entry that demonstrates the AWS Pay
  {
  "accountId": "111122223333",
  "type": "AWS::PaymentCryptography::Key",
- "ARN": "arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp"
+ "ARN": "arn:aws:payment-cryptography:us-east-2:111122223333:key/5rplquuwozodpwsp"
  }
  ],
  "eventType": "AwsApiCall",

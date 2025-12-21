@@ -7,14 +7,14 @@ card verification key [generated](create-keys.md#cvvkey-example "create-keys.md#
 For all available parameters see [CardVerificationValue1](../DataAPIReference/API_CardVerificationValue1.md "../DataAPIReference/API_CardVerificationValue1.md") in the API reference guide.
 
 ```
-`$` `aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi --primary-account-number=171234567890123 --generation-attributes CardVerificationValue1='{CardExpiryDate=1127,ServiceCode=999}'`
+`$` `aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi --primary-account-number=171234567890123 --generation-attributes CardVerificationValue1='{CardExpiryDate=1127,ServiceCode=999}'`
 
 ```
 
 ```
 
 `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi",
  "KeyCheckValue": "CADDA1",
  "ValidationData": "801"
 }`

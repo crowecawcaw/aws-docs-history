@@ -105,7 +105,7 @@ need to provide:
 `$` `aws payment-cryptography **export-key** \
  `--export-key-identifier` "example-export-key" \
  `--key-material` '{"`Tr34KeyBlock`": { \
- "`CertificateAuthorityPublicKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2::key/4kd6xud22e64wcbk", \
+ "`CertificateAuthorityPublicKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2:111122223333:key/4kd6xud22e64wcbk", \
  "`ExportToken`": "export-token-au7pvkbsq4mbup6i", \
  "`KeyBlockFormat`": "X9_TR34_2012", \
  "`WrappingKeyCertificate`": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUV2RENDQXFXZ0F3SUJBZ0lSQ..."} \
@@ -159,7 +159,7 @@ for a single derived-key type.
 ```
 `{
  "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/wc3rjsssguhxtilv",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/wc3rjsssguhxtilv",
  "KeyAttributes": {
  "KeyUsage": "TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT",
  "KeyClass": "ASYMMETRIC_KEY_PAIR",
@@ -195,7 +195,7 @@ certificate signed by your account's CA that is specific to AWS Payment Cryptogr
 
 ```
 `$` `aws payment-cryptography **get-public-key-certificate** \
- `--key-identifier` arn:aws:payment-cryptography:us-east-2::key/wc3rjsssguhxtilv`
+ `--key-identifier` arn:aws:payment-cryptography:us-east-2:111122223333:key/wc3rjsssguhxtilv`
 
 ```
 
@@ -247,14 +247,14 @@ at least as strong as the key to be exported.
  --export-key-identifier arn:aws:payment-cryptography:us-west-2:529027455495:key/e3a65davqhbpjm4h \
  --key-material='{
  "DiffieHellmanTr31KeyBlock": {
- "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-2::key/swseahwtq2oj6zi5",
+ "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-2:111122223333:key/swseahwtq2oj6zi5",
  "DerivationData": {
  "SharedInformation": "ADEF567890"
  },
  "DeriveKeyAlgorithm": "AES_256",
  "KeyDerivationFunction": "NIST_SP800",
  "KeyDerivationHashAlgorithm": "SHA_256",
- "PrivateKeyIdentifier": "arn:aws:payment-cryptography:us-east-2::key/wc3rjsssguhxtilv",
+ "PrivateKeyIdentifier": "arn:aws:payment-cryptography:us-east-2:111122223333:key/wc3rjsssguhxtilv",
  "PublicKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FUR..."
  }
  }'`
@@ -330,7 +330,7 @@ to import the certificate
  "Key": {
  "CreateTimestamp": "2023-09-14T10:50:32.365000-07:00",
  "Enabled": true,
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/nsq2i3mbg6sn775f",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/nsq2i3mbg6sn775f",
  "KeyAttributes": {
  "KeyAlgorithm": "RSA_4096",
  "KeyClass": "PUBLIC_KEY",
@@ -374,10 +374,10 @@ key.
 
 ```
 `{
- "ExportKeyIdentifier": "arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi",
+ "ExportKeyIdentifier": "arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi",
  "KeyMaterial": {
  "KeyCryptogram": {
- "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-2::key/zabouwe3574jysdl",
+ "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-2:111122223333:key/zabouwe3574jysdl",
  "WrappingKeyCertificate": "LS0tLS1CRUdJTiBDEXAMPLE...",
  "WrappingSpec": "RSA_OAEP_SHA_256"
  }
@@ -441,8 +441,8 @@ wrapping key to use.
 ```
 `$` `aws payment-cryptography **export-key** \
  `--key-material`='{"`Tr31KeyBlock`": \
- { "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza" }}' \
- `--export-key-identifier` arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp`
+ { "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza" }}' \
+ `--export-key-identifier` arn:aws:payment-cryptography:us-east-2:111122223333:key/5rplquuwozodpwsp`
 ```
 
 ```
@@ -495,8 +495,8 @@ generate the same IPEK.
 ```
 `$` `aws payment-cryptography **export-key** \
  `--key-material`='{"`Tr31KeyBlock`": { \
- "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza"}} ' \
- `--export-key-identifier` arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi \
+ "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza"}} ' \
+ `--export-key-identifier` arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi \
  `--export-attributes` '`ExportDukptInitialKey`={`KeySerialNumber`=12345678901234560001}'`
 ```
 
@@ -561,7 +561,7 @@ specifications:
 - KeySetID: 00ABCDEFAB (00 indicates TDES key, ABCDEFABCD is the initial key)
 
 Because we don't specify key modes of use, this key inherits the mode of use from
-arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp (DeriveKey = true).
+arn:aws:payment-cryptography:us-east-2:111122223333:key/5rplquuwozodpwsp (DeriveKey = true).
 
 ###### Note
 
@@ -574,7 +574,7 @@ Even when you set exportability to Not Exportable in this example, the [KIF](ter
 ```
 `$` `aws payment-cryptography **export-key** \
  `--key-material`='{"`Tr31KeyBlock`": { \
- "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza", \
+ "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza", \
  "`KeyBlockHeaders`": { \
  "`KeyModesOfUse`": { \
  "`Derive`": true}, \
@@ -583,7 +583,7 @@ Even when you set exportability to Not Exportable in this example, the [KIF](ter
  "`OptionalBlocks`": { \
  "`BI`": "00ABCDEFABCD"}}} \
  }' \
- `--export-key-identifier` arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp`
+ `--export-key-identifier` arn:aws:payment-cryptography:us-east-2:111122223333:key/5rplquuwozodpwsp`
 ```
 
 ```
@@ -627,7 +627,7 @@ even when using the same underlying key.
 
 ```
 `$` `aws payment-cryptography **get-public-key-certificate** \
- `--key-identifier` arn:aws:payment-cryptography:us-east-2::key/5dza7xqd6soanjtb`
+ `--key-identifier` arn:aws:payment-cryptography:us-east-2:111122223333:key/5dza7xqd6soanjtb`
 
 ```
 

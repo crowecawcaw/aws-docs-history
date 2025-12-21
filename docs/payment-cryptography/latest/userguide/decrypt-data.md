@@ -85,7 +85,7 @@ For PKCS #7 or other padding schemes not currently supported, please select no p
 
 ```
 `$` `aws payment-cryptography-data decrypt-data \
- --key-identifier arn:aws:payment-cryptography:us-east-2::key/5dza7xqd6soanjtb --cipher-text 8F4C1CAFE7A5DEF9A40BEDE7F2A264635C... \
+ --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/5dza7xqd6soanjtb --cipher-text 8F4C1CAFE7A5DEF9A40BEDE7F2A264635C... \
  --decryption-attributes 'Asymmetric={PaddingType=OAEP_SHA256}'`
 
 ```

@@ -115,7 +115,7 @@ from step 4 for `key-material`, and the leaf certificate from step 3 for
 ```
 `$` `aws payment-cryptography **import-key** \
  `--key-material`='{"`Tr34KeyBlock`": { \
- "`CertificateAuthorityPublicKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2::key/zabouwe3574jysdl", \
+ "`CertificateAuthorityPublicKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2:111122223333:key/zabouwe3574jysdl", \
  "`ImportToken`": "import-token-bwxli6ocftypneu5", \
  "`KeyBlockFormat`": "X9_TR34_2012", \
  "`SigningKeyCertificate`": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUV2RENDQXFTZ0F3SUJ...", \
@@ -128,7 +128,7 @@ from step 4 for `key-material`, and the leaf certificate from step 3 for
  "Key": {
  "CreateTimestamp": "2023-06-13T16:52:52.859000-04:00",
  "Enabled": true,
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza",
  "KeyAttributes": {
  "KeyAlgorithm": "TDES_3KEY",
  "KeyClass": "SYMMETRIC_KEY",
@@ -200,7 +200,7 @@ for a single derived-key type.
 ```
 `{
  "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/wc3rjsssguhxtilv",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/wc3rjsssguhxtilv",
  "KeyAttributes": {
  "KeyUsage": "TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT",
  "KeyClass": "ASYMMETRIC_KEY_PAIR",
@@ -236,7 +236,7 @@ signed by your account's CA that is specific to AWS Payment Cryptography in a sp
 
 ```
 `$` `aws payment-cryptography **get-public-key-certificate** \
- `--key-identifier` arn:aws:payment-cryptography:us-east-2::key/wc3rjsssguhxtilv`
+ `--key-identifier` arn:aws:payment-cryptography:us-east-2:111122223333:key/wc3rjsssguhxtilv`
 
 ```
 
@@ -302,14 +302,14 @@ from step 4 for `key-material`, and the leaf certificate from step 3 for
 `$` `aws payment-cryptography **import-key** \
  `--key-material`='{
  "DiffieHellmanTr31KeyBlock": {
- "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-2::key/swseahwtq2oj6zi5",
+ "CertificateAuthorityPublicKeyIdentifier": "arn:aws:payment-cryptography:us-east-2:111122223333:key/swseahwtq2oj6zi5",
  "DerivationData": {
  "SharedInformation": "1234567890"
  },
  "DeriveKeyAlgorithm": "AES_256",
  "KeyDerivationFunction": "NIST_SP800",
  "KeyDerivationHashAlgorithm": "SHA_256",
- "PrivateKeyIdentifier": "arn:aws:payment-cryptography:us-east-2::key/wc3rjsssguhxtilv",
+ "PrivateKeyIdentifier": "arn:aws:payment-cryptography:us-east-2:111122223333:key/wc3rjsssguhxtilv",
  "PublicKeyCertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN....",
  "WrappedKeyBlock": "D0112K1TB00E0000D603CCA8ACB71517906600FF8F0F195A38776A7190A0EF0024F088A5342DB98E2735084A7841CB00E16D373A70857E9A"
  }
@@ -321,7 +321,7 @@ from step 4 for `key-material`, and the leaf certificate from step 3 for
  "Key": {
  "CreateTimestamp": "2025-03-13T16:52:52.859000-04:00",
  "Enabled": true,
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza",
  "KeyAttributes": {
  "KeyAlgorithm": "TDES_3KEY",
  "KeyClass": "SYMMETRIC_KEY",
@@ -524,7 +524,7 @@ output from the source platform for `WrappedKeyBlock`.
 ```
 `$` `aws payment-cryptography **import-key** \
  `--key-material`='{"`Tr31KeyBlock`": { \
- "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza", \
+ "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza", \
  "`WrappedKeyBlock`": "D0112B0AX00E00002E0A3D58252CB67564853373D1EBCC1E23B2ADE7B15E967CC27B85D5999EF58E11662991FF5EB1381E987D744334B99D"} \
  }'`
 ```
@@ -597,7 +597,7 @@ Use the following command to import the root certificate:
  "Key": {
  "CreateTimestamp": "2023-08-08T18:52:01.023000+00:00",
  "Enabled": true,
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/zabouwe3574jysdl",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/zabouwe3574jysdl",
  "KeyAttributes": {
  "KeyAlgorithm": "RSA_2048",
  "KeyClass": "PUBLIC_KEY",
@@ -631,7 +631,7 @@ set to TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION.
 ```
 `$` `aws payment-cryptography **import-key** \
  `--key-material`='{"`Tr31KeyBlock`": { \
- "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza", \
+ "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza", \
  "`WrappedKeyBlock`": "D0112B0AX00E00002E0A3D58252CB67564853373D1EBCC1E23B2ADE7B15E967CC27B85D5999EF58E11662991FF5EB1381E987D744334B99D"} \
  }'`
 ```
@@ -641,7 +641,7 @@ set to TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION.
  "Key": {
  "CreateTimestamp": "2023-08-08T18:55:46.815000+00:00",
  "Enabled": true,
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/4kd6xud22e64wcbk",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/4kd6xud22e64wcbk",
  "KeyAttributes": {
  "KeyAlgorithm": "RSA_4096",
  "KeyClass": "PUBLIC_KEY",
@@ -694,7 +694,7 @@ Use the following command to import the root certificate:
  "Key": {
  "CreateTimestamp": "2023-08-08T18:52:01.023000+00:00",
  "Enabled": true,
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/wv4gb6h3xcqjk6sm",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/wv4gb6h3xcqjk6sm",
  "KeyAttributes": {
  "KeyAlgorithm": "ECC_NIST_P521",
  "KeyClass": "PUBLIC_KEY",
@@ -725,7 +725,7 @@ Use the following command to import an intermediate certificate:
 ```
 `$` `aws payment-cryptography **import-key** \
  `--key-material`='{"`TrustedCertificatePublicKey`": { \
- `--certificate-authority-public-key-identifier`='"`arn:aws:payment-cryptography:us-east-2::key/wv4gb6h3xcqjk6sm`" \
+ `--certificate-authority-public-key-identifier`='"`arn:aws:payment-cryptography:us-east-2:111122223333:key/wv4gb6h3xcqjk6sm`" \
  "`KeyAttributes`": { \
  "`KeyAlgorithm`": "ECC_NIST_P521", \
  "`KeyClass`": "PUBLIC_KEY", \
@@ -741,7 +741,7 @@ Use the following command to import an intermediate certificate:
  "Key": {
  "CreateTimestamp": "2025-03-20T18:52:01.023000+00:00",
  "Enabled": true,
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/swseahwtq2oj6zi5",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/swseahwtq2oj6zi5",
  "KeyAttributes": {
  "KeyAlgorithm": "ECC",
  "KeyClass": "PUBLIC_KEY",

@@ -119,7 +119,8 @@ to perform the other half of the operation pair.
 | MAC Key              | TR31_M1_ISO_9797_1_MAC_KEY  | • TDES_2KEY<br>• TDES_3KEY                                        | • { Generate = true }<br>• { Generate = true, Verify = true }<br>• { Verify = true }<br>• { Generate = true } |
 | MAC Key (Retail MAC) | TR31_M1_ISO_9797_3_MAC_KEY  | • TDES_2KEY<br>• TDES_3KEY                                        | • { Generate = true }<br>• { Generate = true, Verify = true }<br>• { Verify = true }<br>• { Generate = true } |
 | MAC Key (CMAC)       | TR31_M6_ISO_9797_5_CMAC_KEY | • TDES_2KEY<br>• TDES_3KEY<br>• AES_128<br>• AES_192<br>• AES_256 | • { Generate = true }<br>• { Generate = true, Verify = true }<br>• { Verify = true }<br>• { Generate = true } |
-| MAC Key (HMAC)       | TR31_M7_HMAC_KEY            | • TDES_2KEY<br>• TDES_3KEY<br>• AES_128<br>• AES_192<br>• AES_256 | • { Generate = true }<br>• { Generate = true, Verify = true }<br>• { Verify = true }<br>• { Generate = true } |
+| MAC Key (HMAC)       | TR31_M7_HMAC_KEY            | • TDES_2KEY<br>• TDES_3KEY<br>• AES_128<br>• AES_192<br>• AES_256 | • { Generate = true }<br>• { Generate = true, Verify = true }<br>• { Verify = true }                          |
+| MAC Key (AS2805)     | TR31_M0_ISO_16609_MAC_KEY   | • TDES_2KEY<br>• TDES_3KEY                                        | • { Generate = true }<br>• { Generate = true, Verify = true }<br>• { Verify = true }                          |
 
 ## VerifyAuthRequestCryptogram
 
@@ -129,15 +130,15 @@ to perform the other half of the operation pair.
 
 ## Import/Export Key
 
-| Operation Type                                             | Allowed Key Usage                                              | Allowed Key Algorithm                   | Allowed combination of key modes of use                                                                                                                                  |
-| ---------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| TR-31 Wrapping Key                                         | TR31_K1_KEY_BLOCK_PROTECTION_KEY<br>TR31_K0_KEY_ENCRYPTION_KEY | • TDES_2KEY<br>• TDES_3KEY<br>• AES_128 | • { Encrypt = true, Wrap = true } (export only)<br>• { Decrypt = true, Unwrap = true } (import only)<br>• { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true } |
-| Import of trusted CA                                       | TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE                   | • RSA_2048<br>• RSA_3072<br>• RSA_4096  | • { Verify = true }                                                                                                                                                      |
-| Import of public key certificate for asymmetric encryption | TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION                     | • RSA_2048<br>• RSA_3072<br>• RSA_4096  | • { Encrypt=true,Wrap=true }                                                                                                                                             |
+| Operation Type                                             | Allowed Key Usage                                              | Allowed Key Algorithm                                             | Allowed combination of key modes of use                                                                                                                                  |
+| ---------------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| TR-31 Wrapping Key                                         | TR31_K1_KEY_BLOCK_PROTECTION_KEY<br>TR31_K0_KEY_ENCRYPTION_KEY | • TDES_2KEY<br>• TDES_3KEY<br>• AES_128<br>• AES_192<br>• AES_256 | • { Encrypt = true, Wrap = true } (export only)<br>• { Decrypt = true, Unwrap = true } (import only)<br>• { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true } |
+| Import of trusted CA                                       | TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE                   | • RSA_2048<br>• RSA_3072<br>• RSA_4096                            | • { Verify = true }                                                                                                                                                      |
+| Import of public key certificate for asymmetric encryption | TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION                     | • RSA_2048<br>• RSA_3072<br>• RSA_4096                            | • { Encrypt=true,Wrap=true }                                                                                                                                             |
+| Key used to key agreement algorithms such as ECDH          | TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT                       | • ECC_NIST_P256<br>• ECC_NIST_P384<br>• ECC_NIST_P521             | • { DeriveKey = true }                                                                                                                                                   |
 
 ## Unused key types
 
 The following key types are not currently used by AWS Payment Cryptography
 
 - TR31_P1_PIN_GENERATION_KEY
-- TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT

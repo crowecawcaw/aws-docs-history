@@ -19,7 +19,7 @@ or imported by calling [ImportKey](../APIReference/API_ImportKey.md "../APIRefer
 
 ```
 `$` `aws payment-cryptography-data generate-mac \
- --key-identifier arn:aws:payment-cryptography:us-east-2::key/qnobl5lghrzunce6 \
+ --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6 \
  --message-data "3b313038383439303031303733393431353d32343038323236303030373030303f33"`
 
 ```
@@ -27,7 +27,7 @@ or imported by calling [ImportKey](../APIReference/API_ImportKey.md "../APIRefer
 ```
 
 `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/qnobl5lghrzunce6,
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6,
  "KeyCheckValue": "2976E7",
  "Mac": "ED87F26E961C6D0DDB78DA5038AA2BDDEA0DCE03E5B5E96BDDD494F4A7AA470C"
 }`

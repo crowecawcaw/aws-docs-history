@@ -42,7 +42,7 @@ The response echoes back the request parameters, including an ARN for subsequent
 ```
 `{
  "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi",
  "KeyAttributes": {
  "KeyUsage": "TR31_C0_CARD_VERIFICATION_KEY",
  "KeyClass": "SYMMETRIC_KEY",
@@ -71,7 +71,7 @@ The response echoes back the request parameters, including an ARN for subsequent
 }`
 ```
 
-Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi_. You need that in the next step.
+Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi_. You need that in the next step.
 
 ## Step 2: Generate a CVV2 value using the key
 
@@ -79,7 +79,7 @@ In this step, you generate a CVV2 for a given `PAN` and expiration date using th
 
 ```
 `$`  `aws payment-cryptography-data generate-card-validation-data \
- --key-identifier arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi \
+ --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi \
  --primary-account-number=171234567890123 \
  --generation-attributes CardVerificationValue2={CardExpiryDate=0123}`
 ```
@@ -87,7 +87,7 @@ In this step, you generate a CVV2 for a given `PAN` and expiration date using th
 ```
 `{
  "CardDataGenerationKeyCheckValue": "CADDA1",
- "CardDataGenerationKeyIdentifier": "arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi",
+ "CardDataGenerationKeyIdentifier": "arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi",
  "CardDataType": "CARD_VERIFICATION_VALUE_2",
  "CardDataValue": "144"
 }`
@@ -103,7 +103,7 @@ Run the following command to validate the CVV2.
 
 ```
 ``$`  aws payment-cryptography-data verify-card-validation-data \
- --key-identifier arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi \
+ --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi \
  --primary-account-number=171234567890123 \
  --verification-attributes CardVerificationValue2={CardExpiryDate=0123} \
  --validation-data 144`
@@ -111,7 +111,7 @@ Run the following command to validate the CVV2.
 
 ```
 `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi",
  "KeyCheckValue": "CADDA1"
 }`
 ```
@@ -125,7 +125,7 @@ entered the wrong CVV2 at checkout.
 
 ```
 ``$`  aws payment-cryptography-data verify-card-validation-data \
- --key-identifier arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi \
+ --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi \
  --primary-account-number=171234567890123 \
  --verification-attributes CardVerificationValue2={CardExpiryDate=0123} \
  --validation-data 999`
@@ -143,7 +143,7 @@ Now you can delete the key you created in step 1. To minimize unrecoverable chan
 
 ```
 `$` `aws payment-cryptography delete-key \
- --key-identifier=arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi`
+ --key-identifier=arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi`
 ```
 
 ```
@@ -153,7 +153,7 @@ Now you can delete the key you created in step 1. To minimize unrecoverable chan
  "DeletePendingTimestamp": "2022-11-03T13:37:12.114000-07:00",
  "Enabled": true,
  "Exportable": true,
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/tqv5yij6wtxx64pi",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi",
  "KeyAttributes": {
  "KeyAlgorithm": "TDES_3KEY",
  "KeyClass": "SYMMETRIC_KEY",

@@ -83,7 +83,7 @@ Example output:
         "CreateTimestamp": "2022-10-26T16:04:11.642000-07:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/7f7g4spf3xcklhzu",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
         "KeyAttributes": {
             "KeyAlgorithm": "TDES_2KEY",
             "KeyClass": "SYMMETRIC_KEY",
@@ -130,7 +130,7 @@ Example output:
         "CreateTimestamp": "2022-10-27T08:27:51.795000-07:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/ivi5ksfsuplneuyt",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt",
         "KeyAttributes": {
             "KeyAlgorithm": "TDES_3KEY",
             "KeyClass": "SYMMETRIC_KEY",
@@ -176,7 +176,7 @@ Example output:
         "CreateTimestamp": "2022-11-15T11:15:42.358000-08:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/nsq2i3mbg6sn775f",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/nsq2i3mbg6sn775f",
         "KeyAttributes": {
             "KeyAlgorithm": "RSA_2048",
             "KeyClass": "ASYMMETRIC_KEY_PAIR",
@@ -223,7 +223,7 @@ Example output:
         "CreateTimestamp": "2022-10-27T10:22:59.668000-07:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/37y2tsl45p5zjbh2",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/37y2tsl45p5zjbh2",
         "KeyAttributes": {
             "KeyAlgorithm": "TDES_3KEY",
             "KeyClass": "SYMMETRIC_KEY",
@@ -275,7 +275,7 @@ Example output:
         "CreateTimestamp": "2024-10-17T01:31:55.908000+00:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/wc3rjsssguhxtilv",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/wc3rjsssguhxtilv",
         "KeyAttributes": {
             "KeyAlgorithm": "ECC_NIST_P256",
             "KeyClass": "ASYMMETRIC_KEY_PAIR",
@@ -292,7 +292,7 @@ Example output:
             },
             "KeyUsage": "TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT"
         },
-        "KeyCheckValue": "",
+        "KeyCheckValue": "7E34F19F",
         "KeyCheckValueAlgorithm": "SHA-1",
         "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
         "KeyState": "CREATE_COMPLETE",

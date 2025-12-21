@@ -26,7 +26,7 @@ The response echoes back the request parameters, including an ARN for subsequent
 ```
 `{
  "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/pw3s6nl62t5ushfk",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
  "KeyAttributes": {
  "KeyUsage": "TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS",
  "KeyClass": "SYMMETRIC_KEY",
@@ -55,7 +55,7 @@ The response echoes back the request parameters, including an ARN for subsequent
  }`
 ```
 
-Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2::key/pw3s6nl62t5ushfk_. You need that in the next step.
+Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk_. You need that in the next step.
 
 ### Validate the ARQC
 
@@ -65,7 +65,7 @@ If AWS Payment Cryptography is able to validate the ARQC, an http/200 is returne
 
 ```
 `$` `aws payment-cryptography-data verify-auth-request-cryptogram --auth-request-cryptogram D791093C8A921769 \
- --key-identifier arn:aws:payment-cryptography:us-east-2::key/pw3s6nl62t5ushfk \
+ --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk \
  --major-key-derivation-mode EMV_OPTION_A \
  --transaction-data 00000000170000000000000008400080008000084016051700000000093800000B03011203000000 \
  --session-key-derivation-attributes='{"Visa":{"PanSequenceNumber":"01" \
@@ -74,7 +74,7 @@ If AWS Payment Cryptography is able to validate the ARQC, an http/200 is returne
 
 ```
 `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/pw3s6nl62t5ushfk",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
  "KeyCheckValue": "08D7B4"
  }`
 ```

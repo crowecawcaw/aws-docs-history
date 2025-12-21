@@ -16,7 +16,7 @@ Example output:
             "CreateTimestamp": "2022-10-12T10:58:28.920000-07:00",
             "Enabled": false,
             "Exportable": true,
-            "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/37y2tsl45p5zjbh2",
+            "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/37y2tsl45p5zjbh2",
             "KeyAttributes": {
                 "KeyAlgorithm": "TDES_3KEY",
                 "KeyClass": "SYMMETRIC_KEY",

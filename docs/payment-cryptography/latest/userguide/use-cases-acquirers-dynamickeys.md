@@ -22,13 +22,13 @@ The following example shows using Dynamic Keys along with the decrypt command. T
 (that is provided in the wrapped-key parameter in TR-31 format). The wrapped key shall be key purpose of D0 to be used with decrypt command along with a mode of use of B or D.
 
 ```
-`$` `aws payment-cryptography-data decrypt-data --key-identifier arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza --cipher-text 1234123412341234123412341234123A --decryption-attributes 'Symmetric={Mode=CBC,InitializationVector=1234123412341234}' --wrapped-key WrappedKeyMaterial={"Tr31KeyBlock"="D0112D0TN00E0000B05A6E82D7FC68B95C84306634B0000DA4701BE9BCA318B3A30A400B059FD4A8DE19924A9D3EE459F24FDE680F8E4A40"}`
+`$` `aws payment-cryptography-data decrypt-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza --cipher-text 1234123412341234123412341234123A --decryption-attributes 'Symmetric={Mode=CBC,InitializationVector=1234123412341234}' --wrapped-key WrappedKeyMaterial={"Tr31KeyBlock"="D0112D0TN00E0000B05A6E82D7FC68B95C84306634B0000DA4701BE9BCA318B3A30A400B059FD4A8DE19924A9D3EE459F24FDE680F8E4A40"}`
 
 ```
 
 ```
 `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza",
  "KeyCheckValue": "0A3674",
  "PlainText": "2E138A746A0032023BEF5B85BA5060BA"
 }`
@@ -49,7 +49,7 @@ The wrapped key shall be key purpose of `P0` along with a mode of use of B or D.
 ```
 `{
  "PinBlock": "2E66192BDA390C6F",
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza",
  "KeyCheckValue": "0A3674"
 }`
 ```

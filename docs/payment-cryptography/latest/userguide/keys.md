@@ -14,7 +14,7 @@ The public certificate returned is intended to be short lived and is not intende
 the public key itself is unchanged.
 
 ```
-`$` `aws payment-cryptography get-public-key-certificate --key-identifier arn:aws:payment-cryptography:us-east-2::key/nsq2i3mbg6sn775f`
+`$` `aws payment-cryptography get-public-key-certificate --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/nsq2i3mbg6sn775f`
 
 ```
 
