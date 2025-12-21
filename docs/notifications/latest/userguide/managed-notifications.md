@@ -20,15 +20,6 @@ For help with AWS Health managed notifications, see
 
 ###### Topics
 
-- [What changes if I enable AWS managed notifications?](#managed-notifications-changes "#managed-notifications-changes")
 - [AWS managed notification subscriptions in AWS User Notifications](manage-mns.md "manage-mns.md")
 - [Viewing AWS managed notifications in AWS User Notifications](viewing-managed-notifications.md "viewing-managed-notifications.md")
 - [Aggregating and deduplicating AWS managed notifications in AWS User Notifications](managed-notification-aggregation.md "managed-notification-aggregation.md")
-- [Disabling or re-enabling AWS managed notifications for AWS Health in AWS User Notifications](managing-notification-features.md "managing-notification-features.md")
-
-## What changes if I enable AWS managed notifications?
-
-By default, AWS managed notifications emails are sent to your existing account contacts (root, operations, billing, and security email addresses).
-Enabling managed notifications changes the prefix of these emails to match the service sending the notification and the domain of these emails to `@aws.com`. For example, AWS managed notifications from AWS Health are sent from `health@aws.com`
-instead of `no-reply-aws@amazon.com`. The format of these emails also change. If you previously set up email rules for AWS Health emails, such as routing an email by its sender or scraping content from the email itself, then you must update
-this setup to match the new email format.

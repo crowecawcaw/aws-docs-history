@@ -32,11 +32,6 @@ events Amazon EventBridge schema](../../../health/latest/ug/aws-health-events-ev
 
 ## Aggregating AWS managed notifications
 
-###### Note
-
-Aggregation only requires the management account (or delegated administrator) to enable managed notifications.
-For more information, see [Disabling or re-enabling AWS managed notifications for AWS Health in AWS User Notifications](managing-notification-features.md "managing-notification-features.md").
-
 User Notifications aggregates event information across accounts as follows:
 
 - **The same event occurs across multiple accounts within the same organization** – The management account and delegated administrators receive a single aggregate notification containing information about all affected accounts.
@@ -48,14 +43,9 @@ Aggregation behavior is identical for both the management account and delegated 
 
 ## Deduplicating AWS managed notifications
 
-###### Note
+User Notifications deduplicates event information across account contacts as follows:
 
-Deduplication requires both the management
-account and member accounts to enable managed notifications. For more information, see [Disabling or re-enabling AWS managed notifications for AWS Health in AWS User Notifications](managing-notification-features.md "managing-notification-features.md").
-
-When the management and member accounts [enable managed notifications](managing-notification-features.md "managing-notification-features.md"), User Notifications deduplicates event information across account contacts as follows:
-
-- **An account contact (root user email or alternate contact email) is shared between the management account and a member account** – User Notifications sends the aggregate notification about all accounts to the management account or delegated administrator. Individual email notifications to the shared
+- **An account contact (root user email or alternate contact email) is shared between the management account or delegated administrator and a member account** – User Notifications sends the aggregate notification about all accounts to the management account or delegated administrator. Individual email notifications to the shared
   email addresses in member accounts are suppressed.
 - **An account contact (root user email or alternate contact email) is shared between member accounts, but not the management account or the delegated administrator** – Individual notifications are sent per account for each account contact
   as default notifications.

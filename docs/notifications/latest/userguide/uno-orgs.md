@@ -33,7 +33,7 @@ management account receives organization notifications. For more information, se
 
 ## AWS managed notifications with organizations
 
-User Notifications uses AWS Organizations in accounts that [enable AWS managed notifications](managing-notification-features.md "managing-notification-features.md") and aggregation and deduplication to:
+User Notifications uses AWS Organizations in accounts that enable AWS managed notifications and aggregation and deduplication to:
 
 - [Aggregate AWS managed notifications across accounts](managed-notification-aggregation.md#notification-aggregation "managed-notification-aggregation.md#notification-aggregation") in management and delegated administrator accounts
 - [Deduplicate AWS managed notifications across accounts](managed-notification-aggregation.md#managed-notification-dedupe "managed-notification-aggregation.md#managed-notification-dedupe")
@@ -51,7 +51,7 @@ You must be logged in with the management account to enable trusted access.
 
 You
 can enable AWS Organizations in User Notifications by enabling trusted access. Enabling trusted access allows User Notifications to [aggregate and deduplicate AWS managed notifications](managed-notification-aggregation.md "managed-notification-aggregation.md")
-in accounts that [enable AWS managed notifications](managing-notification-features.md "managing-notification-features.md").
+in accounts that enable AWS managed notifications.
 
 ###### To enable trusted access
 
@@ -77,7 +77,7 @@ You can disable trusted access at any time from the User Notifications console.
 
 Delegated administrators share administrator access for User Notifications. They're able to view notifications about member accounts in the organization.
 You must [enable trusted access](#enable-ta "#enable-ta") before registering delegated administrators. You can register up to five delegated administrators.
-You must also [enable AWS managed notifications](managing-notification-features.md "managing-notification-features.md") to allow delegated administrators to view AWS managed notifications.
+You must also enable AWS managed notifications to allow delegated administrators to view AWS managed notifications.
 
 ###### To register delegated administrators
 

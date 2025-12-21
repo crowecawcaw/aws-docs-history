@@ -9,6 +9,8 @@ Emails you receive from User Notifications are sent from the domain `@aws.com`. 
 sending the communication. For example, notifications from AWS Health are sent from the email `health@aws.com` and Amazon CloudWatch notifications
 are sent from a `cloudwatch@aws.com` email address.
 
+To find the email prefix for a specific service email, inspect the event through the [Amazon EventBridge sandbox](../../../eventbridge/latest/userguide/eb-event-pattern-sandbox.md "../../../eventbridge/latest/userguide/eb-event-pattern-sandbox.md"). For example, events where "source": "aws.ec2" will be sent from `ec2@aws.com`.
+
 Emails
 
 ###### To add delivery channels

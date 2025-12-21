@@ -11,7 +11,7 @@ You can determine which contacts receive AWS managed notifications by adding or 
 
 ###### Tip
 
-You can also modifying existing account contacts. For more information, see [Update the AWS account name, email address. or password for the root user](../../../accounts/latest/reference/manage-acct-update-root-user.md "../../../accounts/latest/reference/manage-acct-update-root-user.md") and [Update the alternate contacts for your AWS account](../../../accounts/latest/reference/manage-acct-update-contact-alternate.md "../../../accounts/latest/reference/manage-acct-update-contact-alternate.md") in the _AWS Account Management_ reference guide. 5. (Optional) If don't have any available alternate contacts, you can add them. To add a new alternate contact:
+You can also modify existing account contacts. For more information, see [Update the AWS account name, email address or password for the root user](../../../accounts/latest/reference/manage-acct-update-root-user.md "../../../accounts/latest/reference/manage-acct-update-root-user.md") and [Update the alternate contacts for your AWS account](../../../accounts/latest/reference/manage-acct-update-contact-alternate.md "../../../accounts/latest/reference/manage-acct-update-contact-alternate.md") in the _AWS Account Management_ reference guide. 5. (Optional) If don't have any available alternate contacts, you can add them. To add a new alternate contact:
 
     1. Choose **Add Contact**. You are redirected to the AWS Billing and Cost Management console.
     2. In **Alternate contact**, choose **Add** for your desired contact type.
