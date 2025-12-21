@@ -1,868 +1,285 @@
-# Using an Amazon DynamoDB database as a target for
+# Using an Oracle database as a target for
 
 AWS Database Migration Service
 
-You can use AWS DMS to migrate data to an Amazon DynamoDB table. Amazon DynamoDB is a fully managed
-NoSQL database service that provides fast and predictable performance with seamless
-scalability. AWS DMS supports using a relational database or MongoDB as a source.
+You can migrate data to Oracle database targets using AWS DMS, either from another
+Oracle database or from one of the other supported databases. You can use Secure Sockets
+Layer (SSL) to encrypt connections between your Oracle endpoint and the replication
+instance. For more information on using SSL with an Oracle endpoint, see [Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md"). AWS DMS also supports
+the use of Oracle transparent data encryption (TDE) to encrypt data at rest in the
+target database because Oracle TDE does not require an encryption key or password to
+write to the database.
 
-In DynamoDB, tables, items, and attributes are the core components that you work with. A
-_table_ is a collection of items, and each
-_item_ is a collection of attributes. DynamoDB uses
-primary keys, called partition keys, to uniquely identify each item in a table. You can
-also use keys and secondary indexes to provide more querying flexibility.
+For information about versions
+of Oracle that AWS DMS supports as a target, see [Targets for AWS DMS](CHAP_Introduction.md "CHAP_Introduction.md").
 
-You use object mapping to migrate your data from a source database to a target DynamoDB
-table. Object mapping enables you to determine where the source data is located in the
-target.
-
-When AWS DMS creates tables on an DynamoDB target endpoint, it creates as many tables
-as in the source database endpoint. AWS DMS also sets several DynamoDB parameter values.
-The cost for the table creation depends on the amount of data and the number of tables
-to be migrated.
-
-###### Note
-
-The **SSL Mode** option on the AWS DMS console or API doesn’t apply
-to some data streaming and NoSQL services like Kinesis and DynamoDB. They are secure
-by default, so AWS DMS shows the SSL mode setting is equal to none
-(**SSL Mode=None**). You don’t need to provide any additional
-configuration for your endpoint to make use of SSL. For example, when using DynamoDB
-as a target endpoint, it is secure by default. All API calls to DynamoDB use SSL, so
-there is no need for an additional SSL option in the AWS DMS endpoint. You can securely
-put data and retrieve data through SSL endpoints using the HTTPS protocol, which AWS DMS
-uses by default when connecting to a DynamoDB database.
-
-To help increase the speed of the transfer, AWS DMS supports a multithreaded full load
-to a DynamoDB target instance. DMS supports this multithreading with task settings that
-include the following:
-
-- `MaxFullLoadSubTasks` – Use this option to indicate the
-  maximum number of source tables to load in parallel. DMS loads each table into
-  its corresponding DynamoDB target table using a dedicated subtask. The default
-  value is 8. The maximum value is 49.
-- `ParallelLoadThreads` – Use this option to specify the
-  number of threads that AWS DMS uses to load each table into its DynamoDB target
-  table. The default value is 0 (single-threaded). The maximum value is 200. You
-  can ask to have this maximum limit increased.
-
-###### Note
-
-DMS assigns each segment of a table to its own thread for loading.
-Therefore, set `ParallelLoadThreads` to the maximum number of
-segments that you specify for a table in the source.
-
-- `ParallelLoadBufferSize` – Use this option to specify the
-  maximum number of records to store in the buffer that the parallel load threads
-  use to load data to the DynamoDB target. The default value is 50. The maximum value
-  is 1,000. Use this setting with `ParallelLoadThreads`.
-  `ParallelLoadBufferSize` is valid only when there is more than
-  one thread.
-- Table-mapping settings for individual tables – Use
-  `table-settings` rules to identify individual tables from the
-  source that you want to load in parallel. Also use these rules to specify how to
-  segment the rows of each table for multithreaded loading. For more information,
-  see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
-
-###### Note
-
-When AWS DMS sets DynamoDB parameter values for a migration task, the default Read
-Capacity Units (RCU) parameter value is set to 200.
-
-The Write Capacity Units (WCU) parameter value is also set, but its value depends on
-several other settings:
-
-- The default value for the WCU parameter is 200.
-- If the `ParallelLoadThreads` task setting is set greater than 1
-  (the default is 0), then the WCU parameter is set to 200 times the
-  `ParallelLoadThreads` value.
-- Standard AWS DMS usage fees apply to resources you use.
-
-## Migrating from a relational
-
-database to a DynamoDB table
-
-AWS DMS supports migrating data to DynamoDB scalar data types. When migrating from
-a relational database like Oracle or MySQL to DynamoDB, you might want to
-restructure how you store this data.
-
-Currently AWS DMS supports single table to single table restructuring to DynamoDB
-scalar type attributes. If you are migrating data into DynamoDB from a relational
-database table, you take data from a table and reformat it into DynamoDB scalar data
-type attributes. These attributes can accept data from multiple columns, and you can
-map a column to an attribute directly.
-
-AWS DMS supports the following DynamoDB scalar data types:
-
-- String
-- Number
-- Boolean
-
-###### Note
-
-NULL data from the source are ignored on the target.
-
-## Prerequisites for using
-
-DynamoDB as a target for AWS Database Migration Service
-
-Before you begin to work with a DynamoDB database as a target for AWS DMS, make
-sure that you create an IAM role. This IAM role should allow AWS DMS to assume
-and grant access to the DynamoDB tables that are being migrated into. The minimum set
-of access permissions is shown in the following IAM policy.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "",
- "Effect": "Allow",
- "Principal": {
- "Service": "dms.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
-```
-
-The role that you use for the migration to DynamoDB must have the following
-permissions.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "dynamodb:PutItem",
- "dynamodb:CreateTable",
- "dynamodb:DescribeTable",
- "dynamodb:DeleteTable",
- "dynamodb:DeleteItem",
- "dynamodb:UpdateItem"
- ],
- "Resource": [
- "arn:aws:dynamodb:us-west-2:`111122223333`:table/name1",
- "arn:aws:dynamodb:us-west-2:`111122223333`:table/OtherName*",
- "arn:aws:dynamodb:us-west-2:`111122223333`:table/awsdms_apply_exceptions",
- "arn:aws:dynamodb:us-west-2:`111122223333`:table/awsdms_full_load_exceptions"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "dynamodb:ListTables"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
-
-## Limitations when using DynamoDB
-
-as a target for AWS Database Migration Service
-
-The following limitations apply when using DynamoDB as a target:
-
-- DynamoDB limits the precision of the Number data type to 38 places. Store all
-  data types with a higher precision as a String. You need to explicitly
-  specify this using the object-mapping feature.
-- Because DynamoDB doesn't have a Date data type, data using the Date data
-  type are converted to strings.
-- DynamoDB doesn't allow updates to the primary key attributes. This
-  restriction is important when using ongoing replication with change data
-  capture (CDC) because it can result in unwanted data in the target.
-  Depending on how you have the object mapping, a CDC operation that updates
-  the primary key can do one of two things. It can either fail or insert a new
-  item with the updated primary key and incomplete data.
-- AWS DMS only supports replication of tables with noncomposite primary keys.
-  The exception is if you specify an object mapping for the target table with
-  a custom partition key or sort key, or both.
-- AWS DMS doesn't support LOB data unless it is a CLOB. AWS DMS converts
-  CLOB data into a DynamoDB string when migrating the data.
-- When you use DynamoDB as target, only the Apply Exceptions control table
-  (`dmslogs.awsdms_apply_exceptions`) is supported. For more
-  information about control tables, see [Control
-  table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
-- AWS DMS doesn't support the task setting `TargetTablePrepMode=TRUNCATE_BEFORE_LOAD`
-  for DynamoDB as a target.
-- AWS DMS doesn't support the task setting `TaskRecoveryTableEnabled`
-  for DynamoDB as a target.
-- `BatchApply` is not supported for a DynamoDB endpoint.
-- AWS DMS cannot migrate attributes whose names match reserved words in DynamoDB.
-  For more information, see [Reserved words in DynamoDB](../../../amazondynamodb/latest/developerguide/ReservedWords.md "../../../amazondynamodb/latest/developerguide/ReservedWords.md") in the _Amazon DynamoDB Developer Guide_.
-
-## Using object mapping to migrate
-
-data to DynamoDB
-
-AWS DMS uses table-mapping rules to map data from the source to the target DynamoDB
-table. To map data to a DynamoDB target, you use a type of table-mapping rule called
-_object-mapping_. Object mapping lets you define the
-attribute names and the data to be migrated to them. You must have selection rules
-when you use object mapping.
-
-DynamoDB doesn't have a preset structure other than having a partition key and an
-optional sort key. If you have a noncomposite primary key, AWS DMS uses it. If you
-have a composite primary key or you want to use a sort key, define these keys and
-the other attributes in your target DynamoDB table.
-
-To create an object-mapping rule, you specify the `rule-type` as
-_object-mapping_. This rule specifies what type of object
-mapping you want to use.
-
-The structure for the rule is as follows:
-
-```
-{ "rules": [
-    {
-      "rule-type": "object-mapping",
-      "rule-id": "<id>",
-      "rule-name": "<name>",
-      "rule-action": "<valid object-mapping rule action>",
-      "object-locator": {
-      "schema-name": "<case-sensitive schema name>",
-      "table-name": ""
-      },
-      "target-table-name": "<table_name>"
-    }
-  ]
-}
-```
-
-AWS DMS currently supports `map-record-to-record` and
-`map-record-to-document` as the only valid values for the
-`rule-action` parameter. These values specify what AWS DMS does by
-default to records that aren't excluded as part of the `exclude-columns`
-attribute list. These values don't affect the attribute mappings in any way.
-
-- You can use `map-record-to-record` when migrating from a
-  relational database to DynamoDB. It uses the primary key from the relational
-  database as the partition key in DynamoDB and creates an attribute for each
-  column in the source database. When using `map-record-to-record`,
-  for any column in the source table not listed in the
-  `exclude-columns` attribute list, AWS DMS creates a
-  corresponding attribute on the target DynamoDB instance. It does so regardless
-  of whether that source column is used in an attribute mapping.
-- You use `map-record-to-document` to put source columns into a
-  single, flat DynamoDB map on the target using the attribute name "\_doc." When
-  using `map-record-to-document`, AWS DMS places the data into a
-  single, flat, DynamoDB map attribute on the source. This attribute is called
-  "\_doc". This placement applies to any column in the source table not listed
-  in the `exclude-columns` attribute list.
-
-One way to understand the difference between the `rule-action`
-parameters `map-record-to-record` and
-`map-record-to-document` is to see the two parameters in
-action. For this example, assume that you are starting with a relational database
-table row with the following structure and data:
-
-![sample database for example](images/datarep-dynamodb1.png)
-
-To migrate this information to DynamoDB, you create rules to map the data into a
-DynamoDB table item. Note the columns listed for the `exclude-columns`
-parameter. These columns are not directly mapped over to the target. Instead,
-attribute mapping is used to combine the data into new items, such as where
-_FirstName_ and _LastName_ are grouped
-together to become _CustomerName_ on the DynamoDB target.
-_NickName_ and _income_ are not
-excluded.
+When you use Oracle as a target, we assume that the data is to be migrated into the
+schema or user that is used for the target connection. If you want to migrate data to a
+different schema, use a schema transformation to do so. For example, suppose that your
+target endpoint connects to the user `RDSMASTER` and you want to migrate from
+the user `PERFDATA1` to `PERFDATA2`. In this case, create a
+transformation like the following.
 
 ```
 
 {
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-        {
-            "rule-type": "object-mapping",
-            "rule-id": "2",
-            "rule-name": "TransformToDDB",
-            "rule-action": "map-record-to-record",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "customer"
-            },
-            "target-table-name": "customer_t",
-            "mapping-parameters": {
-                "partition-key-name": "CustomerName",
-                "exclude-columns": [
-                    "FirstName",
-                    "LastName",
-                    "HomeAddress",
-                    "HomePhone",
-                    "WorkAddress",
-                    "WorkPhone"
-                ],
-                "attribute-mappings": [
-                    {
-                        "target-attribute-name": "CustomerName",
-                        "attribute-type": "scalar",
-                        "attribute-sub-type": "string",
-                        "value": "${FirstName},${LastName}"
-                    },
-                    {
-                        "target-attribute-name": "ContactDetails",
-                        "attribute-type": "document",
-                        "attribute-sub-type": "dynamodb-map",
-                        "value": {
-                            "M": {
-                                "Home": {
-                                    "M": {
-                                        "Address": {
-                                            "S": "${HomeAddress}"
-                                        },
-                                        "Phone": {
-                                            "S": "${HomePhone}"
-                                        }
-                                    }
-                                },
-                                "Work": {
-                                    "M": {
-                                        "Address": {
-                                            "S": "${WorkAddress}"
-                                        },
-                                        "Phone": {
-                                            "S": "${WorkPhone}"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-    ]
+   "rule-type": "transformation",
+   "rule-id": "2",
+   "rule-name": "2",
+   "rule-action": "rename",
+   "rule-target": "schema",
+   "object-locator": {
+   "schema-name": "PERFDATA1"
+},
+"value": "PERFDATA2"
 }
 
 ```
 
-By using the `rule-action` parameter
-_map-record-to-record_, the data for
-_NickName_ and _income_ are mapped to
-items of the same name in the DynamoDB target.
-
-![Get started with AWS DMS](images/datarep-dynamodb2.png)
-
-However, suppose that you use the same rules but change the
-`rule-action` parameter to
-_map-record-to-document_. In this case, the columns not
-listed in the `exclude-columns` parameter, _NickName_
-and _income_, are mapped to a _\_doc_
-item.
-
-![Get started with AWS DMS](images/datarep-dynamodb3.png)
-
-### Using
-
-custom condition expressions with object mapping
-
-You can use a feature of DynamoDB called conditional expressions to
-manipulate data that is being written to a DynamoDB table. For more information
-about condition expressions in DynamoDB, see [Condition
-expressions](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md").
-
-A condition expression member consists of:
-
-- an expression (required)
-- expression attribute values (required). Specifies a DynamoDB json
-  structure of the attribute value. This is useful for comparing an attribute with a value in DynamoDB that you might not know until runtime. You can define an expression attribute value as a placeholder for an actual value.
-- expression attribute names (required). This helps avoid potential conflicts with any DynamoDB reserved words, attribute names containing special characters, and similar.
-- options for when to use the condition expression (optional). The
-  default is apply-during-cdc = false and apply-during-full-load =
-  true
-
-The structure for the rule is as follows:
+When using Oracle as a target, AWS DMS migrates all tables and indexes to default table
+and index tablespaces in the target. If you want to migrate tables and indexes to
+different table and index tablespaces, use a tablespace transformation to do so. For
+example, suppose that you have a set of tables in the `INVENTORY` schema
+assigned to some tablespaces in the Oracle source. For the migration, you want to assign
+all of these tables to a single `INVENTORYSPACE` tablespace in the target. In
+this case, create a transformation like the following.
 
 ```
-
-"target-table-name": "customer_t",
-      "mapping-parameters": {
-        "partition-key-name": "CustomerName",
-        "condition-expression": {
-          "expression":"<conditional expression>",
-          "expression-attribute-values": [
-              {
-                "name":"<attribute name>",
-                "value":<attribute value>
-              }
-          ],
-          "apply-during-cdc":<optional Boolean value>,
-          "apply-during-full-load": <optional Boolean value>
-        }
-
-```
-
-The following sample highlights the sections used for condition
-expression.
-
-![Get started with AWS DMS](images/datarep-Tasks-conditional1.png)
-
-### Using
-
-attribute mapping with object mapping
-
-Attribute mapping lets you specify a template string using source column names
-to restructure data on the target. There is no formatting done other than what
-the user specifies in the template.
-
-The following example shows the structure of the source database and the
-desired structure of the DynamoDB target. First is shown the structure of the
-source, in this case an Oracle database, and then the desired structure of the
-data in DynamoDB. The example concludes with the JSON used to create the desired
-target structure.
-
-The structure of the Oracle data is as follows:
-
-| FirstName   | LastName | StoreId | HomeAddress       | HomePhone  | WorkAddress               | WorkPhone  | DateOfBirth |
-| ----------- | -------- | ------- | ----------------- | ---------- | ------------------------- | ---------- | ----------- |
-| Primary Key | N/A      |         |
-| Randy       | Marsh    | 5       | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog | 9876543210 | 02/29/1988  |
-
-The structure of the DynamoDB data is as follows:
-
-| CustomerName          | StoreId     | ContactDetails                                                                                                                                                                                        | DateOfBirth          |
-| --------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| Partition Key         | Sort Key    | N/A                                                                                                                                                                                                   |
-| `<br>Randy,Marsh<br>` | `<br>5<br>` | `<br>{<br>"Name": "Randy",<br>"Home": {<br>"Address": "221B Baker Street",<br>"Phone": 1234567890<br>},<br>"Work": {<br>"Address": "31 Spooner Street, Quahog",<br>"Phone": 9876541230<br>}<br>}<br>` | `<br>02/29/1988<br>` |
-
-The following JSON shows the object mapping and column mapping used to achieve
-the DynamoDB structure:
-
-```
-
 {
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-        {
-            "rule-type": "object-mapping",
-            "rule-id": "2",
-            "rule-name": "TransformToDDB",
-            "rule-action": "map-record-to-record",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "customer"
-            },
-            "target-table-name": "customer_t",
-            "mapping-parameters": {
-                "partition-key-name": "CustomerName",
-                "sort-key-name": "StoreId",
-                "exclude-columns": [
-                    "FirstName",
-                    "LastName",
-                    "HomeAddress",
-                    "HomePhone",
-                    "WorkAddress",
-                    "WorkPhone"
-                ],
-                "attribute-mappings": [
-                    {
-                        "target-attribute-name": "CustomerName",
-                        "attribute-type": "scalar",
-                        "attribute-sub-type": "string",
-                        "value": "${FirstName},${LastName}"
-                    },
-                    {
-                        "target-attribute-name": "StoreId",
-                        "attribute-type": "scalar",
-                        "attribute-sub-type": "string",
-                        "value": "${StoreId}"
-                    },
-                    {
-                        "target-attribute-name": "ContactDetails",
-                        "attribute-type": "scalar",
-                        "attribute-sub-type": "string",
-                        "value": "{\"Name\":\"${FirstName}\",\"Home\":{\"Address\":\"${HomeAddress}\",\"Phone\":\"${HomePhone}\"}, \"Work\":{\"Address\":\"${WorkAddress}\",\"Phone\":\"${WorkPhone}\"}}"
-                    }
-                ]
-            }
-        }
-    ]
+   "rule-type": "transformation",
+   "rule-id": "3",
+   "rule-name": "3",
+   "rule-action": "rename",
+   "rule-target": "table-tablespace",
+   "object-locator": {
+      "schema-name": "INVENTORY",
+      "table-name": "%",
+      "table-tablespace-name": "%"
+   },
+   "value": "INVENTORYSPACE"
 }
+```
+
+For more information about transformations, see [Specifying table selection and transformations rules using
+JSON](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
+
+If Oracle is both source and target, you can preserve existing table or index
+tablespace assignments by setting the Oracle source extra connection attribute,
+`enableHomogenousTablespace=true`. For more information, see [Endpoint settings
+when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib "CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib")
+
+For additional details on working with Oracle databases as a target for AWS DMS, see the
+following sections:
+
+###### Topics
+
+- [Limitations on Oracle as a target
+  for AWS Database Migration Service](#CHAP_Target.Oracle.Limitations "#CHAP_Target.Oracle.Limitations")
+- [User account privileges required for
+  using Oracle as a target](#CHAP_Target.Oracle.Privileges "#CHAP_Target.Oracle.Privileges")
+- [Configuring an Oracle database as
+  a target for AWS Database Migration Service](#CHAP_Target.Oracle.Configuration "#CHAP_Target.Oracle.Configuration")
+- [Endpoint settings
+  when using Oracle as a target for AWS DMS](#CHAP_Target.Oracle.ConnectionAttrib "#CHAP_Target.Oracle.ConnectionAttrib")
+- [Target data types for Oracle](#CHAP_Target.Oracle.DataTypes "#CHAP_Target.Oracle.DataTypes")
+
+## Limitations on Oracle as a target
+
+for AWS Database Migration Service
+
+Limitations when using Oracle as a target for data migration include the
+following:
+
+- AWS DMS doesn't create schema on the target Oracle database. You have
+  to create any schemas you want on the target Oracle database. The schema
+  name must already exist for the Oracle target. Tables from source schema are
+  imported to the user or schema, which AWS DMS uses to connect to the
+  target instance. To migrate multiple schemas, you can create multiple replication
+  tasks. You can also migrate data to different schemas on a target. To do this,
+  you need to use schema transformation rules on the AWS DMS table mappings.
+- AWS DMS doesn't support the `Use direct path full load`
+  option for tables with INDEXTYPE CONTEXT. As a workaround, you can use array
+  load.
+- With the batch optimized apply option, loading into the net changes table
+  uses a direct path, which doesn't support XML type. As a workaround, you can
+  use transactional apply mode.
+- Empty strings migrated from source databases can be treated differently
+  by the Oracle target (converted to one-space strings, for example). This
+  can result in AWS DMS validation reporting a mismatch.
+- You can express the total number of columns per table supported in Batch
+  optimized apply mode, using the following formula:
+
+```
+2 * `columns_in_original_table` + `columns_in_primary_key` <= 999
+```
+
+For example, if the original table has 25 columns and its Primary Key consists of 5 columns, then the total number of columns
+is 55. If a table exceeds the supported number of columns, then all of the changes are applied in one-by-one mode.
+
+- AWS DMS doesn't support Autonomous DB on Oracle Cloud Infrastructure (OCI).
+- In transactional apply mode, an Oracle target can process DML statements up to
+  32 KB in size. While this limit is sufficient for many use cases, DML statements
+  exceeding 32 KB will fail with the error: "ORA-01460: unimplemented or
+  unreasonable conversion requested." To resolve this issue, you must enable the
+  batch apply feature by setting the `BatchApplyEnabled` task setting
+  to `true`. Batch apply reduces the overall statement size, allowing
+  you to bypass the 32 KB limitation. For more information, see [Target
+  metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+- AWS DMS Direct path full load for LOB tables may fail with error ORA-39777 due
+  to special handling requirements for LOB data. This error occurs during the
+  direct path load process and can disrupt migration tasks involving LOB columns.
+  To resolve, disable the `useDirectPathFullLoad` setting on the target
+  endpoint and retry the load operation.
+
+## User account privileges required for
+
+using Oracle as a target
+
+To use an Oracle target in an AWS Database Migration Service task, grant the following privileges in
+the Oracle database. You grant these to the user account specified in the Oracle
+database definitions for AWS DMS.
+
+- SELECT ANY TRANSACTION
+- SELECT on V$NLS_PARAMETERS
+- SELECT on V$TIMEZONE_NAMES
+- SELECT on ALL_INDEXES
+- SELECT on ALL_OBJECTS
+- SELECT on DBA_OBJECTS
+- SELECT on ALL_TABLES
+- SELECT on ALL_USERS
+- SELECT on ALL_CATALOG
+- SELECT on ALL_CONSTRAINTS
+- SELECT on ALL_CONS_COLUMNS
+- SELECT on ALL_TAB_COLS
+- SELECT on ALL_IND_COLUMNS
+- DROP ANY TABLE
+- SELECT ANY TABLE
+- INSERT ANY TABLE
+- UPDATE ANY TABLE
+- CREATE ANY VIEW
+- DROP ANY VIEW
+- CREATE ANY PROCEDURE
+- ALTER ANY PROCEDURE
+- DROP ANY PROCEDURE
+- CREATE ANY SEQUENCE
+- ALTER ANY SEQUENCE
+- DROP ANY SEQUENCE
+- DELETE ANY TABLE
+
+For the following requirements, grant these additional
+privileges:
+
+- To use a specific table list, grant SELECT on any replicated table and
+  also ALTER on any replicated table.
+- To allow a user to create a table in a default tablespace, grant the
+  privilege GRANT UNLIMITED TABLESPACE.
+- For logon, grant the privilege CREATE SESSION.
+- If you are using a direct path (which is the default for full load), `GRANT LOCK ANY TABLE to `dms_user`;`.
+- If schema is different when using “DROP and CREATE” table prep mode, `GRANT CREATE ANY INDEX to `dms_user`;`.
+- For some full load scenarios, you might choose the "DROP and CREATE table"
+  or "TRUNCATE before loading" option where a target table schema is different
+  from the DMS user's. In this case, grant DROP ANY TABLE.
+- To store changes in change tables or an audit table where the target table
+  schema is different from the DMS user's, grant CREATE ANY TABLE and CREATE
+  ANY INDEX.
+- To validate LOB columns with the validation feature, grant EXECUTE privelege
+  on `SYS.DBMS_CRYPTO` to the DMS user.
+
+### Read privileges required
+
+for AWS Database Migration Service on the target database
+
+The AWS DMS user account must be granted read permissions for the following
+DBA tables:
+
+- SELECT on DBA_USERS
+- SELECT on DBA_TAB_PRIVS
+- SELECT on DBA_OBJECTS
+- SELECT on DBA_SYNONYMS
+- SELECT on DBA_SEQUENCES
+- SELECT on DBA_TYPES
+- SELECT on DBA_INDEXES
+- SELECT on DBA_TABLES
+- SELECT on DBA_TRIGGERS
+- SELECT on SYS.DBA_REGISTRY
+
+If any of the required privileges cannot be granted to V$xxx, then grant them
+ to V\_$xxx.
+
+### Premigration assessments
+
+To use the premigration assessments listed in [Oracle assessments](CHAP_Tasks.AssessmentReport.md "CHAP_Tasks.AssessmentReport.md") with Oracle as a Target,
+you must add the following permissions to the user account specified in the Oracle
+database target endpoint:
 
 ```
 
-Another way to use column mapping is to use DynamoDB format as your document
-type. The following code example uses _dynamodb-map_ as the
-`attribute-sub-type` for attribute mapping.
+GRANT SELECT ON V_$INSTANCE TO dms_user;
+GRANT EXECUTE ON SYS.DBMS_XMLGEN TO dms_user;
 
 ```
 
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-        {
-            "rule-type": "object-mapping",
-            "rule-id": "2",
-            "rule-name": "TransformToDDB",
-            "rule-action": "map-record-to-record",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "customer"
-            },
-            "target-table-name": "customer_t",
-            "mapping-parameters": {
-                "partition-key-name": "CustomerName",
-                "sort-key-name": "StoreId",
-                "exclude-columns": [
-                    "FirstName",
-                    "LastName",
-                    "HomeAddress",
-                    "HomePhone",
-                    "WorkAddress",
-                    "WorkPhone"
-                ],
-                "attribute-mappings": [
-                    {
-                        "target-attribute-name": "CustomerName",
-                        "attribute-type": "scalar",
-                        "attribute-sub-type": "string",
-                        "value": "${FirstName},${LastName}"
-                    },
-                    {
-                        "target-attribute-name": "StoreId",
-                        "attribute-type": "scalar",
-                        "attribute-sub-type": "string",
-                        "value": "${StoreId}"
-                    },
-                    {
-                        "target-attribute-name": "ContactDetails",
-                        "attribute-type": "document",
-                        "attribute-sub-type": "dynamodb-map",
-                        "value": {
-                          "M": {
-                            "Name": {
-                              "S": "${FirstName}"
-                            },
-                            "Home": {
-                                    "M": {
-                                        "Address": {
-                                            "S": "${HomeAddress}"
-                                        },
-                                        "Phone": {
-                                            "S": "${HomePhone}"
-                                        }
-                                    }
-                                },
-                                "Work": {
-                                    "M": {
-                                        "Address": {
-                                            "S": "${WorkAddress}"
-                                        },
-                                        "Phone": {
-                                            "S": "${WorkPhone}"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-    ]
-}
+## Configuring an Oracle database as
 
-```
+a target for AWS Database Migration Service
 
-As an alternative to `dynamodb-map`, you can use `dynamodb-list`
-as the attribute-sub-type for attribute mapping, as shown in the following example.
+Before using an Oracle database as a data migration target, you must provide an
+Oracle user account to AWS DMS. The user account must have read/write privileges
+on the Oracle database, as specified in [User account privileges required for
+using Oracle as a target](#CHAP_Target.Oracle.Privileges "#CHAP_Target.Oracle.Privileges").
 
-```
+## Endpoint settings
 
-{
-"target-attribute-name": "ContactDetailsList",
-"attribute-type": "document",
-"attribute-sub-type": "dynamodb-list",
-"value": {
-    "L": [
-            {
-                "N": "${FirstName}"
-            },
-            {
-                "N": "${HomeAddress}"
-            },
-            {
-                "N": "${HomePhone}"
-            },
-            {
-                "N": "${WorkAddress}"
-            },
-            {
-                "N": "${WorkPhone}"
-            }
-        ]
-    }
-}
+when using Oracle as a target for AWS DMS
 
-```
+You can use endpoint settings to configure your Oracle target database similar to using
+extra connection attributes. You specify the settings when you create the target
+endpoint using the AWS DMS console, or by using the `create-endpoint` command in the
+[AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the
+`--oracle-settings '{"`EndpointSetting"`:
+ `"value"`, `...`}'` JSON syntax.
 
-### Example 1: Using
+The following table shows the endpoint settings that you can use with
+Oracle as a target.
 
-attribute mapping with object mapping
+| Name                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `EscapeCharacter`          | Set this attribute to an escape character. This escape character<br>allows you to make a single wildcard character behave as a normal character<br>in table mapping expressions. For more information, see [Wildcards in table mapping](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").<br>Default value: Null<br>Valid values: Any character other than a wildcard character<br>Example: `--oracle-settings '{"EscapeCharacter": "#"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `UseDirectPathFullLoad`    | When set to `Y`, AWS DMS uses a direct path full load.<br>Specify this value to enable<br>the direct path protocol in the Oracle Call Interface (OCI).<br>This OCI protocol enables the bulk loading of Oracle target<br>tables during a full load.<br>Default value: `true`<br>Valid values: `true`/`false`<br>Example: `--oracle-settings '{"UseDirectPathFullLoad": false}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `DirectPathParallelLoad`   | When set to `true`, this attribute specifies a<br>parallel load when `UseDirectPathFullLoad` is set to<br>`Y`. This attribute also only applies when you<br>use the AWS DMS parallel load feature. For more information, see<br>the description of the `parallel-load` operation in<br>[Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").<br>A limitation on specifying this parallel load setting is that<br>the target table cannot have any constraints or indexes. For<br>more information on this limitation, see [Enabling Constraints After a Parallel<br>Direct Path Load](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader-conventional-and-direct-loads.html#GUID-E2A3A8A3-78FF-45B6-90C0-14211621E77C "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader-conventional-and-direct-loads.html#GUID-E2A3A8A3-78FF-45B6-90C0-14211621E77C"). If constraints or indexes are<br>enabled, setting this attribute to `true` has no<br>effect.<br>Default value: `false`<br>Valid values: `true`/`false`<br>Example: `--oracle-settings '{"DirectPathParallelLoad": true}'` |
+| `DirectPathNoLog`          | When set to `true`, this attribute helps to<br>increase the commit rate on the Oracle target database by<br>writing directly to tables and not writing a trail to database<br>logs. For more information, see [Direct-Load INSERT](https://docs.oracle.com/cd/A87860_01/doc/server.817/a76965/c21dlins.htm "https://docs.oracle.com/cd/A87860_01/doc/server.817/a76965/c21dlins.htm"). This attribute<br>also only applies when you set<br>`UseDirectPathFullLoad` to `Y`.<br>Default value: `false`<br>Valid values: `true`/`false`<br>Example: `--oracle-settings '{"DirectPathNoLog": true}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `CharLengthSemantics`      | Specifies whether the length of a character column is in bytes or in characters. To indicate<br>that the character column length is in characters, set this<br>attribute to `CHAR`. Otherwise, the character column<br>length is in bytes.<br>Default value: Not set to `CHAR`<br>Valid values: `CHAR`<br>Example: `--oracle-settings '{"CharLengthSemantics": "CHAR"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `AlwaysReplaceEmptyString` | AWS DMS adds an extra space to replicate an empty string when<br>migrating to an Oracle target. In general, Oracle doesn't have a notation for an empty string.<br>When you insert an empty string on varchar2, you load empty strings as NULL. If you want to insert<br>the data as NULL on Oracle, set this attribute to FALSE.<br>Default value: `true`<br>Valid values: `true`/`false`<br>Example: `--oracle-settings '{"AlwaysReplaceEmptyString": false}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-The following example migrates data from two MySQL database tables,
-_nfl_data_ and _sport_team_ , to two
-DynamoDB table called _NFLTeams_ and
-_SportTeams_. The structure of the tables and the JSON
-used to map the data from the MySQL database tables to the DynamoDB tables are
-shown following.
+## Target data types for Oracle
 
-The structure of the MySQL database table _nfl_data_ is
-shown below:
+A target Oracle database used with AWS DMS supports most Oracle data types. The
+following table shows the Oracle target data types that are supported when using
+AWS DMS and the default mapping from AWS DMS data types. For more information
+about how to view the data type that is mapped from the source, see the section for
+the source you are using.
 
-```
-
-mysql> desc nfl_data;
-+---------------+-------------+------+-----+---------+-------+
-| Field         | Type        | Null | Key | Default | Extra |
-+---------------+-------------+------+-----+---------+-------+
-| Position      | varchar(5)  | YES  |     | NULL    |       |
-| player_number | smallint(6) | YES  |     | NULL    |       |
-| Name          | varchar(40) | YES  |     | NULL    |       |
-| status        | varchar(10) | YES  |     | NULL    |       |
-| stat1         | varchar(10) | YES  |     | NULL    |       |
-| stat1_val     | varchar(10) | YES  |     | NULL    |       |
-| stat2         | varchar(10) | YES  |     | NULL    |       |
-| stat2_val     | varchar(10) | YES  |     | NULL    |       |
-| stat3         | varchar(10) | YES  |     | NULL    |       |
-| stat3_val     | varchar(10) | YES  |     | NULL    |       |
-| stat4         | varchar(10) | YES  |     | NULL    |       |
-| stat4_val     | varchar(10) | YES  |     | NULL    |       |
-| team          | varchar(10) | YES  |     | NULL    |       |
-+---------------+-------------+------+-----+---------+-------+
-
-```
-
-The structure of the MySQL database table _sport_team_ is
-shown below:
-
-```
-
-mysql> desc sport_team;
-+---------------------------+--------------+------+-----+---------+----------------+
-| Field                     | Type         | Null | Key | Default | Extra          |
-+---------------------------+--------------+------+-----+---------+----------------+
-| id                        | mediumint(9) | NO   | PRI | NULL    | auto_increment |
-| name                      | varchar(30)  | NO   |     | NULL    |                |
-| abbreviated_name          | varchar(10)  | YES  |     | NULL    |                |
-| home_field_id             | smallint(6)  | YES  | MUL | NULL    |                |
-| sport_type_name           | varchar(15)  | NO   | MUL | NULL    |                |
-| sport_league_short_name   | varchar(10)  | NO   |     | NULL    |                |
-| sport_division_short_name | varchar(10)  | YES  |     | NULL    |                |
-
-```
-
-The table-mapping rules used to map the two tables to the two DynamoDB tables
-is shown below:
-
-```
-
-{
-  "rules":[
-    {
-      "rule-type": "selection",
-      "rule-id": "1",
-      "rule-name": "1",
-      "object-locator": {
-        "schema-name": "dms_sample",
-        "table-name": "nfl_data"
-      },
-      "rule-action": "include"
-    },
-    {
-      "rule-type": "selection",
-      "rule-id": "2",
-      "rule-name": "2",
-      "object-locator": {
-        "schema-name": "dms_sample",
-        "table-name": "sport_team"
-      },
-      "rule-action": "include"
-    },
-    {
-      "rule-type":"object-mapping",
-      "rule-id":"3",
-      "rule-name":"MapNFLData",
-      "rule-action":"map-record-to-record",
-      "object-locator":{
-        "schema-name":"dms_sample",
-        "table-name":"nfl_data"
-      },
-      "target-table-name":"NFLTeams",
-      "mapping-parameters":{
-        "partition-key-name":"Team",
-        "sort-key-name":"PlayerName",
-        "exclude-columns": [
-          "player_number", "team", "name"
-        ],
-        "attribute-mappings":[
-          {
-            "target-attribute-name":"Team",
-            "attribute-type":"scalar",
-            "attribute-sub-type":"string",
-            "value":"${team}"
-          },
-          {
-            "target-attribute-name":"PlayerName",
-            "attribute-type":"scalar",
-            "attribute-sub-type":"string",
-            "value":"${name}"
-          },
-          {
-            "target-attribute-name":"PlayerInfo",
-            "attribute-type":"scalar",
-            "attribute-sub-type":"string",
-            "value":"{\"Number\": \"${player_number}\",\"Position\": \"${Position}\",\"Status\": \"${status}\",\"Stats\": {\"Stat1\": \"${stat1}:${stat1_val}\",\"Stat2\": \"${stat2}:${stat2_val}\",\"Stat3\": \"${stat3}:${
-stat3_val}\",\"Stat4\": \"${stat4}:${stat4_val}\"}"
-          }
-        ]
-      }
-    },
-    {
-      "rule-type":"object-mapping",
-      "rule-id":"4",
-      "rule-name":"MapSportTeam",
-      "rule-action":"map-record-to-record",
-      "object-locator":{
-        "schema-name":"dms_sample",
-        "table-name":"sport_team"
-      },
-      "target-table-name":"SportTeams",
-      "mapping-parameters":{
-        "partition-key-name":"TeamName",
-        "exclude-columns": [
-          "name", "id"
-        ],
-        "attribute-mappings":[
-          {
-            "target-attribute-name":"TeamName",
-            "attribute-type":"scalar",
-            "attribute-sub-type":"string",
-            "value":"${name}"
-          },
-          {
-            "target-attribute-name":"TeamInfo",
-            "attribute-type":"scalar",
-            "attribute-sub-type":"string",
-            "value":"{\"League\": \"${sport_league_short_name}\",\"Division\": \"${sport_division_short_name}\"}"
-          }
-        ]
-      }
-    }
-  ]
-}
-
-```
-
-The sample output for the _NFLTeams_ DynamoDB table is
-shown below:
-
-```
-
-  "PlayerInfo": "{\"Number\": \"6\",\"Position\": \"P\",\"Status\": \"ACT\",\"Stats\": {\"Stat1\": \"PUNTS:73\",\"Stat2\": \"AVG:46\",\"Stat3\": \"LNG:67\",\"Stat4\": \"IN 20:31\"}",
-  "PlayerName": "Allen, Ryan",
-  "Position": "P",
-  "stat1": "PUNTS",
-  "stat1_val": "73",
-  "stat2": "AVG",
-  "stat2_val": "46",
-  "stat3": "LNG",
-  "stat3_val": "67",
-  "stat4": "IN 20",
-  "stat4_val": "31",
-  "status": "ACT",
-  "Team": "NE"
-}
-
-```
-
-The sample output for the SportsTeams _DynamoDB_ table is
-shown below:
-
-```
-
-{
-  "abbreviated_name": "IND",
-  "home_field_id": 53,
-  "sport_division_short_name": "AFC South",
-  "sport_league_short_name": "NFL",
-  "sport_type_name": "football",
-  "TeamInfo": "{\"League\": \"NFL\",\"Division\": \"AFC South\"}",
-  "TeamName": "Indianapolis Colts"
-}
-
-```
-
-## Target data types for
-
-DynamoDB
-
-The DynamoDB endpoint for AWS DMS supports most DynamoDB data
-types. The following table shows the Amazon AWS DMS target data types that are
-supported when using AWS DMS and the default mapping from AWS DMS data
-types.
-
-For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.md "CHAP_Reference.md").
-
-When AWS DMS migrates data from heterogeneous databases, we map data types from
-the source database to intermediate data types called AWS DMS data types. We then
-map the intermediate data types to the target data types. The following table shows
-each AWS DMS data type and the data type it maps to in DynamoDB:
-
-| AWS DMS data type | DynamoDB data type |
-| ----------------- | ------------------ |
-| String            | String             |
-| WString           | String             |
-| Boolean           | Boolean            |
-| Date              | String             |
-| DateTime          | String             |
-| INT1              | Number             |
-| INT2              | Number             |
-| INT4              | Number             |
-| INT8              | Number             |
-| Numeric           | Number             |
-| Real4             | Number             |
-| Real8             | Number             |
-| UINT1             | Number             |
-| UINT2             | Number             |
-| UINT4             | Number             |
-| UINT8             | Number             |
-| CLOB              | String             |
+| AWS DMS data type | Oracle data type                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BOOLEAN           | NUMBER (1)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| BYTES             | RAW (length)                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| DATE              | DATETIME                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| TIME              | TIMESTAMP (0)                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| DATETIME          | TIMESTAMP (scale)                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| INT1              | NUMBER (3)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| INT2              | NUMBER (5)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| INT4              | NUMBER (10)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| INT8              | NUMBER (19)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| NUMERIC           | NUMBER (p,s)                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| REAL4             | FLOAT                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| REAL8             | FLOAT                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| STRING            | With date indication: DATE<br>With time indication: TIMESTAMP<br>With timestamp indication: TIMESTAMP<br>With timestamp_with_timezone indication: TIMESTAMP WITH<br>TIMEZONE<br>With timestamp_with_local_timezone indication: TIMESTAMP WITH<br>LOCAL TIMEZONE With interval_year_to_month indication: INTERVAL<br>YEAR TO MONTH<br>With interval_day_to_second indication: INTERVAL DAY TO SECOND<br>If length > 4000: CLOB<br>In all other cases: VARCHAR2 (length) |
+| UINT1             | NUMBER (3)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| UINT2             | NUMBER (5)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| UINT4             | NUMBER (10)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| UINT8             | NUMBER (19)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| WSTRING           | If length > 2000: NCLOB<br>In all other cases: NVARCHAR2 (length)                                                                                                                                                                                                                                                                                                                                                                                                      |
+| BLOB              | BLOB<br>To use this data type with AWS DMS, you must enable the use<br>of BLOBs for a specific task. BLOB data types are supported only<br>in tables that include a primary key                                                                                                                                                                                                                                                                                        |
+| CLOB              | CLOB<br>To use this data type with AWS DMS, you must enable the use<br>of CLOBs for a specific task. During change data capture (CDC),<br>CLOB data types are supported only in tables that include a<br>primary key.<br>STRING<br>An Oracle VARCHAR2 data type on<br>the source with a declared size greater than 4000 bytes maps<br>through the AWS DMS CLOB to a STRING on the Oracle target.                                                                       |
+| NCLOB             | NCLOB<br>To use this data type with AWS DMS, you must enable the use<br>of NCLOBs for a specific task. During CDC, NCLOB data types are<br>supported only in tables that include a primary key.<br>WSTRING<br>An Oracle VARCHAR2 data type on<br>the source with a declared size greater than 4000 bytes maps<br>through the AWS DMS NCLOB to a WSTRING on the Oracle target.                                                                                          |
+| XMLTYPE           | The XMLTYPE target data type is only relevant in<br>Oracle-to-Oracle replication tasks.<br>When the source database is Oracle, the source data types are<br>replicated as-is to the Oracle target. For example, an XMLTYPE<br>data type on the source is created as an XMLTYPE data type on<br>the target.                                                                                                                                                             |

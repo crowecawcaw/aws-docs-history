@@ -1,114 +1,216 @@
-# Creating prerequisites for premigration assessments
+# Db2 LUW Assessments
 
-This section describes the Amazon S3 and IAM resources you need to create a premigration assessment.
+This section describes individual premigration assessments for migration tasks
+that use a Db2 LUW source endpoint.
 
-###### Important
+###### Topics
 
-The following prerequisites are only required if you supply your own Amazon S3 bucket and IAM role.
+- [Validate if the
+  IBM Db2 LUW database is configured to be recoverable.](#CHAP_Tasks.AssessmentReport.Db2.config.param "#CHAP_Tasks.AssessmentReport.Db2.config.param")
+- [Validate if
+  the DMS user has the required permissions on the source database to perform
+  a full-load](#CHAP_Tasks.AssessmentReport.Db2.load.privileges "#CHAP_Tasks.AssessmentReport.Db2.load.privileges")
+- [Validate if the
+  DMS user has the required permissions on the source database to perform
+  CDC](#CHAP_Tasks.AssessmentReport.Db2.cdc.privileges "#CHAP_Tasks.AssessmentReport.Db2.cdc.privileges")
+- [Validate if the
+  source IBM Db2 LUW source table has Db2 XML data type](#CHAP_Tasks.AssessmentReport.Db2.xml.data.type "#CHAP_Tasks.AssessmentReport.Db2.xml.data.type")
+- [Validate if the source IBM Db2 LUW version is supported by AWS DMS](#CHAP_Tasks.AssessmentReport.Db2.supported.version.source "#CHAP_Tasks.AssessmentReport.Db2.supported.version.source")
+- [Validate if the target IBM Db2 LUW version is supported by AWS DMS](#CHAP_Tasks.AssessmentReport.Db2.supported.version.target "#CHAP_Tasks.AssessmentReport.Db2.supported.version.target")
+- [Check
+  Transformation Rule for Digits Randomize](#CHAP_Tasks.AssessmentReport.Db2.digits.randomise "#CHAP_Tasks.AssessmentReport.Db2.digits.randomise")
+- [Check
+  Transformation Rule for Digits mask](#CHAP_Tasks.AssessmentReport.Db2.digits.mask "#CHAP_Tasks.AssessmentReport.Db2.digits.mask")
+- [Check Transformation
+  Rule for Hashing mask](#CHAP_Tasks.AssessmentReport.Db2.hash.mask "#CHAP_Tasks.AssessmentReport.Db2.hash.mask")
+- [Verify that
+  Data Validation task settings and Data Masking Digit randomization are not
+  enabled simultaneously](#CHAP_Tasks.AssessmentReport.Db2.all.digits.random "#CHAP_Tasks.AssessmentReport.Db2.all.digits.random")
+- [Verify that Data
+  Validation task settings and Data Masking Hashing mask are not enabled
+  simultaneously](#CHAP_Tasks.AssessmentReport.Db2.all.hash.mask "#CHAP_Tasks.AssessmentReport.Db2.all.hash.mask")
+- [Verify that
+  Data Validation task settings and Data Masking Digit mask are not enabled
+  simultaneously](#CHAP_Tasks.AssessmentReport.Db2.all.digit.mask "#CHAP_Tasks.AssessmentReport.Db2.all.digit.mask")
+- [Verify that target
+  tables have the correct index configuration (Primary Key or Unique Index,
+  not both) for Batch Apply compatibility](#CHAP_Tasks.AssessmentReport.Db2.pk.absence "#CHAP_Tasks.AssessmentReport.Db2.pk.absence")
+- [Validate that only
+  ‘Limited LOB mode’ is used when BatchApplyEnabled is set to
+  true](#CHAP_Tasks.AssessmentReport.Db2.lob.mode "#CHAP_Tasks.AssessmentReport.Db2.lob.mode")
+- [Validate if
+  secondary indexes are disabled on the target database during
+  full-load](#CHAP_Tasks.AssessmentReport.secondary.indexes "#CHAP_Tasks.AssessmentReport.secondary.indexes")
 
-## Create an S3 bucket
+## Validate if the
 
-AWS DMS stores premigration assessment reports in an S3 bucket. To create the S3 bucket, do the following:
+IBM Db2 LUW database is configured to be recoverable.
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. Choose **Create bucket**.
-3. On the **Create bucket** page,
-   enter a globally unique name that includes your sign-in name for the bucket, such as dms-bucket-`yoursignin`.
-4. Choose the AWS Region for the DMS migration task.
-5. Leave the remaining settings as they are, and choose **Create bucket**.
+**API key**:
+`db2-check-archive-config-param`
 
-##
+This premigration assessment validates whether the Db2 LUW database has either
+or both of the database configuration parameters `LOGARCHMETH1` and
+`LOGARCHMETH2` set to **ON**.
 
-Create IAM resources
+## Validate if
 
-DMS uses an IAM role and policy to access the S3 bucket to store premigration assessment results.
+the DMS user has the required permissions on the source database to perform
+a full-load
 
-To create the IAM policy, do the following:
+**API key**:
+`db2-check-full-load-privileges`
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Policies**.
-3. Choose **Create policy**.
-4. In the **Create policy** page, choose the **JSON** tab.
-5. Paste the following JSON code into the editor, replacing the example code.
-   Replace `amzn-s3-demo-bucket` with the name of the Amazon S3 bucket that you created in the previous section.
+This premigration assessment validates whether DMS user has all the required
+permissions on the source database for full-load operations.
 
-JSON
+## Validate if the
 
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Effect":"Allow",
- "Action":[
- "s3:PutObject",
- "s3:DeleteObject",
- "s3:GetObject",
- "s3:PutObjectTagging"
- ],
- "Resource":[
- "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
- ]
- },
- {
- "Effect":"Allow",
- "Action":[
- "s3:ListBucket",
- "s3:GetBucketLocation"
- ],
- "Resource":[
- "arn:aws:s3:::`amzn-s3-demo-bucket`"
- ]
- }
- ]
-}`
+DMS user has the required permissions on the source database to perform
+CDC
 
-```
+**API key**:
+`db2-check-cdc-privileges`
 
-6. Choose **Next: Tags**, then choose and **Next: Review**.
-7. Enter `DMSPremigrationAssessmentS3Policy` for **Name\***, and
-   then choose **Create policy**.
+This premigration assessment validates whether DMS user has all the required
+permissions on the source database for CDC operations.
 
-To create the IAM role, do the following:
+## Validate if the
 
-1. In the IAM console, in the navigation pane, choose **Roles**.
-2. Choose **Create role**.
-3. On the **Select trusted entity** page, for **Trusted entity type**,
-   choose **AWS Service**. For
-   **Use cases for other AWS services**, choose **DMS.**
-4. Check the **DMS** check box, and then choose **Next.**
-5. On the **Add permissions** page, choose **DMSPremigrationAssessmentS3Policy**.
-   Choose **Next**.
-6. On the **Name, review, and create** page, enter
-   `DMSPremigrationAssessmentS3Role` for **Role name**,
-   then choose **Create role**.
-7. On the **Roles** page, enter `DMSPremigrationAssessmentS3Role`
-   for **Role name**. Choose
-   **DMSPremigrationAssessmentS3Role**.
-8. On the **DMSPremigrationAssessmentS3Role** page, choose the
-   **Trust relationships** tab. Choose **Edit trust policy**.
-9. On the **Edit trust policy** page, paste the following JSON into the editor,
-   replacing the existing text.
+source IBM Db2 LUW source table has Db2 XML data type
 
-JSON
+**API key**:
+`db2-check-xml-data-type`
 
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"",
- "Effect":"Allow",
- "Principal":{
- "Service":"dms.amazonaws.com"
- },
- "Action":"sts:AssumeRole"
- }
- ]
-}`
+This premigration assessment validates if the source IBM Db2 LUW table has Db2
+XML data type.
 
-```
+## Validate if the source IBM Db2 LUW version is supported by AWS DMS
 
-This policy grants the `sts:AssumeRole` permission to DMS to put the
-premigration assessment run results into the S3 bucket. 10. Choose **Update policy**.
+**API key**:
+`db2-validate-supported-versions-source`
+
+This premigration assessment validates if the source IBM Db2 LUW version is
+supported by AWS DMS.
+
+## Validate if the target IBM Db2 LUW version is supported by AWS DMS
+
+**API key**:
+`db2-validate-supported-versions-target`
+
+This premigration assessment validates if the target IBM Db2 LUW version is
+supported by AWS DMS.
+
+## Check
+
+Transformation Rule for Digits Randomize
+
+**API key**:
+`db2-datamasking-digits-randomize`
+
+This assessment validates whether columns used in table mappings are
+compatible with the Digits Randomize transformation rule. Additionally, the
+assessment checks if any columns selected for transformation are part of primary
+keys, unique constraints, or foreign keys, as applying digits randomize
+transformations does not guarantee any uniqueness.
+
+## Check
+
+Transformation Rule for Digits mask
+
+**API key**:
+`db2-datamasking-digits-mask`
+
+This assessment validates whether any columns used in the table mapping are
+not supported by the Digits Mask transformation rule. Additionally, the
+assessment checks if any columns selected for transformation are part of primary
+keys, unique constraints, or foreign keys, as applying Digits Mask
+transformations to such columns could cause DMS task failures since uniqueness
+cannot be guaranteed.
+
+## Check Transformation
+
+Rule for Hashing mask
+
+**API key**:
+`db2-datamasking-hash-mask`
+
+This assessment validates whether any of the columns used in the table mapping
+are not supported by the Hashing Mask transformation rule. It also checks if the
+length of the source column exceeds 64 characters. Ideally, the target column
+length should be greater than 64 characters to support hash masking.
+Additionally, the assessment checks if any columns selected for transformation
+are part of primary keys, unique constraints, or foreign keys, as applying
+digits randomize transformations does not guarantee any uniqueness.
+
+## Verify that
+
+Data Validation task settings and Data Masking Digit randomization are not
+enabled simultaneously
+
+**API key**:
+`all-to-all-validation-with-datamasking-digits-randomize`
+
+This premigration assessment verifies that Data Validation setting and Data
+Masking Digit randomization are not simultaneously enabled, as these features
+are incompatible.
+
+## Verify that Data
+
+Validation task settings and Data Masking Hashing mask are not enabled
+simultaneously
+
+**API key**:
+`all-to-all-validation-with-datamasking-hash-mask`
+
+This premigration assessment verifies that Data Validation setting and Data
+Masking Hashing mask are not simultaneously enabled, as these features are
+incompatible.
+
+## Verify that
+
+Data Validation task settings and Data Masking Digit mask are not enabled
+simultaneously
+
+**API key**:
+`all-to-all-validation-with-digit-mask`
+
+This premigration assessment verifies that Data Validation setting and Data
+Masking Digit mask are not simultaneously enabled, as these features are
+incompatible.
+
+## Verify that target
+
+tables have the correct index configuration (Primary Key or Unique Index,
+not both) for Batch Apply compatibility
+
+**API key**:
+`db2-check-batch-apply-target-pk-ui-absence`
+
+Batch Apply requires the target tables to have either Primary or Unique keys,
+but not both. If a table contains both Primary and Unique Key, the apply mode
+changes from batch to transactional.
+
+## Validate that only
+
+‘Limited LOB mode’ is used when `BatchApplyEnabled` is set to
+true
+
+**API key**:
+`db2-check-for-batch-apply-lob-mode`
+
+This premigration assessment validates whether DMS task includes LOB columns.
+If LOB columns are included in the scope of the task, you must use ‘Limited LOB
+mode’ in order to be able to use `BatchApplyEnabled=true`.
+
+## Validate if
+
+secondary indexes are disabled on the target database during
+full-load
+
+**API key**:
+`db2-check-secondary-indexes`
+
+This premigration assessment validates whether secondary indexes are disabled
+during a full-load on the target database. You must disable or remove the
+secondary indexes during full-load.

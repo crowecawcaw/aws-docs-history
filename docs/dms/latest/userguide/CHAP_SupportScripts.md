@@ -1,129 +1,127 @@
-# Oracle diagnostic support scripts
+# SQL Server diagnostic support scripts
 
-Following, you can find the diagnostic support scripts available to analyze an on-premises
-or Amazon RDS for Oracle database in your AWS DMS migration configuration. These scripts work with
-either a source or target endpoint. The scripts are all written to run in the SQL\*Plus
-command-line utility. For more information on using this utility, see [A Using SQL Command Line](https://docs.oracle.com/cd/B25329_01/doc/appdev.102/b25108/xedev_sqlplus.htm "https://docs.oracle.com/cd/B25329_01/doc/appdev.102/b25108/xedev_sqlplus.htm") in the Oracle documentation.
+Following, you can find a description of the diagnostic support scripts available to analyze
+an on-premises or Amazon RDS for SQL Server database in your AWS DMS migration configuration. These
+scripts work with either a source or target endpoint. For an on-premises database, run these
+scripts in the sqlcmd command-line utility. For more information on using this
+utility, see [sqlcmd - Use the utility](https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-use-the-utility?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-use-the-utility?view=sql-server-ver15") in the Microsoft documentation.
+
+For an Amazon RDS database, you can't connect using the sqlcmd command-line
+utility. Instead, run these scripts using any client tool that connects to Amazon RDS SQL
+Server.
 
 Before running the script, ensure that the user account that you use has the necessary
-permissions to access your Oracle database. The permissions settings shown assume a user created
-as follows.
+permissions to access your SQL Server database. For both an on-premises and an Amazon RDS database,
+you can use the same permissions you use to access your SQL Server database without the
+`SysAdmin` role.
+
+###### Topics
+
+- [Setting up minimum permissions for an on-premises SQL Server database](#CHAP_SupportScripts.SQLServer.onprem "#CHAP_SupportScripts.SQLServer.onprem")
+- [Setting up minimum permissions for an Amazon RDS SQL Server database](#CHAP_SupportScripts.SQLServer.rds "#CHAP_SupportScripts.SQLServer.rds")
+- [SQL Server Support Scripts](#CHAP_SupportScripts.SQLServer.Scripts "#CHAP_SupportScripts.SQLServer.Scripts")
+
+## Setting up minimum permissions for an on-premises SQL Server database
+
+###### To set up the minimum permissions to run for an on-premises SQL Server database
+
+1. Create a new SQL Server account with password authentication using SQL Server Management
+   Studio (SSMS), for example `on-prem-user`.
+2. In the **User Mappings** section of SSMS, choose the
+   **MSDB** and **MASTER** databases (which gives public
+   permission), and assign the `DB_OWNER` role to the database where you want to run
+   the script.
+3. Open the context (right-click) menu for the new account, and choose
+   **Security** to explicitly grant the `Connect SQL`
+   privilege.
+4. Run the grant commands following.
 
 ```
-CREATE USER `script_user` IDENTIFIED BY `password`;
+GRANT VIEW SERVER STATE TO `on-prem-user`;
+USE MSDB;
+GRANT SELECT ON MSDB.DBO.BACKUPSET TO `on-prem-user`;
+GRANT SELECT ON MSDB.DBO.BACKUPMEDIAFAMILY TO `on-prem-user`;
+GRANT SELECT ON MSDB.DBO.BACKUPFILE TO `on-prem-user`;
 ```
 
-For an on-premises database, set the minimum permissions as shown following for
-`script_user`.
+## Setting up minimum permissions for an Amazon RDS SQL Server database
+
+###### To run with the minimum permissions for an Amazon RDS SQL Server database
+
+1. Create a new SQL Server account with password authentication using SQL Server Management
+   Studio (SSMS), for example `rds-user`.
+2. In the **User Mappings** section of SSMS, choose the
+   **MSDB** database (which gives public permission), and assign the
+   `DB_OWNER` role to the database where you want to run the script.
+3. Open the context (right-click) menu for the new account, and choose
+   **Security** to explicitly grant the `Connect SQL`
+   privilege.
+4. Run the grant commands following.
 
 ```
-GRANT CREATE SESSION TO `script_user`;
-GRANT SELECT on V$DATABASE to `script_user`;
-GRANT SELECT on V$VERSION to `script_user`;
-GRANT SELECT on GV$SGA to `script_user`;
-GRANT SELECT on GV$INSTANCE to `script_user`;
-GRANT SELECT on GV$DATAGUARD_CONFIG to `script_user`;
-GRANT SELECT on GV$LOG to `script_user`;
-GRANT SELECT on DBA_TABLESPACES to `script_user`;
-GRANT SELECT on DBA_DATA_FILES to `script_user`;
-GRANT SELECT on DBA_SEGMENTS to `script_user`;
-GRANT SELECT on DBA_LOBS to `script_user`;
-GRANT SELECT on V$ARCHIVED_LOG to `script_user`;
-GRANT SELECT on DBA_TAB_MODIFICATIONS to `script_user`;
-GRANT SELECT on DBA_TABLES to `script_user`;
-GRANT SELECT on DBA_TAB_PARTITIONS to `script_user`;
-GRANT SELECT on DBA_MVIEWS to `script_user`;
-GRANT SELECT on DBA_OBJECTS to `script_user`;
-GRANT SELECT on DBA_TAB_COLUMNS to `script_user`;
-GRANT SELECT on DBA_LOG_GROUPS to `script_user`;
-GRANT SELECT on DBA_LOG_GROUP_COLUMNS to `script_user`;
-GRANT SELECT on V$ARCHIVE_DEST to `script_user`;
-GRANT SELECT on DBA_SYS_PRIVS to `script_user`;
-GRANT SELECT on DBA_TAB_PRIVS to `script_user`;
-GRANT SELECT on DBA_TYPES to `script_user`;
-GRANT SELECT on DBA_CONSTRAINTS to `script_user`;
-GRANT SELECT on V$TRANSACTION to `script_user`;
-GRANT SELECT on GV$ASM_DISK_STAT to `script_user`;
-GRANT SELECT on GV$SESSION to `script_user`;
-GRANT SELECT on GV$SQL to `script_user`;
-GRANT SELECT on DBA_ENCRYPTED_COLUMNS to `script_user`;
-GRANT SELECT on DBA_PDBS to `script_user`;
-
-GRANT EXECUTE on dbms_utility to `script_user`;
+GRANT VIEW SERVER STATE TO `rds-user`;
+USE MSDB;
+GRANT SELECT ON MSDB.DBO.BACKUPSET TO `rds-user`;
+GRANT SELECT ON MSDB.DBO.BACKUPMEDIAFAMILY TO `rds-user`;
+GRANT SELECT ON MSDB.DBO.BACKUPFILE TO `rds-user`;
 ```
 
-For an Amazon RDS database, set the minimum permissions as shown following.
+## SQL Server Support Scripts
 
-```
-GRANT CREATE SESSION TO `script_user`;
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$DATABASE','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$VERSION','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$SGA','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$INSTANCE','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$DATAGUARD_CONFIG','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$LOG','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TABLESPACES','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_DATA_FILES','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_SEGMENTS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_LOBS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$ARCHIVED_LOG','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_MODIFICATIONS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TABLES','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_PARTITIONS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_MVIEWS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_OBJECTS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_COLUMNS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_LOG_GROUPS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_LOG_GROUP_COLUMNS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$ARCHIVE_DEST','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_SYS_PRIVS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_PRIVS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TYPES','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_CONSTRAINTS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$TRANSACTION','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$ASM_DISK_STAT','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$SESSION','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$SQL','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_ENCRYPTED_COLUMNS','`script_user`','SELECT');
-
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_PDBS','`script_user`','SELECT');
-
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBMS_UTILITY','`script_user`','EXECUTE');
-
-```
-
-Following, you can find descriptions how to download, review, and run each SQL\*Plus support
-script available for Oracle. You can also find how to review and upload the output to your AWS
+The following topics describe how to download, review, and run each support script available
+for SQL Server. They also describe how to review and upload the script output to your AWS
 Support case.
 
 ###### Topics
 
-- [awsdms_support_collector_oracle.sql script](#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script "#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script")
+- [awsdms_support_collector_sql_server.sql script](#CHAP_SupportScripts.SQLServer.Awsdms_Support_Collector_SQLServer_Script "#CHAP_SupportScripts.SQLServer.Awsdms_Support_Collector_SQLServer_Script")
 
-## awsdms_support_collector_oracle.sql script
+### awsdms_support_collector_sql_server.sql script
 
-Download the [`awsdms_support_collector_oracle.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_oracle.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_oracle.sql") script.
+Download the [`awsdms_support_collector_sql_server.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_sql_server.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_sql_server.sql") script.
 
-This script collects information about your Oracle database configuration. Remember to
+###### Note
+
+Run this SQL Server diagnostic support script on SQL Server 2014 and higher versions only.
+
+This script collects information about your SQL Server database configuration. Remember to
 verify the checksum on the script, and if the checksum verifies, review the SQL code in the
 script to comment out any of the code that you are uncomfortable running. After you are
 satisfied with the integrity and content of the script, you can run it.
 
-###### To run the script and upload the results to your support case
+###### To run the script for an on-premises SQL Server database
 
-1. Run the script from your database environment using the following SQL\*Plus command line.
+1. Run the script using the following sqlcmd command line.
 
 ```
-SQL> @awsdms_support_collector_oracle.sql
+sqlcmd -U`on-prem-user` -P`password` -SDMS-SQL17AG-N1 -y 0
+-iC:\Users\admin\awsdms_support_collector_sql_server.sql -oC:\Users\admin\DMS_Support_Report_SQLServer.html -dsqlserverdb01
 ```
 
-2. At the following prompt, enter the name of only one of the schemas that you want to
-   migrate.
-3. At the following prompt, enter the name of the user
-   (`script_user`) that you have defined to connect to the
-   database.
-4. At the following prompt, enter the number of days of data you want to examine, or accept
-   the default. The script then collects the specified data from your database.
-5. Review this HTML file and remove any information that you are uncomfortable sharing. When
-   the HTML is acceptable for you to share, upload the file to your AWS Support case. For more
-   information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
+The specified sqlcmd command parameters include the following:
+
+    * `-U` – Database user name.
+    * `-P` – Database user password.
+    * `-S` – SQL Server database server name.
+    * `-y` – Maximum width of columns output from the sqlcmd utility. A
+     value of 0 specifies columns of unlimited width.
+    * `-i` – Path of the support script to run, in this case
+     `awsdms_support_collector_sql_server.sql`.
+    * `-o` – Path of the output HTML file, with a file name that you
+     specify, containing the collected database configuration information.
+    * `-d` – SQL Server database name.
+
+2. After the script completes, review the output HTML file and remove any information that
+   you are uncomfortable sharing. When the HTML is acceptable for you to share, upload the file
+   to your AWS Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
+
+With Amazon RDS for SQL Server, you can't connect using the sqlcmd command line utility, so
+use the following procedure.
+
+###### To run the script for an RDS SQL Server database
+
+1. Run the script using any client tool that allows you to connect to RDS SQL Server as the
+   `Master` user and save the output as an HTML file.
+2. Review the output HTML file and remove any information that you are uncomfortable
+   sharing. When the HTML is acceptable for you to share, upload the file to your AWS Support
+   case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").

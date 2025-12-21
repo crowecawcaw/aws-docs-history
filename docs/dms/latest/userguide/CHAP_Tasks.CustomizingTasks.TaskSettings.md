@@ -1,218 +1,200 @@
-# Character substitution task settings
+# Time Travel task
 
-You can specify that your replication task perform character substitutions on
-the target database for all source database columns with the AWS DMS
-`STRING` or `WSTRING` data type. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+settings
 
-You can configure
-character substitution for any task with endpoints from the following source and
-target databases:
+To log and debug replication tasks, you can use AWS DMS Time Travel. In this
+approach, you use Amazon S3 to store logs and encrypt them using your encryption
+keys. Only with access to your Time Travel S3 bucket, can you retrieve your S3
+logs using date-time filters, then view, download, and obfuscate logs as needed.
+By doing this, you can securely "travel back in time" to investigate database
+activities. Time Travel works independently from the CloudWatch logging. For more
+information on CloudWatch logging, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 
-- Source databases:
-  - Oracle
-  - Microsoft SQL Server
-  - MySQL
-  - PostgreSQL
-  - SAP Adaptive Server Enterprise (ASE)
-  - IBM Db2 LUW
+You can use Time Travel in all AWS Regions with AWS DMS-supported Oracle, Microsoft SQL Server,
+and PostgreSQL source endpoints, and AWS DMS-supported PostgreSQL and MySQL target endpoints.
+You can turn on Time Travel only for full-load and change data capture (CDC) tasks and
+for CDC-only tasks. To turn on Time Travel or to modify any existing Time Travel settings,
+ensure that your replication task is stopped.
 
-- Target databases:
+The Time Travel settings include the `TTSettings` properties following:
 
-      + Oracle
-      + Microsoft SQL Server
-      + MySQL
-      + PostgreSQL
-      + SAP Adaptive Server Enterprise (ASE)
-      + Amazon Redshift
+- `EnableTT` – If this option is set to
+  `true`, Time Travel logging is turned on for the task.
+  The default value is `false`.
 
-  You can specify character substitutions using the
-  `CharacterSetSettings` parameter in your task settings. These
-  character substitutions occur for characters specified using the Unicode code
-  point value in hexadecimal notation. You can implement the substitutions in two
-  phases, in the following order if both are specified:
+Type: Boolean
 
-1. **Individual character replacement**
-   – AWS DMS can replace the values of selected characters on the
-   source with specified replacement values of corresponding characters on
-   the target. Use the `CharacterReplacements` array in
-   `CharacterSetSettings` to select all source characters
-   having the Unicode code points you specify. Use this array also to
-   specify the replacement code points for the corresponding characters on
-   the target.
+Required: No
 
-To select all characters on the source that have a given code point,
-set an instance of `SourceCharacterCodePoint` in the
-`CharacterReplacements` array to that code point. Then
-specify the replacement code point for all equivalent target characters
-by setting the corresponding instance of
-`TargetCharacterCodePoint` in this array. To delete
-target characters instead of replacing them, set the appropriate
-instances of `TargetCharacterCodePoint` to zero (0). You can
-replace or delete as many different values of target characters as you
-want by specifying additional pairs of
-`SourceCharacterCodePoint` and
-`TargetCharacterCodePoint` settings in the
-`CharacterReplacements` array. If you specify the same
-value for multiple instances of `SourceCharacterCodePoint`,
-the value of the last corresponding setting of
-`TargetCharacterCodePoint` applies on the target.
+- `EncryptionMode` – The type of server-side
+  encryption being used on your S3 bucket to store your data and logs. You
+  can specify either `"SSE_S3"` (the default) or
+  `"SSE_KMS"`.
 
-For example, suppose that you specify the following values for
-`CharacterReplacements`.
+You can change `EncryptionMode` from `"SSE_KMS"`
+to `"SSE_S3"`, but not the reverse.
 
-```
-"CharacterSetSettings": {
-    "CharacterReplacements": [ {
-        "SourceCharacterCodePoint": 62,
-        "TargetCharacterCodePoint": 61
-        }, {
-        "SourceCharacterCodePoint": 42,
-        "TargetCharacterCodePoint": 41
-        }
-    ]
-}
-```
+Type: String
 
-In this example, AWS DMS replaces all characters with the source code
-point hex value 62 on the target by characters with the code point value 61. Also, AWS DMS replaces all characters with the source code point 42 on
-the target by characters with the code point value 41. In other words,
-AWS DMS replaces all instances of the letter `'b'`on the target
-by the letter `'a'`. Similarly, AWS DMS replaces all instances
-of the letter `'B'` on the target by the letter
-`'A'`. 2. **Character set validation and
-replacement** – After any individual character
-replacements complete, AWS DMS can make sure that all target characters
-have valid Unicode code points in the single character set that you
-specify. You use `CharacterSetSupport` in
-`CharacterSetSettings` to configure this target character
-verification and modification. To specify the verification character
-set, set `CharacterSet` in `CharacterSetSupport`
-to the character set's string value. (The possible values for
-`CharacterSet` follow.) You can have AWS DMS modify the
-invalid target characters in one of the following ways:
+Required: No
 
-    * Specify a single replacement Unicode code point for all
-     invalid target characters, regardless of their current code
-     point. To configure this replacement code point, set
-     `ReplaceWithCharacterCodePoint` in
-     `CharacterSetSupport` to the specified
-     value.
-    * Configure the deletion of all invalid target characters by
-     setting `ReplaceWithCharacterCodePoint` to zero
-     (0).
+- `ServerSideEncryptionKmsKeyId` – If you specify
+  `"SSE_KMS"` for `EncryptionMode`, provide the
+  ID for your custom managed AWS KMS key. Make sure that the key that you
+  use has an attached policy that
+  turns on AWS Identity and Access Management (IAM) user permissions and allows use of the key.
 
-For example, suppose that you specify the following values for
-`CharacterSetSupport`.
+Only your own custom-managed symmetric KMS key is supported with the
+`"SSE_KMS"` option.
+
+Type: String
+
+Required: Only if you set `EncryptionMode` to `"SSE_KMS"`
+
+- `ServiceAccessRoleArn` – The Amazon Resource Name
+  (ARN) used by the service to access the IAM role. Set the role name to
+  `dms-tt-s3-access-role`. This is a required setting that
+  allows AWS DMS to write and read objects from an S3 bucket.
+
+Type: String
+
+Required: If Time Travel is turned on
+
+Following is an example policy for this role.
+
+JSON
 
 ```
-"CharacterSetSettings": {
-    "CharacterSetSupport": {
-        "CharacterSet": "UTF16_PlatformEndian",
-        "ReplaceWithCharacterCodePoint": 0
-    }
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject",
+ "kms:GenerateDataKey",
+ "kms:Decrypt",
+ "s3:ListBucket",
+ "s3:DeleteObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::S3bucketName*",
+ "arn:aws:kms:us-east-1:112233445566:key/1234a1a1-1m2m-1z2z-d1d2-12dmstt1234"
+ ]
+ }
+ ]
+}`
+
 ```
 
-In this example, AWS DMS deletes any characters found on the target that
-are invalid in the `"UTF16_PlatformEndian"` character set.
-So, any characters specified with the hex value `2FB6` are
-deleted. This value is invalid because this is a 4-byte Unicode code
-point and UTF16 character sets accept only characters with 2-byte code
-points.
+Following is an example trust policy for this role.
 
-###### Note
+JSON
 
-The replication task completes all of the specified character
-substitutions before starting any global or table-level transformations that
-you specify through table mapping. For more information about table mapping,
-see [Using table mapping to
-specify task settings](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "dms.amazonaws.com"
+ ]
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
 
-Character substitution doesn't support LOB data types. This includes any datatype that
-DMS considers to be a LOB data type. For example, the `Extended` datatype in
-Oracle is considered to be a LOB. For more information about source datatypes, see
-[Source data types for Oracle](CHAP_Source.md#CHAP_Source.Oracle.DataTypes "CHAP_Source.md#CHAP_Source.Oracle.DataTypes")
-following.
+```
 
-The values that AWS DMS supports for `CharacterSet` appear in the
-table following.
+- `BucketName` – The name of the S3 bucket to store
+  Time Travel logs. Make sure to create this S3 bucket before turning on
+  Time Travel logs.
 
-|                               |                                |                                |
-| ----------------------------- | ------------------------------ | ------------------------------ |
-| `UTF-8`                       | `ibm-860_P100-1995`            | `ibm-280_P100-1995`            |
-| `UTF-16`                      | `ibm-861_P100-1995`            | `ibm-284_P100-1995`            |
-| `UTF-16BE`                    | `ibm-862_P100-1995`            | `ibm-285_P100-1995`            |
-| `UTF-16LE`                    | `ibm-863_P100-1995`            | `ibm-290_P100-1995`            |
-| `UTF-32`                      | `ibm-864_X110-1999`            | `ibm-297_P100-1995`            |
-| `UTF-32BE`                    | `ibm-865_P100-1995`            | `ibm-420_X120-1999`            |
-| `UTF-32LE`                    | `ibm-866_P100-1995`            | `ibm-424_P100-1995`            |
-| `UTF16_PlatformEndian`        | `ibm-867_P100-1998`            | `ibm-500_P100-1995`            |
-| `UTF16_OppositeEndian`        | `ibm-868_P100-1995`            | `ibm-803_P100-1999`            |
-| `UTF32_PlatformEndian`        | `ibm-869_P100-1995`            | `ibm-838_P100-1995`            |
-| `UTF32_OppositeEndian`        | `ibm-878_P100-1996`            | `ibm-870_P100-1995`            |
-| `UTF-16BE,version=1`          | `ibm-901_P100-1999`            | `ibm-871_P100-1995`            |
-| `UTF-16LE,version=1`          | `ibm-902_P100-1999`            | `ibm-875_P100-1995`            |
-| `UTF-16,version=1`            | `ibm-922_P100-1999`            | `ibm-918_P100-1995`            |
-| `UTF-16,version=2`            | `ibm-1168_P100-2002`           | `ibm-930_P120-1999`            |
-| `UTF-7`                       | `ibm-4909_P100-1999`           | `ibm-933_P110-1995`            |
-| `IMAP-mailbox-name`           | `ibm-5346_P100-1998`           | `ibm-935_P110-1999`            |
-| `SCSU`                        | `ibm-5347_P100-1998`           | `ibm-937_P110-1999`            |
-| `BOCU-1`                      | `ibm-5348_P100-1997`           | `ibm-939_P120-1999`            |
-| `CESU-8`                      | `ibm-5349_P100-1998`           | `ibm-1025_P100-1995`           |
-| `ISO-8859-1`                  | `ibm-5350_P100-1998`           | `ibm-1026_P100-1995`           |
-| `US-ASCII`                    | `ibm-9447_P100-2002`           | `ibm-1047_P100-1995`           |
-| `gb18030`                     | `ibm-9448_X100-2005`           | `ibm-1097_P100-1995`           |
-| `ibm-912_P100-1995`           | `ibm-9449_P100-2002`           | `ibm-1112_P100-1995`           |
-| `ibm-913_P100-2000`           | `ibm-5354_P100-1998`           | `ibm-1122_P100-1999`           |
-| `ibm-914_P100-1995`           | `ibm-1250_P100-1995`           | `ibm-1123_P100-1995`           |
-| `ibm-915_P100-1995`           | `ibm-1251_P100-1995`           | `ibm-1130_P100-1997`           |
-| `ibm-1089_P100-1995`          | `ibm-1252_P100-2000`           | `ibm-1132_P100-1998`           |
-| `ibm-9005_X110-2007`          | `ibm-1253_P100-1995`           | `ibm-1137_P100-1999`           |
-| `ibm-813_P100-1995`           | `ibm-1254_P100-1995`           | `ibm-4517_P100-2005`           |
-| `ibm-5012_P100-1999`          | `ibm-1255_P100-1995`           | `ibm-1140_P100-1997`           |
-| `ibm-916_P100-1995`           | `ibm-5351_P100-1998`           | `ibm-1141_P100-1997`           |
-| `ibm-920_P100-1995`           | `ibm-1256_P110-1997`           | `ibm-1142_P100-1997`           |
-| `iso-8859_10-1998`            | `ibm-5352_P100-1998`           | `ibm-1143_P100-1997`           |
-| `iso-8859_11-2001`            | `ibm-1257_P100-1995`           | `ibm-1144_P100-1997`           |
-| `ibm-921_P100-1995`           | `ibm-5353_P100-1998`           | `ibm-1145_P100-1997`           |
-| `iso-8859_14-1998`            | `ibm-1258_P100-1997`           | `ibm-1146_P100-1997`           |
-| `ibm-923_P100-1998`           | `macos-0_2-10.2`               | `ibm-1147_P100-1997`           |
-| `ibm-942_P12A-1999`           | `macos-6_2-10.4`               | `ibm-1148_P100-1997`           |
-| `ibm-943_P15A-2003`           | `macos-7_3-10.2`               | `ibm-1149_P100-1997`           |
-| `ibm-943_P130-1999`           | `macos-29-10.2`                | `ibm-1153_P100-1999`           |
-| `ibm-33722_P12A_P12A-2009_U2` | `macos-35-10.2`                | `ibm-1154_P100-1999`           |
-| `ibm-33722_P120-1999`         | `ibm-1051_P100-1995`           | `ibm-1155_P100-1999`           |
-| `ibm-954_P101-2007`           | `ibm-1276_P100-1995`           | `ibm-1156_P100-1999`           |
-| `euc-jp-2007`                 | `ibm-1006_P100-1995`           | `ibm-1157_P100-1999`           |
-| `ibm-1373_P100-2002`          | `ibm-1098_P100-1995`           | `ibm-1158_P100-1999`           |
-| `windows-950-2000`            | `ibm-1124_P100-1996`           | `ibm-1160_P100-1999`           |
-| `ibm-950_P110-1999`           | `ibm-1125_P100-1997`           | `ibm-1164_P100-1999`           |
-| `ibm-1375_P100-2008`          | `ibm-1129_P100-1997`           | `ibm-1364_P110-2007`           |
-| `ibm-5471_P100-2006`          | `ibm-1131_P100-1997`           | `ibm-1371_P100-1999`           |
-| `ibm-1386_P100-2001`          | `ibm-1133_P100-1997`           | `ibm-1388_P103-2001`           |
-| `windows-936-2000`            | `ISO_2022,locale=ja,version=0` | `ibm-1390_P110-2003`           |
-| `ibm-1383_P110-1999`          | `ISO_2022,locale=ja,version=1` | `ibm-1399_P110-2003`           |
-| `ibm-5478_P100-1995`          | `ISO_2022,locale=ja,version=2` | `ibm-5123_P100-1999`           |
-| `euc-tw-2014`                 | `ISO_2022,locale=ja,version=3` | `ibm-8482_P100-1999`           |
-| `ibm-964_P110-1999`           | `ISO_2022,locale=ja,version=4` | `ibm-16684_P110-2003`          |
-| `ibm-949_P110-1999`           | `ISO_2022,locale=ko,version=0` | `ibm-4899_P100-1998`           |
-| `ibm-949_P11A-1999`           | `ISO_2022,locale=ko,version=1` | `ibm-4971_P100-1999`           |
-| `ibm-970_P110_P110-2006_U2`   | `ISO_2022,locale=zh,version=0` | `ibm-9067_X100-2005`           |
-| `ibm-971_P100-1995`           | `ISO_2022,locale=zh,version=1` | `ibm-12712_P100-1998`          |
-| `ibm-1363_P11B-1998`          | `ISO_2022,locale=zh,version=2` | `ibm-16804_X110-1999`          |
-| `ibm-1363_P110-1997`          | `HZ`                           | `ibm-37_P100-1995,swaplfnl`    |
-| `windows-949-2000`            | `x11-compound-text`            | `ibm-1047_P100-1995,swaplfnl`  |
-| `windows-874-2000`            | `ISCII,version=0`              | `ibm-1140_P100-1997,swaplfnl`  |
-| `ibm-874_P100-1995`           | `ISCII,version=1`              | `ibm-1141_P100-1997,swaplfnl`  |
-| `ibm-1162_P100-1999`          | `ISCII,version=2`              | `ibm-1142_P100-1997,swaplfnl`  |
-| `ibm-437_P100-1995`           | `ISCII,version=3`              | `ibm-1143_P100-1997,swaplfnl`  |
-| `ibm-720_P100-1997`           | `ISCII,version=4`              | `ibm-1144_P100-1997,swaplfnl`  |
-| `ibm-737_P100-1997`           | `ISCII,version=5`              | `ibm-1145_P100-1997,swaplfnl`  |
-| `ibm-775_P100-1996`           | `ISCII,version=6`              | `ibm-1146_P100-1997,swaplfnl`  |
-| `ibm-850_P100-1995`           | `ISCII,version=7`              | `ibm-1147_P100-1997,swaplfnl`  |
-| `ibm-851_P100-1995`           | `ISCII,version=8`              | `ibm-1148_P100-1997,swaplfnl`  |
-| `ibm-852_P100-1995`           | `LMBCS-1`                      | `ibm-1149_P100-1997,swaplfnl`  |
-| `ibm-855_P100-1995`           | `ibm-37_P100-1995`             | `ibm-1153_P100-1999,swaplfnl`  |
-| `ibm-856_P100-1995`           | `ibm-273_P100-1995`            | `ibm-12712_P100-1998,swaplfnl` |
-| `ibm-857_P100-1995`           | `ibm-277_P100-1995`            | `ibm-16804_X110-1999,swaplfnl` |
-| `ibm-858_P100-1997`           | `ibm-278_P100-1995`            | `ebcdic-xml-us`                |
+Type: String
+
+Required: If Time Travel is turned on
+
+- `BucketFolder` – An optional parameter to set a
+  folder name in the S3 bucket. If you specify this parameter, DMS creates
+  the Time Travel logs in the path
+  `"/`BucketName`/`BucketFolder`/`taskARN`/`YYYY`/`MM`/`DD`/`hh`"`.
+  If you don't specify this parameter, AWS DMS creates the default path as
+  `"/`BucketName`/dms-time-travel-logs/`taskARN`/`YYYY`/`MM`/`DD`/`hh``.
+
+Type: String
+
+Required: No
+
+- `EnableDeletingFromS3OnTaskDelete` – When this
+  option is set to `true`, AWS DMS deletes the Time Travel logs
+  from S3 if the task is deleted. The default value is
+  `false`.
+
+Type: String
+
+Required: No
+
+- `EnableRawData` – When this option is set to
+  `true`, the data manipulation language (DML) raw data for
+  Time Travel logs appears under the `raw_data` column of the
+  Time Travel logs. For the details, see
+  [Using the Time Travel logs](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md").
+  The default value is `false`. When this option is set to
+  `false`, only the type of DML is captured.
+
+Type: String
+
+Required: No
+
+- `RawDataFormat` – In AWS DMS versions 3.5.0 and higher,
+  when `EnableRawData` is set to `true`. This property
+  specifies a format for the raw data of the DML in a Time Travel log and can be
+  presented as:
+
+      + `"TEXT"` – Parsed, readable column names
+       and values for DML events captured during CDC as `Raw` fields.
+      + `"HEX"` – The original hexidecimal for column names
+       and values captured for DML events during CDC.
+
+  This property applies to Oracle and Microsoft SQL Server database sources.
+
+Type: String
+
+Required: No
+
+- `OperationsToLog` – Specifies the type of DML operations to log in Time Travel logs. You can specify one
+  of the following:
+
+      + `"INSERT"`
+      + `"UPDATE"`
+      + `"DELETE"`
+      + `"COMMIT"`
+      + `"ROLLBACK"`
+      + `"ALL"`
+
+  The default is `"ALL"`.
+
+Type: String
+
+Required: No
+
+- `MaxRecordSize` – Specifies the maximum size
+  of Time Travel log records that are logged for each row. Use this
+  property to control the growth of Time Travel logs for especially
+  busy tables. The default is 64 KB.
+
+Type: Integer
+
+Required: No
+For more information on turning on and using Time Travel logs, see the
+following topics.
+
+###### Topics
+
+- [Turning on the Time Travel logs for a task](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")
+- [Using the Time Travel logs](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")
+- [How often AWS DMS uploads Time Travel logs to S3](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")
