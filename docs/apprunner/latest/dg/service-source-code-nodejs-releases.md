@@ -22,7 +22,8 @@ supports.
 
 | Supported runtime versions — revised App Runner build | Runtime name             | **Minor versions**       | **Included packages** |
 | ----------------------------------------------------- | ------------------------ | ------------------------ | --------------------- |
-| Node.js 22 (nodejs22)                                 | 22.20.0                  | npm 10.9.3, yarn 1.22.22 |
+| Node.js 22 (nodejs22)                                 | 22.21.1                  | npm 10.9.4, yarn 1.22.22 |
+| 22.20.0                                               | npm 10.9.3, yarn 1.22.22 |
 | 22.17.0                                               | npm 10.9.2, yarn 1.22.22 |
 | 22.16.0                                               | npm 10.9.2, yarn 1.22.22 |
 | 22.14.0                                               | npm 10.9.2, yarn 1.22.22 |

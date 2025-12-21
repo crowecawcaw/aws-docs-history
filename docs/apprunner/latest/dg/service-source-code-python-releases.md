@@ -10,7 +10,8 @@ This topic lists the full details for the Python runtime versions that App Runne
 
 | Supported runtime versions — revised App Runner build | Runtime name  | **Minor versions** | **Included packages** |
 | ----------------------------------------------------- | ------------- | ------------------ | --------------------- |
-| Python 3.11 (python311)                               | 3.11.13       | SQLite 3.50.2      |
+| Python 3.11 (python311)                               | 3.11.14       | SQLite 3.50.2      |
+| 3.11.13                                               | SQLite 3.50.2 |
 | 3.11.13                                               | SQLite 3.50.1 |
 | 3.11.12                                               | SQLite 3.50.0 |
 | 3.11.11                                               | SQLite 3.49.1 |

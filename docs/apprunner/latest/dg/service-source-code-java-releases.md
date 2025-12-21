@@ -20,7 +20,8 @@ This topic lists the full details for the Java runtime versions that App Runner 
 | 11.0.17.8.1                                            | Maven 3.8.6, Gradle 6.9.3  |
 | 11.0.16.9.1                                            | Maven 3.8.6, Gradle 6.9.2  |
 | 11.0.13.08.1                                           | Maven 3.6.3, Gradle 6.5    |
-| Corretto 8 (corretto8)                                 | 8.462.08.1                 | Maven 3.9.11, Gradle 6.9.4 |
+| Corretto 8 (corretto8)                                 | 8.472.08.1                 | Maven 3.9.11, Gradle 6.9.4 |
+| 8.462.08.1                                             | Maven 3.9.11, Gradle 6.9.4 |
 | 8.452.09.2                                             | Maven 3.9.10, Gradle 6.9.4 |
 | 8.452.09.2                                             | Maven 3.9.9, Gradle 6.9.4  |
 | 8.452.09.1                                             | Maven 3.9.9, Gradle 6.9.4  |
