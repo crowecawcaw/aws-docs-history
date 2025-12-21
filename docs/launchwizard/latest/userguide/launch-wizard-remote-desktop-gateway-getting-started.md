@@ -110,7 +110,7 @@ Existing VPC Service Quotas:
 | Elastic IP Addresses                                     | 5 per Region      | 2                    |
 | AWS Identity and Access Management (IAM) security groups | 300 per account   | 1                    |
 | IAM roles                                                | 1,000 per account | 1                    |
-| Amazon EC2 Auto Scaling groups                           | 200 per Region    | 1                    |
+| Auto Scaling groups                                      | 200 per Region    | 1                    |
 | Amazon EC2 On-Demand Instances (Standard)                | 5 per Region      | 1-4                  |
 
 New VPC Service Quotas:
@@ -122,7 +122,7 @@ New VPC Service Quotas:
 | Internet Gateway                                         | 5 per Region      | 1                    |
 | AWS Identity and Access Management (IAM) security groups | 300 per account   | 1                    |
 | IAM roles                                                | 1,000 per account | 1                    |
-| Amazon EC2 Auto Scaling groups                           | 200 per Region    | 1                    |
+| Auto Scaling groups                                      | 200 per Region    | 1                    |
 | Amazon EC2 On-Demand Instances (Standard)                | 5 per Region      | 1-4                  |
 
 ## Amazon Elastic Compute Cloud key pairs
