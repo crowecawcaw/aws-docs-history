@@ -25,7 +25,7 @@ service role to:
 
 ###### Note
 
-If you create your Amazon EC2 Auto Scaling group with a launch template, you must add the following
+If you create your Auto Scaling group with a launch template, you must add the following
 permissions:
 
     + `ec2:RunInstances`
@@ -33,7 +33,7 @@ permissions:
     + `iam:PassRole`For more information, see Step 2: Create a service
 
 role, [Creating a
-launch template for an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md"), and [Launch template support](../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md") in the _Amazon EC2 Auto Scaling User Guide_.
+launch template for an Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md"), and [Launch template support](../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md") in the _Amazon EC2 Auto Scaling User Guide_.
 For Amazon ECS deployments, if you want full access to support services, attach
 the `AWSCodeDeployRoleForECS` policy. It provides the permissions for
 your service role to:

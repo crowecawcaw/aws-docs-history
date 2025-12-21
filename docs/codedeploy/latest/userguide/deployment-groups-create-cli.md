@@ -29,7 +29,7 @@ To use the AWS CLI to create a deployment group, call the
 - (Optional) Commands for a deployment to roll back to the last known good
   revision when a deployment fails or a CloudWatch alarm is activated.
 - (Optional) Commands for a deployment to generate lifecycle event hooks during
-  an Amazon EC2 Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with
+  an Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with
   CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
 - For in-place deployments:
   - (Optional) The names of the Classic Load Balancers, Application Load Balancers, or Network Load Balancers in ELB that
@@ -50,9 +50,9 @@ To use the AWS CLI to create a deployment group, call the
 
 ###### Warning
 
-If you are configuring both an Amazon EC2 Auto Scaling group and an ELB load balancer in
+If you are configuring both an Auto Scaling group and an ELB load balancer in
 your deployment group, and you want to [attach the
-load balancer to the Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md"), we recommend completing this
+load balancer to the Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md"), we recommend completing this
 attachment _before_ creating the CodeDeploy deployment from
 this deployment group. Attempting to complete the attachment after creating
 the deployment may cause all the instances to become deregistered from the

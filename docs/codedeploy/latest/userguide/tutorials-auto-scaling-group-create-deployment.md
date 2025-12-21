@@ -1,8 +1,8 @@
 # Step 2: Deploy the
 
-application to the Amazon EC2 Auto Scaling group
+application to the Auto Scaling group
 
-In this step, you'll deploy the revision to the single Amazon EC2 instance in the Amazon EC2 Auto Scaling
+In this step, you'll deploy the revision to the single Amazon EC2 instance in the Auto Scaling
 group.
 
 ###### Topics
@@ -33,7 +33,7 @@ aws deploy create-application --application-name SimpleDemoApp
    **create-deployment-group** command to create a
    deployment group named `SimpleDemoDG`,
    associated with the application named
-   `SimpleDemoApp`, using the Amazon EC2 Auto Scaling group
+   `SimpleDemoApp`, using the Auto Scaling group
    named `CodeDeployDemo-AS-Group` and deployment
    configuration named `CodeDeployDefault.OneAtATime`, with the
    specified service role ARN.
@@ -178,7 +178,7 @@ Sign in with the same user that you set up in [Getting started with CodeDeploy](
 deployment group**. 10. In **Deployment group name**, enter
 `SimpleDemoDG`. 11. In **Service Role**, choose the name of your service
 role. 12. In **Deployment type**, choose
-**In-place**. 13. In **Environment configuration** select **Amazon EC2 Auto Scaling
+**In-place**. 13. In **Environment configuration** select **Auto Scaling
 groups**, and then choose
 `CodeDeployDemo-AS-Group`. 14. In **Deployment configuration**, choose
 **CodeDeployDefault.OneAtATime**. 15. Clear **Enable load balancing**. 16. Choose **Create deployment group**. 17. In the deployment group page, choose **Create

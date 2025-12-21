@@ -1,7 +1,7 @@
 # Step 6: Clean up
 
-In this step, you'll delete the Amazon EC2 Auto Scaling group to avoid ongoing charges for resources you
-used during this tutorial. Optionally, you can delete the Amazon EC2 Auto Scaling configuration and CodeDeploy
+In this step, you'll delete the Auto Scaling group to avoid ongoing charges for resources you
+used during this tutorial. Optionally, you can delete the Auto Scaling configuration and CodeDeploy
 deployment component records.
 
 ###### Topics
@@ -15,7 +15,7 @@ deployment component records.
 
 (CLI)
 
-1. Delete the Amazon EC2 Auto Scaling group by calling the
+1. Delete the Auto Scaling group by calling the
    **delete-auto-scaling-group** command against
    `CodeDeployDemo-AS-Group`. This will also
    terminate the Amazon EC2 instances.
@@ -24,7 +24,7 @@ deployment component records.
 aws autoscaling delete-auto-scaling-group --auto-scaling-group-name CodeDeployDemo-AS-Group --force-delete
 ```
 
-2. Optionally, delete the Amazon EC2 Auto Scaling launch template by calling the
+2. Optionally, delete the Auto Scaling launch template by calling the
    **delete-launch-template** command against the launch
    configuration named
    `CodeDeployDemo-AS-Launch-Template`:
@@ -60,11 +60,11 @@ aws ssm describe-association --name AWS-ConfigureAWSPackage --targets Key=tag:Na
 
 resources (console)
 
-To delete the Amazon EC2 Auto Scaling group, which also terminates the Amazon EC2 instances:
+To delete the Auto Scaling group, which also terminates the Amazon EC2 instances:
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the Amazon EC2 navigation pane, under **Amazon EC2 Auto Scaling**, choose **Amazon EC2 Auto Scaling
+2. In the Amazon EC2 navigation pane, under **Auto Scaling**, choose **Auto Scaling
    Groups**, and then choose the
    `CodeDeployDemo-AS-Group` entry.
 3. Choose **Actions**, choose **Delete**,
@@ -72,7 +72,7 @@ To delete the Amazon EC2 Auto Scaling group, which also terminates the Amazon EC
 
 (Optional) To delete the launch template:
 
-1. In the navigation bar, under **Amazon EC2 Auto Scaling**, choose
+1. In the navigation bar, under **Auto Scaling**, choose
    **Launch Configurations**, and then choose
    `CodeDeployDemo-AS-Launch-Template`.
 2. Choose **Actions**, choose **Delete launch

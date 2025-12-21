@@ -3,7 +3,7 @@
 again
 
 In this step, you'll check to see if CodeDeploy installed the SimpleDemoApp
-revision on the new instance in the Amazon EC2 Auto Scaling group.
+revision on the new instance in the Auto Scaling group.
 
 ###### Topics
 
@@ -64,7 +64,7 @@ http://`ec2-01-234-567-890.compute-1.amazonaws.com`
 ```
 
 If the congratulations page appears, you've used CodeDeploy to deploy a
-revision to a scaled-up Amazon EC2 instance in an Amazon EC2 Auto Scaling group!
+revision to a scaled-up Amazon EC2 instance in an Auto Scaling group!
 
 ## To check automatic
 
@@ -81,7 +81,7 @@ deployment. Normally, you would create a deployment on your own, but
 Amazon EC2 Auto Scaling created one on your behalf to deploy your revision to the new Amazon EC2
 instance. 5. After **Succeeded** is displayed at the top of the page,
 verify the results on the instance. You first need to get the public DNS of
-the instance: 6. In the Amazon EC2 navigation pane, under **Amazon EC2 Auto Scaling**, choose **Amazon EC2 Auto Scaling
+the instance: 6. In the Amazon EC2 navigation pane, under **Auto Scaling**, choose **Auto Scaling
 Groups**, and then choose the
 `CodeDeployDemo-AS-Group` entry. 7. On the **Instances** tab, choose the ID of the new Amazon EC2
 instance. 8. On the **Instances** page, on the
@@ -97,4 +97,4 @@ http://`ec2-01-234-567-890.compute-1.amazonaws.com`
 ```
 
 If the congratulations page appears, you've used CodeDeploy to deploy a revision to a
-scaled-up Amazon EC2 instance in an Amazon EC2 Auto Scaling group!
+scaled-up Amazon EC2 instance in an Auto Scaling group!

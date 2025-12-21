@@ -8,7 +8,7 @@ To follow along in this tutorial:
   role (`CodeDeployDemo`). A
   _service role_ is a special type of IAM role that gives
   a service permission to act on your behalf.
-- If you create your Amazon EC2 Auto Scaling group with a launch template, you must add the
+- If you create your Auto Scaling group with a launch template, you must add the
   following permissions:
 
       + `ec2:RunInstances`
@@ -17,7 +17,7 @@ To follow along in this tutorial:
 
   For more information, see [Step 2: Create a service
   role](getting-started-create-service-role.md "getting-started-create-service-role.md"), [Creating a
-  launch template for an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md"), and [Launch template support](../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md") in the _Amazon EC2 Auto Scaling User Guide_.
+  launch template for an Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md"), and [Launch template support](../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 - Create and use a revision that is compatible with an Ubuntu Server instance and
   CodeDeploy. For your revision, you can do one of the following:

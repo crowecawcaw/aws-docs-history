@@ -25,7 +25,7 @@ EC2/on-premises compute platform
   have an existing Amazon EC2 Auto Scaling group to use as a template for your replacement
   environment, or you have one or more instances or Amazon EC2 Auto Scaling groups that you
   specify as your original environment. For more information, see [Tutorial: Use CodeDeploy to deploy an application
-  to an Amazon EC2 Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md") and [Integrating CodeDeploy with Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md "integrations-aws-auto-scaling.md").
+  to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md") and [Integrating CodeDeploy with Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md "integrations-aws-auto-scaling.md").
 - Create an application that includes at least one deployment group. For
   information, see [Create an application with CodeDeploy](applications-create.md "applications-create.md") and [Create a deployment group with CodeDeploy](deployment-groups-create.md "deployment-groups-create.md").
 - Prepare the application revision that you want to deploy to the instances

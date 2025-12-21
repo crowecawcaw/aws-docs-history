@@ -75,7 +75,7 @@ To use the AWS CLI to change deployment group settings, call the
     good revision when a deployment fails or a CloudWatch alarm is
     activated.
   - (Optional) Commands for a deployment to generate lifecycle event hooks during
-    an Amazon EC2 Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with
+    an Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with
     CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
   - (Optional) Commands to create or update a trigger that publishes to a
     topic in Amazon Simple Notification Service, so that subscribers to that topic receive

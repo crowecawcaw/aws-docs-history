@@ -53,12 +53,12 @@ access to your target instance. 7. In **Deployment type**, choose
      your revisions to the new instances automatically. You can add up to 10
      Amazon EC2 Auto Scaling groups to a deployment group. For more information, see [Integrating CodeDeploy with Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md "integrations-aws-auto-scaling.md").
     2. If you selected **Amazon EC2 Auto Scaling groups**, optionally
-     select **Add a termination hook to Amazon EC2 Auto Scaling groups** to
-     have CodeDeploy install a termination hook into your Amazon EC2 Auto Scaling group when you
+     select **Add a termination hook to Auto Scaling groups** to
+     have CodeDeploy install a termination hook into your Auto Scaling group when you
      create or update the deployment group. When this hook is installed,
      CodeDeploy will perform termination deployments. For more information, see
      [Enabling
-     termination deployments during Amazon EC2 Auto Scaling scale-in events](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable").
+     termination deployments during Auto Scaling scale-in events](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable").
     3. If you want to tag your instances, select **Amazon EC2
      instances** or **On-premises instances**.
      In the **Key** and **Value** fields,
@@ -134,15 +134,15 @@ For more information about load balancers for CodeDeploy deployments, see [Integ
 
 ###### Warning
 
-If you are configuring both Amazon EC2 Auto Scaling groups and an ELB load balancers in
+If you are configuring both Auto Scaling groups and an ELB load balancers in
 this deployment group, and you want to [attach
-load balancers to the Amazon EC2 Auto Scaling groups](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md"), we recommend completing this
+load balancers to the Auto Scaling groups](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md"), we recommend completing this
 attachment _before_ creating the CodeDeploy deployment from
 this deployment group. Attempting to complete the attachment after creating
 the deployment may cause all the instances to become deregistered from the
 load balancers unexpectedly. 12. (Optional) Expand **Advanced** and configure any options you
 want to include in the deployment, such as Amazon SNS notification triggers, Amazon CloudWatch
-alarms, Amazon EC2 Auto Scaling options, or automatic rollbacks.
+alarms, Auto Scaling options, or automatic rollbacks.
 
 For more information, see [Configure advanced options
 for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 13. Choose **Create deployment group**.

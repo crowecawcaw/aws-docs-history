@@ -17,7 +17,7 @@ issues
 - [The ELB could not be updated due to the following
   error: Primary taskset target group must be behind listener](#troubleshooting-ecs-elb "#troubleshooting-ecs-elb")
 - [My deployment sometimes fails when using
-  Amazon EC2 Auto Scaling](#troubleshooting-ecs-auto-scaling "#troubleshooting-ecs-auto-scaling")
+  Auto Scaling](#troubleshooting-ecs-auto-scaling "#troubleshooting-ecs-auto-scaling")
 - [Only ALB supports gradual traffic routing, use
   AllAtOnce Traffic routing instead when you create/update Deployment group](#troubleshooting-ecs-lb "#troubleshooting-ecs-lb")
 - [Even though my deployment succeeded,
@@ -193,18 +193,18 @@ workloads. There are three places to check:
 
 ## My deployment sometimes fails when using
 
-Amazon EC2 Auto Scaling
+Auto Scaling
 
-**Problem**: You are using Amazon EC2 Auto Scaling with CodeDeploy and you notice
+**Problem**: You are using Auto Scaling with CodeDeploy and you notice
 that your deployments occasionally fail. For more information about the symptoms of this
 problem, see the topic that reads [For services configured to use service auto scaling and the blue/green deployment type,
 auto scaling is not blocked during a deployment but the deployment may fail under some
 circumstances](../../../AmazonECS/latest/developerguide/deployment-type-bluegreen.md#deployment-type-bluegreen-considerations "../../../AmazonECS/latest/developerguide/deployment-type-bluegreen.md#deployment-type-bluegreen-considerations") in the _Amazon Elastic Container Service Developer Guide_.
 
 **Possible cause**: This problem might occur if CodeDeploy and
-Amazon EC2 Auto Scaling processes conflict.
+Auto Scaling processes conflict.
 
-**Possible fix**: Suspend and resume Amazon EC2 Auto Scaling processes during
+**Possible fix**: Suspend and resume Auto Scaling processes during
 the CodeDeploy deployment using the `RegisterScalableTarget` API (or the corresponding
 `register-scalable-target` AWS CLI command). For more information, see [Suspend and resume scaling for Application Auto Scaling](../../../autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.md "../../../autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.md") in the
 _Application Auto Scaling User Guide_.
@@ -216,11 +216,11 @@ must configure CodeDeploy to send a notification or event to Amazon Simple Notif
 then configure Amazon SNS (or CloudWatch) to call a Lambda function, and configure the Lambda function to
 call the `RegisterScalableTarget` API. The `RegisterScalableTarget`
 API must be called with the `SuspendedState` parameter set to `true`
-to suspend Amazon EC2 Auto Scaling operations, and `false` to resume them.
+to suspend Auto Scaling operations, and `false` to resume them.
 
 The notification or event that CodeDeploy sends out must occur when a deployment starts (to
-trigger Amazon EC2 Auto Scaling suspend operations), or when a deployment succeeds, fails, or stops (to trigger
-Amazon EC2 Auto Scaling resume operations).
+trigger Auto Scaling suspend operations), or when a deployment succeeds, fails, or stops (to trigger
+Auto Scaling resume operations).
 
 For information about how to configure CodeDeploy to generate Amazon SNS notifications or CloudWatch
 events, see [Monitoring deployments with Amazon CloudWatch Events](monitoring-cloudwatch-events.md "monitoring-cloudwatch-events.md"). and [Monitoring Deployments with Amazon SNS Event Notifications](monitoring-sns-event-notifications.md "monitoring-sns-event-notifications.md").
