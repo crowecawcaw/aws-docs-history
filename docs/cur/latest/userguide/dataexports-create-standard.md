@@ -43,6 +43,9 @@ different table configurations to add data to your export.
     	Including resource IDs creates individual line items for each of your
     	 resources. This might increase the size of your export significantly, based on
     	 your AWS usage.
+
+    	Selecting resource ID will add a Tag column containing data about users, accounts, cost categories, and
+    	 resources when you create a new report. You can deselect the columns to avoid redundant information.
     	2. Select **Split cost allocation data** to include detailed
     	 cost and usage for shared resources (Amazon ECS and Amazon EKS).
 
@@ -102,8 +105,7 @@ different table configurations to add data to your export.
      **Daily - export is refreshed up to one time per day**.
    - For carbon emissions data exports, the only option available is \*\*Monthly
    * export is refreshed once per month\*\*. Each update provides the carbon
-     emissions data from three months ago (for example, an April update contains January
-     data).
+     emissions data from the previous month (for example, a February update contains January data).
 
 9. For **Compression type and file format**, choose between the
    following for your export:

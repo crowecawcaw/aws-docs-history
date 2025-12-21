@@ -48,17 +48,15 @@ data for the management account and all member accounts in your organization. If
 you’re using a member account, your Carbon emissions table only includes estimated
 carbon emissions data for that member account.
 
-After a member account joins a new organization, or a management account converts
-to a member account and joins a new organization, the account's carbon emissions
-data is recorded in the new organization's exports. Each management account contains
-member accounts' data for the time period it was linked to said management account.
-For example, a member account leaves organization A and joins organization B on the
-15th of the month. Then, the member account creates an export. Because the member
-account created an export after joining organization B, the member account’s export
-of the Carbon emissions table for the month includes estimated carbon emissions data
-for the time that the account has been a member of organization B. As with all
-carbon emissions data exports, each monthly publish contains data for three months
-prior (for example, an April update contains data for January).
+After a member account joins a new organization, or a management account converts to a
+member account and joins a new organization, the account's carbon emissions data is
+recorded in the new organization's exports. Each management account contains member
+accounts' data for the time period it was linked to said management account. For
+example, a member account leaves organization A and joins organization B on the 15th
+of the month. Then, the member account creates an export. Because the member account
+created an export after joining organization B, the member account’s export of the
+Carbon emissions table for the month includes estimated carbon emissions data for
+the time that the account has been a member of organization B.
 
 When a member account leaves an organization or converts to a standalone account, the
 member account can still access previous exports if it has permissions to the Amazon

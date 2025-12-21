@@ -94,3 +94,4 @@ There are 125 possible columns in the CUR 2.0 table, grouped as follows:
   allocation for another line item.
 - **Capacity Reservation:** Data about capacity
   reservation that applies to the line item.
+- **Tags:** Data about user, account, cost category and resource tags.

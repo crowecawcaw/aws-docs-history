@@ -36,10 +36,10 @@ If you're using a management (payer) account, you should automatically see carbo
 data for your management account and all member (usage) accounts in the Carbon emissions table.
 No extra configuration is required.
 
-However, there is a 3-month data lag for carbon emissions data. For new member accounts,
+However, there is a data lag of up to 21 days for carbon emissions data. For new member accounts,
 data won't appear in the management account’s carbon emissions data export until the export
 period that includes when the member account joined the organization. For example, if you linked
-a new member account in January, its data first appears in the April export.
+a new member account in January, its data first appears in the February export.
 
 Similarly, when a member account leaves the organization, its data continues to appear
 until the export period when it was removed.
@@ -67,6 +67,11 @@ Yes, upon creating an export you will receive data going back up to January 2022
 first delivery and one month of data each month thereafter. If your account was created after
 January 2022, you’ll receive carbon emissions estimates from your account creation date
 onward.
+
+###### Note
+
+You cannot request a backfill by opening a support case. The only way to get historical
+data is to create a new data export.
 
 ## Why can't I see historical data in my S3
 
