@@ -45,7 +45,6 @@ pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing
 
 **Considerations for implementing customer managed keys:**
 
-- **Exception for existing sessions**: Encryption at rest with a customer managed key also applies to workforce identity data, such as user and group attributes, temporarily stored in user sessions. When you configure a customer managed key in IAM Identity Center, the customer managed key is used to encrypt workforce identity data in new sessions. In sessions initiated prior to the release of this feature, workforce identity data remains encrypted with the default AWS owned keys until session expiry (max 90 days) or termination, at which point this data is automatically deleted.
 - **Dedicated keys**: We recommend creating a new dedicated customer managed KMS key for each IAM Identity Center instance rather than reusing an existing key. This approach provides clearer separation of duties, simplifies access control management, and makes security auditing more straightforward. Having a dedicated key also reduces risk by limiting the impact of key changes to a single IAM Identity Center instance.
 
 ###### Note

@@ -44,3 +44,4 @@ AWS Organizations is recommended, but not required, for use with IAM Identity Ce
 an organization, you do not have to. If you've already set up AWS Organizations and are going to
 add IAM Identity Center to your organization, make sure that all AWS Organizations features are enabled. For
 more information, see [IAM Identity Center and AWS Organizations](identity-center-and-orgs.md "identity-center-and-orgs.md").
+IAM Identity Center web interfaces, including the access portal and the IAM Identity Center console, are intended to be accessed by humans through supported web browsers. Compatible browsers include the latest three versions of Microsoft Edge, Mozilla Firefox, Google Chrome, and Apple Safari. Accessing these endpoints using non-browser based paths is not supported. For programmatic access to IAM Identity Center services, we recommend using the documented APIs available in the IAM Identity Center and Identity Store API reference guides.

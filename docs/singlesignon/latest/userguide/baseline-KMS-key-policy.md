@@ -460,7 +460,8 @@ Permission set IAM policy:
 
 ## Baseline KMS key and IAM policy statements for use of custom workflows with IAM Identity Center
 
-Use the following KMS key policy statement templates in [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow custom workflows, such as customer managed applications, in the AWS Organizations management account or delegated administration account to use the KMS key.
+Use the following KMS key policy statement templates in [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow custom workflows, such as customer managed applications, in the AWS Organizations management account or
+delegated administration account to use the KMS key. Note that SAML federation into customer managed applications does not require KMS key permissions.
 
 - In the Principal element, specify the IAM principals used to access IAM Identity Center service APIs. For more information about IAM principals, see [Specifying a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in the _IAM User Guide_.
 - These policy statements allow your workflow to use the KMS key through any of your IAM Identity Center instances. To restrict access to a specific IAM Identity Center instance, see [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md").

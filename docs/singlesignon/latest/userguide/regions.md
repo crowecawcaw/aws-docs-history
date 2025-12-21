@@ -25,6 +25,7 @@ AWS Region, as indicated in the following table.
 | IAM Identity Center Region code | IAM Identity Center Region name | Amazon SES Region code | Amazon SES Region name   |
 | ------------------------------- | ------------------------------- | ---------------------- | ------------------------ |
 | ap-east-1                       | Asia Pacific (Hong Kong)        | ap-northeast-2         | Asia Pacific (Seoul)     |
+| ap-east-2                       | Asia Pacific (Taipei)           | ap-northeast-1         | Asia Pacific (Tokyo)     |
 | ap-south-2                      | Asia Pacific (Hyderabad)        | ap-south-1             | Asia Pacific (Mumbai)    |
 | ap-southeast-4                  | Asia Pacific (Melbourne)        | ap-southeast-2         | Asia Pacific (Sydney)    |
 | ap-southeast-5                  | Asia Pacific (Malaysia)         | ap-southeast-1         | Asia Pacific (Singapore) |
@@ -55,6 +56,7 @@ must enable the following [opt-in Regions](../../../glossary/latest/reference/gl
 
 - Africa (Cape Town)
 - Asia Pacific (Hong Kong)
+- Asia Pacific (Taipei)
 - Asia Pacific (Hyderabad)
 - Asia Pacific (Jakarta)
 - Asia Pacific (Melbourne)
