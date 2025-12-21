@@ -9,7 +9,7 @@ Before you create a federated catalog in Data Catalog that is governed by Lake F
 Your IAM principal (user or role) must have the following permissions:
 
 - **Lake Formation permissions** – `lakeformation:RegisterResource`, `lakeformation:DescribeResource`
-- **AWS Glue permissions** – `glue:CreateConnection`, `glue:CreateCatalog`, `glue:GetConnection`
+- **AWS Glue permissions** – `glue:CreateConnection`, `glue:CreateCatalog`, `glue:GetConnection`, `glue:PassConnection`
 - **Secrets Manager permissions** – `secretsmanager:CreateSecret`, `secretsmanager:GetSecretValue`
 - **IAM permissions** – `iam:CreateRole`, `iam:AttachRolePolicy`, `iam:PassRole`
 
@@ -206,7 +206,7 @@ aws glue create-connection \
             "UserManagedClientApplicationClientId": "`our-client-id`"
         },
         "TokenUrlParametersMap": {
-            "Scope": "all-apis"
+            "scope": "all-apis"
         }
     },
     "SecretArn": "arn:aws:secretsmanager:`your-aws-region`:`your-aws-account-id`:secret:`snowflake-secret`"
