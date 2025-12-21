@@ -96,9 +96,8 @@ request.
 1. Open the AWS Outposts console at [https://console.aws.amazon.com/outposts/](https://console.aws.amazon.com/outposts/home "https://console.aws.amazon.com/outposts/home").
 2. In the navigation pane, choose **Outposts**.
 3. Choose **Actions**.
-4. Choose **Decommission Outpost**.
-5. Choose a reason for the decommission.
-6. Choose **Submit support ticket**.
+4. Choose **Decommission Outpost** and follow the workflow to delete resources.
+5. Choose **Submit request**.
 
 ###### Note
 
