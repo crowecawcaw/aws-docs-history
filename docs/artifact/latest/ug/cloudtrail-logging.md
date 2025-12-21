@@ -14,7 +14,7 @@ request was made, who made the request, when it was made, and additional details
 To learn more about CloudTrail, see the
 [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-### AWS Artifact information in CloudTrail
+## AWS Artifact information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
 AWS Artifact, that activity is recorded in a CloudTrail event along with other AWS service
@@ -70,7 +70,7 @@ For more information, see the
 [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-### Understanding AWS Artifact log file
+## Understanding AWS Artifact log file
 
 entries
 

@@ -30,7 +30,8 @@ The following policy grants permission to download all reports.
  "artifact:ListReports",
  "artifact:GetReportMetadata",
  "artifact:GetReport",
- "artifact:GetTermForReport"
+ "artifact:GetTermForReport",
+ "artifact:ListReportVersions"
  ],
  "Resource": "*"
  }
@@ -57,7 +58,8 @@ The following policy grants permission to download only the SOC, PCI, and ISO re
  "Action": [
  "artifact:GetReportMetadata",
  "artifact:GetReport",
- "artifact:GetTermForReport"
+ "artifact:GetTermForReport",
+ "artifact:ListReportVersions"
  ],
  "Resource": "*",
  "Condition": {
