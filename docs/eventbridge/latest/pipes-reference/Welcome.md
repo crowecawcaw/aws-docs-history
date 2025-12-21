@@ -7,4 +7,4 @@ can be any available EventBridge target. To set up a pipe, you select the event
 source, add optional event filtering, define optional enrichment, and select the target for
 the event data.
 
-This document was last published on December 12, 2025.
+This document was last published on December 20, 2025.
