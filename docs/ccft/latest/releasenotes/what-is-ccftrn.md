@@ -22,6 +22,12 @@ Use the following resources to learn more about the Customer Carbon Footprint To
 
 This section documents the updates made to Customer Carbon Footprint Tool. This page lists announcements about new or updated features, bug fixes, improvements, and deprecated functionality for the year 2025.
 
+#### December 15, 2025
+
+##### Customer Carbon Footprint Tool data lag reduced by 2 months
+
+The Customer Carbon Footprint Tool and AWS Data Exports now publish carbon emission estimates between the 15 and 21st of the month following the usage (e.g. December data is published by January 21st). To support the faster data delivery, we’re using more estimates to calculate Scope 2 and Scope 3.3 (Fuel- and Energy- Related Activities, FERA). These categories rely on utility invoices that aren’t received until later in the month. Starting in 2026, AWS will recalculate previous year’s emissions using the actual data from utility invoices by June of the following year, and we will also take this opportunity to update any other data sources that have a more recent version. For example, 2025 data will be republished by June 2026 using the latest and greatest inputs.
+
 #### October 22, 2025
 
 ##### Added scope 3 emissions category
