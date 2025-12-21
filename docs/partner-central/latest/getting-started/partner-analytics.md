@@ -50,5 +50,6 @@ In addition to the preset date filters, or set a custom date range. Note that Di
 - [Resell revenue and discounts](partner-analytics-resell.md "partner-analytics-resell.md")
 - [Marketing Campaign analysis](partner-analytics-marketing.md "partner-analytics-marketing.md")
 - [Training and certifications](partner-analytics-training-certifications.md "partner-analytics-training-certifications.md")
+- [MAP Partner Performance Index](map-partner-performance-index.md "map-partner-performance-index.md")
 - [Export (Download) Data](export-download-data.md "export-download-data.md")
 - [Data Refresh and Denominations](data-refresh-and-denominations.md "data-refresh-and-denominations.md")
