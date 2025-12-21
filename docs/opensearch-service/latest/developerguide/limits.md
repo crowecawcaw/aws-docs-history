@@ -12,7 +12,24 @@ To view the quotas for OpenSearch Service in the AWS Management Console, open th
 Service**. To request a quota increase, see [Requesting a quota
 increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
-## UltraWarm storage quotas
+## Warm node storage quotas
+
+The following table lists the warm node instance types and the maximum amount of storage that each type can use. For OpenSearch Optimized OI2 instances, 80% of the local storage is available as cache, and the maximum addressable warm storage is 5 times the cache storage size.
+
+For example, if an OI2 instance has 468 GB of local storage:
+
+- Cache storage = 375 GB (80% of local storage)
+- Maximum addressable warm storage = 1875 GB (5 x 375 GB cache)
+
+| Instance Type      | Instance Storage (GB) | Cache Size (GB) | Max Addressable Warm Storage (GB) |
+| ------------------ | --------------------- | --------------- | --------------------------------- |
+| oi2.large.search   | 468                   | 375             | 1875                              |
+| oi2.xlarge.search  | 937                   | 750             | 3750                              |
+| oi2.2xlarge.search | 1875                  | 1500            | 7500                              |
+| oi2.4xlarge.search | 3750                  | 3000            | 15000                             |
+| oi2.8xlarge.search | 7500                  | 6000            | 30000                             |
+
+### UltraWarm storage quotas
 
 The following table lists the UltraWarm instance types and the maximum amount of
 storage that each type can use. For more information about UltraWarm, see [UltraWarm storage for Amazon OpenSearch Service](ultrawarm.md "ultrawarm.md").
@@ -40,16 +57,16 @@ family
 
 The following table lists the total node limit by instance family.
 
-| Instance family                                                                                | ElasticSearch OpenSearch up to 2.15 | OpenSearch 2.17 and above | Default limit |
-| ---------------------------------------------------------------------------------------------- | ----------------------------------- | ------------------------- | ------------- |
-| T2                                                                                             | 10                                  | 10                        | 10            |
-| T3                                                                                             | 10                                  | 10                        | 10            |
-| M3, C4, M4, R4, C5, M5, R5, I2, I3                                                             | 10                                  | 200                       | 80            |
-| Graviton 2, Gravtion 3, Gravtion 4                                                             | 200                                 | 400                       | 80            |
-| C7i, R7i, M7i, i4i, i4g, i8g                                                                   | 200                                 | 400                       | 80            |
-| OR1.medium.searchOR1.large.search<br>OR2.medium.search<br>OR2.large.search<br>OM2.large.search | 200                                 | 400                       | 80            |
-| OR1.xlarge.search and aboveOR2.xlarge.search and<br>aboveOM2.xlarge.search and above           | 200                                 | 1002                      | 80            |
-| Ultrawarm1                                                                                     | 150                                 | 750                       | 150           |
+| Instance family                                                                                                     | ElasticSearch OpenSearch up to 2.15 | OpenSearch 2.17 and above | Default limit |
+| ------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------------------- | ------------- |
+| T2                                                                                                                  | 10                                  | 10                        | 10            |
+| T3                                                                                                                  | 10                                  | 10                        | 10            |
+| M3, C4, M4, R4, C5, M5, R5, I2, I3                                                                                  | 10                                  | 200                       | 80            |
+| Graviton 2, Gravtion 3, Gravtion 4                                                                                  | 200                                 | 400                       | 80            |
+| C7i, R7i, M7i, i4i, i4g, i8g                                                                                        | 200                                 | 400                       | 80            |
+| OR1.medium.searchOR1.large.search<br>OR2.medium.search<br>OR2.large.search<br>OM2.large.search<br>OI2.large.search  | 200                                 | 400                       | 80            |
+| OR1.xlarge.search and aboveOR2.xlarge.search and<br>aboveOM2.xlarge.search and above<br>OI2.xlarge.search and above | 200                                 | 1002                      | 80            |
+| Ultrawarm1                                                                                                          | 150                                 | 750                       | 150           |
 
 ## EBS volume size quotas
 
@@ -282,6 +299,13 @@ pricing](https://aws.amazon.com/elasticsearch-service/pricing/ "https://aws.amaz
 | r8gd.8xlarge          | N/A              | N/A                    | N/A                    |
 | r8gd.12xlarge         | N/A              | N/A                    | N/A                    |
 | r8gd.16xlarge         | N/A              | N/A                    | N/A                    |
+| oi2.large.search      | N/A              | N/A                    | N/A                    |
+| oi2.xlarge.search     | N/A              | N/A                    | N/A                    |
+| oi2.2xlarge.search    | N/A              | N/A                    | N/A                    |
+| oi2.4xlarge.search    | N/A              | N/A                    | N/A                    |
+| oi2.8xlarge.search    | N/A              | N/A                    | N/A                    |
+| oi2.12xlarge.search   | N/A              | N/A                    | N/A                    |
+| oi2.16xlarge.search   | N/A              | N/A                    | N/A                    |
 
 ## Network quotas
 
@@ -471,6 +495,13 @@ The following table shows the maximum size of HTTP request payloads.
 | r8gd.8xlarge          | 100 MiB                               |
 | r8gd.12xlarge         | 100 MiB                               |
 | r8gd.16xlarge         | 100 MiB                               |
+| oi2.large.search      | 100 MiB                               |
+| oi2.xlarge.search     | 100 MiB                               |
+| oi2.2xlarge.search    | 100 MiB                               |
+| oi2.4xlarge.search    | 100 MiB                               |
+| oi2.8xlarge.search    | 100 MiB                               |
+| oi2.12xlarge.search   | 100 MiB                               |
+| oi2.16xlarge.search   | 100 MiB                               |
 
 ## Shard size quotas
 
@@ -482,7 +513,7 @@ families.
 | R5, C5, M5, C7i, M7i, R7i                                    | N/A                      | 65 GiB                |
 | I3, i4i, i4g, i8g                                            | N/A                      | 65 GiB                |
 | R6g, C6g, M6g, R6gd, C7g,M7g, R7g, R7gd, C8g, M8g, R8g, R8gd | N/A                      | 65 GiB                |
-| OR1, OR2, OM2                                                | 100 GiB                  | 65 GiB                |
+| OR1, OR2, OM2, OI2                                           | N/A                      | N/A                   |
 | Im4gn                                                        | N/A                      | 65 GiB                |
 
 To request a quota increase, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
@@ -500,8 +531,11 @@ The following section lists the maximum shard count for OpenSearch versions.
 
 ## Java process quota
 
-OpenSearch Service limits Java processes to a heap size of 32 GiB. Advanced users can specify the
-percentage of the heap used for field data. For more information, see [Advanced cluster
+OpenSearch Service limits Java processes memory to 50% of total available memory(max upto 32 GiB). The upper limit of 32 GB doesn't apply to r7g and OpenSearch optimized instances.
+
+To request limit increase, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
+
+Advanced users can also specify the percentage of the heap used for field data. For more information, see [Advanced cluster
 settings](createupdatedomains.md#createdomain-configure-advanced-options "createupdatedomains.md#createdomain-configure-advanced-options") and [JVM OutOfMemoryError](handling-errors.md#handling-errors-jvm_out_of_memory_error "handling-errors.md#handling-errors-jvm_out_of_memory_error").
 
 ## Domain policy quota

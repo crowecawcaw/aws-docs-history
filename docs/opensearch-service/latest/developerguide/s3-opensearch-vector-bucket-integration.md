@@ -235,7 +235,10 @@ JSON
  "Condition": {
  "StringEquals": {
  "kms:ViaService": "s3vectors.us-east-1.amazonaws.com",
- "kms:EncryptionContext:aws:s3vectors:arn": "arn:aws:s3vectors:`us-east-1`:`111122223333`:bucket/example-bucket"
+ "kms:EncryptionContext:aws:s3vectors:arn": [
+ "arn:aws:s3vectors:`us-east-1`:`111122223333`:bucket/example-bucket",
+ "arn:aws:s3vectors:`us-east-1`:`111122223333`:bucket/example-bucket/index/example-index"
+ ]
  }
  }
  }

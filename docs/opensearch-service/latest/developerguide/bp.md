@@ -484,7 +484,7 @@ Monitor your usage of OpenSearch Service as it relates to security best practice
 Security Hub CSPM uses security controls to evaluate resource configurations and security
 standards to help you comply with various compliance frameworks. For more
 information about using Security Hub CSPM to evaluate OpenSearch Service resources, see [Amazon OpenSearch Service controls](../../../securityhub/latest/userguide/opensearch-controls.md "../../../securityhub/latest/userguide/opensearch-controls.md") in the
-_AWS Security Hub CSPM User Guide_.
+_AWS Security Hub User Guide_.
 
 ## Cost optimization
 

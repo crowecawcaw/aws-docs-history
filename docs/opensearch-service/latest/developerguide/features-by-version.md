@@ -6,8 +6,9 @@ but the feature isn't available on your domain, update your domain's [service so
 
 | Feature                                                                | Minimum required OpenSearch version | Minimum required Elasticsearch version |
 | ---------------------------------------------------------------------- | ----------------------------------- | -------------------------------------- |
+| Multi-tier architecture                                                | 3.3                                 | Not included                           |
 | Derived source                                                         | 3.1                                 | Not included                           |
-| Star-tree index                                                        |
+| Star-tree index                                                        | 2.17                                | Not included                           |
 | Amazon Q support                                                       | 2.17                                | Not included                           |
 | Custom plugins                                                         | 2.15                                | Not included                           |
 | Concurrent segment search                                              | 2.13                                | Not included                           |

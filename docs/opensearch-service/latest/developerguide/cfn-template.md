@@ -27,6 +27,8 @@ information, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-
 - [Available CloudFormation templates](#cfn-template-list "#cfn-template-list")
 - [Prerequisites](#cfn-template-prereq "#cfn-template-prereq")
 - [Amazon Bedrock templates](cfn-template-bedrock.md "cfn-template-bedrock.md")
+- [Configuring Agentic Search with
+  Bedrock Claude](cfn-template-agentic-search.md "cfn-template-agentic-search.md")
 - [MCP server integration templates](cfn-template-mcp-server.md "cfn-template-mcp-server.md")
 - [Amazon SageMaker templates](cfn-template-sm.md "cfn-template-sm.md")
 - [Remote inference for semantic

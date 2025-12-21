@@ -1,10 +1,7 @@
-# OpenSearch Optimized Instances (OR1) for Amazon OpenSearch Service domains
+# OpenSearch Optimized Instances for Amazon OpenSearch Service domains
 
 The OpenSearch optimized instance family for Amazon OpenSearch Service is a cost-effective solution for
-storing large volumes of data. A domain with OpenSearch optimized instances (OR1, OR2, OM2) uses Amazon Elastic Block Store (Amazon EBS)
-`gp3` or `io1` volumes for primary storage, with data copied
-synchronously to Amazon S3 as it arrives. This storage structure provides increased indexing
-throughput with high durability. The OpenSearch optimized instance family also supports
+storing large volumes of data. A domain with OpenSearch optimized instances use local storage as primary, with data copied synchronously to Amazon S3 as it arrives. This storage structure provides increased indexing throughput with high durability. OR1, OR2, OM2 uses uses Amazon Elastic Block Store (Amazon EBS) `gp3` or `io1` volumes locally whereas OI2 instances use local NVMe disks. The OpenSearch optimized instance family also supports
 automatic data recovery in the event of failure. For information about OpenSearch optimized instance type
 options, see [Current generation instance types](supported-instance-types.md#latest-gen "supported-instance-types.md#latest-gen").
 
@@ -122,7 +119,7 @@ existing tools.
 7. Configure the rest of your domain and choose
    **Create**.
    To provision a domain that uses OpenSearch optimized storage using the AWS CLI, you must provide
-   the value of the specific instance type size (such as OR1, OR2, or OM2) in the
+   the value of the specific instance type size (such as OR1, OR2, OM2, or OI2) in the
    `InstanceType`.
 
 The following example creates a domain with OR1 instances of size
@@ -139,4 +136,19 @@ aws opensearch create-domain \
   --node-to-node-encryption-options Enabled=true \
   --domain-endpoint-options EnforceHTTPS=true \
   --access-policies '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:*","Resource":"arn:aws:es:`us-east-1`:`account-id`:domain/`test-domain`/*"}]}'
+```
+
+The following example creates a domain with OI2 instances of size
+`large` and enables encryption at rest. Note that OI2 instances do not require EBS configuration as they use local NVMe storage.
+
+```
+aws opensearch create-domain \
+  --domain-name `test-domain-oi2` \
+  --engine-version OpenSearch_2.11 \
+  --cluster-config "InstanceType=oi2.2xlarge.search,InstanceCount=3,DedicatedMasterEnabled=true,DedicatedMasterType=r6g.large.search,DedicatedMasterCount=3" \
+  --encryption-at-rest-options Enabled=true \
+  --advanced-security-options "Enabled=true,InternalUserDatabaseEnabled=true,MasterUserOptions={MasterUserName=`test-user`,MasterUserPassword=`test-password`}" \
+  --node-to-node-encryption-options Enabled=true \
+  --domain-endpoint-options EnforceHTTPS=true \
+  --access-policies '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:*","Resource":"arn:aws:es:`us-east-1`:`account-id`:domain/`test-domain-oi2`/*"}]}'
 ```

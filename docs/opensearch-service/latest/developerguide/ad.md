@@ -22,7 +22,7 @@ reference of all available settings, and steps to create visualizations and dash
 see [Anomaly
 detection](https://opensearch.org/docs/latest/monitoring-plugins/ad/index/ "https://opensearch.org/docs/latest/monitoring-plugins/ad/index/") in the open source OpenSearch documentation.
 
-### Prerequisites
+## Prerequisites
 
 Anomaly detection has the following prerequisites:
 
@@ -37,18 +37,18 @@ Anomaly detection has the following prerequisites:
   view detectors, or `anomaly_full_access` in order to create and
   manage detectors.
 
-### Getting started with anomaly detection
+## Getting started with anomaly detection
 
 To get started, choose **Anomaly Detection** in
 OpenSearch Dashboards.
 
-#### Step 1: Create a detector
+### Step 1: Create a detector
 
 A detector is an individual anomaly detection task. You can create multiple
 detectors, and all the detectors can run simultaneously, with each analyzing
 data from different sources.
 
-#### Step 2: Add features to your detector
+### Step 2: Add features to your detector
 
 A feature is the field in your index that you check for anomalies. A detector
 can discover anomalies across one or more features. You must choose one of the
@@ -91,7 +91,7 @@ You can configure the following optional settings (available in Elasticsearch
 After you set up your features, preview sample anomalies and adjust the
 feature settings if necessary.
 
-#### Step 3: Observe the results
+### Step 3: Observe the results
 
 ![The following visualizations are available on the anomaly detection dashboard:](images/ad.png)
 
@@ -113,7 +113,7 @@ map** chart that correlates results for anomalous entities.
 Choose a filled rectangle to see a more detailed view of the
 anomaly.
 
-#### Step 4: Set up alerts
+### Step 4: Set up alerts
 
 To create a monitor to send you notifications when any anomalies are detected,
 choose **Set up alerts**. The plugin redirects you to the

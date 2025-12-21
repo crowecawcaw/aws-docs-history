@@ -155,7 +155,7 @@ defines the URI that you use to send data to the pipeline.
 For example, say you specify the following path for a pipeline with an HTTP
 source:
 
-![Input field for specifying the path for ingestion, with an example path entered.](images/ingestion-path.png)
+![Input field for specifying the path for ingestion, with an example path entered.](/images/opensearch-service/latest/developerguide/images/ingestion-path.png)
 
 When you [ingest data](configure-client.md "configure-client.md") into the pipeline, you
 must specify the following endpoint in your client configuration:

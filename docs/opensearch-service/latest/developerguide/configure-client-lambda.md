@@ -15,7 +15,7 @@ The payload size limit for a single event processed by a Lambda processor is 5 M
 Additionally, the Lambda processor only supports responses in JSON array
 format.
 
-### Prerequisites
+## Prerequisites
 
 Before you create a pipeline with a Lambda processor, create the following
 resources:

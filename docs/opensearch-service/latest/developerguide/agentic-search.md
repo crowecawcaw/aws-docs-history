@@ -6,6 +6,9 @@ Agentic search introduces an intelligent agent system that understands user inte
 
 With OpenSearch Service, you can configure [AI connectors for
 AWS services](ml-amazon-connector.md "ml-amazon-connector.md") and [external
-services](ml-external-connector.md "ml-external-connector.md").
+services](ml-external-connector.md "ml-external-connector.md"). Using the console, you can also create an ML model with a
+CloudFormation template that can be used for building your agent. For more information,
+see [Configuring Agentic Search with Bedrock
+Claude](cfn-template-agentic-search.md "cfn-template-agentic-search.md").
 
 For complete documentation and step-by-step implementation, see [Agentic Search](https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/index/ "https://docs.opensearch.org/latest/vector-search/ai-search/agentic-search/index/") in the OpenSearch documentation.
