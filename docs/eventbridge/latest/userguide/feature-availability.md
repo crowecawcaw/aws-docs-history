@@ -105,7 +105,6 @@ the following AWS Regions.
 - Asia Pacific (Singapore)
 - Asia Pacific (Sydney)
 - Asia Pacific (Jakarta)
-- Asia Pacific (Melbourne)
 - Canada (Central)
 - Canada West (Calgary)
 - China (Beijing)
