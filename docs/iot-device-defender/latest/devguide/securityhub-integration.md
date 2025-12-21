@@ -34,7 +34,7 @@ integration
 
 Before you integrate AWS IoT Device Defender with Security Hub CSPM, you must first enable Security Hub CSPM. For information
 about how to enable Security Hub CSPM, see [Setting up Security
-Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User Guide_.
+Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
 
 After you enable both AWS IoT Device Defender and Security Hub CSPM, open the [Integrations page in the Security Hub CSPM console](https://console.aws.amazon.com//securityhub/home#/integrations "https://console.aws.amazon.com//securityhub/home#/integrations"), and
 then choose **Accept findings** for Audit, Detect, or both. AWS IoT Device Defender begins
@@ -49,15 +49,15 @@ findings come from issues that are detected by other AWS services or by third-pa
 products.
 
 Security Hub CSPM provides tools to manage findings from across all of these sources. You can view and
-filter lists of findings and view details for a finding. For more information, see [Viewing findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub CSPM User Guide_. You
+filter lists of findings and view details for a finding. For more information, see [Viewing findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub User Guide_. You
 can also track the status of an investigation into a finding. For more information, see [Taking action on
-findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub CSPM User Guide_.
+findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub User Guide_.
 
 All findings in Security Hub CSPM use a standard JSON format called the _AWS
 Security Finding Format (ASFF)_. The ASFF includes details about the source of the
 issue, the affected resources, and the current status of the finding. For more information
 about ASFF, see [AWS Security Finding
-Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
+Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
 AWS IoT Device Defender is one of the AWS services that sends findings to Security Hub CSPM.
 
@@ -123,7 +123,7 @@ AWS IoT Device Defender Audit also updates check summaries in Security Hub CSPM.
 
 AWS IoT Device Defender Detect creates a Security Hub CSPM finding when there's a violation (for example, in-alarm). That finding is updated only if one of the following criteria is met:
 
-- The finding is expiring soon in Security Hub CSPM so AWS IoT Device Defender sends an update to keep the finding current. Findings are deleted 90 days after the most recent update or 90 days after the creation date if no update occurs. For more information, see [Security Hub CSPM quotas](../../../securityhub/latest/userguide/securityhub_limits.md "../../../securityhub/latest/userguide/securityhub_limits.md") in the _AWS Security Hub CSPM User Guide_.
+- The finding is expiring soon in Security Hub CSPM so AWS IoT Device Defender sends an update to keep the finding current. Findings are deleted 90 days after the most recent update or 90 days after the creation date if no update occurs. For more information, see [Security Hub CSPM quotas](../../../securityhub/latest/userguide/securityhub_limits.md "../../../securityhub/latest/userguide/securityhub_limits.md") in the _AWS Security Hub User Guide_.
 - The corresponding violation goes out of alarm, so AWS IoT Device Defender updates its finding status
   to ARCHIVED.
 
@@ -350,4 +350,4 @@ To stop sending findings to Security Hub CSPM, you can use either the Security H
 
 For more information, see [Disabling and enabling the flow of findings from an integration
 (console)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console") or [Disabling the flow of findings from an integration (Security Hub CSPM API,
-AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub CSPM User Guide_.
+AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub User Guide_.
