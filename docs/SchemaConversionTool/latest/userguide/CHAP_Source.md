@@ -1,189 +1,79 @@
-# Connect Microsoft SQL Servers with AWS Schema Conversion Tool
+# Connecting to a Snowflake data warehouse with AWS Schema Conversion Tool
 
-You can use AWS SCT to convert schemas, database code objects, and application code
-from SQL Server to the following targets:
+You can use AWS SCT to convert schemas, code objects, and application code from Snowflake to Amazon Redshift.
 
-- Amazon RDS for MySQL
-- Amazon Aurora MySQL-Compatible Edition
-- Amazon RDS for PostgreSQL
-- Amazon Aurora PostgreSQL-Compatible Edition
-- Amazon RDS for SQL Server
-- Amazon RDS for MariaDB
+## Privileges for
 
-###### Note
+Snowflake as a source database
 
-AWS SCT does not support using Amazon RDS for SQL server as a source.
+You can create a role with privileges and grant this role the name of a
+user by using the `SECURITYADMIN` role and the
+`SECURITYADMIN` session context.
 
-You can use AWS SCT to create an assessment report for the migration of
-schemas, database code objects, and application code from SQL Server to Babelfish for Aurora PostgreSQL, as described following.
-
-###### Topics
-
-- [Privileges for Microsoft SQL Server as a source](#CHAP_Source.SQLServer.Permissions "#CHAP_Source.SQLServer.Permissions")
-- [Using Windows Authentication when using Microsoft SQL Server as a source](#CHAP_Source.SQLServer.Permissions.WinAuth "#CHAP_Source.SQLServer.Permissions.WinAuth")
-- [Connecting to SQL Server as a source](#CHAP_Source.SQLServer.Connecting "#CHAP_Source.SQLServer.Connecting")
-- [Converting SQL Server to MySQL](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md")
-- [Migrating from SQL Server to PostgreSQL with AWS Schema Conversion Tool](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md")
-- [Migrating from SQL Server to Amazon RDS for SQL Server with AWS Schema Conversion Tool](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md")
-
-## Privileges for Microsoft SQL Server as a source
-
-The privileges required for Microsoft SQL Server as a source
-are as follows:
-
-- VIEW DEFINITION
-- VIEW DATABASE STATE
-
-The `VIEW DEFINITION` privilege enables users that have public
-access to see object definitions. AWS SCT uses the `VIEW DATABASE STATE`
-privilege to check the features of the SQL Server Enterprise edition.
-
-Repeat the grant for each database whose schema you are converting.
-
-In addition, grant the following privileges on the `master` database:
-
-- VIEW SERVER STATE
-- VIEW ANY DEFINITION
-
-AWS SCT uses the `VIEW SERVER STATE` privilege to collect server
-settings and configuration. Make sure that you grant the `VIEW ANY DEFINITION`
-privilege to view endpoints.
-
-To read information about Microsoft Analysis Services, run the following command
-on the `master` database.
+The example following creates minimal privileges and grants them to the
+`min_privs` user.
 
 ```
-EXEC master..sp_addsrvrolemember @loginame = N'`<user_name>`', @rolename = N'sysadmin'
+create role `role_name`;
+grant role `role_name` to role sysadmin;
+grant usage on database `db_name` to role `role_name`;
+grant usage on schema `db_name`.`schema_name` to role `role_name`;
+grant usage on warehouse `datawarehouse_name` to role `role_name`;
+grant monitor on database `db_name` to role `role_name`;
+grant monitor on warehouse `datawarehouse_name` to role `role_name`;
+grant select on all tables in schema `db_name`.`schema_name` to role `role_name`;
+grant select on future tables in schema `db_name`.`schema_name` to role `role_name`;
+grant select on all views in schema `db_name`.`schema_name` to role `role_name`;
+grant select on future views in schema `db_name`.`schema_name` to role `role_name`;
+grant select on all external tables in schema `db_name`.`schema_name` to role `role_name`;
+grant select on future external tables in schema `db_name`.`schema_name` to role `role_name`;
+grant usage on all sequences in schema `db_name`.`schema_name` to role `role_name`;
+grant usage on future sequences in schema `db_name`.`schema_name` to role `role_name`;
+grant usage on all functions in schema `db_name`.`schema_name` to role `role_name`;
+grant usage on future functions in schema `db_name`.`schema_name` to role `role_name`;
+grant usage on all procedures in schema `db_name`.`schema_name` to role `role_name`;
+grant usage on future procedures in schema `db_name`.`schema_name` to role `role_name`;
+create user min_privs password='`real_user_password`'
+DEFAULT_ROLE = `role_name` DEFAULT_WAREHOUSE = '`datawarehouse_name`';
+grant role `role_name` to user `min_privs`;
 ```
 
-In the preceding example, replace the
-`<user_name>` placeholder with the
-name of the user that you granted with the privileges before.
+In the preceding example, replace placeholders as following:
 
-To read information about SQL Server Agent, add your user to the
-`SQLAgentUser` role. Run the following command on the `msdb`
-database.
+- Replace `role_name` with the
+  name of a role with read-only privileges.
+- Replace `db_name` with the
+  name of the source database.
+- Replace `schema_name` with
+  the name of the source schema.
+- Replace `datawarehousename`
+  with the name of a required data warehouse.
+- Replace `min_privs` with the
+  name of a user that has minimal privileges.
 
-```
-EXEC sp_addrolemember `<SQLAgentRole>`, `<user_name>`;
-```
+The `DEFAULT_ROLE` and `DEFAULT_WAREHOUSE`
+parameters are key-sensitive.
 
-In the preceding example, replace the
-`<SQLAgentRole>` placeholder with
-the name of the SQL Server Agent role. Then replace the
-`<user_name>` placeholder with the
-name of the user that you granted with the privileges before. For more information, see
-[Adding a user to the SQLAgentUser role](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md#SQLServerAgent.AddUser "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md#SQLServerAgent.AddUser") in the
-_Amazon RDS User Guide_.
+## Configuring secure access to Amazon S3
 
-To detect log shipping, grant the `SELECT on dbo.log_shipping_primary_databases`
-privilege on the `msdb` database.
+Security and access management policies for an Amazon S3 bucket allow Snowflake to access,
+read data from, and write data to the S3 bucket. You can configure secure access to
+a private Amazon S3 bucket using the Snowflake `STORAGE INTEGRATION` object type.
+A Snowflake storage integration object delegates authentication responsibility to a
+Snowflake identity and access management entity.
 
-To use the notification approach of the DDL replication, grant the `RECEIVE ON
- `<schema_name>`.`<queue_name>`  privilege on your source databases. In this example, replace the
- `<schema_name>`placeholder with the
- schema name of your database. Then, replace the
-`<queue_name>`` placeholder with the
-name of a queue table.
+For more information, see [Configuring a Snowflake Storage Integration to Access Amazon S3](https://docs.snowflake.com/en/user-guide/data-load-s3-config-storage-integration.html "https://docs.snowflake.com/en/user-guide/data-load-s3-config-storage-integration.html") in the Snowflake
+documentation.
 
-## Using Windows Authentication when using Microsoft SQL Server as a source
+## Connecting to Snowflake as a source
 
-If your application runs on a Windows-based intranet, you might be able to use
-Windows Authentication for database access. Windows Authentication uses the current Windows
-identity established on the operating system thread to access the SQL Server database. You can
-then map the Windows identity to a SQL Server database and permissions. To connect to SQL
-Server using Windows Authentication, you must specify the Windows identity that your
-application is using. You must also grant the Windows identity access to the SQL Server
-database.
-
-SQL Server has two modes of access: Windows Authentication mode and Mixed Mode. Windows
-Authentication mode enables Windows Authentication and disables SQL Server Authentication.
-Mixed Mode enables both Windows Authentication and SQL Server Authentication. Windows
-Authentication is always available and cannot be disabled. For more information about Windows
-Authentication, see the Microsoft Windows documentation.
-
-The possible example for creating a user in TEST_DB is shown following.
-
-```
-USE [TEST_DB]
-CREATE USER [TestUser] FOR LOGIN [TestDomain\TestUser]
-GRANT VIEW DEFINITION TO [TestUser]
-GRANT VIEW DATABASE STATE TO [TestUser]
-```
-
-### Using Windows Authentication with a JDBC connection
-
-The JDBC driver does not support Windows Authentication when the driver is
-used on non-Windows operating systems. Windows Authentication credentials, such as user name
-and password, are not automatically specified when connecting to SQL Server from non-Windows operating systems. In such
-cases, the applications must use SQL Server Authentication instead.
-
-In JDBC connection string, the parameter `integratedSecurity` must
-be specified to connect using Windows Authentication. The JDBC driver supports Integrated
-Windows Authentication on Windows operating systems through the
-`integratedSecurity` connection string parameter.
-
-To use integrated authentication
-
-1. Install the JDBC driver.
-2. Copy the `sqljdbc_auth.dll` file to a directory on the Windows system path on
-   the computer where the JDBC driver is installed.
-
-The `sqljdbc_auth.dll` files are installed in the
-following location:
-
-<_installation
-directory_>\sqljdbc\_<_version_>\<_language_>\auth\
-
-When you try to establish a connection to SQL Server database using Windows
-Authentication, you might get this error: This driver is not configured for
-integrated authentication. This problem can be solved by performing the following
-actions:
-
-- Declare two variables that point to the installed path of your JDBC:
-
-`variable name: SQLJDBC_HOME; variable value: D:\lib\JDBC4.1\enu` (where your sqljdbc4.jar exists);
-
-`variable name: SQLJDBC_AUTH_HOME; variable value:
- D\lib\JDBC4.1\enu\auth\x86` (if you are running 32bit OS) or
-`D\lib\JDBC4.1\enu\auth\x64` (if you are running 64bit OS). This is where your
-`sqljdbc_auth.dll` is located.
-
-- Copy `sqljdbc_auth.dll` to the folder where your JDK/JRE is running. You
-  may copy to lib folder, bin folder, and so on. As an example, you might copy
-  to the following folder.
-
-```
-[JDK_INSTALLED_PATH]\bin;
-[JDK_INSTALLED_PATH]\jre\bin;
-[JDK_INSTALLED_PATH]\jre\lib;
-[JDK_INSTALLED_PATH]\lib;
-```
-
-- Ensure that in your JDBC library folder, you have only the SQLJDBC4.jar file. Remove any other
-  sqljdbc\*.jar files from that folder (or copy them to another folder). If you
-  are adding the driver as part of your program, ensure that you add only
-  SQLJDBC4.jar as the driver to use.
-- Copy sqljdbc_auth.dll the file in the folder with your application.
-
-###### Note
-
-If you are running a 32-bit Java Virtual Machine (JVM), use the sqljdbc_auth.dll file in the x86 folder, even if the operating system is the x64 version. If you are running a 64-bit JVM on a x64 processor, use the sqljdbc_auth.dll file in the x64 folder.
-
-When you connect to a SQL Server database, you can choose either
-**Windows Authentication** or **SQL Server
-Authentication** for the **Authentication**
-option.
-
-## Connecting to SQL Server as a source
-
-Use the following procedure to connect to your Microsoft SQL Server source database
+Use the following procedure to connect to your source database
 with the AWS Schema Conversion Tool.
 
-###### To connect to a Microsoft SQL Server source database
+###### To connect to an Snowflake source database
 
 1. In the AWS Schema Conversion Tool, choose **Add source**.
-2. Choose **Microsoft SQL Server**, then choose
+2. Choose **Snowflake**, then choose
    **Next**.
 
 The **Add source** dialog box appears. 3. For **Connection name**, enter a name for your database.
@@ -200,7 +90,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     	2. Choose **Populate** to automatically fill in
     	 all values in the database connection dialog box from Secrets Manager.
     For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
-    * To enter the Microsoft SQL Server source database connection
+    * To enter the Snowflake source data warehouse connection
      information manually, use the following instructions:
 
 
@@ -208,16 +98,205 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
 
     | Parameter | Action |
     | --- | --- |
-    | **Server name** | Enter the Domain Name Service (DNS) name or IP address of your<br>source database server.<br>You can connect to your source SQL Server database using an IPv6 address protocol. To do so,<br>make sure that you use square brackets to enter the IP address, as shown in the following<br>example.<br>```<br>[2001:db8:ffff:ffff:ffff:ffff:ffff:fffe]<br>``` |
+    | **Server name** | Enter the Domain Name System (DNS) name or IP<br>address of your source database server. |
     | **Server port** | Enter the port used to connect to your source database server. |
-    | **Instance name** | Enter the instance name for the SQL Server database. To find the<br>instance name, run the query `SELECT @@servername;` on your<br>SQL Server database. |
-    | **Authentication** | Choose the authentication type from **Windows Authentication**<br>and **SQL Server Authentication**. |
-    | **User name*<br>• and **Password** | Enter the database credentials to connect to your source database server.<br>AWS SCT uses the password to connect to your source database only when you choose<br>to connect to your database in a project. To guard against exposing the password for<br>your source database, AWS SCT doesn't store the password by default. If you close<br>your AWS SCT project and reopen it, you are prompted for the password to connect<br>to your source database as needed. |
-    | **Use SSL** | Choose this option to use Secure Sockets Layer (SSL) to connect to your database.<br>Provide the following additional information, as applicable, on the<br>**SSL*<br>• tab:<br>+ **Trust server certificate**: Select this option<br>to trust the server certificate.<br>+ **Trust store**: The location of a trust store<br>containing certificates. For this location to appear in the<br>**Global settings*<br>• section, make sure to add it. |
-    | **Store password** | AWS SCT creates a secure vault to store SSL certificates and database passwords.<br>Enabling this option lets you store the database password and to connect quickly<br>to the database without having to enter the password. |
-    | **Sql Server Driver Path** | Enter the path to the driver to use to connect to the source database. For more<br>information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").<br>If you store the driver path in the global project settings, the driver path<br>doesn't appear on the connection dialog box. For more information, see [Storing driver paths in the global settings](CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings"). |
-    | **Windows Authentication library** | Enter the path to the `sqljdbc_auth.dll` file.<br>By default, this file is installed in the following location:<br>``<installation directory of the JDBC<br>driver>`sqljdbc_`<version>`\`<language>`\auth\` |
+    | **Database** | Enter the name of the Snowflake database. |
+    | **User name*<br>• and **Password** | Enter the database credentials to connect to your source database server.<br>AWS SCT stores your password in an encrypted format only if you explicitly<br>request it. |
+    | **Use SSL** | Choose this option if you want to use Secure Sockets Layer (SSL) to<br>connect to your database. Provide the following additional information,<br>as applicable, on the **SSL*<br>• tab:<br>+ **Private key path**: The<br>location of a private key.<br>+ **Passphrase**: The passphrase<br>for the private key.<br>For more information about SSL support for Snowflake, see<br>[Configure security options for connections](../../../redshift/latest/mgmt/connecting-ssl-support.md "../../../redshift/latest/mgmt/connecting-ssl-support.md"). |
+    | **Store password** | AWS SCT creates a secure vault to store SSL<br>certificates and database passwords. If you set this<br>option, you can store the database password. Doing<br>this means that you can connect quickly to the<br>database without having to enter the password. |
+    | **Snowflake driver path** | Enter the path to the driver to use to connect to the<br>source database. For more information,<br>see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").<br>If you store the driver path in the global project settings,<br>the driver path doesn't appear on the connection dialog box.<br>For more information, see<br>[Storing driver paths in the global settings](CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
    that AWS SCT can connect to your source database.
 6. Choose **Connect** to connect to your source database.
+
+## Limitations for Snowflake as a source
+
+The following are limitations when using Snowflake as a source for AWS SCT:
+
+- Object identifiers must be unique within the context of the object
+  type and the parent object:
+
+**Database**
+
+Schema identifiers must be unique within a
+database.
+
+**Schemas**
+
+Objects identifiers such as for tables and views must
+be unique within a schema.
+
+**Tables/Views**
+
+Column identifiers must be unique within a
+table.
+
+- The maximum number of tables for large and xlarge cluster node
+  types is 9,900. For 8xlarge cluster node types, the maximum number of
+  tables is 100,000. The limit includes temporary tables, both
+  user-defined and created by Amazon Redshift during query processing or system
+  maintenance. For more information, see [Amazon
+  Redshift quotas](../../../redshift/latest/mgmt/amazon-redshift-limits.md "../../../redshift/latest/mgmt/amazon-redshift-limits.md") in the
+  _Amazon
+  Redshift Cluster Management
+  Guide_.
+- For stored procedures, the maximum number of input and output arguments is 32.
+
+## Source data types for
+
+Snowflake
+
+Following, you can find the Snowflake source data types that are supported
+when using AWS SCT and the default mapping to an Amazon Redshift target.
+
+| Snowflake data types                                                                  | Amazon Redshift data types                                                                                                                     |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| NUMBER                                                                                | NUMERIC(38)                                                                                                                                    |
+| NUMBER(p)                                                                             | If p is =< 4, then SMALLINT<br>If p is => 5 and =< 9, then INTEGER<br>If p is => 10 and =< 18, then BIGINT<br>If p is => 19 then NUMERIC(p)    |
+| NUMBER(p, 0)                                                                          | If p is =< 4, then SMALLINT<br>If p is => 5 and =< 9, then INTEGER<br>If p is => 10 and =< 18, then BIGINT<br>If p is => 19 then: NUMERIC(p,0) |
+| NUMBER(p, s)                                                                          | If p is => 1 and =< 38, and if s is => 1 and<br>=< 37, then<br>NUMERIC(p,s)                                                                    |
+| FLOAT                                                                                 | FLOAT                                                                                                                                          |
+| TEXT<br>Unicode characters up to 16,777,216 bytes; up to 4 bytes<br>per character.    | VARCHAR(MAX)                                                                                                                                   |
+| TEXT(p)<br>Unicode characters up to 65,535 bytes; up to 4 bytes per<br>character.     | If p is =< 65,535 then, VARCHAR(p)                                                                                                             |
+| TEXT(p)<br>Unicode characters up to 16,777,216 bytes; up to 4 bytes<br>per character. | If p is => 65,535 and =< 16,777,216 then,<br>VARCHAR(MAX)                                                                                      |
+| BINARY<br>Single-byte characters up to 8,388,608 bytes; 1 byte per<br>character.      | VARCHAR(MAX)                                                                                                                                   |
+| BINARY(p)<br>Single-byte characters up to 65,535 bytes; 1 byte per<br>character.      | VARCHAR(p)                                                                                                                                     |
+| BINARY(p)<br>Single-byte characters up to 8,388,608 bytes; 1 byte per<br>character.   | VARCHAR(MAX)                                                                                                                                   |
+| BOOLEAN                                                                               | BOOLEAN                                                                                                                                        |
+| DATE                                                                                  | DATE                                                                                                                                           |
+| TIME<br>Time values between 00:00:00 and<br>23:59:59.999999999.                       | VARCHAR(18)                                                                                                                                    |
+| TIME(f)<br>Time values between 00:00:00 and 23:59:59.9(f).                            | VARCHAR(n) – 9 + dt-attr-1                                                                                                                     |
+| TIMESTAMP_NTZ                                                                         | TIMESTAMP                                                                                                                                      |
+| TIMESTAMP_TZ                                                                          | TIMESTAMPTZ                                                                                                                                    |
+
+## Snowflake to Amazon Redshift conversion
+
+settings
+
+To edit Snowflake to Amazon Redshift conversion settings, choose **Settings**
+in AWS SCT, and then choose **Conversion settings**. From the upper
+list, choose **Snowflake**, and then choose **Snowflake –
+Amazon Redshift**. AWS SCT displays all available settings for Snowflake to Amazon Redshift
+conversion.
+
+Snowflake to Amazon Redshift conversion settings in AWS SCT include options for the
+following:
+
+- To limit the number of comments with action items in the converted
+  code.
+
+For **Add comments in the converted code for the action items of selected severity and higher**,
+choose the severity of action items. AWS SCT adds comments in the converted code
+for action items of the selected severity and higher.
+
+For example, to minimize the number of comments in your converted code, choose
+**Errors only**. To include comments for all action items in your
+converted code, choose **All messages**.
+
+- To set the maximum number of tables that AWS SCT can apply to your target Amazon Redshift cluster.
+
+For **The maximum number of tables for the target Amazon Redshift cluster**,
+choose the number of tables that AWS SCT can apply to your Amazon Redshift cluster.
+
+Amazon Redshift has quotas that limit the use tables for different cluster node
+types. If you choose **Auto**, AWS SCT determines the
+number of tables to apply to your target Amazon Redshift cluster depending on the
+node type. Optionally, choose the value manually. For more information,
+see [Quotas and
+limits in Amazon Redshift](../../../redshift/latest/mgmt/amazon-redshift-limits.md "../../../redshift/latest/mgmt/amazon-redshift-limits.md") in the
+_Amazon Redshift Management Guide_.
+
+AWS SCT converts all your source tables, even if this is more than your Amazon Redshift cluster can store.
+AWS SCT stores the converted code in your project and doesn't apply it to the target database.
+If you reach the Amazon Redshift cluster quota for the tables when you apply the converted code, then AWS SCT
+displays a warning message. Also, AWS SCT applies tables to your target Amazon Redshift cluster until
+the number of tables reaches the limit.
+
+- To apply compression to Amazon Redshift table columns. To do so, select
+  **Use compression encoding**.
+
+AWS SCT assigns compression encoding to columns automatically using
+the default Amazon Redshift algorithm. For more information, see [Compression
+encodings](../../../redshift/latest/dg/c_Compression_encodings.md "../../../redshift/latest/dg/c_Compression_encodings.md") in the _Amazon Redshift Database Developer Guide_.
+
+By default, Amazon Redshift doesn't apply compression to columns that are defined
+as sort and distribution keys. You can change this behavior and apply
+compression to these columns. To do so, select **Use compression
+encoding for KEY columns**. You can select this option only
+when you select the **Use compression encoding**
+option.
+
+## Snowflake to Amazon Redshift conversion
+
+optimization settings
+
+To edit Snowflake to Amazon Redshift conversion optimization settings, choose **Settings**
+in AWS SCT, and then choose **Conversion settings**. From the upper list, choose
+**Snowflake**, and then choose **Snowflake – Amazon Redshift**. In the
+left pane, choose **Optimization strategies**. AWS SCT displays conversion
+optimization settings for Snowflake to Amazon Redshift conversion.
+
+Snowflake to Amazon Redshift conversion optimization settings in AWS SCT include options for the
+following:
+
+- To work with automatic table optimization. To do so, select
+  **Use Amazon Redshift automatic table tuning**.
+
+Automatic table optimization is a self-tuning process in Amazon Redshift that automatically
+optimizes the design of tables. For more information, see [Working with automatic table optimization](../../../redshift/latest/dg/t_Creating_tables.md "../../../redshift/latest/dg/t_Creating_tables.md")
+in the _Amazon Redshift Database Developer Guide_.
+
+To rely only on the automatic table optimization, choose
+**None** for **Initial key selection strategy**.
+
+- To choose sort and distribution keys using your strategy.
+
+You can choose sort and distribution keys using Amazon Redshift metadata, statistical information, or both these options.
+For **Initial key selection strategy** on the **Optimization strategies** tab,
+choose one of the following options:
+
+    + Use metadata, ignore statistical information
+    + Ignore metadata, use statistical information
+    + Use metadata and statistical information
+
+Depending on the option that you choose, you can select optimization
+strategies. Then, for each strategy, enter the value (0–100). These
+values define the weight of each strategy. Using these weight values,
+AWS SCT defines how each rule influences on the choice of distribution
+and sort keys. The default values are based on the AWS migration best
+practices.
+
+You can define the size of small tables for the **Find small
+tables** strategy. For **Min table row
+count** and **Max table row count**, enter
+the minimum and maximum number of rows in a table to define it as a
+small table. AWS SCT applies the `ALL` distribution style to
+small tables. In this case, a copy of the entire table is distributed to
+every node.
+
+- To configure strategy details.
+
+In addition to defining the weight for each optimization strategy, you can configure
+the optimization settings. To do so, choose **Conversion optimization**.
+
+    + For **Sort key columns limit**, enter the maximum number
+     of columns in the sort key.
+    + For **Skewed threshold value**, enter the percentage (0–100)
+     of a skewed value for a column. AWS SCT excludes columns with the skew value greater than
+     the threshold from the list of candidates for the distribution key. AWS SCT defines the
+     skewed value for a column as the percentage ratio of the number of occurrences of the most
+     common value to the total number of records.
+    + For **Top N queries from the query history table**, enter
+     the number (1–100) of the most frequently used queries to analyze.
+    + For **Select statistics user**, choose the database user for which you want
+     to analyze the query statistics.
+
+Also, on the **Optimization strategies** tab, you can
+define the size of small tables for the **Find small
+tables** strategy. For **Min table row
+count** and **Max table row count**, enter
+the minimum and maximum number of rows in a table to consider it as a
+small table. AWS SCT applies the `ALL` distribution style to
+small tables. In this case, a copy of the entire table is distributed to
+every node.
