@@ -100,7 +100,7 @@ Using an Application Load Balancer instead of a Classic Load Balancer has the fo
   port. This enables you to make efficient use of your clusters.
 - Support for monitoring the health of each service independently, as health
   checks are defined at the target group level and many CloudWatch metrics are reported
-  at the target group level. Attaching a target group to an Amazon EC2 Auto Scaling group enables you
+  at the target group level. Attaching a target group to an Auto Scaling group enables you
   to scale each service dynamically based on demand.
 - Access logs contain additional information and are stored in compressed
   format.
@@ -120,9 +120,9 @@ your applications.
 - **Amazon EC2 Auto Scaling** — Ensures that you are running your
   desired number of instances, even if an instance fails, and enables you to
   automatically increase or decrease the number of instances as the demand on your
-  instances changes. If you enable Amazon EC2 Auto Scaling with ELB, instances that are launched by
-  Amazon EC2 Auto Scaling are automatically registered with the target group, and instances that are
-  terminated by Amazon EC2 Auto Scaling are automatically de-registered from the target group.
+  instances changes. If you enable Auto Scaling with ELB, instances that are launched by
+  Auto Scaling are automatically registered with the target group, and instances that are
+  terminated by Auto Scaling are automatically de-registered from the target group.
 - **AWS Certificate Manager** — When you create an HTTPS listener, you
   can specify certificates provided by ACM. The load balancer uses certificates
   to terminate connections and decrypt requests from clients. For more

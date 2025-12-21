@@ -220,10 +220,10 @@ register the target with the target group again when you are ready for it to res
 receiving requests.
 
 If you are registering targets by instance ID, you can use your load balancer with an
-Amazon EC2 Auto Scaling group. After you attach a target group to an Amazon EC2 Auto Scaling group, Amazon EC2 Auto Scaling registers your
+Auto Scaling group. After you attach a target group to an Auto Scaling group, Auto Scaling registers your
 targets with the target group for you when it launches them. For more information, see
 [Attaching a load balancer to
-your Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
+your Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### Limits
 

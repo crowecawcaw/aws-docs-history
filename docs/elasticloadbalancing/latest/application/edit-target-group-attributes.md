@@ -21,7 +21,7 @@ update the deregistration delay value.
 
 The initial state of a deregistering target is `draining`. After the
 deregistration delay elapses, the deregistration process completes and the state of the
-target is `unused`. If the target is part of an Amazon EC2 Auto Scaling group, it can be
+target is `unused`. If the target is part of an Auto Scaling group, it can be
 terminated and replaced.
 
 If a deregistering target has no in-flight requests and no active connections, ELB

@@ -201,7 +201,7 @@ example, suppose that an application serves the majority of requests from a cach
 1-2 ms, but in 100-200 ms if the cache is empty. The maximum reflects the slowest
 case, around 200 ms. The average doesn't indicate the distribution of the data.
 Percentiles provide a more meaningful view of the application's performance. By
-using the 99th percentile as an Amazon EC2 Auto Scaling trigger or a CloudWatch alarm, you can target that no
+using the 99th percentile as an Auto Scaling trigger or a CloudWatch alarm, you can target that no
 more than 1 percent of requests take longer than 2 ms to process.
 
 ## View CloudWatch metrics for your load balancer

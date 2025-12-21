@@ -25,11 +25,11 @@ deregistration delay to complete before you can register the same IP address
 again.
 
 If you are registering targets by instance ID, you can use your load balancer with an
-Amazon EC2 Auto Scaling group. After you attach a target group to an Amazon EC2 Auto Scaling group and the group scales out,
-the instances launched by the Amazon EC2 Auto Scaling group are automatically registered with the target
-group. If you detach the target group from the Amazon EC2 Auto Scaling group, the instances are
+Auto Scaling group. After you attach a target group to an Auto Scaling group and the group scales out,
+the instances launched by the Auto Scaling group are automatically registered with the target
+group. If you detach the target group from the Auto Scaling group, the instances are
 automatically deregistered from the target group. For more information, see [Attaching a load balancer to your
-Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
+Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 When shutting down an application on a target you must first deregister the target
 from its target group and allow time for existing connections to drain. You can monitor

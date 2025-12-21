@@ -27,7 +27,7 @@ Complete the following tasks:
 4. Include the JWT in a request header, and forward it to the
    Application Load Balancer in every request.
 
-## To configure JWT verification using console
+# To configure JWT verification using console
 
 1. Open the Amazon EC2 console console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. On the navigation pane, under **Load Balancing**, choose **Load Balancers**.
