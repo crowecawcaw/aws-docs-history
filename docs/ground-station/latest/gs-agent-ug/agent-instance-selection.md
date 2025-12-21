@@ -5,29 +5,33 @@
 The AWS Ground Station Agent requires dedicated CPU cores to operate due to the compute intensive data delivery workflows.
 We support the following instance types. See [CPU core planning](#cpu-core-planning "#cpu-core-planning") to decide which instance type best suits your use case.
 
-| Instance family | Instance type | Default vCPUs | Default CPU cores |
-| --------------- | ------------- | ------------- | ----------------- |
-| c5              | c5.12xlarge   | 48            | 24                |
-| c5.18xlarge     | 72            | 36            |
-| c5.24xlarge     | 96            | 48            |
-| c5n             | c5n.18xlarge  | 72            | 36                |
-| c5n.metal       | 72            | 36            |
-| c6i             | c6i.24xlarge  | 96            | 48                |
-| c6i.32xlarge    | 128           | 64            |
-| p3dn            | p3dn.24xlarge | 96            | 48                |
-| g4dn            | g4dn.12xlarge | 48            | 24                |
-| g4dn.16xlarge   | 64            | 32            |
-| g4dn.metal      | 96            | 48            |
-| p4d             | p4d.24xlarge  | 96            | 48                |
-| m5              | m5.8xlarge    | 32            | 16                |
-| m5.12xlarge     | 48            | 24            |
-| m5.24xlarge     | 96            | 48            |
-| m6i             | m6i.32xlarge  | 128           | 64                |
-| r5              | r5.24xlarge   | 96            | 48                |
-| r5.metal        | 96            | 48            |
-| r5n             | r5n.24xlarge  | 96            | 48                |
-| r5n.metal       | 96            | 48            |
-| r6i             | r6i.32xlarge  | 128           | 64                |
+| Instance family | Instance type | Default vCPUs | Default CPU cores | Max DigIF aggregate bandwidth (MHz) |
+| --------------- | ------------- | ------------- | ----------------- | ----------------------------------- |
+| c5              | c5.12xlarge   | 48            | 24                | 180                                 |
+| c5.18xlarge     | 72            | 36            | 380               |
+| c5.24xlarge     | 96            | 48            | 380               |
+| c5n             | c5n.18xlarge  | 72            | 36                | 400                                 |
+| c5n.metal       | 72            | 36            | 400               |
+| c6i             | c6i.24xlarge  | 96            | 48                | 400                                 |
+| c6i.32xlarge    | 128           | 64            | 400               |
+| p3dn            | p3dn.24xlarge | 96            | 48                | 400                                 |
+| g4dn            | g4dn.12xlarge | 48            | 24                | 400                                 |
+| g4dn.16xlarge   | 64            | 32            | 400               |
+| g4dn.metal      | 96            | 48            | 400               |
+| p4d             | p4d.24xlarge  | 96            | 48                | 400                                 |
+| m5              | m5.8xlarge    | 32            | 16                | 100                                 |
+| m5.12xlarge     | 48            | 24            | 180               |
+| m5.24xlarge     | 96            | 48            | 380               |
+| m6i             | m6i.32xlarge  | 128           | 64                | 400                                 |
+| r5              | r5.24xlarge   | 96            | 48                | 380                                 |
+| r5.metal        | 96            | 48            | 380               |
+| r5n             | r5n.24xlarge  | 96            | 48                | 400                                 |
+| r5n.metal       | 96            | 48            | 400               |
+| r6i             | r6i.32xlarge  | 128           | 64                | 400                                 |
+
+###### Note
+
+The Max DigIF aggregate bandwidth column shows the maximum supported aggregate bandwidth for all DigIF dataflows combined on each instance type. These limitations are due to EC2 network capacity allocated to the given instance types. These values represent conservative estimates and should be used when planning your DigIF configurations. The actual bandwidth may vary based on system load and other factors.
 
 ## CPU core planning
 
