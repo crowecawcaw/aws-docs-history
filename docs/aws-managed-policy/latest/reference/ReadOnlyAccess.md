@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:39 UTC
-- **Edited time:** December 08, 2025, 18:34 UTC
+- **Edited time:** December 16, 2025, 13:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v136 (default)
+**Policy version:** v137 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -76,6 +76,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aiops:ListInvestigationGroups",
         "aiops:ListInvestigations",
         "aiops:ValidateInvestigationGroup",
+        "aiops:GetFact",
+        "aiops:GetFactVersions",
+        "aiops:GetReport",
+        "aiops:ListFacts",
         "airflow:ListEnvironments",
         "airflow:ListTagsForResource",
         "amplify:GetApp",
@@ -160,6 +164,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "application-signals:ListServiceOperations",
         "application-signals:ListServices",
         "application-signals:ListTagsForResource",
+        "application-signals:ListServiceStates",
+        "application-signals:ListAuditFindings",
+        "application-signals:ListGroupingAttributeDefinitions",
+        "application-signals:ListServiceLevelObjectiveExclusionWindows",
+        "application-signals:ListEntityEvents",
         "applicationinsights:Describe*",
         "applicationinsights:List*",
         "appmesh:Describe*",
@@ -492,6 +501,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cleanrooms:ListSchemas",
         "cleanrooms:ListTagsForResource",
         "cleanrooms:PreviewPrivacyImpact",
+        "cleanrooms:GetCollaborationChangeRequest",
+        "cleanrooms:GetProtectedJob",
+        "cleanrooms:ListCollaborationChangeRequests",
+        "cleanrooms:ListProtectedJobs",
         "cloud9:Describe*",
         "cloud9:List*",
         "clouddirectory:BatchRead",
@@ -666,6 +679,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cost-optimization-hub:ListEnrollmentStatuses",
         "cost-optimization-hub:ListRecommendationSummaries",
         "cost-optimization-hub:ListRecommendations",
+        "cost-optimization-hub:ListEfficiencyMetrics",
         "cur:GetClassicReport",
         "cur:GetClassicReportPreferences",
         "cur:GetUsageReport",
@@ -1609,6 +1623,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "logs:StopLiveTail",
         "logs:StopQuery",
         "logs:TestMetricFilter",
+        "logs:ListAggregateLogGroupSummaries",
+        "logs:ListSourcesForS3TableIntegration",
+        "logs:ListScheduledQueries",
         "lookoutequipment:DescribeDataIngestionJob",
         "lookoutequipment:DescribeDataset",
         "lookoutequipment:DescribeInferenceScheduler",
@@ -1939,6 +1956,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "observabilityadmin:ListTagsForResource",
         "observabilityadmin:ListTelemetryRules",
         "observabilityadmin:ListTelemetryRulesForOrganization",
+        "observabilityadmin:GetTelemetryPipeline",
+        "observabilityadmin:ListTelemetryPipelines",
+        "observabilityadmin:TestTelemetryPipeline",
+        "observabilityadmin:ValidateTelemetryPipelineConfiguration",
+        "observabilityadmin:ListS3TableIntegrations",
+        "observabilityadmin:GetS3TableIntegration",
         "omics:Get*",
         "omics:List*",
         "one:GetDeviceConfigurationTemplate",
@@ -2263,6 +2286,37 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:DescribeJob",
         "s3:Get*",
         "s3:List*",
+        "s3vectors:GetIndex",
+        "s3vectors:GetVectorBucket",
+        "s3vectors:GetVectorBucketPolicy",
+        "s3vectors:GetVectors",
+        "s3vectors:ListIndexes",
+        "s3vectors:ListVectorBuckets",
+        "s3vectors:ListVectors",
+        "s3vectors:QueryVectors",
+        "s3tables:GetTable",
+        "s3tables:GetTableBucket",
+        "s3tables:GetTableBucketEncryption",
+        "s3tables:GetTableBucketMaintenanceConfiguration",
+        "s3tables:GetTableBucketPolicy",
+        "s3tables:GetTableBucketReplication",
+        "s3tables:GetTableBucketStorageClass",
+        "s3tables:GetTableData",
+        "s3tables:GetTableEncryption",
+        "s3tables:GetTableMaintenanceConfiguration",
+        "s3tables:GetTableMaintenanceJobStatus",
+        "s3tables:GetTableMetadataLocation",
+        "s3tables:GetTablePolicy",
+        "s3tables:GetTableRecordExpirationConfiguration",
+        "s3tables:GetTableRecordExpirationJobStatus",
+        "s3tables:GetTableReplication",
+        "s3tables:GetTableReplicationStatus",
+        "s3tables:GetTableStorageClass",
+        "s3tables:ListNamespaces",
+        "s3tables:ListTableBuckets",
+        "s3tables:ListTables",
+        "s3tables:ListTagsForResource",
+        "s3tables:GetNamespace",
         "sagemaker:Describe*",
         "sagemaker:GetSearchSuggestions",
         "sagemaker:List*",

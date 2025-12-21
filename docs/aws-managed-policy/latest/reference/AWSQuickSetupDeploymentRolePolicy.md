@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 26, 2024, 09:55 UTC
-- **Edited time:** November 05, 2025, 19:19 UTC
+- **Edited time:** December 17, 2025, 15:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSQuickSetupDeploymentRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -143,6 +143,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ssm:*::document/AWSQuickSetupType-Scheduler-ChangeCalendarState",
         "arn:aws:ssm:*::document/AmazonCloudWatch-ManageAgent",
         "arn:aws:ssm:*::document/AWSQuickSetupType-InstallAndManageCloudWatchAgent",
+        "arn:aws:ssm:*::document/AWSQuickSetupType-ConfigureDevOpsGuru",
+        "arn:aws:ssm:*::document/AWSQuickSetupType-DeployConformancePack",
         "arn:aws:ssm:*::document/AWSQuickSetupType-Scheduler-ApplyInstanceState"
       ]
     },
@@ -177,6 +179,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ssm:*::document/AWSQuickSetupType-Scheduler-ApplyInstanceState",
         "arn:aws:ssm:*::document/AmazonCloudWatch-ManageAgent",
         "arn:aws:ssm:*::document/AWSQuickSetupType-InstallAndManageCloudWatchAgent",
+        "arn:aws:ssm:*::document/AWSQuickSetupType-ConfigureDevOpsGuru",
+        "arn:aws:ssm:*::document/AWSQuickSetupType-DeployConformancePack",
         "arn:aws:ec2:*:*:instance/*",
         "arn:aws:ssm:*:*:managed-instance/*",
         "arn:aws:ssm:*:*:association/*"

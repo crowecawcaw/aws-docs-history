@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 17, 2023, 17:54 UTC
-- **Edited time:** October 16, 2023, 18:46 UTC
+- **Edited time:** December 15, 2025, 21:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSEntityResolutionConsoleFullAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -136,6 +136,29 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "dataexchange:GetDataSet"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "CustomerProfilesIntegrationReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "connect:ListInstances",
+        "profile:ListDomains",
+        "profile:GetDomain",
+        "profile:ListIntegrations",
+        "profile:ListAccountIntegrations",
+        "profile:ListProfileObjectTypes"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CustomerProfilesIntegrationWriteAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "profile:PutProfileObjectType"
+      ],
+      "Resource" : [
+        "arn:aws:profile:*:*:domains/*/object-types/*"
+      ]
     }
   ]
 }

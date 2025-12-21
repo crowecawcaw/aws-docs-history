@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: December 21, 2023, 18:53 UTC
-- **Edited time:** December 21, 2023, 18:53 UTC
+- **Edited time:** December 12, 2025, 22:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/CloudWatchNetworkMonitorServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -52,7 +52,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeVpcs",
         "ec2:DescribeNetworkInterfacePermissions",
         "ec2:DescribeSubnets",
-        "ec2:DescribeSecurityGroups"
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeTransitGatewayAttachments",
+        "ec2:DescribeTransitGatewayRouteTables",
+        "ec2:SearchTransitGatewayRoutes"
       ],
       "Resource" : "*"
     },

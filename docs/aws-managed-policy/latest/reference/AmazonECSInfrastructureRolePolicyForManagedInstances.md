@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 26, 2025, 18:04 UTC
-- **Edited time:** September 29, 2025, 21:04 UTC
+- **Edited time:** December 15, 2025, 22:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonECSInfrastructureRolePolicyForManagedInstances`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -73,16 +73,25 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:instance/*",
         "arn:aws:ec2:*:*:network-interface/*",
         "arn:aws:ec2:*:*:launch-template/*",
-        "arn:aws:ec2:*:*:security-group/*",
-        "arn:aws:ec2:*:*:subnet/*",
-        "arn:aws:ec2:*:*:volume/*",
-        "arn:aws:ec2:*:*:image/*"
+        "arn:aws:ec2:*:*:volume/*"
       ],
       "Condition" : {
         "StringEquals" : {
           "aws:RequestTag/AmazonECSManaged" : "true"
         }
       }
+    },
+    {
+      "Sid" : "CreateFleetForSupportingResources",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateFleet"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:subnet/*",
+        "arn:aws:ec2:*:*:security-group/*",
+        "arn:aws:ec2:*::image/*"
+      ]
     },
     {
       "Sid" : "RunInstancesForManagedInstances",
