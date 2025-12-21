@@ -109,7 +109,6 @@ RUN micromamba install sagemaker-inference --freeze-installed --yes --channel co
 
 USER $MAMBA_USER
 
-ENTRYPOINT ["jupyter-lab"]
-CMD ["--ServerApp.ip=0.0.0.0", "--ServerApp.port=8888", "--ServerApp.allow_origin=*", "--ServerApp.token=''", "--ServerApp.base_url=/jupyterlab/default"]
+ENTRYPOINT ["entrypoint-jupyter-server"]
 
 ```

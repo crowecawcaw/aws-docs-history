@@ -64,8 +64,8 @@ are three checkpoints available.
   model specifically should not have seen any multi-modal data.
 - MID-TRAINED - [`nova-<lite/pro>/pretraining-mm-full`]:
   This is the checkpoint after all the stages of Amazon Nova pre-training and
-  mid-training, including multi-modal data, with trillions of tokens have
-  finished.
+  mid-training, including multi-modal data, with trillions of tokens have been
+  processed.
 - POST-TRAINED - [`nova-<micro/lite/pro>/prod`]: This is the fully
   aligned final checkpoint of the model that has gone through all the
   pre-training and post training steps.
@@ -189,5 +189,5 @@ complete domain dataset with the selected mixing ratio.
 
 ###### Limitations
 
-Current CPT only supports text data and cannot take any customer MM
+Current CPT only supports text data and does not support any customer multi-modal
 datasets.

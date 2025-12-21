@@ -1,4 +1,4 @@
-# Tutorials - Amazon SageMaker HyperPod Checkpointless Full Finetuning GPT OSS 120b
+# Tutorials - Amazon SageMaker HyperPod Checkpointless Pretraining Llama 3 70b
 
 The following sequence of steps is required to run checkpointless training recipes on HyperPod.
 
@@ -14,8 +14,7 @@ Before you start setting up your environment, make sure you have:
   - JSONGZ (Compressed JSON)
   - ARROW
 
-- Pick a supported checkpointless training recipe for Llama 70B or GPT-OSS 120B
-  from the [source](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
+- Pick a supported checkpointless training recipe for Llama 70B or GPT-OSS 120B from the [source](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
 - [Download the hugging face model weights](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md") and covert to [Nemo supported format](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face").
 - Setup your environment
 
@@ -23,7 +22,7 @@ Before you start setting up your environment, make sure you have:
 
 To set up your Kubernetes environment, do the following:
 
-1. Set up the virtual environment. Make sure your version of Python is greater than or equal to 3.10 and lower than 3.14.
+1. Set up the virtual environment. Make sure you're using Python greater than or equal to 3.10 and lower than 3.14.
 
 ```
 python3 -m venv ${PWD}/venv
@@ -58,15 +57,15 @@ aws eks update-kubeconfig --region "${CLUSTER_REGION}" --name "${CLUSTER_NAME}"
 
 You can now launch the checkpointless training recipe using either the NeMo-style launcher or using kubectl.
 
-## Launch training jobs with the recipes launcher
+## Method 1: Launch the training job with the recipes launcher
 
-You can use the Amazon SageMaker HyperPod recipes to submit your training job. Using the recipes involves updating k8s.yaml, config.yaml and running the launch script.
+Alternatively, you can use the SageMaker HyperPod recipes to submit your training job. Using the recipes involves
+updating k8s.yaml, config.yaml and running the launch script.
 
-1. Update `launcher_scripts/gpt_oss/run_checkpointless_gpt_oss_120b_full_fine_tuning.sh`
+1. Update `launcher_scripts/llama/run_checkpointless_llama3_70b_pretrain.sh`
 
-your_container: A Deep Learning container. To find the most recent release of
-the checkpointless training container, see
-[checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
+A Deep Learning container. To find the most recent release of the checkpointless training container,
+see [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
 
 ```
 #!/bin/bash
@@ -78,14 +77,14 @@ EXP_DIR="${EXP_DIR}"
 LOG_DIR="${LOG_DIR}"
 CONTAINER_MOUNT="/data"
 CONTAINER="${CONTAINER}"
-MODEL_NAME_OR_PATH="${MODEL_NAME_OR_PATH}"
 
 HYDRA_FULL_ERROR=1 python3 "${SAGEMAKER_TRAINING_LAUNCHER_DIR}/main.py" \
-    recipes=fine-tuning/gpt_oss/checkpointless_gpt_oss_120b_full_fine_tuning \
+    recipes=training/llama/checkpointless_llama3_70b_pretrain \
     recipes.dataset.dataset_path="${TRAIN_DIR}" \
     recipes.exp_manager.exp_dir="${EXP_DIR}" \
     recipes.log_dir="${LOG_DIR}" \
-    recipes.resume.restore_config.path="${MODEL_NAME_OR_PATH}" \
+    recipes.data.global_batch_size=16 \
+    recipes.data.micro_batch_size=4 \
     base_results_dir="${SAGEMAKER_TRAINING_LAUNCHER_DIR}/results" \
     git.use_default=false \
     cluster=k8s \
@@ -101,67 +100,65 @@ HYDRA_FULL_ERROR=1 python3 "${SAGEMAKER_TRAINING_LAUNCHER_DIR}/main.py" \
 2. Launch the training job
 
 ```
-bash launcher_scripts/gpt_oss/run_checkpointless_gpt_oss_120b_full_fine_tuning.sh
+bash launcher_scripts/llama/run_checkpointless_llama3_70b_pretrain.sh
 ```
 
-After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
+3. After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
 
 ```
 kubectl get pods
 
 NAME                             READY   STATUS             RESTARTS        AGE
-gpt-oss-120b-worker-0             0/1    running               0            36s
+llama-3-70b-worker-0             0/1    running               0            36s
 ```
 
-If the STATUS is at PENDING or ContainerCreating, run the following command to get more details
+4. If the STATUS is at PENDING or ContainerCreating, run the following command to get more details
 
 ```
-kubectl describe pod <name of pod>
+kubectl describe pod `<name of pod>`
 ```
 
-After the job STATUS changes to Running, you can examine the log by using the following command.
+5. After the job STATUS changes to Running, you can examine the log by using the following command.
 
 ```
 kubectl logs <name of pod>
 ```
 
-The `STATUS` will turn to `COMPLETED` when you run `kubectl get pods`.
+The STATUS will turn to Completed when you run kubectl get pods
 
-## Launch the training job with kubectl with pre-defined yaml
+## Method 2: Launch the training job with kubectl with pre-defined yaml
 
 Another option is to launch the training through kubectl with a pre-defined job yaml.
 
-1. update the examples/gpt_oss/launch/full_finetune_gpt_oss_120b_checkpointless_p5.yaml
-   - image: A Deep Learning container. To find the most
-     recent release of the checkpointless training container, see
-     [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
-   - resume.restore_config.path=<path_to_pretrained_weights>: The path to
-     downloaded pretrained model weigths in Nemo format in
+1. Update the `examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml`
+   - `image`: A Deep Learning container. To find the most recent release of the checkpointless training container,
+     see [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
+   - `resume.restore_config.path=<path_to_pretrained_weights>`: The path to downloaded pretrained model weights in Nemo format in
      [Prerequisites](sagemaker-eks-checkpointless-recipes-finetune.md#sagemaker-eks-checkpointless-recipes-finetune-prereqs "sagemaker-eks-checkpointless-recipes-finetune.md#sagemaker-eks-checkpointless-recipes-finetune-prereqs") step.
-   - dataset.dataset_path=<path_to_dataset>: The path to the dataset that stored in the shared storage
+   - `dataset.dataset_path=<path_to_dataset>`: The path to the dataset that stored in the shared storage
 
-2. Submit the job using kubectl with full_finetune_gpt_oss_120b_checkpointless_p5.yaml
+2. Submit the job using kubectl with `pretrain_llama3_70b_checkpointless_p5.yaml`
 
 ```
-kubectl apply -f examples/gpt_oss/launch/full_finetune_gpt_oss_120b_checkpointless_p5.yaml
+kubectl apply -f examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml
 ```
 
-After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
+3. After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
 
 ```
 kubectl get pods
 
-NAME                             READY   STATUS             RESTARTS        AGE
-gpt-oss-120b-worker-0             0/1    running               0            36s
+NAME                                             READY   STATUS             RESTARTS        AGE
+llama3-pretrain-checkpointless-worker-0             0/1    running               0            36s
 ```
 
-If the STATUS is at PENDING or ContainerCreating, run the following command to get more details
+4. If the STATUS is at PENDING or ContainerCreating, run the following command to get more details
 
 ```
 kubectl describe pod <name of pod>
 ```
 
-After the job STATUS changes to Running, you can examine the log by using the following command.
+5. After the job STATUS changes to Running, you can examine the log by using the following command.
 
 ```
 kubectl logs <name of pod>

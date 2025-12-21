@@ -1,10 +1,10 @@
-# MMAP
+# Memory mapped dataloader
 
 Another restart overhead stems from data loading: the training cluster remains idle
 while the dataloader initializes, downloads data from remote file systems, and processes
 it into batches.
 
-To address this, we introduce the MMAP Dataloader, which caches prefetched batches in persistent
+To address this, we introduce the Memory Mapped DataLoader(MMAP) Dataloader, which caches prefetched batches in persistent
 memory, ensuring they remain available even after a fault-induced restart. This approach eliminates
 dataloader setup time and enables training to resume immediately using cached batches, while the
 dataloader concurrently reinitializes and fetches subsequent data in the background. The data cache
@@ -18,8 +18,8 @@ MMAP dataloader offers two following features:
 - **Persistent Caching** - Stores both consumed and prefetched batches in a temporary filesystem that survives process restarts
   Using the cache, the training job will benefit from:
 
-- Reduced Memory Footprint - Leverages memory-mapped I/O to maintain a single shared copy of data in host CPU memory, eliminating redundant copies across GPU processes (e.g., reduces from 8 copies to 1 on a p5 instance with 8 GPUs)
-- Faster Recovery - Reduces Mean Time to Restart (MTTR) by enabling training to resume immediately from cached batches, eliminating the wait for dataloader reinitialization and first-batch generation
+- **Reduced Memory Footprint** - Leverages memory-mapped I/O to maintain a single shared copy of data in host CPU memory, eliminating redundant copies across GPU processes (e.g., reduces from 8 copies to 1 on a p5 instance with 8 GPUs)
+- **Faster Recovery** - Reduces Mean Time to Restart (MTTR) by enabling training to resume immediately from cached batches, eliminating the wait for dataloader reinitialization and first-batch generation
 
 ## MMAP configurations
 
@@ -38,6 +38,8 @@ data_module=MMAPDataModule(
 while other ranks in the same data replication group read from the shared cache, eliminating redundant transfers.
 
 `MMAPDataModule`: It wraps the original data module and returns the mmap dataloader for both train and validation.
+
+See [the example](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/gpt_oss/gpt_oss_120b_full_finetune_checkpointless.py#L101-L109 "https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/gpt_oss/gpt_oss_120b_full_finetune_checkpointless.py#L101-L109") for enabling MMAP.
 
 ## API reference
 
@@ -134,13 +136,11 @@ dataloader = config.create(
 ### MMAPDataModule
 
 ```
-
 class hyperpod_checkpointless_training.dataloader.mmap_data_module.MMAPDataModule(
     data_module,
     mmap_config,
     parallel_state_util=MegatronParallelStateUtil(),
     is_data_loading_rank=None)
-
 ```
 
 A PyTorch Lightning DataModule wrapper that applies memory-mapped (MMAP) data loading capabilities to existing DataModules for checkpointless training.
@@ -262,7 +262,6 @@ _Returns:_ object or None – The data sampler from the underlying data module
 **Example**
 
 ```
-
 from hyperpod_checkpointless_training.dataloader.mmap_data_module import MMAPDataModule
 from hyperpod_checkpointless_training.dataloader.config import CacheResumeMMAPConfig
 from my_project import MyLLMDataModule
@@ -293,7 +292,6 @@ trainer.fit(model, data=mmap_data_module)
 # Resume from checkpoint
 checkpoint = {"global_step": 1000}
 mmap_data_module.load_checkpoint(checkpoint)
-
 ```
 
 **Notes**

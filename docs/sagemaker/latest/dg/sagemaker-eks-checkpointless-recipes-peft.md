@@ -1,4 +1,4 @@
-# Amazon SageMaker HyperPod checkpointless PEFT-LoRA
+# Tutorials - Amazon SageMaker HyperPod Checkpointless PEFT-LoRA GPT OSS 120b
 
 The following sequence of steps is required to run checkpointless training recipes on HyperPod.
 
@@ -22,7 +22,7 @@ Before you start setting up your environment, make sure you have:
 
 To set up your Kubernetes environment, do the following:
 
-1. Set up the virtual environment. Make sure you're using Python >= 3.10 and < 3.14.
+1. Set up the virtual environment. Make sure you're using Python greater than or equal to 3.10 and < 3.14.
 
 ```
 python3 -m venv ${PWD}/venv
@@ -61,7 +61,7 @@ You can now launch the checkpointless training recipe using either the NeMo-styl
 
 Alternatively, you can use the SageMaker HyperPod recipes to submit your training job. Using the recipes involves updating k8s.yaml, config.yaml and running the launch script.
 
-1. Update launcher_scripts/gpt_oss/run_checkpointless_gpt_oss_120b_lora.sh
+1. Update `launcher_scripts/gpt_oss/run_checkpointless_gpt_oss_120b_lora.sh`
 
 your_contrainer: A Deep Learning container. To find the most recent release of the
 checkpointless training container, see [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
@@ -126,9 +126,9 @@ The STATUS will turn to Completed when you run kubectl get pods
 
 ## Launch the training job with kubectl with pre-defined yaml
 
-Another optional is to launch the training through kubectl with a pre-defined job yaml.
+Another option is to launch the training through kubectl with a pre-defined job yaml.
 
-1. update the examples/gpt_oss/launch/peft_gpt_oss_120b_checkpointless_p5.yaml.yaml
+1. update the examples/gpt_oss/launch/peft_gpt_oss_120b_checkpointless_p5.yaml
    - image: A Deep Learning container. To find the most recent release of the checkpointless training container, see
      [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
    - resume.restore_config.path=<path_to_pretrained_weights>: The path to downloaded pretrained model
@@ -136,10 +136,10 @@ Another optional is to launch the training through kubectl with a pre-defined jo
      [Prerequisites](sagemaker-eks-checkpointless-recipes-peft.md#sagemaker-eks-checkpointless-recipes-peft-prereqs "sagemaker-eks-checkpointless-recipes-peft.md#sagemaker-eks-checkpointless-recipes-peft-prereqs") step.
    - dataset.dataset_path=<path_to_dataset>: The path to the dataset that stored in the shared storage
 
-2. Submit the job using kubectl with peft_gpt_oss_120b_checkpointless_p5.yaml.yaml
+2. Submit the job using kubectl with peft_gpt_oss_120b_checkpointless_p5.yaml
 
 ```
-kubectl apply -f examples/gpt_oss/launch/peft_gpt_oss_120b_checkpointless_p5.yaml.yaml
+kubectl apply -f examples/gpt_oss/launch/peft_gpt_oss_120b_checkpointless_p5.yaml
 ```
 
 After you've submitted the training job, you can use the following command to verify if you submitted it successfully.

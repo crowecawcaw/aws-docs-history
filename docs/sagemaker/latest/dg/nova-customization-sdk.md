@@ -89,7 +89,7 @@ transformation to the correct format for your chosen training method. Or, provid
 formatted data and get started immediately.
 
 ```
-from amzn_nova_customization_sdk.dataset import JSONLDatasetLoader
+from amzn_nova_customization_sdk.dataset.dataset_loader import JSONLDatasetLoader
 from amzn_nova_customization_sdk.model.model_enums import Model, TrainingMethod
 
 loader = JSONLDatasetLoader(question="input", answer="output")
@@ -105,7 +105,8 @@ Choose your compute resources—the SDK validates configurations and ensures opt
 setup.
 
 ```
-from amzn_nova_customization_sdk.manager import SMTJRuntimeManager, SMHPRuntimeManager
+from amzn_nova_customization_sdk.manager.runtime_manager import SMTJRuntimeManager, SMHPRuntimeManager
+
 
 # SageMaker Training Jobs
 runtime = SMTJRuntimeManager(

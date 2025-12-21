@@ -19,6 +19,8 @@ HPCT_USE_ROOTLESS: 0 or 1. Use to turn on and off rootless
 
 sysctl -w net.ipv4.ip_local_port_range="20000 65535": Set the system port range
 
+See [the example](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml#L111-L113 "https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml#L111-L113") for enabling Rootless.
+
 ## Rootless
 
 HyperPod checkpointless training offers novel initialization methods, Rootless and TCPStoreless, for NCCL and Gloo process groups.

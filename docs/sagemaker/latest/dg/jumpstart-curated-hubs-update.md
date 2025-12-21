@@ -1,13 +1,18 @@
 # Update resources in a private hub
 
-You can update resources in your private hub to make changes to their metadata. The resources
-that you can update include model references to Amazon SageMaker JumpStart models, custom models, and notebooks.
+You can update resources in your private hub to make changes to their metadata.
+The resources that you can update include model references to Amazon SageMaker JumpStart
+models, custom models, notebooks, datasets, and JsonDoc.
 
-When updating model or notebook resources, you can update the content description,
-display name, keywords, and support status. When updating model references to JumpStart
-models, you can only update the field specifying the minimum model version that you'd like to use.
+When updating model, notebook, datasets, or JsonDoc resources, you can update the
+content description, display name, keywords, and support status. When updating model
+references to JumpStart models, you can only update the field specifying the
+minimum model version that you'd like to use.
 
-Follow the section specific to the resource that you want to update.
+- “Update model or notebook resources” to include DataSet/JsonDoc. In CLI
+  command, DataSets/JsonDocs should added to the hub-content-type
+  argument.
+  Follow the section specific to the resource that you want to update.
 
 ##
 

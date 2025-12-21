@@ -23,7 +23,7 @@ original labeling job. You can add new labels. For 3D point cloud and video
 frame jobs, you can add new label category and frame attributes to the label
 category configuration file.
 
-### Bounding Box and Semantic Segmentation
+## Bounding Box and Semantic Segmentation
 
 To create a bounding box or semantic segmentation label verification or
 adjustment job, use the following guidelines to specify API attributes for the
@@ -64,7 +64,7 @@ adjustment and include them in your task template:
     verification lambda function ARNs end with
     `VerificationSemanticSegmentation`.
 
-### 3D point cloud and video frame
+## 3D point cloud and video frame
 
 - Use the [`LabelAttributeName`](../APIReference/API_CreateLabelingJob.md#SageMaker-CreateLabelingJob-request-LabelAttributeName "../APIReference/API_CreateLabelingJob.md#SageMaker-CreateLabelingJob-request-LabelAttributeName") parameter to specify
   the output label name that you want to use for verified or adjusted

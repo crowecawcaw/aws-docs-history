@@ -29,7 +29,7 @@ However, you must configure at least one **Language model**.
 ###### To configure your chat UI
 
 1. In JupyterLab, access the chat interface by choosing the chat icon (
-   ![Icon of a rectangular shape with a curved arrow pointing to the upper right corner.](/images/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-chat-ui.png)
+   ![Icon of a rectangular shape with a curved arrow pointing to the upper right corner.](images/studio/icons/jupyterai/jupyterai-chat-ui.png)
    ) in the left navigation panel.
 2. Choose the configuration icon (
    ![Gear or cog icon representing settings or configuration options.](images/studio/icons/jupyterai/jupyterai-configure-models.png)

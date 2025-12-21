@@ -42,3 +42,20 @@ This feature is not available in Amazon SageMaker Studio Classic.
 9. Once you have verified the settings, choose **Deploy**.
    The model will then be deployed to the endpoint with the **In
    service** status.
+   For `us-east-1`, `us-west-2`,
+   `ap-northeast-1`, and `eu-west-1` regions,
+   you can use the following instructions to deploy models:
+
+###### To deploy a model in Studio
+
+1. Open the Studio console by following the instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
+2. Choose **Models** from the left navigation pane.
+3. Choose the **My models** tab.
+4. Choose the Logged **models** tab, if not
+   selected already.
+5. Select a model and choose **View Latest
+   Version**.
+6. Choose **Deploy** and select between SageMaker AI or Amazon Bedrock.
+7. Once you have verified the settings, choose **Deploy**.
+   The model will then be deployed to the endpoint with the **In
+   service** status.

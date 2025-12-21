@@ -13,3 +13,4 @@ SFT.
 
 - [Fine-tune Nova 1.0](nova-fine-tune-1.md "nova-fine-tune-1.md")
 - [Fine-tune Nova 2.0](nova-fine-tune-2.md "nova-fine-tune-2.md")
+- [Reinforcement Fine-Tuning (RFT) with Amazon Nova models](nova-reinforcement-fine-tuning.md "nova-reinforcement-fine-tuning.md")

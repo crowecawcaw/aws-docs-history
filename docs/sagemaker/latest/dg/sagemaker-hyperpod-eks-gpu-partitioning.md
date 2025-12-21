@@ -18,6 +18,7 @@ GPU partitioning with MIG technology is supported on the following HyperPod inst
 **A100 GPU Instances** - [https://aws.amazon.com/ec2/instance-types/p4/](https://aws.amazon.com/ec2/instance-types/p4/ "https://aws.amazon.com/ec2/instance-types/p4/")
 
 - **ml.p4d.24xlarge** - 8 NVIDIA A100 GPUs (80GB HBM2e per GPU)
+- **ml.p4de.24xlarge** - 8 NVIDIA A100 GPUs (80GB HBM2e per GPU)
 
 **H100 GPU Instances** - [https://aws.amazon.com/ec2/instance-types/p5/](https://aws.amazon.com/ec2/instance-types/p5/ "https://aws.amazon.com/ec2/instance-types/p5/")
 
@@ -27,6 +28,10 @@ GPU partitioning with MIG technology is supported on the following HyperPod inst
 
 - **ml.p5e.48xlarge** - 8 NVIDIA H200 GPUs (141GB HBM3e per GPU)
 - **ml.p5en.48xlarge** - 8 NVIDIA H200 GPUs (141GB HBM3e per GPU)
+
+**B200 GPU Instances** - [https://aws.amazon.com/ec2/instance-types/p6/](https://aws.amazon.com/ec2/instance-types/p6/ "https://aws.amazon.com/ec2/instance-types/p6/")
+
+- **ml.p6b.48xlarge** - 8 NVIDIA B200 GPUs
 
 ## GPU partitions
 

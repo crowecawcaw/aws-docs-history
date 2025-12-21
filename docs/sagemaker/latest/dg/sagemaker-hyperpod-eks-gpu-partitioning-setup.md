@@ -184,7 +184,7 @@ kubectl drain hyperpod-i-014a41a7001adca60 \
 ###### Important
 
 - The drain operation may take several minutes depending on the number of pods and their termination grace periods
-- System pods in `kube-system` and `aws-hyperpod` namespaces will remain running
+- System pods in the following namespaces will remain running: `kube-system`, `cert-manager`, `kubeflow`, `hyperpod-inference-system`, `kube-public`, `mpi-operator`, `gpu-operator`, `aws-hyperpod`, `jupyter-k8s-system`, `hyperpod-observability`, `kueue-system`, and `keda`
 - DaemonSet pods will remain on the node (they are ignored by design)
 
 ### Step 3: Verify No Workload Pods are Running
@@ -192,15 +192,35 @@ kubectl drain hyperpod-i-014a41a7001adca60 \
 After draining, verify that no workload pods remain on the nodes (excluding system namespaces):
 
 ```
-# Check for any remaining pods outside kube-system and aws-hyperpod
+# Check for any remaining pods outside system namespaces
 kubectl get pods --all-namespaces --field-selector spec.nodeName=`NODE_NAME` \
   | grep -v "kube-system" \
-  | grep -v "aws-hyperpod"
+  | grep -v "cert-manager" \
+  | grep -v "kubeflow" \
+  | grep -v "hyperpod-inference-system" \
+  | grep -v "kube-public" \
+  | grep -v "mpi-operator" \
+  | grep -v "gpu-operator" \
+  | grep -v "aws-hyperpod" \
+  | grep -v "jupyter-k8s-system" \
+  | grep -v "hyperpod-observability" \
+  | grep -v "kueue-system" \
+  | grep -v "keda"
 
 # Example:
 kubectl get pods --all-namespaces --field-selector spec.nodeName=hyperpod-i-014a41a7001adca60 \
   | grep -v "kube-system" \
-  | grep -v "aws-hyperpod"
+  | grep -v "cert-manager" \
+  | grep -v "kubeflow" \
+  | grep -v "hyperpod-inference-system" \
+  | grep -v "kube-public" \
+  | grep -v "mpi-operator" \
+  | grep -v "gpu-operator" \
+  | grep -v "aws-hyperpod" \
+  | grep -v "jupyter-k8s-system" \
+  | grep -v "hyperpod-observability" \
+  | grep -v "kueue-system" \
+  | grep -v "keda"
 ```
 
 **Expected Output:** If the node is properly drained, this command should return no results (or only show the header row). If any pods are still running, investigate why they weren't evicted and manually delete them if necessary.

@@ -37,5 +37,6 @@ The following section defines key terms for bringing your own image to use with 
 - [Launch a custom image in
   Studio](studio-updated-byoi-how-to-launch.md "studio-updated-byoi-how-to-launch.md")
 - [View your custom image details](studio-updated-byoi-view-images.md "studio-updated-byoi-view-images.md")
+- [Speed up container startup with SOCI](soci-indexing.md "soci-indexing.md")
 - [Detach and clean up custom image
   resources](studio-updated-byoi-how-to-detach-from-domain.md "studio-updated-byoi-how-to-detach-from-domain.md")

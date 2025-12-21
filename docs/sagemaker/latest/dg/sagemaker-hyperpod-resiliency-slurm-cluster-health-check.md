@@ -10,5 +10,4 @@ When it detects any instance or GPU failures, the agent marks the instance as
 unhealthy.
 
 SageMaker HyperPod HMA performs the same health checks for both EKS and Slurm orchestrators.
-For more information about HMA, see [SageMaker HyperPod
-health-monitoring agent](sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md "sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md").
+For more information about HMA, see [Health Monitoring System](sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md "sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md").

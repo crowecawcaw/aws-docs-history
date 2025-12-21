@@ -60,6 +60,10 @@ beneficial for high-throughput LLM inference workloads. The integration maintain
 compatibility with existing vLLM model servers and routing capabilities while offering
 better performance.
 
+###### Note
+
+We collect certain routine operational metrics to provide essential service availability. The creation of these metrics is fully automated and does not involve human review of the underlying model inference workload. These metrics relate to deployment operations, resource management, and endpoint registration.
+
 ###### Topics
 
 - [Setting up your

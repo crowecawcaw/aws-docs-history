@@ -147,8 +147,9 @@ time. SFT then adds the desired instruction-following behavior on top.
 
 ##### How it works
 
-The LLM optimizes by minimizing the standard next-token loss on the
-response tokens while masking the prompt. The model internalizes your target
+SFT optimizes LLM by minimizing the average cross-entropy loss on response tokens,
+treating prompt tokens as context and masking them from the loss.
+The model internalizes your target
 style, structure, and decision rules, learning to generate the correct
 completion for each prompt. For example, to classify documents into custom
 categories, you fine-tune the model with prompts (the document text) and
@@ -218,6 +219,5 @@ model.
 - [Nova Customization SDK](nova-customization-sdk.md "nova-customization-sdk.md")
 - [Fine-tuning Amazon Nova models using SageMaker
   training jobs](nova-fine-tuning-training-job.md "nova-fine-tuning-training-job.md")
-- [Reinforcement Fine-Tuning (RFT) with Amazon Nova models](nova-reinforcement-fine-tuning.md "nova-reinforcement-fine-tuning.md")
 - [Monitoring Progress Across Iterations](nova-model-monitor.md "nova-model-monitor.md")
 - [Evaluating your SageMaker AI-trained model](nova-model-evaluation.md "nova-model-evaluation.md")

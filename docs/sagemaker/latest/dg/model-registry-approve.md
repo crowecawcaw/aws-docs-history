@@ -130,3 +130,19 @@ Studio Classic
 
 7. Confirm the model version status is updated to the correct
    value in the model version page.
+
+For `us-east-1`, `us-west-2`, `ap-northeast-1`,
+and `eu-west-1` regions, you can use the following instructions to access
+the lineage details for logged and registered model versions:
+
+1. Open the SageMaker Studio console by following the
+   instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
+2. Choose **Models** from the left navigation pane.
+3. Choose the Logged **models** tab, if not
+   selected already, then select **Registered
+   Models**.
+4. Select a model and choose **View Latest
+   Version**.
+5. Choose the **Governance** tab.
+6. The **Deploy** section under **Governance overview** displays the current approval
+   status. Select the updated approval status from the dropdown menu.

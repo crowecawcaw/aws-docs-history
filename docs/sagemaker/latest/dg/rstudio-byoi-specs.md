@@ -24,7 +24,7 @@ Amazon SageMaker Studio Classic imposes the following set of installation requir
 image.
 
 - You must use an RStudio base image of at least
-  `2023.03.2-454.pro2`. For more information, see [RStudio Versioning](rstudio-version.md "rstudio-version.md").
+  `2025.05.1+513.pro3`. For more information, see [RStudio Versioning](rstudio-version.md "rstudio-version.md").
 - You must install the following packages:
 
 ```

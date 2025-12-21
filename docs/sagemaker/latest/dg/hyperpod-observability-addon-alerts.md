@@ -87,6 +87,17 @@ groups:
       summary: "GPU XID Error Detected"
       description: "GPU {{ $labels.gpu }} experienced XID error {{ $value }} on node {{ $labels.Hostname }}"
 
+  # MIG_CONFIG_FAILURE
+  # MIG configuration failures indicate issues with GPU partitioning setup
+  - alert: MIGConfigFailure
+    expr: kubelet_node_name{nvidia_com_mig_config_state="failed"} > 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "MIG Configuration Failed"
+      description: "MIG configuration failed on node {{ $labels.instance }}"
+
   # DISK_SPACE_WARNING
   # 90% threshold ensures time to respond before complete disk exhaustion
   - alert: NodeDiskSpaceWarning

@@ -57,8 +57,7 @@ By enabling Karpenter-based autoscaling with HyperPod, you have access to:
 - Health Monitoring Agent version 1.0.742.0_1.0.241.0 or above installed.
   Required for HyperPod cluster operations and monitoring. The agent must
   be configured before enabling Karpenter autoscaling to ensure proper cluster
-  health reporting and node lifecycle management. For more information, see [SageMaker HyperPod
-  health-monitoring agent](sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md "sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md").
+  health reporting and node lifecycle management. For more information, see [Health Monitoring System](sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md "sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md").
 - Only if your Amazon EKS cluster has Karpenter running on it, the Karpenter
   `NodePool` and `NodeClaim` versions need to be
   v1.

@@ -41,7 +41,8 @@ New image
 
 ###### Note
 
-If you are attaching the image to a SageMaker Unified Studio project, see [View the SageMaker AI domain details associated with your project](../../../sagemaker-unified-studio/latest/userguide/view-project-details.md#view-project-details-smai-domain "../../../sagemaker-unified-studio/latest/userguide/view-project-details.md#view-project-details-smai-domain"). 5. Open the **Environment** tab. 6. In the **Custom images for personal Studio apps** section,
+If you are attaching the image to a SageMaker Unified Studio project and you need clarification
+on which domain to use, see [View the SageMaker AI domain details associated with your project](../../../sagemaker-unified-studio/latest/userguide/view-project-details.md#view-project-details-smai-domain "../../../sagemaker-unified-studio/latest/userguide/view-project-details.md#view-project-details-smai-domain"). 5. Open the **Environment** tab. 6. In the **Custom images for personal Studio apps** section,
 choose **Attach image**. 7. For the **Image source**, choose **New
 image**. 8. Include your Amazon ECR image URI. The format is as follows.
 
@@ -79,7 +80,8 @@ Existing image
 
 ###### Note
 
-If you are attaching the image to a SageMaker Unified Studio project, see [View the SageMaker AI domain details associated with your project](../../../sagemaker-unified-studio/latest/userguide/view-project-details.md#view-project-details-smai-domain "../../../sagemaker-unified-studio/latest/userguide/view-project-details.md#view-project-details-smai-domain"). 5. Open the **Environment** tab. 6. In the **Custom images for personal Studio apps** section,
+If you are attaching the image to a SageMaker Unified Studio project and you need clarification
+on which domain to use, see [View the SageMaker AI domain details associated with your project](../../../sagemaker-unified-studio/latest/userguide/view-project-details.md#view-project-details-smai-domain "../../../sagemaker-unified-studio/latest/userguide/view-project-details.md#view-project-details-smai-domain"). 5. Open the **Environment** tab. 6. In the **Custom images for personal Studio apps** section,
 choose **Attach image**. 7. For the **Image source**, choose **Existing
 image**. 8. Choose an existing image and image version from the SageMaker AI image store.
 

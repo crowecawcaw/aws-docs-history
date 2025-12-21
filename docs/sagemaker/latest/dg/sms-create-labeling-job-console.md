@@ -179,12 +179,11 @@ For more information, see [Label verification and adjustment](sms-verification-d
     instructions, labels, and interact with the worker UI. Make sure the pop-up blocker
     of the browser is disabled before generating the preview.
 18. Choose **Create**.
-
-After you've successfully created your labeling job, you are redirected to the
-**Labeling jobs** page. The status of the labeling job you just created
-is **In progress**. This status progressively updates as workers complete
-your tasks. When all tasks are successfully completed, the status changes to
-**Completed**.
+    After you've successfully created your labeling job, you are redirected to the
+    **Labeling jobs** page. The status of the labeling job you just created
+    is **In progress**. This status progressively updates as workers complete
+    your tasks. When all tasks are successfully completed, the status changes to
+    **Completed**.
 
 If an issue occurs while creating the labeling job, its status changes to
 **Failed**.

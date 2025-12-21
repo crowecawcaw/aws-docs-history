@@ -6,8 +6,7 @@ SageMaker HyperPod provides the following cluster resiliency features.
 
 ###### Topics
 
-- [SageMaker HyperPod
-  health-monitoring agent](sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md "sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md")
+- [Health Monitoring System](sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md "sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md")
 - [Basic health
   checks](sagemaker-hyperpod-eks-resiliency-basic-health-check.md "sagemaker-hyperpod-eks-resiliency-basic-health-check.md")
 - [Deep health

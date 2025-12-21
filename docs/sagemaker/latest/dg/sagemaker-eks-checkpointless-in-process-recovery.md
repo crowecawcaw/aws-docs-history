@@ -57,8 +57,11 @@ def main():
   - **Checkpoint State Coordination**: Manages in-memory PEFT base model checkpoint saving/restoring.
 
 - `CheckpointlessCompatibleConnector`: A PTL `CheckpointConnector` that attempts to pre-load the checkpoint file to memory, with the source path determined in this priority:
-  - try checkpointless recovery
-  - if checkpointless return None, fallback to parent.resume_start()
+
+      + try checkpointless recovery
+      + if checkpointless return None, fallback to parent.resume\_start()
+
+  See [the example](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/gpt_oss/gpt_oss_120b_full_finetune.py "https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/gpt_oss/gpt_oss_120b_full_finetune.py") to add checkpointless training features to codes.
 
 **Concepts**
 
@@ -77,7 +80,6 @@ A fault controller module receives notifications when failures occur during chec
 - **Restart module:** Terminates the RCB, cleans up resources, and restarts the RCB
 
 ![This image illustrates how a fault controller module receives notifications when failure occurs during checkpointless training.](images/hyperpod/hyperpod-checkpointless-fault-controller-module.png)
-
 **Concept - Model redundancy**
 
 Large model training usually requires a large enough data parallel size to train models efficiently. In traditional data parallelism like PyTorch DDP and Horovod, the model is fully replicated. More advanced sharded data parallelism techniques like DeepSpeed ZeRO optimizer and FSDP also support hybrid sharding mode, which allows sharding the model/optimizer states within the sharding group and fully replicating across replication groups. NeMo also has this hybrid sharding feature through an argument num_distributed_optimizer_instances, which allows redundancy.
@@ -102,8 +104,7 @@ Model execution is divided into three phases: forward propagation, backward prop
 
 - **Forward/backward propagation:** Roll back to the beginning of the current training step and broadcast model states to replacement node(s)
 - **Optimizer step:** Allow healthy replicas to complete the step under lock protection, then broadcast the updated model states to replacement node(s)
-
-This strategy ensures completed optimizer updates are never discarded, helping reduce fault recovery time.
+  This strategy ensures completed optimizer updates are never discarded, helping reduce fault recovery time.
 
 ![This image illustrates how failure is handled depending on if it occurs before or after failure.](images/hyperpod/hyperpod-checkpointless-optimizer.png)
 
@@ -113,18 +114,18 @@ This strategy ensures completed optimizer updates are never discarded, helping r
 
 The following steps outline the failure detection and checkpointless recovery process:
 
-- Training loop starts
-- Fault occurs
-- Evaluate checkpointless resume feasibility
-- Check if it is feasible to do checkpointless resume
-  - If feasible, Attempt checkpointless reusme
-    - If resumes fails, fallback to checkpoint loading from storage
-    - If resume succeeds, training continues from recovered state
+1. Training loop starts
+2. Fault occurs
+3. Evaluate checkpointless resume feasibility
+4. Check if it is feasible to do checkpointless resume
+   - If feasible, Attempt checkpointless reusme
+     - If resumes fails, fallback to checkpoint loading from storage
+     - If resume succeeds, training continues from recovered state
 
-  - If not feasible, fall back to checkpoint loading from storage
+   - If not feasible, fall back to checkpoint loading from storage
 
-- Clean up resources - abort all process groups and backends and free resources in preparation for restart.
-- Resume training loop - a new training loop begins, and the process returns to step 1.
+5. Clean up resources - abort all process groups and backends and free resources in preparation for restart.
+6. Resume training loop - a new training loop begins, and the process returns to step 1.
 
 ## API reference
 
