@@ -26,7 +26,7 @@ check a job's status programmatically, use the [DescribeClassificationJob](../AP
    **Jobs** page opens and displays the number of jobs in your
    inventory and a table of those jobs.
 3. At the top of the page, choose refresh (
-   ![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
+   ![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
    ) to retrieve the current
    status of each job.
 4. In the **Jobs** table, locate the job whose status you want

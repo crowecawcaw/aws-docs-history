@@ -120,7 +120,7 @@ information, see [Data
 refreshes](monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh "monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh").
 
 If the warning icon (
-![The warning icon, which is a red triangle that has an exclamation point in it.](/images/macie/latest/user/images/icon-warning-red.png)
+![The warning icon, which is a red triangle that has an exclamation point in it.](images/icon-warning-red.png)
 ) appears next to a bucket's name, Macie
 isn't allowed to access the bucket or the bucket's objects. This means that the job
 won't be able to analyze objects in the bucket. To investigate the issue, review the
@@ -160,7 +160,7 @@ to show buckets with other values.
   helpful if you recently created a bucket or made significant changes to the
   bucket's objects during the past 24 hours. To retrieve the data, choose
   refresh (
-  ![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](/images/macie/latest/user/images/btn-refresh-object-data.png)
+  ![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](images/btn-refresh-object-data.png)
   ) in the **Object
   statistics** section of the panel. This option is available for
   buckets that store 30,000 or fewer objects.
