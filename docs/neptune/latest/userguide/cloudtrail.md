@@ -1,75 +1,23 @@
-# Understanding Neptune log file
+# Logging Amazon Neptune API Calls with AWS CloudTrail
 
-entries
+Amazon Neptune is integrated with AWS CloudTrail, a service that provides a record of actions taken
+by a user, role, or an AWS service in Neptune. CloudTrail captures API calls for Neptune
+as events, including calls from the Neptune console and from code calls to the
+Neptune APIs.
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files are not an ordered stack trace of
-the public API calls, so they do not appear in any specific order.
+CloudTrail only logs events for Neptune Management API calls, such as creating an instance or
+cluster. If you want to audit changes to your graph, you can use audit logs. For more
+information, see [Using Audit Logs with Amazon Neptune Clusters](auditing.md "auditing.md").
 
-The following example shows a CloudTrail log for a user that created a snapshot of a DB instance
-and then deleted that instance using the Neptune console. The console is identified by the
-`userAgent` element. The requested API calls made by the console
-(`CreateDBSnapshot` and `DeleteDBInstance`) are found in the
-`eventName` element for each record. Information about the user
-(`Alice`) can be found in the `userIdentity` element.
+###### Important
 
-```
-{
-  Records:[
-  {
-    "awsRegion":"us-west-2",
-    "eventName":"CreateDBSnapshot",
-    "eventSource":"domainSource",
-    "eventTime":"2014-01-14T16:23:49Z",
-    "eventVersion":"1.0",
-    "sourceIPAddress":"192.0.2.01",
-    "userAgent":"AWS Console, aws-sdk-java\/unknown-version Linux\/2.6.18-kaos_fleet-1108-prod.2 Java_HotSpot(TM)_64-Bit_Server_VM\/24.45-b08",
-    "userIdentity":
-    {
-      "accessKeyId":"0123456789012",
-      "accountId":"123456789012",
-      "arn":"arn:aws:iam::123456789012:user/Alice",
-      "principalId":"AIDAI2JXM4FBZZEXAMPLE",
-      "sessionContext":
-      {
-        "attributes":
-        {
-          "creationDate":"2014-01-14T15:55:59Z",
-          "mfaAuthenticated":false
-        }
-      },
-      "type":"IAMUser",
-      "userName":"Alice"
-    }
-  },
-  {
-    "awsRegion":"us-west-2",
-    "eventName":"DeleteDBInstance",
-    "eventSource":"domainSource",
-    "eventTime":"2014-01-14T16:28:27Z",
-    "eventVersion":"1.0",
-    "sourceIPAddress":"192.0.2.01",
-    "userAgent":"AWS Console, aws-sdk-java\/unknown-version Linux\/2.6.18-kaos_fleet-1108-prod.2 Java_HotSpot(TM)_64-Bit_Server_VM\/24.45-b08",
-    "userIdentity":
-    {
-      "accessKeyId":"0123456789012",
-      "accountId":"123456789012",
-      "arn":"arn:aws:iam::123456789012:user/Alice",
-      "principalId":"AIDAI2JXM4FBZZEXAMPLE",
-      "sessionContext":
-      {
-        "attributes":
-        {
-          "creationDate":"2014-01-14T15:55:59Z",
-          "mfaAuthenticated":false
-        }
-      },
-      "type":"IAMUser",
-      "userName":"Alice"
-    }
-  }
-  ]
-}
-```
+Amazon Neptune console, AWS CLI, and API calls are logged as calls made to the Amazon Relational Database Service
+(Amazon RDS) API.
+
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket,
+including events for Neptune. If you don't configure a trail, you can still view the most
+recent events in the CloudTrail console in **Event history**. Using the information
+collected by CloudTrail, you can determine the request that was made to Neptune, the IP address
+from which the request was made, who made the request, when it was made, and additional details.
+
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").

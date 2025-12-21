@@ -16,9 +16,10 @@ shown in the table below. The minor version number is the one that will be evalu
 
 | Version                                                        | Product version | Major version | Minor version | Patch version | Status   | Released   | End of life | Upgrade to: |
 | -------------------------------------------------------------- | --------------- | ------------- | ------------- | ------------- | -------- | ---------- | ----------- | ----------- |
-| [1.4.6.2](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 2             | _active_ | 2025-11-18 | 2027-06-03  | N/A         |
-| [1.4.6.1](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 1             | _active_ | 2025-09-18 | 2027-03-06  | 1.4.6.2     |
-| [1.4.6.0](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 0             | _active_ | 2025-09-02 | 2027-03-06  | 1.4.6.1     |
+| [1.4.6.3](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 3             | _active_ | 2025-12-18 | 2027-03-06  | N/A         |
+| [1.4.6.2](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 2             | _active_ | 2025-11-18 | 2027-03-06  | 1.4.6.3     |
+| [1.4.6.1](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 1             | _active_ | 2025-09-18 | 2027-03-06  | 1.4.6.3     |
+| [1.4.6.0](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 0             | _active_ | 2025-09-02 | 2027-03-06  | 1.4.6.3     |
 | [1.4.5.1](engine-releases-1.4.5.md "engine-releases-1.4.5.md") | 1               | 4             | 5             | 1             | _active_ | 2025-06-30 | 2027-03-06  | 1.4.6.0     |
 | [1.4.5.0](engine-releases-1.4.5.md "engine-releases-1.4.5.md") | 1               | 4             | 5             | 0             | _active_ | 2025-04-09 | 2027-03-06  | 1.4.5.1     |
 | [1.4.4.0](engine-releases-1.4.4.md "engine-releases-1.4.4.md") | 1               | 4             | 4             | 0             | _active_ | 2025-02-24 | 2027-03-06  | 1.4.5.0     |

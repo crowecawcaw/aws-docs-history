@@ -76,6 +76,7 @@ variations.
   - Europe (London):   `eu-west-2`
   - Europe (Paris):   `eu-west-3`
   - Europe (Frankfurt):   `eu-central-1`
+  - Europe (Zurich):   `eu-central-2`
   - Asia Pacific (Tokyo):   `ap-northeast-1`
   - Asia Pacific (Seoul):   `ap-northeast-2`
   - Asia Pacific (Singapore):   `ap-southeast-1`

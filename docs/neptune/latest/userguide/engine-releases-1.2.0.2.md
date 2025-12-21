@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.2.0.2.R3 (2023-03-27)
+# Amazon Neptune Engine Version 1.2.0.2.R2 (2022-12-15)
 
-As of 2023-03-27, engine version 1.2.0.2.R3 is being generally deployed. Please note
+As of 2022-12-15, engine version 1.2.0.2.R2 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -41,49 +41,51 @@ a support case may help you explore additional strategies for bringing it down.
 
 ## Improvements in This Engine Release
 
-- For serverless DB clusters, changed the minimum capacity setting to
-  1.0 NCU, and the lowest valid maximum setting to 2.5 NCUs. See [Capacity scaling in a Neptune Serverless DB cluster](neptune-serverless-capacity-scaling.md "neptune-serverless-capacity-scaling.md")
-- Added an `enableInterContainerTrafficEncryption`
-  parameter to all [Neptune
-  ML APIs](machine-learning-api-reference.md "machine-learning-api-reference.md"), that you can use to enable and disable inter-container traffic
-  encryption in training or hyper-parameter tuning jobs.
+- Improved performance of openCypher queries involving `MERGE`
+  and `OPTIONAL MATCH`.
+- Improved performance of openCypher queries involving `UNWIND`
+  of a list of maps of literal values.
+- Improved performance of openCypher queries that have an `IN`
+  filter for `id`. For example:
+
+```
+MATCH (n) WHERE id(n) IN ['1', '2', '3'] RETURN n
+```
+
+- Performance improvements and correctness fixes for various Gremlin
+  operators, including `repeat`, `coalesce`, `store`,
+  and `aggregate`.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where `option(Predicate)` was not being
-  recognized as valid Gremlin syntax.
-- Fixed a Gremlin bug that caused queries not to be properly cleaned up
-  if they failed because they contained too many steps.
-- Fixed a Gremlin correctness issue that affected DFE queries with
-  `limit` as child traversal of non-union steps by falling back to
-  Tinkerpop. Here is an example of such a query:
-
-```
-g.withSideEffect('Neptune#useDFE', true).V().as("a").select("a").by(out().limit(1))
-```
-
-- Fixed a potential Gremlin transaction leak when a query submitted
-  as a String contains `GroupCountStep`.
-- Fixed an openCypher bug where the type of parameter value was not correctly
-  inferred in a list or list of maps.
-- Fixed an openCypher bug where update and return queries did not handle
-  `orderBy`, `limit`, or `skip` properly.
-- Fixed an openCypher bug that allowed parameters contained in one request
-  to be overridden by parameters contained in another simultaneous request.
-- Fixed a SPARQL bug where a large number of values injected in a
-  `VALUES` clause could lead to performance degradation.
+- Fixed an openCypher bug where queries returned the string, `"null"`,
+  instead of a null value in Bolt and SPARQL-JSON.
+- Fixed a Gremlin bug that caused a step label attached to `UnionStep`
+  not to be propagated to the last path element of its child traversals.
+- Fixed a Gremlin bug that caused `valueMap()` not to be
+  optimized under a `by()` traversal in the DFE engine.
+- Fixed a Gremlin bug where read queries executed as part of a longer
+  Gremlin transaction would not lock the rows.
+- Fixed an audit log bug that caused unnecessary information to
+  be logged and certain fields to be missing from the logs.
+- Fixed an audit log bug where the IAM ARN of HTTP requests to an
+  IAM-enabled DB cluster were not recorded.
+- Fixed a lookup-cache bug so as to cap the incremental memory
+  used for writes to the cache.
+- Fixed a lookup-cache bug that involved setting read-only mode
+  for the lookup cache when writes failed.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.0.2.R3, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.0.2.R2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
-- _Gremlin latest version supported:_ `3.5.6`
+- _Gremlin latest version supported:_ `3.5.4`
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.0.2.R3
+## Upgrade Paths to Engine Release 1.2.0.2.R2
 
 Your Neptune DB cluster will be upgraded to this maintenance patch release
 automatically during your next maintenance window if you are running engine version
@@ -91,7 +93,7 @@ automatically during your next maintenance window if you are running engine vers
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.2.0.2.R3 is now generally available.
+Amazon Neptune 1.2.0.2.R2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

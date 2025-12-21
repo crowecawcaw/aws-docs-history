@@ -1,70 +1,113 @@
-# Amazon Neptune Engine Version 1.0.5.1 (2021-10-01)
+# Amazon Neptune Engine Version 1.0.5.0 (2021-07-27)
 
-As of 2021-10-01, engine version 1.0.5.1 is being generally deployed. Please note
+As of 2021-07-27, engine version 1.0.5.0 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ## Subsequent Patch Releases for This Release
 
-- [Release: 1.0.5.1.R2 (2021-10-26)](engine-releases-1.0.5.1.md "engine-releases-1.0.5.1.md")
-- [Release: 1.0.5.1.R3 (2022-01-13)](engine-releases-1.0.5.1.md "engine-releases-1.0.5.1.md")
-- [Maintenance release: 1.0.5.1.R4 (2022-05-16)](engine-releases-1.0.5.1.md "engine-releases-1.0.5.1.md")
+- [Release: 1.0.5.0.R2 (2021-08-16)](engine-releases-1.0.5.0.md "engine-releases-1.0.5.0.md")
+- [Release: 1.0.5.0.R3 (2021-09-15)](engine-releases-1.0.5.0.md "engine-releases-1.0.5.0.md")
+- [Maintenance release: 1.0.5.0.R5 (2022-05-16)](engine-releases-1.0.5.0.md "engine-releases-1.0.5.0.md")
 
 ## New Features in This Engine Release
 
-- Added a [results cache](gremlin-results-cache.md "gremlin-results-cache.md")
-  for caching the results of specified queries.
-- Added Date/time support in Neptune openCypher.
-- Added support for `List` and `Map` access to
-  elements in Neptune openCypher.
+- [Neptune ML](machine-learning.md "machine-learning.md") was released
+  for production use with many new features, and is no longer in lab mode.
+- Added initial support for the [openCypher](access-graph-opencypher.md "access-graph-opencypher.md") query language, in Lab Mode.
+  **openCypher** is the open-source standard for
+  the Cypher query language. Its syntax is specified in the [Cypher
+  Query Language Reference (Version 9)](https://s3.amazonaws.com/artifacts.opencypher.org/openCypher9.pdf "https://s3.amazonaws.com/artifacts.opencypher.org/openCypher9.pdf"), and is maintained by the [openCypher](http://www.opencypher.org/ "http://www.opencypher.org/") project.
+
+See [Accessing the Neptune Graph with openCypher](access-graph-opencypher.md "access-graph-opencypher.md")
+for information about the Neptune implementation of the language.
+
+Support for the [Bolt protocol](https://neo4j.com/docs/bolt/current/bolt/ "https://neo4j.com/docs/bolt/current/bolt/"),
+which Neptune clients use for openCypher queries, is also supported. See [Using the Bolt protocol to make openCypher queries to Neptune](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md").
+
+Support for openCypher is now automatically enabled, but it depends on the [Neptune DFE engine](neptune-dfe-engine.md "neptune-dfe-engine.md"),
+which is currently only available in [lab mode](features-lab-mode.md "features-lab-mode.md").
+The default `DFEQueryEngine` setting in the `neptune_lab_mode`
+DB cluster parameter is now `DFEQueryEngine=viaQueryHint`, which means
+that the engine is enabled but only used for queries that have the
+`useDFE` query hint present and set to `true`. If you disable
+the DFE engine by setting `DFEQueryEngine=disabled`, you will not be able
+to use openCypher.
+
+- Added support for the [SPARQL 1.1 Graph
+  Store HTTP Protocol](https://www.w3.org/TR/sparql11-http-rdf-update/ "https://www.w3.org/TR/sparql11-http-rdf-update/"). See [Using the SPARQL 1.1 Graph Store HTTP Protocol (GSP) in Amazon Neptune](sparql-graph-store-protocol.md "sparql-graph-store-protocol.md").
+- Changed the default lab-mode setting for the [Neptune DFE engine](neptune-dfe-engine.md "neptune-dfe-engine.md") to `viaQueryHint`,
+  which means that the DFE engine is now enabled by default, but only used for
+  queries that have the `useDFE` query hint present and set to
+  `true`.
+- Added a new Amazon CloudWatch metric, `StatsNumStatementsScanned`,
+  for monitoring the computation of statistics for the Neptune DFE engine.
+  See [Using the StatsNumStatementsScanned CloudWatch metric to monitor statistics computation](neptune-dfe-statistics.md#neptune-dfe-statistics-monitoring "neptune-dfe-statistics.md#neptune-dfe-statistics-monitoring").
 
 ## Improvements in This Engine Release
 
-- Made Neptune openCypher endpoint names case-insensitive.
-- Improved openCypher explain.
-- Improved Gremlin single upsert query patterns terminating with
-  `iterate()` and `profile()` steps.
-- Improved performance in Gremlin `keys()` and
-  `property()` functions.
-- The Gremlin `dedup()` step is run in the DFE when it is
-  used with global scope.
-- The following Gremlin `HAS` predicates are run in the
-  DFE engine when the DFE engine is enabled:
-  - `EQ`
-  - `NEQ`
-  - `LT`
-  - `LTE`
-  - `GT`
-  - `GTE`
-  - `BETWEEN`
-  - `INSIDE`
-  - `OUTSIDE`
-  - `WITHIN`
-  - `AND (connectives)`
-  - `OR (connectives)`
+- Added support for Apache TinkerPop 3.4.11.
 
-- Improved LIMIT query performance.
-- Improved performance of openCypher general aggregation queries.
+###### Important
+
+A change was made in TinkerPop version 3.4.11 that improves correctness of
+how queries are processed, but for the moment can sometimes seriously impact
+query performance.
+
+For example, a query of this sort may run significantly slower:
+
+```
+g.V().hasLabel('airport').
+  order().
+    by(out().count(),desc).
+  limit(10).
+  out()
+```
+
+The vertices after the limit step are now fetched in a non-optimal way beause
+of the TinkerPop 3.4.11 change. To avoid this, you can modify the query by adding
+the barrier() step at any point after the `order().by()`.
+For example:
+
+```
+g.V().hasLabel('airport').
+  order().
+    by(out().count(),desc).
+  limit(10).
+  barrier().
+  out()
+```
+
+- The [SPARQL
+  joinOrder query hint](sparql-query-hints-joinOrder.md "sparql-query-hints-joinOrder.md") is now supported by the Neptune DFE
+  alternative query engine.
+- The output of the [Neptune status API](access-graph-status.md "access-graph-status.md")
+  has been expanded and reorganized to provide more clarity about your DB cluster's
+  settings and features.
+
+The new output has a top-level `features` object
+that contains status information about your DB cluster's features, and a top-level
+`settings` object that contain settings information.
+To review the new format, see [Example output from the instance status command](access-graph-status.md#access-graph-status-sample-output "access-graph-status.md#access-graph-status-sample-output").
+
+- Handling of streaming change logs has been improved when
+  `AFTER_SEQUENCE_NUMBER` streams are requested with the last event ID on the
+  server, when that event ID has already expired. The server no longer throws an expired
+  event ID error if the requested event ID is the most recently purged event ID on the
+  server.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug that allowed an edge to be connected to another
-  edge.
-- Fixed a Gremlin bug that caused a sub-optimal join strategy to
-  be chosen.
-- Fixed a Gremlin bug that caused serialization of nodes and relationships
-  to stall when more than 100 properties were present.
-- Fixed a bug that slowed down query execution planning for queries
-  with large graph patterns.
+- Fixed a Gremlin bug related to the ordering of numeric values.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.5.1, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.5.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.11`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.5.1
+## Upgrade Paths to Engine Release 1.0.5.0
 
 You can manually upgrade any previous Neptune engine release to this release.
 
@@ -72,7 +115,7 @@ You will not automatically upgrade to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.5.1 is now generally available.
+Amazon Neptune 1.0.5.0 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
@@ -84,7 +127,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.0.5.1 \
+    --engine-version 1.0.5.0 \
     --apply-immediately
 ```
 
@@ -93,7 +136,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.0.5.1 ^
+    --engine-version 1.0.5.0 ^
     --apply-immediately
 ```
 

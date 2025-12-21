@@ -1,13 +1,13 @@
-# Amazon Neptune Engine Version 1.2.0.1 (2022-10-26)
+# Amazon Neptune Engine Version 1.2.0.0 (2022-07-21)
 
-As of 2022-10-26, engine version 1.2.0.1 is being generally deployed. Please note
+As of 2022-07-21, engine version 1.2.0.0 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
 
 **If upgrading from an engine version earlier than 1.2.0.0:**
 
-- [Engine release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") introduced
+- Engine release 1.2.0.0 introduced
   a new format for custom parameter groups and custom cluster parameter
   groups. As a result, if you are upgrading from an engine version earlier than 1.2.0.0
   to engine version 1.2.0.0 or above, you must re-create all your existing custom
@@ -41,52 +41,152 @@ a support case may help you explore additional strategies for bringing it down.
 
 ## Subsequent Patch Releases for This Release
 
-- [Maintenance Release: 1.2.0.1.R2 (2022-12-13)](engine-releases-1.2.0.1.md "engine-releases-1.2.0.1.md")
-- [Maintenance Release: 1.2.0.1.R3 (2023-09-27)](engine-releases-1.2.0.1.md "engine-releases-1.2.0.1.md")
+- [Release: 1.2.0.0.R2 (2022-10-14)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md")
+- [Release: 1.2.0.0.R3 (2022-12-15)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md")
+- [Release: 1.2.0.0.R4 (2023-09-29)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md")
 
 ## New Features in This Engine Release
 
-- Introduced [Amazon Neptune Serverless](neptune-serverless.md "neptune-serverless.md"),
-  an on-demand autoscaling configuration that scales your DB cluster up to meet increases in
-  processing demand and then down again when the demand decreases.
+- Added support for [global
+  databases](neptune-global-database.md "neptune-global-database.md"). A Neptune global database spans multiple AWS Regions, and
+  consists of a primary DB cluster in one region, and up to five secondary DB clusters
+  in other regions.
+- Added support for more granular access control in Neptune IAM
+  policies than has been available previously, based on data plane actions. This is a
+  breaking change in that existing IAM policies that are based on the deprecated
+  `connect` action must be adjusted to use the more granular data plane
+  actions. See [Types of IAM policies](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy").
+- Improved reader instance availability. Previously, when a writer instance
+  restarted, all reader instances in the Neptune cluster automatically restarted too.
+  Starting with engine release 1.2.0.0, reader instances remain active after a writer restart,
+  which improves reader availability. Reader instances can be restarted separately to pick
+  up parameter group changes. See [Rebooting a DB instance in Amazon Neptune](manage-console-instances-reboot.md "manage-console-instances-reboot.md").
+- Added a new [neptune_streams_expiry_days](parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days "parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days") DB cluster parameter which lets you set the
+  number of days that stream records are kept on the server before being deleted.
+  The range is 1 through 90, and the default is 7.
 
 ## Improvements in This Engine Release
 
-- Improved performance of Gremlin `order-by` queries. Gremlin
-  queries with an `order-by` at the end of a `NeptuneGraphQueryStep`
-  now use a larger chunk size for better performance. This does not apply to
-  `order-by` on an internal (non-root) node of the query plan.
-- Improved performance of Gremlin update queries. Vertices and edges
-  must now be locked against deletion while adding edges or properties. This change
-  eliminates duplicate locks within a transaction, which improves performance.
-- Improved performance of Gremlin queries that use `dedup()`
-  inside of a `repeat()` subquery by pushing the `dedup` down
-  to the native execution layer.
-- Added user-friendly error messages for IAM authentication errors. These
-  messages now show the your IAM user or role ARN, the resource ARN, and a list of
-  unauthorized actions for the request. The list of unauthorized actions helps you
-  see what might be missing or explicitly denied in the IAM policy that you're using.
+- Improved Gremlin serialization performance for ByteCode queries.
+- Neptune now processes text predicates using the DFE engine, for
+  improved performance.
+- Neptune now processes Gremlin `limit()` steps using the
+  DFE engine, including non-terminal and child traversal limits.
+- Changed DFE handling of the Gremlin `union()` step
+  to work with other new features, which means that reference nodes show up in query
+  profiles as expected.
+- Improved performance by up to a factor of 5 of some expensive join
+  operations within DFE by parallelizing them.
+- Added `by()` modulation support for `OrderGlobalStep
+order(global)` for the Gremlin DFE engine.
+- Added display of injected static values in explain details for DFE.
+- Improved performance when pruning duplicate patterns.
+- Added order preservation support in the Gremlin DFE engine.
+- Improved the performance of Gremlin queries having empty filters, such as these:
+
+```
+g.V().hasId(P.within([]))
+```
+
+```
+g.V().hasId([])
+```
+
+- Improved error messaging when a SPARQL query uses a numeric value that
+  is too large for Neptune to represent internally.
+- Improved performance for dropping vertices with associated edges by
+  reducing index searches when streams are disabled.
+- Extended DFE support to more variants of the `has()` step,
+  in particular to `hasKey()`, `hasLabel()`, and to range
+  predicates for strings/URIs within `has()`. This affects queries
+  such as the following:
+
+```
+// hasKey() on properties
+g.V().properties().hasKey("name")
+g.V().properties().has(T.key, TextP.startingWith("a"))
+g.E().properties().hasKey("weight")
+g.E().properties().hasKey(TextP.containing("t"))
+
+// hasLabel() on vertex properties
+g.V().properties().hasLabel("name")
+
+// range predicates on ID and Label fields
+g.V().has(T.label, gt("person"))
+g.E().has(T.id, lte("`(an ID value)`"))
+```
+
+- Added a Neptune-specific openCypher [join()](access-graph-opencypher-extensions.md#opencypher-compliance-join-function "access-graph-opencypher-extensions.md#opencypher-compliance-join-function")
+  function that concatenates strings in a list into a single string.
+- Updated the [Neptune
+  managed policies](security-iam-access-managed-policies.md "security-iam-access-managed-policies.md") to include data-access permissions and permissions for
+  the new global database APIs.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where using `PartitionStrategy` after
-  upgrading to TinkerPop 3.5 incorrectly resulted an error with the message,
-  "PartitionStrategy does not work with anonymous Traversals," which prevented
-  the traversal from being executed.
-- Fixed a Gremlin correctness bug involving `WherePredicateStep`
-  translation, where Neptune's query engine was producing incorrect results for queries
-  using `where(P.neq('x'))` and variations of that.
-- Fixed an openCypher bug in the `MERGE` clause that in some
-  cases caused duplicate node and edge creation.
-- Fixed a SPARQL bug in the handling of queries that contain
-  `(NOT) EXISTS` within an `OPTIONAL` clause, where
-  in some cases query results were missing.
-- Fixed a bulk loader bug that caused performance regressions under heavy
-  insertion loads.
+- Fixed a bug where an HTTP request with no content-type specified would
+  automatically fail.
+- Fixed a SPARQL bug in the query optimizer that prevented use of a
+  service call inside a query.
+- Fixed a SPARQL bug in the Turtle RDF parser where a particular
+  combination of Unicode data caused failure.
+- Fixed a SPARQL bug where a particular combination of `GRAPH`
+  and`SELECT` clauses produced incorrect query results.
+- Fixed a Gremlin bug that caused a correctness issue for queries that
+  used any filter step within a union step, such as the following:
+
+```
+g.V("1").union(hasLabel("person"), out())
+```
+
+- Fixed a Gremlin bug where `count()` of
+  `both().simplePath()` would result in double the actual number
+  of results returned without `count()`.
+- Fixed an openCypher bug where a faulty signature mismatch exception
+  was generated by the server for Bolt requests to clusters with IAM authentication
+  enabled.
+- Fixed an openCypher bug where a query using HTTP keep-alive could
+  be incorrectly closed if it was submitted after a failed request.
+- Fixed an openCypher bug that could cause an internal error
+  to be thrown when a query that returns a constant value is submitted.
+- Fixed a bug in the explain details so that DFE subquery
+  `Time(ms)` now correctly sums the CPU times of operators within the
+  DFE subquery. Consider the following excerpt of explain output as an example:
+
+```
+subQuery1
+╔════╤════════╤════════╤═══════════════════════╤═══════════════════════════════════╤══════╤══════════╤═══════════╤═══════╤═══════════╗
+║ ID │ Out #1 │ Out #2 │ Name                  │ Arguments                         │ Mode │ Units In │ Units Out │ Ratio │ Time (ms) ║
+╠════╪════════╪════════╪═══════════════════════╪═══════════════════════════════════╪══════╪══════════╪═══════════╪═══════╪═══════════╣
+  ...
+╟────┼────────┼────────┼───────────────────────┼───────────────────────────────────┼──────┼──────────┼───────────┼───────┼───────────╢
+║ 1  │ 2      │ -      │ DFEChunkLocalSubQuery │ subQuery=...graph#336e.../graph_1 │ -    │ 1        │ 1         │ 1.00  │ 0.38      ║
+║    │        │        │                       │ coordinationTime(ms)=0.026        │      │          │           │       │           ║
+╟────┼────────┼────────┼───────────────────────┼───────────────────────────────────┼──────┼──────────┼───────────┼───────┼───────────╢
+  ...
+subQuery=...graph#336e.../graph_1
+╔════╤════════╤════════╤═══════════════════════╤═══════════════════════════════════╤══════╤══════════╤═══════════╤═══════╤═══════════╗
+║ ID │ Out #1 │ Out #2 │ Name                  │ Arguments                         │ Mode │ Units In │ Units Out │ Ratio │ Time (ms) ║
+╠════╪════════╪════════╪═══════════════════════╪═══════════════════════════════════╪══════╪══════════╪═══════════╪═══════╪═══════════╣
+║ 0  │ 1      │ -      │ DFESolutionInjection  │ solutions=[?100 -> [-10^^<LONG>]] │ -    │ 0        │ 1         │ 0.00  │ 0.04      ║
+║    │        │        │                       │ outSchema=[?100]                  │      │          │           │       │           ║
+╟────┼────────┼────────┼───────────────────────┼───────────────────────────────────┼──────┼──────────┼───────────┼───────┼───────────╢
+║ 1  │ 3      │ -      │ DFERelationalJoin     │ joinVars=[]                       │ -    │ 2        │ 1         │ 0.50  │ 0.29      ║
+╟────┼────────┼────────┼───────────────────────┼───────────────────────────────────┼──────┼──────────┼───────────┼───────┼───────────╢
+║ 2  │ 1      │ -      │ DFESolutionInjection  │ outSchema=[]                      │ -    │ 0        │ 1         │ 0.00  │ 0.01      ║
+╟────┼────────┼────────┼───────────────────────┼───────────────────────────────────┼──────┼──────────┼───────────┼───────┼───────────╢
+║ 3  │ -      │ -      │ DFEDrain              │ -                                 │ -    │ 1        │ 0         │ 0.00  │ 0.02      ║
+╚════╧════════╧════════╧═══════════════════════╧═══════════════════════════════════╧══════╧══════════╧═══════════╧═══════╧═══════════╝
+```
+
+The subQuery times in the last column of the lower table add up to 0.36 ms (`.04 + .29 + .01 + .02 = .36`).
+When you add in to the coordination time for that subquery (`.36 + .026 = .386`),
+you get a result that is close to the time for the subQuery recorded in the last column of the upper table,
+namely `0.38` ms.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.0.1, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.0.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
@@ -94,11 +194,37 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.0.1
+## Upgrade Paths to Engine Release 1.2.0.0
+
+Because this is a major engine release, there is no automatic upgrade to it.
+
+You can only upgrade to release `1.2.0.0` manually, from the latest
+patch release of [engine release 1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md").
+Earlier engine releases must first be upgraded to the latest release of
+`1.1.1.0` before they can be upgraded to `1.2.0.0`.
+
+Therefore, before you try to upgrade to this release, please confirm that you
+are currently running the latest patch release of release `1.1.1.0`.
+If you are not, start by upgrading to the latest patch release of `1.1.1.0`.
+
+Before upgrading, you must also re-create any custom DB cluster parameter group that
+you have been using with your previous version, using parameter group family
+`neptune1.2`. See [Amazon Neptune parameter groups](parameter-groups.md "parameter-groups.md") for more information.
+
+If you are upgrading first to release `1.1.1.0` and then immediately to
+`1.2.0.0`, you may encounter an error such as the following:
+
+```
+   **We're sorry, your request to modify DB cluster (cluster identifier) has failed.**
+   Cannot modify engine version because instance (instance identifier) is
+   running on an old configuration. Apply any pending maintenance actions on the instance before
+   proceeding with the upgrade.
+```
+
+If you encounter this error, wait for the pending action to finish, or trigger
+a maintenance window immediately to let the previous upgrade complete (see [Maintaining your Amazon Neptune DB Cluster](cluster-maintenance.md "cluster-maintenance.md")).
 
 ## Upgrading to This Release
-
-Amazon Neptune 1.2.0.1 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
@@ -110,7 +236,8 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.2.0.1 \
+    --engine-version 1.2.0.0 \
+    --allow-major-version-upgrade \
     --apply-immediately
 ```
 
@@ -119,13 +246,29 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.2.0.1 ^
+    --engine-version 1.2.0.0 ^
+    --allow-major-version-upgrade ^
     --apply-immediately
 ```
 
-Updates are applied to all instances in a DB cluster simultaneously. An update requires
-a database restart on those instances, so you will experience downtime ranging
-from 20–30 seconds to several minutes, after which you can resume using the DB cluster.
+Instead of `--apply-immediately`, you can specify
+`--no-apply-immediately`. To perform a major version upgrade, the
+allow-major-version-upgrade parameter is required. Also, be sure to include
+the engine version or your engine may be upgraded to a different version.
+
+If your cluster uses a custom cluster parameter group, be sure to include this paramater
+to specify it:
+
+```
+    --db-cluster-parameter-group-name `(name of the custom DB cluster parameter group)`
+```
+
+Similarly, if any instances in the cluster use a custom DB parameter group, be sure
+to include this parameter to specify it:
+
+```
+    --db-instance-parameter-group-name `(name of the custom instance parameter group)`
+```
 
 ### Always test before you upgrade
 
