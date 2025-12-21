@@ -14,7 +14,7 @@ Once you have your environment and AWS account structure set up for forensics, d
 - **Analysis:** Analyze the data collected in order to understand the incident and draw conclusions from it.
 - **Reporting:** Present the information resulting from the analysis phase.
 
-### Implementation steps
+## Implementation steps
 
 **Prepare your forensics environment**
 
