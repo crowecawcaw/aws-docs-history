@@ -17,13 +17,13 @@ The following issues impact all AWS CloudHSM hsm2m.medium instances.
 
 ## Issue: Increased login latency on hsm2m.medium
 
-- **Impact:** The hsm2m.medium adheres to the latest FIPS 140-3 Level 3 requirements. Logging into hsm2m.medium follows enhanced security and compliance requirements, which results in increased latency.
-- **Workaround:** If possible, serialize login requests in the same application to avoid extended latency during login. Multiple login requests in parallel will cause increased latency.
+- **Impact:** Logging into hsm2m.medium follows overly strict interpretation of compliance requirements, which results in increased latency.
+- **Resolution:** If you created a new hsm2m.medium instance or migrated to hsm2m.medium from hsm1.medium before December 20th, 2025, you will need to reset your password to take advantage of performance improvements we have implemented for login operations. Refer to the [change-password](cloudhsm_cli-user-change-password.md "cloudhsm_cli-user-change-password.md") for instructions.
 
 ## Issue: Increased find key latency on hsm2m.medium
 
 - **Impact:** The hsm2m.medium HSM instance has improved fair share architecture which results in more consistent predictable performance compared to hsm1.medium. With hsm1.medium, customers may observe higher find key performance due to irregular use of HSM resources. However, hsm1.medium find key performance will decrease when the HSM instance is patched or updated with new firmware. This issue affects operations such as `KeyStore.getKey()` in JCE.
-- **Workaround:** We are working to improve our HSM firmware. As best practice, cache the results from find key operations. Caching will reduce the total number of find key operations as it is a resource intensive operation in HSM. In addition, implement client-side retries with exponential backoff and jitter to reduce HSM throttling failures.
+- **Resolution:** This issue has been resolved. As best practice, cache the results from find key operations. Caching will reduce the total number of find key operations as it is a resource intensive operation in HSM. In addition, implement client-side retries with exponential backoff and jitter to reduce HSM throttling failures.
 
 ## Issue: A CO using trying to set the trusted attribute of a key will fail with Client SDK 5.12.0 and earlier
 
@@ -49,8 +49,7 @@ The following issues impact all AWS CloudHSM hsm2m.medium instances.
 
 - **Impact:** User replication fails on hsm2m.medium instances when using the CloudHSM CLI.
   The `user replicate` command works as expected on hsm1.medium instances.
-- **Resolution:** We're working to resolve this issue.
-  For updates, see the [Document history](document-history.md "document-history.md") in the user guide.
+- **Resolution:** This issue has been resolved.
 
 ## Issue: Operations can fail during backup creation
 

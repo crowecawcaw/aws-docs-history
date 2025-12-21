@@ -289,7 +289,7 @@ generate or import the HTTPS private key and certificate for your web server.
 After you complete these steps, go to [Step 2: Generate the
 private key and SSL/TLS certificate](#ssl-offload-import-or-generate-private-key-and-certificate "#ssl-offload-import-or-generate-private-key-and-certificate").
 
-##### Notes
+#### Notes
 
 - To use Security-Enhanced Linux (SELinux) and web servers, you must allow
   outbound TCP connections on port 2223, which is the port Client SDK 5 uses to

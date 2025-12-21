@@ -41,7 +41,7 @@ durability. For more information, see [Manage Client
 Key Durability Settings](working-client-sync.md#client-sync-sdk8 "working-client-sync.md#client-sync-sdk8") and [Client SDK 5
 Configure Tool](configure-sdk-5.md "configure-sdk-5.md").
 
-##### How to meet the prerequisites
+#### How to meet the prerequisites
 
 1. Install and configure the JCE for AWS CloudHSM on an active AWS CloudHSM cluster with at least two hardware security modules (HSMs). For more information about
    installation, see [JCE for
@@ -59,7 +59,7 @@ Keytool and Jarsigner](keystore-third-party-tools_5.md "keystore-third-party-too
 After you complete these steps, go to [Step 2: Generate or
 import a private key and SSL/TLS certificate](#third-offload-linux-jsse-gen "#third-offload-linux-jsse-gen").
 
-##### Notes
+#### Notes
 
 - To use Security-Enhanced Linux (SELinux) and web servers, you must allow
   outbound TCP connections on port 2223, which is the port Client SDK 5 uses to

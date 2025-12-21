@@ -13,11 +13,10 @@ and Client SDK 3.
 - In Client SDK 3, you use client-side key durability settings to specify the
   number of HSMs on which key creation must succeed for the overall operation to
   be deemed a success.
-
-In Client SDK 5, key synchronization is a fully automatic process. With key
-availability quorum, newly created keys must exist on two HSMs in the cluster
-before your application can use the key. To use key availability quorum, your
-cluster must have a minimum of two HSMs.
+  In Client SDK 5, key synchronization is a fully automatic process. With key
+  availability quorum, newly created keys must exist on two HSMs in the cluster
+  before your application can use the key. To use key availability quorum, your
+  cluster must have a minimum of two HSMs.
 
 If your cluster configuration doesn’t meet the key durability requirements,
 any attempt to create or use a token key will fail with the following error

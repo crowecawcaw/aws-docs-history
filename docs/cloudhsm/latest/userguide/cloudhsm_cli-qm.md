@@ -7,9 +7,8 @@ authentication, or M of N operations. Currently, this category consists of the
 below for details.
 
 - [token-sign](cloudhsm_cli-qm-token.md "cloudhsm_cli-qm-token.md")
-
-**Admin Services**: Quorum authentication is used for admin privileged services like creating users, deleting users,
-changing user passwords, setting quorum values, and deactivating quorum and MFA capabilities.
+  **Admin Services**: Quorum authentication is used for admin privileged services like creating users, deleting users,
+  changing user passwords, setting quorum values, and deactivating quorum and MFA capabilities.
 
 **Crypto User Services**: Quorum authentication is used for crypto-user privileged services associated with a
 specific key like signing with a key, sharing/unsharing a key, wrapping/unwrapping a key, and setting a key's attribute. The quorum value of an associated key is
