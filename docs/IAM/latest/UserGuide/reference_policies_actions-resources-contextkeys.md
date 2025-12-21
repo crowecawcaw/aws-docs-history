@@ -471,7 +471,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [Amazon Transcribe](list_amazontranscribe.md "list_amazontranscribe.md")
 - [AWS Transfer Family](list_awstransferfamily.md "list_awstransferfamily.md")
 - [AWS Transform](list_awstransform.md "list_awstransform.md")
-- [AWS Transform Custom](list_awstransformcustom.md "list_awstransformcustom.md")
+- [AWS Transform custom](list_awstransformcustom.md "list_awstransformcustom.md")
 - [Amazon Translate](list_amazontranslate.md "list_amazontranslate.md")
 - [AWS Trusted Advisor](list_awstrustedadvisor.md "list_awstrustedadvisor.md")
 - [AWS User Notifications](list_awsusernotifications.md "list_awsusernotifications.md")

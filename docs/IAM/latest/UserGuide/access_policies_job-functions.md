@@ -214,7 +214,7 @@ updates, see [Updates to AWS managed policies
 for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
-create and maintain network resources in Amazon EC2 Auto Scaling, Amazon EC2, AWS Direct Connect, Route 53, Amazon CloudFront,
+create and maintain network resources in Auto Scaling, Amazon EC2, AWS Direct Connect, Route 53, Amazon CloudFront,
 Elastic Load Balancing, AWS Elastic Beanstalk, Amazon SNS, CloudWatch, CloudWatch Logs, Amazon S3, IAM, and Amazon Virtual Private Cloud. For more information
 about the managed policy, see [NetworkAdministrator](../../../aws-managed-policy/latest/reference/NetworkAdministrator.md "../../../aws-managed-policy/latest/reference/NetworkAdministrator.md") in _AWS Managed Policy Reference
 Guide_.

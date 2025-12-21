@@ -47,14 +47,14 @@ that it uses to detect security issues and generate findings.
 Security Hub CSPM provides tools to manage findings from across all of these sources. You can view and
 filter lists of findings and view detailed information about each finding. For more
 information, see [Viewing
-findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub CSPM User Guide_. You can also
+findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub User Guide_. You can also
 track the status of investigations into findings. For more information, see [Taking action on
-findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub CSPM User Guide_.
+findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub User Guide_.
 
 All findings in Security Hub CSPM use a standard JSON format called the AWS Security Finding Format
 (ASFF). The ASFF includes details about the source of the issue, the affected resources, and
 the current status of the finding. For more information, see [AWS Security Finding
-Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
+Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
 AWS Identity and Access Management Access Analyzer is one of the AWS services that sends findings to Security Hub CSPM. For unused
 access, IAM Access Analyzer detects unused access granted to IAM users or roles and generates a
@@ -290,7 +290,7 @@ integration
 
 To use the integration with Security Hub CSPM, you must enable Security Hub CSPM. For information on how to enable
 Security Hub CSPM, see [Setting up Security
-Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User Guide_.
+Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
 
 When you enable both IAM Access Analyzer and Security Hub CSPM, the integration is enabled automatically.
 IAM Access Analyzer immediately begins to send findings to Security Hub CSPM.
@@ -303,4 +303,4 @@ To stop sending findings to Security Hub CSPM, you can use either the Security H
 
 See [Disabling and enabling the flow of findings from an integration
 (console)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console") or [Disabling the flow of findings from an integration (Security Hub API,
-AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub CSPM User Guide_.
+AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub User Guide_.
