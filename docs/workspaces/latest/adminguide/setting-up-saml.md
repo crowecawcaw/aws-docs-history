@@ -265,6 +265,15 @@ authorized to access the WorkSpaces application. To successfully connect to a Wo
 using SAML 2.0 authentication, a user must be authorized by the IdP and must have a WorkSpace
 created.
 
+###### Note
+
+If your end users will frequently switch between multiple different WorkSpaces user identities
+while using the same SAML 2.0 identity provider (IdP), ensure that your IdP is configured to force
+authentication (ForceAuthn) at each login attempt. This prevents your IdP from reusing an existing
+SSO session, which may otherwise cause authentication failures when your users are switching to
+another WorkSpace. Refer to your IdP's documentation for guidance on enabling the ForceAuthn
+(or equivalent) setting.
+
 ## Step 5: Create assertions for the SAML
 
 authentication response

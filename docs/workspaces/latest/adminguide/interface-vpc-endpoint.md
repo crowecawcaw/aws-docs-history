@@ -57,8 +57,3 @@ To learn more about AWS PrivateLink, see the [AWS PrivateLink documentation](../
 
 To see a list of Amazon WorkSpaces API endpoints by Region, see
 [WorkSpaces API Endpoints](workspaces-port-requirements.md#workspaces_api_endpoints "workspaces-port-requirements.md#workspaces_api_endpoints").
-
-###### Note
-
-Amazon WorkSpaces API endpoints with AWS PrivateLink are not supported for Federal Information
-Processing Standard (FIPS) Amazon WorkSpaces API endpoints.
