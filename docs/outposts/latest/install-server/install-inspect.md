@@ -18,15 +18,14 @@ following information when inspecting the server:
 
 ## Check the shipping package
 
-Before you open the shipping package, observe both shock sensors and note if they have
-been activated. If the shock sensors have been activated it is possible that the unit has been
-damaged. Proceed with the installation taking time to note any further damage to the server or
-accessories. If any part of the system is obviously damaged or the installation fails to
-proceed as expected contact AWS Support for guidance on replacing your Outposts server.
+Before opening your package, conduct brief visual inspection of the shipping carton for any signs of external damage. If packaging is intact, units may be installed with confidence. Minor cosmetic marks are acceptable and do not indicate functional damage.
 
-![An image of a shock sensor.](images/ru2-shock-sensor.jpg)
+Server Arrival Shipping Package Inspection Checklist:
 
-If the bar in the middle of the sensor is red, the sensor has been activated.
+- Inspect for dents, bends or deformed edges
+- Inspect all sides for any punctures or tears
+- Look for any signs of moisture ingress or if arrived in wet or soaked condition
+- If any of the above physical damage is identified, contact AWS Support for guidance on replacing your Outposts server
 
 ## Unpack the shipping package
 
