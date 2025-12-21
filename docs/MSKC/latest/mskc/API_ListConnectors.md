@@ -100,6 +100,7 @@ Content-type: application/json
                }
             }
          },
+         "networkType": "***string***",
          "plugins": [
             {
                "customPlugin": {

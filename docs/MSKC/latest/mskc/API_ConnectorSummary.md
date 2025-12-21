@@ -104,6 +104,16 @@ Type: [LogDeliveryDescription](API_LogDeliveryDescription.md "API_LogDeliveryDes
 
 Required: No
 
+**networkType**
+
+The network type of the connector. It gives connectors connectivity to either IPv4 (IPV4) or IPv4 and IPv6 (DUAL) destinations. Defaults to IPV4.
+
+Type: String
+
+Valid Values: `IPV4 | DUAL`
+
+Required: No
+
 **plugins**
 
 Specifies which plugins were used for this connector.

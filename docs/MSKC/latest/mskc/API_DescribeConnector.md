@@ -89,6 +89,7 @@ Content-type: application/json
          }
       }
    },
+   "networkType": "***string***",
    "plugins": [
       {
          "customPlugin": {
@@ -197,6 +198,14 @@ Type: String
 Details about delivering logs to Amazon CloudWatch Logs.
 
 Type: [LogDeliveryDescription](API_LogDeliveryDescription.md "API_LogDeliveryDescription.md") object
+
+**[networkType](#API_DescribeConnector_ResponseSyntax "#API_DescribeConnector_ResponseSyntax")**
+
+The network type of the connector. It gives connectors connectivity to either IPv4 (IPV4) or IPv4 and IPv6 (DUAL) destinations. Defaults to IPV4.
+
+Type: String
+
+Valid Values: `IPV4 | DUAL`
 
 **[plugins](#API_DescribeConnector_ResponseSyntax "#API_DescribeConnector_ResponseSyntax")**
 

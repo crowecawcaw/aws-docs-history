@@ -64,6 +64,7 @@ Content-type: application/json
          }
       }
    },
+   "networkType": "`string`",
    "plugins": [
       {
          "customPlugin": {
@@ -166,6 +167,16 @@ Required: Yes
 Details about log delivery.
 
 Type: [LogDelivery](API_LogDelivery.md "API_LogDelivery.md") object
+
+Required: No
+
+**[networkType](#API_CreateConnector_RequestSyntax "#API_CreateConnector_RequestSyntax")**
+
+The network type of the connector. It gives connectors connectivity to either IPv4 (IPV4) or IPv4 and IPv6 (DUAL) destinations. Defaults to IPV4.
+
+Type: String
+
+Valid Values: `IPV4 | DUAL`
 
 Required: No
 
