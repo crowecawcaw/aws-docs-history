@@ -86,14 +86,9 @@ addresses in AWS WAF:
 - For rate-based rule statements, any nested scoping statements do not
   inherit the forwarded IP configuration. Specify the configuration for each
   statement that uses a forwarded IP address.
-- For geo match and rate-based rules, AWS WAF uses the first address in the
+- For geo match, ASN match, and rate-based rules, AWS WAF uses the first address in the
   header. For example, if a header contains `10.1.1.1, 127.0.0.0,
 10.10.10.10` AWS WAF uses `10.1.1.1`
-- For ASN match, you indicate whether to match against the first, last,
-  or any address in the header against the specified ASN. If you specify
-  any, AWS WAF inspects all addresses in the header for a match, up to 10
-  addresses. If the header contains more than 10 addresses, AWS WAF inspects
-  the last 10.
 - For IP set match, you indicate whether to match against the first, last,
   or any address in the header. If you specify any, AWS WAF inspects all
   addresses in the header for a match, up to 10 addresses. If the header

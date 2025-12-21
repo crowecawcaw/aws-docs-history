@@ -182,8 +182,7 @@ example,`bot:category:search_engine`and`bot:category:content_fetcher`.
       failed
     - `web_bot_auth:expired` –
       Signature used an expired cryptograpic key
-    - `web_bot_auth:unrecognized`
-      – Key ID not found in the key
+    - `web_bot_auth:unknown_bot` – Key ID not found in the key
       directory
 
   ###### Note
