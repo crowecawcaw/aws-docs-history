@@ -5,11 +5,11 @@ resources when capacity is needed. For example, you can use AMS Resource Schedul
 stop instances outside of business hours every day. If you leave all of your instances running at full utilization, this solution can result in
 reducing the instance utilization, which reduces overall cost based on the schedules you configure.
 
-Use AWS Managed Services (AMS) Resource Scheduler to schedule the automatic start and stop of Amazon EC2 Auto Scaling groups, Amazon EC2 instances, and Amazon RDS instances in your account.
+Use AWS Managed Services (AMS) Resource Scheduler to schedule the automatic start and stop of Auto Scaling groups, Amazon EC2 instances, and Amazon RDS instances in your account.
 This helps reduce infrastructure costs where the resources are not meant to be running 24/7. The solution is
 built on top of [AWS Instance Scheduler](https://aws.amazon.com/solutions/instance-scheduler/ "https://aws.amazon.com/solutions/instance-scheduler/") but contains additional
 features and customizations specific to AMS customer needs.
-The customization includes support for scheduling Amazon EC2 Auto Scaling groups, CloudWatch alarm suppressor for ELB alarms,
+The customization includes support for scheduling Auto Scaling groups, CloudWatch alarm suppressor for ELB alarms,
 support for multiple AWS Systems Manager maintenance windows for Amazon EC2, a cost savings estimator, and operational support from AMS.
 
 AMS Resource Scheduler uses periods and schedules. Periods define the times the

@@ -2,7 +2,7 @@
 
 **Amazon EC2**
 
-- Amazon EC2 instances that are part of an Amazon EC2 Auto Scaling group aren't processed individually and skipped by
+- Amazon EC2 instances that are part of an Auto Scaling group aren't processed individually and skipped by
   AMS Resource Scheduler, even if they are tagged.
 - If the target instance root volume is encrypted with a AWS KMS customer master key (CMK), an additional `kms:CreateGrant`
   permission needs to be added to your Resource Scheduler IAM role, for the scheduler to be able to start such

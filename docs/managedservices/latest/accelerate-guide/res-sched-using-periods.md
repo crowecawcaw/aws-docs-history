@@ -77,11 +77,12 @@ JSON
  "ssm:StartAutomationExecution"
  ],
  "Resource": [
- "arn:aws:ssm:*::automation-definition/AWSManagedServices-AddOrUpdatePeriod:*",
- "arn:aws:ssm:*::automation-definition/AWSManagedServices-AddOrUpdateSchedule:*",
- "arn:aws:ssm:*::automation-definition/AWSManagedServices-DeleteScheduleOrPeriod:*",
- "arn:aws:ssm:*::automation-definition/AWSManagedServices-DescribeScheduleOrPeriods:*",
- "arn:aws:ssm:*::automation-definition/AWSManagedServices-EnableOrDisableAMSResourceScheduler:*"
+ "arn:aws:ssm:*::document/AWSManagedServices-AddOrUpdatePeriod",
+ "arn:aws:ssm:*::document/AWSManagedServices-AddOrUpdateSchedule",
+ "arn:aws:ssm:*::document/AWSManagedServices-DeleteScheduleOrPeriod",
+ "arn:aws:ssm:*::document/AWSManagedServices-DescribeScheduleOrPeriods",
+ "arn:aws:ssm:*::document/AWSManagedServices-EnableOrDisableAMSResourceScheduler",
+ "arn:aws:ssm:*:`111122223333`:automation-execution/*"
  ]
  },
  {

@@ -105,7 +105,7 @@ the prerequisites directly in the console or infrastructure-as-code templates.
 - **Cost optimization**:
 
 AMS Resource Scheduler automates the starting and stopping of Amazon Elastic Compute Cloud (Amazon EC2) instances, Amazon Relational Database Service (Amazon RDS) instances and
-Amazon EC2 Amazon EC2 Auto Scaling groups. AMS Resource Scheduler helps you reduce operational costs by stopping the resources that are not in use and
+Amazon EC2 Auto Scaling groups. AMS Resource Scheduler helps you reduce operational costs by stopping the resources that are not in use and
 starting them back when their capacity is needed.
 
 - **Logging and Reporting**:
