@@ -60,7 +60,7 @@ version option.
 
 plans does Lightsail offer?
 
-Lightsail offers 4 sizes of managed databases in standard and high availability plans.
+Lightsail offers 6 sizes of managed databases in standard and high availability plans.
 Each plan comes with a fixed amount of storage and a monthly allowance of data transfer. You
 can also scale up to larger plans over time, as needed, and switch between standard and high
 availability plans. High availability plans mirror the same resources as standard plans and

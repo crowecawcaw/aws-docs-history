@@ -84,14 +84,12 @@ amount of data that you want to import into your new Lightsail database. Your da
 may be slowed if you choose a plan that is under your size requirements. Use the following
 guidelines to select the appropriate database plan for your data import requirement:
 
-- **Micro $15 USD/month database plan** — Data import may
-  be slowed if you transfer more than 10 GB of data.
-- **Small $30 USD/month database plan** — Data import may
-  be slowed if you transfer more than 20 GB of data.
-- **Medium $60 USD/month database plan** — Data import may
-  be slowed if you transfer more than 85 GB of data.
-- **Large $115 USD/month database plan** — Data import may
-  be slowed if you transfer more than 156 GB of data.
+- **Micro $15 USD/month database plan** — Data import may be slowed if you transfer more than 10 GB of data.
+- **Small $30 USD/month database plan** — Data import may be slowed if you transfer more than 20 GB of data.
+- **Medium $60 USD/month database plan** — Data import may be slowed if you transfer more than 85 GB of data.
+- **Large $115 USD/month database plan** — Data import may be slowed if you transfer more than 156 GB of data.
+- **Xlarge $230 USD/month database plan** — Data import may be slowed if you transfer more than 156 GB of data.
+- **2Xlarge $460 USD/month database plan** — Data import may be slowed if you transfer more than 156 GB of data.
 
 ###### Note
 

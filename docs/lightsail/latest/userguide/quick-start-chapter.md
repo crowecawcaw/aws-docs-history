@@ -28,7 +28,7 @@ Node.js
   Lightsail](amazon-lightsail-quick-start-guide-magento.md "amazon-lightsail-quick-start-guide-magento.md")
 - [Deploy and manage an Nginx web server
   on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
-- [Get started with Node.js on
+- [Deploy and manage a Node.js stack on
   Lightsail](amazon-lightsail-quick-start-guide-nodejs.md "amazon-lightsail-quick-start-guide-nodejs.md")
 - [Deploy a Plesk hosting stack on
   Lightsail](set-up-and-configure-plesk-stack-on-lightsail.md "set-up-and-configure-plesk-stack-on-lightsail.md")

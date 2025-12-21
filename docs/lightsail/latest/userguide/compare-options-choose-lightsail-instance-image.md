@@ -384,11 +384,25 @@ creating fast, scalable network applications. It uses an event-driven, non-block
 model that makes it lightweight and efficient. Node.js is well suited for
 data-intensive, real-time applications.
 
-[Get started with Node.js on
+[Deploy and manage a Node.js stack on
 Lightsail](amazon-lightsail-quick-start-guide-nodejs.md "amazon-lightsail-quick-start-guide-nodejs.md")
 
 Learn more about the [Node.js
 stack](https://bitnami.com/stack/nodejs "https://bitnami.com/stack/nodejs") at the _Bitnami_ website.
+
+\***\*Node.js\*\***
+
+The Node.js blueprint provides a complete production environment with MariaDB and Node.js.
+Lightsail packages blueprints to be secure and up-to-date using industry best practices.
+
+Lightsail instances launched from Node.js will have Instance Metadata Service Version 2
+(IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
+
+[Deploy and manage a Node.js stack on
+Lightsail](amazon-lightsail-quick-start-guide-nodejs.md "amazon-lightsail-quick-start-guide-nodejs.md")
+
+Learn more about the [Node.js
+stack](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs") at the _Node.js_ website.
 
 \***\*MEAN stack packaged by Bitnami\*\***
 
