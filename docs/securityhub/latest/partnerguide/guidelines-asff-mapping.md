@@ -4,7 +4,7 @@ Finding Format (ASFF)
 
 Use the following guidelines to map your findings to the ASFF. For detailed descriptions of
 each ASFF field and object, see [AWS Security Finding
-Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
+Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
 ## Identifying information
 

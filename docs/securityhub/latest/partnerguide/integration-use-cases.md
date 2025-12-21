@@ -10,7 +10,7 @@ account. Customers can revoke permissions from a partner at any time.
 
 To enable a partner to send security findings to their account, the customer first subscribes
 to the partner product in Security Hub CSPM. The subscription step is necessary for all of the use cases
-that are outlined below. For details on how customers manage product integrations, see [Managing product integrations](../userguide/securityhub-integrations-managing.md "../userguide/securityhub-integrations-managing.md") in the _AWS Security Hub CSPM User Guide_.
+that are outlined below. For details on how customers manage product integrations, see [Managing product integrations](../userguide/securityhub-integrations-managing.md "../userguide/securityhub-integrations-managing.md") in the _AWS Security Hub User Guide_.
 
 After a customer subscribes to a partner product, Security Hub CSPM automatically creates a managed
 resource policy. The policy grants the partner product permission to use the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API operation to send findings to Security Hub CSPM for the

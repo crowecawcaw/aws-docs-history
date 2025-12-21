@@ -163,7 +163,7 @@ console](guidelines-console-logo.md "guidelines-console-logo.md").
 Required if you send findings to Security Hub CSPM.
 
 Provide a table that documents the ASFF-formatted finding types that you use and how they
-align to your native finding types. For details on finding types in ASFF, see [Types taxonomy for ASFF](../userguide/securityhub-findings-format.md#securityhub-findings-format-type-taxonomy "../userguide/securityhub-findings-format.md#securityhub-findings-format-type-taxonomy") in the _AWS Security Hub CSPM User Guide_.
+align to your native finding types. For details on finding types in ASFF, see [Types taxonomy for ASFF](../userguide/securityhub-findings-format.md#securityhub-findings-format-type-taxonomy "../userguide/securityhub-findings-format.md#securityhub-findings-format-type-taxonomy") in the _AWS Security Hub User Guide_.
 
 We recommend that you also include this information in your product documentation.
 

@@ -14,7 +14,7 @@ BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimpo
    endpoint. To do this, you define whether you will send findings from your own AWS account or
    from within your customer's accounts.
 3. Have your customers subscribe the product to their account. To do this, they can use the
-   console or the [`EnableImportFindingsForProduct`](../../1.0/APIReference/API_EnableImportFindingsForProduct.md "../../1.0/APIReference/API_EnableImportFindingsForProduct.md") API operation. See [Managing product integrations](../userguide/securityhub-integrations-managing.md "../userguide/securityhub-integrations-managing.md") in the _AWS Security Hub CSPM User Guide_.
+   console or the [`EnableImportFindingsForProduct`](../../1.0/APIReference/API_EnableImportFindingsForProduct.md "../../1.0/APIReference/API_EnableImportFindingsForProduct.md") API operation. See [Managing product integrations](../userguide/securityhub-integrations-managing.md "../userguide/securityhub-integrations-managing.md") in the _AWS Security Hub User Guide_.
 
 You can also subscribe the product for them. To do this, you use a cross-account role to
 access the [`EnableImportFindingsForProduct`](../../1.0/APIReference/API_EnableImportFindingsForProduct.md "../../1.0/APIReference/API_EnableImportFindingsForProduct.md") API operation on behalf of the

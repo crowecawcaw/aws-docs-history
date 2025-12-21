@@ -15,4 +15,4 @@ following guidelines.
   issues exist. You also need the finding state so that you can submit finding updates as a
   finding moves in and out of compliance.
 - For information about the maximum lengths of strings and other limitations, see [AWS
-  Security Finding Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
+  Security Finding Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.

@@ -210,7 +210,7 @@ your official public product ARN. 15. **What format should be used to send findi
 
 Findings must be provided in the AWS Security Finding Format (ASFF). For details, see
 [AWS Security Finding
-Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
+Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
 The expectation is that all of the information in your native findings is fully reflected
 in the ASFF. Custom fields such as `ProductFields` and

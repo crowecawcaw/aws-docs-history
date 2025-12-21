@@ -37,7 +37,7 @@ encourages a common language, and provides a blueprint for implementers.
 ASFF is the required wire protocol format to use to send findings to AWS Security Hub CSPM. Findings
 are represented as JSON documents that adhere to the ASFF JSON Schema and RFC-7493 The I-JSON
 Message Format. For details on the ASFF schema, see [AWS Security Finding
-Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
+Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
 See [Guidelines for mapping findings into the AWS Security
 Finding Format (ASFF)](guidelines-asff-mapping.md "guidelines-asff-mapping.md").
