@@ -85,11 +85,7 @@ specified for each instance.
 | Maximum number of instances of ml.p2.xlarge for hybrid jobs     | The maximum number of instances of type ml.p2.xlarge allowed for all<br>Amazon Braket Hybrid Jobs in this account and region.     | 0      | Yes        | Yes       | No        | Yes       | No        | No         |
 | Maximum number of instances of ml.p2.8xlarge for hybrid jobs    | The maximum number of instances of type ml.p2.8xlarge allowed for all<br>Amazon Braket Hybrid Jobs in this account and region.    | 0      | Yes        | Yes       | No        | Yes       | No        | No         |
 | Maximum number of instances of ml.p2.16xlarge for hybrid jobs   | The maximum number of instances of type ml.p2.16xlarge allowed for all<br>Amazon Braket Hybrid Jobs in this account and region.   | 0      | Yes        | Yes       | No        | Yes       | No        | No         |
-| Maximum number of instances of ml.p3.2xlarge for hybrid jobs    | The maximum number of instances of type ml.p3.2xlarge allowed for all<br>Amazon Braket Hybrid Jobs in this account and region.    | 0      | Yes        | Yes       | No        | Yes       | No        | No         |
 | Maximum number of instances of ml.p4d.24xlarge for hybrid jobs  | The maximum number of instances of type ml.p4d.24xlarge allowed for all<br>Amazon Braket Hybrid Jobs in this account and region.  | 0      | Yes        | Yes       | No        | Yes       | No        | No         |
-| Maximum number of instances of ml.p3dn.24xlarge for hybrid jobs | The maximum number of instances of type ml.p3dn.24xlarge allowed for all<br>Amazon Braket Hybrid Jobs in this account and region. | 0      | Yes        | Yes       | No        | Yes       | No        | No         |
-| Maximum number of instances of ml.p3.8xlarge for hybrid jobs    | The maximum number of instances of type ml.p3.8xlarge allowed for all<br>Amazon Braket Hybrid Jobs in this account and region.    | 0      | Yes        | Yes       | No        | Yes       | Yes       | No         |
-| Maximum number of instances of ml.p3.16xlarge for hybrid jobs   | The maximum number of instances of type ml.p3.16xlarge allowed for all<br>Amazon Braket Hybrid Jobs in this account and region.   | 0      | Yes        | Yes       | No        | Yes       | Yes       | No         |
 
 **Requesting limit updates**
 

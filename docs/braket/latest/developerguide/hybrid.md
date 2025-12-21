@@ -146,7 +146,7 @@ from braket.jobs import hybrid_job
 from braket.jobs.config import InstanceConfig
 
 
-@hybrid_job(device="local:pennylane/lightning.gpu", instance_config=InstanceConfig(instanceType="ml.p3.8xlarge"))
+@hybrid_job(device="local:pennylane/lightning.gpu", instance_config=InstanceConfig(instanceType="ml.g4dn.xlarge"))
 def function(wires):
     dev = qml.device("lightning.gpu", wires=wires)
     ...

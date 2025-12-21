@@ -97,7 +97,7 @@ an NVIDIA GPU. The following code snippet shows the GPU-configured `hybrid_job` 
 @hybrid_job(
     device="local:nvidia/nvidia",
     image_uri=image_uri,
-    instance_config=InstanceConfig(instanceType="ml.p3.2xlarge"),
+    instance_config=InstanceConfig(instanceType="ml.g4dn.xlarge"),
 )
 def my_job_script():
     ...
@@ -125,7 +125,7 @@ In the `hybrid_job` decorator specify an instance type that hosts multiple GPUs 
 ```
 @hybrid_job(
     device="local:nvidia/nvidia-mqpu",
-    instance_config=InstanceConfig(instanceType="ml.p3.8xlarge", instanceCount=1),
+    instance_config=InstanceConfig(instanceType="ml.g4dn.12xlarge", instanceCount=1),
     image_uri=image_uri,
 )
 def parallel_observables_gpu_job(sagemaker_mpi_enabled=True):

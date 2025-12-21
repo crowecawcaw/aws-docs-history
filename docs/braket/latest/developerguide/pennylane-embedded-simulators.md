@@ -29,119 +29,58 @@ In this page, compare the two embedded PennyLane state vector simulators
 decompositions to compute various gradients.
 
 Now you are ready to prepare the hybrid job launching script. Run the QAOA algorithm
-using two instance types: `m5.2xlarge` and `p3.2xlarge`. The
-`m5.2xlarge` instance type is comparable to a standard developer laptop.
-The `p3.2xlarge` is an accelerated computing instance that has a single
-NVIDIA Volta GPU with 16GB of memory.
+using two instance types: `ml.m5.2xlarge` and `ml.g4dn.xlarge`. The
+`ml.m5.2xlarge` instance type is comparable to a standard developer laptop.
+The `ml.g4dn.xlarge` is an accelerated computing instance that has a single
+NVIDIA T4 GPU with 16GB of memory.
 
-The `hyperparameters` for all your hybrid jobs will be the same. All you need to
-do to try out different instances and simulators is change two lines as follows.
-
-```
-# Specify device that the hybrid job will primarily be targeting
-device = "local:pennylane/lightning.qubit"
-# Run on a CPU based instance with about as much power as a laptop
-instance_config = InstanceConfig(instanceType='ml.m5.2xlarge')
-```
-
-or:
+To run the GPU, we first need to specify a compatible image and the correct instance
+(which defaults to a `ml.m5.2xlarge` instance).
 
 ```
-# Specify device that the hybrid job will primarily be targeting
-device = "local:pennylane/lightning.gpu"
-# Run on an inexpensive GPU based instance
-instance_config = InstanceConfig(instanceType='ml.p3.2xlarge')
+from braket.aws import AwsSession
+from braket.jobs.image_uris import Framework, retrieve_image
+
+image_uri = retrieve_image(Framework.PL_PYTORCH, AwsSession().region)
+instance_config = InstanceConfig(instanceType="ml.g4dn.xlarge")
+```
+
+We then need to input these to the hybrid job decorator, along with updated
+device parameters in both the system and hybrid job arguments.
+
+```
+@hybrid_job(
+        device="local:pennylane/lightning.gpu",
+        input_data=input_file_path,
+        image_uri=image_uri,
+        instance_config=instance_config)
+def run_qaoa_hybrid_job_gpu(p=1, steps=10):
+    params = np.random.rand(2, p)
+
+    braket_task_tracker = Tracker()
+
+    graph = nx.read_adjlist(input_file_path, nodetype=int)
+    wires = list(graph.nodes)
+    cost_h, _mixer_h = qaoa.maxcut(graph)
+
+    device_string = os.environ["AMZN_BRAKET_DEVICE_ARN"]
+    prefix, device_name = device_string.split("/")
+    dev= qml.device(simulator_name, wires=len(wires))
+    ...
 ```
 
 ###### Note
 
-If you specify the `instance_config` as using a GPU-based instance, but
-choose the `device` to be the embedded CPU-based simulator
-(`lightning.qubit`), the GPU **will
-not** be used. Make sure to use the embedded GPU-based simulator if you
-wish to target the GPU!
+If you specify the `instance_config` as using a GPU-based instance, but choose the
+`device` to be the embedded CPU-based simulator (`lightning.qubit`), the
+GPU will not be used. Make sure to use the embedded GPU-based simulator if you wish to target the GPU!
 
-First, you can create two hybrid jobs and solve Max-Cut with QAOA on a graph with 18
-vertices. This translates to an 18-qubit circuit—relatively small and feasible to run
-quickly on your laptop or the `m5.2xlarge` instance.
-
-```
-num_nodes = 18
-num_edges = 24
-seed = 1967
-
-graph = nx.gnm_random_graph(num_nodes, num_edges, seed=seed)
-
-# And similarly for the p3 job
-m5_job = AwsQuantumJob.create(
-    device=device,
-    source_module="qaoa_source",
-    job_name="qaoa-m5-" + str(int(time.time())),
-    image_uri=image_uri,
-    # Relative to the source_module
-    entry_point="qaoa_source.qaoa_algorithm_script",
-    copy_checkpoints_from_job=None,
-    instance_config=instance_config,
-    # general parameters
-    hyperparameters=hyperparameters,
-    input_data={"input-graph": input_file_path},
-    wait_until_complete=True,
-)
-```
-
-The mean iteration time for the `m5.2xlarge` instance is about 25 seconds,
-while for the `p3.2xlarge` instance it is about 12 seconds. For this 18-qubit
-workflow, the GPU instance gives us a 2x speedup. If you look at the Amazon Braket Hybrid
-Jobs [pricing
-page](https://aws.amazon.com/braket/pricing/ "https://aws.amazon.com/braket/pricing/"), you can see that the cost per minute for an `m5.2xlarge`
-instance is $0.00768, while for the `p3.2xlarge` instance it is $0.06375. To
-run for 5 total iterations, as you did here, would cost $0.016 using the CPU instance or
-$0.06375 using the GPU instance — both pretty inexpensive!
-
-Now solve a Max-Cut problem on a 24-vertex
-graph, which will translate to 24 qubits. Run the hybrid jobs again on the same two instances
-and compare the cost.
-
-###### Note
-
-Time to run this hybrid job on the CPU instance may be about five hours.
-
-```
-num_nodes = 24
-num_edges = 36
-seed = 1967
-
-graph = nx.gnm_random_graph(num_nodes, num_edges, seed=seed)
-
-# And similarly for the p3 job
-m5_big_job = AwsQuantumJob.create(
-    device=device,
-    source_module="qaoa_source",
-    job_name="qaoa-m5-big-" + str(int(time.time())),
-    image_uri=image_uri,
-    # Relative to the source_module
-    entry_point="qaoa_source.qaoa_algorithm_script",
-    copy_checkpoints_from_job=None,
-    instance_config=instance_config,
-    # general parameters
-    hyperparameters=hyperparameters,
-    input_data={"input-graph": input_file_path},
-    wait_until_complete=True,
-)
-```
-
-The mean iteration time for the `m5.2xlarge` instance is about an hour,
-while the `p3.2xlarge` instance is about two minutes. For this larger
-problem, the GPU instance is an order of magnitude faster. All you had to do to benefit
-from this speedup was to change two lines of code, swapping out the instance type and
-the local simulator used. To run for 5 total iterations, as was done here, would cost
-about $2.27072 using the CPU instance or about $0.775625 using the GPU instance. The CPU
-usage is not only more expensive, but also takes more time to run. Accelerating this
-workflow with a GPU instance available on AWS, using PennyLane's embedded simulator
-backed by NVIDIA CuQuantum, allows you to run workflows with intermediate qubit counts
-(between 20 and 30) for less total cost and in less time. This means you can experiment
-with quantum computing even for problems that are too big to run quickly on your laptop
-or a similarly-sized instance.
+The mean iteration time for the `m5.2xlarge` instance is about 73 seconds, while for
+the `ml.g4dn.xlarge` instance it is about 0.6 seconds. For this 21-qubit workflow, the
+GPU instance gives us a 100x speedup. If you look at the Amazon Braket Hybrid Jobs
+[pricing page](https://aws.amazon.com/braket/pricing/ "https://aws.amazon.com/braket/pricing/"), you can see that the cost per
+minute for an `m5.2xlarge` instance is $0.00768, while for the `ml.g4dn.xlarge` instance
+it is $0.01227. In this instance it is faster and cheaper to run on the GPU instance.
 
 ## Quantum machine learning and data parallelism
 
@@ -177,7 +116,7 @@ To create a hybrid job, you can call `AwsQuantumJob.create` and specify the
 algorithm script, device, and other configurations through its keyword arguments.
 
 ```
-instance_config = InstanceConfig(instanceType='ml.p3.2xlarge')
+instance_config = InstanceConfig(instanceType='ml.g4dn.xlarge')
 
 hyperparameters={"nwires": "10",
                  "ndata": "32",
@@ -264,7 +203,7 @@ if dp_info["rank"]==0:
     save_job_result({"last loss": loss_before})
 ```
 
-Amazon Braket Hybrid Jobs supports `ml.p3.16xlarge` instance types for the
+Amazon Braket Hybrid Jobs supports `ml.g4dn.12xlarge` instance types for the
 SageMaker distributed data parallel library. You configure the instance type through the
 `InstanceConfig` argument in Hybrid Jobs. For the SageMaker distributed
 data parallel library to know that data parallelism is enabled, you need to add two
@@ -278,7 +217,7 @@ creation, the Amazon Braket SDK automatically inserts the two hyperparameters fo
 you use the Amazon Braket API, you need to include these two hyperparameters.
 
 With the instance and data parallelism configured, you can now submit your hybrid job. There
-are 8 GPUs in a `ml.p3.16xlarge` instance. When you set
+are 4 GPUs in a `ml.g4dn.12xlarge` instance. When you set
 `instanceCount=1` , the workload is distributed across the 8 GPUs in the
 instance. When you set `instanceCount` greater than one, the workload is
 distributed across GPUs available in all instances. When using multiple instances, each
@@ -287,7 +226,7 @@ four instances, the billable time is four times the run time per instance becaus
 are four instances running your workloads at the same time.
 
 ```
-instance_config = InstanceConfig(instanceType='ml.p3.16xlarge',
+instance_config = InstanceConfig(instanceType='ml.g4dn.12xlarge',
                                  instanceCount=1,
 )
 
@@ -316,12 +255,5 @@ the data parallelism option is enabled without a correctly modified algorithm sc
 the hybrid job may throw errors, or each GPU may repeatedly process the same data slice,
 which is inefficient.
 
-Compare the run time and cost in an example where when train a model with a
-26-qubit quantum circuit for the binary classification problem mentioned above. The
-`ml.p3.16xlarge` instance used in this example costs $0.4692 per minute.
-Without data parallelism, it takes the simulator about 45 minutes to train the model for
-1 epoch (that is, over 208 data points) and it costs about $20. With data parallelism
-across 1 instance and 4 instances, it only takes 6 minutes and 1.5 minutes respectively,
-which translates to roughly $2.8 for both. By using data parallelism across 4 instances,
-you not only improve the run time by 30x, but also reduce costs by an order of
-magnitude!
+If used correctly, using multiple instances can lead to orders of magnitude reduction in
+both time and cost. See the [example notebook for more details](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/5_Parallelize_training_for_QML/Parallelize_training_for_QML.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/5_Parallelize_training_for_QML/Parallelize_training_for_QML.ipynb").

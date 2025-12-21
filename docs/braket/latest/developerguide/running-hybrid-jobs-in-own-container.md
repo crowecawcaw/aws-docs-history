@@ -15,7 +15,7 @@ job = AwsQuantumJob.create(
     source_module="source_dir",
     entry_point="source_dir.algorithm_script:start_here",
     image_uri="111122223333.dkr.ecr.us-west-2.amazonaws.com/my-byoc-container:latest",
-    instance_config=InstanceConfig(instanceType="ml.p3.8xlarge", instanceCount=3),
+    instance_config=InstanceConfig(instanceType="ml.g4dn.xlarge", instanceCount=3),
     device="local:braket/braket.local.qubit",
     # ...)
 ```

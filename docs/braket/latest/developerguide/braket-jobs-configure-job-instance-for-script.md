@@ -10,7 +10,7 @@ from braket.jobs.config import InstanceConfig
 
 job = AwsQuantumJob.create(
     ...
-    instance_config=InstanceConfig(instanceType="ml.p3.8xlarge"), # Use NVIDIA Tesla V100 instance with 4 GPUs.
+    instance_config=InstanceConfig(instanceType="ml.g4dn.xlarge"), # Use NVIDIA T4 instance with 4 GPUs.
     ...
     ),
 ```
@@ -24,7 +24,7 @@ The upper limit is 5. For instance, you can choose 3 instances as follows.
 from braket.jobs.config import InstanceConfig
 job = AwsQuantumJob.create(
     ...
-    instance_config=InstanceConfig(instanceType="ml.p3.8xlarge", instanceCount=3), # Use 3 NVIDIA Tesla V100
+    instance_config=InstanceConfig(instanceType="ml.g4dn.xlarge", instanceCount=3), # Use 3 NVIDIA T4 instances
     ...
     ),
 ```
@@ -63,9 +63,6 @@ To view the default classical compute instance quotas for Hybrid Jobs, see the [
 
 | GPU accelerated Instances | GPUs | vCPU | Memory (GiB) | GPU Memory (GiB) |
 | ------------------------- | ---- | ---- | ------------ | ---------------- |
-| ml.p3.2xlarge             | 1    | 8    | 61           | 16               |
-| ml.p3.8xlarge             | 4    | 32   | 244          | 64               |
-| ml.p3.16xlarge            | 8    | 64   | 488          | 128              |
 | ml.p4d.24xlarge           | 8    | 96   | 1152         | 320              |
 | ml.g4dn.xlarge            | 1    | 4    | 16           | 16               |
 | ml.g4dn.2xlarge           | 1    | 8    | 32           | 16               |
@@ -73,11 +70,6 @@ To view the default classical compute instance quotas for Hybrid Jobs, see the [
 | ml.g4dn.8xlarge           | 1    | 32   | 128          | 16               |
 | ml.g4dn.12xlarge          | 4    | 48   | 192          | 64               |
 | ml.g4dn.16xlarge          | 1    | 64   | 256          | 16               |
-
-###### Note
-
-p3 instances are not available in us-west-1. If your hybrid job is unable to provision
-requested ML compute capacity, use another Region.
 
 Each instance uses a default configuration of data storage (SSD) of 30 GB. But you can
 adjust the storage in the same way that you configure the `instanceType`. The
@@ -89,7 +81,7 @@ from braket.jobs.config import InstanceConfig
 job = AwsQuantumJob.create(
     ...
     instance_config=InstanceConfig(
-        instanceType="ml.p3.8xlarge",
+        instanceType="ml.g4dn.xlarge",
         volumeSizeInGb=50,
     ),
     ...
