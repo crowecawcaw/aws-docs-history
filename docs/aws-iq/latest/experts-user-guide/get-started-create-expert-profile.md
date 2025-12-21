@@ -152,6 +152,6 @@ IQ console or in the AWS Marketplace console.
 2. Open your profile by choosing the down arrow next to your account, and then choose
    **Account settings**.
 
-![AWS IQ - Access account settings for Experts.](images/aws-iq-experts-providers-edit-profile-account-settings1.png) 3. Update your individual details as necessary in the **Individual**
+![AWS IQ - Access account settings for Experts.](/images/aws-iq/latest/experts-user-guide/images/aws-iq-experts-providers-edit-profile-account-settings1.png) 3. Update your individual details as necessary in the **Individual**
 section. 4. Update your company details as necessary in the **Company**
 section. To update the company's description, logo, or URL, sign in to AWS Marketplace. 5. Preview your profile by choosing **Preview profile**.
