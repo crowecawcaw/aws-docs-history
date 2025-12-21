@@ -7,7 +7,7 @@ video to an S3 bucket.
 
 Standard S3 storage and request costs apply. Thumbnails incur no additional IVS charges. For details, see [Amazon IVS Pricing](https://aws.amazon.com/ivs/pricing/ "https://aws.amazon.com/ivs/pricing/").
 
-### Prerequisites
+## Prerequisites
 
 To use composite recording, you must have a stage with active publishers and an S3 bucket to
 use as the recording destination. Below, we describe one possible workflow that uses
@@ -34,7 +34,7 @@ At that point, the composition is terminated and transitions to a
 `STOPPED` state. A composition is automatically deleted after a few minutes in the `STOPPED` state.
 For details, see [Composition Lifecycle](ssc-overview.md#ssc-composition-endpoint "ssc-overview.md#ssc-composition-endpoint") in _Server-Side Composition_.
 
-### Composite Recording Example: StartComposition with an S3 Bucket Destination
+## Composite Recording Example: StartComposition with an S3 Bucket Destination
 
 The example below shows a typical call to the [StartComposition](../RealTimeAPIReference/API_StartComposition.md "../RealTimeAPIReference/API_StartComposition.md")
 operation, specifying S3 as the only destination for the composition. Once the composition transitions to an `ACTIVE` state,
@@ -42,7 +42,7 @@ video segments and metadata will start to be written to the S3 bucket specified 
 create compositions with different layouts, see “Layouts” in [Server-Side Composition](ssc-overview.md#ssc-api-layouts "ssc-overview.md#ssc-api-layouts")
 and the [IVS Real-Time Streaming API Reference](../RealTimeAPIReference/API_LayoutConfiguration.md "../RealTimeAPIReference/API_LayoutConfiguration.md").
 
-#### Request
+### Request
 
 ```
 POST /StartComposition HTTP/1.1
@@ -70,7 +70,7 @@ Content-type: application/json
 }
 ```
 
-#### Response
+### Response
 
 ```
 {

@@ -60,7 +60,7 @@ via your streaming tool.
 For more information (including how to set up post-processing or VOD playback on
 your recorded files), see [Individual Participant Recording](rt-individual-participant-recording.md "rt-individual-participant-recording.md").
 
-#### How to Disable
+### How to Disable
 
 Recording
 

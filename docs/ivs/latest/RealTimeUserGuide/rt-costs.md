@@ -16,5 +16,4 @@ You are charged for two participants.
 If Participant A is replicated to Stage B, you now have three connected participants (Participant A,
 Participant B, and the replica of Participant A). For the duration of the replication, you are charged for
 three participants.
-
 More information is on the IVS Pricing page.
