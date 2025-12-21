@@ -33,7 +33,7 @@ comments.
 4. By default, a list of all open pull requests is displayed. Choose the open pull
    request you want to close.
 
-![Pull requests displayed in the CodeCommit console.](images/codecommit-pull-request-view.png) 5. In the pull request, choose **Close pull request**. This option
+![Pull requests displayed in the CodeCommit console.](/images/codecommit/latest/userguide/images/codecommit-pull-request-view.png) 5. In the pull request, choose **Close pull request**. This option
 closes the pull request without attempting to merge the source branch into the destination
 branch. This option does not provide a way to delete the source branch as part of closing
 the pull request, but you can do it yourself after the request is closed.
