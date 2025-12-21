@@ -127,8 +127,8 @@ Create a load balancer with a configuration that is equivalent to the Classic Lo
 2. Create one target group for your load balancer, with the same health check settings
    that you have for your Classic Load Balancer.
 3. Do one of the following:
-   - If your Classic Load Balancer is attached to an Amazon EC2 Auto Scaling group, attach your target group to the Amazon EC2 Auto Scaling group.
-     This also registers the Amazon EC2 Auto Scaling instances with the target group.
+   - If your Classic Load Balancer is attached to an Auto Scaling group, attach your target group to the Auto Scaling group.
+     This also registers the Auto Scaling instances with the target group.
    - Register your EC2 instances with your target group.
 
 4. Create one or more listeners, each with a default rule that forwards

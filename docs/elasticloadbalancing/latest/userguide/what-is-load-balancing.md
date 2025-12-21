@@ -68,9 +68,9 @@ of your applications.
 - **Amazon EC2 Auto Scaling** — Ensures that you are running your
   desired number of instances, even if an instance fails. Amazon EC2 Auto Scaling also enables
   you to automatically increase or decrease the number of instances as the demand
-  on your instances changes. If you enable Amazon EC2 Auto Scaling with ELB, instances that are
-  launched by Amazon EC2 Auto Scaling are automatically registered with the load balancer. Likewise,
-  instances that are terminated by Amazon EC2 Auto Scaling are automatically de-registered from the
+  on your instances changes. If you enable Auto Scaling with ELB, instances that are
+  launched by Auto Scaling are automatically registered with the load balancer. Likewise,
+  instances that are terminated by Auto Scaling are automatically de-registered from the
   load balancer. For more information, see the [Amazon EC2 Auto Scaling User Guide](../../../autoscaling/ec2/userguide.md "../../../autoscaling/ec2/userguide.md").
 - **AWS Certificate Manager** — When you create an HTTPS listener, you
   can specify certificates provided by ACM. The load balancer uses certificates
