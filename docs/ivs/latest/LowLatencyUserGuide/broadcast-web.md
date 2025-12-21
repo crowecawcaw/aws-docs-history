@@ -18,6 +18,5 @@ get started quickly with the SDK:
 - [Single broadcast with screen share to
   an IVS channel](https://stream.ivs.rocks/ "https://stream.ivs.rocks/") ([React
   Source Code](https://github.com/aws-samples/amazon-ivs-broadcast-web-demo "https://github.com/aws-samples/amazon-ivs-broadcast-web-demo"))
-
-**Platform requirements**: See [Amazon IVS
-Broadcast SDK](broadcast.md "broadcast.md") for a list of supported platforms.
+  **Platform requirements**: See [Amazon IVS
+  Broadcast SDK](broadcast.md "broadcast.md") for a list of supported platforms.

@@ -23,7 +23,7 @@ documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.37.0/ios/](h
 
 **Platform requirements:** iOS 14+
 
-### How iOS Chooses Camera
+## How iOS Chooses Camera
 
 Resolution and Frame Rate
 

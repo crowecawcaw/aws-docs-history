@@ -38,7 +38,7 @@ via your streaming tool.
 For more information (including how to set up post-processing or VOD playback on
 your recorded files), see [IVS Auto-Record to Amazon S3 | Low-Latency Streaming](record-to-s3.md "record-to-s3.md").
 
-### How to Disable
+## How to Disable
 
 Recording
 

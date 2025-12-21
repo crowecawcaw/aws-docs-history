@@ -3,7 +3,7 @@
 This document describes the most important functions available in the Amazon Interactive
 Video Service (IVS) JW Player integration.
 
-**Latest version of JW Player integration:** 1.47.0 ([Release Notes](release-notes.md#nov20-25-player-web-ll "release-notes.md#nov20-25-player-web-ll"))
+**Latest version of JW Player integration:** 1.48.0 ([Release Notes](release-notes.md#dec18-25-player-web-ll "release-notes.md#dec18-25-player-web-ll"))
 
 ## Getting Started
 
@@ -20,10 +20,10 @@ In these instructions, `JW_PLAYER_DIV` is the name of the
 your IVS playback URL. To set up the Amazon IVS Provider and enable playback:
 
 1. Include the following `script` tag (for the latest version of
-   the player integration; in this case, 1.47.0):
+   the player integration; in this case, 1.48.0):
 
 ```
-<script src="https://player.live-video.net/1.47.0/amazon-ivs-jw-provider.min.js"></script>
+<script src="https://player.live-video.net/1.48.0/amazon-ivs-jw-provider.min.js"></script>
 ```
 
 2. Use the `ivs` type to mark your IVS playlist items. Set the
@@ -61,7 +61,7 @@ script and `IVS_STREAM` is your IVS playback URL.
 <html lang="en">
 <head>
    <script src=JW_PLAYER_LIB></script>
-   <script src="https://player.live-video.net/1.47.0/amazon-ivs-jw-provider.min.js"></script>
+   <script src="https://player.live-video.net/1.48.0/amazon-ivs-jw-provider.min.js"></script>
 </head>
 <body>
    <div id='player'></div>
@@ -120,7 +120,7 @@ ivsPlayer.removeEventListener(event, callback);
 where `callback` is a callback that you define, and `event` is
 one of: `PlayerEventType`, `PlayerState`, or
 `ErrorType`. For more information about events, see the [Amazon IVS Player SDK:
-Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/").
+Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.48.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.48.0/web/").
 
 The `'providerPlayer'` event is emitted by JW Player, and the callback you
 register with it will receive an object with the following fields:
@@ -128,7 +128,7 @@ register with it will receive an object with the following fields:
 | Field       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ivsPlayer` | Returns the underlying Amazon IVS player instance. The full Amazon<br>IVS Player Web API is available through this instance. We recommend<br>using the basic JW Player playback API as much as possible, and<br>using this function only to access Amazon IVS-specific features. The<br>most common functions you are likely to need to access on the Amazon<br>IVS player instance are `addEventListener()` and<br>`removeEventListener()`. |
-| `ivsEvents` | Returns an object with `PlayerEventType`,<br>`PlayerState`, and `ErrorType` fields,<br>which map to their associated Amazon IVS-specific enums. For more<br>information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/").                                                                                                    |
+| `ivsEvents` | Returns an object with `PlayerEventType`,<br>`PlayerState`, and `ErrorType` fields,<br>which map to their associated Amazon IVS-specific enums. For more<br>information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.48.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.48.0/web/").                                                                                                    |
 
 ## Errors
 
@@ -157,7 +157,7 @@ The callback will receive an object with the following fields:
 
 | Field     | Description                                                                                                                                                                                                                                  |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`    | The error type. Corresponds to `ErrorType` events. For<br>more information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/"). |
+| `type`    | The error type. Corresponds to `ErrorType` events. For<br>more information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.48.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.48.0/web/"). |
 | `code`    | The error code.                                                                                                                                                                                                                              |
 | `source`  | Source of the error.                                                                                                                                                                                                                         |
 | `message` | Human readable error message.                                                                                                                                                                                                                |
