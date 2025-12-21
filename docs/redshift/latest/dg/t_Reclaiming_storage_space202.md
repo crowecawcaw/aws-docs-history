@@ -26,7 +26,11 @@ expensive operation.
 
 Amazon Redshift automatically sorts data in the background to maintain table data in the order of
 its sort key. Amazon Redshift keeps track of your scan queries to determine which sections of the
-table will benefit from sorting.
+table will benefit from sorting. Amazon Redshift also keeps track of scan queries from concurrency scaling
+clusters. For multi cluster architectures using Amazon Redshift Data Sharing, Amazon Redshift also tracks scan queries
+originating from consumer clusters/workgroups in your data mesh, including clusters/workgroups
+across different regions. The scan statistics from main cluster, concurrency scaling clusters and
+consumer clusters are aggregated to determine which sections of the table will benefit from sorting.
 
 Depending on the load on the system, Amazon Redshift automatically initiates the sort. This
 automatic sort lessens the need to run the VACUUM command to keep data in sort key

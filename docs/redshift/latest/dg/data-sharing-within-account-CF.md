@@ -38,7 +38,7 @@ cluster has a database and a superuser. For more information, see [CREATE DATABA
 
 ###### To launch your CloudFormation stack for Amazon Redshift data sharing:
 
-1. Click [**Launch CFN stack**](cloudformation/home.md#/stacks/new?stackName=DataShare&templateURL=https://s3.amazonaws.com/redshift-downloads/docs-downloads/DataShare.yml "cloudformation/home.md#/stacks/new?stackName=DataShare&templateURL=https://s3.amazonaws.com/redshift-downloads/docs-downloads/DataShare.yml"), which takes you to the
+1. Click [**Launch CFN stack**](https://console.aws.amazon.com/cloudformation/home?#/stacks/new?stackName=DataShare&templateURL=https://s3.amazonaws.com/redshift-downloads/docs-downloads/DataShare.yml "https://console.aws.amazon.com/cloudformation/home?#/stacks/new?stackName=DataShare&templateURL=https://s3.amazonaws.com/redshift-downloads/docs-downloads/DataShare.yml"), which takes you to the
    CloudFormation service in the AWS Management Console.
 
 If you are prompted, sign in.
@@ -62,7 +62,6 @@ Choose **Next**. 4. The stack options appear.
 
 Choose **Next** to accept the default settings. 5. Under **Capabilities**, choose **I acknowledge that
 AWS CloudFormation might create IAM resources.** 6. Choose **Create stack**.
-
 CloudFormation takes about 10 minutes to build the Amazon Redshift stack using the template,
 creating a datashare called `myproducer_share`. The stack creates the
 datashare in the database specified in the stack details. Only objects from that

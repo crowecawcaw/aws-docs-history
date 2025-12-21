@@ -31,6 +31,7 @@ distribution style is `AUTO` can have their distribution style changed to
 ###### Topics
 
 - [Enabling, disabling, and monitoring automatic table optimization](c_ato-enabling-disabling-monitoring.md "c_ato-enabling-disabling-monitoring.md")
+- [Managing workload exclusions from Autonomics](t_Manage_workload_exclusion.md "t_Manage_workload_exclusion.md")
 - [Column compression to reduce the size of stored data](t_Compressing_data_on_disk.md "t_Compressing_data_on_disk.md")
 - [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md")
 - [Sort keys](t_Sorting_data.md "t_Sorting_data.md")

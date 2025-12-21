@@ -5,11 +5,23 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 # Setting the JDBC fetch size parameter
 
-By default, the JDBC driver collects all the results for a query at one time. As a
-result, when you attempt to retrieve a large result set over a JDBC connection, you
-might encounter a client-side out-of-memory error. To enable your client to retrieve
-result sets in batches instead of in a single all-or-nothing fetch, set the JDBC fetch
-size parameter in your client application.
+By default, the Redshift JDBC driver uses a ring buffer to manage memory efficiently
+and prevent out-of-memory errors. The fetch size parameter is only applicable when the
+ring buffer is explicitly disabled. For more information, review the [link](../mgmt/jdbc20-configuration-options.md#jdbc20-enablefetchringbuffer-option "../mgmt/jdbc20-configuration-options.md#jdbc20-enablefetchringbuffer-option").
+In this configuration, you should set the fetch size to control how many rows are retrieved in each batch.
+
+###### When to Use Fetch Size?
+
+Use the fetch size parameter when:
+
+- You need fine-grained control over row-based batching
+- Working with legacy applications that require traditional fetch size behavior
+
+###### Setting Fetch Size
+
+When ring buffer is disabled, the JDBC driver collects all results for a query at one time by default.
+Queries that return large result sets can consume excessive memory. To retrieve
+result sets in batches instead of all at once, set the JDBC fetch size parameter in your application.
 
 ###### Note
 
