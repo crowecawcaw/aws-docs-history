@@ -43,7 +43,7 @@ tag immutability, encryption, and lifecycle policies. The settings in a reposito
 creation template are only applied during repository creation and don't have any effect
 on existing repositories or repositories created using any other method. For more
 information, see [Templates to control repositories created
-during a pull through cache or replication action](repository-creation-templates.md "repository-creation-templates.md").
+during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 
 ## Considerations for using pull
 
@@ -103,7 +103,7 @@ Consider the following when using Amazon ECR pull through cache rules.
   unless there is a matching repository creation template. You can use a
   repository creation template to define the settings applied to repositories
   created by Amazon ECR on your behalf. For more information, see [Templates to control repositories created
-  during a pull through cache or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
   - Tag immutability – Tag immutability specifies whether image
     tags can be overwritten. By default, image tags are mutable (can be
     overwritten). You can modify tag behavior by configuring tag exclusion

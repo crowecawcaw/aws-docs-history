@@ -1,6 +1,6 @@
 # Templates to control repositories created
 
-during a pull through cache or replication action
+during a pull through cache, create on push, or replication action
 
 Use Amazon ECR repository creation templates to define the settings for repositories created by
 Amazon ECR on your behalf. The settings in a repository creation template are only applied during
@@ -9,11 +9,8 @@ created using any other method. Currently, repository creation templates can be 
 apply settings during repository creation for these features:
 
 - Pull through cache
+- Create on push
 - Replication
-  Repository creation templates aren't supported in the following Regions:
-
-- AWS GovCloud (US-East) (`us-gov-east-1`)
-- AWS GovCloud (US-West) (`us-gov-west-1`)
 
 ## How repository creation templates
 
@@ -24,6 +21,7 @@ For example:
 
 - The first time you use a pull through cache rule to retrieve the contents of
   an upstream repository and store it in your Amazon ECR private registry.
+- When you push an image to a repository that does not yet exist.
 - When you want Amazon ECR to replicate a repository to another region or
   account.
 
@@ -32,13 +30,16 @@ rule or replicated repository, Amazon ECR uses the default settings for the new 
 These default settings include turning off tag immutability, using `AES-256`
 encryption, and not applying any repository or lifecycle policies.
 
+When there isn't a repository creation template that matches the target repository
+for an image push, Amazon ECR will not create a repository with default settings.
+
 Using a repository creation template gives you the ability to define the settings
-Amazon ECR applies to new repositories created through the pull through cache and replication
+Amazon ECR applies to new repositories created through the pull through cache, create on push, and replication
 actions. You can define the tag immutability, encryption configuration, repository
 permissions, lifecycle policy, and resource tags for the new repositories.
 
 The following diagram shows the workflow that Amazon ECR uses when a repository creation
-template is used with a pull through cache action.
+template is used.
 
 ![A display of how repository creation templates are applied to new repositories.](images/repository_creation_template_light.png)
 
@@ -80,7 +81,7 @@ Applied For
 
 The **applied for** setting determines which Amazon ECR-created
 repositories will be created with this template. The valid values are
-`PULL_THROUGH_CACHE` and `REPLICATION`. For
+`PULL_THROUGH_CACHE`, `CREATE_ON_PUSH`, and `REPLICATION`. For
 example, the first time you use a pull through cache rule to retrieve the
 contents of an upstream repository and store it in your Amazon ECR private
 registry. When there isn't a repository creation template that matches your

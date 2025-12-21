@@ -11,9 +11,10 @@ image to an Amazon ECR private repository](docker-push-multi-architecture-image.
 
 ###### To push a Docker image to an Amazon ECR repository
 
-The Amazon ECR
-repository must exist before you push the image. For more information, see [Creating an Amazon ECR private repository to store
-images](repository-create.md "repository-create.md").
+The Amazon ECR repository must exist before you push the image, or you must have a repository creation template defined. For more
+information, see [Creating an Amazon ECR private repository to store
+images](repository-create.md "repository-create.md") and [Templates to control repositories created
+during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 
 1. Authenticate your Docker client to the Amazon ECR registry to which you intend
    to push your image. Authentication tokens must be obtained for each registry
@@ -37,10 +38,17 @@ AWS Command Line Interface](../../../cli/latest/userguide/install-cliv2.md "../.
 ```
 
 2. If your image repository doesn't exist in the registry you intend to push
-   to yet, create it. For more information, see [Creating an Amazon ECR private repository to store
-   images](repository-create.md "repository-create.md").
-3. Identify the local image to push. Run the **docker images**
-   command to list the container images on your system.
+   to yet, and you have a repository creation template defined, you can push your
+   image using your repository creation template's prefix and your desired
+   repository name. ECR will automatically create the repository for you using
+   the predefined settings of your repository creation template.
+
+If you do not have a matching repository creation template defined, you will need to
+create a repository. For more information, see [Templates to control repositories created
+during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md") or
+[Creating an Amazon ECR private repository to store
+images](repository-create.md "repository-create.md"). 3. Identify the local image to push. Run the **docker images**
+command to list the container images on your system.
 
 ```
 `docker images`

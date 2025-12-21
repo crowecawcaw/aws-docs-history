@@ -9,7 +9,7 @@ the AWS GovCloud (US) Regions.
 
 Create an Amazon ECR private repository, and then use the repository to store your
 container images. Use the following steps to create a private repository using the
-AWS Management Console. For steps to create a repository using the AWS CLI, see [Step 2: Create a repository](getting-started-cli.md#cli-create-repository "getting-started-cli.md#cli-create-repository").
+AWS Management Console.
 
 ###### To create a repository (AWS Management Console)
 
@@ -72,6 +72,28 @@ information, see [Encryption at rest](encryption-at-rest.md "encryption-at-rest.
    you to choose between enhanced scanning or basic scanning, and also allows you
    to define filters to specify which repositories should be scanned.
 8. Choose **Create**.
+
+###### To create a repository (AWS CLI)
+
+1. You can create a repository using the AWS CLI with the
+   **aws ecr create-repository** command.
+
+```
+`aws ecr create-repository \
+ --repository-name `hello-repository` \
+ --region `region``
+```
+
+2. If you have a repository creation template defined, you can create
+   a repository by pushing your image using familiar Amazon ECR push commands with
+   your desired repository name. Amazon ECR will automatically create the repository
+   for you using the predefined settings of your repository creation template.
+   If you do not have a repository creation template defined yet, your request
+   to your nonexistent image repository will fail.
+
+```
+docker push `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`prefix`/`my-new-repository:tag`
+```
 
 ## Next steps
 

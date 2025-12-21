@@ -37,11 +37,11 @@ Amazon ECR provides the following features:
   will periodically reach out to the upstream registry to ensure the cached image
   in your Amazon ECR private registry is up to date. For more information, see [Sync an upstream registry with an Amazon ECR private registry](pull-through-cache.md "pull-through-cache.md").
 - Repository creation templates allow you to define the settings for repositories
-  created by Amazon ECR on your behalf during pull through cache or replication actions.
+  created by Amazon ECR on your behalf during pull through cache, create on push, or replication actions.
   You can specify tag immutability, encryption configuration, repository policies,
   lifecycle policies, and resource tags for automatically created repositories. For
   more information, see [Templates to control repositories created
-  during a pull through cache or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 - Managed signing automatically generates cryptographic signatures when images are pushed to Amazon ECR, simplifying container image signing. For more information, see [Managed signing](managed-signing.md "managed-signing.md").
 
 ## How to get started with Amazon ECR

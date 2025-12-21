@@ -117,4 +117,4 @@ next steps.
   gives you control to define the settings to use for new repositories created
   by Amazon ECR on your behalf during a pull through cache action. For more
   information, see [Templates to control repositories created
-  during a pull through cache or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").

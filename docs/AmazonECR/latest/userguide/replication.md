@@ -193,7 +193,7 @@ The following should be considered when using private image replication.
   repository settings using repository creation templates. These settings include
   tag mutability, encryption, repository permissions, and lifecycle policies. For
   more information about repository creation templates, see [Templates to control repositories created
-  during a pull through cache or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 - If tag immutability is enabled on a repository and an image is replicated that
   uses the same tag as an existing image, the image is replicated but won't
   contain the duplicated tag. This might result in the image being

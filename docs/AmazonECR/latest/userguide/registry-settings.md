@@ -16,8 +16,8 @@ registry settings to configure the following features.
 - **Repository creation templates** – A repository
   creation template is used to define the standard settings to apply when new
   repositories are created by Amazon ECR on your behalf. For example, repositories
-  created by a pull through cache action. For more information, see [Templates to control repositories created
-  during a pull through cache or replication action](repository-creation-templates.md "repository-creation-templates.md").
+  created by a pull through cache action, create on push, or replication. For more information, see [Templates to control repositories created
+  during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md").
 - **Scanning configuration** – By default, your registry
   is enabled for basic scanning. You may enable enhanced scanning which provides
   an automated, continuous scanning mode that scans for both operating system and

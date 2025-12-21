@@ -3,7 +3,7 @@
 template in Amazon ECR
 
 You can create a repository creation template to define the settings to use for
-repositories created by Amazon ECR on your behalf during pull through cache or replication
+repositories created by Amazon ECR on your behalf during pull through cache, create on push, or replication
 actions. Once the repository creation template is created, all new repositories created
 will have the settings applied. This doesn't have any effect on any previously created
 repositories.
@@ -91,7 +91,7 @@ AWS Management Console
 
 6. For **Applied for**, specify which Amazon ECR
    workflows this template will apply to. The options are
-   `PULL_THROUGH_CACHE` and
+   `PULL_THROUGH_CACHE`, `CREATE_ON_PUSH`, and
    `REPLICATION`.
 7. For **Template description**, specify an
    optional description for the template and then choose
@@ -194,7 +194,7 @@ repository creation template.
 
 ```
 {
-"appliedFor":[""], // string array, but valid are PULL_THROUGH_CACHE and REPLICATION
+"appliedFor":[""], // string array, but valid are PULL_THROUGH_CACHE, CREATE_ON_PUSH, and REPLICATION
 "prefix": "string",
     "description": "string",
     "imageTagMutability": "MUTABLE"|"IMMUTABLE"|"IMMUTABLE_WITH_EXCLUSION"|"MUTABLE_WITH_EXCLUSION",
@@ -232,7 +232,7 @@ repository creation template.
 {
 "prefix": "prod",
     "description": "For repositories cached from my PTC rule and in my replication configuration that start with 'prod/'",
-    "appliedFor": ["PULL_THROUGH_CACHE","REPLICATION"],
+    "appliedFor": ["PULL_THROUGH_CACHE", "CREATE_ON_PUSH", "REPLICATION"],
     "encryptionConfiguration": {
 "encryptionType": "KMS",
         "kmsKey": "arn:aws:kms:us-west-2:111122223333:key/a1b2c3d4-5678-90ab-cdef-example11111"
