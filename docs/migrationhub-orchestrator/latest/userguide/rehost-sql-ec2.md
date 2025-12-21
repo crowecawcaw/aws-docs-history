@@ -65,7 +65,7 @@ You can customize the migration workflow once it has been created. For more info
 - [Source Environment Configuration](#w2aac16c15b9b7b7 "#w2aac16c15b9b7b7")
 - [Target Environment Configuration](#w2aac16c15b9b7b9 "#w2aac16c15b9b7b9")
 
-#### Application
+### Application
 
 Select the application you want to migrate. If you do not see the application
 in the list, you must define it in [AWS Application
@@ -73,13 +73,13 @@ Discovery Service](https://console.aws.amazon.com/discovery/home "https://consol
 group of servers, and does not refer to applications running on top of your SQL
 server.
 
-#### ServerId
+### ServerId
 
 Within the Application you defined in the [AWS Application
 Discovery Service](https://console.aws.amazon.com/discovery/home "https://console.aws.amazon.com/discovery/home"), select the serverId of the server which hosts
 your SQL server.
 
-#### Source Environment Configuration
+### Source Environment Configuration
 
 The details here help us to identify the details of your source SQL
 Server.
@@ -145,7 +145,7 @@ Server.
   be stored. Please ensure this is an absolute path and has enough space
   for a Full and Differential backup of your databases.
 
-#### Target Environment Configuration
+### Target Environment Configuration
 
 The details here help us to identify the details of your migration to your
 target server.
