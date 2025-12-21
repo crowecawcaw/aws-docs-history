@@ -49,11 +49,11 @@ accurate, contextual answers.
 
 Amazon Nova 2 includes the following models, each optimized for different use cases:
 
-| Model                      | Input modalities                       | Output modalities | Reasoning                  | Use cases                                                       |
-| -------------------------- | -------------------------------------- | ----------------- | -------------------------- | --------------------------------------------------------------- |
-| Nova 2 Lite                | Text, images, video, documents         | Text              | Hybrid (low, medium, high) | High-volume applications prioritizing speed and cost efficiency |
-| Nova 2 Sonic               | Text, images, video, documents, speech | Text              | Hybrid (low, medium, high) | Voice-enabled applications with fast response times             |
-| Nova Multimodal Embeddings | Text, images, documents, video, audio  | Embeddings        | N/A                        | Semantic search, recommendation systems and similarity matching |
+| Model                      | Input modalities                      | Output modalities | Use cases                                                       |
+| -------------------------- | ------------------------------------- | ----------------- | --------------------------------------------------------------- |
+| Nova 2 Lite                | Text, images, video, documents        | Text              | High-volume applications prioritizing speed and cost efficiency |
+| Nova 2 Sonic               | Speech, text                          | Speech, text      | Voice-enabled applications with fast response times             |
+| Nova Multimodal Embeddings | Text, images, documents, video, audio | Embeddings        | Semantic search, recommendation systems and similarity matching |
 
 All models support up to 1 million tokens of context and can generate up to 65,536 tokens in
 a single response. Models with reasoning capabilities can perform extended thinking to solve

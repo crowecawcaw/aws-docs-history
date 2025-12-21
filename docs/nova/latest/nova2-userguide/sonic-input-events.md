@@ -51,7 +51,7 @@ and it is explicitly closed.
 
 After the conversation ends or needs to be terminated, it's essential to
 properly close all open streams and end the session in the correct sequence. To
-properly end a session and avoid resource leaks, follow this specific
+properly end a session and avoid resource leaks, you must follow a specific
 closing sequence:
 
 - Close any open audio streams with the `contentEnd`
@@ -135,17 +135,7 @@ configuration and turn detection settings.
 The prompt start event defines the conversation configuration
 including output formats, voice selection, and available tools.
 
-**Available Voice IDs:**
-
-- English: `matthew`, `tiffany`,
-  `amy`
-- Spanish: `lupe`, `carlos`
-- French: `ambre`, `florian`
-- German: `greta`, `lennart`
-- Italian: `beatrice`, `lorenzo`
-- Portuguese: `camila`, `leo`
-- Hindi: `aditi`, `rohan`
-- Additional: `tina`
+For a list of available voice IDs, refer to [Language support and multilingual capabilities](sonic-language-support.md "sonic-language-support.md")
 
 ```
 {
@@ -160,10 +150,8 @@ including output formats, voice selection, and available tools.
                 "sampleRateHertz": 8000 | 16000 | 24000,
                 "sampleSizeBits": 16,
                 "channelCount": 1,
-                "voiceId": "matthew" | "tiffany" | "amy" |
-                        "lupe" | "carlos" | "ambre" | "florian" |
-                        "greta" | "lennart" | "beatrice" | "lorenzo" |
-                        "tina" | "camila" | "leo" | "aditi" | "rohan",
+                "voiceId": "matthew" | "tiffany" | "amy" | "olivia" | "lupe" | "carlos" | "ambre" | "florian" | "lennart" | "beatrice" | "lorenzo" |
+                        "tina" | "carolina" | "leo" | "kiara" | "arjun",
                 "encoding": "base64",
                 "audioType": "SPEECH"
             },
@@ -190,7 +178,7 @@ including output formats, voice selection, and available tools.
 
 #### Text
 
-Use the text content start event for system prompts,
+The text content start event is used for system prompts,
 conversation history, and cross-modal text input.
 
 **Interactive Parameter:**

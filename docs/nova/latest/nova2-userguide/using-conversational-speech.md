@@ -1,11 +1,8 @@
 # Speech-to-Speech (Amazon Nova 2 Sonic)
 
-Amazon Nova models provide powerful speech capabilities including speech understanding with
-real-time speech-to-speech conversations with Amazon Nova 2 Sonic.
-
-Amazon Nova 2 Sonic enables real-time conversational AI with speech input and output. This
-section covers advanced capabilities for building interactive voice assistants, customer
-service automation and conversational applications.
+Amazon Nova 2 Sonic enables real-time conversational AI with speech input and output. The
+following section covers advanced capabilities for building interactive voice assistants,
+customer service automation, and conversational applications.
 
 ## Key features
 

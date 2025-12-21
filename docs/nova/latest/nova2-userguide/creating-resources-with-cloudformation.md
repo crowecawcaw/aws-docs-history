@@ -1,11 +1,11 @@
-# Create Amazon Bedrock resources with
+# Create Amazon Nova resources with
 
 AWS CloudFormation
 
-Because Amazon Bedrock is available through Amazon Bedrock, follow all CloudFormation guidance at [Create Amazon Bedrock resources with CloudFormation](../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md "../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md").
+Because Amazon Nova is available through Amazon Bedrock, follow all CloudFormation guidance at [Create Amazon Bedrock resources with CloudFormation](../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md "../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md").
 
-For more information, including examples of JSON and YAML templates for [Amazon Bedrock agents](../../../bedrock/latest/userguide/agents.md "../../../bedrock/latest/userguide/agents.md") or [Amazon Bedrock knowledge bases](../../../bedrock/latest/userguide/knowledge-base.md "../../../bedrock/latest/userguide/knowledge-base.md"), see the
-[Amazon Bedrock resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Bedrock.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Bedrock.md") in the _AWS CloudFormation User Guide_.
+For more information, including examples of JSON and YAML templates for YOUR-RESOURCE-PLURAL, see the
+[YOUR-SERVICE-RESOURCE-TOPNODE-IN-CLOUDFORMATION, modify this link in the local-phrases.ent file](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the _AWS CloudFormation User Guide_.
 
 ## Learn more about CloudFormation
 

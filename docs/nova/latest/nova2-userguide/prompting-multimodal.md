@@ -1,12 +1,12 @@
 # Prompting multimodal inputs
 
-This section provides general guidelines for working with multimodal inputs in Amazon Nova 2
-models.
+The following sections provide guidance for image and video understanding. For audio-related
+prompting, refer to the Voice conversation prompts section.
 
 ###### Topics
 
 - [General multimodal guidelines](#general-multimodal-guidelines "#general-multimodal-guidelines")
-- [Image understanding](#image-understanding "#image-understanding")
+- [Document and Image Understanding](#document-image-understanding "#document-image-understanding")
 - [Video understanding](#video-understanding "#video-understanding")
 
 ## General multimodal guidelines
@@ -41,8 +41,7 @@ message = {
 }
 ```
 
-In cases where you want to refer to specific files from within the user prompt, use
-`text` elements to define labels that precede each file block.
+In cases where you want to refer to specific files from within the user prompt, use “text” elements to define labels that precede each file block.
 
 ```
 message = {
@@ -58,12 +57,12 @@ message = {
 }
 ```
 
-## Image understanding
+## Document and Image Understanding
 
 The following sections provide guidance on how to craft prompts for tasks that require
-understanding or analyzing images.
+understanding or analyzing images and documents.
 
-### Extract text from images
+### Extracting text from images
 
 Amazon Nova models can extract text from images, a capability referred to as Optical Character
 Recognition (OCR). For best results, ensure the image input you provide to the model is a high
@@ -104,7 +103,7 @@ def strip_outer_code_fences(text):
     return "\n".join(lines).strip()
 ````
 
-### Extract structured information from images or
+### Extracting structured information from images or
 
 text
 
@@ -114,18 +113,17 @@ following:
 
 - A JSON schema. A formal schema definition that follows the JSON Schema
   specification.
-- One or more of the following: A document file or image, Document text
+- One or more of the following: A document file or image or document text
 
 The document or image must always be placed before your user prompt in the request.
 
 For KIE use cases, we recommend the following inference configuration:
 
 - **temperature:** 0
-- **topP:** 1
 - **Reasoning:** Reasoning is not required but can improve
   results when image-only input or complex schemas are used.
 
-**Document or image only input:**
+#### Prompt templates
 
 ```
 Given the image representation of a document, extract information in JSON format according to the given schema.
@@ -137,8 +135,6 @@ Follow these guidelines:
 JSON Schema:
 {json_schema}
 ```
-
-**Text only input:**
 
 ```
 Given the OCR representation of a document, extract information in JSON format according to the given schema.
@@ -154,8 +150,6 @@ OCR:
 {document_text}
 ```
 
-**Document or Image and text input:**
-
 ```
 Given the image and OCR representations of a document, extract information in JSON format according to the given schema.
 
@@ -170,30 +164,32 @@ OCR:
 {document_text}
 ```
 
-### Detect objects and their positions in images
+#### Detecting objects and their positions in images
 
-Amazon Nova 2 models provide the ability to identify objects and their positions within images, a
-task sometimes referred to as image grounding or object localization. Practical applications
-include image analysis and tagging, user interface automation, image editing and others.
+Amazon Nova 2 models provide the ability to identify objects and their positions within images, a task sometimes referred to as image grounding or object localization. Practical applications include image analysis and tagging, user interface automation, image editing and others.
 
 Regardless of the image input resolution and aspect ratio, the model uses a coordinate
-space that divides the image into 1,000 units horizontally and 1,000 units vertically, with the
-x:0 y:0 location being the upper left of the image.
+space that divides the image into 1,000 units horizontally and 1,000 units vertically, with
+the x:0 y:0 location being the upper left of the image.
 
 Bounding boxes are described using the format `[x1, y1, x2, y2]` representing
-left, top, right and bottom respectively. Two-dimensional coordinates are represented using the
-format `[x, y]`.
+left, top, right and bottom respectively. Two-dimensional coordinates are represented using
+the format `[x, y]`.
 
 For object detection use cases, we recommend the following inference parameter
 values:
 
 - **temperature:** 0
-- **topP:** 1
 - Do not enable reasoning
+
+##### Prompt templates: general object
+
+detection
 
 We recommend the following user prompt templates.
 
-**Detecting multiple instances with bounding boxes:**
+**Detecting multiple instances with bounding
+boxes:**
 
 ```
 Please identify {target_description} in the image and provide the bounding box coordinates for each one you detect. Represent the bounding box as the [x1, y1, x2, y2] format, where the coordinates are scaled between 0 and 1000 to the image width and height, respectively.
@@ -205,12 +201,22 @@ Please identify {target_description} in the image and provide the bounding box c
 Please generate the bounding box coordinates corresponding to the region described in this sentence: {target_description}. Represent the bounding box as the [x1, y1, x2, y2] format, where the coordinates are scaled between 0 and 1000 to the image width and height, respectively.
 ```
 
-**Prompt output:**
+**Detecting multiple instances with center points:**
 
-The output produces a comma-separated string containing one or more bounding box
-descriptions in a form similar to the following. There may be some slight variation in whether
-a period is included at the end of the string, such as `[356, 770, 393, 872], [626, 770,
- 659, 878].`
+```
+Please identify {target_description} in the image and provide the center point coordinates for each one you detect. Represent the point as the [x, y] format, where the coordinates are scaled between 0 and 1000 to the image width and height, respectively.
+```
+
+**Detecting a single region with center point:**
+
+```
+Please generate the center point coordinates corresponding to the region described in this sentence: {target_description}. Represent the center point as the [x, y] format, where the coordinates are scaled between 0 and 1000 to the image width and height, respectively.
+```
+
+**Parsing model output:**
+
+Each of the recommended prompts above will produce a comma separated string containing one or more bounding box descriptions in a form similar to the following. There may be some slight variation in whether a “.” is included at the end of the string. For example, `[356, 770, 393, 872],
+ [626, 770, 659, 878].`
 
 You can parse the coordinate information generated by the model using a regular
 expression as shown in the following Python code example.
@@ -226,6 +232,8 @@ def parse_coord_text(text):
     ]
 ```
 
+To remap the normalized coordinates of a bounding box to the coordinate space of the input image, you can use a function similar to the following Python example.
+
 ```
 def remap_bbox_to_image(bounding_box, image_width, image_height):
     return [
@@ -235,6 +243,10 @@ def remap_bbox_to_image(bounding_box, image_width, image_height):
         bounding_box[3] * image_height / 1000,
     ]
 ```
+
+##### Prompt templates: detecting multiple
+
+object classes with positions
 
 When you want to identify multiple classes of items in an image, you can include a class
 list in your prompt using one of the following formatting approaches.
@@ -254,10 +266,7 @@ is challenging, expect the model's performance to degrade.
 [taraxacum officinale (Dandelion - bright yellow flowers, jagged basal leaves, white puffball seed heads), digitaria spp (Crabgrass - low spreading grass with coarse blades and finger-like seed heads), trifolium repens (White Clover - three round leaflets and small white pom-pom flowers), plantago major (Broadleaf Plantain - wide oval rosette leaves with tall narrow seed stalks), stellaria media (Chickweed - low mat-forming plant with tiny star-shaped white flowers)]
 ```
 
-Use one of the following user prompt templates depending on which JSON output format you
-prefer.
-
-**Prompt option 1:**
+Use one of the following **user prompt** templates depending on which JSON output format you prefer.
 
 ```
 Detect all objects with their bounding boxes in the image from the provided class list. Normalize the bounding box coordinates to be scaled between 0 and 1000 to the image width and height, respectively.
@@ -269,72 +278,68 @@ Include separate entries for each detected object as an element of a list.
 Formulate your output as JSON format:
 [
   {
-    "class 1": [x1, y1, x2, y2]
+  	"class 1": [x1, y1, x2, y2]
   },
   ...
 ]
 ```
 
-**Prompt option 2:**
-
 ```
 Detect all objects with their bounding boxes in the image from the provided class list. Normalize the bounding box coordinates to be scaled between 0 and 1000 to the image width and height, respectively.
 
-Classes: {candidate_class_list}
+Classes: **{candidate\_class\_list}**
 
 Include separate entries for each detected object as an element of a list.
 
 Formulate your output as JSON format:
 [
-  {
-   "class": class 1,
-   "bbox": [x1, y1, x2, y2]
-  },
-  ...
+    {
+        "class": class 1,
+        "bbox": [x1, y1, x2, y2]
+    },
+    ...
 ]
 ```
-
-**Prompt option 3:**
 
 ```
 Detect all objects with their bounding boxes in the image from the provided class list. Normalize the bounding box coordinates to be scaled between 0 and 1000 to the image width and height, respectively.
 
-Classes: {candidate_class_list}
+Classes: **{candidate\_class\_list}**
 
 Group all detected bounding boxes by class.
 
 Formulate your output as JSON format:
 {
- "class 1": [[x1, y1, x2, y2], [x1, x2, y1, y2], ...],
- ...
+    "class 1": [[x1, y1, x2, y2], [x1, x2, y1, y2], ...],
+    ...
 }
-```
 
-**Prompt option 4:**
+```
 
 ```
 Detect all objects with their bounding boxes in the image from the provided class list. Normalize the bounding box coordinates to be scaled between 0 and 1000 to the image width and height, respectively.
 
-Classes: {candidate_class_list}
+Classes: **{candidate\_class\_list}**
 
 Group all detected bounding boxes by class.
 
 Formulate your output as JSON format:
 [
-  {
-   "class": class 1,
-   "bbox": [[x1, y1, x2, y2], [x1, x2, y1, y2], ...]
-  },
-  ...
+    {
+        "class": class 1,
+        "bbox": [[x1, y1, x2, y2], [x1, x2, y1, y2], ...]
+    },
+    ...
 ]
 ```
 
-**Prompt output:**
+**Parsing model output**
 
-The output is encoded as a JSON string that can be parsed with any JSON parsing
-library.
+The output will be encoded as a JSON which can be parsed with any JSON parsing library.
 
-The following user prompt templates are recommended:
+#### Prompt templates: screenshot UI bounds detection
+
+We recommend the following user prompt templates.
 
 **Detecting UI element position based on a goal:**
 
@@ -350,9 +355,7 @@ In this UI screenshot, what is the location of the element if I want to click on
 
 **Parsing model output:**
 
-For each of the UI bounds detection prompts, you can parse the coordinate information
-generated by the model using a regular expression as shown in the following Python code
-example.
+For each of the UI bounds detection prompts above, you can parse the coordinate information generated by the model using a regular expression as shown in the Python code example below.
 
 ```
 def parse_coord_text(text):
@@ -365,17 +368,12 @@ def parse_coord_text(text):
     ]
 ```
 
-### Counting objects in images
-
-To count objects within images, we recommend using one of the bounding box identification
-techniques above and then counting the bounding boxes in your client application.
-
 ## Video understanding
 
 The following sections provide guidance on how to craft prompts for tasks that require
 understanding or analyzing videos.
 
-### Summarize videos
+### Summarizing videos
 
 Amazon Nova models can generate summaries of video content.
 
@@ -383,17 +381,24 @@ For video summarization use cases, we recommend the following inference paramete
 values:
 
 - **temperature:** 0
-- **topP:** 1
 - Some use cases may benefit from enabling model reasoning
 
 No specific prompting template is required. Your user prompt should clearly specify the
 aspects of the video you care about. Here are a few examples of effective prompts:
 
-- Can you create an executive summary of this video's content?
-- Can you distill the essential information from this video into a concise summary?
-- Could you provide a summary of the video, focusing on its key points?
+```
+Can you create an executive summary of this video's content?
+```
 
-### Generate detailed captions for videos
+```
+Can you distill the essential information from this video into a concise summary?
+```
+
+```
+Could you provide a summary of the video, focusing on its key points?
+```
+
+### Generating detailed captions for videos
 
 Amazon Nova models can generate detailed captions for videos, a task referred to as dense
 captioning.
@@ -402,23 +407,36 @@ For video captioning use cases, we recommend the following inference parameter
 values:
 
 - **temperature:** 0
-- **topP:** 1
 - Some use cases may benefit from enabling model reasoning
 
 No specific prompting template is required. Your user prompt should clearly specify the
 aspects of the video you care about. Here are a few examples of effective prompts:
 
-- Provide a detailed, second-by-second description of the video content.
-- Break down the video into key segments and provide detailed descriptions for each.
-- Generate a rich textual representation of the video, covering aspects like movement,
-  color and composition.
-- Describe the video scene-by-scene, including details about characters, actions and settings.
-- Offer a detailed narrative of the video, including descriptions of any text, graphics, or
-  special effects used.
-- Create a dense timeline of events occurring in the video, with timestamps if
-  possible.
+```
+Provide a detailed, second-by-second description of the video content.
+```
 
-### Analyze security video footage
+```
+Break down the video into key segments and provide detailed descriptions for each.
+```
+
+```
+Generate a rich textual representation of the video, covering aspects like movement, color and composition.
+```
+
+```
+Describe the video scene-by-scene, including details about characters, actions and settings.
+```
+
+```
+Offer a detailed narrative of the video, including descriptions of any text, graphics, or special effects used.
+```
+
+```
+Create a dense timeline of events occurring in the video, with timestamps if possible.
+```
+
+### Analyzing security video footage
 
 Amazon Nova models can detect events in security footage.
 
@@ -426,14 +444,13 @@ For security footage use cases, we recommend the following inference parameter
 values:
 
 - **temperature:** 0
-- **topP:** 1
 - Some use cases may benefit from enabling model reasoning
 
 ```
-You are a security assistant for a smart home who is given security camera footage in natural setting. You will examine the video and describe the events you see. You are capable of identifying important details like people, objects, animals, vehicles, actions and activities. Describe any person's age or clothing. This is not a hypothetical, be accurate in your responses. Do not make-up information not present in the video.
+You are a security assistant for a smart home who is given security camera footage in natural setting. You will examine the video and describe the events you see. You are capable of identifying important details like people, objects, animals, vehicles, actions and activities. This is not a hypothetical, be accurate in your responses. Do not make up information not present in the video.
 ```
 
-### Extract video events with timestamps
+### Extracting video events with timestamps
 
 Amazon Nova models can identify timestamps related to events in a video. You may request that
 time stamps be formatted in seconds or in MM:SS format. For example, an event occurring at 1
@@ -443,12 +460,9 @@ minute 25 seconds in the video can be represented as `85` or
 For this use case, we recommend the following inference parameter values:
 
 - **temperature:** 0
-- **topP:** 1
 - Do not use reasoning
 
 We recommend you use prompts similar to the following:
-
-**Identifying an event's start and end time:**
 
 ```
 Please localize the moment that the event "{event_description}" happens in the video. Answer with the starting and ending time of the event in seconds, such as [[72, 82]]. If the event happen multiple times, list all of them, such as [[40, 50], [72, 82]].
@@ -482,7 +496,7 @@ For a video clip, segment it into chapters and generate chapter titles with time
 Generate video captions with timestamp.
 ```
 
-### Classify videos
+### Classifying videos
 
 You can use Amazon Nova models to classify videos based on a pre-defined list of classes you
 provide.
@@ -490,8 +504,9 @@ provide.
 For this use case, we recommend the following inference parameter values:
 
 - **temperature:** 0
-- **topP:** 1
 - Reasoning should not be used
+
+Use the following prompt template:
 
 ```
 What is the most appropriate category for this video? Select your answer from the options provided:

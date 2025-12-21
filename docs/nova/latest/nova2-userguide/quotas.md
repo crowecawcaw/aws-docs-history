@@ -7,9 +7,14 @@ service quotas for Amazon Bedrock, do one of the following:
   quotas](../../../servicequotas/latest/userguide/gs-request-quota.md "../../../servicequotas/latest/userguide/gs-request-quota.md") and select **Amazon Bedrock** as the service.
 - Refer to [Amazon Bedrock
   endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md") in the AWS General Reference.
-  To maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock, the
-  default quotas assigned to an account might be updated depending on regional factors,
-  payment history, fraudulent usage, and/or approval of a quota increase request.
+
+###### Note
+
+If a quota is marked as not adjustable through Service Quotas, you can submit a request through the [limit increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase") to be considered for an increase.
+
+To maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock, the
+default quotas assigned to an account might be updated depending on regional factors,
+payment history, fraudulent usage, and/or approval of a quota increase request.
 
 ## Request an increase for Amazon Nova quotas
 

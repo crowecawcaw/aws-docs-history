@@ -34,24 +34,26 @@ Set the `modelId` to one of the following to use Amazon Nova models:
 | Nova 2 Sonic               | • global.amazon.nova-2-sonic-v1:0<br>• us.amazon.nova-2-sonic-v1:0 |
 | Nova Multimodal Embeddings | amazon.nova-2-multimodal-embeddings-v1:0                           |
 
-###### Topics
+## Important: Timeout Configuration
 
-- [Important: Timeout Configuration](important-timeout-configuration.md "important-timeout-configuration.md")
-- [Core Inference Topics](#core-inference-topics "#core-inference-topics")
-- [Using the Converse API](using-converse-api.md "using-converse-api.md")
-- [Using the Invoke API](using-invoke-api.md "using-invoke-api.md")
-- [Streaming responses](streaming-responses.md "streaming-responses.md")
-- [Using Amazon Nova embeddings](embeddings.md "embeddings.md")
-- [On-demand inference](on-demand-inference.md "on-demand-inference.md")
+###### Important
 
-###### Topics
+Amazon Nova inference requests can take up to 60 minutes to complete. Configure your client
+timeout settings accordingly:
 
-- [Core Inference Topics](#core-inference-topics "#core-inference-topics")
-- [Using the Converse API](using-converse-api.md "using-converse-api.md")
-- [Using the Invoke API](using-invoke-api.md "using-invoke-api.md")
-- [Streaming responses](streaming-responses.md "streaming-responses.md")
-- [Using Amazon Nova embeddings](embeddings.md "embeddings.md")
-- [On-demand inference](on-demand-inference.md "on-demand-inference.md")
+The following example is Python code. Users can check the documentation for their preferred SDK language version in that SDK's API docs.
+
+```
+from botocore.config import Config
+
+bedrock = boto3.client(
+    'bedrock-runtime',
+    region_name='us-east-1',
+    config=Config(
+        read_timeout=3600  # 60 minutes
+    )
+)
+```
 
 ## Core Inference Topics
 

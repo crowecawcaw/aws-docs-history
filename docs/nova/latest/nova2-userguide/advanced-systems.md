@@ -1,6 +1,6 @@
-# Building with Amazon Nova 2
+# Advanced systems with Amazon Nova
 
-Amazon Nova enables building sophisticated AI systems that extend beyond basic text generation. Combine extended thinking, tools, agents and web grounding to create applications that interact with external systems, maintain context across complex workflows and access real-time information.
+This section provides comprehensive guidance for power users implementing advanced patterns with Nova models. These capabilities enable sophisticated applications including tool integration, retrieval-augmented generation (RAG), and autonomous AI agents.
 
 ###### Topics
 

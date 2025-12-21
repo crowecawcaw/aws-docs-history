@@ -1,8 +1,12 @@
 # Code library
 
-This section provides code examples for common Amazon Nova operations using the Converse API.
+This section provides code examples for common Amazon Nova operations using either the Converse API or the InvokeModel API.
 
-Send a basic text request to Amazon Nova models.
+## Converse API Examples
+
+### Basic request
+
+Send a basic text request to Amazon Nova models using the Converse API.
 
 Non-streaming
 
@@ -93,7 +97,9 @@ for event in response["stream"]:
             print(delta["text"], end="", flush=True)
 ```
 
-Process images and text together by embedding image data directly in the request.
+### Multimodal input using embedded asset
+
+Process multimodal content by embedding document, image, video, or audio data directly in the request. This example uses image data. For details on the content structure for other modalities, see the [ContentBlock details in the Amazon Bedrock API documentation.](../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md "../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md")
 
 Non-streaming
 
@@ -134,7 +140,7 @@ bedrock = boto3.client(
 
 # Invoke model
 response = bedrock.converse(
-    modelId="us.amazon.nova-lite-v1:0",
+    modelId="us.amazon.nova-2-lite-v1:0",
     messages=messages,
 )
 
@@ -184,7 +190,7 @@ bedrock = boto3.client(
 
 # Invoke model with streaming
 response = bedrock.converse_stream(
-    modelId="us.amazon.nova-lite-v1:0",
+    modelId="us.amazon.nova-2-lite-v1:0",
     messages=messages,
 )
 
@@ -196,7 +202,9 @@ for event in response["stream"]:
             print(delta["text"], end="", flush=True)
 ```
 
-Process images and text together by referencing images stored in S3.
+### Multimodal input using S3 URI
+
+Process multimodal content by referencing documents, images, videos, or audio files stored in S3. This example uses an image reference. For details on the content structure for other modalities, see the [ContentBlock details in the Amazon Bedrock API documentation.](../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md "../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md")
 
 Non-streaming
 
@@ -235,7 +243,7 @@ bedrock = boto3.client(
 
 # Invoke model
 response = bedrock.converse(
-    modelId="us.amazon.nova-lite-v1:0",
+    modelId="us.amazon.nova-2-lite-v1:0",
     messages=messages,
 )
 
@@ -283,7 +291,7 @@ bedrock = boto3.client(
 
 # Invoke model with streaming
 response = bedrock.converse_stream(
-    modelId="us.amazon.nova-lite-v1:0",
+    modelId="us.amazon.nova-2-lite-v1:0",
     messages=messages,
 )
 
@@ -294,6 +302,8 @@ for event in response["stream"]:
         if "text" in delta:
             print(delta["text"], end="", flush=True)
 ```
+
+### Extended thinking (reasoning)
 
 Enable extended thinking for complex problem-solving tasks.
 
@@ -402,6 +412,8 @@ for event in response["stream"]:
             text_output += text_chunk
 ```
 
+### Built-in tool: Nova Grounding with citations
+
 Use Nova Grounding to retrieve real-time information from the web with citations.
 
 Non-streaming
@@ -494,6 +506,8 @@ for event in response["stream"]:
             url = delta["citation"]["location"]["web"]["url"]
             print(f"[{url}]", end="", flush=True)
 ```
+
+### Built-in tool: Code Interpreter
 
 Use the Code Interpreter tool to execute Python code for calculations and data analysis.
 
@@ -608,6 +622,8 @@ for event in response["stream"]:
             print(text, end="", flush=True)
 ```
 
+### Tool use
+
 Define custom tools for the model to use during conversation.
 
 Non-streaming
@@ -616,56 +632,117 @@ Non-streaming
 import boto3
 from botocore.config import Config
 
-# Create the Bedrock Runtime client
+
+def get_weather(city):
+    # Mock function to simulate weather API
+    return {"temperatureF": 48, "conditions": "light rain"}
+
+
+# Define the toolSpec for the weather tool
+weather_tool = {
+    "toolSpec": {
+        "name": "get_weather",
+        "description": "Get the current weather conditions in a given location",
+        "inputSchema": {
+            "json": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "The city and state, e.g. San Francisco, CA",
+                    }
+                },
+                "required": ["city"],
+            }
+        },
+    }
+}
+
+# Define the list of tools the model may use
+tool_config = {"tools": [weather_tool]}
+
+# Create the Bedrock Runtime client, using an extended timeout configuration
+# to support long-running requests.
 bedrock = boto3.client(
     "bedrock-runtime",
     region_name="us-east-1",
     config=Config(read_timeout=3600),
 )
 
-# Define the tool configuration
-tool_config = {
-    "tools": [
-        {
-            "toolSpec": {
-                "name": "get_weather",
-                "description": "Get the current weather for a location",
-                "inputSchema": {
-                    "json": {
-                        "type": "object",
-                        "properties": {
-                            "location": {
-                                "type": "string",
-                                "description": "The city and state, e.g. San Francisco, CA",
-                            }
-                        },
-                        "required": ["location"],
-                    }
-                },
-            }
-        }
-    ]
-}
+# Start tracking message history
+messages = []
 
-messages = [
+messages.append(
     {
         "role": "user",
-        "content": [{"text": "What's the weather like in Seattle?"}],
+        "content": [
+            {
+                "text": "Suggest some activities to do in Seattle based on the current weather."
+            }
+        ],
     }
-]
+)
 
 # Invoke the model
 response = bedrock.converse(
     modelId="us.amazon.nova-2-lite-v1:0", messages=messages, toolConfig=tool_config
 )
 
-# Extract tool use from response
-content_list = response["output"]["message"]["content"]
-for content in content_list:
-    if "toolUse" in content:
-        tool_use = content["toolUse"]
-        print(f"Tool: {tool_use['name']}")
-        print(f"Input: {tool_use['input']}")
+assistant_message = response["output"]["message"]
+
+# Add the assistant response to the message history
+messages.append(assistant_message)
+
+content_list = assistant_message["content"]
+stop_reason = response["stopReason"]
+
+if stop_reason == "tool_use":
+    # Extract the toolUse details
+    tool_use = next(
+        content["toolUse"] for content in content_list if "toolUse" in content
+    )
+    tool_name = tool_use["name"]
+    tool_use_id = tool_use["toolUseId"]
+
+    if tool_name == "get_weather":
+        # Call the tool
+        weather = get_weather(tool_use["input"]["city"])
+
+        # Send the result back to the model
+        messages.append(
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "toolResult": {
+                            "toolUseId": tool_use_id,
+                            "content": [{"json": weather}],
+                        }
+                    }
+                ],
+            }
+        )
+
+        # Submit the tool result back to the model
+        response = bedrock.converse(
+            modelId="us.amazon.nova-2-lite-v1:0",
+            messages=messages,
+            toolConfig=tool_config,
+        )
+
+        content_list = response["output"]["message"]["content"]
+        for content in content_list:
+            # Extract the text response
+            if "text" in content:
+                print("\n== Text ==")
+                print(content["text"])
+else:
+    # A tool call was not needed
+    for content in content_list:
+        # Extract the text response
+        if "text" in content:
+            print("\n== Text ==")
+            print(content["text"])
 ```
 
 Streaming
@@ -675,43 +752,56 @@ import boto3
 from botocore.config import Config
 import json
 
-# Create the Bedrock Runtime client
+
+def get_weather(city):
+    # Mock function to simulate weather API
+    return {"temperatureF": 48, "conditions": "light rain"}
+
+
+# Define the toolSpec for the weather tool
+weather_tool = {
+    "toolSpec": {
+        "name": "get_weather",
+        "description": "Get the current weather conditions in a given location",
+        "inputSchema": {
+            "json": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "The city and state, e.g. San Francisco, CA",
+                    }
+                },
+                "required": ["city"],
+            }
+        },
+    }
+}
+
+# Define the list of tools the model may use
+tool_config = {"tools": [weather_tool]}
+
+# Create the Bedrock Runtime client, using an extended timeout configuration
+# to support long-running requests.
 bedrock = boto3.client(
     "bedrock-runtime",
     region_name="us-east-1",
-    config=Config(connect_timeout=3600, read_timeout=3600),
+    config=Config(read_timeout=3600),
 )
 
-# Define the tool configuration
-tool_config = {
-    "tools": [
-        {
-            "toolSpec": {
-                "name": "get_weather",
-                "description": "Get the current weather for a location",
-                "inputSchema": {
-                    "json": {
-                        "type": "object",
-                        "properties": {
-                            "location": {
-                                "type": "string",
-                                "description": "The city and state, e.g. San Francisco, CA",
-                            }
-                        },
-                        "required": ["location"],
-                    }
-                },
-            }
-        }
-    ]
-}
+# Start tracking message history
+messages = []
 
-messages = [
+messages.append(
     {
         "role": "user",
-        "content": [{"text": "What's the weather like in Seattle?"}],
+        "content": [
+            {
+                "text": "Suggest some activities to do in Seattle based on the current weather."
+            }
+        ],
     }
-]
+)
 
 # Invoke the model with streaming
 response = bedrock.converse_stream(
@@ -719,22 +809,91 @@ response = bedrock.converse_stream(
 )
 
 # Process the streaming response
+assistant_message = {"role": "assistant", "content": []}
 current_tool_use = None
+stop_reason = None
+
 for event in response["stream"]:
     if "contentBlockStart" in event:
         start = event["contentBlockStart"]["start"]
         if "toolUse" in start:
             current_tool_use = start["toolUse"]
-            print(f"Tool: {current_tool_use['name']}")
+            current_tool_use["input"] = ""
 
     elif "contentBlockDelta" in event:
         delta = event["contentBlockDelta"]["delta"]
         if "toolUse" in delta:
-            tool_input = json.loads(delta["toolUse"]["input"])
-            print(f"Input: {tool_input}")
+            current_tool_use["input"] += delta["toolUse"]["input"]
+        elif "text" in delta:
+            print(delta["text"], end="", flush=True)
+
+    elif "contentBlockStop" in event:
+        if current_tool_use:
+            # Parse the accumulated tool input
+            current_tool_use["input"] = json.loads(current_tool_use["input"])
+            assistant_message["content"].append({"toolUse": current_tool_use})
+            current_tool_use = None
+
+    elif "messageStop" in event:
+        stop_reason = event["messageStop"]["stopReason"]
+        if stop_reason == "end_turn":
+            exit
+
+# Add the assistant response to the message history
+messages.append(assistant_message)
+
+if stop_reason == "tool_use":
+    # Extract the toolUse details
+    tool_use = next(
+        content["toolUse"]
+        for content in assistant_message["content"]
+        if "toolUse" in content
+    )
+    tool_name = tool_use["name"]
+    tool_use_id = tool_use["toolUseId"]
+
+    if tool_name == "get_weather":
+        # Call the tool
+        weather = get_weather(tool_use["input"]["city"])
+
+        # Send the result back to the model
+        messages.append(
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "toolResult": {
+                            "toolUseId": tool_use_id,
+                            "content": [{"json": weather}],
+                        }
+                    }
+                ],
+            }
+        )
+
+        # Submit the tool result back to the model with streaming
+        response = bedrock.converse_stream(
+            modelId="us.amazon.nova-2-lite-v1:0",
+            messages=messages,
+            toolConfig=tool_config,
+        )
+
+        # Handle the final streaming response
+        print("\n== Text ==")
+        for event in response["stream"]:
+            if "contentBlockDelta" in event:
+                delta = event["contentBlockDelta"]["delta"]
+                if "text" in delta:
+                    print(delta["text"], end="", flush=True)
 ```
 
-Use the InvokeModel API for direct model invocation with JSON request/response format.
+## InvokeModel API Examples
+
+The examples below focus on the few key areas where the Invoke API's request and response structures differ slightly from those of the Converse API. In most other ways, the two APIs are compatible, so you should be able to easily adapt the Converse API examples above to work with the InvokeModel API.
+
+### Basic request
+
+Send a basic text request to Amazon Nova 2 models using the InvokeModel API.
 
 Non-streaming
 
@@ -826,6 +985,8 @@ for event in response["body"]:
         if "text" in delta:
             print(delta["text"], end="", flush=True)
 ```
+
+### InvokeModel API with reasoning
 
 Use the InvokeModel API with reasoning enabled for complex problem-solving.
 

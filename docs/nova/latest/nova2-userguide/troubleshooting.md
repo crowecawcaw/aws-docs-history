@@ -16,7 +16,7 @@ Missing permissions
 
 ## Model access denied
 
-Model access request fails
+**Symptoms:** Model access request fails
 
 **Solution:**
 
@@ -26,7 +26,7 @@ Model access request fails
 
 ## Regional availability issues
 
-Feature not available in selected region
+**Symptoms:** Feature not available in selected region
 
 **Solution:**
 
@@ -36,9 +36,10 @@ Feature not available in selected region
 
 ## Timeout configuration
 
-Requests timing out before completion
+**Symptoms:** Requests timing out before completion
 
-**Cause:** Default timeout too short for complex operations
+**Cause:** Default timeout too short for complex
+operations
 
 **Solution:** Configure extended timeout settings
 
@@ -49,7 +50,6 @@ bedrock = boto3.client(
     'bedrock-runtime',
     region_name='us-east-1',
     config=Config(
-        connect_timeout=3600,  # 60 minutes
         read_timeout=3600      # 60 minutes
     )
 )
@@ -69,31 +69,51 @@ Normal completion. No action needed.
 
 max_tokens
 
-Token limit reached. Solution: Increase `maxTokens` parameter in `inferenceConfig`.
+Token limit reached.
+
+**Solution**: Increase `maxTokens` parameter in
+`inferenceConfig`.
 
 content_filtered
 
-Content violated AWS Responsible AI policy. Solution: Review and modify your input to comply with content policies.
+Content violated AWS Responsible AI policy.
+
+Solution: Review and modify your input to comply with content policies.
 
 malformed_model_output
 
-Invalid output format. Solution: Check your output schema and constraints; verify JSON schema is properly formatted.
+Invalid output format.
+
+Solution: Check your output schema and constraints; verify JSON schema is properly
+formatted.
 
 malformed_tool_use
 
-Invalid tool call format. Solution: Verify tool definitions match expected schema; check tool input parameters are correctly formatted.
+Invalid tool call format.
+
+Solution: Verify tool definitions match expected schema; check tool input parameters are
+correctly formatted.
 
 service_unavailable
 
-Built-in tool service unavailable. Solution: Retry the request after a brief delay; check AWS service health dashboard.
+Built-in tool service unavailable.
+
+Solution: Retry the request after a brief delay; check AWS service health
+dashboard.
 
 invalid_query
 
-Invalid query to built-in tool. Solution: Review query format and parameters; ensure query meets tool requirements.
+Invalid query to built-in tool.
+
+Solution: Review query format and parameters; ensure query meets tool
+requirements.
 
 max_tool_invocations
 
-Tool retries exhausted. Solution: Simplify the task or break it into smaller steps; review tool error messages for specific issues.
+Tool retries exhausted.
+
+Solution: Simplify the task or break it into smaller steps; review tool error messages
+for specific issues.
 
 ## Reasoning mode errors
 

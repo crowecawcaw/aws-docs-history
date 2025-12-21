@@ -2,39 +2,70 @@
 
 capabilities
 
-Amazon Nova 2 Sonic supports multiple languages with dedicated voices for each language.
-The model can understand and respond in the following languages:
+Amazon Nova 2 Sonic provides a diverse selection of voices across multiple languages,
+enabling you to create conversational AI applications that feel natural and
+culturally appropriate for your users. Each language offers both feminine-sounding
+and masculine-sounding voice options.
 
-English
+The following table lists all available voices and their corresponding language
+locales:
 
-Voices: matthew, tiffany, amy, olivia
+| Language            | Locale | Feminine-sounding Voice ID | Masculine-sounding Voice ID |
+| ------------------- | ------ | -------------------------- | --------------------------- |
+| English (US)        | en-US  | tiffany                    | matthew                     |
+| English (UK)        | en-GB  | amy                        | -                           |
+| English (Australia) | en-AU  | olivia                     | -                           |
+| English (Indian)    | en-IN  | kiara                      | arjun                       |
+| French              | fr-FR  | ambre                      | florian                     |
+| Italian             | it-IT  | beatrice                   | lorenzo                     |
+| German              | de-DE  | tina                       | lennart                     |
+| Spanish (US)        | es-US  | lupe                       | carlos                      |
+| Portuguese          | pt-BR  | carolina                   | leo                         |
+| Hindi               | hi-IN  | kiara                      | arjun                       |
 
-Spanish
+## Event structure using voices in your
 
-Voices: lupe, carlos
+application
 
-French
+You can specify the voice ID in the `audioOutputConfiguration` when
+starting a prompt in the `promptStart` event:
 
-Voices: ambre, florian
+```
+"event": {
+        "promptStart": {
+            "promptName": "string",
+            "audioOutputConfiguration": {
+                "mediaType": "audio/lpcm",
+                "sampleRateHertz": 16000,
+                "sampleSizeBits": 16,
+                "channelCount": 1,
+                "voiceId": "tiffany",
+                "encoding": "base64",
+                "audioType": "SPEECH"
+            }
+        }
+    }
 
-German
+```
 
-Voices: tina, lennart
+## Multilingual support
 
-Italian
+Amazon Nova 2 Sonic provides powerful multilingual capabilities that enable natural
+conversations across multiple languages. The service supports both polyglot
+voices (speaking multiple languages) and code-switching (mixing languages within
+the same sentence), allowing you to build truly global conversational
+applications.
 
-Voices: beatrice, lorenzo
+The TIFFANY (en-US, female) and MATTHEW (en-US, male) are unique polyglot
+voices that can speak all supported languages:
 
-Portuguese
+1. English
+2. French
+3. Italian
+4. German
+5. Spanish
+6. Portuguese
+7. Hindi
 
-Voices: carolina, leo
-
-Hindi
-
-Voices: arjun, kiara
-
-## Polyglot voices
-
-Two voices support multiple languages: **Tiffany** and **Matthew**. These
-polyglot voices can seamlessly switch between languages within a single
-conversation, making them ideal for multilingual applications.
+This makes Tiffany and Matthew ideal for applications that need to switch
+between multiple languages seamlessly.

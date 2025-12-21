@@ -109,8 +109,8 @@ This method configures the Amazon Bedrock client with the following:
 
 ## Handle events
 
-This helper method sends JSON events to the bidirectional stream for
-all communication with the Amazon Nova Sonic model:
+This helper method sends JSON events to the bidirectional stream, which is used
+for all communication with the Amazon Nova Sonic model:
 
 ```
     async def send_event(self, event_json):
@@ -417,7 +417,12 @@ This method will perform the following tasks:
             output=True
         )
 
-        try:
+```
+
+try:
+
+```
+
             while self.is_active:
                 audio_data = await self.audio_queue.get()
                 stream.write(audio_data)
@@ -433,7 +438,7 @@ This method will perform the following tasks:
 
 This method will perform the following tasks:
 
-- Initialize a `PyAudio` output stream
+- Initializes a `PyAudio` output stream
 - Starts the audio input session
 - Continuously captures audio chunks from the microphone
 - Sends each chunk to the Amazon Nova Sonic model
@@ -456,7 +461,12 @@ This method will perform the following tasks:
 
         await self.start_audio_input()
 
-        try:
+```
+
+try:
+
+```
+
             while self.is_active:
                 audio_data = stream.read(CHUNK_SIZE, exception_on_overflow=False)
                 await self.send_audio_chunk(audio_data)
@@ -476,7 +486,7 @@ This method will perform the following tasks:
 The main function orchestrates the entire process by performing the
 following:
 
-- Creates a Amazon Nova Sonic client
+- Creates an Amazon Nova 2 Sonic client
 - Starts the session
 - Creates concurrent tasks for audio playback and capture
 - Waits for the user to press `Enter` to stop

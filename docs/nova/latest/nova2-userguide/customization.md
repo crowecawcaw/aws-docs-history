@@ -10,8 +10,8 @@ advanced training pipelines in Amazon SageMaker.
 - [Customization platform availability](#customization-availability "#customization-availability")
 - [Customization on Amazon Bedrock](#customization-bedrock "#customization-bedrock")
 - [Customization on SageMaker AI](#customization-sagemaker "#customization-sagemaker")
-- [With Amazon Bedrock](customize-fine-tune-bedrock.md "customize-fine-tune-bedrock.md")
-- [With Amazon SageMaker AI](customize-fine-tune-sagemaker.md "customize-fine-tune-sagemaker.md")
+- [Fine-tuning Amazon Nova models](customize-fine-tune.md "customize-fine-tune.md")
+- [On-demand inference on Custom Models](custom-fine-tune-odi.md "custom-fine-tune-odi.md")
 
 ## Customization overview
 
