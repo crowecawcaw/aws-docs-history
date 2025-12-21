@@ -2,7 +2,7 @@
 
 Deep Learning Containers are built for specific machine learning frameworks, infrastructures, and Amazon cloud services. The full list of available images and their respective tags are available [here](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md"). The containers come pre-configured with essential dependencies, eliminating the need for manual setup and optimization and they are readily available through Amazon Elastic Container Registry (ECR). Additionally, these containers are designed to work seamlessly with various Amazon cloud services, including Amazon SageMaker, Amazon EKS, Amazon EC2, and Amazon ECS.
 
-### Tutorial
+## Tutorial
 
 In the following tutorial, we explore how to customize a PyTorch training container, providing you with a practical example of container customization.
 

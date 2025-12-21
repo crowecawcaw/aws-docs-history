@@ -8,6 +8,7 @@ The containers are available in the following regions:
 
 | Framework  | Current version | CUDA version                                          | GitHub GA  | End of patch |
 | ---------- | --------------- | ----------------------------------------------------- | ---------- | ------------ |
+| PyTorch    | 2.9             | 13.0                                                  | 2025-10-15 | 2026-10-15   |
 | PyTorch    | 2.8             | 12.9                                                  | 2025-08-06 | 2026-08-06   |
 | PyTorch    | 2.7             | 12.8                                                  | 2025-04-23 | 2026-04-23   |
 | PyTorch    | 2.6             | • 12.6 for Training DLCs<br>• 12.4 for Inference DLCs | 2025-01-29 | 2026-01-29   |
