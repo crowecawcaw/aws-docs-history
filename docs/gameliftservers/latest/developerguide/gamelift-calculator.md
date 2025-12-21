@@ -27,7 +27,7 @@ game servers. In Amazon GameLift Servers, you deploy a fleet of instances with a
 operating system. If you have or plan to have multiple fleets, create an estimate for each
 fleet.
 
-To get started, open the [Configure Amazon GameLift Servers page](https://calculator.aws/#/createCalculator/GameLift "https://calculator.aws/#/createCalculator/GameLift") of AWS Pricing Calculator. Add a **Description**, choose a
+To get started, open the [Configure Amazon GameLift Servers page](https://calculator.aws/#/createCalculator/GameLiftServers "https://calculator.aws/#/createCalculator/GameLiftServers") of AWS Pricing Calculator. Add a **Description**, choose a
 **Region**, and then choose **Estimate Amazon GameLift Servers hosting (Instance + Data
 Transfer Out)**. Under **Amazon GameLift Servers instances**, complete the following
 fields:
@@ -117,7 +117,7 @@ servers. Data transfer fees apply to outbound traffic only. Inbound data transfe
 cost.
 
 On the [Configure Amazon GameLift Servers
-page](https://calculator.aws/#/createCalculator/GameLift "https://calculator.aws/#/createCalculator/GameLift") of AWS Pricing Calculator, expand **Data transfer out (DTO)**, and then complete
+page](https://calculator.aws/#/createCalculator/GameLiftServers "https://calculator.aws/#/createCalculator/GameLiftServers") of AWS Pricing Calculator, expand **Data transfer out (DTO)**, and then complete
 the following fields:
 
 - **DTO estimate type**
