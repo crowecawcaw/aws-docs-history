@@ -10,7 +10,7 @@ security team owns Account A. They manage users and groups in AWS IAM Identity C
 resources required to provide access to internal applications, such as Verified Access trust providers,
 Verified Access instances, Verified Access groups, and Verified Access policies. The application team owns Account B. They
 manage the resources required to run their internal application, such as the load balancer,
-Amazon EC2 Auto Scaling group, DNS configuration in Amazon Route 53, and TLS certificates from AWS Certificate Manager (ACM). After
+Auto Scaling group, DNS configuration in Amazon Route 53, and TLS certificates from AWS Certificate Manager (ACM). After
 the central security team shares a Verified Access group with Account B, the application team can
 create Verified Access endpoints using the shared group. Access to the application is allowed or denied
 based on the policies that the central security team created for the Verified Access group.
