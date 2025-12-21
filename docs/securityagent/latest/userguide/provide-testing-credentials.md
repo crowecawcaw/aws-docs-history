@@ -6,7 +6,7 @@ Provide credentials to enable AWS Security Agent to test authenticated areas of 
 
 1. In the penetration test creation workflow, locate the **Authentication credentials - Optional** section.
 2. In the **Credential #1** section, choose your credential input method:
-   - **Input credentials** - Enter credentials directly into Hobbes. Best for development and testing environments.
+   - **Input credentials** - Enter credentials directly. Best for development and testing environments.
    - **Advanced setting** - Use AWS-native credential management. Recommended for production environments and sensitive credentials.
 
 ### Advanced options
