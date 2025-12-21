@@ -37,7 +37,8 @@ accounts mid-month doesn't affect previous billing periods.
     * Only *one billing group* can have automatic account
      association.
     * Once you enable this feature, accounts that are created or added to your organization
-     will be automatically associated to this billing group.
+     will be automatically associated to this billing group. You will also receive email notification
+     when the automatic association happens.
     * If you currently have a CloudTrail logging trail, you can review your automatic account associations in your CloudTrail log.
 
 9. Under **Accounts**, choose one or more accounts to add to the billing

@@ -29,6 +29,8 @@ the Organization.
 
 The billing group is marked for deletion in the following month when the primary account leaves your Organization. To maintain pro forma billing for accounts in this billing group for the following months, we recommend you delete the billing group and create a new one. The new billing group can be created with a new primary account, or using the original account if it rejoined your Organization.
 
+If the primary account left your Organization, you will receive an email notification.
+
 For example, your primary account joined your organization on October 15 and left on October 28. The pro forma billing data for all accounts in the billing group will only include the cost and usage between October 15 through the 28th. This is true even if other accounts are a part of the billing group for thee entire month of October.
 
 To avoid discrepancy between the cost and usage datasets across the billable pro forma domains, ensure the account chosen as the primary account is a part of your Organization for the entire month.

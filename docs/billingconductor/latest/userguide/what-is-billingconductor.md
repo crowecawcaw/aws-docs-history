@@ -87,6 +87,10 @@ report.
 
 Accounts and AWS Organizations in billing groups can create budgets to monitor their pro forma spend and be alerted when they exceed, or they are forecasted to exceed, their desired pro forma spending limit.
 
+**Email Notification**
+
+You may receive email notifications when your AWS Billing Conductor configurations change. For example, when the primary account leaves AWS Organizations, or when a new linked account joins AWS Organizations and is automatically associated to a billing group.
+
 ## Pricing for AWS Billing Conductor
 
 For more information about pricing, see [AWS Billing Conductor Pricing](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/"). Billing Conductor is free for all billing transfer users for transfer billing billing groups. Any standard billing groups are charged.
