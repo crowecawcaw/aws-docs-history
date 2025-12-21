@@ -56,7 +56,7 @@ A capacity provider strategy can only contain one capacity provider type from th
 following list:
 
 - Amazon ECS Managed Instances
-- Amazon EC2 Auto Scaling group
+- Auto Scaling group
 - Fargate/Fargate_SPOT
 
 ## Instance selection and

@@ -14,7 +14,7 @@ provider
 Use the following steps to disassociate a capacity provider with a cluster.
 
 1. Use the `put-cluster-capacity-providers` command to
-   disassociate the Amazon EC2 Auto Scaling group capacity provider with the cluster. The cluster can
+   disassociate the Auto Scaling group capacity provider with the cluster. The cluster can
    keep the association with the AWS Fargate capacity providers. For more
    information, see `put-cluster-capacity-providers` in the _AWS CLI Command Reference_.
 
@@ -26,7 +26,7 @@ Use the following steps to disassociate a capacity provider with a cluster.
 ```
 
 Use the `put-cluster-capacity-providers` command to
-disassociate the Amazon EC2 Auto Scaling group capacity provider with the cluster. For more
+disassociate the Auto Scaling group capacity provider with the cluster. For more
 information, see `put-cluster-capacity-providers` in the _AWS CLI Command Reference_.
 
 ```

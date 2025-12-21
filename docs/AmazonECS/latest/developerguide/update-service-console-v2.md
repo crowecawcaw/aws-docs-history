@@ -123,12 +123,12 @@ options.
              capacity provider, choose
              **Remove**.
 
-        A service that's using an Amazon EC2 Auto Scaling group capacity provider can't be
+        A service that's using an Auto Scaling group capacity provider can't be
         updated to use a Fargate capacity provider. A service
         that's using a Fargate capacity provider can't be updated
-        to use an Amazon EC2 Auto Scaling group capacity provider.
+        to use an Auto Scaling group capacity provider.
 
-13. (Optional) To configure service Amazon EC2 Auto Scaling, expand **Service auto
+13. (Optional) To configure service Auto Scaling, expand **Service auto
     scaling**, and then specify the following parameters.To use predicte auto scaling, which looks at past load data from traffic flows, configure it after you create the service. For more information, see [Use historical patterns to scale Amazon ECS services with predictive
     scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
     1.  To use service auto scaling, select **Service auto

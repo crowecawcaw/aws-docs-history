@@ -1,11 +1,11 @@
 # Deleting an Amazon ECS capacity provider
 
-If you are finished using an Amazon EC2 Auto Scaling group capacity provider, you can delete it. After the
-group is deleted, the Amazon EC2 Auto Scaling group capacity provider transitions to the
+If you are finished using an Auto Scaling group capacity provider, you can delete it. After the
+group is deleted, the Auto Scaling group capacity provider transitions to the
 `INACTIVE` state. Capacity providers with an `INACTIVE` status may
 remain discoverable in your account for a period of time. However, this behavior is subject
 to change in the future, so you should not rely on `INACTIVE` capacity providers
-persisting. Before the Amazon EC2 Auto Scaling group capacity provider is deleted, the capacity provider must
+persisting. Before the Auto Scaling group capacity provider is deleted, the capacity provider must
 be removed from the capacity provider strategy from all services. You can use the
 `UpdateService` API or the update service workflow in the Amazon ECS console to
 remove a capacity provider from a service's capacity provider strategy. Use the **Force new
@@ -20,8 +20,8 @@ providers.
 2. In the navigation pane, choose **Clusters**.
 3. On the **Clusters** page, choose the cluster.
 4. On the **Cluster : `name`** page, choose
-   **Infrastructure**, the Amazon EC2 Auto Scaling group, and then choose
+   **Infrastructure**, the Auto Scaling group, and then choose
    **Delete**.
-5. In the confirmation box, enter **delete `Amazon EC2 Auto Scaling group
+5. In the confirmation box, enter **delete `Auto Scaling group
 name`**
 6. Choose **Delete**.

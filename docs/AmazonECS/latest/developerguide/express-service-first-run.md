@@ -3,7 +3,7 @@
 console
 
 The console experience for Express Mode service provides a streamlined way to deploy your containerized application with minimal configuration required.
-Read more about prerequisies in [Amazon ECS Express Mode](express-service-overview.md "express-service-overview.md").
+Read more about prerequisites in [Amazon ECS Express Mode](express-service-overview.md "express-service-overview.md").
 To learn more about what Express Mode creates and how it works, see [Resources created by Amazon ECS Express Mode services](express-service-work.md "express-service-work.md").
 
 ## Procedure
@@ -17,7 +17,7 @@ To learn more about what Express Mode creates and how it works, see [Resources c
       2. For **Image**, choose your image.
       3. Choose how to identify the image. For **Select image by**, choose one of the following options:
          - AWS recommends that you choose **Image digest**.
-         - To use the tag, choose **Image tag**. The for **Tag**, choose the tag.
+         - To use the tag, choose **Image tag** and then choose the tag.
 
    2. If using a private registry, select **Private registry**. Then for **Secrets Manager ARN or name**,
       enter the Secrets Manager ARN you created in the prerequisites.

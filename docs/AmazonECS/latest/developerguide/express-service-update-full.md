@@ -46,7 +46,7 @@ name. 6. Under **Configuration**:
 
 
     		* AWS recommends that you choose **Image digest**.
-    		* To use the tag, choose **Image tag**. The for **Tag**, choose the tag.
+    		* To use the tag, choose **Image tag** and then choose the tag.
     2. To use a private registry, select **Private registry**.
      Then, for **Secrets Manager ARN or name**, enter the Secrets Manager
      ARN you created in the prerequisites.

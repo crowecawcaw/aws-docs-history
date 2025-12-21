@@ -6,7 +6,7 @@ registered to your cluster.
 If you want to use the console to turn on Cluster auto scaling, see see [Creating a
 capacity provider for Amazon ECS](create-capacity-provider-console-v2.md "create-capacity-provider-console-v2.md").
 
-Before you begin, create an Amazon EC2 Auto Scaling group and a capacity provider. For more information, see
+Before you begin, create an Auto Scaling group and a capacity provider. For more information, see
 [Amazon ECS capacity providers for EC2 workloads](asg-capacity-providers.md "asg-capacity-providers.md").
 
 To turn on cluster auto scaling, you associate the capacity provider with the cluster, Then you turn
@@ -26,7 +26,7 @@ the request. For more information, see `put-cluster-capacity-providers` in the _
  --default-capacity-provider-strategy capacityProvider=CapacityProvider,weight=1`
 ```
 
-To add an Amazon EC2 Auto Scaling group for EC2, include the Amazon EC2 Auto Scaling group name
+To add an Auto Scaling group for EC2, include the Auto Scaling group name
 in the request. For more information, see `put-cluster-capacity-providers` in the _AWS CLI Command Reference_.
 
 ```

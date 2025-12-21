@@ -12,10 +12,10 @@ When tasks that use the Fargate and Fargate Spot capacity providers are stopped,
 the task state change event is sent to Amazon EventBridge. The stopped reason describes the
 cause. For more information, see [Amazon ECS task state change events](ecs_task_events.md "ecs_task_events.md").
 
-A cluster can contain a mix of Fargate and Amazon EC2 Auto Scaling group capacity
+A cluster can contain a mix of Fargate and Auto Scaling group capacity
 providers. However, a capacity provider strategy can only contain either
-Fargate or Amazon EC2 Auto Scaling group capacity providers, but not both. For more
-information, see [Amazon EC2 Auto Scaling Group Capacity Providers](cluster-auto-scaling.md#asg-capacity-providers "cluster-auto-scaling.md#asg-capacity-providers").
+Fargate or Auto Scaling group capacity providers, but not both. For more
+information, see [Auto Scaling Group Capacity Providers](cluster-auto-scaling.md#asg-capacity-providers "cluster-auto-scaling.md#asg-capacity-providers").
 
 Consider the following when using capacity providers:
 
@@ -23,7 +23,7 @@ Consider the following when using capacity providers:
   it with the capacity provider strategy.
 - You can specify a maximum of 20 capacity providers for a capacity provider
   strategy.
-- You can't update a service using an Amazon EC2 Auto Scaling group capacity provider to use a
+- You can't update a service using an Auto Scaling group capacity provider to use a
   Fargate capacity provider. The opposite is also the case.
 - In a capacity provider strategy, if no `weight` value is
   specified for a capacity provider in the console, then the default value of
@@ -39,9 +39,9 @@ Consider the following when using capacity providers:
 - In a capacity provider strategy, only one capacity provider can have a
   defined _base_ value. If no base value is specified, the
   default value of zero is used.
-- A cluster can contain a mix of both Amazon EC2 Auto Scaling group capacity providers and
+- A cluster can contain a mix of both Auto Scaling group capacity providers and
   Fargate capacity providers. However, a capacity provider strategy can only
-  contain Amazon EC2 Auto Scaling group, or Fargate capacity providers, but not both.
+  contain Auto Scaling group, or Fargate capacity providers, but not both.
 - A cluster can contain a mix of services and standalone tasks that use both
   capacity providers. A service can be updated to use a
   capacity provider strategy rather than a launch type. However, you must

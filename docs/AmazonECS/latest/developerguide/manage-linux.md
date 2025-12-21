@@ -13,7 +13,7 @@ When you use EC2 instances for your Amazon ECS workloads, you are responsible fo
 - [Reserving container instance memory](memory-management.md "memory-management.md")
 - [Manage container instances remotely](ec2-run-command.md "ec2-run-command.md")
 - [Using an HTTP proxy for Linux container instances](http_proxy_config.md "http_proxy_config.md")
-- [Configuring pre-initialized instances for your Amazon EC2 Auto Scaling
+- [Configuring pre-initialized instances for your Auto Scaling
   group](using-warm-pool.md "using-warm-pool.md")
 - [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md")
   Each Amazon ECS container agent version supports a different feature set and provides bug

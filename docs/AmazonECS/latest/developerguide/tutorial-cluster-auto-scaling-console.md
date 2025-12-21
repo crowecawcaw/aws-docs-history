@@ -29,8 +29,8 @@ This tutorial assumes that the following prerequisites have been completed:
 - The Amazon ECS service-linked IAM role is created. For more information, see
   [Using service-linked roles for
   Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
-- The Amazon EC2 Auto Scaling service-linked IAM role is created. For more information, see
-  [Service-Linked Roles for Amazon EC2 Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/autoscaling-service-linked-role.md "../../../autoscaling/ec2/userguide/autoscaling-service-linked-role.md") in the
+- The Auto Scaling service-linked IAM role is created. For more information, see
+  [Service-Linked Roles for Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/autoscaling-service-linked-role.md "../../../autoscaling/ec2/userguide/autoscaling-service-linked-role.md") in the
   _Amazon EC2 Auto Scaling User Guide_.
 - You have a VPC and security group created to use. For more information, see
   [Create a virtual private cloud](get-set-up-for-amazon-ecs.md#create-a-vpc "get-set-up-for-amazon-ecs.md#create-a-vpc").
@@ -39,7 +39,7 @@ This tutorial assumes that the following prerequisites have been completed:
 
 Use the following steps to create an Amazon ECS cluster.
 
-Amazon ECS creates an Amazon EC2 Amazon EC2 Auto Scaling launch template and Auto Scaling group on your behalf as
+Amazon ECS creates an Amazon EC2 Auto Scaling launch template and Auto Scaling group on your behalf as
 part of the CloudFormation stack.
 
 1. Open the console at
@@ -49,9 +49,9 @@ part of the CloudFormation stack.
 3. Under **Cluster configuration**, for **Cluster
    name**, enter `ConsoleTutorial-cluster`.
 4. Under **Infrastructure**, clear AWS Fargate (serverless), and
-   then select **Amazon EC2 instances**. Next, configure the Amazon EC2 Auto Scaling group
+   then select **Amazon EC2 instances**. Next, configure the Auto Scaling group
    which acts as the capacity provider.
-   1. Under **Amazon EC2 Auto Scaling group (ASG)** . Select **Create
+   1. Under **Auto Scaling group (ASG)** . Select **Create
       new ASG**, and then provide the following details about the
       group:
       - For **Operating system/Architecture**, choose
@@ -59,7 +59,7 @@ part of the CloudFormation stack.
       - For **EC2 instance type**, choose
         **t3.nano**.
       - For **Capacity**, enter the minimum number
-        and the maximum number of instances to launch in the Amazon EC2 Auto Scaling group.
+        and the maximum number of instances to launch in the Auto Scaling group.
 
 5. (Optional) To manage the cluster tags, expand **Tags**, and
    then perform one of the following operations:
@@ -138,11 +138,11 @@ the cluster. For this tutorial, you run five instances of the
 ## Step 4: Verify
 
 At this point in the tutorial, you should have a cluster with five tasks running and
-an Amazon EC2 Auto Scaling group with a capacity provider. The capacity provider has Amazon ECS managed scaling
+an Auto Scaling group with a capacity provider. The capacity provider has Amazon ECS managed scaling
 enabled.
 
 We can verify that everything is working properly by viewing the CloudWatch metrics, the
-Amazon EC2 Auto Scaling group settings, and finally the Amazon ECS cluster task count.
+Auto Scaling group settings, and finally the Amazon ECS cluster task count.
 
 ###### To view the CloudWatch metrics for your cluster
 
@@ -166,19 +166,19 @@ The value displayed in the graph shows the target capacity value for the
 capacity provider. It should begin at `100`, which was the target
 capacity percent we set. You should see it scale up to `200`, which
 will trigger an alarm for the target tracking scaling policy. The alarm will
-then trigger the Amazon EC2 Auto Scaling group to scale out.
+then trigger the Auto Scaling group to scale out.
 
-Use the following steps to view your Amazon EC2 Auto Scaling group details to confirm that the scale-out
+Use the following steps to view your Auto Scaling group details to confirm that the scale-out
 action occurred.
 
-###### To verify the Amazon EC2 Auto Scaling group scaled out
+###### To verify the Auto Scaling group scaled out
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. On the navigation bar at the top of the screen, select the Region.
 3. On the navigation pane, under **Auto Scaling**, choose
    **Auto Scaling Groups**.
-4. Choose the `ConsoleTutorial-cluster` Amazon EC2 Auto Scaling group created in this
+4. Choose the `ConsoleTutorial-cluster` Auto Scaling group created in this
    tutorial. View the value under **Desired capacity** and view
    the instances under the **Instance management** tab to
    confirm your group scaled out to two instances.
@@ -187,7 +187,7 @@ Use the following steps to view your Amazon ECS cluster to confirm that the Amaz
 were registered with the cluster and your tasks transitioned to a `RUNNING`
 status.
 
-###### To verify the instances in the Amazon EC2 Auto Scaling group
+###### To verify the instances in the Auto Scaling group
 
 1. Open the console at
    [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
@@ -220,14 +220,14 @@ resources.
 7. In the upper-right of the page, choose **Delete cluster**.
 8. In the confirmation box, enter **delete
    **ConsoleTutorial-cluster\***\* and choose **Delete\*\*.
-9. Delete the Amazon EC2 Auto Scaling groups using the following steps.
+9. Delete the Auto Scaling groups using the following steps.
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. On the navigation bar at the top of the screen, select the
       Region.
    3. On the navigation pane, under **Auto Scaling**,
       choose **Auto Scaling Groups**.
-   4. Select the `ConsoleTutorial-cluster` Amazon EC2 Auto Scaling group, then
+   4. Select the `ConsoleTutorial-cluster` Auto Scaling group, then
       choose **Actions**.
    5. From the **Actions** menu, choose
       **Delete**. Enter **delete** in

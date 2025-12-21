@@ -26,11 +26,11 @@ AWS Management Console](service-quotas-manage.md "service-quotas-manage.md").
   information about the Fargate quotas, see [AWS Fargate service quotas](../userguide/service-quotas.md#service-quotas-fargate "../userguide/service-quotas.md#service-quotas-fargate") in the _Amazon Elastic Container Service User Guide for AWS Fargate_.
 - For tasks that run on Amazon EC2 instances, the maximum number of Amazon EC2 instances
   that you can register for each cluster is 5,000. If you use Amazon ECS cluster auto
-  scaling with an Amazon EC2 Auto Scaling group capacity provider, or if you manage Amazon EC2 instances
+  scaling with an Auto Scaling group capacity provider, or if you manage Amazon EC2 instances
   for your cluster on your own, this quota might become a deployment bottleneck.
   If you require more capacity, you can create more clusters or request a service
   quota increase.
-- If you use Amazon ECS cluster auto scaling with an Amazon EC2 Auto Scaling group capacity provider,
+- If you use Amazon ECS cluster auto scaling with an Auto Scaling group capacity provider,
   when scaling your services consider the `Tasks in the PROVISIONING state per
  cluster` quota. This quota is the maximum number of tasks in the
   `PROVISIONING` state for each cluster for which capacity

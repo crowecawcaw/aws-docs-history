@@ -76,7 +76,7 @@ each active container instance that meets all of the task placement constraints
 specified in your cluster. The service scheduler evaluates the task placement
 constraints for running tasks, and stops tasks that don't meet the placement
 constraints. When you use this strategy, you don't need to specify a desired number
-of tasks, a task placement strategy, or use Service Amazon EC2 Auto Scaling policies.
+of tasks, a task placement strategy, or use Service Auto Scaling policies.
 
 Amazon ECS reserves container instance compute resources including CPU, memory, and
 network interfaces for the daemon tasks. When you launch a daemon service on a

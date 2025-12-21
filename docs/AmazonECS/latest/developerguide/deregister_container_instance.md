@@ -34,8 +34,8 @@ When deregistering a container instance, be aware of the following consideration
   see [Terminate your
   instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md") in the _Amazon EC2 User Guide_ and [Launching an Amazon ECS Linux container
   instance](launch_container_instance.md "launch_container_instance.md").
-- If the container instance is managed by an Amazon EC2 Auto Scaling group or a CloudFormation stack, terminate
-  the instance by updating the Amazon EC2 Auto Scaling group or CloudFormation stack. Otherwise, the Amazon EC2 Auto Scaling group or
+- If the container instance is managed by an Auto Scaling group or a CloudFormation stack, terminate
+  the instance by updating the Auto Scaling group or CloudFormation stack. Otherwise, the Auto Scaling group or
   CloudFormation will create a new instance after you terminate it.
 - If you terminate a running container instance with a connected Amazon ECS container
   agent, the agent automatically deregisters the instance from your cluster. Stopped

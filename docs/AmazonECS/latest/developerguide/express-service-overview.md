@@ -7,9 +7,8 @@ requires only three things to get started:
 - A container image
 - A task execution role
 - An infrastructure role
-
-Amazon ECS Express Mode orchestrates and configures all necessary infrastructure: a Fargate-based ECS service with a unique accessible URL,
-load balancer with SSL/TLS, auto scaling policies, monitoring, and networking components.
+  Amazon ECS Express Mode orchestrates and configures all necessary infrastructure: a Fargate-based ECS service with a unique accessible URL,
+  load balancer with SSL/TLS, auto scaling policies, monitoring, and networking components.
 
 Use Amazon ECS Express Mode services in the following scenarios:
 
@@ -21,9 +20,8 @@ Use Amazon ECS Express Mode services in the following scenarios:
   deep AWS knowledge
 - Platform team efficiency - Reduce maintenance overhead by providing self-service
   deployment capabilities
-
-Amazon ECS Express Mode services support either public or private HTTPS applications and automatically
-scale based on utilization or traffic.
+  Amazon ECS Express Mode services support either public or private HTTPS applications and automatically
+  scale based on utilization or traffic.
 
 ## Benefits of Amazon ECS Express Mode services
 
@@ -31,7 +29,7 @@ Amazon ECS Express Mode services provide several key advantages for deploying an
 
 - Simplified deployment - Deploy containerized applications with production-ready defaults across multiple AWS services.
 - No compromise on capabilities - All underlying AWS resources remain accessible for direct management when you need fine-grained control or advanced features.
-- Cost optimization - Shares Application Load Balancers across multiple Express Mode services using the same networking conifguration to reduce costs.
+- Cost optimization - Shares Application Load Balancers across multiple Express Mode services using the same networking configuration to reduce costs.
 - Transparent infrastructure - All resources are created in your AWS account with full visibility and accessibility through the AWS console and APIs.
 
 ## Pricing

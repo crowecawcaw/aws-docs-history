@@ -52,9 +52,7 @@ Amazon ECS replaces the host without a task retirement notice.
 
 When AWS marks a platform version revision as needing to be retired, we identify all
 of the tasks that are running on that platform version revision in all
-Regions. We then send out one notification per account per
-Region, highlighting the affected tasks or services and a date when the
-retirements will start to take place.
+Regions.
 
 The following illustration shows the lifecycle of a Fargate platform version
 revision from a new revision launch to the platform revision retirement.
@@ -177,12 +175,18 @@ see [Solution overview: Capturing task retirement notifications](https://aws.ama
 
 scheduled?
 
-No. The schedule is based off the task retirement wait time which has a default of 7
+No. The schedule is based on the task retirement wait time which has a default of 7
 days. If you need more time, you can choose to configure the wait period to 14 days. For
 more information, see [Step 2: Capture task retirement notifications to
-alert teams and take actions](prepare-task-retirement.md#prepare-task-retirement-capture-task-events "prepare-task-retirement.md#prepare-task-retirement-capture-task-events"). The change in this configuration applies
-to retirements that will be scheduled in the future. Currently scheduled retirements are
-not impacted. If you have any further concerns, contact Support.
+alert teams and take actions](prepare-task-retirement.md#prepare-task-retirement-capture-task-events "prepare-task-retirement.md#prepare-task-retirement-capture-task-events").
+
+As of 12/18/2025, Amazon ECS enables you to configure [Amazon EC2 event windows](../../../AWSEC2/latest/UserGuide/event-windows.md "../../../AWSEC2/latest/UserGuide/event-windows.md") for your Fargate tasks. If
+you need precise control over the exact timing of task retirements, for example, scheduling them over
+weekends to avoid disruption during business hours, you can configure Amazon EC2 event windows for your tasks,
+services, or clusters, see [Step 1: Set the task wait time or use Amazon EC2 event windows](prepare-task-retirement.md#prepare-task-retirement-set-time "prepare-task-retirement.md#prepare-task-retirement-set-time"). Note that the change in this configuration applies to
+retirements that will be scheduled in the future. Currently scheduled retirements are not impacted. Furthermore,
+when you configure an Amazon EC2 event window for your Fargate tasks, it takes precedence over your task retirement
+wait time configuration. If you have any further concerns, contact Support.
 
 ## How does Amazon ECS handle tasks that are
 

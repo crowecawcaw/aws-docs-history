@@ -36,7 +36,7 @@ This configuration is currently only available by using the [`CreateCapacityProv
 ## Instance warm-up period
 
 The instance warm-up period is the period of time after which a newly launched
-Amazon EC2 instance can contribute to CloudWatch metrics for the Amazon EC2 Auto Scaling group. After the specified
+Amazon EC2 instance can contribute to CloudWatch metrics for the Auto Scaling group. After the specified
 warm-up period expires, the instance is counted toward the aggregated metrics of the
 ASG, and CAS proceeds with its next iteration of calculations to estimate the number
 instances required.

@@ -82,5 +82,7 @@ The following attributes are supported for attribute-based instance type selecti
 
 Amazon ECS Managed Instances supports several features to help optimize the cost of your containerized workloads:
 
+- _Savings Plans (SPs)_: Amazon ECS Managed Instances benefit from Savings Plans that you've purchased for the instance types used by your tasks.
 - _Reserved Instances (RIs)_: Amazon ECS Managed Instances tasks can benefit from RIs that you've purchased for the instance types used by your tasks.
+- _Spot Instances_: You can configure Amazon ECS Managed Instances capacity provider to use EC2 Spot instances.
 - _Multi-task placement_: Amazon ECS Managed Instances places multiple tasks on a single general-purpose instance by default, optimizing resource utilization and cost.

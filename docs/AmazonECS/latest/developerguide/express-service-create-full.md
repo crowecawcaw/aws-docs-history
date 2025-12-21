@@ -17,8 +17,8 @@ Before creating an Express Mode service, ensure you have one of the following:
 
 ###### Note
 
-IAM Roles are also required, but is covered in the [Console](AmazonECS/latest/developerguide/express-service-first-run.md "AmazonECS/latest/developerguide/express-service-first-run.md")
-and [CLI](AmazonECS/latest/developerguide/express-service-getting-started.md "AmazonECS/latest/developerguide/express-service-getting-started.md") guides separately. The Amazon ECS Console has automated flows
+IAM Roles are also required, but is covered in the [Console](express-service-first-run.md "express-service-first-run.md")
+and [CLI](express-service-getting-started.md "express-service-getting-started.md") guides separately. The Amazon ECS Console has automated flows
 for role creation.
 
 ## Walkthroughs

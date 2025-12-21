@@ -64,7 +64,7 @@ If you have not created the Amazon ECS container instance role
 (`ecsInstanceRole`), and you are creating a cluster that uses Amazon EC2
 instances, then the console will create the role on your behalf.
 
-In addition, if you use Amazon EC2 Auto Scaling groups, then you need additional permissions so that the
+In addition, if you use Auto Scaling groups, then you need additional permissions so that the
 console can add tags to the auto scaling groups when using the cluster auto scaling
 feature.
 
@@ -82,7 +82,7 @@ The following additional permissions are required:
 The following policy contains the required IAM permissions, and limits the actions
 to the `ecsInstanceRole` role.
 
-The Amazon EC2 Auto Scaling permissions are not limited.
+The Auto Scaling permissions are not limited.
 
 JSON
 

@@ -27,4 +27,4 @@ together, you receive provision “burst” capacity at a lower cost.
 Amazon ECS can also manage the Amazon EC2 instance capacity for your tasks. Each Amazon EC2 capacity
 provider is associated with an Amazon EC2 Auto Scaling group that you specify. When you use
 the Amazon EC2 capacity provider, cluster auto scaling maintains the size of the Amazon EC2
-Amazon EC2 Auto Scaling group to ensure all scheduled tasks can be placed.
+Auto Scaling group to ensure all scheduled tasks can be placed.

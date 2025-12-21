@@ -227,7 +227,7 @@ instance while the FSx for Windows File Server file system is being created.
    name**, enter **windows-fsx-cluster**.
 6. Expand **Infrastructure**, clear AWS Fargate (serverless)
    and then select **Amazon EC2 instances**.
-   1. To create a Amazon EC2 Auto Scaling group, from **Auto Scaling group
+   1. To create a Auto Scaling group, from **Auto Scaling group
       (ASG)**, select **Create new group**, and
       then provide the following details about the group:
       - For **Operating system/Architecture**, choose

@@ -31,6 +31,7 @@ each account setting.
 | `tagResourceAuthorization`                                                    | [Tagging authorization](#tag-resources-setting "#tag-resources-setting")                                      |
 | `fargateFIPSMode`                                                             | [AWS Fargate Federal Information Processing Standard<br>(FIPS-140) compliance](#fips-setting "#fips-setting") |
 | `fargateTaskRetirementWaitPeriod`                                             | [AWS Fargate task retirement wait<br>time](#fargate-retirement-wait-time "#fargate-retirement-wait-time")     |
+| `fargateEventWindows`                                                         | [AWS Fargate task retirements using EC2 event windows](#fargate-event-windows "#fargate-event-windows")       |
 | `guardDutyActivate`                                                           | [Runtime Monitoring (Amazon GuardDuty integration)](#guard-duty-integration "#guard-duty-integration")        |
 | `dualStackIPv6`                                                               | [Dual stack IPv6 VPC](#dual-stack-setting "#dual-stack-setting")                                              |
 | `awsvpcTrunking`                                                              | [Increase Linux container instance network<br>interfaces](#vpc-trunking-setting "#vpc-trunking-setting")      |
@@ -365,11 +366,10 @@ or to wait 14 calendar days.
 
 This setting is at the account-level.
 
-You can configure the time that Fargate starts the task retirement. For workloads
-that require immediate application of the updates, choose the
-immediate setting (`0`). When you need more control, for example,
-when a task can only be stopped during a certain window, configure the 7 day
-(`7`), or 14 day (`14`) option.
+You can configure the time that Fargate starts the task retirement.
+The default wait period is 7 days. For workloads
+that require immediate application of the updates, choose the immediate setting (`0`). If you need more time,
+configure the `7`, or `14` day option.
 
 We recommend that you choose a shorter waiting period in order to pick up newer platform versions revisions sooner.
 
@@ -378,10 +378,8 @@ Configure the wait period by running
 `fargateTaskRetirementWaitPeriod` option for the `name` and the `value` option set to one of the following values:
 
 - `0` - AWS sends the notification, and immediately starts to retire the affected tasks.
-- `7` - AWS sends the notification, and waits 7 calendar days before starting to retire the affected tasks.
+- `7` - AWS sends the notification, and waits 7 calendar days before starting to retire the affected tasks. This is the default.
 - `14` - AWS sends the notification, and waits 14 calendar days before starting to retire the affected tasks.
-
-The default is 7 days.
 
 For more information, see, [put-account-setting-default](../../../cli/latest/reference/ecs/put-account-setting-default.md "../../../cli/latest/reference/ecs/put-account-setting-default.md") and [put-account-setting](../../../cli/latest/reference/ecs/put-account-setting.md "../../../cli/latest/reference/ecs/put-account-setting.md") in the _Amazon Elastic Container Service API Reference_.
 
@@ -410,6 +408,29 @@ retirement wait time. Use the `effective-settings` option.
 ```
 aws ecs list-account-settings --effective-settings
 ```
+
+## AWS Fargate task retirements using EC2 event windows
+
+AWS is responsible for patching and maintaining the underlying infrastructure for AWS Fargate. When
+AWS determines that a security or infrastructure update is needed for an Amazon ECS task hosted on Fargate, the
+tasks need to be stopped and new tasks launched to replace them. By enabling this account setting AWS Fargate will use
+EC2 event windows to determine the time and day when your tasks will be retired. Note that this is a one time enablement for an account.
+
+To enable usage of EC2 event windows for Fargate task retirements, you can use the following CLI command:
+
+```
+aws ecs put-account-setting-default --name fargateEventWindows --value enabled
+```
+
+This is an account level setting. You can associate EC2 event windows with Fargate tasks at the account,
+cluster and service levels using the following instance tags:
+
+- `aws:ecs:serviceArn` : for service tasks
+- `aws:ecs:clusterArn` : for tasks belonging to a cluster
+- `aws:ecs:fargateTask` : set to true to target all Fargate tasks in the account
+
+To learn more about how [Amazon EC2 event windows](../../../AWSEC2/latest/UserGuide/event-windows.md "../../../AWSEC2/latest/UserGuide/event-windows.md") work for your Amazon ECS tasks running on Fargate, see
+[Step 1: Set the task wait time or use Amazon EC2 event windows](prepare-task-retirement.md#prepare-task-retirement-set-time "prepare-task-retirement.md#prepare-task-retirement-set-time")
 
 ## Increase Linux container instance network
 

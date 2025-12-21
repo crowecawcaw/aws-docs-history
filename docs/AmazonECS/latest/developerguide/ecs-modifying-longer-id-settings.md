@@ -10,8 +10,8 @@ Amazon ECS account. GuardDuty controls this account setting on your behalf. For 
 
 ###### Important
 
-The `dualStackIPv6`, `fargateFIPSMode` and the
-`fargateTaskRetirementWaitPeriod` account settings can only be viewed
+The `dualStackIPv6`, `fargateFIPSMode`, `fargateTaskRetirementWaitPeriod`
+and the `fargateEventWindows` account settings can only be viewed
 or changed using the AWS CLI.
 
 1. Open the console at

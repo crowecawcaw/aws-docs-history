@@ -181,7 +181,7 @@ instances on May 19 at 5:00 PM for eight hours. The following commands show how 
 implement this scenario.
 
 The first [put-scheduled-update-group-action](../../../cli/latest/reference/autoscaling/put-scheduled-update-group-action.md "../../../cli/latest/reference/autoscaling/put-scheduled-update-group-action.md") command instructs Amazon EC2 Auto Scaling to update
-the minimum capacity of the specified Amazon EC2 Auto Scaling group at 5:00 PM UTC on May 19, 2021.
+the minimum capacity of the specified Auto Scaling group at 5:00 PM UTC on May 19, 2021.
 
 ```
 aws autoscaling put-scheduled-update-group-action --scheduled-action-name `my-event-start` \
@@ -196,7 +196,7 @@ aws autoscaling put-scheduled-update-group-action --scheduled-action-name `my-ev
   --auto-scaling-group-name `my-asg` --start-time "`2021-05-20T01:00:00Z`" --minimum-capacity `1`
 ```
 
-After you add these scheduled actions to the Amazon EC2 Auto Scaling group, Amazon EC2 Auto Scaling does the
+After you add these scheduled actions to the Auto Scaling group, Amazon EC2 Auto Scaling does the
 following:
 
 - At 5:00 PM UTC on May 19, 2021, the first scheduled action runs. If the

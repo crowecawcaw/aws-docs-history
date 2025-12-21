@@ -166,7 +166,7 @@ The following options are required for this feature:
   see [create-service](../APIReference/API_CreateService.md "../APIReference/API_CreateService.md") and [run-task](../APIReference/API_RunTask.md "../APIReference/API_RunTask.md") in the
   _AWS Command Line Interface API Reference_.
 - Amazon ECS uses managed tags to determine when some features are enabled, for
-  example cluster Amazon EC2 Auto Scaling. We recommend that you do not manually modify tags so that
+  example cluster Auto Scaling. We recommend that you do not manually modify tags so that
   the Amazon ECS can effectively manage the features.
 
 ## Use tags for billing

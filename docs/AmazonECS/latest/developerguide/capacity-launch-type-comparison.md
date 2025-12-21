@@ -4,7 +4,7 @@ Amazon ECS provides two methods for configuring capacity for workloads. You can 
 types or capacity providers. Launch types include EC2, Fargate, and External. Capacity
 providers offer enhanced flexibility and advanced features for capacity management. You can
 run workloads on serverless compute with Fargate and Fargate Spot capacity
-providers, on self-managed EC2 instances through Amazon EC2 Auto Scaling group capacity providers, or on
+providers, on self-managed EC2 instances through Auto Scaling group capacity providers, or on
 fully-managed compute using Amazon ECS Managed Instances capacity providers that combine the
 simplicity of Fargate with the flexibility of EC2 compute. Capacity providers
 offer better control over resource allocation and can help optimize both performance and
@@ -32,9 +32,9 @@ Use capacity providers to configure compute capacity
 
 When you launch tasks or services, configure a capacity provider
 strategy. Amazon ECS supports following capacity providers: Fargate and
-FARGATE_SPOT, Amazon EC2 Auto Scaling groups for self-managed EC2 instances, and Amazon ECS Managed Instances.
+FARGATE_SPOT, Auto Scaling groups for self-managed EC2 instances, and Amazon ECS Managed Instances.
 Note that Spot Fleet is only available as a capacity provider and not as a
-launch type. You can create one or more Amazon ECS Managed Instances or Amazon EC2 Auto Scaling groups capacity
+launch type. You can create one or more Amazon ECS Managed Instances or Auto Scaling groups capacity
 providers in a cluster. Fargate and Fargate Spot capacity providers are created and managed
 by Amazon ECS on every cluster and you do not need to create them. A cluster can have a mix of all capacity provider types, however, a
 capacity provider strategy can't have a mix of different capacity provider types.
@@ -62,7 +62,7 @@ The following is a high-level overview of the process:
 Task definitions must pass compatibility validation for the target
 capacity provider. If the `requiresCompatibilities` check fails
 for the task definition version, the `UpdateService` call
-fails. 2. Create a capacity provider – If you use custom Amazon EC2 Amazon EC2 Auto Scaling groups, create the capacity
+fails. 2. Create a capacity provider – If you use custom Amazon EC2 Auto Scaling groups, create the capacity
 provider. 3. Update the service – Modify the service to use a capacity provider strategy instead of the
 launch type. 4. Validate the deployment – Confirm that tasks deploy successfully. 5. Monitor and optimize – Adjust capacity provider settings as needed.
 
@@ -72,14 +72,14 @@ capacity provider
 
 All capacity provider to capacity provider updates are supported:
 
-- Amazon EC2 Amazon EC2 Auto Scaling group capacity provider to Amazon ECS Managed Instances
+- Amazon EC2 Auto Scaling group capacity provider to Amazon ECS Managed Instances
 - Fargate capacity provider to Amazon ECS Managed Instances
-- Amazon EC2 Amazon EC2 Auto Scaling group capacity provider to Fargate capacity
+- Amazon EC2 Auto Scaling group capacity provider to Fargate capacity
   provider
 - Amazon ECS Managed Instances to Fargate capacity provider
-- Fargate capacity provider to Amazon EC2 Amazon EC2 Auto Scaling group capacity
+- Fargate capacity provider to Amazon EC2 Auto Scaling group capacity
   provider
-- Amazon ECS Managed Instances to Amazon EC2 Amazon EC2 Auto Scaling group capacity provider
+- Amazon ECS Managed Instances to Amazon EC2 Auto Scaling group capacity provider
 
 ### Launch type to capacity
 
@@ -90,12 +90,12 @@ All launch type to capacity provider updates are supported:
 - EC2 launch type to Amazon ECS Managed Instances
 - Fargate launch type to Amazon ECS Managed Instances
 - EC2 launch type to Fargate capacity provider
-- EC2 launch type to EC2 Amazon EC2 Auto Scaling group capacity provider
-- Fargate launch type to Amazon EC2 Amazon EC2 Auto Scaling group capacity provider
+- EC2 launch type to EC2 Auto Scaling group capacity provider
+- Fargate launch type to Amazon EC2 Auto Scaling group capacity provider
 - Fargate launch type to Fargate capacity provider
 - External launch type to Amazon ECS Managed Instances
 - External launch type to Fargate capacity provider
-- External launch type to Amazon EC2 Amazon EC2 Auto Scaling group capacity provider
+- External launch type to Amazon EC2 Auto Scaling group capacity provider
 
 ### Launch type to launch type
 
@@ -104,7 +104,7 @@ Launch type to launch type updates are not supported:
 - EC2 launch type to Fargate launch type (use Fargate
   capacity provider instead)
 - Fargate launch type to EC2 launch type (use Amazon EC2
-  Amazon EC2 Auto Scaling group capacity provider instead)
+  Auto Scaling group capacity provider instead)
 
 Instead of migrating between launch types, migrate to the equivalent capacity provider for enhanced functionality and future compatibility.
 

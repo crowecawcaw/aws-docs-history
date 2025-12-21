@@ -2,14 +2,14 @@
 
 Customers who run Amazon ECS on Amazon EC2 can take advantage of cluster auto scaling to manage the
 scaling of Amazon EC2 Auto Scaling groups. With cluster auto scaling, you can configure Amazon ECS to scale your
-Amazon EC2 Auto Scaling group automatically, and just focus on running your tasks. Amazon ECS ensures the Amazon EC2 Auto Scaling group scales in
+Auto Scaling group automatically, and just focus on running your tasks. Amazon ECS ensures the Auto Scaling group scales in
 and out as needed with no further intervention required. Amazon ECS capacity providers are used
 to manage the infrastructure in your cluster by ensuring there are enough container
 instances to meet the demands of your application. To learn how cluster auto scaling works
 under the hood, see [Deep Dive on Amazon ECS
 Cluster Auto Scaling](https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/ "https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/").
 
-Cluster auto scaling relies on a CloudWatch based integration with Amazon EC2 Auto Scaling group for adjusting cluster
+Cluster auto scaling relies on a CloudWatch based integration with Auto Scaling group for adjusting cluster
 capacity. Therefore it has inherent latency associated with
 
 - Publishing the CloudWatch metrics,
@@ -36,8 +36,8 @@ This configuration is currently only available via the [`CreateCapacityProvider`
 ## Instance warm-up period
 
 The instance warm-up period is the period of time after which a newly launched Amazon EC2
-instance can contribute to CloudWatch metrics for the Amazon EC2 Auto Scaling group. After the specified warm-up
-period expires, the instance is counted toward the aggregated metrics of the Amazon EC2 Auto Scaling group, and
+instance can contribute to CloudWatch metrics for the Auto Scaling group. After the specified warm-up
+period expires, the instance is counted toward the aggregated metrics of the Auto Scaling group, and
 cluster auto scaling proceeds with its next iteration of calculations to estimate the
 number instances required.
 

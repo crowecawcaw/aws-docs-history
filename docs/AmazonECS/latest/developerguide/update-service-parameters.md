@@ -48,20 +48,20 @@ when you create a cluster, run a task, or update a service.
 When you use Fargate, the capacity providers are `FARGATE` or
 `FARGATE_SPOT`.
 
-When you use Amazon EC2, the capacity providers are Amazon EC2 Auto Scaling groups.
+When you use Amazon EC2, the capacity providers are Auto Scaling groups.
 
 You can change capacity providers for rolling deployments and blue/green
 deployments.
 
 The following list provides the valid transitions:
 
-- Update the Fargate to an Amazon EC2 Auto Scaling group capacity
+- Update the Fargate to an Auto Scaling group capacity
   provider.
 - Update the EC2 to a Fargate capacity provider.
-- Update the Fargate capacity provider to an Amazon EC2 Auto Scaling group capacity
+- Update the Fargate capacity provider to an Auto Scaling group capacity
   provider.
 - Update the Amazon EC2 capacity provider to a Fargate capacity provider.
-- Update the Amazon EC2 Auto Scaling group or Fargate capacity provider back to the
+- Update the Auto Scaling group or Fargate capacity provider back to the
   launch type. When you use the CLI, or API, you pass an empty list in the
   `capacityProviderStrategy` parameter.
 

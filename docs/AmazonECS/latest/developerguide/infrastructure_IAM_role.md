@@ -21,6 +21,10 @@ You can use the `AmazonECSInfrastructureRolePolicyForVpcLattice` managed policy.
 - You want to use Amazon ECS Managed Instances in your Amazon ECS clusters. The infrastructure role allows Amazon ECS to manage the lifecycle of managed instances.
 
 You can use the `AmazonECSInfrastructureRolePolicyForManagedInstances` managed policy.
+
+- You want to use Express Mode. The infrastructure role allows Amazon ECS to provision and manage the infrastructure components required for Express Mode services, including load balancing, security groups, SSL certificates, and auto scaling configurations.
+
+You can use the `AmazonECSInfrastructureRoleforExpressGatewayServices` managed policy.
 When Amazon ECS assumes this role to take actions on your behalf, the events will be visible
 in AWS CloudTrail. If Amazon ECS uses the role to manage Amazon EBS volumes attached to your tasks, the CloudTrail
 log `roleSessionName` will be `ECSTaskVolumesForEBS`. If the role is
@@ -34,7 +38,7 @@ this name to search events in the CloudTrail console by filtering for **User
 name**.
 
 Amazon ECS provides managed policies which contain the permissions required for volume
-attachment, TLS, VPC Lattice, and managed instances. For more information see, [AmazonECSInfrastructureRolePolicyForVolumes](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForVolumes.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForVolumes.md"), [AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity.md"), [AmazonECSInfrastructureRolePolicyForVpcLattice](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForVpcLattice.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForVpcLattice.md"), and [AmazonECSInfrastructureRolePolicyForManagedInstances](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForManagedInstances.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForManagedInstances.md") in the
+attachment, TLS, VPC Lattice, and managed instances. For more information see, [AmazonECSInfrastructureRolePolicyForVolumes](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForVolumes.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForVolumes.md"), [AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity.md"), [AmazonECSInfrastructureRolePolicyForVpcLattice](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForVpcLattice.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForVpcLattice.md"), [AmazonECSInfrastructureRolePolicyForManagedInstances](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForManagedInstances.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForManagedInstances.md"), and [AmazonECSInfrastructureRoleforExpressGatewayServices](../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRoleforExpressGatewayServices.md "../../../aws-managed-policy/latest/reference/AmazonECSInfrastructureRoleforExpressGatewayServices.md") in the
 _AWS Managed Policy Reference Guide_.
 
 ## Creating the Amazon ECS infrastructure role

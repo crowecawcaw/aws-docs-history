@@ -15,7 +15,7 @@ The following resources may be deleted depending on your selection:
 - Metric alarm
 - ACM Certificate
 - The Application Load Balancer (if no other services are configured), target group, security group, listener, and listener rule
-- Amazon EC2 Auto Scaling policy, scalable target
+- Auto Scaling policy, scalable target
   Consider the following::
 
 - Ensure you have backed up any important data before deletion

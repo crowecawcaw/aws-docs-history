@@ -65,9 +65,9 @@ description is no longer available.
 
 ###### Important
 
-You can drain the instances manually, or build an Amazon EC2 Auto Scaling group lifecycle hook to
+You can drain the instances manually, or build an Auto Scaling group lifecycle hook to
 set the instance status to `DRAINING`. See [Amazon EC2 Auto Scaling lifecycle
-hooks](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md") for more information about Amazon EC2 Auto Scaling lifecycle hooks.
+hooks](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md") for more information about Auto Scaling lifecycle hooks.
 
 ## Docker Support
 

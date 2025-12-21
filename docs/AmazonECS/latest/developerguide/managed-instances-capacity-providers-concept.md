@@ -27,8 +27,8 @@ Both monitoring options integrate seamlessly with CloudWatch to provide dashboar
 
 ## Capacity provider considerations
 
-A cluster can contain a mix of Amazon ECS Managed Instances capacity providers, Amazon EC2 Auto Scaling group capacity providers, and Fargate
-capacity providers. A capacity provider strategy can only contain Amazon ECS Managed Instances capacity providers, Amazon EC2 Auto Scaling group capacity
+A cluster can contain a mix of Amazon ECS Managed Instances capacity providers, Auto Scaling group capacity providers, and Fargate
+capacity providers. A capacity provider strategy can only contain Amazon ECS Managed Instances capacity providers, Auto Scaling group capacity
 providers, or Fargate capacity providers.
 
 ## Tag propagation

@@ -53,7 +53,7 @@ to select a default:
      cluster, a custom capacity provider strategy that uses the
      `FARGATE` capacity provider is selected.
     + If your cluster doesn't have a default capacity provider strategy defined
-     but you have one or more Amazon EC2 Auto Scaling group capacity providers added to the cluster, the
+     but you have one or more Auto Scaling group capacity providers added to the cluster, the
      **Use custom (Advanced)** option is selected and you
      need to manually define the strategy.
     + If your cluster doesn't have a default capacity provider strategy defined

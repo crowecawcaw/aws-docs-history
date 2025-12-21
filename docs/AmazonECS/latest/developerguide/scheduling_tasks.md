@@ -22,7 +22,7 @@ tasks with your own custom or third-party schedulers.
 With Amazon ECS, you can specify the infrastructure your tasks or services run on. You can
 use a capacity provider strategy, or a launch type.
 
-For Fargate, the capacity providers are Fargate and Fargate Spot. For EC2, the capacity provider is the Amazon EC2 Auto Scaling group with the registered container instances.
+For Fargate, the capacity providers are Fargate and Fargate Spot. For EC2, the capacity provider is the Auto Scaling group with the registered container instances.
 
 The capacity provider strategy distributes your tasks across the capacity providers associated with your cluster.
 
