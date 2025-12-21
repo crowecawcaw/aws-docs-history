@@ -143,6 +143,8 @@ The following table shows the source Regions from which you can call the inferen
 | ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
 | ap-south-1     | Commercial AWS Regions<br>ap-south-1     |
 | ap-south-2     | Commercial AWS Regions<br>ap-south-2     |
+| ap-southeast-1 | Commercial AWS Regions<br>ap-southeast-1 |
+| ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
 | ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
 | ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
 | ap-southeast-5 | Commercial AWS Regions<br>ap-southeast-5 |
@@ -154,6 +156,7 @@ The following table shows the source Regions from which you can call the inferen
 | eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
 | eu-south-1     | Commercial AWS Regions<br>eu-south-1     |
 | eu-south-2     | Commercial AWS Regions<br>eu-south-2     |
+| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
 | eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
 | eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
 | il-central-1   | Commercial AWS Regions<br>il-central-1   |
@@ -164,6 +167,7 @@ The following table shows the source Regions from which you can call the inferen
 | us-east-1      | Commercial AWS Regions<br>us-east-1      |
 | us-east-2      | Commercial AWS Regions<br>us-east-2      |
 | us-west-1      | Commercial AWS Regions<br>us-west-1      |
+| us-west-2      | Commercial AWS Regions<br>us-west-2      |
 
 To call the Global Anthropic Claude Haiku 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 

@@ -79,13 +79,17 @@ JSON
  "Version":"2012-10-17",
  "Statement": [{
  "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:root"
- },
+ "Principal": "*",
  "Action": [
+ "bedrock:GetGuardrail",
  "bedrock:ApplyGuardrail"
  ],
- "Resource": "arn:aws:bedrock:us-east-1:`111122223333`:guardrail-profile/profile-id"
+ "Resource": "arn:aws:bedrock:us-east-1:`111122223333`:guardrail/guardrail-id",
+ "Condition": {
+ "StringEquals": {
+ "aws:PrincipalOrgID": "org-id"
+ }
+ }
  }]
 }`
 
@@ -157,10 +161,9 @@ JSON
  "Effect": "Allow",
  "Principal": "*",
  "Action": [
- "bedrock:ApplyGuardrail",
- "bedrock:GetGuardrail"
+ "bedrock:ApplyGuardrail"
  ],
- "Resource": "arn:aws:bedrock:us-east-1:`111122223333`:guardrail/guardrail-id",
+ "Resource": "arn:aws:bedrock:us-east-1:`111122223333`:guardrail-profile/profile-id",
  "Condition": {
  "ForAnyValue:StringLike": {
  "aws:PrincipalOrgPaths": [

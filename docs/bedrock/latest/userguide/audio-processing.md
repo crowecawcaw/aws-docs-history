@@ -4,13 +4,13 @@ The Amazon Bedrock Data Automation (BDA) feature offers a set of standard output
 process and generate insights for audio files. Here's a detailed look at each operation
 type:
 
-### Full Audio Summary
+## Full Audio Summary
 
 Full audio summary generates an overall summary of the entire audio file. It
 distills the key themes, events, and information presented throughout the audio
 into a concise summary.
 
-### Full Audio Transcript
+## Full Audio Transcript
 
 The full audio transcript feature provides a complete text representation of
 all spoken content in the audio. It uses advanced speech recognition technology
@@ -18,7 +18,7 @@ to accurately transcribe dialogue, narration, and other audio elements. The
 transcription includes time-stamping, making it easy
 to navigate and search through audio content based on spoken words.
 
-#### Speaker and Channel Labeling
+### Speaker and Channel Labeling
 
 For the generated transcript, you can enable channel and/or speaker labeling. This will give each channel or speaker a number, and
 then indicate within the transcript when a channel is being used and a particular speaker is speaking. This
@@ -26,13 +26,13 @@ label appears within the response as "spk\_" followed by a unique number for eac
 30 speakers. The first speaker would be "spk_0", "spk_1" and so on. Audio channels are indicated similarly
 with the first channel labeled as "ch_0", but can only be labeled up two channels.
 
-### Topic Summary
+## Topic Summary
 
 Audio topic summary separates the audio file into sections called topics, and
 summarizes them to provide key information. These topics are given timestamps to help
 place them in the audio file as a whole. This feature is not enabled by default.
 
-### Content Moderation
+## Content Moderation
 
 Content moderation uses audio and text-based cues to identify and classify
 voice-based toxic content into seven different categories:
@@ -66,7 +66,7 @@ voice-based toxic content into seven different categories:
   demeaning and objectifying terms. This type of language is also
   labeled as harassment.
 
-### Audio Standard Output
+## Audio Standard Output
 
 This section focuses on the different response objects you receive from running
 the API operation InvokeDataAutomation on an audio file. Below we'll break down each

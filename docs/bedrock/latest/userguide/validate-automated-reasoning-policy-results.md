@@ -31,6 +31,10 @@ The premises and claims in the model's response are logically consistent with yo
 
 **Example:** If your policy contains a single rule stating "Employees with 1+ year of service get parental leave" and the model responds "You qualify for parental leave since you've worked here for 18 months," this would be VALID because 18 months exceeds the 1-year requirement.
 
+###### Note
+
+`VALID` guarantees validity only of parts of the input captured through policy variables in the premises and claims of the `VALID` finding. For example, the statement "I can submit my homework assignment late because I have a fake doctor's note," might be deemed valid because the policy does not have a variable to capture whether the doctor note is fake or not. In some cases, Automated Reasoning checks may be able to point out those statements as untranslated premises or claims in the finding.
+
 `INVALID`
 
 The claims in the model's response contradict or violate your policy rules. The response contains statements that are mathematically provable as incorrect based on your policy's formal logic constraints.

@@ -177,7 +177,7 @@ Source Document → Extracted Policy → Testing → Deployment → Runtime Vali
 
 ```
 
-### Policies
+## Policies
 
 Automated Reasoning policies are the foundation of accuracy validation, containing logic
 rules and variables that are automatically extracted from your source document. These
@@ -187,7 +187,7 @@ defined constraints. To perform Automated Reasoning checks in your application, 
 configure your guardrail to use a policy that matches your specific domain and validation
 requirements.
 
-### Rules
+## Rules
 
 Rules are logic that Automated Reasoning extracts from your source document. These might
 be written as if-then statements. Here are some examples of the rule format:
@@ -206,7 +206,7 @@ contradicts the axiom established by the rule. To avoid this, structure rules as
 conditional statements (if-then format) that describe relationships rather than absolute
 constraints.
 
-### Variables
+## Variables
 
 Variables represent concepts in your Automated Reasoning policy that can have values
 assigned to them when translating natural language into formal logic. Your policy rules
@@ -234,7 +234,7 @@ comprehensive variable description might state, "Employees who work more than 20
 week are full-time. Users will say full-time to set this value to true, or part-time to set
 it to false."
 
-#### Predefined
+### Predefined
 
 variable types
 

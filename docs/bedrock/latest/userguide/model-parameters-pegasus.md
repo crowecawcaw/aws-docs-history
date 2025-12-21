@@ -21,7 +21,7 @@ The following table describes the input parameters for the TwelveLabs Pegasus 1.
 | `temperature`                             | double  | No   | Temperature for the model. Controls randomness in the output. Default: 0.2, Min: 0, Max: 1. |
 | `responseFormat`                          | Object  | No   | Lets users specify the structured output format. Currently supports json_schema only.       |
 | `mediaSource`                             | object  | Yes  | Describes the media source. Either `base64String` or `s3Location` must be provided.         |
-| `mediaSource.base64String`                | string  | No   | Base64 encoded byte string for the video. Max: 36MB.                                        |
+| `mediaSource.base64String`                | string  | No   | Base64 encoded byte string for the video. Max: 25MB.                                        |
 | `mediaSource.s3Location.uri`              | string  | No   | S3 URI where the video could be downloaded from. Max: 1 hour long video (< 2GB file size).  |
 | `mediaSource.s3Location.bucketOwner`      | string  | No   | AWS account ID of the bucket owner.                                                         |
 | `maxOutputTokens`                         | integer | No   | The maximum number of tokens to generate. Max: 4096.                                        |

@@ -442,3 +442,104 @@ The following is an example snippet of the output for image processing:
 ```
 
 This structured output allows for easy integration with downstream applications and further analysis.
+
+## Blueprint Optimization APIs
+
+### InvokeBlueprintOptimizationAsync
+
+You can improve blueprint accuracy by providing example content assets with the correct expected results. Blueprint instruction optimization uses your examples to refine the natural language instructions in your blueprint fields, which improves your inference _Results_ accuracy.
+
+For a blueprint, you can call InvokeBlueprintOptimizationAsync API which initiates the asynchronous optimization job to improve Blueprint field instructions based on ground truth data.
+
+###### Request Body
+
+```
+{
+    "blueprint": {
+        "blueprintArn": "arn:aws:bedrock:us-east-1:123456789012:blueprint/my-document-processor",
+        "stage": "DEVELOPMENT"
+    },
+    "samples": [
+        {
+            "assetS3Object": {
+                "s3Uri": "s3://my-optimization-bucket/samples/document1.pdf"
+            },
+            "groundTruthS3Object": {
+                "s3Uri": "s3://my-optimization-bucket/ground-truth/document1-expected.json"
+            }
+        }
+    ],
+    "outputConfiguration": {
+        "s3Object": {
+            "s3Uri": "s3://my-optimization-bucket/results/optimization-output"
+        }
+    },
+    "dataAutomationProfileArn": "arn:aws:bedrock:us-east-1:123456789012:data-automation-profile/my-profile"
+}
+```
+
+###### Response
+
+```
+{
+    "invocationArn": "arn:aws:bedrock:us-east-1:123456789012:blueprint-optimization-invocation/opt-12345abcdef"
+}
+```
+
+###### Important
+
+Save the invocationArn to monitor the optimization job status.
+
+### GetBlueprintOptimizationStatus
+
+Retrieves the current status and results of a blueprint optimization job outputted by calling the InvokeBlueprintOptimizationAsync async API. GetBlueprintOptimizationStatus accepts the invocation ARN returned by InvokeBlueprintOptimizationAsync.
+
+###### Response
+
+```
+{
+    "status": "Success",
+    "outputConfiguration": {
+        "s3Object": {
+            "s3Uri": "s3://my-optimization-bucket/results/optimization-output"
+        }
+    }
+}
+```
+
+###### Status Values:
+
+- Created - Job has been created
+- InProgress - Optimization is running
+- Success - Optimization completed successfully
+- ServiceError - Internal service error occurred
+- ClientError - Invalid request parameters
+
+### CopyBlueprintStage
+
+Copies the Blueprint from source stage to the target stage (eg. DEVELOPMENT stage to LIVE stage). This will be used to sync all the configuration including the optimizationSamples field between stages.
+
+###### Request Body
+
+```
+{
+    "blueprintArn": "arn:aws:bedrock:us-east-1:123456789012:blueprint/my-document-processor",
+    "sourceStage": "DEVELOPMENT",
+    "targetStage": "LIVE"
+}
+```
+
+###### Stage Values:
+
+- DEVELOPMENT - Development/testing stage
+- LIVE - Production stage
+
+###### Response
+
+```
+{}
+```
+
+###### Warning
+
+This operation overwrites the target stage configuration and cannot be easily undone. Ensure thorough testing before copying to LIVE stage.

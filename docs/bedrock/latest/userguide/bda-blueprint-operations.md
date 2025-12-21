@@ -213,3 +213,58 @@ aws bedrock-data-automation delete-blueprint \
 **Caution:** This command permanently deletes a Blueprint and cannot recover it.
 
 **Important:** You cannot delete a Blueprint that's currently in use by any projects. Before deleting, ensure the Blueprint isn't referenced in any project's custom output configuration.
+
+## Blueprint Optimization
+
+### Invoking Blueprint Optimization
+
+Start an asynchronous blueprint optimization job to improve blueprint's instructions of each of your blueprint fields and result accuracy.
+
+**Syntax**
+
+```
+aws bedrock-data-automation invoke-blueprint-optimization-async \
+    --blueprint blueprintArn="arn:aws:bedrock:<region>:<account_id>:blueprint/<blueprint_id>",stage="DEVELOPMENT" \
+    --samples '[
+        {
+            "assetS3Object": {
+                "s3Uri": "s3://my-optimization-bucket/samples/document1.pdf"
+            },
+            "groundTruthS3Object": {
+                "s3Uri": "s3://my-optimization-bucket/ground-truth/document1-expected.json"
+            }
+        }
+    ]' \
+    --output-configuration s3Object='{s3Uri="s3://my-optimization-bucket/results/optimization-output"}' \
+    --data-automation-profile-arn "Amazon Resource Name (ARN):data-automation-profile/default"
+```
+
+### Checking Blueprint Optimization Status
+
+Monitor the progress and results of a blueprint optimization job.
+
+**Syntax**
+
+```
+aws bedrock-data-automation get-blueprint-optimization-status \
+    --invocation-arn "arn:aws:bedrock:<region>:<account_id>:blueprint-optimization-invocation/opt-12345abcdef"
+```
+
+Use this command to track the optimization job status. The response includes the current status (Created, InProgress, Success, ServiceError, or ClientError) and output configuration details when completed.
+
+### Copying Blueprint Stages
+
+Copy a Blueprint from one stage to another
+
+**Syntax**
+
+```
+aws bedrock-data-automation copy-blueprint-stage \
+    --blueprint-arn "arn:aws:bedrock:<region>:<account_id>:blueprint/<blueprint_id>" \
+    --source-stage "DEVELOPMENT" \
+    --target-stage "LIVE"
+```
+
+**Caution:** This command copies the entire Blueprint configuration from the source stage to the target stage, overwriting any existing configuration in the target stage.
+
+**Important:** Ensure the Blueprint is thoroughly tested in the source stage before copying to production (LIVE) stage. This operation cannot be easily undone.

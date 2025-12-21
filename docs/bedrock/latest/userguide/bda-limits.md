@@ -22,6 +22,13 @@ To process DOCX files, they are converted into PDFs. This means page number mapp
 will not work for DOCX files. Images of the converted PDFs will be uploaded to your
 output bucket if the JSON+ option and page granularity are selected.
 
+Blueprint instruction optimization supports all the limits above for documents with the following differences:
+
+- A total of 10 document asset examples
+- 20 pages per document asset example on console and API
+- 200MB for the total document asset example
+- Only PDF, DOCX, and TIFF document file formats
+
 | Image file requirements | Requirement Description | Requirement Details |
 | ----------------------- | ----------------------- | ------------------- |
 | Maximum File Size (MB)  | 5                       |
