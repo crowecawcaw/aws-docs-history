@@ -6,9 +6,18 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## November 20, 2025 – present
+## December 16, 2025 – present
 
-The following Elastic Beanstalk platform versions for Go have been current since November 20, 2025:
+The following Elastic Beanstalk platform versions for Go have been current since December 16, 2025:
+
+| Platform Version and _Solution Stack Name_                                     | AMI             | Language  | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------------- | --------- | --------- | ------------ |
+| **Go 1 AL2023 version 4.5.1**<br>_64bit Amazon Linux 2023 v4.5.1 running Go 1_ | 2023.9.20251208 | Go 1.24.9 | 3.6.1     | nginx 1.28.0 |
+| **Go 1 AL2 version 3.14.1**<br>_64bit Amazon Linux 2 v3.14.1 running Go 1_     | 2.0.20251208    | Go 1.25.5 | 3.6.1     | nginx 1.28.0 |
+
+## November 20, 2025 – December 15, 2025
+
+The following Elastic Beanstalk platform versions for Go were current between November 20, 2025 and December 15, 2025:
 
 | Platform Version and _Solution Stack Name_                                     | AMI             | Language  | AWS X-Ray | Proxy Server |
 | ------------------------------------------------------------------------------ | --------------- | --------- | --------- | ------------ |
