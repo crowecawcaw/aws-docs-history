@@ -1,133 +1,35 @@
-# Create a keyspace in Amazon Keyspaces
+# Getting started with Amazon Keyspaces (for Apache Cassandra)
 
-In this section, you create a keyspace using the
-console, `cqlsh`, or the AWS CLI.
+If you're new to Apache Cassandra and Amazon Keyspaces, this tutorial guides you through installing the necessary programs and tools to use
+Amazon Keyspaces successfully. You'll learn how to create a keyspace and table using Cassandra Query Language (CQL), the AWS Management Console, or the AWS Command Line Interface (AWS CLI).
+You then use Cassandra Query Language (CQL) to perform create, read, update, and delete (CRUD) operations on
+data in your Amazon Keyspaces table.
 
-###### Note
+This tutorial covers the following steps.
 
-Before you begin, make sure that you have configured
-all the [tutorial prerequisites](getting-started.md "getting-started.md").
+- **Prerequisites** – Before starting the tutorial, follow
+  the AWS setup instructions to sign up for AWS and create an IAM user with access to
+  Amazon Keyspaces. Then you set up the `cqhsh-expansion` and AWS CloudShell. Alternatively you can use the AWS CLI to create resources in Amazon Keyspaces.
+- **Step 1: Create a keyspace and table** – In this section, you'll create a keyspace named
+  "catalog" and a table named "book_awards" within it. You'll specify the table's columns, data types, partition key, and clustering
+  column using the AWS Management Console, CQL, or the AWS CLI.
+- **Step 2: Perform CRUD operations** – Here, you'll use the `cqlsh-expansion`
+  in CloudShell to insert, read, update, and delete data in the "book_awards" table. You'll learn how to use various CQL statements like SELECT, INSERT, UPDATE,
+  and DELETE, and practice filtering and modifying data.
+- **Step 3: Clean up resources** – To avoid incurring charges for unused resources, this section
+  guides you through deleting the "book_awards" table and "catalog" keyspace using the console, CQL, or the AWS CLI.
+  For tutorials to connect programmatically to Amazon Keyspaces using different Apache Cassandra
+  client drivers, see [Using a Cassandra client driver to access
+  Amazon Keyspaces programmatically](programmatic.md "programmatic.md"). For code examples using different AWS SDKs, see [Code examples for Amazon Keyspaces using AWS SDKs](service_code_examples.md "service_code_examples.md").
 
-A _keyspace_ groups related tables that are relevant for one or
-more applications. A keyspace contains one or more tables and defines the replication
-strategy for all the tables it contains. For more information about keyspaces, see the
-following topics:
+###### Topics
 
-- Data definition language (DDL) statements in the CQL language reference: [Keyspaces](cql.ddl.md "cql.ddl.md")
-- [Quotas for Amazon Keyspaces (for Apache Cassandra)](quotas.md "quotas.md")
-  In this tutorial we create a single-Region keyspace, and the replication strategy of
-  the keyspace is `SingleRegionStrategy`. Using
-  `SingleRegionStrategy`, Amazon Keyspaces replicates data across three [Availability
-  Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/") in one AWS Region. To learn how to create multi-Region keyspaces, see
-  [Create a multi-Region keyspace in Amazon Keyspaces](keyspaces-mrr-create.md "keyspaces-mrr-create.md").
-
-###### To create a keyspace using the console
-
-1. Sign in to the AWS Management Console, and open the Amazon Keyspaces console at [https://console.aws.amazon.com/keyspaces/home](https://console.aws.amazon.com/keyspaces/home "https://console.aws.amazon.com/keyspaces/home").
-2. In the navigation pane, choose **Keyspaces**.
-3. Choose **Create keyspace**.
-4. In the **Keyspace name** box, enter
-   `catalog` as the name for your
-   keyspace.
-
-**Name constraints:**
-
-    * The name can't be empty.
-    * Allowed characters: alphanumeric characters and underscore ( `_` ).
-    * Maximum length is 48 characters.
-
-5.  Under **AWS Regions**, confirm that **Single-Region replication** is the
-    replication strategy for the keyspace.
-6.  To create the keyspace, choose **Create
-    keyspace**.
-7.  Verify that the keyspace `catalog` was created by doing
-    the following:
-
-        1. In the navigation pane, choose **Keyspaces**.
-        2. Locate your keyspace `catalog` in the list of keyspaces.
-
-    The following procedure creates a keyspace using CQL.
-
-###### To create a keyspace using CQL
-
-1. Open AWS CloudShell and connect to Amazon Keyspaces using the following command. Make sure to update `us-east-1` with your
-   own Region.
-
-```
-cqlsh-expansion cassandra.`us-east-1`.amazonaws.com 9142 --ssl
-```
-
-The output of that command should look like this.
-
-```
-`Connected to Amazon Keyspaces at cassandra.us-east-1.amazonaws.com:9142
-[cqlsh 6.1.0 | Cassandra 3.11.2 | CQL spec 3.4.4 | Native protocol v4]
-Use HELP for help.
-cqlsh current consistency level is ONE.`
-```
-
-2. Create your keyspace using the following CQL command.
-
-```
-CREATE KEYSPACE catalog WITH REPLICATION = {'class': 'SingleRegionStrategy'};
-```
-
-`SingleRegionStrategy` uses a replication factor of three and
-replicates data across three AWS Availability Zones in its Region.
-
-###### Note
-
-Amazon Keyspaces defaults all input to lowercase unless you enclose it in
-quotation marks. 3. Verify that your keyspace was created.
-
-```
-SELECT * from system_schema.keyspaces;
-```
-
-The output of this command should look similar to this.
-
-```
-`cqlsh> SELECT * from system_schema.keyspaces;
-
- keyspace_name | durable_writes | replication
--------------------------+----------------+-------------------------------------------------------------------------------------
- system_schema | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
- system_schema_mcs | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
- system | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
- system_multiregion_info | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
- catalog | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
-
-(5 rows)`
-```
-
-The following procedure creates a keyspace using the AWS CLI.
-
-###### To create a keyspace using the AWS CLI
-
-1. To confirm that your environment is setup, you can run the following command in CloudShell.
-
-```
-aws keyspaces help
-```
-
-2. Create your keyspace using the following AWS CLI statement.
-
-```
-aws keyspaces create-keyspace --keyspace-name 'catalog'
-```
-
-3. Verify that your keyspace was created with the following AWS CLI statement
-
-```
-aws keyspaces get-keyspace --keyspace-name 'catalog'
-```
-
-The output of this command should look similar to this example.
-
-```
-`{
- "keyspaceName": "catalog",
- "resourceArn": "arn:aws:cassandra:us-east-1:111122223333:/keyspace/catalog/",
- "replicationStrategy": "SINGLE_REGION"
-}`
-```
+- [Tutorial prerequisites and considerations](getting-started.md "getting-started.md")
+- [Create a keyspace in Amazon Keyspaces](getting-started.md "getting-started.md")
+- [Check keyspace creation status in Amazon Keyspaces](keyspaces-create.md "keyspaces-create.md")
+- [Create a table in Amazon Keyspaces](getting-started.md "getting-started.md")
+- [Check table creation status in Amazon Keyspaces](tables-create.md "tables-create.md")
+- [Create, read, update, and delete
+  data (CRUD) using CQL in Amazon Keyspaces](getting-started.md "getting-started.md")
+- [Delete a table in Amazon Keyspaces](getting-started.clean-up.md "getting-started.clean-up.md")
+- [Delete a keyspace in Amazon Keyspaces](getting-started.clean-up.md "getting-started.clean-up.md")
