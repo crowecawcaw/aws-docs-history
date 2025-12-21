@@ -3,7 +3,7 @@
 AWS Organizations
 
 AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of your
-AWS resources. Resource examples include Amazon Elastic Compute Cloud (Amazon EC2) instances and Amazon EC2 Auto Scaling groups. Compute Optimizer
+AWS resources. Resource examples include Amazon Elastic Compute Cloud (Amazon EC2) instances and Auto Scaling groups. Compute Optimizer
 reports whether your resources are optimal and generates optimization recommendations to
 reduce the cost and improve the performance of your workloads. For more information about
 Compute Optimizer, see the [AWS Compute Optimizer User Guide](../../../compute-optimizer/latest/ug/what-is.md "../../../compute-optimizer/latest/ug/what-is.md").

@@ -14,7 +14,7 @@ of your accounts, including new accounts as they are added. This increases the c
 Security Hub CSPM checks and findings, which provides a more comprehensive and accurate picture of your
 overall security posture.
 
-For more information about Security Hub CSPM, see the _[AWS Security Hub CSPM User Guide](../../../securityhub/latest/userguide.md "../../../securityhub/latest/userguide.md")_.
+For more information about Security Hub CSPM, see the _[AWS Security Hub User Guide](../../../securityhub/latest/userguide.md "../../../securityhub/latest/userguide.md")_.
 
 Use the following information to help you integrate
 AWS Security Hub CSPM with AWS Organizations.
@@ -79,7 +79,7 @@ organization's management account. This helps you to separate management of the
 organization from management of Security Hub CSPM.
 
 For information, see [Designating a Security Hub CSPM administrator account](../../../securityhub/latest/userguide/designate-orgs-admin-account.md "../../../securityhub/latest/userguide/designate-orgs-admin-account.md") in the
-_AWS Security Hub CSPM User Guide_.
+_AWS Security Hub User Guide_.
 
 ###### To designate a member account as a delegated administrator for
 

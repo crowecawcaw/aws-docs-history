@@ -20,7 +20,7 @@ defines the controls that you want to apply to a group of AWS accounts.
   policy](#create-ai-opt-out-policy-procedure "#create-ai-opt-out-policy-procedure")
 - [Create a upgrade rollout
   policy](#create-upgrade-rollout-policy-procedure "#create-upgrade-rollout-policy-procedure")
-- [Create a Security Hub CSPM policy](#create-security-hub-policy-procedure "#create-security-hub-policy-procedure")
+- [Create a Security Hub policy](#create-security-hub-policy-procedure "#create-security-hub-policy-procedure")
 
 ## Create a service control policy (SCP)
 
@@ -1474,24 +1474,24 @@ policy:
 
 - AWS SDKs: [CreatePolicy](../APIReference/API_CreatePolicy.md "../APIReference/API_CreatePolicy.md")
 
-## Create a Security Hub CSPM policy
+## Create a Security Hub policy
 
 ###### Minimum permissions
 
-To create a Security Hub CSPM policy, you need permission to run the following action:
+To create a Security Hub policy, you need permission to run the following action:
 
 - `organizations:CreatePolicy`
 
 AWS Management Console
 
-###### To create a Security Hub CSPM policy
+###### To create a Security Hub policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[Security Hub policies](https://console.aws.amazon.com/organizations/v2/home/policies/securityhub-policy "https://console.aws.amazon.com/organizations/v2/home/policies/securityhub-policy")** page, choose **Create
    policy**.
-3. On the [**Create new Security Hub CSPM policy** page](https://console.aws.amazon.com/organizations/v2/home/policies/securityhub-policy/create "https://console.aws.amazon.com/organizations/v2/home/policies/securityhub-policy/create"),
+3. On the [**Create new Security Hub policy** page](https://console.aws.amazon.com/organizations/v2/home/policies/securityhub-policy/create "https://console.aws.amazon.com/organizations/v2/home/policies/securityhub-policy/create"),
    enter a **Policy name** and an optional
    **Policy description**.
 4. (Optional) You can add one or more tags to the policy by choosing
@@ -1500,27 +1500,27 @@ AWS Management Console
    it isn't `null`. You can attach up to 50 tags to a
    policy. For more information, see [Tagging AWS Organizations resources](orgs_tagging.md "orgs_tagging.md").
 5. Enter or paste the policy text in the JSON code box. For
-   information about the Security Hub CSPM policy syntax, see [Security Hub CSPM policy syntax and
+   information about the Security Hub policy syntax, see [Security Hub policy syntax and
    examples](orgs_manage_policies_security_hub_syntax.md "orgs_manage_policies_security_hub_syntax.md"). For
-   example policies that you can use as a starting point, see [Security Hub CSPM policy examples](orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples "orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples").
+   example policies that you can use as a starting point, see [Security Hub policy examples](orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples "orgs_manage_policies_security_hub_syntax.md#security-hub-policy-examples").
 6. When you're finished editing your policy, choose **Create
    policy** at the lower-right corner of the page.
 
 AWS CLI & AWS SDKs
 
-###### To create an Security Hub CSPM policy
+###### To create an Security Hub policy
 
-You can use one of the following to create a Security Hub CSPM policy:
+You can use one of the following to create a Security Hub policy:
 
 - AWS CLI: [create-policy](../../../cli/latest/reference/organizations/create-policy.md "../../../cli/latest/reference/organizations/create-policy.md")
 
-**Example: Create a policy that enables Security Hub CSPM
+**Example: Create a policy that enables Security Hub
 in all supported Regions**
 
 The following example assumes that you have a file named
 `testPolicy_enableAllSupportedRegions.json`
 with the JSON policy text in it. It uses that file to create a new
-Security Hub CSPM policy.
+Security Hub policy.
 
 ```
 `$` **aws organizations create-policy \
@@ -1542,14 +1542,14 @@ Security Hub CSPM policy.
 }`
 ```
 
-**Example: Create a policy that enables Security Hub CSPM
+**Example: Create a policy that enables Security Hub
 in all supported Regions but disable in the us-east-1
 Region**
 
 The following example assumes that you have a file named
 `testPolicy_enableAllSupportedRegions_Disable_us-east-1.json`
 with the JSON policy text in it. It uses that file to create a new
-Security Hub CSPM policy.
+Security Hub policy.
 
 ```
 `$` **aws organizations create-policy \

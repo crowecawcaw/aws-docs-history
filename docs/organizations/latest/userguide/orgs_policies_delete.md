@@ -186,9 +186,9 @@ AI services opt-out policies
 5. On the confirmation dialog box, enter the name of the
    policy, and then choose **Delete**.
 
-Security Hub CSPM policies
+Security Hub policies
 
-###### To delete a Security Hub CSPM policy
+###### To delete a Security Hub policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not

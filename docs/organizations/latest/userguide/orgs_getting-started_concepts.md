@@ -257,7 +257,7 @@ Management policies help you centrally configure and manage AWS services and the
   services opt-out policies](orgs_manage_policies_ai-opt-out.md "orgs_manage_policies_ai-opt-out.md")** allow you to control
   data collection for AWS AI services for all the accounts in an
   organization.
-- **[Security Hub CSPM policies](orgs_manage_policies_security_hub.md "orgs_manage_policies_security_hub.md")** allow you to address security
+- **[Security Hub policies](orgs_manage_policies_security_hub.md "orgs_manage_policies_security_hub.md")** allow you to address security
   coverage gaps that align with your organization's security requirements and
   centrally applying them across an organization.
 - **[Amazon Inspector policies](orgs_manage_policies_inspector.md "orgs_manage_policies_inspector.md")** allow you to centrally enable and manage Amazon Inspector across accounts in your AWS organization.

@@ -29,7 +29,7 @@ your organization.
 ## Communicate and train
 
 Educate account owners that Amazon Inspector will be enabled automatically and findings may
-appear in their Security Hub CSPM or Amazon Inspector dashboards once they are linked to the Amazon Inspector delegated
+appear in their Security Hub or Amazon Inspector dashboards once they are linked to the Amazon Inspector delegated
 administrator. Clear communication helps ensure that account owners understand the security
 monitoring in place and can respond appropriately to findings.
 

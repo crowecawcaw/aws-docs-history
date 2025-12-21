@@ -1,14 +1,14 @@
-# Security Hub CSPM policy syntax and
+# Security Hub policy syntax and
 
 examples
 
-Security Hub CSPM policies follow a standardized JSON syntax that defines how Security Hub CSPM is enabled and
+Security Hub policies follow a standardized JSON syntax that defines how Security Hub is enabled and
 configured across your organization. Understanding the policy structure helps you create
 effective policies for your security requirements.
 
 ## Considerations
 
-Before creating Security Hub CSPM policies, understand these key points about policy
+Before creating Security Hub policies, understand these key points about policy
 syntax:
 
 - Both `enable_in_regions` and `disable_in_regions` lists
@@ -19,11 +19,11 @@ syntax:
   explicitly restricted
 - The `ALL_SUPPORTED` designation includes both current and future
   regions
-- Region names must be valid and available in Security Hub CSPM
+- Region names must be valid and available in Security Hub
 
 ## Basic policy structure
 
-A Security Hub CSPM policy uses this basic structure:
+A Security Hub policy uses this basic structure:
 
 ```
 {
@@ -42,17 +42,17 @@ A Security Hub CSPM policy uses this basic structure:
 
 ## Policy components
 
-Security Hub CSPM policies contain these key components:
+Security Hub policies contain these key components:
 
 `securityhub`
 
 The top-level container for policy settings
 
-Required for all Security Hub CSPM policies
+Required for all Security Hub policies
 
 `enable_in_regions`
 
-List of regions where Security Hub CSPM should be enabled
+List of regions where Security Hub should be enabled
 
 Can contain specific region names or `ALL_SUPPORTED`
 
@@ -62,7 +62,7 @@ When using `ALL_SUPPORTED`, includes future regions
 
 `disable_in_regions`
 
-List of regions where Security Hub CSPM should be disabled
+List of regions where Security Hub should be disabled
 
 Can contain specific region names or `ALL_SUPPORTED`
 
@@ -79,11 +79,11 @@ Inheritance operators
 
 @@remove - Removes specific values from inherited settings
 
-## Security Hub CSPM policy examples
+## Security Hub policy examples
 
-The following examples demonstrate common Security Hub CSPM policy configurations.
+The following examples demonstrate common Security Hub policy configurations.
 
-The example below enables Security Hub CSPM in all current and future regions. By using
+The example below enables Security Hub in all current and future regions. By using
 `ALL_SUPPORTED` in the `enable_in_regions` list and leaving
 `disable_in_regions` empty, this policy ensures comprehensive security
 coverage as new regions become available.
@@ -105,7 +105,7 @@ coverage as new regions become available.
 }
 ```
 
-This example disables Security Hub CSPM in all regions including any future regions since
+This example disables Security Hub in all regions including any future regions since
 `disable_in_regions` list takes precedence over
 `enable_in_regions`.
 
@@ -150,9 +150,9 @@ maintaining the overall policy structure. The child policy adds a new region to
 }
 ```
 
-This example shows how to enable Security Hub CSPM in multiple specific regions without using
+This example shows how to enable Security Hub in multiple specific regions without using
 `ALL_SUPPORTED`. This provides precise control over which regions have
-Security Hub CSPM enabled, while leaving unspecified regions unmanaged by the policy.
+Security Hub enabled, while leaving unspecified regions unmanaged by the policy.
 
 ```
 {
@@ -175,8 +175,8 @@ Security Hub CSPM enabled, while leaving unspecified regions unmanaged by the po
 ```
 
 The following example demonstrates how to handle regional compliance requirements by
-enabling Security Hub CSPM in most regions while explicitly disabling it in specific locations. The
-`disable_in_regions` list takes precedence, ensuring Security Hub CSPM remains
+enabling Security Hub in most regions while explicitly disabling it in specific locations. The
+`disable_in_regions` list takes precedence, ensuring Security Hub remains
 disabled in those regions regardless of other policy settings.
 
 ```

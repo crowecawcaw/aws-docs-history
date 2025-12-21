@@ -35,7 +35,7 @@ it's attached to
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page navigate to the Root, OU, or account
    that you want to detach a policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want. Choose the
    name of the Root, OU, or account.
 3. On the **Policies** tab, choose the radio
@@ -61,7 +61,7 @@ organization root or OU.
 3. On the **Targets** tab, choose the radio
    button next to the root, OU, or account that you want to
    detach the policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want.
 4. Choose **Detach**.
 5. In the confirmation dialog box, choose
@@ -98,7 +98,7 @@ it's attached to
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page navigate to the Root, OU, or account
    that you want to detach a policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want. Choose the
    name of the Root, OU, or account.
 3. On the **Policies** tab, choose the radio
@@ -125,7 +125,7 @@ organization root or OU.
 3. On the **Targets** tab, choose the radio
    button next to the root, OU, or account that you want to
    detach the policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want.
 4. Choose **Detach**.
 5. In the confirmation dialog box, choose
@@ -152,7 +152,7 @@ or account it's attached to
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page navigate to the Root, OU, or account
    that you want to detach a policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want. Choose the
    name of the Root, OU, or account.
 3. On the **Policies** tab, choose the radio
@@ -177,7 +177,7 @@ policy
 3. On the **Targets** tab, choose the radio
    button next to the root, OU, or account that you want to
    detach the policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want.
 4. Choose **Detach**.
 5. In the confirmation dialog box, choose
@@ -200,7 +200,7 @@ account it's attached to
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page navigate to the Root, OU, or account
    that you want to detach a policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want. Choose the
    name of the Root, OU, or account.
 3. On the **Policies** tab, choose the radio
@@ -223,7 +223,7 @@ policy change takes effect immediately.
 3. On the **Targets** tab, choose the radio
    button next to the root, OU, or account that you want to
    detach the policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want.
 4. Choose **Detach**.
 5. In the confirmation dialog box, choose
@@ -246,7 +246,7 @@ account it's attached to
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page navigate to the Root, OU, or account
    that you want to detach a policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want. Choose the
    name of the Root, OU, or account.
 3. On the **Policies** tab, choose the radio
@@ -268,7 +268,7 @@ change takes effect immediately.
 3. On the **Targets** tab, choose the radio
    button next to the root, OU, or account that you want to
    detach the policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want.
 4. Choose **Detach**.
 5. In the confirmation dialog box, choose
@@ -291,7 +291,7 @@ root, OU, or account it's attached to
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page navigate to the Root, OU, or account
    that you want to detach a policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want. Choose the
    name of the Root, OU, or account.
 3. On the **Policies** tab, choose the radio
@@ -316,7 +316,7 @@ policy
 3. On the **Targets** tab, choose the radio
    button next to the root, OU, or account that you want to
    detach the policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want.
 4. Choose **Detach**.
 5. In the confirmation dialog box, choose
@@ -339,7 +339,7 @@ root, OU, or account it's attached to
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page navigate to the Root, OU, or account
    that you want to detach a policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want. Choose the
    name of the Root, OU, or account.
 3. On the **Policies** tab, choose the radio
@@ -364,7 +364,7 @@ policy
 3. On the **Targets** tab, choose the radio
    button next to the root, OU, or account that you want to
    detach the policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want.
 4. Choose **Detach**.
 5. In the confirmation dialog box, choose
@@ -373,12 +373,12 @@ policy
 The list of attached AI services opt-out policies is
 updated. The policy change takes effect immediately.
 
-Security Hub CSPM policies
-You can detach a Security Hub CSPM policy by either navigating to the policy
+Security Hub policies
+You can detach a Security Hub policy by either navigating to the policy
 or to the root, OU, or account that you want to detach the policy
 from.
 
-###### To detach a Security Hub CSPM policy by navigating to the root, OU, or
+###### To detach a Security Hub policy by navigating to the root, OU, or
 
 account it's attached to
 
@@ -387,19 +387,19 @@ account it's attached to
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page navigate to the Root, OU, or account
    that you want to detach a policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want. Choose the
    name of the Root, OU, or account.
 3. On the **Policies** tab, choose the radio
-   button next to the Security Hub CSPM policy that you want to detach, and
+   button next to the Security Hub policy that you want to detach, and
    then choose **Detach**.
 4. In the confirmation dialog box, choose **Detach
    policy**.
 
-The list of attached Security Hub CSPM policies is updated. The policy
+The list of attached Security Hub policies is updated. The policy
 change takes effect immediately.
 
-###### To detach a Security Hub CSPM policy by navigating to the policy
+###### To detach a Security Hub policy by navigating to the policy
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -410,13 +410,13 @@ change takes effect immediately.
 3. On the **Targets** tab, choose the radio
    button next to the root, OU, or account that you want to
    detach the policy from. You might have to expand OUs (choose the
-   ![Gray cloud icon representing cloud computing or storage services.](/images/organizations/latest/userguide/images/console-expand.png)
+   ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the OU or account that you want.
 4. Choose **Detach**.
 5. In the confirmation dialog box, choose
    **Detach**.
 
-The list of attached Security Hub CSPM policies is updated. The policy
+The list of attached Security Hub policies is updated. The policy
 change takes effect immediately.
 
 **To attach a policy**
