@@ -1165,6 +1165,129 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
+## Schema for Change Type ct-054ysptoo4gyk
+
+###### Classifications:
+
+- [Deployment | Advanced stack components | Resource Access Manager (RAM) | Create resource share (review required)](deployment-advanced-resource-access-manager-ram-create-resource-share-review-required.md "deployment-advanced-resource-access-manager-ram-create-resource-share-review-required.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Create Resource Share",
+  "description": "Create a resource share through Resource Access Manager (RAM) to share supported AWS resources. You can share resources with AWS accounts that come under the same customer contract. If you are in an organization, you can share with that organization's organizational units or with the entire organization. You can also share with IAM Roles, IAM Users, and Service Principals using their respective ARNs.",
+  "type": "object",
+  "properties": {
+    "Region": {
+      "description": "The AWS Region in which the resource is located, in the form us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "ResourceShareName": {
+      "description": "A meaningful name for the resource share.",
+      "type": "string",
+      "pattern": "^(?!(?:ams|mc-|com.amazonaws))([a-zA-Z0-9._ -]){1,255}$"
+    },
+    "Resources": {
+      "description": "List of resources to be shared. Must be valid AWS resource ARNs that are supported by AWS RAM. For example: VPCs, Subnets, Transit Gateways, License Configurations, Route 53 Resolver Rules, and so on.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^arn:aws(-[a-z]+)?:[a-zA-Z0-9-]+:[a-z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_/:.*=]+$"
+      },
+      "minItems": 1,
+      "maxItems": 20
+    },
+    "Principals": {
+      "description": "The IDs of the principals to share the resources with. To share the resources with your entire organization, use 'organization'. To share the resources with AWS accounts or organizational units (OUs), use the account IDs or OU IDs.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^ou-[0-9a-z]{4,32}-[0-9a-z]{8,32}$|^[0-9]{12}$|^organization$"
+      },
+      "minItems": 1,
+      "maxItems": 5
+    },
+    "AllowExternalPrincipals": {
+      "description": "Indicates whether principals outside your organization can be associated with a resource share.",
+      "type": "boolean",
+      "default": true
+    },
+    "PermissionArns": {
+      "description": "Specifies the ARNs of the RAM permissions to associate with the resource share. If not specified, the default RAM permission for each resource type will be used.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^arn:aws(-[a-z]+)?:[a-z0-9-]+:[a-z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_/:.*=]+$"
+      },
+      "minItems": 0,
+      "maxItems": 10
+    },
+    "Tags": {
+      "description": "Up to 50 tags (key/value pairs) to categorize the resource share.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 127
+          },
+          "Value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "metadata": {
+          "ui:order": [
+            "Key",
+            "Value"
+          ]
+        },
+        "required": [
+          "Key",
+          "Value"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 50,
+      "uniqueItems": true
+    },
+    "Priority": {
+      "description": "The priority of the request. See AMS \"RFC scheduling\" documentation for a definition of the priorities.",
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "Region",
+      "ResourceShareName",
+      "Resources",
+      "Principals",
+      "AllowExternalPrincipals",
+      "PermissionArns",
+      "Tags",
+      "Priority"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "Region",
+    "ResourceShareName",
+    "Resources",
+    "Principals"
+  ]
+}
+```
+
 ## Schema for Change Type ct-059ewa92tc2i1
 
 ###### Classifications:
@@ -6357,20 +6480,20 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "name": "Authorize Egress Rule",
-  "description": "Authorize the egress rule for the specified security group (SG). You must specify the configurations of the egress rule that you are authorizing. Note that this adds an egress rule to the specified SG but does not modify any existing egress rules.",
+  "name": "Authorize Multiple Egress Rules",
+  "description": "Authorize multiple egress rules for the specified security group (SG). You must specify the configurations of the egress rule that you are authorizing. Note that adding an egress rule to the specified SG does not modify any existing egress rules.",
   "type": "object",
   "properties": {
     "DocumentName": {
-      "description": "Must be AWSManagedServices-AuthorizeSecurityGroupEgressRule",
+      "description": "Must be AWSManagedServices-AuthorizeSecurityGroupEgressRulesV2",
       "type": "string",
       "enum": [
-        "AWSManagedServices-AuthorizeSecurityGroupEgressRule"
+        "AWSManagedServices-AuthorizeSecurityGroupEgressRulesV2"
       ],
-      "default": "AWSManagedServices-AuthorizeSecurityGroupEgressRule"
+      "default": "AWSManagedServices-AuthorizeSecurityGroupEgressRulesV2"
     },
     "Region": {
-      "description": "The AWS Region in which the security group is located, in the form us-east-1.",
+      "description": "The AWS Region in which the security group is located, in the format of the region code. For example, us-east-1.",
       "type": "string",
       "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
     },
@@ -6378,82 +6501,80 @@ Change type schemas specify the execution input parameters for a change type.
       "type": "object",
       "properties": {
         "SecurityGroupId": {
-          "description": "The ID of the security group (SG) that you are updating, in the form sg-0123456789abcdef.",
+          "description": "The ID of the security group (SG) that you are updating, in the format sg-0123456789abcdef",
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "^sg-[0-9a-f]{8}$|^sg-[0-9a-f]{17}$"
+            "pattern": "^sg-[0-9a-zA-Z]{8}$|^sg-[0-9a-zA-Z]{17}$"
           },
           "minItems": 1,
           "maxItems": 1
         },
-        "IpProtocol": {
-          "description": "The IP protocol name, or IP protocol number, for the egress rule. For example, for TCP, enter either TCP, or (IP protocol number) 6. If you enter ICMP, you can specify any or all of the ICMP types and codes.",
+        "OutboundRules": {
+          "description": "New outbound rules to be added.",
           "type": "array",
           "items": {
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9\\+-\\\\(\\\\)\\w]{1,18}$"
+            "type": "object",
+            "properties": {
+              "IpProtocol": {
+                "description": "The protocol name or protocol number for the rule. For example, for TCP, specify 'TCP' or the protocol number '6'. If you specify 'ICMP' as the protocol, then you can specify any or all the ICMP types and codes.",
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9\\+-\\\\(\\\\)\\w]{1,18}$",
+                "minLength": 1,
+                "maxLength": 32
+              },
+              "FromPort": {
+                "description": "The start of allowed port range, from 0 to 65535 for TCP/UDP. For ICMP, use -1.",
+                "type": "string",
+                "pattern": "^-1$|^[0-9]{1,4}$|^[1-5][0-9]{4}$|^6[0-4][0-9]{3}$|^65[0-4][0-9]{2}$|^655[0-2][0-9]$|^6553[0-5]$"
+              },
+              "ToPort": {
+                "description": "The end of allowed port range, from 0 to 65535 for TCP/UDP. For ICMP, use -1.",
+                "type": "string",
+                "pattern": "^-1$|^[0-9]{1,4}$|^[1-5][0-9]{4}$|^6[0-4][0-9]{3}$|^65[0-4][0-9]{2}$|^655[0-2][0-9]$|^6553[0-5]$"
+              },
+              "Destination": {
+                "description": "An IP address (IPv4 or IPv6), or an IP address range in CIDR notation (for example, 203.0.113.5/32 or 2001:db8::/32), or the ID of another security group in the same region. To reference this security group, use 'self'.",
+                "type": "string",
+                "pattern": "^(([0-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2])){0,1}$|^sg-[0-9a-f]{8,17}$|^self$|^pl-\\w+|^[0-9]{12}\\/sg-[0-9a-f]{8,17}$|^((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:)))(\\/(([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8])))?$"
+              },
+              "Description": {
+                "description": "A meaningful description of the outbound rule.",
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 255
+              }
+            },
+            "metadata": {
+              "ui:order": [
+                "IpProtocol",
+                "FromPort",
+                "ToPort",
+                "Destination",
+                "Description"
+              ]
+            },
+            "additionalProperties": false,
+            "required": [
+              "IpProtocol",
+              "FromPort",
+              "ToPort",
+              "Destination"
+            ]
           },
           "minItems": 1,
-          "maxItems": 1
-        },
-        "FromPort": {
-          "description": "Start of allowed port range, from 0 to 65535 for TCP/UDP. For ICMP, use -1.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^-1$|^[0-9]{1,4}$|^[1-5][0-9]{4}$|^6[0-4][0-9]{3}$|^65[0-4][0-9]{2}$|^655[0-2][0-9]$|^6553[0-5]$"
-          },
-          "minItems": 1,
-          "maxItems": 1
-        },
-        "ToPort": {
-          "description": "End of allowed port range, from 0 to 65535 for TCP/UDP. For ICMP, use -1.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^-1$|^[0-9]{1,4}$|^[1-5][0-9]{4}$|^6[0-4][0-9]{3}$|^65[0-4][0-9]{2}$|^655[0-2][0-9]$|^6553[0-5]$"
-          },
-          "minItems": 1,
-          "maxItems": 1
-        },
-        "Destination": {
-          "description": "An IP address, in the form 255.255.255.255, or an IP address range in CIDR notation, in the form 255.255.255.255/32, or the ID of another security group in the same region; or self to specify the same security group.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^(([0-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2])){0,1}$|^sg-[0-9a-f]{8}$|^sg-[0-9a-f]{17}$|^self$"
-          },
-          "minItems": 1,
-          "maxItems": 1
-        },
-        "Description": {
-          "description": "A meaningful description of the egress rule.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^$|^[ a-zA-Z0-9._\\-:/()#,@\\[\\]+=&;{}!$\\*]{1,255}$"
-          },
-          "minItems": 1,
-          "maxItems": 1
+          "maxItems": 50
         }
       },
       "metadata": {
         "ui:order": [
           "SecurityGroupId",
-          "IpProtocol",
-          "FromPort",
-          "ToPort",
-          "Destination",
-          "Description"
+          "OutboundRules"
         ]
       },
       "required": [
         "SecurityGroupId",
-        "IpProtocol",
-        "FromPort",
-        "ToPort",
-        "Destination"
+        "OutboundRules"
       ],
       "additionalProperties": false
     }
@@ -6899,6 +7020,76 @@ Change type schemas specify the execution input parameters for a change type.
     "RequestType",
     "Parameters"
   ]
+}
+```
+
+## Schema for Change Type ct-0ntpkt9wntdfs
+
+###### Classifications:
+
+- [Management | Custom Stack | Stack From CloudFormation Template | Delete Failed Stack (managed automation)](management-custom-stack-from-cloudformation-template-delete-failed-stack-managed-automation.md "management-custom-stack-from-cloudformation-template-delete-failed-stack-managed-automation.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Delete Failed Stack (Review Required)",
+  "description": "Use to delete a CloudFormation stack that's in the DELETE_FAILED state. This is useful when stack deletion fails because of resource dependencies and you want to delete the stack while keeping specific resources.",
+  "type": "object",
+  "properties": {
+    "StackId": {
+      "description": "The ID of the CloudFormation stack in the DELETE_FAILED state, in the form of stack-a1b2c3d4e5f67890e.",
+      "type": "string",
+      "pattern": "^stack-[a-z0-9]{8}$|^stack-[a-z0-9]{17}$"
+    },
+    "Region": {
+      "description": "The AWS Region in which the stack is located, in the form us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "DeletionOption": {
+      "description": "Use this option to retry stack deletion. Use 'DeleteStackButRetainResources' to select specific resources that originally failed to delete but you want to retain. Use 'ForceDeleteEntireStack' to keep all resources that failed to delete, as well as their dependencies.",
+      "type": "string",
+      "enum": [
+        "DeleteStackButRetainResources",
+        "ForceDeleteEntireStack"
+      ],
+      "default": "ForceDeleteEntireStack"
+    },
+    "ResourcesToRetain": {
+      "description": "The logical resource IDs that you want to keep when you delete the stack. You're only required to provide these IDs when DeletionOption is set to 'DeleteStackButRetainResources'.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "maxItems": 200
+    },
+    "Priority": {
+      "description": "The priority of the request. See AMS \"RFC scheduling\" documentation for a definition of the priorities.",
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "StackId",
+      "Region",
+      "DeletionOption",
+      "ResourcesToRetain",
+      "Priority"
+    ]
+  },
+  "required": [
+    "StackId",
+    "Region",
+    "DeletionOption"
+  ],
+  "additionalProperties": false
 }
 ```
 
@@ -12991,6 +13182,166 @@ Change type schemas specify the execution input parameters for a change type.
     "DocumentName",
     "Region",
     "Parameters"
+  ],
+  "additionalProperties": false
+}
+```
+
+## Schema for Change Type ct-16c7yzpkb2a6n
+
+###### Classifications:
+
+- [Management | Managed firewall | Network firewall | Create firewall policy (managed automation)](management-managed-network-firewall-create-firewall-policy-managed-automation.md "management-managed-network-firewall-create-firewall-policy-managed-automation.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Create Network Firewall Policy",
+  "description": "Create a network firewall policy with specified configuration and rule group references.",
+  "type": "object",
+  "properties": {
+    "FirewallPolicyName": {
+      "type": "string",
+      "description": "Name of the network firewall policy to create.",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^(?!ams-|mc-|aws|AMS)[a-zA-Z0-9][a-zA-Z0-9-_]*$"
+    },
+    "Description": {
+      "type": "string",
+      "description": "Description of the network firewall policy.",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "StreamExceptionPolicy": {
+      "type": "string",
+      "description": "Choose how the network firewall handles traffic when a network connection breaks midstream.",
+      "enum": [
+        "DROP",
+        "CONTINUE",
+        "REJECT"
+      ],
+      "default": "REJECT"
+    },
+    "StatelessDefaultActions": {
+      "type": "array",
+      "description": "Default actions for stateless packets that don't match any rules.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "aws:pass",
+          "aws:drop",
+          "aws:forward_to_sfe"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 3
+    },
+    "StatelessFragmentDefaultActions": {
+      "type": "array",
+      "description": "Default actions for stateless packet fragments that don't match any rules.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "aws:pass",
+          "aws:drop",
+          "aws:forward_to_sfe"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 3
+    },
+    "StatelessRuleGroupReferences": {
+      "type": "array",
+      "description": "References to stateless rule groups.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Priority": {
+            "type": "integer",
+            "description": "Priority of the rule group (lower numbers have higher priority).",
+            "minimum": 1,
+            "maximum": 65535
+          },
+          "ResourceArn": {
+            "type": "string",
+            "description": "ARN of the stateless rule group resource.",
+            "pattern": "^arn:aws[a-zA-Z-]*:network-firewall:[a-z0-9-]+:[0-9]{12}:stateless-rulegroup/[a-zA-Z0-9-_]+$"
+          }
+        },
+        "metadata": {
+          "ui:order": [
+            "Priority",
+            "ResourceArn"
+          ]
+        },
+        "required": [
+          "Priority",
+          "ResourceArn"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "StatefulRuleOrder": {
+      "type": "string",
+      "description": "The way that your stateful rules are ordered for evaluation. With the Strict order (recommended) option, rules are processed in the order that you define, starting with the first rule. With the Action order option, rules with a pass action are processed first, followed by drop, reject, and alert actions.",
+      "enum": [
+        "STRICT_ORDER",
+        "DEFAULT_ACTION_ORDER"
+      ],
+      "default": "DEFAULT_ACTION_ORDER"
+    },
+    "StatefulRuleGroupReferences": {
+      "type": "array",
+      "description": "References to stateful rule groups.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ResourceArn": {
+            "type": "string",
+            "description": "ARN of the stateful rule group resource.",
+            "pattern": "^arn:aws[a-zA-Z-]*:network-firewall:[a-z0-9-]+:[0-9]{12}:stateful-rulegroup/[a-zA-Z0-9-_]+$"
+          }
+        },
+        "metadata": {
+          "ui:order": [
+            "ResourceArn"
+          ]
+        },
+        "required": [
+          "ResourceArn"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "Priority": {
+      "type": "string",
+      "description": "The priority of the request.",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "default": "Medium"
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "FirewallPolicyName",
+      "Description",
+      "StreamExceptionPolicy",
+      "StatelessDefaultActions",
+      "StatelessFragmentDefaultActions",
+      "StatelessRuleGroupReferences",
+      "StatefulRuleOrder",
+      "StatefulRuleGroupReferences",
+      "Priority"
+    ]
+  },
+  "required": [
+    "FirewallPolicyName",
+    "StatelessDefaultActions",
+    "StatelessFragmentDefaultActions"
   ],
   "additionalProperties": false
 }
@@ -24708,6 +25059,107 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
+## Schema for Change Type ct-26swglg6rodzt
+
+###### Classifications:
+
+- [Management | Monitoring and notification | GuardDuty suppression rules | Create (managed automation)](management-monitoring-guardduty-suppression-rules-create-managed-automation.md "management-monitoring-guardduty-suppression-rules-create-managed-automation.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Create GuardDuty Suppression Rules",
+  "description": "Creation of GuardDuty Suppression Rules.",
+  "type": "object",
+  "properties": {
+    "Region": {
+      "description": "The region in which the GuardDuty Suppression Rule need to be created, in the form of us-east-1.",
+      "type": "string",
+      "pattern": "[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}"
+    },
+    "Source": {
+      "description": "Source Instance ID or IP Address for GuardDuty Rule suppression.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(i-[a-f0-9]{8}|i-[a-f0-9]{17}|(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|[1-9][0-9]{0,4})$"
+      },
+      "minItems": 1,
+      "maxItems": 50
+    },
+    "Destination": {
+      "description": "Destination IP address or port for GuardDuty Rule suppression.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(i-[a-f0-9]{8}|i-[a-f0-9]{17}|(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|[1-9][0-9]{0,4})$"
+      },
+      "minItems": 1,
+      "maxItems": 50
+    },
+    "FindingType": {
+      "description": "Create GuardDuty suppression rules (criteria and filters) to automatically archive finding types that you don't want to be notified of. Once created, suppressed findings can only be viewed through the supression rule.",
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9:/._-]+$",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "AdditonalSuppressionParameters": {
+      "type": "string",
+      "description": "Additional parameters for the suppression rule.",
+      "maxLength": 500
+    },
+    "Reason": {
+      "type": "string",
+      "description": "Detailed explanation of why this suppression is needed.",
+      "minLength": 10,
+      "maxLength": 1000
+    },
+    "SuppressionRuleName": {
+      "type": "string",
+      "description": "Name for the suppression rule. The name must be 3-64 characters. Valid characters are a-z, A-Z, 0-9, period (.), hyphen (-), and underscore (_).",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[a-zA-Z0-9._-]+$"
+    },
+    "Description": {
+      "type": "string",
+      "description": "Description providing additional context for the suppression rule. It can have up to 512 characters.",
+      "maxLength": 512
+    },
+    "Priority": {
+      "description": "The priority of the request. See AMS \"RFC scheduling\" documentation for a definition of the priorities.",
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "Region",
+      "Source",
+      "Destination",
+      "FindingType",
+      "AdditonalSuppressionParameters",
+      "Reason",
+      "SuppressionRuleName",
+      "Description",
+      "Priority"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "Region",
+    "FindingType",
+    "Reason",
+    "SuppressionRuleName"
+  ]
+}
+```
+
 ## Schema for Change Type ct-26vhhlj9jmlpf
 
 ###### Classifications:
@@ -26148,6 +26600,83 @@ Change type schemas specify the execution input parameters for a change type.
     "StackTemplateId"
   ],
   "additionalProperties": false
+}
+```
+
+## Schema for Change Type ct-28yh0fnzhubnh
+
+###### Classifications:
+
+- [Management | Advanced stack components | Load Balancer (ELB) stack | Update deletion protection](management-advanced-load-balancer-elb-stack-update-deletion-protection.md "management-advanced-load-balancer-elb-stack-update-deletion-protection.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Update ELB Deletion Protection",
+  "description": "Update the deletion protection setting for Elastic Load Balancers (Application, Network, Gateway Load Balancers) through direct API calls regardless of if the ELB is part of a CloudFormation stack.",
+  "type": "object",
+  "properties": {
+    "DocumentName": {
+      "description": "Must be AWSManagedServices-UpdateELBDeletionProtectionV2.",
+      "type": "string",
+      "enum": [
+        "AWSManagedServices-UpdateELBDeletionProtectionV2"
+      ],
+      "default": "AWSManagedServices-UpdateELBDeletionProtectionV2"
+    },
+    "Region": {
+      "description": "The AWS Region to use, in the form us-east-1.",
+      "type": "string",
+      "pattern": "^[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}$"
+    },
+    "Parameters": {
+      "type": "object",
+      "properties": {
+        "ElasticLoadBalancerArns": {
+          "description": "The ARNs of the ELBs (up to 10).",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^arn:(aws|aws-cn|aws-us-gov):elasticloadbalancing:([a-z]{2}|[a-z]{2}-gov)-[a-z]+-[0-9]{1}:[0-9]{12}:loadbalancer\\/(net|app|gwy)\\/((?!internal-)(?!-)[0-9a-zA-Z-]{0,32}(?<!-))\\/[0-9aA-zZ]{16}$"
+          },
+          "minItems": 1,
+          "maxItems": 10
+        },
+        "DeletionProtection": {
+          "description": "Whether the status of ELB deletion protection is enabled. The value 'true' is to enable deletion protection and the value 'false' is to disable deletion protection.",
+          "type": "string",
+          "enum": [
+            "true",
+            "false"
+          ]
+        }
+      },
+      "metadata": {
+        "ui:order": [
+          "ElasticLoadBalancerArns",
+          "DeletionProtection"
+        ]
+      },
+      "additionalProperties": false,
+      "required": [
+        "ElasticLoadBalancerArns",
+        "DeletionProtection"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "DocumentName",
+      "Region",
+      "Parameters"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "DocumentName",
+    "Region",
+    "Parameters"
+  ]
 }
 ```
 
@@ -36109,7 +36638,7 @@ Change type schemas specify the execution input parameters for a change type.
           "default": 7
         },
         "RDSCharacterSetName": {
-          "description": "The character set to associate with the DB instance. This is applicable only if RDSDBEngine = oracle-se, oracle-se1, oracle-se2, oracle-ee, sqlserver-ee, sqlserver-se, sqlserver-ex or sqlserver-web.",
+          "description": "The character set to associate with the DB instance. This is applicable only if RDSDBEngine = oracle-se2, oracle-ee, sqlserver-ee, sqlserver-se, sqlserver-ex or sqlserver-web.",
           "type": "string",
           "default": ""
         },
@@ -36120,8 +36649,6 @@ Change type schemas specify the execution input parameters for a change type.
             "mariadb",
             "mysql",
             "oracle-se2",
-            "oracle-se1",
-            "oracle-se",
             "oracle-ee",
             "sqlserver-ee",
             "sqlserver-se",
@@ -36166,7 +36693,7 @@ Change type schemas specify the execution input parameters for a change type.
           "default": 0
         },
         "RDSLicenseModel": {
-          "description": "License model information for the DB instance. This is applicable only if RDSDBEngine = oracle-se1 or oracle-se2. Default is license-included.",
+          "description": "License model information for the DB instance. This is applicable only if RDSDBEngine = oracle-se2. Default is license-included.",
           "type": "string",
           "enum": [
             "bring-your-own-license",
@@ -38831,16 +39358,16 @@ Change type schemas specify the execution input parameters for a change type.
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete or Deactivate Access Key",
-  "description": "Delete or deactivate the specified AWS IAM access key ID for the specified user.",
+  "description": "Deactivates AWS IAM Access key ID for the specified user and conditionally deletes associated secrets based on the Delete parameter.",
   "type": "object",
   "properties": {
     "DocumentName": {
-      "description": "Must be AWSManagedServices-DeactivateIAMAccessKey.",
+      "description": "Must be AWSManagedServices-DeactivateIAMAccessKeyV2.",
       "type": "string",
       "enum": [
-        "AWSManagedServices-DeactivateIAMAccessKey"
+        "AWSManagedServices-DeactivateIAMAccessKeyV2"
       ],
-      "default": "AWSManagedServices-DeactivateIAMAccessKey"
+      "default": "AWSManagedServices-DeactivateIAMAccessKeyV2"
     },
     "Region": {
       "description": "The AWS Region of the account.",
@@ -38892,7 +39419,7 @@ Change type schemas specify the execution input parameters for a change type.
           "maxLength": 128
         },
         "Delete": {
-          "description": "True to delete the access key for the specified user, False to deactivate it without deleting.",
+          "description": "Use the 'True' value to delete the Access key and associated secrets for the user. Use the 'False' value to deactivate the access key only while preserving secrets.",
           "type": "boolean",
           "default": false
         }
@@ -42496,7 +43023,7 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "DatabaseName": {
           "type": "string",
-          "description": "The name of the target database. Must not be blank if EngineName = oracle, postgres or sqlserver.",
+          "description": "The name of the target database. Must not be blank if EngineName = oracle, postgres, redshift or sqlserver.",
           "default": ""
         },
         "EndpointIdentifier": {

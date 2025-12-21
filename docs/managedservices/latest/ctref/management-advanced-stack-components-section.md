@@ -67,6 +67,7 @@
 - [Load Balancer (ELB) Stack | Delete Listener Rule](management-advanced-load-balancer-elb-stack-delete-listener-rule.md "management-advanced-load-balancer-elb-stack-delete-listener-rule.md")
 - [Load Balancer (ELB) Stack | Replace Listener Certificate](management-advanced-load-balancer-elb-stack-replace-listener-certificate.md "management-advanced-load-balancer-elb-stack-replace-listener-certificate.md")
 - [Load Balancer (ELB) Stack | Update](management-advanced-load-balancer-elb-stack-update.md "management-advanced-load-balancer-elb-stack-update.md")
+- [Load Balancer (ELB) Stack | Update Deletion Protection](management-advanced-load-balancer-elb-stack-update-deletion-protection.md "management-advanced-load-balancer-elb-stack-update-deletion-protection.md")
 - [NAT Gateway | Delete (Managed Automation)](management-advanced-nat-gateway-delete-managed-automation.md "management-advanced-nat-gateway-delete-managed-automation.md")
 - [Network Load Balancer | Add Listener Certificate](management-advanced-network-load-balancer-add-listener-certificate.md "management-advanced-network-load-balancer-add-listener-certificate.md")
 - [Network Load Balancer | Remove Listener Certificate](management-advanced-network-load-balancer-remove-listener-certificate.md "management-advanced-network-load-balancer-remove-listener-certificate.md")

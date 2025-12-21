@@ -19,7 +19,7 @@ Use to create an Auto Scaling group, the launch configuration to use to create n
 
 ### Create Auto Scaling groups
 
-![Create Amazon EC2 Auto Scaling group interface showing description, ID, version, and execution mode.](images/guiAsgCreateCT.png)
+![Create Auto Scaling group interface showing description, ID, version, and execution mode.](images/guiAsgCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

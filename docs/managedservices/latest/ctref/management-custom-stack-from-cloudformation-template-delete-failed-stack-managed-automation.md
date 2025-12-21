@@ -1,14 +1,14 @@
-# RDS Database Stack | Create Parameter Group (Managed Automation)
+# Stack from CloudFormation Template | Delete Failed Stack (Managed Automation)
 
-Create a custom RDS parameter group and optionally attach it to an existing RDS instance.
+Use to delete a CloudFormation stack that's in the DELETE_FAILED state. This is useful when stack deletion fails because of resource dependencies and you want to delete the stack while keeping specific resources.
 
-**Full classification:** Deployment | Advanced stack components | RDS database stack | Create parameter group (managed automation)
+**Full classification:** Management | Custom Stack | Stack From CloudFormation Template | Delete Failed Stack (managed automation)
 
 ## Change Type Details
 
 |                             |                           |
 | --------------------------- | ------------------------- |
-| Change type ID              | ct-3da2lxapopb86          |
+| Change type ID              | ct-0ntpkt9wntdfs          |
 | Current version             | 1.0                       |
 | Expected execution duration | 240 minutes               |
 | AWS approval                | Required                  |
@@ -17,11 +17,11 @@ Create a custom RDS parameter group and optionally attach it to an existing RDS 
 
 ## Additional Information
 
-### Create Custom RDS Parameter Group
+### Delete failed stack (Managed Automation)
 
-The following shows this change type in the AMS console.
+Screenshot of this change type in the AMS console:
 
-![](images/guiRDSCreateParamCT.png)
+![](images/guiStackDeleteFailedStackMaCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -70,95 +70,97 @@ _INLINE CREATE_:
 Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-3da2lxapopb86" --change-type-version "1.0" --title "Create Custom RDS Parameter Group" --execution-parameters "{\"ParameterGroupName\": \"`my-db-parameter-group`\", \"ParameterGroupFamily\": \"`mysql5.6`\", \"Description\": \"`A meaningful description of the parameter group`\", \"Priority\": \"`Medium`\", \"Parameters\": [{\"ParameterName\": \"`max_connections`\", \"ParameterValue\": \"`100`\"}], \"RDSInstanceName\": \"`my-test-db`\"}"
+aws amscm create-rfc --change-type-id "ct-0ntpkt9wntdfs" --change-type-version "1.0" --title "`Delete Failed Stack`" --execution-parameters "{\"StackId\":\"`stack-a1b2c3d4e5f67890e`\",\"Region\":\"`us-east-1`\",\"DeletionOption\":\"`DeleteStackButRetainResources`\",\"ResourcesToRetain\":[\"`MyS3Bucket`\",\"`MyDynamoDBTable`\"],\"Priority\":\"`High`\"}"
 ```
 
 _TEMPLATE CREATE_:
 
-1. Output the execution parameters JSON schema for this change type to a file; this example names it RDSCreateParameterGroupParams.json:
+1. Output the execution parameters JSON schema for this change type to a file; this example names
+   it DeleteFailedStackParams.json:
 
 ```
-aws amscm get-change-type-version --change-type-id "ct-3da2lxapopb86" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > RDSCreateParameterGroupParams.json
+aws amscm get-change-type-version --change-type-id "ct-0ntpkt9wntdfs" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteFailedStackParams.json
 ```
 
-Modify and save the RDSCreateParameterGroupParams file. For example, you can replace the contents with something like this:
+2. Modify and save the DeleteFailedStackParams file. For example, you can replace the contents with something like this:
 
 ```
 {
-  "ParameterGroupName": "`my-db-parameter-group`",
-  "ParameterGroupFamily": "`mysql5.6`",
-  "Description": "`A meaningful description of the parameter group`",
-  "Priority": "`Medium`",
-  "Parameters": [
-    {
-      "ParameterName": "`max_connections`",
-      "ParameterValue": "`100`"
-    }
+  "StackId": "`stack-a1b2c3d4e5f67890e`",
+  "Region": "`us-east-1`",
+  "DeletionOption": "`DeleteStackButRetainResources`",
+  "ResourcesToRetain": [
+    "`MyS3Bucket`",
+    "`MyDynamoDBTable`"
   ],
-  "RDSInstanceName": "`my-test-db`"
+  "Priority": "`High`"
 }
 ```
 
-2. Output the RFC template to a file in your current folder; this example names it RDSCreateParameterGroupRfc.json:
+3. Output the RFC template JSON file to a file; this example names it
+   DeleteFailedStackRfc.json:
 
 ```
-aws amscm create-rfc --generate-cli-skeleton > RDSCreateParameterGroupRfc.json
+aws amscm create-rfc --generate-cli-skeleton > DeleteFailedStackRfc.json
 ```
 
-3. Modify and save the RDSCreateParameterGroupRfc.json file. For example, you can replace the contents with something like this:
+4. Modify and save the DeleteFailedStackRfc.json file. For example, you can replace the contents with something like this:
 
 ```
 {
-"ChangeTypeId":         "ct-3da2lxapopb86",
-"ChangeTypeVersion":    "`1.0`",
-"Title":                "`Create Custom RDS Parameter Group`"
+  "ChangeTypeVersion": "1.0",
+  "ChangeTypeId": "ct-0ntpkt9wntdfs",
+  "Title": "`Delete Failed Stack`"
 }
 ```
 
-4. Create the RFC, specifying the RDSCreateParameterGroupRfc file and the GRDSCreateParameterGroupParams file:
+5. Create the RFC, specifying the DeleteFailedStackRfc file and the DeleteFailedStackParams
+   file:
 
 ```
-aws amscm create-rfc --cli-input-json file://RDSCreateParameterGroupRfc.json --execution-parameters file://RDSCreateParameterGroupParams.json
+aws amscm create-rfc --cli-input-json file://DeleteFailedStackRfc.json --execution-parameters file://DeleteFailedStackParams.json
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+This is a manual change type (an AMS operator must review and run the CT), which means that the RFC can take longer
+to run and you might have to communicate with AMS through the RFC details page correspondance option. Additionally, if you schedule a manual change type RFC,
+be sure to allow at least 24 hours, if approval does not happen before the scheduled start time, the RFC is rejected automatically.
+
+###### Note
+
+When using manual CTs, AMS recommends that you use the ASAP **Scheduling** option
+(choose **ASAP** in the console, leave start and end time blank in the API/CLI) as these CTs require an AMS operator to examine the RFC, and
+possibly communicate with you before it can be approved and run. If you schedule these RFCs, be sure to allow at least 24 hours. If approval does not
+happen before the scheduled start time, the RFC is rejected automatically.
 
 ## Execution Input Parameters
 
 For detailed information about the execution input parameters, see
-[Schema for Change Type ct-3da2lxapopb86](schemas.md#ct-3da2lxapopb86-schema-section "schemas.md#ct-3da2lxapopb86-schema-section").
+[Schema for Change Type ct-0ntpkt9wntdfs](schemas.md#ct-0ntpkt9wntdfs-schema-section "schemas.md#ct-0ntpkt9wntdfs-schema-section").
 
 ## Example: Required Parameters
 
 ```
 {
-  "ParameterGroupName": "my-db-parameter-group",
-  "ParameterGroupFamily": "mysql5.6"
+  "StackId": "stack-a1b2c3d4e5f67890e",
+  "Region": "us-east-1",
+  "DeletionOption": "ForceDeleteEntireStack"
 }
+
 ```
 
 ## Example: All Parameters
 
 ```
 {
-  "ParameterGroupName": "my-db-parameter-group",
-  "ParameterGroupFamily": "mysql5.6",
-  "Description": "A meaningful description of the parameter group.",
-  "Priority": "Medium",
-  "Parameters": [
-    {
-      "ParameterName": "max_connections",
-      "ParameterValue": "100"
-    },
-    {
-      "ParameterName": "clr enabled",
-      "ParameterValue": "1"
-    },
-    {
-      "ParameterName": "in-doubt xact resolution",
-      "ParameterValue": "2"
-    }
+  "StackId": "stack-a1b2c3d4e5f67890e",
+  "Region": "us-west-2",
+  "DeletionOption": "DeleteStackButRetainResources",
+  "ResourcesToRetain": [
+    "MyS3Bucket",
+    "MyDynamoDBTable"
   ],
-  "RDSInstanceName": "my-test-db"
+  "Priority": "High"
 }
+
 ```

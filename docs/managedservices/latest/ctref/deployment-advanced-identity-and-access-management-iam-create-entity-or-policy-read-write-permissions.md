@@ -19,7 +19,7 @@ Create Identity and Access Management (IAM) role or policy with read-write permi
 
 ### Create IAM entity or policy
 
-![IAM role or policy creation interface with ID, execution mode, and description details.](/images/managedservices/latest/ctref/images/guiIamEntityCreateCT.png)
+![IAM role or policy creation interface with ID, execution mode, and description details.](images/guiIamEntityCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

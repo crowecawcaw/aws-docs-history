@@ -1,14 +1,14 @@
-# RDS Database Stack | Create Parameter Group (Managed Automation)
+# GuardDuty Suppression Rules | Create (Managed Automation)
 
-Create a custom RDS parameter group and optionally attach it to an existing RDS instance.
+Creation of GuardDuty Suppression Rules.
 
-**Full classification:** Deployment | Advanced stack components | RDS database stack | Create parameter group (managed automation)
+**Full classification:** Management | Monitoring and notification | GuardDuty suppression rules | Create (managed automation)
 
 ## Change Type Details
 
 |                             |                           |
 | --------------------------- | ------------------------- |
-| Change type ID              | ct-3da2lxapopb86          |
+| Change type ID              | ct-26swglg6rodzt          |
 | Current version             | 1.0                       |
 | Expected execution duration | 240 minutes               |
 | AWS approval                | Required                  |
@@ -17,11 +17,11 @@ Create a custom RDS parameter group and optionally attach it to an existing RDS 
 
 ## Additional Information
 
-### Create Custom RDS Parameter Group
+### Create GuardDuty Suppression Rules (Managed Automation)
 
 The following shows this change type in the AMS console.
 
-![](images/guiRDSCreateParamCT.png)
+![](images/guiGuardDutySuppRulesCreateMaCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -67,98 +67,85 @@ RFC parameters part of the request (not the execution parameters). For a list of
 
 _INLINE CREATE_:
 
-Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-3da2lxapopb86" --change-type-version "1.0" --title "Create Custom RDS Parameter Group" --execution-parameters "{\"ParameterGroupName\": \"`my-db-parameter-group`\", \"ParameterGroupFamily\": \"`mysql5.6`\", \"Description\": \"`A meaningful description of the parameter group`\", \"Priority\": \"`Medium`\", \"Parameters\": [{\"ParameterName\": \"`max_connections`\", \"ParameterValue\": \"`100`\"}], \"RDSInstanceName\": \"`my-test-db`\"}"
+aws amscm create-rfc --change-type-id "ct-26swglg6rodzt" --change-type-version "1.0" --title "`Create GuardDuty suppression rules`" --execution-parameters "{\"Region\":\"`us-east-1`\",\"Source\":[\"`10.0.0.0`\",\"`i-1234567890abcdef0`\"],\"Destination\":[\"`203.0.113.1\",\"22`\"],\"FindingType\":\"`EC2/NetworkPortUnusual`\",\"AdditonalSuppressionParameters\":\"`TCP protocol`\",\"Reason\":\"`Reason for supressing this GuardDuty finding`\",\"SuppressionRuleName\":\"`TestSupressionRule`\",\"Description\":\"`Testing`\",\"Priority\":\"`High`\"}"
 ```
 
 _TEMPLATE CREATE_:
 
-1. Output the execution parameters JSON schema for this change type to a file; this example names it RDSCreateParameterGroupParams.json:
+1. Output the execution parameters JSON schema for this change type to a file; this example names
+   it GuardDutySupressionRulesParams.json.
 
 ```
-aws amscm get-change-type-version --change-type-id "ct-3da2lxapopb86" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > RDSCreateParameterGroupParams.json
-```
-
-Modify and save the RDSCreateParameterGroupParams file. For example, you can replace the contents with something like this:
+aws amscm get-change-type-version --change-type-id "ct-26swglg6rodzt" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > GuardDutySupressionRulesParams.json
 
 ```
-{
-  "ParameterGroupName": "`my-db-parameter-group`",
-  "ParameterGroupFamily": "`mysql5.6`",
-  "Description": "`A meaningful description of the parameter group`",
-  "Priority": "`Medium`",
-  "Parameters": [
-    {
-      "ParameterName": "`max_connections`",
-      "ParameterValue": "`100`"
-    }
-  ],
-  "RDSInstanceName": "`my-test-db`"
-}
-```
 
-2. Output the RFC template to a file in your current folder; this example names it RDSCreateParameterGroupRfc.json:
-
-```
-aws amscm create-rfc --generate-cli-skeleton > RDSCreateParameterGroupRfc.json
-```
-
-3. Modify and save the RDSCreateParameterGroupRfc.json file. For example, you can replace the contents with something like this:
+2. Modify and save the GuardDutySupressionRulesParams file. For example, you can replace the contents with something like this:
 
 ```
 {
-"ChangeTypeId":         "ct-3da2lxapopb86",
-"ChangeTypeVersion":    "`1.0`",
-"Title":                "`Create Custom RDS Parameter Group`"
+"Region": "`us-east-1`",
+"Source": [
+"`10.0.0.0`",
+"`i-1234567890abcdef0`"
+],
+"Destination": [
+"`203.0.113.1`",
+"`22`"
+],
+"FindingType": "`EC2/NetworkPortUnusual`",
+"AdditonalSuppressionParameters": "`TCP protocol`",
+"Reason": "`Reason for supressing this GuardDuty finding`",
+"SuppressionRuleName": "`TestSupressionRule`",
+"Description": "`Testing`",
+"Priority": "`High`"
 }
 ```
 
-4. Create the RFC, specifying the RDSCreateParameterGroupRfc file and the GRDSCreateParameterGroupParams file:
+3. Output the RFC template JSON file to a file named GuardDutySupressionRulesRfc.json:
 
 ```
-aws amscm create-rfc --cli-input-json file://RDSCreateParameterGroupRfc.json --execution-parameters file://RDSCreateParameterGroupParams.json
+aws amscm create-rfc --generate-cli-skeleton > GuardDutySupressionRulesRfc.json
+```
+
+4. Modify and save the GuardDutySupressionRulesRfc.json file. For example, you can replace the contents with something like this:
+
+```
+{
+"ChangeTypeVersion": "`1.0`",
+"ChangeTypeId": "`ct-26swglg6rodzt`",
+"Title": "`Create GuardDuty suppression rules`"
+}
+```
+
+5. Create the RFC, specifying the GuardDutySupressionRulesRfc file and the
+   GuardDutySupressionRulesParams file:
+
+```
+aws amscm create-rfc --cli-input-json file://GuardDutySupressionRulesRfc.json  --execution-parameters file://GuardDutySupressionRulesParams.json
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+This is a manual change type (an AMS operator must review and run the CT), which means that the RFC can take longer
+to run and you might have to communicate with AMS through the RFC details page correspondance option. Additionally, if you schedule a manual change type RFC,
+be sure to allow at least 24 hours, if approval does not happen before the scheduled start time, the RFC is rejected automatically.
 
 ## Execution Input Parameters
 
 For detailed information about the execution input parameters, see
-[Schema for Change Type ct-3da2lxapopb86](schemas.md#ct-3da2lxapopb86-schema-section "schemas.md#ct-3da2lxapopb86-schema-section").
+[Schema for Change Type ct-26swglg6rodzt](schemas.md#ct-26swglg6rodzt-schema-section "schemas.md#ct-26swglg6rodzt-schema-section").
 
 ## Example: Required Parameters
 
 ```
-{
-  "ParameterGroupName": "my-db-parameter-group",
-  "ParameterGroupFamily": "mysql5.6"
-}
+Example not available.
 ```
 
 ## Example: All Parameters
 
 ```
-{
-  "ParameterGroupName": "my-db-parameter-group",
-  "ParameterGroupFamily": "mysql5.6",
-  "Description": "A meaningful description of the parameter group.",
-  "Priority": "Medium",
-  "Parameters": [
-    {
-      "ParameterName": "max_connections",
-      "ParameterValue": "100"
-    },
-    {
-      "ParameterName": "clr enabled",
-      "ParameterValue": "1"
-    },
-    {
-      "ParameterName": "in-doubt xact resolution",
-      "ParameterValue": "2"
-    }
-  ],
-  "RDSInstanceName": "my-test-db"
-}
+Example not available.
 ```

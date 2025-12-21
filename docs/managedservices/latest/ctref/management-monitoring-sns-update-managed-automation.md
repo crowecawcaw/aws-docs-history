@@ -145,6 +145,47 @@ For detailed information about the execution input parameters, see
   "TopicArn": "arn:aws:sns:us-east-1:000000000000:Test-Stack",
   "Parameters":{
     "DisplayName": "Test-Stack",
+    "AddSubscriptions": [
+      {
+        "Protocol": "http",
+        "Endpoint": "http://example.com/webhook"
+      },
+      {
+        "Protocol": "https",
+        "Endpoint": "https://example.com/webhook"
+      },
+      {
+        "Protocol": "email",
+        "Endpoint": "test@example.com"
+      },
+      {
+        "Protocol": "email-json",
+        "Endpoint": "test@example.com"
+      },
+      {
+        "Protocol": "sms",
+        "Endpoint": "+1234567890"
+      },
+      {
+        "Protocol": "sqs",
+        "Endpoint": "arn:aws:sqs:us-east-1:000000000000:TestQueue"
+      },
+      {
+        "Protocol": "application",
+        "Endpoint": "arn:aws:sns:us-east-1:000000000000:endpoint/GCM/MyApplication"
+      },
+      {
+        "Protocol": "lambda",
+        "Endpoint": "arn:aws:lambda:us-east-1:000000000000:function:TestFunction"
+      },
+      {
+        "Protocol": "firehose",
+        "Endpoint": "arn:aws:firehose:us-east-1:000000000000:deliverystream/TestStream"
+      }
+    ],
+    "RemoveSubscriptions": [
+      "arn:aws:sns:us-east-1:000000000000:Test-Stack:12345678-1234-1234-1234-123456789012"
+    ],
     "DeliveryPolicy": "{\"http\":{\"defaultHealthyRetryPolicy\":{\"minDelayTarget\":20,\"maxDelayTarget\":20,\"numRetries\":3,\"numMaxDelayRetries\":0,\"numNoDelayRetries\":0,\"numMinDelayRetries\":0,\"backoffFunction\":\"linear\"},\"disableSubscriptionOverrides\":false,\"defaultRequestPolicy\":{\"headerContentType\":\"text/plain; charset=UTF-8\"}}}",
     "DataProtectionPolicy": "{\"Name\":\"__example_data_protection_policy\",\"Description\":\"Exampledataprotectionpolicy\",\"Version\":\"2021-06-01\",\"Statement\":[{\"DataDirection\":\"Inbound\",\"Principal\":[\"arn:aws:iam::123456789012:user/ExampleUser\"],\"DataIdentifier\":[\"arn:aws:dataprotection::aws:data-identifier/CreditCardNumber\"],\"Operation\":{\"Deidentify\":{\"MaskConfig\":{\"MaskWithCharacter\":\"#\"}}}}]}",
     "KmsMasterKeyARN": "arn:aws:kms:ap-southeast-2:123456789023:key/bb43bd18-3a75-482e-822d-d0d3a5544dc8",

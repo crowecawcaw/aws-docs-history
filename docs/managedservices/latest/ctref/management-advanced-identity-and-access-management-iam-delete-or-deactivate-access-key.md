@@ -1,6 +1,6 @@
 # Identity and Access Management (IAM) | Delete or Deactivate Access Key
 
-Delete or deactivate the specified AWS IAM access key ID for the specified user.
+Deactivates AWS IAM Access key ID for the specified user and conditionally deletes associated secrets based on the Delete parameter.
 
 **Full classification:** Management | Advanced stack components | Identity and Access Management (IAM) | Delete or deactivate access key
 
@@ -9,7 +9,7 @@ Delete or deactivate the specified AWS IAM access key ID for the specified user.
 |                             |                  |
 | --------------------------- | ---------------- |
 | Change type ID              | ct-37qquo9wbpa8x |
-| Current version             | 1.0              |
+| Current version             | 2.0              |
 | Expected execution duration | 60 minutes       |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
@@ -138,7 +138,7 @@ For detailed information about the execution input parameters, see
 
 ```
 {
-  "DocumentName": "AWSManagedServices-DeactivateIAMAccessKey",
+  "DocumentName": "AWSManagedServices-DeactivateIAMAccessKeyV2",
   "Region": "us-east-1",
   "Parameters": {
     "UserName": "myusername",
@@ -152,7 +152,7 @@ For detailed information about the execution input parameters, see
 
 ```
 {
-  "DocumentName": "AWSManagedServices-DeactivateIAMAccessKey",
+  "DocumentName": "AWSManagedServices-DeactivateIAMAccessKeyV2",
   "Region": "us-east-1",
   "Parameters": {
     "UserName": "myusername",

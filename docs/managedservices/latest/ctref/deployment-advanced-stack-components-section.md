@@ -67,6 +67,7 @@
 - [Redshift | Create (Cluster Subnet Group)](deployment-advanced-redshift-create-cluster-subnet-group.md "deployment-advanced-redshift-create-cluster-subnet-group.md")
 - [Redshift | Create (Cluster)](deployment-advanced-redshift-create-cluster.md "deployment-advanced-redshift-create-cluster.md")
 - [Resource Access Manager (RAM) | Create Resolver Rule Share](deployment-advanced-resource-access-manager-ram-create-resolver-rule-share.md "deployment-advanced-resource-access-manager-ram-create-resolver-rule-share.md")
+- [Resource Access Manager (RAM) | Create Resource Share (Review Required)](deployment-advanced-resource-access-manager-ram-create-resource-share-review-required.md "deployment-advanced-resource-access-manager-ram-create-resource-share-review-required.md")
 - [S3 Access Point | Create Access Point (Managed Automation)](deployment-advanced-s3-access-point-create-access-point-managed-automation.md "deployment-advanced-s3-access-point-create-access-point-managed-automation.md")
 - [S3 Storage | Create](deployment-advanced-s3-storage-create.md "deployment-advanced-s3-storage-create.md")
 - [S3 Storage | Create Policy (Managed Automation)](deployment-advanced-s3-storage-create-policy-managed-automation.md "deployment-advanced-s3-storage-create-policy-managed-automation.md")

@@ -21,7 +21,7 @@ Create an Amazon Machine Image (AMI) from an EC2 Instance in an Auto Scaling gro
 
 The following shows this change type in the AMS console.
 
-![Console interface showing "Create AMI From Amazon EC2 Auto Scaling Group" with description and version details.](images/guiAmiCreateFromAsgCT.png)
+![Console interface showing "Create AMI From Auto Scaling Group" with description and version details.](images/guiAmiCreateFromAsgCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

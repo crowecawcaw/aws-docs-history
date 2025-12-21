@@ -1,6 +1,6 @@
 # Security Group | Authorize Egress Rule
 
-Authorize the egress rule for the specified security group (SG). You must specify the configurations of the egress rule that you are authorizing. Note that this adds an egress rule to the specified SG but does not modify any existing egress rules.
+Authorize multiple egress rules for the specified security group (SG). You must specify the configurations of the egress rule that you are authorizing. Note that adding an egress rule to the specified SG does not modify any existing egress rules.
 
 **Full classification:** Management | Advanced stack components | Security group | Authorize egress rule
 
@@ -9,7 +9,7 @@ Authorize the egress rule for the specified security group (SG). You must specif
 |                             |                  |
 | --------------------------- | ---------------- |
 | Change type ID              | ct-0lqruajvhwsbk |
-| Current version             | 1.0              |
+| Current version             | 2.0              |
 | Expected execution duration | 60 minutes       |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
@@ -152,54 +152,11 @@ For detailed information about the execution input parameters, see
 ## Example: Required Parameters
 
 ```
-{
-  "DocumentName" : "AWSManagedServices-AuthorizeSecurityGroupEgressRule",
-  "Region" : "us-east-1",
-  "Parameters" : {
-    "SecurityGroupId" : [
-      "sg-abcd1234"
-    ],
-    "IpProtocol" : [
-      "tcp"
-    ],
-    "FromPort" : [
-      "80"
-    ],
-    "ToPort" : [
-      "80"
-    ],
-    "Destination" : [
-      "10.0.0.1/32"
-    ]
-  }
-}
+Example not available.
 ```
 
 ## Example: All Parameters
 
 ```
-{
-  "DocumentName" : "AWSManagedServices-AuthorizeSecurityGroupEgressRule",
-  "Region" : "us-east-1",
-  "Parameters" : {
-    "SecurityGroupId" : [
-      "sg-abcd1234"
-    ],
-    "IpProtocol" : [
-      "tcp"
-    ],
-    "FromPort" : [
-      "80"
-    ],
-    "ToPort" : [
-      "80"
-    ],
-    "Destination" : [
-      "10.0.0.1/32"
-    ],
-    "Description" : [
-      "New rule"
-    ]
-  }
-}
+Example not available.
 ```

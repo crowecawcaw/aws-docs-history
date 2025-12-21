@@ -6,6 +6,7 @@
 - [CloudWatch | Modify Log Retention Period](management-monitoring-cloudwatch-modify-log-retention-period.md "management-monitoring-cloudwatch-modify-log-retention-period.md")
 - [GuardDuty IP Set | Delete (Managed Automation)](management-monitoring-guardduty-ip-set-delete-managed-automation.md "management-monitoring-guardduty-ip-set-delete-managed-automation.md")
 - [GuardDuty IP Set | Update (Managed Automation)](management-monitoring-guardduty-ip-set-update-managed-automation.md "management-monitoring-guardduty-ip-set-update-managed-automation.md")
+- [GuardDuty Suppression Rules | Create (Managed Automation)](management-monitoring-guardduty-suppression-rules-create-managed-automation.md "management-monitoring-guardduty-suppression-rules-create-managed-automation.md")
 - [GuardDuty Threat Intel Set | Delete (Managed Automation)](management-monitoring-guardduty-threat-intel-set-delete-managed-automation.md "management-monitoring-guardduty-threat-intel-set-delete-managed-automation.md")
 - [GuardDuty Threat Intel Set | Update (Managed Automation)](management-monitoring-guardduty-threat-intel-set-update-managed-automation.md "management-monitoring-guardduty-threat-intel-set-update-managed-automation.md")
 - [SNS | Subscribe To DirectCustomerAlerts](management-monitoring-sns-subscribe-to-directcustomeralerts.md "management-monitoring-sns-subscribe-to-directcustomeralerts.md")
