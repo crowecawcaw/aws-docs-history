@@ -7,7 +7,7 @@ resource discovery experience
 Beginning October 6, 2025, Resource Explorer provides immediate resource discovery functionality
 without requiring manual setup. When you first access Resource Explorer through the console,
 [Unified Search](../../../awsconsolehelpdocs/latest/gsg/using-search.md "../../../awsconsolehelpdocs/latest/gsg/using-search.md"), CLI, or API, the service automatically enables search
-capabilities based on your IAM permissions. This eliminates the traditional setup
+capabilities based on your IAM permissions. Setup occurs when you use the Search or ListResources APIs from Resource Explorer either directly or through Unified Search. This eliminates the traditional setup
 barrier and provides immediate value while maintaining all existing functionality for
 customers who have already configured Resource Explorer.
 

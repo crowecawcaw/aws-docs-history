@@ -35,7 +35,29 @@ AWS Resource Explorer.
 
 ###### Note
 
-As of October 13, 2025, Resource Explorer no longer supports the following resource types:
+As of December 5, 2025, Resource Explorer no longer supports the following resource types:
+
+- **AWS IoT Analytics**—
+  `iotanalytics:channel`
+- **AWS IoT Analytics**—
+  `iotanalytics:dataset`
+- **AWS IoT Analytics**—
+  `iotanalytics:datastore`
+- **AWS IoT Analytics**—
+  `iotanalytics:pipeline`
+  As of November 21, 2025, Resource Explorer no longer supports the following resource types:
+
+- **AWS IoT FleetWise**—
+  `iotfleethub:application`
+  As of November 3, 2025, Resource Explorer no longer supports the following resource types:
+
+- **Amazon Lookout for Metrics**—
+  `lookoutmetrics:Alert`
+- **Amazon Lookout for Metrics**—
+  `lookoutmetrics:AnomalyDetector`
+- **Amazon Lookout for Vision**—
+  `lookoutvision:project`
+  As of October 13, 2025, Resource Explorer no longer supports the following resource types:
 
 - **Amazon CloudWatch Evidently**—
   `evidently:project`
@@ -59,8 +81,6 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
   `ssm:automation-execution`
 - **AWS Systems Manager** —
   `ssm:patchbaseline`
-  You can still use these resource types in their own services, but they are no longer
-  indexed or searchable in Resource Explorer.
 
 ## Supported services and resource types
 
@@ -68,6 +88,7 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 
 - [Amazon API Gateway](#services-apigateway "#services-apigateway")
 - [Direct Connect](#services-directconnect "#services-directconnect")
+- [AWS Partner Network](#services-partnercentral "#services-partnercentral")
 - [AWS Shield](#services-shield "#services-shield")
 - [AWS Systems Manager Incident Manager](#services-ssm-incidents "#services-ssm-incidents")
 - [AWS WAFV2](#services-wafv2 "#services-wafv2")
@@ -156,7 +177,6 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 - [AWS Fault Injection Service](#services-fis "#services-fis")
 - [Amazon FinSpace](#services-finspace "#services-finspace")
 - [Firehose](#services-firehose "#services-firehose")
-- [Fleet Hub for AWS IoT Device Management](#services-iotfleethub "#services-iotfleethub")
 - [Amazon Forecast](#services-forecast "#services-forecast")
 - [Amazon Fraud Detector](#services-frauddetector "#services-frauddetector")
 - [Amazon GameLift Servers](#services-gamelift "#services-gamelift")
@@ -174,7 +194,6 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 - [Amazon Inspector](#services-inspector "#services-inspector")
 - [Amazon Interactive Video Service](#services-ivs "#services-ivs")
 - [AWS IoT](#services-iot "#services-iot")
-- [AWS IoT Analytics](#services-iotanalytics "#services-iotanalytics")
 - [AWS IoT Core Device Advisor](#services-iotdeviceadvisor "#services-iotdeviceadvisor")
 - [AWS IoT Events](#services-iotevents "#services-iotevents")
 - [AWS IoT FleetWise](#services-iotfleetwise "#services-iotfleetwise")
@@ -190,10 +209,7 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 - [AWS Lambda](#services-lambda "#services-lambda")
 - [Amazon Lex](#services-lex "#services-lex")
 - [AWS License Manager](#services-license-manager "#services-license-manager")
-- [Amazon Lightsail](#services-lightsail "#services-lightsail")
 - [Amazon Location Service](#services-geo "#services-geo")
-- [Amazon Lookout for Metrics](#services-lookoutmetrics "#services-lookoutmetrics")
-- [Amazon Lookout for Vision](#services-lookoutvision "#services-lookoutvision")
 - [Amazon MQ](#services-mq "#services-mq")
 - [AWS Mainframe Modernization](#services-m2 "#services-m2")
 - [Amazon Managed Blockchain](#services-managedblockchain "#services-managedblockchain")
@@ -241,6 +257,7 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 ### Amazon API Gateway
 
 - `apigateway:apis`
+- `apigateway:apis/integrations`
 - `apigateway:apis/routes`
 - `apigateway:apis/stages`
 - `apigateway:restapis`
@@ -253,6 +270,14 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 ### Direct Connect
 
 - `directconnect:dx-gateway`
+
+### AWS Partner Network
+
+- `partnercentral:catalog/engagement`
+- `partnercentral:catalog/engagement-invitation`
+- `partnercentral:catalog/opportunity`
+- `partnercentral:catalog/resource-snapshot-job`
+- `partnercentral:resourcesnapshot`
 
 ### AWS Shield
 
@@ -813,10 +838,6 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 
 - `firehose:deliverystream`
 
-### Fleet Hub for AWS IoT Device Management
-
-- `iotfleethub:application`
-
 ### Amazon Forecast
 
 - `forecast:dataset`
@@ -961,13 +982,6 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 - `iot:thinggroup`
 - `iot:thingtype`
 
-### AWS IoT Analytics
-
-- `iotanalytics:channel`
-- `iotanalytics:dataset`
-- `iotanalytics:datastore`
-- `iotanalytics:pipeline`
-
 ### AWS IoT Core Device Advisor
 
 - `iotdeviceadvisor:suitedefinition`
@@ -1069,27 +1083,11 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 
 - `license-manager:grant`
 
-### Amazon Lightsail
-
-- `lightsail:Bucket`
-- `lightsail:Certificate`
-- `lightsail:ContainerService`
-- `lightsail:Disk`
-
 ### Amazon Location Service
 
 - `geo:map`
 - `geo:place-index`
 - `geo:tracker`
-
-### Amazon Lookout for Metrics
-
-- `lookoutmetrics:Alert`
-- `lookoutmetrics:AnomalyDetector`
-
-### Amazon Lookout for Vision
-
-- `lookoutvision:project`
 
 ### Amazon MQ
 

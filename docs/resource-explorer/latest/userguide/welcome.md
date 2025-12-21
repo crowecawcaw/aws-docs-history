@@ -61,7 +61,7 @@ you have, at minimum, the permissions in the `AWSResourceExplorerReadOnlyAccess`
 immediately search in partial results (all tagged resources and supported untagged
 resources created after the [immediate resource discovery](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md") release). Resource Explorer uses a service-linked
 channel to receive AWS CloudTrail events on your
-behalf.
+behalf, and this visibility is available in the CloudTrail console across all supported Regions.
 For complete resource inventory with automatic updates, you'll also need the
 `iam:CreateServiceLinkedRole` permission (included in the `AWSResourceExplorerFullAccess` managed policy). After the
 service-linked role is created in your account by any user, subsequent users only need
