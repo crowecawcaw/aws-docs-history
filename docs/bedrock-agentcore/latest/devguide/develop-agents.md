@@ -29,6 +29,7 @@ starter toolkit
 The [AgentCore starter toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit") provides CLI tools and higher-level
 abstractions for:
 
+- _Create_: Set up a skeleton agent project with your preferred framework and model provider
 - _Deployment_: Containerize and deploy agents to AWS
   infrastructure
 - _Import Agent_: Migrate existing Bedrock Agents to

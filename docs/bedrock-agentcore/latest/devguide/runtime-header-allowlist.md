@@ -87,15 +87,15 @@ bedrock-agentcore
 
 ## Step 2: Deploy your agent
 
-Configure your agent with the starter toolkit:
+###### Tip
+
+You can configure the request header allowlist interactively by navigating to your project directory and running `agentcore configure --request-header-allowlist "X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1"`.
+
+Alternatively, manually edit your agent's `.bedrock_agentcore.yaml` with the request header allowlist:
 
 ```
-agentcore configure --entrypoint agent_example.py \
---name hello_agent \
---execution-role `your-execution-role-arn` \
---disable-otel \
---requirements-file requirements.txt \
---request-header-allowlist "X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1"
+request_header_allowlist:
+  - "X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1"
 ```
 
 Deploy your agent with the starter toolkit:

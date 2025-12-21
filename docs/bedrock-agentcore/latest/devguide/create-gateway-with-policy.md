@@ -31,7 +31,7 @@ aws bedrock-agentcore-control create-gateway \
   }' \
   --policy-engine-configuration '{
     "mode": "ENFORCE",
-    "arn": "arn:aws:policy-registry:us-west-2:123456789012:policy-engine/my-policy-engine"
+    "arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:policy-engine/my_policy_engine"
   }'
 
 ```
@@ -62,7 +62,7 @@ response = gateway_client.create_gateway(
     roleArn='arn:aws:iam::123456789012:role/my-gateway-service-role',
     policyEngineConfiguration={
         'mode': 'ENFORCE',
-        'arn': 'arn:aws:policy-registry:us-west-2:123456789012:policy-engine/my-policy-engine'
+        'arn': 'arn:aws:bedrock-agentcore:us-west-2:123456789012:policy-engine/my_policy_engine'
     }
 )
 print(f"GATEWAY ARN: {response['gatewayArn']}")

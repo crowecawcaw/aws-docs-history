@@ -26,6 +26,10 @@ To use the Amazon Bedrock AgentCore starter toolkit, attach the following IAM po
 role. To change IAM permissions, see [Change permissions for an IAM
 user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md").
 
+###### Important
+
+The IAM policies created by the starter toolkit are designed for development and testing purposes. These permissions grant broad access to facilitate rapid prototyping and are not suitable for production environments. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific resources and actions required by your Bedrock AgentCore application.
+
 JSON
 
 ```

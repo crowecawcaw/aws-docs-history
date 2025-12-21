@@ -24,8 +24,8 @@ Run the following code in a terminal to create a policy engine using the AWS CLI
 
 ```
 
-aws policy-registry create-policy-engine \
-  --name my-policy-engine \
+aws bedrock-agentcore-control create-policy-engine \
+  --name my_policy_engine \
   --description "My Policy Engine"
 
 ```
@@ -41,10 +41,10 @@ AWS Python SDK (Boto3):
 
 import boto3
 
-client = boto3.client('policy-registry')
+client = boto3.client('bedrock-agentcore-control')
 
 response = client.create_policy_engine(
-    name='my-policy-engine',
+    name='my_policy_engine',
     description='My Policy Engine'
 )
 

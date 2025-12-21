@@ -11,4 +11,5 @@ your knowledge of gateways and how you can use them effectively in your applicat
   KMS key](gateway-encryption.md "gateway-encryption.md")
 - [Setting up custom domain names for Gateway endpoints](gateway-custom-domains.md "gateway-custom-domains.md")
 - [Using interceptors with Gateway](gateway-interceptors.md "gateway-interceptors.md")
+- [Header propagation with Gateway](gateway-headers.md "gateway-headers.md")
 - [Performance optimization](gateway-advanced-performance.md "gateway-advanced-performance.md")

@@ -23,7 +23,7 @@ file archive.
 
 - [Prerequisites](#prerequisites "#prerequisites")
 - [Step 1: Set up project and install dependencies](#step-1-setup "#step-1-setup")
-- [Step 2: Create your agent](#step-2-create-agent "#step-2-create-agent")
+- [Step 2: Create your agent project](#step-2-create-agent "#step-2-create-agent")
 - [Step 3: Test locally](#step-3-test-locally "#step-3-test-locally")
 - [Step 4: Enable observability for your
   agent](#step-4-enable-observability "#step-4-enable-observability")
@@ -84,29 +84,27 @@ Uv will automatically create a `pyproject.toml` file with
 dependencies, `uv.lock` file with dependency closure and
 `.venv` directory.
 
-## Step 2: Create your agent
+## Step 2: Create your agent project
 
-Create/Edit an entrypoint file for your agent code named `main.py`.
-Add the following code:
+Use the `agentcore create` command to set up a skeleton agent project with the framework of your choice:
 
 ```
-from bedrock_agentcore import BedrockAgentCoreApp
-from strands import Agent
-
-app = BedrockAgentCoreApp(debug=True)
-agent = Agent()
-
-@app.entrypoint
-def invoke(payload):
-    """Your AI agent function"""
-    user_message = payload.get("prompt", "Hello! How can I help you today?")
-    app.logger.info(f"User message: {user_message}")
-    result = agent(user_message)
-    return {"result": result.message}
-
-if __name__ == "__main__":
-    app.run()
+agentcore create
 ```
+
+The command will prompt you to:
+
+- Choose a framework (choose Strands Agents for this tutorial)
+- Provide a project name
+- Choose a template (basic or production)
+- Choose model provider and other options
+
+This command generates:
+
+- Agent code with your selected framework
+- A `requirements.txt` file with necessary dependencies
+- A `.bedrock_agentcore.yaml` configuration file
+- Infrastructure as Code (IaC) files if production template is selected
 
 ## Step 3: Test locally
 
@@ -116,7 +114,7 @@ only)_ in [Common issues and solutions](runtime-get-started-toolkit.md#common-is
 Open a terminal window and start your agent with the following command:
 
 ```
-uv run main.py
+agentcore dev
 ```
 
 Test your agent by opening another terminal window and enter the following
@@ -152,24 +150,7 @@ detailed steps. If Uv is available, the starter toolkit will recommend
 direct code deployment. Otherwise it will default to container deployment
 type.
 
-First command is configure, which will start an interactive session where
-you configure the S3 bucket to upload the zip.
-
-```
-agentcore configure -e main.py -n agent_name # provides an interactive CLI to configure
-```
-
-Choose a deployment configuration type (as shown below), Choose 1.
-
-```
-Deployment Configuration
-Select deployment type:
- 1. Code Zip (recommended) - Python only, no Docker required
- 2. Container - For custom runtimes or complex dependencies
-```
-
-Next is `launch` which will create a zip deployment package,
-upload to the specified bucket and deploy the agent.
+Once you have your agent set up using `agentcore create`, use the `launch` command to create a zip deployment package, upload it to the specified bucket, and deploy the agent.
 
 ```
 agentcore launch
@@ -184,23 +165,15 @@ agentcore invoke '{"prompt":"Tell me a joke"}'
 The first deployment takes time to install dependencies but subsequent
 updates to the agent optimizes this by re-using zipped dependencies
 
-###### Advanced options
+###### Configuration management
 
-To explicitly control the deployment option between direct code deploy
-and container, execute the configure command as followed:
-
-```
-agentcore configure -e main.py --deployment_type direct_code_deploy
-```
-
-Remaining steps for starter toolkit cli will remain the same, based on
-your preference launch command will either zip your code and upload to s3
-before creating agent. Or it will use Code Build if you select container as
-deployment_type, to containerize your code before creating agent.
+You can modify your agent configuration at any time using the `configure` command:
 
 ```
-agentcore configure -e main.py --deployment_type container
+agentcore configure -e src/main.py
 ```
+
+The command allows you to update deployment parameters such as your VPC configuration, execution roles, session timeouts, and OAuth authorizer settings.
 
 Custom zip + boto3
 To download a wheel that's compatible with AgentCore Runtime, you use the uv pip

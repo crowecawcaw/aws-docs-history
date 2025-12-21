@@ -49,6 +49,7 @@ values:
 - [Code samples for Starter Toolkit,
   AgentCore SDK, and AWS SDK](#custom-evaluator-code-samples "#custom-evaluator-code-samples")
 - [Console](#create-evaluator-console "#create-evaluator-console")
+- [Custom evaluator best practices](#custom-evaluator-best-practices "#custom-evaluator-best-practices")
 
 ## Code samples for Starter Toolkit,
 
@@ -226,3 +227,40 @@ models, see:
 
 9. Choose **Create custom evaluator** to create the custom
    evaluator.
+
+## Custom evaluator best practices
+
+Writing well-structured evaluator instructions is critical for accurate assessments.
+Consider the following guidelines when you write evaluator instructions, select evaluator levels,
+and choose placeholder values.
+
+- Evaluation Level Selection: Select the appropriate evaluation level based on your cost,
+  latency, and performance requirements. Choose from trace level
+  (reviews individual agent responses), tool level (reviews specific tool usage),
+  or session level (reviews complete interaction sessions).
+  Your choice should align with project goals and resource constraints.
+- Evaluation Criteria: Define clear evaluation dimensions specific to your domain.
+  Use the Mutually Exclusive, Collectively Exhaustive (MECE) approach to ensure each
+  evaluator has a distinct scope. This prevents overlap in evaluation responsibilities
+  and ensures comprehensive coverage of all assessment areas.
+- Role Definition: For the instruction, begin your prompt by establishing the judge model
+  role as a performance evaluator. Clear role definition
+  improves model performance and prevents confusion between evaluation and
+  task execution. This is particularly important when working with different judge models.
+- Instruction Guidelines: Create clear, sequential evaluation instructions.
+  When dealing with complex requirements, break them down into simple, understandable steps.
+  Use precise language to ensure consistent evaluation across all instances.
+- Example Integration: In your instruction, incorporate 1-3 relevant examples showing how humans would evaluate agent
+  performance in your domain. Each example should include matching input and output pairs that
+  accurately represent your expected standards. While optional, these examples serve as valuable
+  baseline references.
+- Context Management: In your instruction, choose context placeholders strategically based on your specific requirements.
+  Find the right balance between providing sufficient information and avoiding evaluator confusion.
+  Adjust context depth according to your judge model's capabilities and limitations.
+- Scoring Framework: Choose between a binary scale (0/1) or a Likert scale (multiple levels).
+  Clearly define the meaning of each score level. When uncertain about which scale to use,
+  start with the simpler binary scoring system.
+- Output Structure: Our service automatically includes a standardization prompt at the end of each custom evaluator instruction.
+  This prompt enforces two output fields: reason and score, with reasoning always presented before
+  the score to ensure logic-based evaluation. Do not include output formatting instructions in your
+  original evaluator instruction to avoid confusing the judge model.

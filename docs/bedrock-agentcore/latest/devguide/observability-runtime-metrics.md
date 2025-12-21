@@ -82,7 +82,7 @@ Shows the total number of sessions across all resources.
 
 ActiveStreamingConnections
 
-**(WebSocket only)** Shows the current number of active WebSocket connections per customer. Monitor this metric to understand concurrency levels and detect connection drops or spikes for capacity planning.
+**(WebSocket only)** Shows the current number of active WebSocket connections per agent. Monitor this metric to understand connection usage and detect connection drops or spikes for capacity planning. The only meaningful statistic is a 1-minute sum.
 
 InboundStreamingBytesProcessed
 

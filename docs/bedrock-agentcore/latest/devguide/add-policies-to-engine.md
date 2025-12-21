@@ -20,7 +20,7 @@ AWS CLI:
 
 aws bedrock-agentcore-control create-policy \
   --policy-engine-id my-policy-engine-id \
-  --name my-policy \
+  --name my_policy \
   --validation-mode FAIL_ON_ANY_FINDINGS \
   --description "My Policy" \
   --definition '{
@@ -43,7 +43,7 @@ client = boto3.client('bedrock-agentcore-control')
 
 response = client.create_policy(
     policyEngineId='my-policy-engine-id',
-    name='my-policy',
+    name='my_policy',
     validationMode='FAIL_ON_ANY_FINDINGS',
     description='My Policy',
     definition={

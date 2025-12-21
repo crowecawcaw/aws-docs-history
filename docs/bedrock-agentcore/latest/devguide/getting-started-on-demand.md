@@ -281,7 +281,7 @@ language model is scoring your traces.
 
 ```
 # initialise client
-ace_dp_client = boto3.client('agentcore-evaluation-dataplane', region_name = region)
+ace_dp_client = boto3.client('bedrock-agentcore', region_name = region)
 
 # call evaluate
 response = ace_dp_client.evaluate(
@@ -299,7 +299,7 @@ with open(session_span_logs_file_name, "r") as f:
     session_span_logs = json.load(f)
 
 # initialise client
-ace_dp_client = boto3.client('agentcore-evaluation-dataplane', region_name = region)
+ace_dp_client = boto3.client('bedrock-agentcore', region_name = region)
 
 # call evaluate
 response = ace_dp_client.evaluate(

@@ -19,6 +19,8 @@ In this section, you learn:
 - [How AgentCore Runtime supports WebSocket connections](#websocket-support-overview "#websocket-support-overview")
 - [Using WebSocket with AgentCore Runtime](#using-websocket-with-runtime "#using-websocket-with-runtime")
 - [Session management](#websocket-session-management "#websocket-session-management")
+- [Observability](#websocket-observability "#websocket-observability")
+- [Custom Headers](#websocket-custom-headers "#websocket-custom-headers")
 - [Appendix](#websocket-appendix "#websocket-appendix")
 
 ## How AgentCore Runtime supports WebSocket connections
@@ -571,6 +573,36 @@ By using the same session ID for related WebSocket connections, you ensure that 
 maintained across the same conversation, allowing your agent to provide coherent responses that
 build on previous interactions.
 
+## Observability
+
+[Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents
+that you host in Amazon Bedrock AgentCore Runtime. First enable CloudWatch Transaction Search
+by following the instructions at [Enabling Amazon Bedrock AgentCore runtime observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin"). To observe your agent,
+see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md").
+
+For WebSocket connections, a trace represents the complete connection session rather than individual message exchanges.
+
+## Custom Headers
+
+Custom headers let you pass contextual information from your application directly to your
+agent code on the initial WebSocket connection. For complete information about custom header support, configuration, and limitations, see [Pass custom headers to Amazon Bedrock AgentCore Runtime](runtime-header-allowlist.md "runtime-header-allowlist.md").
+
+Additionally, headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` can be passed as URL query parameters in WebSocket connections.
+
+For example, you can pass custom headers as query parameters in the WebSocket URL:
+
+```
+wss://bedrock-agentcore.<region>.amazonaws.com/runtimes/<agentRuntimeArn>/ws?X-Amzn-Bedrock-AgentCore-Runtime-Custom-TestHeader=query-param-test-value
+```
+
+The agent application container will receive these as headers:
+
+```
+"headers": {
+    "x-amzn-bedrock-agentcore-runtime-custom-testheader": "query-param-test-value"
+  }
+```
+
 ## Appendix
 
 ###### Topics
@@ -611,6 +643,14 @@ Verify that your agent application processes connection requests at `/ws`
 Authentication method mismatch
 
 Ensure your client uses the same authentication method (OAuth or SigV4) that the agent was configured with
+
+Connection closed due to limit exceeded
+
+Connections are automatically closed if limits are exceeded, such as message frame rate or message frame size limits. For complete limit information, see [Quotas for Amazon Bedrock AgentCore](bedrock-agentcore-limits.md "bedrock-agentcore-limits.md")
+
+Message frame size exceeded
+
+Configure message frame fragmentation or implement chunking to stay below the 16KB frame size limit. Split large messages into smaller chunks before sending
 
 Health check failures
 

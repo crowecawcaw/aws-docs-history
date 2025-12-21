@@ -16,16 +16,15 @@ For information about the HTTP protocol that the agent uses, see [HTTP protocol 
 
 - [Prerequisites](#prerequisites "#prerequisites")
 - [Step 1: Set up project and install dependencies](#setup-project "#setup-project")
-- [Step 2: Create your agent](#create-agent "#create-agent")
-- [Step 3: Test locally](#test-locally "#test-locally")
-- [Step 4: Configure your agent](#configure-agent "#configure-agent")
-- [Step 5: Enable observability for your
+- [Step 2: Create your agent project](#create-agent "#create-agent")
+- [Step 3: Test your agent locally](#configure-agent "#configure-agent")
+- [Step 4: Enable observability for your
   agent](#enable-observability "#enable-observability")
-- [Step 6: Deploy to Amazon Bedrock AgentCore Runtime](#deploy-runtime "#deploy-runtime")
-- [Step 7: Test your deployed agent](#test-deployed-agent "#test-deployed-agent")
-- [Step 8: Invoke your agent
+- [Step 5: Deploy to Amazon Bedrock AgentCore Runtime](#deploy-runtime "#deploy-runtime")
+- [Step 6: Test your deployed agent](#test-deployed-agent "#test-deployed-agent")
+- [Step 7: Invoke your agent
   programmatically](#invoke-programmatically "#invoke-programmatically")
-- [Step 9: Clean up](#clean-up "#clean-up")
+- [Step 8: Clean up](#clean-up "#clean-up")
 - [Find your resources](#find-resources "#find-resources")
 - [Common issues and solutions](#common-issues "#common-issues")
 - [Advanced options (Optional)](#advanced-options "#advanced-options")
@@ -86,93 +85,50 @@ Verify installation:
 agentcore --help
 ```
 
-## Step 2: Create your agent
+## Step 2: Create your agent project
 
-Create a source file for your agent code named `my_agent.py`. Add
-the following code:
-
-```
-from bedrock_agentcore import BedrockAgentCoreApp
-from strands import Agent
-
-app = BedrockAgentCoreApp()
-agent = Agent()
-
-@app.entrypoint
-def invoke(payload):
-    """Your AI agent function"""
-    user_message = payload.get("prompt", "Hello! How can I help you today?")
-    result = agent(user_message)
-    return {"result": result.message}
-
-if __name__ == "__main__":
-    app.run()
-```
-
-Create `requirements.txt` and add the following:
+Use the `agentcore create` command to set up a skeleton agent project with the framework of your choice:
 
 ```
-bedrock-agentcore
-strands-agents
+agentcore create
 ```
 
-## Step 3: Test locally
+The command will prompt you to:
 
-Make sure port 8080 is free before starting. See _Port 8080 in use (local
-only)_ in [Common issues and
-solutions](#common-issues "#common-issues").
+- Choose a framework (choose Strands Agents for this tutorial)
+- Provide a project name
+- Configure additional options
 
-Open a terminal window and start your agent with the following command:
+This generates:
 
-```
-python my_agent.py
-```
+- Agent code with your selected framework
+- `.bedrock_agentcore.yaml` configuration file
+- `requirements.txt` with necessary dependencies
 
-Test your agent by opening another terminal window and enter the following
-command:
+## Step 3: Test your agent locally
 
-```
-curl -X POST http://localhost:8080/invocations \
-  -H "Content-Type: application/json" \
-  -d '{"prompt": "Hello!"}'
-```
+Make sure you configured your credentials for your chosen model provider during the `agentcore create` setup process.Amazon Bedrock
+If you selected a provider that requires an API key (OpenAI, Anthropic, or Gemini), ensure your credentials were properly configured. For more information about configuring credentials, see [Configuration and credential file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md").
 
-**Success:** You should see a response like
-`{"result": "Hello! I'm here to help..."}`. In the terminal window that's
-running the agent, enter `Ctrl+C` to stop the agent.
-
-## Step 4: Configure your agent
-
-Configure and deploy your agent to AWS using the starter toolkit. The toolkit
-automatically creates the IAM execution role, container image, and Amazon Elastic
-Container Registry repository needed to host the agent in an AgentCore Runtime. By
-default the toolkit hosts the agent in an AgentCore Runtime that is in the
-`us-west-2` AWS Region.
-
-Configure the agent using the default
-values:
+Before deploying to AWS, optionally test your agent locally using the development server:
 
 ```
-agentcore configure -e my_agent.py
+agentcore dev
 ```
 
-- The `e` or `-entrypoint` flag specifies the entrypoint
-  file for your agent (the Python file containing your agent code)
-- This command creates configuration for deployment to AWS
-- Accept the default values unless you have specific requirements
-- The configuration information is stored in a hidden file named
-  `.bedrock_agentcore.yaml`
+- This command starts a local server that mimics the AgentCore Runtime environment
+- Allows you to iterate quickly without deploying to AWS
+- The server runs on `http://localhost:8080` by default
 
-### (Optional) Use a different AWS Region
-
-By default, the starter toolkit deploys to the `us-west-2` AWS Region. To use a different
-Region:
+In a separate terminal, test your agent:
 
 ```
-agentcore configure -e my_agent.py -r `us-east-1`
+agentcore invoke --dev "Hello!"
 ```
 
-## Step 5: Enable observability for your
+The `--dev` flag tells the CLI to invoke your local development server instead of a deployed agent.
+
+## Step 4: Enable observability for your
 
 agent
 
@@ -181,7 +137,7 @@ that you host in Amazon Bedrock AgentCore Runtime. First enable CloudWatch Trans
 by following the instructions at [Enabling Amazon Bedrock AgentCore runtime observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin"). To observe your agent,
 see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md").
 
-## Step 6: Deploy to Amazon Bedrock AgentCore Runtime
+## Step 5: Deploy to Amazon Bedrock AgentCore Runtime
 
 Host your agent in AgentCore Runtime:
 
@@ -193,7 +149,7 @@ This command:
 
 - Builds your container using AWS CodeBuild (no Docker required
   locally)
-- Creates necessary AWS resources (ECR repository, IAM roles, etc.)
+- Creates necessary AWS resources (IAM roles, etc.)
 - Deploys your agent to Amazon Bedrock AgentCore Runtime
 - Configures CloudWatch logging
 
@@ -206,7 +162,7 @@ In the output from `agentcore launch` note the following:
 If the deployment fails check for [common issues](#common-issues "#common-issues"). For other deployment options, see
 [Deployment modes](#deployment-modes "#deployment-modes").
 
-## Step 7: Test your deployed agent
+## Step 6: Test your deployed agent
 
 Test your deployed agent:
 
@@ -217,7 +173,7 @@ agentcore invoke '{"prompt": "tell me a joke"}'
 If you see a joke in the response, your agent is now running in an Amazon Bedrock AgentCore
 Runtime and can be invoked. If not, check for [common issues](#common-issues "#common-issues").
 
-## Step 8: Invoke your agent
+## Step 7: Invoke your agent
 
 programmatically
 
@@ -266,7 +222,7 @@ python invoke_agent.py
 ```
 
 If successful, you should see a joke in the response. If the call fails, check the
-logs that you noted in [Step 6: Deploy to Amazon Bedrock AgentCore Runtime](#deploy-runtime "#deploy-runtime").
+logs that you noted in [Step 5: Deploy to Amazon Bedrock AgentCore Runtime](#deploy-runtime "#deploy-runtime").
 
 ###### Note
 
@@ -274,7 +230,7 @@ If you plan on integrating your agent with OAuth, you can't use the AWS SDK to
 call `InvokeAgentRuntime`. Instead, make a HTTPS request to
 `InvokeAgentRuntime`. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
 
-## Step 9: Clean up
+## Step 8: Clean up
 
 If you no longer want to host the agent in the AgentCore Runtime, use the `destroy` commnand
 to delete the AWS resources that the starter toolit
@@ -309,15 +265,6 @@ get-caller-identity`
 - Check you have the required policies attached
 - Review caller permissions policy for detailed requirements
 
-**Docker not found warnings**
-
-You can ignore this warning:
-
-- **Ignore this!** Default deployment
-  uses CodeBuild (no Docker needed)
-- Only install Docker/Finch/Podman if you want to use
-  `--local` or `--local-build` flags
-
 **Model access denied**
 
 Enable model access in the Bedrock console:
@@ -350,12 +297,11 @@ make sure resources are in same Region
 
 ## Advanced options (Optional)
 
-The starter toolkit has advanced configuration options for different deployment modes
-and custom IAM roles. For more information, see [Runtime commands for the starter toolkit](https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html "https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html").
+After creating your agent project with `agentcore create`, the `agentcore launch` command has advanced configuration options for different deployment modes and custom IAM roles. For more information, see [Runtime commands for the starter toolkit](https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html "https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html").
 
-### Deployment modes
+### Deployment modes for agentcore launch
 
-Choose the right deployment approach for your needs:
+When deploying your agent with `agentcore launch`, choose the right deployment approach for your needs:
 
 **Default: CodeBuild + Cloud Runtime (RECOMMENDED)**
 

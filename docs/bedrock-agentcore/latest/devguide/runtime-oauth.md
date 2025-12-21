@@ -84,7 +84,7 @@ automatically for your runtime with AgentCore Identity service.
 
 - [JWT inbound authorization and OAuth outbound access sample](#oauth-sample-overview "#oauth-sample-overview")
 - [Prerequisites](#oauth-prerequisites "#oauth-prerequisites")
-- [Step 1: Prepare your agent](#prepare-agent "#prepare-agent")
+- [Step 1: Create your agent project](#prepare-agent "#prepare-agent")
 - [Step 2: Set up AWS Cognito user pool and add a user](#setup-cognito "#setup-cognito")
 - [Step 3: Deploy your agent](#deploy-agent "#deploy-agent")
 - [Step 4: Use bearer token to invoke your agent](#invoke-agent "#invoke-agent")
@@ -124,51 +124,29 @@ Before you begin, make sure you have:
 - Basic understanding of OAuth authorization, mainly JWT bearer tokens, claims,
   and the various grant flows
 
-## Step 1: Prepare your agent
+## Step 1: Create your agent project
 
-Start by creating a basic agent with the following structure:
-
-```
-## Project Folder Structure
-
-your_project_directory/
-├── agent_example.py # Your main agent code
-├── requirements.txt # Dependencies for your agent
-└── __init__.py # Makes the directory a Python package
-```
-
-Create the following files with their respective contents:
-
-###### agent_example.py
-
-This is your main agent code:
+Use the `agentcore create` command to set up a skeleton agent project with the framework of your choice:
 
 ```
-from strands import Agent
-from bedrock_agentcore.runtime import BedrockAgentCoreApp
-
-agent = Agent()
-app = BedrockAgentCoreApp()
-
-@app.entrypoint
-def invoke(payload):
-    """Process user input and return a response"""
-    user_message = payload.get("prompt", "Hello")
-    response = agent(user_message)
-    return str(response) # response should be json serializable
-
-if __name__ == "__main__":
-    app.run()
+agentcore create
 ```
 
-###### requirements.txt
+The command will prompt you to:
 
-This file lists the dependencies for your agent:
+- Choose a framework (choose Strands Agents for this tutorial)
+- Provide a project name
+- Configure additional options
 
-```
-strands-agents
-bedrock-agentcore
-```
+This generates:
+
+- Agent code with your selected framework
+- `.bedrock_agentcore.yaml` configuration file
+- `requirements.txt` with necessary dependencies
+
+###### Note
+
+The generated agent code will serve as the foundation for implementing OAuth authentication in the following steps.
 
 ## Step 2: Set up AWS Cognito user pool and add a user
 
@@ -646,15 +624,15 @@ and extract claims from a JWT token using PyJWT library.
 
 ###### requirements.txt
 
-Add PyJWT dependency to your requirements.txt file.
+Add PyJWT dependency to the `requirements.txt` file in your generated project.
 
 ```
 PyJWT
 ```
 
-###### agent_example.py
+###### Update your agent code
 
-Change your main agent code as shown in the following code. You can skip
+Modify the main agent file in your generated project (typically `src/main.py` or similar, depending on your framework choice) as shown in the following code. You can skip
 validating the token signature here since it has already been validated by
 AgentCore Runtime when the inbound authorization was done.
 
@@ -684,10 +662,10 @@ def invoke(payload, context):
 
 ### Step 6.2: Create the agent with request header allowlist
 
-Use the AgentCore starter toolkit to create the agent with request header allowlist.
+Use the AgentCore starter toolkit to configure the agent with request header allowlist. Navigate to your generated project directory and run:
 
 ```
-agentcore configure --entrypoint agent_example.py \
+agentcore configure --entrypoint src/main.py \
  --name hello_agent \
 --execution-role your-execution-role-arn \
 --disable-otel \
@@ -698,6 +676,10 @@ agentcore configure --entrypoint agent_example.py \
 // now launch the agent runtime
 agentcore launch
 ```
+
+###### Note
+
+The `--entrypoint` path should match the location of your main agent file in the generated project structure. This may vary depending on your framework choice during project creation.
 
 ### Step 6.3: Invoke your agent
 

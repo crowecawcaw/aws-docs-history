@@ -26,7 +26,8 @@ with your agent runtimes.
 - [I need recommendations for testing my agent](#testing-recommendations "#testing-recommendations")
 - [I need help debugging container issues](#debugging-container-issues "#debugging-container-issues")
 - [I need help troubleshooting MCP protocol agents](#troubleshooting-mcp-protocol "#troubleshooting-mcp-protocol")
-- [I need help troubleshooting WebSocket streaming agents](#troubleshooting-websocket-protocol "#troubleshooting-websocket-protocol")
+- [I need help troubleshooting bidirectional streaming using WebSocket](#troubleshooting-websocket-protocol "#troubleshooting-websocket-protocol")
+- [My code changes aren't reflected in existing sessions](#troubleshoot-code-updates "#troubleshoot-code-updates")
 - [Best practices](#best-practices "#best-practices")
 
 ## My agent invocations fail with 504 Gateway Timeout errors
@@ -442,9 +443,9 @@ Check authentication configuration:
 - Ensure bearer token is correctly set in the headers
 - Verify your Cognito user pool is correctly set up
 
-## I need help troubleshooting WebSocket streaming agents
+## I need help troubleshooting bidirectional streaming using WebSocket
 
-For WebSocket streaming agents, follow these specific troubleshooting steps:
+For bidirectional streaming using WebSocket agents, follow these specific troubleshooting steps:
 
 ###### Verify endpoint configuration
 
@@ -469,12 +470,24 @@ Check authentication configuration for deployed agents:
 
 ###### Common connection issues
 
-Address frequent WebSocket connection problems:
+Address common WebSocket connection problems:
 
-- Ensure your agent properly handles WebSocket upgrade requests
-- Check that your agent maintains the WebSocket connection loop correctly
 - Verify message format compatibility between your agent and client expectations
-- Monitor connection timing and implement appropriate timeout handling
+- Configure message frame fragmentation or implement chunking to stay within message frame size (16 KB) and message frame rate (250 frames per second) limits to prevent connection closure
+
+## My code changes aren't reflected in existing sessions
+
+###### Problem
+
+You've updated your agent runtime with new code, but existing sessions continue to use the old version.
+
+###### Why this happens
+
+Each microVM session is created with the code assets (`agentRuntimeArtifact`) that were deployed at the time of session creation. Once a session is established, it continues using that version of the code until the session terminates, even when code assets are updated as part of performing the [UpdateAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md") operation.
+
+###### Solution
+
+To access your updated code, use a new session ID.
 
 ## Best practices
 

@@ -20,6 +20,7 @@ You can also configure lifecycle settings for an existing AgentCore Runtime with
 - [Update the lifecycle configuration for an AgentCore Runtime](#update-lifecycle-configuration "#update-lifecycle-configuration")
 - [Get the lifecycle configuration for an AgentCore Runtime](#update-lifecycle-configuration "#update-lifecycle-configuration")
 - [Validation and constraints](#validation-and-constraints "#validation-and-constraints")
+- [Lifecycle settings and runtime sessions](#lifecycle-and-session-relationship "#lifecycle-and-session-relationship")
 - [Best practices](#best-practices "#best-practices")
 
 ## Configuration attributes
@@ -218,6 +219,55 @@ else:
     print("Configuration is valid")
 
 ```
+
+## Lifecycle settings and runtime sessions
+
+The lifecycle configuration settings you define are applied to each individual runtime session. When you invoke an agent with a specific `runtimeSessionId`, AgentCore Runtime provisions a dedicated microVM for that session. The lifecycle timeouts (`idleRuntimeSessionTimeout` and `maxLifetime`) govern the lifecycle of that specific microVM instance.
+
+```
+import boto3
+import json
+import uuid
+
+client = boto3.client('bedrock-agentcore', region_name='us-west-2')
+
+# Each unique runtimeSessionId gets its own microVM with lifecycle settings applied
+session_id_user_1 = str(uuid.uuid4())  # User 1's session
+session_id_user_2 = str(uuid.uuid4())  # User 2's session
+
+# First invocation for User 1 - creates new microVM with lifecycle timers
+response1 = client.invoke_agent_runtime(
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my-agent',
+    runtimeSessionId=session_id_user_1,  # Dedicated microVM for this session
+    payload=json.dumps({"prompt": "Hello from User 1"}).encode()
+)
+
+# First invocation for User 2 - creates separate microVM with its own lifecycle timers
+response2 = client.invoke_agent_runtime(
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my-agent',
+    runtimeSessionId=session_id_user_2,  # Different microVM for this session
+    payload=json.dumps({"prompt": "Hello from User 2"}).encode()
+)
+
+# Subsequent invocations to same session reuse the existing microVM
+# The idle timeout resets with each invocation to the same session
+response3 = client.invoke_agent_runtime(
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my-agent',
+    runtimeSessionId=session_id_user_1,  # Reuses User 1's existing microVM
+    payload=json.dumps({"prompt": "Follow-up from User 1"}).encode()
+)
+```
+
+Key points about lifecycle settings and sessions:
+
+- **Per-session isolation**: Each `runtimeSessionId` gets its own microVM with independent lifecycle timers
+- **Idle timer reset**: The `idleRuntimeSessionTimeout` resets each time you invoke the same session
+- **Maximum lifetime enforcement**: The `maxLifetime` timer starts when the microVM is first created and cannot be reset
+- **Session termination**: When either timeout is reached, only that specific session's microVM is terminated
+
+###### Tip
+
+Each microVM session uses the code assets (`agentRuntimeArtifact`) that were deployed at the time of microVM creation. If you update your agent runtime with new code, existing sessions will continue using the previous version until they terminate and new sessions are created.
 
 ## Best practices
 
