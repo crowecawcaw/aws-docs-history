@@ -18,7 +18,7 @@ practice with stack deployments.
 - [Create a scaled and load-balanced
   application](walkthrough-autoscaling.md "walkthrough-autoscaling.md")
   – Discover how to use CloudFormation to create a scalable and load-balanced
-  application. This walkthrough covers creating an Amazon EC2 Auto Scaling group, a load balancer, and
+  application. This walkthrough covers creating an Auto Scaling group, a load balancer, and
   other related resources to ensure your application can handle varying traffic loads
   and maintain high availability.
 - [Peer with a VPC in another

@@ -47,7 +47,7 @@ The benefits of using drift-aware change sets include:
   previous deployment values rather than actual values.
 - AWS-managed properties – Drift-aware change
   sets preserve out-of-band changes made by AWS services to managed properties, such as
-  the desired capacity of an Amazon EC2 Auto Scaling group. See the AWS-managed properties section for
+  the desired capacity of an Auto Scaling group. See the AWS-managed properties section for
   details.
 - External tag keys – Drift-aware change sets do
   not remove or modify tag keys that were not specified in the template, preventing
@@ -78,7 +78,7 @@ AWS-managed properties are:
 - Using the `AWS::ApplicationAutoScaling::ScalableTarget` resource to enable
   auto-scaling for properties such as the read/write capacity units of an Amazon DynamoDB table
   and the desired count of an Amazon Elastic Container Service cluster.
-- Using the `AWS::AutoScaling::ScalingPolicy` for Amazon EC2 Auto Scaling groups.
+- Using the `AWS::AutoScaling::ScalingPolicy` for Auto Scaling groups.
 
 Drift-aware change sets clarify the properties which were identified as AWS-managed. See
 the AWS CLI section for details.
@@ -233,7 +233,6 @@ detection, except the following resource types:
 - `AWS::Neptune::DBParameterGroup`
 - `AWS::ODB::CloudVmCluster`
 - `AWS::RolesAnywhere::TrustAnchor`
-- `AWS::Evidently::Launch`
 - `AWS::Detective::Graph`
 - `AWS::Maester::DocumentType`
 - `AWS::SageMaker::ModelPackageGroup`

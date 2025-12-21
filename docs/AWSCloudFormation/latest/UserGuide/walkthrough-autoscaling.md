@@ -4,8 +4,8 @@ application
 
 For this walkthrough, you create a stack that helps you set up a scaled and load-balanced
 application. The walkthrough provides a sample template that you use to create the stack. The
-example template provisions an Amazon EC2 Auto Scaling group, an Application Load Balancer, security groups that control traffic to the
-load balancer and to the Amazon EC2 Auto Scaling group, and an Amazon SNS notification configuration to publish
+example template provisions an Auto Scaling group, an Application Load Balancer, security groups that control traffic to the
+load balancer and to the Auto Scaling group, and an Amazon SNS notification configuration to publish
 notifications about scaling activities.
 
 This template creates one or more Amazon EC2 instances and an Application Load Balancer. You will be billed for the
@@ -510,9 +510,9 @@ resource `NotificationTopic`
 [AWS::AutoScaling::AutoScalingGroup](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource `WebServerGroup`
 
 - `MinSize` and `MaxSize` set the minimum and maximum number of
-  EC2 instances in the Amazon EC2 Auto Scaling group.
+  EC2 instances in the Auto Scaling group.
 - `TargetGroupARNs` takes the ARN of the target group with the logical name
-  `EC2TargetGroup`. As this Amazon EC2 Auto Scaling group scales, it automatically registers and
+  `EC2TargetGroup`. As this Auto Scaling group scales, it automatically registers and
   deregisters instances with this target group.
 - `VPCZoneIdentifier` takes the value of the `Subnets` input
   parameter as the list of public subnets where the EC2 instances can be created.
@@ -555,7 +555,7 @@ receive a status of **CREATE_COMPLETE**.
 
 After you create the stack, you must confirm the subscription before the email
 address can start to receive notifications. For more information, see [Get Amazon SNS
-notifications when your Amazon EC2 Auto Scaling group scales](../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md") in the
+notifications when your Auto Scaling group scales](../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md") in the
 _Amazon EC2 Auto Scaling User Guide_.
 
 ## Step 2: Clean up your sample

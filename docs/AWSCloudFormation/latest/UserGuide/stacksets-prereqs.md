@@ -18,11 +18,6 @@ _service-managed_ permissions.
   permissions for you. For more information, see [Activate trusted
   access](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md").
 
-###### Note
-
-Activating trusted access with AWS Organizations for CloudFormation StackSets isn't currently supported in the
-China Beijing and Ningxia Regions.
-
 ###### Topics
 
 - [Prepare to perform StackSet operations in

@@ -123,7 +123,7 @@ that use the `Fn::Transform` function.
 3. Choose **Stack actions**, and then choose **Import resources
    into stack**.
 
-![The Import resources into stack option in the console.](/images/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png) 4. Review the **Import overview** page, and then choose
+![The Import resources into stack option in the console.](images/stack-actions-import.png) 4. Review the **Import overview** page, and then choose
 **Next**. 5. On the **Specify template** page, provide your updated template using
 one of the following methods, and then choose **Next**.
 

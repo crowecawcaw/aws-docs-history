@@ -12,9 +12,11 @@ For example, you might want to include resources that aren't available as CloudF
 resource types. You can include those resources by using custom resources. That way, you can
 still manage all your related resources in a single stack.
 
-To define a custom resource in your CloudFormation template, you use the [AWS::CloudFormation::CustomResource](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md") or [Custom::MyCustomResourceTypeName](../TemplateReference/aws-resource-cloudformation-customresource.md#aws-resource-cloudformation-customresource--remarks "../TemplateReference/aws-resource-cloudformation-customresource.md#aws-resource-cloudformation-customresource--remarks")
-resource type. Custom resources require one property, the service token, which specifies
-where CloudFormation sends requests to, such as an Amazon SNS topic or a Lambda function.
+To define a custom resource in your CloudFormation template, you use the
+`AWS::CloudFormation::CustomResource` or
+`Custom::`MyCustomResourceTypeName`` resource
+type. Custom resources require one property, the service token, which specifies where
+CloudFormation sends requests to, such as an Amazon SNS topic or a Lambda function.
 
 The following topics provide information on how to use custom resources.
 
@@ -89,9 +91,9 @@ to send to the Lambda function.
 ```
 {
    "RequestType" : "Create",
-   "ResponseURL" : "http://pre-signed-S3-url-for-response",
-   "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
    "RequestId" : "unique id for this create request",
+   "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
+   "ResponseURL" : "http://pre-signed-S3-url-for-response",
    "ResourceType" : "Custom::TestResource",
    "LogicalResourceId" : "MyTestResource",
    "ResourceProperties" : {
@@ -133,10 +135,10 @@ response:
 ```
 {
    "Status" : "SUCCESS",
-   "PhysicalResourceId" : "TestResource1",
-   "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
    "RequestId" : "unique id for this create request",
+   "StackId" : "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10",
    "LogicalResourceId" : "MyTestResource",
+   "PhysicalResourceId" : "TestResource1",
    "Data" : {
       "OutputName1" : "Value1",
       "OutputName2" : "Value2",

@@ -25,7 +25,7 @@ When CloudFormation creates a stack that includes a wait condition:
 
 ###### Important
 
-For Amazon EC2 and Amazon EC2 Auto Scaling resources, we recommend that you use a CreationPolicy attribute instead of wait conditions.
+For Amazon EC2 and Auto Scaling resources, we recommend that you use a CreationPolicy attribute instead of wait conditions.
 Add a CreationPolicy attribute to those resources, and use the cfn-signal helper script to signal when an instance creation process has completed successfully.
 
 For more information, see [CreationPolicy attribute](../TemplateReference/aws-attribute-creationpolicy.md "../TemplateReference/aws-attribute-creationpolicy.md").

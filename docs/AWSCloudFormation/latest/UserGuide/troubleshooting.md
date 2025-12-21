@@ -239,7 +239,7 @@ that failed to update but didn't receive a signal to start rolling back is in an
 
 A nested stack might fail to roll back because of changes that were made outside
 of CloudFormation, when the stack template doesn't accurately reflect the state of the
-stack. A nested stack might also fail if an Amazon EC2 Auto Scaling group in a nested stack had an
+stack. A nested stack might also fail if an Auto Scaling group in a nested stack had an
 insufficient resource signal timeout period when the group was created or
 updated.
 
@@ -322,9 +322,9 @@ update rollback failures:
 Use the [signal-resource](../../../cli/latest/reference/cloudformation/signal-resource.md "../../../cli/latest/reference/cloudformation/signal-resource.md") command to manually send the
 required number of successful signals to the resource that's
 waiting for them, and then continue rolling back the update. For
-example, during an update rollback, instances in an Amazon EC2 Auto Scaling group
+example, during an update rollback, instances in an Auto Scaling group
 might fail to signal success within the specified timeout
-duration. Manually send success signals to the Amazon EC2 Auto Scaling group. When
+duration. Manually send success signals to the Auto Scaling group. When
 you continue the update rollback, CloudFormation sees your signals
 and proceeds with the rollback.
 

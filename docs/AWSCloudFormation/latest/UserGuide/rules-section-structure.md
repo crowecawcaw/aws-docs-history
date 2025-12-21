@@ -233,9 +233,9 @@ Rules:
 ### Cross-parameter validation
 
 The following sample templates demonstrate the use of rules for cross-parameter
-validations. They create a sample website running on an Amazon EC2 Auto Scaling group behind a load balancer.
+validations. They create a sample website running on an Auto Scaling group behind a load balancer.
 The website is available on port 80 or 443 depending on input parameters. The instances in
-the Amazon EC2 Auto Scaling group can be configured to listen on any port (with 8888 as the default).
+the Auto Scaling group can be configured to listen on any port (with 8888 as the default).
 
 The rules in this template validate input parameters before stack creation. They verify
 that all subnets belong to the specified VPC and ensure that when the `UseSSL`

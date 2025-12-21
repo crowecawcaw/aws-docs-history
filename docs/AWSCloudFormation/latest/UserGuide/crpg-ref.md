@@ -127,7 +127,7 @@ _Required_: No
 
 _Type_: JSON object
 
-### Example
+_Example_
 
 ```
 {
@@ -246,7 +246,7 @@ _Required_: Yes
 
 _Type_: JSON object
 
-### Example
+_Example_
 
 ```
 {
@@ -349,7 +349,7 @@ _Required_: No
 
 _Type_: JSON object
 
-### Example
+_Example_
 
 ```
 {

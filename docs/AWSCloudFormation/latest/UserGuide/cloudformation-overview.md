@@ -169,7 +169,7 @@ making the template easier to reuse in different situations.
 When you use CloudFormation, you manage related resources as a single unit called a stack. You
 create, update, and delete a collection of resources by creating, updating, and deleting
 stacks. All the resources in a stack are defined by the stack's CloudFormation template. Suppose
-you created a template that includes an Amazon EC2 Auto Scaling group, ELB load balancer, and an Amazon Relational Database Service
+you created a template that includes an Auto Scaling group, ELB load balancer, and an Amazon Relational Database Service
 (Amazon RDS) database instance. To create those resources, you create a stack by submitting the
 template that you created, and CloudFormation provisions all those resources for you.
 
