@@ -93,7 +93,7 @@ Note the following information:
   4.15 or greater. Debian-based systems, such as Ubuntu, are not supported.
 - The agent supports x86_64 and ARM64 architectures.
 - For distributed applications, we recommend adding the install and startup
-  commands to the Amazon EC2 user data of your Amazon EC2 Auto Scaling group. If you do, each instance runs
+  commands to the Amazon EC2 user data of your Auto Scaling group. If you do, each instance runs
   the commands automatically. For more information, see [Run commands on your Linux instance
   at launch](../../../AWSEC2/latest/UserGuide/user-data.md "../../../AWSEC2/latest/UserGuide/user-data.md") in the _Amazon EC2 User Guide_. Additionally, see
   [Tutorial: Configure user data to retrieve the target lifecycle state through
@@ -332,7 +332,7 @@ Automating updates to AWS AppConfig Agent
 AWS AppConfig Agent is updated periodically. To ensure you are running the latest version of
 AWS AppConfig Agent on your instances, we recommend that you add the following commands to your
 Amazon EC2 user data. You can add the commands to the user data on either the instance or the
-EC2 Amazon EC2 Auto Scaling group. The script installs and starts the latest version of the agent each time
+EC2 Auto Scaling group. The script installs and starts the latest version of the agent each time
 an instance starts or reboots.
 
 ```
