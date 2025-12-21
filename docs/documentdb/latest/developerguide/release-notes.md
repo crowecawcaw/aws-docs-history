@@ -112,6 +112,8 @@ Amazon DocumentDB now offers full wire protocol compatibility with MongoDB 8.0. 
 
 ### New features
 
+**Amazon DocumentDB 5.0 (Engine Patch Version 3.0.17983)**
+
 Amazon DocumentDB now supports the latest generation of memory-optimized instances powered by Arm-based AWS Graviton4 processors, providing up to 30% better performance over R6G instances.
 For more information, see [Managing instance classes](db-instance-classes.md "db-instance-classes.md") in this guide and this [blog post](https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-documentdb-graviton4-based-r8g-database-instances/ "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-documentdb-graviton4-based-r8g-database-instances/").
 
@@ -181,7 +183,7 @@ Fixed engine crash when queries contain subsequent `$replaceRoot` and `$lookup` 
 
 - Added support of `$regexFindAll` aggregation operator.
 - Index bloat and collection based bloat metrics launched
-- Added CloudWatch metrics `AvailableMVCCIds` and `LongestRunningGCProcess` that provide information into the overall health of the cluster with respect to garbage collection and aging collections.
+- Added CloudWatch metrics `AvailableMVCCIds` and `LongestActiveGCRuntime` that provide information into the overall health of the cluster with respect to garbage collection and aging collections.
 - The `serverStatus` command now includes an "nvme_cache" field that shows the count of pages written and not written to NVMe cache on NVMe-backed instances.
 - Removed limitation on number of fields for `$group` and `$project`
 - Support for the following String operators: `$trim`, `$rtrim`, `$ltrim`, `$regexFindAll`, `$replaceOne`, and `$replaceAll`
@@ -191,7 +193,7 @@ Fixed engine crash when queries contain subsequent `$replaceRoot` and `$lookup` 
 **Amazon DocumentDB 4.0 (Engine Patch Version 2.0.11747)**
 
 - Index bloat and collection based bloat metrics launched
-- Added CloudWatch metrics `AvailableMVCCIds` and `LongestRunningGCProcess` that provide information into the overall health of the cluster with respect to garbage collection and aging collections.
+- Added CloudWatch metrics `AvailableMVCCIds` and `LongestActiveGCRuntime` that provide information into the overall health of the cluster with respect to garbage collection and aging collections.
 - Support for the following String operators: `$trim`, `$rtrim`, and `$ltrim`
 - Support for the following Stage operator: `$collStats`
 

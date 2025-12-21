@@ -132,7 +132,7 @@ Metrics in the following tables apply to both instance-based and elastic cluster
 | `DiskQueueDepth`           | The number of I/O operations that are waiting to be written<br>to or read from disk.                                                                                                                                                                                                                                        |
 | `EngineUptime`             | The amount of time, in seconds, that the<br>instance has been running.                                                                                                                                                                                                                                                      |
 | `IndexBufferCacheHitRatio` | The percentage of index requests that are served by the<br>buffer cache. You might see a spike greater than 100 percent for the metric right after you drop an index, collection or database. This will automatically be corrected after 60 seconds. This limitation will be fixed in a future patch update.                |
-| `LongestRunningGCProcess`  | Duration in seconds of the longest active garbage collection process.<br>Updates every minute and tracks only active operations, excluding processes that complete within the one-minute window.                                                                                                                            |
+| `LongestActiveGCRuntime`   | Duration in seconds of the longest active garbage collection process.<br>Updates every minute and tracks only active operations, excluding processes that complete within the one-minute window.                                                                                                                            |
 
 ### T3 instance metrics
 
@@ -158,7 +158,7 @@ complete the following steps.
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](/images/documentdb/latest/developerguide/images/docdb-menu-icon.png))
+(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the screenshot below.
 
 ![Clusters table showing how an instance is nested under a cluster.](images/choose-clusters.png) 4. From the list of instances, choose the name of the instance that you want metrics for. 5. In the resulting instance summary page, choose the

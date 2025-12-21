@@ -79,7 +79,7 @@ Amazon DocumentDB elastic clusters do not allow you to edit the `AWSServiceRoleF
 After you create a service-linked role, you cannot change the name of the role because various entities might reference the role.
 However, you can edit the description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _AWS Identity and Access Management User Guide_.
 
-##### Deleting a service-linked role for Amazon DocumentDB elastic clusters
+#### Deleting a service-linked role for Amazon DocumentDB elastic clusters
 
 If you no longer need to use a feature or service that requires a service-linked role, we recommend that you delete that role.
 That way you don't have an unused entity that is not actively monitored or maintained.

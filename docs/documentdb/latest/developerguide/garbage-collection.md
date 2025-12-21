@@ -90,29 +90,33 @@ The extended storage segment is particularly beneficial for:
 - **Recommendation** — Set an alarm when the value falls below 1.3 billion.
   This early warning allows you to take recommended steps discussed later.
 
-**`LongestRunningGCRuntime`**
+**`LongestActiveGCRuntime`**
 
 - **Location** — Amazon CloudWatch
 - **Description** — Duration in seconds of the longest active garbage collection process.
   Updates every minute and tracks only active operations, excluding processes that complete within the one-minute window.
-- **Recommendation** — Compare with `GCRuntimeStats` historical data to identify abnormal garbage collection behavior, such as extended runtimes during bulk deletions.
+- **Recommendation** — Compare with `gcRuntimeStats` historical data to identify abnormal garbage collection behavior, such as extended runtimes during bulk deletions.
 
 ### Collection level metrics
 
-**`MVCCIDStats: MvccIdAgeScale`**
+**`MVCCIDStats: MVCCIdScale`**
 
 - **Location** — Database collStats command
 - **Description** — Measures MVCC ID age on a scale of 0 to 1, where 1 indicates the maximum age before a cluster enters a read-only state.
   Use this metric alongside `AvailableMVCCIds` to identify collections containing the oldest MVCC IDs that are aging the cluster.
 - **Recommendation** — Maintain values below 0.3 for each collection.
 
-**`GCRuntimeStats`**
+**`gcRuntimeStats`**
 
 - **Location** — Database collStats command
 - **Description** — Provides a two-month history of garbage collection metrics, including total runs, average duration, and maximum duration.
   Only includes garbage collection operations lasting more than five minutes to ensure meaningful statistics.
 
-**`StorageSizeStats`**
+###### Important
+
+`gcRuntimeStats`, `documentFragmentStats`, and breakup of collection level metrics into `storageSegmentBase` and `storageSegmentExtended` are only available for Amazon DocumentDB 8.0.
+
+**`storageSizeStats`**
 
 - **Location** — Database collStats command
 - **Description** — Provides detailed breakdown of storage utilization across different storage segments:
@@ -121,7 +125,7 @@ The extended storage segment is particularly beneficial for:
 
 - **Usage** — Helps identify collections with significant large document storage and understand storage distribution patterns.
 
-**`UnusedStorageSize`** (collection level)
+**`unusedStorageSize`** (collection level)
 
 - **Location** — Database collStats command
 - **Description** — Estimates unused storage space in a collection based on sampled statistics.
@@ -130,7 +134,7 @@ The extended storage segment is particularly beneficial for:
   - `storageSegmentBase` — Unused space specifically in the base storage segment
   - `storageSegmentExtended` — Unused space specifically in the extended storage segment
 
-**`DocumentFragmentStats`**
+**`documentFragmentStats`**
 
 - **Location** — Database collStats command
 - **Description** — Provides detailed information about document fragments and dead data within collections.
@@ -146,12 +150,12 @@ The extended storage segment is particularly beneficial for:
 
 ### Index level metrics
 
-**`UnusedStorageSize`** (index level)
+**`unusedStorageSize`** (index level)
 
 - **Location** — Database indexStats command
 - **Description** — Estimates unused storage space in an index based on sampled statistics.
   It includes space from obsolete index entries and empty segments.
-- **Recommendation** — Use the `REINDEX` command to rebuild indexes without downtime and reclaim unused space.
+- **Recommendation** — Use the `reIndex` command to rebuild indexes without downtime and reclaim unused space.
   Refer to Managing Indexes for more details.
 
 ## Example collStats output
@@ -160,7 +164,7 @@ The following example shows a typical `collStats` output with garbage collection
 
 ```
 {
-    "ns" : "xid_consumption_test_db.xid_test_collection",
+    "ns" : "Mvcc_consumption_test_db.mvcc_test_collection",
     "MVCCIdStats" : {
         "MVCCIdScale" : 0.03
     },
@@ -243,11 +247,11 @@ The following example shows a typical `collStats` output with garbage collection
 
 Monitor these warning signs that indicate inefficient garbage collection:
 
-- **Excessive Collection Bloat** — Steadily increasing `UnusedStorageSize` metrics during heavy writes or bulk deletions, especially with large indexes.
-- **High Dead Fragment Percentage** — `DocumentFragmentStats` showing consistently high `deadDocFragmentsPercent` values (above 10-15%).
+- **Excessive Collection Bloat** — Steadily increasing `unusedStorageSize` metrics during heavy writes or bulk deletions, especially with large indexes.
+- **High Dead Fragment Percentage** — `documentFragmentStats` showing consistently high `deadDocFragmentsPercent` values (above 10-15%).
 - **Degraded Query Latency** — Increased query latency due to accumulated dead documents.
-- **Extended GC Duration** — Garbage collection operations taking longer than historical averages in `GCRuntimeStats`.
-- **Elevated GC Processing** — High `LongestRunningGCRuntime` indicating the garbage collector cannot keep up with system demands.
+- **Extended GC Duration** — Garbage collection operations taking longer than historical averages in `gcRuntimeStats`.
+- **Elevated GC Processing** — High `LongestActiveGCRuntime` indicating the garbage collector cannot keep up with system demands.
 
 ### Does garbage collection affect my database performance?
 
@@ -271,15 +275,15 @@ For cluster-level monitoring, start by creating a Amazon CloudWatch alarm for th
 This gives you adequate time to take action before the metric reaches zero, at which point your cluster would enter read-only mode.
 Keep in mind that this metric may fluctuate based on your specific usage patterns - some customers see it drop below 1.3 billion and then recover above 1.5 billion as garbage collection completes its work.
 
-It's also important to monitor the `LongestRunningGCRuntime` metric through Amazon CloudWatch.
-This metric, along with `GCRuntimeStats`, helps you understand how efficiently garbage collection is performing across your system.
+It's also important to monitor the `LongestActiveGCRuntime` metric through Amazon CloudWatch.
+This metric, along with `gcRuntimeStats`, helps you understand how efficiently garbage collection is performing across your system.
 
 For collection-level monitoring, focus on these key metrics:
 
-- `MvccIdAgeScale` — Watch for increasing values that suggest MVCC IDs are aging and may need attention.
-- `GCRuntimeStats` — Identify garbage collection processes taking unusually long or extending over multiple days.
-- `DocumentFragmentStats` — Monitor `deadDocFragmentsPercent` values - consistently high percentages (above 10-15%) may indicate garbage collection is falling behind.
-- `StorageSizeStats` and `UnusedStorageSize` — Track storage utilization patterns and identify collections with significant unused space in either storage segment.
+- `MVCCIdScale` — Watch for increasing values that suggest MVCC IDs are aging and may need attention.
+- `gcRuntimeStats` — Identify garbage collection processes taking unusually long or extending over multiple days.
+- `documentFragmentStats` — Monitor `deadDocFragmentsPercent` values - consistently high percentages (above 10-15%) may indicate garbage collection is falling behind.
+- `storageSizeStats` and `unusedStorageSize` — Track storage utilization patterns and identify collections with significant unused space in either storage segment.
 
 Collections with frequent write operations need extra attention, as they generate more work for the garbage collector.
 We recommend checking these metrics more frequently for collections with heavy write activity to ensure garbage collection keeps up with your workload.
@@ -294,8 +298,8 @@ We recommend first scaling up your instance size to provide the garbage collecto
 This is our primary recommendation as it allows your application to continue normal operations while giving the garbage collector the additional power it needs to catch up.
 
 If scaling up alone doesn't improve the situation, we recommend considering a reduction in your write operations.
-Use the `MvccIdAgeScale` metric to identify which specific collections contain older MVCC IDs that need attention.
-Additionally, monitor `DocumentFragmentStats` to identify collections with high dead fragment percentages that may be contributing to garbage collection inefficiency.
+Use the `MVCCIdScale` metric to identify which specific collections contain older MVCC IDs that need attention.
+Additionally, monitor `documentFragmentStats` to identify collections with high dead fragment percentages that may be contributing to garbage collection inefficiency.
 
 Once you've identified these collections, you may need to temporarily reduce write operations to them to allow garbage collection to catch up.
 During the recovery period, we recommend closely monitoring the `AvailableMVCCIds` metric to ensure your actions are having the desired effect.
