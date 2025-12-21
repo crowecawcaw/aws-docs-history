@@ -6,7 +6,7 @@ with the exception that Neptune Analytics does not support custom edge IDs.
 Amazon Neptune also supports several features beyond the scope of the OpenCypher specification. Refer to
 [OpenCypher extensions in Amazon Neptune](../../../neptune/latest/userguide/access-graph-opencypher-extensions.md "../../../neptune/latest/userguide/access-graph-opencypher-extensions.md") for details.
 
-### Vertex and edge IDs
+## Vertex and edge IDs
 
 **Custom IDs for vertices**
 
@@ -39,13 +39,13 @@ The edges could get assigned new IDs if the graph gets restructured and the olde
 invalid. If the edges are reassigned IDs, older IDs would match no other edges. It is not recommended to
 store these IDs externally for long-term querying purposes.
 
-### IRIs and language-tagged literals
+## IRIs and language-tagged literals
 
 Neptune Analytics supports values hat are of type IRI or languag-tagged literal. See
 [Handling RDF values](using-rdf-data.md#rdf-handling "using-rdf-data.md#rdf-handling") for
 more information.
 
-### OpenCypher reduce() function
+## OpenCypher reduce() function
 
 Reduce sequentially processes each list element by combining it with a running total or ‘accumulator.’ Starting
 from an initial value, it updates the accumulator after each operation and uses that updated value in the next

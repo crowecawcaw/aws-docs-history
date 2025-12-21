@@ -5,7 +5,7 @@ For details on the openCypher data model, please refer to the Neptune Database
 There are some differences in modeling of vertices without labels. Neptune Database adds vertices with a default label if one is
 not explicitly provided. All but the last label of a vertex can be deleted.
 
-### What is a vertex?
+## What is a vertex?
 
 As well as loading both vertices and edges, unlike Neptune Database, Neptune Analytics also allows loading just edges and is still
 able to run algorithms and queries from that starting point. This is useful if your main interest is, for example,
