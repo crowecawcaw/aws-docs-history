@@ -2,7 +2,7 @@
 
 interaction
 
-In order for Amazon GameLift Servers FleetIQ to work with your Amazon EC2 instances and Amazon EC2 Auto Scaling groups, you must allow
+In order for Amazon GameLift Servers FleetIQ to work with your Amazon EC2 instances and Auto Scaling groups, you must allow
 the services to interact with each other. This is done by creating IAM roles in your AWS
 account and assigning a set of limited permissions. Each role also sspecifies which services
 can assume the role.

@@ -15,7 +15,7 @@ information on Amazon GameLift Servers hosting options, see the [Amazon GameLift
 The Amazon GameLift Servers FleetIQ game hosting solution is designed for game developers who:
 
 - Have existing AWS deployments or want to use Amazon EC2 directly rather than through
-  the fully managed Amazon GameLift Servers service. Amazon GameLift Servers FleetIQ works with EC2 Amazon EC2 Auto Scaling groups that you manage
+  the fully managed Amazon GameLift Servers service. Amazon GameLift Servers FleetIQ works with EC2 Auto Scaling groups that you manage
   in your AWS account, giving you full access to your EC2 instances and groups. You
   can also integrate with other AWS services, including Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service
   (Amazon EKS), and AWS Shield Advanced.
@@ -35,24 +35,24 @@ The Amazon GameLift Servers FleetIQ game hosting solution is designed for game 
 - **Optimized Spot balancing.** Amazon GameLift Servers FleetIQ
   periodically evaluates your instance types and replaces Spot Instances that are
   not considered viable due to a higher potential for game session interruptions.
-  As your EC2 Amazon EC2 Auto Scaling group retires old instances and starts new ones, the group
+  As your EC2 Auto Scaling group retires old instances and starts new ones, the group
   continually refreshes with instance types that are currently viable for game
   hosting.
 - **Optimum player routing.** Amazon GameLift Servers FleetIQ APIs direct
   new game sessions onto the most resilient Spot Instances, where they are least
   likely to be interrupted. In addition, game sessions are packed onto fewer
-  instances, which improves the EC2 Amazon EC2 Auto Scaling group's ability to scale down unneeded
+  instances, which improves the EC2 Auto Scaling group's ability to scale down unneeded
   resources and lower hosting costs.
 - **Automatic scaling based on player usage.**
   Amazon GameLift Servers FleetIQ emits game server utilization data as Amazon CloudWatch metrics. You can use
   these metrics to automatically scale your available hosting resources to track
   with actual player demand and reduce hosting costs.
 - **Direct management of Amazon EC2 instances.**
-  Maintain full control of the EC2 instances and EC2 Amazon EC2 Auto Scaling groups in your
+  Maintain full control of the EC2 instances and EC2 Auto Scaling groups in your
   AWS account. This means that you can set up instance launch templates,
-  maintain EC2 Amazon EC2 Auto Scaling group configurations, and integrate with other AWS services.
+  maintain EC2 Auto Scaling group configurations, and integrate with other AWS services.
   As part of its Spot balancing activity, Amazon GameLift Servers FleetIQ makes periodic updates to some
-  EC2 Amazon EC2 Auto Scaling group properties. You can temporarily override these settings or
+  EC2 Auto Scaling group properties. You can temporarily override these settings or
   suspend Amazon GameLift Servers FleetIQ activity as needed.
 - **Support for multiple game server executable
   formats.** Amazon GameLift Servers FleetIQ supports all formats that currently run on

@@ -1,7 +1,7 @@
 # Manage user permissions for Amazon GameLift Servers FleetIQ
 
 Create additional users or extend Amazon GameLift Servers FleetIQ access permissions to existing users as needed.
-Users who work with Amazon GameLift Servers FleetIQ game server groups and the related Amazon EC2 and Amazon EC2 Auto Scaling services must
+Users who work with Amazon GameLift Servers FleetIQ game server groups and the related Amazon EC2 and Auto Scaling services must
 have permissions to access these services.
 
 As a best practice ( [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md")),

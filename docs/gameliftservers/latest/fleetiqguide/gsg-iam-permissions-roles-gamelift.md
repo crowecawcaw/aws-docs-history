@@ -1,6 +1,6 @@
 # Create a role for Amazon GameLift Servers FleetIQ
 
-This role allows Amazon GameLift Servers FleetIQ to access and modify your Amazon EC2 instances, Amazon EC2 Auto Scaling groups, and
+This role allows Amazon GameLift Servers FleetIQ to access and modify your Amazon EC2 instances, Auto Scaling groups, and
 lifecycle hooks as part of its Spot balancing and automatic scaling activities.
 
 Use the IAM console or the AWS CLI to create a role for Amazon GameLift Servers FleetIQ and attach a managed
@@ -129,5 +129,5 @@ The role is now ready. You can verify that the IAM role is configured correctly 
 calling [gamelift
 create-game-server-group](../../../cli/latest/reference/gamelift/create-game-server-group.md "../../../cli/latest/reference/gamelift/create-game-server-group.md") with the `role-arn` property set to the
 new role's ARN value. When the `GameServerGroup` enters ACTIVE state, this
-indicates that Amazon GameLift Servers FleetIQ is able to modify Amazon EC2 and Amazon EC2 Auto Scaling resources in your account, as
+indicates that Amazon GameLift Servers FleetIQ is able to modify Amazon EC2 and Auto Scaling resources in your account, as
 expected.

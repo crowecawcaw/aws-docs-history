@@ -33,7 +33,7 @@ status updates. A game server group is expected to be a long-lived resource.
 - Amazon GameLift Servers FleetIQ activates an asynchronous deactivation workflow in response to the
   DELETE_SCHEDULED status, transitioning the game server group status to DELETING.
   You have the option of deleting just the game server group or delete both the
-  game server group and the linked Amazon EC2 Auto Scaling group.
+  game server group and the linked Auto Scaling group.
   - If deactivation fails for any reason, the game server group is placed
     into status ERROR. To get additional error information to help debug the
     failure cause, call `DescribeGameServerGroup()` on a game
