@@ -15,6 +15,7 @@ overview of all the feature available through direct message.
   client](message-contact-details.md "message-contact-details.md")
 - [Emojis in the Wickr client](emoji-reactions.md "emoji-reactions.md")
 - [Search a message in the Wickr client](message-search.md "message-search.md")
+- [Message forwarding in the Wickr client](message-forwarding.md "message-forwarding.md")
 - [Start a call in the Wickr client](message-call.md "message-call.md")
 - [Set message expiration and burn timers in the Wickr
   client](message-timers.md "message-timers.md")

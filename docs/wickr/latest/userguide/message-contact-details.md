@@ -14,7 +14,7 @@ To view contact details and message settings, complete the following steps.
 2. In the navigation pane, find and select the name of the user whose details you
    want to view.
 3. Choose the information icon (
-   ![Information icon](images/icon-wickr-user-information.png)
+   ![Information icon](/images/wickr/latest/userguide/images/icon-wickr-user-information.png)
    ) in the message window to view contact details.
 
 The **Contact Details** pane displays the user's full name,
