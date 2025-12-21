@@ -5,7 +5,7 @@ and their related entities. Amazon Comprehend supports event detection across la
 asynchronous analysis jobs. For more information about events, including example event analysis jobs, see [Announcing the launch of
 Amazon Comprehend Events](https://aws.amazon.com/blogs/machine-learning/announcing-the-launch-of-amazon-comprehend-events/ "https://aws.amazon.com/blogs/machine-learning/announcing-the-launch-of-amazon-comprehend-events/")
 
-### Entities
+## Entities
 
 From the input text, Amazon Comprehend extracts a list of entities that are related to the detected event. An
 _entity_ can be a real-world object, such as a person, place, or location; an entity can
@@ -33,7 +33,7 @@ details:
   - **Type**: The entity's type. For all
     supported entity types, see [Entity types](#events-entity-types "#events-entity-types").
 
-### Events
+## Events
 
 Amazon Comprehend returns the list of events (of supported event types) that it detects in the input text. Each event
 returns with the following related details:

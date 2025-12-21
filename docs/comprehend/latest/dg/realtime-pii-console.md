@@ -33,4 +33,4 @@ in your text documents. For more information, see [Locate PII entities](how-pii.
 The **Labels** analysis mode returns the labels of identified PII entity types. For more
 information, see [Labeling PII entities](how-pii-labels.md "how-pii-labels.md").
 
-![The PII labels analysis mode.](/images/comprehend/latest/dg/images/gs-console-pii-labels.png)
+![The PII labels analysis mode.](images/gs-console-pii-labels.png)
