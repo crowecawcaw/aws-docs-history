@@ -143,7 +143,7 @@ services in combination with GuardDuty.
   security issues across your AWS environment.
 
 For information about using GuardDuty and Security Hub CSPM together, see [Integrating GuardDuty with AWS Security Hub CSPM](guardduty_integrations.md#gd-securityhub "guardduty_integrations.md#gd-securityhub"). To
-learn more about Security Hub CSPM, see the [AWS Security Hub CSPM User Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
+learn more about Security Hub CSPM, see the [AWS Security Hub User Guide](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
 
 - **Amazon Detective** – This service
   helps you analyze, investigate, and quickly identify the root cause

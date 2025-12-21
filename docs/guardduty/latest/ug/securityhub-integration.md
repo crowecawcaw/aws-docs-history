@@ -46,15 +46,15 @@ set of rules that it uses to detect security issues and generate findings.
 Security Hub CSPM provides tools to manage findings from across all of these sources. You can view
 and filter lists of findings and view details for a finding. For more information, see
 [Viewing
-findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub CSPM User Guide_. You can
+findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub User Guide_. You can
 also track the status of an investigation into a finding. For more information, see
 [Taking
-action on findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub CSPM User Guide_.
+action on findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub User Guide_.
 
 All findings in Security Hub CSPM use a standard JSON format called the AWS Security Finding
 Format (ASFF). The ASFF includes details about the source of the issue, the affected
 resources, and the current status of the finding. See [AWS Security
-Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
+Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
 Amazon GuardDuty is one of the AWS services that sends findings to Security Hub CSPM.
 
@@ -111,7 +111,7 @@ You can now use either of the following ways to view the GuardDuty findings in t
      then choose **See findings** next to **Accepting findings**.
    - If not, then for more information about how **Integrations**
      work, see [Security Hub CSPM integrations](../../../securityhub/latest/userguide/securityhub-findings-providers.md "../../../securityhub/latest/userguide/securityhub-findings-providers.md")
-     in _AWS Security Hub CSPM User Guide_.
+     in _AWS Security Hub User Guide_.
 
 **Option 2: Using _Findings_ in Security Hub CSPM**
 
@@ -336,6 +336,7 @@ information see [Finding details](guardduty_findings-summary.md "guardduty_findi
 | [UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS](guardduty_finding-types-iam.md#unauthorizedaccess-iam-instancecredentialexfiltrationoutsideaws "guardduty_finding-types-iam.md#unauthorizedaccess-iam-instancecredentialexfiltrationoutsideaws")                                                                            | Effects/Data<br>Exfiltration/UnauthorizedAccess:IAMUser-InstanceCredentialExfiltration.OutsideAWS                                      |
 | [UnauthorizedAccess:IAMUser/MaliciousIPCaller](guardduty_finding-types-iam.md#unauthorizedaccess-iam-maliciousipcaller "guardduty_finding-types-iam.md#unauthorizedaccess-iam-maliciousipcaller")                                                                                                                                                  | TTPs/UnauthorizedAccess:IAMUser-MaliciousIPCaller                                                                                      |
 | [UnauthorizedAccess:IAMUser/MaliciousIPCaller.Custom](guardduty_finding-types-iam.md#unauthorizedaccess-iam-maliciousipcallercustom "guardduty_finding-types-iam.md#unauthorizedaccess-iam-maliciousipcallercustom")                                                                                                                               | TTPs/UnauthorizedAccess:IAMUser-MaliciousIPCaller.Custom                                                                               |
+| [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.OutsideAWS](guardduty_finding-types-iam.md#unauthorizedaccess-iam-resourcecredentialexfiltrationoutsideaws "guardduty_finding-types-iam.md#unauthorizedaccess-iam-resourcecredentialexfiltrationoutsideaws")                                                                            | Effects/Data<br>Exfiltration/UnauthorizedAccess:IAMUser-ResourceCredentialExfiltration.OutsideAWS                                      |
 | [UnauthorizedAccess:IAMUser/TorIPCaller](guardduty_finding-types-iam.md#unauthorizedaccess-iam-toripcaller "guardduty_finding-types-iam.md#unauthorizedaccess-iam-toripcaller")                                                                                                                                                                    | TTPs/Command and<br>Control/UnauthorizedAccess:IAMUser-TorIPCaller                                                                     |
 | [UnauthorizedAccess:Lambda/MaliciousIPCaller.Custom](lambda-protection-finding-types.md#unauthorized-access-lambda-maliciousIPcaller-custom "lambda-protection-finding-types.md#unauthorized-access-lambda-maliciousIPcaller-custom")                                                                                                              | TTPs/Command and<br>Control/UnauthorizedAccess:Lambda-MaliciousIPCaller.Custom                                                         |
 | [UnauthorizedAccess:Lambda/TorClient](lambda-protection-finding-types.md#unauthorized-access-lambda-tor-client "lambda-protection-finding-types.md#unauthorized-access-lambda-tor-client")                                                                                                                                                         | Effects/Resource<br>Consumption/UnauthorizedAccess:Lambda-TorClient                                                                    |
@@ -448,7 +449,7 @@ integration
 
 To use the integration with AWS Security Hub CSPM, you must enable Security Hub CSPM. For information on how
 to enable Security Hub CSPM, see [Setting up Security
-Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User Guide_.
+Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
 
 When you enable both GuardDuty and Security Hub CSPM, the integration is enabled automatically. GuardDuty
 immediately begins to send findings to Security Hub CSPM.
@@ -461,10 +462,10 @@ AWS Security Hub CSPM uses security controls to evaluate your AWS resources, and
 compliance against security industry standards and best practices. You can use the
 controls related to GuardDuty resources and selected protection plans. For more information,
 see [Amazon GuardDuty
-controls](../../../securityhub/latest/userguide/guardduty-controls.md "../../../securityhub/latest/userguide/guardduty-controls.md") in the _AWS Security Hub CSPM User Guide_.
+controls](../../../securityhub/latest/userguide/guardduty-controls.md "../../../securityhub/latest/userguide/guardduty-controls.md") in the _AWS Security Hub User Guide_.
 
 For a list of all the controls across AWS services and resources, see [Security Hub CSPM
-controls reference](../../../securityhub/latest/userguide/securityhub-controls-reference.md "../../../securityhub/latest/userguide/securityhub-controls-reference.md") in the _AWS Security Hub CSPM User Guide_.
+controls reference](../../../securityhub/latest/userguide/securityhub-controls-reference.md "../../../securityhub/latest/userguide/securityhub-controls-reference.md") in the _AWS Security Hub User Guide_.
 
 ## Stopping the publication of findings
 
@@ -475,4 +476,4 @@ API.
 
 See [Disabling and enabling the flow of findings from an integration
 (console)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console") or [Disabling the flow of findings from an integration (Security
-Hub API, AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub CSPM User Guide_.
+Hub API, AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub User Guide_.
