@@ -37,6 +37,33 @@ policies for Wickr](security_iam_service-with-iam-id-based-policies.md "security
 create an IAM policy using these example JSON policy documents, see [Creating policies on the JSON tab](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor") in the
 _IAM User Guide_.
 
+You can also create an IAM policy to allow users to access specific API actions. Access
+to API actions is managed separately from the AWS Wickr console. Below is an example of a
+policy that grants read-only accesss to specific API actions. For more information on API
+actions, see [Welcome to the AWS Wickr API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Sid": "WickrAPIReadOnlyAccess",
+            "Effect": "Allow",
+            "Action": [
+                "wickr:ListNetworks",
+                "wickr:ListUsers",
+                "wickr:GetNetworkSettings",
+                "wickr:GetNetwork",
+                "wickr:GetUser",
+                "wickr:ListTagsForResource"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+
+```
+
 ###### Topics
 
 - [Policy best

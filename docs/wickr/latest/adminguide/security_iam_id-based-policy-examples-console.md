@@ -8,6 +8,6 @@ AWS Management Console for Wickr
 
 Attach the `AWSWickrFullAccess` AWS managed policy to your IAM
 identities to grant them full administrative permission to the Wickr service,
-including the Wickr administrator console in the AWS Management Console. For more
-information, see [AWS managed policy:
+including the Wickr administrator console in the AWS Management Console. For more information,
+see [AWS managed policy:
 AWSWickrFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess").

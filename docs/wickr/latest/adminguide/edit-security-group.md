@@ -39,6 +39,9 @@ group in different tabs. 5. The following tabs and corresponding settings are av
     	 information, see  [Set
     	 message expiration and burn timers in the Wickr
     	 client](../userguide/message-timers.md "../userguide/message-timers.md").
+    	+ **Message forwarding** — Controls
+    	 whether users can forward messages in their Wickr clients.
+    	 For more information, see [Forward messages in the Wickr client](../userguide/message-forwarding.md "../userguide/message-forwarding.md").
     	+ **Quick responses** — Set a list
     	 of quick responses for users to respond to messages.
     	+ **Secure shredder intensity** —
