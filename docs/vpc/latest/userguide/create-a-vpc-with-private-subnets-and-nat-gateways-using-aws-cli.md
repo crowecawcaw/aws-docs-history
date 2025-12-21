@@ -9,7 +9,7 @@ launched and terminated by using an Auto Scaling group, and receive traffic from
 balancer. The servers can connect to the internet by using the NAT gateway. The servers can
 connect to Amazon S3 by using a gateway VPC endpoint.
 
-![A VPC with subnets in two Availability Zones.](/images/vpc/latest/userguide/images/vpc-example-private-subnets.png)
+![A VPC with subnets in two Availability Zones.](images/vpc-example-private-subnets.png)
 
 ## Prerequisites
 

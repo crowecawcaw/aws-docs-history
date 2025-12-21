@@ -8,7 +8,7 @@ The feature is designed for anyone who wants to ensure visibility and control in
 
 This feature can be used in two modes: monitor mode and enforce mode.
 
-### Encryption Controls Modes
+## Encryption Controls Modes
 
 ###### Monitor mode
 
@@ -24,15 +24,25 @@ In enforce mode, VPC Encryption Controls prevents you from using any features or
 
 When enabled, enforce mode prevents you from creating or attaching unencrypted VPC resources such as old EC2 instances that do not support native in-built encryption, or internet gateways, etc. If you want to run a non-compliant resource in an encryption-enforced VPC, you must create an exclusion for that resource.
 
-### Monitoring Encryption status of Traffic Flows
+## Monitoring Encryption status of Traffic Flows
 
 You can audit the encryption status of traffic flows inside the VPC using the `encryption-status` field in your VPC Flow Logs. It can have the following values:
 
 - `0` = not encrypted
 - `1` = nitro-encrypted (managed by VPC Encryption Controls)
-- `2` = application-encrypted (e.g., TLS on port 443)
+- `2` = application-encrypted
+  - flows on TCP port 443 for interface endpoint to AWS service \*
+  - flows on TCP port 443 for gateway endpoint \*
+  - flows to encrypted Redshift cluster via VPC endpoint \*\*
+
 - `3` = both nitro AND application encrypted
 - `(-)` = Encryption Status Unknown or VPC encryption controls is off
+
+**Note:**
+
+\* For interface and gateway endpoints, AWS does not look at packet data to determine encryption status, we instead rely on the port used to assume encryption status.
+
+\*\* For specified AWS managed endpoints, AWS determines encryption status based on the requirement for TLS in the service configuration.
 
 **VPC Flow Log limitations**
 
@@ -51,7 +61,7 @@ aws ec2 create-flow-logs \
 --log-format '${encryption-status} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${traffic-path} ${flow-direction} ${reject-reason}'
 ```
 
-### VPC Encryption Controls Exclusions
+## VPC Encryption Controls Exclusions
 
 VPC encryption controls enforce mode requires that all your resources in the VPC enforce encryption. This ensures encryption within AWS in a region. However, you may have resources like internet gateway, NAT gateway or virtual private gateway that allow connectivity outside AWS's networks where you're responsible for configuring and maintaining end-to-end encryption. To run these resources in encryption enforced VPCs, you can create resource exclusions. An exclusion creates an auditable exception for resources where the customer is responsible for maintaining encryption (typically at the application layer).
 
@@ -120,16 +130,16 @@ The following resources are compatible with VPC Encryption Controls:
 - [Nitro-based EC2 instances](../../../AWSEC2/latest/UserGuide/data-protection.md#encryption-transit "../../../AWSEC2/latest/UserGuide/data-protection.md#encryption-transit")
 - Network Load Balancers (with limitations)
 - Application Load Balancers
-- Fargate clusters
-- Elastic Kubernetes Service (EKS)
-- Auto Scaling Groups
-- RDS (All Databases)
-- Elasticache Node-Based clusters
+- AWS Fargate clusters
+- Amazon Elastic Kubernetes Service (EKS)
+- Amazon EC2 Auto Scaling Groups
+- Amazon Relational Database Service (RDS - All Databases)
+- Amazon ElastiCache node-based clusters
 - Amazon Redshift Provisioned and Serverless Clusters
-- ECS-EC2
-- OpenSearch Provisioned
-- Elastic MapReduce(EMR)
-- Managed Service for Kafka (MSK)
+- Amazon Elastic Container Service (ECS) - EC2 container instances
+- Amazon OpenSearch Service
+- Amazon Elastic MapReduce (EMR)
+- Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 - VPC Encryption controls enforce encryption on the application layer for all AWS services accessed via PrivateLink. Any traffic that is not encrypted at the application layer is dropped by PrivateLink endpoints hosted inside the VPC with Encryption controls in enforce mode
 
 ### Service-specific limitations
@@ -161,13 +171,13 @@ If two VPCs are in enforce mode and peering with each other, you cannot change t
 
 ### Transit Gateway encryption support
 
-You must enable encryption support on a Transit Gateway explicitly to encrypt traffic between your VPCs that have encryption controls turned on. Enabling encryption on existing TGW is non-disruptive to existing traffic flows and migration of VPC attachments to encrypted lanes will happen seamlessly and automatically. Traffic between two VPCs in enforce mode (without exclusions) is end-to-end encrypted via the TGW. Encryption on Transit Gateway also allows you to connect two VPCs that are in different Encryption Controls modes. You should use it when you want to enforce encryption controls in a VPC that is connected to a non-encryption-enforced VPC. In such a scenario, all your traffic inside your encryption-enforced VPC, including the inter-VPC traffic is encrypted. The inter-VPC traffic is encrypted between the resources in the encryption-enforced VPC and the Transit Gateway. Beyond that, encryption depends on the resources to which the traffic is going to in the non-enforced VPC and is not guaranteed to be encrypted (since the VPC is not in enforce mode). All VPCs must be in the same region.(see details [here](../tgw/tgw-encryption-support.md "../tgw/tgw-encryption-support.md")).
+You must enable encryption support on a Transit Gateway explicitly to encrypt traffic between your VPCs that have encryption controls turned on. Enabling encryption on existing Transit Gateway is non-disruptive to existing traffic flows and migration of VPC attachments to encrypted lanes will happen seamlessly and automatically. Traffic between two VPCs in enforce mode (without exclusions) via the Transit Gateway traverses 100% encrypted lanes. Encryption on Transit Gateway also allows you to connect two VPCs that are in different Encryption Controls modes as well. You should use it when you want to enforce encryption controls in a VPC that is connected to a non-encryption-enforced VPC. In such a scenario, all your traffic inside your encryption-enforced VPC, including the inter-VPC traffic is encrypted. The inter-VPC traffic is encrypted between the resources in the encryption-enforced VPC and the Transit Gateway. Beyond that, encryption depends on the resources to which the traffic is going to in the non-enforced VPC and is not guaranteed to be encrypted (since the VPC is not in enforce mode). All VPCs must be in the same region.(see details [here](../tgw/tgw-encryption-support.md "../tgw/tgw-encryption-support.md")).
 
 ![Traffic flow between VPCs with different encryption control status](images/vpc-enc-control-arch.png)
 
 - In this diagram, VPC 1, VPC 2 and VPC3 have encryption controls in enforce mode and they are connected to VPC 4 which has Encryption Controls running in monitor mode.
 - All traffic between VPC1, VPC2 and VPC3 will be encrypted.
-- To elaborate, any traffic between a resource in VPC 1 and a resource in VPC 4 will be encrypted until the TGW using the encryption offered by the nitro system hardware. Beyond that encryption status depends on the resource in VPC 4 and is not guaranteed to be encrypted.
+- To elaborate, any traffic between a resource in VPC 1 and a resource in VPC 4 will be encrypted until the Transit Gateway using the encryption offered by the nitro system hardware. Beyond that encryption status depends on the resource in VPC 4 and is not guaranteed to be encrypted.
 
 For more details on Transit Gateway encryption support, see [the transit gateway documentation](../tgw/tgw-encryption-support.md "../tgw/tgw-encryption-support.md").
 
@@ -181,12 +191,12 @@ For pricing information, see the [Amazon VPC Pricing](https://aws.amazon.com/vpc
 
 - [aws ec2 create-vpc-encryption-control](../../../cli/latest/reference/ec2/create-vpc-encryption-control.md "../../../cli/latest/reference/ec2/create-vpc-encryption-control.md")
 - [aws ec2 modify-vpc-encryption-control](../../../cli/latest/reference/ec2/modify-vpc-encryption-control.md "../../../cli/latest/reference/ec2/modify-vpc-encryption-control.md")
-- [aws ec2-tgw modify-transit-gateway](../../../cli/latest/reference/ec2/modify-transit-gateway.md "../../../cli/latest/reference/ec2/modify-transit-gateway.md")
+- [aws ec2 tgw modify-transit-gateway](../../../cli/latest/reference/ec2/modify-transit-gateway.md "../../../cli/latest/reference/ec2/modify-transit-gateway.md")
 
 ### Monitoring and troubleshooting
 
 - [aws ec2 describe-vpc-encryption-controls](../../../cli/latest/reference/ec2/describe-vpc-encryption-controls.md "../../../cli/latest/reference/ec2/describe-vpc-encryption-controls.md")
-- [aws ec2 describe-vpc-encryption-control-non-compliant-resources](../../../cli/latest/reference/ec2/describe-vpc-encryption-control-non-compliant-resources.md "../../../cli/latest/reference/ec2/describe-vpc-encryption-control-non-compliant-resources.md")
+- [aws ec2 get-vpc-resources-blocking-encryption-enforcement](../../../cli/latest/reference/ec2/get-vpc-resources-blocking-encryption-enforcement.md "../../../cli/latest/reference/ec2/get-vpc-resources-blocking-encryption-enforcement.md")
 - [aws ec2 create-flow-logs](../../../cli/latest/reference/ec2/create-flow-logs.md "../../../cli/latest/reference/ec2/create-flow-logs.md")
 - [aws ec2 describe-flow-logs](../../../cli/latest/reference/ec2/describe-flow-logs.md "../../../cli/latest/reference/ec2/describe-flow-logs.md")
 - [aws logs query](../../../cli/latest/reference/logs/query.md "../../../cli/latest/reference/logs/query.md")
