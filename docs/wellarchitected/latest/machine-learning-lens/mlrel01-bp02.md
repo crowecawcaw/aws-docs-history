@@ -68,7 +68,7 @@ you might use Python-based services for data science tasks while
 implementing Java-based services for integration with enterprise
 systems. By establishing clear service interfaces, you verify that
 these components work together seamlessly while maintaining
-independence.
+freedom.
 
 When designing your ML microservices, focus on business domains
 rather than technical functions. Instead of creating a generic
