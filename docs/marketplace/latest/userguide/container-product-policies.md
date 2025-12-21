@@ -147,11 +147,8 @@ and deployment across AWS regions:
 
 - Container image references must be defined exclusively in the `values.yaml` file and not hardcoded in any other
   files within the Helm chart. This enables AWS Marketplace to automatically replace these references when replicating your product to different regions.
-- The `values.yaml` file must use variables for all container image references, including:
-  - `Repository URI`
-  - `Image name`
-  - Optionally, you can include `registry` and `tag` fields on the same level as the repository to build up your image reference.
-
+- The `values.yaml` file must use variables for all container image references.
+- Optionally, you can break out `registry` and `tag` into separate fields on the same level as the repository to build up your image reference.
 - Helm templates must reference these variables using the standard Helm templating syntax (e.g., `{{ .Values.image.repository }}:{{ .Values.image.tag }}`).
 - Avoid using conditional logic in templates that would bypass the image references defined in `values.yaml`.
 - When testing your Helm chart with different AWS regions, ensure that changing the region in `values.yaml` correctly updates all
@@ -160,9 +157,9 @@ and deployment across AWS regions:
 AWS Marketplace validates that all container image references are properly defined in the `values.yaml` file during the product submission process.
 Products that do not meet these requirements will be rejected.
 
-### Example: Best practice for container image references in Helm charts
+### Requirements for container image references in Helm charts
 
-The following examples demonstrate approaches for structuring container image references in Helm charts:
+The following demonstrates approaches for structuring container image references in Helm charts:
 
 **`values.yaml` (recommended format):**
 
@@ -182,15 +179,15 @@ below are also valid.
 
 ```
 image:
-  repository: 709825985650.dkr.ecr.us-east-1.amazonaws.com/guance/datakit
-  tag: 1.0
+  repository: "709825985650.dkr.ecr.us-east-1.amazonaws.com/guance/datakit"
+  tag: "1.0"
 ```
 
 **`values.yaml` (alternative format):**
 
 ```
 image:
-  repository: 709825985650.dkr.ecr.us-east-1.amazonaws.com/guance/datakit:1.0
+  repository: "709825985650.dkr.ecr.us-east-1.amazonaws.com/guance/datakit:1.0"
 ```
 
 ###### Note
@@ -212,6 +209,26 @@ containers:
 - name: kubearmor
   image: "709825985650.dkr.ecr.us-east-1.amazonaws.com/accuknox/kubearmor:v1.1.1"
 ```
+
+### Possible Helm chart validation errors
+
+During the product submission process, AWS Marketplace performs validation checks on Helm chart products to ensure compliance with container image reference requirements.
+If your Helm chart does not meet these requirements, you may encounter the following validation errors:
+
+| Error                                       | Explanation                                                                                                                                                                                                                                                                            |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `INCOMPATIBLE_HELM_OBJECTS`                 | The specified Helm objects are not supported for EKS add-ons. See [Requirements for Amazon EKS add-on products](#publishing-eks-add-on "#publishing-eks-add-on").                                                                                                                      |
+| `INVALID_DEPENDENT_HELM_CHARTS`             | Dependent Helm charts must be contained within the parent chart directory and not externally sourced.                                                                                                                                                                                  |
+| `INVALID_HELM_SENSITIVE_CONFIG`             | The configuration schema cannot contain fields that collect sensitive information. Configuration schemas must not accept passwords, API keys, certificates, or secrets. Instead, provide fields for Kubernetes secret names that customers will create separately.                     |
+| `INVALID_HELM_CHART_IMAGES`                 | All images, including open-source dependencies, must be pushed to AWS Marketplace Amazon ECR repositories created via the \*_[Add Repository](container-add-version.md#add-repositories "container-add-version.md#add-repositories")_<br>• request.                                    |
+| `INVALID_HELM_UNDECLARED_IMAGES`            | All container images references must be explicitly listed in the \*_[Add Version](container-add-version.md#add-new-version "container-add-version.md#add-new-version")_<br>• request.                                                                                                  |
+| `INVALID_HELM_LINT`                         | The Helm chart failed `helm lint` validation. Run `helm lint` locally to identify and fix structural or syntactical issues.                                                                                                                                                            |
+| `INVALID_HELM_TEMPLATE`                     | The Helm chart failed `helm template` validation. The chart cannot be rendered into valid Kubernetes manifests. Test locally with `helm template` to identify template syntax or logic errors.                                                                                         |
+| `MISSING_HELM_DEPLOYMENT_CONFIG`            | The Helm chart for an Amazon EKS add-on must contain a Deployment or DaemonSet resource. Amazon EKS requires at least one of these workload types for add-on lifecycle management. See [Requirements for Amazon EKS add-on products](#publishing-eks-add-on "#publishing-eks-add-on"). |
+| `INCOMPATIBLE_CONFIGURATION_SCHEMA_VERSION` | The JSON schema version in `aws_mp_configuration_schema.json` is not supported. See [Schema requirements](#schema-requirements "#schema-requirements") for supported schema versions.                                                                                                  |
+| `INVALID_IMAGE_REFERENCE`                   | All images must be defined as variables in `values.yaml` and referenced using Helm template syntax as described in [Helm chart structure requirements](#helm-chart-structure-requirements "#helm-chart-structure-requirements").                                                       |
+| `MISSING_VALUES_IMAGE_REFERENCE`            | Every container image reference must have a corresponding entry in `values.yaml`.                                                                                                                                                                                                      |
+| `MISSING_IMAGE_TAG`                         | Container image references in `values.yaml` must include explicit tag values or default to the chart version from `Chart.yaml`.                                                                                                                                                        |
 
 ## Container product usage
 
@@ -301,13 +318,13 @@ BYOL is not supported for Amazon EKS add-on delivery.
  linted, 1 chart(s) failed`
     - Helm Template – `helm template
  `chart-name`
-`chart-location` —set
- k8version=`Kubernetes-version`  —kube-version
- `Kubernetes-version` —namespace`addon-namespace`  —include-crds —no-hooks —f
+`chart-location` --set
+ k8version=`Kubernetes-version`  --kube-version
+ `Kubernetes-version` --namespace`addon-namespace`  --include-crds --no-hooks -f
  `any-overriden-values``
 
     Pass any overridden configurations with the
-    `—f` flag.
+    `-f` flag.
 
   - Store all container binaries in AWS Marketplace Amazon ECR repos. To create a
     manifest, use the Helm template command that's shown

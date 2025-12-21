@@ -22,7 +22,7 @@ unavailable to new subscribers until issues are resolved.
 
 All SaaS products must adhere to the following product setup guidelines:
 
-- Pricing dimensions can't be limited to private offers only. Buyers should be able to
+- Pricing dimensions cannot be limited to private offers only. Buyers should be able to
   subscribe to any of the pricing dimensions on public products.
 - Pricing dimensions must meet the following requirements:
   - For products using the Free pricing model, all pricing dimensions must be set to $0.00.
@@ -119,7 +119,7 @@ Agents or gateways used by the product for security, monitoring, data replicatio
 or migration can run on buyer-owned environments outside AWS, including on premises,
 but must send data only to AWS for storage and analysis.
 
-You must include an architecture diagram for review. You can't make the diagrams public. For more information, see [Creating architecture diagrams](#arch-diagram "#arch-diagram") in the next section.
+You must include an architecture diagram for review. You cannot make the diagrams public. For more information, see [Creating architecture diagrams](#arch-diagram "#arch-diagram") in the next section.
 
 - Sellers can publish products that do not entirely run on AWS.
 - Applications that require resources in the buyer's infrastructure must follow these
@@ -180,7 +180,7 @@ considers deployed on AWS, see [Guidelines](#march-saas-guidelines "#march-saas-
 
 ###### Note
 
-- You can't make your diagrams public.
+- You cannot make your diagrams public.
 - You can publish products that don't run entirely on AWS.
 
 Use the following criteria when creating a diagram:

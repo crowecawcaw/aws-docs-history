@@ -45,10 +45,10 @@ guidelines in the following sections.
 - Build templates so that they do not depend on the use in a particular Availability
   Zone (AZ). Not all customers have access to all AZs, and AZs are mapped differently for
   different accounts.
-- If you're building a clustered solution using an Amazon EC2 Auto Scaling group, we recommend that you
+- If you're building a clustered solution using an Auto Scaling group, we recommend that you
   account for a scaling event. The new node should join the running cluster
   automatically.
-- Even for single-node products, we recommend using an [Amazon EC2 Auto Scaling
+- Even for single-node products, we recommend using an [Auto Scaling
   group](../../../autoscaling/latest/userguide/create-asg-from-instance.md "../../../autoscaling/latest/userguide/create-asg-from-instance.md").
 - If your solution involves a cluster of multiple instances, consider using placement
   groups if you want low network latency, high network throughput, or both among the

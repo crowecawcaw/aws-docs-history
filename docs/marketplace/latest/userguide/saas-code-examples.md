@@ -29,6 +29,10 @@ redirect is a POST request that includes the token.
 
 For more information about `ResolveCustomer`, see [ResolveCustomer](../../../marketplacemetering/latest/APIReference/API_ResolveCustomer.md "../../../marketplacemetering/latest/APIReference/API_ResolveCustomer.md") in the _AWS Marketplace Metering Service API Reference_.
 
+###### Note
+
+For new implementation or when updating your integration, use the CustomerAWSAccountId instead of CustomerIdentifier.
+
 ```
 # Import AWS Python SDK and urllib.parse
 import boto3
@@ -85,7 +89,7 @@ marketplaceClient = boto3.client('marketplace-entitlement', region_name='us-east
 entitlement = marketplaceClient.get_entitlements({
     'ProductCode': 'productCode',
     'Filter' : {
-        # Option 1: Using CustomerIdentifier (deprecated after Dec 31, 2025)
+        # Option 1: Using CustomerIdentifier (for new or updated integrations, use the customer AWS account ID)
         'CUSTOMER_IDENTIFIER': [
             'customerID',
         ]
@@ -155,7 +159,7 @@ pay-as-you-go fees.
 import boto3
 from datetime import datetime
 
-# Option 1: Using CustomerIdentifier (deprecated after Dec 31, 2025)
+# Option 1: Using CustomerIdentifier (for new or updated integrations, use the customer AWS account ID)
 usageRecord = [
     {
         'Timestamp': datetime(2015, 1, 1),
@@ -241,7 +245,7 @@ to charge your customers for pay-as-you-go fees.
 import boto3
 import time
 
-# Option 1: Using CustomerIdentifier (deprecated after Dec 31, 2025)
+# Option 1: Using CustomerIdentifier (for new or updated integrations, use the customer AWS account ID)
 usageRecords = [
     {
         "Timestamp": int(time.time()),
