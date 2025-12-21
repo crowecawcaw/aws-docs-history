@@ -21,16 +21,22 @@ specified methods in the `GlueContext` class.
   - `options`: Use with `getSourceWithFormat`, `getSinkWithFormat`
 
 - Python
-  - `connection_options`: Use with
-    `create_data_frame_from_options`, `write_dynamic_frame_from_options`
-  - `additional_options`: Use with
-    `create_data_frame_from_catalog`, `write_dynamic_frame_from_catalog`
-  - `options`: Use with `getSource`, `getSink`
 
-For notes and restrictions about streaming ETL jobs, consult [Streaming ETL notes and
-restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
+      + `connection_options`: Use with
+       `create_data_frame_from_options`, `write_dynamic_frame_from_options`
+      + `additional_options`: Use with
+       `create_data_frame_from_catalog`, `write_dynamic_frame_from_catalog`
+      + `options`: Use with `getSource`, `getSink`
+
+  For notes and restrictions about streaming ETL jobs, consult [Streaming ETL notes and
+  restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
 
 ###### Topics
+
+- [Configure Kafka](#aws-glue-programming-etl-connect-kafka-configure "#aws-glue-programming-etl-connect-kafka-configure")
+- [Example: Reading from Kafka streams](#aws-glue-programming-etl-connect-kafka-read "#aws-glue-programming-etl-connect-kafka-read")
+- [Example: Writing to Kafka streams](#aws-glue-programming-etl-connect-kafka-write "#aws-glue-programming-etl-connect-kafka-write")
+- [Kafka connection option reference](#aws-glue-programming-etl-connect-kafka "#aws-glue-programming-etl-connect-kafka")
 
 ## Configure Kafka
 

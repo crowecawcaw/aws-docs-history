@@ -20,6 +20,7 @@ The following table lists the version of Delta Lake included in each AWS Glue ve
 
 | AWS Glue version | Supported Delta Lake version |
 | ---------------- | ---------------------------- |
+| 5.1              | 3.3.2                        |
 | 5.0              | 3.3.0                        |
 | 4.0              | 2.1.0                        |
 | 3.0              | 1.0.0                        |
@@ -51,7 +52,7 @@ spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.ca
 To use a version of Delta lake that AWS Glue doesn't support, specify your own Delta Lake
 JAR files using the `--extra-jars` job parameter. Do not include
 `delta` as a value for the `--datalake-formats` job
-parameter. If you use AWS Glue 5.0, you must set `--user-jars-first true` job parameter. To use the Delta Lake Python library in this case, you must specify the library JAR files
+parameter. If you use AWS Glue 5.0 or above, you must set `--user-jars-first true` job parameter. To use the Delta Lake Python library in this case, you must specify the library JAR files
 using the `--extra-py-files` job parameter. The Python library comes
 packaged in the Delta Lake JAR files.
 

@@ -8,6 +8,15 @@ compaction
 
 Data compaction supports a variety of data types and compression formats for reading and writing data, including reading data from encrypted tables.
 
+**Concurrency Control:**
+
+Apache Iceberg supports optimistic concurrency control, allowing multiple writers to perform operations simultaneously. Conflicts are detected and resolved at commit time. When working with streaming pipelines, configure appropriate retry settings through table properties and compaction settings to handle concurrent writes effectively. For detailed guidance, refer to the AWS Big Data Blog on managing concurrent writes in Iceberg tables.
+see https://aws.amazon.com/blogs/big-data/manage-concurrent-write-conflicts-in-apache-iceberg-on-the-aws-glue-data-catalog/
+
+**Compaction Retries:**
+
+When compaction operations fail four consecutive times, AWS Glue catalog table optimization automatically suspends the optimizer to prevent unnecessary compute resource consumption. First investigate the logs and try to understand why compaction is repeatedly failing. To resume compaction optimization, you can re-enable the optimizer through the AWS Glue console or API.
+
 **Data compaction supports:**
 
 - Encryption – Data compaction only supports default Amazon S3 encryption (SSE-S3) and server-side KMS encryption (SSE-KMS).

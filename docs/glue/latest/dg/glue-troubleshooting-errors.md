@@ -387,7 +387,7 @@ last job run, the files are reprocessed when you run the job again.
 
 ## Error: Failover behavior between VPCs in AWS Glue
 
-The following process is used for failover for jobs in AWS Glue 5.0 and previous versions.
+The following process is used for failover for jobs in AWS Glue 5.1 and previous versions.
 
 Summary: an AWS Glue connection is selected at the time a job run is submitted. If the job run encounters some
 issues, (lack of IP addresses, connectivity to source, routing problem), the job run will fail. If retries are

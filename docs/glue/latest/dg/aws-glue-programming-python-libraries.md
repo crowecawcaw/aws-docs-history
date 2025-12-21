@@ -2,8 +2,7 @@
 
 You can install additional Python modules and libraries for use with AWS Glue ETL. For AWS Glue 2.0 and above, AWS Glue uses the Python Package Installer (pip3)
 to install additional modules used by AWS Glue ETL. AWS Glue provides multiple options to bring the additional Python modules to your AWS Glue job environment.
-You can use the “—additional-python-modules" parameter to bring in modules using Python wheel files, Requirements file (requirement.txt,
-AWS Glue 5.0 and above), or a list of comma-separated Python modules.
+You can use the `--additional-python-modules` parameter to bring in new modules using zip files containing bundled Python wheels (also known as "zip of wheels", available for AWS Glue 5.0 and above), individual Python wheel files, requirements files (requirements.txt, available for AWS Glue 5.0 and above), or a list of comma-separated Python modules. It could also be used to change the version of the python modules provided in the AWS Glue environment (see [Python modules already provided in AWS Glue](#glue-modules-provided "#glue-modules-provided") for more details).
 
 ###### Topics
 
@@ -16,45 +15,48 @@ AWS Glue 5.0 and above), or a list of comma-separated Python modules.
 - [Using Python libraries in a job or JobRun](#aws-glue-programming-python-libraries-job "#aws-glue-programming-python-libraries-job")
 - [Proactively analyze Python dependencies](#aws-glue-programming-analyzing-python-dependencies "#aws-glue-programming-analyzing-python-dependencies")
 - [Python modules already provided in AWS Glue](#glue-modules-provided "#glue-modules-provided")
-
-| Glue Version Compatibility and Installation Methods | AWS Glue version | Python version                                                                                                                  | Base image | glibc version |
-| --------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------- |
-| 5.1                                                 | 3.11             | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34       |
-| 5.0                                                 | 3.11             | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34       |
-| 4.0                                                 | 3.10             | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")                         | 2.26       |
-| 3.0                                                 | 3.7              | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")                         | 2.26       |
-| 2.0                                                 | 3.7              | [Amazon Linux AMI (AL1)](https://aws.amazon.com/amazon-linux-ami/ "https://aws.amazon.com/amazon-linux-ami/")                   | 2.17       |
-| 1.0                                                 | 3.6              | [Amazon Linux AMI (AL1)](https://aws.amazon.com/amazon-linux-ami/ "https://aws.amazon.com/amazon-linux-ami/")                   | 2.17       |
-| 0.9                                                 | 2.7              | [Amazon Linux AMI (AL1)](https://aws.amazon.com/amazon-linux-ami/ "https://aws.amazon.com/amazon-linux-ami/")                   | 2.17       |
-
-Under the [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"), you are responsible for the management of additional Python modules, libraries, and their dependencies
-that you use with your AWS Glue ETL jobs. This includes applying updates and security patches.
-
-AWS Glue does not support compiling native code in the job environment. However, AWS Glue jobs run within an Amazon-managed Linux environment.
-You may be able to provide your native dependencies in a compiled form through a Python wheel file. Please refer to above table for AWS Glue version
-compatibility details.
-
-If your Python dependencies transitively depend on native, compiled code, you may run against the following limitation: AWS Glue does not support
-compiling native code in the job environment. However, AWS Glue jobs run within an Amazon-managed Linux environment. You may be able to provide your
-native dependencies in a compiled form through a wheel distribution. Please refer to above table for AWS Glue version compatibility details.
-
-###### Important
-
-Using incompatible dependencies can result in runtime issues, particularly for libraries with native extensions that must match the target
-environment's architecture and system libraries. Each AWS Glue version runs on a specific Python version with pre-installed libraries and system
-configurations.
+- [Appendix A: Creating a Zip of Wheels Artifact](#glue-python-library-zip-of-wheels-appendix "#glue-python-library-zip-of-wheels-appendix")
+- [Appendix B: AWS Glue environment details](#glue-python-libraries-environment-details "#glue-python-libraries-environment-details")
 
 ## Installing additional Python modules with pip in AWS Glue 2.0 or later
 
 AWS Glue uses the Python Package Installer (pip3) to install additional modules to be used by
 AWS Glue ETL. You can use the `--additional-python-modules` parameter with a list of
 comma-separated Python modules to add a new module or change the version of an existing module. You can install
-custom distributions of a library by uploading the distribution to Amazon S3, then include the path to the Amazon S3 object
-in your list of modules.
+built wheel artifacts either through a zip of wheels or a standalone wheel artifact by uploading the file to Amazon S3, then including the path to the Amazon S3 object
+in your list of modules. For more information about setting job parameters, see [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md").
 
 You can pass additional options to pip3 with the `--python-modules-installer-option` parameter. For
-example, you could pass `"--upgrade"` to upgrade the packages specified by
-`"--additional-python-modules"`. For more examples, see [Building Python modules from a wheel for Spark ETL workloads using AWS Glue 2.0](https://aws.amazon.com/blogs/big-data/building-python-modules-from-a-wheel-for-spark-etl-workloads-using-aws-glue-2-0/ "https://aws.amazon.com/blogs/big-data/building-python-modules-from-a-wheel-for-spark-etl-workloads-using-aws-glue-2-0/") .
+example, you could pass `--only-binary` to force pip to install only pre-built artifacts for the packages specified by
+`--additional-python-modules`. For more examples, see [Building Python modules from a wheel for Spark ETL workloads using AWS Glue 2.0](https://aws.amazon.com/blogs/big-data/building-python-modules-from-a-wheel-for-spark-etl-workloads-using-aws-glue-2-0/ "https://aws.amazon.com/blogs/big-data/building-python-modules-from-a-wheel-for-spark-etl-workloads-using-aws-glue-2-0/") .
+
+### Best Practices for Python Dependency Management
+
+For production workloads, AWS Glue recommend packaging all your Python dependencies as wheel files in a single zip artifact. This approach provides:
+
+- **Deterministic execution**: Exact control over which package versions are installed
+- **Reliability**: No dependency on external package repositories during job execution
+- **Performance**: Single download operation instead of multiple network calls
+- **Offline installation**: Works in private VPC environments without internet access
+
+#### Important Considerations
+
+Under the [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"), you are responsible for managing additional Python modules, libraries, and their dependencies. This includes:
+
+- **Security updates**: Regularly updating packages to address security vulnerabilities
+- **Version compatibility**: Ensuring packages are compatible with your AWS Glue version
+- **Testing**: Validating that your packaged dependencies work correctly in the Glue environment
+
+If you have minimal dependencies, you may consider using individual wheel files instead.
+
+AWS Glue 5.0 and above supports packaging multiple wheel files into a single zip artifact containing bundled Python wheels for more reliable and deterministic dependency management. To use this approach, create a zip file containing all your wheel dependencies and their transitive dependencies with the `.gluewheels.zip` suffix, upload it to Amazon S3, and reference it using the `--additional-python-modules` parameter. Be sure to add `--no-index` to the `--python-modules-installer-option` job parameter. With this configuration, the zip of wheels file essentially acts as a local index for pip to resolve dependencies from at runtime. This eliminates dependencies on external package repositories like PyPI during job execution, providing greater stability and consistency for production workloads. For example:
+
+```
+--additional-python-modules s3://amzn-s3-demo-bucket/path/to/zip-of-wheels-1.0.0.gluewheels.zip
+--python-modules-installer-option --no-index
+```
+
+For Instructions on how to create a zip of wheels file, see [Appendix A: Creating a Zip of Wheels Artifact](#glue-python-library-zip-of-wheels-appendix "#glue-python-library-zip-of-wheels-appendix").
 
 AWS Glue supports installing custom Python packages using wheel (.whl) files stored in Amazon S3. To include wheel files in your AWS Glue jobs,
 provide a comma-separated list of your wheel files stored in s3 to the `--additional-python-modules` job parameter.
@@ -68,11 +70,7 @@ This approach also supports when you need custom distributions, or packages with
 operating system. For more examples, see
 [Building Python modules from a wheel for Spark ETL workloads using AWS Glue 2.0](https://aws.amazon.com/blogs/big-data/building-python-modules-from-a-wheel-for-spark-etl-workloads-using-aws-glue-2-0/ "https://aws.amazon.com/blogs/big-data/building-python-modules-from-a-wheel-for-spark-etl-workloads-using-aws-glue-2-0/").
 
-You specify the `--additional-python-modules` in the Job parameters field of the AWS Glue console or by altering the job arguments in
-the AWS SDK. For more information about setting job parameters, see
-[Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md").
-
-In AWS Glue 5.0, you can provide the defacto-standard `requirements.txt` to manage Python library dependencies.
+In AWS Glue 5.0+, you can provide the defacto-standard `requirements.txt` to manage Python library dependencies.
 To do that, provide following two job parameters:
 
 - Key: `--python-modules-installer-option`
@@ -102,18 +100,17 @@ SQLAlchemy==2.0.36
 
 ###### Important
 
-Please avoid unpinned library versions in your requirements.txt to ensure you have a reliable and deterministic AWS Glue environment
-for your jobs.
+Use this option with caution, especially in production workloads. Pulling dependencies from PyPI at runtime is highly risky because you cannot be sure what artifact pip resolves to. Using unpinned library versions is especially risky since it pulls latest version of the python modules, which can introduce breaking changes or bring in incompatible python module. This could result in job failure due to python installation failure in AWS Glue job environment. While pinning library version increases stability, pip resolution is still not fully deterministic, so similar issues can arise. As a best practice, AWS Glue recommends using frozen artifacts such as zip of wheels or individual wheel files (see [(Recommended) Installing additional Python libraries in AWS Glue 5.0 or above using Zip of Wheels](#glue-python-library-installing-zip-of-wheels "#glue-python-library-installing-zip-of-wheels") for more details).
 
-When you use wheel for direct dependencies, you can bring in incompatible version of your transitive dependencies if they are not pinned correctly.
-As a best practice, all library versions should be pinned for consistency in AWS Glue jobs. AWS Glue recommends packaging your python environment into a
-wheel file to ensure consistency and reliability for your production workload.
+###### Important
+
+If you do not pin the versions of your transitive dependencies, a primary dependency may pull incompatible transitive dependency versions. As a best practice, all library versions should be pinned for increased consistency in AWS Glue jobs. Even better, AWS Glue recommends packaging your dependencies into a zip of wheels file to ensure maximum consistency and reliability for your production workloads.
 
 To update or to add a new Python module AWS Glue allows passing `--additional-python-modules` parameter with a list of comma-separated
 Python modules as values. For example to update/ add scikit-learn module use the following key/value: `"--additional-python-modules", 
  "scikit-learn==0.21.3"`. You have two options to directly configure the python modules.
 
-- **Pinned Python Module (recommended)**
+- **Pinned Python Module**
 
 `"--additional-python-modules", "scikit-learn==0.21.3,ephem==4.1.6"`
 
@@ -127,11 +124,11 @@ OR
 
 ###### Important
 
-When configuring the python modules directly in `--additional-python-modules`, AWS Glue recommends to use pinned library versions
-to ensure consistency in AWS Glue job environment. Using unpinned library versions, pulls the latest version of the python modules, however this can
-introduce breaking changes or bring in incompatible python module leading to job failure due to python installation failure in AWS Glue job environment.
-We recommend customers to not use unpinned library versions for production workload. As a best practice, AWS Glue recommends packaging your
-python environment into a wheel file to ensure consistency and reliability for your production workload.
+Use this option with caution, especially in production workloads. Pulling dependencies from PyPI at runtime is highly risky because you cannot be sure what artifact pip resolves to. Using unpinned library versions is especially risky since it pulls latest version of the python modules, which can introduce breaking changes or bring in incompatible python module. This could result in job failure due to python installation failure in AWS Glue job environment. While pinning library version increases stability, pip resolution is still not fully deterministic, so similar issues can arise. As a best practice, AWS Glue recommends using frozen artifacts such as zip of wheels or individual wheel files (see [(Recommended) Installing additional Python libraries in AWS Glue 5.0 or above using Zip of Wheels](#glue-python-library-installing-zip-of-wheels "#glue-python-library-installing-zip-of-wheels") for more details).
+
+###### Important
+
+If you do not pin the versions of your transitive dependencies, a primary dependency may pull incompatible transitive dependency versions. As a best practice, all library versions should be pinned for increased consistency in AWS Glue jobs. Even better, AWS Glue recommends packaging your dependencies into a zip of wheels file to ensure maximum consistency and reliability for your production workloads.
 
 ## Including Python files with PySpark native features
 
@@ -329,6 +326,70 @@ The prompt instructs Q to:
 ## Python modules already provided in AWS Glue
 
 To change the version of these provided modules, provide new versions with the `--additional-python-modules` job parameter.
+
+AWS Glue version 5.1
+AWS Glue version 5.1 includes the following Python modules out of the box:
+
+- aiobotocore==2.25.1
+- aiohappyeyeballs==2.6.1
+- aiohttp==3.13.2
+- aioitertools==0.12.0
+- aiosignal==1.4.0
+- appdirs==1.4.4
+- attrs==25.4.0
+- boto3==1.40.61
+- botocore==1.40.61
+- certifi==2025.10.5
+- charset-normalizer==3.4.4
+- choreographer==1.2.0
+- contourpy==1.3.3
+- cycler==0.12.1
+- distlib==0.4.0
+- filelock==3.20.0
+- fonttools==4.60.1
+- frozenlist==1.8.0
+- fsspec==2025.10.0
+- idna==3.11
+- iniconfig==2.3.0
+- jmespath==1.0.1
+- kaleido==1.2.0
+- kiwisolver==1.4.9
+- logistro==2.0.1
+- matplotlib==3.10.7
+- multidict==6.7.0
+- narwhals==2.10.2
+- numpy==2.3.4
+- orjson==3.11.4
+- packaging==25.0
+- pandas==2.3.3
+- pillow==12.0.0
+- pip==24.0
+- platformdirs==4.5.0
+- plotly==6.4.0
+- pluggy==1.6.0
+- propcache==0.4.1
+- pyarrow==22.0.0
+- Pygments==2.19.2
+- pyparsing==3.2.5
+- pytest-timeout==2.4.0
+- pytest==8.4.2
+- python-dateutil==2.9.0.post0
+- pytz==2025.2
+- requests==2.32.5
+- s3fs==2025.10.0
+- s3transfer==0.14.0
+- seaborn==0.13.2
+- setuptools==79.0.1
+- simplejson==3.20.2
+- six==1.17.0
+- tenacity==9.1.2
+- typing_extensions==4.15.0
+- tzdata==2025.2
+- urllib3==2.5.0
+- uv==0.9.7
+- virtualenv==20.35.4
+- wrapt==1.17.3
+- yarl==1.22.0
 
 AWS Glue version 5.0
 AWS Glue version 5.0 includes the following Python modules out of the box:
@@ -572,3 +633,107 @@ AWS Glue version 2.0 includes the following Python modules out of the box:
 - urllib3==1.25.8
 - wheel==0.35.1
 - zipp==3.12.0
+
+## Appendix A: Creating a Zip of Wheels Artifact
+
+We demonstrate by example how to create a zip of wheels artifact. The example shown downloads the packages `cryptography` and `scipy` into a zip of wheels artifact and copies the zip of wheels to an Amazon S3 location.
+
+1. You must run the commands to create the zip of wheels in an Amazon Linux environment similar to Glue's environment. See [Appendix B: AWS Glue environment details](#glue-python-libraries-environment-details "#glue-python-libraries-environment-details"). Glue 5.1 uses AL2023 with python version 3.11. Create Dockerfile that will build this environment:
+
+```
+FROM --platform=linux/amd64 public.ecr.aws/amazonlinux/amazonlinux:2023-minimal
+
+# Install Python 3.11, pip, and zip utility
+RUN dnf install -y python3.11 pip zip && \
+    dnf clean all
+
+WORKDIR /build
+```
+
+2. Create a requirements.txt file
+
+```
+cryptography
+scipy
+```
+
+3. Build and spin up docker container
+
+```
+# Build docker image
+docker build --platform linux/amd64 -t glue-wheel-builder .
+
+# Spin up container
+docker run --platform linux/amd64 -v $(pwd)/requirements.txt:/input/requirements.txt:ro -v $(pwd):/output -it glue-wheel-builder bash
+```
+
+4. Run the following commands in the docker image
+
+```
+# Create a directory for the wheels
+mkdir wheels
+
+# Copy requirements.txt into wheels directory
+cp /input/requirements.txt wheels/
+
+# Download the wheels with the correct platform and Python version
+pip3 download \
+    -r wheels/requirements.txt \
+    --dest wheels/ \
+    --platform manylinux2014_x86_64 \
+    --python-version 311 \
+    --only-binary=:all:
+
+# Package the wheels into a zip archive with the .gluewheels.zip suffix
+zip -r mylibraries-1.0.0.gluewheels.zip wheels/
+
+# Copy zip to output
+cp mylibraries-1.0.0.gluewheels.zip /output/
+
+# Exit the container
+exit
+```
+
+5. Upload zip of wheels to Amazon S3 location
+
+```
+aws s3 cp mylibraries-1.0.0.gluewheels.zip s3://amzn-s3-demo-bucket/example-prefix/
+```
+
+6. Optional cleanup
+
+```
+rm mylibraries-1.0.0.gluewheels.zip
+rm Dockerfile
+rm requirements.txt
+```
+
+7. Run the Glue job with the following job args:
+
+```
+--additional-python-modules s3://amzn-s3-demo-bucket/example-prefix/mylibraries-1.0.0.gluewheels.zip
+--python-modules-installer-option --no-index
+```
+
+## Appendix B: AWS Glue environment details
+
+| Glue Version Compatibility and Installation Methods | AWS Glue version | Python version                                                                                                                  | Base image | glibc version                                                          | Compatible platform tags |
+| --------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------- | ------------------------ |
+| 5.1                                                 | 3.11             | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34       | manylinux_2_34_x86_64<br>manylinux_2_28_x86_64<br>manylinux2014_x86_64 |
+| 5.0                                                 | 3.11             | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34       | manylinux_2_34_x86_64<br>manylinux_2_28_x86_64<br>manylinux2014_x86_64 |
+| 4.0                                                 | 3.10             | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")                         | 2.26       | manylinux2014_x86_64                                                   |
+| 3.0                                                 | 3.7              | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")                         | 2.26       | manylinux2014_x86_64                                                   |
+| 2.0                                                 | 3.7              | [Amazon Linux AMI (AL1)](https://aws.amazon.com/amazon-linux-ami/ "https://aws.amazon.com/amazon-linux-ami/")                   | 2.17       | manylinux2014_x86_64                                                   |
+
+Under the [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"), you are responsible for the management of additional Python modules, libraries, and their dependencies
+that you use with your AWS Glue ETL jobs. This includes applying updates and security patches.
+
+AWS Glue does not support compiling native code in the job environment. However, AWS Glue jobs run within an Amazon-managed Linux environment.
+You may be able to provide your native dependencies in a compiled form through a Python wheel file. Please refer to above table for AWS Glue version
+compatibility details.
+
+###### Important
+
+Using incompatible dependencies can result in runtime issues, particularly for libraries with native extensions that must match the target
+environment's architecture and system libraries. Each AWS Glue version runs on a specific Python version with pre-installed libraries and system
+configurations.

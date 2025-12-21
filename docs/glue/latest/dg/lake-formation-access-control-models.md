@@ -1,6 +1,6 @@
 # AWS Lake Formation access control models
 
-AWS Glue 5.0 supports two models for accessing data through AWS Lake Formation:
+AWS Glue 5.0 and above supports two models for accessing data through AWS Lake Formation:
 
 ###### Topics
 

@@ -27,6 +27,7 @@ The following table lists the Hudi version that is included in each AWS Glue ver
 
 | AWS Glue version | Supported Hudi version |
 | ---------------- | ---------------------- |
+| 5.1              | 1.0.2                  |
 | 5.0              | 0.15.0                 |
 | 4.0              | 0.12.1                 |
 | 3.0              | 0.10.1                 |
@@ -55,7 +56,7 @@ spark.serializer=org.apache.spark.serializer.KryoSerializer
 
 To use a version of Hudi that AWS Glue doesn't support, specify your own Hudi JAR files
 using the `--extra-jars` job parameter. Do not include `hudi` as a
-value for the `--datalake-formats` job parameter. If you use AWS Glue 5.0, you must set `--user-jars-first true` job parameter.
+value for the `--datalake-formats` job parameter. If you use AWS Glue 5.0 or above, you must set `--user-jars-first true` job parameter.
 
 ## Example: Write a Hudi table
 

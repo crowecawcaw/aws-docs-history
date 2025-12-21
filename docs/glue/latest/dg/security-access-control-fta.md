@@ -2,7 +2,7 @@
 
 ## Introduction to Full Table Access
 
-AWS Glue 5.0 supports Full Table Access (FTA) control in Apache Spark based on your policies defined in AWS Lake Formation.
+AWS Glue 5.0 and above supports Full Table Access (FTA) control in Apache Spark based on your policies defined in AWS Lake Formation.
 This feature enables read and write operations from your AWS Glue Spark jobs on AWS Lake Formation registered tables when the job role
 has full table access. FTA is ideal for use cases that need to comply with security regulations at the table level and supports Spark capabilities including Resilient Distributed Datasets (RDDs), custom libraries, and User Defined Functions (UDFs) with AWS Lake Formation tables.
 

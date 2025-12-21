@@ -12,12 +12,12 @@ Glue console UI currently does not support creating a DynamoDB connection. You c
 ```
 
         aws glue create-connection \
-            --connection-input '{
-            "Name": "my-dynamodb-connection",
-            "ConnectionType": "DYNAMODB",
-            "ConnectionProperties": {},
-            "ValidateCredentials": false,
-            "ValidateForComputeEnvironments": ["SPARK"]
+            --connection-input '{ \
+                "Name": "my-dynamodb-connection", \
+                "ConnectionType": "DYNAMODB", \
+                "ConnectionProperties": {}, \
+                "ValidateCredentials": false, \
+                "ValidateForComputeEnvironments": ["SPARK"] \
             }'
 
 ```

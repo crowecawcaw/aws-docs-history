@@ -6,7 +6,7 @@ When creating or editing a job, AWS Glue Studio automatically adds the correspon
 libraries for you depending on the version of AWS Glue you are using. For more information, see
 [Using the Hudi framework in AWS Glue](aws-glue-programming-etl-format-hudi.md "aws-glue-programming-etl-format-hudi.md").
 
-###
+##
 
 Using Apache Hudi framework in Data Catalog data sources
 
@@ -20,7 +20,7 @@ To add a Hudi data source format to a job:
 
 ![The screenshot shows the data source properties tab for the Data Catalog source node.](images/data_lake_formats_data_catalog_hudi.png)
 
-###
+##
 
 Using Hudi framework in Amazon S3 data sources
 

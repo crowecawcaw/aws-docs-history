@@ -424,7 +424,7 @@ The following are connector upgrades:
 | EMR DynamoDB connector | 5.6.0                             | 4.16.0                            |                                   |
 | Amazon Redshift        | 6.4.0                             | 6.1.3                             |                                   |
 | OpenSearch             | 1.2.0                             | 1.0.1                             |                                   |
-| MongoDB                | 10.4.0                            | 10.0.4                            | 3.0.0                             |
+| MongoDB                | 10.3.0                            | 10.0.4                            | 3.0.0                             |
 | Snowflake              | 3.0.0                             | 2.12.0                            |                                   |
 | Google BigQuery        | 0.32.2                            | 0.32.2                            |                                   |
 | AzureCosmos            | 4.33.0                            | 4.22.0                            |                                   |

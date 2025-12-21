@@ -23,6 +23,7 @@ The following table lists the version of Iceberg included in each AWS Glue versi
 
 | AWS Glue version | Supported Iceberg version |
 | ---------------- | ------------------------- |
+| 5.1              | 1.10.0                    |
 | 5.0              | 1.7.1                     |
 | 4.0              | 1.0.0                     |
 | 3.0              | 0.13.1                    |
@@ -75,7 +76,7 @@ documentation.
 To use a version of Iceberg that AWS Glue doesn't support, specify your own Iceberg JAR
 files using the `--extra-jars` job parameter. Do not include
 `iceberg` as a value for the `--datalake-formats`
-parameter. If you use AWS Glue 5.0, you must set `--user-jars-first true` job parameter.
+parameter. If you use AWS Glue 5.0 or above, you must set `--user-jars-first true` job parameter.
 
 **Enabling encryption for Iceberg tables**
 

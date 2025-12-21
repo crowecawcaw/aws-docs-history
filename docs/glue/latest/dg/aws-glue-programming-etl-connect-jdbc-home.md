@@ -21,13 +21,13 @@ The JDBC connectionType values include the following:
   The following table lists the JDBC driver versions that AWS Glue
   supports.
 
-| Product              | JDBC driver versions for Glue 5.0 | JDBC driver versions for Glue 4.0 | JDBC driver versions for Glue 3.0 | JDBC driver versions for Glue 0.9, 1.0, 2.0 |
-| -------------------- | --------------------------------- | --------------------------------- | --------------------------------- | ------------------------------------------- |
-| Microsoft SQL Server | 10.2.0                            | 9.4.0                             | 7.x                               | 6.x                                         |
-| MySQL                | 8.0.33                            | 8.0.23                            | 8.0.23                            | 5.1                                         |
-| Oracle Database      | 23.3.0.23.09                      | 21.7                              | 21.1                              | 11.2                                        |
-| PostgreSQL           | 42.7.3                            | 42.3.6                            | 42.2.18                           | 42.1.x                                      |
-| Amazon Redshift \*   | redshift-jdbc42-2.1.0.29          | redshift-jdbc42-2.1.0.16          | redshift-jdbc41-1.2.12.1017       | redshift-jdbc41-1.2.12.1017                 |
+| Product              | JDBC driver versions for Glue 5.1 | JDBC driver versions for Glue 5.0 | JDBC driver versions for Glue 4.0 | JDBC driver versions for Glue 3.0 | JDBC driver versions for Glue 0.9, 1.0, 2.0 |
+| -------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | ------------------------------------------- |
+| Microsoft SQL Server | 10.2.0                            | 10.2.0                            | 9.4.0                             | 7.x                               | 6.x                                         |
+| MySQL                | 8.0.33                            | 8.0.33                            | 8.0.23                            | 8.0.23                            | 5.1                                         |
+| Oracle Database      | 23.3.0.23.09                      | 23.3.0.23.09                      | 21.7                              | 21.1                              | 11.2                                        |
+| PostgreSQL           | 42.7.3                            | 42.7.3                            | 42.3.6                            | 42.2.18                           | 42.1.x                                      |
+| Amazon Redshift \*   | redshift-jdbc42-2.1.0.29          | redshift-jdbc42-2.1.0.29          | redshift-jdbc42-2.1.0.16          | redshift-jdbc41-1.2.12.1017       | redshift-jdbc41-1.2.12.1017                 |
 
 \* For the Amazon Redshift connection type, all other option name/value pairs that are included in connection options for
 a JDBC connection, including formatting options, are passed directly to the underlying SparkSQL DataSource. In

@@ -11,7 +11,7 @@ AWS Glue job run insights is a feature in AWS Glue that simplifies job debugging
 
 ## Requirements
 
-The AWS Glue job run insights feature is available for AWS Glue versions 2.0, 3.0, 4.0, and 5.0. You can follow the [migration guide](migrating-version-30.md "migrating-version-30.md") for your existing jobs to upgrade them from older AWS Glue versions.
+The AWS Glue job run insights feature is available for AWS Glue versions 2.0 and above. You can follow the [migration guide](migrating-version-30.md "migrating-version-30.md") for your existing jobs to upgrade them from older AWS Glue versions.
 
 ## Enabling job run insights for an AWS Glue ETL job
 

@@ -41,6 +41,11 @@ restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-st
 
 ###### Topics
 
+- [Configure Kafka](#glue-streaming-etl-connect-kafka-configure "#glue-streaming-etl-connect-kafka-configure")
+- [Example: Reading from Kafka streams](#glue-streaming-etl-connect-kafka-read "#glue-streaming-etl-connect-kafka-read")
+- [Example: Writing to Kafka streams](#glue-streaming-etl-connect-kafka-write "#glue-streaming-etl-connect-kafka-write")
+- [Kafka connection option reference](#glue-streaming-etl-connect-kafka "#glue-streaming-etl-connect-kafka")
+
 ### Configure Kafka
 
 There are no AWS prerequisites to connecting to Kafka streams available through the internet.

@@ -21,14 +21,15 @@ specified methods in the `GlueContext` class.
   - `options`: Use with `getSourceWithFormat`, `getSinkWithFormat`
 
 - Python
-  - `connection_options`: Use with
-    `create_data_frame_from_options`, `write_dynamic_frame_from_options`
-  - `additional_options`: Use with
-    `create_data_frame_from_catalog`, `write_dynamic_frame_from_catalog`
-  - `options`: Use with `getSource`, `getSink`
 
-For notes and restrictions about Streaming ETL jobs, consult [Streaming ETL notes and
-restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
+      + `connection_options`: Use with
+       `create_data_frame_from_options`, `write_dynamic_frame_from_options`
+      + `additional_options`: Use with
+       `create_data_frame_from_catalog`, `write_dynamic_frame_from_catalog`
+      + `options`: Use with `getSource`, `getSink`
+
+  For notes and restrictions about Streaming ETL jobs, consult [Streaming ETL notes and
+  restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
 
 ## Configure Kinesis
 

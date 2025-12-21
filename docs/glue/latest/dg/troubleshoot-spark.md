@@ -110,6 +110,10 @@ Spark applications:
   shuffle operations, data spilling, or when dealing with large-scale data transformations. These errors can be particularly
   tricky because they might not manifest until your job has been running for a while, potentially wasting valuable compute
   time and resources.
+- **Query execution errors:** Query failures in Spark SQL and DataFrame operations can be difficult
+  to troubleshoot because error messages may not clearly point to the root cause, and queries that work fine with small datasets
+  can suddenly fail at scale. These errors become even more challenging when they occur deep within complex transformation
+  pipelines, where the actual issue may stem from data quality problems in earlier stages rather than the query logic itself.
 
 ###### Note
 
