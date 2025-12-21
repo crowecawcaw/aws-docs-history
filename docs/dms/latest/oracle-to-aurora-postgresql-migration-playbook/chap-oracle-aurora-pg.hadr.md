@@ -1,89 +1,159 @@
-# Oracle Active Data Guard and PostgreSQL replicas
+# Oracle Flashback Database and PostgreSQL Amazon Aurora snapshots
 
-With AWS DMS, you can create and manage Oracle Active Data Guard and PostgreSQL logical replication instances to maintain standby databases for disaster recovery and read scaling. Oracle Active Data Guard and PostgreSQL logical replication provide continuous data protection by transmitting database changes from a primary database to one or more standby databases.
+With AWS DMS, you can migrate databases between different database platforms or versions by capturing consistent data snapshots from the source database and applying them to the target database. Oracle Flashback Database and PostgreSQL Amazon Aurora snapshots provide point-in-time backups of the source database, enabling migration with minimal downtime.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                   |
-| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, or users across multiple instances |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                             |
+| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------- |
+| Five star feature compatibility | N/A                                | N/A                       | Storage level backup managed by Amazon RDS. |
 
 ## Oracle usage
 
-Oracle Active Data Guard (ADG) is a synced database architecture with primary and standby databases. The difference between Data Guard and ADG is that ADG standby databases allow read access only.
+Oracle Flashback Database is a special mechanism built into Oracle databases that helps protect against human errors by providing capabilities to revert the entire database back to a previous point in time using SQL commands. Flashback database implements a self-logging mechanism that captures all changes applied to a database and to data. Essentially, it stores previous versions of database modifications in the configured database “Fast Recovery Area”.
 
-The following diagram illustrates the ADG architecture.
-
-![Active Data Guard architecture](images/pb-active-data-guard.png)
-
-- **Primary DB** — The main database open to read and write operations.
-- **Redo/Archive** — The redo files and archives that store the redo entries for recovery operations.
-- **Data Broker** — The data guard broker service is responsible for all failover and syncing operations.
-- **Standby DB** — The secondary database that allows read operations only. This database remains in recovery mode until it is shut down or becomes the primary (failover or switchover).
-- **Log Apply** — Runs all the redo log entries from the redo and archives files on the standby db.
-- **Redo/Archive** — Contains the redo files and archives that are synced from the primary log and archive files.
-- **Data Broker** — The Data Guard broker service is responsible for all failover and syncing operations.
-
-All components use SQL\*NET protocol.
-
-**Special features**
-
-- You can select "asynchronously" for best performance or "synchronously" for best data protection.
-- You can temporarily convert a standby database to a snapshot database and allow read/write operations. When you are done running QA, testing, loads, or other operations, it can be switched back to standby.
-- A sync gap can be specified between the primary and standby databases to account for human errors (for example, creating 12 hours gap of sync).
-
-For more information, see [Creating a Physical Standby Database](https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/creating-oracle-data-guard-physical-standby.html#GUID-B511FB6E-E3E7-436D-94B5-071C37550170 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/creating-oracle-data-guard-physical-standby.html#GUID-B511FB6E-E3E7-436D-94B5-071C37550170") in the _Oracle documentation_.
-
-## PostgreSQL usage
-
-You can use Aurora replicas for scaling read operations and increasing availability such as Oracle Active Data Guard, but with less configuration and administration. You can easily manage many replicas from the Amazon RDS console. Alternatively, you can use the AWS CLI for automation.
-
-When you create Aurora PostgreSQL instances, use one of the two following replication options:
-
-- **Multi-AZ (Availability Zone)** — Create a replicating instance in a different region.
-- **Instance Read Replicas** — Create a replicating instance in the same region.
-
-For instance options, you can use one of the two following options:
-
-- Create Aurora Replica.
-- Create Cross Region Read Replica.
-
-The main differences between these two options are:
-
-- Cross Region creates a new reader cluster in a different region. Use Cross Region for a higher level of Higher Availability and to keep the data closer to the end users.
-- Cross Region has more lag between the two instances.
-- Additional charges apply for transferring the data between the two regions.
-
-DDL statements that run on the primary instance may interrupt database connections on the associated Aurora Replicas. If an Aurora Replica connection is actively using a database object such as a table, and that object is modified on the primary instance using a DDL statement, the Aurora Replica connection is interrupted.
-
-Rebooting the primary instance of an Amazon Aurora database cluster also automatically reboots the Aurora Replicas for that database cluster.
-
-Before you create a cross region replica, turn on the `binlog_format` parameter.
-
-When using Multi-AZ, the primary database instance switches over automatically to the standby replica if any of the following conditions occur:
-
-- The primary database instance fails.
-- An Availability Zone outage.
-- The database instance server type is changed.
-- The operating system of the database instance is undergoing software patching.
-- A manual failover of the database instance was initiated using reboot with fail-over.
+When using Oracle flashback database, you can choose to restore an entire database to either a user-created restore point, a timestamp value, or to a specific System Change Number (SCN).
 
 **Examples**
 
-The following walkthrough demonstrates how to create a replica/reader.
+Create a database restore point to which you can flashback a database.
+
+```
+CREATE RESTORE POINT before_update GUARANTEE FLASHBACK DATABASE;
+```
+
+Flashback a database to a previously created restore point.
+
+```
+shutdown immediate;
+startup mount;
+flashback database to restore point before_update;
+```
+
+Flashback a database to a specific time.
+
+```
+shutdown immediate;
+startup mount;
+FLASHBACK DATABASE TO TIME "TO_DATE('01/01/2017','MM/DD/YY')";
+```
+
+For more information, see [FLASHBACK DATABASE](https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/FLASHBACK-DATABASE.html#GUID-584AC79A-40C5-45CA-8C63-DED3BE3A4511 "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/FLASHBACK-DATABASE.html#GUID-584AC79A-40C5-45CA-8C63-DED3BE3A4511") in the _Oracle documentation_.
+
+## PostgreSQL usage
+
+Snapshots are the primary backup mechanism for Amazon Aurora databases. They are extremely fast and nonintrusive. You can take snapshots using the Amazon RDS Management Console or the AWS CLI. Unlike RMAN, there is no need for incremental backups. You can choose to restore your database to the exact time when a snapshot was taken or to any other point in time.
+
+Amazon Aurora provides the following types of backups:
+
+- **Automated Backups** — Always enabled on Amazon Aurora. They do not impact database performance.
+- **Manual Backups** — You can create a snapshot at any time. There is no performance impact when taking snapshots of an Aurora database. Restoring data from snapshots requires creation of a new instance. Up to 100 manual snapshots are supported for each database.
+
+**Examples**
+
+The following steps to enable Aurora automatic backups and configure the backup retention window as part of the database creation process. This process is equivalent to setting the Oracle RMAN backup retention policy using the `configure retention policy to recovery window of X days` command.
 
 1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Instance actions** and choose **Add reader**.
-3. Enter all required details and choose **Create**.
+2. Choose **Databases**, then choose your database or create a new one.
+3. Expand **Additional configuration** and specify **Backup retention period** in days.
 
-After the replica is created, you can run read and write operations on the primary instance and read-only operations on the replica.
+![Backup retention period](images/pb-backup-retention-period.png)
 
-### Compare Oracle Active Data Guard and Aurora PostgreSQL Replicates
+The following table identifies the default automatic backup time for each region.
 
-| Description                                                | Oracle Active Data Guard                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Aurora PostgreSQL Replicates                                                                                                                                                     |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| How to switch over                                         | `<br>ALTER DATABASE SWITCHOVER TO DBREP VERIFY;<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Note that you can’t choose to which instance to failover, the instance with the higher priority will become a writer (primary).                                                  |
-| Define automatic failover                                  | `<br>EDIT DATABASE db1 SET PROPERTY<br>FASTSTARTFAILOVERTARGET='db1rep';<br>EDIT DATABASE db1rep SET PROPERTY<br>FASTSTARTFAILOVERTARGET='db1';<br>ENABLE FAST_START FAILOVER;<br>`                                                                                                                                                                                                                                                                                                                          | Use Multi-AZ on instance creation or by modifying existing instance.                                                                                                             |
-| Asynchronous or synchronous replication                    | Change to synchronous<br>`<br>ALTER SYSTEM SET<br>LOG_ARCHIVE_DEST_2='SERVICE=db1rep<br>AFFIRM SYNC VALID_FOR=(ONLINE_LOGFILES,<br>PRIMARY_ROLE) DB_UNIQUE_NAME=db1rep';<br>ALTER DATABASE SET STANDBY<br>DATABASE TO MAXIMIZE AVAILABILITY;<br>`<br>Change to asynchronous<br>`<br>ALTER SYSTEM SET<br>LOG_ARCHIVE_DEST_2='SERVICE=db1rep<br>NOAFFIRM<br>ASYNC VALID_FOR=(ONLINE_LOGFILES,<br>PRIMARY_ROLE) DB_UNIQUE_NAME=db1rep';<br>ALTER DATABASE SET STANDBY<br>DATABASE TO MAXIMIZE PERFORMANCE;<br>` | Not supported. Only asynchronous replication is in use.                                                                                                                          |
-| Open standby to read/write and continue syncing afterwards | `<br>CONVERT DATABASE db1rep<br>TO SNAPSHOT STANDBY;<br>CONVERT DATABASE db1rep<br>TO PHYSICAL STANDBY;<br>`                                                                                                                                                                                                                                                                                                                                                                                                 | Not supported but you can: restore your database from snapshot, run your QA, testing or other operations on the restored instance. After you finish, drop the restored instance. |
-| Create gaped replication                                   | Create 5 minutes delay<br>`<br>ALTER DATABASE<br>RECOVER MANAGED STANDBY<br>DATABASE CANCEL;<br>ALTER DATABASE<br>RECOVER MANAGED STANDBY<br>DATABASE DELAY 5<br>DISCONNECT FROM SESSION;<br>`<br>Return for no delay<br>`<br>ALTER DATABASE<br>RECOVER MANAGED STANDBY<br>DATABASE CANCEL;<br>ALTER DATABASE<br>RECOVER MANAGED STANDBY<br>DATABASE NODELAY<br>DISCONNECT FROM SESSION;<br>`                                                                                                                | Not Supported                                                                                                                                                                    |
+| Region                    | Default backup window |
+| ------------------------- | --------------------- |
+| US West (Oregon)          | 06:00–14:00 UTC       |
+| US West (N. California)   | 06:00–14:00 UTC       |
+| US East (Ohio)            | 03:00–11:00 UTC       |
+| US East (N. Virginia)     | 03:00–11:00 UTC       |
+| Asia Pacific (Mumbai)     | 16:30–00:30 UTC       |
+| Asia Pacific (Seoul)      | 13:00–21:00 UTC       |
+| Asia Pacific (Singapore)  | 14:00–22:00 UTC       |
+| Asia Pacific (Sydney)     | 12:00–20:00 UTC       |
+| Asia Pacific (Tokyo)      | 13:00–21:00 UTC       |
+| Canada (Central)          | 06:29–14:29 UTC       |
+| EU (Frankfurt)            | 20:00–04:00 UTC       |
+| EU (Ireland)              | 22:00–06:00 UTC       |
+| EU (London)               | 06:00–14:00 UTC       |
+| South America (São Paulo) | 23:00–07:00 UTC       |
+| AWS GovCloud (US)         | 03:00–11:00 UTC       |
 
-For more information, see [Replication with Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") in the _user guide_ and [Multi-AZ deployments for high availability](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") in the _user guide_.
+Use the following steps to perform a manual snapshot backup of an Aurora database. This process is equivalent to creating a full Oracle RMAN backup (`BACKUP DATABASE PLUS ARCHIVELOG`).
+
+1. Sign in to your AWS console and choose **RDS**.
+2. Choose **Databases**, then choose your database.
+3. Choose **Actions** and then choose **Take snapshot**.
+
+![Take snapshot](images/pb-take-snapshot.png)
+
+Use the following steps to restore an Aurora database from a snapshot. This process is similar to the Oracle RMAN commands `RESTORE DATABASE` and `RECOVER DATABASE`. However, instead of running in place, restoring an Aurora database creates a new cluster.
+
+1. Sign in to your AWS console and choose **RDS**.
+2. Choose **Snapshots**, then choose the snapshot to restore.
+3. Choose **Actions** and then choose **Restore snapshot**. This action creates a new instance.
+4. On the **Restore snapshot** page, for **DB instance identifier**, enter the name for your restored DB instance.
+5. Choose **Restore DB instance**.
+
+Use the following steps to restore an Aurora PostgreSQL database backup to a specific point in time. This process is similar to running the Oracle RMAN command `SET UNTIL TIME "TO_DATE('XXX')"` before running `RESTORE DATABASE` and `RECOVER DATABASE`.
+
+1. Sign in to your AWS console and choose **RDS**.
+2. Choose **Databases**, then choose your database.
+3. Choose **Actions** and then choose **Restore to point in time**.
+4. This process launches a new instance. Select the date and time to which you want to restore your database. The selected date and time must be within the configured backup retention for this instance.
+
+### AWS CLI backup and restore operations
+
+In addition to using the AWS web console to backup and restore an Aurora instance snapshot, you can also use the AWS CLI to perform the same actions. The CLI is especially useful for migrating existing automated Oracle RMAN scripts to an AWS environment. The following list highlights some CLI operations:
+
+- Use `describe-db-cluster-snapshots` to view all current Aurora PostgreSQL snapshots.
+- Use `create-db-cluster-snapshot` to create a snapshot ("Restore Point").
+- Use `restore-db-cluster-from-snapshot` to restore a new cluster from an existing database snapshot.
+- Use `create-db-instance` to add new instances to the restored cluster.
+
+```
+aws rds describe-db-cluster-snapshots
+
+aws rds create-db-cluster-snapshot
+  --db-cluster-snapshot-identifier Snapshot_name
+  --db-cluster-identifier Cluster_Name
+
+aws rds restore-db-cluster-from-snapshot
+  --db-cluster-identifier NewCluster
+  --snapshot-identifier SnapshotToRestore
+  --engine aurora-postgresql
+
+aws rds create-db-instance
+  --region us-east-1
+  --db-subnet-group default
+  --engine aurora-postgresql
+  --db-cluster-identifier NewCluster
+  --db-instance-identifier newinstance-nodeA
+  --db-instance-class db.r4.large
+```
+
+- Use `restore-db-instance-to-point-in-time` to perform point-in-time recovery.
+
+```
+aws rds restore-db-cluster-to-point-in-time
+  --db-cluster-identifier clusternamerestore
+  --source-db-cluster-identifier clustername
+  --restore-to-time 2017-09-19T23:45:00.000Z
+
+aws rds create-db-instance
+  --region us-east-1
+  --db-subnet-group default
+  --engine aurora-postgresql
+  --db-cluster-identifier clustername-restore
+  --db-instance-identifier newinstance-nodeA
+  --db-instance-class db.r4.large
+```
+
+## Summary
+
+| Description                                    | Oracle                                                                                                                | Amazon Aurora                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create a restore point                         | `<br>CREATE RESTORE POINT<br>before_update GUARANTEE<br>FLASHBACK DATABASE;<br>`                                      | `<br>aws rds create-db-cluster-snapshot<br>--db-cluster-snapshotidentifier Snapshot_name<br>--db-cluster-identifier Cluster_Name<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Configure flashback retention period           | `<br>ALTER SYSTEM SET<br>db_flashback_retention_target=2880;<br>`                                                     | Configure the \*_Backup retention window_<br>• setting using the AWS management console or AWS CLI.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Flashback database to a previous restore point | `<br>shutdown immediate;<br>startup mount;<br>flashback database to<br>restore point before_update;<br>`              | Create new cluster from a snapshot.<br>`<br>aws rds restore-db-cluster-from-snapshot<br>--db-cluster-identifier NewCluster<br>--snapshot-identifier SnapshotToRestore<br>--engine aurora-postgresql<br>`<br>Add new instance to the cluster.<br>`<br>aws rds create-db-instance<br>--region us-east-1<br>--db-subnetgroup default<br>--engine aurora-postgresql<br>--db-cluster-identifier clustername-restore<br>--db-instance-identifier newinstance-nodeA<br>--db-instance-class db.r4.large<br>`                                                                         |
+| Flashback database to a previous point in time | `<br>shutdown immediate;<br>startup mount;<br>FLASHBACK DATABASE TO TIME<br>"TO_DATE ('01/01/2017','MM/DD/YY')";<br>` | Create a new cluster from a snapshot and provide a specific point in time.<br>`<br>aws rds restore-db-cluster-to-point-in-time<br>--db-cluster-identifier clustername-restore<br>--source-db-cluster-identifier clustername<br>--restore-to-time 2017-09-19T23:45:00.000Z<br>`<br>Add a new instance to the cluster:<br>`<br>aws rds create-db-instance<br>--region us-east-1<br>--db-subnetgroup default<br>--engine aurora-postgresql<br>--db-cluster-identifier clustername-restore<br>--db-instance-identifier newinstance-nodeA<br>--db-instance-class db.r4.large<br>` |
+
+For more information, see [rds](../../../cli/latest/reference/rds/index.md#cli-aws-rds "../../../cli/latest/reference/rds/index.md#cli-aws-rds") in the _CLI Command Reference_ and [Restoring a DB instance to a specified time](../../../AmazonRDS/latest/UserGuide/USER_PIT.md "../../../AmazonRDS/latest/UserGuide/USER_PIT.md") and [Restoring from a DB snapshot](../../../AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.md") in the _Amazon RDS user guide_.

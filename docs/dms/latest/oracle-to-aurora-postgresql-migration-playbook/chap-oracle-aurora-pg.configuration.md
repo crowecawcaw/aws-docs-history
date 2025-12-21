@@ -1,223 +1,81 @@
-# Oracle and Aurora for PostgreSQL upgrades
+# Oracle instance parameters and Amazon RDS parameter groups
 
-With AWS DMS, you can upgrade your Oracle and Aurora PostgreSQL databases to newer versions with minimal downtime. The Oracle and Aurora PostgreSQL upgrades feature facilitates seamless database upgrades by creating a new database instance with the desired version, migrating data from the old instance, and redirecting applications to the new instance. This capability is crucial for organizations that need to stay current with the latest database software releases for security, performance, and compatibility reasons.
+With AWS DMS, you can configure Oracle instance parameters and Amazon RDS parameter groups to optimize database performance, security, and resource utilization. Oracle instance parameters control various aspects of an Oracle database instance, such as memory allocation, logging, and backup settings. Amazon RDS parameter groups act as a container for engine configuration values that can be applied to one or more Amazon RDS database instances.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| --------------------- | ---------------------------------- | ------------------------- | --------------- |
-| N/A                   | N/A                                | N/A                       | N/A             |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                              |
+| ------------------------------ | ---------------------------------- | ------------------------- | -------------------------------------------- |
+| One star feature compatibility | N/A                                | N/A                       | Use Cluster and Database/Cluster parameters. |
 
 ## Oracle usage
 
-As a Database Administrator, from time to time a database upgrade is required, it can be either for security fix, but, or a new database feature.
+Oracle instance and database-level parameters can be configured using the `ALTER SYSTEM` command. Certain parameters can be configured dynamically and take immediate effect while other parameters require an instance restart.
 
-The Oracle upgrades are divided into two different types of upgrades, minor and major.
-
-This topic will outline the differences between the procedure to run upgrades on your Oracle databases today and how you will run those upgrades post migrating to Amazon RDS running Aurora.
-
-The regular presentation of Oracle versions is combined of 4 numbers divided by dots (sometimes you will see the fifth number).
-
-Either way, major or minor upgrades, the first step to initiate the processes mentioned above would be to install the new Oracle software on the database server, and of course before upgrading a production database to have an extensive amount of testing with the applications using the database to upgrade.
-
-Oracle 18c introduces Zero-Downtime Database Upgrade to automate database upgrade and potentially eliminate application downtime during this process.
-
-To understand the versions, let us use the following example 11.2.0.4.0.
-
-These digits have the following meaning:
-
-- 11 — is the major database version.
-- 2 — is the database maintenance version.
-- 0 — application server version.
-- 4 — component specific version.
-- 0 — platform specific version.
-
-For more information, see [About Oracle Database Release Numbers](https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/oracle-database-release-numbers.html#GUID-1E2F3945-C0EE-4EB2-A933-8D1862D8ECE2 "https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/oracle-database-release-numbers.html#GUID-1E2F3945-C0EE-4EB2-A933-8D1862D8ECE2") in the _Oracle documentation_.
-
-In Oracle, the users can set the compatibility level of the database to control the features and some behaviors.
-
-This is being done using the `COMPATIBLE` parameter, the value for this parameter can be fetched using the following query.
+- All Oracle instance and database-level parameters are stored in a binary file known as the Server Parameter file (SPFILE).
+- The binary SPFILE can be exported to a text file using the following command:
 
 ```
-SELECT NAME, VALUE FROM V$PARAMETER WHERE NAME = 'compatible';
+CREATE PFILE = 'my_init.ora' FROM SPFILE = 's_params.ora';
 ```
 
-## Upgrade process
+When modifying parameters, you can choose the persistence of the changed values with one of the three following options:
 
-In general, the process for major or minor upgrades is the same, minor version upgrade has less steps but overall the process is very similar.
+- Make the change applicable only after a restart by specifying `scope=spfile`.
+- Make the change dynamically, but not persistent, after a restart by specifying `scope=memory`.
+- Make the change both dynamically and persistent by specifying `scope=both`.
 
-Major upgrade referring to upgrades of the version number in the Oracle version, in the preceding example "11", the minor upgrade refers to any of the following numbers in the Oracle version, in the preceding example these will be "2.0.4.0".
+**Examples**
 
-Major upgrades are mostly being done in order to gain many new useful features being released between those versions, while minor upgrades are focused on bug and security fixes.
-
-You can perform upgrades using the Oracle upgrade tools or manually.
-
-Oracle tools will perform the following steps and might ask for some inputs or fixes from the user during the process.
-
-- **Upgrade operation type** — the user chooses either Oracle database upgrade or move database between Oracle software installations.
-- **Database selection** — the user selects the database to upgrade and the Oracle software to use for this database.
-- **Prerequisite checks** — Oracle tools will let the use choose what to do with all issues found and their severity.
-- **Upgrade options** — Oracle will let the use to pick his practices to do the upgrade, options such as recompilation and parallelism for those, time zone upgrade, statistics gathering, and more.
-- **Management options** — the user chooses to connect and configure Oracle management solutions to the database.
-- **Move database files** — the user chooses if a data file movement is required to a new devices or path.
-- **Network configuration** — Oracle listener configurations.
-- **Recovery options** — the user defines Oracle backup solutions or using his own.
-- **Summary** — a report of all options that were selected in previous steps to present before the upgrade.
-- **Progress** — monitor and present the upgrade status.
-- **Results** — a post upgrade summary.
-
-For the manual process, we won’t cover all actions in this topic, as there are many steps and commands to run.
-
-In overall, the preceding steps will be divided into many sub-steps and tasks to run.
-
-For more information, see [Example of Manual Upgrade of Windows Non-CDB Oracle Database 11.2.0.3](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/upgrd/example-manual-upgrade-windows-non-cdb-11203-to-122.html#GUID-30F3DC9C-141A-47DC-9B83-6D0C395E565C "https://docs.oracle.com/en/database/oracle/oracle-database/12.2/upgrd/example-manual-upgrade-windows-non-cdb-11203-to-122.html#GUID-30F3DC9C-141A-47DC-9B83-6D0C395E565C") in the _Oracle documentation_.
-
-## Aurora for PostgreSQL usage
-
-After migrating your databases to Amazon RDS running Aurora for PostgreSQL, you will still need to upgrade your database instances from time to time, for the same reasons you have done in the past, new features, bugs and security fixes.
-
-In a managed service such as Amazon RDS, the upgrade process is much easier and simpler compare to the on-prem Oracle process.
-
-To determine the current Aurora for PostgreSQL version being used, you can use the following AWS CLI command.
+Use the `ALTER SYSTEM SET` command to configure a value for an Oracle parameter.
 
 ```
-aws rds describe-db-engine-versions
-  --engine aurora-postgresql
-  --query '*[].[EngineVersion]'
-  --output text
-  --region your-AWS-Region
+ALTER SYSTEM SET QUERY_REWRITE_ENABLED = TRUE SCOPE=BOTH;
 ```
 
-This can also be queried from the database, using the following queries.
+For more information, see [Initialization Parameters](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/initialization-parameters-2.html#GUID-FD266F6F-D047-4EBB-8D96-B51B1DCA2D61 "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/initialization-parameters-2.html#GUID-FD266F6F-D047-4EBB-8D96-B51B1DCA2D61") and [Changing Parameter Values in a Parameter File](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html#GUID-4C578B21-DE2B-4210-8EB7-EF28D36CC1CB "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html#GUID-4C578B21-DE2B-4210-8EB7-EF28D36CC1CB") in the _Oracle documentation_.
 
-```
-SELECT AURORA_VERSION();
+## PostgreSQL usage
 
-aurora_version
-4.0.0
+When running PostgreSQL databases as Amazon Aurora Clusters, Parameter Groups are used to change to cluster-level and database-level parameters.
 
-SHOW SERVER_VERSION;
+Most of the PostgreSQL parameters are configurable in an Amazon Aurora PostgreSQL cluster, but some are disabled and can’t be modified. Since Amazon Aurora clusters restrict access to the underlying operating system, modification to PostgreSQL parameters must be made using Parameter Groups.
 
-server_version
-12.4
-```
+Amazon Aurora is a cluster of database instances and, as a direct result, some of the PostgreSQL parameters apply to the entire cluster while other parameters apply only to a particular database instance.
 
-For Aurora and PostgreSQL versions mapping, see [Amazon Aurora PostgreSQL releases and engine versions](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.md") in the _Amazon RDS user guide_.
+| Aurora PostgreSQL parameter class                                                                                                              | Controlled by                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Cluster-level parameters**<br>Single cluster parameter group for each Amazon Aurora cluster.                                                 | Managed by cluster parameter groups. For example,<br>• The PostgreSQL `wal_buffers` parameter is controlled by a cluster parameter group.<br>• The PostgreSQL `autovacuum` parameter is controlled by a cluster parameter group.<br>• The `client_encoding` parameter is controlled by a cluster parameter group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Database instance-level parameters**<br>Every instance in an Amazon Aurora cluster can be associated with a unique database parameter group. | Managed by database parameter groups For example,<br>• The PostgreSQL shared_buffers memory cache configuration parameter is controlled by a database parameter group with an AWS-optimized default value based on the configured database class: `{DBInstanceClassMemory/10922}`.<br>• The PostgreSQL `max_connections` parameter which controls maximum number of client connections allowed to the PostgreSQL instance, is controlled by a database parameter group. Default value is optimized by AWS based on the configured database class: `LEAST({DBInstanceClassMemory/9531392},5000)`.<br>• The `authentication_timeout` parameter, which controls the maximum time to complete client authentication, in seconds, is controlled by a database parameter group.<br>• The `superuser_reserved_connections` parameter which determines the number of reserved connection slots for PostgreSQL superusers, is configured by a database parameter group.<br>• The PostgreSQL `effective_cache_size` which informs the query optimizer how much cache is present in the kernel and helps control how expensive large index scans will be, is controlled by a database level parameter group. The default value is optimized by AWS based on database class (RAM): `{DBInstanceClassMemory/10922}`. |
 
-AWS doesn’t apply major version upgrades on Amazon RDS and Aurora automatically. Major version upgrades contain new features and functionality which often involves system table and other code changes. These changes may not be backward-compatible with previous versions of the database so application testing is highly recommended.
+PostgreSQL 10 introduces the following new parameters:
 
-Applying automatic minor upgrades can be set by configuring the Amazon RDS instance to allow it.
+- `enable_gathermerge` — enable run plan gather merge.
+- `max_parallel_workers` — maximum number of parallel workers process.
+- `max_sync_workers_per_subscription` — maximum number of synchronous workers for subscription.
+- `wal_consistency_checking` — check consistency of WAL on the standby instance (can’t be set in Aurora PostgreSQL).
+- `max_logical_replication_workers` — maximum number of logical replication worker process.
+- `max_pred_locks_per_relation` — Maximum number of records that can be predicate-lock before locking the entire relation (signup).
+- `max_pred_locks_per_page` — Maximum number of records that can be predicate-lock before locking the entire page.
+- `min_parallel_table_scan_size` — minimum table size to consider parallel table scan.
+- `min_parallel_index_scan_size` — minimum table size to consider parallel index scan.
 
-You can use the following AWS CLI command on Linux to determine the current automatic upgrade minor versions.
+**Examples**
 
-```
-aws rds describe-db-engine-versions
-  --engine aurora-postgresql
-  | grep -A 1 AutoUpgrade
-  | grep -A 2 true
-  | grep PostgreSQL
-  | sort --unique
-  | sed -e 's/"Description":"//g'
-```
+Follow the following steps to create and configure Amazon Aurora database and cluster parameter groups.
 
-If no results are returned, there is no automatic minor version upgrade available and scheduled.
+1. Sign in to the AWS Management Console and choose **RDS**.
+2. Choose **Parameter groups** and choose **Create parameter group**.
 
-When enabled, the instance will be automatically upgraded during the scheduled maintenance window.
+You can’t edit the default parameter group. Create a custom parameter group to apply changes to your Amazon Aurora cluster and its database instances.
 
-For major upgrades, this is the recommended process:
+1. For **Parameter group family**, choose the database family.
+2. For **Type**, choose **DB Parameter Group**.
+3. Choose **Create**.
 
-- Have a version-compatible parameter group ready. If you are using a custom DB instance or DB cluster parameter group, you have two options:
-  - Specify the default DB instance, DB cluster parameter group, or both for the new DB engine version.
-  - Create your own custom parameter group for the new DB engine version.
+Follow the following steps to modify an existing parameter group.
 
-  If you associate a new DB instance or DB cluster parameter group as a part of the upgrade request, make sure to reboot the database after the upgrade completes to apply the parameters. If a DB instance needs to be rebooted to apply the parameter group changes, the instance’s parameter group status shows pending-reboot. You can view an instance’s parameter group status in the console or by using a CLI command such as `describe-db-instances` or `describe-db-clusters`.
+1. Sign in to the AWS Management Console and choose **RDS**.
+2. Choose **Parameter groups** and choose the name of the parameter to edit.
+3. For **Parameter group actions**, choose **Edit**.
+4. Change parameter values and choose **Save changes**.
 
-- Check for unsupported usage.
-  - Commit or roll back all open prepared transactions before attempting an upgrade. You can use the following query to verify that there are no open prepared transactions on your instance
-
-  ```
-  SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
-  ```
-
-  - Remove all uses of the `reg*` data types before attempting an upgrade. Except for `regtype` and `regclass`, you can’t upgrade the `reg*` data types. The `pg_upgrade` utility can’t persist this data type, which is used by Amazon Aurora to do the upgrade. To verify that there are no uses of unsupported `reg*` data types, use the following query for each database.
-
-  ```
-  SELECT count(*)
-    FROM pg_catalog.pg_class c,
-    pg_catalog.pg_namespace n,
-    pg_catalog.pg_attribute a
-      WHERE c.oid = a.attrelid
-      AND NOT a.attisdropped
-      AND a.atttypid IN ('pg_catalog.regproc'::pg_catalog.regtype,
-        'pg_catalog.regprocedure'::pg_catalog.regtype,
-        'pg_catalog.regoper'::pg_catalog.regtype,
-        'pg_catalog.regoperator'::pg_catalog.regtype,
-        'pg_catalog.regconfig'::pg_catalog.regtype,
-        'pg_catalog.regdictionary'::pg_catalog.regtype)
-      AND c.relnamespace = n.oid
-      AND n.nspname NOT IN ('pg_catalog', 'information_schema');
-  ```
-
-- Perform a backup. The upgrade process creates a DB cluster snapshot of your DB cluster during upgrading. If you also want to do a manual backup before the upgrade process.
-- Upgrade `pgRouting` and `postGIS` extensions to the latest available version before performing the major version upgrade. Run the following command for each extension that you use.
-
-```
-ALTER EXTENSION PostgreSQL-extension UPDATE TO 'new-version'
-```
-
-An upgrade from versions older than 12, requires additional steps. For more information, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon RDS user guide_.
-
-After meeting all preceding prerequisites, you can perform the actual upgrade through the AWS console or AWS CLI.
-
-**AWS Console**
-
-1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Databases** and select the database cluster that you want to upgrade.
-3. Choose **Modify**.
-4. For **DB engine version**, choose the new version.
-5. Choose **Continue** and check the summary of modifications.
-6. To apply the changes immediately, choose **Apply immediately**. Choosing this option can cause an outage in some cases. For more information, see [Modifying an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") in the _Amazon RDS user guide_.
-7. On the confirmation page, review your changes. If they are correct, choose **Modify cluster** to save your changes. Or choose **Back** to edit your changes or **Cancel** to cancel your changes.
-
-**AWS CLI**
-
-For Linux, macOS, or Unix, use the following query.
-
-```
-aws rds modify-db-cluster \
-  --db-cluster-identifier mydbcluster \
-  --engine-version new_version \
-  --allow-major-version-upgrade \
-  --no-apply-immediately
-```
-
-For Windows, use the following query.
-
-```
-aws rds modify-db-cluster ^
-  --db-cluster-identifier mydbcluster ^
-  --engine-version new_version ^
-  --allow-major-version-upgrade ^
-  --no-apply-immediately
-```
-
-## Summary
-
-| Phase                 | Oracle Step                                         | Aurora for PostgreSQL                                                                                                                                                                               |
-| --------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Prerequisite          | Install new Oracle software                         | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Upgrade operation type                              | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Database selection                                  | Select the right Amazon RDS instance                                                                                                                                                                |
-| Prerequisite          | Prerequisite checks                                 | 1. Remove all uses of the reg data types.<br>2. Upgrade certain extensions<br>3. Commit or roll back all open prepared transactions<br>`<br>SELECT count(*) FROM pg_catalog.pg_prepared_xacts;<br>` |
-| Prerequisite          | Upgrade options                                     | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Management options (optional)                       | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Move database files (optional)                      | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Network configuration (optional)                    | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Recovery options                                    | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Summary                                             | N/A                                                                                                                                                                                                 |
-| Prerequisite          | Perform a database backup                           | Run Amazon RDS instance backup                                                                                                                                                                      |
-| Prerequisite          | Stop application and connection                     | Same                                                                                                                                                                                                |
-| Run                   | Progress                                            | Review status from the console                                                                                                                                                                      |
-| Post-upgrade          | Results                                             | Review status from the console                                                                                                                                                                      |
-| Post-upgrade          | Test applications against the new upgraded database | Same                                                                                                                                                                                                |
-| Production deployment | Re-run all steps in a production environment        | Same                                                                                                                                                                                                |
-
-For more information, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon RDS user guide_.
+For more information, see [SET](https://www.postgresql.org/docs/13/sql-set.html "https://www.postgresql.org/docs/13/sql-set.html") in the _PostgreSQL documentation_.
