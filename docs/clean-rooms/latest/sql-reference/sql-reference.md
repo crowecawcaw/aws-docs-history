@@ -20,6 +20,5 @@ used in this SQL Reference.
   types of SQL functions, and SQL conditions you can use in AWS Clean Rooms.
 
 - [AWS Clean Rooms Spark SQL](sql-reference-spark.md "sql-reference-spark.md")
-- [AWS Clean Rooms SQL](sql-reference-acr.md "sql-reference-acr.md")
   For more information about AWS Clean Rooms, see the [AWS Clean Rooms User Guide](../userguide/what-is.md "../userguide/what-is.md") and the [AWS Clean Rooms API
   Reference](../apireference/Welcome.md "../apireference/Welcome.md").

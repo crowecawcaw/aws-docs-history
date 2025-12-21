@@ -7,7 +7,7 @@ qualifier syntax
 The following examples demonstrate using an interval literal without a
 `YEAR TO MONTH` or `DAY TO SECOND` qualifier. For
 information about using the recommended interval literal with a qualifier, see
-[Interval data types and literals](interval_data_types.md "interval_data_types.md").
+[Interval data types and literals](interval_data_types_spark.md "interval_data_types_spark.md").
 
 Use an interval literal to identify specific periods of time, such as `12
  hours` or `6 months`. You can use these interval literals in

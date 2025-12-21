@@ -103,7 +103,7 @@ the PARTITION BY clause.
 For ranking functions, the ORDER BY clause identifies the measures for the
 ranking values. For aggregation functions, the partitioned rows must be ordered
 before the aggregate function is computed for each frame. For more about window
-function types, see [Window functions](c_Window_functions.md "c_Window_functions.md").
+function types, see [Window functions](Window_functions.md "Window_functions.md").
 
 Column identifiers or expressions that evaluate to column identifiers are
 required in the order list. Neither constants nor constant expressions can be

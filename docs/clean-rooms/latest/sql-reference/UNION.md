@@ -56,7 +56,7 @@ expression that follows the UNION, UNION ALL, INTERSECT, INTERSECT ALL, EXCEPT, 
 operator. The two expressions must contain the same number of output columns with compatible
 data types; otherwise, the two result sets can't be compared and merged. Set operations
 don't allow implicit conversion between different categories of data types. For more
-information, see [Type compatibility and conversion](r_Type_conversion.md "r_Type_conversion.md").
+information, see [Type compatibility and conversion](s_Type_conversion.md "s_Type_conversion.md").
 
 You can build queries that contain an unlimited number of query expressions and link
 them with UNION, INTERSECT, and EXCEPT operators in any combination. For example, the

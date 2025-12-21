@@ -5,7 +5,7 @@ declared when the query computes aggregates with standard functions such as SUM,
 If an aggregate function is present in the SELECT expression, any column in the SELECT expression
 that is not in an aggregate function must be in the GROUP BY clause.
 
-For more information, see [AWS Clean Rooms SQL functions](sql-functions-topic.md "sql-functions-topic.md").
+For more information, see [AWS Clean Rooms Spark SQL functions](sql-functions-topic-spark.md "sql-functions-topic-spark.md").
 
 ## Syntax
 

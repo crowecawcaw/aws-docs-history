@@ -12,7 +12,7 @@ For some operations, you can use explicit casting (type promotion) or AWS Clean 
 configuration parameters to work around these problems.
 
 For information about the results of similar computations with SQL functions, see
-[AWS Clean Rooms SQL functions](sql-functions-topic.md "sql-functions-topic.md").
+[AWS Clean Rooms Spark SQL functions](sql-functions-topic-spark.md "sql-functions-topic-spark.md").
 
 ## Return types for
 
