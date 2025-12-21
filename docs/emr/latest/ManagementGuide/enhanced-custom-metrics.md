@@ -23,7 +23,7 @@ By default, Amazon EMR sends basic metrics to CloudWatch every five minutes at n
 EMR 7.1 extends these capabilities, allowing you to configure the agent to capture specialized metrics from Hadoop, YARN, and HBase components. For
 environments using Prometheus, metrics can be forwarded to Amazon Managed Service for Prometheus.
 
-### CloudWatch Agent Configuration for Logs
+## CloudWatch Agent Configuration for Logs
 
 To capture EMR logs in CloudWatch, create a _cloudwatch-config.json_ file that defines which log files to collect:
 
@@ -53,12 +53,12 @@ To capture EMR logs in CloudWatch, create a _cloudwatch-config.json_ file that d
 }
 ```
 
-### Bootstrap Script for CloudWatch Agent Configuration
+## Bootstrap Script for CloudWatch Agent Configuration
 
 To apply your custom CloudWatch configuration to EMR nodes, create a bootstrap script that will restart the CloudWatch agent with your settings. This script
 ensures the agent runs with your specific log collection parameters after cluster provisioning.
 
-#### Creating the Bootstrap Script
+### Creating the Bootstrap Script
 
 Create a file named _cloudwatch-agent-bootstrap.sh_ with the following content:
 
@@ -104,7 +104,7 @@ exit 0
 
 Replace the sample bucket with your bucket name.
 
-#### Important Configuration Note
+### Important Configuration Note
 
 ###### Important
 
@@ -118,19 +118,19 @@ This bootstrap script will:
 - Restart the agent with your specific configuration
 - Log the agent's status for troubleshooting
 
-### Custom Metric Classifications for Hadoop, YARN, and HBase
+## Custom Metric Classifications for Hadoop, YARN, and HBase
 
 In addition to the default CloudWatch metrics, you can enhance your monitoring capabilities by configuring custom application-specific metrics
 for your EMR cluster components. Amazon EMR's configuration API provides a flexible way to define exactly which metrics you want to collect.
 
-#### Configuring Custom Metrics
+### Configuring Custom Metrics
 
 You can implement custom metric collection in two ways:
 
 - During cluster creation for new clusters
 - As a reconfiguration for existing clusters through the EMR console
 
-#### Creating a Classification File
+### Creating a Classification File
 
 The classification file defines which specific component metrics should be collected from your cluster. Below is a sample structure for collecting custom Hadoop metrics:
 
@@ -160,14 +160,14 @@ The classification file defines which specific component metrics should be colle
 ]
 ```
 
-#### Implementation Steps
+### Implementation Steps
 
 1. Create a JSON file with your desired metric classifications.
 2. Customize the metrics based on your monitoring requirements.
 3. Save the file and upload it to your S3 bucket.
 4. Reference this file when creating a new cluster or reconfiguring an existing one.
 
-#### Best Practices
+### Best Practices
 
 - Only collect metrics that provide meaningful insights for your workloads.
 - Consider the metrics collection interval based on your monitoring needs.
@@ -176,11 +176,11 @@ The classification file defines which specific component metrics should be colle
 
 This approach allows you to focus your monitoring on the most critical metrics for your specific EMR applications, giving you deeper visibility into cluster performance.
 
-### Deploying an EMR Cluster with CloudWatch Integration
+## Deploying an EMR Cluster with CloudWatch Integration
 
 Follow these steps to create an Amazon EMR cluster that automatically sends logs and custom metrics to CloudWatch:
 
-#### Step 1: Enable the CloudWatch Agent
+### Step 1: Enable the CloudWatch Agent
 
 When creating your EMR cluster through the AWS Management Console:
 
@@ -192,7 +192,7 @@ When creating your EMR cluster through the AWS Management Console:
 The CloudWatch Agent will be installed on all nodes in your cluster, allowing it to gather system and application metrics at
 the configured intervals.
 
-#### Name and applications
+### Name and applications
 
 ![Application bundles](images/metrics_name_applications.png)
 
@@ -203,7 +203,7 @@ Creating a cluster and showing the available bundles.
 The CloudWatch Agent is available in EMR release 7.0 and later. Enabling this component is required for the custom metric collection and log
 forwarding described in this guide.
 
-#### Step 2: Add the Bootstrap Action for Log Collection
+### Step 2: Add the Bootstrap Action for Log Collection
 
 To configure the CloudWatch agent to collect and forward specific log files to CloudWatch:
 
@@ -220,13 +220,13 @@ log files specified in your configuration file.
 The agent will automatically begin collecting logs once the nodes are provisioned, providing near real-time visibility into your
 cluster operations through CloudWatch Logs.
 
-#### Bootstrap actions
+### Bootstrap actions
 
 ![Bootstrap actions](images/metrics_bootstrap_actions.png)
 
 Using bootstrap actions.
 
-#### Step 3: Configure Custom Metrics Collection
+### Step 3: Configure Custom Metrics Collection
 
 To enable the collection of custom Hadoop, YARN, or HBase metrics beyond the default set:
 
@@ -245,13 +245,13 @@ will be gathered at the intervals specified in your configuration and published 
 Custom metrics provide deeper insights into your cluster's performance characteristics, allowing for more precise monitoring and troubleshooting
 of your EMR applications.
 
-#### Software settings
+### Software settings
 
 ![Software settings](images/metrics_software_setting.png)
 
 Override the default configurations.
 
-#### Updating Metrics Configuration for Running Clusters
+### Updating Metrics Configuration for Running Clusters
 
 You can modify the metrics collection settings for an existing EMR cluster without disrupting operations by following these steps:
 
@@ -271,24 +271,24 @@ adapt to the new configuration, collecting the updated set of metrics without re
 Configuration changes may take several minutes to propagate across all nodes in the cluster. Continue monitoring your CloudWatch dashboards
 to confirm the new metrics appear as expected.
 
-#### Cluster configurations
+### Cluster configurations
 
 ![Configurations tab showing cluster and instance group settings with options to view JSON and reconfigure.](images/metrics_cluster_config.png)
 
 Instance group configurations.
 
-### Validating your CloudWatch integration
+## Validating your CloudWatch integration
 
 After completing the configuration steps, it's time to verify that your monitoring setup is working correctly:
 
-#### Step 1: Deploy Your EMR Cluster
+### Step 1: Deploy Your EMR Cluster
 
 1. Review all configuration settings for accuracy.
 2. Ensure bootstrap actions and classification files are correctly referenced.
 3. Click **Create cluster** to launch your EMR environment.
 4. Wait for the cluster to reach the **Running** state (typically 5-15 minutes).
 
-#### Step 2: Execute Test Applications
+### Step 2: Execute Test Applications
 
 Submit several test Spark applications to generate meaningful metrics:
 
@@ -306,12 +306,12 @@ After your applications complete (or while they're running):
 This validation process confirms that your CloudWatch integration is properly capturing both logs and metrics, providing you with
 comprehensive visibility into your EMR cluster's performance and application behavior.
 
-### Accessing EMR Logs in CloudWatch Log Groups
+## Accessing EMR Logs in CloudWatch Log Groups
 
 After your EMR cluster is running and the CloudWatch agent is properly configured, your application and system logs will be
 available in CloudWatch Logs. Follow these steps to access and analyze them:
 
-#### Viewing Your Log Groups
+### Viewing Your Log Groups
 
 1. Navigate to the CloudWatch console in AWS Management Console.
 2. Select **Log groups** from the left navigation pane.
@@ -322,14 +322,14 @@ available in CloudWatch Logs. Follow these steps to access and analyze them:
 
 Each log group contains log streams organized by instance ID, allowing you to trace logs to specific nodes in your cluster.
 
-#### Working with Log Data
+### Working with Log Data
 
 - _Search Log Data:_ Use CloudWatch Logs Insights to perform structured queries across your log groups.
 - _Create Metrics:_ Extract metrics from log patterns to create custom CloudWatch metrics.
 - _Set Alerts:_ Configure alarms based on specific error patterns or log frequencies.
 - _Export Logs:_ Download logs for offline analysis or archiving.
 
-#### Log Retention
+### Log Retention
 
 ###### Note
 
@@ -339,11 +339,11 @@ if needed for compliance or analysis purposes.
 CloudWatch Logs provides a centralized location for all your EMR log data, eliminating the need to SSH into individual cluster
 nodes to troubleshoot issues or analyze application behavior.
 
-### Viewing Custom Metrics in the EMR Monitoring Dashboard
+## Viewing Custom Metrics in the EMR Monitoring Dashboard
 
 After your EMR cluster is running with the CloudWatch agent and custom metrics configuration, you can easily monitor these metrics directly in the EMR console:
 
-#### Accessing Your Custom Metrics
+### Accessing Your Custom Metrics
 
 1. Navigate to your EMR cluster in the AWS Management Console.
 2. Select the **Monitoring** tab in the cluster details page.
@@ -356,7 +356,7 @@ After your EMR cluster is running with the CloudWatch agent and custom metrics c
 
 The dashboard will dynamically update to display graphs for your selected metrics, showing performance trends over time.
 
-#### Working with Metric Visualizations
+### Working with Metric Visualizations
 
 - _Adjust time ranges:_ Change the time window to view recent activity or historical trends.
 - _Compare metrics:_ Display multiple related metrics side-by-side for correlation analysis.
@@ -366,7 +366,7 @@ The dashboard will dynamically update to display graphs for your selected metric
 This integrated monitoring approach allows you to track both standard EMR metrics and your custom metrics in a unified dashboard,
 making it easier to identify performance issues, resource constraints, or application bottlenecks without leaving the EMR console.
 
-#### CloudWatch metrics
+### CloudWatch metrics
 
 ![EMR cluster monitoring dashboard showing CloudWatch metrics and filter options.](images/metrics_cloudwatch_metrics.png)
 

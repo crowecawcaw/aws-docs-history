@@ -10,7 +10,7 @@ profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-pr
 attached to these roles provide permissions for the cluster to interoperate with other AWS
 services on behalf of a user.
 
-An additional role, the Amazon EC2 Auto Scaling role, is required if your cluster uses automatic scaling in
+An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in
 Amazon EMR. The AWS service role for EMR Notebooks is required if you use EMR Notebooks.
 
 Amazon EMR provides default roles and default managed policies that determine permissions for

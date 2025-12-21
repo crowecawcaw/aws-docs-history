@@ -44,7 +44,7 @@ modify roles](emr-iam-roles-create-permissions.md "emr-iam-roles-create-permissi
 roles
 
 When you create a cluster, you can specify a custom service role for Amazon EMR, a
-custom role for the EC2 instance profile, and a custom Amazon EC2 Auto Scaling role using
+custom role for the EC2 instance profile, and a custom Auto Scaling role using
 **Advanced options**. When you use **Quick
 options**, the default service role and the default role for the
 EC2 instance profile are specified. For more information, see [IAM service roles used by Amazon EMR](emr-iam-service-roles.md "emr-iam-service-roles.md").
@@ -83,7 +83,7 @@ using options with the `create-cluster` command from the AWS CLI. Use the
 `InstanceProfile` argument of the `--ec2-attributes`
 option to specify the role for the EC2 instance profile.
 
-The Amazon EC2 Auto Scaling role is specified using a separate option,
+The Auto Scaling role is specified using a separate option,
 `--auto-scaling-role`. For more information, see [Using automatic scaling with a custom policy for
 instance groups in Amazon EMR](emr-automatic-scaling.md "emr-automatic-scaling.md").
 
