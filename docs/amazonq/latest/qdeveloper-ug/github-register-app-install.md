@@ -27,48 +27,36 @@ documentation_.
 ###### To register your Amazon Q Developer installation
 
 1. Navigate to the [Amazon Q Developer
-   console](https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github "https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github"), and in the navigation pane, choose **Amazon Q Developer in
-   GitHub**.
-2. Choose **Register installation**, and then choose
-   **Authorize** to be directed to GitHub.
+   console](https://us-east-1.console.aws.amazon.com/amazonq/developer/home "https://us-east-1.console.aws.amazon.com/amazonq/developer/home").
+2. Choose **Enable Q Developer**
+   at the top of the page, and follow the prompts to enable Kiro and Amazon Q Developer.
+
+If you previously enabled Kiro and Amazon Q Developer, skip to step 3. 3. In the navigation pane, choose **Amazon Q Developer in GitHub**. 4. Choose **Register installation**, and then choose
+**Authorize** to be directed to GitHub.
 
 If you previously authorized Amazon Q Developer to access your GitHub
 organization, you'll be redirected back to the Amazon Q Developer console.
-In this case, skip to step 4. 3. Sign in to your GitHub account using your GitHub credentials. If you have multiple
-accounts, choose the account where you want to provide access to Amazon Q Developer. 4. Choose **Authorize Amazon Q Developer** to provide access to your GitHub
-account. You'll be redirected back to Amazon Q Developer console after the authorization. 5. Enter details for an Amazon Q Developer profile.
+In this case, skip to step 7. 5. Sign in to your GitHub account using your GitHub credentials. If you have multiple
+accounts, choose the account where you want to provide access to Amazon Q Developer. 6. Choose **Authorize Amazon Q Developer** to provide access to your GitHub
+account. You'll be redirected back to Amazon Q Developer console after the authorization. 7. Under **Registration details**, enter your GitHub details, optionally
+configure the code reviews feature, and add tags.
 
-If you previously created a profile when getting started with Amazon Q Developer, skip to step 6. To learn more about the profile, see [What is the Amazon Q Developer profile?](subscribe-understanding-profile.md "subscribe-understanding-profile.md").
+    1. In the **Registration name** text input filed, enter a name for
+     your app installation.
+    2. (Optional) In the **Organization name -
+     *optional*** text input field, enter a name for the
+     organization associated with the app installation.
+    3. (Optional) Under **Features**, configure the **Code
+     reviews** feature by choosing the toggle to enable or disable the feature.
+     **Feature development** configuration cannot be
+     modified, and is enabled by default.
+    4. (Optional) Under **Tags - optional**, choose **Add new
+     tag** to add a tag that can help to search and filter your AWS resources
+     in GitHub.
 
-    1. Under **Amazon Q Developer profile**, enter your profile details.
-
-
-    	1. In the **Profile name** text input field, enter a name that
-    	 can be recognized and referenced. Consider including the region so the profile
-    	 name can be properly identified (example: "QDevProfile\_us-east-1").
-    	2. (Optional) Choose **Additional settings**, and in the
-    	 **Profile description - optional** text input field, enter a
-    	 description for your profile to provide context and identify your profile.
-
-6. Under **Registration details**, enter your GitHub details, optionally
-   configure the code reviews feature, and add tags.
-   1. In the **Registration name** text input filed, enter a name for
-      your app installation.
-   2. (Optional) In the **Organization name -
-      _optional_** text input field, enter a name for the
-      organization associated with the app installation.
-   3. (Optional) Under **Features**, configure the **Code
-      reviews** feature by choosing the toggle to enable or disable the feature.
-      **Feature development** configuration cannot be
-      modified.
-      The features are enabled by default.
-   4. (Optional) Under **Tags - optional**, choose **Add new
-      tag** to add a tag that can help to search and filter your AWS resources
-      in GitHub.
-
-7. Choose **Register** to create an Amazon Q Developer profile and register your
+8. Choose **Register** to register your
    app installation in GitHub with your AWS account.
-   After you successfully create an Amazon Q Developer profile and register the app installation in
-   GitHub, you can view the registration details. You can still enable or disable features, as well
-   as add tags at a later time. You can also delete a GitHub app installation. For more information
+   After successfully registering the app installation, you can view the registration details.
+   You can still enable or disable the code reviews feature, as well as add tags at a later time.
+   You can also delete the registration. For more information, see
    [Configuring registered installation details](github-configuration.md "github-configuration.md").
