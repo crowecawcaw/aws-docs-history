@@ -34,7 +34,7 @@ issues before they are predicted to happen.
 
 ###### Note
 
-DevOps Guru monitoring is at an Amazon EC2 Auto Scaling group level,
+DevOps Guru monitoring is at an Auto Scaling group level,
 and not at a single instance level.
 
 - Amazon ECS

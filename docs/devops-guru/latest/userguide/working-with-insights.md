@@ -52,7 +52,7 @@ using tags.
 
     * Amazon API Gateway paths and routes
     * Amazon DynamoDB streams
-    * Amazon EC2 Amazon EC2 Auto Scaling group instances
+    * Amazon EC2 Auto Scaling group instances
     * AWS Elastic Beanstalk environments
     * Amazon Redshift nodes
 
