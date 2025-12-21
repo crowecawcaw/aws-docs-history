@@ -98,9 +98,8 @@ JSON
  "Effect": "Allow",
  "Action": "ssm:StartAutomationExecution",
  "Resource": [
- "arn:aws:ssm:*:`111122223333`:automation-definition/{{DocumentName}}:*",
- "arn:aws:ssm:*:`111122223333`:document/{{DocumentName}}:*",
- "arn:aws:ssm:*::automation-definition/{{DocumentName}}:*"
+ "arn:aws:ssm:*:`111122223333`:document/{{DocumentName}}",
+ "arn:aws:ssm:*:`111122223333`:automation-execution/*"
  ]
  },
  {

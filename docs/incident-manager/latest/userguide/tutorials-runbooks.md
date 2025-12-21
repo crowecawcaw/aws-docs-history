@@ -214,8 +214,9 @@ JSON
  {
  "Effect": "Allow",
  "Resource": [
- "arn:aws:ssm:*:`111122223333`:automation-definition/IncidentResponseRunbook:*",
- "arn:aws:ssm:*::automation-definition/AWS-RestartEC2Instance:*"
+ "arn:aws:ssm:*:`111122223333`:document/IncidentResponseRunbook",
+ "arn:aws:ssm:*::document/AWS-RestartEC2Instance",
+ "arn:aws:ssm:*:`111122223333`:automation-execution/*"
  ],
  "Action": "ssm:StartAutomationExecution"
  },
