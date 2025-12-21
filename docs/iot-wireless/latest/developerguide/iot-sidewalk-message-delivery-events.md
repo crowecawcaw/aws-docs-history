@@ -122,7 +122,9 @@ The following shows the payload format when the event is a success.
     "Sidewalk": {
         "Seq": "Integer",
         "MsgType": "CUSTOM_COMMAND_ID_RESP",
-        "CmdExStatus": "COMMAND_EXEC_STATUS_SUCCESS"
+        "CmdExStatus": "COMMAND_EXEC_STATUS_SUCCESS",
+        "Rssi": "Integer",
+        "LinkType": "LoRa" | "BLE" | "FSK"
     }
 }
 ```
@@ -150,7 +152,7 @@ The Unix timestamp of when the event occurred.
 **sidewalk**
 
 The Sidewalk wrapper that contains the status code for success
-messages, sequence number of message, and the message type.
+messages, sequence number of message, message type, received signal strength indicator, and the type of link used for the event.
 
 ###### Error events
 

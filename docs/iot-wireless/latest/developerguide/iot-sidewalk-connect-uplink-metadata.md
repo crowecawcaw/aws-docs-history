@@ -80,7 +80,9 @@ metadata about the message request.
          "SidewalkId":"`device_id`",
          "Seq":0,
          "MessageType":"`messageType`",
-         "Timestamp": "2024-10-21T19:33:01.295912052Z"
+         "Timestamp": "2024-10-21T19:33:01.295912052Z",
+         "Rssi": -22,
+         "LinkType": "LoRa"
       }
     }
 }
@@ -101,3 +103,5 @@ message that's received from the device.
 | `Seq`                               | The message sequence number.                                                                                                                                                 | Integer          | Yes  |
 | `Sidewalk.NackExStatus`             | Response nack status, which can be `RADIO_TX_ERROR`<br>or `MEMORY_ERROR`.                                                                                                    | Array of strings | No   |
 | `Timestamp`                         | The time when the Sidewalk device sent an uplink<br>request.                                                                                                                 | Timestamp        | Yes  |
+| `Rssi`                              | Received Signal Strength Indicator, which is a measurement of a wireless network's signal strength                                                                           | Integer          | No   |
+| `LinkType`                          | The type of link that was used to perform the uplink which can be one of `LoRa`, `BLE`, or `FSK`                                                                             | String           | No   |
