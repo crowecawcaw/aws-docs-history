@@ -544,8 +544,7 @@ policies.
   connector.
 - Permission to call the `BatchPutDocument` and
   `BatchDeleteDocument` APIs to update the index.
-
-A trust policy to allow Amazon Kendra to assume a role.
+  A trust policy to allow Amazon Kendra to assume a role.
 
 JSON
 

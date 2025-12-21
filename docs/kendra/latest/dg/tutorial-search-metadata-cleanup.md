@@ -68,7 +68,7 @@ index](delete-index.md "delete-index.md"). 3. **Delete `converter.py`**
     	+ `file/` is the filepath to
     	 `converter.py` on your local device.
 
-### Learn more
+## Learn more
 
 To learn more about integrating Amazon Kendra into your workflow, you can check out the
 following blogposts:
