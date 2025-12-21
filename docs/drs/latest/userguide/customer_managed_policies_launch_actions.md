@@ -41,7 +41,7 @@ JSON
  ],
  "Resource": [
  "arn:aws:ssm:*:*:document/*",
- "arn:aws:ssm:*:*:automation-definition/*:*"
+ "arn:aws:ssm:*:*:automation-execution/*"
  ],
  "Condition": {
  "ForAnyValue:StringEquals": {
@@ -100,44 +100,7 @@ JSON
  "arn:aws:ssm:*::document/AmazonInternal-*",
  "arn:aws:ssm:*::document/AwsEnaNetworkDriver-*",
  "arn:aws:ssm:*::document/AwsVssComponents-*",
- "arn:aws:ssm:*::automation-definition/AWS-*:*",
- "arn:aws:ssm:*::automation-definition/AWSCodeDeployAgent-*:*",
- "arn:aws:ssm:*::automation-definition/AWSConfigRemediation-*:*",
- "arn:aws:ssm:*::automation-definition/AWSConformancePacks-*:*",
- "arn:aws:ssm:*::automation-definition/AWSDisasterRecovery-*:*",
- "arn:aws:ssm:*::automation-definition/AWSDistroOTel-*:*",
- "arn:aws:ssm:*::automation-definition/AWSDocs-*:*",
- "arn:aws:ssm:*::automation-definition/AWSEC2-*:*",
- "arn:aws:ssm:*::automation-definition/AWSEC2Launch-*:*",
- "arn:aws:ssm:*::automation-definition/AWSFIS-*:*",
- "arn:aws:ssm:*::automation-definition/AWSFleetManager-*:*",
- "arn:aws:ssm:*::automation-definition/AWSIncidents-*:*",
- "arn:aws:ssm:*::automation-definition/AWSKinesisTap-*:*",
- "arn:aws:ssm:*::automation-definition/AWSMigration-*:*",
- "arn:aws:ssm:*::automation-definition/AWSNVMe-*:*",
- "arn:aws:ssm:*::automation-definition/AWSNitroEnclavesWindows-*:*",
- "arn:aws:ssm:*::automation-definition/AWSObservabilityExporter-*:*",
- "arn:aws:ssm:*::automation-definition/AWSPVDriver-*:*",
- "arn:aws:ssm:*::automation-definition/AWSQuickSetupType-*:*",
- "arn:aws:ssm:*::automation-definition/AWSQuickStarts-*:*",
- "arn:aws:ssm:*::automation-definition/AWSRefactorSpaces-*:*",
- "arn:aws:ssm:*::automation-definition/AWSResilienceHub-*:*",
- "arn:aws:ssm:*::automation-definition/AWSSAP-*:*",
- "arn:aws:ssm:*::automation-definition/AWSSAPTools-*:*",
- "arn:aws:ssm:*::automation-definition/AWSSQLServer-*:*",
- "arn:aws:ssm:*::automation-definition/AWSSSO-*:*",
- "arn:aws:ssm:*::automation-definition/AWSSupport-*:*",
- "arn:aws:ssm:*::automation-definition/AWSSystemsManagerSAP-*:*",
- "arn:aws:ssm:*::automation-definition/AmazonCloudWatch-*:*",
- "arn:aws:ssm:*::automation-definition/AmazonCloudWatchAgent-*:*",
- "arn:aws:ssm:*::automation-definition/AmazonECS-*:*",
- "arn:aws:ssm:*::automation-definition/AmazonEFSUtils-*:*",
- "arn:aws:ssm:*::automation-definition/AmazonEKS-*:*",
- "arn:aws:ssm:*::automation-definition/AmazonInspector-*:*",
- "arn:aws:ssm:*::automation-definition/AmazonInspector2-*:*",
- "arn:aws:ssm:*::automation-definition/AmazonInternal-*:*",
- "arn:aws:ssm:*::automation-definition/AwsEnaNetworkDriver-*:*",
- "arn:aws:ssm:*::automation-definition/AwsVssComponents-*:*"
+ "arn:aws:ssm:*:*:automation-execution/*"
  ],
  "Condition": {
  "ForAnyValue:StringEquals": {

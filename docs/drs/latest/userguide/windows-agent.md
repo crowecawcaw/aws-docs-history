@@ -11,9 +11,8 @@ following:
   server.
 - We recommend using Windows PowerShell, which supports the 'Ctrl+V' shortcut for
   pasting. Windows Command Prompt (cmd) does not support this functionality.
-
-Before installing the AWS Replication Agent, `AWSReplicationWindowsInstaller.exe`, it needs to be downloaded. Copy or distribute the downloaded agent installer to each Windows source
-server that you want to add to AWS Elastic Disaster Recovery.
+  Before installing the AWS Replication Agent, `AWSReplicationWindowsInstaller.exe`, it needs to be downloaded. Copy or distribute the downloaded agent installer to each Windows source
+  server that you want to add to AWS Elastic Disaster Recovery.
 
 The agent installer follows the following format:
 

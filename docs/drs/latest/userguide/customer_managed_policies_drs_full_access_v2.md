@@ -482,14 +482,15 @@ JSON
  "ssm:StartAutomationExecution"
  ],
  "Resource": [
- "arn:aws:ssm:*:*:automation-definition/AWS-CreateImage:$DEFAULT",
+ "arn:aws:ssm:*:*:document/AWS-CreateImage",
  "arn:aws:ssm:*:*:document/AWSMigration-ValidateNetworkConnectivity",
  "arn:aws:ssm:*:*:document/AWSMigration-VerifyMountedVolumes",
  "arn:aws:ssm:*:*:document/AWSMigration-ValidateHttpResponse",
  "arn:aws:ssm:*:*:document/AWSMigration-ValidateDiskSpace",
  "arn:aws:ssm:*:*:document/AWSMigration-VerifyProcessIsRunning",
  "arn:aws:ssm:*:*:document/AWSMigration-LinuxTimeSyncSetting",
- "arn:aws:ssm:*:*:document/AWSEC2-ApplicationInsightsCloudwatchAgentInstallAndConfigure"
+ "arn:aws:ssm:*:*:document/AWSEC2-ApplicationInsightsCloudwatchAgentInstallAndConfigure",
+ "arn:aws:ssm:*:*:automation-execution/*"
  ],
  "Condition": {
  "ForAnyValue:StringEquals": {
