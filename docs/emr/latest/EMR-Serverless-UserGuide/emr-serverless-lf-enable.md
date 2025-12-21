@@ -182,18 +182,18 @@ examples](jobs-spark.md#spark-examples "jobs-spark.md#spark-examples").
 
 After you finish setting up the Lake Formation grants, you can [submit Spark jobs on EMR Serverless.](jobs-spark.md#spark-examples "jobs-spark.md#spark-examples") The section that follows shows examples of how to configure and submit job run properties.
 
-### Permission
+## Permission
 
 requirements
 
-#### Tables not registered in AWS Lake Formation
+### Tables not registered in AWS Lake Formation
 
 For tables not registered with AWS Lake Formation, the job runtime role accesses both the
 AWS Glue Data Catalog and the underlying table data in Amazon S3. This requires the job
 runtime role to have appropriate IAM permissions for both AWS Glue and Amazon S3
 operations.
 
-#### Tables registered in
+### Tables registered in
 
 AWS Lake Formation
 

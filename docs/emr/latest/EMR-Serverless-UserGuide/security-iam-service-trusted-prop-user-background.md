@@ -110,21 +110,21 @@ When using user background sessions, a Livy session will continue running until 
 - The Livy session reaches its maximum duration (24 hours)
 - The user explicitly stops or restarts the notebook kernel
 
-#### Data Persistence
+### Data Persistence
 
 When using user background sessions:
 
 - Users cannot reconnect to their notebook interface to view results once they have logged out
 - Configure your Spark statements to write results to persistent storage (such as Amazon S3) before execution completes
 
-#### Cost Implications
+### Cost Implications
 
 - Jobs will continue to run to completion even after users end their Amazon SageMaker Unified Studio JupyterLab session and will incur charges
   for the entire duration of the completed run.
 - Monitor your active background sessions to avoid unnecessary costs from forgotten
   or abandoned sessions.
 
-#### Feature Availability
+### Feature Availability
 
 User background sessions for EMR Serverless are available for:
 
