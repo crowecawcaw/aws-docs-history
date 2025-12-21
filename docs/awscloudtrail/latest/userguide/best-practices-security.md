@@ -105,7 +105,7 @@ AWS. For more information, see the [_Amazon GuardDuty User Guide_](../../../guar
 Monitor your usage of CloudTrail as it relates to security best practices by using [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
 Security Hub CSPM uses detective _security controls_ to evaluate resource configurations and _security standards_ to help you comply with various
 compliance frameworks. For more information about using Security Hub CSPM to evaluate CloudTrail resources, see [AWS CloudTrail controls](../../../securityhub/latest/userguide/cloudtrail-controls.md "../../../securityhub/latest/userguide/cloudtrail-controls.md")
-in the _AWS Security Hub CSPM User Guide_.
+in the _AWS Security Hub User Guide_.
 
 ## CloudTrail preventative security best
 
