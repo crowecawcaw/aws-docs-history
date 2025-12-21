@@ -9,8 +9,7 @@ Use IPAM policies to:
 - Reduce public IPv4 costs by using BYOIP addresses
 - Centrally control which IP pools your AWS resources use
 - Ensure consistent IP allocation across your organization
-
-**How it works**
+  **How it works**
 
 When you create an AWS resource that needs a public IP address in an account with IPAM policies enforced:
 
@@ -18,8 +17,7 @@ When you create an AWS resource that needs a public IP address in an account wit
 - If a rule matches the resource type, IPAM allocates an IP from the specified pool.
 - If the pool is empty and overflow is enabled, Amazon provides an IP address.
 - If no rules match, the default behavior applies.
-
-**Supported services and resources**
+  **Supported services and resources**
 
 You can create IPAM policies to define how public IPv4 addresses from IPAM pools are allocated to the following AWS services and resources:
 
@@ -35,8 +33,7 @@ For EIPs, if you choose a specific IPAM pool when allocating a public IPv4 addre
 - An [IPAM](create-ipam.md "create-ipam.md") in the delegated administrator account with [advanced tier](mod-ipam-tier.md "mod-ipam-tier.md") enabled
 - A [public IPAM pool](create-top-ipam.md "create-top-ipam.md") with IPv4 addresses
 - [IAM permissions](iam-ipam.md "iam-ipam.md") for IPAM and EC2 operations
-
-**Terminology**
+  **Terminology**
 
 **IPAM policy**
 
@@ -158,8 +155,7 @@ Before setting up organization-wide enforcement, ensure you have:
 - AWS Organizations with all features enabled
 - IPAM in the organization management account or delegated administrator account
 - Appropriate permissions for Organizations and IPAM
-
-For detailed instructions on setting up organization-wide enforcement with declarative policies, see [Getting started with declarative policies](../../../organizations/latest/userguide/orgs_manage_policies-declarative_getting-started.md "../../../organizations/latest/userguide/orgs_manage_policies-declarative_getting-started.md") in the _AWS Organizations User Guide_.
+  For detailed instructions on setting up organization-wide enforcement with declarative policies, see [Getting started with declarative policies](../../../organizations/latest/userguide/orgs_manage_policies-declarative_getting-started.md "../../../organizations/latest/userguide/orgs_manage_policies-declarative_getting-started.md") in the _AWS Organizations User Guide_.
 
 **Step 5: Test your policy**
 
