@@ -40,7 +40,7 @@ Proactive monitoring is essential for maintaining a resilient messaging applicat
 
 Amazon MQ for RabbitMQ publishes metrics to CloudWatch that provide insights into broker performance, resource utilization, and message flow.
 Key metrics to monitor include memory usage and disk usage.
-You can set up [CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Metrics.md "../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Metrics.md")
+You can set up [CloudWatch alarms](../../../Ihttps:/docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Metrics.md "../../../Ihttps:/docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Metrics.md")
 for when your broker approaches resource limits or experiences performance degradation.
 
 Monitor the following essential metrics:
