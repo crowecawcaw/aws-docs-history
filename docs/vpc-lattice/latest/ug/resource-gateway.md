@@ -35,8 +35,10 @@ The following considerations apply to resource gateways:
   resource gateway have to overlap.
 - A VPC can have a maximum of 100 resource gateways. For more
   information, see [Quotas for VPC Lattice](quotas.md "quotas.md").
-- You can't create a resource gateway in a shared subnet.
 - VPC Lattice might add new ENIs to your resource gateway.
+- Resource gateways with shared VPC subnets:
+  - A resource gateway can only be deployed into a shared VPC subnet by the account that owns the VPC.
+  - A resource configuration for a resource gateway can only be created by the account that owns the resource gateway.
 
 ## Security groups
 

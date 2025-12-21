@@ -37,6 +37,8 @@ authentication is successful.
   principal.
 - `PrincipalOrgID` – The ID of the organization
   for the authenticated principal.
+- `PrincipalOrgPath` – The organization paths
+  for the authenticated principal.
 - `SessionName` – The name of the authenticated
   session.
 
@@ -54,7 +56,7 @@ is successful.
 The principal ID and any principal tags. The format is as follows.
 
 ```
-principal=`principal`;principalorgid=`orgid`;`principal-tag1`=`value1`; ...;`principal-tag99`=`value99`
+principal=`principal`;principalorgid=`orgid`;principalorgpath=`orgpath`;`principal-tag1`=`value1`; ...;`principal-tag99`=`value99`
 ```
 
 VPC Lattice escapes any semicolons (;) in a value
@@ -79,4 +81,13 @@ ServiceArn=`arn`;ServiceNetworkArn=`arn`;TargetGroupArn=`arn`
 For information about the resource ARNs for VPC Lattice, see [Resource types defined by Amazon VPC Lattice](../../../service-authorization/latest/reference/list_amazonvpclattice.md#amazonvpclattice-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonvpclattice.md#amazonvpclattice-resources-for-iam-policies").
 
 The caller identity headers can't be spoofed. VPC Lattice strips these headers from any
-incoming requests.
+incoming requests. These identity headers express a map that supports empty values using
+the following format. When parsing, you should not rely on the specific order of the KEYs
+in these headers, you should expect that new KEYs may be added any time and you should be
+prepared to handle empty values.
+
+The format is as follows.
+
+```
+`key-0`=`value-0`;`key-1`=`value-1`;....`;key-n`=`value-n`;
+```
