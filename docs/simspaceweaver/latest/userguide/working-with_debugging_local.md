@@ -18,11 +18,10 @@ Visual Studio documentation.](https://learn.microsoft.com/en-us/visualstudio/deb
    `PathfindingSampleLocalView`) and set the working directory in the debugging section.
 3. Open the context menu for the app you want to debug and select **Set as Startup project**.
 4. Choose **F5** to start debugging the app.
-
-The requirements to debug a simulation are the same as the requirements to run a simulation normally.
-You must start the number of spatial apps specified in the schema. For example, if your schema specifies a
-2x2 grid and you start a spatial app in debug mode, the simulation will not run until you start 3 more
-spatial apps (in debug mode or not in debug mode).
+   The requirements to debug a simulation are the same as the requirements to run a simulation normally.
+   You must start the number of spatial apps specified in the schema. For example, if your schema specifies a
+   2x2 grid and you start a spatial app in debug mode, the simulation will not run until you start 3 more
+   spatial apps (in debug mode or not in debug mode).
 
 To debug a custom app, you must first start your spatial apps and then start the custom app in the debugger.
 
