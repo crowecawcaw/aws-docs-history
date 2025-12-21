@@ -6,21 +6,24 @@ when the key material is deleted, the [key state](key-state.md "key-state.md") o
 KMS key changes to _Pending import_, and the KMS key can't be used in any
 cryptographic operations.
 
-Symmetric encryption keys can have multiple key materials associated with them and the
-deletion or expiration of any key material in a state other than `PENDING_ROTATION`
-changes the key state to _Pending import_. For these keys, KMS assigns a
-unique identifier to each key material. You can use the [ListKeyRotations](../APIReference/API_ListKeyRotations.md "../APIReference/API_ListKeyRotations.md") API to view these key
-material identifiers. You can delete a specific key material by specifying its identifier using
-the `key-material-id` parameter in the [DeleteImportedKeyMaterial](../APIReference/API_DeleteImportedKeyMaterial.md "../APIReference/API_DeleteImportedKeyMaterial.md")
-API.
+Symmetric encryption keys can have multiple key materials associated with them. For these keys,
+KMS assigns a unique identifier to each key material. You can use the [ListKeyRotations](../APIReference/API_ListKeyRotations.md "../APIReference/API_ListKeyRotations.md") API to view these key
+material identifiers and corresponding key material state (see
+[RotationsListEntry](../APIReference/API_RotationsListEntry.md "../APIReference/API_RotationsListEntry.md")). A key material
+state of `PENDING_ROTATION` or `PENDING_MULTI_REGION_IMPORT_AND_ROTATION` indicates
+the key material is not permanently associated with the KMS key. Deletion or expiration of any permanently
+associated key material changes the key state to _Pending import_. You can delete a specific
+key material by specifying its identifier using the `key-material-id` parameter in the [DeleteImportedKeyMaterial](../APIReference/API_DeleteImportedKeyMaterial.md "../APIReference/API_DeleteImportedKeyMaterial.md") API.
 
 ###### Considerations for multi-Region keys
 
 - When you delete the key material of a primary Region key that is in
   `PENDING_ROTATION` or `PENDING_MULTI_REGION_IMPORT_AND_ROTATION`
   state, you'll also be deleting the key materials for the replica Region keys.
-- If you delete the key material of a replica Region key, the primary Region key and
-  other replica Region keys remain unchanged.
+- If you delete the key material in a primary or replica Region key, only that specific key
+  is affected and other related multi-region keys remain unchanged. Any primary or replica Region
+  keys that have all their permanently associated key materials continue to be usable in
+  cryptographic operations.
 
 ###### Warning
 

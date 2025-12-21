@@ -63,7 +63,7 @@ Multi-Region with imported key material have the features of KMS keys with
 imported key material, and can interoperate between AWS Regions. To create a
 multi-Region key with imported key material, you must import the same key material into
 the primary KMS key and into each replica key. For more details on importing key materials for
-multi-Region keys, see [Multi-Region keys](importing-keys-import-key-material.md#mrk-generalized-import-steps "importing-keys-import-key-material.md#mrk-generalized-import-steps").
+multi-Region keys, see [Import new key material](importing-keys-import-key-material.md#import-new-key-material "importing-keys-import-key-material.md#import-new-key-material").
 
 **Asymmetric keys and HMAC keys are portable and interoperable**
 

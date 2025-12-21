@@ -55,4 +55,4 @@ compliance using AWS Security Hub CSPM. Security Hub CSPM uses security controls
 configurations and security standards to help you comply with various compliance
 frameworks. For more information, see
 [AWS Key Management Service controls](../../../securityhub/latest/userguide/kms-controls.md "../../../securityhub/latest/userguide/kms-controls.md") in the
-_AWS Security Hub CSPM User Guide_.
+_AWS Security Hub User Guide_.

@@ -140,7 +140,7 @@ public key and import token (console)
 You can use the AWS KMS console to download the wrapping public key and import token.
 
 1. If you just completed the steps to [create a KMS key with no key material](importing-keys-create-cmk.md#importing-keys-create-cmk-console "importing-keys-create-cmk.md#importing-keys-create-cmk-console") and you are on the **Download
-   wrapping key and import token** page, skip to [Step 9](#id-wrap-step "#id-wrap-step").
+   wrapping key and import token** page, skip to [Step 10](#id-wrap-step "#id-wrap-step").
 2. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 3. To change the AWS Region, use the Region selector in the upper-right corner of the page.
 4. In the navigation pane, choose **Customer managed keys**.
@@ -152,25 +152,48 @@ You can import key material only into an KMS key with an
 This indicates that the KMS key was created with no key material. To add the
 **Origin** column to your table, in the upper-right corner of the
 page, choose the settings icon (
-![Gear or cog icon representing settings or configuration options.](/images/kms/latest/developerguide/images/console-icon-settings-new.png)
+![Gear or cog icon representing settings or configuration options.](images/console-icon-settings-new.png)
 ). Turn on **Origin**, and then choose
 **Confirm**. 5. Choose the alias or key ID of the KMS key that is pending import. 6. Choose the **Cryptographic configuration** tab and view its values.
 The tabs are below the **General configuration** section.
 
 You can only import key material into KMS keys an **Origin** of
 **External (Import Key material)**. For information about
-creating KMS keys with imported key material, see, [Importing key material for AWS KMS keys](importing-keys.md "importing-keys.md"). 7. Choose the **Key material** tab and then choose **Import key
-material**.
+creating KMS keys with imported key material, see, [Importing key material for AWS KMS keys](importing-keys.md "importing-keys.md"). 7. Choose the appropriate tab based on your key type.
 
-The **Key material** tab appears only for KMS keys that have an
-**Origin** value of **External (Import Key
-material)**. 8. For **Select wrapping key spec**, choose the configuration for your
-KMS key. After you create this key, you can't change the key spec. 9. For **Select wrapping algorithm**, choose the option that you will
-use to encrypt your key material. For more information about the options, see [Select a Wrapping Algorithm](#select-wrapping-algorithm "#select-wrapping-algorithm"). 10. Choose **Download wrapping public key and import token**, and then
+    * For asymmetric and HMAC keys, choose the **Key
+     material** tab.
+    * For symmetric encryption keys, choose the **Key material
+     and rotations** tab.
+
+8. Choose the import action.
+   - For asymmetric and HMAC keys, choose **Import key
+     material**.
+   - For symmetric encryption keys, choose one of the following:
+     - **Import initial key material** (if no key material has been
+       imported yet)
+     - **Import new key material** (to add new material for
+       rotation)
+     - **Reimport key material** (available from the
+       **Actions** menu in the key materials table)
+
+###### Note
+
+For multi-Region keys, you must first import the new key material into the primary
+Region key. Then, import the same key material into each replica Region key.
+
+For primary multi-Region keys, the **Key materials** table includes
+a **Replica import state** column that displays the import status
+across all replica regions (for example, "0 of 3 imported"). Choose the replica import
+state value to open a modal that shows the import status for each replica region. The
+modal provides **Import key material** links for replica regions where
+the new key material has not been imported. 9. For **Select wrapping key spec**, choose the configuration for your
+KMS key. After you create this key, you can't change the key spec. 10. For **Select wrapping algorithm**, choose the option that you will
+use to encrypt your key material. For more information about the options, see [Select a Wrapping Algorithm](#select-wrapping-algorithm "#select-wrapping-algorithm"). 11. Choose **Download wrapping public key and import token**, and then
 save the file.
 
 If you have a **Next** option, to continue the process now, choose
-**Next**. To continue later, choose **Cancel**. 11. Decompress the `.zip` file that you saved in the previous step
+**Next**. To continue later, choose **Cancel**. 12. Decompress the `.zip` file that you saved in the previous step
 (`Import_Parameters_`<key*id>`*`<timestamp>``).
 
 The folder contains the following files:
@@ -182,7 +205,7 @@ The folder contains the following files:
      public key, the wrapping algorithm to use to encrypt your key material, and the date
      and time when the wrapping public key and import token expire.
 
-12. To continue the process, see [encrypt your key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md").
+13. To continue the process, see [encrypt your key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md").
 
 ## Downloading the wrapping public
 

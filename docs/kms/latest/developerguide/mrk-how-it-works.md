@@ -18,9 +18,7 @@ programmatically.
 If you choose, you can [replicate](multi-region-keys-overview.md#replicate "multi-region-keys-overview.md#replicate") the multi-Region
 primary key into one or more different AWS Regions in the same [AWS partition](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"), such as
 Europe (Ireland). When you do, AWS KMS creates a [replica
-key](multi-region-keys-overview.md#mrk-replica-key "multi-region-keys-overview.md#mrk-replica-key") in the specified Region with the same key ID and other [shared properties](multi-region-keys-overview.md#mrk-sync-properties "multi-region-keys-overview.md#mrk-sync-properties") as the primary key. Then it
-securely transports the key material across the Region boundary and associates it with
-the new KMS key in the destination Region, all within AWS KMS. The result is two
+key](multi-region-keys-overview.md#mrk-replica-key "multi-region-keys-overview.md#mrk-replica-key") in the specified Region with the same key ID and other [shared properties](multi-region-keys-overview.md#mrk-sync-properties "multi-region-keys-overview.md#mrk-sync-properties") as the primary key. The result is two
 _related_ multi-Region keys — a primary key
 and a replica key — that can be used interchangeably.
 
@@ -60,9 +58,10 @@ distinguish them.
 As your data needs change, you can replicate the primary key to other AWS Regions in
 the same partition, such as US West (Oregon) and Asia Pacific (Sydney). The result
 is four _related_ multi-Region keys with the same key
-material and key IDs, as shown in the following diagram. You manage the keys
-independently. You can use them independently or in a coordinated fashion. For example,
-you can encrypt data with the replica key in Asia Pacific (Sydney), move the data to
+material and key IDs, as shown in the following diagram. You manage the keys independently.
+For multi-region keys with imported key material, you are responsible for importing key material
+into each related key individually. You can use them independently or in a coordinated fashion. For
+example, you can encrypt data with the replica key in Asia Pacific (Sydney), move the data to
 US West (Oregon), and decrypt it with the replica key in US West (Oregon).
 
 ![The primary and replica keys in a multi-Region key](images/multi-region-keys.png)
@@ -75,11 +74,11 @@ you. However, you can audit synchronization by using the [SynchronizeMultiRegion
 CloudTrail logs.
 
 For example, if you enable automatic key rotation on a symmetric multi-Region primary
-key, AWS KMS copies that setting to all of its replica keys. When the key material is
-rotated, the rotation is synchronized among all of the related multi-Region keys, so
-they continue to have the same current key material, and access to all older versions of
-the key material. If you create a new replica key, it has the same current key material
-of all related multi-Region keys and access to all previous versions of the key
+key with `AWS_KMS` origin, AWS KMS copies that setting to all of its replica keys.
+When the key material is rotated, the rotation is synchronized among all of the related
+multi-Region keys, so they continue to have the same current key material, and access to all
+older versions of the key material. If you create a new replica key, it has the same current
+key material of all related multi-Region keys and access to all previous versions of the key
 material. For details, see [Rotating multi-Region keys](rotate-keys.md#multi-region-rotate "rotate-keys.md#multi-region-rotate").
 
 _Changing the primary key_ — Every set of

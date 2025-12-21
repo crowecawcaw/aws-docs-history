@@ -4,7 +4,7 @@ You can create Amazon CloudWatch alarms based on external key store metrics to n
 you when a metric value exceeds a threshold you specified. The alarm can send the
 message to an [Amazon Simple Notification Service (Amazon SNS)
 topic](../../../sns/latest/dg/sns-create-topic.md "../../../sns/latest/dg/sns-create-topic.md") or an [Amazon EC2
-Amazon EC2 Auto Scaling policy](../../../autoscaling/ec2/userguide/as-scale-based-on-demand.md#as-how-scaling-policies-work "../../../autoscaling/ec2/userguide/as-scale-based-on-demand.md#as-how-scaling-policies-work"). For detailed information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_.
+Auto Scaling policy](../../../autoscaling/ec2/userguide/as-scale-based-on-demand.md#as-how-scaling-policies-work "../../../autoscaling/ec2/userguide/as-scale-based-on-demand.md#as-how-scaling-policies-work"). For detailed information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_.
 
 Before creating an Amazon CloudWatch alarm, you need an Amazon SNS topic. For details, see [Creating an Amazon SNS topic](../../../sns/latest/dg/sns-create-topic.md "../../../sns/latest/dg/sns-create-topic.md") in the
 _Amazon CloudWatch User Guide_.
