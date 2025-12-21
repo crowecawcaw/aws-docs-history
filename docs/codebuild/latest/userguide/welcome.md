@@ -17,8 +17,7 @@ CodeBuild provides these benefits:
 - **Out of the box** – CodeBuild provides
   preconfigured build environments for the most popular programming languages. All
   you need to do is point to your build script to start your first build.
-
-For more information, see [AWS CodeBuild](https://aws.amazon.com/codebuild/ "https://aws.amazon.com/codebuild/").
+  For more information, see [AWS CodeBuild](https://aws.amazon.com/codebuild/ "https://aws.amazon.com/codebuild/").
 
 ## How to run CodeBuild
 
