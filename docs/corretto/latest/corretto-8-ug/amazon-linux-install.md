@@ -27,6 +27,36 @@ Install Amazon Corretto 8 as JDK.
 sudo yum install java-1.8.0-amazon-corretto-devel
 ```
 
+Amazon Corretto 8 has a 'headless' variant available. This variant omits runtime dependencies that are
+typically associated with GUI applications such as X11 and ALSA and is worth considering for
+server-oriented workloads. The 'headful' variant adds support for X11 and ALSA. There is also a
+'devel' package which contains the JDK development tools, as well as a 'jmods' package that
+contains the Amazon Corretto 8 JMods used to create custom runtime images.
+
+Option 1: Install the headless Amazon Corretto 8:
+
+```
+sudo yum install java-1.8.0-amazon-corretto-headless
+```
+
+Option 2: Install the headful Amazon Corretto 8:
+
+```
+sudo yum install java-1.8.0-amazon-corretto
+```
+
+Option 3: Install the JDK for Amazon Corretto 8:
+
+```
+sudo yum install java-1.8.0-amazon-corretto-devel
+```
+
+Option 4: Install the JMods for Amazon Corretto 8:
+
+```
+sudo yum install java-1.8.0-amazon-corretto-jmods
+```
+
 The installation location is `/usr/lib/jvm/java-1.8.0-amazon-corretto.<cpu_arch>`.
 
 While it is recommended to use `/usr/lib/jvm/java-1.8.0-amazon-corretto.<cpu_arch>` location,
@@ -88,4 +118,28 @@ Uninstall JDK:
 
 ```
 sudo yum remove java-1.8.0-amazon-corretto-devel
+```
+
+Uninstall headless:
+
+```
+sudo yum remove java-1.8.0-amazon-corretto-headless
+```
+
+Uninstall headful:
+
+```
+sudo yum remove java-1.8.0-amazon-corretto
+```
+
+Uninstall devel:
+
+```
+sudo yum remove java-1.8.0-amazon-corretto-devel
+```
+
+Uninstall jmods:
+
+```
+sudo yum remove java-1.8.0-amazon-corretto-jmods
 ```
