@@ -2,6 +2,10 @@
 
 This section describes current constraints, formerly referred to as limits, within Amazon DynamoDB.
 
+###### Note
+
+All size measurements in DynamoDB use binary-based units. DynamoDB denotes 1 KB = 1024 bytes, 1 MB = 1024 KB, 1 GB = 1024 MB, 1 TB = 1024 GB.
+
 ###### Topics
 
 - [Read/write capacity mode](#default-limits-capacity-modes "#default-limits-capacity-modes")

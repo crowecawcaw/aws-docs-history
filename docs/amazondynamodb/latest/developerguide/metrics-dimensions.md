@@ -101,8 +101,9 @@ applicable to that metric.
 - [WriteMaxOnDemandThroughputThrottleEvents](#WriteMaxOnDemandThroughputThrottleEvents "#WriteMaxOnDemandThroughputThrottleEvents")
 - [WriteProvisionedThroughputThrottleEvents](#WriteProvisionedThroughputThrottleEvents "#WriteProvisionedThroughputThrottleEvents")
 - [WriteThrottleEvents](#WriteThrottleEvents "#WriteThrottleEvents")
+- [Usage metrics](#w2aac41c15c13b7c11 "#w2aac41c15c13b7c11")
 
-#### AccountMaxReads
+### AccountMaxReads
 
 The maximum number of read capacity units that can be used by an account. This
 limit doesn't apply to on-demand tables or global secondary indexes.
@@ -114,7 +115,7 @@ Valid Statistics:
 - `Maximum` – The maximum number of read capacity units
   that can be used by an account.
 
-#### AccountMaxTableLevelReads
+### AccountMaxTableLevelReads
 
 The maximum number of read capacity units that can be used by a table or
 global secondary index of an account. For on-demand tables, this limit caps the
@@ -128,7 +129,7 @@ Valid Statistics:
   that can be used by a table or global secondary index of the
   account.
 
-#### AccountMaxTableLevelWrites
+### AccountMaxTableLevelWrites
 
 The maximum number of write capacity units that can be used by a table or
 global secondary index of an account. For on-demand tables, this limit caps the
@@ -142,7 +143,7 @@ Valid Statistics:
   units that can be used by a table or global secondary index of the
   account.
 
-#### AccountMaxWrites
+### AccountMaxWrites
 
 The maximum number of write capacity units that can be used by an account.
 This limit doesn't apply to on-demand tables or global secondary indexes.
@@ -154,7 +155,7 @@ Valid Statistics:
 - `Maximum` – The maximum number of write capacity
   units that can be used by an account.
 
-#### AccountProvisionedReadCapacityUtilization
+### AccountProvisionedReadCapacityUtilization
 
 The percentage of provisioned read capacity units utilized by an
 account.
@@ -173,7 +174,7 @@ Valid Statistics:
   read capacity units, this statistic might not reflect the true
   average.
 
-#### AccountProvisionedWriteCapacityUtilization
+### AccountProvisionedWriteCapacityUtilization
 
 The percentage of provisioned write capacity units utilized by an
 account.
@@ -192,7 +193,7 @@ Valid Statistics:
   provisioned write capacity units, this statistic might not reflect the
   true average.
 
-#### AgeOfOldestUnreplicatedRecord
+### AgeOfOldestUnreplicatedRecord
 
 The elapsed time since a record yet to be replicated to the Kinesis data stream
 first appeared in the DynamoDB table.
@@ -207,7 +208,7 @@ Valid Statistics:
 - `Minimum`.
 - `Average`.
 
-#### ConditionalCheckFailedRequests
+### ConditionalCheckFailedRequests
 
 The number of failed attempts to perform conditional writes. The
 `PutItem`, `UpdateItem`, and `DeleteItem`
@@ -237,7 +238,7 @@ Valid Statistics:
 - `SampleCount`
 - `Sum`
 
-#### ConsumedChangeDataCaptureUnits
+### ConsumedChangeDataCaptureUnits
 
 The number of consumed change data capture units.
 
@@ -251,7 +252,7 @@ Valid Statistics:
 - `Maximum`
 - `Average`
 
-#### ConsumedReadCapacityUnits
+### ConsumedReadCapacityUnits
 
 The number of read capacity units consumed over the specified time period for
 both provisioned and on-demand capacity, so you can track how much of your
@@ -309,7 +310,7 @@ inactivity where the sample value will be zero.
 The `SampleCount` value is influenced by periods of
 inactivity where the sample value will be zero.
 
-#### ConsumedWriteCapacityUnits
+### ConsumedWriteCapacityUnits
 
 The number of write capacity units consumed over the specified time period for
 both provisioned and on-demand capacity, so you can track how much of your
@@ -365,7 +366,7 @@ inactivity where the sample value will be zero.
 The `SampleCount` value is influenced by periods of
 inactivity where the sample value will be zero.
 
-#### FailedToReplicateRecordCount
+### FailedToReplicateRecordCount
 
 The number of records that DynamoDB failed to replicate to your Kinesis data
 stream.
@@ -378,7 +379,7 @@ Valid Statistics:
 
 - `Sum`
 
-#### MaxProvisionedTableReadCapacityUtilization
+### MaxProvisionedTableReadCapacityUtilization
 
 The percentage of provisioned read capacity utilized by the highest
 provisioned read table or global secondary index of an account.
@@ -400,7 +401,7 @@ Valid Statistics:
   read capacity units, this statistic might not reflect the true
   average.
 
-#### MaxProvisionedTableWriteCapacityUtilization
+### MaxProvisionedTableWriteCapacityUtilization
 
 The percentage of provisioned write capacity utilized by the highest
 provisioned write table or global secondary index of an account.
@@ -422,7 +423,7 @@ Valid Statistics:
   write capacity units, this statistic might not reflect the true
   average.
 
-#### OnDemandMaxReadRequestUnits
+### OnDemandMaxReadRequestUnits
 
 The number of specified on-demand read request units for a table or a global
 secondary index.
@@ -453,7 +454,7 @@ Valid Statistics:
   read request units, this statistic might not reflect the true
   average.
 
-#### OnDemandMaxWriteRequestUnits
+### OnDemandMaxWriteRequestUnits
 
 The number of specified on-demand write request units for a table or a global
 secondary index.
@@ -485,7 +486,7 @@ Valid Statistics:
   write request units, this statistic might not reflect the true
   average.
 
-#### OnlineIndexConsumedWriteCapacity
+### OnlineIndexConsumedWriteCapacity
 
 The number of write capacity units consumed when adding a new global secondary
 index to a table. If the write capacity of the index is too low, incoming write
@@ -519,7 +520,7 @@ Valid Statistics:
 - `SampleCount`
 - `Sum`
 
-#### OnlineIndexPercentageProgress
+### OnlineIndexPercentageProgress
 
 The percentage of completion when a new global secondary index is being added
 to a table. DynamoDB must first allocate resources for the new index, and then
@@ -539,7 +540,7 @@ Valid Statistics:
 - `SampleCount`
 - `Sum`
 
-#### OnlineIndexThrottleEvents
+### OnlineIndexThrottleEvents
 
 The number of write throttle events that occur when adding a new global
 secondary index to a table. These events indicate that the index creation will
@@ -565,7 +566,7 @@ Valid Statistics:
 - `SampleCount`
 - `Sum`
 
-#### PendingReplicationCount
+### PendingReplicationCount
 
 Metric for [Global tables version 2017.11.29 (Legacy)](globaltables.md "globaltables.md")
 (global tables only). The number of item updates that are written to one replica
@@ -582,7 +583,7 @@ Valid Statistics:
 - `Sample Count`
 - `Sum`
 
-#### ProvisionedReadCapacityUnits
+### ProvisionedReadCapacityUnits
 
 The number of provisioned read capacity units for a table or a global
 secondary index. The `TableName` dimension returns the
@@ -612,7 +613,7 @@ Valid Statistics:
   read capacity units, this statistic might not reflect the true
   average.
 
-#### ProvisionedWriteCapacityUnits
+### ProvisionedWriteCapacityUnits
 
 The number of provisioned write capacity units for a table or a global
 secondary index.
@@ -644,7 +645,7 @@ Valid Statistics:
   write capacity units, this statistic might not reflect the true
   average.
 
-#### ReadAccountLimitThrottleEvents
+### ReadAccountLimitThrottleEvents
 
 The number of read requests throttled due to account limits.
 
@@ -663,7 +664,7 @@ Valid Statistics:
 - `Maximum` – Maximum number of throttled events in any
   given sample.
 
-#### ReadKeyRangeThroughputThrottleEvents
+### ReadKeyRangeThroughputThrottleEvents
 
 The number of read requests throttled due to partition limits.
 
@@ -682,7 +683,7 @@ Valid Statistics:
 - `Maximum` – Maximum number of throttled events in any
   given sample.
 
-#### ReadMaxOnDemandThroughputThrottleEvents
+### ReadMaxOnDemandThroughputThrottleEvents
 
 The number of read requests throttled due to on-demand maximum
 throughput.
@@ -702,7 +703,7 @@ Valid Statistics:
 - `Maximum` – Maximum number of throttled events in any
   given sample.
 
-#### ReadProvisionedThroughputThrottleEvents
+### ReadProvisionedThroughputThrottleEvents
 
 The number of read requests throttled due to provisioned throughput
 limits.
@@ -722,7 +723,7 @@ Valid Statistics:
 - `Maximum` – Maximum number of throttled events in any
   given sample.
 
-#### ReadThrottleEvents
+### ReadThrottleEvents
 
 Requests to DynamoDB that exceed the provisioned read capacity units for a table
 or a global secondary index.
@@ -751,7 +752,7 @@ Valid Statistics:
 - `SampleCount`
 - `Sum`
 
-#### ReplicationLatency
+### ReplicationLatency
 
 (This metric is for DynamoDB global tables.) The elapsed time between an updated
 item appearing in the DynamoDB stream for one replica table, and that item
@@ -767,7 +768,7 @@ Valid Statistics:
 - `Minimum`
 - `Maximum`
 
-#### ReturnedBytes
+### ReturnedBytes
 
 The number of bytes returned by `GetRecords` operations (Amazon DynamoDB Streams)
 during the specified time period.
@@ -784,7 +785,7 @@ Valid Statistics:
 - `SampleCount`
 - `Sum`
 
-#### ReturnedItemCount
+### ReturnedItemCount
 
 The number of items returned by `Query`, `Scan` or
 `ExecuteStatement` (select) operations during the specified time
@@ -810,7 +811,7 @@ Valid Statistics:
 - `SampleCount`
 - `Sum`
 
-#### ReturnedRecordsCount
+### ReturnedRecordsCount
 
 The number of stream records returned by `GetRecords` operations
 (Amazon DynamoDB Streams) during the specified time period.
@@ -827,7 +828,7 @@ Valid Statistics:
 - `SampleCount`
 - `Sum`
 
-#### SuccessfulRequestLatency
+### SuccessfulRequestLatency
 
 The latency of successful requests to DynamoDB or Amazon DynamoDB Streams during the specified
 time period. `SuccessfulRequestLatency` can provide two different
@@ -861,7 +862,7 @@ Valid Statistics:
 - `Percentile`
 - `SampleCount`
 
-#### SystemErrors
+### SystemErrors
 
 The requests to DynamoDB or Amazon DynamoDB Streams that generate an HTTP 500 status code during
 the specified time period. An HTTP 500 usually indicates an internal service
@@ -884,7 +885,7 @@ Valid Statistics:
 - `Sum`
 - `SampleCount`
 
-#### TimeToLiveDeletedItemCount
+### TimeToLiveDeletedItemCount
 
 The number of items deleted by Time to Live (TTL) during the specified time
 period. This metric helps you monitor the rate of TTL deletions on your table.
@@ -897,7 +898,7 @@ Valid Statistics:
 
 - `Sum`
 
-#### ThrottledPutRecordCount
+### ThrottledPutRecordCount
 
 The number of records that were throttled by your Kinesis data stream due to
 insufficient Kinesis Data Streams capacity.
@@ -913,7 +914,7 @@ Valid Statistics:
 - `Average`
 - `SampleCount`
 
-#### ThrottledRequests
+### ThrottledRequests
 
 Requests to DynamoDB that exceed the provisioned throughput limits on a resource
 (such as a table or an index).
@@ -960,7 +961,7 @@ Valid Statistics:
 - `Sum`
 - `SampleCount`
 
-#### TransactionConflict
+### TransactionConflict
 
 Rejected item-level requests due to transactional conflicts between concurrent
 requests on the same items. For more information, see [Transaction Conflict Handling in DynamoDB](transaction-apis.md#transaction-conflict-handling "transaction-apis.md#transaction-conflict-handling").
@@ -1005,7 +1006,7 @@ one.
   `TransactGetItems`, `PutItem`,
   `UpdateItem`, or `DeleteItem`.
 
-#### UserErrors
+### UserErrors
 
 Requests to DynamoDB or Amazon DynamoDB Streams that generate an HTTP 400 status code during the
 specified time period. An HTTP 400 usually indicates a client-side error, such
@@ -1039,7 +1040,7 @@ Valid Statistics:
 - `Sum`
 - `SampleCount`
 
-#### WriteAccountLimitThrottleEvents
+### WriteAccountLimitThrottleEvents
 
 The number of write requests throttled due to account limits.
 
@@ -1057,7 +1058,7 @@ Valid Statistics:
 - `Maximum` – Maximum number of throttled events in any
   given sample.
 
-#### WriteKeyRangeThroughputThrottleEvents
+### WriteKeyRangeThroughputThrottleEvents
 
 The number of write requests throttled due to partition limits.
 
@@ -1076,7 +1077,7 @@ Valid Statistics:
 - `Maximum` – Maximum number of throttled events in any
   given sample.
 
-#### WriteMaxOnDemandThroughputThrottleEvents
+### WriteMaxOnDemandThroughputThrottleEvents
 
 The number of write requests throttled due to on-demand maximum
 throughput.
@@ -1096,7 +1097,7 @@ Valid Statistics:
 - `Maximum` – Maximum number of throttled events in any
   given sample.
 
-#### WriteProvisionedThroughputThrottleEvents
+### WriteProvisionedThroughputThrottleEvents
 
 The number of write requests throttled due to provisioned throughput
 limits.
@@ -1116,7 +1117,7 @@ Valid Statistics:
 - `Maximum` – Maximum number of throttled events in any
   given sample.
 
-#### WriteThrottleEvents
+### WriteThrottleEvents
 
 Requests to DynamoDB that exceed the provisioned write capacity units for a table
 or a global secondary index.

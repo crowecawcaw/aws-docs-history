@@ -1,96 +1,50 @@
-# QueryFilter (legacy)
+# AttributesToGet (legacy)
 
 ###### Note
 
 We recommend that you use the new expression parameters instead of these legacy parameters whenever possible.
 For more information, see [Using expressions in DynamoDB](Expressions.md "Expressions.md").
 For specific information on the new parameter replacing this one,
-[use FilterExpression instead.](#FilterExpression.instead "#FilterExpression.instead").
+[Use ProjectionExpression instead](#ProjectionExpression.instead "#ProjectionExpression.instead").
 
-In a `Query` operation, the legacy conditional parameter `QueryFilter` is a
-condition that evaluates the query results after the items are read and returns only
-the desired values.
+The legacy conditional parameter `AttributesToGet` is an array of one or more attributes to retrieve from DynamoDB. If no
+attribute names are provided, then all attributes will be returned. If any of the
+requested attributes are not found, they will not appear in the result.
 
-This parameter does not support attributes of type List or Map.
+`AttributesToGet` allows you to retrieve attributes of type List or Map;
+however, it cannot retrieve individual elements within a List or a Map.
 
-###### Note
+Note that `AttributesToGet` has no effect on provisioned
+throughput consumption. DynamoDB determines capacity units consumed based on item size,
+not on the amount of data that is returned to an application.
 
-A `QueryFilter` is applied after the items have already
-been read; the process of filtering does not consume any additional read
-capacity units.
+## Use _ProjectionExpression_ instead – Example
 
-If you provide more than one condition in the `QueryFilter`
-map, then by default all of the conditions must evaluate to true. In other words,
-the conditions are combined using the `AND` operator. (You can use the
-[ConditionalOperator (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md") parameter to OR the conditions instead.
-If you do this, then at least one of the conditions must evaluate to true, rather
-than all of them.)
-
-Note that `QueryFilter` does not allow key attributes. You
-cannot define a filter condition on a partition key or a sort key.
-
-Each `QueryFilter` element consists of an attribute name to
-compare, along with the following:
-
-- `AttributeValueList` - One or more values to evaluate
-  against the supplied attribute. The number of values in the list depends on
-  the operator specified in `ComparisonOperator`.
-
-For type Number, value comparisons are numeric.
-
-String value comparisons for greater than, equals, or less than are based
-on UTF-8 binary encoding. For example, `a` is greater than
-`A`, and `a` is greater than
-`B`.
-
-For type Binary, DynamoDB treats each byte of the binary data as unsigned
-when it compares binary values.
-
-For information on specifying data types in JSON, see [DynamoDB low-level API](Programming.md "Programming.md").
-
-- `ComparisonOperator` - A comparator for evaluating attributes. For
-  example: equals, greater than, and less than.
-
-The following comparison operators are available:
-
-`EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS |
- NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN`
-
-## Use _FilterExpression_ instead – Example
-
-Suppose you wanted to query the _Music_ table and apply a
-condition to the matching items. You could use a
-`Query` request with a `QueryFilter` parameter, as in this
-AWS CLI example:
+Suppose you wanted to retrieve an item from the _Music_ table,
+but that you only wanted to return some of the attributes. You could use a
+`GetItem` request with an `AttributesToGet` parameter, as
+in this AWS CLI example:
 
 ```
-aws dynamodb query \
+aws dynamodb get-item \
     --table-name Music \
-    --key-conditions '{
-        "Artist": {
-            "ComparisonOperator": "EQ",
-            "AttributeValueList": [ {"S": "No One You Know"} ]
-        }
-    }' \
-    --query-filter '{
-        "Price": {
-            "ComparisonOperator": "GT",
-            "AttributeValueList": [ {"N": "1.00"} ]
-        }
+    --attributes-to-get '["Artist", "Genre"]' \
+    --key '{
+        "Artist": {"S":"No One You Know"},
+        "SongTitle": {"S":"Call Me Today"}
     }'
 
 ```
 
-You can use a `FilterExpression` instead:
+You can use a `ProjectionExpression` instead:
 
 ```
-aws dynamodb query \
+aws dynamodb get-item \
     --table-name Music \
-    --key-condition-expression 'Artist = :a' \
-    --filter-expression 'Price > :p' \
-    --expression-attribute-values '{
-        ":p": {"N":"1.00"},
-        ":a": {"S":"No One You Know"}
+    --projection-expression "Artist, Genre" \
+    --key '{
+        "Artist": {"S":"No One You Know"},
+        "SongTitle": {"S":"Call Me Today"}
     }'
 
 ```

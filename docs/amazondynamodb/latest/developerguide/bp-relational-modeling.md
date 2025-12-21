@@ -69,7 +69,7 @@ complex queries across several tables and then sorts the result set.
 
 Eliminating the need for `JOINs` is at the heart of NoSQL data modeling. This
 is why we built DynamoDB to support Amazon.com, and why DynamoDB can deliver consistent performance
-at any scale. Given the runtime complexity of SQL queries and `JOINs`, RBDMS
+at any scale. Given the runtime complexity of SQL queries and `JOINs`, RDBMS
 performance is not constant at scale. This causes performance issues as customer applications
 grow.
 

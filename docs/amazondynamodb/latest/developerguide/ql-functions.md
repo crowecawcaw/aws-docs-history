@@ -1,28 +1,25 @@
-# Using the SIZE function with PartiQL for amazon DynamoDB
+# Using the MISSING function with PartiQL for DynamoDB
 
-Returns a number representing an attribute's size in bytes. The following are valid data types
-for use with size. For more information, see the DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
+Returns `TRUE` if the item does not contain the attribute specified. Only equality and inequality operators can be used with this function.
 
 ## Syntax
 
 ```
-size( `path`)
+ `attributename` IS | IS NOT  MISSING
 ```
 
 ## Arguments
 
-`path`
+`attributename`
 
-(Required) The attribute name or document path.
-
-For supported types, see DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
+(Required) The attribute name to look for.
 
 ## Return type
 
-`int`
+`bool`
 
 ## Examples
 
 ```
- SELECT * FROM "Orders" WHERE "OrderID"=1 AND size("Image") >300
+SELECT * FROM Music WHERE "Awards" is MISSING
 ```

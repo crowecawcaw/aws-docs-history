@@ -3,6 +3,10 @@
 This section describes current quotas, formerly referred to as limits, within Amazon DynamoDB.
 Each quota applies on a per-Region basis unless otherwise specified.
 
+###### Note
+
+All size measurements in DynamoDB use binary-based units. DynamoDB denotes 1 KB = 1024 bytes, 1 MB = 1024 KB, 1 GB = 1024 MB, 1 TB = 1024 GB.
+
 ###### Topics
 
 - [Read/write throughput](#default-limits-throughput-capacity-modes "#default-limits-throughput-capacity-modes")

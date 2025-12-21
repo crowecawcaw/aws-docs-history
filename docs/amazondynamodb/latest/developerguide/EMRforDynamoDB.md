@@ -1,32 +1,48 @@
-# Performance tuning
+# Tutorial: Working with Amazon DynamoDB and Apache
 
-When you create a Hive external table that maps to a DynamoDB table, you do not consume
-any read or write capacity from DynamoDB. However, read and write activity on the Hive
-table (such as `INSERT` or `SELECT`) translates directly into read
-and write operations on the underlying DynamoDB table.
+Hive
 
-Apache Hive on Amazon EMR implements its own logic for balancing the I/O load on the DynamoDB
-table and seeks to minimize the possibility of exceeding the table's provisioned
-throughput. At the end of each Hive query, Amazon EMR returns runtime metrics, including the
-number of times your provisioned throughput was exceeded. You can use this information,
-together with CloudWatch metrics on your DynamoDB table, to improve performance in subsequent
-requests.
+In this tutorial, you will launch an Amazon EMR cluster, and then use Apache Hive to
+process data stored in a DynamoDB table.
 
-The Amazon EMR console provides basic monitoring tools for your cluster. For more
-information, see [View and Monitor a Cluster](../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view.md") in the _Amazon EMR Management
-Guide_.
+_Hive_ is a data warehouse application for Hadoop that allows you
+to process and analyze data from multiple sources. Hive provides a SQL-like language,
+_HiveQL_, that lets you work with data stored locally in the
+Amazon EMR cluster or in an external data source (such as Amazon DynamoDB).
 
-You can also monitor your cluster and Hadoop jobs using web-based tools, such as Hue,
-Ganglia, and the Hadoop web interface. For more information, see [View Web Interfaces Hosted on Amazon EMR Clusters](../../../ElasticMapReduce/latest/ManagementGuide/emr-web-interfaces.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-web-interfaces.md") in the _Amazon EMR
-Management Guide_.
-
-This section describes steps you can take to performance-tune Hive operations on
-external DynamoDB tables.
+For more information, see to the [Hive
+Tutorial](https://cwiki.apache.org/confluence/display/Hive/Tutorial "https://cwiki.apache.org/confluence/display/Hive/Tutorial").
 
 ###### Topics
 
-- [DynamoDB provisioned
-  throughput](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md")
-- [Adjusting the
-  mappers](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md")
-- [Additional topics](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md")
+- [Before you begin](#EMRforDynamoDB.Tutorial.BeforeYouBegin "#EMRforDynamoDB.Tutorial.BeforeYouBegin")
+- [Step 1: Create an Amazon EC2 key
+  pair](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+- [Step 2: Launch an Amazon EMR
+  cluster](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+- [Step 3: Connect
+  to the Leader node](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+- [Step 4: Load data into
+  HDFS](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+- [Step 5: Copy data to
+  DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+- [Step 6: Query the data
+  in the DynamoDB table](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+- [Step 7: (Optional) clean
+  up](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+
+## Before you begin
+
+For this tutorial, you will need the following:
+
+- An AWS account. If you do not have one, see [Signing up for AWS](SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS").
+- An SSH client (Secure Shell). You use the SSH client to connect to the
+  leader node of the Amazon EMR cluster and run interactive commands. SSH
+  clients are available by default on most Linux, Unix, and Mac OS X
+  installations. Windows users can download and install the [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/ "http://www.chiark.greenend.org.uk/~sgtatham/putty/")
+  client, which has SSH support.
+
+###### Next step
+
+[Step 1: Create an Amazon EC2 key
+pair](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")

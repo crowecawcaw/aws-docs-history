@@ -1,8 +1,7 @@
-# 01-CreateTable.cs
+# 02-Write-Data.cs
 
-The `01-CreateTable.cs` program creates a table
-(`TryDaxTable`). The remaining .NET programs in this
-section depend on this table.
+The `02-Write-Data.cs` program writes test data to
+`TryDaxTable`.
 
 ```
 
@@ -22,26 +21,29 @@ namespace ClientTest
 
             var tableName = "TryDaxTable";
 
-            var request = new CreateTableRequest()
-            {
-                TableName = tableName,
-                KeySchema = new List<KeySchemaElement>()
-                {
-                    new KeySchemaElement{ AttributeName = "pk",KeyType = "HASH"},
-                    new KeySchemaElement{ AttributeName = "sk",KeyType = "RANGE"}
-                },
-                AttributeDefinitions = new List<AttributeDefinition>() {
-                    new AttributeDefinition{ AttributeName = "pk",AttributeType = "N"},
-                    new AttributeDefinition{ AttributeName = "sk",AttributeType  = "N"}
-                },
-                ProvisionedThroughput = new ProvisionedThroughput()
-                {
-                    ReadCapacityUnits = 10,
-                    WriteCapacityUnits = 10
-                }
-            };
+            string someData = new string('X', 1000);
+            var pkmax = 10;
+            var skmax = 10;
 
-            var response = await client.CreateTableAsync(request);
+            for (var ipk = 1; ipk <= pkmax; ipk++)
+            {
+                Console.WriteLine($"Writing {skmax} items for partition key: {ipk}");
+                for (var isk = 1; isk <= skmax; isk++)
+                {
+                    var request = new PutItemRequest()
+                    {
+                        TableName = tableName,
+                        Item = new Dictionary<string, AttributeValue>()
+                       {
+                            { "pk", new AttributeValue{N = ipk.ToString() } },
+                            { "sk", new AttributeValue{N = isk.ToString() } },
+                            { "someData", new AttributeValue{S = someData } }
+                       }
+                    };
+
+                    var response = await client.PutItemAsync(request);
+                }
+            }
 
             Console.WriteLine("Hit <enter> to continue...");
             Console.ReadLine();

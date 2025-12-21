@@ -29,12 +29,11 @@ following:
 - The replica table that you want to add.
 - Each existing replica that's already part of the global table.
 - The global table itself.
-
-To update the settings (`UpdateGlobalTableSettings`) for a global table in
-DynamoDB, you must have the `dynamodb:UpdateGlobalTable`,
-`dynamodb:DescribeLimits`,
-`application-autoscaling:DeleteScalingPolicy`, and
-`application-autoscaling:DeregisterScalableTarget` permissions.
+  To update the settings (`UpdateGlobalTableSettings`) for a global table in
+  DynamoDB, you must have the `dynamodb:UpdateGlobalTable`,
+  `dynamodb:DescribeLimits`,
+  `application-autoscaling:DeleteScalingPolicy`, and
+  `application-autoscaling:DeregisterScalableTarget` permissions.
 
 The `application-autoscaling:DeleteScalingPolicy` and
 `application-autoscaling:DeregisterScalableTarget` permissions are
