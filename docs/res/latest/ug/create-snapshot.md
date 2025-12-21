@@ -37,7 +37,7 @@ JSON
  "Sid": "Export-Snapshot-Policy",
  "Effect": "Allow",
  "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:role/`{RES_ENVIRONMENT_NAME}`-cluster-manager-role-`us-east-1`}"
+ "AWS": "arn:aws:iam::`111122223333`:role/`{RES_ENVIRONMENT_NAME}`-cluster-manager-role"
  },
  "Action": [
  "s3:GetObject",

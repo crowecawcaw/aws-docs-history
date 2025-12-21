@@ -101,7 +101,7 @@ the domain using AWS Certificate Manager.
 If you are deploying in an AWS GovCloud Region and you are using a custom domain for
 Research and Engineering Studio, you will need to complete these prerequisite steps.
 
-1. Deploy the [Certificate CloudFormation stack](cloudformation/home.md#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml "cloudformation/home.md#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml") in the commercial-partition AWS Account where the
+1. Deploy the [Certificate CloudFormation stack](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml") in the commercial-partition AWS Account where the
    public hosted domain was created.
 2. From the **Certificate CloudFormation Outputs**, find
    and note the `CertificateARN` and `PrivateKeySecretARN`.
