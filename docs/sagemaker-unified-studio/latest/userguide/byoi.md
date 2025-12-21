@@ -22,4 +22,5 @@ image, to bring your own image (BYOI). You may want to BYOI when:
 - [Dockerfile specifications](byoi-specifications.md "byoi-specifications.md")
 - [How to BYOI](byoi-how-to.md "byoi-how-to.md")
 - [Launch your custom image in Amazon SageMaker Unified Studio](byoi-launch-custom-image.md "byoi-launch-custom-image.md")
+- [Speed up container startup with SOCI](byoi-soci-indexing.md "byoi-soci-indexing.md")
 - [Detach and clean up custom image resources](byoi-clean-up.md "byoi-clean-up.md")
