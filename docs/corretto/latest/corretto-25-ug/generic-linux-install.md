@@ -207,6 +207,12 @@ command:
 apk add amazon-corretto-25
 ```
 
+You can install Corretto 25 JRE by running
+
+```
+apk add amazon-corretto-25-jre
+```
+
 ### Uninstall Amazon Corretto 25
 
 You can uninstall Amazon Corretto 25 by using the following
