@@ -16,8 +16,8 @@ you understand how each file operation interacts with Amazon S3 storage.
 
 Carefully consider the use of S3 versioning and Cross-Region replication (CRR) in Amazon S3
 when you're uploading data from your File Gateway. Uploading files from your
-File Gateway to Amazon S3 when S3 versioning is turned on results in at least two versions
-of an S3 object.
+File Gateway to Amazon S3 when S3 versioning is turned on commonly results in more
+than one version of an S3 object.
 
 Certain workflows involving large files and file-writing patterns such as file uploads
 that are performed in several steps can increase the number of stored S3 object
