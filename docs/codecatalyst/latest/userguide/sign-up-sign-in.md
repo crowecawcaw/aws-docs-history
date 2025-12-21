@@ -51,6 +51,11 @@ you'll be taken to the sign-in page. For more information, see [Signing in with 
 If you don't have a AWS Builder ID, choosing **Accept invitation** will take you to the sign-in page, where you should choose
 the option to create your AWS Builder ID.
 
+###### Important
+
+By accepting an invite and opening repositories in Dev Environments, scripts may execute with access to your CodeCatalyst
+credentials. Please ensure you trust the source before proceeding.
+
 ###### To accept an invitation and create a AWS Builder ID
 
 1. In the invitation email, choose **Accept invitation**.

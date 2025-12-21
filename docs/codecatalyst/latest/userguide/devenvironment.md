@@ -19,6 +19,11 @@ creating a Dev Environments, you have several options:
   development environment, because they use a devfile that configures all of
   the tools you need to code, test, and debug for a given project.
 
+###### Important
+
+Dev Environments can run scripts via devfiles that have access to your
+CodeCatalyst credentials. Please inspect the repository before opening untrusted resources.
+
 The project tools and application libraries included in your Dev Environment are defined by the
 devfile in the source repository of your project. If you don't have a devfile in your source
 repository, CodeCatalyst automatically applies a default devfile. This default devfile includes tools
