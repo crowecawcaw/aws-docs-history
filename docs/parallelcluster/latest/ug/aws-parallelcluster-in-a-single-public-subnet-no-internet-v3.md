@@ -22,29 +22,29 @@ cluster nodes can interact with the AWS Services, without internet access:
 
 Commercial and AWS GovCloud (US) partitions
 
-| Service                           | Service name                                   | Type      |
-| --------------------------------- | ---------------------------------------------- | --------- |
-| Amazon CloudWatch                 | com.amazonaws.`region-id`.logs                 | Interface |
-| CloudFormation                    | com.amazonaws.`region-id`.cloudformation       | Interface |
-| Amazon EC2                        | com.amazonaws.`region-id`.ec2                  | Interface |
-| Amazon S3                         | com.amazonaws.`region-id`.s3                   | Gateway   |
-| Amazon DynamoDB                   | com.amazonaws.`region-id`.dynamodb             | Gateway   |
-| AWS Secrets Manager\*\*           | com.amazonaws.`region-id`.secretsmanager       | Interface |
-| AWS Elastic Load Balancing\*\*\*  | com.amazonaws.`region-id`.elasticloadbalancing | Interface |
-| AWS Amazon EC2 Auto Scaling\*\*\* | com.amazonaws.`region-id`.autoscaling          | Interface |
+| Service                          | Service name                                   | Type      |
+| -------------------------------- | ---------------------------------------------- | --------- |
+| Amazon CloudWatch                | com.amazonaws.`region-id`.logs                 | Interface |
+| CloudFormation                   | com.amazonaws.`region-id`.cloudformation       | Interface |
+| Amazon EC2                       | com.amazonaws.`region-id`.ec2                  | Interface |
+| Amazon S3                        | com.amazonaws.`region-id`.s3                   | Gateway   |
+| Amazon DynamoDB                  | com.amazonaws.`region-id`.dynamodb             | Gateway   |
+| AWS Secrets Manager\*\*          | com.amazonaws.`region-id`.secretsmanager       | Interface |
+| AWS Elastic Load Balancing\*\*\* | com.amazonaws.`region-id`.elasticloadbalancing | Interface |
+| AWS Auto Scaling\*\*\*           | com.amazonaws.`region-id`.autoscaling          | Interface |
 
 China partition
 
-| Service                           | Service name                                   | Type      |
-| --------------------------------- | ---------------------------------------------- | --------- |
-| Amazon CloudWatch                 | com.amazonaws.`region-id`.logs                 | Interface |
-| CloudFormation                    | cn.com.amazonaws.`region-id`.cloudformation    | Interface |
-| Amazon EC2                        | cn.com.amazonaws.`region-id`.ec2               | Interface |
-| Amazon S3                         | com.amazonaws.`region-id`.s3                   | Gateway   |
-| Amazon DynamoDB                   | com.amazonaws.`region-id`.dynamodb             | Gateway   |
-| AWS Secrets Manager\*\*           | com.amazonaws.`region-id`.secretsmanager       | Interface |
-| AWS Elastic Load Balancing\*\*\*  | com.amazonaws.`region-id`.elasticloadbalancing | Interface |
-| AWS Amazon EC2 Auto Scaling\*\*\* | cn.com.amazonaws.`region-id`.autoscaling       | Interface |
+| Service                          | Service name                                   | Type      |
+| -------------------------------- | ---------------------------------------------- | --------- |
+| Amazon CloudWatch                | com.amazonaws.`region-id`.logs                 | Interface |
+| CloudFormation                   | cn.com.amazonaws.`region-id`.cloudformation    | Interface |
+| Amazon EC2                       | cn.com.amazonaws.`region-id`.ec2               | Interface |
+| Amazon S3                        | com.amazonaws.`region-id`.s3                   | Gateway   |
+| Amazon DynamoDB                  | com.amazonaws.`region-id`.dynamodb             | Gateway   |
+| AWS Secrets Manager\*\*          | com.amazonaws.`region-id`.secretsmanager       | Interface |
+| AWS Elastic Load Balancing\*\*\* | com.amazonaws.`region-id`.elasticloadbalancing | Interface |
+| AWS Auto Scaling\*\*\*           | cn.com.amazonaws.`region-id`.autoscaling       | Interface |
 
 \*\* This endpoint is only required when [DirectoryService](DirectoryService-v3.md#DirectoryService-v3.properties "DirectoryService-v3.md#DirectoryService-v3.properties") is enabled, otherwise it is optional.
 
