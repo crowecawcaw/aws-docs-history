@@ -134,7 +134,6 @@ mind:
 
 - The valid characters that you can use in the column names of the dataset are
   A-Z, a-z, 0-9, and . \ \_ - (hyphen)
-
-To learn more about the formats listed above, see [the ISO 86021 standard](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations "https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations").
+  To learn more about the formats listed above, see [the ISO 86021 standard](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations "https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations").
 
 Now that your data is formatted properly, it's time to organize your files.
