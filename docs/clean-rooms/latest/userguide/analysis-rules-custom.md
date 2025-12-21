@@ -209,8 +209,7 @@ example
 
 ###### Note
 
-AWS Clean Rooms Differential Privacy is only available for collaborations using AWS Clean Rooms SQL as the analytics engine
-and data stored in Amazon S3.
+AWS Clean Rooms Differential Privacy is only available for collaborations where the data is stored in Amazon S3.
 
 Consider the [custom
 analysis rule example](#custom-example "#custom-example") presented in the previous section. This example demonstrates

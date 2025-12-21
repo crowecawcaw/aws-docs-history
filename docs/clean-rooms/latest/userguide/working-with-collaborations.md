@@ -27,6 +27,7 @@ For information about how to create a collaboration using the AWS SDKs, see the 
 - [Creating a membership and joining a
   collaboration](create-membership.md "create-membership.md")
 - [Editing collaborations](edit-collaboration.md "edit-collaboration.md")
+- [Change requests in AWS Clean Rooms](change-requests.md "change-requests.md")
 - [Deleting collaborations](delete-collaboration.md "delete-collaboration.md")
 - [Viewing collaborations](review-collab-console.md "review-collab-console.md")
 - [Inviting members to a collaboration](invite-members.md "invite-members.md")

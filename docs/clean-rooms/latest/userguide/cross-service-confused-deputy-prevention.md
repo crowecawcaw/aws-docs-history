@@ -35,8 +35,19 @@ access data and metadata for a configured table.
 The value for `<query-runner-membership-id>` needs to
 be set to the membership ID of the query runner.
 
-All members of the collaboration can view the configured table matadata so each
+All members of the collaboration can view the configured table metadata so each
 membership ARN must be included in the list of membership ARNs.
+
+###### Note
+
+When a service role is created through the AWS Clean Rooms console, all current members of the collaboration are
+included in the confused deputy condition by default.
+
+If you are adding new members to a collaboration that already has configured tables associated to it,
+make sure that you update your service role's confused deputy condition with the new member's membership ARN.
+
+If you do not update your service role's confused deputy condition after adding a new member, that new member
+will not be able to access information in AWS Clean Rooms that is retrieved using that role.
 
 JSON
 

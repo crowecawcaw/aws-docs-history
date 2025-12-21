@@ -14,6 +14,9 @@ Clean Rooms API Reference](../apireference/Welcome.md "../apireference/Welcome.m
 - [Edit collaboration logs settings](#edit-logs-settings "#edit-logs-settings")
 - [Edit collaboration tags](#edit-collab-tags "#edit-collab-tags")
 - [Edit membership tags](#edit-membership-tags "#edit-membership-tags")
+- [Add a new member](#add-new-member "#add-new-member")
+- [Edit existing member abilities](#edit-member-abilities "#edit-member-abilities")
+- [Edit collaboration auto-approval settings](#edit-auto-approval "#edit-auto-approval")
 - [Edit associated table tags](#edit-associated-table-tags "#edit-associated-table-tags")
 - [Edit analysis template tags](#edit-analysis-template-tags "#edit-analysis-template-tags")
 - [Edit differential privacy policy tags](#edit-dp-policy-tags "#edit-dp-policy-tags")
@@ -57,24 +60,7 @@ workflows.
 3. Choose the collaboration that you created.
 4. On the collaboration detail page, choose **Actions**, and
    then choose **Edit collaboration**.
-5. On the **Edit collaboration** page, for **Analytics
-   engine**,
-   - If **AWS Clean Rooms SQL** is selected, choose
-     **Spark**.
-   - If **Spark** is selected, choose **Submit a
-     support ticket** to submit a support ticket to change the
-     analytics engine to AWS Clean Rooms SQL.
-
-   ###### Note
-
-   AWS Clean Rooms will end support for the legacy Clean Rooms SQL analytics
-   engine on December 17th, 2025. Before July 16, 2025, you must
-   request a limit increase via AWS Customer Support to create any
-   new Clean Rooms SQL engine-based collaborations. After July 16,
-   2025, the creation of new Clean Rooms SQL engine-based
-   collaborations will no longer be available.
-
-6. Choose **Save changes**.
+5. Choose **Save changes**.
 
 ## Turn off log storage
 
@@ -206,6 +192,18 @@ tags on the membership resource.
    - To remove a tag, choose **Remove**.
    - To add a tag, choose **Add new tag**.
    - To save your changes, choose **Save changes**.
+
+## Add a new member
+
+For more information, see [Add a new member to a collaboration](change-requests.md#add-new-member-change-request "change-requests.md#add-new-member-change-request").
+
+## Edit existing member abilities
+
+For more information, see [Update existing member abilities](change-requests.md#update-member-abilities-change-request "change-requests.md#update-member-abilities-change-request").
+
+## Edit collaboration auto-approval settings
+
+For more information, see [Edit collaboration auto-approval settings](change-requests.md#edit-auto-approval-settings "change-requests.md#edit-auto-approval-settings").
 
 ## Edit associated table tags
 

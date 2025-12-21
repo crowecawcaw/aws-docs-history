@@ -27,10 +27,8 @@ AWS Clean Rooms supports the following structured formats for running PySpark jo
 formats for SQL
 queries
 
-AWS Clean Rooms supports different structured
-formats for running SQL
-queries, depending on whether you choose the Spark SQL analytics engine or the
-AWS Clean Rooms SQL analytics engine.
+AWS Clean Rooms supports different structured formats for running SQL
+queries
 
 Spark SQL analytics engine
 
@@ -38,19 +36,6 @@ Spark SQL analytics engine
   tables](iceberg-tables.md "iceberg-tables.md")
 - Parquet
 - OpenCSV
-- JSON
-
-AWS Clean Rooms SQL analytics engine
-
-- [Apache Iceberg
-  tables](iceberg-tables.md "iceberg-tables.md")
-- Parquet
-- RCFile
-- TextFile
-- SequenceFile
-- RegexSerde
-- OpenCSV
-- AVRO
 - JSON
 
 ###### Note
@@ -65,10 +50,7 @@ objects.
 
 ## Supported data types
 
-AWS Clean Rooms supports different types, depending on whether you choose the Spark SQL analytics
-engine or the AWS Clean Rooms SQL analytics engine.
-
-Spark SQL analytics engine
+AWS Clean Rooms supports different types.
 
 - ARRAY
 - BIGINT
@@ -90,31 +72,6 @@ Spark SQL analytics engine
 - TIMESTAMP_LTZ
 - TIMESTAMP_NTZ
 - TINYINT
-- VARCHAR
-
-For more information, see [Data
-types](../sql-reference/s_Supported_data_types.md "../sql-reference/s_Supported_data_types.md") in the _AWS Clean Rooms SQL Reference_.
-
-AWS Clean Rooms SQL
-
-- ARRAY
-- BIGINT
-- BOOLEAN
-- CHAR
-- DATE
-- DECIMAL
-- DOUBLE PRECISION
-- INTEGER
-- MAP
-- REAL
-- SMALLINT
-- STRUCT
-- SUPER
-- TIME
-- TIMESTAMP
-- TIMESTAMPTZ
-- TIMETZ
-- VARBYTE
 - VARCHAR
 
 For more information, see [Data

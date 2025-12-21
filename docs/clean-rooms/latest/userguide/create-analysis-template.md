@@ -12,11 +12,6 @@ Differential Privacy.
 You can create an analysis template in two ways: using SQL code or using Python code for
 Spark.
 
-- SQL analysis templates are available in collaborations that use both the Spark analytics
-  engine and the AWS Clean Rooms SQL analytics engine.
-- PySpark analysis templates are available in collaborations that use the Spark analytics
-  engine.
-
 ###### Topics
 
 - [SQL analysis templates](sql-analysis-templates.md "sql-analysis-templates.md")

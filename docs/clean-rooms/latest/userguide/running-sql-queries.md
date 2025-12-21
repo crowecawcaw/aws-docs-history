@@ -67,27 +67,23 @@ encrypted columns are encrypted.
 ## Spark properties configuration for SQL queries
 
 AWS Clean Rooms enables you to optionally customize Spark runtime behavior by configuring
-supported Spark properties for SQL queries when using the Spark analytics engine. This
-feature is only available for analyses using the Spark analytics engine in AWS Clean Rooms, not for
-the AWS Clean Rooms analytics engine. These properties let you fine-tune performance, memory usage,
+supported Spark properties for SQL queries. These properties let you fine-tune performance, memory usage,
 and query execution parameters. With this feature, you have greater control over how your
 Spark-based queries
 are
 processed, allowing for optimization based on your specific workload requirements.
 
 You can now adjust settings such as shuffle partitions, broadcast join thresholds, and
-adaptive query execution parameters directly from the AWS Clean Rooms console for Spark analytics
-engine analyses. This feature is particularly useful for complex queries or large datasets
+adaptive query execution parameters directly from the AWS Clean Rooms console. This feature is particularly useful for complex queries or large datasets
 where default configurations may not be optimal. By fine-tuning these Spark properties, you
 can potentially improve query performance, reduce resource consumption, and better manage
 memory usage for your Spark-based collaboration analyses.
 
 To leverage this feature, you'll find a new **Spark properties**
-section in the query interface for Spark analytics engine analyses. You can select from a
+section in the query interface. You can select from a
 list of supported properties and specify custom values. You can also configure Spark
 properties programmatically using the [StartProtectedQuery API.](../apireference/API_StartProtectedQuery.md "../apireference/API_StartProtectedQuery.md") This advanced configuration option empowers data
-analysts and engineers to optimize their analysis using the Spark analytics engine for
-enhanced efficiency and scalability.
+analysts and engineers to optimize their queries for enhanced efficiency and scalability.
 
 For more information about Spark properties, including default values, see [Spark
 Properties](https://spark.apache.org/docs/latest/configuration.html#spark-properties "https://spark.apache.org/docs/latest/configuration.html#spark-properties") in the Apache Spark documentation.

@@ -36,21 +36,6 @@ _AWS Clean Rooms SQL Reference_.
 
 Analysis templates only work with the [custom analysis rule](analysis-rules-custom.md "analysis-rules-custom.md").
 
-## AWS Clean Rooms SQL analytics engine
-
-A built-in query processing system within AWS Clean Rooms that allows users to query data stored in
-Amazon S3 using SQL functions supported by AWS Clean Rooms. It supports various data formats and provides
-capabilities for running SQL queries on collaborative datasets while maintaining data privacy
-and control, including features like differential privacy. This engine is tailored for AWS Clean Rooms
-use cases, offering a balance of SQL functionality, data privacy features, and integration
-with other AWS Clean Rooms capabilities, making it suitable for users who don't require the advanced
-capabilities or scale of the [Spark SQL
-analytics engine](#glossary-spark-analytics-engine "#glossary-spark-analytics-engine").
-
-When you create a collaboration using the [CreateCollaboration
-API](../apireference/API_CreateCollaboration.md "../apireference/API_CreateCollaboration.md"), the value of the AWS Clean Rooms SQL analytics engine is
-`CLEAN_ROOMS_SQL`.
-
 ## C3R encryption client
 
 The Cryptographic Computing for Clean Rooms (C3R) encryption client.
@@ -331,9 +316,7 @@ closely resembles the seed users.
 ## Spark analytics engine
 
 An analytics option in AWS Clean Rooms that enables customers to run complex queries on large
-datasets stored in Amazon S3, Amazon Athena, or Snowflake using Apache Spark SQL functions. It serves
-as an alternative to the [AWS Clean Rooms SQL
-analytics engine](#glossary-clean-rooms-sql-analytics-engine "#glossary-clean-rooms-sql-analytics-engine"), and also supports PySpark analysis in AWS Clean Rooms.
+datasets stored in Amazon S3, Amazon Athena, or Snowflake using Apache Spark SQL functions. It also supports PySpark analysis in AWS Clean Rooms.
 
 When you create a collaboration using the [CreateCollaboration
 API](../apireference/API_CreateCollaboration.md "../apireference/API_CreateCollaboration.md"), the value of the Spark analytics engine is `SPARK`.

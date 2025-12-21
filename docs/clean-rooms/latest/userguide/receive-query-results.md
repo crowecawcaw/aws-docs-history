@@ -12,7 +12,7 @@ that they specified when they joined the collaboration.
 For encrypted data tables only, the member who can receive results decrypts the query
 results by running the C3R encryption client in the [decrypt](glossary.md#glossary-decryption "glossary.md#glossary-decryption") mode.
 
-If you are using the Spark analytics engine, the **Results destination in
+The **Results destination in
 Amazon S3** can't be within the same S3 bucket as any data source.
 
 The following topics explain how to receive analysis results using the AWS Clean Rooms console.

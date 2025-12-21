@@ -103,7 +103,7 @@ To insert a column name or function
      partition column in the AWS Glue table underlying the configured table.
     5. Edit the placeholder values in the query.
 
-8. (Spark analytics engine only) Specify the supported **Worker type**
+8. Specify the supported **Worker type**
    and the **Number of workers**.
 
 You can choose the instance type and number of instances (workers) to run your
@@ -149,7 +149,7 @@ following.
     3. **Results destination in Amazon S3**Each member who can receive results can specify a different **Result
 
 format**, **Result files**, and **Results
-destination in Amazon S3**. 11. (Spark analytics engine only) To specify **Spark
+destination in Amazon S3**. 11. To specify **Spark
 properties\*\*:
 
     1. Expand **Spark properties**.

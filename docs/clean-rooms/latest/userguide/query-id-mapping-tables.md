@@ -36,7 +36,7 @@ information, see [Populating an existing ID mapping table](populate-id-mapping-t
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1. Select the three vertical dots next to the table.<br>2. Under **Insert in editor**, choose **Example<br>JOIN statement**.<br>NoteInserting an \*_Example JOIN statements_<br>• appends<br>the query already in the editor.<br>The example JOIN statement appears.<br>3. Edit the placeholder values in the query. | 1. Select the three vertical dots next to a column.<br>2. Under **Insert in editor**, choose **Table<br>name**.<br>3. Edit the placeholder values in the query. |
 
-7. (Spark analytics engine only) Specify the supported **Worker type**
+7. Specify the supported **Worker type**
    and the **Number of workers**.
 
 Use the following table to determine the type and number or workers you need for

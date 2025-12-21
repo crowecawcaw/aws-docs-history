@@ -22,14 +22,14 @@ collaboration agreement.
 
 The following SQL constructs are vulnerable to overflow errors:
 
-| Category                       | SQL constructs vulnerable to overflow errors<br>in the Spark<br>SQL analytics engine | SQL<br>constructs vulnerable to overflow errors in the AWS Clean Rooms SQL analytics<br>engine |
-| ------------------------------ | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | ------------------------ | --- | --- | --------------------------------------- |
-| Aggregate functions            | • AVG<br>• SUM/SUM_DISTINCT                                                          | • AVG<br>• LISTAVG<br>• PERCENTILE_COUNT<br>• PERCENTILE_DISC<br>• SUM/SUM_DISTINCT            |
-| Data type formatting functions | • TO_TIMESTAMP<br>• TO_DATE                                                          | • TO_TIMESTAMP<br>• TO_DATE                                                                    |
-| Date and time functions        | • ADD_MONTHS<br>• DATEADD<br>• DATEDIFF                                              | • ADD_MONTHS<br>• DATEADD<br>• DATEDIFF                                                        |
-| Math functions                 | • +, -, \*, /<br>• POWER                                                             | • +, -, \*, /<br>• POWER                                                                       |
-| String functions               | •                                                                                    |                                                                                                | <br>• CONCAT<br>• REPEAT | •   |     | <br>• CONCAT<br>• REPEAT<br>• REPLICATE |
-| Window functions               | • AVG<br>• SUM                                                                       | • AVG<br>• LISTAVG<br>• PERCENTILE_COUNT<br>• PERCENTILE_DISC<br>• RATIO_TO_REPORT<br>• SUM    |
+| Category                       | SQL constructs vulnerable to overflow errors<br>in the Spark<br>SQL analytics engine |
+| ------------------------------ | ------------------------------------------------------------------------------------ | --- | ------------------------ |
+| Aggregate functions            | • AVG<br>• SUM/SUM_DISTINCT                                                          |
+| Data type formatting functions | • TO_TIMESTAMP<br>• TO_DATE                                                          |
+| Date and time functions        | • ADD_MONTHS<br>• DATEADD<br>• DATEDIFF                                              |
+| Math functions                 | • +, -, \*, /<br>• POWER                                                             |
+| String functions               | •                                                                                    |     | <br>• CONCAT<br>• REPEAT |
+| Window functions               | • AVG<br>• SUM                                                                       |
 
 4. The CAST data type formatting function is vulnerable to invalid cast errors.
 

@@ -53,7 +53,7 @@ For more information, see [Cryptographic Computing for Clean Rooms](crypto-compu
 
 partition data
 
-If you are using the AWS Clean Rooms Spark SQL engine with partitioned tables S3 tables, all
+All
 partitions in the AWS Glue Data Catalog must also have data in S3. The engine uses the Spark
 setting `spark.sql.files.ignoreMissingFiles=False`
 

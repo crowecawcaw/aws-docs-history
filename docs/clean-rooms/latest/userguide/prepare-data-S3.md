@@ -8,7 +8,7 @@ AWS Clean Rooms](create-configured-table.md "create-configured-table.md").
 
 When preparing your data in Amazon S3 for use with AWS Clean Rooms, you must ensure that your
 AWS Glue table location exactly matches the directory path where your data files are
-stored. This requirement is critical for the Spark-based query engine used by AWS Clean Rooms.
+stored.
 
 For example: If your data is stored in
 `s3://mybucket/folder/subfolder/data.parquet`, your AWS Glue table

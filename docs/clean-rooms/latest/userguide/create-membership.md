@@ -22,8 +22,8 @@ For information about how to create a membership and join a collaboration using 
 SDKs, see the _[AWS Clean Rooms API
 Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
 
-In this procedure, the invited member [joins the
-collaboration by creating a membership resource](create-membership.md "create-membership.md").
+In this procedure, the invited member joins the
+collaboration by creating a membership resource.
 
 If the invited member is the member who can receive results, they specify the results
 destination and format. They also provide a service role ARN to write to the results
@@ -211,7 +211,6 @@ collaboration](leave-collab.md "leave-collab.md"). If you leave the collaboratio
 be allowed to run, and therefore you will no longer be billed for query compute
 costs. 11. If you are sure that you want to create a membership and join the
 collaboration, choose **Create membership**.
-
 You are given read access to the collaboration metadata. This includes information
 such as the display name and description of the collaboration, in addition to all the
 names and AWS account IDs of other members.
@@ -228,5 +227,4 @@ You are now ready to:
 - [Create and associate a new ID
   namespace](create-new-id-namespace.md "create-new-id-namespace.md") – if you want to create an ID mapping table to query
   identity data.
-
-For information about how to leave a collaboration, see [Leaving a collaboration](leave-collab.md "leave-collab.md").
+  For information about how to leave a collaboration, see [Leaving a collaboration](leave-collab.md "leave-collab.md").

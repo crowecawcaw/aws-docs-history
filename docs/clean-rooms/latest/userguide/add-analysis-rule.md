@@ -275,7 +275,7 @@ re-identification attacks.
 
 ###### Note
 
-AWS Clean Rooms Differential Privacy is only available for collaborations using data stored in Amazon S3.
+AWS Clean Rooms Differential Privacy is only available for collaborations where the data is stored in Amazon S3.
 
 For **Differential privacy**, choose whether to turn differential
 privacy on or off, based on your goal.

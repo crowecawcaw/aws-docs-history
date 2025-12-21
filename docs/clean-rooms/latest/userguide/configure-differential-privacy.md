@@ -4,8 +4,7 @@
 
 ###### Note
 
-AWS Clean Rooms Differential Privacy is only available for collaborations using AWS Clean Rooms SQL as the analytics engine and
-data stored in Amazon S3.
+AWS Clean Rooms Differential Privacy is only available for collaborations where the data is stored in Amazon S3.
 
 This procedure describes the process of configuring the differential privacy policy in a
 collaboration by using the **Guided flow** option in the AWS Clean Rooms console.

@@ -2,7 +2,7 @@
 
 ###### Note
 
-If you are using the Spark analytics engine, the **Results destination in
+The **Results destination in
 Amazon S3** can't be within the same S3 bucket as any data source.
 
 The results of the job are located in the **Results settings defaults**

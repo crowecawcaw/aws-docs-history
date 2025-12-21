@@ -21,7 +21,7 @@ data in AWS Glue, see [Step 3: Upload your data table to Amazon S3](prepare-data
 
 ###### Note
 
-If you are using the Spark analytics engine, the **Results
+The **Results
 destination in Amazon S3** can't be within the same S3 bucket as any
 data source.
 

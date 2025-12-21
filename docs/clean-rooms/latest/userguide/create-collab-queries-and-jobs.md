@@ -45,19 +45,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     This information will be visible to collaboration members who are invited to
     participate in the collaboration. The **Name** and
     **Description** helps them understand what the collaboration is in
-    reference to. 2. For **Analytics engine**, choose
-    **Spark**.
-
-    ###### Note
-
-    AWS Clean Rooms will end support for the legacy Clean Rooms SQL analytics engine on
-    December 17th, 2025. Before July 16, 2025, you must request a limit increase via
-    AWS Customer Support to create any new Clean Rooms SQL engine-based
-    collaborations. Starting July 17, 2025, the creation of new Clean Rooms SQL
-    engine-based collaborations will no longer be available.
-
-    If you want to update your collaboration from the AWS Clean Rooms SQL analytics engine to
-    the Spark analytics engine, you can [edit an existing collaboration](edit-collaboration.md#change-collab-analytics-engine "edit-collaboration.md#change-collab-analytics-engine") or re-create the collaboration and select the Spark analytics engine. 3. For **Members**:
+    reference to. 2. For **Members**:
 
         1. For **Member 1: You**, enter your **Member display
          name** as you want it to appear for the collaboration.
@@ -88,7 +76,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
          **Member AWS account ID** for each member who can contribute
          data that you want to invite to the collaboration.
 
-    4. If you want to enable **Analysis logging**, select the
+    3. If you want to enable **Analysis logging**, select the
        **Enable analysis logging** checkbox, and then choose the
        **Supported log types**.
        - If you want to receive logs generated from SQL queries, choose the
@@ -96,7 +84,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
        - If you want to receive logs generated from jobs using PySpark, choose the
          **Logs from jobs** checkbox.
 
-    5. Under **Allowed query results regions**, select one or more
+    4. Under **Allowed query results regions**, select one or more
        AWS Regions where you want to send query results.
 
     By default, only the current Region (such as N. Virginia us-east-1) is
@@ -108,69 +96,106 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     processed and stored outside the source Region.
 
     For more information about Regions, see [Regions
-    and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the _AWS General Reference_. 6. (Optional) To manage access to your data, for **Automatic change request
-    approval**, choose one of the following options:
+    and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the _AWS General Reference_. 5. (Optional) Manage access to your data with **Automatic change request
+    approval** by configuring which settings can be changed automatically without
+    manual approvals for a change request. By default, some settings can only be changed by submitting
+    a change request which must be approved by all members before it can take effect.
 
-        * **Not allowed** – Blocks all requests. New members
-         can't be added to the collaboration. This provides maximum control over
-         collaboration membership.
-        * **Allowed and auto approved** – Automatically approves
-         all requests without review from other members. This provides flexible membership
-         but less control over who joins the collaboration.
-
-
-        If you choose this option, you can track all collaboration configuration
-         modifications through the **Change requests history**, located on
-         the **Details** tab of the collaboration details page.
-
-    7.  (Optional) If you want to enable the **Cryptographic computing**
-        capability, select the **Enable cryptographic computing**
-        checkbox.
-        1.  Choose the following **Cryptographic coverage
-            parameters**:
-            - **Allow plaintext columns**
-
-            Choose **No** if you require fully encrypted
-            tables.
-
-            Choose **Yes** if you want cleartext
-            columns allowed in the encrypted table.
-
-            To run SUM or AVG on certain columns, the
-            columns must be in cleartext.
-            - **Preserve NULL values**
-
-            Choose **No** if you don't want to preserve
-            NULL values. NULL values won't appear as
-            NULL in an encrypted table.
-
-            Choose **Yes** if you want to preserve
-            NULL values. NULL values will appear as
-            NULL in an encrypted table.
-
-        2.  Choose the following **Fingerprinting parameters**:
-
-                * **Allow duplicates**
+        * **Grant member abilities** – Choose the abilities that can
+         be granted to collaboration members without manual approval. Members can always
+         contribute data.
 
 
-                Choose **No** if you don't want duplicate entries allowed
-                 in a fingerprint column.
 
 
-                Choose **Yes** if you want duplicate entries allowed in a
-                 fingerprint column.
-                * **Allow JOIN of columns with different
-                 names**
+        	+ Choose abilities:
 
 
-                Choose **No** if you don't want to join
-                 fingerprint columns with different names.
 
 
-                Choose **Yes** if you want to join
-                 fingerprint columns with different names.For more information about **Cryptographic computing
+        		- Contribute data *(always enabled)*
+        		- Receive results
+        	+ **Auto-approve new members with these abilities** – If
+        	 allowed, any members added with the abilities selected above will instantly join
+        	 the collaboration. Members added with other abilities will still require manual
+        	 approval to join.
+        * **Abilities that can be automatically revoked** - Choose the
+         abilities that can be revoked without manual approval. Members can always contribute
+         data.
 
-            parameters\*\*, see [Cryptographic computing parameters](crypto-computing-parameters.md "crypto-computing-parameters.md").
+
+
+
+        	+ Choose abilities:
+
+
+
+
+        		- Contribute data *(always enabled)*
+        		- Receive results
+
+    If you choose this option, you can track all collaboration configuration
+    modifications through the **Change requests history**, located on the
+    **Details** tab of the collaboration details page. 6. (Optional) If you want to enable the **Cryptographic computing**
+    capability, select the **Enable cryptographic computing**
+    checkbox.
+
+        1. Choose the following **Cryptographic coverage
+         parameters**:
+
+
+
+
+        	* **Allow plaintext columns**
+
+
+        	Choose **No** if you require fully encrypted
+        	 tables.
+
+
+        	Choose **Yes** if you want cleartext
+        	 columns allowed in the encrypted table.
+
+
+        	To run SUM or AVG on certain columns, the
+        	 columns must be in cleartext.
+        	* **Preserve NULL values**
+
+
+        	Choose **No** if you don't want to preserve
+        	 NULL values. NULL values won't appear as
+        	 NULL in an encrypted table.
+
+
+        	Choose **Yes** if you want to preserve
+        	 NULL values. NULL values will appear as
+        	 NULL in an encrypted table.
+        2. Choose the following **Fingerprinting parameters**:
+
+
+
+
+        	* **Allow duplicates**
+
+
+        	Choose **No** if you don't want duplicate entries allowed
+        	 in a fingerprint column.
+
+
+        	Choose **Yes** if you want duplicate entries allowed in a
+        	 fingerprint column.
+        	* **Allow JOIN of columns with different
+        	 names**
+
+
+        	Choose **No** if you don't want to join
+        	 fingerprint columns with different names.
+
+
+        	Choose **Yes** if you want to join
+        	 fingerprint columns with different names.For more information about **Cryptographic computing
+
+    parameters\*\*, see [Cryptographic computing parameters](crypto-computing-parameters.md "crypto-computing-parameters.md").
 
     For more information about how to encrypt your data for use in AWS Clean Rooms, see
     [Preparing encrypted data tables with Cryptographic Computing for Clean Rooms](prepare-encrypted-data.md "prepare-encrypted-data.md").
@@ -179,9 +204,9 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
 
     Verify these configurations carefully before completing the next step. After you
     create the collaboration, you can only edit the collaboration name, description, and
-    whether the logs are stored in Amazon CloudWatch Logs. 8. If you want to enable **Tags** for the collaboration resource,
+    whether the logs are stored in Amazon CloudWatch Logs. 7. If you want to enable **Tags** for the collaboration resource,
     choose **Add new tag** and then enter the **Key**
-    and **Value** pair. 9. Choose **Next**.
+    and **Value** pair. 8. Choose **Next**.
 
 5.  For **Step 2: Specify member abilities**, do the following:
     1. For **Analysis using queries and jobs**, under

@@ -31,7 +31,7 @@ following reasons:
    dropdown list.
 
 The parameters from the PySpark analysis template will automatically populate in the
-**Definition**. 6. (Spark analytics engine only) Specify the supported **Worker type**
+**Definition**. 6. Specify the supported **Worker type**
 and the **Number of workers**.
 
 Use the following table to determine the type and number or workers you need for

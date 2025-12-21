@@ -31,7 +31,7 @@ following reasons:
    the analysis template from the dropdown list.
 6. The parameters form the SQL analysis template will automatically populate in the
    **Definition**.
-7. (Spark analytics engine only) Specify the supported **Worker type**
+7. Specify the supported **Worker type**
    and the **Number of workers**.
 
 Use the following table to determine the type and number or workers you need for
@@ -48,7 +48,7 @@ your use case.
 
 Different worker types and number of workers have associated costs. To learn more
 about the pricing, see [AWS Clean Rooms
-pricing](https://aws.amazon.com/clean-rooms/pricing/ "https://aws.amazon.com/clean-rooms/pricing/"). 8. (Spark analytics engine only) Specify the supported **Spark
+pricing](https://aws.amazon.com/clean-rooms/pricing/ "https://aws.amazon.com/clean-rooms/pricing/"). 8. Specify the supported **Spark
 properties**.
 
     1. Select **Add Spark properties**.
