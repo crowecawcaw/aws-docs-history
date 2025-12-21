@@ -66,7 +66,7 @@ Ensuring the security and compliance of your AWS environment is paramount.
 - **AWS Security Hub CSPM**: Security Hub provides you with a
   comprehensive view of your security state in AWS and helps you assess your AWS environment
   against security industry standards and best practices. To learn how to set it up and use
-  it, see [Enabling Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the AWS Security Hub CSPM User Guide.
+  it, see [Enabling Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the AWS Security Hub User Guide.
 - **AWS Config**: AWS Config provides a detailed view of
   the configuration of AWS resources in your AWS account. This includes how the resources
   are related to one another and how they were configured in the past so that you can see
