@@ -8,16 +8,16 @@ on internal resource sharing.
 Within a stream group, resources are reused over time to serve multiple sessions with minimal downtime. The specific details of reuse
 are different between Windows and non-Windows stream groups.
 
-Non-Windows stream groups with stream classes such as `gen4n_high` or `gen5n_ultra` execute your applications
-inside of dedicated per-session containers. Each stream session begins with a copy of the application files and an empty user profile
-folder. When a session terminates, all file system modifications are discarded and all processes launched by your application are
-terminated as part of container cleanup.
+Non-Windows stream groups with stream classes such as `gen4n_high`, `gen5n_ultra`, `gen6n_ultra` or
+`gen6n_pro` execute your applications inside of dedicated per-session containers. Each stream session begins with a copy of
+the application files and an empty user profile folder. When a session terminates, all file system modifications are discarded and all
+processes launched by your application are terminated as part of container cleanup.
 
-Windows-based stream groups with stream classes such as `gen4n_win2022` or `gen5n_win2022` execute your
-applications directly on the host operating system. Each stream session begins with a copy of the application files and an empty user
-profile folder. When a session terminates, the user profile folder and application folder are fully reset. Sub-processes launched by
-your application are terminated. If your application modifies files outside of the user profile folder and the application folder, or
-modifies the system registry, then those changes might persist across multiple sessions.
+Windows-based stream groups with stream classes such as `gen4n_win2022`, `gen5n_win2022`, `gen6n_ultra_win2022`,
+or `gen6n_pro_win2022` execute your applications directly on the host operating system. Each stream session begins with a copy of
+the application files and an empty user profile folder. When a session terminates, the user profile folder and application folder are fully reset.
+Sub-processes launched by your application are terminated. If your application modifies files outside of the user profile folder and the application
+folder, or modifies the system registry, then those changes might persist across multiple sessions.
 
 For any stream group configuration, the underlying compute resources and operating system environment will be reused over time to
 launch new stream sessions. Under the [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"), it is your responsibility to maintain the security of
@@ -40,4 +40,4 @@ consumes CPU or GPU resources without regard for the defined limits of the strea
 trying to use the same shared resources. For example, in a "high" stream group with two tenants per GPU, a greedy application can
 negatively impact up to one other stream. Your application should regulate its own resource consumption. If your application cannot
 self-regulate and your use case has no tolerance for potential "noisy neighbor" performance variations, a single-tenant stream class, such
-as `gen4n_win2022`, `gen5n_win2022`, `gen4n_ultra`, or `gen5n_ultra`, is recommended.
+as `gen5n_win2022`, `gen6n_pro_win2022`, `gen5n_ultra`, or `gen6n_ultra`, is recommended.

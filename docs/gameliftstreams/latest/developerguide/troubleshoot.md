@@ -112,9 +112,13 @@ streams on the service.
 If your game runs well on your own machine but experiences performance issues when you stream it on Amazon GameLift Streams, consider the following:
 
 - Your machine might have more powerful hardware than Amazon GameLift Streams. Make sure to test the application on a machine with similar
-  performance to the hardware that Amazon GameLift Streams uses. For gen4n stream classes, this is comparable to a computer with an NVIDIA RTX
-  2060 GPU. For gen5n stream classes, this is comparable to a computer with an NVIDIA RTX 3080 GPU. This verifies that your
-  application's rendering settings are compatible with the GPU and that the performance meets your expectations.
+  performance to the hardware that Amazon GameLift Streams uses:
+  - gen4n: comparable to NVIDIA RTX 2060 GPU
+  - gen5n: comparable to NVIDIA RTX 3080 GPU
+  - gen6n: comparable to NVIDIA RTX 4060 GPU
+    This verifies that your application's rendering settings are
+    compatible with the GPU and that the performance meets your expectations.
+
 - The problem might be due to your network connection or Amazon GameLift Streams's settings. Try the troubleshooting tips in the [Stream connectivity issues](#troubleshoot-stream-connectivity "#troubleshoot-stream-connectivity") section.
 
 If your game is slow even when running locally, you'll need to optimize its performance. The best optimization methods will depend

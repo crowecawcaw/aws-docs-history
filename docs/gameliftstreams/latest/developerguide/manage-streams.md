@@ -57,7 +57,7 @@ At this point, you can also associate additional applications to the stream grou
 
 Represents
 the number of concurrent streams that can be active at a time. You set stream capacity per location in each stream group.
-At each location, there are two types of capacity: always-on capacity and on-demand capacity.
+You configure always-on capacity and maximum capacity. Maximum capacity represents the total streams possible, combining always-on capacity with additional capacity provisioned as needed.
 
 **Stream session**
 

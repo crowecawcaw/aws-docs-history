@@ -88,8 +88,8 @@ streaming over IPv4.
 ###### Warning
 
 A stream group incurs costs when it has allocated streaming capacity, even if that capacity is unused. To avoid unnecessary
-costs, scale your stream groups to your required size. We suggest during development that you scale always-on capacity in your
-stream groups to zero when not in use, or use on-demand capacity. For more information, refer to [Scale stream groups to zero capacity](pricing.md#pricing-pause-stream-groups "pricing.md#pricing-pause-stream-groups").
+costs, scale your stream groups to your required size. We suggest during development that you scale always-on capacity and
+target-idle capacity in your stream groups to zero when not in use. For more information, refer to [Scale stream groups to zero capacity](pricing.md#pricing-pause-stream-groups "pricing.md#pricing-pause-stream-groups").
 
 After you complete the tutorial and no longer need to stream your application, follow these steps to clean up your Amazon GameLift Streams
 resources.

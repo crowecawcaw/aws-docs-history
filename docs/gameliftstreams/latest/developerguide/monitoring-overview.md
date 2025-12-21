@@ -15,3 +15,4 @@ appropriate:
 - _AWS CloudTrail_ captures API calls and related events made by or on behalf of your AWS account and delivers the
   log files to an Amazon Simple Storage Service bucket that you specify. You can identify which users and accounts called AWS, the source IP address from
   which the calls were made, and when the calls occurred. For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+- _Real-time performance stats_ collect application-level and shared system-level performance stats during stream sessions. You can receive these stats in real-time on the client or post-session as a CSV file in exported session files. Using this feature, you can monitor the CPU, memory, GPU, and VRAM utilization of your stream. For more information, see [Real-time performance stats](realtime-performance-stats.md "realtime-performance-stats.md").

@@ -25,7 +25,7 @@ The following association limits apply to applications and stream groups. These 
 
 | Name                                      | Default | Adjustable | Description                                                                                           |
 | ----------------------------------------- | ------- | ---------- | ----------------------------------------------------------------------------------------------------- |
-| Applications in a stream group            | 100     | No         | The maximum number of Amazon GameLift Streams applications that can be associated to a stream group.  |
+| Applications in a stream group            | 250     | No         | The maximum number of Amazon GameLift Streams applications that can be associated to a stream group.  |
 | Stream group associations per application | 100     | No         | The maximum number of stream groups that an Amazon GameLift Streams application can be associated to. |
 
 ## About default applications

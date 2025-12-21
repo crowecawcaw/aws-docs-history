@@ -34,46 +34,88 @@ fixes. For more information, refer to [Stream group lifecycle](#stream-groups-li
 You manage the number of streams you can deliver concurrently to end-users by setting
 the stream group's capacity, or _stream capacity_.
 Stream capacity represents the number of concurrent stream sessions a stream group can
-support. It is configured at each location. There are two types of capacity: always-on
-capacity and on-demand capacity.
+support. It is configured at each location.
 
 - **Always-on capacity:**
 
-The streaming capacity that is pre-allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not.
-Best for quickest time from streaming request to streaming session.
+This setting, if non-zero, indicates minimum streaming capacity which is allocated to you
+and is never released back to the service. You pay for this base level of capacity at all times,
+whether used or idle.
 
-- **On-demand capacity:**
+- **Maximum capacity:**
+  This indicates the maximum capacity that the service can allocate for you. Newly created
+  streams may take a few minutes to start. Capacity is released back to the service when
+  idle. You pay for capacity that is allocated to you until it is released.
+- **Target-idle capacity:**
+  This indicates idle capacity which the service pre-allocates and hold for you in
+  anticipation of future activity. This helps to insulate your users from capacity-allocation
+  delays. You pay for capacity which is held in this intentional idle state.
 
-The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated.
-This offers a cost control measure at the expense of a greater stream start time (typically under 5 minutes).
-
-If you have a stream group with an always-on capacity set to 100 at a location, this
+If you have a stream group with an maximum capacity set to 100 at a location, this
 means the stream group has enough resources to stream to 100 end-users concurrently at
 that location. You can increase or decrease the stream capacity at any time, at each
 location (up to your current quota amount) to meet changes in user demand.
 
+Amazon GameLift Streams first tries to fulfill new session requests using idle capacity which is already
+allocated to you. If this causes the amount of idle capacity to drop below your target idle
+capacity, then new capacity is allocated asynchronously. If no idle capacity is available,
+the request is paused while new capacity is allocated on demand, up to the maximum capacity
+for the stream group. If the maximum is reached and there is still no idle capacity available,
+the session request will wait for an existing session to terminate and free capacity.
+
+When sessions terminate, the corresponding capacity is marked as idle. If there is more idle
+capacity than the target idle value, the excess capacity will be deallocated and returned to the
+service after a brief delay. The service will not deallocate idle capacity if that would drop your
+capacity level below the configured minimum (which could be zero).
+
 When specifying the stream capacity in stream groups with multi-tenant stream classes
 (which can stream more than 1 session per compute resource), the capacity must be a
-multiple of the tenancy. For example, the `gen5n_high` stream class has a
+multiple of the tenancy. For example, the `gen6n_high` stream class has a
 multi-tenancy of 2. That means each compute resource that gets allocated in your stream
 group can stream to 2 clients. Therefore, the capacity you request must be in multiples
 of 2.
-
-Amazon GameLift Streams uses always-on capacity first to fulfill stream requests. When always-on
-capacity is fully utilized, it automatically allocates on-demand capacity (if
-configured) to handle additional requests. As stream sessions end, on-demand capacity is
-automatically deallocated to reduce costs. Note that deallocating unused on-demand
-capacity can take a few minutes.
 
 Scaling the capacity reflects in your total cost for the stream group. Ensure that you
 set up billing alerts to manage your Amazon GameLift Streams costs. Refer to [Create billing alerts to monitor usage](pricing.md#pricing-billing-alerts "pricing.md#pricing-billing-alerts").
 
 To change stream group capacity, edit your stream group settings and enter new values
-for always-on and/or on-demand capacity. When you change always-on capacity, Amazon GameLift Streams
+for the capacity settings. When you change always-on capacity, Amazon GameLift Streams
 adjusts allocated resources to match the new value by provisioning new resources or
 shutting down existing ones. Increasing always-on capacity can take more than a few
 minutes if resources aren't immediately available. Decreasing always-on capacity takes a
 few minutes to deprovision allocated resources.
+
+### Example: Stream capacity configurations
+
+The following examples demonstrate common stream capacity configurations for different
+use cases:
+
+1. **Cost-conscious development phase:**
+   You are a developer who wants to save costs. You set
+   `Minimum (always-on) capacity` = 0,
+   `Maximum capacity` = 10, and
+   `Target Idle (pre-warmed) capacity` = 1.
+   This keeps at least one session available for fast start up.
+2. **Planned event with fixed demand:**
+   You want fast session starts for a planned event with known demand. You set
+   `Minimum (always-on) capacity` = 200,
+   `Maximum capacity` = 200, and
+   `Target Idle (pre-warmed) capacity` = 0.
+   You pay only for 200 capacity. No scaling delays happen because demand is
+   known.
+3. **Large-scale event with burst capacity:**
+   You are planning for 1,000 users with 100 new sessions per minute at peak times.
+   You set
+   `Minimum` = 0,
+   `Maximum` = 1,000, and
+   `Target Idle` = 100.
+   This saves money when idle. This keeps at least one session available for fast
+   start up.
+
+###### Note
+
+The `OnDemandCapacity` input parameter is deprecated. Use
+`MaximumCapacity` instead when configuring capacity through the API.
 
 ## Capacity and service quotas
 
@@ -85,34 +127,34 @@ plan your streaming infrastructure and avoid capacity limitations.
 
 More specifically, the GPU service quotas specify the maximum number of GPUs of a
 particular stream class family you can request per location across all stream groups in
-your account. For example, if your account has a limit of 5 `gen5n` GPUs in
-`us-west-2`, the sum of `gen5n` GPUs needed to provide the
+your account. For example, if your account has a limit of 5 `gen6n` GPUs in
+`us-west-2`, the sum of `gen6n` GPUs needed to provide the
 total stream capacity in `us-west-2` for all of your stream groups must be
 less than or equal to 5. This includes GPUs for both always-on and on-demand
 capacity.
 
 When calculating the total stream capacity provided by these GPUs, it's important to
 remember that multi-tenant stream classes support streaming more than one session per
-GPU. Therefore if you're using multi-tenant stream classes in your stream groups, such
-as `gen5n_high`, you will need to take this into account when determining how
+GPU. Therefore, if you're using multi-tenant stream classes in your stream groups, such
+as `gen6n_high`, you will need to take this into account when determining how
 the capacity will count against your quota. Single-tenant stream classes, such as
-`gen5n_ultra` and `gen5n_win2022`, dedicate one GPU per stream
-session.
+`gen6n_ultra` and `gen6n_ultra_win2022`, dedicate one GPU per
+stream session.
 
 ### Example: How quotas affect capacity
 
 The following example demonstrates how service quotas interact with stream
 capacity across multiple stream groups and locations. In this example, assume your
-account has a quota of 10 `gen5n` GPUs per location.
+account has a quota of 10 `gen6n` GPUs per location.
 
 1. **Create a single-tenant stream group:** You
-   create a stream group using the `gen5n_ultra` stream class with 5
+   create a stream group using the `gen6n_ultra` stream class with 5
    total capacity (always-on plus on-demand) in `us-east-2`. Because
    this stream class has 1:1 tenancy (1 stream per GPU), you need 5 GPUs for 5
    total capacity. This leaves you with 5 remaining GPUs in
    `us-east-2`.
 2. **Create a multi-tenant stream group:** You
-   create another stream group using the `gen5n_high` stream class
+   create another stream group using the `gen6n_high` stream class
    with 6 total capacity in `us-east-2`. Because this stream class
    has 1:2 tenancy (2 streams per GPU), you only need 3 GPUs for 6 total
    capacity. This leaves you with 2 remaining GPUs in
@@ -131,7 +173,7 @@ geographic regions while staying within service limits.
 ###### Note
 
 You can view your Applied account level or default quota, including the
-utilization of those quotas, in the Service Quotas console by selecting GameLift Streams
+utilization of those quotas, in the Service Quotas console by selecting the GameLift Streams
 as the AWS service. For more information, see [Amazon GameLift Streams service quotas](quotas.md "quotas.md").
 
 ## About locations
@@ -174,14 +216,21 @@ Console
    type of compute resources to run and stream applications with. This choice impacts the quality of the streaming experience and the cost. You can specify only one stream class per stream group.
    Choose the class that best fits your application.
 
-   | Stream class    | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
-   | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-   | `gen5n_win2022` | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.5, 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA A10G Tensor GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session. |
-   | `gen5n_high`    | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA A10G Tensor GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                              |
-   | `gen5n_ultra`   | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Uses NVIDIA A10G Tensor GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session.                                                                                                                                                                                                      |
-   | `gen4n_win2022` | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.5, 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA T4 Tensor GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.             |
-   | `gen4n_high`    | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA T4 Tensor GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 8 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                                 |
-   | `gen4n_ultra`   | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Uses NVIDIA T4 Tensor GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.                                                                                                                                                                                                                  | To continue, choose **Next**. |
+   | Stream class          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+   | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+   | `gen6n_pro_win2022`   | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12.<br>Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session. |
+   | `gen6n_pro`           | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.                                                                                                                                                                                                      |
+   | `gen6n_ultra_win2022` | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12.<br>Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.                                          |
+   | `gen6n_ultra`         | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.                                                                                                                                                                                                                                               |
+   | `gen6n_high`          | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                                                                   |
+   | `gen6n_medium`        | (NVIDIA, medium) Supports applications with moderate 3D scene complexity.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 6 GB.<br>Tenancy: Supports up to four concurrent stream sessions.                                                                                                                                                                                                                                          |
+   | `gen6n_small`         | (NVIDIA, small) Supports applications with lightweight 3D scene complexity and low CPU usage.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 1. RAM: 4 GB. VRAM: 2 GB.<br>Tenancy: Supports up to twelve concurrent stream sessions.                                                                                                                                                                                                                    |
+   | `gen5n_win2022`       | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session.                             |
+   | `gen5n_high`          | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                                                                 |
+   | `gen5n_ultra`         | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session.                                                                                                                                                                                                                                         |
+   | `gen4n_win2022`       | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.                                         |
+   | `gen4n_high`          | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 8 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                                                                    |
+   | `gen4n_ultra`         | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.                                                                                                                                                                                                                                                     | To continue, choose **Next**. |
 
 5. In **Link application**, choose an application that you want to stream, or select "**No application**" to choose one at a later time.
    You can edit the stream group after it has been created to add or remove applications.
@@ -198,14 +247,20 @@ By default, the region where you create the stream group, known as the _primary 
 You can add additional locations by checking the box next to each location that you want to add. For lower latency and better quality streaming, you should choose locations closer to your users.
 
 For each location, you can specify its _streaming capacity_. Stream capacity represents the number of concurrent streams that can be active at a time.
-You set stream capacity per location in each stream group. At each location, there are two types of capacity: always-on capacity and on-demand capacity.
+You set stream capacity per location in each stream group.
 
     * **Always-on capacity:**
-     The streaming capacity that is pre-allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not.
-     Best for quickest time from streaming request to streaming session.
-    * **On-demand capacity:**
-     The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated.
-     This offers a cost control measure at the expense of a greater stream start time (typically under 5 minutes).
+     This setting, if non-zero, indicates minimum streaming capacity which is allocated to you
+     and is never released back to the service. You pay for this base level of capacity at all times,
+     whether used or idle.
+    * **Maximum capacity:**
+     This indicates the maximum capacity that the service can allocate for you. Newly created
+     streams may take a few minutes to start. Capacity is released back to the service when
+     idle. You pay for capacity that is allocated to you until it is released.
+    * **Target-idle capacity:**
+     This indicates idle capacity which the service pre-allocates and hold for you in
+     anticipation of future activity. This helps to insulate your users from capacity-allocation
+     delays. You pay for capacity which is held in this intentional idle state.
 
 You can increase or decrease your total stream capacity at any time to meet changes in user demand for a location by adjusting
 either capacity. Amazon GameLift Streams fulfills streaming requests using the idle, pre-allocated resources in the always-on capacity pool if any are
@@ -236,7 +291,7 @@ aws gameliftstreams create-stream-group \
     --description "`Test_gen4_high`" \
     --default-application-identifier `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` \
     --stream-class `gen4n_high` \
-    --location-configurations '[{"LocationName": "`us-east-1`", "AlwaysOnCapacity": `2`, "OnDemandCapacity": `4`}]'
+    --location-configurations '[{"LocationName": "`us-east-1`", "AlwaysOnCapacity": `2`, "MaximumCapacity": `6`, "TargetIdleCapacity": `1`}]'
 ```
 
 where
@@ -263,14 +318,21 @@ type of compute resources to run and stream applications with. This choice impac
 Choose the class that best
 fits your application.
 
-| Stream class    | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gen5n_win2022` | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.5, 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA A10G Tensor GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session. |
-| `gen5n_high`    | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA A10G Tensor GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                              |
-| `gen5n_ultra`   | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Uses NVIDIA A10G Tensor GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session.                                                                                                                                                                                                      |
-| `gen4n_win2022` | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.5, 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA T4 Tensor GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.             |
-| `gen4n_high`    | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA T4 Tensor GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 8 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                                 |
-| `gen4n_ultra`   | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Uses NVIDIA T4 Tensor GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.                                                                                                                                                                                                                  |
+| Stream class          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `gen6n_pro_win2022`   | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12.<br>Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session. |
+| `gen6n_pro`           | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.                                                                                                                                                                                                      |
+| `gen6n_ultra_win2022` | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12.<br>Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.                                          |
+| `gen6n_ultra`         | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.                                                                                                                                                                                                                                               |
+| `gen6n_high`          | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                                                                   |
+| `gen6n_medium`        | (NVIDIA, medium) Supports applications with moderate 3D scene complexity.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 6 GB.<br>Tenancy: Supports up to four concurrent stream sessions.                                                                                                                                                                                                                                          |
+| `gen6n_small`         | (NVIDIA, small) Supports applications with lightweight 3D scene complexity and low CPU usage.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 1. RAM: 4 GB. VRAM: 2 GB.<br>Tenancy: Supports up to twelve concurrent stream sessions.                                                                                                                                                                                                                    |
+| `gen5n_win2022`       | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session.                             |
+| `gen5n_ultra`         | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session.                                                                                                                                                                                                                                         |
+| `gen5n_high`          | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                                                                 |
+| `gen4n_win2022`       | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.                                         |
+| `gen4n_ultra`         | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.                                                                                                                                                                                                                                                     |
+| `gen4n_high`          | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 8 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                                                                                                                                                                                                                    |
 
 `location-configurations`
 
@@ -377,11 +439,10 @@ Console
    group you want to edit.
 3. In the stream group detail page, choose **Edit
    configuration**.
-4. For each location, enter new always-on and on-demand stream
-   capacity values in the relevant cells in the table. You can request
-   an increase or decrease in capacity. Values for capacity must be
-   whole number multiples of the tenancy value of the stream group's
-   stream class.
+4. For each location, enter new always-on capacity, maximum capacity,
+   and target-idle capacity values in the relevant cells in the table.
+   Values for capacity must be whole number multiples of the tenancy
+   value of the stream group's stream class.
 
 If you set the always-on capacity value to zero, the stream group
 won't allocate any hosts to stream.
@@ -399,8 +460,8 @@ In your AWS CLI use the [UpdateStreamGroup](../apireference/API_UpdateStreamGrou
 ```
 aws gameliftstreams update-stream-group \
     --identifier `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4` \
-    --location-configurations '[{"LocationName": "`us-east-1`", "AlwaysOnCapacity": `4`}, \
-        {"LocationName": "`ap-northeast-1`", "AlwaysOnCapacity": `0`, "OnDemandCapacity": `2`}]'
+    --location-configurations '[{"LocationName": "`us-east-1`", "AlwaysOnCapacity": `4`, "MaximumCapacity": `8`}, \
+        {"LocationName": "`ap-northeast-1`", "AlwaysOnCapacity": `0`, "MaximumCapacity": `2`, "TargetIdleCapacity": `1`}]'
 ```
 
 where
@@ -474,7 +535,7 @@ In your AWS CLI use the [AddStreamGroupLocations](../apireference/API_AddStreamG
 ```
 aws gameliftstreams add-stream-group-locations \
     --identifier `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4`
-    --location-configurations '[{"LocationName": "`us-east-1`", "AlwaysOnCapacity": `2`, "OnDemandCapacity": `2`}]'
+    --location-configurations '[{"LocationName": "`us-east-1`", "AlwaysOnCapacity": `2`, "MaximumCapacity": `4`, "TargetIdleCapacity": `1`}]'
 ```
 
 where

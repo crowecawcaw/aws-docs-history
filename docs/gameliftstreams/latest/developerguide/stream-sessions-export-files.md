@@ -1,8 +1,6 @@
 # Export stream session files
 
-During a stream session, your application generates output files, which can help you debug or verify your application. The files can be
-logs, diagnostic information, crash dumps, save files, user data, screenshots, and so on. The files can be defined by the engine or frameworks
-that your application uses, or information that you've programmed your application to output.
+During a stream session, your application can generate output files that help you debug or verify your application, such as logs, diagnostic information, crash dumps, save files, user data, and screenshots. The export stream session files feature collects files that are created or modified during a session and exports them as a compressed ZIP file to a provided Amazon S3 location. The feature also collects performance stats for the session every second, which are included in the export ZIP file.
 
 ###### Warning
 
@@ -34,6 +32,7 @@ archive.
 - `profile/`: The user's profile folder contains the user's personal settings, configurations, and data.
 - `temp/`: The system's temp folder contains temporary files and data that your application and the system creates.
   This can include cache files, log files, or intermediate processing data.
+- `stats/`: Contains `perf_stats_v1.csv`, which holds performance stats for the session collected per-second. This includes application-level stats (CPU and memory utilization) and system-level stats (CPU, memory, GPU, and VRAM utilization). For a detailed description of each stat included in the CSV file, see [Performance stats reference](realtime-performance-stats.md#realtime-performance-stats-csv "realtime-performance-stats.md#realtime-performance-stats-csv")
 
 To delete the files, delete the object in the Amazon S3 bucket.
 
