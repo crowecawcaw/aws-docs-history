@@ -33,6 +33,5 @@ since that date.
     + The **Last updated date** column appears empty
      for newly created tag keys that haven't been activated.
     + The **Last used month** column shows
-     **Before April 2023** for tag keys that were
-     used before April 2023 and that aren't currently associated with any
+     **-** for tag keys that aren't currently associated with any
      resource.

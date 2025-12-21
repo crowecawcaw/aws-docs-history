@@ -13,13 +13,11 @@ greenhouse gases in a single, comparable unit.
 
 Carbon emissions data is available for the previous 38 months. This is to allow a simple
 process for annual comparisons for the past three years. New data is usually published
-monthly between the 15th - 25th, with a delay of three months as AWS gathers and
-processes the data required to provide your carbon emissions estimates. The Customer Carbon Footprint Tool shows
-your carbon footprint at the 0.001 MTCO2e (1 kgCO2e) resolution. If your emissions are
-lower than 0.0005 MTCO2e (0.5 kgMTCO2e) in the reporting month, it will appear as
+between the 15th - 21st of the month after the usage occurs. The Customer Carbon Footprint Tool shows your
+carbon footprint at the 0.001 MTCO2e (1 kgCO2e) resolution. If your emissions are lower
+than 0.0005 MTCO2e (0.5 kgMTCO2e) in the reporting month, it will appear as
 `0`. To see your carbon footprint at the 0.000001 MTCO2e (1 gram)
-resolution, see [Data
-Exports](../../../cur/latest/userguide/what-is-data-exports.md "../../../cur/latest/userguide/what-is-data-exports.md").
+resolution, see [Data Exports](../../../cur/latest/userguide/what-is-data-exports.md "../../../cur/latest/userguide/what-is-data-exports.md").
 
 To calculate your energy usage using the CCFT location-based emissions data, see [Calculating your energy usage](ccft-energy.md "ccft-energy.md").
 

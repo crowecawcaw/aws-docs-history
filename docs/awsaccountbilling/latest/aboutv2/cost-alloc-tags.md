@@ -63,6 +63,8 @@ All tags can take up to 24 hours to appear in the Billing and Cost Management co
 
 - [Using AWS-generated tags](aws-tags.md "aws-tags.md")
 - [Using user-defined cost allocation tags](custom-tags.md "custom-tags.md")
+- [Using User Attributes for Cost Allocation](user-attributes-cost-allocation.md "user-attributes-cost-allocation.md")
+- [Using Account Tags for Cost Allocation](account-tags-cost-allocation.md "account-tags-cost-allocation.md")
 - [Backfill cost allocation tags](cost-allocation-backfill.md "cost-allocation-backfill.md")
 - [Using the monthly cost allocation report](configurecostallocreport.md "configurecostallocreport.md")
 - [Understanding dates for cost allocation

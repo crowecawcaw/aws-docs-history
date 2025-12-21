@@ -17,7 +17,7 @@ When signed in as the management account transferring its bills (bill source acc
 
 ## Getting started with the Customer Carbon Footprint Tool (CCFT)
 
-The Customer Carbon Footprint Tool is available for all accounts. Your data is updated monthly with a delay of three months while AWS processes the data required to calculate your carbon emission estimates.
+The Customer Carbon Footprint Tool is available for all accounts. Your data is updated monthly.
 
 ###### Note
 

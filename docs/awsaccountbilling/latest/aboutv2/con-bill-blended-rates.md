@@ -225,7 +225,7 @@ rates for the following services.
   Standard Storage](#Blended_S3_Stand_Storage "#Blended_S3_Stand_Storage")
 - [Calculating Blended Rates for Amazon EC2](#blended-rate-example "#blended-rate-example")
 
-#### Calculating Blended Rates for Amazon S3
+### Calculating Blended Rates for Amazon S3
 
 Standard Storage
 
@@ -247,7 +247,7 @@ accounts using the following logic:
    of storage priced at the blended rate of $0.070737 (or 14 TB priced at
    $70.737) for a blended cost of $990.318.
 
-#### Calculating Blended Rates for Amazon EC2
+### Calculating Blended Rates for Amazon EC2
 
 The consolidated billing logic aggregates
 Amazon EC2 costs to the management account and then allocates it to the member accounts

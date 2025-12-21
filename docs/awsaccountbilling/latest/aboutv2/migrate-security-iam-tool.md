@@ -102,7 +102,7 @@ action.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -120,7 +120,7 @@ After you copy the updated policy, the following example has the new
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",

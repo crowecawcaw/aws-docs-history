@@ -44,7 +44,8 @@ Billing features. To grant access, the AWS account root user can use the
 
 If you use AWS Organizations, activate this setting in each
 management or member account where you want to allow IAM user and role access to
-the Billing and Cost Management console. For more information, see [Activating IAM access to
+the Billing and Cost Management console. For created member accounts this option will be enabled by default.
+For more information, see [Activating IAM access to
 the AWS Billing and Cost Management console](billing-getting-started.md#activating-iam-access-to-billing-console "billing-getting-started.md#activating-iam-access-to-billing-console").
 
 On the Billing console, the **Activate IAM Access** setting

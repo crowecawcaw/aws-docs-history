@@ -10,6 +10,10 @@ The methodology adopted in the Customer Carbon Footprint Tool is based on the da
   The Customer Carbon Footprint Tool methodology uses elements from these standards to define our [system boundaries](ccft-overview-boundaries.md "ccft-overview-boundaries.md"), [input data](ccft-overview-input.md "ccft-overview-input.md"), and [allocation approach](ccft-overview-allocation.md "ccft-overview-allocation.md") and is updated over time based on evolving data, climate science, and more. To see the full methodology document for the current version of the methodology and the third-party verification letter see [Reports](https://sustainability.aboutamazon.com/reporting "https://sustainability.aboutamazon.com/reporting") on the
   _Amazon Sustainability_ page. When AWS releases a new version of the methodology, historical data is recalculated using the updated version to ensure accurate comparisons over time.
 
+###### Note
+
+Scope 2 and Scope 3 FERA market-based emissions (MBM) are estimates based on projected purchases of Energy Attribute Certificates (EACs), and are subject to change. To mitigate, AWS will recalculate previous year’s emissions using the actual EAC purchases in H1 of the following year. For example, 2025 data will be republished by June 2026 using the latest and greatest inputs.
+
 ## Regions, usage, and billing data factors
 
 Electricity grids in different parts of the world use various sources of power. Some use
