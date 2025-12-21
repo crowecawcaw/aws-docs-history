@@ -26,9 +26,75 @@ releases, see [Babelfish for Aurora PostgreSQL reference](../AuroraUserGuide/USE
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 5.4](#AuroraBabelfish.Updates.54X "#AuroraBabelfish.Updates.54X")
 - [Babelfish for Aurora PostgreSQL 5.3](#AuroraBabelfish.Updates.53X "#AuroraBabelfish.Updates.53X")
 - [Babelfish for Aurora PostgreSQL 5.2](#AuroraBabelfish.Updates.52X "#AuroraBabelfish.Updates.52X")
 - [Babelfish for Aurora PostgreSQL 5.1](#AuroraBabelfish.Updates.51X "#AuroraBabelfish.Updates.51X")
+
+### Babelfish for Aurora PostgreSQL 5.4
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.7. For more
+information about the improvements in Aurora PostgreSQL 17.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+5.4 adds several new features, enhancements, and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 5.4.0, December, 18, 2025
+
+**New Features**
+
+- Enabled support of SELECT TOP N PERCENT clause with few [limitations](../AuroraUserGuide/babelfish-compatibility.tsql.md "../AuroraUserGuide/babelfish-compatibility.tsql.md").
+- Enabled support for Linestring instances for [geography/geometry datatypes](../AuroraUserGuide/babelfish-geospatial.md "../AuroraUserGuide/babelfish-geospatial.md").
+- Enabled support for system procedures sp_xml_preparedocument, sp_xml_removedocument and [OPENXML](../AuroraUserGuide/babelfish-xml-datatype-methods.md "../AuroraUserGuide/babelfish-xml-datatype-methods.md").
+- Enabled support for XML method .VALUE() for XML Data Types.
+- Enabled support for ownership chaining for object references inside views and stored procedures/functions. Permission checking on underlying objects is determined by either the user's direct permissions or through ownership chaining.
+- Enabled support of sys.time_zone_info view
+- Enabled support for Values clause and subquery columns in SELECT list in FOR JSON AUTO functionality
+
+**Critical enhancements**
+
+- Fixed STPointFromText() and Point() to throw error on NULL arguments.
+- Fixed issues with Geometry/Geography to (var)char and (var)binary conversions.
+- Fixed function definition of STPointFromText(), STPointFromText(), STAsText() and STAsBinary().
+- Fixed bytea to Geometry/Geography conversion for Point instance.
+- ASCII function returns incorrect results with argument type as Binary and Varbinary.
+- Active snapshots when system catalogs are being updated while ResetTempTableNamespace in TDS.
+- Fixed crashes and intermittent errors caused by memory corruption when a parameter is assigned to itself.
+
+**High Priority stability enhancements**
+
+- Fixed an issue where user can not be dropped when permissions have been granted to that user.
+- Added support for the planner to choose index scan for queries having predicates comparing numeric and money/smallmoney data types.
+- Fixed precision/scale for Round() function.
+- Fixed an issue where rollback to savepoint in some cases failed to send the correct transaction state token to the client, causing subsequent operations in the transaction to fail.
+- Fixed an issue where errors in pg_cron job was leading to server reboot.
+
+**Additional improvements and enhancements**
+
+- Fixed an issue to allow concurrent UPDATE operations with OUTPUT clauses.
+- Fixed an issue which resets the escape hatch settings to default with the first temp table creation.
+- Fixed Datetime and Varbinary to Binary CAST functions.
+- Fixed an issue to match CONVERT and CAST function return values for Binary type.
+- Fixed INSERT INTO table DEFAULT VALUES for domain types, by setting appropriate function return type.
+- Fixed an issue where running multi-Statement table valued function throws syntax error if the database name contains a symbol for an operator.
+- Fixed REVOKE permission execution to correctly handle overlapping schema-level and object-level grants.
+- Enabled support for the NULL/NOT NULL syntax in ALTER TABLE ALTER COLUMN statements.
+- Add identifier delimiters to handle special characters in login and role names.
+- Fixed indexes that were created on top of T-SQL temporary tables to correctly follow transaction semantics.
+- Fixed various mathematical functions for Money and smallmoney datatype.
+- Fixed an issue to persist column level permissions when modifying views using ALTER VIEW.
+- Enabled support to allow alter on functions with dependent weak schemabinding views.
+- Fixed issue with Geometry/Geography static methods when using delimited identifiers for data types.
+- Fixed return type of SQRT() function to float.
+- Fixed issues with assignment of multibyte characters to local variable of type nchar/nvarchar.
+- Added empty string handling in ISNUMERIC(), to ensure compatibility with T-SQL behavior.
+- Fixed DATALENGTH() to return correct byte length value for various datatypes and their UDTs.
+- Fixed DATETIME to VARBINARY CAST function.
+- Fixed precision/scale in SELECT INTO while using with GROUP BY clause.
+- Fixed an issue of protocol error in TDS stream due to Numeric/Decimal overflow.
+- Fixed issues with CTE logic and missing intermediate levels in the output of FOR JSON AUTO clause.
+- Fixed an issue related to LIKE operator where ESCAPE character does not work as expected when ESCAPE character comes after wildcard in pattern.
+- Fixed an issue which occurs when parameter of type binary(8) passed from .NET driver.
 
 ### Babelfish for Aurora PostgreSQL 5.3
 
@@ -46,7 +112,6 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Added support for Z-M flags for Point Instances and Z, M, HasZ and HasM functions for [GEOMETRY and GEOGRAPHY datatypes](../AuroraUserGuide/babelfish-geospatial.md "../AuroraUserGuide/babelfish-geospatial.md") .
 - Added support for sp_helplogins stored procedure.
 - Enabled Support for weak binding views with few limitations.
-- Babelfish now support dynamic data masking feature using pg_columnmask extension. Users needs to create masking policies on their T-SQL objects by using the PostgreSQL endpoint. Subsequently data will be masked on TSQL and PostgreSQL endpoints. For details refer [Dynamic Data Masking](../AuroraUserGuide/AuroraPostgreSQL.Security.md "../AuroraUserGuide/AuroraPostgreSQL.Security.md");.
 
 **Critical enhancements**
 
@@ -335,6 +400,7 @@ For more information about relevant permission management and access control set
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 4.8](#AuroraBabelfish.Updates.48X "#AuroraBabelfish.Updates.48X")
 - [Babelfish for Aurora PostgreSQL 4.7](#AuroraBabelfish.Updates.47X "#AuroraBabelfish.Updates.47X")
 - [Babelfish for Aurora PostgreSQL 4.6](#AuroraBabelfish.Updates.46X "#AuroraBabelfish.Updates.46X")
 - [Babelfish for Aurora PostgreSQL 4.5](#AuroraBabelfish.Updates.45X "#AuroraBabelfish.Updates.45X")
@@ -343,6 +409,68 @@ For more information about relevant permission management and access control set
 - [Babelfish for Aurora PostgreSQL 4.2](#AuroraBabelfish.Updates.42X "#AuroraBabelfish.Updates.42X")
 - [Babelfish for Aurora PostgreSQL 4.1](#AuroraBabelfish.Updates.41X "#AuroraBabelfish.Updates.41X")
 - [Babelfish for Aurora PostgreSQL 4.0](#AuroraBabelfish.Updates.40X "#AuroraBabelfish.Updates.40X")
+
+### Babelfish for Aurora PostgreSQL 4.8
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.11. For more
+information about the improvements in Aurora PostgreSQL 16.11, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+4.8 adds several new features, enhancements, and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 4.8.0, December 18, 2025
+
+**New Features**
+
+- Enabled support of SELECT TOP N PERCENT clause with few [limitations](../AuroraUserGuide/babelfish-compatibility.tsql.md "../AuroraUserGuide/babelfish-compatibility.tsql.md").
+- Enabled support of sys.time_zone_info view.
+- Enabled support for Values clause and subquery columns in SELECT list in FOR JSON AUTO functionality.
+
+**Critical enhancements**
+
+- Fixed STPointFromText() and Point() to throw error on NULL arguments.
+- Fixed issues with Geometry/Geography to (var)char and (var)binary conversions.
+- Fixed function definition of STPointFromText(), STPointFromText(), STAsText() and STAsBinary().
+- Fixed bytea to Geometry/Geography conversion for Point instance.
+- Fixed handling of STPointFromText, STGeomFromText, STLineFromText for incorrect binary input.
+- ASCII function returns incorrect results with argument type as Binary and Varbinary.
+- Active snapshots when system catalogs are being updated while ResetTempTableNamespace in TDS.
+- Fixed crashes and intermittent errors caused by memory corruption when a parameter is assigned to itself.
+
+**High Priority stability enhancements**
+
+- Fixed an issue where user can not be dropped when permissions have been granted to that user.
+- Added support for the planner to choose index scan for queries having predicates comparing numeric and money/smallmoney data types.
+- Fixed precision/scale for Round() function.
+- Fixed an issue where rollback to savepoint in some cases failed to send the correct transaction state token to the client, causing subsequent operations in the transaction to fail.
+- Fixed an issue where errors in pg_cron job was leading to server reboot.
+
+**Additional improvements and enhancements**
+
+- Fixed an issue to allow concurrent UPDATE operations with OUTPUT clauses.
+- Fixed an issue which resets the escape hatch settings to default with the first temp table creation.
+- Fixed Datetime and Varbinary to Binary CAST functions.
+- Fixed an issue to match CONVERT and CAST function return values for Binary type.
+- Fixed INSERT INTO table DEFAULT VALUES for domain types, by setting appropriate function return type.
+- Fixed an issue where running multi-Statement table valued function throws syntax error if the database name contains a symbol for an operator.
+- Fixed REVOKE permission execution to correctly handle overlapping schema-level and object-level grants.
+- Enabled support for the NULL/NOT NULL syntax in ALTER TABLE ALTER COLUMN statements.
+- Add identifier delimiters to handle special characters in login and role names.
+- Fixed indexes that were created on top of T-SQL temporary tables to correctly follow transaction semantics.
+- Fixed various mathematical functions for Money and smallmoney datatype.
+- Fixed an issue to persist column level permissions when modifying views using ALTER VIEW.
+- Enabled support to allow alter on functions with dependent weak schemabinding views.
+- Fixed issue with Geometry/Geography static methods when using delimited identifiers for data types.
+- Fixed return type of SQRT() function to float.
+- Fixed issues with assignment of multibyte characters to local variable of type nchar/nvarchar.
+- Added empty string handling in ISNUMERIC(), to ensure compatibility with T-SQL behavior.
+- Fixed DATALENGTH() to return correct byte length value for various datatypes and their UDTs.
+- Fixed DATETIME to VARBINARY CAST function.
+- Fixed precision/scale in SELECT INTO while using with GROUP BY clause.
+- Fixed an issue of protocol error in TDS stream due to Numeric/Decimal overflow.
+- Fixed issues with CTE logic and missing intermediate levels in the output of FOR JSON AUTO clause.
+- Fixed an issue related to LIKE operator where ESCAPE character does not work as expected when ESCAPE character comes after wildcard in pattern.
+- Fixed an issue which occurs when parameter of type binary(8) passed from .NET driver.
 
 ### Babelfish for Aurora PostgreSQL 4.7
 
@@ -363,7 +491,6 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Added support for Z-M flags for Point Instances and Z, M, HasZ and HasM functions for [GEOMETRY and GEOGRAPHY datatypes.](../AuroraUserGuide/babelfish-geospatial.md "../AuroraUserGuide/babelfish-geospatial.md")
 - Added support for sp_helplogins stored procedure.
 - Enabled Support for weak binding views with few limitations.
-- Babelfish now support dynamic data masking feature using pg_columnmask extension. Users needs to create masking policies on their T-SQL objects by using the PostgreSQL endpoint. Subsequently data will be masked on TSQL and PostgreSQL endpoints. For details refer [Dynamic Data Masking](../AuroraUserGuide/AuroraPostgreSQL.Security.md "../AuroraUserGuide/AuroraPostgreSQL.Security.md").
 
 **Critical enhancements**
 
@@ -1210,6 +1337,7 @@ January 31, 2024
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 3.12](#AuroraBabelfish.Updates.312X "#AuroraBabelfish.Updates.312X")
 - [Babelfish for Aurora PostgreSQL 3.11](#AuroraBabelfish.Updates.311 "#AuroraBabelfish.Updates.311")
 - [Babelfish for Aurora PostgreSQL 3.10](#AuroraBabelfish.Updates.310 "#AuroraBabelfish.Updates.310")
 - [Babelfish for Aurora PostgreSQL 3.9](#AuroraBabelfish.Updates.39X "#AuroraBabelfish.Updates.39X")
@@ -1221,6 +1349,29 @@ January 31, 2024
 - [Babelfish for Aurora PostgreSQL 3.3](#AuroraBabelfish.Updates.33X "#AuroraBabelfish.Updates.33X")
 - [Babelfish for Aurora PostgreSQL 3.2](#AuroraBabelfish.Updates.32X "#AuroraBabelfish.Updates.32X")
 - [Babelfish for Aurora PostgreSQL 3.1 (Deprecated)](#AuroraBabelfish.Updates.31X "#AuroraBabelfish.Updates.31X")
+
+### Babelfish for Aurora PostgreSQL 3.12
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.15. For more
+information about the improvements in Aurora PostgreSQL 15.15, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+3.12 adds several enhancements and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 3.12.0, December 18, 2025
+
+**Critical enhancements**
+
+- Active snapshots when system catalogs are being updated while ResetTempTableNamespace in TDS.
+
+**High Priority stability enhancements**
+
+- Added support for the planner to choose index scan for queries having predicates comparing numeric and money/smallmoney data types.
+- Fixed an issue where rollback to savepoint in some cases failed to send the correct transaction state token to the client, causing subsequent operations in the transaction to fail.
+
+**Additional improvements and enhancements**
+
+- Fixed an issue to allow concurrent UPDATE operations with OUTPUT clauses.
 
 ### Babelfish for Aurora PostgreSQL 3.11
 

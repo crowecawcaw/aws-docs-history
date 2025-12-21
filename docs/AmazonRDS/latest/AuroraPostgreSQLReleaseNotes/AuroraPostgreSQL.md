@@ -27,6 +27,7 @@ Guide_.
 
 ###### Topics
 
+- [PostgreSQL 18.1](#AuroraPostgreSQL.Updates.180X "#AuroraPostgreSQL.Updates.180X")
 - [PostgreSQL 17 versions](#aurorapostgresql-versions-version17 "#aurorapostgresql-versions-version17")
 - [PostgreSQL 16 versions](#aurorapostgresql-versions-version16 "#aurorapostgresql-versions-version16")
 - [PostgreSQL 15 versions (includes some deprecated versions)](#aurorapostgresql-versions-version15 "#aurorapostgresql-versions-version15")
@@ -40,14 +41,166 @@ Guide_.
 - [PostgreSQL 9.6 versions
   (Deprecated)](#AuroraPostgreSQL.versions-version96 "#AuroraPostgreSQL.versions-version96")
 
+## PostgreSQL 18.1
+
+The PostgreSQL community releases new Major versions of PostgreSQL annually. The Amazon RDS Database Preview Environment allows you to test beta, release candidate, and early production versions of Amazon Aurora releases. This allows customers to create DB Clusters on an early release of Aurora PostgreSQL 18 in the Preview environment and test its features.
+
+The following limitations apply to Aurora PostgreSQL Clusters in the Preview environment:
+
+1. All DB instances/clusters are deleted 60 days after you create them, along with any backups and snapshots.
+2. You can't copy a snapshot of a DB instance from Preview to a production environment.
+3. The following options are supported by the Preview.
+   1. You can create DB instances using r6g, r6i, r7g, r7i, r8g, x2g, t3 and t4g instance types only. For more information about RDS Aurora instance classes, see DB instance classes.
+   2. You can use both single-AZ and multi-AZ deployments.
+   3. You can use standard PostgreSQL dump and load functions to export databases from or import databases to the Database Preview Environment.
+
+Some of the Features that are not supported for APG18.1 Preview:
+
+1. Serverless v1/v2
+2. Major Version Upgrades i.e. MVU
+3. No new minors will be released in preview region i.e. APG17.1 will not be released in preview region
+4. RDS PostgreSQL to Aurora PostgreSQL Inbound replication
+5. Amazon RDS Blue/Green deployment
+6. Cross-Region snapshot copy
+7. Global DB
+8. Database Activity Streams (DAS), RDS Proxy and Data Migration Service (DMS)
+9. Auto Scaling Read Replicas
+10.
+11. RDS Export
+12. Performance Insights
+13. Custom Endpoints
+14. Snapshot Copy
+15. zero-ETL
+16. Babelfish
+17. PostGis Topology module is not supported because of a community regression: [https://trac.osgeo.org/postgis/ticket/5983](https://trac.osgeo.org/postgis/ticket/5983 "https://trac.osgeo.org/postgis/ticket/5983")
+
+### Creating a new DB Cluster in the preview environment
+
+Use the following procedure to create a DB Cluster in the preview environment.
+
+###### To create a DB Cluster in the preview environment
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Choose Dashboard from the navigation pane.
+3. In the Dashboard page, locate the Database Preview Environment section on the Dashboard page, as shown in the following image.
+4. You can navigate directly to the Database preview environment. Before you can proceed, you must acknowledge and accept the limitations.
+5. To create the Aurora PostgreSQL DB instance, follow the same process as that for creating any Amazon Aurora PostgreSQL DB Cluster. For more information, see the Console procedure in Creating an Amazon Aurora PostgreSQL DB cluster.
+6. To create an Cluster in the Database Preview Environment using the RDS API or the AWS CLI, use the following endpoint.
+
+`rds-preview.us-east-2.amazonaws.com`
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 18.1 in the Amazon RDS Preview environment](#AuroraPostgreSQL.Updates.181Preview "#AuroraPostgreSQL.Updates.181Preview")
+
+### Aurora PostgreSQL 18.1 in the Amazon RDS Preview environment
+
+**_This is preview documentation for Amazon Aurora PostgreSQL version 18.1. It is subject to change._**
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 18.1. For more information about the improvements in PostgreSQL 18.1, see [PostgreSQL release 18.0](https://www.postgresql.org/docs/18/release-18.html "https://www.postgresql.org/docs/18/release-18.html") and [PostgreSQL release 18.1](https://www.postgresql.org/docs/18/release-18-1.html "https://www.postgresql.org/docs/18/release-18-1.html").
+
+###### Parameter updates
+
+- `track_cost_delay_timing` default is set to on
+- `max_active_replication_origins` default is set to 20
+- `client_connection_check_interval` default is set to 60000
+- `log_connections` was updated to reflect the new PostgreSQL 18 behavior. The old default value of 0 is equivalent to the new default empty value, and the old value of 1 is equivalent to specifying all three values of receipt, authentication, and authorization
+- `autovacuum_worker_slots`, `io_workers`, `io_max_concurrency`
+
+###### Extension updates
+
+- Added new extension pg_roaringbitmap version 0.5.5
+- Updated h3-pg to version 4.2.3
+- Updated PostGIS to version 3.6.0
+- Updated pg_hint_plan to version 1.8.0
+- Updated pg_cron to version 1.6.7
+- Updated hypopg to version 1.4.2
+- Updated MySQL FDW to version REL-2_9_3
+- Updated pglogical to version 2.4.6
+- Updated pgvector to version 0.8.1
+- Updated PLv8 to version 3.2.4
+- Updated TDS FDW to version 2.0.5
+- Updated pg_tle to version 1.5.2
+- Updated PgAudit to version 18.0
+- Updated to PgRouting to version 3.8.0
+
+###### General enhancements
+
+- Reduced commit latency when I/O optimized is enabled
+
+###### Unsupported Features
+
+- Aurora PostgreSQL 18.1 will only support io_method of worker.
+- Aurora PostgreSQL 18.1 does not currently support logical decoding on Aurora Read Replicas.
+- Aurora PostgreSQL 18.1 does not currently support failover control within a Cluster.
+- Aurora PostgreSQL 18.1 does not currently support pg_createsubscriber on Aurora Read Replicas.
+- Aurora PostgreSQL 18.1 does not currently support Aurora PostgreSQL Query Plan Management.
+- Aurora PostgreSQL 18.1 does not currently support in-region write forwarding
+
 ## PostgreSQL 17 versions
 
 ###### Version updates
 
+- [PostgreSQL 17.7](#aurorapostgresql-versions-version177x "#aurorapostgresql-versions-version177x")
 - [PostgreSQL 17.6](#aurorapostgresql-versions-version176x "#aurorapostgresql-versions-version176x")
 - [PostgreSQL 17.5](#aurorapostgresql-versions-version175x "#aurorapostgresql-versions-version175x")
 - [PostgreSQL 17.4](#aurorapostgresql-versions-version174x "#aurorapostgresql-versions-version174x")
 - [PostgreSQL 17.0](#AuroraPostgreSQL.Updates.170X "#AuroraPostgreSQL.Updates.170X")
+
+### PostgreSQL 17.7
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 17.7. For more information about
+the improvements in PostgreSQL 17.7, see [PostgreSQL release
+17.7](https://www.postgresql.org/docs/17/release-17-7.html "https://www.postgresql.org/docs/17/release-17-7.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 17.7, December, 18, 2025](#aurorapostgresql-versions-version177x-177 "#aurorapostgresql-versions-version177x-177")
+
+#### Aurora PostgreSQL 17.7, December, 18, 2025
+
+**New features**
+
+- Introduced a change which improves static availability of Aurora PostgreSQL writers when, in rare conditions, write operations to storage are delayed due to undergoing storage node maintenance.
+- Improvements to minimize switchover downtime during Blue/Green switchover operations, by temporarily blocking transaction commit operations on the Blue environment prior to switchover, reducing drift between the Blue and Green clusters.
+- Improved recovery time by optimizing commit log (clog) loading during database cold starts and unplanned restarts, with significant benefits for smaller instances with limited CPU cores.
+
+**Critical stability enhancements**
+
+- Improved cold start performance through faster cache initialization.
+- Reduced memory footprint for idle connections in Serverless v2 instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+
+- Fixed a database shutdown issue that could cause major version upgrades to fail.
+- Fixed a rare major version upgrade failure with large memory allocations.
+- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - h3_pg to version 4.2.3.
+
+- Fixed NOTIFY channel file cleanup issue that could cause excessive storage usage
+- Fixed a race condition in Postgres lock release with optimized read enabled
+- Improved PgAudit memory usage during parameter-heavy operations.
+- Fixed a database initialization failure when max_connections is set to low values.
+- Improved Serverless v2 scaling performance under high CPU load.
+- Improved Serverless v2 write performance.
+- Fixed delays in Serverless v2 scale-down operations.
+- Fixed multiple low-risk memory leaks.
+- Improved database shutdown during maintenance to enhance availability.
+- Improved database startup performance through optimized storage initialization.
+- Fixed storage metadata initialization issue that could delay engine startup.
+- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
+- Provided configuration in pg_columnmask extension's masking policies to allow predicates on masked columns in queries.
+- Fixed role argument quoting in pg_columnmask policy management procedures.
+- Fixed policy visibility in the pg_columnmask.ddm_policies view for administrators.
+- Fixed a crash condition when using pg_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 17.6
 
@@ -576,6 +729,7 @@ persisted to Aurora storage.
 
 ###### Version updates
 
+- [PostgreSQL 16.11](#aurorapostgresql-versions-version1611x "#aurorapostgresql-versions-version1611x")
 - [PostgreSQL 16.10](#aurorapostgresql-versions-version1610x "#aurorapostgresql-versions-version1610x")
 - [PostgreSQL 16.9](#aurorapostgresql-versions-version169x "#aurorapostgresql-versions-version169x")
 - [PostgreSQL 16.8](#aurorapostgresql-versions-version168x "#aurorapostgresql-versions-version168x")
@@ -584,6 +738,61 @@ persisted to Aurora storage.
 - [PostgreSQL 16.3](#aurorapostgresql-versions-version163x "#aurorapostgresql-versions-version163x")
 - [PostgreSQL 16.2](#AuroraPostgreSQL.Updates.20180305.162X "#AuroraPostgreSQL.Updates.20180305.162X")
 - [PostgreSQL 16.1](#AuroraPostgreSQL.Updates.20180305.161X "#AuroraPostgreSQL.Updates.20180305.161X")
+
+### PostgreSQL 16.11
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 16.11. For more information about
+the improvements in PostgreSQL 16.11, see [PostgreSQL release
+16.11](https://www.postgresql.org/docs/16/release-16-11.html "https://www.postgresql.org/docs/16/release-16-11.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 16.11, December, 18, 2025](#aurorapostgresql-versions-version1611x-1611 "#aurorapostgresql-versions-version1611x-1611")
+
+#### Aurora PostgreSQL 16.11, December, 18, 2025
+
+**New features**
+
+- Introduced a change which improves static availability of Aurora PostgreSQL writers when, in rare conditions, write operations to storage are delayed due to undergoing storage node maintenance.
+- Improvements to minimize switchover downtime during Blue/Green switchover operations, by temporarily blocking transaction commit operations on the Blue environment prior to switchover, reducing drift between the Blue and Green clusters.
+- Improved recovery time by optimizing commit log (clog) loading during database cold starts and unplanned restarts, with significant benefits for smaller instances with limited CPU cores.
+
+**Critical stability enhancements**
+
+- Improved cold start performance through faster cache initialization.
+- Reduced memory footprint for idle connections in Serverless v2 instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+
+- Fixed a database shutdown issue that could cause major version upgrades to fail.
+- Fixed a rare major version upgrade failure with large memory allocations.
+- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - h3_pg to version 4.2.3.
+
+- Fixed NOTIFY channel file cleanup issue that could cause excessive storage usage
+- Fixed a race condition in Postgres lock release with optimized read enabled
+- Improved PgAudit memory usage during parameter-heavy operations.
+- Fixed a database initialization failure when max_connections is set to low values.
+- Improved Serverless v2 scaling performance under high CPU load.
+- Improved Serverless v2 write performance.
+- Fixed delays in Serverless v2 scale-down operations.
+- Fixed multiple low-risk memory leaks.
+- Improved database shutdown during maintenance to enhance availability.
+- Improved database startup performance through optimized storage initialization.
+- Fixed storage metadata initialization issue that could delay engine startup.
+- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
+- Provided configuration in pg_columnmask extension's masking policies to allow predicates on masked columns in queries.
+- Fixed role argument quoting in pg_columnmask policy management procedures.
+- Fixed policy visibility in the pg_columnmask.ddm_policies view for administrators.
+- Fixed a crash condition when using pg_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 16.10
 
@@ -1907,6 +2116,7 @@ For information about extensions and modules, see [Extensions supported for Auro
 
 ###### Version updates
 
+- [PostgreSQL 15.15](#aurorapostgresql-versions-version1515x "#aurorapostgresql-versions-version1515x")
 - [PostgreSQL 15.14](#aurorapostgresql-versions-version1514x "#aurorapostgresql-versions-version1514x")
 - [PostgreSQL 15.13](#aurorapostgresql-versions-version1513x "#aurorapostgresql-versions-version1513x")
 - [PostgreSQL 15.12](#aurorapostgresql-versions-version1512x "#aurorapostgresql-versions-version1512x")
@@ -1918,6 +2128,57 @@ For information about extensions and modules, see [Extensions supported for Auro
 - [PostgreSQL 15.4](#AuroraPostgreSQL.Updates.20180305.154X "#AuroraPostgreSQL.Updates.20180305.154X")
 - [PostgreSQL 15.3](#AuroraPostgreSQL.Updates.20180305.153X "#AuroraPostgreSQL.Updates.20180305.153X")
 - [PostgreSQL 15.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.152X "#AuroraPostgreSQL.Updates.20180305.152X")
+
+### PostgreSQL 15.15
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 15.15. For more information about
+the improvements in PostgreSQL 15.15, see [PostgreSQL release
+15.15](https://www.postgresql.org/docs/15/release-15-15.html "https://www.postgresql.org/docs/15/release-15-15.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 15.15, Decemeber, 18, 2025](#aurorapostgresql-versions-version1515x-1515 "#aurorapostgresql-versions-version1515x-1515")
+
+#### Aurora PostgreSQL 15.15, Decemeber, 18, 2025
+
+**New features**
+
+- Introduced a change which improves static availability of Aurora PostgreSQL writers when, in rare conditions, write operations to storage are delayed due to undergoing storage node maintenance.
+- Improvements to minimize switchover downtime during Blue/Green switchover operations, by temporarily blocking transaction commit operations on the Blue environment prior to switchover, reducing drift between the Blue and Green clusters.
+- Improved recovery time by optimizing commit log (clog) loading during database cold starts and unplanned restarts, with significant benefits for smaller instances with limited CPU cores.
+
+**Critical stability enhancements**
+
+- Improved cold start performance through faster cache initialization.
+- Reduced memory footprint for idle connections in Serverless v2 instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+
+- Fixed a database shutdown issue that could cause major version upgrades to fail.
+- Fixed a rare major version upgrade failure with large memory allocations.
+- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - h3_pg to version 4.2.3.
+
+- Fixed a race condition in Postgres lock release with optimized read enabled.
+- Improved PgAudit memory usage during parameter-heavy operations.
+- Fixed database initialization failure when max_connections is set to low values.
+- Improved Serverless v2 scaling performance under high CPU load.
+- Improved Serverless v2 write performance.
+- Fixed delays in Serverless v2 scale-down operations.
+- Fixed multiple low-risk memory leaks.
+- Improved database shutdown during maintenance to enhance availability.
+- Improved database startup performance through optimized storage initialization.
+- Fixed storage metadata initialization issue that could delay engine startup.
+- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
+- Fixed crash scenario when using pg_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 15.14
 
@@ -3878,6 +4139,7 @@ and prefetching during WAL recovery. In addition, sequences can be specified as 
 
 ###### Version updates
 
+- [PostgreSQL 14.20](#aurorapostgresql-versions-version1420x "#aurorapostgresql-versions-version1420x")
 - [PostgreSQL 14.19](#aurorapostgresql-versions-version1419x "#aurorapostgresql-versions-version1419x")
 - [PostgreSQL 14.18](#aurorapostgresql-versions-version1418x "#aurorapostgresql-versions-version1418x")
 - [PostgreSQL 14.17](#aurorapostgresql-versions-version1417x "#aurorapostgresql-versions-version1417x")
@@ -3893,6 +4155,57 @@ and prefetching during WAL recovery. In addition, sequences can be specified as 
 - [PostgreSQL 14.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.145X "#AuroraPostgreSQL.Updates.20180305.145X")
 - [PostgreSQL 14.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.144X "#AuroraPostgreSQL.Updates.20180305.144X")
 - [PostgreSQL 14.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.143X "#AuroraPostgreSQL.Updates.20180305.143X")
+
+### PostgreSQL 14.20
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 14.20. For more information about
+the improvements in PostgreSQL 14.20, see [PostgreSQL release
+14.20](https://www.postgresql.org/docs/14/release-14-20.html "https://www.postgresql.org/docs/14/release-14-20.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 14.20, December, 18, 2025](#aurorapostgresql-versions-version1420x-1420 "#aurorapostgresql-versions-version1420x-1420")
+
+#### Aurora PostgreSQL 14.20, December, 18, 2025
+
+**New features**
+
+- Introduced a change which improves static availability of Aurora PostgreSQL writers when, in rare conditions, write operations to storage are delayed due to undergoing storage node maintenance.
+- Improvements to minimize switchover downtime during Blue/Green switchover operations, by temporarily blocking transaction commit operations on the Blue environment prior to switchover, reducing drift between the Blue and Green clusters.
+- Improved recovery time by optimizing commit log (clog) loading during database cold starts and unplanned restarts, with significant benefits for smaller instances with limited CPU cores.
+
+**Critical stability enhancements**
+
+- Improved cold start performance through faster cache initialization.
+- Reduced memory footprint for idle connections in Serverless v2 instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+
+- Fixed a database shutdown issue that could cause major version upgrades to fail.
+- Fixed a rare major version upgrade failure with large memory allocations.
+- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - h3_pg to version 4.2.3.
+
+- Fixed a race condition in Postgres lock release with optimized read enabled.
+- Improved PgAudit memory usage during parameter-heavy operations.
+- Fixed database initialization failure when max_connections is set to low values.
+- Improved Serverless v2 scaling performance under high CPU load.
+- Improved Serverless v2 write performance.
+- Fixed delays in Serverless v2 scale-down operations.
+- Fixed multiple low-risk memory leaks.
+- Improved database shutdown during maintenance to enhance availability.
+- Improved database startup performance through optimized storage initialization.
+- Fixed storage metadata initialization issue that could delay engine startup.
+- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
+- Fixed crash scenario when using pg_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 14.19
 
@@ -6530,6 +6843,7 @@ Aurora PostgreSQL 14.3.0, June 21, 2022
 
 ###### Version updates
 
+- [PostgreSQL 13.23](#aurorapostgresql-versions-version1323x "#aurorapostgresql-versions-version1323x")
 - [PostgreSQL 13.22](#aurorapostgresql-versions-version1322x "#aurorapostgresql-versions-version1322x")
 - [PostgreSQL 13.21](#aurorapostgresql-versions-version1321x "#aurorapostgresql-versions-version1321x")
 - [PostgreSQL 13.20](#aurorapostgresql-versions-version1320x "#aurorapostgresql-versions-version1320x")
@@ -6548,6 +6862,57 @@ Aurora PostgreSQL 14.3.0, June 21, 2022
 - [PostgreSQL 13.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.135X "#AuroraPostgreSQL.Updates.20180305.135X")
 - [PostgreSQL 13.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.134X "#AuroraPostgreSQL.Updates.20180305.134X")
 - [PostgreSQL 13.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.133X "#AuroraPostgreSQL.Updates.20180305.133X")
+
+### PostgreSQL 13.23
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 13.23. For more information about
+the improvements in PostgreSQL 13.23, see [PostgreSQL release
+13.23](https://www.postgresql.org/docs/13/release-13-23.html "https://www.postgresql.org/docs/13/release-13-23.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 13.23, December, 18, 2025](#aurorapostgresql-versions-version1323x-1323 "#aurorapostgresql-versions-version1323x-1323")
+
+#### Aurora PostgreSQL 13.23, December, 18, 2025
+
+**New features**
+
+- Introduced a change which improves static availability of Aurora PostgreSQL writers when, in rare conditions, write operations to storage are delayed due to undergoing storage node maintenance.
+- Improvements to minimize switchover downtime during Blue/Green switchover operations, by temporarily blocking transaction commit operations on the Blue environment prior to switchover, reducing drift between the Blue and Green clusters.
+- Improved recovery time by optimizing commit log (clog) loading during database cold starts and unplanned restarts, with significant benefits for smaller instances with limited CPU cores.
+
+**Critical stability enhancements**
+
+- Improved cold start performance through faster cache initialization.
+- Reduced memory footprint for idle connections in Serverless v2 instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
+
+- Fixed a database shutdown issue that could cause major version upgrades to fail.
+- Fixed a rare major version upgrade failure with large memory allocations.
+- Fixed an issue preventing rds_superuser from managing prepared transactions owned by other users.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - h3_pg to version 4.2.3.
+
+- Fixed a race condition in Postgres lock release with optimized read enabled.
+- Improved PgAudit memory usage during parameter-heavy operations.
+- Fixed database initialization failure when max_connections is set to low values.
+- Improved Serverless v2 scaling performance under high CPU load.
+- Improved Serverless v2 write performance.
+- Fixed delays in Serverless v2 scale-down operations.
+- Fixed multiple low-risk memory leaks.
+- Improved database shutdown during maintenance to enhance availability.
+- Improved database startup performance through optimized storage initialization.
+- Fixed storage metadata initialization issue that could delay engine startup.
+- Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
+- Fixed crash scenario when using pg_buffercache extension during Serverless v2 scaling.
 
 ### PostgreSQL 13.22
 

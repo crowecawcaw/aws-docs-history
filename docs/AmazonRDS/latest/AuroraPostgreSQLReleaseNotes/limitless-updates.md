@@ -107,9 +107,20 @@ This version of Aurora PostgreSQL Limitless Database is compatible with PostgreS
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL Limitless Database 16.8.103, October 30, 2025](#16.8.103 "#16.8.103")
 - [Aurora PostgreSQL Limitless Database 16.8.102, October 13, 2025](#16.8.102 "#16.8.102")
 - [Aurora PostgreSQL Limitless Database 16.8.101, June 30, 2025](#16.8.101 "#16.8.101")
 - [Aurora PostgreSQL Limitless Database 16.8.100, May 8, 2025](#16.8.100 "#16.8.100")
+
+### Aurora PostgreSQL Limitless Database 16.8.103, October 30, 2025
+
+**Bug fixes**
+
+- Fixed an issue with privilege grants which failed with `invalid role OID: 0` when all privileges are `GRANT`ed to public.
+- Fixed an issue with `SELECT` queries with type casts which failed with `cannot cast type cstring to text[]`.
+- Fixed an issue with `CREATE DATABASE` which failed with `connection_limit requires an integer value` when also setting `connection_limit`.
+- Fixed incorrect result when selecting `tableoid` system column. The `tableoid` is the OID of the table, which is a distinct identification given to the database object by a given system. If the query is eligible for Single Shard Optimization, the `tableoid` will be obtained from the Shard. Otherwise, the `tableoid` will be obtained from the connected router. Different routers may result in different `tableoid` for the same query.
+- Fixed one edge case in resolving prepared transaction.
 
 ### Aurora PostgreSQL Limitless Database 16.8.102, October 13, 2025
 
