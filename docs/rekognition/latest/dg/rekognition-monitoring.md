@@ -98,7 +98,7 @@ changes state. An alarm watches a single metric over a time period you specify, 
 performs one or more actions based on the value of the metric relative to a given
 threshold over a number of time periods. The action is a notification sent to an
 Amazon SNS topic or an
-Amazon EC2 Auto Scaling
+Auto Scaling
 policy.
 
 Alarms invoke actions for sustained state changes only. CloudWatch alarms do not invoke
