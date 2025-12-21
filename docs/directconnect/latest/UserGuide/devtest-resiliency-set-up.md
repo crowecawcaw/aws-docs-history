@@ -17,7 +17,7 @@ In this example, the Direct Connect Resiliency Toolkit is used to configure a de
 
 To use Direct Connect, you need an AWS account if you don't already have one.
 
-#### Sign up for an AWS account
+### Sign up for an AWS account
 
 If you do not have an AWS account, complete the following steps to create one.
 
@@ -37,7 +37,7 @@ complete. At any time, you can view your current account activity and manage you
 going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
 Account**.
 
-#### Create a user with administrative access
+### Create a user with administrative access
 
 After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you
 don't use the root user for everyday tasks.
