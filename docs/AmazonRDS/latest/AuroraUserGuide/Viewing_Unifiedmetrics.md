@@ -1,6 +1,4 @@
-# Choosing the
-
-preconfigured dashboard with Performance Insights
+# Viewing combined metrics with the Performance Insights dashboard
 
 ###### Important
 
@@ -21,24 +19,27 @@ With CloudWatch Database Insights, you can monitor database load for your fleet 
 For more information about Database Insights, see [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-You can view the most commonly used metrics with the preconfigured dashboard. This
-dashboard helps diagnose performance issues with a database engine and reduce the
-average recovery time from hours to minutes.
+Amazon RDS provides a consolidated view of Performance Insights and CloudWatch metrics for your DB instance in the
+Performance Insights dashboard. You can use the preconfigured dashboard or create a custom dashboard. The
+preconfigured dashboard provides the most commonly used metrics to help diagnose performance
+issues for a database engine. Alternatively, you can create a custom dashboard with the
+metrics for a database engine that meet your analysis requirements. Then, use this dashboard
+for all the DB instances of that database engine type in your AWS account.
 
-###### Note
+You can choose the monitoring view in the **Monitoring** tab or
+**Performance Insights** in the navigation pane.
 
-This dashboard can't be edited.
+Performance Insights must be turned on for your DB cluster to view the combined metrics in the Performance Insights dashboard.
+For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
-###### To choose the preconfigured dashboard with Performance Insights in the navigation pane
+In the following sections, you can learn to display Performance Insights and CloudWatch metrics.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance.
-4. Scroll down to the **Metrics tab** in the window
-5. Select a preconfigured dashboard from the drop down list.
+###### Topics
 
-You can view the metrics for the DB instance in the dashboard. The following example
-shows a preconfigured metrics dashboard.
-
-![Preconfigured metrics dashboard.](images/Monitoring_preconfigDashboard.png)
+- [Choosing the new monitoring view from the Monitoring tab](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
+- [Choosing the new monitoring
+  view from the Performance Insights page](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
+- [Creating a custom
+  dashboard with Performance Insights](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
+- [Choosing the
+  preconfigured dashboard with Performance Insights](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")

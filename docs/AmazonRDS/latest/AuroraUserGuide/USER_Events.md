@@ -1,47 +1,47 @@
-# Modifying an Amazon RDS event notification subscription
+# Granting permissions to publish notifications to an Amazon SNS topic
 
-After you have created a subscription, you can change the subscription name, source identifier, categories, or
-topic ARN.
+To grant Amazon RDS permissions to publish notifications to an Amazon Simple Notification Service (Amazon SNS) topic, attach
+an AWS Identity and Access Management (IAM) policy to the destination topic. For more information about
+permissions, see [Example cases for Amazon Simple Notification Service access
+control](../../../sns/latest/dg/sns-access-policy-use-cases.md "../../../sns/latest/dg/sns-access-policy-use-cases.md") in the _Amazon Simple Notification Service Developer Guide_.
 
-###### To modify an Amazon RDS event notification subscription
+By default, an Amazon SNS topic has a policy allowing all Amazon RDS resources within the same account to publish notifications to it.
+You can attach a custom policy to allow cross-account notifications, or to restrict access to certain resources.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Event subscriptions**.
-3. In the **Event subscriptions** pane, choose the subscription that you want to
-   modify and choose **Edit**.
-4. Make your changes to the subscription in either the **Target** or
-   **Source** section.
-5. Choose **Edit**. The Amazon RDS console indicates that the subscription is being
-   modified.
+The following is an example of an IAM policy that you attach to the destination Amazon SNS topic. It restricts the topic to DB
+instances with names that match the specified prefix. To use this policy, specify the following values:
 
-![List DB event notification subscriptions](images/EventNotification-Modify2.png)
-To modify an Amazon RDS event notification subscription, use the AWS CLI [`modify-event-subscription`](../../../cli/latest/reference/rds/modify-event-subscription.md "../../../cli/latest/reference/rds/modify-event-subscription.md")
-command. Include the following required parameter:
+- `Resource` – The Amazon Resource Name (ARN) for your Amazon SNS
+  topic
+- `SourceARN` – Your RDS resource ARN
+- `SourceAccount` – Your AWS account ID
+  To see a list of resource types and their ARNs, see [Resources Defined by Amazon RDS](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies") in the _Service Authorization Reference_.
 
-- `--subscription-name`
-
-###### Example
-
-The following code enables `myeventsubscription`.
-
-For Linux, macOS, or Unix:
+JSON
 
 ```
-aws rds modify-event-subscription \
-    --subscription-name `myeventsubscription` \
-    `--enabled`
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "events.rds.amazonaws.com"
+ },
+ "Action": [
+ "sns:Publish"
+ ],
+ "Resource": "arn:aws:sns:`us-east-1`:`123456789012`:`topic_name`",
+ "Condition": {
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:rds:`us-east-1`:`123456789012`:db:prefix-*"
+ },
+ "StringEquals": {
+ "aws:SourceAccount": "`123456789012`"
+ }
+ }
+ }
+ ]
+}`
+
 ```
-
-For Windows:
-
-```
-aws rds modify-event-subscription ^
-    --subscription-name `myeventsubscription` ^
-    `--enabled`
-```
-
-To modify an Amazon RDS event, call the Amazon RDS API operation [`ModifyEventSubscription`](../APIReference/API_ModifyEventSubscription.md "../APIReference/API_ModifyEventSubscription.md").
-Include the following required parameter:
-
-- `SubscriptionName`

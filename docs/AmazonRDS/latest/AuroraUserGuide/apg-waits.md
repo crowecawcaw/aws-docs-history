@@ -1,37 +1,52 @@
-# Lock:extend
+# LWLock:buffer_mapping
 
-The `Lock:extend` event occurs when a backend process is waiting to lock a relation to extend it while another process has a lock on that relation for the same purpose.
+This event occurs when a session is waiting to associate a data block with a buffer in the shared buffer
+pool.
+
+###### Note
+
+This event appears as `LWLock:buffer_mapping` in Aurora PostgreSQL version 12 and lower, and
+`LWLock:BufferMapping` in version 13 and higher.
 
 ###### Topics
 
-- [Supported engine versions](#apg-waits.lockextend.context.supported "#apg-waits.lockextend.context.supported")
-- [Context](#apg-waits.lockextend.context "#apg-waits.lockextend.context")
-- [Likely causes of increased waits](#apg-waits.lockextend.causes "#apg-waits.lockextend.causes")
-- [Actions](#apg-waits.lockextend.actions "#apg-waits.lockextend.actions")
+- [Supported
+  engine versions](#apg-waits.lwl-buffer-mapping.context.supported "#apg-waits.lwl-buffer-mapping.context.supported")
+- [Context](#apg-waits.lwl-buffer-mapping.context "#apg-waits.lwl-buffer-mapping.context")
+- [Causes](#apg-waits.lwl-buffer-mapping.causes "#apg-waits.lwl-buffer-mapping.causes")
+- [Actions](#apg-waits.lwl-buffer-mapping.actions "#apg-waits.lwl-buffer-mapping.actions")
 
-## Supported engine versions
+## Supported
 
-This wait event information is supported for all versions of Aurora PostgreSQL.
+engine versions
+
+This wait event information is relevant for Aurora PostgreSQL version 9.6 and higher.
 
 ## Context
 
-The event `Lock:extend` indicates that a backend process is waiting
-to extend a relation that another backend process holds a lock on while it's extending
-that relation. Because only one process at a time can extend a relation, the system generates a
-`Lock:extend` wait event. `INSERT`, `COPY`, and
-`UPDATE` operations can generate this event.
+The _shared buffer pool_ is an Aurora PostgreSQL memory area that holds
+all pages that are or were being used by processes. When a process needs a page, it
+reads the page into the shared buffer pool. The `shared_buffers` parameter
+sets the shared buffer size and reserves a memory area to store the table and index
+pages. If you change this parameter, make sure to restart the database. For more
+information, see [Shared
+buffers](AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.buffer-pool "AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.buffer-pool").
 
-## Likely causes of increased waits
+The `LWLock:buffer_mapping` wait event occurs in the following scenarios:
 
-When the `Lock:extend` event appears more than normal, possibly indicating a performance problem, typical causes include the following:
+- A process searches the buffer table for a page and acquires a shared buffer mapping lock.
+- A process loads a page into the buffer pool and acquires an exclusive buffer mapping lock.
+- A process removes a page from the pool and acquires an exclusive buffer mapping lock.
 
-**Surge in concurrent inserts or updates to the same table**
+## Causes
 
-There might be an increase in the number of concurrent sessions with queries that insert into or update the same table.
+When this event appears more than normal, possibly indicating a performance problem, the database is
+paging in and out of the shared buffer pool. Typical causes include the following:
 
-**Insufficient network bandwidth**
-
-The network bandwidth on the DB instance might be insufficient for the storage communication needs of the current workload. This can contribute to storage latency that causes an increase in `Lock:extend` events.
+- Large queries
+- Bloated indexes and tables
+- Full table scans
+- A shared pool size that is smaller than the working set
 
 ## Actions
 
@@ -39,61 +54,57 @@ We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Reduce concurrent inserts and updates to the same relation](#apg-waits.lockextend.actions.action1 "#apg-waits.lockextend.actions.action1")
-- [Increase network bandwidth](#apg-waits.lockextend.actions.increase-network-bandwidth "#apg-waits.lockextend.actions.increase-network-bandwidth")
+- [Monitor buffer-related metrics](#apg-waits.lwl-buffer-mapping.actions.monitor-metrics "#apg-waits.lwl-buffer-mapping.actions.monitor-metrics")
+- [Assess your indexing strategy](#apg-waits.lwl-buffer-mapping.actions.indexes "#apg-waits.lwl-buffer-mapping.actions.indexes")
+- [Reduce the number of buffers that must be
+  allocated quickly](#apg-waits.lwl-buffer-mapping.actions.buffers "#apg-waits.lwl-buffer-mapping.actions.buffers")
 
-### Reduce concurrent inserts and updates to the same relation
+### Monitor buffer-related metrics
 
-First, determine whether there's an increase in `tup_inserted` and `tup_updated` metrics and an accompanying increase
-in this wait event. If so, check which relations are in high contention for insert and update operations. To determine this, query the
-`pg_stat_all_tables` view for the values in `n_tup_ins` and `n_tup_upd` fields. For information about the `pg_stat_all_tables` view, see
-[pg_stat_all_tables](https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW") in the PostgreSQL documentation.
+When `LWLock:buffer_mapping` waits spike, investigate the buffer hit ratio. You can use these
+metrics to get a better understanding of what is happening in the buffer cache. Examine the following
+metrics:
 
-To get more information about blocking and blocked queries, query `pg_stat_activity` as in the following example:
+`BufferCacheHitRatio`
 
-```
-SELECT
-    blocked.pid,
-    blocked.usename,
-    blocked.query,
-    blocking.pid AS blocking_id,
-    blocking.query AS blocking_query,
-    blocking.wait_event AS blocking_wait_event,
-    blocking.wait_event_type AS blocking_wait_event_type
-FROM pg_stat_activity AS blocked
-JOIN pg_stat_activity AS blocking ON blocking.pid = ANY(pg_blocking_pids(blocked.pid))
-where
-blocked.wait_event = 'extend'
-and blocked.wait_event_type = 'Lock';
+This Amazon CloudWatch metric measures the percentage of requests that are served by the buffer cache of
+a DB instance in your DB cluster. You might see this metric decrease in the lead-up to the
+`LWLock:buffer_mapping` wait event.
 
-   pid  | usename  |            query             | blocking_id |                         blocking_query                           | blocking_wait_event | blocking_wait_event_type
-  ------+----------+------------------------------+-------------+------------------------------------------------------------------+---------------------+--------------------------
-   7143 |  myuser  | insert into tab1 values (1); |        4600 | INSERT INTO tab1 (a) SELECT s FROM generate_series(1,1000000) s; | DataFileExtend      | IO
-```
+`blks_hit`
 
-After you identify relations that contribute to increase `Lock:extend` events, use the following techniques to reduce the contention:
+This Performance Insights counter metric indicates the number of blocks that were retrieved
+from the shared buffer pool. After the `LWLock:buffer_mapping` wait event appears, you
+might observe a spike in `blks_hit`.
 
-- Find out whether you can use partitioning to reduce contention for the same table. Separating inserted or updated tuples into different partitions can reduce contention.
-  For information about partitioning, see [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md").
-- If the wait event is mainly due to update activity, consider reducing the relation's fillfactor value. This can reduce requests for new blocks during the update.
-  The fillfactor is a storage parameter for a table that determines the maximum amount of space for packing a table page. It's expressed as a percentage of the total space for a page.
-  For more information about the fillfactor parameter, see [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the PostgreSQL documentation.
+`blks_read`
 
-###### Important
+This Performance Insights counter metric indicates the number of blocks that required I/O to be
+read into the shared buffer pool. You might observe a spike in `blks_read` in the
+lead-up to the `LWLock:buffer_mapping` wait event.
 
-We highly recommend that you test your system if you change the fillfactor because changing this value can negatively impact performance, depending on your workload.
+### Assess your indexing strategy
 
-### Increase network bandwidth
+To confirm that your indexing strategy is not degrading performance, check the following:
 
-To see whether there's an increase in write latency, check the `WriteLatency` metric in CloudWatch. If there is, use the `WriteThroughput` and `ReadThroughput` Amazon CloudWatch
-metrics to monitor the storage related traffic on the DB cluster. These metrics can help you to
-determine if network bandwidth is sufficient for the storage activity of your workload.
+Index bloat
 
-If your network bandwidth isn't enough, increase it. If your DB instance is reaching the
-network bandwidth limits, the only way to increase the bandwidth is to increase your DB instance size.
+Ensure that index and table bloat aren't leading to unnecessary pages being read into the
+shared buffer. If your tables contain unused rows, consider archiving the data and removing the
+rows from the tables. You can then rebuild the indexes for the resized tables.
 
-For more information about CloudWatch metrics,
+Indexes for frequently used queries
 
-see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md").
-For information about network performance for each DB instance class, see [Hardware specifications for DB instance
-classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+To determine whether you have the optimal indexes, monitor DB engine metrics in Performance
+Insights. The `tup_returned` metric shows the number of rows read. The
+`tup_fetched` metric shows the number of rows returned to the client. If
+`tup_returned` is significantly larger than `tup_fetched`, the data
+might not be properly indexed. Also, your table statistics might not be current.
+
+### Reduce the number of buffers that must be
+
+allocated quickly
+
+To reduce the `LWLock:buffer_mapping` wait events, try to reduce the number of buffers that must
+be allocated quickly. One strategy is to perform smaller batch operations. You might be able to achieve
+smaller batches by partitioning your tables.

@@ -1,103 +1,62 @@
-# Controlling user access to the
+# Using pglogical to synchronize
 
-PostgreSQL database
+data across instances
 
-New databases in PostgreSQL are always created with a default set of privileges in the
-database's `public` schema that allow all database users and roles to create
-objects. These privileges allow database users to connect to the database, for example, and
-create temporary tables while connected.
+All currently available Aurora PostgreSQL versions support the `pglogical`
+extension. The pglogical extension predates the functionally similar logical replication feature
+that was introduced by PostgreSQL in version 10. For more
+information, see [Overview of PostgreSQL logical
+replication with Aurora](AuroraPostgreSQL.Replication.md "AuroraPostgreSQL.Replication.md").
 
-To better control user access to the databases instances that you create on your Aurora PostgreSQL DB cluster primary node
-, we recommend that
-you revoke these default `public` privileges. After doing so, you then grant
-specific privileges for database users on a more granular basis, as shown in the following
-procedure.
+The `pglogical` extension supports logical replication between two or more
+Aurora PostgreSQL DB clusters.
+It also supports replication
+between different PostgreSQL versions, and between databases running on RDS for PostgreSQL DB
+instances and Aurora PostgreSQL DB clusters. The `pglogical` extension uses a
+publish-subscribe model to replicate changes to tables and other objects, such as sequences,
+from a publisher to a subscriber. It relies on a replication slot to ensure that changes are
+synchronized from a publisher node to a subscriber node, defined as follows.
 
-###### To set up roles and privileges for a new database instance
+- The _publisher node_ is the Aurora PostgreSQL
+  DB cluster
+  that's the source of data to be replicated to other nodes. The publisher node defines
+  the tables to be replicated in a publication set.
+- The _subscriber node_ is the Aurora PostgreSQL
+  DB cluster that
+  receives WAL updates from the publisher. The subscriber creates a subscription to connect to
+  the publisher and get the decoded WAL data. When the subscriber creates the subscription,
+  the replication slot is created on the publisher node.
+  Following, you can find information about setting up the `pglogical` extension.
 
-Suppose you're setting up a database on a newly created Aurora PostgreSQL DB cluster for use by several researchers, all of whom need read-write access to
-the database.
+###### Topics
 
-1. Use `psql` (or pgAdmin) to connect to the
-   primary DB instance on your Aurora PostgreSQL DB cluster:
+- [Requirements and limitations for the pglogical extension](#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations "#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations")
+- [Setting up the
+  pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Setting up
+  logical replication for Aurora PostgreSQL DB cluster](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Reestablishing logical replication after a major upgrade](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Managing logical
+  replication slots for Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Parameter reference
+  for the pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
 
-```
-psql --host=`your-cluster-instance-1.666666666666`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password
-```
+## Requirements and limitations for the pglogical extension
 
-When prompted, enter your password. The `psql` client connects and displays
-the default administrative connection database, `postgres=>`, as the
-prompt. 2. To prevent database users from creating objects in the `public` schema, do
-the following:
+All currently available releases of Aurora PostgreSQL support the
+`pglogical` extension.
 
-```
-`postgres=>` `REVOKE CREATE ON SCHEMA public FROM PUBLIC;`
-`REVOKE`
-```
+Both the publisher node and the subscriber node must be set up for logical
+replication.
 
-3. Next, you create a new database instance:
+The tables that you want to replicate from a publisher to a subscriber must have the same
+names and the same schema. These tables must also contain the same columns, and the columns
+must use the same data types. Both publisher and subscriber tables must have the same primary
+keys. We recommend that you use only the PRIMARY KEY as the unique constraint.
 
-```
-`postgres=>` `CREATE DATABASE `lab_db`;`
-`CREATE DATABASE`
-```
+The tables on the subscriber node can have more permissive constraints than those on the
+publisher node for CHECK constraints and NOT NULL constraints.
 
-4. Revoke all privileges from the `PUBLIC` schema on this new database.
-
-```
-`postgres=>` `REVOKE ALL ON DATABASE `lab_db` FROM public;`
-`REVOKE`
-```
-
-5. Create a role for database users.
-
-```
-`postgres=>` `CREATE ROLE `lab_tech`;`
-`CREATE ROLE`
-```
-
-6. Give database users that have this role the ability to connect to the database.
-
-```
-`postgres=>` `GRANT CONNECT ON DATABASE `lab_db` TO `lab_tech`;`
-`GRANT`
-
-```
-
-7. Grant all users with the `lab_tech` role all privileges on this
-   database.
-
-```
-`postgres=>` `GRANT ALL PRIVILEGES ON DATABASE `lab_db` TO `lab_tech`;`
-`GRANT`
-
-```
-
-8. Create database users, as follows:
-
-```
-`postgres=>` `CREATE ROLE lab_user1 LOGIN PASSWORD 'change_me';`
-`CREATE ROLE`
-`postgres=>` `CREATE ROLE lab_user2 LOGIN PASSWORD 'change_me';`
-`CREATE ROLE`
-```
-
-9. Grant these two users the privileges associated with the lab_tech role:
-
-```
-`postgres=>` `GRANT lab_tech TO lab_user1;`
-`GRANT ROLE`
-`postgres=>` `GRANT lab_tech TO lab_user2;`
-`GRANT ROLE`
-
-```
-
-At this point, `lab_user1` and `lab_user2` can connect to the
-`lab_db` database. This example doesn't follow best practices for enterprise
-usage, which might include creating multiple database instances, different schemas, and
-granting limited permissions. For more complete information and additional scenarios, see
-[Managing PostgreSQL
-Users and Roles](https://aws.amazon.com/blogs//database/managing-postgresql-users-and-roles/ "https://aws.amazon.com/blogs//database/managing-postgresql-users-and-roles/").
-
-For more information about privileges in PostgreSQL databases, see the [GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html "https://www.postgresql.org/docs/current/static/sql-grant.html") command in
-the PostgreSQL documentation.
+The `pglogical` extension provides features such as two-way replication that
+aren't supported by the logical replication feature built into PostgreSQL (version 10 and
+higher). For more information, see [PostgreSQL bi-directional replication using pglogical](https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/ "https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/").

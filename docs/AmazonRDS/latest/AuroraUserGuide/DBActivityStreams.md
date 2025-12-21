@@ -1,68 +1,124 @@
-# Network prerequisites for Aurora MySQL database activity streams
+# Starting a database activity stream
 
-In the following section, you can find how to configure your virtual private cloud (VPC) for
-use with database activity streams.
+To monitor database activity for all instances in your Aurora DB cluster, start an activity stream at the cluster level. Any
+DB instances that you add to the cluster are also automatically monitored. If you use an Aurora global database, start a database activity stream
+on each DB cluster separately. Each cluster delivers audit data to its own Kinesis stream within its own AWS Region.
+
+When you start an activity stream, each database activity event that you configured in the audit policy generates an activity stream event.
+SQL commands such as `CONNECT` and `SELECT`
+generate access events. SQL commands such as `CREATE` and `INSERT`
+generate change events.
+
+Console###### To start a database activity stream
+
+1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the DB cluster on which you want to
+   start an activity stream.
+4. For **Actions**, choose **Start activity stream**.
+
+The **Start database activity stream:** `name` window appears,
+where `name` is your DB cluster. 5. Enter the following settings:
+
+    * For **AWS KMS key**, choose a key from the list of AWS KMS keys.
+
+
+    ###### Note
+
+     If your Aurora MySQL cluster can't access KMS keys, follow the instructions
+     in [Network prerequisites for Aurora MySQL database activity streams](DBActivityStreams.md "DBActivityStreams.md") to enable such
+     access first.
+
+
+    Aurora uses the
+     KMS key to encrypt the key that in turn encrypts database activity. Choose a KMS key other than the
+     default key. For more information about encryption keys and AWS KMS, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the *AWS Key Management Service Developer Guide.*
+    * For **Database activity stream mode**, choose **Asynchronous** or
+     **Synchronous**.
+
+
+    ###### Note
+
+    This choice applies only to Aurora PostgreSQL. For Aurora MySQL, you can use only asynchronous mode.
+    * Choose **Immediately**.
+
+
+    When you choose **Immediately**, the DB
+     cluster restarts right away. If you choose
+     **During the next maintenance window**, the DB
+     cluster doesn't restart right away. In
+     this case, the database activity stream doesn't start until the next maintenance window.
+
+6. Choose **Start database activity stream**.
+
+The status for the DB cluster shows that the activity stream is
+starting.
 
 ###### Note
 
-Aurora MySQL network prerequisites are applicable to the following engine versions:
+If you get the error `You can't start a database activity stream in this
+ configuration`, check [Supported DB instance classes for database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes "DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes") to see whether
+your DB cluster is using a supported instance class.
 
-- Aurora MySQL version 2, up to 2.11.3
-- Aurora MySQL version 2.12.0
-- Aurora MySQL version 3, up to 3.04.2
+AWS CLITo start database activity streams for a DB cluster
+, configure the DB cluster using the [start-activity-stream](../../../cli/latest/reference/rds/start-activity-stream.md "../../../cli/latest/reference/rds/start-activity-stream.md")
+AWS CLI command.
 
-###### Topics
+- `--resource-arn `arn`` – Specifies the Amazon Resource Name (ARN) of
+  the DB cluster.
+- `--mode `sync-or-async`` – Specifies either
+synchronous (`sync`) or asynchronous (`async`) mode. For Aurora PostgreSQL, you can choose either value. For Aurora MySQL,
+specify `async`.
+- `--kms-key-id `key`` – Specifies the KMS key identifier for encrypting messages in the database
+  activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS key.
 
-- [Prerequisites for AWS KMS endpoints](#DBActivityStreams.Prereqs.KMS "#DBActivityStreams.Prereqs.KMS")
-- [Prerequisites for public availability](#DBActivityStreams.Prereqs.Public "#DBActivityStreams.Prereqs.Public")
-- [Prerequisites for private availability](#DBActivityStreams.Prereqs.Private "#DBActivityStreams.Prereqs.Private")
+The following example starts a database activity stream for a
+DB cluster
+in asynchronous mode.
 
-## Prerequisites for AWS KMS endpoints
+For Linux, macOS, or Unix:
 
-Instances in an Aurora MySQL cluster that use activity streams must be able to access AWS KMS endpoints. Make sure
-this requirement is satisfied before enabling database activity streams for your Aurora MySQL cluster. If the Aurora
-cluster is publicly available, this requirement is satisfied automatically.
+```
+aws rds start-activity-stream \
+    --mode async \
+    --kms-key-id `my-kms-key-arn` \
+    --resource-arn `my-cluster-arn` \
+    --apply-immediately
+```
 
-###### Important
+For Windows:
 
-If the Aurora MySQL DB cluster can't access the AWS KMS endpoint, the activity stream stops. In that case,
-Aurora notifies you about this issue using RDS Events.
+```
+aws rds start-activity-stream ^
+    --mode async ^
+    --kms-key-id `my-kms-key-arn` ^
+    --resource-arn `my-cluster-arn` ^
+    --apply-immediately
+```
 
-## Prerequisites for public availability
+Amazon RDS API
+To start database activity streams for a DB cluster,
+configure the cluster using the
+[StartActivityStream](../APIReference/API_StartActivityStream.md "../APIReference/API_StartActivityStream.md") operation.
 
-For an Aurora DB cluster to be public, it must meet the following requirements:
+Call the action with the parameters below:
 
-- **Publicly Accessible** is **Yes** in the AWS Management Console cluster details
-  page.
-- The DB cluster is in an Amazon VPC public subnet. For more information about publicly accessible DB instances, see
-  [Working with a DB cluster in a VPC](USER_VPC.md "USER_VPC.md").
-  For more information about public Amazon VPC subnets, see [Your VPC and
-  Subnets](../../../vpc/latest/userguide/VPC_Subnets.md "../../../vpc/latest/userguide/VPC_Subnets.md").
+- `Region`
+- `KmsKeyId`
+- `ResourceArn`
+- `Mode`
 
-## Prerequisites for private availability
+###### Note
 
-If your Aurora DB cluster is in a VPC public subnet and isn't publicly accessible, it's private. To keep
-your cluster private and use it with database activity streams, you have the following options:
+If you get an error stating that you can't start a database activity stream with the current version of your Aurora PostgreSQL database,
+apply the latest patch for Aurora PostgreSQL before starting a database activity stream. For information about upgrading your Aurora PostgreSQL
+database, see [Upgrading Amazon Aurora DB clusters](Aurora.VersionPolicy.md "Aurora.VersionPolicy.md").
 
-- Configure Network Address Translation (NAT) in your VPC. For more information, see [NAT Gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md").
-- Create an AWS KMS endpoint in your VPC. This option is recommended because it's easier to configure.
+Following are the minimum patch versions to start database activity streams with Aurora PostgreSQL.
 
-###### To create an AWS KMS endpoint in your VPC
-
-1. Open the Amazon VPC console at
-   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the navigation pane, choose **Endpoints**.
-3. Choose **Create Endpoint**.
-
-The **Create Endpoint** page appears. 4. Do the following:
-
-    * In **Service category**, choose **AWS services**.
-    * In **Service Name**, choose
-     **com.amazonaws.`region`.kms**, where
-     `region` is the AWS Region where your cluster is located.
-    * For **VPC**, choose the VPC where your cluster is located.
-
-5. Choose **Create Endpoint**.
-
-For more information about configuring VPC endpoints, see [VPC
-Endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md").
+- 3.4.15 (11.9.15), 11.21.10
+- 12.9.15, 12.15.9, 12.16.10, 12.17.7, 12.18.5, 12.19.4, 12.20.3, 12.22.3
+- 13.9.12, 13.11.9, 13.12.10, 13.13.7, 13.14.5, 13.15.4, 13.16.3, 13.18.3
+- 14.6.12, 14.8.9, 14.9.10, 14.10.7, 14.11.5, 14.12.4, 14.13.3, 14.15.3
+- 15.3.9, 15.4.10, 15.5.7, 15.6.5, 15.7.4, 15.8.3, 15.10.3
+- 16.1.7, 16.2.5, 16.3.4, 16.4.3, 16.6.3

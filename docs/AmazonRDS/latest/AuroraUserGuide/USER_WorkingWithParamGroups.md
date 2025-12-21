@@ -1,106 +1,96 @@
-# Resetting parameters in a DB parameter group
+# Creating a DB cluster parameter group in Amazon Aurora
 
-to their default values in Amazon Aurora
+You can create a new DB cluster parameter group using the AWS Management Console, the AWS CLI, or the RDS API.
 
-You can reset parameter values in a customer-created DB parameter group to their default values.
-Changes to parameters in a customer-created DB parameter group are applied to all DB instances that are
-associated with the DB parameter group.
+After you create a DB cluster parameter group, wait at least 5 minutes
+before creating a DB cluster that uses that DB cluster parameter group.
+Doing this allows Amazon RDS to fully create the parameter group before it
+is used by the new DB cluster. You can use the **Parameter groups** page
+in the [Amazon RDS console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") or the
+[describe-db-cluster-parameters](../../../cli/latest/reference/rds/describe-db-cluster-parameters.md "../../../cli/latest/reference/rds/describe-db-cluster-parameters.md")
+command to verify that your DB cluster parameter group is created.
 
-When you use the console, you can reset specific parameters to their default values.
-However, you can't easily reset all of the parameters in the DB parameter group at once. When
-you use the AWS CLI or RDS API, you can reset specific parameters to their default values.
-You can also reset all of the parameters in the DB parameter group at once.
+The following limitations apply to the DB cluster parameter group name:
 
-Changes to some parameters are applied to the DB instance immediately without a reboot.
-Changes to other parameters are applied only after the DB instance is rebooted. The RDS
-console shows the status of the DB parameter group associated with a DB instance on the
-**Configuration** tab. For example, suppose that the DB instance
-isn't using the latest changes to its associated DB parameter group. If so, the RDS console
-shows the DB parameter group with a status of **pending-reboot**. To apply the
-latest parameter changes to that DB instance, manually reboot the DB instance.
+- The name must be 1 to 255 letters, numbers, or hyphens.
 
-![Parameter change pending reboot scenario](images/db-cluster-instance-param-group.png)
+Default parameter group names can include a period, such as
+`default.aurora-mysql5.7`. However, custom parameter group
+names can't include a period.
 
-###### Note
+- The first character must be a letter.
+- The name can't end with a hyphen or contain two consecutive hyphens.
 
-In a default DB parameter group, parameters are always set to their default values.
-
-###### To reset parameters in a DB parameter group to their default values
+###### To create a DB cluster parameter group
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Parameter
    groups**.
-3. In the list, choose the parameter group.
-4. For **Parameter group actions**, choose
-   **Edit**.
-5. Choose the parameters that you want to reset to their default values.
-   You can scroll through the parameters using the arrow keys at the top
-   right of the dialog box.
+3. Choose **Create parameter group**.
+4. For **Parameter group name**, enter the name of the new
+   DB cluster parameter group.
+5. For **Description**, enter a description for the new DB cluster parameter group.
+6. For **Engine type**, choose your database engine.
+7. For **Parameter group family**, choose a DB parameter group family.
+8. Choose **Create**.
+   To create a DB cluster parameter group, use the AWS CLI [`create-db-cluster-parameter-group`](../../../cli/latest/reference/rds/create-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/create-db-cluster-parameter-group.md") command.
 
-You can't reset values in a default parameter group. 6. Choose **Reset** and then confirm by choosing
-**Reset parameters**.
-To reset some or all of the parameters in a DB parameter group, use the AWS CLI [`reset-db-parameter-group`](../../../cli/latest/reference/rds/reset-db-parameter-group.md "../../../cli/latest/reference/rds/reset-db-parameter-group.md") command with the
-following required option: `--db-parameter-group-name`.
+The following example creates a DB cluster parameter group named _mydbclusterparametergroup_
+for Aurora MySQL version 5.7 with a description of "_My new cluster parameter group_."
 
-To reset all of the parameters in the DB parameter group, specify the
-`--reset-all-parameters` option. To reset specific parameters,
-specify the `--parameters` option.
+Include the following required parameters:
 
-The following example resets all of the parameters in the DB parameter group named
-_mydbparametergroup_ to their default values.
+- `--db-cluster-parameter-group-name`
+- `--db-parameter-group-family`
+- `--description`
+  To list all of the available parameter group families, use the following command:
+
+```
+aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
+```
+
+###### Note
+
+The output contains duplicates.
 
 ###### Example
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds reset-db-parameter-group \
-    --db-parameter-group-name `mydbparametergroup` \
-    --reset-all-parameters
+aws rds create-db-cluster-parameter-group \
+    --db-cluster-parameter-group-name `mydbclusterparametergroup` \
+    --db-parameter-group-family `aurora-mysql5.7` \
+    --description `"My new cluster parameter group"`
 ```
 
 For Windows:
 
 ```
-aws rds reset-db-parameter-group ^
-    --db-parameter-group-name `mydbparametergroup` ^
-    --reset-all-parameters
+aws rds create-db-cluster-parameter-group ^
+    --db-cluster-parameter-group-name `mydbclusterparametergroup` ^
+    --db-parameter-group-family `aurora-mysql5.7` ^
+    --description `"My new cluster parameter group"`
 ```
 
-The following example resets the `max_connections` and
-`max_allowed_packet` options to their default values in the DB parameter group
-named _mydbparametergroup_.
-
-###### Example
-
-For Linux, macOS, or Unix:
+This command produces output similar to the following:
 
 ```
-aws rds reset-db-parameter-group \
-    --db-parameter-group-name `mydbparametergroup` \
-    --parameters "ParameterName=`max_connections`,ApplyMethod=`immediate`" \
-                 "ParameterName=`max_allowed_packet`,ApplyMethod=`immediate`"
+{
+    "DBClusterParameterGroup": {
+        "DBClusterParameterGroupName": "mydbclusterparametergroup",
+        "DBParameterGroupFamily": "aurora-mysql5.7",
+        "Description": "My new cluster parameter group",
+        "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterparametergroup"
+    }
+}
 ```
 
-For Windows:
+To create a DB cluster parameter group, use the RDS API [`CreateDBClusterParameterGroup`](../APIReference/API_CreateDBClusterParameterGroup.md "../APIReference/API_CreateDBClusterParameterGroup.md") action.
 
-```
-aws rds reset-db-parameter-group ^
-    --db-parameter-group-name `mydbparametergroup` ^
-    --parameters "ParameterName=`max_connections`,ApplyMethod=`immediate`" ^
-                 "ParameterName=`max_allowed_packet`,ApplyMethod=`immediate`"
-```
+Include the following required parameters:
 
-The command produces output like the following:
-
-```
-DBParameterGroupName  mydbparametergroup
-```
-
-To reset parameters in a DB parameter group to their default values, use the RDS API [`ResetDBParameterGroup`](../APIReference/API_ResetDBParameterGroup.md "../APIReference/API_ResetDBParameterGroup.md") command with the following
-required parameter: `DBParameterGroupName`.
-
-To reset all of the parameters in the DB parameter group, set the
-`ResetAllParameters` parameter to `true`. To reset
-specific parameters, specify the `Parameters` parameter.
+- `DBClusterParameterGroupName`
+- `DBParameterGroupFamily`
+- `Description`

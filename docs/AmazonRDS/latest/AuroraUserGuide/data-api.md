@@ -1,119 +1,151 @@
-# Using the Java client library for RDS
+# Troubleshooting Amazon RDS Data API
 
-Data API
+Use the following sections, titled with common error messages, to help troubleshoot
+problems that you have with the Amazon RDS Data API (Data API).
 
-You can download and use a Java client library for RDS Data API (Data API). This
-Java client library provides an alternative way to use Data API. Using this library, you
-can map your client-side classes to Data API requests and responses. This mapping
-support can ease integration with some specific Java types, such as `Date`,
-`Time`, and `BigDecimal`.
+###### Topics
 
-## Downloading the Java client library for
+- [Transaction
+  <transaction_ID> isn't found](#data-api.troubleshooting.tran-id-not-found "#data-api.troubleshooting.tran-id-not-found")
+- [Packet for query is too
+  large](#data-api.troubleshooting.packet-too-large "#data-api.troubleshooting.packet-too-large")
+- [Database response exceeded size limit](#data-api.troubleshooting.response-size-too-large "#data-api.troubleshooting.response-size-too-large")
+- [HttpEndpoint
+  isn't enabled for cluster <cluster_ID>](#data-api.troubleshooting.http-endpoint-not-enabled "#data-api.troubleshooting.http-endpoint-not-enabled")
+- [DatabaseErrorException: Transaction is still running a query](#data-api.troubleshooting.txn-concurrent-requests-rejected "#data-api.troubleshooting.txn-concurrent-requests-rejected")
+- [Unsupported result exception](#data-api.troubleshooting.unsupported-result "#data-api.troubleshooting.unsupported-result")
+- [Multi-statements aren't supported](#data-api.troubleshooting.multi-statements "#data-api.troubleshooting.multi-statements")
+- [Schema parameter isn't supported](#data-api.troubleshooting.schema-parameter "#data-api.troubleshooting.schema-parameter")
+- [IPv6 connectivity issues](#data-api.troubleshooting.ipv6-connectivity "#data-api.troubleshooting.ipv6-connectivity")
 
-Data API
+## Transaction
 
-The Data API Java client library is open source in GitHub at the following location:
+<transaction_ID> isn't found
 
-[https://github.com/awslabs/rds-data-api-client-library-java](https://github.com/awslabs/rds-data-api-client-library-java "https://github.com/awslabs/rds-data-api-client-library-java")
+In this case, the transaction ID specified in a Data API call wasn't found. The cause for this issue is appended
+to the error message, and is one of the following:
 
-You can build the library manually from the source files, but the best practice is to consume the
-library using Apache Maven dependency management. Add the following dependency to your Maven
-POM file.
+- **`Transaction may be expired.`**
 
-For version 2.x, which is compatible with AWS SDK 2.x, use the
-following:
+Make sure that each transactional call runs within three minutes of the previous one.
+
+It's also possible that the specified transaction ID wasn't created by a [BeginTransaction](../../../rdsdataservice/latest/APIReference/API_BeginTransaction.md "../../../rdsdataservice/latest/APIReference/API_BeginTransaction.md") call. Make sure that your call has a
+valid transaction ID.
+
+- **`One previous call resulted in a termination of your transaction.`**
+
+The transaction was already ended by your `CommitTransaction` or `RollbackTransaction`
+call.
+
+- **`Transaction has been aborted due to an error from a previous call.`**
+
+Check whether your previous calls have thrown any exceptions.
+
+For information about running transactions, see [Calling the Amazon RDS Data API](data-api.md "data-api.md").
+
+## Packet for query is too
+
+large
+
+In this case, the result set returned for a row was too large. The Data API
+size limit is 64 KB per row in the result set returned by the database.
+
+To solve this issue, make sure that each row in a result set is 64 KB or less.
+
+## Database response exceeded size limit
+
+In this case, the size of the result set returned by the database was too large. The Data API limit is 1 MiB in the result set returned by the database.
+
+To solve this issue, make sure that calls to Data API return 1 MiB of data
+or less. If you need to return more than 1 MiB, you can use multiple
+[`ExecuteStatement`](../../../rdsdataservice/latest/APIReference/API_ExecuteStatement.md "../../../rdsdataservice/latest/APIReference/API_ExecuteStatement.md") calls
+with the `LIMIT` clause in your query.
+
+For more information about the `LIMIT` clause, see
+[SELECT syntax](https://dev.mysql.com/doc/refman/8.0/en/select.html "https://dev.mysql.com/doc/refman/8.0/en/select.html")
+in the MySQL documentation.
+
+## HttpEndpoint
+
+isn't enabled for cluster <cluster_ID>
+
+Check the following potential causes for this issue:
+
+- The Aurora DB cluster doesn't support Data API.
+  For information about the types of DB clusters RDS Data API supports,
+  see [Region and version availability for the Amazon RDS Data API](data-api.md "data-api.md").
+- Data API isn't enabled for the Aurora DB cluster. To use Data API
+  with an Aurora DB cluster, Data API must be enabled for the DB cluster. For
+  information about enabling Data API, see [Enabling the Amazon RDS Data API](data-api.md "data-api.md").
+- The DB cluster was renamed after Data API was enabled for it. In that
+  case, turn off Data API for that cluster and then enable it again.
+- The ARN you specified doesn't precisely match the ARN of the cluster.
+  Check that the ARN returned from another source or constructed by program logic matches the
+  ARN of the cluster exactly. For example, make sure that the ARN you use
+  has the correct letter case for all alphabetic characters.
+
+## DatabaseErrorException: Transaction is still running a query
+
+If your application sends a request with a transaction ID and that transaction is currently processing another
+request, Data API returns this error to your application immediately. This condition might arise if your
+application makes asynchronous requests, using a mechanism such as "promises" in Javascript.
+
+To solve this issue, wait until the previous request finishes and then retry the request. You can keep retrying until
+the error no longer occurs, or the application receives some different kind of error.
+
+This condition can happen with Data API for Aurora Serverless v2 and provisioned instances.
+In Data API for Aurora Serverless v1, subsequent requests for the same transaction ID automatically
+wait for the previous request to finish. However, that older behavior potentially could encounter timeouts
+due to the previous request taking too long. If you are porting an older Data API application that
+makes concurrent requests, modify your exception handling logic to account for this new kind
+of error.
+
+## Unsupported result exception
+
+The Data API doesn't support all data types. This error occurs when you execute a
+query that returns an unsupported data type.
+
+To work around this issue, cast the unsupported data type to `TEXT`.
+For example:
 
 ```
-<dependency>
-   <groupId>software.amazon.rdsdata</groupId>
-   <artifactId>rds-data-api-client-library-java</artifactId>
-   <version>2.0.0</version>
-</dependency>
-
+SELECT custom_type::TEXT FROM my_table;
+-- OR
+SELECT CAST(custom_type AS TEXT) FROM my_table;
 ```
 
-For version 1.x, which is compatible with AWS SDK 1.x, use the
-following:
+## Multi-statements aren't supported
 
-```
-<dependency>
-    <groupId>software.amazon.rdsdata</groupId>
-    <artifactId>rds-data-api-client-library-java</artifactId>
-    <version>1.0.8</version>
-</dependency>
+Multi-statements are not supported in the Data API for Aurora Serverless v2 and
+provisioned clusters. Attempting to execute multiple statements in a single API call
+results in this error.
 
-```
+To execute multiple statements, use separate `ExecuteStatement` API
+calls or use the `BatchExecuteStatement` API for batch processing.
 
-## Java client library examples
+## Schema parameter isn't supported
 
-Following, you can find some common examples of using the Data API Java client
-library. These examples assume that you have a table `accounts` with
-two columns: `accountId` and `name`. You also have the
-following data transfer object (DTO).
+Aurora Serverless v1 silently ignores the schema parameter. However, Aurora
+Serverless v2 and provisioned clusters explicitly reject API calls that include the
+schema parameter.
 
-```
-public class Account {
-    int accountId;
-    String name;
-    // getters and setters omitted
-}
-```
+To solve this issue, remove the schema parameter from all calls to the Data API
+when you use Aurora Serverless v2 or provisioned clusters.
 
-The client library enables you to pass DTOs as input parameters. The following example shows how customer DTOs are
-mapped to input parameters sets.
+## IPv6 connectivity issues
 
-```
-var account1 = new Account(1, "John");
-var account2 = new Account(2, "Mary");
-client.forSql("INSERT INTO accounts(accountId, name) VALUES(:accountId, :name)")
-         .withParamSets(account1, account2)
-         .execute();
-```
+If you experience issues when connecting to Data API using IPv6 endpoints, check the following potential causes:
 
-In some cases, it's easier to work with simple values as input
-parameters. You can do so with the following syntax.
+- **Network doesn't support IPv6**: Verify that your network infrastructure supports IPv6 and that IPv6 routing is configured correctly.
+- **DNS resolution issues**: Ensure that your DNS resolver can resolve AAAA records for the dual-stack endpoints (e.g., `rds-data.us-east-1.api.aws`).
+- **Security group configuration**: Update security group rules to allow IPv6 traffic on port 443 (HTTPS). Add rules for IPv6 CIDR blocks (e.g., `::/0` for all IPv6 addresses).
+- **Network ACL configuration**: Ensure that network ACLs allow IPv6 traffic on the required ports.
+- **Client library compatibility**: Verify that your HTTP client libraries and AWS SDKs support IPv6 and dual-stack connectivity.
+- **VPC endpoint configuration**: If using PrivateLink, ensure that your VPC endpoint is configured to support IPv6 and that the associated subnets have IPv6 CIDR blocks assigned.
 
-```
-client.forSql("INSERT INTO accounts(accountId, name) VALUES(:accountId, :name)")
-         .withParameter("accountId", 3)
-         .withParameter("name", "Zhang")
-         .execute();
-```
+To troubleshoot IPv6 connectivity issues:
 
-The following is another example that works with simple values as input parameters.
-
-```
-
-client.forSql("INSERT INTO accounts(accountId, name) VALUES(?, ?)", 4, "Carlos")
-         .execute();
-
-```
-
-The client library provides automatic mapping to DTOs when a result
-is returned. The following examples show how the result is mapped to
-your DTOs.
-
-```
-List<Account> result = client.forSql("SELECT * FROM accounts")
-          .execute()
-          .mapToList(Account.class);
-
-Account result = client.forSql("SELECT * FROM accounts WHERE account_id = 1")
-          .execute()
-          .mapToSingle(Account.class);
-```
-
-In many cases, the database result set contains only a single value. In order to simplify
-retrieving such results, the client library offers the following API:
-
-```
-int numberOfAccounts = client.forSql("SELECT COUNT(*) FROM accounts")
-          .execute()
-          .singleValue(Integer.class);
-```
-
-###### Note
-
-The `mapToList` function converts a SQL result set into a user-defined object list. We don't support using
-the `.withFormatRecordsAs(RecordsFormatType.JSON)` statement in an `ExecuteStatement` call for
-the Java client library, because it serves the same purpose. For more information, see [Processing Amazon RDS Data API query results in JSON format](data-api-json.md "data-api-json.md").
+1. Test connectivity using the IPv4-only endpoints (`.amazonaws.com`) to verify that the issue is specific to IPv6.
+2. Use network diagnostic tools to verify IPv6 connectivity to the dual-stack endpoints.
+3. Check CloudTrail logs for any authentication or authorization errors when using IPv6 endpoints.
+4. Verify that your application is correctly configured to use the new dual-stack endpoint URLs.

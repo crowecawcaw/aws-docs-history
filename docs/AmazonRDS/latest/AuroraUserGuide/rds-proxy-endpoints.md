@@ -1,40 +1,37 @@
-# Viewing proxy endpoints
+# Deleting a proxy endpoint
 
-To view existing proxy endpoints, follow these instructions:
+To delete an endpoint for your proxy, follow these instructions:
 
-###### To view the details for a proxy endpoint
+###### Note
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Proxies**.
-3. In the list, choose the proxy whose endpoint you want to view. Click the proxy name to view its
+You can't delete the default proxy endpoint that RDS Proxy automatically creates for each proxy.
+
+When you delete a proxy, RDS Proxy automatically deletes all the associated endpoints.
+
+###### To delete a proxy endpoint using the AWS Management Console
+
+1. In the navigation pane, choose **Proxies**.
+2. In the list, choose the proxy whose endpoint you want to endpoint. Click the proxy name to view its
    details page.
-4. In the **Proxy endpoints** section, choose the endpoint that you want to view. Click
-   its name to view the details page.
-5. Examine the parameters whose values you're interested in. You can check properties such as the
-   following:
-   - Whether the endpoint is read/write or
-     read-only.
-   - The endpoint address that you use in a database connection
-     string.
-   - The VPC, subnets, and security groups associated with the
-     endpoint.
-     To view one or more proxy endpoints, use the AWS CLI [describe-db-proxy-endpoints](../../../cli/latest/reference/rds/describe-db-proxy-endpoints.md "../../../cli/latest/reference/rds/describe-db-proxy-endpoints.md")
-     command.
+3. In the **Proxy endpoints** section, choose the endpoint that you want to delete. You
+   can select one or more endpoints in the list, or click the name of a single endpoint to view the
+   details page.
+4. On the proxy details page, under the **Proxy endpoints** section, choose
+   **Delete**. Or, on the proxy endpoint details page, for **Actions**,
+   choose **Delete**.
 
-You can include the following optional parameters:
+To delete a proxy endpoint, run the
+[delete-db-proxy-endpoint](../../../cli/latest/reference/rds/delete-db-proxy-endpoint.md "../../../cli/latest/reference/rds/delete-db-proxy-endpoint.md") command with
+the following required parameters:
 
 - `--db-proxy-endpoint-name`
-- `--db-proxy-name`
 
-The following example describes the `my-endpoint` proxy endpoint.
-
-###### Example
+The following command deletes the proxy endpoint named `my-endpoint`.
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds describe-db-proxy-endpoints \
+aws rds delete-db-proxy-endpoint \
   --db-proxy-endpoint-name `my-endpoint`
 
 ```
@@ -42,10 +39,11 @@ aws rds describe-db-proxy-endpoints \
 For Windows:
 
 ```
-aws rds describe-db-proxy-endpoints ^
+aws rds delete-db-proxy-endpoint ^
   --db-proxy-endpoint-name `my-endpoint`
 
 ```
 
-To describe one or more proxy endpoints, use the RDS API
-[DescribeDBProxyEndpoints](../APIReference/API_DescribeDBProxyEndpoints.md "../APIReference/API_DescribeDBProxyEndpoints.md") operation.
+To delete a proxy endpoint with the RDS API, run the
+[DeleteDBProxyEndpoint](../APIReference/API_DeleteDBProxyEndpoint.md "../APIReference/API_DeleteDBProxyEndpoint.md") operation. Specify
+the name of the proxy endpoint for the `DBProxyEndpointName` parameter.

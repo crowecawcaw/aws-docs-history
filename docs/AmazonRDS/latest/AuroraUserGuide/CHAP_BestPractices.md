@@ -32,7 +32,7 @@ clusters.
 AWS Security Hub CSPM uses security controls to evaluate resource configurations and security
 standards to help you comply with various compliance frameworks. For more information
 about using Security Hub CSPM to evaluate RDS resources, see [Amazon Relational Database Service controls](../../../securityhub/latest/userguide/rds-controls.md "../../../securityhub/latest/userguide/rds-controls.md") in the
-AWS Security Hub CSPM User Guide.
+AWS Security Hub User Guide.
 
 You can monitor your usage of RDS as it relates to security best practices by using
 Security Hub CSPM. For more information, see [What is AWS Security Hub CSPM?](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").

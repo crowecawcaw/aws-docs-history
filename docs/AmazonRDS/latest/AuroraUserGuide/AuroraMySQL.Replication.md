@@ -1,82 +1,275 @@
-# Replicating Amazon Aurora MySQL DB clusters across AWS Regions
+# Configuring replication filters with Aurora MySQL
 
-You can create an Amazon Aurora MySQL DB cluster as a read replica in a different AWS Region than the source DB
-cluster. Taking this approach can improve your disaster recovery capabilities, let you scale read operations
-into an AWS Region that is closer to your users, and make it easier to migrate from one AWS Region to
-another.
+You can use replication filters to specify which databases and tables are replicated with a read replica. Replication filters
+can include databases and tables in replication or exclude them from replication.
 
-You can create read replicas of both encrypted and unencrypted DB clusters. The read replica must be encrypted
-if the source DB cluster is encrypted.
+The following are some use cases for replication filters:
 
-For each source DB cluster, you can have up to five cross-Region DB clusters that are read replicas.
-
-###### Note
-
-As an alternative to cross-Region read replicas, you can scale read operations with
-minimal lag time by using an Aurora global database. An Aurora global database has a
-primary Aurora DB cluster in one AWS Region and up to 10 secondary read-only DB
-clusters in different Regions. Each secondary DB cluster can include up to 16
-(rather than 15) Aurora Replicas. Replication from the primary DB
-cluster to all secondaries is handled by the Aurora storage layer rather than by the
-database engine, so lag time for replicating changes is minimal—typically,
-less than 1 second. Keeping the database engine out of the replication process means
-that the database engine is dedicated to processing workloads. It also means that
-you don't need to configure or manage the Aurora MySQL binlog (binary logging)
-replication. To learn more, see [Using Amazon Aurora Global Database](aurora-global-database.md "aurora-global-database.md").
-
-When you create an Aurora MySQL DB cluster read replica in another AWS Region, you should be aware of the
-following:
-
-- Both your source DB cluster and your cross-Region read replica DB cluster can have up to 15
-  Aurora Replicas, along with the primary instance for the DB cluster. By using this functionality, you can
-  scale read operations for both your source AWS Region and your replication target AWS Region.
-- In a cross-Region scenario, there is more lag time between the source DB cluster and the read replica due
-  to the longer network channels between AWS Regions.
-- Data transferred for cross-Region replication incurs Amazon RDS data transfer charges. The following
-  cross-Region replication actions generate charges for the data transferred out of the source AWS Region:
-  - When you create the read replica, Amazon RDS takes a snapshot of the source cluster and transfers the
-    snapshot to the AWS Region that holds the read replica.
-  - For each data modification made in the source databases, Amazon RDS transfers data from the source region
-    to the AWS Region that holds the read replica.
-
-For more information about Amazon RDS data transfer pricing, see
-[Amazon Aurora pricing](http://aws.amazon.com/rds/aurora/pricing/ "http://aws.amazon.com/rds/aurora/pricing/").
-
-- You can run multiple concurrent create or delete actions for read replicas that reference the same source
-  DB cluster. However, you must stay within the limit of five read replicas for each source DB cluster.
-- For replication to operate effectively, each read replica should have the same amount of compute and
-  storage resources as the source DB cluster. If you scale the source DB cluster, you should also scale the
-  read replicas.
+- To reduce the size of a read replica. With replication filtering, you can
+  exclude the databases and tables that aren't needed on the read
+  replica.
+- To exclude databases and tables from read replicas for security reasons.
+- To replicate different databases and tables for specific use cases at different
+  read replicas. For example, you might use specific read replicas for
+  analytics or sharding.
+- For a DB cluster that has read replicas in different AWS Regions, to replicate different databases or tables in
+  different AWS Regions.
+- To specify which databases and tables are replicated with an Aurora MySQL DB cluster that is configured as a replica in
+  an inbound replication topology. For more information about this configuration, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
+  cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
 
 ###### Topics
 
-- [Before you begin](#AuroraMySQL.Replication.CrossRegion.Prerequisites "#AuroraMySQL.Replication.CrossRegion.Prerequisites")
-- [Creating a cross-Region read replica DB cluster for Aurora MySQL](AuroraMySQL.Replication.CrossRegion.md "AuroraMySQL.Replication.CrossRegion.md")
-- [Promoting a read replica to a DB cluster for Aurora MySQL](AuroraMySQL.Replication.CrossRegion.md "AuroraMySQL.Replication.CrossRegion.md")
-- [Troubleshooting cross-Region replicas for Amazon Aurora MySQL](AuroraMySQL.Replication.CrossRegion.md "AuroraMySQL.Replication.CrossRegion.md")
+- [Setting replication filtering parameters for Aurora MySQL](#AuroraMySQL.Replication.Filters.Configuring "#AuroraMySQL.Replication.Filters.Configuring")
+- [Replication filtering limitations for Aurora MySQL](#AuroraMySQL.Replication.Filters.Limitations "#AuroraMySQL.Replication.Filters.Limitations")
+- [Replication filtering examples for Aurora MySQL](#AuroraMySQL.Replication.Filters.Examples "#AuroraMySQL.Replication.Filters.Examples")
+- [Viewing the replication filters for a read replica](#AuroraMySQL.Replication.Filters.Viewing "#AuroraMySQL.Replication.Filters.Viewing")
 
-## Before you begin
+## Setting replication filtering parameters for Aurora MySQL
 
-Before you can create an Aurora MySQL DB cluster that is a cross-Region read replica, you must turn on binary
-logging on your source Aurora MySQL DB cluster. Cross-region replication for Aurora MySQL uses MySQL binary
-replication to replay changes on the cross-Region read replica DB cluster.
+To configure replication filters, set the following parameters:
 
-To turn on binary logging on an Aurora MySQL DB cluster, update the
-`binlog_format` parameter for your source DB cluster. The
-`binlog_format` parameter is a cluster-level parameter that is in the
-default cluster parameter group. If your DB cluster uses the default DB cluster
-parameter group, create a new DB cluster parameter group to modify
-`binlog_format` settings. We recommend that you set the
-`binlog_format` to `MIXED`. However, you can also set
-`binlog_format` to `ROW` or `STATEMENT` if you
-need a specific binlog format. Reboot your Aurora DB cluster for the change to take
-effect.
+- `binlog-do-db` – Replicate changes to the specified binary logs. When you set this parameter for
+  a binlog source cluster, only the binary logs specified in the parameter are replicated.
+- `binlog-ignore-db` – Don't replicate changes to the specified binary logs. When the
+  `binlog-do-db` parameter is set for a binlog source cluster, this parameter isn't
+  evaluated.
+- `replicate-do-db` – Replicate changes to the specified databases. When you set this parameter for
+  a binlog replica cluster, only the databases specified in the parameter are replicated.
+- `replicate-ignore-db` – Don't replicate changes to the specified databases. When the
+  `replicate-do-db` parameter is set for a binlog replica cluster, this parameter isn't
+  evaluated.
+- `replicate-do-table` – Replicate changes to the specified tables. When you set this parameter for
+  a read replica, only the tables specified in the parameter are replicated. Also, when the
+  `replicate-do-db` or `replicate-ignore-db` parameter is set, make sure to include the
+  database that includes the specified tables in replication with the binlog replica cluster.
+- `replicate-ignore-table` – Don't replicate changes to the specified tables. When the
+  `replicate-do-table` parameter is set for a binlog replica cluster, this parameter isn't
+  evaluated.
+- `replicate-wild-do-table` – Replicate tables based on the specified database and table name
+  patterns. The `%` and `_` wildcard characters are supported. When the
+  `replicate-do-db` or `replicate-ignore-db` parameter is set, make sure to include the
+  database that includes the specified tables in replication with the binlog replica cluster.
+- `replicate-wild-ignore-table` – Don't replicate tables based on the specified database and
+  table name patterns. The `%` and `_` wildcard characters are supported. When the
+  `replicate-do-table` or `replicate-wild-do-table` parameter is set for a binlog replica
+  cluster, this parameter isn't evaluated.
 
-For more information about using binary logging with Aurora MySQL, see
-[Replication between Aurora and MySQL or between Aurora and another Aurora DB
-cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
-For more information about modifying Aurora MySQL configuration parameters, see
-[Amazon Aurora DB cluster and DB instance
-parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups")
-and
-[Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+The parameters are evaluated in the order that they are listed. For more information about how these parameters work,
+see the MySQL documentation:
+
+- For general information, see [Replica Server Options and Variables](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html "https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html").
+- For information about how database replication filtering parameters are evaluated, see
+  [Evaluation of Database-Level Replication and Binary Logging Options](https://dev.mysql.com/doc/refman/8.0/en/replication-rules-db-options.html "https://dev.mysql.com/doc/refman/8.0/en/replication-rules-db-options.html").
+- For information about how table replication filtering parameters are evaluated, see
+  [Evaluation of Table-Level Replication Options](https://dev.mysql.com/doc/refman/8.0/en/replication-rules-table-options.html "https://dev.mysql.com/doc/refman/8.0/en/replication-rules-table-options.html").
+
+By default, each of these parameters has an empty value. On each binlog cluster, you can use these parameters to set,
+change, and delete replication filters. When you set one of these parameters, separate each filter from others with a comma.
+
+You can use the `%` and `_` wildcard characters in the `replicate-wild-do-table` and
+`replicate-wild-ignore-table` parameters. The `%` wildcard matches any number of characters, and the
+`_` wildcard matches only one character.
+
+The binary logging format of the source DB instance is important for replication because it determines the record of data
+changes. The setting of the `binlog_format` parameter determines whether the replication is row-based or
+statement-based. For more information, see
+[Configuring Aurora MySQL binary logging for Single-AZ databases](USER_LogAccess.MySQL.md "USER_LogAccess.MySQL.md").
+
+###### Note
+
+All data definition language (DDL) statements are replicated as statements, regardless of the
+`binlog_format` setting on the source DB instance.
+
+## Replication filtering limitations for Aurora MySQL
+
+The following limitations apply to replication filtering for Aurora MySQL:
+
+- Replication filters are supported only for Aurora MySQL version 3.
+- Each replication filtering parameter has a 2,000-character limit.
+- Commas aren't supported in replication filters.
+- Replication filtering doesn't support XA transactions.
+
+For more information, see [Restrictions
+on XA Transactions](https://dev.mysql.com/doc/refman/8.0/en/xa-restrictions.html "https://dev.mysql.com/doc/refman/8.0/en/xa-restrictions.html") in the MySQL documentation.
+
+## Replication filtering examples for Aurora MySQL
+
+To configure replication filtering for a read replica, modify the replication filtering parameters in the DB cluster
+parameter group associated with the read replica.
+
+###### Note
+
+You can't modify a default DB cluster parameter group. If the read replica is using a default parameter group,
+create a new parameter group and associate it with the read replica. For more information on DB cluster parameter
+groups, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+
+You can set parameters in a DB cluster parameter group using the AWS Management Console, AWS CLI, or RDS API. For information about
+setting parameters, see [Modifying parameters in a DB parameter group
+in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). When you set parameters in a DB cluster parameter group, all of
+the DB clusters associated with the parameter group use the parameter settings. If you set the replication filtering
+parameters in a DB cluster parameter group, make sure that the parameter group is associated only with read replica
+clusters. Leave the replication filtering parameters empty for source DB instances.
+
+The following examples set the parameters using the AWS CLI. These examples set `ApplyMethod` to
+`immediate` so that the parameter changes occur immediately after the CLI command completes. If you want a
+pending change to be applied after the read replica is rebooted, set `ApplyMethod` to
+`pending-reboot`.
+
+The following examples set replication filters:
+
+- [Including databases in replication](#rep-filter-in-dbs-ams "#rep-filter-in-dbs-ams")
+- [Including tables in replication](#rep-filter-in-tables-ams "#rep-filter-in-tables-ams")
+- [Including tables in replication with wildcard characters](#rep-filter-in-tables-wildcards-ams "#rep-filter-in-tables-wildcards-ams")
+- [Excluding databases from replication](#rep-filter-ex-dbs-ams "#rep-filter-ex-dbs-ams")
+- [Excluding tables from replication](#rep-filter-ex-tables-ams "#rep-filter-ex-tables-ams")
+- [Excluding tables from replication using wildcard characters](#rep-filter-ex-tables-wildcards-ams "#rep-filter-ex-tables-wildcards-ams")
+
+###### Example Including databases in replication
+
+The following example includes the `mydb1` and `mydb2` databases in replication.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-cluster-parameter-group \
+  --db-cluster-parameter-group-name myparametergroup \
+  --parameters "ParameterName=replicate-do-db,ParameterValue='mydb1,mydb2',ApplyMethod=immediate"
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster-parameter-group ^
+  --db-cluster-parameter-group-name myparametergroup ^
+  --parameters "ParameterName=replicate-do-db,ParameterValue='mydb1,mydb2',ApplyMethod=immediate"
+```
+
+###### Example Including tables in replication
+
+The following example includes the `table1` and `table2` tables in database `mydb1`
+in replication.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-cluster-parameter-group \
+  --db-cluster-parameter-group-name myparametergroup \
+  --parameters "ParameterName=replicate-do-table,ParameterValue='mydb1.table1,mydb1.table2',ApplyMethod=immediate"
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster-parameter-group ^
+  --db-cluster-parameter-group-name myparametergroup ^
+  --parameters "ParameterName=replicate-do-table,ParameterValue='mydb1.table1,mydb1.table2',ApplyMethod=immediate"
+```
+
+###### Example Including tables in replication using wildcard characters
+
+The following example includes tables with names that begin with `order` and `return` in
+database `mydb` in replication.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-cluster-parameter-group \
+  --db-cluster-parameter-group-name myparametergroup \
+  --parameters "ParameterName=replicate-wild-do-table,ParameterValue='mydb.order%,mydb.return%',ApplyMethod=immediate"
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster-parameter-group ^
+  --db-cluster-parameter-group-name myparametergroup ^
+  --parameters "ParameterName=replicate-wild-do-table,ParameterValue='mydb.order%,mydb.return%',ApplyMethod=immediate"
+```
+
+###### Example Excluding databases from replication
+
+The following example excludes the `mydb5` and `mydb6` databases from replication.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-cluster-parameter-group \
+  --db-cluster-parameter-group-name myparametergroup \
+  --parameters "ParameterName=replicate-ignore-db,ParameterValue='mydb5,mydb6',ApplyMethod=immediate"
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster-parameter-group ^
+  --db-cluster-parameter-group-name myparametergroup ^
+  --parameters "ParameterName=replicate-ignore-db,ParameterValue='mydb5,mydb6,ApplyMethod=immediate"
+```
+
+###### Example Excluding tables from replication
+
+The following example excludes tables `table1` in database `mydb5` and `table2` in
+database `mydb6` from replication.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-cluster-parameter-group \
+  --db-cluster-parameter-group-name myparametergroup \
+  --parameters "ParameterName=replicate-ignore-table,ParameterValue='mydb5.table1,mydb6.table2',ApplyMethod=immediate"
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster-parameter-group ^
+  --db-cluster-parameter-group-name myparametergroup ^
+  --parameters "ParameterName=replicate-ignore-table,ParameterValue='mydb5.table1,mydb6.table2',ApplyMethod=immediate"
+```
+
+###### Example Excluding tables from replication using wildcard characters
+
+The following example excludes tables with names that begin with `order` and `return` in
+database `mydb7` from replication.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-cluster-parameter-group \
+  --db-cluster-parameter-group-name myparametergroup \
+  --parameters "ParameterName=replicate-wild-ignore-table,ParameterValue='mydb7.order%,mydb7.return%',ApplyMethod=immediate"
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster-parameter-group ^
+  --db-cluster-parameter-group-name myparametergroup ^
+  --parameters "ParameterName=replicate-wild-ignore-table,ParameterValue='mydb7.order%,mydb7.return%',ApplyMethod=immediate"
+```
+
+## Viewing the replication filters for a read replica
+
+You can view the replication filters for a read replica in the following ways:
+
+- Check the settings of the replication filtering parameters in the parameter group associated with the read replica.
+
+For instructions, see [Viewing parameter values for a
+DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+
+- In a MySQL client, connect to the read replica and run the `SHOW REPLICA STATUS` statement.
+
+In the output, the following fields show the replication filters for the read replica:
+
+    + `Binlog_Do_DB`
+    + `Binlog_Ignore_DB`
+    + `Replicate_Do_DB`
+    + `Replicate_Ignore_DB`
+    + `Replicate_Do_Table`
+    + `Replicate_Ignore_Table`
+    + `Replicate_Wild_Do_Table`
+    + `Replicate_Wild_Ignore_Table`
+
+For more information about these fields, see [Checking Replication Status](https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html "https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html")
+in the MySQL documentation.

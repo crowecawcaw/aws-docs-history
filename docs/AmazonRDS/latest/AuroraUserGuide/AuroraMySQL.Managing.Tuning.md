@@ -1,125 +1,22 @@
-# Essential concepts for Aurora MySQL tuning
+# Tuning Aurora MySQL with wait events
 
-Before you tune your Aurora MySQL database, make sure to learn what wait events and
-thread states are and why they occur. Also review the basic memory and disk
-architecture of Aurora MySQL when using the InnoDB storage engine. For a helpful
-architecture diagram, see the [MySQL
-Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/innodb-architecture.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-architecture.html").
+The following table summarizes the Aurora MySQL wait events that most commonly indicate performance problems. The
+following wait events are a subset of the list in [Aurora MySQL wait events](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").
 
-###### Topics
-
-- [Aurora MySQL wait events](#AuroraMySQL.Managing.Tuning.concepts.waits "#AuroraMySQL.Managing.Tuning.concepts.waits")
-- [Aurora MySQL thread states](#AuroraMySQL.Managing.Tuning.concepts.thread-states "#AuroraMySQL.Managing.Tuning.concepts.thread-states")
-- [Aurora MySQL memory](#AuroraMySQL.Managing.Tuning.concepts.memory "#AuroraMySQL.Managing.Tuning.concepts.memory")
-- [Aurora MySQL processes](#AuroraMySQL.Managing.Tuning.concepts.processes "#AuroraMySQL.Managing.Tuning.concepts.processes")
-
-## Aurora MySQL wait events
-
-A _wait event_ indicates a resource for which a session is waiting. For example, the
-wait event `io/socket/sql/client_connection` indicates that a thread is in the process of handling
-a new connection. Typical resources that a session waits for include the following:
-
-- Single-threaded access to a buffer, for example, when a session is attempting to modify a buffer
-- A row that is currently locked by another session
-- A data file read
-- A log file write
-
-For example, to satisfy a query, the session might perform a full table scan. If the data isn't already in
-memory, the session waits for the disk I/O to complete. When the buffers are read into memory, the session might
-need to wait because other sessions are accessing the same buffers. The database records the waits by using a
-predefined wait event. These events are grouped into categories.
-
-A wait event doesn't by itself show a performance problem. For example, if requested data isn't in memory,
-reading data from disk is necessary. If one session locks a row for an update, another session waits for the row
-to be unlocked so that it can update it. A commit requires waiting for the write to a log file to complete. Waits
-are integral to the normal functioning of a database.
-
-Large numbers of wait events typically show a performance problem. In such cases, you can use
-wait event data to determine where sessions are spending time. For example, if a report that
-typically runs in minutes now runs for hours, you can identify the wait events that contribute
-the most to total wait time. If you can determine the causes of the top wait events, you can
-sometimes make changes that improve performance. For example, if your session is waiting on a
-row that has been locked by another session, you can end the locking session.
-
-## Aurora MySQL thread states
-
-A _general thread state_ is a `State` value that is associated with general
-query processing. For example, the thread state `sending data` indicates that a thread is reading
-and filtering rows for a query to determine the correct result set.
-
-You can use thread states to tune Aurora MySQL in a similar fashion to how you use
-wait events. For example, frequent occurrences of `sending data` usually
-indicate that a query isn't using an index. For more information about thread
-states, see [General
-Thread States](https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html "https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html") in the _MySQL Reference Manual_.
-
-When you use Performance Insights, one of the following conditions is true:
-
-- Performance Schema is turned on – Aurora MySQL shows wait events
-  rather than the thread state.
-- Performance Schema isn't turned on – Aurora MySQL shows the thread
-  state.
-
-We recommend that you configure the Performance Schema for automatic management. The Performance Schema
-provides additional insights and better tools to investigate potential performance problems. For more
-information, see [Overview of the Performance Schema for Performance Insights on Aurora MySQL](USER_PerfInsights.md "USER_PerfInsights.md").
-
-## Aurora MySQL memory
-
-In Aurora MySQL, the most important memory areas are the buffer pool and log buffer.
-
-###### Topics
-
-- [Buffer pool](#AuroraMySQL.Managing.Tuning.concepts.memory.buffer-pool "#AuroraMySQL.Managing.Tuning.concepts.memory.buffer-pool")
-
-### Buffer pool
-
-The _buffer pool_ is the shared memory area
-where Aurora MySQL caches table and index data. Queries can access frequently used
-data directly from memory without reading from disk.
-
-The buffer pool is structured as a linked list of pages. A _page_ can hold multiple
-rows. Aurora MySQL uses a least recently used (LRU) algorithm to age pages out of the pool.
-
-For more information, see
-[Buffer Pool](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html")
-in the _MySQL Reference Manual_.
-
-## Aurora MySQL processes
-
-Aurora MySQL uses a process model that is very different from Aurora PostgreSQL.
-
-###### Topics
-
-- [MySQL server (mysqld)](#AuroraMySQL.Managing.Tuning.concepts.processes.mysqld "#AuroraMySQL.Managing.Tuning.concepts.processes.mysqld")
-- [Threads](#AuroraMySQL.Managing.Tuning.concepts.processes.threads "#AuroraMySQL.Managing.Tuning.concepts.processes.threads")
-- [Thread pool](#AuroraMySQL.Managing.Tuning.concepts.processes.pool "#AuroraMySQL.Managing.Tuning.concepts.processes.pool")
-
-### MySQL server (mysqld)
-
-The MySQL server is a single operating-system process named mysqld. The MySQL
-server doesn't spawn additional processes. Thus, an Aurora MySQL database uses mysqld
-to perform most of its work.
-
-When the MySQL server starts, it listens for network connections from MySQL clients. When a client connects
-to the database, mysqld opens a thread.
-
-### Threads
-
-Connection manager threads associate each client connection with a dedicated thread. This thread
-manages authentication, runs statements, and returns results to the client. Connection manager creates
-new threads when necessary.
-
-The _thread cache_ is the set of available threads. When a
-connection ends, MySQL returns the thread to the thread cache if the cache isn't
-full. The `thread_cache_size` system variable determines the thread
-cache size.
-
-### Thread pool
-
-The _thread pool_ consists of a number of thread groups. Each
-group manages a set of client connections. When a client connects to the
-database, the thread pool assigns the connections to thread groups in
-round-robin fashion. The thread pool separates connections and threads. There is
-no fixed relationship between connections and the threads that run statements
-received from those connections.
+| Wait event                                                                      | Description                                                                                                             |
+| ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| [cpu](ams-waits.md "ams-waits.md")                                              | This event occurs when a thread is active in CPU or is waiting for CPU.                                                 |
+| [io/aurora_redo_log_flush](ams-waits.md "ams-waits.md")                         | This event occurs when a session is writing persistent data to Aurora storage.                                          |
+| [io/aurora_respond_to_client](ams-waits.md "ams-waits.md")                      | This event occurs when a thread is waiting to return a result set to a client.                                          |
+| [io/redo_log_flush](ams-waits.md "ams-waits.md")                                | This event occurs when a session is writing persistent data to Aurora storage.                                          |
+| [io/socket/sql/client_connection](ams-waits.md "ams-waits.md")                  | This event occurs when a thread is in the process of handling a new connection.                                         |
+| [io/table/sql/handler](ams-waits.md "ams-waits.md")                             | This event occurs when work has been delegated to a storage engine.                                                     |
+| [synch/cond/innodb/row_lock_wait](ams-waits.md "ams-waits.md")                  | This event occurs when one session has locked a row for an update, and another session tries to update the<br>same row. |
+| [synch/cond/innodb/row_lock_wait_cond](ams-waits.md "ams-waits.md")             | This event occurs when one session has locked a row for an update, and another session tries to update the<br>same row. |
+| [synch/cond/sql/MDL_context::COND_wait_status](ams-waits.md "ams-waits.md")     | This event occurs when there are threads waiting on a table metadata lock.                                              |
+| [synch/mutex/innodb/aurora_lock_thread_slot_futex](ams-waits.md "ams-waits.md") | This event occurs when one session has locked a row for an update, and another session tries to update the<br>same row. |
+| [synch/mutex/innodb/buf_pool_mutex](ams-waits.md "ams-waits.md")                | This event occurs when a thread has acquired a lock on the InnoDB buffer pool to access a page in<br>memory.            |
+| [synch/mutex/innodb/fil_system_mutex](ams-waits.md "ams-waits.md")              | This event occurs when a session is waiting to access the tablespace memory cache.                                      |
+| [synch/mutex/innodb/trx_sys_mutex](ams-waits.md "ams-waits.md")                 | This event occurs when there is high database activity with a large number of transactions.                             |
+| [synch/sxlock/innodb/hash_table_locks](ams-waits.md "ams-waits.md")             | This event occurs when pages not found in the buffer pool must be read from a file.                                     |
+| [synch/mutex/innodb/temp_pool_manager_mutex](ams-waits.md "ams-waits.md")       | This event occurs when a session is waiting to acquire a mutex for managing the pool of session temporary tablespaces.  |

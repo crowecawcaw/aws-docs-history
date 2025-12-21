@@ -135,7 +135,7 @@ Include the name of the DB cluster as the `DBClusterIdentifier` parameter.
 You can optionally specify an Availability Zone for the Aurora Replica using the
 `AvailabilityZone` parameter.
 
-For information about Amazon EC2 Auto Scaling Amazon Aurora with Aurora replicas, see the following sections.
+For information about Auto Scaling Amazon Aurora with Aurora replicas, see the following sections.
 
 ###### Topics
 

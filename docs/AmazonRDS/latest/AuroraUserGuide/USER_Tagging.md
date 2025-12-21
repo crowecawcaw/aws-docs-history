@@ -35,6 +35,8 @@ You can tag the following Aurora and Amazon RDS resources:
 - RDS Proxy endpoints
 - Blue/green deployments
 - Zero-ETL integrations
+- Automated backups
+- Cluster automated backups
 
 ###### Note
 
@@ -46,6 +48,7 @@ When you tag a DB instance, Aurora automatically applies those tags to the assoc
 - [How Amazon RDS resource tags work](#Overview.Tagging "#Overview.Tagging")
 - [Best practices for tagging Amazon RDS resources](#Tagging.best-practices "#Tagging.best-practices")
 - [Copying tags to DB cluster snapshots](#USER_Tagging.CopyTagsCluster "#USER_Tagging.CopyTagsCluster")
+- [Tagging automated backup resources](#USER_Tagging.AutomatedBackups "#USER_Tagging.AutomatedBackups")
 - [Adding and deleting tags in Amazon RDS](#Tagging.HowTo "#Tagging.HowTo")
 - [Tutorial: Use tags to specify which Aurora DB clusters to stop](Tagging.Aurora.md "Tagging.Aurora.md")
 
@@ -155,6 +158,8 @@ AWS Management Console.
 
 - Blue/green deployments
 - Zero-ETL integrations (preview)
+- Automated backups
+- Cluster automated backups
 
 ### How AWS billing works with tags in Amazon RDS
 
@@ -251,6 +256,24 @@ This approach avoids adding tags that don't apply to the new DB instance. You cr
 snapshot using the AWS CLI `create-db-snapshot` command (or the
 `CreateDBSnapshot` RDS API operation). After you create your DB snapshot, you
 can add tags as described later in this topic.
+
+## Tagging automated backup resources
+
+Automated backup resources are created when you set backup retention period value from 0 to greater than 0. You can tag instance or cluster automated backup resources during creation using the `--tag-specifications` parameter.
+
+### Tag-Specifications Parameter
+
+APIs that support the `--tag-specifications` request parameter (like [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md"),
+[restore-db-instance-from-db-snapshot](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md"),
+[create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md"), etc.) can tag automated backups (Resource Type: `auto-backup` or `cluster-auto-backup`) during creation.
+
+#### Tagging cluster automated backups
+
+Use `--tag-specifications` with `ResourceType=cluster-auto-backup` when creating DB clusters that have automated backups enabled.
+
+###### Note
+
+- Automated backup tags are independent of source DB instance tags, DB cluster tags, or DB snapshot tags.
 
 ## Adding and deleting tags in Amazon RDS
 
