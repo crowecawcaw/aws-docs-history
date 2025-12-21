@@ -88,7 +88,7 @@ repository association (console)
         3. (Optional) Expand **Analysis configuration file - optional** to download a sample `aws-codeguru-reviewer.yml` file to use as a template. Modify the file and upload it to the root directory of your repository. For more information about the analysis configuration file, see [Suppress
          recommendations](recommendation-suppression.md "recommendation-suppression.md").
 
-    ![The Run a repository analysis section with settings and sample YAML file information.](images/run-repo-analysis-config-file.png)
+    ![The Run a repository analysis section with settings and sample YAML file information.](/images/codeguru/latest/reviewer-ug/images/run-repo-analysis-config-file.png)
 
 9.  (Optional) Expand **Tags** to add one or more tags to your repository association.
     For more information, see [Tagging a repository association in

@@ -245,7 +245,7 @@ review
    information, see [Error handling for the aws-codeguru-reviewer.yml
    file](recommendation-suppression.md#error-handling-yml "recommendation-suppression.md#error-handling-yml").
 
-   ![The Details section of a code review. List of errors in your YAML file appears in top banner.](images/code-review-config-file-error.png)
+   ![The Details section of a code review. List of errors in your YAML file appears in top banner.](/images/codeguru/latest/reviewer-ug/images/code-review-config-file-error.png)
    - If CodeGuru Reviewer did not recognize your file name or find the file at the root directory of your repository, then **No file detected** appears under **Analysis configuration file**. Your file must be named
      `aws-codeguru-reviewer.yml` and must exist in the root directory of your repository. Otherwise CodeGuru Reviewer cannot recognize that the file exists, use it in code reviews,
      or return error messages about problems with the file.
@@ -253,7 +253,7 @@ review
    Confirm the name and location of your file, make any needed changes, and then initiate a new
    code review.
 
-   ![The Details section of a code review. No file detected appears under Analysis configuration file.](/images/codeguru/latest/reviewer-ug/images/code-review-no-file-detected.png)
+   ![The Details section of a code review. No file detected appears under Analysis configuration file.](images/code-review-no-file-detected.png)
 
 For more information about using an `aws-codeguru-reviewer.yml` file, see [Suppress
 recommendations](recommendation-suppression.md "recommendation-suppression.md").
