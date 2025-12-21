@@ -116,7 +116,7 @@ Using a Network Load Balancer instead of a Classic Load Balancer has the followi
   port. This enables you to make efficient use of your clusters.
 - Support for monitoring the health of each service independently, as health
   checks are defined at the target group level and many Amazon CloudWatch metrics are
-  reported at the target group level. Attaching a target group to an Amazon EC2 Auto Scaling group
+  reported at the target group level. Attaching a target group to an Auto Scaling group
   enables you to scale each service dynamically based on demand.
 - Support for the QUIC and TCP_QUIC protocols with advanced congestion control,
   fewer round trip connection establishment, built in TLS, and connection migration across networks.
