@@ -65,7 +65,7 @@ Ensure that your Lambda function is under the same AWS account and AWS Region as
       18.x**.
    3. For **Role**, select **Choose an existing
       role**.
-   4. For **Existing role**, select [the Lambda role that you created earlier](#create-xray-lambda-state-machine-to-create-a-role-for-use-with-lambda "#create-xray-lambda-state-machine-to-create-a-role-for-use-with-lambda").
+   4. For **Existing role**, select [the Lambda role that you created earlier](../dg.md#create-xray-lambda-state-machine-to-create-a-role-for-use-with-lambda "../dg.md#create-xray-lambda-state-machine-to-create-a-role-for-use-with-lambda").
 
    ###### Note
 
