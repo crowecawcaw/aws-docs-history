@@ -380,7 +380,7 @@ administrators and users**.
 ![The "Delete portal" dialog box with "Remove administrators and users" highlighted.](images/sitewise-delete-portal-remove-users-console.png) 5. Enter `delete` to confirm deletion, and then choose
 **Delete**.
 
-![The "Delete portal" dialog box with "Delete" highlighted.](/images/iot-sitewise/latest/userguide/images/sitewise-delete-portal-confirm-delete-console.png)
+![The "Delete portal" dialog box with "Delete" highlighted.](images/sitewise-delete-portal-confirm-delete-console.png)
 
 ###### To delete IAM Identity Center users
 
