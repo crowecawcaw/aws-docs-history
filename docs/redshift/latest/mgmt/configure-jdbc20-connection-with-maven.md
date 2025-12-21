@@ -73,7 +73,6 @@ following.
 
 The class name for this driver is
 `com.amazon.redshift.Driver`.
-
 The Amazon Redshift Maven drivers need the following optional dependencies when you use IAM
 database authentication.
 

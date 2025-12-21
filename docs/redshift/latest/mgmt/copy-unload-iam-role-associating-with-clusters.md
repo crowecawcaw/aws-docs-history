@@ -164,7 +164,7 @@ aws redshift modify-cluster-iam-roles \
     --remove-iam-roles "arn:aws:iam::123456789012:role/RedshiftCopyUnload"
 ```
 
-#### Listing IAM role associations for a cluster using the
+### Listing IAM role associations for a cluster using the
 
 AWS CLI
 

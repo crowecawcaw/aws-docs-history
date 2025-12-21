@@ -395,11 +395,24 @@ determine whether the database connection is active.
 This option specifies that the driver fetches rows using a ring buffer on a
 separate thread. The fetchRingBufferSize parameter specifies the ring buffer size.
 
+The ring buffer implements automatic memory management in JDBC to prevent out-of-memory
+(OOM) errors during data retrieval operations. The ring buffer monitors the actual size of
+buffered data in real-time, ensuring total memory usage by the driver stays within defined
+limits. When buffer capacity is reached, the driver pauses data fetching operations, preventing
+memory overflow without requiring manual intervention. This built-in safeguard eliminates
+OOM errors automatically, with no configuration needed from users.
+
 If a transaction detects a Statement containing multiple SQL commands separated by
 semicolons, the fetch ring buffer for that transaction is set to false.
 enableFetchRingBuffer's value doesn't change.
 
 This parameter is optional.
+
+###### Note
+
+When the ring buffer is disabled and the fetch size is not properly configured,
+out-of-memory (OOM) issues may occur. For more information about configuring fetch size,
+see [here](../dg/set-the-JDBC-fetch-size-parameter.md "../dg/set-the-JDBC-fetch-size-parameter.md").
 
 ## enableMultiSqlSupport
 

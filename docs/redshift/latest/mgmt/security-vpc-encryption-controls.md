@@ -67,7 +67,7 @@ When using VPC encryption controls in Amazon Redshift, consider the following:
 
 **Region availability**
 
-This feature is not available with Amazon Redshift Serverless in the following Regions:
+This feature is not available in enforce mode with Amazon Redshift Serverless in the following Regions:
 
 - South America (São Paulo)
 - Europe (Zurich)

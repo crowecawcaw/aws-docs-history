@@ -19,8 +19,8 @@ that type of connection rather than ODBC due to the ease of configuration that J
 provides. However, if your client tool doesn't support JDBC, you can follow the steps in
 this section to set up an ODBC connection on your client computer or Amazon EC2 instance.
 
-Amazon Redshift provides 64-bit ODBC drivers for Linux and Windows operating systems; the 32-bit
-ODBC drivers are discontinued. Currently, macOS X is not supported. Further updates to the
+Amazon Redshift provides 64-bit ODBC drivers for Linux, Windows and Mac operating systems; the 32-bit
+ODBC drivers are discontinued. Further updates to the
 32-bit ODBC drivers will not be released, except for urgent security patches.
 
 For the latest information about ODBC driver changes, see the [change
@@ -33,6 +33,7 @@ log](https://github.com/aws/amazon-redshift-odbc-driver/blob/master/CHANGELOG.md
   Windows](odbc20-install-config-win.md "odbc20-install-config-win.md")
 - [Using an Amazon Redshift ODBC driver on
   Linux](odbc20-install-config-linux.md "odbc20-install-config-linux.md")
+- [Using an Amazon Redshift ODBC driver on Apple MacOS](odbc20-install-config-mac.md "odbc20-install-config-mac.md")
 - [Authentication methods](odbc20-authentication-ssl.md "odbc20-authentication-ssl.md")
 - [Data types conversions](odbc20-converting-data-types.md "odbc20-converting-data-types.md")
 - [ODBC driver options](odbc20-configuration-options.md "odbc20-configuration-options.md")

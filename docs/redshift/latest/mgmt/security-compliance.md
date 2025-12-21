@@ -31,7 +31,7 @@ HIPAA, PCI, or FedRAMP, AWS provides resources to help:
   industry standards and best practices.
   Security Hub CSPM uses security controls to evaluate resource configurations and security standards to help you comply with various compliance frameworks.
   For more information about using Security Hub CSPM to evaluate Amazon Redshift resources, see
-  [Amazon Redshift controls](../../../securityhub/latest/userguide/redshift-controls.md "../../../securityhub/latest/userguide/redshift-controls.md") in the _AWS Security Hub CSPM User Guide_.
+  [Amazon Redshift controls](../../../securityhub/latest/userguide/redshift-controls.md "../../../securityhub/latest/userguide/redshift-controls.md") in the _AWS Security Hub User Guide_.
   The following compliance and security documents cover Amazon Redshift and are available on demand
   through AWS Artifact. For more information, see [AWS Artifact](https://aws.amazon.com/artifact "https://aws.amazon.com/artifact").
 

@@ -145,3 +145,8 @@ For more information on sort keys, see [Working with sort keys](../dg/t_Sorting_
 _VPC sharing_ – You can create Amazon Redshift Serverless workgroups in a
 shared VPC. If you do so, we recommend that you don't delete the resource share as
 it can result in the workgroup becoming unavailable.
+
+**IPv6 Support:**
+
+Amazon Redshift Serverless supports configuring your Amazon Redshift workgroups with both IPv4 and IPv6 addresses (dual-stack) or IPv4-only configurations within your AWS Virtual Private Clouds (VPCs). You can enable IPv6 support when creating new Amazon Redshift Serverless workgroups or modify existing workgroups to support IPv6 addressing.
+With this capability, you can deploy Amazon Redshift Serverless warehouses in IPv6-enabled VPC subnets and configure network settings to support the expanding address space requirements of your applications. Your applications can now communicate with Amazon Redshift Serverless warehouses using either IPv4 or IPv6 protocols, ensuring compatibility with both existing and future network architectures.
