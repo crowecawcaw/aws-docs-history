@@ -14,5 +14,4 @@ Aurora DSQL support for PostgreSQL data types and SQL commands.
   for Aurora DSQL](working-with-postgresql-compatibility-supported-sql-features.md "working-with-postgresql-compatibility-supported-sql-features.md")
 - [Supported
   subsets of SQL commands in Aurora DSQL](working-with-postgresql-compatibility-supported-sql-subsets.md "working-with-postgresql-compatibility-supported-sql-subsets.md")
-- [Unsupported
-  PostgreSQL features in Aurora DSQL](working-with-postgresql-compatibility-unsupported-features.md "working-with-postgresql-compatibility-unsupported-features.md")
+- [Migrating from PostgreSQL to Aurora DSQL](working-with-postgresql-compatibility-migration-guide.md "working-with-postgresql-compatibility-migration-guide.md")
