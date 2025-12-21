@@ -40,7 +40,7 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
         * **Client ID manager ARN**
         * **Client secret manager ARN**
 
-    ![The LiveRamp configuration fields on the Specify ID mapping workflow page](/images/entityresolution/latest/userguide/images/liveramp-configuration.PNG) 4. (Optional) To enable **Tags** for the resource, choose
+    ![The LiveRamp configuration fields on the Specify ID mapping workflow page](images/liveramp-configuration.PNG) 4. (Optional) To enable **Tags** for the resource, choose
     **Add new tag**, and then enter the **Key** and
     **Value** pair. 5. Choose **Next**.
 

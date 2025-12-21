@@ -22,6 +22,14 @@ When AWS Entity Resolution finds a match between two or more records in your dat
   subset wasn't matched, you can then run [provider service- based matching](create-matching-workflow-provider.md "create-matching-workflow-provider.md") to
   find additional matches.
 
+**Prerequisites**
+
+Before you create an ML-based matching workflow, you must:
+
+1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md "create-schema-mapping.md").
+2. If using Amazon Connect Customer Profiles as your output destination, ensure you have the
+   appropriate permissions configured.
+
 ###### To create a ML-based matching workflow:
 
 1.  Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").

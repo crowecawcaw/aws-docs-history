@@ -28,9 +28,6 @@ The following sections describe how to create a provider-based matching workflow
 
 ## Creating a matching workflow with LiveRamp
 
-If you have a subscription to the LiveRamp service, you can create a matching workflow
-with the LiveRamp service to perform identity resolution.
-
 The LiveRamp service provides an identifier called the RampID. The RampID is one of the
 most commonly used IDs in demand-side platforms to create an audience for an advertising
 campaign. Using a matching workflow with LiveRamp, you can resolve hashed email addresses to
@@ -40,9 +37,19 @@ RAMPIDs.
 
 AWS Entity Resolution supports PII-based RampID assignment.
 
-This workflow requires an Amazon S3 data staging bucket where you want the matching workflow
-output to be temporarily written. Before you create a ID mapping workflow with LiveRamp, add
-the following permissions to the data staging bucket.
+**Prerequisites**
+
+Before you create a matching workflow with LiveRamp, you must:
+
+1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md "create-schema-mapping.md").
+2. Have a subscription to the LiveRamp service
+3. Have appropriate permissions configured to the Amazon S3 data staging bucket where you
+   want the matching workflow output to be temporarily written
+
+Before
+you create a ID mapping workflow with LiveRamp, add the following permissions to the
+S3
+data staging bucket.
 
 JSON
 
@@ -245,9 +252,19 @@ The TransUnion service provides identifiers known as the TransUnion Individual a
 Household IDs. TransUnion provides ID assignment (also known as encoding) of known
 identifiers such as name, address, phone number, and email address.
 
-This workflow requires an Amazon S3 data staging bucket where you want the matching workflow
-output to be temporarily written. Before you create a matching workflow with TransUnion, add
-the following permissions to the data staging bucket.
+**Prerequisites**
+
+Before you create a matching workflow with LiveRamp, you must:
+
+1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md "create-schema-mapping.md").
+2. Have a subscription to the TransUnion service
+3. Have appropriate permissions configured to the Amazon S3 data staging bucket where you
+   want the matching workflow output to be temporarily written
+
+Before
+you create a matching workflow with TransUnion, add the following permissions to the
+S3
+data staging bucket.
 
 JSON
 
@@ -442,6 +459,13 @@ create a second workflow using this new schema mapping.
 Raw UID2s are created by adding salts from salt buckets which are rotated
 approximately once a year, causing the raw UID2 to also be rotated with it. Therefore,
 it's recommended that you refresh the raw UID2s daily. For more information, see [https://unifiedid.com/docs/getting-started/gs-faqs#how-often-should-uid2s-be-refreshed-for-incremental-updates](https://unifiedid.com/docs/getting-started/gs-faqs#how-often-should-uid2s-be-refreshed-for-incremental-updates "https://unifiedid.com/docs/getting-started/gs-faqs#how-often-should-uid2s-be-refreshed-for-incremental-updates").
+
+**Prerequisites**
+
+Before you create a matching workflow with UID 2.0, you must:
+
+1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md "create-schema-mapping.md").
+2. Have a subscription to the UID 2.0 service
 
 ###### To create a matching workflow with UID 2.0:
 
