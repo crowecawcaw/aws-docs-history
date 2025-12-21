@@ -46,7 +46,7 @@ Trusted Advisor Priority recommendations come from these two sources:
 
 You must meet the following requirements to use Trusted Advisor Priority:
 
-- You must have an AWS Unified Operations plan.
+- You must have an AWS Enterprise Support or AWS Unified Operations plan.
 - Your account must be part of an organization that has enabled all features in AWS Organizations.
   For more information, see [Enabling all features in your organization](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md") in the
   _AWS Organizations User Guide_.

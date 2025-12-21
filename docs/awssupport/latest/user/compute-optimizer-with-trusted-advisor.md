@@ -29,13 +29,12 @@ following checks:
 
 ###### Notes
 
-- Results for these checks are automatically refreshed several times daily.
-  Refresh requests are not allowed. It might take a few hours for changes to
-  appear. Currently, you can’t exclude resources from these checks.
+- Results for these check are automatically refreshed at least once daily, and refresh requests are not allowed. It might take a few
+  hours for changes to appear. You can use the Trusted Advisor console to exclude resources from checks that automatically refresh. You can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to exclude resources from any check except Trusted Advisor Priority recommendation resources.
 - Trusted Advisor already has the Underutilized Amazon EBS Volumes and the Overutilized
   Amazon EBS Magnetic Volumes checks.
 
-Once you opt in with Compute Optimizer, we recommend that you use the new Amazon EBS
+After you opt in with Compute Optimizer, we recommend that you use the new Amazon EBS
 over-provisioned volumes and Amazon EBS under-provisioned volumes checks
 instead.
 

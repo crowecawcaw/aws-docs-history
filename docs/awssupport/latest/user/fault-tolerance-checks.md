@@ -73,9 +73,9 @@ You can use the following checks for the fault tolerance category.
 - [Amazon S3 Bucket Replication Not Enabled](fault-tolerance-checks.md#amazon-s3-bucket-replication-not-enabled "fault-tolerance-checks.md#amazon-s3-bucket-replication-not-enabled")
 - [Amazon S3 Bucket Versioning](fault-tolerance-checks.md#amazon-s3-bucket-versioning "fault-tolerance-checks.md#amazon-s3-bucket-versioning")
 - [Application, Network, and Gateway Load Balancers Not Spanning Multiple Availability Zones](fault-tolerance-checks.md#application-network-load-balancers-not-span-multi-az "fault-tolerance-checks.md#application-network-load-balancers-not-span-multi-az")
-- [Amazon EC2 Auto Scaling available IPs in Subnets](fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets "fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets")
-- [Amazon EC2 Auto Scaling Group Health Check](fault-tolerance-checks.md#auto-scaling-group-health-check "fault-tolerance-checks.md#auto-scaling-group-health-check")
-- [Amazon EC2 Auto Scaling Group Resources](fault-tolerance-checks.md#auto-scaling-group-resources "fault-tolerance-checks.md#auto-scaling-group-resources")
+- [Auto Scaling available IPs in Subnets](fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets "fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets")
+- [Auto Scaling Group Health Check](fault-tolerance-checks.md#auto-scaling-group-health-check "fault-tolerance-checks.md#auto-scaling-group-health-check")
+- [Auto Scaling Group Resources](fault-tolerance-checks.md#auto-scaling-group-resources "fault-tolerance-checks.md#auto-scaling-group-resources")
 - [AWS CloudHSM
   clusters running HSM instances in a single AZ](fault-tolerance-checks.md#aws-cloudhsm-clusters-running-hsm-instances-in-a-single-az "fault-tolerance-checks.md#aws-cloudhsm-clusters-running-hsm-instances-in-a-single-az")
 - [Direct Connect Location
@@ -126,7 +126,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -179,7 +179,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -271,7 +271,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -316,7 +316,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -367,7 +367,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -416,7 +416,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -465,7 +465,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -516,7 +516,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -605,7 +605,7 @@ To automate the creation of EBS snapshots, you can consider using [AWS Backup](.
 
 **Description**
 
-Checks if your Amazon EC2 Auto Scaling groups that are associated with a Classic Load Balancer are using ELB health checks. The default health checks for an Amazon EC2 Auto Scaling group are Amazon EC2 status checks only. If an instance fails these status checks, it is marked unhealthy and is terminated. Amazon EC2 Auto Scaling launches a new replacement instance. The ELB health check periodically monitors Amazon EC2 instances to detect and terminate unhealthy instances and then launch new instances.
+Checks if your Amazon EC2 Auto Scaling groups that are associated with a Classic Load Balancer are using ELB health checks. The default health checks for an Auto Scaling group are Amazon EC2 status checks only. If an instance fails these status checks, it is marked unhealthy and is terminated. Amazon EC2 Auto Scaling launches a new replacement instance. The ELB health check periodically monitors Amazon EC2 instances to detect and terminate unhealthy instances and then launch new instances.
 
 For more information, see [Add Elastic Load Balancing health checks](../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console "../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console").
 
@@ -615,7 +615,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -631,7 +631,7 @@ Yellow: Amazon EC2 Auto Scaling group attached to Classic Load Balancer has not 
 
 **Recommended Action**
 
-Ensure that your Amazon EC2 Auto Scaling groups that are associated with a Classic Load Balancer use ELB health checks.
+Ensure that your Auto Scaling groups that are associated with a Classic Load Balancer use ELB health checks.
 
 ELB health checks report if the load balancer is healthy and available to handle requests. This ensures high availability for your application.
 
@@ -662,7 +662,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -763,8 +763,8 @@ protect your applications from a single point of failure.
 **Recommended Action**
 
 Balance your Amazon EC2 instances evenly across multiple Availability Zones.
-You can do this by launching instances manually or by using Amazon EC2 Auto Scaling to do it
-automatically. For more information, see [Launch Your Instance](../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md "../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md") and [Load Balance Your Amazon EC2 Auto Scaling Group](../../../AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.md "../../../AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.md").
+You can do this by launching instances manually or by using Auto Scaling to do it
+automatically. For more information, see [Launch Your Instance](../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md "../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md") and [Load Balance Your Auto Scaling Group](../../../AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.md "../../../AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.md").
 
 **Additional Resources**
 
@@ -799,7 +799,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -844,7 +844,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -898,7 +898,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -941,7 +941,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -987,7 +987,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -1089,7 +1089,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -1133,7 +1133,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -1186,7 +1186,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -1299,7 +1299,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -1383,7 +1383,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -1431,7 +1431,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -1478,7 +1478,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -1526,7 +1526,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -1578,7 +1578,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -1623,7 +1623,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -1670,7 +1670,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -1775,7 +1775,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -1822,7 +1822,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -1873,7 +1873,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -1933,7 +1933,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -2031,7 +2031,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -2078,7 +2078,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -2125,7 +2125,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -2177,7 +2177,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -2228,7 +2228,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -2277,7 +2277,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -2359,7 +2359,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 ###### Note
 
@@ -2412,7 +2412,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -2710,7 +2710,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -2773,6 +2773,7 @@ storage of multiple versions of an object.
 - Green: Versioning is enabled for the bucket.
 - Yellow: Versioning is not enabled for the bucket.
 - Yellow: Versioning is suspended for the bucket.
+- Yellow: Trusted Advisor doesn't have access to validate versioning.
 
 **Recommended Action**
 
@@ -2823,7 +2824,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -2858,11 +2859,11 @@ Configure your Application, Network, and Gateway Load Balancers with subnets acr
 - Input Parameters
 - Last Updated Time
 
-## Amazon EC2 Auto Scaling available IPs in Subnets
+## Auto Scaling available IPs in Subnets
 
 **Description**
 
-Checks that sufficient available IPs remain among targeted Subnets.Having sufficient IPs available for use would help when Amazon EC2 Auto Scaling Group reaches its maximum size and needs to launch additional instances.
+Checks that sufficient available IPs remain among targeted Subnets.Having sufficient IPs available for use would help when Auto Scaling Group reaches its maximum size and needs to launch additional instances.
 
 **Check ID**
 
@@ -2885,15 +2886,15 @@ Increase the number of available IP addresses
 - Maximum instances that can be created
 - Number of available instances
 
-## Amazon EC2 Auto Scaling Group Health Check
+## Auto Scaling Group Health Check
 
 **Description**
 
-Examines the health check configuration for Amazon EC2 Auto Scaling groups.
+Examines the health check configuration for Auto Scaling groups.
 
-If ELB is being used for an Amazon EC2 Auto Scaling group, the recommended configuration is
-to enable an ELB health check. If an ELB health check is not used, Amazon EC2 Auto Scaling
-can only act upon the health of the Amazon Elastic Compute Cloud (Amazon EC2) instance. Amazon EC2 Auto Scaling will
+If ELB is being used for an Auto Scaling group, the recommended configuration is
+to enable an ELB health check. If an ELB health check is not used, Auto Scaling
+can only act upon the health of the Amazon Elastic Compute Cloud (Amazon EC2) instance. Auto Scaling will
 not act on the application running on the instance.
 
 **Check ID**
@@ -2902,19 +2903,19 @@ not act on the application running on the instance.
 
 **Alert Criteria**
 
-- Yellow: An Amazon EC2 Auto Scaling group has an associated load balancer, but the
+- Yellow: An Auto Scaling group has an associated load balancer, but the
   Elastic Load Balancing health check is not enabled.
-- Yellow: An Amazon EC2 Auto Scaling group does not have an associated load balancer,
+- Yellow: An Auto Scaling group does not have an associated load balancer,
   but the Elastic Load Balancing health check is enabled.
 
 **Recommended Action**
 
-If the Amazon EC2 Auto Scaling group has an associated load balancer, but the Elastic Load Balancing
-health check is not enabled, see [Add an Elastic Load Balancing Health Check to your Amazon EC2 Auto Scaling
+If the Auto Scaling group has an associated load balancer, but the Elastic Load Balancing
+health check is not enabled, see [Add an Elastic Load Balancing Health Check to your Auto Scaling
 Group](../../../AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.md "../../../AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.md").
 
 If the Elastic Load Balancing health check is enabled, but no load balancer is
-associated with the Amazon EC2 Auto Scaling group, see [Set Up an Auto-Scaled and Load-Balanced
+associated with the Auto Scaling group, see [Set Up an Auto-Scaled and Load-Balanced
 Application](../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md "../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md").
 
 **Additional Resources**
@@ -2925,21 +2926,21 @@ Application](../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg
 
 - Status
 - Region
-- Amazon EC2 Auto Scaling Group Name
+- Auto Scaling Group Name
 - Load Balancer Associated
 - Health Check
 
-## Amazon EC2 Auto Scaling Group Resources
+## Auto Scaling Group Resources
 
 **Description**
 
 Checks the availability of resources associated with your launch configurations, launch templates,
-and your Amazon EC2 Auto Scaling groups.
+and your Auto Scaling groups.
 
-Amazon EC2 Auto Scaling groups that point to unavailable resources cannot launch new
-Amazon Elastic Compute Cloud (Amazon EC2) instances. When properly configured, Amazon EC2 Auto Scaling causes the
+Auto Scaling groups that point to unavailable resources cannot launch new
+Amazon Elastic Compute Cloud (Amazon EC2) instances. When properly configured, Auto Scaling causes the
 number of Amazon EC2 instances to increase seamlessly during demand spikes, and
-decrease automatically during demand lulls. Amazon EC2 Auto Scaling groups and launch
+decrease automatically during demand lulls. Auto Scaling groups and launch
 configurations/launch templates that point to unavailable resources do not operate as
 intended.
 
@@ -2953,7 +2954,7 @@ This check reports the resources that are flagged by the criteria and the total 
 
 **Alert Criteria**
 
-- Red: An Amazon EC2 Auto Scaling group is associated with a deleted load
+- Red: An Auto Scaling group is associated with a deleted load
   balancer.
 - Red: A launch configuration is associated with a deleted Amazon
   Machine Image (AMI).
@@ -2963,16 +2964,16 @@ This check reports the resources that are flagged by the criteria and the total 
 **Recommended Action**
 
 If the load balancer has been deleted, either create a new load balancer or target group and
-then associate it to the Amazon EC2 Auto Scaling group. or create a new
-Amazon EC2 Auto Scaling group without the load balancer. For information about creating a new
-Amazon EC2 Auto Scaling group with a new load balancer, see [Set Up an Auto-Scaled and Load-Balanced
-Application](../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md "../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md"). For information about creating a new Amazon EC2 Auto Scaling group
-without a load balancer, see Create Amazon EC2 Auto Scaling Group in [Getting Started With Amazon EC2 Auto Scaling Using the
+then associate it to the Auto Scaling group. or create a new
+Auto Scaling group without the load balancer. For information about creating a new
+Auto Scaling group with a new load balancer, see [Set Up an Auto-Scaled and Load-Balanced
+Application](../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md "../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md"). For information about creating a new Auto Scaling group
+without a load balancer, see Create Auto Scaling Group in [Getting Started With Auto Scaling Using the
 Console](../../../AutoScaling/latest/DeveloperGuide/USBasicSetup-Console.md "../../../AutoScaling/latest/DeveloperGuide/USBasicSetup-Console.md").
 
 If the AMI has been deleted, then create a new launch configuration or launch template
-version using a valid AMI and associate it with an Amazon EC2 Auto Scaling group. For information on how to create a new launch configuration, see [Create a launch
-configuration](../../../autoscaling/ec2/userguide/create-launch-config.md "../../../autoscaling/ec2/userguide/create-launch-config.md") in the _Amazon EC2 Auto Scaling User Guide_. For information on how to create a launch template, see [Create a launch template for an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md") in the _Amazon EC2 Auto Scaling User Guide_.
+version using a valid AMI and associate it with an Auto Scaling group. For information on how to create a new launch configuration, see [Create a launch
+configuration](../../../autoscaling/ec2/userguide/create-launch-config.md "../../../autoscaling/ec2/userguide/create-launch-config.md") in the _Amazon EC2 Auto Scaling User Guide_. For information on how to create a launch template, see [Create a launch template for an Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### Note
 
@@ -2982,9 +2983,9 @@ If your launch templates include an AWS Systems Manager parameter that include a
 
 **Additional Resources**
 
-- [Troubleshooting Amazon EC2 Auto Scaling: Amazon EC2
+- [Troubleshooting Auto Scaling: Amazon EC2
   AMIs](../../../AutoScaling/latest/DeveloperGuide/ts-as-ami.md "../../../AutoScaling/latest/DeveloperGuide/ts-as-ami.md")
-- [Troubleshooting Amazon EC2 Auto Scaling: Load Balancer
+- [Troubleshooting Auto Scaling: Load Balancer
   Configuration](../../../AutoScaling/latest/DeveloperGuide/ts-as-loadbalancer.md "../../../AutoScaling/latest/DeveloperGuide/ts-as-loadbalancer.md")
 - [Amazon EC2 Auto Scaling User Guide](../../../autoscaling/latest/userguide.md "../../../autoscaling/latest/userguide.md")
 - [Use AWS Systems Manager parameters instead of AMI IDs](../../../autoscaling/ec2/userguide/using-systems-manager-parameters.md "../../../autoscaling/ec2/userguide/using-systems-manager-parameters.md")
@@ -2993,7 +2994,7 @@ If your launch templates include an AWS Systems Manager parameter that include a
 
 - Status
 - Region
-- Amazon EC2 Auto Scaling Group Name
+- Auto Scaling Group Name
 - Launch Type
 - Resource Type
 - Resource Name
@@ -3014,7 +3015,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3125,7 +3126,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3170,7 +3171,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3217,7 +3218,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3346,7 +3347,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3395,7 +3396,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3445,7 +3446,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3490,7 +3491,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3591,7 +3592,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3646,7 +3647,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -3883,7 +3884,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -4052,7 +4053,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -4095,7 +4096,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -4143,7 +4144,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -4191,7 +4192,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -4234,7 +4235,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -4275,7 +4276,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -4369,7 +4370,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
@@ -4413,7 +4414,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 

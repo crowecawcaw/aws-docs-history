@@ -9,14 +9,16 @@ AWS Support Plans](managed-policies-aws-support-plans.md "managed-policies-aws-s
 1. Sign in to the AWS Support Plans console at [https://console.aws.amazon.com/support/plans/home](https://console.aws.amazon.com/support/plans/home "https://console.aws.amazon.com/support/plans/home").
 2. (Optional) To compare support plans, on the **AWS Support Plans** page, choose **Compare all Support plans and features**.
 3. (Optional) To view estimated costs for a support plan, choose **Pricing calculator**. In the **Pricing calculator**, select a support tier, enter an estimate of how much you expect to spend with AWS each month, and then choose **Calculate**.
-4. To upgrade to an AWS Enterprise Support or AWS Unified Operations plan, choose **Contact sales**.
+4. To downgrade your Enterprise Support plan, reach out to your Technical Account Manager (TAM).
 
-To downgrade a Premium Support plan, reach out to your Technical Account Manager (TAM).
+To downgrade your Business Support+ plan, on the [Manage Support Plans](https://console.aws.amazon.com/support/plans/home "https://console.aws.amazon.com/support/plans/home") page choose **Review downgrade** in the Basic Support plan section.
+
+To upgrade to an AWS Enterprise Support or AWS Unified Operations plan, choose **Contact sales**.
 
 To upgrade to an AWS Business Support+ plan from Basic Support, complete the following steps:
 
     1. Choose **Get started** in the AWS Business Support+ section.
-    2. If you are onboarded to AWS Organizations and have the all-feature mode enabled, you can subscribe your entire organization to Business Support+. For information about all-feature mode, see [Enabling all features for an organization with AWS Organizations](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md") in the *AWS Organizations User Guide*. To enroll at the organization level, select the **My organization** radio button. Review your **Consolidated Billing** estimate, then check the box to agree to the subscription terms.
+    2. If you are onboarded to AWS Organizations and have the all-feature mode enabled, you can subscribe your entire organization to Business Support+. For information about all-feature mode, see [Enabling all features for an organization with AWS Organizations](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md") in the *AWS Organizations User Guide*. To enroll at the organization level, select the **My organization** radio button. Review your **Consolidated Billing** estimate, then check the box to agree to the subscription terms. Only your organization's management account can subscribe your entire organization.
 
 
     Or, to enroll at the account level, select the **My account** radio button, then check the box to agree to the subscription terms.

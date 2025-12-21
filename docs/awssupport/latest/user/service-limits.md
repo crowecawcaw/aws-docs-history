@@ -34,8 +34,8 @@ doesn’t support your service yet, you can open a support case in [Support Cent
 
 ###### Check names
 
-- [Amazon EC2 Auto Scaling Groups](service-limits.md#auto-scaling-groups "service-limits.md#auto-scaling-groups")
-- [Amazon EC2 Auto Scaling Launch Configurations](service-limits.md#auto-scaling-launch-configurations "service-limits.md#auto-scaling-launch-configurations")
+- [Auto Scaling Groups](service-limits.md#auto-scaling-groups "service-limits.md#auto-scaling-groups")
+- [Auto Scaling Launch Configurations](service-limits.md#auto-scaling-launch-configurations "service-limits.md#auto-scaling-launch-configurations")
 - [CloudFormation Stacks](service-limits.md#cloudformation-stacks "service-limits.md#cloudformation-stacks")
 - [DynamoDB Read Capacity](service-limits.md#dynamo-db-read-capacity "service-limits.md#dynamo-db-read-capacity")
 - [DynamoDB Write Capacity](service-limits.md#dynamo-db-write-capacity "service-limits.md#dynamo-db-write-capacity")
@@ -98,11 +98,11 @@ doesn’t support your service yet, you can open a support case in [Support Cent
 - [VPC](service-limits.md#vpc-quota-check "service-limits.md#vpc-quota-check")
 - [VPC Internet Gateways](service-limits.md#vpc-internet-gateways "service-limits.md#vpc-internet-gateways")
 
-## Amazon EC2 Auto Scaling Groups
+## Auto Scaling Groups
 
 **Description**
 
-Checks for usage that is more than 80% of the Amazon EC2 Auto Scaling Groups quota.
+Checks for usage that is more than 80% of the Auto Scaling Groups quota.
 
 **Check ID**
 
@@ -110,13 +110,13 @@ Checks for usage that is more than 80% of the Amazon EC2 Auto Scaling Groups quo
 
 **Additional Resources**
 
-[Amazon EC2 Auto Scaling quotas](../../../autoscaling/latest/userguide/as-account-limits.md "../../../autoscaling/latest/userguide/as-account-limits.md")
+[Auto Scaling quotas](../../../autoscaling/latest/userguide/as-account-limits.md "../../../autoscaling/latest/userguide/as-account-limits.md")
 
-## Amazon EC2 Auto Scaling Launch Configurations
+## Auto Scaling Launch Configurations
 
 **Description**
 
-Checks for usage that is more than 80% of the Amazon EC2 Auto Scaling launch configurations
+Checks for usage that is more than 80% of the Auto Scaling launch configurations
 quota.
 
 **Check ID**
@@ -125,7 +125,7 @@ quota.
 
 **Additional Resources**
 
-[Amazon EC2 Auto Scaling quotas](../../../autoscaling/latest/userguide/as-account-limits.md "../../../autoscaling/latest/userguide/as-account-limits.md")
+[Auto Scaling quotas](../../../autoscaling/latest/userguide/as-account-limits.md "../../../autoscaling/latest/userguide/as-account-limits.md")
 
 ## CloudFormation Stacks
 
@@ -552,7 +552,7 @@ Results for this check are automatically refreshed several times
 daily, and refresh requests are not allowed. It might take a few
 hours for changes to appear.
 
-For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
+For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
 **Check ID**
 
