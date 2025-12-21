@@ -37,7 +37,7 @@ Detective ingests all ASFF findings in Security Hub CSPM from services that are 
 or AWS.
 
 - To see the list of supported service integrations, see [Available AWS service
-  integrations](../../../securityhub/latest/userguide/securityhub-internal-providers.md "../../../securityhub/latest/userguide/securityhub-internal-providers.md") in the AWS Security Hub CSPM User Guide.
+  integrations](../../../securityhub/latest/userguide/securityhub-internal-providers.md "../../../securityhub/latest/userguide/securityhub-internal-providers.md") in the AWS Security Hub User Guide.
 - For the list of supported resources, see [Resources](../../../securityhub/latest/userguide/asff-resources.md "../../../securityhub/latest/userguide/asff-resources.md") in the
-  AWS Security Hub CSPM User Guide.
+  AWS Security Hub User Guide.
 - AWS Service Findings with a Compliance status not set to `FAILED` and cross-Region aggregated findings are not ingested.

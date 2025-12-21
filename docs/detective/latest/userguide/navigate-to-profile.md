@@ -61,7 +61,7 @@ tab. The console opens to the finding overview.
 
 The Detective console always opens to the Region where the finding originated, even if you
 pivot from your aggregation Region. For more information about finding aggregation, see [Aggregating
-findings across Regions](../../../securityhub/latest/userguide/finding-aggregation.md "../../../securityhub/latest/userguide/finding-aggregation.md") in the _AWS Security Hub CSPM User Guide_.
+findings across Regions](../../../securityhub/latest/userguide/finding-aggregation.md "../../../securityhub/latest/userguide/finding-aggregation.md") in the _AWS Security Hub User Guide_.
 
 If you have not enabled Detective, the console opens to the Detective landing page. From there,
 you can enable Detective.
