@@ -207,6 +207,12 @@ command:
 apk add amazon-corretto-11
 ```
 
+You can install Corretto 11 JRE by running
+
+```
+apk add amazon-corretto-11-jre
+```
+
 ### Uninstall Amazon Corretto 11
 
 You can uninstall Amazon Corretto 11 by using the following
