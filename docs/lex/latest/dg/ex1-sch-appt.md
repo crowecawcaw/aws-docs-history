@@ -16,7 +16,7 @@ uses the following response cards:
 - A response card that lists buttons for appointment type. See the following image
   for an example:
 
-![Response card asking for the type of appointment to schedule and three options: cleaning (30 minutes), root canal (60 minutes), and whitening (90 minutes).](images/respcard-10.png)
+![Response card asking for the type of appointment to schedule and three options: cleaning (30 minutes), root canal (60 minutes), and whitening (90 minutes).](/images/lex/latest/dg/images/respcard-10.png)
 
 - A response card that lists buttons for appointment date. See the following image
   for an example:
