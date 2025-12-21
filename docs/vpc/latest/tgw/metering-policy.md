@@ -7,8 +7,7 @@ Metering policies consist of ordered rules that are evaluated from lowest to hig
 - **Source attachment owner** - Charges are allocated to the account that owns the source attachment (default behavior)
 - **Destination attachment owner** - Charges are allocated to the account that owns the destination attachment
 - **Transit Gateway owner** - Charges are allocated to the account that owns the transit gateway
-
-Flexible Cost Allocation enables better cost management for organizations using centralized network architectures, allowing costs to be allocated to the appropriate business units or application owners regardless of network topology.
+  Flexible Cost Allocation enables better cost management for organizations using centralized network architectures, allowing costs to be allocated to the appropriate business units or application owners regardless of network topology.
 
 ###### Note
 
