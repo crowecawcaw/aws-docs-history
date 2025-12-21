@@ -13,10 +13,8 @@ End of Support on **December 1, 2025**:
 - .NET: 6
 - Go: 1.18
 - Ruby: 3.1
-
-End of Support on **December 31, 2025**:
+  End of Support on **December 31, 2025**:
 
 - PHP: 8.1
-
-For recommendations and more information, see [End of support for managed runtime versions](../dg/service-source-code.md#service-source-code.managed-platforms.eos "../dg/service-source-code.md#service-source-code.managed-platforms.eos") in the
-_AWS App Runner Developer Guide_ guide.
+  For recommendations and more information, see [End of support for managed runtime versions](../dg/service-source-code.md#service-source-code.managed-platforms.eos "../dg/service-source-code.md#service-source-code.managed-platforms.eos") in the
+  _AWS App Runner Developer Guide_ guide.
