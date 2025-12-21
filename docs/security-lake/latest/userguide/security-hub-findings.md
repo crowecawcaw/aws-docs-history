@@ -13,7 +13,7 @@ events. Security Lake also transforms the findings from ASFF to the [Open Cybers
 Security Lake doesn't manage your Security Hub CSPM findings or affect your Security Hub CSPM settings. To manage Security Hub CSPM
 findings, you must use the Security Hub CSPM service console, API, or AWS CLI. For more information,
 see [Findings in
-AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-findings.md "../../../securityhub/latest/userguide/securityhub-findings.md") in the _AWS Security Hub CSPM User Guide_ .
+AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-findings.md "../../../securityhub/latest/userguide/securityhub-findings.md") in the _AWS Security Hub User Guide_ .
 
 The following list provides GitHub repository links to the mapping reference for how
 Security Lake normalizes Security Hub CSPM findings to OCSF.

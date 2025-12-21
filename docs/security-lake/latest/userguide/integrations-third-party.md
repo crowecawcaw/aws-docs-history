@@ -32,7 +32,7 @@ those findings in Security Lake if the Security Hub CSPM integration for Securit
 instructions on enabling the integration, see [Integration with AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md"). For a list of third-party integrations that
 send findings to Security Hub CSPM, see [Available
 third-party partner product integrations](../../../securityhub/latest/userguide/securityhub-partner-providers.md "../../../securityhub/latest/userguide/securityhub-partner-providers.md") in the
-_AWS Security Hub CSPM User Guide_.
+_AWS Security Hub User Guide_.
 
 Before setting up your subscribers verify your subscriber's OCSF log support. For the latest details, review
 your subscriber's documentation.
