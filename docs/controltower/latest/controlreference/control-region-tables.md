@@ -8,7 +8,7 @@ If the table shows **N/A** in the **ARN** field, the control does not have a reg
 
 Last updated May 6, 2025.
 
-###
+##
 
 af-south-1
 
@@ -775,7 +775,7 @@ af-south-1
 | • SH.WAF.3<br>• arn:aws:controltower:af-south-1::control/LVKFNONCWMSM<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:af-south-1::control/UTOKGAPGSDAO<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-east-1
 
@@ -1542,7 +1542,7 @@ ap-east-1
 | • SH.WAF.3<br>• arn:aws:controltower:ap-east-1::control/QRUYTUFJJKKF<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-east-1::control/TMMPCALNHRVA<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-northeast-1
 
@@ -2309,7 +2309,7 @@ ap-northeast-1
 | • SH.WAF.3<br>• arn:aws:controltower:ap-northeast-1::control/YRQAZZKPDDPI<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-northeast-1::control/BEIGEZGMNWRL<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-northeast-2
 
@@ -3076,7 +3076,7 @@ ap-northeast-2
 | • SH.WAF.3<br>• arn:aws:controltower:ap-northeast-2::control/YMBNBHLDYVOC<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-northeast-2::control/IVEPLVNECSLY<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-northeast-3
 
@@ -3843,7 +3843,7 @@ ap-northeast-3
 | • SH.WAF.3<br>• arn:aws:controltower:ap-northeast-3::control/VVDTUQGYLWXK<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-northeast-3::control/UDVYMOCFOFYH<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-south-1
 
@@ -4610,7 +4610,7 @@ ap-south-1
 | • SH.WAF.3<br>• arn:aws:controltower:ap-south-1::control/BXSAQBULUHIU<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-south-1::control/ZGIHYMZBHXMV<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-south-2
 
@@ -5377,7 +5377,7 @@ ap-south-2
 | • SH.WAF.3<br>• arn:aws:controltower:ap-south-2::control/VGEDMSLMNPYP<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-south-2::control/QGMSDIVQBVTA<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-southeast-1
 
@@ -6144,7 +6144,7 @@ ap-southeast-1
 | • SH.WAF.3<br>• arn:aws:controltower:ap-southeast-1::control/TFCNQSIYJFYC<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-southeast-1::control/RWKJOQGECYVA<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-southeast-2
 
@@ -6911,7 +6911,7 @@ ap-southeast-2
 | • SH.WAF.3<br>• arn:aws:controltower:ap-southeast-2::control/CYGNEESCWZXG<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-southeast-2::control/LYLUSATWXWGZ<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-southeast-3
 
@@ -7678,7 +7678,7 @@ ap-southeast-3
 | • SH.WAF.3<br>• arn:aws:controltower:ap-southeast-3::control/SBZXDDZAMHDY<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-southeast-3::control/CJHLCCKMNUFY<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-southeast-4
 
@@ -8445,7 +8445,7 @@ ap-southeast-4
 | • SH.WAF.3<br>• arn:aws:controltower:ap-southeast-4::control/OAFJKQCYMDRD<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ap-southeast-4::control/FXGZUGXQMLIM<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ap-southeast-5
 
@@ -9212,7 +9212,7 @@ ap-southeast-5
 | • SH.WAF.3<br>• N/A<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                |
 | • SH.WAF.4<br>• N/A<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                |
 
-###
+##
 
 ap-southeast-7
 
@@ -9979,7 +9979,7 @@ ap-southeast-7
 | • SH.WAF.3<br>• N/A<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                |
 | • SH.WAF.4<br>• N/A<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                |
 
-###
+##
 
 ca-central-1
 
@@ -10746,7 +10746,7 @@ ca-central-1
 | • SH.WAF.3<br>• arn:aws:controltower:ca-central-1::control/TEFNOEPILSHB<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ca-central-1::control/WQQNMFDARNQD<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 ca-west-1
 
@@ -11513,7 +11513,7 @@ ca-west-1
 | • SH.WAF.3<br>• arn:aws:controltower:ca-west-1::control/WMEFHVGTULJL<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:ca-west-1::control/FYLOZMSRDYFC<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 eu-central-1
 
@@ -12280,7 +12280,7 @@ eu-central-1
 | • SH.WAF.3<br>• arn:aws:controltower:eu-central-1::control/VNFBLCXUEWUA<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:eu-central-1::control/FXIUUDQLPOOX<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 eu-central-2
 
@@ -13047,7 +13047,7 @@ eu-central-2
 | • SH.WAF.3<br>• arn:aws:controltower:eu-central-2::control/GQTWMUCIPTMN<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:eu-central-2::control/ZMDYSTDDADWI<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 eu-north-1
 
@@ -13814,7 +13814,7 @@ eu-north-1
 | • SH.WAF.3<br>• arn:aws:controltower:eu-north-1::control/HOLXVCBPWTJX<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:eu-north-1::control/LKOWMMBVXXXZ<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 eu-south-1
 
@@ -14581,7 +14581,7 @@ eu-south-1
 | • SH.WAF.3<br>• arn:aws:controltower:eu-south-1::control/AQJQJICPISCI<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:eu-south-1::control/TPTNCHGEEQCI<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 eu-south-2
 
@@ -15348,7 +15348,7 @@ eu-south-2
 | • SH.WAF.3<br>• arn:aws:controltower:eu-south-2::control/PGOMVQLIZUCQ<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:eu-south-2::control/ICUMBYQFAKFX<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 eu-west-1
 
@@ -16115,7 +16115,7 @@ eu-west-1
 | • SH.WAF.3<br>• arn:aws:controltower:eu-west-1::control/LSRTYDUWQTAE<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:eu-west-1::control/KGKFNHJFEKZX<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 eu-west-2
 
@@ -16882,7 +16882,7 @@ eu-west-2
 | • SH.WAF.3<br>• arn:aws:controltower:eu-west-2::control/MUHOVSWIEMKQ<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:eu-west-2::control/XKBUFFXZKSUP<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 eu-west-3
 
@@ -17649,7 +17649,7 @@ eu-west-3
 | • SH.WAF.3<br>• arn:aws:controltower:eu-west-3::control/YPYYCPXNLRIH<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:eu-west-3::control/GTNPVMNBKDAE<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 il-central-1
 
@@ -18416,7 +18416,7 @@ il-central-1
 | • SH.WAF.3<br>• arn:aws:controltower:il-central-1::control/UKSABFGHCPMJ<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:il-central-1::control/HRGNMSQZYVZH<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 me-central-1
 
@@ -19183,7 +19183,7 @@ me-central-1
 | • SH.WAF.3<br>• arn:aws:controltower:me-central-1::control/LZDPYOFSCQGU<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:me-central-1::control/KCYLSJYOQLBM<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 me-south-1
 
@@ -19950,7 +19950,7 @@ me-south-1
 | • SH.WAF.3<br>• arn:aws:controltower:me-south-1::control/WWBDWCSNZMPV<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:me-south-1::control/QLAIYZCQNPTP<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 mx-central-1
 
@@ -20717,7 +20717,7 @@ mx-central-1
 | • SH.WAF.3<br>• N/A<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                |
 | • SH.WAF.4<br>• N/A<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                |
 
-###
+##
 
 sa-east-1
 
@@ -21484,7 +21484,7 @@ sa-east-1
 | • SH.WAF.3<br>• arn:aws:controltower:sa-east-1::control/MDUPXZAXTPRC<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:sa-east-1::control/EVTLKICADRVX<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 us-east-1
 
@@ -22251,7 +22251,7 @@ us-east-1
 | • SH.WAF.3<br>• arn:aws:controltower:us-east-1::control/KONSORMMHUGB<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:us-east-1::control/EDXGDDVAPQUE<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 us-east-2
 
@@ -23018,7 +23018,7 @@ us-east-2
 | • SH.WAF.3<br>• arn:aws:controltower:us-east-2::control/KRWNFORBWIPZ<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:us-east-2::control/ZCXGWVXTGXMV<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 us-west-1
 
@@ -23785,7 +23785,7 @@ us-west-1
 | • SH.WAF.3<br>• arn:aws:controltower:us-west-1::control/BUWKEMZLQXRX<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                                     |
 | • SH.WAF.4<br>• arn:aws:controltower:us-west-1::control/IZXJKPGEKAKL<br>• af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-4, ca-central-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2                                                                                                                                                                                                                                                                     |
 
-###
+##
 
 us-west-2
 

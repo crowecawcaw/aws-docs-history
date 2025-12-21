@@ -1,4 +1,4 @@
-# Amazon Elastic Compute Cloud (Amazon EC2) Amazon EC2 Auto Scaling controls
+# Amazon Elastic Compute Cloud (Amazon EC2) Auto Scaling controls
 
 ###### Topics
 
@@ -35,17 +35,17 @@ This control checks whether your Amazon EC2 Auto Scaling group spans multiple Av
 
 **Explanation**
 
-Amazon EC2 Auto Scaling groups can be configured to use multiple Availability Zones. An Amazon EC2 Auto Scaling group with a single Availability Zone is preferred in some use cases, such as batch-jobs or when inter-AZ transfer costs need to be kept to a minimum. However, an Amazon EC2 Auto Scaling group that does not span multiple Availability Zones will not launch instances in another Availability Zone to compensate if the configured single Availability Zone becomes unavailable.
+Amazon EC2 Auto Scaling groups can be configured to use multiple Availability Zones. An Auto Scaling group with a single Availability Zone is preferred in some use cases, such as batch-jobs or when inter-AZ transfer costs need to be kept to a minimum. However, an Auto Scaling group that does not span multiple Availability Zones will not launch instances in another Availability Zone to compensate if the configured single Availability Zone becomes unavailable.
 
 ### Remediation for rule failure
 
-Configure Amazon EC2 Auto Scaling groups with multiple Availability Zones.
+Configure Auto Scaling groups with multiple Availability Zones.
 
 The examples that follow show how to implement this remediation.
 
-#### Amazon EC2 Auto Scaling group - Example
+#### Auto Scaling group - Example
 
-Amazon EC2 Auto Scaling group configured with multiple Availability Zones. The example is shown in JSON and in YAML.
+Auto Scaling group configured with multiple Availability Zones. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -126,7 +126,7 @@ Rule Identifier:
   autoscaling_multiple_az_check
 
 Description:
-  Checks if Amazon EC2 Auto Scaling groups span multiple Availability Zones.
+  Checks if Auto Scaling groups span multiple Availability Zones.
 
 Reports on:
    AWS::AutoScaling::AutoScalingGroup
@@ -140,24 +140,24 @@ Rule Parameters:
 Scenarios:
   Scenario: 1
     Given: The input document is an CloudFormation or CloudFormation hook document
-      And: The input document does not contain any Amazon EC2 Auto Scaling groups
+      And: The input document does not contain any Auto Scaling groups
      Then: SKIP
   Scenario: 2
     Given: The input document is an CloudFormation or CloudFormation hoo document
-      And: The input document contains an Amazon EC2 Auto Scaling group resource
-      And: 'AvailabilityZones' is not present on the Amazon EC2 Auto Scaling group resource
+      And: The input document contains an Auto Scaling group resource
+      And: 'AvailabilityZones' is not present on the Auto Scaling group resource
      Then: FAIL
   Scenario: 3
     Given: The input document is an CloudFormation or CloudFormation hook document
-      And: The input document contains an Amazon EC2 Auto Scaling group resource
-      And: 'AvailabilityZones' is present on the Amazon EC2 Auto Scaling group resource
+      And: The input document contains an Auto Scaling group resource
+      And: 'AvailabilityZones' is present on the Auto Scaling group resource
       And: The number of 'AvailabilityZones' present is less than 2 (< 2) or the number of
            unique 'AvailabilityZones' provided is less than 2 (< 2)
      Then: FAIL
   Scenario: 4
     Given: The input document is an CloudFormation or CloudFormation Hook Document
-      And: The input document contains an Amazon EC2 Auto Scaling group resource
-      And: 'AvailabilityZones' is present on the Amazon EC2 Auto Scaling group resource
+      And: The input document contains an Auto Scaling group resource
+      And: 'AvailabilityZones' is present on the Auto Scaling group resource
       And: The number of 'AvailabilityZones' present is greater than or equal to 2 (>= 2)
       And: At least two unique 'AvailabilityZones' have been provided
      Then: PASS
@@ -530,11 +530,11 @@ ELB health checks.
 
 **Explanation**
 
-This configuration requirement ensures that the group can determine an instance's health based on additional tests provided by the load balancer. Using ELB health checks can help support the availability of applications that use EC2 Amazon EC2 Auto Scaling groups.
+This configuration requirement ensures that the group can determine an instance's health based on additional tests provided by the load balancer. Using ELB health checks can help support the availability of applications that use EC2 Auto Scaling groups.
 
 ###### Usage considerations
 
-- This control only applies to Amazon EC2 Auto Scaling groups associated with a Classic Load Balancer or Target Group
+- This control only applies to Auto Scaling groups associated with a Classic Load Balancer or Target Group
 
 ### Remediation for rule failure
 
@@ -542,9 +542,9 @@ Configure Amazon EC2 Auto Scaling groups associated with an ELB to use ELB healt
 
 The examples that follow show how to implement this remediation.
 
-#### Amazon EC2 Auto Scaling group - Example One
+#### Auto Scaling group - Example One
 
-Amazon EC2 Auto Scaling group with a Classic Load Balancer association and ELB health checks. The example is shown in JSON and in YAML.
+Auto Scaling group with a Classic Load Balancer association and ELB health checks. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -606,9 +606,9 @@ AutoScalingGroup:
 
 The examples that follow show how to implement this remediation.
 
-#### Amazon EC2 Auto Scaling group - Example Two
+#### Auto Scaling group - Example Two
 
-Amazon EC2 Auto Scaling group with a Target Group association and ELB health checks. The example is shown in JSON and in YAML.
+Auto Scaling group with a Target Group association and ELB health checks. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -680,7 +680,7 @@ Rule Identifier:
   autoscaling_group_elb_healthcheck_required_check
 
 Description:
-  This control checks whether your Amazon EC2 Auto Scaling groups that are associated with a load balancer are using
+  This control checks whether your Auto Scaling groups that are associated with a load balancer are using
   ELB health checks.
 
 Reports on:
@@ -695,31 +695,31 @@ Rule Parameters:
 Scenarios:
   Scenario: 1
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document does not contain any Amazon EC2 Auto Scaling group
+      And: The input document does not contain any Auto Scaling group
      Then: SKIP
   Scenario: 2
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Amazon EC2 Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are not present on the Amazon EC2 Auto Scaling group resource or empty lists
+      And: The input document contains an Auto Scaling group resource
+      And: 'LoadBalancerNames' or 'TargetGroupARNs' are not present on the Auto Scaling group resource or empty lists
      Then: SKIP
   Scenario: 3
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Amazon EC2 Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Amazon EC2 Auto Scaling group with at least
+      And: The input document contains an Auto Scaling group resource
+      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
            one configuration
       And: 'HealthCheckType' is not present
      Then: FAIL
   Scenario: 4
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Amazon EC2 Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Amazon EC2 Auto Scaling group with at least
+      And: The input document contains an Auto Scaling group resource
+      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
            one configuration
       And: 'HealthCheckType' is present and set to a value other than 'ELB' (e.g. 'EC2')
      Then: FAIL
   Scenario: 5
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Amazon EC2 Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Amazon EC2 Auto Scaling group with at least
+      And: The input document contains an Auto Scaling group resource
+      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
            one configuration
       And: 'HealthCheckType' is present and set to 'ELB'
      Then: PASS
@@ -749,17 +749,17 @@ This control checks whether Amazon EC2 Auto Scaling groups have public IP addres
 
 **Explanation**
 
-Amazon EC2 instances in an Amazon EC2 Auto Scaling group launch configuration should not have an associated public IP address, except for in limited edge cases. Amazon EC2 instances should only be accessible from behind a load balancer instead of being directly exposed to the internet.
+Amazon EC2 instances in an Auto Scaling group launch configuration should not have an associated public IP address, except for in limited edge cases. Amazon EC2 instances should only be accessible from behind a load balancer instead of being directly exposed to the internet.
 
 ### Remediation for rule failure
 
-Set `AssociatePublicIpAddress` to false on Amazon EC2 Auto Scaling Launch Configurations.
+Set `AssociatePublicIpAddress` to false on Auto Scaling Launch Configurations.
 
 The examples that follow show how to implement this remediation.
 
-#### Amazon EC2 Auto Scaling Launch Configuration - Example
+#### Auto Scaling Launch Configuration - Example
 
-Amazon EC2 Auto Scaling Launch Configuration configured to disable public IP address association. The example is shown in JSON and in YAML.
+Auto Scaling Launch Configuration configured to disable public IP address association. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -806,10 +806,10 @@ AutoScalingLaunchConfiguration:
 #   autoscaling_launch_config_public_ip_disabled_check
 #
 # Description:
-#   Checks if Amazon EC2 Auto Scaling Launch Configurations have been configured to disable public IP address association.
+#   Checks if Auto Scaling Launch Configurations have been configured to disable public IP address association.
 #
 # Reports on:
-#   AWS::Amazon EC2 Auto Scaling::LaunchConfiguration
+#   AWS::Auto Scaling::LaunchConfiguration
 #
 # Evaluates:
 #   AWS CloudFormation, AWS CloudFormation Hook
@@ -820,23 +820,23 @@ AutoScalingLaunchConfiguration:
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-#       And: The input document does not contain any Amazon EC2 Auto Scaling Launch Configuration Resources
+#       And: The input document does not contain any Auto Scaling Launch Configuration Resources
 #      Then: SKIP
 #   Scenario: 2
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-#       And: The input document contains an Amazon EC2 Auto Scaling Launch Configuration Resource
-#       And: 'AssociatePublicIpAddress' is not present on the Amazon EC2 Auto Scaling Launch Configuration Resource
+#       And: The input document contains an Auto Scaling Launch Configuration Resource
+#       And: 'AssociatePublicIpAddress' is not present on the Auto Scaling Launch Configuration Resource
 #      Then: FAIL
 #   Scenario: 3
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-#       And: The input document contains an Amazon EC2 Auto Scaling Launch Configuration Resource
-#       And: 'AssociatePublicIpAddress' is present on the Amazon EC2 Auto Scaling Launch Configuration Resource
+#       And: The input document contains an Auto Scaling Launch Configuration Resource
+#       And: 'AssociatePublicIpAddress' is present on the Auto Scaling Launch Configuration Resource
 #            and is set to bool(true)
 #      Then: FAIL
 #   Scenario: 4
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-#       And: The input document contains an Amazon EC2 Auto Scaling Launch Configuration Resource
-#       And: 'AssociatePublicIpAddress' is present on the Amazon EC2 Auto Scaling Launch Configuration Resource
+#       And: The input document contains an Auto Scaling Launch Configuration Resource
+#       And: 'AssociatePublicIpAddress' is present on the Auto Scaling Launch Configuration Resource
 #            and is set to bool(false)
 #      Then: PASS
 
@@ -860,7 +860,7 @@ rule autoscaling_launch_config_public_ip_disabled_check when is_cfn_template(%IN
     check(%autoscaling_launch_configurations.Properties)
         <<
         [CT.AUTOSCALING.PR.5]: Require than an Amazon EC2 Auto Scaling group launch configuration does not have EC2 instances with public IP addresses
-        [FIX]: Set 'AssociatePublicIpAddress' to false on Amazon EC2 Auto Scaling Launch Configurations.
+        [FIX]: Set 'AssociatePublicIpAddress' to false on Auto Scaling Launch Configurations.
         >>
 
 }
@@ -870,7 +870,7 @@ rule autoscaling_launch_config_public_ip_disabled_check when is_cfn_hook(%INPUT_
     check(%INPUT_DOCUMENT.%AUTOSCALING_LAUNCH_CONFIGURATION_TYPE.resourceProperties)
         <<
         [CT.AUTOSCALING.PR.5]: Require than an Amazon EC2 Auto Scaling group launch configuration does not have EC2 instances with public IP addresses
-        [FIX]: Set 'AssociatePublicIpAddress' to false on Amazon EC2 Auto Scaling Launch Configurations.
+        [FIX]: Set 'AssociatePublicIpAddress' to false on Auto Scaling Launch Configurations.
         >>
 }
 
@@ -1456,7 +1456,7 @@ This control checks whether an Amazon EC2 Auto Scaling group is configured to us
 
 **Explanation**
 
-An Amazon EC2 Auto Scaling group can be created from an EC2 launch template or from a launch configuration. If you use a launch template to create an Auto Scaling group, you have access to the latest features and improvements.
+An Auto Scaling group can be created from an EC2 launch template or from a launch configuration. If you use a launch template to create an Auto Scaling group, you have access to the latest features and improvements.
 
 ### Remediation for rule failure
 
@@ -1998,7 +1998,7 @@ LaunchConfiguration:
 #   autoscaling_launch_config_encrypted_volumes_check
 #
 # Description:
-#   This control checks whether Amazon EC2 Auto Scaling launch configurations with Amazon EBS volume block device mappings enable Amazon EBS volume encryption.
+#   This control checks whether Auto Scaling launch configurations with Amazon EBS volume block device mappings enable Amazon EBS volume encryption.
 #
 # Reports on:
 #   AWS::AutoScaling::LaunchConfiguration

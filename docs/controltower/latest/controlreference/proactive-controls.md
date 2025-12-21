@@ -64,7 +64,7 @@ environment.
 - [DynamoDB Accelerator controls](dax-rules.md "dax-rules.md")
 - [AWS Elastic Beanstalk controls](ebs-rules.md "ebs-rules.md")
 - [Amazon Elastic Compute Cloud (Amazon EC2) controls](ec2-rules.md "ec2-rules.md")
-- [Amazon Elastic Compute Cloud (Amazon EC2) Amazon EC2 Auto Scaling controls](ec2-auto-scaling-rules.md "ec2-auto-scaling-rules.md")
+- [Amazon Elastic Compute Cloud (Amazon EC2) Auto Scaling controls](ec2-auto-scaling-rules.md "ec2-auto-scaling-rules.md")
 - [Amazon ElastiCache controls](elasticache-rules.md "elasticache-rules.md")
 - [Amazon Elastic Container Registry controls](ecr-rules.md "ecr-rules.md")
 - [Amazon Elastic Container Service controls](ecs-rules.md "ecs-rules.md")

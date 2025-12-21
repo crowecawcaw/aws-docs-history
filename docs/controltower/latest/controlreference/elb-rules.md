@@ -4068,7 +4068,7 @@ This control checks whether ELB (ELB) Classic Load Balancers have connection dra
 
 **Explanation**
 
-Activating connection draining on Classic Load Balancers ensures that the load balancer stops sending requests to instances that are de-registering or unhealthy. It keeps the existing connections open. This configuration is particularly useful for instances in Amazon EC2 Auto Scaling groups, to ensure that connections aren't severed abruptly.
+Activating connection draining on Classic Load Balancers ensures that the load balancer stops sending requests to instances that are de-registering or unhealthy. It keeps the existing connections open. This configuration is particularly useful for instances in Auto Scaling groups, to ensure that connections aren't severed abruptly.
 
 ### Remediation for rule failure
 
