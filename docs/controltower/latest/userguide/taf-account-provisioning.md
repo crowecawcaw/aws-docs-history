@@ -38,6 +38,13 @@ You can create the AFT management account from the AWS Control Tower console wit
 
 Also, optionally, you can create an account template folder to help define your additional accounts, in the **aft-account-customizations** repository.
 
+For accounts enrolled via Auto Enroll:
+
+- New account creation through AFT continues to work normally.
+- Existing account import requires additional steps:
+  - Register OU to create the necessary provisioned products before importing.
+  - Register OU will emit `CreateManagedAccount` and `UpdateManagedAccount` events, enabling AFT customizations.
+
 For information about AWS Regions where AFT has deployment limitations, see [Limitations and quotas in AWS Control Tower](limits.md "limits.md") and [Control limitations](control-limitations.md "control-limitations.md").
 
 The [Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws/aws-control-tower-aft "https://developer.hashicorp.com/terraform/tutorials/aws/aws-control-tower-aft") contains a good overview of how to set up AWS Control Tower Account Factory for Terraform (AFT).

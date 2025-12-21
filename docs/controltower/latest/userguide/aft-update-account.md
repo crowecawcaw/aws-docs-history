@@ -1,5 +1,14 @@
 # Update an existing account
 
+###### Auto Enroll Compatibility
+
+If your organization uses Auto Enroll for automatic account enrollment, be aware that AFT has
+limitations with importing these accounts. Accounts enrolled through Auto Enroll lack the
+Service Catalog provisioned products required by AFT's import workflow.
+
+**Workaround:** Use the Register OU feature to create provisioned products for automatically
+enrolled accounts. This enables the necessary lifecycle events for AFT customizations.
+
 You can update accounts that AFT provisions by editing previously submitted account
 requests and running `git push`. This command invokes the account
 provisioning workflow and can process account update requests. You can update the input

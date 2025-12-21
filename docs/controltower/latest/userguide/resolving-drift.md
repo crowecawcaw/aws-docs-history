@@ -30,6 +30,15 @@ call the [`ResetEnabledBaseline`](../APIReference/API_ResetEnabledBaseline.md ".
   [`ResetEnabledBaseline`](../APIReference/API_ResetEnabledBaseline.md "../APIReference/API_ResetEnabledBaseline.md") API, or by choosing
   **Re-register OU** or **Update account**
   in the AWS Control Tower console.
+- To resolve _inheritance drift_ that occurs when accounts
+  are moved between OUs, you can enable the auto-enrollment feature. When
+  auto-enrollment is enabled, AWS Control Tower automatically remediates inheritance drift
+  by applying the baseline resources and control configurations from the
+  destination OU to the moved account. You can enable auto-enrollment on the
+  landing zone **Settings** page in the console, or by calling the
+  [`UpdateLandingZone`](../APIReference/API_UpdateLandingZone.md "../APIReference/API_UpdateLandingZone.md") API with the
+  `RemediationType` parameter set to **Inheritance
+  Drift**. For more information, see [Move and enroll accounts with auto-enrollment](account-auto-enrollment.md "account-auto-enrollment.md").
 
 ###### When you take action to resolve drift on a landing zone version, two behaviors
 

@@ -49,8 +49,8 @@ set.
 
 - **Type:** String
 - **Required:** Yes
-- **Valid Values:** a-z, A-Z, 0-9, and an underscore (\_).
-  Any other character is automatically replaced with an underscore (\_).
+- **Valid Values:** a-z, A-Z, 0-9, and a hyphen (-).
+  The name must begin with an alphabetic character.
   **description** – The description for the
   resource.
 

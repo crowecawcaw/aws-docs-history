@@ -20,10 +20,9 @@ Here are some essential facts about AWS Control Tower VPCs:
   Factory topic](account-factory.md "account-factory.md").
 - Because the IP addresses do not overlap, the six or nine subnets within your AWS Control Tower
   VPC can communicate with each other in an unrestricted manner.
-
-When working with VPCs, AWS Control Tower makes no distinction at the Region level. Every subnet is
-allocated from the exact CIDR range that you specify. The VPC subnets can exist in any
-Region.
+  When working with VPCs, AWS Control Tower makes no distinction at the Region level. Every subnet is
+  allocated from the exact CIDR range that you specify. The VPC subnets can exist in any
+  Region.
 
 **Notes**
 
