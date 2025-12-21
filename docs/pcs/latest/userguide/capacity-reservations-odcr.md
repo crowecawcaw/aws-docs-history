@@ -10,10 +10,22 @@ workloads, targeted ODCRs are more common.
 You can configure an AWS PCS compute node group to use a targeted ODCR by adding
 it to a launch template. Here are the steps to do so:
 
-1. Create a targeted on-demand Capacity Reservation (ODCR).
-2. Add the ODCR to a Capacity Reservation group.
-3. Associate the Capacity Reservation group with a launch template.
-4. Create or update an AWS PCS compute node group to use the launch template.
+1. Create a targeted On-Demand Capacity Reservation (ODCR) using the
+   [Amazon EC2 Create a Capacity Reservation User Guide](../../../AWSEC2/latest/UserGuide/capacity-reservations-create.md "../../../AWSEC2/latest/UserGuide/capacity-reservations-create.md") .
+2. Associate the ODCR with a launch template. There are two ways to do that:
+   1. **Direct ODCR association:**
+      Reference the ODCR ID directly in the launch template.
+      This approach provides strict capacity control and does not support instance backfilling
+      (If the compute node group requests more instances than available in the ODCR, no additional
+      instances will be launched).
+   2. **Capacity Reservation group association:**
+      Add the ODCR to a Capacity Reservation group and reference the group in
+      the launch template. This approach supports instance backfilling, allowing
+      AWS PCS to launch additional On-Demand instances if the reservation
+      capacity is exceeded.
+
+3. Create or update an AWS PCS compute node group to use the launch template.
+   For more information, see [AWS PCS Compute Node Groups User Guide](working-with_cng.md "working-with_cng.md").
    1. Set the `purchaseOption` of the compute node group
       to `ONDEMAND`.
 
@@ -37,12 +49,25 @@ aws ec2 create-capacity-reservation \
     --instance-match-criteria targeted
 ```
 
-The result from this command will be an ARN for the new ODCR.
-To use the ODCR with AWS PCS, it must be added to a Capacity Reservation group.
-This is because AWS PCS does not support individual ODCRs. For more information,
-see [Capacity
-Reservation groups](../../../AWSEC2/latest/UserGuide/create-cr-group.md#create-group "../../../AWSEC2/latest/UserGuide/create-cr-group.md#create-group") in the _Amazon Elastic Compute Cloud User Guide_.
+The result from this command will be an ARN for the new ODCR. The ODCR ID can be retrieved from the ARN
+`"arn:aws:ec2:us-east-2:123456789012:capacity-reservation/ODCR-ID"`
+or by using the [Amazon EC2 DescribeCapacityReservations](../../../AWSEC2/latest/APIReference/API_DescribeCapacityReservations.md "../../../AWSEC2/latest/APIReference/API_DescribeCapacityReservations.md").
 
+**Direct ODCR association:** Add the ODCR ID to the launch template.
+Here is an example launch template that references the ODCR ID.
+
+```
+{
+  "CapacityReservationSpecification": {
+    "CapacityReservationTarget": {
+      "CapacityReservationId": "cr-1234567890abcdef1"
+    }
+  }
+}
+```
+
+**Capacity Reservation group association:**
+Create a Capacity Reservation group and add the group to the launch template.
 The following command creates a Capacity Reservation group named
 `EXAMPLE-CR-GROUP`.
 
@@ -58,7 +83,7 @@ The following command adds the ODCR to the Capacity Reservation group.
 
 ```
 aws resource-groups group-resources --group EXAMPLE-CR-GROUP \
-    --resource-arns arn:aws:ec2:sa-east-1:123456789012:capacity-reservation/cr-1234567890abcdef1
+    --resource-arns arn:aws:ec2:us-east-2:123456789012:capacity-reservation/cr-1234567890abcdef1
 ```
 
 With the ODCR created and added to a Capacity Reservation group,
@@ -75,16 +100,15 @@ references the Capacity Reservation group.
 ```
 
 Finally, create or update an AWS PCS compute node group to use hpc6a.48xlarge instances
-and use the launch template that references the ODCR in its Capacity Reservation group.
+and use the launch template that references the ODCR.
 For a static node group, set minimum and maximum instances to the size of the reservation
-(32). For a dynamic node group, set the minimum instances to 0 and the maximum up to the
-reservation size.
+(32). For a dynamic node group, set the minimum instances to 0 and the maximum to your desired
+instance size.
 
-This example is a simple implementation of a single ODCR that provisioned for one compute
+This example is a simple implementation of a single ODCR that is provisioned for one compute
 node group. But, AWS PCS supports many other designs. For example, you can subdivide
 a large ODCR or Capacity Reservation group among multiple compute node groups. Or, you
-can use ODCRs that another AWS account has created and shared with yours. The key
-constraint is that ODCRs always must be contained in a Capacity Reservation group.
+can use ODCRs that another AWS account has created and shared with yours.
 
 For more information, see [On-Demand
 Capacity Reservations and Capacity Blocks for ML](../../../AWSEC2/latest/UserGuide/capacity-reservation-overview.md "../../../AWSEC2/latest/UserGuide/capacity-reservation-overview.md") in
