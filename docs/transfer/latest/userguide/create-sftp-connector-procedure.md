@@ -21,7 +21,7 @@ Console
 4. In the **Connector configuration** section, provide
    the following information:
 
-![The Transfer Family SFTP connector console, showing the Connector configuration settings.](/images/transfer/latest/userguide/images/create-connector-example-config.png)
+![The Transfer Family SFTP connector console, showing the Connector configuration settings.](images/create-connector-example-config.png)
 
     * For the **URL**, enter the URL for a remote
      SFTP server. This URL must be formatted as `sftp://`partner-SFTP-server-url``,
