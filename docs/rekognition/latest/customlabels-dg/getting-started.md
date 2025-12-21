@@ -50,7 +50,7 @@ For example, the model might find the label _living_space_ in
 the following image. For more information,
 see [Find objects, scenes, and concepts](md-dataset-purpose.md#md-dataset-purpose-classification "md-dataset-purpose.md#md-dataset-purpose-classification").
 
-![Living room with fireplace, plush sofa, armchair, round tables, plants, and large windows overlooking outdoors.](/images/rekognition/latest/customlabels-dg/images/image-classification.jpg)
+![Living room with fireplace, plush sofa, armchair, round tables, plants, and large windows overlooking outdoors.](images/image-classification.jpg)
 
 ### Multi-label image classification
 
