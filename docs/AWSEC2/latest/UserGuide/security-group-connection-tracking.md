@@ -91,19 +91,22 @@ With ELB, if you exceed the maximum number of connections that can be tracked pe
 we recommend that you scale either the number of instances registered with the
 load balancer or the size of the instances registered with the load balancer.
 
-## Connection tracking performance considerations
+## Connection tracking best practices
 
 Asymmetric routing, where traffic comes into an instance through
 one network interface and leaves through a different network interface, can reduce the peak performance
 that an instance can achieve if flows are tracked.
 
-To maintain peak performance when connection tracking is enabled for your security groups,
+To maintain peak performance and optimize connection management when connection tracking is enabled for your security groups,
 we recommend the following configuration:
 
 - Avoid asymmetric routing topologies, if possible.
 - Instead of using security groups for filtering, use network ACLs.
 - If you must use security groups with connection tracking, configure the shortest idle connection tracking
   timeout possible. For more details on idle connection tracking timeout, see the following section.
+- For long-lived connections, configure TCP keep alives to be sent at intervals of less than 5 minutes to ensure connections stay open
+  and maintain their tracked state. This helps prevent connections from being dropped due to idle timeout and reduces the overhead
+  of connection re-establishment, especially in cases where connection timeouts may be reduced due to minimal activity.
 
 For more information about performance tuning on the Nitro system, see
 [Nitro system considerations for performance tuning](ena-nitro-perf.md "ena-nitro-perf.md").

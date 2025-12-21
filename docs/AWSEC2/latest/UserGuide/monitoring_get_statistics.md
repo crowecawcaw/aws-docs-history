@@ -21,5 +21,5 @@ time period you specify. The following table describes the available statistics.
 
 - [Get statistics for a specific instance](US_SingleMetricPerInstance.md "US_SingleMetricPerInstance.md")
 - [Aggregate statistics across instances](GetSingleMetricAllDimensions.md "GetSingleMetricAllDimensions.md")
-- [Aggregate statistics by Amazon EC2 Auto Scaling group](GetMetricAutoScalingGroup.md "GetMetricAutoScalingGroup.md")
+- [Aggregate statistics by Auto Scaling group](GetMetricAutoScalingGroup.md "GetMetricAutoScalingGroup.md")
 - [Aggregate statistics by AMI](US_SingleMetricPerAMI.md "US_SingleMetricPerAMI.md")

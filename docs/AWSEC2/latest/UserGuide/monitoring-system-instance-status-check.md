@@ -149,7 +149,7 @@ Amazon EBS](../../../ebs/latest/userguide/using_cloudwatch_ebs.md "../../../ebs/
 
 You can also configure your Amazon EC2 Auto Scaling groups to detect attached EBS status
 check failures, and then replace the affected instance with a new one. For more
-information, see [Monitor and replace Amazon EC2 Auto Scaling instances with impaired Amazon EBS volumes](../../../autoscaling/ec2/userguide/monitor-and-replace-instances-with-impaired-ebs-volumes.md "../../../autoscaling/ec2/userguide/monitor-and-replace-instances-with-impaired-ebs-volumes.md") in
+information, see [Monitor and replace Auto Scaling instances with impaired Amazon EBS volumes](../../../autoscaling/ec2/userguide/monitor-and-replace-instances-with-impaired-ebs-volumes.md "../../../autoscaling/ec2/userguide/monitor-and-replace-instances-with-impaired-ebs-volumes.md") in
 the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### Note

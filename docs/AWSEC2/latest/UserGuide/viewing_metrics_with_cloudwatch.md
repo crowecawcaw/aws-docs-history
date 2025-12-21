@@ -24,7 +24,7 @@ instances](monitoring_get_statistics.md "monitoring_get_statistics.md").
 - [Amazon EBS metrics for Nitro-based instances](#ebs-metrics-nitro "#ebs-metrics-nitro")
 - [Status check metrics](#status-check-metrics "#status-check-metrics")
 - [Traffic mirroring metrics](#traffic-mirroring-metrics "#traffic-mirroring-metrics")
-- [Amazon EC2 Auto Scaling group metrics](#autoscaling-metrics "#autoscaling-metrics")
+- [Auto Scaling group metrics](#autoscaling-metrics "#autoscaling-metrics")
 - [Amazon EC2 metric dimensions](#ec2-cloudwatch-dimensions "#ec2-cloudwatch-dimensions")
 - [Amazon EC2 usage metrics](#service-quota-metrics "#service-quota-metrics")
 
@@ -127,10 +127,10 @@ The `AWS/EC2` namespace includes metrics for mirrored traffic. For more
 information, see [Monitor mirrored traffic using Amazon CloudWatch](../../../vpc/latest/mirroring/traffic-mirror-cloudwatch.md "../../../vpc/latest/mirroring/traffic-mirror-cloudwatch.md") in the
 _Amazon VPC Traffic Mirroring Guide_.
 
-## Amazon EC2 Auto Scaling group metrics
+## Auto Scaling group metrics
 
-The `AWS/AutoScaling` namespace includes metrics for Amazon EC2 Auto Scaling groups. For more
-information, see [Monitor CloudWatch metrics for your Amazon EC2 Auto Scaling groups and instances](../../../autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.md") in the
+The `AWS/AutoScaling` namespace includes metrics for Auto Scaling groups. For more
+information, see [Monitor CloudWatch metrics for your Auto Scaling groups and instances](../../../autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.md") in the
 _Amazon EC2 Auto Scaling User Guide_.
 
 ## Amazon EC2 metric dimensions
@@ -139,7 +139,7 @@ You can use the following dimensions to refine the metrics listed in the previou
 
 | Dimension              | Description                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AutoScalingGroupName` | This dimension filters the data you request for all instances in a specified<br>capacity group. An \*Auto Scaling group<br>• is a collection of<br>instances you define if you're using Amazon EC2 Auto Scaling. This<br>dimension is available only for Amazon EC2 metrics when the instances are in such an<br>Auto Scaling group. Available for instances with Detailed or Basic Monitoring enabled.           |
+| `AutoScalingGroupName` | This dimension filters the data you request for all instances in a specified<br>capacity group. An \*Auto Scaling group<br>• is a collection of<br>instances you define if you're using Auto Scaling. This<br>dimension is available only for Amazon EC2 metrics when the instances are in such an<br>Auto Scaling group. Available for instances with Detailed or Basic Monitoring enabled.                      |
 | `ImageId`              | This dimension filters the data you request for all instances running this Amazon EC2<br>Amazon Machine Image (AMI). Available for instances with Detailed Monitoring enabled.                                                                                                                                                                                                                                    |
 | `InstanceId`           | This dimension filters the data you request for the identified instance only.<br>This helps you pinpoint an exact instance from which to monitor data.                                                                                                                                                                                                                                                            |
 | `InstanceType`         | This dimension filters the data you request for all instances running with<br>this specified instance type. This helps you categorize your data by the<br>type of instance running. For example, you might compare data from an m1.small<br>instance and an m1.large instance to determine which has the better business<br>value for your application. Available for instances with Detailed Monitoring enabled. |

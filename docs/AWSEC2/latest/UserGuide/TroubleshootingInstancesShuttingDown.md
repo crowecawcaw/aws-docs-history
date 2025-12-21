@@ -147,5 +147,5 @@ your computing resources automatically based on criteria that you've defined:
 - You launch an instance and one of your instances terminates automatically.
 - You stop an instance and it terminates and a new instance launches automatically.
 
-To stop automatic scaling, find the Amazon EC2 Auto Scaling group or the fleet that is launching the instances
+To stop automatic scaling, find the Auto Scaling group or the fleet that is launching the instances
 and either set its capacity to 0 or delete it.

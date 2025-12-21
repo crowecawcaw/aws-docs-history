@@ -15,7 +15,7 @@ _default credit specification_:
 ###### Tasks
 
 - [Configure the credit specification at launch](#launch-burstable-performance-instances "#launch-burstable-performance-instances")
-- [Configure an Amazon EC2 Auto Scaling group to
+- [Configure an Auto Scaling group to
   set the credit specification as unlimited](#burstable-performance-instances-auto-scaling-grp "#burstable-performance-instances-auto-scaling-grp")
 - [Manage the credit specification
   of a burstable performance instance](#modify-burstable-performance-instances "#modify-burstable-performance-instances")
@@ -27,7 +27,7 @@ You can launch your T instances with a credit specification of `unlimited`
 or `standard`.
 
 The following procedures describe how to use the EC2 console or the AWS CLI. For
-information about using an Amazon EC2 Auto Scaling group, see [Configure an Amazon EC2 Auto Scaling group to
+information about using an Auto Scaling group, see [Configure an Auto Scaling group to
 set the credit specification as unlimited](#burstable-performance-instances-auto-scaling-grp "#burstable-performance-instances-auto-scaling-grp").
 
 Console
@@ -64,22 +64,22 @@ cmdlet with the `-CreditSpecification_CpuCredit` parameter.
 -CreditSpecification_CpuCredit unlimited
 ```
 
-## Configure an Amazon EC2 Auto Scaling group to
+## Configure an Auto Scaling group to
 
 set the credit specification as unlimited
 
 When T instances are launched or started, they require CPU credits for a good
-bootstrapping experience. If you use an Amazon EC2 Auto Scaling group to launch your instances, we
+bootstrapping experience. If you use an Auto Scaling group to launch your instances, we
 recommend that you configure your instances as `unlimited`. If you do, the
 instances use surplus credits when they are automatically launched or restarted by the
-Amazon EC2 Auto Scaling group. Using surplus credits prevents performance restrictions.
+Auto Scaling group. Using surplus credits prevents performance restrictions.
 
 ### Create a launch
 
 template
 
 You must use a _launch template_ for launching
-instances as `unlimited` in an Amazon EC2 Auto Scaling group. A launch configuration does not
+instances as `unlimited` in an Auto Scaling group. A launch configuration does not
 support launching instances as `unlimited`.
 
 Console
@@ -90,7 +90,7 @@ Console
    in the _Amazon EC2 Auto Scaling User Guide_.
 2. In **Launch template contents**, for
    **Instance type**, choose an instance size.
-3. To launch instances as `unlimited` in an Amazon EC2 Auto Scaling group,
+3. To launch instances as `unlimited` in an Auto Scaling group,
    under **Advanced details**, for **Credit
    specification**, choose
    **Unlimited**.
@@ -125,39 +125,39 @@ $launchTemplateData.CreditSpecification = $creditSpec
 
 ```
 
-### Associate an Amazon EC2 Auto Scaling group with a launch template
+### Associate an Auto Scaling group with a launch template
 
-To associate the launch template with an Amazon EC2 Auto Scaling group, create the Amazon EC2 Auto Scaling group using
-the launch template, or add the launch template to an existing Amazon EC2 Auto Scaling group.
+To associate the launch template with an Auto Scaling group, create the Auto Scaling group using
+the launch template, or add the launch template to an existing Auto Scaling group.
 
 Console
 
-###### To create an Amazon EC2 Auto Scaling group using a launch template
+###### To create an Auto Scaling group using a launch template
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. On the navigation bar at the top of the screen, select the same
    Region that you used when you created the launch template.
-3. In the navigation pane, choose **Amazon EC2 Auto Scaling Groups**,
-   **Create Amazon EC2 Auto Scaling group**.
+3. In the navigation pane, choose **Auto Scaling Groups**,
+   **Create Auto Scaling group**.
 4. Choose **Launch Template**, select your launch
    template, and then choose **Next Step**.
-5. Complete the fields for the Amazon EC2 Auto Scaling group. When you've finished
+5. Complete the fields for the Auto Scaling group. When you've finished
    reviewing your configuration settings on the **Review
    page**, choose **Create Auto Scaling
-   group**. For more information, see [Creating an Amazon EC2 Auto Scaling
+   group**. For more information, see [Creating an Auto Scaling
    Group Using a Launch Template](../../../autoscaling/ec2/userguide/create-asg-launch-template.md "../../../autoscaling/ec2/userguide/create-asg-launch-template.md") in the
    _Amazon EC2 Auto Scaling User Guide_.
 
-###### To add a launch template to an existing Amazon EC2 Auto Scaling group
+###### To add a launch template to an existing Auto Scaling group
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. On the navigation bar at the top of the screen, select the same
    Region that you used when you created the launch template.
-3. In the navigation pane, choose **Amazon EC2 Auto Scaling
+3. In the navigation pane, choose **Auto Scaling
    Groups**.
-4. From the Amazon EC2 Auto Scaling group list, select an Amazon EC2 Auto Scaling group, and choose
+4. From the Auto Scaling group list, select an Auto Scaling group, and choose
    **Actions**, **Edit**.
 5. On the **Details** tab, for **Launch
    Template**, choose a launch template, and then choose
@@ -165,25 +165,25 @@ Console
 
 AWS CLI
 
-###### To create an Amazon EC2 Auto Scaling group using a launch template
+###### To create an Auto Scaling group using a launch template
 
 Use the [create-auto-scaling-group](../../../cli/latest/reference/autoscaling/create-auto-scaling-group.md "../../../cli/latest/reference/autoscaling/create-auto-scaling-group.md") command and specify the
 `--launch-template` parameter.
 
-###### To add a launch template to an existing Amazon EC2 Auto Scaling group
+###### To add a launch template to an existing Auto Scaling group
 
 Use the [update-auto-scaling-group](../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md "../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md") command and specify the
 `--launch-template` parameter.
 
 PowerShell
 
-###### To create an Amazon EC2 Auto Scaling group using a launch template
+###### To create an Auto Scaling group using a launch template
 
 Use the [New-ASAutoScalingGroup](../../../powershell/latest/reference/items/New-ASAutoScalingGroup.md "../../../powershell/latest/reference/items/New-ASAutoScalingGroup.md") cmdlet and specify the
 `-LaunchTemplate_LaunchTemplateId` or
 `-LaunchTemplate_LaunchTemplateName` parameter.
 
-###### To add a launch template to an existing Amazon EC2 Auto Scaling group
+###### To add a launch template to an existing Auto Scaling group
 
 Use the [Update-ASAutoScalingGroup](../../../powershell/latest/reference/items/Update-ASAutoScalingGroup.md "../../../powershell/latest/reference/items/Update-ASAutoScalingGroup.md") cmdlet and specify the
 `-LaunchTemplate_LaunchTemplateId` or

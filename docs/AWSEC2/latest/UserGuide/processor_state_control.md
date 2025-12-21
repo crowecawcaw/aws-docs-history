@@ -19,8 +19,7 @@ P-states.
 
 ###### C-states and P-states
 
-The following instance types provide the ability for an operating system to control
-processor C-states and P-states:
+The following instance types provide the ability for an operating system to control C-states and P-states:
 
 - General purpose: `m4.10xlarge` | `m4.16xlarge`
 - Compute optimized: `c4.8xlarge`
@@ -37,8 +36,7 @@ processor C-states and P-states:
 
 ###### C-states only
 
-The following instance types provide the ability for an operating system to control
-processor C-states:
+The following instance types provide the ability for an operating system to control C-states:
 
 - General purpose:
   `m5.12xlarge` | `m5.24xlarge` | `m5d.12xlarge` |

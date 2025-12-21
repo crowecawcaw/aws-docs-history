@@ -2,8 +2,7 @@
 
 Capacity Blocks for ML allow you to reserve GPU-based accelerated computing instances on a future date to
 support your short duration machine learning (ML) workloads. Instances that run inside a Capacity Block
-are automatically placed close together inside [Amazon EC2 UltraClusters](https://aws.amazon.com/ec2/ultraclusters/ "https://aws.amazon.com/ec2/ultraclusters/"), for low-latency, petabit-scale,
-non-blocking networking.
+are automatically placed close together inside [Amazon EC2 UltraClusters](https://aws.amazon.com/ec2/ultraclusters/ "https://aws.amazon.com/ec2/ultraclusters/"), for low-latency, petabit-scale, non-blocking networking.
 
 You can also use Capacity Blocks to reserve capacity for Amazon EC2 UltraServers. UltraServers connect multiple
 Amazon EC2 instances within a low-latency, high-bandwidth accelerator interconnect. You can use
@@ -25,47 +24,21 @@ The following are some common use cases for Capacity Blocks.
 - **ML experiments and prototypes** – Run
   experiments and build prototypes that require GPU instances for short
   durations.
-  You can reserve a Capacity Block with the following specifications:
+  Capacity Blocks are availale for select instance types in some AWS Regions. Fore more information,
+  see [Supported instance types and Regions](#capacity-blocks-prerequisites "#capacity-blocks-prerequisites").
 
-- Reserve a start time up to 8 weeks in advance
-- Set a reservation duration of one to 14 days or a multiple of 7 days, up to 182
-  days (Examples: 21 days, 28 days)
-- Configure up to 64 instances per Capacity Block
-- Configure up to 256 instances across multiple Capacity Blocks
-  For Amazon EC2 UltraServers, each UltraServer corresponds to one Capacity Block. You can request multiple
-  UltraServers through a single request.
-
-You can use Capacity Blocks to reserve `p6-b300`, `p6-b200`, `p5`, `p5e`,
-`p5en`, `p4d`, `p4de`, `trn1`, and
-`trn2` instances. You can purchase the following UltraServer types through
-Capacity Blocks: `P6e-GB200` and `Trn2` (in preview).
-
-To reserve a Capacity Block, you start by specifying your capacity needs, including the instance
-type or UltraServer type, the number of instances or UltraServers, amount of time, earliest start date,
-and latest end date that you need. Then, you can see an available Capacity Block offering that meets
-your specifications. The Capacity Block offering includes details such as start time, Availability
-Zone, and reservation price. The price of a Capacity Block offering depends on available supply and
-demand at the time the offering was delivered. After you reserve a Capacity Block, the price doesn't
-change. For more information, see [Capacity Blocks pricing and billing](capacity-blocks-pricing-billing.md "capacity-blocks-pricing-billing.md").
-
-When you purchase a Capacity Block offering, your reservation is created for the date and number
-of instances that you selected. When your Capacity Block reservation begins, you can target
-instance launches by specifying the reservation ID in your launch requests.
-
-You can use all the instances you reserved until 30 minutes (for instance types) or 60
-minutes (for UltraServer type) before the end time of the Capacity Block. With 30 minutes (for instance
-types) or 60 minutes (for UltraServer types) left in your Capacity Block reservation, we begin
-terminating any instances that are running in the Capacity Block. We use this time to clean up
-your instances before delivering the Capacity Block to the next customer. We emit an event through
-EventBridge 10 minutes before the termination process begins. For more information, see [Monitor Capacity Blocks using EventBridge](capacity-blocks-monitor.md "capacity-blocks-monitor.md").
+You can reserve a Capacity Block with a reservation start time up to eight weeks in the future.
+Each Capacity Block can have up to 64 instances, and you can have up to 256 instances across
+Capacity Blocks.
 
 ###### Topics
 
+- [Supported instance types and Regions](#capacity-blocks-prerequisites "#capacity-blocks-prerequisites")
 - [Supported platforms](#capacity-blocks-platforms "#capacity-blocks-platforms")
 - [Considerations](#capacity-blocks-considerations "#capacity-blocks-considerations")
 - [Related resources](#capacity-blocks-related-resources "#capacity-blocks-related-resources")
+- [How Amazon EC2 Capacity Blocks work](capacity-blocks-how.md "capacity-blocks-how.md")
 - [Capacity Blocks pricing and billing](capacity-blocks-pricing-billing.md "capacity-blocks-pricing-billing.md")
-- [Prerequisites for Capacity Blocks](capacity-blocks-prerequisites.md "capacity-blocks-prerequisites.md")
 - [Find and purchase Capacity Blocks](capacity-blocks-purchase.md "capacity-blocks-purchase.md")
 - [Launch instances using Capacity Blocks](capacity-blocks-launch.md "capacity-blocks-launch.md")
 - [View Capacity Blocks](capacity-blocks-view.md "capacity-blocks-view.md")
@@ -75,11 +48,101 @@ EventBridge 10 minutes before the termination process begins. For more informati
 - [Logging Capacity Blocks API calls
   with AWS CloudTrail](capacity-blocks-logging-using-cloudtrail.md "capacity-blocks-logging-using-cloudtrail.md")
 
+## Supported instance types and Regions
+
+Instance and UltraServer Capacity Blocks can use be used with the following instance types and AWS regions.
+
+###### Note
+
+Capacity Block sizes of 64 instances are not supported for all instance types in all
+AWS Regions.
+
+### Instance Capacity Blocks
+
+- **`p6-b300.48xlarge`**
+  - US West (Oregon) — `us-west-2`
+
+- **`p6-b200.48xlarge`**
+  - US East (N. Virginia) — `us-east-1`
+  - US East (Ohio) — `us-east-2`
+  - US West (Oregon) — `us-west-2`
+
+- **`p5.4xlarge`**
+  - US East (N. Virginia) — `us-east-1`
+  - US East (Ohio) — `us-east-2`
+  - US West (Oregon) — `us-west-2`
+  - Europe (London) — `eu-west-2`
+  - Asia Pacific (Mumbai) — `ap-south-1`
+  - Asia Pacific (Tokyo) — `ap-northeast-1`
+  - Asia Pacific (Sydney) — `ap-southeast-2`
+  - South America (São Paulo) — `sa-east-1`
+
+- **`p5.48xlarge`**
+  - US East (N. Virginia) — `us-east-1`
+  - US East (Ohio) — `us-east-2`
+  - US West (N. California) — `us-west-1`
+  - US West (Oregon) — `us-west-2`
+  - Europe (Stockholm) — `eu-north-1`
+  - Europe (London) — `eu-west-2`
+  - South America (São Paulo) — `sa-east-1`
+  - Asia Pacific (Tokyo) — `ap-northeast-1`
+  - Asia Pacific (Mumbai) — `ap-south-1`
+  - Asia Pacific (Sydney) — `ap-southeast-2`
+  - Asia Pacific (Jakarta) — `ap-southeast-3`
+
+- **`p5e.48xlarge`**
+  - US East (N. Virginia) — `us-east-1`
+  - US East (Ohio) — `us-east-2`
+  - US West (N. California) — `us-west-1`
+  - US West (Oregon) — `us-west-2`
+  - Europe (Stockholm) — `eu-north-1`
+  - Europe (London) — `eu-west-2`
+  - Europe (Spain) — `eu-south-2`
+  - South America (São Paulo) — `sa-east-1`
+  - Asia Pacific (Tokyo) — `ap-northeast-1`
+  - Asia Pacific (Seoul) — `ap-northeast-2`
+  - Asia Pacific (Mumbai) — `ap-south-1`
+  - Asia Pacific (Jakarta) — `ap-southeast-3`
+
+- **`p4d.24xlarge`**
+  - US East (N. Virginia) — `us-east-1`
+  - US East (Ohio) — `us-east-2`
+  - US West (Oregon) — `us-west-2`
+
+- **`p4de.24xlarge`**
+  - US East (N. Virginia) — `us-east-1`
+  - US West (Oregon) — `us-west-2`
+
+- **`trn1.32xlarge`**
+  - US East (N. Virginia) — `us-east-1`
+  - US East (Ohio) — `us-east-2`
+  - US West (N. California) — `us-west-1`
+  - US West (Oregon) — `us-west-2`
+  - Europe (Stockholm) — `eu-north-1`
+  - Asia Pacific (Mumbai) — `ap-south-1`
+  - Asia Pacific (Sydney) — `ap-southeast-2`
+  - Asia Pacific (Melbourne) — `ap-southeast-4`
+
+- **`trn2.3xlarge`**
+  - Asia Pacific (Melbourne) — `ap-southeast-4`
+  - South America (São Paulo) — `sa-east-1`
+
+- **`trn2.48xlarge`**
+  - US East (Ohio) — `us-east-2`
+
+### UltraServer Capacity Blocks
+
+- **`Trn2`**
+  - US East (Ohio) — `us-east-2`
+
+- **`P6e-GB200`**
+  - Dallas Local Zone (N. Virginia) — `us-east-1-dfw-2a`
+
 ## Supported platforms
 
 Capacity Blocks for ML currently support instances and UltraServers with default tenancy only. When you use the AWS Management Console
-to purchase a Capacity Block, the default platform option is Linux/UNIX. When you use the AWS Command Line Interface (AWS CLI) or
-AWS SDK to purchase a Capacity Block, the following platform options are available:
+to purchase a Capacity Block, the default platform option is Linux/UNIX. When you use the AWS Command Line Interface (AWS CLI) or AWS
+SDK to purchase a Capacity Block, the following platform options are available:
 
 - Linux/Unix
 - Red Hat Enterprise Linux
@@ -154,8 +217,3 @@ logic to handle transient failures.
 
 For more information about AWS ParallelCluster, see [What is
 AWS ParallelCluster](../../../parallelcluster/latest/ug/what-is-aws-parallelcluster.md "../../../parallelcluster/latest/ug/what-is-aws-parallelcluster.md").
-
-###### Note
-
-Capacity Block sizes of 64 instances are not supported for all instance types in all
-AWS Regions.

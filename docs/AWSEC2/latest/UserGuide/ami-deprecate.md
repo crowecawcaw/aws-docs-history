@@ -5,7 +5,7 @@ also specify a future deprecation date for an AMI, indicating when the AMI will 
 date. For example, you might deprecate an AMI that is no longer actively maintained, or you
 might deprecate an AMI that has been superseded by a newer version. By default, deprecated
 AMIs do not appear in AMI listings, preventing new users from using out-of-date AMIs.
-However, existing users and launch services, such as launch templates and Amazon EC2 Auto Scaling groups, can
+However, existing users and launch services, such as launch templates and Auto Scaling groups, can
 continue to use a deprecated AMI by specifying its ID. To delete the AMI so that users and
 services cannot use it, you must [deregister](deregister-ami.md "deregister-ami.md") it.
 
@@ -21,7 +21,7 @@ After an AMI is deprecated:
   console.
 - For AMI users, if you know the ID of a deprecated AMI, you can continue to launch instances
   using the deprecated AMI by using the API, CLI, or the SDKs.
-- Launch services, such as launch templates and Amazon EC2 Auto Scaling groups, can continue to
+- Launch services, such as launch templates and Auto Scaling groups, can continue to
   reference deprecated AMIs.
 - EC2 instances that were launched using an AMI that is subsequently deprecated are not
   affected, and can be stopped, started, and rebooted.

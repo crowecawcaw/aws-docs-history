@@ -515,7 +515,7 @@ information, see the following:
 For examples of the assembly of a `UserData` property in a CloudFormation template, see
 [Base64 Encoded UserData Property](../../../AWSCloudFormation/latest/UserGuide/quickref-general.md#scenario-userdata-base64 "../../../AWSCloudFormation/latest/UserGuide/quickref-general.md#scenario-userdata-base64") and [Base64 Encoded UserData Property with AccessKey and SecretKey](../../../AWSCloudFormation/latest/UserGuide/quickref-general.md#scenario-userdata-base64-with-keys "../../../AWSCloudFormation/latest/UserGuide/quickref-general.md#scenario-userdata-base64-with-keys").
 
-For an example of running commands on an instance within an Amazon EC2 Auto Scaling group that works with lifecycle
+For an example of running commands on an instance within an Auto Scaling group that works with lifecycle
 hooks, see [Tutorial:
 Configure user data to retrieve the target lifecycle state through instance
 metadata](../../../autoscaling/ec2/userguide/tutorial-lifecycle-hook-instance-metadata.md "../../../autoscaling/ec2/userguide/tutorial-lifecycle-hook-instance-metadata.md") in the _Amazon EC2 Auto Scaling User Guide_.

@@ -70,12 +70,12 @@ If a status check has failed, you can try one of the following options:
   replacement instance. For more information, see [Terminate Amazon EC2 instances](terminating-instances.md "terminating-instances.md").
 - Wait for Amazon EC2 to resolve the issue.
 - Contact Support or post your issue to [AWS re:Post](https://repost.aws/ "https://repost.aws/").
-- If your instance is in an Amazon EC2 Auto Scaling group:
+- If your instance is in an Auto Scaling group:
   - (System status checks and instance status checks) By default, Amazon EC2 Auto Scaling automatically launches
     a replacement instance. For more information, see [Health
-    checks for instances in an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the _Amazon EC2 Auto Scaling User Guide_.
+    checks for instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the _Amazon EC2 Auto Scaling User Guide_.
   - (Attached EBS status checks) You must configure Amazon EC2 Auto Scaling to automatically launch a replacement
-    instance. For more information, see [Monitor and replace Amazon EC2 Auto Scaling instances with impaired Amazon EBS volumes](../../../autoscaling/ec2/userguide/monitor-and-replace-instances-with-impaired-ebs-volumes.md "../../../autoscaling/ec2/userguide/monitor-and-replace-instances-with-impaired-ebs-volumes.md") in the
+    instance. For more information, see [Monitor and replace Auto Scaling instances with impaired Amazon EBS volumes](../../../autoscaling/ec2/userguide/monitor-and-replace-instances-with-impaired-ebs-volumes.md "../../../autoscaling/ec2/userguide/monitor-and-replace-instances-with-impaired-ebs-volumes.md") in the
     _Amazon EC2 Auto Scaling User Guide_.
 
 - Retrieve the system log and look for errors. For more information, see

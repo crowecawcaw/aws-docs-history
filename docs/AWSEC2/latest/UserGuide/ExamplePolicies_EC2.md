@@ -1771,29 +1771,29 @@ instance. For more information, see the policies in [Work with instances](#iam-e
 
 ###### Important
 
-If you use Amazon EC2 Auto Scaling groups and you need to require the use of IMDSv2 on all new
-instances, your Amazon EC2 Auto Scaling groups must use _launch
+If you use Auto Scaling groups and you need to require the use of IMDSv2 on all new
+instances, your Auto Scaling groups must use _launch
 templates_.
 
-When an Amazon EC2 Auto Scaling group uses a launch template, the `ec2:RunInstances` permissions
-of the IAM principal are checked when a new Amazon EC2 Auto Scaling group is created. They are also checked
-when an existing Amazon EC2 Auto Scaling group is updated to use a new launch template or a new version of a
+When an Auto Scaling group uses a launch template, the `ec2:RunInstances` permissions
+of the IAM principal are checked when a new Auto Scaling group is created. They are also checked
+when an existing Auto Scaling group is updated to use a new launch template or a new version of a
 launch template.
 
 Restrictions
 on the use of IMDSv1 on IAM principals for `RunInstances` are only
-checked when an Amazon EC2 Auto Scaling group that is using a launch template, is created or updated. For an
-Amazon EC2 Auto Scaling group that is configured to use the `Latest` or `Default` launch
+checked when an Auto Scaling group that is using a launch template, is created or updated. For an
+Auto Scaling group that is configured to use the `Latest` or `Default` launch
 template, the permissions are not checked when a new version of the launch template is
-created. For permissions to be checked, you must configure the Amazon EC2 Auto Scaling group to use a _specific version_ of the launch template.
+created. For permissions to be checked, you must configure the Auto Scaling group to use a _specific version_ of the launch template.
 
-###### To enforce the use of IMDSv2 on instances launched by Amazon EC2 Auto Scaling groups, the
+###### To enforce the use of IMDSv2 on instances launched by Auto Scaling groups, the
 
 following additional steps are required:
 
 1. Disable the use of launch configurations for all accounts in your organization by
    using either service control policies (SCPs) or IAM permissions boundaries for new
-   principals that are created. For existing IAM principals with Amazon EC2 Auto Scaling group permissions,
+   principals that are created. For existing IAM principals with Auto Scaling group permissions,
    update their associated policies with this condition key. To disable the use of launch
    configurations, create or modify the relevant SCP, permissions boundary, or IAM policy
    with the `"autoscaling:LaunchConfigurationName"` condition key with the value
@@ -1807,10 +1807,10 @@ following additional steps are required:
    use to a specific version of a launch template, you can ensure that new instances will
    be launched using the version in which the instance metadata options are configured. For
    more information, see [LaunchTemplateSpecification](../../../autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.md "../../../autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.md") in the _Amazon EC2 Auto Scaling API Reference_, specifically the `Version` parameter.
-4. For an Amazon EC2 Auto Scaling group that uses a launch configuration, replace the launch configuration
-   with a launch template. For more information, see [Migrate your Amazon EC2 Auto Scaling groups
+4. For an Auto Scaling group that uses a launch configuration, replace the launch configuration
+   with a launch template. For more information, see [Migrate your Auto Scaling groups
    to launch templates](../../../autoscaling/ec2/userguide/migrate-to-launch-templates.md "../../../autoscaling/ec2/userguide/migrate-to-launch-templates.md") in the _Amazon EC2 Auto Scaling User Guide_.
-5. For an Amazon EC2 Auto Scaling group that uses a launch template, make sure that it uses a new launch
+5. For an Auto Scaling group that uses a launch template, make sure that it uses a new launch
    template with the instance metadata options configured, or uses a new version of the
    current launch template with the instance metadata options configured. For more
    information, see [update-auto-scaling-group](../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md "../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md").

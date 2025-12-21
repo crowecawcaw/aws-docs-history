@@ -28,11 +28,11 @@ However, you can:
 ###### Note
 
 When
-an instance is affected by a scheduled event, and it is part of an Amazon EC2 Auto Scaling group,
+an instance is affected by a scheduled event, and it is part of an Auto Scaling group,
 Amazon EC2 Auto Scaling eventually replaces it as part of its health checks, with no further action
 necessary on your part. For more information about the health checks performed by
 Amazon EC2 Auto Scaling, see [Health
-checks for instances in an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
+checks for instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
 _Amazon EC2 Auto Scaling User Guide_.
 
 ## Types of scheduled events

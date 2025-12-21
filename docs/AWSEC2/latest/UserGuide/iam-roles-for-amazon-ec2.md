@@ -7,7 +7,7 @@ AWS credentials to the instances, enabling the applications on those instances t
 your credentials to sign requests, while protecting your credentials from other users.
 However, it's challenging to securely distribute credentials to each instance,
 especially those that AWS creates on your behalf, such as Spot Instances or instances
-in Amazon EC2 Auto Scaling groups. You must also be able to update the credentials on each instance when
+in Auto Scaling groups. You must also be able to update the credentials on each instance when
 you rotate your AWS credentials.
 
 We designed IAM roles so that your applications can securely make API requests from

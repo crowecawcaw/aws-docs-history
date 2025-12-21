@@ -327,20 +327,14 @@ same CPU processor.
 
 ###### Unsupported instance families
 
-The following instance families are not supported for performance protection:
+The following instance families are **not** supported
+for performance protection:
 
-- `c1`
-- `g3` | `g3s`
-- `hpc7g`
-- `m1` | `m2`
-- `mac1` | `mac2` | `mac2-m1ultra` |
-  `mac2-m2` | `mac2-m2pro`
-- `p3dn` | `p4d` | `p5`
-- `t1`
-- `u-12tb1` | `u-18tb1` | `u-24tb1` |
-  `u-3tb1` | `u-6tb1` | `u-9tb1` |
-  `u7i-12tb` | `u7in-16tb` | `u7in-24tb` |
-  `u7in-32tb`
+- **General purpose:** Mac1 | Mac2 | Mac2-m1ultra | Mac2-m2 | Mac2-m2pro | M1 | M2 | T1
+- **Compute optimized:** C1
+- **Memory optimized:** U-3tb1 | U-6tb1 | U-9tb1 | U-12tb1 | U-18tb1 | u-24tb1 | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb
+- **Accelerated computing:** G3 | G3s | P3dn | P4d | P5
+- **High-performance computing:** Hpc7g
 
 If you enable performance protection by specifying a supported instance family, the
 returned instance types will exclude the above unsupported instance families.

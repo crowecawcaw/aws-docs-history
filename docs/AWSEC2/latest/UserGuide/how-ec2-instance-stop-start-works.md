@@ -34,11 +34,11 @@ default stop method. Note that some aspects might vary depending on which [stop 
 - The instance stops running.
 - The instance state changes to `stopping` and then
   `stopped`.
-- [Amazon EC2 Auto Scaling] If your instance is in an Amazon EC2 Auto Scaling group, when the instance is in any
+- [Auto Scaling] If your instance is in an Auto Scaling group, when the instance is in any
   Amazon EC2 state other than `running`, or if its status for the status
   checks becomes `impaired`, Amazon EC2 Auto Scaling considers the instance to be
   unhealthy and replaces it. For more information, see [Health checks for
-  instances in an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
+  instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
   _Amazon EC2 Auto Scaling User Guide_.
 - [Windows instances] When you stop and start a Windows instance, the launch
   agent performs tasks on the instance, such as changing the drive letters for

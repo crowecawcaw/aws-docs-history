@@ -1,14 +1,14 @@
-# Aggregate statistics by Amazon EC2 Auto Scaling group
+# Aggregate statistics by Auto Scaling group
 
-You can aggregate statistics for the EC2 instances in an Amazon EC2 Auto Scaling group. Note that Amazon CloudWatch
+You can aggregate statistics for the EC2 instances in an Auto Scaling group. Note that Amazon CloudWatch
 cannot aggregate data across AWS Regions. Metrics are completely separate between
 Regions.
 
-This example shows you how to retrieve the total bytes written to disk for one Amazon EC2 Auto Scaling
+This example shows you how to retrieve the total bytes written to disk for one Auto Scaling
 group. The total is computed for 1-minute periods for a 24-hour interval across all EC2
-instances in the specified Amazon EC2 Auto Scaling group.
+instances in the specified Auto Scaling group.
 
-###### To display DiskWriteBytes for the instances in an Amazon EC2 Auto Scaling group (console)
+###### To display DiskWriteBytes for the instances in an Auto Scaling group (console)
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -16,14 +16,14 @@ instances in the specified Amazon EC2 Auto Scaling group.
 3. Choose the **EC2** namespace and then choose **By Auto
    Scaling Group**.
 4. Choose the row for the **DiskWriteBytes** metric and the specific
-   Amazon EC2 Auto Scaling group, which displays a graph for the metric for the instances in the Amazon EC2 Auto Scaling group.
+   Auto Scaling group, which displays a graph for the metric for the instances in the Auto Scaling group.
    To name the graph, choose the pencil icon. To change the time range, select one of the
    predefined values or choose **custom**.
 5. To change the statistic or the period for the metric, choose the **Graphed
    metrics** tab. Choose the column heading or an individual value, and then
    choose a different value.
 
-###### To display DiskWriteBytes for the instances in an Amazon EC2 Auto Scaling group (AWS CLI)
+###### To display DiskWriteBytes for the instances in an Auto Scaling group (AWS CLI)
 
 Use the [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md") command as follows.
 

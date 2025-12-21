@@ -40,9 +40,9 @@ Disabling an AMI removes all its launch permissions.
 - A disabled AMI is not available to select for instance launches in the EC2 console. For
   example, a disabled AMI does not appear in the AMI catalog in the launch instance
   wizard or when creating a launch template.
-- Launch services, such as launch templates and Amazon EC2 Auto Scaling groups, can continue to reference
+- Launch services, such as launch templates and Auto Scaling groups, can continue to reference
   disabled AMIs. Subsequent instance launches from a disabled AMI will fail, so we
-  recommend updating launch templates and Amazon EC2 Auto Scaling groups to reference available AMIs
+  recommend updating launch templates and Auto Scaling groups to reference available AMIs
   only.
 - EC2 instances that were previously launched using an AMI that is subsequently disabled are
   not affected, and can be stopped, started, and rebooted.

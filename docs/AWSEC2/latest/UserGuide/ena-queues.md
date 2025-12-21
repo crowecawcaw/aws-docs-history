@@ -80,6 +80,27 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8a.48xlarge`      | 32                               | 128                              | 768                             |
 | `m8a.metal-24xl`    | 16                               | 128                              | 384                             |
 | `m8a.metal-48xl`    | 32                               | 128                              | 768                             |
+| **M8gb**            |
+| `m8gb.medium`       | 1                                | 1                                | 2                               |
+| `m8gb.large`        | 2                                | 2                                | 6                               |
+| `m8gb.xlarge`       | 4                                | 4                                | 16                              |
+| `m8gb.2xlarge`      | 8                                | 8                                | 32                              |
+| `m8gb.4xlarge`      | 8                                | 16                               | 64                              |
+| `m8gb.8xlarge`      | 8                                | 32                               | 128                             |
+| `m8gb.12xlarge`     | 16                               | 64                               | 192                             |
+| `m8gb.16xlarge`     | 16                               | 64                               | 256                             |
+| `m8gb.24xlarge`     | 16                               | 128                              | 384                             |
+| **M8gn**            |
+| `m8gn.medium`       | 1                                | 1                                | 2                               |
+| `m8gn.large`        | 2                                | 2                                | 6                               |
+| `m8gn.xlarge`       | 4                                | 4                                | 16                              |
+| `m8gn.2xlarge`      | 8                                | 8                                | 32                              |
+| `m8gn.4xlarge`      | 8                                | 16                               | 64                              |
+| `m8gn.8xlarge`      | 8                                | 32                               | 128                             |
+| `m8gn.12xlarge`     | 16                               | 64                               | 192                             |
+| `m8gn.16xlarge`     | 16                               | 64                               | 256                             |
+| `m8gn.24xlarge`     | 16                               | 128                              | 384                             |
+| `m8gn.48xlarge`     | 32                               | 128                              | 768 \*                          |
 | **M8i**             |
 | `m8i.large`         | 2                                | 2                                | 6                               |
 | `m8i.xlarge`        | 4                                | 4                                | 16                              |

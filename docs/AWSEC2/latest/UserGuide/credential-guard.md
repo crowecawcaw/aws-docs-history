@@ -50,8 +50,7 @@ otherwise: `C5`, `C5d`, `C5n`, `C6i`,
   must be one of the preceding instance types to support Credential Guard.
 - Credential Guard isn't supported for:
   - Bare metal instances.
-  - The following instance types: `C7i.48xlarge`,
-    `M7i.48xlarge`, and `R7i.48xlarge`.
+  - The following instance types: `C7i.48xlarge`, `M7i.48xlarge`, and `R7i.48xlarge`.
 
 For more information about instance types, see the [Amazon EC2 Instance Types Guide](../../../ec2/latest/instancetypes/instance-types.md "../../../ec2/latest/instancetypes/instance-types.md").
 

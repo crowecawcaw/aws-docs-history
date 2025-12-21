@@ -87,7 +87,7 @@ attributes.
 ###### Note
 
 Specifying instance attributes is supported only when the
-launch template is used by Amazon EC2 Auto Scaling groups, EC2 Fleet, and Spot Fleet to
+launch template is used by Auto Scaling groups, EC2 Fleet, and Spot Fleet to
 launch instances. For more information, see [Create mixed instances group using attribute-based instance
 type selection](../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md "../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md") and [Specify attributes for
 instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").

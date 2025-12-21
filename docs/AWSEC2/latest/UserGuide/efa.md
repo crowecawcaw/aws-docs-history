@@ -118,6 +118,11 @@ Nitro v6
 | General Purpose       |
 | m8a.48xlarge          | Yes               | Yes                |
 | m8a.metal-48xl        | Yes               | Yes                |
+| m8gb.16xlarge         | Yes               | Yes                |
+| m8gb.24xlarge         | Yes               | Yes                |
+| m8gn.16xlarge         | Yes               | Yes                |
+| m8gn.24xlarge         | Yes               | Yes                |
+| m8gn.48xlarge         | Yes               | Yes                |
 | m8i.48xlarge          | Yes               | Yes                |
 | m8i.96xlarge          | Yes               | Yes                |
 | m8i.metal-48xl        | Yes               | Yes                |
@@ -392,7 +397,7 @@ shows the supported operating systems.
 | Amazon Linux 2023                      | ✓                                   | ✓                                     |
 | Amazon Linux 2                         | ✓                                   | ✓                                     |
 | RHEL 8 and 9                           | ✓                                   | ✓                                     |
-| Debian 11 and 12                       | ✓                                   | ✓                                     |
+| Debian 11, 12, and 13                  | ✓                                   | ✓                                     |
 | Rocky Linux 8 and 9                    | ✓                                   | ✓                                     |
 | Ubuntu 22.04 and 24.04                 | ✓                                   | ✓                                     |
 | SUSE Linux Enterprise 15 SP2 and later | ✓                                   | ✓                                     |

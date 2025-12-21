@@ -12,7 +12,7 @@ still have the private key (`.pem`) file.
 
 ###### Important
 
-If you're using an Amazon EC2 Auto Scaling group (for example, in an Elastic Beanstalk environment), ensure that the
+If you're using an Auto Scaling group (for example, in an Elastic Beanstalk environment), ensure that the
 public key you're deleting is not specified in an associated launch template or launch
 configuration. If Amazon EC2 Auto Scaling detects an unhealthy instance, it launches a replacement
 instance. However, the instance launch fails if the public key cannot be found. For more

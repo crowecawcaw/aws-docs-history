@@ -412,9 +412,11 @@ requirements are met:
   Asia Pacific (Tokyo), and Europe (Stockholm)
 - Supported Local Zones: US East (New York City)
 - Supported instance families:
-  - **General purpose:** M7a, M7g, M7i
-  - **Memory optimized:** R7a, R7g, R7i
-  - **Storage optimized:** I8g, I8ge
+  - **General purpose:** M7a, M7g, M7gd, M7i, M8a, M8g, M8gd, M8i, M8i-flex, Mac-m4, Mac-m4pro
+  - **Compute optimized:** C7a, C7gd, C7i, C8a, C8g, C8gd, C8i, C8i-flex
+  - **Memory optimized:** R7a, R7g, R7gd, R7i, R8a, R8g, R8gd, R8i, R8i-flex, U7i-6tb, U7i-8tb, U7i-12tb, U7in-16tb, U7in-24tb, U7in-32tb, X8g, X8aedz
+  - **Storage optimized:** I7i, I7ie, I8g, I8ge
+  - **High performance computing:** Hpc7a
 
 - (Linux only) ENA driver version 2.10.0 or later installed on a
   supported operating system. For more information about supported

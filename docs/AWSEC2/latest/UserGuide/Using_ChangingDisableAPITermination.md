@@ -23,9 +23,9 @@ initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md 
   instance when there is a [scheduled event](monitoring-instances-status-check_sched.md "monitoring-instances-status-check_sched.md") to terminate the instance.
 - Enabling termination protection does not prevent Amazon EC2 Auto Scaling from terminating an
   instance when the instance is unhealthy or during scale-in events. You can
-  control whether an Amazon EC2 Auto Scaling group can terminate a particular instance when scaling
+  control whether an Auto Scaling group can terminate a particular instance when scaling
   using [instance
-  scale-in protection](../../../autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.md"). You can control whether an Amazon EC2 Auto Scaling group can
+  scale-in protection](../../../autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.md"). You can control whether an Auto Scaling group can
   terminate unhealthy instances by [suspending the
   ReplaceUnhealthy scaling process](../../../autoscaling/ec2/userguide/as-suspend-resume-processes.md "../../../autoscaling/ec2/userguide/as-suspend-resume-processes.md").
 - You can't enable termination protection for Spot Instances.

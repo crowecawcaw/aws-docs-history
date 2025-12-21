@@ -167,7 +167,7 @@ refer to the [Intel MPI documentation](https://www.intel.com/content/www/us/en/d
 You can also get the latest version by replacing the version number with `latest` in the preceding command.
 
 ```
-`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.45.1.tar.gz
+`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.46.0.tar.gz
 ```
 
 5. (_Optional_) Verify the authenticity and integrity of the EFA tarball (`.tar.gz`) file.
@@ -207,7 +207,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 
 
     ```
-    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer-1.45.1.tar.gz.sig && gpg --verify ./aws-efa-installer-1.45.1.tar.gz.sig
+    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer-1.46.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.46.0.tar.gz.sig
     ```
 
     The following shows example output.
@@ -229,7 +229,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 the extracted directory.
 
 ```
-`$` tar -xf aws-efa-installer-1.45.1.tar.gz && cd aws-efa-installer
+`$` tar -xf aws-efa-installer-1.46.0.tar.gz && cd aws-efa-installer
 ```
 
 7. Install the EFA software. Do one of the following depending on your use case.

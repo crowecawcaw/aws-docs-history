@@ -43,7 +43,8 @@ the `R5` instance family. In this case, you can launch certain combinations of
 `r5.xlarge`, `r5.2xlarge`, and `r5.4xlarge`, on
 that host, within the host's physical core capacity.
 
-The following instance families support Dedicated Hosts with multiple instance type support:
+The following instance families support Dedicated Hosts with multiple instance type
+support:
 
 - **General purpose:** A1 | M5 | M5n | M6i | M7i | T3
 - **Compute optimized:** C5 | C5n | C6i | C7i

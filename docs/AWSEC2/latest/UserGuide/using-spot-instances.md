@@ -54,7 +54,7 @@ The following table lists the key differences between Spot Instances and [On-Dem
 
 You pay the Spot price for Spot Instances, which is set by Amazon EC2 and adjusted gradually based on the
 long-term supply of and demand for Spot Instances. Your Spot Instances run until you terminate them,
-capacity is no longer available, or your Amazon EC2 Amazon EC2 Auto Scaling group terminates them during [scale in](../../../autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.md#as-lifecycle-scale-in "../../../autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.md#as-lifecycle-scale-in").
+capacity is no longer available, or your Amazon EC2 Auto Scaling group terminates them during [scale in](../../../autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.md#as-lifecycle-scale-in "../../../autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.md#as-lifecycle-scale-in").
 
 If you or Amazon EC2 interrupts a running Spot Instance, you are charged for the seconds used or the
 full hour, or you receive no charge, depending on the operating system used and who
