@@ -1,4 +1,4 @@
-# Scheduled Amazon EC2 Auto Scaling actions for your Elastic Beanstalk environments
+# Scheduled Auto Scaling actions for your Elastic Beanstalk environments
 
 To optimize your environment's use of Amazon EC2 instances through predictable periods of peak traffic, configure your Amazon EC2 Auto Scaling group to change its instance
 count on a schedule. You can configure your environment with a recurring action to scale up each day in the morning, and scale down at night when traffic is
@@ -10,7 +10,7 @@ updating their settings.
 
 ## Configuring scheduled actions
 
-You can create scheduled actions for your environment's Amazon EC2 Auto Scaling group in the Elastic Beanstalk console.
+You can create scheduled actions for your environment's Auto Scaling group in the Elastic Beanstalk console.
 
 ###### To configure scheduled actions in the Elastic Beanstalk console
 
@@ -22,8 +22,8 @@ You can create scheduled actions for your environment's Amazon EC2 Auto Scaling 
 5. In the **Time-based scaling** section, choose **Add scheduled action**.
 6. Fill in the following scheduled action settings:
    - **Name** – Specify a unique name of up to 255 alphanumeric characters, with no spaces.
-   - **Instances** – Choose the minimum and maximum instance count to apply to the Amazon EC2 Auto Scaling group.
-   - **Desired capacity** (optional) – Set the initial desired capacity for the Amazon EC2 Auto Scaling group. After the scheduled action is
+   - **Instances** – Choose the minimum and maximum instance count to apply to the Auto Scaling group.
+   - **Desired capacity** (optional) – Set the initial desired capacity for the Auto Scaling group. After the scheduled action is
      applied, triggers adjust the desired capacity based on their settings.
    - **Occurrence** – Choose **Recurring** to repeat the scaling action on a schedule.
    - **Start time** – For one-time actions, choose the date and time to run the action.
@@ -36,8 +36,8 @@ You can create scheduled actions for your environment's Amazon EC2 Auto Scaling 
    - **End time** (optional) – Optional for recurrent actions. If specified, the action recurs according to the
      **Recurrence** expression, and is not performed again after this time.
 
-   When a scheduled action ends, Amazon EC2 Auto Scaling doesn't automatically go back to its previous settings. Configure a second scheduled action to return
-   Amazon EC2 Auto Scaling to the original settings as needed.
+   When a scheduled action ends, Auto Scaling doesn't automatically go back to its previous settings. Configure a second scheduled action to return
+   Auto Scaling to the original settings as needed.
 
 7. Choose **Add**.
 8. To save the changes choose **Apply** at the bottom of the page.

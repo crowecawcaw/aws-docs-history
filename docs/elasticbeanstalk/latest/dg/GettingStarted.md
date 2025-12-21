@@ -395,7 +395,7 @@ settings, Elastic Beanstalk warns you about potential application downtime.
 
 In this example of a configuration change, you edit your environment's capacity
 settings. You configure a load-balanced, scalable environment that has between two and four
-Amazon EC2 instances in its Amazon EC2 Auto Scaling group, and then you verify that the change occurred. Elastic Beanstalk
+Amazon EC2 instances in its Auto Scaling group, and then you verify that the change occurred. Elastic Beanstalk
 creates an additional Amazon EC2 instance, adding to the single instance that it created
 initially. Then, Elastic Beanstalk associates both instances with the environment's load balancer. As a
 result, your application's responsiveness is improved and its availability is
@@ -410,7 +410,7 @@ increased.
 4. In the **Instance traffic and scaling** configuration category,
    choose **Edit**.
 5. Collapse the **Instances** section, so you can more easily see the
-   **Capacity** section. Under **Amazon EC2 Auto Scaling group** change
+   **Capacity** section. Under **Auto Scaling group** change
    **Environment type** to **Load balanced**.
 6. In the **Instances** row, change **Min** to
    `2` and **Max** to
@@ -483,7 +483,7 @@ the environment created for you.
 ###### Congratulations!
 
 You have successfully deployed a sample application to the AWS Cloud, uploaded a new
-version, modified its configuration to add a second Amazon EC2 Auto Scaling instance, and cleaned up your AWS
+version, modified its configuration to add a second Auto Scaling instance, and cleaned up your AWS
 resources!
 
 ## Next steps

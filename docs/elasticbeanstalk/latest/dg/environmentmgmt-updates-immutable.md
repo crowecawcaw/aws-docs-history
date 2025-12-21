@@ -2,21 +2,21 @@
 
 Immutable environment updates are an alternative to [rolling updates](using-features.md "using-features.md"). Immutable environment updates
 ensure that configuration changes that require replacing instances are applied efficiently and safely. If an immutable environment update fails, the
-rollback process requires only terminating an Amazon EC2 Auto Scaling group. A failed rolling update, on the other hand, requires performing an additional rolling update to
+rollback process requires only terminating an Auto Scaling group. A failed rolling update, on the other hand, requires performing an additional rolling update to
 roll back the changes.
 
-To perform an immutable environment update, Elastic Beanstalk creates a second, temporary Amazon EC2 Auto Scaling group behind your environment's load balancer to contain the new
+To perform an immutable environment update, Elastic Beanstalk creates a second, temporary Auto Scaling group behind your environment's load balancer to contain the new
 instances. First, Elastic Beanstalk launches a single instance with the new configuration in the new group. This instance serves traffic alongside all of the instances
-in the original Amazon EC2 Auto Scaling group that are running the previous configuration.
+in the original Auto Scaling group that are running the previous configuration.
 
 When the first instance passes health checks, Elastic Beanstalk launches additional instances with the new configuration, matching the number of instances running
-in the original Amazon EC2 Auto Scaling group. When all of the new instances pass health checks, Elastic Beanstalk transfers them to the original Amazon EC2 Auto Scaling group, and terminates the temporary
-Amazon EC2 Auto Scaling group and old instances.
+in the original Auto Scaling group. When all of the new instances pass health checks, Elastic Beanstalk transfers them to the original Auto Scaling group, and terminates the temporary
+Auto Scaling group and old instances.
 
 ###### Note
 
-During an immutable environment update, the capacity of your environment doubles for a short time when the instances in the new Amazon EC2 Auto Scaling group start
-serving requests and before the original Amazon EC2 Auto Scaling group's instances are terminated. If your environment has many instances, or you have a low [on-demand instance quota](https://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 "https://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2"), ensure that you have enough capacity to perform an
+During an immutable environment update, the capacity of your environment doubles for a short time when the instances in the new Auto Scaling group start
+serving requests and before the original Auto Scaling group's instances are terminated. If your environment has many instances, or you have a low [on-demand instance quota](https://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 "https://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2"), ensure that you have enough capacity to perform an
 immutable environment update. If you are near the quota, consider using rolling updates instead.
 
 Immutable updates require [enhanced health reporting](health-enhanced.md "health-enhanced.md") to evaluate your environment's health during the update.
@@ -25,7 +25,7 @@ are [serving requests successfully](health-enhanced.md#health-enhanced-factors "
 
 You can also use immutable updates to deploy new versions of your application, as an alternative to rolling deployments. When you [configure Elastic Beanstalk to use immutable updates for application deployments](using-features.md "using-features.md"), it replaces all instances in
 your environment every time you deploy a new version of your application. If an immutable application deployment fails, Elastic Beanstalk reverts the changes
-immediately by terminating the new Amazon EC2 Auto Scaling group. This can prevent partial fleet deployments, which can occur when a rolling deployment fails after some
+immediately by terminating the new Auto Scaling group. This can prevent partial fleet deployments, which can occur when a rolling deployment fails after some
 batches have already completed.
 
 ###### Warning

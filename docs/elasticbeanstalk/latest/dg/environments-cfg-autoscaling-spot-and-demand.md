@@ -3,8 +3,8 @@
 and Spot instances
 
 You can launch and automatically scale a fleet of On-Demand Instances and Spot Instances
-within a single Amazon EC2 Auto Scaling group. The following options can be used in tandem to configure how the
-Amazon EC2 Auto Scaling service manages Spot Instances and On-Demand Instances in your environment.
+within a single Auto Scaling group. The following options can be used in tandem to configure how the
+Auto Scaling service manages Spot Instances and On-Demand Instances in your environment.
 
 You can configure these options for your environment using the [Elastic Beanstalk console](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-console "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-console"), [namespace configuration options](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-namespace "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-namespace"),
 the [AWS CLI](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-aws-cli "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-aws-cli"), or the [EB CLI](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-ebcli "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-ebcli").
@@ -14,18 +14,18 @@ These options are part of the [aws:ec2:instances](command-options-general.md#com
 - `EnableSpot` ‐ When set to `true` this setting enables
   Spot Instance requests for your environment.
 - `SpotFleetOnDemandBase` ‐ Sets the minimum number of On-Demand
-  Instances that your Amazon EC2 Auto Scaling group provisions before considering Spot Instances as your
+  Instances that your Auto Scaling group provisions before considering Spot Instances as your
   environment scales up.
 - `SpotFleetOnDemandAboveBasePercentage` ‐ The percentage of On-Demand
-  Instances as part of additional capacity that your Amazon EC2 Auto Scaling group provisions beyond the
+  Instances as part of additional capacity that your Auto Scaling group provisions beyond the
   `SpotOnDemandBase` instances.
   The previously listed options correlate with the following options in the [aws:autoscaling:asg](command-options-general.md#command-options-general-autoscalingasg "command-options-general.md#command-options-general-autoscalingasg")
   namespace:
 
 - `MinSize` ‐ The minimum number of instances that you want in your
-  Amazon EC2 Auto Scaling group.
+  Auto Scaling group.
 - `MaxSize` ‐ The maximum number of instances that you want in your
-  Amazon EC2 Auto Scaling group.
+  Auto Scaling group.
 
 ###### Important
 

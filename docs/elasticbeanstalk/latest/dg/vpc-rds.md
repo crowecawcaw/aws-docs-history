@@ -119,7 +119,7 @@ more information.
 When you update the option settings, you need to specify at least the following:
 
 - **VPCId**–Contains the ID of the VPC.
-- **Subnets**–Contains the ID of the Amazon EC2 Auto Scaling group subnet. In this example, this is the ID of the private subnet.
+- **Subnets**–Contains the ID of the Auto Scaling group subnet. In this example, this is the ID of the private subnet.
 - **ELBSubnets**–Contains the ID of the subnet for the load balancer. In this example, this is the ID of the public
   subnet.
 - **SecurityGroups**–Contains the ID of the security groups.

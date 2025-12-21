@@ -266,7 +266,7 @@ the last three digits for setting permissions. To create a symlink, specify `120
 `authentication`
 
 The name of a [CloudFormation authentication method](../../../AWSCloudFormation/latest/UserGuide/aws-resource-authentication.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-authentication.md") to use. You can add
-authentication methods to the Amazon EC2 Auto Scaling group metadata with the Resources key. See below for an example.
+authentication methods to the Auto Scaling group metadata with the Resources key. See below for an example.
 
 ### Example snippet
 

@@ -28,7 +28,7 @@ creating an environment.
 
 - Amazon Elastic Compute Cloud
 - Elastic Load Balancing
-- Amazon EC2 Auto Scaling
+- Auto Scaling
 - Amazon CloudWatch
 - Amazon Simple Storage Service
 - Amazon Simple Notification Service

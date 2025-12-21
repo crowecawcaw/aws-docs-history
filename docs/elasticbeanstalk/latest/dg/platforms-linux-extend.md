@@ -1,70 +1,72 @@
-# Platform hooks
+# Buildfile and Procfile
 
-Platform hooks are specifically designed to extend your environment's platform. These are custom scripts and other executable files that you deploy as
-part of your application's source code, and Elastic Beanstalk runs during various instance provisioning stages.
+Some platforms allow you to customize how you build or prepare your application, and to specify the processes that run your application. Each
+individual platform topic specifically mentions _Buildfile_ and/or _Procfile_ if the platform supports them. Look
+for your specific platform under [Elastic Beanstalk platforms](concepts-all-platforms.md "concepts-all-platforms.md").
 
-###### Note
+For all supporting platforms, syntax and semantics are identical, and are as described on this page. Individual platform topics mention specific usage
+of these files for building and running applications in their respective languages.
 
-Platform hooks aren't supported on Amazon Linux AMI platform versions (preceding Amazon Linux 2).
+## Buildfile
 
-## Application deployment platform hooks
+To specify a custom build and configuration command for your application, place a file named `Buildfile` in the root directory of
+your application source. The file name is case sensitive. Use the following syntax for your `Buildfile`.
 
-An _application deployment_ occurs when you provide a new source bundle for deployment, or when you make a configuration change
-that requires termination and recreation of all environment instances.
+```
+`<process_name>`: `<command>`
+```
 
-To provide platform hooks that run during an application deployment, place the files under the `.platform/hooks` directory in
-your source bundle, in one of the following subdirectories.
+The command in your `Buildfile` must match the following regular expression: `^[A-Za-z0-9_-]+:\s*[^\s].*$`
 
-- `prebuild` – Files here run after the Elastic Beanstalk platform engine downloads and extracts the application source bundle, and
-  before it sets up and configures the application and web server.
+Elastic Beanstalk doesn't monitor the application that is run with a `Buildfile`. Use a `Buildfile` for commands that run
+for short periods and terminate after completing their tasks. For long-running application processes that should not exit, use a [Procfile](#platforms-linux-extend.proc "#platforms-linux-extend.proc").
 
-The `prebuild` files run after running commands found in the [commands](customize-containers-ec2.md#linux-commands "customize-containers-ec2.md#linux-commands") section of any
-configuration file and before running `Buildfile` commands.
+All paths in the `Buildfile` are relative to the root of the source bundle. In the following example of a
+`Buildfile`, `build.sh` is a shell script located at the root of the source bundle.
 
-- `predeploy` – Files here run after the Elastic Beanstalk platform engine sets up and configures the application and web server, and
-  before it deploys them to their final runtime location.
+###### Example Buildfile
 
-The `predeploy` files run after running commands found in the [container_commands](customize-containers-ec2.md#linux-container-commands "customize-containers-ec2.md#linux-container-commands") section of any configuration file and before running `Procfile` commands.
+```
+make: ./build.sh
+```
 
-- `postdeploy` – Files here run after the Elastic Beanstalk platform engine deploys the application and proxy server.
+If you want to provide custom build steps, we recommend that you use `predeploy` platform hooks for anything but the simplest
+commands, instead of a `Buildfile`. Platform hooks allow richer scripts and better error handling. Platform hooks are described in
+the next section.
 
-This is the last deployment workflow step.
+## Procfile
 
-## Configuration deployment platform hooks
+To specify custom commands to start and run your application, place a file named `Procfile` in the root directory of your
+application source. The file name is case sensitive. Use the following syntax for your `Procfile`. You can specify one or more
+commands.
 
-A _configuration deployment_ occurs when you make configuration changes that only update environment instances without recreating
-them. The following option updates cause a configuration update.
+```
+`<process_name1>`: `<command1>`
+`<process_name2>`: `<command2>`
+...
+```
 
-- [Environment properties and platform-specific settings](environments-cfg-softwaresettings.md "environments-cfg-softwaresettings.md")
-- [Static files](environment-cfg-staticfiles.md "environment-cfg-staticfiles.md")
-- [AWS X-Ray daemon](environment-configuration-debugging.md "environment-configuration-debugging.md")
-- [Log storage and streaming](environments-cfg-logging.md "environments-cfg-logging.md")
-- Application port (for details see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md"))
+Each line in your `Procfile` must match the following regular expression: `^[A-Za-z0-9_-]+:\s*[^\s].*$`
 
-To provide hooks that run during a configuration deployment, place them under the `.platform/confighooks` directory in your
-source bundle. The same three subdirectories as for application deployment hooks apply.
+Use a `Procfile` for long-running application processes that shouldn't exit. Elastic Beanstalk expects processes run from the
+`Procfile` to run continuously. Elastic Beanstalk monitors these processes and restarts any process that terminates. For short-running
+processes, use a [Buildfile](#platforms-linux-extend.build "#platforms-linux-extend.build").
 
-## More about platform hooks
+All paths in the `Procfile` are relative to the root of the source bundle. The following example `Procfile`
+defines three processes. The first one, called `web` in the example, is the _main web application_.
 
-Hook files can be binary files, or script files starting with a `#!` line containing their interpreter path, such as
-`#!/bin/bash`. All files must have execute permission. Use `chmod +x` to set execute permission on your hook files. For all
-Amazon Linux 2023 and Amazon Linux 2 based platforms versions that were released on or after April 29, 2022, Elastic Beanstalk automatically grants execute permissions to all of
-the platform hook scripts. In this case you don't have to manually grant execute permissions. For a list of these platform versions, refer to the [April 29, 2022](../relnotes/release-2022-04-29-linux.md#release-2022-04-29-linux.platforms "../relnotes/release-2022-04-29-linux.md#release-2022-04-29-linux.platforms")
-Linux release notes in the _AWS Elastic Beanstalk Release Notes Guide_.
+###### Example Procfile
 
-Elastic Beanstalk runs files in each one of these directories in lexicographical order of file names. All files run as the `root` user. The current
-working directory (cwd) for platform hooks is the application's root directory. For `prebuild` and `predeploy`
-files it's the application staging directory, and for `postdeploy` files it's the current application directory. If one of the files
-fails (exits with a non-zero exit code), the deployment aborts and fails.
+```
+web: `bin/myserver`
+cache: `bin/mycache`
+foo: `bin/fooapp`
+```
 
-A platform hooks text script may fail if it contains Windows _Carriage Return / Line Feed_ (CRLF) line break characters. If a
-file was saved in a Windows host, then transferred to a Linux server, it may contain Windows CRLF line breaks. For platforms released on or after [December 29, 2022](../relnotes/release-2022-12-29-linux.md "../relnotes/release-2022-12-29-linux.md"), Elastic Beanstalk automatically converts
-Windows CRLF characters to Linux _Line Feed_ (LF) line break characters in platform hooks text files. If you application runs on any
-Amazon Linux 2 platforms that were release prior to this date, you'll need to convert the Windows CRLF characters to Linux LF characters. One way to accomplish
-this is to create and save the script file on a Linux host. Tools that convert these characters are also available on the internet.
+Elastic Beanstalk configures the proxy server to forward requests to your main web application on port 5000, and you can configure this port number. A common
+use for a `Procfile` is to pass this port number to your application as a command argument. For details about proxy configuration,
+see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md").
 
-Hook files have access to all environment properties that you've defined in application options, and to the system environment variables
-`HOME`, `PATH`, and `PORT`.
-
-To get values of environment variables and other configuration options into your platform hook scripts, you can use the
-`get-config` utility that Elastic Beanstalk provides on environment instances. For details, see [Platform script tools for your Elastic Beanstalk environments](custom-platforms-scripts.md "custom-platforms-scripts.md").
+Elastic Beanstalk captures standard output and error streams from `Procfile` processes in log files. Elastic Beanstalk names the log files after the
+process and stores them in `/var/log`. For example, the `web` process in the preceding example generates logs named
+`web-1.log` and `web-1.error.log` for `stdout` and `stderr`, respectively.

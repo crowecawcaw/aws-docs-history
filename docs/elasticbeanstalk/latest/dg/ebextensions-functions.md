@@ -26,7 +26,7 @@ classic, or a custom VPC.
 For details on each resource type, including the return value(s) of `Ref`, see [AWS Resource Types Reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the _CloudFormation User
 Guide_.
 
-From the sample [Amazon EC2 Auto Scaling lifecycle hook](environment-resources.md "environment-resources.md"):
+From the sample [Auto Scaling lifecycle hook](environment-resources.md "environment-resources.md"):
 
 ```
 Resources:
@@ -47,7 +47,7 @@ Use `Fn::GetAtt` to retrieve the value of an attribute on an AWS resource.
 { "Fn::GetAtt" : [ "`resource name`", "`attribute name`"] }
 ```
 
-From the sample [Amazon EC2 Auto Scaling lifecycle hook](environment-resources.md "environment-resources.md"):
+From the sample [Auto Scaling lifecycle hook](environment-resources.md "environment-resources.md"):
 
 ```
 Resources:

@@ -13,7 +13,7 @@ Whenever you add a resource that isn't managed by Elastic Beanstalk, be sure to 
 users. The [managed user policies](AWSHowTo.iam.md "AWSHowTo.iam.md") that Elastic Beanstalk provides only cover permissions to Elastic Beanstalk-managed
 resources.
 
-For example, the following configuration file adds an Amazon EC2 Auto Scaling lifecycle hook to the default Amazon EC2 Auto Scaling group created by Elastic Beanstalk:
+For example, the following configuration file adds an Auto Scaling lifecycle hook to the default Auto Scaling group created by Elastic Beanstalk:
 
 **`~/my-app/.ebextensions/as-hook.config`**
 
@@ -64,7 +64,7 @@ Resources:
 ```
 
 This example defines three resources, `hookrole`, `hooktopic` and `lifecyclehook`. The first
-two resources are an IAM role, which grants Amazon EC2 Auto Scaling permission to publish messages to Amazon SNS, and an SNS topic, which relays messages from the Amazon EC2 Auto Scaling group to
+two resources are an IAM role, which grants Amazon EC2 Auto Scaling permission to publish messages to Amazon SNS, and an SNS topic, which relays messages from the Auto Scaling group to
 an email address. Elastic Beanstalk creates these resources with the specified properties and types.
 
 The final resource, `lifecyclehook`, is the lifecycle hook itself:
@@ -80,7 +80,7 @@ The final resource, `lifecyclehook`, is the lifecycle hook itself:
 ```
 
 The lifecycle hook definition uses two [functions](ebextensions-functions.md "ebextensions-functions.md") to populate values for the hook's properties. `{
- "Ref" : "AWSEBAutoScalingGroup" }` retrieves the name of the Amazon EC2 Auto Scaling group created by Elastic Beanstalk for the environment. `AWSEBAutoScalingGroup` is
+ "Ref" : "AWSEBAutoScalingGroup" }` retrieves the name of the Auto Scaling group created by Elastic Beanstalk for the environment. `AWSEBAutoScalingGroup` is
 one of the standard [resource names](customize-containers-format-resources-eb.md "customize-containers-format-resources-eb.md") provided by Elastic Beanstalk.
 
 For `AWS::IAM::Role`, `Ref` only returns the name of the

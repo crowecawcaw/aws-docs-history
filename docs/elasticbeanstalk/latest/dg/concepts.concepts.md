@@ -18,10 +18,10 @@ result, this approach can often lead to unused capacity and might require some c
 
 By migrating to the cloud, you can make your infrastructure align well with demand by leveraging the elasticity of cloud. Elasticity helps to
 streamline resource acquisition and release. With it, your infrastructure can rapidly scale in and scale out as demand fluctuates. To use it, configure
-your Amazon EC2 Auto Scaling settings to scale up or down based on the metrics for the resources in your environment. For example, you can set metrics such as server
-utilization or network I/O. You can use Amazon EC2 Auto Scaling for compute capacity to be added automatically whenever usage rises and for it to be removed whenever usage
+your Auto Scaling settings to scale up or down based on the metrics for the resources in your environment. For example, you can set metrics such as server
+utilization or network I/O. You can use Auto Scaling for compute capacity to be added automatically whenever usage rises and for it to be removed whenever usage
 drops. You can publish system metrics (for example, CPU, memory, disk I/O, and network I/O) to Amazon CloudWatch. Then, you can use CloudWatch to configure alarms to
-trigger Amazon EC2 Auto Scaling actions or send notifications based on these metrics. For instructions on how to configure Amazon EC2 Auto Scaling, see [Amazon EC2 Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md").
+trigger Auto Scaling actions or send notifications based on these metrics. For instructions on how to configure Auto Scaling, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md").
 
 We also recommend that you design all your Elastic Beanstalk applications as _stateless_ as possible, using loosely coupled, fault-tolerant
 components that can be scaled out as needed. For more information about designing scalable application architectures for AWS, see [_AWS Well-Architected Framework_](../../../wellarchitected/latest/framework/welcome.md "../../../wellarchitected/latest/framework/welcome.md").
@@ -75,7 +75,7 @@ the _webapp_ user.
 As a rule of thumb, you should be a pessimist when designing architecture for the cloud. Leverage the elasticity that it offers. Always design,
 implement, and deploy for automated recovery from failure. Use multiple Availability Zones for your Amazon EC2 instances and for Amazon RDS. Availability
 Zones are conceptually like logical data centers. Use Amazon CloudWatch to get more visibility into the health of your Elastic Beanstalk application and take
-appropriate actions in case of hardware failure or performance degradation. Configure your Amazon EC2 Auto Scaling settings to maintain your fleet of Amazon EC2 instances at
+appropriate actions in case of hardware failure or performance degradation. Configure your Auto Scaling settings to maintain your fleet of Amazon EC2 instances at
 a fixed size so that unhealthy Amazon EC2 instances are replaced by new ones. If you're using Amazon RDS, then set the retention period for backups, so
 that Amazon RDS can perform automated backups.
 

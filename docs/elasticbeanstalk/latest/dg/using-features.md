@@ -1,48 +1,34 @@
-# Viewing an Elastic Beanstalk environment's change history
+# Blue/Green deployments with Elastic Beanstalk
 
-This topic explains how you can use the Elastic Beanstalk Console to view a history of configuration changes that have been made to your Elastic Beanstalk environments.
+Because AWS Elastic Beanstalk performs an in-place update when you update your application versions, your application might become unavailable to users for a short
+period of time. To avoid this, perform a blue/green deployment. To do this, deploy the new version to a separate environment, and then swap the CNAMEs of
+the two environments to redirect traffic to the new version instantly.
 
-Elastic Beanstalk fetches your change history from events recorded in [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") and displays them in a list that you can easily navigate and filter.
+A blue/green deployment is also required if you want to update an environment to an incompatible platform version. For more information, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.md "using-features.platform.md").
 
-The Change History panel displays the following information for changes made to your environments:
+Blue/green deployments require that your environment runs independently of your production database, if your application uses one. If your environment
+includes a database that Elastic Beanstalk created on your behalf, the database and connection of the environment isn't preserved unless you take specific actions. If
+you have a database that you want to retain, use one of the Elastic Beanstalk database lifecycle options. You can choose the Retain option to keep the database and
+environment operational after decoupling the database. For more information see [Database lifecycle](using-features.managing.md#environments-cfg-rds-lifecycle "using-features.managing.md#environments-cfg-rds-lifecycle") in the _Configuring environments_ chapter of this guide.
 
-- The date and time when a change was made
-- The IAM user that was responsible for a change made
-- The source tool (either Elastic Beanstalk command line interface (EB CLI) or console) that was used to make the change
-- The configuration parameter and new values that were set
-  Any sensitive data that is part of the change, such as the names of database users affected by the change, aren't displayed in the panel.
+For instructions on how to configure your application to connect to an Amazon RDS instance that's not managed by Elastic Beanstalk, see [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md").
 
-###### To view change history
+###### To perform a blue/green deployment
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
    and in the **Regions** list, select your AWS Region.
-2. In the navigation pane, choose **Change history**.
+2. [Clone your current environment](using-features.managing.md "using-features.managing.md"), or
+   launch a new environment
+   to
+   run the platform version you want.
+3. [Deploy the new application version](using-features.md#deployments-newversion "using-features.md#deployments-newversion") to the new environment.
+4. Test the new version on the new environment.
+5. On the environment overview page, choose **Actions**, and then choose **Swap environment URLs**.
+6. For **Environment name**, select the current environment.
 
-The Change History page shows a list of configuration changes that were made to your Elastic Beanstalk environments.
-Note the following points about navigating the information on this page:
+![Swap environment URL page](images/aeb-env-swap-url.png) 7. Choose **Swap**.
+Elastic Beanstalk swaps the CNAME records of the old and new environments, redirecting traffic from the old version to the new version.
 
-- You can page through the list by choosing **<** (previous) or **>** (next), or by choosing a specific
-  page number.
-- Under the **Configuration changes** column, select the arrow icon to toggle between expanding and collapsing the list of
-  changes under the **Changes made** heading.
-- Use the search bar to filter your results from the change history list. You can enter any string to narrow down the list of changes that are
-  displayed.
-  Note the following about filtering the displayed results:
-
-- The search filter is not case sensitive.
-- You can filter displayed changes based on information under the **Configuration changes** column, even when it is not visible due
-  to being collapsed inside **Changes made**.
-- You can only filter the results displayed. However, the filter remains in place even if you select to go to another page to display more results.
-  Your filtered results also append to the result set of the next page.
-  The following examples demonstrate how the data shown on the earlier screen can be filtered:
-
-- Enter `GettingStartedApp-env` in the search box to narrow down the results to only include the changes that were made to the
-  environment named _GettingStartedApp-env_.
-- Enter `example3` in the search box to narrow down the results to only include changes that were made by IAM users whose
-  username contains the string _example3_.
-- Enter `2020-10` in the search box to narrow down the results to only include changes that were made during the month of
-  October 2020. Change the search value to `2020-10-16` to filter further the displayed results to only include changes that were
-  made on the day of October 16, 2020.
-- Enter `proxy:staticfiles` in the search box to narrow down the results to only include the changes that were made to the
-  namespace named _aws:elasticbeanstalk:environment:proxy:staticfiles_. The rows that are displayed are the result of the filter. This
-  is true even for results that are collapsed under **Changes made**.
+After Elastic Beanstalk completes the swap operation, verify that the new environment responds when you try to connect to the old environment URL. However, do not
+terminate your old environment until the DNS changes are propagated and your old DNS records expire. DNS servers don't always clear old records from their
+cache based on the time to live (TTL) that you set on your DNS records.

@@ -42,7 +42,7 @@ resources.
 The document `AWSSupport-TroubleshootElasticBeanstalk` is an Automation runbook
 designed to help identify a number of common issues that can degrade your Elastic Beanstalk environment. To
 do so, it checks components of your environment, including the following: EC2 instances, the VPC,
-CloudFormation stack, load balancers, Amazon EC2 Auto Scaling groups, and network configuration associated with security
+CloudFormation stack, load balancers, Auto Scaling groups, and network configuration associated with security
 group rules, route tables, and ACLs.
 
 It also provides an option to upload bundled log files from your environment to AWS
@@ -326,7 +326,7 @@ _How do I specify a specific Availability Zone for my Elastic Beanstalk
 application?_
 
 You can pick a specific Availability Zone by using the APIs, CLI, Eclipse plugin, or Visual Studio plugin. For instructions about using the Elastic Beanstalk
-console to specify an Availability Zone, see [Amazon EC2 Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md").
+console to specify an Availability Zone, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md").
 
 **Question:**
 _How do I change my environment's instance type?_
@@ -347,7 +347,7 @@ that made the change. For more information, see [Change history](using-features.
 _Can I prevent Amazon EBS volumes from being deleted when instances are
 terminated?_
 
-Instances in your environment use Amazon EBS for storage; however, the root volume is deleted when an instance is terminated by Amazon EC2 Auto Scaling. We don'trecommend that
+Instances in your environment use Amazon EBS for storage; however, the root volume is deleted when an instance is terminated by Auto Scaling. We don'trecommend that
 you store state or other data on your instances. If needed, you can prevent volumes from being deleted with the AWS CLI: `$ aws ec2
  modify-instance-attribute -b '/dev/sdc=<vol-id>:false` as described in the [AWS CLI
 Reference](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md").

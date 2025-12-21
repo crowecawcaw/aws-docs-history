@@ -2,7 +2,7 @@
 
 configuration for your Elastic Beanstalk environment
 
-This topic describes the different approaches to configure Amazon EC2 Auto Scaling capacity for your Elastic Beanstalk
+This topic describes the different approaches to configure Auto Scaling capacity for your Elastic Beanstalk
 environment. You can use the Elastic Beanstalk console, the EB CLI, the AWS CLI, or namespace
 options.
 
@@ -20,11 +20,11 @@ environment to launch templates](environments-cfg-autoscaling-launch-templates.m
 
 console
 
-You can configure the capacity management of an Amazon EC2 Auto Scaling group by editing
+You can configure the capacity management of an Auto Scaling group by editing
 **Capacity** on the environment's **Configuration**
 page in the [Elastic Beanstalk console](environments-console.md "environments-console.md").
 
-###### To configure Amazon EC2 Auto Scaling group capacity in the Elastic Beanstalk console
+###### To configure Auto Scaling group capacity in the Elastic Beanstalk console
 
 1.  Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
     and in the **Regions** list, select your AWS Region.
@@ -32,7 +32,7 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
 3.  In the navigation pane, choose **Configuration**.
 4.  In the **Capacity** configuration category, choose
     **Edit**.
-5.  In the **Amazon EC2 Auto Scaling group** section, configure the following
+5.  In the **Auto Scaling group** section, configure the following
     settings.
     - **Environment type** – Select **Load
       balanced**.
@@ -78,10 +78,10 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
          For recommendations about maximum price options for Spot Instances, see [Spot Instance pricing history](../../../AWSEC2/latest/UserGuide/using-spot-instances-history.md "../../../AWSEC2/latest/UserGuide/using-spot-instances-history.md") in the
          *Amazon EC2 User Guide*.
         + **On-Demand base** – The minimum number of
-         On-Demand Instances that your Amazon EC2 Auto Scaling group provisions before considering Spot
+         On-Demand Instances that your Auto Scaling group provisions before considering Spot
          Instances as your environment scales out.
         + **On-Demand above base** – The percentage of
-         On-Demand Instances as part of any additional capacity that your Amazon EC2 Auto Scaling group
+         On-Demand Instances as part of any additional capacity that your Auto Scaling group
          provisions beyond the On-Demand base instances.
 
 
@@ -94,10 +94,10 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
          about these options and examples, see [Spot Instance support for your Elastic Beanstalk
          environment](environments-cfg-autoscaling-spot.md "environments-cfg-autoscaling-spot.md").
         + **Capacity Rebalancing** – This option is only
-         relevant when there is at least one Spot Instance in your Amazon EC2 Auto Scaling group. When
+         relevant when there is at least one Spot Instance in your Auto Scaling group. When
          this feature is enabled, EC2 automatically attempts to replace Spot Instances
-         in the Amazon EC2 Auto Scaling group before they're interrupted, minimizing Spot Instance
-         interruptions to your applications. For more information, see [Capacity Rebalancing](../../../autoscaling/ec2/userguide/capacity-rebalance.md "../../../autoscaling/ec2/userguide/capacity-rebalance.md") in the *Amazon EC2 Amazon EC2 Auto Scaling User
+         in the Auto Scaling group before they're interrupted, minimizing Spot Instance
+         interruptions to your applications. For more information, see [Capacity Rebalancing](../../../autoscaling/ec2/userguide/capacity-rebalance.md "../../../autoscaling/ec2/userguide/capacity-rebalance.md") in the *Amazon EC2 Auto Scaling User
          Guide*
 
     - **Architecture** – The processor architecture for your
@@ -109,7 +109,7 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
       launch Amazon EC2 instances in your environment. For details, see [AMI ID](using-features.managing.ec2.md#using-features.managing.ec2.customami "using-features.managing.ec2.md#using-features.managing.ec2.customami").
     - **Availability Zones** – Choose the number of
       Availability Zones to spread your environment's instances across. By default, the
-      Amazon EC2 Auto Scaling group launches instances evenly across all usable zones. To concentrate your
+      Auto Scaling group launches instances evenly across all usable zones. To concentrate your
       instances in fewer zones, choose the number of zones to use. For production
       environments, use at least two zones to ensure that your application is available
       in case one Availability Zone goes out.
@@ -131,7 +131,7 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
 
 options
 
-Elastic Beanstalk provides [configuration options](command-options.md "command-options.md") for Amazon EC2 Auto Scaling
+Elastic Beanstalk provides [configuration options](command-options.md "command-options.md") for Auto Scaling
 settings in two namespaces: [aws:autoscaling:asg](command-options-general.md#command-options-general-autoscalingasg "command-options-general.md#command-options-general-autoscalingasg") and [aws:ec2:instances](command-options-general.md#command-options-general-ec2instances "command-options-general.md#command-options-general-ec2instances").
 
 ### The aws:autoscaling:asg
@@ -142,7 +142,7 @@ The [aws:autoscaling:asg](command-options-general.md#command-options-general-aut
 scale and availability.
 
 The following [configuration file](ebextensions.md "ebextensions.md") example
-configures the Amazon EC2 Auto Scaling group to use two to four instances, specific availability zones, and
+configures the Auto Scaling group to use two to four instances, specific availability zones, and
 a cooldown period of 12 minutes (720 seconds). It enables [Capacity Rebalancing](../../../autoscaling/ec2/userguide/capacity-rebalance.md "../../../autoscaling/ec2/userguide/capacity-rebalance.md")
 for Spot Instances. This `EnableCapacityRebalancing` option only takes effect
 if `EnableSpot` is set to `true` in the [aws:ec2:instances](command-options-general.md#command-options-general-ec2instances "command-options-general.md#command-options-general-ec2instances")
@@ -166,14 +166,14 @@ namespace
 ###### Note
 
 When you update your environment configuration and remove one or more instance types from the `InstanceTypes` option, Elastic Beanstalk terminates
-any Amazon EC2 instances running on any of the removed instance types. Your environment's Amazon EC2 Auto Scaling group then launches new instances, as necessary to complete
+any Amazon EC2 instances running on any of the removed instance types. Your environment's Auto Scaling group then launches new instances, as necessary to complete
 the desired capacity, using your current specified instance types.
 
 The [aws:ec2:instances](command-options-general.md#command-options-general-ec2instances "command-options-general.md#command-options-general-ec2instances") namespace provides options related to your
 environment's instances, including Spot Instance management. It complements [aws:autoscaling:launchconfiguration](command-options-general.md#command-options-general-autoscalinglaunchconfiguration "command-options-general.md#command-options-general-autoscalinglaunchconfiguration") and [aws:autoscaling:asg](command-options-general.md#command-options-general-autoscalingasg "command-options-general.md#command-options-general-autoscalingasg").
 
 The following [configuration file](ebextensions.md "ebextensions.md") example
-configures the Amazon EC2 Auto Scaling group to enable Spot Instance requests for your environment. It
+configures the Auto Scaling group to enable Spot Instance requests for your environment. It
 designates three possible instance types that can be used. At least one On-Demand
 Instance is used for baseline capacity, and a sustained 33% of On-Demand Instances is
 used for any additional capacity.
@@ -212,7 +212,7 @@ environment to launch templates](environments-cfg-autoscaling-launch-templates.m
 
 AWS CLI
 
-This section provides examples of how you can use the AWS CLI [create-environment](../../../cli/latest/reference/elasticbeanstalk/create-environment.md "../../../cli/latest/reference/elasticbeanstalk/create-environment.md") command to configure your environment with the Amazon EC2 Auto Scaling and
+This section provides examples of how you can use the AWS CLI [create-environment](../../../cli/latest/reference/elasticbeanstalk/create-environment.md "../../../cli/latest/reference/elasticbeanstalk/create-environment.md") command to configure your environment with the Auto Scaling and
 Capacity options described in these sections. You'll notice the namespace settings for
 [aws:autoscaling:asg](command-options-general.md#command-options-general-autoscalingasg "command-options-general.md#command-options-general-autoscalingasg") and [aws:ec2:instances](command-options-general.md#command-options-general-ec2instances "command-options-general.md#command-options-general-ec2instances"), as
 described in the previous [namespace
@@ -238,7 +238,7 @@ The fist option listed, `IamInstanceProfile` in the [aws:autoscaling:launchconfi
 Elastic Beanstalk [instance profile](concepts-roles-instance.md "concepts-roles-instance.md"). It's required when
 you create a new environment.
 
-###### Example — create-environment with Amazon EC2 Auto Scaling options (namespace options inline)
+###### Example — create-environment with Auto Scaling options (namespace options inline)
 
 ```
 aws elasticbeanstalk create-environment \
@@ -274,7 +274,7 @@ environment to launch templates](environments-cfg-autoscaling-launch-templates.m
 As an alternative, use an `options.json` file to specify the
 namespace options instead of including them inline.
 
-###### Example —create-environment with Amazon EC2 Auto Scaling options (namespace options in
+###### Example —create-environment with Auto Scaling options (namespace options in
 
 `options.json` file)
 
@@ -359,7 +359,7 @@ CLI
 
 When creating an environment using the [eb
 create](eb3-create.md "eb3-create.md") command, you can specify a few options that are related to
-your environment's Amazon EC2 Auto Scaling group. These are some of the options that help you control the
+your environment's Auto Scaling group. These are some of the options that help you control the
 capacity of your environment.
 
 `--single`
@@ -399,16 +399,16 @@ _Amazon EC2 User Guide_.
 
 `--on-demand-base-capacity`
 
-The minimum number of On-Demand Instances that your Amazon EC2 Auto Scaling group provisions
+The minimum number of On-Demand Instances that your Auto Scaling group provisions
 before considering Spot Instances as your environment scales up.
 
 `--on-demand-above-base-capacity`
 
 The percentage of On-Demand Instances as part of additional capacity that
-your Amazon EC2 Auto Scaling group provisions that's more than the number of instances that's
+your Auto Scaling group provisions that's more than the number of instances that's
 specified by the `--on-demand-base-capacity` option.
 
-The following example creates an environment and configures the Amazon EC2 Auto Scaling group to enable
+The following example creates an environment and configures the Auto Scaling group to enable
 Spot Instance requests for the new environment. For this example, three possible instance
 types can be used.
 

@@ -172,12 +172,12 @@ Use the following settings to configure process health checks:
 - **Deregistration delay** – The amount of time, in seconds, to wait for active requests to complete before deregistering
   an instance.
 
-![Application Load Balancer process settings for a health check](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-healthcheck.png)
+![Application Load Balancer process settings for a health check](images/aeb-config-alb-process-healthcheck.png)
 
 ###### Note
 
-The ELB health check doesn't affect the health check behavior of an environment's Amazon EC2 Auto Scaling group. Instances that fail an ELB health check are
-not automatically replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Amazon EC2 Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
+The ELB health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an ELB health check are
+not automatically replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
 
 For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.md "using-features.md").
 
@@ -269,7 +269,7 @@ You can now see your additional listener on the list.
 port**, type `443`. For **Match conditions**, add a **PathPattern** with the value
 `/admin/*`. For **Process**, select `admin`.
 
-![Application Load Balancer configuration example - adding admin rule](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-rule-https-admin.png)
+![Application Load Balancer configuration example - adding admin rule](images/aeb-config-alb-rule-https-admin.png)
 
 ## Configuring an Application Load Balancer using the EB CLI
 

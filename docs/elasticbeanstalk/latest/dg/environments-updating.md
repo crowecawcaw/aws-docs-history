@@ -2,7 +2,7 @@
 
 When you modify configuration option settings in the **Configuration** section of the [environment
 management console](environments-console.md "environments-console.md"), AWS Elastic Beanstalk propagates the change to all affected resources. These resources include the load balancer that distributes traffic
-to the Amazon EC2 instances running your application, the Amazon EC2 Auto Scaling group that manages those instances, and the EC2 instances themselves.
+to the Amazon EC2 instances running your application, the Auto Scaling group that manages those instances, and the EC2 instances themselves.
 
 Many configuration changes can be applied to a running environment without replacing existing instances. For example, setting a [health check URL](environments-cfg-clb.md#using-features.managing.elb.healthchecks "environments-cfg-clb.md#using-features.managing.elb.healthchecks") triggers an environment update to modify the load balancer settings, but
 doesn't cause any downtime because the instances running your application continue serving requests while the update is propagated.
@@ -13,9 +13,9 @@ that determine how this replacement is done.
 
 - Rolling updates – Elastic Beanstalk applies your configuration changes in batches, keeping a minimum number of instances
   running and serving traffic at all times. This approach prevents downtime during the update process. For details, see [Rolling updates](using-features.md "using-features.md").
-- Immutable updates – Elastic Beanstalk launches a temporary Amazon EC2 Auto Scaling group outside of your environment with a separate set of
+- Immutable updates – Elastic Beanstalk launches a temporary Auto Scaling group outside of your environment with a separate set of
   instances running with the new configuration. Then Elastic Beanstalk places these instances behind your environment's load balancer. Old and new instances both
-  serve traffic until the new instances pass health checks. At that time, Elastic Beanstalk moves the new instances into your environment's Amazon EC2 Auto Scaling group and terminates
+  serve traffic until the new instances pass health checks. At that time, Elastic Beanstalk moves the new instances into your environment's Auto Scaling group and terminates
   the temporary group and old instances. For details, see [Immutable updates](environmentmgmt-updates-immutable.md "environmentmgmt-updates-immutable.md").
 - Disabled – Elastic Beanstalk makes no attempt to avoid downtime. It terminates your environment's existing instances and
   replaces them with new instances running with the new configuration.

@@ -13,7 +13,7 @@ instances for your environment. Each allocation strategy optimizes the allocated
 based on how it’s defined to handle available capacity, price, and selection of instance
 types.
 
-Amazon EC2 Amazon EC2 Auto Scaling provides the following allocation strategies for Spot Instances.
+Amazon EC2 Auto Scaling provides the following allocation strategies for Spot Instances.
 
 - **Capacity optimized** (default)
   - Requests Spot Instances from the pool, with _optimal

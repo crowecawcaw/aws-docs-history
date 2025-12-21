@@ -63,12 +63,12 @@ static assets, and generates access and error logs.
   application. A load balancer also eliminates the need to expose your instances directly to the internet.
 - **Load balancer security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This
   resource lets HTTP traffic from the internet reach the load balancer. By default, traffic isn't allowed on other ports.
-- **Amazon EC2 Auto Scaling group** – An Amazon EC2 Auto Scaling group configured to replace
+- **Auto Scaling group** – An Auto Scaling group configured to replace
   an instance if it is terminated or becomes unavailable.
 - **Amazon S3 bucket** – A storage location for your source
   code, logs, and other artifacts that are created when you use Elastic Beanstalk.
 - **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor the load on the instances in your environment and that are
-  triggered if the load is too high or too low. When an alarm is triggered, your Amazon EC2 Auto Scaling group scales up or down in response.
+  triggered if the load is too high or too low. When an alarm is triggered, your Auto Scaling group scales up or down in response.
 - **CloudFormation stack** – Elastic Beanstalk uses CloudFormation to launch the
   resources in your environment and propagate configuration changes. The resources are defined
   in a template that you can view in the [CloudFormation

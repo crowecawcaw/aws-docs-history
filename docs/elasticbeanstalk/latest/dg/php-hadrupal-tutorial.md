@@ -14,7 +14,7 @@ multiple environments, swap out one database for another, or perform a blue/gree
 - [Configure and deploy your application](#php-hadrupal-tutorial-deploy "#php-hadrupal-tutorial-deploy")
 - [Install Drupal](#php-hadrupal-tutorial-install "#php-hadrupal-tutorial-install")
 - [Update Drupal configuration and remove access restrictions](#php-hadrupal-tutorial-updateenv "#php-hadrupal-tutorial-updateenv")
-- [Configure your Amazon EC2 Auto Scaling group](#php-hadrupal-tutorial-autoscaling "#php-hadrupal-tutorial-autoscaling")
+- [Configure your Auto Scaling group](#php-hadrupal-tutorial-autoscaling "#php-hadrupal-tutorial-autoscaling")
 - [Cleanup](#php-hadrupal-tutorial-cleanup "#php-hadrupal-tutorial-cleanup")
 - [Next steps](#php-hadrupal-tutorial-nextsteps "#php-hadrupal-tutorial-nextsteps")
 
@@ -90,7 +90,7 @@ group.
 8. Choose **Add Rule**.
 9. For **Type**, choose the DB engine that your application uses.
 10. For **Source**, type `sg-` to view a list of available security groups. Choose the security group that's
-    associated with the Amazon EC2 Auto Scaling group that's used with your Elastic Beanstalk environment. This is so that Amazon EC2 instances in the environment can have access to the
+    associated with the Auto Scaling group that's used with your Elastic Beanstalk environment. This is so that Amazon EC2 instances in the environment can have access to the
     database.
 
 ![Screen image to edit the inbound rules for a security group in the Amazon EC2 console.](images/ec2-securitygroup-rds.png) 11. Choose **Save**.
@@ -125,12 +125,12 @@ static assets, and generates access and error logs.
   application. A load balancer also eliminates the need to expose your instances directly to the internet.
 - **Load balancer security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This
   resource lets HTTP traffic from the internet reach the load balancer. By default, traffic isn't allowed on other ports.
-- **Amazon EC2 Auto Scaling group** – An Amazon EC2 Auto Scaling group configured to replace
+- **Auto Scaling group** – An Auto Scaling group configured to replace
   an instance if it is terminated or becomes unavailable.
 - **Amazon S3 bucket** – A storage location for your source
   code, logs, and other artifacts that are created when you use Elastic Beanstalk.
 - **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor the load on the instances in your environment and that are
-  triggered if the load is too high or too low. When an alarm is triggered, your Amazon EC2 Auto Scaling group scales up or down in response.
+  triggered if the load is too high or too low. When an alarm is triggered, your Auto Scaling group scales up or down in response.
 - **CloudFormation stack** – Elastic Beanstalk uses CloudFormation to launch the
   resources in your environment and propagate configuration changes. The resources are defined
   in a template that you can view in the [CloudFormation
@@ -455,19 +455,19 @@ Upload the source bundle to Elastic Beanstalk to deploy Drupal to your environme
 5. Choose **Deploy**.
 6. When the deployment completes, you can choose the site URL to open your website in a new tab.
 
-## Configure your Amazon EC2 Auto Scaling group
+## Configure your Auto Scaling group
 
-Finally, configure your environment's Amazon EC2 Auto Scaling group with a higher minimum instance count. Run at least two instances at all times to prevent the web
+Finally, configure your environment's Auto Scaling group with a higher minimum instance count. Run at least two instances at all times to prevent the web
 servers in your environment from being a single point of failure, and to allow you to deploy changes without taking your site out of service.
 
-###### To configure your environment's Amazon EC2 Auto Scaling group for high availability
+###### To configure your environment's Auto Scaling group for high availability
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
    and in the **Regions** list, select your AWS Region.
 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
 3. In the navigation pane, choose **Configuration**.
 4. In the **Capacity** configuration category, choose **Edit**.
-5. In the **Amazon EC2 Auto Scaling group** section, set **Min instances** to `2`.
+5. In the **Auto Scaling group** section, set **Min instances** to `2`.
 6. To save the changes choose **Apply** at the bottom of the page.
 
 To support content uploads across multiple instances, the sample project uses Amazon Elastic File System to create a shared file system. Create a post on the site and

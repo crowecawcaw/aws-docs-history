@@ -127,8 +127,8 @@ Use the following settings to configure process health checks:
 
 ###### Note
 
-The ELB health check doesn't affect the health check behavior of an environment's Amazon EC2 Auto Scaling group. Instances that fail an ELB health check will
-not automatically be replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Amazon EC2 Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
+The ELB health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an ELB health check will
+not automatically be replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
 
 For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.md "using-features.md").
 

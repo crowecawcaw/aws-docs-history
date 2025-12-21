@@ -53,7 +53,7 @@ instance or environment.
 _Example:_ environment is in the process of scaling up to 5
 instances.
 
-_Message (environment):_ 4 active instances is below Amazon EC2 Auto Scaling group minimum size 5.
+_Message (environment):_ 4 active instances is below Auto Scaling group minimum size 5.
 
 ## Severe (red)
 
@@ -102,7 +102,7 @@ cause Elastic Beanstalk to transition the environment to the **Suspended** statu
 
 _Example:_ Elastic Beanstalk can't access the environment's [service role](iam-servicerole.md "iam-servicerole.md").
 
-_Example:_ The [Amazon EC2 Auto Scaling group](using-features.managing.md "using-features.managing.md") that Elastic Beanstalk created for the environment has been deleted.
+_Example:_ The [Auto Scaling group](using-features.managing.md "using-features.managing.md") that Elastic Beanstalk created for the environment has been deleted.
 
-_Message:_ Environment health has transitioned from **OK** to **Severe**. There are no instances. Amazon EC2 Auto Scaling group desired capacity
+_Message:_ Environment health has transitioned from **OK** to **Severe**. There are no instances. Auto Scaling group desired capacity
 is set to 1.

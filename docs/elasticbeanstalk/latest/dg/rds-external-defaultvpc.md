@@ -56,7 +56,7 @@ Do not choose **Easy Create**. If you choose it, you can't configure the necessa
 8. Choose **Add Rule**.
 9. For **Type**, choose the DB engine that your application uses.
 10. For **Source**, type `sg-` to view a list of available security groups. Choose the security group that's
-    associated with the Amazon EC2 Auto Scaling group that's used with your Elastic Beanstalk environment. This is so that Amazon EC2 instances in the environment can have access to the
+    associated with the Auto Scaling group that's used with your Elastic Beanstalk environment. This is so that Amazon EC2 instances in the environment can have access to the
     database.
 
 ![Screen image to edit the inbound rules for a security group in the Amazon EC2 console.](images/ec2-securitygroup-rds.png) 11. Choose **Save**.

@@ -1,73 +1,103 @@
-# Amazon EC2 Auto Scaling your Elastic Beanstalk environment instances
+# Clone an Elastic Beanstalk environment
 
-This topic describes how you can customize the Amazon EC2 Auto Scaling features to manage your Elastic Beanstalk
-environment’s workload. You can configure Amazon EC2 Auto Scaling for your environment using the [Elastic Beanstalk console](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-console "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-console"), [namespace configuration options](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-namespace "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-namespace"), the
-[AWS CLI](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-aws-cli "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-aws-cli"), or the [EB CLI](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-ebcli "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-ebcli").
+You can use an existing Elastic Beanstalk environment as the basis for a new environment by cloning the
+existing environment. For example, you might want to create a clone so that you can use a newer
+version of the platform branch used by the original environment's platform. Elastic Beanstalk configures the
+clone with the environment settings used by the original environment. By cloning an existing
+environment instead of creating a new environment, you don't have to manually configure option
+settings, environment variables, and other settings that you made with the Elastic Beanstalk service. Elastic Beanstalk
+also creates a copy of any AWS resource associated with the original environment.
 
-###### Load-balanced or single instance environments
+It's important to be aware of the following situations:
 
-Your AWS Elastic Beanstalk environment includes an _Amazon EC2 Auto Scaling group_ that manages the
-[Amazon EC2 instances](using-features.managing.md "using-features.managing.md") in your environment. In a
-single-instance environment, the Amazon EC2 Auto Scaling group ensures that there is always one instance running.
-In a load-balanced environment, you configure the group with a range of instances to run, and
-Amazon EC2 Auto Scaling adds or removes instances as needed, based on load.
+- During the cloning process, Elastic Beanstalk doesn't copy data from Amazon RDS to the clone.
+- Elastic Beanstalk doesn't include any unmanaged changes to resources in the clone. Changes to AWS
+  resources that you make using tools other than the Elastic Beanstalk console, command-line tools, or API
+  are considered unmanaged changes.
+- The security groups for ingress are considered unmanaged changes. Cloned Elastic Beanstalk
+  environments do not carry over the security groups for ingress, leaving the environment open
+  to all internet traffic. You’ll need to reestablish ingress security groups for the cloned
+  environment.
+  You can only clone an environment to a different platform version of the same platform
+  branch. A different platform branch isn't guaranteed to be compatible. To use a different
+  platform branch, you have to manually create a new environment, deploy your application code,
+  and make any necessary changes in code and options to ensure your application works correctly on
+  the new platform branch.
 
-###### EC2 Instance configuration
+## AWS management console
 
-The Amazon EC2 Auto Scaling group also applies your configuration choices to provision and manage the EC2
-instances in your environment. You can [modify the
-EC2 configuration](using-features.managing.md "using-features.managing.md") to change the instance type, key pair, Amazon Elastic Block Store (Amazon EBS) storage,
-and other settings that can only be configured when you launch an instance.
+###### Important
 
-###### On-Demand and Spot Instances
+Cloned Elastic Beanstalk environments do not carry over the security groups for ingress, leaving the
+environment open to all internet traffic. You’ll need to reestablish ingress security groups for
+the cloned environment.
 
-As an option, Elastic Beanstalk can include [Spot
-Instances](environments-cfg-autoscaling-spot.md "environments-cfg-autoscaling-spot.md") in your environment and manage them in combination with On-Demand
-instances. You can configure Amazon EC2 Amazon EC2 Auto Scaling to monitor and automatically respond to changes that
-affect the availability of your Spot Instances by enabling [Capacity Rebalancing](../../../autoscaling/ec2/userguide/capacity-rebalance.md "../../../autoscaling/ec2/userguide/capacity-rebalance.md"). You
-can also configure the
-[Spot
-allocation strategy](environments-cfg-autoscaling-spot-allocation-strategy.md "environments-cfg-autoscaling-spot-allocation-strategy.md") that the Amazon EC2 Auto Scaling
-service uses to provision Spot Instances to your environment.
+You can see resources that may not be cloned by checking the drift status of your
+environment configuration. For more information, see [Detect drift on an entire
+CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/detect-drift-stack.md "../../../AWSCloudFormation/latest/UserGuide/detect-drift-stack.md") in the _AWS CloudFormation User Guide_.
 
-###### Required permissions when enabling Spot Instances
+###### To clone an environment
 
-Enabling Spot Instance requests requires using Amazon EC2 launch templates.
-When you configure this feature during environment creation or updates, Elastic Beanstalk attempts to configure your
-environment to use Amazon EC2 launch templates (if the environment isn't using them already). In this case, if your user policy lacks the necessary
-permissions, environment creation or updates might fail. Therefore, we recommend that you use our managed user policy or add the required permissions
-to your custom policies. For details about the required permissions, see
-[Required
-permissions for launch templates](environments-cfg-autoscaling-launch-templates.md#environments-cfg-autoscaling-launch-templates-permissions "environments-cfg-autoscaling-launch-templates.md#environments-cfg-autoscaling-launch-templates-permissions").
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. On the environment overview page, choose **Actions**.
+4. Choose **Clone environment**.
+5. On the **Clone environment** page, review the information in the
+   **Original Environment** section to verify that you chose the
+   environment from which you want to create a clone.
+6. In the **New Environment** section, you can optionally change the
+   **Environment name**, **Environment URL**,
+   **Description**, **Platform version**, and
+   **Service role** values that Elastic Beanstalk automatically set based on the
+   original environment.
 
-###### Amazon EC2 Auto Scaling triggers
+###### Note
 
-The Amazon EC2 Auto Scaling group uses two Amazon CloudWatch alarms to trigger scaling operations. The default
-triggers scale when the average outbound network traffic from each instance is higher than 6
-MiB or lower than 2 MiB over a period of five minutes. To use Amazon EC2 Auto Scaling effectively, [configure triggers](environments-cfg-autoscaling-triggers.md "environments-cfg-autoscaling-triggers.md") that are
-appropriate for your application, instance type, and service requirements. You can scale based
-on several statistics including latency, disk I/O, CPU utilization, and request count.
+If the platform version used in the original environment isn't the one recommended
+for use in the platform branch, you are warned that a different platform version is
+recommended. Choose **Platform version**, and you can see the
+recommended platform version on the list—for example, **3.3.2
+(Recommended)**. 7. When you are ready, choose **Clone**.
 
-###### Schedule Amazon EC2 Auto Scaling actions
+## Elastic Beanstalk command line interface (EB
 
-To optimize your environment's use of Amazon EC2 instances through predictable periods of peak
-traffic, [configure your Amazon EC2 Auto Scaling
-group to change its instance count on a schedule](environments-cfg-autoscaling-scheduledactions.md "environments-cfg-autoscaling-scheduledactions.md"). You can schedule changes to your
-group's configuration that recur daily or weekly, or schedule one-time changes to prepare for
-marketing events that will drive a lot of traffic to your site.
+CLI)
 
-###### Amazon EC2 Auto Scaling health check
+###### Important
 
-Amazon EC2 Auto Scaling monitors the health of each Amazon EC2 instance that it launches. If any instance
-terminates unexpectedly, Amazon EC2 Auto Scaling detects the termination and launches a replacement instance. To
-configure the group to use the load balancer's health check mechanism, see [Amazon EC2 Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md").
+Cloned Elastic Beanstalk environments do not carry over the security groups for ingress, leaving the
+environment open to all internet traffic. You’ll need to reestablish ingress security groups for
+the cloned environment.
 
-###### Topics
+You can see resources that may not be cloned by checking the drift status of your
+environment configuration. For more information, see [Detect drift on an entire
+CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/detect-drift-stack.md "../../../AWSCloudFormation/latest/UserGuide/detect-drift-stack.md") in the _AWS CloudFormation User Guide_.
 
-- [Migrating your Elastic Beanstalk
-  environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md")
-- [Spot Instance support for your Elastic Beanstalk
-  environment](environments-cfg-autoscaling-spot.md "environments-cfg-autoscaling-spot.md")
-- [Amazon EC2 Auto Scaling triggers for your Elastic Beanstalk environment](environments-cfg-autoscaling-triggers.md "environments-cfg-autoscaling-triggers.md")
-- [Scheduled Amazon EC2 Auto Scaling actions for your Elastic Beanstalk environments](environments-cfg-autoscaling-scheduledactions.md "environments-cfg-autoscaling-scheduledactions.md")
-- [Amazon EC2 Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md")
+Use the **eb clone** command to clone a running environment, as
+follows.
+
+```
+~/workspace/my-app$ `eb clone `my-env1``
+Enter name for Environment Clone
+(default is my-env1-clone): ``my-env2``
+Enter DNS CNAME prefix
+(default is my-env1-clone): ``my-env2``
+
+```
+
+You can specify the name of the source environment in the clone command, or leave it out
+to clone the default environment for the current project folder. The EB CLI prompts you to
+enter a name and DNS prefix for the new environment.
+
+By default, **eb clone** creates the new environment with the latest
+available version of the source environment's platform. To force the EB CLI to use the same
+version, even if there is a newer version available, use the `--exact`
+option.
+
+```
+~/workspace/my-app$ `eb clone --exact`
+```
+
+For more information about this command, see [eb
+clone](eb3-clone.md "eb3-clone.md").

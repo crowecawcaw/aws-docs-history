@@ -1,7 +1,7 @@
 # Configuration options
 
 Elastic Beanstalk defines a large number of configuration options that you can use to configure your environment's behavior and the resources that it contains.
-Configuration options are organized into namespaces like `aws:autoscaling:asg`, which defines options for an environment's Amazon EC2 Auto Scaling group.
+Configuration options are organized into namespaces like `aws:autoscaling:asg`, which defines options for an environment's Auto Scaling group.
 
 The Elastic Beanstalk console and EB CLI set configuration options when you create an environment, including options that you set explicitly, and [recommended values](#configuration-options-recommendedvalues "#configuration-options-recommendedvalues") defined by the client. You can also set configuration options in saved
 configurations and configuration files. If the same option is set in multiple locations, the value used is determined by the [order of precedence](#configuration-options-precedence "#configuration-options-precedence").

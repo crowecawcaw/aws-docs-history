@@ -115,7 +115,7 @@ the default process, which receives traffic from the default listener.
 Use these settings to define the process: its **Name**, and the **Port** and **Protocol** on
 which it listens to requests.
 
-![Application Load Balancer process settings for name, port, and protocol](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition.png)
+![Application Load Balancer process settings for name, port, and protocol](images/aeb-config-alb-process-definition.png)
 
 #### Health check
 
@@ -135,8 +135,8 @@ Use the following settings to configure process health checks:
 
 ###### Note
 
-The ELB health check doesn't affect the health check behavior of an environment's Amazon EC2 Auto Scaling group. Instances that fail an ELB health check are
-not automatically replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Amazon EC2 Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
+The ELB health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an ELB health check are
+not automatically replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
 
 For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.md "using-features.md").
 
@@ -204,7 +204,7 @@ traffic on a different path.
 `443`. For **Protocol**, select `HTTPS`. Under **Health check**, for
 **Path** enter `/admin`.
 
-![Application Load Balancer configuration example - adding admin process](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition-https-admin.png) 4. _Add a rule for admin traffic._ For **Name**, enter `admin`. For **Listener
+![Application Load Balancer configuration example - adding admin process](images/aeb-config-alb-process-definition-https-admin.png) 4. _Add a rule for admin traffic._ For **Name**, enter `admin`. For **Listener
 port**, enter `443`. For **Match conditions**, add a **PathPattern** with the value
 `/admin/*`. For **Process**, select `admin`.
 
