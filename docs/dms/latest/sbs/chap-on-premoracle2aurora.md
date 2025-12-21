@@ -1,158 +1,27 @@
-# Migration from Oracle to Aurora MySQL using AWS DMS high-level outline
+# Migrating an On-Premises Oracle Database to Amazon Aurora MySQL
 
-To migrate your data from Oracle to Aurora MySQL using AWS DMS, you take the following steps. If you’ve used AWS DMS before or prefer clicking a mouse to reading, the following summary should help you kick-start your migration. To get the details about migration or if you run into questions, see the step-by-step guide.
+Following, you can find a high-level outline and also a complete step-by-step walkthrough that both show the process for migrating an on-premises Oracle database (the source endpoint) to an Amazon Aurora MySQL-Compatible Edition (the target endpoint) using AWS Database Migration Service (AWS DMS) and the AWS Schema Conversion Tool (AWS SCT).
 
-## Working with the Sample Database for Migration
+AWS DMS migrates your data from your Oracle source into your Aurora MySQL target. AWS DMS also captures data manipulation language (DML) and data definition language (DDL) changes that happen on your source database and apply these changes to your target database. This way, AWS DMS helps keep your source and target databases in synch with each other. To facilitate the data migration, DMS creates tables and primary key indexes on the target database if necessary.
 
-We recommend working through the following outline and guide by using the sample Oracle database provided by Amazon. This database mimics a simple sporting event ticketing system. The scripts to generate the sample database can be found at [https://github.com/aws-samples/aws-database-migration-samples/tree/master/oracle/sampledb/v1](https://github.com/aws-samples/aws-database-migration-samples/tree/master/oracle/sampledb/v1 "https://github.com/aws-samples/aws-database-migration-samples/tree/master/oracle/sampledb/v1").
+However, AWS DMS doesn’t migrate your secondary indexes, sequences, default values, stored procedures, triggers, synonyms, views and other schema objects not specifically related to data migration. To migrate these objects to your Aurora MySQL target, use the AWS Schema Conversion Tool.
 
-To build the sample database, go to the `oracle/sampledb/v1` folder and follow the instructions in the README.md file.
+We highly recommend that you follow along using the Amazon sample database. To find a tutorial that uses the sample database and instructions on how to get a copy of the sample database, see [Working with the Sample Database for Migration](chap-on-premoracle2aurora.md#chap-on-premoracle2aurora.appendix.sampledatabase "chap-on-premoracle2aurora.md#chap-on-premoracle2aurora.appendix.sampledatabase").
 
-The sample creates approximately 8-10 GB of data. The sample database also includes a _ticketManagment_ package, which you can use to generate some transactions. To generate transactions, log into SQL\*Plus or SQL Developer and run the following as `dms_sample`:
+If you’ve used AWS DMS before or you prefer clicking a mouse to reading, you probably want to work with the high-level outline. If you need the details and want a more measured approach (or run into questions), you probably want the step-by-step guide.
 
-```
-SQL>call generateTicketActivity(1000,0.01);
-```
+| Topic: Migration from On-Premises Oracle to<br>Aurora MySQL or Amazon RDS for MySQL                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Time:**                                                                                                                                                                                                                                                |
+| **Cost:**                                                                                                                                                                                                                                                |
+| \*_Source Database:_<br>• Oracle                                                                                                                                                                                                                         |
+| \*_Target Database:_<br>• Amazon Aurora MySQL/MySQL                                                                                                                                                                                                      |
+| **Restrictions:**<br>**Oracle Edition:\*<br>• Enterprise, Standard, Express and Personal<br>**Oracle Version:_<br>• 10g (10.2 and later), 11g, 12c or higher<br>\*\*MySQL or Related Database Version:_<br>• 5.5, 5.6, 5.7, MariaDB, Amazon Aurora MySQL |
 
-The first parameter is the transaction delay in seconds, the second is the number of transactions to generate. The preceding procedure simply sells tickets to people. You’ll see updates to the tables: `sporting_event_ticket`, and `ticket_purchase_history`.
+## Costs
 
-Once you’ve sold some tickets, you can transfer them using the command following:
+For this walkthrough, you provision AWS Database Migration Service (AWS DMS) resources. You can use a t2.large replication instance with 50 GB of storage to keep your replication logs. Also, you provision an Amazon Aurora MySQL DB instance. You can use a db.r3.large Aurora MySQL DB instance with 10 GB of storage. Provisioning these resources will incur charges to your user by the hour.
 
-```
-SQL>call generateTransferActivity(100,0.1);
-```
+To estimate what it will cost to run this walkthrough on AWS, you can use the AWS Pricing Calculator. For more information, see [https://calculator.aws/](https://calculator.aws/ "https://calculator.aws/") and [Database Migration Service pricing](https://aws.amazon.com/dms/pricing/ "https://aws.amazon.com/dms/pricing/").
 
-The first parameter is the transaction delay in seconds, the second is the number of transactions to generate. This procedure also updates `sporting_event_ticket` and `ticket_purchase_history`.
-
-## Step 1: Prepare Your Oracle Source Database
-
-To use AWS DMS to migrate data from an Oracle source database requires some preparation and we also recommend a few additional steps as best practices.
-
-- AWS DMS user — It’s a good practice to create a separate user for the specific purpose of migrating your data. This user should have the minimal set of privileges required to migrate your data. You can find specific details regarding those privileges later. If you are simply interested in testing AWS DMS on a non-production database, any DBA user will be sufficient.
-- Supplemental logging — To capture changes, you must enable supplemental logging in order to use DMS. To enable supplemental logging at the database level issue the following command.
-
-```
-ALTER DATABASE ADD SUPPLEMENTAL LOG DATA
-```
-
-Additionally, AWS DMS requires for each table being migrated, you set at least key-level supplemental logging. AWS DMS automatically adds this supplemental logging for you if you include the following extra connection parameter for your source connection.
-
-```
-addSupplementalLogging=Y
-```
-
-- Source database – To migrate your data, the AWS DMS replication server needs access to your source database. Make sure that your firewall rules give the AWS DMS replication server ingress.
-
-## Step 2: Launch and Prepare Your Aurora MySQL Target Database
-
-Following are some things to consider when launching your Aurora MySQL instance:
-
-- For best results, we recommend that you locate your Aurora MySQL instance and your replication instance in the same VPC and, if possible, the same Availability Zone.
-- We recommend that you create a separate user with minimal privileges for migrating your data. The AWS DMS user needs the following privileges on all databases to which data is being migrated.
-
-```
-ALTER, CREATE, DROP, INDEX, INSERT, UPDATE, DELETE, SELECT
-```
-
-Additionally, AWS DMS needs complete access to the `awsdms_control` database. This database holds information required by AWS DMS specific to the migration. To provide access, run the following command.
-
-```
-ALL PRIVILEGES ON awsdms_control.* TO 'dms_user'
-```
-
-## Step 3: Launch a Replication Instance
-
-The AWS DMS service connects to your source and target databases from a replication instance. Here are some things to consider when launching your replication instance:
-
-- For best results, we recommend that you locate your replication instance in the same VPC and Availability Zone as your target database, in this case Aurora MySQL.
-- If either your source or target database is outside of the VPC where you launch your replication server, the replication server must be publicly accessible.
-- AWS DMS can consume a fair bit of memory and CPU. However, it’s easy enough to scale up if necessary. If you anticipate running several tasks on a single replication server or if your migration involves a large number of tables, consider using one of the larger instances.
-- The default storage is usually enough for most migrations.
-
-## Step 4: Create a Source Endpoint
-
-For AWS DMS to access your Oracle source database you’ll need to create a source endpoint. The source endpoint defines all the information required for AWS DMS to connect to your source database from the replication server. Following are some requirements for the source endpoint.
-
-- Your source endpoint needs to be accessible from the replication server. To allow this, you will likely need to modify your firewall rules to whitelist the replication server. You can find the IP address of your replication server in the AWS DMS Management Console.
-- For AWS DMS to capture changes, Oracle requires supplemental logging be enabled. If you want AWS DMS to enable supplemental logging for you, add the following to the extra connection attributes for your Oracle source endpoint.
-
-```
-addSupplementalLogging=Y
-```
-
-## Step 5: Create a Target Endpoint
-
-For AWS DMS to access your Aurora MySQL target database you’ll need to create a target endpoint. The target endpoint defines all the information required for DMS to connect to your Aurora MySQL database.
-
-- Your target endpoint needs to be accessible from the replication server. You might need to modify your security groups to make the target endpoint accessible.
-- If you’ve pre-created the database on your target, it’s a good idea to disable foreign key checks during the full load. To do so, add the following to your extra connection attributes.
-
-```
-initstmt=SET FOREIGN_KEY_CHECKS=0
-```
-
-## Step 6: Create and Run a Migration Task
-
-A migration task tells AWS DMS where and how you want your data migrated. When you create a migration task, consider setting migration parameters as shown following.
-
-**Endpoints and replication server** — Choose the endpoints and replication server created before.
-
-**Migration type** — In most cases you’ll want to choose **migrate existing data and replication ongoing changes**. With this option, AWS DMS loads your source data while capturing changes to that data. When the data is fully loaded, AWS DMS applies any outstanding changes and keeps the source and target databases in sync until the task is stopped.
-
-**Target table preparation mode** — If you’re having AWS DMS create your tables, **choose drop tables on target**. If you’re using some other method to create your target tables such as the AWS Schema Conversion Tool, choose **truncate.**
-
-**LOB parameters** — If you’re just trying AWS DMS, choose **include LOB columns in replication**, **Limited LOB mode**, and set your **max LOB size to 16** (which is 16k.) For more information regarding LOBs, read the details in the step-by-step guide.
-
-**Enable logging** — To help with debugging migration issues, always enable logging.
-
-**Table mappings** — When migrating from Oracle to Aurora MySQL, we recommend that you convert your schema, table, and column names to lowercase. To do so, create a custom table mapping. The following example migrates the schema DMS_SAMPLE and converts schema, table and column names to lower case.
-
-```
-{
-  "rules": [
-    {
-      "rule-type": "selection",
-      "rule-id": "1",
-      "rule-name": "1",
-      "object-locator": {
-        "schema-name": "DMS_SAMPLE",
-        "table-name": "%"
-      },
-      "rule-action": "include"
-    },
-   {
-      "rule-type": "transformation",
-      "rule-id": "6",
-      "rule-name": "6",
-      "rule-action": "convert-lowercase",
-      "rule-target": "schema",
-      "object-locator": {
-        "schema-name": "%"
-      }
-    },
-    {
-      "rule-type": "transformation",
-      "rule-id": "7",
-      "rule-name": "7",
-      "rule-action": "convert-lowercase",
-      "rule-target": "table",
-      "object-locator": {
-        "schema-name": "%",
-        "table-name": "%"
-      }
-    },
-    {
-      "rule-type": "transformation",
-      "rule-id": "8",
-      "rule-name": "8",
-      "rule-action": "convert-lowercase",
-      "rule-target": "column",
-      "object-locator": {
-        "schema-name": "%",
-        "table-name": "%",
-        "column-name": "%"
-      }
-    }
-  ]
-}
-```
+To avoid additional charges, delete all resources after you complete the walkthrough.

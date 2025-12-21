@@ -1,11 +1,54 @@
-# Validate the MariaDB database migration
+# Cut over for the migration from a MariaDB database
 
-AWS DMS performs data validation to confirm that your data successfully migrated the source database to the target. You can check the **Table statistics** page to determine the DML changes that occurred after the AWS DMS task started. During data validation, AWS DMS compares each row in the source with its corresponding row at the target, and verifies that those rows contain the same data. To accomplish this, AWS DMS issues the appropriate queries to retrieve the data.
+After the data validation is complete and any problems resolved, you can load the database triggers, functions, and procedures.
 
-After your data is loaded successfully, you can select your task on the AWS DMS page and choose **Table statistics** to show statistics about your migration. The following screen shot shows the **Table statistics** page and its relevant entries.
+To do this, use the `routines.sql` file generated from MariaDB to create the necessary routines in Aurora MySQL. The following statement loads all procedures, functions, and triggers into the Aurora MySQL database.
 
-The following screenshot shows the table statics page and its relevant entries.
+```
+$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306 < routines.sql
+```
 
-![Table statistics](images/sbs-mariadb2aurmysql-validation.png)
+After the routines are loaded, connect to the Aurora MySQL database to validate as shown following.
 
-AWS DMS can validate the data between source and target engines. The **Validation state** column helps us to validate the data migration. This ensures that your data was migrated accurately from the source to the target.
+```
+$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306
+Enter password:
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 957
+Server version: 5.6.10 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Enter 'help;' or '\h' for help. Enter '\c' to clear the current input statement.
+
+MySQL [migration]> select routine_schema as database_name,
+    ->             routine_name,
+    ->             routine_type as type,
+    ->             data_type as return_type
+    ->             from information_schema.routines
+    ->      where routine_schema not in ('sys', 'information_schema',
+    ->                                   'mysql', 'performance_schema');
++---------------+----------------+-----------+-------------+
+| database_name | routine_name   | type      | return_type |
++---------------+----------------+-----------+-------------+
+| migration     | CalcValue      | FUNCTION  | int         |
+| migration     | loadMLBPlayers | PROCEDURE |             |
+| migration     | loadNFLPlayers | PROCEDURE |             |
++---------------+----------------+-----------+-------------+
+3 rows in set (0.002 sec)
+
+
+MySQL [migration]> select TRIGGER_SCHEMA, TRIGGER_NAME from information_schema.triggers where TRIGGER_SCHEMA='migration';
++----------------+-----------------------+
+| TRIGGER_SCHEMA | TRIGGER_NAME          |
++----------------+-----------------------+
+| migration      | increment_animal      |
+| migration      | contacts_after_update |
++----------------+-----------------------+
+2 rows in set (0.009 sec)
+```
+
+The preceding output shows that all the procedures, triggers, and functions are loaded successfully to the Aurora MySQL database.

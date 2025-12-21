@@ -1,270 +1,187 @@
-# Migrating a MySQL-Compatible Database to Amazon Aurora MySQL
+# Migrating Data from an Amazon RDS MySQL DB Instance to an Amazon Aurora MySQL DB Cluster
 
-If your database supports the InnoDB or MyISAM tablespaces, you have these options for migrating your data to an Amazon Aurora MySQL DB cluster:
-
-- You can create a dump of your data using the `mysqldump` utility, and then import that data into an existing Amazon Aurora MySQL DB cluster. For more information, see [Migrating MySQL to Amazon Aurora MySQL by Using mysqldump](#chap-mysql2aurora.mysqldump "#chap-mysql2aurora.mysqldump").
-- You can copy the source files from your database to an Amazon S3 bucket, and then restore an Amazon Aurora MySQL DB cluster from those files. This option can be considerably faster than migrating data using `mysqldump`. For more information, see [Migrating Data from an External MySQL Database to an Amazon Aurora MySQL Using Amazon S3](#chap-mysql2aurora.s3 "#chap-mysql2aurora.s3").
-
-## Migrating Data from an External MySQL Database to an Amazon Aurora MySQL Using Amazon S3
-
-You can copy the source files from your source MySQL version 5.5, 5.6, or 5.7 database to an Amazon S3 bucket, and then restore an Amazon Aurora MySQL DB cluster from those files.
-
-This option can be considerably faster than migrating data using `mysqldump`, because using `mysqldump` replays all of the commands to recreate the schema and data from your source database in your new Amazon Aurora MySQL DB cluster. By copying your source MySQL data files, Amazon Aurora MySQL can immediately use those files as the data for DB cluster.
+You can migrate (copy) data to an Amazon Aurora MySQL DB cluster from an Amazon RDS snapshot, as described following.
 
 ###### Note
 
-Restoring an Amazon Aurora MySQL DB cluster from backup files in an Amazon S3 bucket is not supported for the Asia Pacific (Mumbai) region.
+Because Amazon Aurora MySQL is compatible with MySQL, you can migrate data from your MySQL database by setting up replication between your MySQL database, and an Amazon Aurora MySQL DB cluster. We recommend that your MySQL database run MySQL version 5.5 or later.
 
-Amazon Aurora MySQL does not restore everything from your database. You should save the database schema and values for the following items from your source MySQL or MariaDB database and add them to your restored Amazon Aurora MySQL DB cluster after it has been created.
+## Migrating an Amazon RDS for MySQL Snapshot to Aurora MySQL
 
-- User accounts
-- Functions
-- Stored procedures
-- Time zone information. Time zone information is loaded from the local operating system of your Amazon Aurora MySQL DB cluster.
+You can migrate a DB snapshot of an Amazon RDS MySQL DB instance to create an Aurora MySQL DB cluster. The new DB cluster is populated with the data from the original Amazon RDS MySQL DB instance. The DB snapshot must have been made from an Amazon RDS DB instance running MySQL 5.6.
 
-### Prerequisites
+You can migrate either a manual or automated DB snapshot. After the DB cluster is created, you can then create optional Aurora MySQL Replicas.
 
-Before you can copy your data to an Amazon S3 bucket and restore a DB cluster from those files, you must do the following:
+The general steps you must take are as follows:
 
-- Install Percona XtraBackup on your local server.
-- Permit Amazon Aurora MySQL to access your Amazon S3 bucket on your behalf.
+1. Determine the amount of space to provision for your Amazon Aurora MySQL DB cluster. For more information, see [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/CHAP_Storage.md "../../../AmazonRDS/latest/UserGuide/CHAP_Storage.md").
+2. Use the console to create the snapshot in the region where the Amazon RDS MySQL 5.6 instance is located
+3. If the DB snapshot is not in the region as your DB cluster, use the Amazon RDS console to copy the DB snapshot to that region. For information about copying a DB snapshot, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md").
+4. Use the console to migrate the DB snapshot and create an Amazon Aurora MySQL DB cluster with the same databases as the original DB instance of MySQL 5.6.
 
-#### Installing Percona XtraBackup
+###### Warning
 
-Amazon Aurora MySQL can restore a DB cluster from files that were created using Percona XtraBackup. You can install Percona XtraBackup from the Percona website at [https://www.percona.com/software/mysql-database/percona-xtrabackup](https://www.percona.com/software/mysql-database/percona-xtrabackup "https://www.percona.com/software/mysql-database/percona-xtrabackup").
+Amazon RDS limits each user to one snapshot copy into each region at a time.
 
-#### Required Permissions
+### How Much Space Do I Need?
 
-To migrate your MySQL data to an Amazon Aurora MySQL DB cluster, several permissions are required:
+When you migrate a snapshot of a MySQL DB instance into an Aurora MySQL DB cluster, Aurora MySQL uses an Amazon Elastic Block Store (Amazon EBS) volume to format the data from the snapshot before migrating it. In some cases, additional space is needed to format the data for migration. When migrating data into your DB cluster, observe the following guidelines and limitations:
 
-- The user that is requesting that Amazon RDS create a new cluster from an Amazon S3 bucket must have permission to list the buckets for your user. You grant the user this permission using an AWS Identity and Access Management (IAM) policy.
-- Amazon RDS requires permission to act on your behalf to access the Amazon S3 bucket where you store the files used to create your Amazon Aurora MySQL DB cluster. You grant Amazon RDS the required permissions using an IAM service role.
-- The user making the request must also have permission to list the IAM roles for your user.
-- If the user making the request will create the IAM service role, or will request that Amazon RDS create the IAM service role (by using the console), then the user must have permission to create an IAM role for your user.
+- Although Amazon Aurora MySQL supports storage up to 64 TB in size, the process of migrating a snapshot into an Aurora MySQL DB cluster is limited by the size of the EBS volume of the snapshot. Thus, the maximum size for a snapshot that you can migrate is 6 TB.
+- Tables that are not MyISAM tables and are not compressed can be up to 6 TB in size. If you have MyISAM tables, then Aurora MySQL must use additional space in the volume to convert the tables to be compatible with Aurora MySQL. If you have compressed tables, then Aurora MySQL must use additional space in the volume to expand these tables before storing them on the Aurora MySQL cluster volume. Because of this additional space requirement, you should ensure that none of the MyISAM and compressed tables being migrated from your MySQL DB instance exceeds 3 TB in size.
 
-For example, the following IAM policy grants a user the minimum required permissions to use the console to both list IAM roles, create an IAM role, and list the S3 buckets for your user.
+### Reducing the Amount of Space Required to Migrate Data into Amazon Aurora MySQL
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "iam:ListRoles",
-                "iam:CreateRole",
-                "iam:CreatePolicy",
-                "iam:AttachRolePolicy",
-                "s3:ListBucket",
-                "s3:ListObjects"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
+You might want to modify your database schema prior to migrating it into Amazon Aurora MySQL. Such modification can be helpful in the following cases:
 
-Additionally, for a user to associate an IAM role with an S3 bucket, the IAM user must have the `iam:PassRole` permission for that IAM role. This permission allows an administrator to restrict which IAM roles a user can associate with S3 buckets.
+- You want to speed up the migration process.
+- You are unsure of how much space you need to provision.
+- You have attempted to migrate your data and the migration has failed due to a lack of provisioned space.
 
-For example, the following IAM policy allows a user to associate the role named `S3Access` with an S3 bucket.
+You can make the following changes to improve the process of migrating a database into Amazon Aurora MySQL.
+
+###### Important
+
+Be sure to perform these updates on a new DB instance restored from a snapshot of a production database, rather than on a production instance. You can then migrate the data from the snapshot of your new DB instance into your Amazon Aurora MySQL DB cluster to avoid any service interruptions on your production database.
+
+| Table Type        | Limitation or Guideline                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MyISAM tables     | Amazon Aurora MySQL supports InnoDB tables only. If you have MyISAM tables in your database, then those tables must be converted before being migrated into Amazon Aurora MySQL. The conversion process requires additional space for the MyISAM to InnoDB conversion during the migration procedure.<br>To reduce your chances of running out of space or to speed up the migration process, convert all of your MyISAM tables to InnoDB tables before migrating them. The size of the resulting InnoDB table is equivalent to the size required by Amazon Aurora MySQL for that table. To convert a MyISAM table to InnoDB, run the following command:<br>`<br>alter table <schema>.<table_name> engine=innodb, algorithm=copy;<br>` |
+| Compressed tables | Amazon Aurora MySQL does not support compressed tables (that is, tables created with `ROW_FORMAT=COMPRESSED`).<br>To reduce your chances of running out of space or to speed up the migration process, expand your compressed tables by setting `ROW_FORMAT` to `DEFAULT`, `COMPACT`, `DYNAMIC`, or `REDUNDANT`. For more information, see [https://dev.mysql.com/doc/refman/5.6/en/innodb-row-format.html](https://dev.mysql.com/doc/refman/5.6/en/innodb-row-format.html "https://dev.mysql.com/doc/refman/5.6/en/innodb-row-format.html").                                                                                                                                                                                          |
+
+You can use the following SQL script on your existing MySQL DB instance to list the tables in your database that are MyISAM tables or compressed tables.
 
 ```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Sid":"AllowS3AccessRole",
-        "Effect":"Allow",
-        "Action":"iam:PassRole",
-        "Resource":"arn:aws:iam::123456789012:role/S3Access"
-      }
-   ]
-}
+-- This script examines a MySQL database for conditions that will block
+-- migrating the database into an Amazon Aurora MySQL DB.
+-- It needs to be run from an account that has read permission for the
+-- INFORMATION_SCHEMA database.
+
+-- Verify that this is a supported version of MySQL.
+
+select msg as `==> Checking current version of MySQL.`
+from
+  (
+  select
+    'This script should be run on MySQL version 5.6. ' +
+    'Earlier versions are not supported.' as msg,
+    cast(substring_index(version(), '.', 1) as unsigned) * 100 +
+      cast(substring_index(substring_index(version(), '.', 2), '.', -1)
+      as unsigned)
+    as major_minor
+  ) as T
+where major_minor <> 506;
+
+
+-- List MyISAM and compressed tables. Include the table size.
+
+select concat(TABLE_SCHEMA, '.', TABLE_NAME) as `==> MyISAM or Compressed Tables`,
+round(((data_length + index_length) / 1024 / 1024), 2) "Approx size (MB)"
+from INFORMATION_SCHEMA.TABLES
+where
+  ENGINE <> 'InnoDB'
+  and
+  (
+    -- User tables
+    TABLE_SCHEMA not in ('mysql', 'performance_schema',
+                         'information_schema')
+    or
+    -- Non-standard system tables
+    (
+      TABLE_SCHEMA = 'mysql' and TABLE_NAME not in
+        (
+          'columns_priv', 'db', 'event', 'func', 'general_log',
+          'help_category', 'help_keyword', 'help_relation',
+          'help_topic', 'host', 'ndb_binlog_index', 'plugin',
+          'proc', 'procs_priv', 'proxies_priv', 'servers', 'slow_log',
+          'tables_priv', 'time_zone', 'time_zone_leap_second',
+          'time_zone_name', 'time_zone_transition',
+          'time_zone_transition_type', 'user',
+          'general_log_backup','slow_log_backup'
+        )
+    )
+  )
+  or
+  (
+    -- Compressed tables
+       ROW_FORMAT = 'Compressed'
+  );
 ```
 
-#### Creating the IAM Service Role
-
-You can have the Amazon RDS Management Console create a role for you by choosing the **Create a New Role** option (shown later in this topic). If you select this option and specify a name for the new role, then Amazon RDS will create the IAM service role required for Amazon RDS to access your Amazon S3 bucket with the name that you supply.
-
-As an alternative, you can manually create the role using the following procedure.
-
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the left navigation pane, choose **Roles**.
-3. Choose **Create New Role**, specify a value for **Role Name** for the new role, and then choose **Next Step**.
-4. Under **AWS Service Roles**, find **Amazon RDS** and choose **Select**.
-5. Do not select a policy to attach in the **Attach Policy** step. Instead, choose **Next Step**.
-6. Review your role information, and then choose **Create Role**.
-7. In the list of roles, choose the name of your newly created role. Choose the **Permissions** tab.
-8. Choose **Inline Policies**. Because your new role has no policy attached, you will be prompted to create one. Click the link to create a new policy.
-9. On the **Set Permissions** page, choose **Custom Policy** and then choose **Select**.
-10. Enter a **Policy Name** such as `S3-bucket-policy`. Add the following code for **Policy Document**, replacing `<bucket name>` with the name of the S3 bucket that you are allowing access to.
-
-As part of the policy document, you can also include a file name prefix. If you specify a prefix, then Amazon Aurora MySQL will create the DB cluster using the files in the S3 bucket that begin with the specified prefix. If you don’t specify a prefix, then Amazon Aurora MySQL will create the DB cluster using all of the files in the S3 bucket.
-
-To specify a prefix, replace `<prefix>` following with the prefix of your file names. Include the asterisk (\*) after the prefix. If you don’t want to specify a prefix, specify only an asterisk.
+The script produces output similar to the output in the following example. The example shows two tables that must be converted from MyISAM to InnoDB. The output also includes the approximate size of each table in megabytes (MB).
 
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": [
-                "arn:aws:s3:::
-
++---------------------------------+------------------+
+| ==> MyISAM or Compressed Tables | Approx size (MB) |
++---------------------------------+------------------+
+| test.name_table                 |          2102.25 |
+| test.my_table                   |            65.25 |
++---------------------------------+------------------+
+2 rows in set (0.01 sec)
 ```
 
-### Step 1: Backing Up Files to be Restored as a DB Cluster
+### Migrating a DB Snapshot by Using the Console
 
-To create a backup of your MySQL database files that can be restored from S3 to create an Amazon Aurora MySQL DB cluster, use the Percona Xtrabackup utility (`innobackupex`) to back up your database.
+You can migrate a DB snapshot of an Amazon RDS for MySQL DB instance to create an Aurora MySQL DB cluster. The new DB cluster will be populated with the data from the original Amazon RDS for MySQL DB instance. The DB snapshot must have been made from an Amazon RDS DB instance running MySQL 5.6 and must not be encrypted. For information about creating a DB snapshot, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/USER_CreateSnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CreateSnapshot.md").
 
-For example, the following command creates a backup of a MySQL database and stores the files in the `/s3-restore/backup` folder.
+If the DB snapshot is not in the AWS Region where you want to locate your data, use the Amazon RDS console to copy the DB snapshot to that region. For information about copying a DB snapshot, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md").
 
-```
-innobackupex --user=myuser --password=<password> --no-timestamp /s3-restore/backup
-```
+When you migrate the DB snapshot by using the console, the console takes the actions necessary to create both the DB cluster and the primary instance.
 
-If you want to compress your backup into a single file (which can be split, if needed), you can use the `--stream` option to save your backup in one of the following formats:
-
-- Gzip (.gz)
-- tar (.tar)
-- Percona xbstream (.xbstream)
-
-For example, the following command creates a backup of your MySQL database split into multiple Gzip files. The parameter values shown are for a small test database; for your scenario, you should determine the parameter values needed.
-
-```
-innobackupex --user=myuser --password=<password> --stream=tar \
-   /mydata/s3-restore/backup | split -d --bytes=512000 \
-   - /mydata/s3-restore/backup3/backup.tar.gz
-```
-
-For example, the following command creates a backup of your MySQL database split into multiple tar files.
-
-```
-innobackupex --user=myuser --password=<password> --stream=tar \
-   /mydata/s3-restore/backup | split -d --bytes=512000 \
-   - /mydata/s3-restore/backup3/backup.tar
-```
-
-For example, the following command creates a backup of your MySQL database split into multiple xbstream files.
-
-```
-innobackupex --stream=xbstream  \
-   /mydata/s3-restore/backup | split -d --bytes=512000 \
-   - /mydata/s3-restore/backup/backup.xbstream
-```
-
-Amazon S3 limits the size of a file uploaded to a bucket to 5 terabytes (TB). If the backup data for your database exceeds 5 TB, then you must use the `split` command to split the backup files into multiple files that are each less than 5 TB.
-
-Amazon Aurora MySQL does not support partial backups created using Percona Xtrabackup. You cannot use the `--include`, `--tables-file`, or `--databases` options to create a partial backup when you backup the source files for your database.
-
-For more information, see [The innobackupex Script](https://www.percona.com/doc/percona-xtrabackup/2.1/innobackupex/innobackupex_script.html "https://www.percona.com/doc/percona-xtrabackup/2.1/innobackupex/innobackupex_script.html").
-
-Amazon Aurora MySQL consumes your backup files based on the file name. Be sure to name your backup files with the appropriate file extension based on the file format—​for example, `–0—xbstream` for files stored using the Percona xbstream format.
-
-Amazon Aurora MySQL consumes your backup files in alphabetical order as well as natural number order. Always use the `split` option when you issue the `innobackupex` command to ensure that your backup files are written and named in the proper order.
-
-### Step 2: Copying Files to an Amazon S3 Bucket
-
-Once you have backed up your MySQL database using the Percona Xtrabackup utility, then you can copy your backup files to an Amazon S3 bucket.
-
-For information about creating and uploading a file to an Amazon S3 bucket, see [Getting Started with Amazon Simple Storage Service](../../../AmazonS3/latest/gsg/GetStartedWithS3.md "../../../AmazonS3/latest/gsg/GetStartedWithS3.md") in the _Amazon S3 Getting Started Guide_.
-
-### Step 3: Restoring an Aurora MySQL DB Cluster from an Amazon S3 Bucket
-
-You can restore your backup files from your Amazon S3 bucket to a create new Amazon Aurora MySQL DB cluster by using the Amazon RDS console.
+You can also choose for your new Aurora MySQL DB cluster to be encrypted "at rest" using an AWS Key Management Service (AWS KMS) encryption key. This option is available only for unencrypted DB snapshots.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the RDS Dashboard, choose **Restore Aurora MySQL DB Cluster from S3**.
-3. In the **Create database by restoring from S3** page, specify the following settings in the following sections:
-   1. In the **S3 Destination** section, specify the following:
+2. Choose **Snapshots**.
+3. On the **Snapshots** page, choose the snapshot that you want to migrate into an Aurora MySQL DB cluster.
+4. Choose **Migrate Database**.
 
-   | Parameter                | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-   | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **S3 Bucket**            | Select the Amazon S3 bucket where your backup files are stored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-   | **S3 Prefix (Optional)** | Specify a file path prefix for the files stored in your Amazon S3 bucket. The **S3 Bucket Prefix\*<br>• is optional. If you don’t specify a prefix, then Amazon Aurora MySQL will create the DB cluster using all of the files in the root folder of the S3 bucket. If you specify a prefix, then Amazon Aurora MySQL will create the DB cluster using the files in the S3 bucket where the full path for the file begins with the specified prefix.<br>Amazon Aurora MySQL does not traverse subfolders in your S3 bucket looking for backup files. Only the files from the folder identified by the **S3 Bucket Prefix\*<br>• are used. If you store your backup files in a subfolder in your S3 bucket, then you must specify a prefix that identifies the full path to the folder where the files are stored.<br>For example, if you store your backup files in a subfolder of your S3 bucket named `backups`, and you have multiple sets of backup files, each in its own directory (`gzip_backup1`, `gzip_backup2`, and so on), then you would specify a prefix of `backups/gzip_backup1` to restore from the files in the `gzip_backup1` folder. |
-   2. In the **Engine Options** section, specify the following:
+![Migrate a snapshot into Amazon Aurora MySQL](images/AuroraMigrate02.png) 5. Set the following values on the **Migrate Database** page:
 
-   | Parameter       | Action                                                                                                                                         |
-   | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Engine Type** | Keep Amazon Aurora selected.                                                                                                                   |
-   | **Edition**     | Keep Amazon Aurora with MySQL compatibility selected.                                                                                          |
-   | **Version**     | Specify the version of the MySQL database that the backup files were created from, for example `5.7`. MySQL version 5.6 and 5.7 are supported. |
-   3. In the **IAM role** section, specify the following:
+    * **DB Instance Class**: Select a DB instance class that has the required storage and capacity for your database, for example `db.r3.large`. Aurora MySQL cluster volumes automatically grow as the amount of data in your database increases, up to a maximum size of 64 terabytes (TB). So you only need to select a DB instance class that meets your current storage requirements.
+    * **DB Instance Identifier**: Enter a name for the DB cluster that is unique for your account in the region you selected. This identifier is used in the endpoint addresses for the instances in your DB cluster. You might choose to add some intelligence to the name, such as including the region and DB engine you selected, for example `aurora-cluster1`.
 
-   | Parameter    | Action                                                                                                                                                                                                  |
-   | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **IAM Role** | Choose the IAM role that you created to authorize Amazon Aurora MySQL to access Amazon S3 on your behalf. If you have not created an IAM role, you can choose \*_Create a New Role_<br>• to create one. |
-   4. In the **Settings** section, specify the following:
 
-   | Parameter                    | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-   | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **DB cluster identifier**    | Enter a name for your DB cluster. This identifier will be used in the endpoint address for the primary instance of your DB cluster.<br>The DB instance identifier has the following constraints:<br>• It must contain from 1 to 63 alphanumeric characters or hyphens.<br>• Its first character must be a letter.<br>• It cannot end with a hyphen or contain two consecutive hyphens.<br>• It must be unique for all DB instances per user, for each region. |
-   | **Master Username**          | Enter a name using alphanumeric characters that you will use as the master user name to log on to your DB cluster. The default privileges granted to the master user name account include: `create, drop, references, event, alter, delete, index, insert, select, update, create temporary tables, lock tables, trigger, create view, show view, alter routine, create routine, execute, create user, process, show databases, grant option`.                |
-   | **Auto generate a password** | Leave unchecked.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-   | **Master Password**          | Enter a password that contains from 8 to 41 printable ASCII characters (excluding /,", and @) for your master user password.                                                                                                                                                                                                                                                                                                                                  |
-   | **Confirm Password**         | Retype the Master Password.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-   5. In the **DB Instance Class** section, specify the following:
+    The DB instance identifier has the following constraints:
 
-   | Parameter             | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-   | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **DB Instance Class** | Select a DB instance class that defines the processing and memory requirements for each instance in the DB cluster. Aurora MySQL supports the `db.r3.large`, `db.r3.xlarge`, `db.r3.2xlarge`, `db.r3.4xlarge`, and `db.r3.8xlarge` DB instance classes. For more information about DB instance class options, see the [Amazon RDS documentation.](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md"). |
-   6. In the **Availability & durability** section, specify the following:
 
-   | Parameter               | Action                                                                                                                                                                                                                                                                                                 |
-   | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-   | **Multi-AZ Deployment** | Determine if you want to create Aurora MySQL Replicas in other Availability Zones for failover support. For more information about multiple Availability Zones, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md"). |
-   7. In the **Connectivity** section, specify the following:
 
-   | Parameter                       | Action                                                                                                                                                                                                                                                                                                                                                                                |
-   | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Virtual private cloud (VPC)** | Select the VPC that will host the DB cluster. Select \*_Create a New VPC_<br>• to have Amazon RDS create a VPC for you. For more information, see earlier in this topic.                                                                                                                                                                                                              |
-   | **Subnet group**                | Select the DB subnet group to use for the DB cluster. Select \*_Create a New DB Subnet Group_<br>• to have Amazon RDS create a DB subnet group for you. For more information, see earlier in this topic.                                                                                                                                                                              |
-   | **Public access**               | Select **Yes\*<br>• to give the DB cluster a public IP address; otherwise, select **No\*\*. The instances in your DB cluster can be a mix of both public and private DB instances. For more information about hiding instances from public access, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md"). |
-   | **VPC Security Group(s)**       | Select one or more VPC security groups to secure network access to the DB cluster. Select \*_Create a New VPC Security Group_<br>• to have Amazon RDS create a VPC security group for you. For more information, see earlier in this topic.                                                                                                                                           |
-   | **Availability Zone**           | Determine if you want to specify a particular Availability Zone. For more information about Availability Zones, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md").                                                                                                                                |
-   | **Database Port**               | Specify the port that applications and utilities will use to access the database. Aurora MySQL DB clusters default to the default MySQL port, 3306. The firewalls at some companies block connections to the default MySQL port. If your company firewall blocks the default port, choose another port for the new DB cluster.                                                        |
-   8. In the **Database authentication** section, specify the following:
 
-   | Parameter                   | Action                                           |
-   | --------------------------- | ------------------------------------------------ |
-   | **Database Authentication** | Leave \*_Password authentication_<br>• selected. |
-   9. In the **Additional configuration** section, specify the following:
+    	+ It must contain from 1 to 63 alphanumeric characters or hyphens.
+    	+ Its first character must be a letter.
+    	+ It cannot end with a hyphen or contain two consecutive hyphens.
+    	+ It must be unique for all DB instances per user, for each AWS Region.
+    * **VPC**: If you have an existing VPC, then you can use that VPC with your Amazon Aurora MySQL DB cluster by selecting your VPC identifier, for example `vpc-a464d1c1`. For information about using an existing VPC, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md").
 
-   | Parameter                             | Action                                                                                                                                                                                                                                                                                                                                                                                     |
-   | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-   | **Initial Database Name**             | Enter a name for your database of up to 8 alphanumeric characters. If you don’t provide a name, Amazon RDS will not create a database on the DB cluster you are creating.                                                                                                                                                                                                                  |
-   | **DB cluster parameter Group**        | Select a parameter group for the cluster. Aurora MySQL has a default parameter group you can use, or you can create your own parameter group. For more information about parameter groups, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md").                                                              |
-   | **DB parameter Group**                | Select a parameter group for the database.                                                                                                                                                                                                                                                                                                                                                 |
-   | **Option Group**                      | Select an option group. Aurora MySQL has a default option group you can use, or you can create your own option group. For more information about option groups, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md").                                                                                         |
-   | **Failover Priority**                 | Choose a failover priority for the instance. If you don’t select a value, the default is **tier-1**. This priority determines the order in which Aurora MySQL Replicas are promoted when recovering from a primary instance failure. For more information, see [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md").  |
-   | **Backup Retention Period**           | Select the length of time, from 1 to 35 days, that Aurora MySQL will retain backup copies of the database. Backup copies can be used for point-in-time restores (PITR) of your database, timed down to the second.                                                                                                                                                                         |
-   | **Copy tags to snapshots**            | Leave checked.                                                                                                                                                                                                                                                                                                                                                                             |
-   | **Enable Encryption**                 | Check the box to enable encryption at rest for this DB cluster. Leave **AWS KMS Key\*<br>• set to **(default) aws/rds\*\*. For more information, see [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md").                                                                                                            |
-   | **Backtrack**                         | Leave unchecked.                                                                                                                                                                                                                                                                                                                                                                           |
-   | **Enable Performance insights**       | Leave checked. Leave **Retention Period\*<br>• and **AWS KMS Key\*<br>• as they are.                                                                                                                                                                                                                                                                                                       |
-   | **Enable Enhanced Monitoring**        | Choose \*_Yes_<br>• to enable gathering metrics in real time for the operating system that your DB cluster runs on. For more information, see [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md").                                                                                                                   |
-   | **Granularity**                       | This option is only available if **Enable Enhanced Monitoring\*<br>• is set to **Yes\*\*. Set the interval, in seconds, between times at which metrics are collected for your DB cluster.                                                                                                                                                                                                  |
-   | **Monitoring role**                   | Leave as **default**.                                                                                                                                                                                                                                                                                                                                                                      |
-   | **Log exports**                       | Leave unchecked.                                                                                                                                                                                                                                                                                                                                                                           |
-   | **Enable auto Minor Version Upgrade** | Check this box if you want to enable your Aurora MySQL DB cluster to receive minor MySQL DB engine version upgrades automatically when they become available.<br>The \*_Auto Minor Version Upgrade_<br>• option only applies to upgrades to MySQL minor engine versions for your Amazon Aurora MySQL DB cluster. It doesn’t apply to regular patches applied to maintain system stability. |
-   | **Maintenance Window**                | Select the weekly time range during which system maintenance can occur.                                                                                                                                                                                                                                                                                                                    |
-   | **Enable deletion protection**        | Leave unchecked.                                                                                                                                                                                                                                                                                                                                                                           |
 
-4. Choose **Launch DB Instance** to launch your Aurora MySQL DB instance, and then choose **Close** to close the wizard.
+    Otherwise, you can choose to have Amazon RDS create a VPC for you by selecting **Create a new VPC**.
+    * **Subnet Group**: If you have an existing subnet group, then you can use that subnet group with your Amazon Aurora MySQL DB cluster by selecting your subnet group identifier, for example `gs-subnet-group1`.
 
-On the Amazon RDS console, the new DB instance appears in the list of DB instances. The DB instance has a status of **creating** until the DB instance is created and ready for use. When the state changes to **available**, you can connect to the primary instance for your DB cluster. Depending on the DB instance class and store allocated, it can take several minutes for the new instance to be available.
 
-To view the newly created cluster, choose the **Clusters** view in the Amazon RDS console. For more information, see [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md").
+    Otherwise, you can choose to have Amazon RDS create a subnet group for you by selecting **Create a new subnet group**.
+    * **Publicly Accessible**: Select **No** to specify that instances in your DB cluster can only be accessed by resources inside of your VPC. Select **Yes** to specify that instances in your DB cluster can be accessed by resources on the public network. The default is **Yes**.
 
-Note the port and the endpoint of the cluster. Use the endpoint and port of the cluster in your JDBC and ODBC connection strings for any application that performs write or read operations.
 
-## Migrating MySQL to Amazon Aurora MySQL by Using mysqldump
+    ###### Note
 
-You can create a dump of your data using the `mysqldump` utility, and then import that data into an existing Amazon Aurora MySQL DB cluster.
+    Your production DB cluster might not need to be in a public subnet, because only your application servers will require access to your DB cluster. If your DB cluster doesn’t need to be in a public subnet, set **Publicly Accessible** to **No**.
+    * **Availability Zone**: Select the Availability Zone to host the primary instance for your Aurora MySQL DB cluster. To have Amazon RDS select an Availability Zone for you, select **No Preference**.
+    * **Database Port**: Enter the default port to be used when connecting to instances in the DB cluster. The default is `3306`.
 
-Because Amazon Aurora MySQL is a MySQL-compatible database, you can use the `mysqldump` utility to copy data from your MySQL or MariaDB database to an existing Amazon Aurora MySQL DB cluster.
+
+    ###### Note
+
+    You might be behind a corporate firewall that doesn’t allow access to default ports such as the MySQL default port, 3306. In this case, provide a port value that your corporate firewall allows. Remember that port value later when you connect to the Aurora MySQL DB cluster.
+    * **Enable Encryption**: Choose **Yes** for your new Aurora MySQL DB cluster to be encrypted "at rest." If you choose **Yes**, you will be required to choose an AWS KMS encryption key as the KMS key value.
+    * **Auto Minor Version Upgrade**: Select **Yes** if you want to enable your Aurora MySQL DB cluster to receive minor MySQL DB engine version upgrades automatically when they become available.
+
+
+    The **Auto Minor Version Upgrade** option only applies to upgrades to MySQL minor engine versions for your Amazon Aurora MySQL DB cluster. It doesn’t apply to regular patches applied to maintain system stability.
+
+
+
+    ![Migrate a snapshot into Amazon Aurora MySQL](images/AuroraMigrate03.png)
+
+6. Choose **Migrate** to migrate your DB snapshot.
+7. Choose **Instances**, and then choose the arrow icon to show the DB cluster details and monitor the progress of the migration. On the details page, you will find the cluster endpoint used to connect to the primary instance of the DB cluster. For more information about connecting to an Amazon Aurora MySQL DB cluster, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md").
+
+![DB Cluster Details](images/AuroraMigrate04.png)
