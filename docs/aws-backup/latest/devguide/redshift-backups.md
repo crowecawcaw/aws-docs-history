@@ -32,7 +32,7 @@ AWS CLI.
 There are two ways to use the AWS Backup console to backup a Amazon Redshift cluster: on demand or
 as part of a backup plan.
 
-#### Create on-demand Amazon Redshift backups
+### Create on-demand Amazon Redshift backups
 
 See [Creating
 an on-demand backup](recov-point-create-on-demand-backup.md "recov-point-create-on-demand-backup.md") type page for more information.
@@ -40,7 +40,7 @@ an on-demand backup](recov-point-create-on-demand-backup.md "recov-point-create-
 To create a manual snapshot, leave the continuous backup checkbox unchecked when
 you create a backup plan that includes Amazon Redshift resources.
 
-#### Create scheduled Amazon Redshift backups in a backup
+### Create scheduled Amazon Redshift backups in a backup
 
 plan
 
@@ -59,7 +59,7 @@ type _Amazon Redshift_, you can choose to add **All Amazon Redshift
 clusters**, or check the boxes next to the clusters you wish to
 include in your backup plan.
 
-#### Back up programmatically
+### Back up programmatically
 
 You can also define your backup plan in a JSON document and provide it using the
 AWS Backup console or AWS CLI. See [Creating backup plans using a JSON document and the AWS Backup CLI](creating-a-backup-plan.md#create-backup-plan-cli "creating-a-backup-plan.md#create-backup-plan-cli") for
@@ -82,7 +82,7 @@ AWS Backup console. For unsupported resource types, this field will not be popul
 - List recovery points by resources
 - List tags for the recovery point
 
-#### View Amazon Redshift cluster backups
+### View Amazon Redshift cluster backups
 
 To view and modify your Amazon Redshift table backups within the console:
 
@@ -95,7 +95,7 @@ To view and modify your Amazon Redshift table backups within the console:
    Under the button **Actions**, you can select
    **Delete**.
 
-#### Restore a Amazon Redshift cluster
+### Restore a Amazon Redshift cluster
 
 See how to [Restore a Amazon Redshift
 cluster](redshift-restores.md "redshift-restores.md") for more information.

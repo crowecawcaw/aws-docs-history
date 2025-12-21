@@ -94,7 +94,7 @@ _AWS Managed Policy Reference_.
 
 ### AWSBackupGuardDutyRolePolicyForScans
 
-This policy will need to be added to a new scanning role, giving Amazon GuardDuty permission to read and scan their backups. The scanning role will be attached to the backup plan, and is passed by AWS Backup to Amazon GuardDuty when a scan is initiated.
+This policy must be added to a new scanning role that grants Amazon GuardDuty permission to read and scan your backups. You'll need to attach this scanning role to your backup plan within the malware protection or scan settings. When AWS Backup initiates a scan, it passes this scanning role to Amazon GuardDuty.
 
 To view the permissions for this policy, see [AWSBackupGuardDutyRolePolicyForScans](../../../aws-managed-policy/latest/reference/AWSBackupGuardDutyRolePolicyForScans.md "../../../aws-managed-policy/latest/reference/AWSBackupGuardDutyRolePolicyForScans.md") in the _AWS Managed Policy Reference_.
 
@@ -365,7 +365,7 @@ To view the permissions for this policy, see [AWSBackupServiceRolePolicyForS3Res
 
 ### AWSBackupServiceRolePolicyForScans
 
-This policy should be attached to their existing backup role, giving AWS Backup permission to initiate scans in Amazon GuardDuty.
+The policy should be attached to the IAM role that you use in your backup plan's resource selection. This role grants AWS Backup permission to initiate scans in Amazon GuardDuty.
 
 To view the permissions for this policy, see [AWSBackupServiceRolePolicyForScans](../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForScans.md "../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForScans.md") in the _AWS Managed Policy Reference_.
 

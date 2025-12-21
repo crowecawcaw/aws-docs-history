@@ -31,7 +31,7 @@ The following quotas apply when working with AWS Backup.
 | Concurrent cross-account copies that can be made of the same resource to the same destination<br>Region                      | 30        | No                                                                                |
 | Concurrent backup and copy jobs per resource                                                                                 | 1         | No                                                                                |
 | Tags per resource selection in a cross account backup policy                                                                 | 30        | No. Include additional tags using multiple resource assignments or backups plans. |
-| Hypervisors                                                                                                                  | 10        | No                                                                                |
+| Hypervisors                                                                                                                  | 20        | No                                                                                |
 | Legal holds per account                                                                                                      | 50        | No                                                                                |
 | Nested backup layers of application stacks                                                                                   | 10        | No                                                                                |
 

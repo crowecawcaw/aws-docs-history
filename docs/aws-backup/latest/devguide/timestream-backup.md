@@ -21,7 +21,7 @@ You can backup Timestream tables either through the AWS Backup console or using 
 
 There are two ways to use the AWS Backup console to backup a Timestream table: on demand or as part of a backup plan.
 
-#### Create on-demand Timestream backups
+### Create on-demand Timestream backups
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. Using the navigation pane, choose **Protected resources**,
@@ -52,7 +52,7 @@ There are two ways to use the AWS Backup console to backup a Timestream table: o
     that job. It will display a status of `Completed`, `In Progress`, or
     `Failed`. You can click the refresh button to update the displayed status.
 
-#### Create scheduled Timestream backups in a backup plan
+### Create scheduled Timestream backups in a backup plan
 
 Your scheduled backups can include Timestream tables if they are a protected resource. To opt into
 protecting Amazon Timestream tables:
