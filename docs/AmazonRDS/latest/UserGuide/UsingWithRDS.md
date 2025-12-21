@@ -1,278 +1,412 @@
-# Using SSL/TLS to encrypt a connection to a DB
+# Rotating your SSL/TLS
 
-instance or cluster
+certificate
 
-You can use Secure Socket Layer (SSL) or Transport Layer
-Security (TLS) from your application to encrypt a connection to a database
-running Db2, MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL.
+Amazon RDS Certificate Authority certificates rds-ca-2019 expired in
+August, 2024. If you use or plan to use Secure Sockets Layer (SSL) or Transport
+Layer Security (TLS) with certificate verification to connect to your RDS DB
+instances or Multi-AZ DB clusters,consider using one of the new CA certificates
+rds-ca-rsa2048-g1, rds-ca-rsa4096-g1 or rds-ca-ecc384-g1.
+If you currently do not use SSL/TLS with
+certificate verification, you might still have an expired CA certificate and
+must update them to a new CA certificate if you plan to use SSL/TLS with
+certificate verification to connect to your RDS databases.
 
-SSL/TLS connections provide a layer of security by
-encrypting data that moves between your client and DB instance or cluster
-. Optionally, your SSL/TLS connection can perform server
-identity verification by validating the server certificate installed on your
-database. To require server identity verification, follow this general
-process:
+Amazon RDS provides new CA certificates as an AWS security best practice. For
+information about the new certificates and the supported AWS Regions, see
+[Using SSL/TLS to encrypt a connection to a DB
+instance or cluster](UsingWithRDS.md "UsingWithRDS.md")
+.
 
-1. Choose the **certificate authority (CA)**
-   that signs the **DB server certificate,**
-   for your database. For more information about certificate
-   authorities, see [Certificate
-   authorities](#UsingWithRDS.SSL.RegionCertificateAuthorities "#UsingWithRDS.SSL.RegionCertificateAuthorities")
+To update the CA certificate for your database, use the following methods:
+
+- [Updating
+  your CA certificate by modifying your DB instance or cluster](#UsingWithRDS.SSL-certificate-rotation-updating "#UsingWithRDS.SSL-certificate-rotation-updating")
+- [Updating your CA certificate by applying maintenance](#UsingWithRDS.SSL-certificate-rotation-maintenance-update "#UsingWithRDS.SSL-certificate-rotation-maintenance-update")
+  Before you update your DB instances or
+  Multi-AZ DB clusters to use the new CA certificate, make sure that you update
+  your clients or applications connecting to your RDS databases.
+
+## Considerations for rotating certificates
+
+Consider the following situations before rotating your certificate:
+
+- Amazon RDS Proxy
+  uses
+  certificates from the AWS Certificate Manager (ACM). If you're using RDS Proxy, when
+  you rotate your SSL/TLS certificate, you don't need to update
+  applications that use RDS Proxy connections. For more information, see
+  [Using TLS/SSL with RDS Proxy](rds-proxy.md#rds-proxy-security.tls "rds-proxy.md#rds-proxy-security.tls")
+  .
+- If you're using a Go version 1.15 application with a DB instance
+  or Multi-AZ DB cluster that was created
+  or updated to the rds-ca-2019 certificate prior to July 28, 2020,
+  you must update the certificate again. Update the certificate to
+  rds-ca-rsa2048-g1, rds-ca-rsa4096-g1,
+  or rds-ca-ecc384-g1 depending on your engine
+  .
+
+Use the `modify-db-instance` command for a DB instance, or the
+`modify-db-cluster` command for a Multi-AZ DB cluster,
+using the new CA certificate identifier. You can find the CAs that
+are available for a specific DB engine and DB engine version using
+the `describe-db-engine-versions` command.
+
+If you created your database or updated its certificate after July
+28, 2020, no action is required. For more information, see [Go GitHub issue
+#39568](https://github.com/golang/go/issues/39568 "https://github.com/golang/go/issues/39568").
+
+## Updating
+
+your CA certificate by modifying your DB instance or cluster
+
+The following example updates your CA certificate from
+_rds-ca-2019_ to
+_rds-ca-rsa2048-g1_.You can
+choose a different certificate. For more information, see [Certificate
+authorities](UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities "UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities")
+.
+
+Update your application trust store to reduce any down time associated
+with updating your CA certificate. For more information about restarts
+associated with CA certificate rotation, see [Automatic server certificate rotation](#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation "#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation")
+.
+
+###### To update your CA certificate by modifying your DB instance or cluster
+
+1. Download the new SSL/TLS certificate as described in [Using SSL/TLS to encrypt a connection to a DB
+   instance or cluster](UsingWithRDS.md "UsingWithRDS.md")
    .
-2. Download a certificate bundle to use when you are connecting to the
-   database. To download a certificate bundle, see
+2. Update your applications to use the new SSL/TLS
+   certificate.
 
-[Certificate
-bundles by AWS Region](#UsingWithRDS.SSL.CertificatesAllRegions "#UsingWithRDS.SSL.CertificatesAllRegions")
+The methods for updating applications for new SSL/TLS certificates
+depend on your specific applications. Work with your application
+developers to update the SSL/TLS certificates for your
+applications.
+
+For information about checking for SSL/TLS connections and
+updating applications for each DB engine, see the following
+topics:
+
+    * [Updating applications to connect to
+     MariaDB instances using new SSL/TLS certificates](ssl-certificate-rotation-mariadb.md "ssl-certificate-rotation-mariadb.md")
+    * [Updating applications to connect to Microsoft SQL Server DB instances using new SSL/TLS certificates](ssl-certificate-rotation-sqlserver.md "ssl-certificate-rotation-sqlserver.md")
+    * [Updating applications to connect to MySQL
+     DB instances using new SSL/TLS certificates](ssl-certificate-rotation-mysql.md "ssl-certificate-rotation-mysql.md")
+    * [Updating applications to connect to Oracle
+     DB instances using new SSL/TLS certificates](ssl-certificate-rotation-oracle.md "ssl-certificate-rotation-oracle.md")
+    * [Updating applications to connect to
+     PostgreSQL DB instances using new SSL/TLS certificates](ssl-certificate-rotation-postgresql.md "ssl-certificate-rotation-postgresql.md")
+
+For a sample script that updates a trust
+store for a Linux operating system, see [Sample
+script for importing certificates into your trust store](#UsingWithRDS.SSL-certificate-rotation-sample-script "#UsingWithRDS.SSL-certificate-rotation-sample-script")
 .
 
 ###### Note
 
-All certificates are only available for download using SSL/TLS
-connections. 3. Connect to the database using your DB engine's process for
-implementing SSL/TLS connections. Each DB engine has its own process for
-implementing SSL/TLS. To learn how to implement SSL/TLS for your
-database, follow the link that corresponds to your DB engine:
+The certificate bundle contains certificates for both the old
+and new CA, so you can upgrade your application safely and
+maintain connectivity during the transition period. If you are
+using the AWS Database Migration Service to migrate a database to a DB instance or cluster
+, we recommend using the
+certificate bundle to ensure connectivity during the
+migration. 3. Modify the DB instance or
+Multi-AZ DB cluster to change the CA from
+**rds-ca-2019** to
+**rds-ca-rsa2048-g1**. To check if your
+database requires a restart to update the CA certificates, use the
+[describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command and check the
+`SupportsCertificateRotationWithoutRestart` flag.
 
-    * [Using SSL/TLS with an Amazon RDS for Db2 DB instance](Db2.Concepts.md "Db2.Concepts.md")
-    * [SSL/TLS support for MariaDB DB instances
-     on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md")
-    * [Using SSL with a Microsoft SQL Server DB instance](SQLServer.Concepts.General.SSL.md "SQLServer.Concepts.General.SSL.md")
-    * [SSL/TLS support for MySQL DB instances on
-     Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md")
-    * [Using SSL with an RDS for Oracle DB instance](Oracle.Concepts.md "Oracle.Concepts.md")
-    * [Using SSL with a PostgreSQL DB
-     instance](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")
+###### Important
 
-## Certificate
+If you are experiencing connectivity issues after certificate
+expiry, use the apply immediately option by specifying
+**Apply immediately** in the console or by
+specifying the `--apply-immediately` option using the
+AWS CLI. By default, this operation is scheduled to run during
+your next maintenance window.
 
-authorities
+For RDS for Oracle DB instances, we recommend that you restart your Oracle DB to prevent
+any connection errors.
 
-The **certificate authority (CA)** is the
-certificate that identifies the root CA at the top of the certificate chain.
-The CA signs the **DB server certificate,**
-which is installed on each DB instance. The DB server certificate identifies
-the DB instance as a trusted server.
+For RDS for SQL Server Multi-AZ instances with
+AlwaysOn or Mirroring option enabled, a failover is expected when instance is rebooted after the certificate rotation.
 
-![Certificate authority overview](images/certificate-authority-overview.png)
+To set an override for your
+instance CA that's different from the default
+RDS CA, use the [modify-certificates](../../../cli/latest/reference/rds/modify-certificates.md "../../../cli/latest/reference/rds/modify-certificates.md") CLI command.
 
-Amazon RDS provides the following CAs to sign the DB server certificate for a
-database.
+You can use the AWS Management Console or the AWS CLI to change the CA certificate from
+**rds-ca-2019** to
+**rds-ca-rsa2048-g1** for a DB instance or Multi-AZ DB cluster.
 
-| Certificate authority (CA) | Description                                                                                                                                                                                                                                                                                                                              | Common name (CN)                                  |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| rds-ca-rsa2048-g1          | Uses a certificate authority with RSA 2048 private key<br>algorithm and SHA256 signing algorithm in most<br>AWS Regions.<br>In the AWS GovCloud (US) Regions, this CA uses a<br>certificate authority with RSA 2048 private key<br>algorithm and SHA384 signing algorithm.<br>This CA supports automatic server certificate<br>rotation. | Amazon RDS `region-identifier` Root CA RSA2048 G1 |
-| rds-ca-rsa4096-g1          | Uses a certificate authority with RSA 4096 private key<br>algorithm and SHA384 signing algorithm. This CA supports<br>automatic server certificate rotation.                                                                                                                                                                             | Amazon RDS `region-identifier` Root CA RSA4096 G1 |
-| rds-ca-ecc384-g1           | Uses a certificate authority with ECC 384 private key<br>algorithm and SHA384 signing algorithm. This CA supports<br>automatic server certificate rotation.                                                                                                                                                                              | Amazon RDS `region-identifier` Root CA ECC384 G1  |
+Console
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose
+   **Databases**, and then choose the
+   DB instance or
+   Multi-AZ DB cluster that you want to modify.
+3. Choose **Modify**.
+
+![Modify DB instance or Multi-AZ DB cluster](images/ssl-rotate-cert-modify.png) 4. In the **Connectivity** section,
+choose **rds-ca-rsa2048-g1**.
+
+![Choose CA certificate](images/ssl-rotate-cert-ca-rsa2048-g1.png) 5. Choose **Continue** and check the
+summary of modifications. 6. To apply the changes immediately, choose
+**Apply immediately**. 7. On the confirmation page, review your changes. If they
+are correct, choose **Modify DB
+Instance**
+or **Modify
+cluster**
+to save your changes.
+
+###### Important
+
+When you schedule this operation, make sure that
+you have updated your client-side trust store
+beforehand.
+
+Or choose **Back** to edit your
+changes or **Cancel** to cancel your
+changes.
+
+AWS CLI
+To use the AWS CLI to change the CA from
+**rds-ca-2019** to
+**rds-ca-rsa2048-g1** for a DB instance
+or Multi-AZ DB cluster, call the
+[modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") or [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command. Specify the DB instance
+or cluster identifier
+and the `--ca-certificate-identifier` option.
+
+Use the `--apply-immediately` parameter to apply
+the update immediately. By default, this operation is scheduled
+to run during your next maintenance window.
+
+###### Important
+
+When you schedule this operation, make sure that you have
+updated your client-side trust store beforehand.
+
+**DB
+instance**
+
+The following example modifies `mydbinstance`
+by setting the CA certificate to
+`rds-ca-rsa2048-g1`.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-instance \
+    --db-instance-identifier `mydbinstance` \
+    --ca-certificate-identifier rds-ca-rsa2048-g1
+```
+
+For Windows:
+
+```
+aws rds modify-db-instance ^
+    --db-instance-identifier `mydbinstance` ^
+    --ca-certificate-identifier rds-ca-rsa2048-g1
+```
 
 ###### Note
 
-If you are using the AWS CLI, you can see the validities of the
-certificate authorities listed above by using [describe-certificates](../../../cli/latest/reference/rds/describe-certificates.md "../../../cli/latest/reference/rds/describe-certificates.md").
+If your instance requires reboot, you can use the
+[modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") CLI command and specify
+the `--no-certificate-rotation-restart`
+option.
 
-These CA certificates are included in the regional and global certificate
-bundle. When you use the rds-ca-rsa2048-g1,
-rds-ca-rsa4096-g1, or rds-ca-ecc384-g1 CA with a database, RDS
-manages the DB server certificate on the database. RDS rotates the DB server
-certificate automatically before it expires.
+**Multi-AZ DB cluster**
 
-### Setting the CA for your database
+The following example modifies `mydbcluster` by
+setting the CA certificate to
+`rds-ca-rsa2048-g1`.
 
-You can set the CA for a database when you perform the following
-tasks:
+For Linux, macOS, or Unix:
 
-- Create a DB instance or Multi-AZ DB cluster – You can set the CA when you
-  create a DB instance or cluster. For instructions, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md")
-  or [Creating a Multi-AZ DB cluster for Amazon RDS](create-multi-az-db-cluster.md "create-multi-az-db-cluster.md")
-  .
-- Modify a DB instance or Multi-AZ DB cluster – You can set the CA for a
-  DB instance or cluster by modifying it. For instructions, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md")
-  or [Modifying a Multi-AZ DB cluster for Amazon RDS](modify-multi-az-db-cluster.md "modify-multi-az-db-cluster.md")
-  .
+```
+aws rds modify-db-cluster \
+    --db-cluster-identifier `mydbcluster` \
+    --ca-certificate-identifier rds-ca-rsa2048-g1
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster ^
+    --db-cluster-identifier `mydbcluster` ^
+    --ca-certificate-identifier rds-ca-rsa2048-g1
+```
+
+## Updating your CA certificate by applying maintenance
+
+Perform the following steps to update your CA certificate by applying
+maintenance.
+
+Console
+
+###### To update your CA certificate by applying
+
+maintenance
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Certificate
+   update**.
+
+![Certificate rotation navigation pane option](images/ssl-rotate-cert-certupdate.png)
+
+The **Databases requiring certificate
+update** page appears.
+
+![Update CA certificate for database](images/ssl-rotate-cert-update-multiple.png)
 
 ###### Note
 
-The default CA is set to
-rds-ca-rsa2048-g1.
-You can override the default CA for your AWS account by
-using the [modify-certificates](../../../cli/latest/reference/rds/modify-certificates.md "../../../cli/latest/reference/rds/modify-certificates.md") command.
+This page only shows the DB instances and clusters for
+the current AWS Region. If you have databases in
+more than one AWS Region, check this page in each
+AWS Region to see all DB instances with old
+SSL/TLS certificates. 3. Choose the DB instance or
+Multi-AZ DB cluster that you want to update.
 
-The available CAs depend on the DB engine and DB engine version. When
-you use the AWS Management Console, you can choose the CA using the
-**Certificate authority** setting, as shown in the
-following image.
+You can schedule the certificate rotation for your
+next maintenance window by choosing
+**Schedule**. Apply the rotation
+immediately by choosing **Apply
+now**.
 
-![Certificate authority option](images/certificate-authority.png)
+###### Important
 
-The console only shows the CAs that are available for the DB engine
-and DB engine version. If you're using the AWS CLI, you can set the CA for
-a DB instance using the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") or [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command. You can set the CA for a Multi-AZ DB cluster using the [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") or [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command.
+If you experience connectivity issues after
+certificate expiry, use the **Apply
+now** option. 4. 1. If you choose **Schedule**,
+you are prompted to confirm the CA certificate
+rotation. This prompt also states the scheduled
+window for your update.
+![Confirm certificate rotation](images/ssl-rotate-cert-confirm-schedule.png) 2. If you choose **Apply now**,
+you are prompted to confirm the CA certificate
+rotation.
+![Confirm certificate rotation](images/ssl-rotate-cert-confirm-now.png)###### Important
 
-If you're using the AWS CLI, you can see the available CAs for your
-account by using the [describe-certificates](../../../cli/latest/reference/rds/describe-certificates.md "../../../cli/latest/reference/rds/describe-certificates.md") command. This command also shows the
-expiration date for each CA in `ValidTill` in the output. You
-can find the CAs that are available for a specific DB engine and DB
-engine version using the [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command.
+Before scheduling the CA certificate rotation on
+your database, update any client applications that
+use SSL/TLS and the server certificate to connect.
+These updates are specific to your DB engine. After
+you have updated these client applications, you can
+confirm the CA certificate rotation.
 
-The following example shows the CAs available for the default
-RDS for PostgreSQL DB engine version.
+To continue, choose the check box, and then choose
+**Confirm**. 5. Repeat steps 3 and 4 for each DB instance and cluster that you
+want to update.
 
-```
-aws rds describe-db-engine-versions --default-only --engine postgres
-```
+## Automatic server certificate rotation
 
-Your output is similar to the following. The available CAs are listed
-in `SupportedCACertificateIdentifiers`. The output also shows
+If your root CA supports automatic server certificate rotation, RDS
+automatically handles the rotation of the DB server certificate. RDS uses
+the same root CA for this automatic rotation, so you don't need to download
+a new CA bundle. See [Certificate
+authorities](UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities "UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities")
+.
+
+The rotation and validity of your DB server certificate depend on your DB
+engine:
+
+- If your DB engine supports rotation without restart, RDS
+  automatically rotates the DB server certificate without requiring
+  any action from you. RDS attempts to rotate your DB server
+  certificate in your preferred maintenance window at the DB server
+  certificate half life. The new DB server certificate is valid for 12
+  months.
+- If your DB engine doesn't support rotation without restart, Amazon RDS
+  makes a `server-certificate-rotation` Pending Maintenance Action
+  visible via Describe-pending-maintenance-actions API, at the half life of the certificate, or at least 3 months before expiry.
+  You can apply the rotation using the apply-pending-maintenance-action API. The new DB server certificate is valid for 36 months.
+
+Use the [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command and inspect the
+`SupportsCertificateRotationWithoutRestart` flag to identify
 whether the DB engine version supports rotating the certificate without
-restart in
-`SupportsCertificateRotationWithoutRestart`.
-
-```
-{
-    "DBEngineVersions": [
-        {
-            "Engine": "postgres",
-            "MajorEngineVersion": "13",
-            "EngineVersion": "13.4",
-            "DBParameterGroupFamily": "postgres13",
-            "DBEngineDescription": "PostgreSQL",
-            "DBEngineVersionDescription": "PostgreSQL 13.4-R1",
-            "ValidUpgradeTarget": [],
-            "SupportsLogExportsToCloudwatchLogs": false,
-            "SupportsReadReplica": true,
-            "SupportedFeatureNames": [
-                "Lambda"
-            ],
-            "Status": "available",
-            "SupportsParallelQuery": false,
-            "SupportsGlobalDatabases": false,
-            "SupportsBabelfish": false,
-            "SupportsCertificateRotationWithoutRestart": true,
-            "SupportedCACertificateIdentifiers": [
-                "rds-ca-rsa2048-g1",
-                "rds-ca-ecc384-g1",
-                "rds-ca-rsa4096-g1"
-            ]
-        }
-    ]
-}
-```
-
-### DB server certificate validities
-
-The validity of DB server certificate depends on the DB engine and DB
-engine version. If the DB engine version supports rotating the
-certificate without restart, the validity of the DB server certificate
-is 1 year. Otherwise the validity is 3 years.
-
-For more information about DB server certificate rotation, see [Automatic server certificate rotation](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation")
+restart. For more information, see [Setting the CA for your database](UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities.Selection "UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities.Selection")
 .
 
-### Viewing the CA for your DB instance
+## Sample
 
-You can view the details about the CA for a database by viewing the
-**Connectivity & security** tab in the console,
-as in the following image.
+script for importing certificates into your trust store
 
-![Certificate authority details](images/certificate-authority-details.png)
+The following are sample shell scripts that import the certificate bundle
+into a trust store.
 
-If you're using the AWS CLI, you can view the details about the CA for a
-DB instance by using the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command. You can view the details about the CA for a
-Multi-AZ DB cluster by using the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command.
+Each sample shell script uses keytool, which is part of the Java
+Development Kit (JDK). For information about installing the JDK, see [JDK Installation Guide](https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html "https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html").
 
-## Download
-
-certificate bundles for Amazon RDS
-
-When you connect to your database with SSL or TLS, the database instance
-requires a trust certificate from Amazon RDS. Select the appropriate link in the
-following table to download the bundle that corresponds with the
-AWS Region where you host your database.
-
-### Certificate
-
-bundles by AWS Region
-
-The certificate bundles for all AWS Regions and GovCloud (US)
-Regions contain the following root CA certificates:
-
-- `rds-ca-rsa2048-g1`
-- `rds-ca-rsa4096-g1`
-- `rds-ca-ecc384-g1`
-
-The `rds-ca-rsa4096-g1` and `rds-ca-ecc384-g1`
-certificates are not available in the following Regions:
-
-- Asia Pacific (Mumbai)
-- Asia Pacific (Melbourne)
-- Canada West (Calgary)
-- Europe (Zurich)
-- Europe (Spain)
-- Israel (Tel Aviv)
-
-Your application trust store needs to only register the root CA certificate. Do not register the intermediate
-CA certificates to your trust store as this might cause connection issues when RDS automatically rotates your DB server certificate.
-
-###### Note
-
-Amazon RDS Proxy
-uses
-certificates from the AWS Certificate Manager (ACM). If you're using RDS Proxy, you
-don't need to download Amazon RDS certificates or update
-applications that use RDS Proxy connections. For more information, see
-[Using TLS/SSL with RDS Proxy](rds-proxy.md#rds-proxy-security.tls "rds-proxy.md#rds-proxy-security.tls")
-.
-
-To download a certificate bundle for an AWS Region, select the link
-for the AWS Region that hosts your database in the following
-table.
-
-| **AWS Region**                | **Certificate bundle<br>(PEM)**                                                                                                                                                                                           | **Certificate bundle<br>(PKCS7)**                                                                                                                                                                                         |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Any commercial AWS Region     | [global-bundle.pem](https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem")                                                                | [global-bundle.p7b](https://truststore.pki.rds.amazonaws.com/global/global-bundle.p7b "https://truststore.pki.rds.amazonaws.com/global/global-bundle.p7b")                                                                |
-| US East (N. Virginia)         | [us-east-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem")                                                 | [us-east-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.p7b")                                                 |
-| US East (Ohio)                | [us-east-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.pem")                                                 | [us-east-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.p7b")                                                 |
-| US West (N. California)       | [us-west-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.pem")                                                 | [us-west-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.p7b")                                                 |
-| US West (Oregon)              | [us-west-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.pem")                                                 | [us-west-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.p7b")                                                 |
-| Africa (Cape Town)            | [af-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.pem")                                            | [af-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.p7b")                                            |
-| Asia Pacific (Hong Kong)      | [ap-east-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.pem")                                                 | [ap-east-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.p7b")                                                 |
-| Asia Pacific (Hyderabad)      | [ap-south-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.pem")                                            | [ap-south-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.p7b")                                            |
-| Asia Pacific (Jakarta)        | [ap-southeast-3-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.pem")                        | [ap-southeast-3-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.p7b")                        |
-| Asia Pacific (Malaysia)       | [ap-southeast-5-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.pem")                        | [ap-southeast-5-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.p7b")                        |
-| Asia Pacific (Melbourne)      | [ap-southeast-4-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.pem")                        | [ap-southeast-4-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.p7b")                        |
-| Asia Pacific (Mumbai)         | [ap-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.pem")                                            | [ap-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.p7b")                                            |
-| Asia Pacific (Osaka)          | [ap-northeast-3-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.pem")                        | [ap-northeast-3-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.p7b")                        |
-| Asia Pacific (Thailand)       | [ap-southeast-7-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.pem")                        | [ap-southeast-7-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.p7b")                        |
-| Asia Pacific (Tokyo)          | [ap-northeast-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.pem")                        | [ap-northeast-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.p7b")                        |
-| Asia Pacific (Seoul)          | [ap-northeast-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.pem")                        | [ap-northeast-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.p7b")                        |
-| Asia Pacific (Singapore)      | [ap-southeast-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.pem")                        | [ap-southeast-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.p7b")                        |
-| Asia Pacific (Sydney)         | [ap-southeast-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.pem")                        | [ap-southeast-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.p7b")                        |
-| Canada (Central)              | [ca-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.pem")                                  | [ca-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.p7b")                                  |
-| Canada West (Calgary)         | [ca-west-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.pem")                                                 | [ca-west-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.p7b")                                                 |
-| Europe (Frankfurt)            | [eu-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.pem")                                  | [eu-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.p7b")                                  |
-| Europe (Ireland)              | [eu-west-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.pem")                                                 | [eu-west-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.p7b")                                                 |
-| Europe (London)               | [eu-west-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.pem")                                                 | [eu-west-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.p7b")                                                 |
-| Europe (Milan)                | [eu-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.pem")                                            | [eu-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.p7b")                                            |
-| Europe (Paris)                | [eu-west-3-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.pem")                                                 | [eu-west-3-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.p7b")                                                 |
-| Europe (Spain)                | [eu-south-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.pem")                                            | [eu-south-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.p7b")                                            |
-| Europe (Stockholm)            | [eu-north-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.pem")                                            | [eu-north-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.p7b")                                            |
-| Europe (Zurich)               | [eu-central-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.pem")                                  | [eu-central-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.p7b")                                  |
-| Israel (Tel Aviv)             | [il-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.pem")                                  | [il-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.p7b")                                  |
-| Mexico (Central)              | [mx-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.pem")                                  | [mx-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.p7b")                                  |
-| Middle East (Bahrain)         | [me-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.pem")                                            | [me-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.p7b")                                            |
-| Middle East (UAE)             | [me-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.pem")                                  | [me-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.p7b")                                  |
-| South America (São Paulo)     | [sa-east-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.pem")                                                 | [sa-east-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.p7b")                                                 |
-| Any AWS GovCloud (US) Regions | [global-bundle.pem](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.pem "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.pem")                                    | [global-bundle.p7b](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.p7b "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.p7b")                                    |
-| AWS GovCloud (US-East)        | [us-gov-east-1-bundle.pem](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.pem "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.pem") | [us-gov-east-1-bundle.p7b](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.p7b "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.p7b") |
-| AWS GovCloud (US-West)        | [us-gov-west-1-bundle.pem](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.pem "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.pem") | [us-gov-west-1-bundle.p7b](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.p7b "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.p7b") |
-
-### Viewing
-
-the contents of your CA certificate
-
-To check the contents of your CA certificate bundle, use the following
-command:
+Linux
+The following is a sample shell script that imports the
+certificate bundle into a trust store on a Linux operating
+system.
 
 ```
-keytool -printcert -v -file global-bundle.pem
+
+mydir=tmp/certs
+if [ ! -e "${mydir}" ]
+then
+mkdir -p "${mydir}"
+fi truststore=${mydir}/rds-truststore.jks storepassword=`changeit`
+
+curl -sS "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"> ${mydir}/global-bundle.pem
+awk 'split_after == 1 {n++;split_after=0} /-----END CERTIFICATE-----/ {split_after=1}{print > "rds-ca-" n+1 ".pem"}' < ${mydir}/global-bundle.pem
+
+for CERT in rds-ca-*; do alias=$(openssl x509 -noout -text -in $CERT | perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print')
+  echo "Importing $alias"
+  keytool -import -file ${CERT} -alias "${alias}" -storepass ${storepassword} -keystore ${truststore} -noprompt
+  rm $CERT
+done
+
+rm ${mydir}/global-bundle.pem
+
+echo "Trust store content is: "
+
+keytool -list -v -keystore "$truststore" -storepass ${storepassword} | grep Alias | cut -d " " -f3- | while read alias
+do expiry=`keytool -list -v -keystore "$truststore" -storepass ${storepassword} -alias "${alias}" | grep Valid | perl -ne 'if(/until: (.*?)\n/) { print "$1\n"; }'`
+   echo " Certificate ${alias} expires in '$expiry'"
+done
+
+```
+
+macOS
+The following is a sample shell script that imports the
+certificate bundle into a trust store on macOS.
+
+```
+
+mydir=tmp/certs
+if [ ! -e "${mydir}" ]
+then
+mkdir -p "${mydir}"
+fi truststore=${mydir}/rds-truststore.jks storepassword=`changeit`
+
+curl -sS "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"> ${mydir}/global-bundle.pem
+split -p "-----BEGIN CERTIFICATE-----" ${mydir}/global-bundle.pem rds-ca-
+
+for CERT in rds-ca-*; do alias=$(openssl x509 -noout -text -in $CERT | perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print')
+  echo "Importing $alias"
+  keytool -import -file ${CERT} -alias "${alias}" -storepass ${storepassword} -keystore ${truststore} -noprompt
+  rm $CERT
+done
+
+rm ${mydir}/global-bundle.pem
+
+echo "Trust store content is: "
+
+keytool -list -v -keystore "$truststore" -storepass ${storepassword} | grep Alias | cut -d " " -f3- | while read alias
+do expiry=`keytool -list -v -keystore "$truststore" -storepass ${storepassword} -alias "${alias}" | grep Valid | perl -ne 'if(/until: (.*?)\n/) { print "$1\n"; }'`
+   echo " Certificate ${alias} expires in '$expiry'"
+done
+
 ```

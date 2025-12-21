@@ -1,415 +1,82 @@
-# Support for SQL Server Integration Services in Amazon RDS for SQL Server
+# Support for Transparent Data Encryption in SQL Server
 
-Microsoft SQL Server Integration Services (SSIS) is a component that you can use to perform
-a broad range of data migration tasks. SSIS is a platform for data integration and workflow
-applications. It features a data warehousing tool used for data extraction, transformation,
-and loading (ETL). You can also use this tool to automate maintenance of SQL Server
-databases and updates to multidimensional cube data.
+Amazon RDS supports using Transparent Data Encryption (TDE) to encrypt stored data on your DB instances running Microsoft SQL Server.
+TDE automatically encrypts data before it is written to storage, and automatically decrypts data when the data is read from storage.
 
-SSIS projects are organized into packages saved as XML-based .dtsx files. Packages can
-contain control flows and data flows. You use data flows to represent ETL operations. After
-deployment, packages are stored in SQL Server in the SSISDB database. SSISDB is an online
-transaction processing (OLTP) database in the full recovery mode.
+Amazon RDS supports TDE for the following SQL Server versions and editions:
 
-Amazon RDS for SQL Server supports running SSIS directly on an RDS DB instance. You can enable SSIS on an existing or new DB instance.
-SSIS is installed on the same DB instance as your database engine.
-
-RDS supports SSIS for SQL Server Standard and Enterprise Editions on the following versions:
-
-- SQL Server 2022, all versions
-- SQL Server 2019, version 15.00.4043.16.v1 and higher
-- SQL Server 2017, version 14.00.3223.3.v1 and higher
-- SQL Server 2016, version 13.00.5426.0.v1 and higher
-
-###### Contents
-
-- [Limitations and recommendations](Appendix.SQLServer.Options.md#SSIS.Limitations "Appendix.SQLServer.Options.md#SSIS.Limitations")
-- [Enabling SSIS](Appendix.SQLServer.Options.md#SSIS.Enabling "Appendix.SQLServer.Options.md#SSIS.Enabling")
-  - [Creating the option group for
-    SSIS](Appendix.SQLServer.Options.md#SSIS.OptionGroup "Appendix.SQLServer.Options.md#SSIS.OptionGroup")
-  - [Adding the SSIS option to the option group](Appendix.SQLServer.Options.md#SSIS.Add "Appendix.SQLServer.Options.md#SSIS.Add")
-  - [Creating the parameter group for
-    SSIS](Appendix.SQLServer.Options.md#SSIS.CreateParamGroup "Appendix.SQLServer.Options.md#SSIS.CreateParamGroup")
-  - [Modifying the parameter for SSIS](Appendix.SQLServer.Options.md#SSIS.ModifyParam "Appendix.SQLServer.Options.md#SSIS.ModifyParam")
-  - [Associating the option group and parameter group with your DB
-    instance](Appendix.SQLServer.Options.md#SSIS.Apply "Appendix.SQLServer.Options.md#SSIS.Apply")
-  - [Enabling S3 integration](Appendix.SQLServer.Options.md#SSIS.EnableS3 "Appendix.SQLServer.Options.md#SSIS.EnableS3")
-
-- [Administrative permissions on SSISDB](SSIS.md "SSIS.md")
-  - [Setting up a Windows-authenticated user for SSIS](SSIS.md#SSIS.Use.Auth "SSIS.md#SSIS.Use.Auth")
-
-- [Deploying an SSIS project](SSIS.md "SSIS.md")
-- [Monitoring the status of a deployment task](SSIS.md "SSIS.md")
-- [Using SSIS](SSIS.md "SSIS.md")
-  - [Setting database connection managers for SSIS projects](SSIS.md#SSIS.Use.ConnMgrs "SSIS.md#SSIS.Use.ConnMgrs")
-  - [Creating an SSIS proxy](SSIS.md#SSIS.Use.Proxy "SSIS.md#SSIS.Use.Proxy")
-  - [Scheduling an SSIS package using SQL Server Agent](SSIS.md#SSIS.Use.Schedule "SSIS.md#SSIS.Use.Schedule")
-  - [Revoking SSIS access from the proxy](SSIS.md#SSIS.Use.Revoke "SSIS.md#SSIS.Use.Revoke")
-
-- [Disable and drop SSIS database](SSIS.md "SSIS.md")
-  - [Disabling SSIS](SSIS.md#SSIS.Disable "SSIS.md#SSIS.Disable")
-  - [Dropping the SSISDB database](SSIS.md#SSIS.Drop "SSIS.md#SSIS.Drop")
-
-## Limitations and recommendations
-
-The following limitations and recommendations apply to running SSIS on RDS for SQL Server:
-
-- The DB instance must have an associated parameter group with the `clr enabled`
-  parameter set to 1. For more information, see [Modifying the parameter for SSIS](#SSIS.ModifyParam "#SSIS.ModifyParam").
+- SQL Server 2022 Standard and Enterprise Editions
+- SQL Server 2019 Standard and Enterprise Editions
+- SQL Server 2017 Enterprise Edition
+- SQL Server 2016 Enterprise Edition
 
 ###### Note
 
-If you enable the `clr enabled` parameter on SQL Server 2017 or 2019, you can't use the common language runtime
-(CLR) on your DB instance. For more information, see [Features not supported and features with limited support](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md").
+RDS for SQL Server does not support TDE for read-only databases.
 
-- The following control flow tasks are supported:
-  - Analysis Services Execute DDL Task
-  - Analysis Services Processing Task
-  - Bulk Insert Task
-  - Check Database Integrity Task
-  - Data Flow Task
-  - Data Mining Query Task
-  - Data Profiling Task
-  - Execute Package Task
-  - Execute SQL Server Agent Job Task
-  - Execute SQL Task
-  - Execute T-SQL Statement Task
-  - Notify Operator Task
-  - Rebuild Index Task
-  - Reorganize Index Task
-  - Shrink Database Task
-  - Transfer Database Task
-  - Transfer Jobs Task
-  - Transfer Logins Task
-  - Transfer SQL Server Objects Task
-  - Update Statistics Task
+Transparent Data Encryption for SQL Server provides encryption key management by using a two-tier key architecture. A certificate,
+which is generated from the database master key, is used to protect the data encryption keys. The database encryption key performs
+the actual encryption and decryption of data on the user database. Amazon RDS backs up and manages the database master key and the TDE
+certificate.
 
-- Only project deployment is supported.
-- Running SSIS packages by using SQL Server Agent is supported.
-- SSIS log records can be inserted only into user-created databases.
-- Use only the `D:\S3` folder for working with files. Files placed in any other
-  directory are deleted. Be aware of a few other file location details:
-  - Place SSIS project input and output files in the `D:\S3` folder.
-  - For the Data Flow Task, change the location for `BLOBTempStoragePath` and `BufferTempStoragePath` to a file
-    inside the `D:\S3` folder. The file path must start with `D:\S3\`.
-  - Ensure that all parameters, variables, and expressions used for file connections point
-    to the `D:\S3` folder.
-  - On Multi-AZ instances, files created by SSIS in the `D:\S3` folder are deleted after a failover. For more information, see
-    [Multi-AZ limitations for S3 integration](User.SQLServer.Options.md#S3-MAZ "User.SQLServer.Options.md#S3-MAZ").
-  - Upload the files created by SSIS in the `D:\S3` folder to
-    your Amazon S3 bucket to make them durable.
+Transparent Data Encryption is used in scenarios where you need to encrypt sensitive data. For example, you might want to provide
+data files and backups to a third party, or address security-related regulatory compliance issues. You can't encrypt the system
+databases for SQL Server, such as the `model` or `master` databases.
 
-- Import Column and Export Column transformations and the Script component on the Data Flow Task aren't supported.
-- You can't enable dump on running SSIS packages, and you can't add data taps on SSIS packages.
-- The SSIS Scale Out feature isn't supported.
-- You can't deploy projects directly. We provide RDS stored procedures to do this. For more
-  information, see [Deploying an SSIS project](SSIS.md "SSIS.md").
-- Build SSIS project (.ispac) files with the `DoNotSavePasswords` protection
-  mode for deploying on RDS.
-- SSIS isn't supported on Always On instances with read replicas.
-- You can't back up the SSISDB database that is associated with the `SSIS` option.
-- Importing and restoring the SSISDB database from other instances of SSIS
-  isn't supported.
-- You can connect to other SQL Server DB instances or to an Oracle data source. Connecting to other database engines,
-  such as MySQL or PostgreSQL, isn't supported for SSIS on RDS for SQL Server. For more information on connecting to an
-  Oracle data source, see [Linked Servers with Oracle OLEDB](Appendix.SQLServer.Options.md "Appendix.SQLServer.Options.md").
-- SSIS does not support a domain joined instance with an outgoing trust to an on-premises domain. When using an outgoing trust, run the SSIS job from an account in the local AWS domain.
+A detailed discussion of Transparent Data Encryption is beyond the scope of this guide,
+but make sure that you understand the security strengths and weaknesses of each encryption
+algorithm and key. For information about Transparent Data Encryption for SQL Server, see
+[Transparent Data
+Encryption (TDE)](http://msdn.microsoft.com/en-us/library/bb934049.aspx "http://msdn.microsoft.com/en-us/library/bb934049.aspx") in the Microsoft documentation.
 
-## Enabling SSIS
+###### Topics
 
-You enable SSIS by adding the SSIS option to your DB instance. Use the following process:
+- [Turning on TDE for RDS for SQL Server](#TDE.Enabling "#TDE.Enabling")
+- [Encrypting data on RDS for SQL Server](TDE.md "TDE.md")
+- [Backing up and restoring TDE certificates on RDS for SQL Server](TDE.md "TDE.md")
+- [Backing up and restoring TDE certificates for on-premises databases](TDE.md "TDE.md")
+- [Turning off TDE for RDS for SQL Server](TDE.md "TDE.md")
 
-1. Create a new option group, or choose an existing option group.
-2. Add the `SSIS` option to the option group.
-3. Create a new parameter group, or choose an existing parameter group.
-4. Modify the parameter group to set the `clr enabled` parameter to 1.
-5. Associate the option group and parameter group with the DB instance.
-6. Enable Amazon S3 integration.
+## Turning on TDE for RDS for SQL Server
+
+To turn on Transparent Data Encryption for an RDS for SQL Server DB instance, specify the TDE
+option in an RDS option group that's associated with that DB instance:
+
+1. Determine whether your DB instance is already associated with an option group
+   that has the TDE option. To view the option group that a DB instance is
+   associated with, use the RDS console, the [describe-db-instance](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") AWS CLI command, or the API operation [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md").
+2. If the DB instance isn't associated with an option group that has TDE turned on, you have two choices. You can
+   create an option group and add the TDE option, or you can modify the associated option group to add it.
 
 ###### Note
 
-If a database with the name SSISDB or a reserved SSIS login already exists on the DB
-instance, you can't enable SSIS on the instance.
+In the RDS console, the option is named `TRANSPARENT_DATA_ENCRYPTION`. In the AWS CLI and RDS API, it's
+named `TDE`.
 
-### Creating the option group for
+For information about creating or modifying an option group, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md"). For information about adding an option to an option group, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption"). 3. Associate the DB instance with the option group that has the TDE option. For information about associating a DB
+instance with an option group, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-SSIS
+### Option group considerations
 
-To work with SSIS, create an option group or modify an option group that corresponds to
-the SQL Server edition and version of the DB instance that you plan to use. To do
-this, use the AWS Management Console or the AWS CLI.
+The TDE option is a persistent option. You can't remove it from an option
+group unless all DB instances and backups are no longer associated with the option
+group. After you add the TDE option to an option group, the option group can be
+associated only with DB instances that use TDE. For more information about
+persistent options in an option group, see [Option groups overview](USER_WorkingWithOptionGroups.md#Overview.OptionGroups "USER_WorkingWithOptionGroups.md#Overview.OptionGroups").
 
-The following procedure creates an option group for SQL Server Standard Edition 2016.
+Because the TDE option is a persistent option, you can have a conflict between the option group and an associated DB
+instance. You can have a conflict in the following situations:
 
-###### To create the option group
+- The current option group has the TDE option, and you replace it with an
+  option group that doesn't have the TDE option.
+- You restore from a DB snapshot to a new DB instance that doesn't have an option group that contains the TDE
+  option. For more information about this scenario, see [Considerations for option groups](USER_CopySnapshot.md#USER_CopySnapshot.Options "USER_CopySnapshot.md#USER_CopySnapshot.Options").
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose **Create group**.
-4. In the **Create option group** window, do the following:
-   1. For **Name**, enter a name for the option group that is unique
-      within your AWS account, such as
-      `ssis-se-2016`. The name can
-      contain only letters, digits, and hyphens.
-   2. For **Description**, enter a brief description of the option group,
-      such as `SSIS option group for SQL Server SE
-2016`. The description is used for
-      display purposes.
-   3. For **Engine**, choose **sqlserver-se**.
-   4. For **Major engine version**, choose
-      **13.00**.
+### SQL Server performance considerations
 
-5. Choose **Create**.
-   The following procedure creates an option group for SQL Server Standard Edition
-6.
+Using Transparent Data Encryption can affect the performance of a SQL Server DB
+instance.
 
-###### To create the option group
-
-- Run one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds create-option-group \
-    --option-group-name `ssis-se-2016` \
-    --engine-name `sqlserver-se` \
-    --major-engine-version `13.00` \
-    --option-group-description "`SSIS option group for SQL Server SE 2016`"
-```
-
-For Windows:
-
-```
-aws rds create-option-group ^
-    --option-group-name `ssis-se-2016` ^
-    --engine-name `sqlserver-se` ^
-    --major-engine-version `13.00` ^
-    --option-group-description "`SSIS option group for SQL Server SE 2016`"
-```
-
-### Adding the SSIS option to the option group
-
-Next, use the AWS Management Console or the AWS CLI to add the `SSIS` option to your option
-group.
-
-###### To add the SSIS option
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group that you just created, **ssis-se-2016** in this example.
-4. Choose **Add option**.
-5. Under **Option details**, choose
-   **SSIS** for **Option
-   name**.
-6. Under **Scheduling**, choose whether to add the
-   option immediately or at the next maintenance window.
-7. Choose **Add option**.
-
-###### To add the SSIS option
-
-- Add the `SSIS` option to the option group.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds add-option-to-option-group \
-    --option-group-name `ssis-se-2016` \
-    --options OptionName=SSIS \
-    --apply-immediately
-```
-
-For Windows:
-
-```
-aws rds add-option-to-option-group ^
-    --option-group-name `ssis-se-2016` ^
-    --options OptionName=SSIS ^
-    --apply-immediately
-```
-
-### Creating the parameter group for
-
-SSIS
-
-Create or modify a parameter group for the `clr enabled` parameter that
-corresponds to the SQL Server edition and version of the DB instance that you plan
-to use for SSIS.
-
-The following procedure creates a parameter group for SQL Server Standard Edition 2016.
-
-###### To create the parameter group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Parameter groups**.
-3. Choose **Create parameter group**.
-4. In the **Create parameter group** pane, do the following:
-   1. For **Parameter group family**, choose
-      **sqlserver-se-13.0**.
-   2. For **Group name**, enter an identifier for the parameter group,
-      such as
-      `ssis-sqlserver-se-13`.
-   3. For **Description**, enter `clr enabled parameter
-group`.
-
-5. Choose **Create**.
-   The following procedure creates a parameter group for SQL Server Standard Edition
-6.
-
-###### To create the parameter group
-
-- Run one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds create-db-parameter-group \
-    --db-parameter-group-name `ssis-sqlserver-se-13` \
-    --db-parameter-group-family "`sqlserver-se-13.0`" \
-    --description "`clr enabled parameter group`"
-```
-
-For Windows:
-
-```
-aws rds create-db-parameter-group ^
-    --db-parameter-group-name `ssis-sqlserver-se-13` ^
-    --db-parameter-group-family "`sqlserver-se-13.0`" ^
-    --description "`clr enabled parameter group`"
-```
-
-### Modifying the parameter for SSIS
-
-Modify the `clr enabled` parameter in the parameter group that corresponds to
-the SQL Server edition and version of your DB instance. For SSIS, set the `clr
- enabled` parameter to 1.
-
-The following procedure modifies the parameter group that you created for SQL Server
-Standard Edition 2016.
-
-###### To modify the parameter group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Parameter groups**.
-3. Choose the parameter group, such as **ssis-sqlserver-se-13**.
-4. Under **Parameters**, filter the parameter list for `clr`.
-5. Choose **clr enabled**.
-6. Choose **Edit parameters**.
-7. From **Values**, choose **1**.
-8. Choose **Save changes**.
-   The following procedure modifies the parameter group that you created for SQL Server
-   Standard Edition 2016.
-
-###### To modify the parameter group
-
-- Run one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds modify-db-parameter-group \
-    --db-parameter-group-name `ssis-sqlserver-se-13` \
-    --parameters "ParameterName='clr enabled',ParameterValue=`1`,ApplyMethod=immediate"
-```
-
-For Windows:
-
-```
-aws rds modify-db-parameter-group ^
-    --db-parameter-group-name `ssis-sqlserver-se-13` ^
-    --parameters "ParameterName='clr enabled',ParameterValue=`1`,ApplyMethod=immediate"
-```
-
-### Associating the option group and parameter group with your DB
-
-instance
-
-To associate the SSIS option group and parameter group with your DB instance, use the
-AWS Management Console or the AWS CLI
-
-###### Note
-
-If you use an existing instance, it must already have an Active Directory domain and AWS Identity and Access Management (IAM) role associated with it. If you create a new instance, specify an
-existing Active Directory domain and IAM role. For more information, see [Working with Active Directory with RDS for SQL Server](User.SQLServer.md "User.SQLServer.md").
-
-To finish enabling SSIS, associate your SSIS option group and parameter group with a new
-or existing DB instance:
-
-- For a new DB instance, associate them when you launch the instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-- For an existing DB instance, associate them by modifying the instance. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-  You can associate the SSIS option group and parameter group with a new or existing DB instance.
-
-###### To create an instance with the SSIS option group and parameter group
-
-- Specify the same DB engine type and major version as you used when creating the option group.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds create-db-instance \
-    --db-instance-identifier `myssisinstance` \
-    --db-instance-class `db.m5.2xlarge` \
-    --engine `sqlserver-se` \
-    --engine-version `13.00.5426.0.v1` \
-    --allocated-storage `100` \
-    --manage-master-user-password \
-    --master-username `admin` \
-    --storage-type `gp2` \
-    --license-model `li` \
-    --domain-iam-role-name `my-directory-iam-role` \
-    --domain `my-domain-id` \
-    --option-group-name `ssis-se-2016` \
-    --db-parameter-group-name `ssis-sqlserver-se-13`
-```
-
-For Windows:
-
-```
-aws rds create-db-instance ^
-    --db-instance-identifier `myssisinstance` ^
-    --db-instance-class `db.m5.2xlarge` ^
-    --engine `sqlserver-se` ^
-    --engine-version `13.00.5426.0.v1` ^
-    --allocated-storage `100` ^
-    --manage-master-user-password ^
-    --master-username `admin` ^
-    --storage-type `gp2` ^
-    --license-model `li` ^
-    --domain-iam-role-name `my-directory-iam-role` ^
-    --domain `my-domain-id` ^
-    --option-group-name `ssis-se-2016` ^
-    --db-parameter-group-name `ssis-sqlserver-se-13`
-```
-
-###### To modify an instance and associate the SSIS option group and parameter group
-
-- Run one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds modify-db-instance \
-    --db-instance-identifier `myssisinstance` \
-    --option-group-name `ssis-se-2016` \
-    --db-parameter-group-name `ssis-sqlserver-se-13` \
-    --apply-immediately
-```
-
-For Windows:
-
-```
-aws rds modify-db-instance ^
-    --db-instance-identifier `myssisinstance` ^
-    --option-group-name `ssis-se-2016` ^
-    --db-parameter-group-name `ssis-sqlserver-se-13` ^
-    --apply-immediately
-```
-
-### Enabling S3 integration
-
-To download SSIS project (.ispac) files to your host for deployment, use S3 file
-integration. For more information, see [Integrating an Amazon RDS for SQL Server
-DB instance with Amazon S3](User.SQLServer.Options.md "User.SQLServer.Options.md").
+Performance for unencrypted databases can also be degraded if the databases are on a DB instance that has at least one
+encrypted database. As a result, we recommend that you keep encrypted and unencrypted databases on separate DB
+instances.

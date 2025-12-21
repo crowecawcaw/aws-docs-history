@@ -1,148 +1,115 @@
-# Oracle UTL_MAIL
+# Oracle Label Security
 
-Amazon RDS supports Oracle UTL_MAIL
-through the use of the UTL_MAIL option and SMTP servers.
-You can send email directly from your database by using the UTL_MAIL package.
-Amazon RDS supports UTL_MAIL for the following versions of Oracle:
+Amazon RDS supports Oracle Label Security for the Enterprise Edition of Oracle Database through the use of the OLS
+option.
 
-- Oracle Database 21c (21.0.0.0), all versions
-- Oracle Database 19c (19.0.0.0), all versions
-  The following are some limitations to using UTL_MAIL:
+Most database security controls access at the object level. Oracle Label Security provides fine-grained control of
+access to individual table rows. For example, you can use Label Security to enforce regulatory compliance with a
+policy-based administration model. You can use Label Security policies to control access to sensitive data, and
+restrict access to only users with the appropriate clearance level. For more information, see [Introduction to Oracle Label Security](https://docs.oracle.com/database/121/OLSAG/intro.htm#OLSAG001 "https://docs.oracle.com/database/121/OLSAG/intro.htm#OLSAG001")
+in the Oracle documentation.
 
-- UTL_MAIL does not support Transport Layer Security (TLS)
-  and therefore emails are not encrypted.
+###### Topics
 
-To connect securely to remote SSL/TLS resources by creating and uploading custom Oracle wallets, follow the instructions in
-[Configuring UTL_HTTP access using certificates and an Oracle wallet](Oracle.Concepts.md "Oracle.Concepts.md").
+- [Requirements for Oracle Label
+  Security](#Oracle.Options.OLS.PreReqs "#Oracle.Options.OLS.PreReqs")
+- [Considerations when using Oracle Label
+  Security](#Oracle.Options.OLS.Using "#Oracle.Options.OLS.Using")
+- [Adding the Oracle Label Security option](#Oracle.Options.OLS.Add "#Oracle.Options.OLS.Add")
+- [Troubleshooting](#Oracle.Options.OLS.Troubleshooting "#Oracle.Options.OLS.Troubleshooting")
 
-The specific certificates that are required for your wallet vary by service. For AWS services, these can typically be found
-in the [Amazon trust services repository](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/").
+## Requirements for Oracle Label
 
-- UTL_MAIL does not support authentication with SMTP servers.
-- You can only send a single attachment in an email.
-- You can't send attachments larger than 32 K.
-- You can only use ASCII and
-  Extended Binary Coded Decimal Interchange Code (EBCDIC) character encodings.
-- SMTP port (25) is throttled based on the elastic network interface owner's policies.
-  When you enable UTL_MAIL,
-  only the master user for your DB instance is granted the execute privilege.
-  If necessary, the master user can grant the execute privilege to other users
-  so that they can use UTL_MAIL.
+Security
 
-###### Important
+Familiarize yourself with the following requirements for Oracle Label Security:
 
-We recommend that you enable Oracle's built-in auditing feature
-to track the use of UTL_MAIL procedures.
+- Your DB instance must use the Bring Your Own License model.
+  For more information, see
+  [RDS for Oracle licensing options](Oracle.Concepts.md "Oracle.Concepts.md").
+- You must have a valid license for Oracle Enterprise Edition
+  with Software Update License and Support.
+- Your Oracle license must include the Label Security option.
 
-## Prerequisites for Oracle UTL_MAIL
+## Considerations when using Oracle Label
 
-The following are prerequisites for using Oracle UTL_MAIL:
+Security
 
-- One or more SMTP servers,
-  and the corresponding IP addresses
-  or public or private Domain Name Server (DNS) names.
-  For more information about
-  private DNS names resolved through a custom DNS server, see
-  [Setting up a custom DNS
-  server](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CustomDNS "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CustomDNS").
+To use Oracle Label Security, you create policies that control access to specific rows
+in your tables. For more information, see [Creating an
+Oracle Label Security policy](https://docs.oracle.com/database/121/OLSAG/getstrtd.htm#OLSAG3096 "https://docs.oracle.com/database/121/OLSAG/getstrtd.htm#OLSAG3096") in the Oracle documentation.
 
-## Adding the Oracle UTL_MAIL option
+Consider the following:
 
-The general process for adding the Oracle UTL_MAIL option to a DB instance is the following:
+- Oracle Label Security is a permanent and persistent option. Because the option
+  is permanent, you can't remove it from an option group. If you add Oracle Label
+  Security to an option group and associate it with your DB instance, you can later
+  associate a different option group with your DB instance, but this group must also
+  contain the Oracle Label Security option.
+- When you work with Label Security, you perform all actions as the
+  `LBAC_DBA` role. The master user for your DB instance is granted the
+  `LBAC_DBA` role. You can grant the `LBAC_DBA` role to
+  other users so that they can administer Label Security policies.
+- Make sure to grant access to the `OLS_ENFORCEMENT` package to any
+  new users who require access to Oracle Label Security. To grant access to the
+  `OLS_ENFORCEMENT` package, connect to the DB instance as the master
+  user and run the following SQL statement:
+
+```
+GRANT ALL ON LBACSYS.OLS_ENFORCEMENT TO `username`;
+```
+
+- You can configure Label Security through Oracle Enterprise Manager (OEM) Cloud
+  Control. Amazon RDS supports OEM Cloud Control through the Management Agent option.
+  For more information, see [Oracle Management Agent for Enterprise Manager
+  Cloud Control](Oracle.Options.md "Oracle.Options.md").
+
+## Adding the Oracle Label Security option
+
+The general process for adding the Oracle Label Security option to a DB instance is the following:
 
 1. Create a new option group, or copy or modify an existing option group.
 2. Add the option to the option group.
-3. Associate the option group with the DB instance.
 
-After you add the UTL_MAIL option,
-as soon as the option group is active, UTL_MAIL is active.
+###### Important
 
-###### To add the UTL_MAIL option to a DB instance
+Oracle Label Security is a permanent and persistent option. 3. Associate the option group with the DB instance.
+
+After you add the Label Security option,
+as soon as the option group is active, Label Security is active.
+
+###### To add the label security option to a DB instance
 
 1. Determine the option group you want to use.
    You can create a new option group or use an existing option group.
    If you want to use an existing option group, skip to the next step.
    Otherwise, create a custom DB option group with the following settings:
    1. For **Engine**,
-      choose the edition of Oracle you want to use.
+      choose **oracle-ee**.
    2. For **Major engine version**,
       choose the version of your DB instance.For more information,
       see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
 
-2. Add the **UTL_MAIL** option to the option group.
+2. Add the **OLS** option to the option group.
    For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
-3. Apply the option group to a new or existing DB instance:
-   - For a new DB instance, you apply the option group when you launch the instance.
+
+###### Important
+
+If you add Label Security to an existing option group
+that is already attached to one or more DB instances,
+all the DB instances are restarted. 3. Apply the option group to a new or existing DB instance:
+
+    * For a new DB instance, you apply the option group when you launch the instance.
      For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-   - For an existing DB instance, you apply the option group by modifying the instance and attaching the new option group.
-     For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-
-## Using Oracle UTL_MAIL
-
-After you enable the UTL_MAIL option,
-you must configure the SMTP server
-before you can begin using it.
-
-You configure the SMTP server
-by setting the SMTP_OUT_SERVER parameter
-to a valid IP address or public DNS name.
-For the SMTP_OUT_SERVER parameter,
-you can specify a comma-separated list of the addresses of multiple servers.
-If the first server is unavailable,
-UTL_MAIL tries the next server, and so on.
-
-You can set the default SMTP_OUT_SERVER for a DB instance
-by using a [DB parameter group](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-You can set the SMTP_OUT_SERVER parameter for a session
-by running the following code on your database on your DB instance.
-
-```
-
-ALTER SESSION SET smtp_out_server = `mailserver.domain.com:25`;
-
-```
-
-After the UTL_MAIL option is enabled,
-and your SMTP_OUT_SERVER is configured,
-you can send mail by using the `SEND` procedure.
-For more information, see
-[UTL_MAIL](http://docs.oracle.com/cd/B19306_01/appdev.102/b14258/u_mail.htm#BABFJJBD "http://docs.oracle.com/cd/B19306_01/appdev.102/b14258/u_mail.htm#BABFJJBD")
-in the Oracle documentation.
-
-## Removing the Oracle UTL_MAIL option
-
-You can remove Oracle UTL_MAIL from a DB instance.
-
-To remove UTL_MAIL from a DB instance, do one of the following:
-
-- To remove UTL_MAIL from multiple DB instances,
-  remove the UTL_MAIL option from the option group they belong to.
-  This change affects all DB instances that use the option group.
-  For more information, see [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption").
-- To remove UTL_MAIL from a single DB instance,
-  modify the DB instance
-  and specify a different option group
-  that doesn't include the UTL_MAIL option.
-  You can specify the default (empty) option group, or a
-  different custom option group.
-  For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+    * For an existing DB instance, you apply the option group by modifying the instance and attaching
+     the new option group. When you add the Label Security option to an existing DB instance, a brief
+     outage occurs while your DB instance is automatically restarted. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
 ## Troubleshooting
 
-The following are issues you might encounter when you use UTL_MAIL with Amazon RDS.
+The following are issues you might encounter when you use Oracle Label Security.
 
-- Throttling.
-  SMTP port (25) is throttled based on the elastic network interface owner's policies.
-  If you can successfully send email by using UTL_MAIL,
-  and you see the error `ORA-29278: SMTP transient error: 421 Service not available`,
-  you are possibly being throttled.
-  If you experience throttling with email delivery,
-  we recommend that you implement a backoff algorithm.
-  For more information about backoff algorithms, see
-  [Error retries and exponential backoff in AWS](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md")
-  and
-  [How to handle a "throttling – Maximum sending rate exceeded" error](https://aws.amazon.com/blogs/ses/how-to-handle-a-throttling-maximum-sending-rate-exceeded-error/ "https://aws.amazon.com/blogs/ses/how-to-handle-a-throttling-maximum-sending-rate-exceeded-error/").
-
-You can request that this throttle be removed. For more information, see
-[How do I remove the throttle on port 25 from my EC2 instance?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/").
+| Issue                                                                                                                                          | Troubleshooting suggestions                                                                                                                                                                                                                                                                                                                                                         |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| When you try to create a policy, you see an error message similar<br>to the following: `insufficient authorization for the SYSDBA<br>package`. | A known issue with Oracle's Label Security feature prevents users<br>with usernames of 16 or 24 characters from running Label Security<br>commands. You can create a new user with a different number of<br>characters, grant LBAC_DBA to the new user, log in as the new user,<br>and run the OLS commands as the new user. For additional<br>information, contact Oracle Support. |

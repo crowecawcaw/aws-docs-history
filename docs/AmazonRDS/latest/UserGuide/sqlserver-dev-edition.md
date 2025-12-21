@@ -1,61 +1,92 @@
-# Creating an RDS for SQL Server Developer Edition DB instance
+# Working with SQL Server Developer Edition on RDS for SQL Server
 
-Launching Developer Edition instance on RDS for SQL Server follows a two-step process: first create a CEV with `create-custom-db-engine-version`, Once your custom engine version is in the available state, you can create Amazon RDS database instances using the CEV.
+RDS for SQL Server supports SQL Server Developer Edition. Developer Edition includes all SQL Server Enterprise Edition features but is licensed only for non-production use. You can create RDS for SQL Server Developer Edition instances using your own installation media through the custom engine version (CEV) feature.
 
-**Key differences for Developer Edition instance creation**
+## Benefits
 
-| Parameter          | Developer Edition                                              |
-| ------------------ | -------------------------------------------------------------- |
-| `--engine`         | sqlserver-dev-ee                                               |
-| `--engine-version` | Custom engine version (e.g., 16.00.4215.2.cev-dev-ss2022-cu21) |
-| `--license-model`  | bring-your-own-license                                         |
+You can use RDS for SQL Server Developer Edition to:
 
-To create a SQL Server Developer Edition DB instance, use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command with the following parameters:
+- Lower costs in development and test environments while maintaining feature parity with production databases.
+- Access Enterprise Edition capabilities in non-production environments without Enterprise licensing fees.
+- Use Amazon RDS-automated management features, including backups, patching, and monitoring.
 
-The following options are required:
+###### Note
 
-- `--db-instance-identifier`
-- `--db-instance-class`
-- `--engine` – `sqlserver-dev-ee`
-- `--region`
-  **Examples:**
+SQL Server Developer Edition is licensed for development and testing purposes only and cannot be used in production environments.
 
-For Linux, macOS, or Unix:
+## Region availability
+
+RDS for SQL Server Developer Edition is available in the following AWS Regions:
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (Oregon)
+- US West (N. California)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Seoul)
+- Asia Pacific (Singapore)
+- Asia Pacific (Osaka)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Europe (Ireland)
+- Europe (Frankfurt)
+- Europe (London)
+- Europe (Stockholm)
+- Europe (Paris)
+- Canada (Central)
+- South America (São Paulo)
+- Africa (Cape Town)
+
+## Licensing and usage
+
+SQL Server Developer Edition is licensed by Microsoft for development and test environments only. You cannot use Developer Edition as a production server. When you use SQL Server Developer Edition on Amazon RDS, you are responsible for complying with Microsoft's SQL Server Developer Edition licensing terms. You pay only for the AWS infrastructure costs - there is no additional SQL Server licensing fee. For pricing details, see [RDS for SQL Server pricing](https://aws.amazon.com/rds/sqlserver/pricing/ "https://aws.amazon.com/rds/sqlserver/pricing/").
+
+## Prerequisites
+
+Before using SQL Server Developer Edition on RDS for SQL Server, ensure you have the following requirements:
+
+- You must obtain the installation binaries directly from Microsoft and ensure compliance with Microsoft's licensing terms.
+- You must have access to use the following resources to create a Developer Edition DB instance:
+  - AWS account with `AmazonRDSFullAccess` and `s3:GetObject` permissions.
+
+- An Amazon S3 bucket is required for storing installation media. You will need an ISO and cumulative update file to upload to the Amazon S3 bucket as part of CEV creation. For more information, see [Uploading installation media to an Amazon S3 bucket](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md").
+- All installation media files must reside within the same Amazon S3 bucket and the same folder path within that Amazon S3 bucket in the same Region where the custom engine version is created.
+
+### Supported versions
+
+Developer Edition on RDS for SQL Server supports the following versions:
+
+- SQL Server 2022 CU 21 (16.00.4215.2)
+
+To list all supported engine versions for Developer Edition CEV creation, use the following AWS CLI command:
 
 ```
-aws rds create-db-instance \
---db-instance-identifier my-dev-sqlserver \
---db-instance-class db.m6i.xlarge \
---engine sqlserver-dev-ee \
---engine-version `16.00.4215.2.my-dev-cev` \
---allocated-storage 200 \
---master-username admin \
---master-user-password `changeThisPassword` \
---license-model bring-your-own-license \
---no-multi-az \
---vpc-security-group-ids `sg-xxxxxxxxx` \
---db-subnet-group-name `my-db-subnet-group` \
---backup-retention-period 7 \
---region `us-west-2`
+aws rds describe-db-engine-versions --engine sqlserver-dev-ee --output json --query "{DBEngineVersions: DBEngineVersions[?Status=='requires-custom-engine-version'].{Engine: Engine, EngineVersion: EngineVersion, Status: Status, DBEngineVersionDescription: DBEngineVersionDescription}}"
 ```
 
-For Windows:
+The command returns output similar to the following example:
 
 ```
-aws rds create-db-instance ^
---db-instance-identifier my-dev-sqlserver ^
---db-instance-class db.m6i.xlarge ^
---engine sqlserver-dev-ee ^
---engine-version `16.00.4215.2.cev-dev-ss2022-cu21` ^
---allocated-storage 200 ^
---master-username admin ^
---master-user-password `master_user_password` ^
---license-model bring-your-own-license ^
---no-multi-az ^
---vpc-security-group-ids `sg-xxxxxxxxx` ^
---db-subnet-group-name `my-db-subnet-group` ^
---backup-retention-period 7 ^
---region us-west-2
+{
+    "DBEngineVersions": [
+        {
+            "Engine": "sqlserver-dev-ee",
+            "EngineVersion": "`16.00.4215.2.v1`",
+            "Status": "requires-custom-engine-version",
+            "DBEngineDescription": "Microsoft SQL Server Enterprise Developer Edition",
+            "DBEngineVersionDescription": "SQL Server 2022 16.00.4215.2.v1"
+        }
+    ]
+}
 ```
 
-Refer to [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating") to create using the AWS console.
+The engine version status as `requires_custom_engine_version` identifies template engine versions that are supported. These templates show which SQL Server versions you can import.
+
+## Limitations
+
+The following limitations apply to SQL Server Developer Edition on Amazon RDS:
+
+- Currently only supported on M6i and R6i instance classes.
+- Multi-AZ deployments and read replicas are not supported.
+- You must provide and manage your own SQL Server installation media.
+- Custom engine versions for SQL Server Developer Edition (sqlserver-dev-ee) cannot be shared cross-Region or cross-account.

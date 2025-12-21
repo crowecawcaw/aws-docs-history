@@ -1,72 +1,45 @@
-# Overview of importing data from Amazon S3
+# Installing the aws_s3 extension
 
-data
+Before you can use Amazon S3 with your
+RDS for PostgreSQL DB instance, you need to install the
+`aws_s3` extension. This extension provides functions for importing data from an Amazon S3. It also provides
+functions for exporting data from an RDS for PostgreSQL DB instance
+to an Amazon S3 bucket. For more information, see
+[Exporting data from an RDS for PostgreSQL
+DB instance to Amazon S3](postgresql-s3-export.md "postgresql-s3-export.md").
 
-###### To import S3 data into Amazon RDS
+The `aws_s3` extension depends on some of the helper functions in the
+`aws_commons` extension, which is installed automatically when needed.
 
-First, gather the details that you need to supply to the function. These include the name of the table on
+###### To install the `aws_s3` extension
 
-your RDS for PostgreSQL DB instance, and the
-bucket name, file path, file type, and AWS Region where the Amazon S3 data is stored.
-For more information, see [View an object](../../../AmazonS3/latest/userguide/OpeningAnObject.md "../../../AmazonS3/latest/userguide/OpeningAnObject.md") in the
-_Amazon Simple Storage Service User Guide_.
-
-###### Note
-
-Multi part data import from Amazon S3 isn't currently supported.
-
-1. Get the name of the table into which the `aws_s3.table_import_from_s3`
-   function is to import the data. As an example, the following command
-   creates a table `t1` that can be used in later steps.
+1. Use psql (or pgAdmin) to connect to the RDS for PostgreSQL DB instance
+   as a user that has `rds_superuser` privileges. If you kept the default name during the setup
+   process, you connect as `postgres`.
 
 ```
-`postgres=>` CREATE TABLE t1
-    (col1 varchar(80),
-    col2 varchar(80),
-    col3 varchar(80));
-
+psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password
 ```
 
-2. Get the details about the Amazon S3 bucket and the data to import.
-   To do this, open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"), and choose **Buckets**.
-   Find the bucket containing your data in the list. Choose the bucket, open its Object overview page, and then
-   choose Properties.
-
-Make a note of the bucket name, path, the AWS Region, and file type. You need
-the Amazon Resource Name (ARN) later, to set up access to Amazon S3 through an IAM role.
-For more more information, see [Setting up access to an Amazon S3
-bucket](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md").
-The image following shows an example.
-
-![Image of a file object in an Amazon S3 bucket.](images/aws_s3_import-export_s3_bucket-info.png) 3. You can verify the path to the data on the Amazon S3 bucket by using the AWS CLI command `aws s3 cp`.
-If the information is correct, this command downloads a copy of the Amazon S3 file.
+2. To install the extension, run the following command.
 
 ```
-aws s3 cp s3://`amzn-s3-demo-bucket`/`sample_file_path` ./
+`postgres=>` CREATE EXTENSION aws_s3 CASCADE;
+`NOTICE: installing required extension "aws_commons"
+CREATE EXTENSION`
 ```
 
-4. Set up permissions on your
-   RDS for PostgreSQL DB instance to allow access to the file on the
-   Amazon S3 bucket. To do so, you use either an AWS Identity and Access Management (IAM) role or security
-   credentials. For more information, see [Setting up access to an Amazon S3
-   bucket](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md").
-5. Supply the path and other Amazon S3 object details gathered (see step 2) to the
-   `create_s3_uri` function to construct an Amazon S3 URI object. To learn
-   more about this function, see [aws_commons.create_s3_uri](USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri "USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri").
-   The following is an example of constructing this object during a psql session.
+3. To verify that the extension is installed, you can use the psql `\dx` metacommand.
 
 ```
-`postgres=>` SELECT aws_commons.create_s3_uri(
-   'docs-lab-store-for-rpg',
-   'versions_and_jdks_listing.csv',
-   'us-west-1'
-) AS s3_uri \gset
+`postgres=>` \dx
+ `List of installed extensions
+ Name | Version | Schema | Description
+-------------+---------+------------+---------------------------------------------
+ aws_commons | 1.2 | public | Common data types across AWS services
+ aws_s3 | 1.1 | public | AWS S3 extension for importing data from S3
+ plpgsql | 1.0 | pg_catalog | PL/pgSQL procedural language
+(3 rows)`
 ```
 
-In the next step, you pass this object (`aws_commons._s3_uri_1`) to the
-`aws_s3.table_import_from_s3` function to import the data to the table. 6. Invoke the `aws_s3.table_import_from_s3`
-function to import the data from Amazon S3 into your table.
-For reference information, see
-[aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3").
-
-For examples, see [Importing data from Amazon S3 to your RDS for PostgreSQL DB instance](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md").
+The functions for importing data from Amazon S3 and exporting data to Amazon S3 are now available to use.

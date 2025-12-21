@@ -1,13 +1,8 @@
-# Viewing and listing database log files
+# Downloading a database log file
 
-You can view database log files for your Amazon RDS DB engine by
-using the AWS Management Console. You can list what log files are available for download or monitoring by using the AWS CLI or Amazon RDS API.
+You can use the AWS Management Console, AWS CLI, or API to download a database log file.
 
-###### Note
-
-If you can't view the list of log files for an existing RDS for Oracle DB instance, reboot the instance to view the list.
-
-###### To view a database log file
+###### To download a database log file
 
 1. Open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -15,18 +10,40 @@ If you can't view the list of log files for an existing RDS for Oracle DB instan
 3. Choose the name of the DB instance that has the log file that you want to view.
 4. Choose the **Logs & events** tab.
 5. Scroll down to the **Logs** section.
-6. (Optional) Enter a search term to filter your results.
-7. Choose the log that you want to view, and then choose **View**.
-   To list the available database log files for a DB instance, use the AWS CLI [`describe-db-log-files`](../../../cli/latest/reference/rds/describe-db-log-files.md "../../../cli/latest/reference/rds/describe-db-log-files.md")
-   command.
+6. In the **Logs** section, choose the button next to the log that you want to
+   download, and then choose **Download**.
+7. Open the context (right-click) menu for the link provided, and then choose **Save Link
+   As**. Enter the location where you want the log file to be saved, and then choose
+   **Save**.
 
-The following example returns a list of log files for a DB instance named
-`my-db-instance`.
+![viewing log file](images/log_download2.png)
+To download a database log file, use the AWS CLI command [`download-db-log-file-portion`](../../../cli/latest/reference/rds/download-db-log-file-portion.md "../../../cli/latest/reference/rds/download-db-log-file-portion.md"). By default, this command downloads only the
+latest portion of a log file. However, you can download an entire file by specifying the parameter
+`--starting-token 0`.
+
+The following example shows how to download the entire contents of a log file called
+_log/ERROR.4_ and store it in a local file called
+_errorlog.txt_.
 
 ###### Example
 
+For Linux, macOS, or Unix:
+
 ```
-aws rds describe-db-log-files --db-instance-identifier my-db-instance
+aws rds download-db-log-file-portion \
+    --db-instance-identifier `myexampledb` \
+    --starting-token 0 --output text \
+    --log-file-name `log/ERROR.4` > `errorlog.txt`
 ```
 
-To list the available database log files for a DB instance, use the Amazon RDS API [`DescribeDBLogFiles`](../APIReference/API_DescribeDBLogFiles.md "../APIReference/API_DescribeDBLogFiles.md") action.
+For Windows:
+
+```
+aws rds download-db-log-file-portion ^
+    --db-instance-identifier `myexampledb` ^
+    --starting-token 0 --output text ^
+    --log-file-name `log/ERROR.4` > `errorlog.txt`
+```
+
+To download a database log file, use the Amazon RDS API [`DownloadDBLogFilePortion`](../APIReference/API_DownloadDBLogFilePortion.md "../APIReference/API_DownloadDBLogFilePortion.md")
+action.

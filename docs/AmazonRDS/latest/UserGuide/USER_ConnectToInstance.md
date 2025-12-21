@@ -1,77 +1,52 @@
-# Finding the connection
+# Connecting to your MySQL DB instance
 
-information for an RDS for MySQL DB instance
+Before you can connect to a DB instance running the MySQL database engine, you must create a DB instance.
+For information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+After Amazon RDS provisions your DB instance, you can use any standard MySQL
+client application or utility to connect to the instance. In the connection string, you
+specify the DNS address from the DB instance endpoint as the host parameter, and specify the
+port number from the DB instance endpoint as the port parameter.
 
-The connection information for a DB instance includes its endpoint, port, and a valid
-database user, such as the master user. For example, suppose that an endpoint value is
-`mydb.123456789012.us-east-1.rds.amazonaws.com`. In this case, the port
-value is `3306`, and the database user is `admin`. Given this
-information, you specify the following values in a connection string:
+To authenticate to your RDS DB instance, you can use one of the authentication methods for
+MySQL and AWS Identity and Access Management (IAM) database authentication:
 
-- For host or host name or DNS name, specify
-  `mydb.123456789012.us-east-1.rds.amazonaws.com`.
-- For port, specify `3306`.
-- For user, specify `admin`.
-  To connect to a DB instance, use any client for the MySQL DB engine. For example, you might
-  use the MySQL command-line client or MySQL Workbench.
+- To learn how to authenticate to MySQL using one of the authentication methods for MySQL,
+  see [Authentication method](https://dev.mysql.com/doc/internals/en/authentication-method.html "https://dev.mysql.com/doc/internals/en/authentication-method.html") in the MySQL documentation.
+- To learn how to authenticate to MySQL using IAM database authentication, see
+  [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md").
+  You can connect to a MySQL DB instance by using tools like the MySQL command-line client.
+  For more information on using the MySQL command-line client, see [mysql - the MySQL command-line
+  client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html "https://dev.mysql.com/doc/refman/8.0/en/mysql.html") in the MySQL documentation. One GUI-based application you can use to
+  connect is MySQL Workbench. For more information, see the [Download MySQL Workbench](http://dev.mysql.com/downloads/workbench/ "http://dev.mysql.com/downloads/workbench/") page.
+  For information about installing MySQL (including the MySQL command-line client), see [Installing and upgrading
+  MySQL](https://dev.mysql.com/doc/refman/8.0/en/installing.html "https://dev.mysql.com/doc/refman/8.0/en/installing.html").
 
-To find the connection information for a DB instance, you can use the AWS Management Console, the AWS CLI
-[describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command, or the Amazon RDS API
-[DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md") operation
-to list its details.
+To connect to a DB instance from outside of its Amazon VPC, the DB instance must be publicly accessible, access must be granted
+using the inbound rules of the DB instance's security group, and other requirements must be met. For more information,
+see [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").
 
-###### To find the connection information for a DB instance in the AWS Management Console
+You can use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption on connections to a MySQL DB instance.
+For information, see [SSL/TLS support for MySQL DB instances on
+Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md"). If you are using AWS Identity and Access Management (IAM) database
+authentication, make sure to use an SSL/TLS connection. For information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md").
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases** to display a list of your DB instances.
-3. Choose the name of the MySQL DB instance to display its details.
-4. On the **Connectivity & security** tab, copy the endpoint.
-   Also, note the port number. You need both the endpoint and the port number
-   to connect to the DB instance.
+You can also connect to a DB instance from a web server. For more information, see [Tutorial: Create a web server and an
+Amazon RDS DB instance](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md").
 
-![The endpoint and port of a DB instance in the Amazon RDS console.](images/endpoint-port.png) 5. If you need to find the master user name, choose the
-**Configuration** tab and view the **Master
-username** value.
-To find the connection information for a MySQL DB instance by using the AWS CLI,
-run the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command. In the call, query for the DB
-instance ID, endpoint, port, and master user name.
+###### Note
 
-For Linux, macOS, or Unix:
+For information on connecting to a MariaDB DB instance, see [Connecting to your MariaDB DB instance](USER_ConnectToMariaDBInstance.md "USER_ConnectToMariaDBInstance.md").
 
-```
-aws rds describe-db-instances \
-  --filters "Name=engine,Values=mysql" \
-  --query "*[].[DBInstanceIdentifier,Endpoint.Address,Endpoint.Port,MasterUsername]"
-```
+To find and connect to a RDS for MySQL DB instance, see the following topics.
 
-For Windows:
+###### Topics
 
-```
-aws rds describe-db-instances ^
-  --filters "Name=engine,Values=mysql" ^
-  --query "*[].[DBInstanceIdentifier,Endpoint.Address,Endpoint.Port,MasterUsername]"
-```
-
-Your output should be similar to the following.
-
-```
-[
-    [
-        "mydb1",
-        "mydb1.123456789012.us-east-1.rds.amazonaws.com",
-        3306,
-        "admin"
-    ],
-    [
-        "mydb2",
-        "mydb2.123456789012.us-east-1.rds.amazonaws.com",
-        3306,
-        "admin"
-    ]
-]
-```
-
-To find the connection information for a DB instance by using the Amazon RDS API,
-call the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md") operation. In the output, find the values for
-the endpoint address, endpoint port, and master user name.
+- [Finding the connection
+  information for an RDS for MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md")
+- [Installing the MySQL command-line client](mysql-install-cli.md "mysql-install-cli.md")
+- [Connecting from the MySQL command-line client (unencrypted)](USER_ConnectToInstance.md "USER_ConnectToInstance.md")
+- [Connecting from MySQL Workbench](USER_ConnectToInstance.md "USER_ConnectToInstance.md")
+- [Connecting to RDS for MySQL with the
+  AWS JDBC Driver, AWS Python Driver, and AWS ODBC Driver for MySQL](MySQL.Connecting.md "MySQL.Connecting.md")
+- [Troubleshooting
+  connections to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md")

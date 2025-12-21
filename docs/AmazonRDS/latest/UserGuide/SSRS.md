@@ -1,85 +1,40 @@
-# Using SSRS Email to send reports
+# Monitoring the status of a task
 
-SSRS includes the SSRS Email extension, which you can use to send reports to
-users.
+To track the status of your granting or revoking task, call the
+`rds_fn_task_status` function. It takes two parameters. The first
+parameter should always be `NULL` because it doesn't apply to SSRS. The
+second parameter accepts a task ID.
 
-To configure SSRS Email, use the `SSRS` option settings. For more
-information, see [Adding the SSRS option to your option group](SSRS.md#SSRS.Add "SSRS.md#SSRS.Add").
-
-After configuring SSRS Email, you can subscribe to reports on the report server. For more information, see [Email
-delivery in Reporting Services](https://docs.microsoft.com/en-us/sql/reporting-services/subscriptions/e-mail-delivery-in-reporting-services "https://docs.microsoft.com/en-us/sql/reporting-services/subscriptions/e-mail-delivery-in-reporting-services") in the Microsoft documentation.
-
-Integration with AWS Secrets Manager is required for SSRS Email to function on RDS. To integrate with Secrets Manager, you create a secret.
-
-###### Note
-
-If you change the secret later, you also have to update the `SSRS` option in the option group.
-
-###### To create a secret for SSRS Email
-
-1. Follow the steps in [Create a
-   secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the _AWS Secrets Manager User Guide_.
-   1. For **Select secret type**, choose **Other type of secrets**.
-   2. For **Key/value pairs**, enter the following:
-      - `SMTP_USERNAME` – Enter a user with permission to send mail from the SMTP
-        server.
-      - `SMTP_PASSWORD` – Enter a password for the SMTP user.
-
-   3. For **Encryption key**, don't use the default AWS KMS key. Use your own existing key,
-      or create a new one.
-
-   The KMS key policy must allow the `kms:Decrypt` action, for example:
-
-   ```
-   {
-       "Sid": "Allow use of the key",
-       "Effect": "Allow",
-       "Principal": {
-           "Service": [
-               "rds.amazonaws.com"
-           ]
-       },
-       "Action": [
-           "kms:Decrypt"
-       ],
-       "Resource": "*"
-   }
-   ```
-
-2. Follow the steps in [Attach a permissions policy to a
-   secret](../../../secretsmanager/latest/userguide/auth-and-access_resource-policies.md "../../../secretsmanager/latest/userguide/auth-and-access_resource-policies.md") in the _AWS Secrets Manager User Guide_. The permissions policy gives the
-   `secretsmanager:GetSecretValue` action to the `rds.amazonaws.com` service principal.
-
-We recommend that you use the `aws:sourceAccount` and `aws:sourceArn` conditions in the policy
-to avoid the _confused deputy_ problem. Use your AWS account for `aws:sourceAccount` and
-the option group ARN for `aws:sourceArn`. For more information, see [Preventing cross-service confused deputy problems](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
-
-The following example shows a permissions policy.
-
-JSON
+To see a list of all tasks, set the first parameter to `NULL` and the second
+parameter to `0`, as shown in the following example.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement" : [ {
- "Effect" : "Allow",
- "Principal" : {
- "Service" : "rds.amazonaws.com"
- },
- "Action" : "secretsmanager:GetSecretValue",
- "Resource" : "*",
- "Condition" : {
- "StringEquals" : {
- "aws:sourceAccount" : "`123456789012`"
- },
- "ArnLike" : {
- "aws:sourceArn" : "arn:aws:rds:us-west-2:`123456789012`:og:`ssrs-se-2017`"
- }
- }
- } ]
-}`
-
+SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`0`);
 ```
 
-For more examples, see [Permissions policy examples for AWS Secrets Manager](../../../secretsmanager/latest/userguide/auth-and-access_examples.md "../../../secretsmanager/latest/userguide/auth-and-access_examples.md") in the _AWS Secrets Manager User
-Guide_.
+To get a specific task, set the first parameter to `NULL` and the second
+parameter to the task ID, as shown in the following example.
+
+```
+SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`42`);
+```
+
+The `rds_fn_task_status` function returns the following information.
+
+| Output parameter           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `task_id`                  | The ID of the task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `task_type`                | For SSRS, tasks can have the following task types:<br>• `SSRS_GRANT_PORTAL_PERMISSION`<br>• `SSRS_REVOKE_PORTAL_PERMISSION`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `database_name`            | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `% complete`               | The progress of the task as a percentage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `duration (mins)`          | The amount of time spent on the task, in minutes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `lifecycle`                | The status of the task. Possible statuses are the following:<br>• `CREATED` – After you call one of the SSRS stored procedures, a task is<br>created and the status is set to<br>`CREATED`.<br>• `IN_PROGRESS` – After a task starts, the status is set to<br>`IN_PROGRESS`. It can take up to five<br>minutes for the status to change from<br>`CREATED` to<br>`IN_PROGRESS`.<br>• `SUCCESS` – After a task completes, the status is set<br>to `SUCCESS`.<br>• `ERROR` – If a task fails, the status is set to<br>`ERROR`. For more information about the error, see the<br>`task_info` column.<br>• `CANCEL_REQUESTED` – After you call the<br>`rds_cancel_task` stored procedure, the<br>status of the task is set to<br>`CANCEL_REQUESTED`.<br>• `CANCELLED` – After a task is successfully canceled,<br>the status of the task is set to `CANCELLED`. |
+| `task_info`                | Additional information about the task. If an error occurs during processing, this column<br>contains information about the error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `last_updated`             | The date and time that the task status was last updated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `created_at`               | The date and time that the task was created.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `S3_object_arn`            | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `overwrite_S3_backup_file` | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `KMS_master_key_arn`       | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `filepath`                 | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `overwrite_file`           | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `task_metadata`            | Metadata associated with the SSRS task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |

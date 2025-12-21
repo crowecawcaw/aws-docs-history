@@ -1,45 +1,32 @@
-# RAM disk for
+# Huge pages
 
-the stats_temp_directory
+for RDS for PostgreSQL
 
-You can use the RDS for PostgreSQL parameter `rds.pg_stat_ramdisk_size` to
-specify the system memory allocated to a RAM disk for storing the PostgreSQL
-`stats_temp_directory`. The RAM disk parameter is only available in
-RDS for PostgreSQL version 14 and lower versions.
+_Huge pages_ are a memory management feature that
+reduces overhead when a DB instance is working with large contiguous chunks of
+memory, such as that used by shared buffers. This PostgreSQL feature is supported by
+all currently available RDS for PostgreSQL versions. You allocate huge pages for your
+application by using calls to `mmap` or `SYSV` shared memory.
+RDS for PostgreSQL supports both 4-KB and 2-MB page sizes.
 
-Under certain workloads, setting this parameter can improve performance and
-decrease I/O requirements. For more information about the
-`stats_temp_directory`, see [the PostgreSQL documentation.](https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-STATS-TEMP-DIRECTORY "https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-STATS-TEMP-DIRECTORY").
+You can turn huge pages on or off by changing the value of the
+`huge_pages` parameter. The feature is turned on by default for all
+the DB instance classes other than micro, small, and medium DB instance
+classes.
 
-To set up a RAM disk for your `stats_temp_directory`, set the
-`rds.pg_stat_ramdisk_size` parameter to an integer literal value in
-the parameter group used by your DB instance. This parameter denotes MB, so you must
-use an integer value. Expressions, formulas, and functions aren't valid for the
-`rds.pg_stat_ramdisk_size` parameter. Be sure to reboot the DB
-instance so that the change takes effect. For information about setting parameters,
-see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+RDS for PostgreSQL uses huge pages based on the available shared memory. If the DB
+instance can't use huge pages due to shared memory constraints, Amazon RDS prevents
+the DB instance from starting. In this case, Amazon RDS sets the status of the DB
+instance to an incompatible parameters state. If this occurs, you can set the
+`huge_pages` parameter to `off` to allow Amazon RDS to start
+the DB instance.
 
-For example, the following AWS CLI command sets the RAM disk parameter to 256
-MB.
+The `shared_buffers` parameter is key to setting the shared memory pool
+that is required for using huge pages. The default value for the
+`shared_buffers` parameter uses a database parameters macro. This
+macro sets a percentage of the total 8 KB pages available for the DB instance's
+memory. When you use huge pages, those pages are located with the huge pages. Amazon RDS
+puts a DB instance into an incompatible parameters state if the shared memory
+parameters are set to require more than 90 percent of the DB instance memory.
 
-```
-aws rds modify-db-parameter-group \
-    --db-parameter-group-name pg-95-ramdisk-testing \
-    --parameters "ParameterName=rds.pg_stat_ramdisk_size, ParameterValue=256, ApplyMethod=pending-reboot"
-```
-
-After you reboot, run the following command to see the status of the
-`stats_temp_directory`.
-
-```
-`postgres=>` `SHOW stats_temp_directory;`
-```
-
-The command should return the following.
-
-```
-stats_temp_directory
----------------------------
-/rdsdbramdisk/pg_stat_tmp
-(1 row)
-```
+To learn more about PostgreSQL memory management, see [Resource Consumption](https://www.postgresql.org/docs/current/static/runtime-config-resource.html "https://www.postgresql.org/docs/current/static/runtime-config-resource.html") in the PostgreSQL documentation.

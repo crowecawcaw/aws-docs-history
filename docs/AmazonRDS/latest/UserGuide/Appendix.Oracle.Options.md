@@ -1,163 +1,56 @@
-# Oracle Statspack
+# Oracle Application Express (APEX)
 
-The Oracle Statspack option installs and enables the Oracle Statspack performance
-statistics feature. Oracle Statspack is a collection of SQL, PL/SQL, and SQL\*Plus
-scripts that collect, store, and display performance data. For information about using
-Oracle Statspack, see [Oracle Statspack](http://docs.oracle.com/cd/E13160_01/wli/docs10gr3/dbtuning/statsApdx.html "http://docs.oracle.com/cd/E13160_01/wli/docs10gr3/dbtuning/statsApdx.html") in the Oracle documentation.
+Amazon RDS supports Oracle Application Express (APEX) through the use of the `APEX`
+and `APEX-DEV` options. You can deploy Oracle APEX as a runtime environment or as
+a full development environment for web-based applications. Using Oracle APEX, you can build
+applications entirely within the web browser. For more information, see [Oracle application Express](https://apex.oracle.com/ "https://apex.oracle.com/") in the Oracle
+documentation.
 
-###### Note
+###### Topics
 
-Oracle Statspack is no longer supported by Oracle and has been replaced by the
-more advanced Automatic Workload Repository (AWR). AWR is available only for Oracle
-Enterprise Edition customers who have purchased the Diagnostics Pack. You can use
-Oracle Statspack with any Oracle DB engine on Amazon RDS. You can't run Oracle
-Statspack on Amazon RDS read replicas.
+- [Oracle APEX components](#Appendix.Oracle.Options.APEX.components "#Appendix.Oracle.Options.APEX.components")
+- [Requirements and
+  limitations](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
+- [Setting up Oracle APEX and
+  Oracle Rest Data Services (ORDS)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
+- [Configuring Oracle Rest Data Services (ORDS)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
+- [Upgrading and removing
+  Oracle APEX](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
 
-## Setting up Oracle Statspack
+## Oracle APEX components
 
-To run Statspack scripts, you must add the Statspack option.
+Oracle APEX consists of the following main components:
 
-###### To set up Oracle Statspack
+- A _repository_ that stores the metadata for Oracle APEX
+  applications and components. The repository consists of tables, indexes, and
+  other objects that are installed in your Amazon RDS DB instance.
+- A _listener_ that manages HTTP communications with Oracle
+  APEX clients. The listener resides on a separate host such as an Amazon EC2 instance,
+  an on-premises server at your company, or your desktop computer. The listener
+  accepts incoming connections from web browsers, forwards them to the Amazon RDS DB instance
+  for processing, and then sends results from the repository back to the browsers.
 
-1. In a SQL client, log in to the Oracle DB with an administrative
-   account.
-2. Do either of the following actions, depending on whether Statspack is
-   installed:
-   - If Statspack is installed, and the `PERFSTAT` account
-     is associated with Statspack, skip to Step 4.
-   - If Statspack is not installed, and the `PERFSTAT`
-     account exists, drop the account as follows:
+RDS for Oracle supports the following types of listeners:
 
-   ```
-   DROP USER PERFSTAT CASCADE;
-   ```
+    + For Oracle APEX version 5.0 and later, use Oracle REST Data Services
+     (ORDS) version 19.1 and higher. We recommend that you use the latest
+     supported version of Oracle APEX and ORDS. This documentation describes
+     older versions for backwards compatibility only.
+    + For Oracle APEX version 4.1.1, you can use Oracle APEX Listener
+     version 1.1.4.
+    + You can use Oracle HTTP Server and `mod_plsql` listeners.
 
-   Otherwise, attempting to add the Statspack option generates an
-   error and `RDS-Event-0058`.
 
-3. Add the Statspack option to an option group. See [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
+    ###### Note
 
-Amazon RDS automatically installs the Statspack scripts on the DB instance and
-then sets up the `PERFSTAT` account. 4. Reset the password using the following SQL statement, replacing _pwd_ with your new password:
+    Amazon RDS doesn't support the Oracle XML DB HTTP server with the
+     embedded PL/SQL gateway as a listener for Oracle APEX. In general,
+     Oracle recommends against using the embedded PL/SQL gateway for
+     applications that run on the internet.
 
-```
-ALTER USER PERFSTAT IDENTIFIED BY *pwd* ACCOUNT UNLOCK;
-```
+For more information about these listener types, see [About
+choosing a web listener](https://docs.oracle.com/database/apex-5.1/HTMIG/choosing-web-listener.htm#HTMIG29321 "https://docs.oracle.com/database/apex-5.1/HTMIG/choosing-web-listener.htm#HTMIG29321") in the Oracle documentation.
 
-You can log in using the `PERFSTAT` user account and run the
-Statspack scripts. 5. Grant the `CREATE JOB` privilege to the `PERFSTAT`
-account using the following statement:
-
-```
-GRANT CREATE JOB TO PERFSTAT;
-```
-
-6. Ensure that idle wait events in the `PERFSTAT.STATS$IDLE_EVENT`
-   table are populated.
-
-Because of Oracle Bug 28523746, the idle wait events in
-`PERFSTAT.STATS$IDLE_EVENT` may not be populated. To ensure
-all idle events are available, run the following statement:
-
-```
-INSERT INTO PERFSTAT.STATS$IDLE_EVENT (EVENT)
-SELECT NAME FROM V$EVENT_NAME WHERE WAIT_CLASS='Idle'
-MINUS
-SELECT EVENT FROM PERFSTAT.STATS$IDLE_EVENT;
-COMMIT;
-```
-
-## Generating Statspack reports
-
-A Statspack report compares two snapshots.
-
-###### To generate Statspack reports
-
-1. In a SQL client, log in to the Oracle DB with the `PERFSTAT` account.
-2. Create a snapshot using either of the following techniques:
-   - Create a Statspack snapshot manually.
-   - Create a job that takes a Statspack snapshot after a given time interval. For example, the following job creates a Statspack
-     snapshot every hour:
-
-   ```
-   VARIABLE jn NUMBER;
-   exec dbms_job.submit(:jn, 'statspack.snap;',SYSDATE,'TRUNC(SYSDATE+1/24,''HH24'')');
-   COMMIT;
-   ```
-
-3. View the snapshots using the following query:
-
-```
-SELECT SNAP_ID, SNAP_TIME FROM STATS$SNAPSHOT ORDER BY 1;
-```
-
-4. Run the Amazon RDS procedure `rdsadmin.rds_run_spreport`,
-   replacing _begin_snap_ and _end_snap_ with the snapshot IDs:
-
-```
-exec rdsadmin.rds_run_spreport(*begin\_snap*,*end\_snap*);
-```
-
-For example, the following command creates a report based on the interval
-between Statspack snapshots 1 and 2:
-
-```
-exec rdsadmin.rds_run_spreport(1,2);
-```
-
-The file name of the Statspack report includes the number of the two
-snapshots. For example, a report file created using Statspack snapshots 1
-and 2 would be named `ORCL_spreport_1_2.lst`. 5. Monitor the output for errors.
-
-Oracle Statspack performs checks before running the report. Therefore, you
-could also see error messages in the command output. For example, you might
-try to generate a report based on an invalid range, where the beginning
-Statspack snapshot value is larger than the ending value. In this case, the
-output shows the error message, but the DB engine does not generate an error
-file.
-
-```
-exec rdsadmin.rds_run_spreport(2,1);
-*
-ERROR at line 1:
-ORA-20000: Invalid snapshot IDs. Find valid ones in perfstat.stats$snapshot.
-```
-
-If you use an invalid number a Statspack snapshot, the output shows an
-error. For example, if you try to generate a report for snapshots 1 and 50,
-but snapshot 50 doesn't exist, the output shows an error.
-
-```
-exec rdsadmin.rds_run_spreport(1,50);
-*
-ERROR at line 1:
-ORA-20000: Could not find both snapshot IDs
-```
-
-6. (Optional)
-
-To retrieve the report, call the trace file procedures, as explained in
-[Working with
-Oracle trace files](USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles "USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles").
-
-Alternatively, download the Statspack report from the RDS console. Go to the
-**Log** section of the DB instance details and choose
-**Download**. The following example shows
-`trace/ORCL_spreport_1_2.lst`
-
-![Show a list of Oracle log files in the RDS console. The following trace file is circled: trace/ORCL_spreport_1_2.lst.](images/statspack1.png)
-
-If an error occurs while generating a report, the DB engine uses the same
-naming conventions as for a report but with an extension of
-`.err`. For example, if an error occurred while creating
-a report using Statspack snapshots 1 and 7, the report file would be named
-`ORCL_spreport_1_7.err`. You can download the error
-report using the same techniques as for a standard Snapshot report.
-
-## Removing Statspack snapshots
-
-To remove a range of Oracle Statspack snapshots, use the following command:
-
-```
-exec statspack.purge(*begin snap*, *end snap*);
-```
+When you add the `APEX` and `APEX-DEV` options to your RDS for Oracle
+DB instance, Amazon RDS installs the Oracle APEX repository only. Install your listener on a
+separate host.

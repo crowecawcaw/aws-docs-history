@@ -1,37 +1,78 @@
-# Adding the NATIVE_NETWORK_ENCRYPTION option
+# Modifying NATIVE_NETWORK_ENCRYPTION
 
-The general process for adding the `NATIVE_NETWORK_ENCRYPTION` option to a
-DB instance is the following:
+option settings
 
-1. Create a new option group, or copy or modify an existing option group.
-2. Add the option to the option group.
-3. Associate the option group with the DB instance.
-   When the option group is active, NNE is active.
+After you enable the `NATIVE_NETWORK_ENCRYPTION` option, you can modify its
+settings. Currently, you can modify `NATIVE_NETWORK_ENCRYPTION` option
+settings only with the AWS CLI or RDS API. You can't use the console. The following
+example modifies two settings in the option.
 
-###### To add the NATIVE_NETWORK_ENCRYPTION option to a DB instance using the
+```
+aws rds add-option-to-option-group \
+    --option-group-name my-option-group \
+    --options "OptionName=NATIVE_NETWORK_ENCRYPTION,OptionSettings=[{Name=SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER,Value=SHA256},{Name=SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER,Value=SHA256}]" \
+    --apply-immediately
+```
 
-AWS Management Console
+To learn how to modify option settings using the CLI, see [AWS CLI](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption.CLI "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption.CLI"). For more
+information about each setting, see [NATIVE_NETWORK_ENCRYPTION option
+settings](Oracle.Options.NNE.md "Oracle.Options.NNE.md").
 
-1. For **Engine**,
-   choose the Oracle edition that you want to use.
-   NNE is supported on all editions.
-2. For **Major engine version**,
-   choose the version of your DB instance.
+###### Topics
 
-For more information,
-see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create"). 3. Add the **NATIVE_NETWORK_ENCRYPTION** option to the option
-group. For more information about adding options, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
+- [Modifying CRYPTO_CHECKSUM\_\* values](#Oracle.Options.NNE.ModifySettings.checksum "#Oracle.Options.NNE.ModifySettings.checksum")
+- [Modifying ALLOW_WEAK_CRYPTO\* settings](#Oracle.Options.NNE.ModifySettings.encryption "#Oracle.Options.NNE.ModifySettings.encryption")
 
-###### Note
+## Modifying CRYPTO_CHECKSUM\_\* values
 
-After you add the **NATIVE_NETWORK_ENCRYPTION** option,
-you don't need to restart your DB instances. As soon as the option group is
-active, NNE is active. 4. Apply the option group to a new or existing DB instance:
+If you modify **NATIVE_NETWORK_ENCRYPTION** option settings, make
+sure that the following option settings have at least one common cipher:
 
-    * For a new DB instance, you apply the option group when you launch the instance. For more
-     information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-    * For an existing DB instance, you apply the option group by modifying the
-     instance and attaching the new option group. After you add the
-     **NATIVE\_NETWORK\_ENCRYPTION** option, you don't
-     need to restart your DB instance. As soon as the option group is active, NNE
-     is active. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+- `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER`
+- `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT`
+
+The following example shows a scenario in which you modify
+`SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER`. The configuration is valid because the
+`CRYPTO_CHECKSUM_TYPES_CLIENT` and `CRYPTO_CHECKSUM_TYPES_SERVER` both use
+`SHA256`.
+
+| Option setting                        | Values before modification                         | Values after modification |
+| ------------------------------------- | -------------------------------------------------- | ------------------------- |
+| `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT` | `**SHA256**`, `SHA384`,<br>`SHA512`                | No change                 |
+| `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER` | `**SHA256**`, `SHA384`,<br>`SHA512`, `SHA1`, `MD5` | `SHA1,MD5,**SHA256**`     |
+
+For another example, assume that you want to modify `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER` from
+its default setting to `SHA1,MD5`. In this case, make sure you set
+`SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT` to `SHA1` or `MD5`. These
+algorithms aren't included in the default values for `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT`.
+
+## Modifying ALLOW_WEAK_CRYPTO\* settings
+
+To set the `SQLNET.ALLOW_WEAK_CRYPTO*` options from the default value to `FALSE`,
+make sure that the following conditions are met:
+
+- `SQLNET.ENCRYPTION_TYPES_SERVER` and `SQLNET.ENCRYPTION_TYPES_CLIENT` have
+  one matching secure encryption method. A method is considered secure if it's not `DES`,
+  `3DES`, or `RC4` (all key lengths).
+- `SQLNET.CHECKSUM_TYPES_SERVER` and `SQLNET.CHECKSUM_TYPES_CLIENT` have one
+  matching secure checksumming method. A method is considered secure if it's not
+  `MD5`.
+- The client is patched with the July 2021 PSU. If the client isn't patched, the client loses the
+  connection and receives the `ORA-12269` error.
+
+The following example shows sample NNE settings. Assume that you want to set
+`SQLNET.ENCRYPTION_TYPES_SERVER` and `SQLNET.ENCRYPTION_TYPES_CLIENT` to FALSE,
+thereby blocking non-secure connections. The checksum option settings meet the prerequisites because they
+both have `SHA256`. However, `SQLNET.ENCRYPTION_TYPES_CLIENT` and
+`SQLNET.ENCRYPTION_TYPES_SERVER` use the `DES`, `3DES`, and
+`RC4` encryption methods, which are non-secure. Therefore, to set the
+`SQLNET.ALLOW_WEAK_CRYPTO*` options to `FALSE`, first set
+`SQLNET.ENCRYPTION_TYPES_SERVER` and `SQLNET.ENCRYPTION_TYPES_CLIENT` to a secure
+encryption method such as `AES256`.
+
+| Option setting                        | Values                        |
+| ------------------------------------- | ----------------------------- |
+| `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT` | `SHA256`, `SHA384`, `SHA512`  |
+| `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER` | `SHA1,MD5,SHA256`             |
+| `SQLNET.ENCRYPTION_TYPES_CLIENT`      | `RC4_256`, `3DES168`, `DES40` |
+| `SQLNET.ENCRYPTION_TYPES_SERVER`      | `RC4_256`, `3DES168`, `DES40` |

@@ -1,22 +1,44 @@
-# Attaching
+# Using tag-based access control for Performance Insights
 
-the AmazonRDSPerformanceInsightsFullAccess policy to an IAM principal
+You can control access to Performance Insights metrics using tags inherited from the parent DB instance.
+To control access to Performance Insights operations, use IAM policies. These policies can check the tags on your DB instance to determine permissions.
 
-`AmazonRDSPerformanceInsightsFullAccess` is an AWS managed
-policy that grants access to all operations of the Amazon RDS Performance Insights API.
+## How tags work with Performance Insights
 
-If you attach `AmazonRDSPerformanceInsightsFullAccess` to a permission set
-or role, you must also attach the following CloudWatch
-permissions:
+Performance Insights automatically applies your DB instance tags to authorize Performance Insights metrics.
+When you add tags to your DB instance, you can immediately use those tags to control access to Performance Insights data.
 
-- `GetMetricStatistics`
-- `ListMetrics`
-- `GetMetricData`
-  With these permissions, the recipient can use
-  Performance Insights with other console features.
+- To add or update tags for Performance Insights metrics, modify the tags on your DB instance.
+- To view tags for Performance Insights metrics, call `ListTagsForResource` on the Performance Insights metric resource.
+  It will return the tags from the DB instance associated with the metric.
 
-For more information about CloudWatch permissions, see
-[Amazon CloudWatch
-permissions reference](../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md "../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md").
+###### Note
 
-For more information about `AmazonRDSPerformanceInsightsFullAccess`, see [AWS managed policy: AmazonRDSPerformanceInsightsFullAccess](rds-security-iam-awsmanpol.md#rds-security-iam-awsmanpol-AmazonRDSPerformanceInsightsFullAccess "rds-security-iam-awsmanpol.md#rds-security-iam-awsmanpol-AmazonRDSPerformanceInsightsFullAccess").
+The `TagResource` and `UntagResource` operations return an error if you try to use them directly on Performance Insights metrics.
+
+## Creating tag-based IAM policies
+
+To control access to Performance Insights operations, use the `aws:ResourceTag` condition key in your IAM policies.
+These policies check the tags on yourDB instance.
+
+This policy prevents access to Performance Insights metrics for production databases. The policy denies the `pi:GetResourceMetrics` operation in Performance Insights
+for any database resource tagged with `env:prod`.
+
+```
+ {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "pi:GetResourceMetrics",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/env": "prod"
+                }
+            }
+        }
+    ]
+}
+
+```

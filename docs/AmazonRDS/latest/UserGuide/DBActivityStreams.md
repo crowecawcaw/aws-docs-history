@@ -1,49 +1,47 @@
-# Stopping a database activity stream
+# Monitoring database activity streams
 
-You can stop an activity stream using the console or AWS CLI.
+Database activity streams monitor and report activities. The stream of activity is collected and transmitted to Amazon Kinesis.
+From Kinesis, you can monitor the activity stream, or other services and applications can consume
+the activity stream for further analysis. You can find the underlying Kinesis stream name by
+using the AWS CLI command `describe-db-instances` or the RDS API
+`DescribeDBInstances` operation.
 
-If you delete your Amazon RDS
-database instance, the activity stream is stopped and the underlying Amazon Kinesis stream is deleted automatically.
+Amazon RDS manages the Kinesis stream for
+you as follows:
 
-###### To turn off an activity stream
+- Amazon RDS creates the Kinesis stream
+  automatically with a 24-hour retention period.
+- Amazon RDS scales the Kinesis stream if necessary.
+- If you stop the database activity stream or delete the DB instance, Amazon RDS deletes the Kinesis stream.
+  The following categories of activity are monitored and put in the activity stream audit log:
 
-1.  Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  In the navigation pane, choose **Databases**.
-3.  Choose a database
-    that you want to stop the database activity stream for.
-4.  For **Actions**, choose **Stop activity stream**.
-    The **Database Activity Stream** window
-    appears.
+- **SQL commands** – All SQL commands are audited,
+  and also prepared statements, built-in functions, and functions in PL/SQL. Calls to stored procedures
+  are audited. Any SQL statements issued inside stored procedures or functions are also audited.
+- **Other database information** – Activity monitored includes the full SQL statement,
+  the row count of affected rows from DML commands, accessed objects, and the unique database name. Database activity streams also monitor the bind variables and stored
+  procedure parameters.
 
-        1. Choose **Immediately**.
+###### Important
 
-
-        When you choose **Immediately**, the RDS instance restarts right away. If you choose
-         **During the next maintenance window**, the RDS instance doesn't restart right away. In
-         this case, the database activity stream doesn't stop until the next maintenance window.
-        2. Choose **Continue**.
-
-    To stop database activity streams for your database, configure the DB instance using the AWS CLI command [stop-activity-stream](../../../cli/latest/reference/rds/stop-activity-stream.md "../../../cli/latest/reference/rds/stop-activity-stream.md"). Identify the AWS Region for the
-    DB instance using the
-    `--region` parameter. The `--apply-immediately` parameter is optional.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds --region `MY_REGION` \
-    stop-activity-stream \
-    --resource-arn `MY_DB_ARN` \
-    --apply-immediately
-```
-
-For Windows:
+The full SQL text of each statement is visible in the activity stream audit log,
+including any sensitive data. However, database user passwords are redacted if
+Oracle can
+determine them from the context, such as in the following SQL statement.
 
 ```
-aws rds --region `MY_REGION` ^
-    stop-activity-stream ^
-    --resource-arn `MY_DB_ARN` ^
-    --apply-immediately
+ALTER ROLE role-name WITH password
 ```
 
-To stop database activity streams for your database, configure the DB instance using the [StopActivityStream](../APIReference/API_StopActivityStream.md "../APIReference/API_StopActivityStream.md") operation. Identify the AWS Region for the DB instance using the `Region` parameter. The
-`ApplyImmediately` parameter is optional.
+- **Connection information** – Activity monitored includes session and
+  network information, the server process ID, and exit codes.
+  If an activity stream has a failure while monitoring your DB instance, you are notified through RDS events.
+
+In the following sections, you can access, audit, and process database activity streams.
+
+###### Topics
+
+- [Accessing an activity stream from Amazon Kinesis](DBActivityStreams.md "DBActivityStreams.md")
+- [Audit log contents and examples for database activity streams](DBActivityStreams.md "DBActivityStreams.md")
+- [databaseActivityEventList JSON array for database activity streams](DBActivityStreams.AuditLog.md "DBActivityStreams.AuditLog.md")
+- [Processing a database activity stream using the AWS SDK](DBActivityStreams.md "DBActivityStreams.md")

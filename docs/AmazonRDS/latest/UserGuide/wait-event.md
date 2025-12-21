@@ -1,32 +1,102 @@
-# Timeout:PgSleep
+# LWLock:BufferMapping (LWLock:buffer_mapping)
 
-The `Timeout:PgSleep` event occurs when a server process has called the
-`pg_sleep` function and is waiting for
-the sleep timeout to expire.
+This event occurs when a session is waiting to associate a data block with a buffer in the shared buffer
+pool.
+
+###### Note
+
+This event is named `LWLock:BufferMapping` for RDS for PostgreSQL version 13 and higher versions. For RDS for PostgreSQL
+version 12 and older versions, this event is named `LWLock:buffer_mapping`.
 
 ###### Topics
 
-- [Supported engine versions](#wait-event.timeoutpgsleep.context.supported "#wait-event.timeoutpgsleep.context.supported")
-- [Likely causes of increased waits](#wait-event.timeoutpgsleep.causes "#wait-event.timeoutpgsleep.causes")
-- [Actions](#wait-event.timeoutpgsleep.actions "#wait-event.timeoutpgsleep.actions")
+- [Supported
+  engine versions](#wait-event.lwl-buffer-mapping.context.supported "#wait-event.lwl-buffer-mapping.context.supported")
+- [Context](#wait-event.lwl-buffer-mapping.context "#wait-event.lwl-buffer-mapping.context")
+- [Causes](#wait-event.lwl-buffer-mapping.causes "#wait-event.lwl-buffer-mapping.causes")
+- [Actions](#wait-event.lwl-buffer-mapping.actions "#wait-event.lwl-buffer-mapping.actions")
 
-## Supported engine versions
+## Supported
 
-This wait event information is supported for all versions of RDS for PostgreSQL.
+engine versions
 
-## Likely causes of increased waits
+This wait event information is relevant for RDS for PostgreSQL version 9.6 and higher.
 
-This wait event occurs when an application, stored function, or user issues a SQL statement that calls
-one of the following functions:
+## Context
 
-- `pg_sleep`
-- `pg_sleep_for`
-- `pg_sleep_until`
+The _shared buffer pool_ is a PostgreSQL memory area that holds
+all pages that are or were being used by processes. When a process needs a page, it
+reads the page into the shared buffer pool. The `shared_buffers` parameter
+sets the shared buffer size and reserves a memory area to store the table and index
+pages. If you change this parameter, make sure to restart the database. .
 
-The preceding functions delay execution until the specified number of seconds have elapsed. For
-example, `SELECT pg_sleep(1)` pauses for 1 second. For more information, see [Delaying Execution](https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-DELAY "https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-DELAY") in the PostgreSQL documentation.
+The `LWLock:buffer_mapping` wait event occurs in the following scenarios:
+
+- A process searches the buffer table for a page and acquires a shared buffer mapping lock.
+- A process loads a page into the buffer pool and acquires an exclusive buffer mapping lock.
+- A process removes a page from the pool and acquires an exclusive buffer mapping lock.
+
+## Causes
+
+When this event appears more than normal, possibly indicating a performance problem, the database is
+paging in and out of the shared buffer pool. Typical causes include the following:
+
+- Large queries
+- Bloated indexes and tables
+- Full table scans
+- A shared pool size that is smaller than the working set
 
 ## Actions
 
-Identify the statement that was running the `pg_sleep` function.
-Determine if the use of the function is appropriate.
+We recommend different actions depending on the causes of your wait event.
+
+###### Topics
+
+- [Monitor buffer-related metrics](#wait-event.lwl-buffer-mapping.actions.monitor-metrics "#wait-event.lwl-buffer-mapping.actions.monitor-metrics")
+- [Assess your indexing strategy](#wait-event.lwl-buffer-mapping.actions.indexes "#wait-event.lwl-buffer-mapping.actions.indexes")
+- [Reduce the number of buffers that must be
+  allocated quickly](#wait-event.lwl-buffer-mapping.actions.buffers "#wait-event.lwl-buffer-mapping.actions.buffers")
+
+### Monitor buffer-related metrics
+
+When `LWLock:buffer_mapping` waits spike, investigate the buffer hit ratio. You can use these
+metrics to get a better understanding of what is happening in the buffer cache. Examine the following
+metrics:
+
+`blks_hit`
+
+This Performance Insights counter metric indicates the number of blocks that were retrieved
+from the shared buffer pool. After the `LWLock:buffer_mapping` wait event appears, you
+might observe a spike in `blks_hit`.
+
+`blks_read`
+
+This Performance Insights counter metric indicates the number of blocks that required I/O to be
+read into the shared buffer pool. You might observe a spike in `blks_read` in the
+lead-up to the `LWLock:buffer_mapping` wait event.
+
+### Assess your indexing strategy
+
+To confirm that your indexing strategy is not degrading performance, check the following:
+
+Index bloat
+
+Ensure that index and table bloat aren't leading to unnecessary pages being read into the
+shared buffer. If your tables contain unused rows, consider archiving the data and removing the
+rows from the tables. You can then rebuild the indexes for the resized tables.
+
+Indexes for frequently used queries
+
+To determine whether you have the optimal indexes, monitor DB engine metrics in Performance
+Insights. The `tup_returned` metric shows the number of rows read. The
+`tup_fetched` metric shows the number of rows returned to the client. If
+`tup_returned` is significantly larger than `tup_fetched`, the data
+might not be properly indexed. Also, your table statistics might not be current.
+
+### Reduce the number of buffers that must be
+
+allocated quickly
+
+To reduce the `LWLock:buffer_mapping` wait events, try to reduce the number of buffers that must
+be allocated quickly. One strategy is to perform smaller batch operations. You might be able to achieve
+smaller batches by partitioning your tables.

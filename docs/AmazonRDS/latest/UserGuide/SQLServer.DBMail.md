@@ -1,34 +1,38 @@
-# Deleting messages
+# Starting and stopping mail queue
 
-You use the `rds_sysmail_delete_mailitems_sp` stored procedure to delete messages.
+Use the following instructions to start and stop the DB mail queue:
+
+###### Topics
+
+- [Starting the mail queue](#SQLServer.DBMail.Start "#SQLServer.DBMail.Start")
+- [Stopping the mail queue](#SQLServer.DBMail.Stop "#SQLServer.DBMail.Stop")
+
+## Starting the mail queue
+
+You use the `rds_sysmail_control` stored procedure to start the Database Mail process.
 
 ###### Note
 
-RDS automatically deletes mail table items when DBMail history data reaches 1 GB in size, with a retention period of at
-least 24 hours.
+Enabling Database Mail automatically starts the mail queue.
 
-If you want to keep mail items for a longer period, you can archive them. For more
-information, see [Create a SQL Server Agent job to archive Database Mail messages and event
-logs](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/create-a-sql-server-agent-job-to-archive-database-mail-messages-and-event-logs "https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/create-a-sql-server-agent-job-to-archive-database-mail-messages-and-event-logs") in the Microsoft documentation.
-
-###### To delete all email messages
+###### To start the mail queue
 
 - Use the following SQL statement.
 
 ```
-DECLARE @GETDATE datetime
-SET @GETDATE = GETDATE();
-EXECUTE msdb.dbo.rds_sysmail_delete_mailitems_sp @sent_before = @GETDATE;
+EXECUTE msdb.dbo.rds_sysmail_control start;
 GO
 ```
 
-###### To delete all email messages with a particular status
+## Stopping the mail queue
 
-- Use the following SQL statement to delete all failed messages.
+You use the `rds_sysmail_control` stored procedure to stop the Database Mail process.
+
+###### To stop the mail queue
+
+- Use the following SQL statement.
 
 ```
-DECLARE @GETDATE datetime
-SET @GETDATE = GETDATE();
-EXECUTE msdb.dbo.rds_sysmail_delete_mailitems_sp @sent_status = 'failed';
+EXECUTE msdb.dbo.rds_sysmail_control stop;
 GO
 ```

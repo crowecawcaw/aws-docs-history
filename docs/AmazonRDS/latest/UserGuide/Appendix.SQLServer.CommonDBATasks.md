@@ -1,32 +1,13 @@
-# Determining a
+# Resetting the db_owner role
 
-recovery model for your Amazon RDS for SQL Server database
+membership for master user for Amazon RDS for SQL Server
 
-In Amazon RDS, the recovery model, retention period, and database status are linked.
+If you lock your master user out of the `db_owner` role membership on your
+RDS for SQL Server database and no other database user can grant the membership, you can restore
+lost membership by modifying the DB instance master user password.
 
-It's important to understand the consequences before making a change to one of these
-settings. Each setting can affect the others. For example:
-
-- If you change a database's recovery model to SIMPLE or BULK_LOGGED while backup retention
-  is enabled, Amazon RDS resets the recovery model to FULL within five minutes. This
-  also results in RDS taking a snapshot of the DB instance.
-- If you set backup retention to `0` days, RDS sets the recovery mode to SIMPLE.
-- If you change a database's recovery model from SIMPLE to any other option while backup
-  retention is set to `0` days, RDS resets the recovery model to SIMPLE.
-
-###### Important
-
-Never change the recovery model on Multi-AZ instances, even if it seems you can do so—for
-example, by using ALTER DATABASE. Backup retention, and therefore FULL recovery mode, is
-required for Multi-AZ. If you alter the recovery model, RDS immediately changes it back to FULL.
-
-This automatic reset forces RDS to completely rebuild the mirror. During this rebuild, the
-availability of the database is degraded for about 30-90 minutes until the mirror is
-ready for failover. The DB instance also experiences performance degradation in the
-same way it does during a conversion from Single-AZ to Multi-AZ. How long
-performance is degraded depends on the database storage size—the bigger the
-stored database, the longer the degradation.
-
-For more information on SQL Server recovery models, see
-[Recovery models (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server")
-in the Microsoft documentation.
+By changing the DB instance master user password, RDS grants the `db_owner`
+membership to the databases in the DB instance that might have been accidentally
+revoked. You can change the DB instance password by using the Amazon RDS console, the AWS CLI
+command [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"), or by using the [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") API operation.
+For more information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").

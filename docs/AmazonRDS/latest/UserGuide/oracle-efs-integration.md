@@ -1,102 +1,22 @@
-# Transferring files between RDS for Oracle
+# Troubleshooting Amazon EFS
 
-and an Amazon EFS file system
+integration
 
-To transfer files between an RDS for Oracle instance and an Amazon EFS file system, create at least
-one Oracle directory and configure EFS file system permissions to control DB instance
-access.
+Your RDS for Oracle DB instance monitors the connectivity to an Amazon EFS file system. When
+monitoring detects an issue, it might try to correct the issue and publish an event in the
+RDS console. For more information, see [Viewing Amazon RDS
+events](USER_ListEvents.md "USER_ListEvents.md").
 
-###### Topics
+Use the information in this section to help you diagnose and fix common issues when you
+work with Amazon EFS integration.
 
-- [Creating an Oracle
-  directory](#oracle-efs-integration.transferring.od "#oracle-efs-integration.transferring.od")
-- [Transferring data to and
-  from an EFS file system: examples](#oracle-efs-integration.transferring.upload "#oracle-efs-integration.transferring.upload")
-
-## Creating an Oracle
-
-directory
-
-To create an Oracle directory, use the procedure
-`rdsadmin.rdsadmin_util.create_directory_efs`. The procedure has the
-following parameters.
-
-| Parameter name     | Data type | Default | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | --------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `p_directory_name` | VARCHAR2  | –       | Yes      | The name of the Oracle directory.                                                                                                                                                                                                                                                                                                                                                                              |
-| `p_path_on_efs`    | VARCHAR2  | –       | Yes      | The path on the EFS file system. The prefix of the path name uses<br>the pattern `/rdsefs-`fsid`/`,<br>where `fsid` is a placeholder for your EFS<br>file system ID.<br>For example, if your EFS file system is named<br>`fs-1234567890abcdef0`, and you create a subdirectory<br>on this file system named `mydir`, you could specify the<br>following value:<br>`<br>/rdsefs-fs-1234567890abcdef0/mydir<br>` |
-
-Assume that you create a subdirectory named `/datapump1` on the EFS file
-system `fs-1234567890abcdef0`. The following example creates an Oracle
-directory `DATA_PUMP_DIR_EFS` that points to the `/datapump1`
-directory on the EFS file system. The file system path value for the
-`p_path_on_efs` parameter is prefixed with the string
-`/rdsefs-`.
-
-```
-BEGIN
-  rdsadmin.rdsadmin_util.create_directory_efs(
-    p_directory_name => 'DATA_PUMP_DIR_EFS',
-    p_path_on_efs    => '/rdsefs-`fs-1234567890abcdef0`/`datapump1`');
-END;
-/
-```
-
-## Transferring data to and
-
-from an EFS file system: examples
-
-The following example uses Oracle Data Pump to export the table named
-`MY_TABLE` to file `datapump.dmp`. This file resides on an EFS
-file system.
-
-```
-DECLARE
-  v_hdnl NUMBER;
-BEGIN
-  v_hdnl := DBMS_DATAPUMP.OPEN(operation => 'EXPORT', job_mode => 'TABLE', job_name=>null);
-  DBMS_DATAPUMP.ADD_FILE(
-    handle    => v_hdnl,
-    filename  => 'datapump.dmp',
-    directory => 'DATA_PUMP_DIR_EFS',
-    filetype  => dbms_datapump.ku$_file_type_dump_file);
-  DBMS_DATAPUMP.ADD_FILE(
-    handle    => v_hdnl,
-    filename  => 'datapump-exp.log',
-    directory => 'DATA_PUMP_DIR_EFS',
-    filetype  => dbms_datapump.ku$_file_type_log_file);
-  DBMS_DATAPUMP.METADATA_FILTER(v_hdnl,'NAME_EXPR','IN (''MY_TABLE'')');
-  DBMS_DATAPUMP.START_JOB(v_hdnl);
-END;
-/
-```
-
-The following example uses Oracle Data Pump to import the table named
-`MY_TABLE` from file `datapump.dmp`. This file resides on an
-EFS file system.
-
-```
-DECLARE
-  v_hdnl NUMBER;
-BEGIN
-  v_hdnl := DBMS_DATAPUMP.OPEN(
-    operation => 'IMPORT',
-    job_mode  => 'TABLE',
-    job_name  => null);
-  DBMS_DATAPUMP.ADD_FILE(
-    handle    => v_hdnl,
-    filename  => 'datapump.dmp',
-    directory => 'DATA_PUMP_DIR_EFS',
-    filetype  => dbms_datapump.ku$_file_type_dump_file );
-  DBMS_DATAPUMP.ADD_FILE(
-    handle    => v_hdnl,
-    filename  => 'datapump-imp.log',
-    directory => 'DATA_PUMP_DIR_EFS',
-    filetype  => dbms_datapump.ku$_file_type_log_file);
-  DBMS_DATAPUMP.METADATA_FILTER(v_hdnl,'NAME_EXPR','IN (''MY_TABLE'')');
-  DBMS_DATAPUMP.START_JOB(v_hdnl);
-END;
-/
-```
-
-For more information, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.md "Oracle.Procedural.md").
+| Notification                                                                                                                               | Description                                                                                                                                                                                                 | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `The EFS for RDS Oracle instance<br>`instance_name` isn't available on the<br>primary host. NFS port 2049 of your EFS isn't<br>reachable.` | The DB instance can't communicate with the EFS file system.                                                                                                                                                 | Make sure of the following:<br>• The EFS file system exists.<br>• The security group that is attached to the EFS mount target<br>has an inbound rule to allow the security group or network<br>subnet of the RDS for Oracle DB instance on TCP/2049 (Type<br>NFS).                                                                                                                                                                                                   |
+| `The EFS isn't reachable.`                                                                                                                 | An error occurred during the installation of the<br>`EFS_INTEGRATION` option.                                                                                                                               | Make sure of the following:<br>• The EFS file system exists.<br>• The security group that is attached to the EFS mount target<br>has an inbound rule to allow the security group or network<br>subnet of the RDS for Oracle DB instance on TCP/2049 (Type<br>NFS).<br>• The `enableDnsSupport` attribute is turned on for<br>your VPC.<br>• You are using the Amazon provided DNS server in your VPC.<br>Amazon EFS integration doesn't work with a custom DHCP DNS. |
+| `The associated role with your DB instance wasn't<br>found.`                                                                               | An error occurred during the installation of the<br>`EFS_INTEGRATION` option.                                                                                                                               | Make sure that you associated an IAM role with your RDS for Oracle DB<br>instance.                                                                                                                                                                                                                                                                                                                                                                                   |
+| `The associated role with your DB instance wasn't<br>found.`                                                                               | An error occurred during the installation of the<br>`EFS_INTEGRATION` option. RDS for Oracle was restored from a<br>DB snapshot with the `USE_IAM_ROLE` option setting of<br>`TRUE`.                        | Make sure that you associated an IAM role with your RDS for Oracle<br>DB instance.                                                                                                                                                                                                                                                                                                                                                                                   |
+| `The associated role with your DB instance wasn't<br>found.`                                                                               | An error occurred during the installation of the<br>`EFS_INTEGRATION` option. RDS for Oracle was created from an<br>all-in-one CloudFormation template with the `USE_IAM_ROLE` option<br>setting of `TRUE`. | As a workaround, complete the following steps:<br>1. Create a DB instance with the IAM role and default option<br>group.<br>2. On a subsequent stack update, add the custom option group with<br>the `EFS_INTEGRATION` option.                                                                                                                                                                                                                                       |
+| `PLS-00302: component 'CREATE_DIRECTORY_EFS' must be<br>declared`                                                                          | This error can occur when you're using a version of RDS for Oracle that<br>doesn't support Amazon EFS.                                                                                                      | Make sure that you are using RDS for Oracle DB instance version<br>19.0.0.0.ru-2022-07.rur-2022-07.r1 or higher.                                                                                                                                                                                                                                                                                                                                                     |
+| `Read access of your EFS is denied. Check your file system<br>policy.`                                                                     | Your DB instance can't read the EFS file system.                                                                                                                                                            | Make sure that your EFS file system allows read access through the IAM<br>role or on the EFS file system level.                                                                                                                                                                                                                                                                                                                                                      |
+| N/A                                                                                                                                        | Your DB instance can't write to the EFS file system.                                                                                                                                                        | Take the following steps:<br>1. Make sure that your EFS file system is mounted on an Amazon EC2<br>instance.<br>2. Give the `others` group write access to your RDS<br>user. The simplest technique is to run the `chmod<br>777` command on the top directory of the EFS file<br>system.                                                                                                                                                                             |

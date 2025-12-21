@@ -1,18 +1,104 @@
-# Viewing OS metrics using CloudWatch Logs
+# Viewing OS metrics in the RDS console
 
-After you have enabled Enhanced Monitoring for your DB instance or Multi-AZ DB cluster, you can view the metrics for it
-using CloudWatch Logs, with each log stream representing a single DB instance or DB cluster being monitored. The log stream identifier is the
-resource identifier (`DbiResourceId`) for the DB instance or DB cluster.
+You can view OS metrics reported by Enhanced Monitoring in the RDS console by
+choosing **Enhanced monitoring** for
+**Monitoring**.
 
-###### To view Enhanced Monitoring log data
+The following example shows the Enhanced Monitoring
+page. For descriptions of the Enhanced Monitoring metrics, see [OS metrics in Enhanced Monitoring](USER_Monitoring-Available-OS-Metrics.md "USER_Monitoring-Available-OS-Metrics.md").
 
-1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. If necessary, choose the AWS Region that your DB instance or Multi-AZ DB cluster is in. For more information, see [Regions and endpoints](../../../general/latest/gr/index.md "../../../general/latest/gr/index.md") in the
-   _Amazon Web Services General Reference_.
-3. Choose **Logs** in the navigation pane.
-4. Choose **RDSOSMetrics** from the list of log groups.
+![Dashboard view](images/metrics1.png)
+Some DB instances use more than
+one disk for the DB instance's data storage volume. On those DB instances, the
+**Physical Devices** graphs show metrics for each one of the disks. For
+example, the following graph shows metrics for four
+disks.
 
-In a Multi-AZ DB instance deployment, log files with `-secondary` appended to the name are
-for the Multi-AZ standby replica.
+![Graph with multiple disks](images/enhanced-monitoring-multiple-disks.png)
 
-![Multi-AZ standby replica log file](images/enhanced-monitoring-cloudwatch-secondary.png) 5. Choose the log stream that you want to view from the list of log streams.
+###### Note
+
+Currently, **Physical Devices** graphs are not available for Microsoft
+SQL Server DB instances.
+
+When you are viewing aggregated
+**File system** graphs, the **rdsdbdata\*** device relates to
+the `rdsfilesys/rdsdbdata*` file system, where all database files and logs are
+stored. The **rootfilesys** device relates to the `/` file system
+(also known as root), where files related to the operating system are stored. When using
+additional storage volumes, view the `rdsdbdata2`, `rdsdbdata3`, and
+`rdsdbdata4` volume metrics for volume specific information.
+
+When you are viewing aggregated **Disk I/O** graphs,
+the **rdsdbdata** device relates to the primary `/rdsdbdata` storage volume.
+When using additional storage volumes, view the `rdsdbdata2`, `rdsdbdata3`, and
+`rdsdbdata4` volume metrics for volume specific information.
+The filesystem device relates to the /file system (also known as root),
+where files related to the operating system are stored.
+
+The **rdsdev** device name is deprecated.
+The **rdsdev** device only relates to the primary `/rdsdbdata`
+storage volume and does not include metrics from additional storage volumes.
+
+![Graph showing file system usage](images/enhanced-monitoring-filesystem.png)
+If the DB instance is a Multi-AZ
+deployment, you can view the OS metrics for the primary DB instance and its Multi-AZ standby
+replica. In the **Enhanced monitoring** view, choose
+**primary** to view the OS metrics for the primary DB instance, or choose
+**secondary** to view the OS metrics for the standby
+replica.
+
+![Primary and secondary choice for Enhanced Monitoring](images/enhanced-monitoring-primary-secondary.png)
+For more information about
+Multi-AZ deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+
+###### Note
+
+Currently, viewing OS metrics for a Multi-AZ standby replica is not supported for MariaDB
+DB instances.
+
+If you want to see details for the processes running on your DB instance, choose
+**OS process list** for **Monitoring**.
+
+The
+**Process List** view is shown following.
+
+![Process list view](images/metrics2.png)
+The Enhanced Monitoring metrics shown in the **Process list**
+view are organized as follows:
+
+- **RDS child processes** – Shows a summary of the RDS processes
+  that support the DB instance, for example `mysqld` for MySQL
+  DB instances. Process threads appear nested beneath the parent process. Process
+  threads show CPU utilization only as other metrics are the same for all threads for the
+  process. The console displays a maximum of 100 processes and threads. The results are a
+  combination of the top CPU consuming and memory consuming processes and threads. If there
+  are more than 50 processes and more than 50 threads, the console displays the top 50
+  consumers in each category. This display helps you identify which processes are having the
+  greatest impact on performance.
+- **RDS processes** – Shows a summary of the resources used by the
+  RDS management agent, diagnostics monitoring processes, and other AWS processes that are
+  required to support RDS DB instances.
+- **OS processes** – Shows a summary of the kernel and system
+  processes, which generally have minimal impact on performance.
+  The items listed for each process are:
+
+- **VIRT** – Displays the virtual size of the process.
+- **RES** – Displays the actual physical memory being used by the
+  process.
+- **CPU%** – Displays the percentage of the total CPU bandwidth
+  being used by the process.
+- **MEM%** – Displays the percentage of the total memory being
+  used by the process.
+  The monitoring data that is shown in the RDS console is retrieved from
+  Amazon CloudWatch Logs. You can also retrieve the metrics for a DB instance as a log stream from CloudWatch Logs. For
+  more information, see [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+
+Enhanced Monitoring metrics
+are not returned during the following:
+
+- A failover of the DB instance.
+- Changing the instance class of the DB instance (scale compute).
+  Enhanced Monitoring metrics are returned during a reboot of a DB instance
+  because only the database engine is rebooted. Metrics for the operating system are still
+  reported.

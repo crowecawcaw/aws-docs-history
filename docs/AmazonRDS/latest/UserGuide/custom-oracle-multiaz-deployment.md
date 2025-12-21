@@ -15,13 +15,13 @@ You need specific Oracle installation files before you can create the CloudForma
 4. Download the remaining patches, selecting **Platform or Language** as
    `Linux x86-64`
 
-#### Latest OPatch
+### Latest OPatch
 
 utility
 
 [Patch 6880880](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=6880880 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=6880880")
 
-#### January 2023 PSU
+### January 2023 PSU
 
 Patches
 
@@ -38,7 +38,7 @@ Patches
 - [Patch 29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893")
 - [Patch 35012866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35012866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35012866")
 
-#### April 2023 PSU
+### April 2023 PSU
 
 Patches
 
