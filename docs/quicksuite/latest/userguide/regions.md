@@ -145,11 +145,9 @@ Cross-Region calls for web search apply to Chat, Agents, and Research features t
 
 ### Web search regional availability
 
-Amazon Quick Suite web search capability is securely hosted in the US East (N. Virginia) AWS Region. While Amazon Quick Suite is available in multiple regions, all web search queries are processed through the web search service in the US East region.
-
 | Region name and code                   | Web search processing region      |
 | -------------------------------------- | --------------------------------- |
 | US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1) |
 | US West (Oregon) (us-west-2)           | US East (N. Virginia) (us-east-1) |
-| Europe (Ireland) (eu-west-1)           | US East (N. Virginia) (us-east-1) |
+| Europe (Ireland) (eu-west-1)           | Europe (Ireland) (eu-west-1)      |
 | Asia Pacific (Sydney) (ap-southeast-2) | US East (N. Virginia) (us-east-1) |

@@ -35,6 +35,7 @@ Key capabilities include:
   guidelines](#browser-extensions-usage-guidelines "#browser-extensions-usage-guidelines")
 - [Browser extension known
   limitations](#browser-extension-known-limitations "#browser-extension-known-limitations")
+- [Using Amazon Quick Flows in the browser extension](flows-in-browser-extension.md "flows-in-browser-extension.md")
 
 ## Supported browsers
 
@@ -271,6 +272,5 @@ limitations
 
 The following are known limitations of the Amazon Quick Suite browser extension:
 
-- The browser extension does not support [flows](flows.md "flows.md").
 - The browser extension supports up to a total of 20 web pages and uploaded
   files at a time. For more information, see [Upload files and chat](using-quick-chat.md#file-uploads "using-quick-chat.md#file-uploads").

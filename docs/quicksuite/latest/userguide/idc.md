@@ -12,7 +12,7 @@ Creating an IDC knowledge base incurs storage and indexing costs. You should onl
 
 To use IDC in Quick Suite, you (or someone from your organization) will need to:
 
-1. Contact IDC to enable API access at [https://www.idc.com/developer/rest-api/setup/](https://www.idc.com/developer/rest-api/setup/ "https://www.idc.com/developer/rest-api/setup/"). IDC will give you a client id and client secret.
+1. Contact IDC to enable API access at [https://www.idc.com/amazonquickresearch](https://www.idc.com/amazonquickresearch "https://www.idc.com/amazonquickresearch"). IDC will give you a client id and client secret.
 2. Create an integration for IDC:
    1. Open the Research page and select **New Research**.
    2. In the **Research Materials** section, find **Third party data** and select **Browse** to display a list of supported third party data integrations.
