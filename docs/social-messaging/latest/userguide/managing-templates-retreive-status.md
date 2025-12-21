@@ -11,8 +11,5 @@ frequent negative feedback or low read rates.
 1. Open the AWS End User Messaging Social console at
    [https://console.aws.amazon.com/social-messaging/](https://console.aws.amazon.com/social-messaging/ "https://console.aws.amazon.com/social-messaging/").
 2. Choose **Business account**, and then choose a WABA.
-3. On the **Message templates** tab, choose **Manage
-   message templates**. The [WhatsApp
-   manager](https://www.facebook.com/business/help/2055875911147364 "https://www.facebook.com/business/help/2055875911147364") opens in a new window.
-4. Choose **Message templates**, and hover over the template. A
-   tooltip should appear with feedback on why the rating was lowered.
+3. On the **Message templates** tab, select the template with lowered status.
+4. View the template details to see feedback on why the rating was lowered. You can also hover over the status indicator for additional information.

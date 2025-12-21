@@ -14,8 +14,8 @@ the last 24 hours.
 Meta assigns each template a quality rating and status. The quality rating impacts a
 template's status and lowers a template's pacing or sending rate.
 
-Templates are associated with your WhatsApp Business Account (WABA), managed through the
-WhatsApp Manager, and reviewed by WhatsApp.
+Templates are associated with your WhatsApp Business Account (WABA), can be managed through the
+AWS End User Messaging Social console, and are reviewed by WhatsApp.
 
 You can send the following template types:
 
@@ -31,24 +31,23 @@ You can send the following template types:
 For more information on the types of message templates, see [Message template](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates "https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates") in the _WhatsApp Business Platform Cloud API
 Reference_.
 
-## Using message templates with WhatsApp
+## Using message templates in the AWS Console
 
-Manager
-
-Use the [WhatsApp
-Manager](https://www.facebook.com/business/help/2055875911147364 "https://www.facebook.com/business/help/2055875911147364") to create, modify, or check a templates status.
+Create and manage your WhatsApp message templates directly in the AWS End User Messaging Social console.
 
 1. Open the AWS End User Messaging Social console at
    [https://console.aws.amazon.com/social-messaging/](https://console.aws.amazon.com/social-messaging/ "https://console.aws.amazon.com/social-messaging/").
 2. Choose **Business account**, and then choose a WABA.
-3. On the **Message templates** tab, choose **Manage
-   message templates**. The [WhatsApp
-   manager](https://www.facebook.com/business/help/2055875911147364 "https://www.facebook.com/business/help/2055875911147364") opens in a new window where you can manage your templates by
-   choosing **Message templates**.
+3. On the **Message templates** tab, you can:
+   - **Create new templates** by choosing **Create template** and following the template creation workflow
+   - **View template status** to see which templates are approved, pending, or rejected
+   - **Edit existing templates** by selecting a template and choosing **Edit**
+   - **Delete templates** that are no longer needed
+
+Templates must be approved by Meta before they can be used to send messages to your customers. You can monitor the approval status of your templates in the console.
 
 ## Next steps
 
 Once you've created or edited a template, you must submit it for review with WhatsApp.
 Meta's review can take up to 24 hours. Meta sends an email to your Business Manager
-admin and updates the template status in WhatsApp manager. Use the [WhatsApp
-manager](https://www.facebook.com/business/help/2055875911147364 "https://www.facebook.com/business/help/2055875911147364") to check the status of your template.
+admin and updates the template status. You can check the status of your template in the AWS End User Messaging Social console.

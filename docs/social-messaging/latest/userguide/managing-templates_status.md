@@ -7,9 +7,8 @@ negative feedback or experiences low engagement, it will cause a change in the
 template's status.
 
 Meta changes a template's status or quality rating automatically based on negative or
-positive feedback and engagement. If your template status changes, you will receive a
-WhatsApp Manager notification, email, and event notification. Use the [WhatsApp
-manager](https://www.facebook.com/business/help/2055875911147364 "https://www.facebook.com/business/help/2055875911147364") to check the status of your template.
+positive feedback and engagement. If your template status changes, you will receive an
+email and event notification. You can check the status of your template in the AWS End User Messaging Social console.
 
 If your template is rejected by WhatsApp, you can edit the template and resubmit for
 approval or file an appeal with WhatsApp. To learn more, see [Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals "https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals") in the _WhatsApp Business Platform Cloud API
