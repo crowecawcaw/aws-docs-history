@@ -14,7 +14,7 @@ necessary to read the Athena resources in your account or in your entire
 organizational units. Then you use the Amazon Managed Grafana workspace console to add Athena
 as a data source.
 
-## To use AWS data source configuration to add Athena as a data
+# To use AWS data source configuration to add Athena as a data
 
 source
 
