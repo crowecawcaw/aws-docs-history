@@ -6,8 +6,11 @@ Before you get started with AWS Service Catalog, complete the following tasks.
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
+- [Grant permissions to AWS Service Catalog administrators](getstarted-iamadmin.md "getstarted-iamadmin.md")
+- [Grant permissions to AWS Service Catalog end users](getstarted-iamenduser.md "getstarted-iamenduser.md")
+- [Install and configure the Terraform provisioning engine](install-config-engine.md "install-config-engine.md")
 
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 If you do not have an AWS account, complete the following steps to create one.
 
@@ -27,7 +30,7 @@ complete. At any time, you can view your current account activity and manage you
 going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
 Account**.
 
-### Create a user with administrative access
+## Create a user with administrative access
 
 After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you
 don't use the root user for everyday tasks.
@@ -67,7 +70,10 @@ For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgro
 
 ###### Topics
 
-To provide access, add permissions to your users, groups, or roles:
+- [Grant permissions to AWS Service Catalog administrators](getstarted-iamadmin.md "getstarted-iamadmin.md")
+- [Grant permissions to AWS Service Catalog end users](getstarted-iamenduser.md "getstarted-iamenduser.md")
+- [Install and configure the Terraform provisioning engine](install-config-engine.md "install-config-engine.md")
+  To provide access, add permissions to your users, groups, or roles:
 
 - Users and groups in AWS IAM Identity Center:
 
