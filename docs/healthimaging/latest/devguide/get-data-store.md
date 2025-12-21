@@ -5,22 +5,6 @@ procedure for the AWS Management Console and code examples for the AWS CLI and A
 information, see [`GetDatastore`](../APIReference/API_GetDatastore.md "../APIReference/API_GetDatastore.md") in the [_AWS HealthImaging API
 Reference_](../APIReference/API_GetDatastore.md "../APIReference/API_GetDatastore.md").
 
-Below is the example response for a JPEG 2000 Lossless enabled datastore:
-
-```
-{
-    "datastoreProperties": {
-        "datastoreId": "12345678901234567890123456789012",
-        "datastoreName": "TestDatastore123",
-        "datastoreStatus": "ACTIVE",
-        "losslessStorageFormat": "JPEG_2000_LOSSLESS",
-        "datastoreArn": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012",
-        "createdAt": "2022-11-15T23:33:09.643000+00:00",
-        "updatedAt": "2022-11-15T23:33:09.643000+00:00"
-    }
-}
-```
-
 ###### To get data store properties
 
 Choose a menu based on your access preference to AWS HealthImaging.
@@ -133,7 +117,7 @@ CLI
 
 **AWS CLI**
 
-**To get a data store's properties**
+**Example 1: To get a data store's properties**
 
 The following `get-datastore` code example gets a data store's properties.
 
@@ -147,14 +131,40 @@ Output:
 
 ```
 {
-"datastoreProperties": {
-    "datastoreId": "12345678901234567890123456789012",
-    "datastoreName": "TestDatastore123",
-    "datastoreStatus": "ACTIVE",
-    "losslessStorageFormat": "JPEG_2000_LOSSLESS",
-    "datastoreArn": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012",
-    "createdAt": "2022-11-15T23:33:09.643000+00:00",
-    "updatedAt": "2022-11-15T23:33:09.643000+00:00"
+    "datastoreProperties": {
+        "datastoreId": "12345678901234567890123456789012",
+        "datastoreName": "TestDatastore123",
+        "datastoreStatus": "ACTIVE",
+        "losslessStorageFormat": "HTJ2K"
+        "datastoreArn": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012",
+        "createdAt": "2022-11-15T23:33:09.643000+00:00",
+        "updatedAt": "2022-11-15T23:33:09.643000+00:00"
+    }
+}
+```
+
+**Example 2: To get data store's properties configured for JPEG2000**
+
+The following `get-datastore` code example gets a data store's properties for a data store configured for JPEG 2000 Lossless storage format.
+
+```
+`aws medical-imaging get-datastore \
+ --datastore-id `12345678901234567890123456789012``
+
+```
+
+Output:
+
+```
+{
+    "datastoreProperties": {
+        "datastoreId": "12345678901234567890123456789012",
+        "datastoreName": "TestDatastore123",
+        "datastoreStatus": "ACTIVE",
+        "losslessStorageFormat": "JPEG_2000_LOSSLESS",
+        "datastoreArn": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012",
+        "createdAt": "2022-11-15T23:33:09.643000+00:00",
+        "updatedAt": "2022-11-15T23:33:09.643000+00:00"
     }
 }
 ```

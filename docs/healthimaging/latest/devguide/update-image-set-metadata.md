@@ -796,7 +796,7 @@ and `DeleteImageSet` APIs.
 
 You can remove an image set from the primary collection with the `DeleteImageSet` action.
 
-### To update the metadata of a primary image set
+## To update the metadata of a primary image set
 
 1. Use the CopyImageSet action to create a non-primary image set that is a copy of the primary image set you want to modify. Let's say this returns `103785414bc2c89330f7ce51bbd13f7a` as the non-primary image set ID.
 
@@ -852,7 +852,7 @@ aws medical-imaging delete-image-set --datastore-
           id 103785414bc2c89330f7ce51bbd13f7a
 ```
 
-### To make a non-primary image set primary
+## To make a non-primary image set primary
 
 1. Use the UpdateImageSetMetadata action to resolve conflicts with existing Primary image sets.
 

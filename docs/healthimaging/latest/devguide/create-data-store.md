@@ -12,29 +12,16 @@ changed after the data store is created.
 HTJ2K (High Throughput JPEG 2000) is the default storage format for HealthImaging datastores.
 It is an extension of the JPEG 2000 standard that offers significantly improved encoding
 and decoding performance. When you create a datastore without specifying a
-`—lossless-storage-format`, HealthImaging automatically uses HTJ2K.
+`—lossless-storage-format`, HealthImaging automatically uses HTJ2K. See the _AWS CLI and SDKs_
+section below for creating a data store using HTJ2K.
 
-```
-aws medical-imaging create-datastore \
-    --datastore-name "my-datastore"
-```
+###### JPEG 2000 Lossless
 
-###### Native JPEG 2000 Lossless
-
-Native JPEG 2000 Lossless encoding allows creation of datastores that persist and
+JPEG 2000 Lossless encoding allows creation of datastores that persist and
 retrieve lossless image frames in JPEG 2000 format without transcoding, enabling lower
 latency retrieval for applications that require JPEG 2000 Lossless (DICOM Transfer Syntax
-UID 1.2.840.10008.1.2.4.90) see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") for more details.
-
-###### Creating a JPEG 2000 Lossless Datastore
-
-To create a datastore that supports JPEG 2000 Lossless:
-
-```
-aws medical-imaging create-datastore \
-    --datastore-name "my-datastore" \
-    --lossless-storage-format JPEG_2000_LOSSLESS
-```
+UID 1.2.840.10008.1.2.4.90) see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") for more details. See the _AWS CLI and SDKs_
+section below for creating a data store using JPEG 2000 lossless format.
 
 ###### Important
 
@@ -154,13 +141,35 @@ CLI
 
 **AWS CLI**
 
-**To create a data store**
+**Example 1: To create a data store**
 
-The following `create-datastore` code example creates a data store with the name `my-datastore`. When you create a datastore without specifying a `--lossless-storage-format`, AWS HealthImaging defaults to HTJ2K (High Throughput JPEG 2000).
+The following `create-datastore` code example creates a data store with the name `my-datastore`.
+When you create a datastore without specifying a `--lossless-storage-format`, AWS HealthImaging defaults to HTJ2K (High Throughput JPEG 2000).
 
 ```
 `aws medical-imaging create-datastore \
  --datastore-name `"my-datastore"``
+
+```
+
+Output:
+
+```
+{
+    "datastoreId": "12345678901234567890123456789012",
+    "datastoreStatus": "CREATING"
+}
+```
+
+**Example 2: To create a data store with JPEG 2000 Lossless storage format**
+
+A data store configured with JPEG 2000 Lossless storage format will transcode and persist lossless image frames in JPEG 2000 format. Image frames can then be retrieved in
+JPEG 2000 Lossless without transcoding. The following `create-datastore` code example creates a data store configured for JPEG 2000 Lossless storage format with the name `my-datastore`.
+
+```
+`aws medical-imaging create-datastore \
+ --datastore-name `"my-datastore"` \
+ --lossless-storage-format `JPEG_2000_LOSSLESS``
 
 ```
 
