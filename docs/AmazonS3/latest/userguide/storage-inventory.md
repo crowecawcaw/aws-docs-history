@@ -186,6 +186,11 @@ eyJ2ZXJzaW9uIjoiMjAyMi0xMS0xMCIsInN0YXR1cyI6IkFWQUlMQUJMRSIsImdyYW50cyI6W3siY2Fu
 To get the decoded value in JSON for the Object ACL field, you can query this field
 in Amazon Athena. For query examples, see [Querying Amazon S3 Inventory with Amazon Athena](storage-inventory-athena-query.md "storage-inventory-athena-query.md").
 
+- **Lifecycle Expiration Date** – Set to the lifecycle expiration
+  timestamp of the object. This field will only be populated, if the object is to be expired by
+  an applicable lifecycle rule. In other cases, the field will be empty. For more information,
+  see [Expiring objects](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md").
+
 ###### Note
 
 When an object reaches the end of its lifetime based on its lifecycle configuration,

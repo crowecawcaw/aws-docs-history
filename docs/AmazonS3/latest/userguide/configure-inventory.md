@@ -380,6 +380,10 @@ report:
         	+ **Object Lock: Legal hold status** – The legal hold
         	 status of the locked object.
         For information about S3 Object Lock, see [How S3 Object Lock works](object-lock.md#object-lock-overview "object-lock.md#object-lock-overview").
+        * **Lifecycle Expiration Date** – The lifecycle expiration
+         timestamp for objects in your Inventory report. This field will only be populated, if
+         the object is to be expired by an applicable lifecycle rule. In other cases, the
+         field will be empty. For more information, see [Expiring objects](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md").
 
     For more information about the contents of an inventory report, see [Amazon S3 Inventory list](storage-inventory.md#storage-inventory-contents "storage-inventory.md#storage-inventory-contents").
 

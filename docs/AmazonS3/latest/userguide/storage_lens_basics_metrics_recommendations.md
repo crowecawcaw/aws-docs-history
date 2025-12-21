@@ -4,12 +4,7 @@ Amazon S3 Storage Lens
 
 ###### Important
 
-Amazon S3 now applies server-side encryption with Amazon S3 managed keys (SSE-S3)
-as the base level of encryption for every bucket in Amazon S3. Starting January 5, 2023, all new object uploads to Amazon S3 are automatically encrypted at no
-additional cost and with no impact on performance. The automatic encryption status for S3 bucket default encryption configuration
-and for new object uploads is available in AWS CloudTrail logs, S3 Inventory, S3 Storage Lens, the Amazon S3 console, and as an additional Amazon S3 API response header
-in the AWS Command Line Interface and AWS SDKs. For more information,
-see [Default encryption FAQ](default-encryption-faq.md "default-encryption-faq.md").
+Amazon S3 now applies server-side encryption with Amazon S3 managed keys (SSE-S3) as the base level of encryption for every bucket in Amazon S3. Starting January 5, 2023, all new object uploads to Amazon S3 are automatically encrypted at no additional cost and with no impact on performance. The automatic encryption status for S3 bucket default encryption configuration and for new object uploads is available in CloudTrail logs, S3 Inventory, S3 Storage Lens, the Amazon S3 console, and as an additional Amazon S3 API response header in the AWS CLI and AWS SDKs. For more information, see [Default encryption FAQ](default-encryption-faq.md "default-encryption-faq.md").
 
 Amazon S3 Storage Lens is a cloud-storage analytics feature that you can use to gain organization-wide
 visibility into object-storage usage and activity. You can use S3 Storage Lens metrics to generate

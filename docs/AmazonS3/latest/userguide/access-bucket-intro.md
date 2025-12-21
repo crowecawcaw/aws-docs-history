@@ -11,8 +11,9 @@ more information, see the following sections.
 - [AWS CLI](#accessing-aws-cli "#accessing-aws-cli")
 - [AWS SDKs](#accessing-aws-sdks "#accessing-aws-sdks")
 - [Amazon S3 REST API](#AccessingUsingRESTAPI "#AccessingUsingRESTAPI")
+- [Virtual hosting of general purpose buckets](VirtualHosting.md "VirtualHosting.md")
 
-### Use cases
+## Use cases
 
 Depending on the use case for your Amazon S3 general purpose bucket, there are different recommended
 methods to access the underlying data in your buckets. The following list includes
@@ -71,7 +72,7 @@ buckets with DNS-compliant bucket names. For more information, see [General purp
   this process, see [AWS Transfer for SFTP – Fully Managed SFTP Service for Amazon S3](https://aws.amazon.com/blogs/aws/new-aws-transfer-for-sftp-fully-managed-sftp-service-for-amazon-s3/ "https://aws.amazon.com/blogs/aws/new-aws-transfer-for-sftp-fully-managed-sftp-service-for-amazon-s3/") in _AWS
   Blogs_.
 
-### Amazon S3 console
+## Amazon S3 console
 
 The console is a web-based user interface for managing Amazon S3 and AWS resources. With the Amazon S3 console, you can
 easily access a bucket and modify the bucket's properties. You can also perform
@@ -82,7 +83,7 @@ If you've signed up for an AWS account, you can access the Amazon S3 console by 
 into the Amazon S3 console and choosing **S3** from the Amazon S3 console home
 page. You can also use this link to directly access the [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 
-### AWS CLI
+## AWS CLI
 
 You can use the AWS CLI to issue commands or build scripts at
 your system's command line to perform AWS (including S3) tasks. For example, if you need to access multiple
@@ -95,7 +96,7 @@ for a broad set of AWS services. The AWS CLI is supported on Windows, macOS, and
 Linux. To get started, see the [_AWS Command Line Interface User Guide_](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md"). For more information about the commands for
 Amazon S3, see [s3api](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/index.html") and [s3control](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/index.html") in the _AWS CLI Command Reference_.
 
-### AWS SDKs
+## AWS SDKs
 
 AWS provides SDKs (software development kits) that consist of libraries and sample code
 for various programming languages and platforms (Java, Python, Ruby, .NET, iOS,
@@ -112,7 +113,7 @@ Every interaction with Amazon S3 is either authenticated or anonymous. If you ar
 the AWS SDKs, the libraries compute the signature for authentication from the keys
 that you provide. For more information about how to make requests to Amazon S3, see [Making requests](../API/MakingRequests.md "../API/MakingRequests.md") .
 
-### Amazon S3 REST API
+## Amazon S3 REST API
 
 The architecture of Amazon S3 is designed to be programming language-neutral, using
 AWS-supported interfaces to store and retrieve objects. You can access S3 and

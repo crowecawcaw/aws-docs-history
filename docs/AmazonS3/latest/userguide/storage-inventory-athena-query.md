@@ -44,7 +44,7 @@ Inventory are available in all AWS Regions.
          partition the data in Athena. For more information, see [Partitioning data in Athena](../../../athena/latest/ug/partitions.md "../../../athena/latest/ug/partitions.md").
 
     ```
-    CREATE EXTERNAL TABLE `your_table_name`(
+    CREATE EXTERNAL TABLE `your_table_name` (
              bucket string,
              key string,
              version_id string,
@@ -64,14 +64,15 @@ Inventory are available in all AWS Regions.
              bucket_key_status string,
              checksum_algorithm string,
              object_access_control_list string,
-             object_owner string
+             object_owner string,
+             lifecycle_expiration_date timestamp
     ) PARTITIONED BY (
             dt string
     )
     ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.orc.OrcSerde'
       STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat'
       OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
-      LOCATION 's3://`source-bucket/config-ID`/hive/'
+      LOCATION 's3://`amzn-s3-demo-bucket`/`config-ID`/hive/'
       TBLPROPERTIES (
         "projection.enabled" = "true",
         "projection.dt.type" = "date",
@@ -115,7 +116,7 @@ Inventory are available in all AWS Regions.
          partition the data in Athena. For more information, see [Partitioning data in Athena](../../../athena/latest/ug/partitions.md "../../../athena/latest/ug/partitions.md").
 
     ```
-    CREATE EXTERNAL TABLE `your_table_name`(
+    CREATE EXTERNAL TABLE `your_table_name` (
              bucket string,
              key string,
              version_id string,
@@ -135,14 +136,15 @@ Inventory are available in all AWS Regions.
              bucket_key_status string,
              checksum_algorithm string,
              object_access_control_list string,
-             object_owner string
+             object_owner string,
+             lifecycle_expiration_date string
     ) PARTITIONED BY (
             dt string
     )
     ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
       STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat'
       OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
-      LOCATION 's3://`source-bucket/config-ID`/hive/'
+      LOCATION 's3://`amzn-s3-demo-bucket`/`config-ID`/hive/'
       TBLPROPERTIES (
         "projection.enabled" = "true",
         "projection.dt.type" = "date",
