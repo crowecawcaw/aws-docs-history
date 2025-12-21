@@ -15,6 +15,9 @@ AWS Marketplace sends the following types of EventBridge events:
   marketplace administrators and buyers receive events from AWS Marketplace every time a buyer creates a
   product request, and when the request is approved or declined. The events contain details
   like the product details and the seller's name.
+- [Agreement events](agreement-eventbridge.md "agreement-eventbridge.md") – AWS Marketplace sends notifications
+  to Amazon EventBridge when certain events occur during the lifecycle of your agreements (i.e. offers you have purchased).
+  The events contain details like the Agreement ID, Offer ID, and the state of your Agreement.
 
 ###### Note
 
