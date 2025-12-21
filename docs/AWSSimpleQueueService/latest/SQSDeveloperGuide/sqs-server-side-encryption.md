@@ -32,7 +32,7 @@ Some features of AWS services that can send notifications to Amazon SQS using th
 AWS Security Token Service `AssumeRole` action are compatible with SSE but work
 _only with standard queues:_
 
-- [Amazon EC2 Auto Scaling Lifecycle
+- [Auto Scaling Lifecycle
   Hooks](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md")
 - [AWS Lambda Dead-Letter
   Queues](../../../lambda/latest/dg/dlq.md "../../../lambda/latest/dg/dlq.md")
