@@ -270,7 +270,10 @@ JSON
  {
  "Effect": "Allow",
  "Action": "ssm:StartChangeRequestExecution",
- "Resource": "arn:aws:ssm:`us-east-1`:`111122223333`:automation-definition/*:*"
+ "Resource": [
+ "arn:aws:ssm:`us-east-1`:`111122223333`:document/*",
+ "arn:aws:ssm:`us-east-1`:`111122223333`:automation-execution/*"
+ ]
  }
  ]
 }`

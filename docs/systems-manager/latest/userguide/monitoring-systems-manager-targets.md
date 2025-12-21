@@ -46,9 +46,9 @@ following occur:
 You can configure an EventBridge rule to run a Systems Manager Command document in Run Command when
 events such as the following occur:
 
-- When an Amazon EC2 Auto Scaling group is about to end, a Run Command script could capture the log
+- When an Auto Scaling group is about to end, a Run Command script could capture the log
   files from the node before it is ended.
-- When a new node is created in an Amazon EC2 Auto Scaling group, a Run Command target action could
+- When a new node is created in an Auto Scaling group, a Run Command target action could
   turn on the web server role or install software on the node.
 - When a managed node is found to be out of compliance, a Run Command target action
   could update patches on the node by running the

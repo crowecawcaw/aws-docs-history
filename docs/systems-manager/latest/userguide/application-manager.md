@@ -111,7 +111,7 @@ information for each instance in your application.
     	- `INSUFFICIENT_DATA` – The alarm has just
     	 started, the metric is not available, or not enough data is
     	 available for the metric to determine the alarm state.
-    + Amazon EC2 Auto Scaling group health for the parent and individual autoscaling
+    + Auto Scaling group health for the parent and individual autoscaling
      groups
 
 - **View operational metrics and alarms for an application

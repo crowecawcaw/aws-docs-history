@@ -160,5 +160,5 @@ State Manager is available at no additional charge.
 
 - [Combating Configuration Drift Using Amazon EC2 Systems Manager and Windows
   PowerShell DSC](https://aws.amazon.com/blogs/mt/combating-configuration-drift-using-amazon-ec2-systems-manager-and-windows-powershell-dsc/ "https://aws.amazon.com/blogs/mt/combating-configuration-drift-using-amazon-ec2-systems-manager-and-windows-powershell-dsc/")
-- [Configure Amazon EC2 Instances in an Amazon EC2 Auto Scaling Group Using
+- [Configure Amazon EC2 Instances in an Auto Scaling Group Using
   State Manager](https://aws.amazon.com/blogs/mt/configure-amazon-ec2-instances-in-an-auto-scaling-group-using-state-manager/ "https://aws.amazon.com/blogs/mt/configure-amazon-ec2-instances-in-an-auto-scaling-group-using-state-manager/")

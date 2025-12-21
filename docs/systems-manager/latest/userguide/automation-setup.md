@@ -64,6 +64,7 @@ following methods.
   Automation by using CloudFormation](automation-setup-cloudformation.md "automation-setup-cloudformation.md")
 - [Create the service roles for Automation using
   the console](automation-setup-iam.md "automation-setup-iam.md")
+- [Setting up identity based policies examples](automation-setup-identity-based-policies.md "automation-setup-identity-based-policies.md")
 - [Allowing Automation to adapt to your
   concurrency needs](adaptive-concurrency.md "adaptive-concurrency.md")
 - [Configuring automatic retry for

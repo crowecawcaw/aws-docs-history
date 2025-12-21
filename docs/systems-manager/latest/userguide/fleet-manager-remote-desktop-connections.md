@@ -631,6 +631,6 @@ all past connections.
 
 5. To further narrow the list of connection results displayed, specify one or
    more filters in the search (
-   ![The Search icon](images/search-icon.png)
+   ![The Search icon](/images/systems-manager/latest/userguide/images/search-icon.png)
    ) box. You can also enter a free-text search
    term.

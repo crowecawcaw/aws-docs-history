@@ -93,8 +93,8 @@ JSON
  "ssm:StartChangeRequestExecution"
  ],
  "Resource": [
- "arn:aws:ssm:`us-east-1`:`111122223333`:automation-definition/`template-name`:$DEFAULT",
- "arn:aws:ssm:`us-east-1`::document/`template-name`"
+ "arn:aws:ssm:`us-east-1`::document/`template-name`",
+ "arn:aws:ssm:`us-east-1`:`111122223333`:automation-execution/*"
  ]
  },
  {

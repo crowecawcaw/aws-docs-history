@@ -156,7 +156,10 @@ JSON
  {
  "Effect": "Allow",
  "Action": "ssm:StartAutomationExecution",
- "Resource": "arn:aws:ssm:*:*:automation-definition/AWS-EnableExplorer:*"
+ "Resource": [
+ "arn:aws:ssm:*:*:document/AWS-EnableExplorer",
+ "arn:aws:ssm:*:*:automation-execution/*"
+ ]
  },
  {
  "Effect": "Allow",

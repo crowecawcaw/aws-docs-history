@@ -10,6 +10,7 @@ in AWS Systems Manager.
 
 - [SSM Agent version](#agent-versions "#agent-versions")
 - [Python version](#python-version "#python-version")
+- [Additional package requirements](#additional-package-requirements "#additional-package-requirements")
 - [Connectivity to the patch source](#source-connectivity "#source-connectivity")
 - [S3 endpoint access](#s3-endpoint-access "#s3-endpoint-access")
 - [Permissions to install patches
@@ -37,6 +38,19 @@ For macOS and most Linux operating systems (OSs), Patch Manager currently suppor
 Python versions 2.6 - 3.12. The AlmaLinux,
 Debian Server, and Ubuntu Server OSs require a supported version of Python 3 (3.0 -
 3.12).
+
+## Additional package requirements
+
+For DNF-based operating systems, the `zstd` and `xz` utilities may be required for
+decompressing repository information. DNF-based operating systems include Amazon Linux 2023,
+Red Hat Enterprise Linux 8 and later versions, Oracle Linux8 and later versions, Rocky Linux, AlmaLinux, &
+CentOS 8 and later versions. If you see an error similar to `No such file or directory: b'zstd'`
+or `No such file or directory: b'unxz'`, then you need to install these utilities.
+`zstd` and `xz` can be installed by running the following:
+
+```
+dnf install zstd xz
+```
 
 ## Connectivity to the patch source
 

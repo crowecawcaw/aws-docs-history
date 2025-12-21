@@ -1,16 +1,16 @@
 AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-# Updating AMIs for Amazon EC2 Auto Scaling groups
+# Updating AMIs for Auto Scaling groups
 
-The following example updates an Amazon EC2 Auto Scaling group with a newly patched AMI. This
+The following example updates an Auto Scaling group with a newly patched AMI. This
 approach ensures that new images are automatically made available to different
-computing environments that use Amazon EC2 Auto Scaling groups.
+computing environments that use Auto Scaling groups.
 
 The final step of the automation in this example uses a Python function to
-create a new launch template that uses the newly patched AMI. Then the Amazon EC2 Auto Scaling
-group is updated to use the new launch template. In this type of Amazon EC2 Auto Scaling scenario,
-users could terminate existing instances in the Amazon EC2 Auto Scaling group to force a new
+create a new launch template that uses the newly patched AMI. Then the Auto Scaling
+group is updated to use the new launch template. In this type of Auto Scaling scenario,
+users could terminate existing instances in the Auto Scaling group to force a new
 instance to launch that uses the new image. Or, users could wait and allow
 scale-in or scale-out events to naturally launch newer instances.
 
@@ -29,7 +29,7 @@ Complete the following tasks before you begin this example.
 Use the following procedure to create the
 **PatchAMIAndUpdateASG** runbook that patches the AMI
 you specify for the **SourceAMI** parameter. The runbook
-also updates an Amazon EC2 Auto Scaling group to use the latest, patched AMI.
+also updates an Auto Scaling group to use the latest, patched AMI.
 
 ###### To create and run the runbook
 
@@ -266,11 +266,11 @@ outputs:
     interface endpoints for Systems Manager.
 15. Choose **Execute**.
 16. After automation completes, in the Amazon EC2 console, choose
-    **Amazon EC2 Auto Scaling**, and then choose **Launch
+    **Auto Scaling**, and then choose **Launch
     Templates**. Verify that you see the new launch
     template, and that it uses the new AMI.
-17. Choose **Amazon EC2 Auto Scaling**, and then choose **Amazon EC2 Auto Scaling
-    Groups**. Verify that the Amazon EC2 Auto Scaling group uses the new
+17. Choose **Auto Scaling**, and then choose **Auto Scaling
+    Groups**. Verify that the Auto Scaling group uses the new
     launch template.
-18. Terminate one or more instances in your Amazon EC2 Auto Scaling group. Replacement
+18. Terminate one or more instances in your Auto Scaling group. Replacement
     instances will be launched using the new AMI.

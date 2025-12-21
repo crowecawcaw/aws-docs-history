@@ -13,7 +13,7 @@ started with Run Command, open the [Systems Manager console](https://console.aws
 **Run Command**.
 
 Administrators use Run Command to install or bootstrap applications, build a deployment
-pipeline, capture log files when an instance is removed from an Amazon EC2 Auto Scaling group, join instances
+pipeline, capture log files when an instance is removed from an Auto Scaling group, join instances
 to a Windows domain, and more.
 
 The Run Command API follows an eventual consistency model, due to the distributed nature of

@@ -193,7 +193,10 @@ JSON
  "Sid": "SSMAutomationExecution",
  "Effect": "Allow",
  "Action": "ssm:StartAutomationExecution",
- "Resource": "arn:aws:ssm:`us-east-1`:`111122223333`:automation-definition/AWS-EnableExplorer:*"
+ "Resource": [
+ "arn:aws:ssm:`us-east-1`:`111122223333`:document/AWS-EnableExplorer",
+ "arn:aws:ssm:`us-east-1`:`111122223333`:automation-execution/*"
+ ]
  },
  {
  "Sid": "SSMAssociationPermissions",

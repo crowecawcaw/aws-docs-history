@@ -21,8 +21,8 @@ reporting requirements for the managed nodes in your account.
 
 The main use cases for State Manager are as follows:
 
-- **Amazon EC2 Auto Scaling scenarios:** State Manager can monitor all
-  new nodes launched within an account either manually or through Amazon EC2 Auto Scaling groups.
+- **Auto Scaling scenarios:** State Manager can monitor all
+  new nodes launched within an account either manually or through Auto Scaling groups.
   If there are any associations in the account targeting that new node
   (through tags or all nodes), then that particular association is
   automatically applied to the new node.

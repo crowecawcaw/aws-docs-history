@@ -55,7 +55,7 @@ Though Explorer doesn't create OpsItems for informational findings, you can view
 informational operations data (OpsData) in the Security Hub CSPM findings summary widget.
 Explorer creates OpsData for all findings regardless of severity. For more
 information about Security Hub CSPM severity levels, see [Severity](../../../securityhub/1.0/APIReference/API_Severity.md "../../../securityhub/1.0/APIReference/API_Severity.md") in
-the _AWS Security Hub CSPM API Reference_.
+the _AWS Security Hub API Reference_.
 
 ## Enabling
 
@@ -69,7 +69,7 @@ Security Hub CSPM findings.
 Complete the following tasks before you configure Explorer to start
 receiving Security Hub CSPM findings.
 
-- Enable and configure Security Hub CSPM. For more information, see [Setting up Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User Guide_.
+- Enable and configure Security Hub CSPM. For more information, see [Setting up Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
 - Log into the AWS Organizations management account. Systems Manager requires access to
   AWS Organizations to create OpsItems from Security Hub CSPM findings. After you log in to the
   management account, you're prompted to select the **Enable

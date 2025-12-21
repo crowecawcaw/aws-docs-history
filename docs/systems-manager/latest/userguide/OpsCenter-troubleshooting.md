@@ -58,7 +58,7 @@ If you are logged into a member account when you configure integration,
 the system only creates OpsItems for findings in that individual account. For
 more information about the Security Hub CSPM administrator account, member accounts, and
 their relation to the EventBridge event feed for findings, see [Types of Security Hub CSPM integration with EventBridge](../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md "../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md") in the
-_AWS Security Hub CSPM User Guide_.
+_AWS Security Hub User Guide_.
 
 - For each finding that creates an OpsItem, you are charged the regular price
   for creating the OpsItem. You are also charged if you edit the OpsItem or if the

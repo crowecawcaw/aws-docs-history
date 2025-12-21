@@ -28,7 +28,7 @@ Moving from Session Manager to just-in-time node access requires careful plannin
 and testing to ensure a smooth transition without disrupting your operations. The
 following sections describe how you can complete this process.
 
-### Prerequisites
+## Prerequisites
 
 Before you begin, ensure that you have completed the following tasks:
 
@@ -40,7 +40,7 @@ Before you begin, ensure that you have completed the following tasks:
 - Documented your current Session Manager configuration, including session
   preferences and logging settings.
 
-### Assessment
+## Assessment
 
 Assess your current environment and outline desired approval behaviors by
 completing the following tasks:
@@ -58,9 +58,9 @@ completing the following tasks:
 5. **Audit existing IAM policies** -
    Identify all policies that include Session Manager permissions.
 
-### Planning
+## Planning
 
-#### Phased strategy
+### Phased strategy
 
 When moving from Session Manager to just-in-time node access, we recommend using
 a phased approach like the following:
@@ -78,7 +78,7 @@ a phased approach like the following:
 4. **Phase 4: Full migration** -
    Gradually migrate all remaining nodes and users or roles.
 
-#### Timeline considerations
+### Timeline considerations
 
 Consider the following factors when creating your timeline to move from
 Session Manager to just-in-time node access:
@@ -91,9 +91,9 @@ Session Manager to just-in-time node access:
 - Plan for a period of parallel operation where both systems are
   available.
 
-### Implementation steps
+## Implementation steps
 
-#### Phase 1: Setup and configuration
+### Phase 1: Setup and configuration
 
 1. Enable just-in-time node access in the Systems Manager console. For detailed
    steps, see [Setting up
@@ -108,7 +108,7 @@ Session Manager to just-in-time node access:
    recording. For more information, see [Recording
    RDP connections](systems-manager-just-in-time-node-access-rdp-recording.md "systems-manager-just-in-time-node-access-rdp-recording.md").
 
-#### Phase 2: Policy development
+### Phase 2: Policy development
 
 1. Create IAM policies for just-in-time node access administrators
    and users.
@@ -117,7 +117,7 @@ Session Manager to just-in-time node access:
 3. Test your policies in a non-production environment to ensure they
    work as expected.
 
-#### Phase 3: Pilot migration
+### Phase 3: Pilot migration
 
 1. Select a small group of users and non-critical nodes for the
    pilot.
@@ -176,12 +176,12 @@ JSON
 
 ```
 
-#### Phase 4: Full migration
+### Phase 4: Full migration
 
 Develop a schedule for migrating remaining users and nodes in
 batches.
 
-### Testing methodology
+## Testing methodology
 
 Throughout the migration process, conduct the following tests:
 
@@ -198,7 +198,7 @@ Throughout the migration process, conduct the following tests:
   session logs and access requests are properly captured and
   stored.
 
-### Best practices for a successful migration
+## Best practices for a successful migration
 
 - **Communicate early and often** - Inform
   users about the migration timeline and benefits of just-in-time node

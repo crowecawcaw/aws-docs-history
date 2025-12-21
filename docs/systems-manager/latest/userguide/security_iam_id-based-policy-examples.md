@@ -356,7 +356,8 @@ JSON
  "Action": "ssm:StartAutomationExecution",
  "Effect": "Allow",
  "Resource": [
- "arn:aws:ssm:`us-east-1`:`111122223333`:automation-definition/*"
+ "arn:aws:ssm:`us-east-1`:`111122223333`:document/*",
+ "arn:aws:ssm:`us-east-1`:`111122223333`:automation-execution/*"
  ]
  },
  {

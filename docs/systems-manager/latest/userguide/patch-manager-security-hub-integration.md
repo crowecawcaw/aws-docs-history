@@ -69,15 +69,15 @@ conditions are met, Patch Manager forwards the data to Security Hub CSPM.
 Security Hub CSPM provides tools to manage findings from across all of these sources. You
 can view and filter lists of findings and view details for a finding. For more
 information, see [Viewing
-findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub CSPM User Guide_.
+findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub User Guide_.
 You can also track the status of an investigation into a finding. For more
-information, see [Taking action on findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub CSPM User Guide_.
+information, see [Taking action on findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub User Guide_.
 
 All findings in Security Hub CSPM use a standard JSON format called the AWS Security
 Finding Format (ASFF). The ASFF includes details about the source of the issue,
 the affected resources, and the current status of the finding. For more
 information, see [AWS
-Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub CSPM User Guide_.
+Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
 ### Types of findings
 
@@ -106,7 +106,7 @@ to the managed node.
 For more information about compliance definitions, see [Patch compliance state
 values](patch-manager-compliance-states.md "patch-manager-compliance-states.md"). For more information about
 `PatchSummary`, see [PatchSummary](../../../securityhub/1.0/APIReference/API_PatchSummary.md "../../../securityhub/1.0/APIReference/API_PatchSummary.md") in the
-_AWS Security Hub CSPM API Reference_.
+_AWS Security Hub API Reference_.
 
 ### Latency for
 
@@ -198,7 +198,7 @@ Summary level.
 **Related content**
 
 - [Findings](../../../securityhub/latest/userguide/securityhub-findings.md "../../../securityhub/latest/userguide/securityhub-findings.md") in the
-  _AWS Security Hub CSPM User Guide_
+  _AWS Security Hub User Guide_
 - [Multi-Account patch compliance with Patch Manager and Security
   Hub](https://aws.amazon.com/blogs/mt/multi-account-patch-compliance-with-patch-manager-and-security-hub/ "https://aws.amazon.com/blogs/mt/multi-account-patch-compliance-with-patch-manager-and-security-hub/") in the _AWS Management & Governance
   Blog_
@@ -277,7 +277,7 @@ integration
 
 To use the Patch Manager integration with Security Hub CSPM, you must turn on Security Hub CSPM. For
 information about how to turn on Security Hub CSPM, see [Setting up
-Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User Guide_.
+Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
 
 The following procedure describes how to integrate Patch Manager and Security Hub CSPM when
 Security Hub CSPM is already active but Patch Manager integration is turned off. You only need to
@@ -303,7 +303,7 @@ findings
 To stop sending findings to Security Hub CSPM, you can use either the Security Hub CSPM console or the
 API.
 
-For more information, see the following topics in the _AWS Security Hub CSPM User Guide_:
+For more information, see the following topics in the _AWS Security Hub User Guide_:
 
 - [Disabling and enabling the flow of findings
   from an integration (console)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console")

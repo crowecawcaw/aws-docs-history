@@ -24,7 +24,7 @@ information for each instance in your application:
     started, the metric is not available, or not enough data is
     available for the metric to determine the alarm state.
 
-- Amazon EC2 Auto Scaling group health for the parent and individual autoscaling groups
+- Auto Scaling group health for the parent and individual autoscaling groups
   If you choose an instance in the **All instances** table,
   Application Manager displays information about that instance on four tabs:
 
@@ -44,7 +44,7 @@ You can perform the following actions on this page:
 
 - Start, stop, and terminate instances.
 - Apply a Chef recipe.
-- Attach instances to, or detach instances from, an Amazon EC2 Auto Scaling group.
+- Attach instances to, or detach instances from, an Auto Scaling group.
 - Enable automated updates for SSM Agent.
 
 ###### To open the **Instances** tab

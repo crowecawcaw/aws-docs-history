@@ -53,7 +53,7 @@ JSON
  "Action": "ssm:StartAutomationExecution",
  "Resource": [
  "arn:aws:ssm:`us-east-1`:`111122223333`:document/`UpdateMyLatestWindowsAmi`",
- "arn:aws:ssm:`us-east-1`:`111122223333`:automation-definition/`UpdateMyLatestWindowsAmi`:$DEFAULT"
+ "arn:aws:ssm:`us-east-1`:`111122223333`:automation-execution/*"
  ]
  }
  ]

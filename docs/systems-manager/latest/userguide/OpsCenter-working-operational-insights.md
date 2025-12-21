@@ -29,7 +29,7 @@ insights for the following resource types:
 
 - Amazon Elastic Compute Cloud (Amazon EC2) instances
 - Amazon EC2 security groups
-- Amazon EC2 Amazon EC2 Auto Scaling group
+- Amazon EC2 Auto Scaling group
 - Amazon Relational Database Service (Amazon RDS) database
 - Amazon RDS cluster
 - AWS Lambda function

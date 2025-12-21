@@ -208,13 +208,13 @@ the bidirectional updates no longer function.
 By default, Systems Manager creates OpsItems for critical and high severity findings. You can
 manually configure OpsCenter to create OpsItems for medium and low severity findings.
 OpsCenter doesn’t create OpsItems for informational findings as they don't require
-remediation. For more information about Security Hub CSPM severity levels, see [Severity](../../../securityhub/1.0/APIReference/API_Severity.md "../../../securityhub/1.0/APIReference/API_Severity.md") in the _AWS Security Hub CSPM API Reference_.
+remediation. For more information about Security Hub CSPM severity levels, see [Severity](../../../securityhub/1.0/APIReference/API_Severity.md "../../../securityhub/1.0/APIReference/API_Severity.md") in the _AWS Security Hub API Reference_.
 
 ###### Before you begin
 
 Before you configure OpsCenter to create OpsItems based on Security Hub CSPM findings, verify
 that you completed the Security Hub CSPM set up tasks. For more information, see [Setting up
-Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub CSPM User Guide_.
+Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
 
 When you integrate Security Hub CSPM with OpsCenter, the system creates OpsItems by using the
 `AWSServiceRoleForSystemsManagerOpsDataSync` IAM service-linked
@@ -237,7 +237,7 @@ integration, the system only creates OpsItems for findings in that
 individual account. For more information about the Security Hub CSPM administrator
 account, member accounts, and their relation to the EventBridge event feed for
 findings, see [Types of Security Hub CSPM integration with EventBridge](../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md "../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md") in the
-_AWS Security Hub CSPM User Guide_.
+_AWS Security Hub User Guide_.
 
 - For each finding that creates an OpsItem, you are charged the regular
   price for creating the OpsItem. You are also charged if you edit the OpsItem
