@@ -9,7 +9,7 @@ AWS Transform CLI maintains logs in the following locations:
 **Conversation logs:**
 
 ```
-~/.atx/<conversation_id>/logs/<timestamp>-conversation.log
+~/.aws/atx/custom/<conversation_id>/logs/<timestamp>-conversation.log
 ```
 
 These logs contain the full conversation history for debugging specific transformation executions.
@@ -17,11 +17,12 @@ These logs contain the full conversation history for debugging specific transfor
 **Developer debug logs:**
 
 ```
-~/.atx/logs/atx-cli.log
-~/.atx/logs/error.log
+~/.aws/atx/logs/debug*.log
+~/.aws/atx/logs/error.log
 ```
 
 These logs provide detailed information about CLI operations and errors.
+Each log file has a 5MB limit before it rolls over. There may be multiple debug logs in this directory, such as debug1.log and debug2.log.
 
 ## Common Issues
 
@@ -70,7 +71,7 @@ AWS Transform custom requires repositories to be under git source control.
 
 If a transformation fails:
 
-1. Review the conversation logs at `~/.atx/<conversation_id>/logs/`
+1. Review the conversation logs at `~/.aws/atx/custom/<conversation_id>/logs/`
 2. Check for build or test failures in the transformation output
 3. Verify the build command is correct for your project
 4. Try running the transformation in interactive mode to provide feedback
@@ -89,7 +90,34 @@ For additional assistance, visit AWS Support through the [AWS Console](https://s
 
 When opening a support ticket, include:
 
-- Conversation logs from `~/.atx/<conversation_id>/logs/`
-- Debug logs from `~/.atx/logs/`
+- Conversation logs from `~/.aws/atx/custom/<conversation_id>/logs/`
+- Debug logs from `~/.aws/atx/logs/`
 - Steps to reproduce the issue
 - AWS Transform CLI version (`atx --version`)
+
+## S3 access issues
+
+The AWS Transform custom service vends S3 pre-signed URLs to facilitate uploading and downloading the potentially large transformation files to/from client machines. This means that not only does the CLI interact with the AWS Transform service endpoints but it also interacts with the S3 service endpoints. These interactions use pre-signed URLs so your client's IAM credentials **do not** require any S3 permissions but sometimes your local machine's proxy server configurations and your network's S3 VPC Endpoint Policies can restrict this traffic.
+
+Please examine the [Log Locations](#custom-log-locations "#custom-log-locations") for more detailed error messages to help root cause any tool failures or S3 access denied relating to downloading and uploading transformation files.
+
+If you are using a VPN/Proxy server that leverages the `https_proxy` and `no_proxy` environment variables, consider adding the following values to your `no_proxy` environment variable value to bypass the proxy for the S3 and AWS Transform custom service endpoints, for example:
+
+`export no_proxy=.s3.amazonaws.com,.transform-custom.us-east-1.api.aws`
+
+If you are using an [AWS PrivateLink for Amazon S3](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md") in your VPC,
+this may have a policy defined to restrict S3 traffic. Please ensure your S3 VPC endpoint policy allows `GetObject` and `PutObject` operations for the AWS Transform
+custom service-owned buckets. This can be accomplished by adding the following statement to your VPC endpoint policy:
+
+```
+{
+    "Effect": "Allow",
+    "Principal": "*",
+    "Action": ["s3:PutObject","s3:GetObject"],
+    "Resource": "arn:aws:s3:::aws-transform-custom-*/*"
+}
+```
+
+Explicit `Deny` statements in policies take precedence over
+`Allow` statements. Review S3 VPC Endpoint policies for
+`Deny` statements that may be restricting access.

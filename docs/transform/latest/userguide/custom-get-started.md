@@ -104,31 +104,14 @@ The following IAM policy provides full access to AWS Transform custom:
 }
 ```
 
-For more granular control, you can assign specific permissions:
-
-- `transform-custom:ConverseStream` - Interactive conversations with the agent
-- `transform-custom:ExecuteTransformation` - Execute transformations on codebases
-- `transform-custom:ListTransformationPackageMetadata` - List available transformation definitions
-- `transform-custom:DeleteTransformationPackage` - Delete transformation definitions
-- `transform-custom:CompleteTransformationPackageUpload` - Complete transformation package uploads
-- `transform-custom:CreateTransformationPackageUrl` - Create upload URLs for transformation packages
-- `transform-custom:GetTransformationPackageUrl` - Get download URLs for transformation packages
-- `transform-custom:ListKnowledgeItems` - List knowledge items for a transformation
-- `transform-custom:GetKnowledgeItem` - Get details of specific knowledge items
-- `transform-custom:DeleteKnowledgeItem` - Delete knowledge items
-- `transform-custom:UpdateKnowledgeItemConfiguration` - Update knowledge item configuration
-- `transform-custom:UpdateKnowledgeItemStatus` - Enable or disable knowledge items
-- `transform-custom:ListTagsForResource` - List tags on transformation definitions
-- `transform-custom:TagResource` - Add tags to transformation definitions
-- `transform-custom:UntagResource` - Remove tags from transformation definitions
+For more granular control, please refer to the [AWS Transform Custom IAM Service Authorization Reference Guide](../../../service-authorization/latest/reference/list_awstransformcustom.md "../../../service-authorization/latest/reference/list_awstransformcustom.md")
 
 ###### Note
 
-Transformation definitions are AWS resources with ARNs (Amazon Resource Names). You can use IAM policies to control access to specific transformations or groups of transformations by specifying the transformation ARN in your IAM policy resource statements. Tags can be used for grouped access control.
-
-###### Note
-
-AWS IAM Identity Center is required to access the AWS Transform web application, but it is not required to use the CLI.
+- Transformation definitions are AWS resources with ARNs (Amazon Resource Names).
+  You can use IAM policies to control access to specific transformations or groups of transformations by specifying
+  the transformation ARN in your IAM policy resource statements. Tags can be used for grouped access control.
+- AWS IAM Identity Center is required to access the AWS Transform, but is not required to use the CLI.
 
 ## Running Your First Transformation
 
@@ -143,13 +126,13 @@ atx
 Then ask the agent to execute a transformation:
 
 ```
-Execute the AWS/java-version-upgrade transformation on the codebase at ./my-java-project
+Execute the AWS/java-aws-sdk-v1-to-v2 transformation on the codebase at ./my-java-project
 ```
 
 **To run a transformation non-interactively:**
 
 ```
-atx custom def exec -n AWS/java-version-upgrade -p ./my-java-project -c "mvn clean install" -x -t
+atx custom def exec -n AWS/java-aws-sdk-v1-to-v2 -p ./my-java-project -c "mvn clean install" -x -t
 ```
 
 For detailed information about execution modes, configuration options, and command flags, see [Command Reference](custom-command-reference.md "custom-command-reference.md").
@@ -162,7 +145,8 @@ Most transformations are performed in multiple steps, using Git to commit interm
 
 ```
 git status
-git diff
+git log
+git diff `<original commit-id>`
 ```
 
 ## Creating a Custom Transformation

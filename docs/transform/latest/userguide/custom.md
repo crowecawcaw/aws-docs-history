@@ -60,7 +60,8 @@ A **transformation definition** is a package that contains the instructions and 
 - `summaries.md` (optional) - Summaries for user-provided reference documentation
 - `document_references/` folder (optional) - User-provided documentation and reference materials
 
-AWS Transform CLI automatically downloads transformation definitions to the current directory by when needed for execution, inspection, or modification.
+AWS Transform CLI automatically downloads transformation definitions to the
+current directory when needed for execution, inspection, or modification.
 
 ###### Important
 
@@ -96,11 +97,17 @@ The typical workflow is:
 
 You can also publish a transformation directly without saving it as a draft.
 
-### References vs Knowledge Items
+### References vs. Knowledge
+
+Items
 
 AWS Transform custom uses two types of knowledge to improve transformation quality:
 
-**References** are user-provided documentation that you explicitly add to a transformation definition. References support text files only (maximum 10MB per file) and usually contain documentation, API specifications, migration guides, and code samples. You add references when creating or updating a transformation definition in interactive mode.
+**References** are user-provided documentation that
+you explicitly add to a transformation definition. References support text files
+only (maximum 10MB total for all files) and usually contain documentation, API
+specifications, migration guides, and code samples. You add references when creating
+or updating a transformation definition in interactive mode.
 
 **Knowledge items** are automatically extracted learnings from transformation executions. These are created asynchronously by the continual learning system based on execution trajectories, developer feedback, and code fixes encountered during transformations. Knowledge items start in a "not approved" state and must be explicitly approved by transformation owners before they can be used in future executions. Unlike references which you provide upfront, knowledge items accumulate over time as the transformation is executed across different codebases.
 
@@ -108,7 +115,9 @@ AWS Transform custom uses two types of knowledge to improve transformation quali
 
 The **build or validation command** is an optional parameter that specifies how to validate your code during the transformation process. This command is executed at various points during the transformation to ensure code integrity.
 
-Providing a command that validates the results and returns issues if validation fails is very important to improve transformation quality through continual learning. If no build or validation is needed, use `"noop"` as the value.
+Providing a command that validates the results and returns issues if validation
+fails is very important to improve transformation quality through continual
+learning. If no build or validation is needed, omit from your input.
 
 For examples and detailed guidance, see Build and Validation Commands in the Workflows section.
 
@@ -131,23 +140,28 @@ Here are a few of the commands you can use with custom transformations. The comp
 
 - `atx custom`
   - **Executes custom transformation interactive experience, allowing creation, discovery, execution, and refinement of transformations.**
-  - This is the default command for `atx custom`.
-  - `--trust-all-tools` (`-t`) is optional, though the user experience is smoother if tools are trusted. Otherwise, the user will be prompted for each tool invocation (e.g., file-read, file-write, etc.).
+  - This is the default command for `atx`.
+  - `--trust-all-tools` (`-t`) is optional and
+    implicitly allows all requested tool requests by the agent. Use with
+    caution especially in production environments. You can configure tool
+    trust for specific tools and commands using the [trust settings
+    file](custom-workflows.md#custom-advanced-configuration "custom-workflows.md#custom-advanced-configuration").
 
 - `atx custom --help` | `atx custom -h`
   - **Shows help menu.**
-  - Each `command` also includes a help menu (e.g., `atx custom exec --help`).
+  - Each command also includes a help menu, for example, `atx custom
+def exec --help`.
 
-- `atx custom --version` | `atx custom -v`
+- `atx --version` | `atx -v`
   - **Shows version.**
-  - The version number will change with each release.
+  - The version number changes with each release.
 
-- `atx custom discover`
-  - **Prints list of transformation packages available in the transformation package registry.**
-  - `verified` transformations packages are annotated with ✅ next to their `Package Name`. These transformation packages can only be modified by the custom transformation team.
+- `atx custom def list`
+  - **Prints list of transformations available in the transformation registry.**
 
-- `atx custom exec`
+- `atx custom def exec`
   - **Executes a transformation**
 
-- `atx custom tools`
-  - **Used for managing MCP tools**
+- `atx mcp`
+  - **Used to manage MCP server
+    configurations**

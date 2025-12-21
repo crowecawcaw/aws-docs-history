@@ -78,6 +78,8 @@ Publish a transformation definition to the registry.
 **atx custom def save-draft**
 
 Save a transformation definition as a draft in the registry.
+Drafts expire after 30 days and do not show up in the registry. This command returns the version number of the draft. You must execute and retrieve drafts
+explicitly using the transformation name and version number.
 
 ```
 atx custom def save-draft -n <transformation-name> --description "Description" --sd <directory>
@@ -176,10 +178,11 @@ atx update --target-version <version>  # Update to specific version
 
 **atx mcp tools**
 
-Manage Model Context Protocol servers.
+Allows clients to view/confirm their MCP tool configurations.
+Updates to the configurations must be managed directly via the file ~/.aws/atx/mcp.json
 
 ```
-atx mcp tools -s    # View status
-atx mcp tools -l    # List tools
-atx mcp tools -r    # Refresh
+
+atx mcp tools     # View list of MCP servers
+atx mcp tools -s    # List tools for the specified server
 ```

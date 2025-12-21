@@ -88,7 +88,7 @@ The build or validation command is an optional parameter that specifies how to v
 
 Even for languages or transformations that don't require building, providing a command that validates the results and returns issues if validation fails is very important to improve transformation quality.
 
-If no build or validation is needed, use `"noop"` as the value.
+If no build or validation is needed, omit from your input.
 
 ### Controlling Learning Behavior
 
@@ -237,7 +237,7 @@ export ATX_DISABLE_UPDATE_CHECK=true
 
 ### Trust Settings
 
-Trust settings allow you to pre-approve specific tools and commands to execute without prompts. These settings are configured in the `~/.atx/trust-settings.yaml` file.
+Trust settings allow you to pre-approve specific tools and commands to execute without prompts. These settings are configured in the `~/.aws/atx/trust-settings.yaml` file.
 
 The file contains two lists:
 
@@ -275,14 +275,14 @@ The AWS Transform CLI supports Model Context Protocol (MCP) servers, which exten
 
 **Configuration:**
 
-Configure MCP servers in the `~/.atx/mcp.json` file.
+Configure MCP servers in the `~/.aws/atx/mcp.json` file.
 
 **Managing MCP servers:**
 
 View list of configured MCP servers:
 
 ```
-atx mcp tools -l
+atx mcp tools
 ```
 
 List available tools offered by a specific MCP server:
@@ -325,7 +325,7 @@ AWS Transform CLI maintains two types of logs for troubleshooting and debugging.
 
 **Conversation logs:**
 
-Location: `~/.atx/<conversation_id>/logs/<timestamp>-conversation.log`
+Location: `~/.aws/atx/custom/<conversation_id>/logs/<timestamp>-conversation.log`
 
 These logs contain the full conversation history for a specific session.
 
@@ -333,14 +333,16 @@ These logs contain the full conversation history for a specific session.
 
 Locations:
 
-- `~/.atx/logs/atx-cli.log`
-- `~/.atx/logs/error.log`
+- `~/.aws/atx/logs/debug*.log`
+- `~/.aws/atx/logs/error.log`
 
 These logs provide advanced troubleshooting information for the CLI itself.
 
 ###### Note
 
-Provide all relevant logs (e.g. `/.atx/<conversation-id>/*` and `./atx/logs/*`) when opening support tickets for faster resolution.
+There may be multiple debug log
+files in the logs directory (i.e. debug1.log, debug2.log).
+Review and provide all relevant logs for example, ~/.aws/atx/custom/<conversation-id>/\* and ~/.aws/atx/logs/\*, when opening support tickets for faster resolution.
 
 ### CLI Updates
 
@@ -426,7 +428,12 @@ Take a look at the docs we have here: /path/to/docs/
 
 ###### Note
 
-Only text-based files (.md, .html, .txt, code files) are supported. Binary files, images, and rich text files (e.g., .pdf, .png, .docx) are not currently supported. It is often possible to extract the text content and use that as reference. If you many many small text files, consider concatenating them into few descriptively-named files. Each file has a maximum size of 10MB.
+Only text-based files (.md, .html, .txt, code files) are supported. Binary files, images, and
+rich text files (e.g., .pdf, .png, .docx) are not currently supported. It is
+often possible to extract the text content and use that as reference. If you
+have many small text files, consider concatenating them into few
+descriptively-named files. There is a limit of 10MB total for all
+files.
 
 ### Modifying an Existing Transformation
 
