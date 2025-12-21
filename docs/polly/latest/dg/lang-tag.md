@@ -4,7 +4,7 @@ specific words
 
 _<lang>_
 
-This tag is supported by generative, long-form, neural, and standard TTS formats.
+This tag is supported by generative, long-form, neural, and standard TTS formats. For generative voices, the `<lang>` tag can be used only around full sentences.
 
 Specify another language for a specific word, phrase, or
 sentence with the <lang> tag. Foreign language words and

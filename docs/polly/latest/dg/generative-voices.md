@@ -66,6 +66,9 @@ Amazon Polly generative voices are available in the following regions:
 - US East (N. Virginia): us-east-1
 - Europe (Frankfurt): eu-central-1
 - US West (Oregon): us-west-2
+- Asia Pacific (Tokyo): ap-northeast-1
+- Asia Pacific (Seoul): ap-northeast-2
+- Asia Pacific (Singapore): ap-southeast-1
 - Other Regions are not available
 
 **The following features are supported for generative
