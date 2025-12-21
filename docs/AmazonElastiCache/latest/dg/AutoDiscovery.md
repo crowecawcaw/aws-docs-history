@@ -1,83 +1,141 @@
-# How Auto Discovery Works
+# Using Auto Discovery
 
-###### Topics
+To begin using Auto Discovery with ElastiCache for Memcached, follow these steps:
 
-- [Connecting to Cache
-  Nodes](#AutoDiscovery.HowAutoDiscoveryWorks.Connecting "#AutoDiscovery.HowAutoDiscoveryWorks.Connecting")
-- [Normal Cluster Operations](#AutoDiscovery.HowAutoDiscoveryWorks.NormalOps "#AutoDiscovery.HowAutoDiscoveryWorks.NormalOps")
-- [Other Operations](#AutoDiscovery.HowAutoDiscoveryWorks.OtherOps "#AutoDiscovery.HowAutoDiscoveryWorks.OtherOps")
-  This section describes how client applications use the ElastiCache Cluster Client to manage
-  cache node connections, and interact with data items in the cache.
+- [Obtain the Configuration Endpoint](#AutoDiscovery.Using.ConfigEndpoint "#AutoDiscovery.Using.ConfigEndpoint")
+- [Download the ElastiCache Cluster Client](#AutoDiscovery.Using.ClusterClient "#AutoDiscovery.Using.ClusterClient")
+- [Modify Your Application Program](#AutoDiscovery.Using.ModifyApp "#AutoDiscovery.Using.ModifyApp")
 
-## Connecting to Cache
+## Obtain the Configuration Endpoint
 
-Nodes
+To connect to a cluster, client programs must know the cluster configuration endpoint. See the
+topic [Finding a Cluster's Endpoints (Console) (Memcached)](Endpoints.md#Endpoints.Find.Memcached "Endpoints.md#Endpoints.Find.Memcached")
 
-From the application's point of view, connecting to the cluster configuration endpoint is
-no different from connecting directly to an individual cache node. The following
-sequence diagram shows the process of connecting to cache nodes.
+You can also use the `aws elasticache describe-cache-clusters` command with the
+`--show-cache-node-info` parameter:
 
-![Connecting to Cache Nodes](images/autodiscovery_cluster_membership_refresh-diagram.png)
+Whatever method you use to find the cluster's endpoints, the configuration endpoint will always
+have **.cfg** in its address.
 
-Process of Connecting to Cache Nodes| 1 | The application resolves the configuration endpoint's DNS name. Because<br>the configuration endpoint maintains CNAME entries for all of the cache<br>nodes, the DNS name resolves to one of the nodes; the client can<br>then connect to that node. |
-| 2 | The client requests the configuration information for all of the<br>other nodes. Since each node maintains configuration information for<br>all of the nodes in the cluster, any node can pass configuration<br>information to the client upon request. |
-| 3 | The client receives the current list of cache node<br>hostnames and IP addresses. It can then connect to all of the<br>other nodes in the cluster. |
+###### Example Finding endpoints using the AWS CLI for ElastiCache
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache describe-cache-clusters \
+    --cache-cluster-id `mycluster` \
+    --show-cache-node-info
+```
+
+For Windows:
+
+```
+aws elasticache describe-cache-clusters ^
+    --cache-cluster-id `mycluster` ^
+    --show-cache-node-info
+```
+
+This operation produces output similar to the following (JSON format):
+
+```
+{
+    "CacheClusters": [
+        {
+            "Engine": "memcached",
+            "CacheNodes": [
+                {
+                    "CacheNodeId": "0001",
+                    "Endpoint": {
+                        "Port": 11211,
+                        "Address": "mycluster.fnjyzo.cfg.0001.use1.cache.amazonaws.com"
+                    },
+                    "CacheNodeStatus": "available",
+                    "ParameterGroupStatus": "in-sync",
+                    "CacheNodeCreateTime": "2016-10-12T21:39:28.001Z",
+                    "CustomerAvailabilityZone": "us-east-1e"
+                },
+                {
+                    "CacheNodeId": "0002",
+                    "Endpoint": {
+                        "Port": 11211,
+                        "Address": "mycluster.fnjyzo.cfg.0002.use1.cache.amazonaws.com"
+                    },
+                    "CacheNodeStatus": "available",
+                    "ParameterGroupStatus": "in-sync",
+                    "CacheNodeCreateTime": "2016-10-12T21:39:28.001Z",
+                    "CustomerAvailabilityZone": "us-east-1a"
+                }
+            ],
+            "CacheParameterGroup": {
+                "CacheNodeIdsToReboot": [],
+                "CacheParameterGroupName": "default.memcached1.4",
+                "ParameterApplyStatus": "in-sync"
+            },
+            "CacheClusterId": "mycluster",
+            "PreferredAvailabilityZone": "Multiple",
+            "ConfigurationEndpoint": {
+                "Port": 11211,
+                "Address": "mycluster.fnjyzo.cfg.use1.cache.amazonaws.com"
+            },
+            "CacheSecurityGroups": [],
+            "CacheClusterCreateTime": "2016-10-12T21:39:28.001Z",
+            "AutoMinorVersionUpgrade": true,
+            "CacheClusterStatus": "available",
+            "NumCacheNodes": 2,
+            "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
+            "CacheSubnetGroupName": "default",
+            "EngineVersion": "1.4.24",
+            "PendingModifiedValues": {},
+            "PreferredMaintenanceWindow": "sat:06:00-sat:07:00",
+            "CacheNodeType": "cache.r3.large"
+        }
+    ]
+}
+```
+
+## Download the ElastiCache Cluster Client
+
+To take advantage of Auto Discovery, client programs must use the _ElastiCache
+Cluster Client_. The ElastiCache Cluster Client is available for Java, PHP, and .NET
+and contains all of the necessary logic for discovering and connecting to all of your
+cache nodes.
+
+###### To download the ElastiCache Cluster Client
+
+1. Sign in to the AWS Management Console and open the ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. From the ElastiCache console, choose **ElastiCache Cluster Client**
+   then choose **Download**.
+
+The source code for the ElastiCache Cluster Client for Java is available at [https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java](https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java "https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java").
+This library is based on the popular Spymemcached client.
+The ElastiCache Cluster Client is released under the Amazon Software License
+[https://aws.amazon.com/asl](https://aws.amazon.com/asl "https://aws.amazon.com/asl").
+You are free to modify the source code as you see fit.
+You can even incorporate the code into other open source Memcached libraries, or
+into your own client code.
 
 ###### Note
 
-The client program refreshes its list of cache node hostnames and IP addresses
-once per minute. This polling interval can be adjusted if necessary.
+To use the ElastiCache Cluster Client for PHP, you will first need to install it on your Amazon EC2 instance.
+For more information, see [Installing the ElastiCache cluster client for PHP](Appendix.md "Appendix.md").
 
-## Normal Cluster Operations
+For a TLS supported client download the binary with PHP version 7.4 or higher.
 
-When the application has connected to all of the cache nodes, ElastiCache Cluster Client
-determines which nodes should store individual data items, and which nodes should be
-queried for those data items later. The following sequence diagram shows the process
-of normal cluster operations.
+To use the ElastiCache Cluster Client for .NET, you will first need to install it on your Amazon EC2 instance.
+For more information, see [Installing the ElastiCache cluster client for .NET](Appendix.md "Appendix.md").
 
-![Normal Cluster Operations](images/autodiscovery_normal_cache_usage-diagram.png)
+## Modify Your Application Program
 
-Process of Normal Cluster Operations | 1 | The application issues a \*get<br>• request for a<br>particular data item, identified by its key. |
-| 2 | The client uses a hashing algorithm against the key to<br>determine which cache node contains the data item. |
-| 3 | The data item is requested from the appropriate node. |
-| 4 | The data item is returned to the application. |
+Modify your application program so that it uses Auto Discovery.
+The following sections show how to use the ElastiCache Cluster Client for Java, PHP, and .NET.
 
-## Other Operations
+###### Important
 
-In some situations, you might make a change to a cluster's nodes. For example, you might
-add an additional node to accommodate additional demand, or delete a node to save
-money during periods of reduced demand. Or you might replace a node due to a node
-failure of one sort or another.
+When specifying the cluster's configuration endpoint, be sure that the endpoint has ".cfg" in its
+address as shown here. Do not use a CNAME or an endpoint without ".cfg" in it.
 
-When there is a change in the cluster that requires a metadata update to the cluster's endpoints,
-that change is made to all nodes at the same time. Thus the metadata in any given node is consistent
-with the metadata in all of the other nodes in the cluster.
+```
+"mycluster.fnjyzo**.cfg**.use1.cache.amazonaws.com";
+```
 
-In each of these cases, the metadata is consistent among all the nodes at all times
-since the metadata is updated at the same time for all nodes in the cluster.
-You should always use the configuration endpoint to obtain the endpoints of the various nodes in the cluster.
-By using the configuration endpoint,
-you ensure that you will not be obtaining endpoint data from a node that “disappears” on you.
-
-### Adding a Node
-
-During the time that the node is being spun up, its endpoint is not included in the metadata.
-As soon as the node is available, it is added to the metadata of each of the cluster’s nodes.
-In this scenario, the metadata is consistent among all the nodes and
-you will be able to interact with the new node only after it is available. Before the node being available, you will not know about it and will interact with the nodes in your cluster the same as though the new node does not exist.
-
-### Deleting a Node
-
-When a node is removed, its endpoint is first removed from the metadata and then the node is removed from the cluster.
-In this scenario the metadata in all the nodes is consistent and there is no time in which it will contain
-the endpoint for the node to be removed while the node is not available.
-During the node removal time it is not reported in the metadata and so your application will only be interacting with the n-1 remaining nodes,
-as though the node does not exist.
-
-### Replacing a Node
-
-If a node fails, ElastiCache takes down that node and spins up a replacement.
-The replacement process takes a few minutes.
-During this time the metadata in all the nodes still shows the endpoint for the failed node,
-but any attempt to interact with the node will fail.
-Therefore, your logic should always include retry logic.
+Failure to explicitly specify the cluster's configuration endpoint results in configuring to a specific node.

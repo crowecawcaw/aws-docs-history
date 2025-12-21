@@ -1,41 +1,31 @@
-# Cache parameter group tiers in ElastiCache
+# Configuring engine parameters using ElastiCache parameter
 
-Amazon ElastiCache has three tiers of cache parameter groups as shown following.
+groups
 
-![Image: Amazon ElastiCache parameter group tiers](images/ElastiCache-ParameterGroups-Tiers.png)
-_Amazon ElastiCache parameter group tiers_
+Amazon ElastiCache uses parameters to control the runtime properties of your
+nodes and clusters. Generally, newer engine versions include additional parameters to
+support the newer functionality. For tables of Memcached parameters, see [Memcached specific parameters](ParameterGroups.md#ParameterGroups.Memcached "ParameterGroups.md#ParameterGroups.Memcached").
+For tables of Valkey and Redis OSS parameters, see [Valkey and Redis OSS parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis").
 
-**Global Default**
+As you would expect, some parameter values, such as
+`maxmemory`, are determined by the engine and node type. For a table of these Memcached
+parameter values by node type, see [Memcached node-type
+specific parameters](ParameterGroups.md#ParameterGroups.Memcached.NodeSpecific "ParameterGroups.md#ParameterGroups.Memcached.NodeSpecific"). For a table of these Valkey and Redis OSS parameter values by node type, see [Redis OSS node-type specific
+parameters](ParameterGroups.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.md#ParameterGroups.Redis.NodeSpecific").
 
-The top-level root parameter group for all Amazon ElastiCache customers in the region.
+###### Note
 
-The global default cache parameter group:
+For a list of Memcached-specific parameters, see [Memcached
+Specific Parameters](ParameterGroups.md#ParameterGroups.Memcached "ParameterGroups.md#ParameterGroups.Memcached").
 
-- Is reserved for ElastiCache and not available to the customer.
-  **Customer Default**
+###### Topics
 
-A copy of the Global Default cache parameter group which is created for the customer's
-use.
-
-The Customer Default cache parameter group:
-
-- Is created and owned by ElastiCache.
-- Is available to the customer for use as a cache parameter group for any
-  clusters running an engine version supported by this cache parameter
-  group.
-- Cannot be edited by the customer.
-  **Customer Owned**
-
-A copy of the Customer Default cache parameter group. A Customer Owned cache parameter
-group is created whenever the customer creates a cache parameter group.
-
-The Customer Owned cache parameter group:
-
-- Is created and owned by the customer.
-- Can be assigned to any of the customer's compatible clusters.
-- Can be modified by the customer to create a custom cache parameter group.
-  ‡
-
-‡ Not all parameter values can be modified. For
-more information on Memcached values, see [Memcached specific parameters](ParameterGroups.md#ParameterGroups.Memcached "ParameterGroups.md#ParameterGroups.Memcached"). For more
-information on Valkey and Redis OSS values, see [Valkey and Redis OSS parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis").
+- [Parameter management in ElastiCache](ParameterGroups.md "ParameterGroups.md")
+- [Cache parameter group tiers in ElastiCache](ParameterGroups.md "ParameterGroups.md")
+- [Creating an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md")
+- [Listing ElastiCache parameter groups by name](ParameterGroups.md "ParameterGroups.md")
+- [Listing an ElastiCache parameter group's
+  values](ParameterGroups.md "ParameterGroups.md")
+- [Modifying an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md")
+- [Deleting an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md")
+- [Engine specific parameters](ParameterGroups.md "ParameterGroups.md")

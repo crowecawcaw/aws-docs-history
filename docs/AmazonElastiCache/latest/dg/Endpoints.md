@@ -123,7 +123,7 @@ name and then choosing the **Nodes** tab.
 The nodes screen appears with each node in the cluster, primary and replicas,
 listed with its endpoint.
 
-![Image: Node endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster](/images/AmazonElastiCache/latest/dg/images/ElastiCache-Endpoints-Redis-Node.png)
+![Image: Node endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster](images/ElastiCache-Endpoints-Redis-Node.png)
 
 _Node endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster_ 5. To copy an endpoint to your clipboard:
 

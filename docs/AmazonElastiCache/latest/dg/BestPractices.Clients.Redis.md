@@ -1,65 +1,54 @@
-# Large number of connections (Valkey and Redis OSS)
+# Lua scripts
 
-Serverless caches and individual ElastiCache for Redis OSS nodes support up to 65,000 concurrent client connections. However, to optimize for performance, we advise that client applications do not constantly operate at that level of connections.
-Valkey and Redis OSS each have a single-threaded process based on an event loop where incoming client requests are handled sequentially. That means the response time of a given client becomes longer as the number of connected clients increases.
+Valkey and Redis OSS supports more than 200 commands, including those to run Lua scripts. However, when it comes to Lua scripts, there are several pitfalls that can affect memory and availability of Valkey or Redis OSS.
 
-You can take the following set of actions to avoid hitting a connection bottleneck on a Valkey or Redis OSS server:
+**Unparameterized Lua scripts**
 
-- Perform read operations from read replicas. This can be done by using the ElastiCache reader endpoints in cluster mode disabled or by using replicas for reads in cluster mode enabled, including a serverless cache.
-- Distribute write traffic across multiple primary nodes. You can do this in two ways. You can use a multi-sharded Valkey or Redis OSS cluster with a cluster mode capable client. You could also write to multiple primary nodes
-  in cluster mode disabled with client-side sharding. This is done automatically in a serverless cache.
-- Use a connection pool when available in your client library.
-  In general, creating a TCP connection is a computationally expensive operation compared to typical Valkey or Redis OSS commands. For example, handling a SET/GET request is an order of magnitude faster when reusing an existing connection.
-  Using a client connection pool with a finite size reduces the overhead of connection management. It also bounds the number of concurrent incoming connections from the client application.
+Each Lua script is cached on the Valkey or Redis OSS server before it runs. Unparameterized Lua scripts are unique, which can lead to the Valkey or Redis OSS server storing a large number of Lua scripts and consuming more memory.
+To mitigate this, ensure that all Lua scripts are parameterized and regularly perform SCRIPT FLUSH to clean up cached Lua scripts if needed.
 
-The following code example of PHPRedis shows that a new connection is created for each new user request:
+Also be aware that keys must be provided. If a value for the KEY parameter is not provided, the script will fail.
+
+For example, this will not work:
 
 ```
-$redis = new Redis();
-if ($redis->connect($HOST, $PORT) != TRUE) {
-	//ERROR: connection failed
-	return;
-}
-$redis->set($key, $value);
-unset($redis);
-$redis = NULL;
+serverless-test-lst4hg.serverless.use1.cache.amazonaws.com:6379> eval 'return "Hello World"' 0
+(error) ERR Lua scripts without any input keys are not supported.
 ```
 
-We benchmarked this code in a loop on an Amazon Elastic Compute Cloud (Amazon EC2) instance connected to a Graviton2 (m6g.2xlarge) ElastiCache for Redis OSS node. We placed both the client and server at the same Availability Zone.
-The average latency of the entire operation was 2.82 milliseconds.
-
-When we updated the code and used persistent connections and a connection pool, the average latency of the entire operation was 0.21 milliseconds:
+This will work:
 
 ```
-$redis = new Redis();
-if ($redis->pconnect($HOST, $PORT) != TRUE) {
-	// ERROR: connection failed
-	return;
-}
-$redis->set($key, $value);
-unset($redis);
-$redis = NULL;
+serverless-test-lst4hg.serverless.use1.cache.amazonaws.com:6379> eval 'return redis.call("get", KEYS[1])' 1 mykey-2
+"myvalue-2"
 ```
 
-Required redis.ini configurations:
-
-- `redis.pconnect.pooling_enabled=1`
-- `redis.pconnect.connection_limit=10`
-  The following code is an example of a [Redis-py connection pool](https://redis.readthedocs.io/en/stable/ "https://redis.readthedocs.io/en/stable/"):
+The following example shows how to use parameterized scripts. First, we have an example of an unparameterized approach that results in three different cached Lua scripts and is not recommended:
 
 ```
-conn = Redis(connection_pool=redis.BlockingConnectionPool(host=HOST, max_connections=10))
-conn.set(key, value)
+eval "return redis.call('set','key1','1')" 0
+eval "return redis.call('set','key2','2')" 0
+eval "return redis.call('set','key3','3')" 0
 ```
 
-The following code is an example of a [Lettuce connection pool](https://lettuce.io/core/release/reference/#_connection_pooling "https://lettuce.io/core/release/reference/#_connection_pooling"):
+Instead, use the following pattern to create a single script that can accept passed parameters:
 
 ```
-RedisClient client = RedisClient.create(RedisURI.create(HOST, PORT));
-GenericObjectPool<StatefulRedisConnection> pool = ConnectionPoolSupport.createGenericObjectPool(() -> client.connect(), new GenericObjectPoolConfig());
-pool.setMaxTotal(10); // Configure max connections to 10
-try (StatefulRedisConnection connection = pool.borrowObject()) {
-	RedisCommands syncCommands = connection.sync();
-	syncCommands.set(key, value);
-}
+eval "return redis.call('set',KEYS[1],ARGV[1])" 1 key1 1
+eval "return redis.call('set',KEYS[1],ARGV[1])" 1 key2 2
+eval "return redis.call('set',KEYS[1],ARGV[1])" 1 key3 3
 ```
+
+**Long-running Lua scripts**
+
+Lua scripts can run multiple commands atomically, so it can take longer to complete than a regular Valkey or Redis OSS command. If the Lua script only runs read-only operations, you can stop it in the middle. However, as soon as the Lua script performs a write operation,
+it becomes unkillable and must run to completion.
+A long-running Lua script that is mutating can cause the Valkey or Redis OSS server to be unresponsive for a long time. To mitigate this issue, avoid long-running Lua scripts and test the script out in a pre-production environment.
+
+**Lua script with stealth writes**
+
+There are a few ways a Lua script can continue to write new data into Valkey or Redis OSS even when Valkey or Redis OSS is over `maxmemory`:
+
+- The script starts when the Valkey or Redis OSS server is below `maxmemory`, and contains multiple write operations inside
+- The script's first write command isn't consuming memory (such as DEL), followed by more write operations that consume memory
+- You can mitigate this problem by configuring a proper eviction policy in Valkey or Redis OSS server other than `noeviction`. This allows Redis OSS to evict items and free up memory in between Lua scripts.
