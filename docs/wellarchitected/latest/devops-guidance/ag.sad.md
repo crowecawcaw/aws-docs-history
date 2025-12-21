@@ -1,59 +1,40 @@
-# [AG.SAD.8] Adopt a zero trust security model, shifting towards an identity-centric security perimeter
+# [AG.SAD.6] Conduct periodic identity and access management reviews
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-When operating under a zero trust security model, no user or
-system is trusted by default. It requires all users and
-systems, even those inside an organization's network, to be
-authenticated, authorized, and continuously validated to
-ensure secure configurations and posture. Only after
-validation will they be granted access to applications and
-data.
+With the distributed nature of DevOps Identity and Access Management (IAM)
+responsibilities, it is important to systematically review IAM roles and permissions
+periodically. This helps ensure that changes in roles and permissions align with the rapidly
+shifting needs of the organization, and that the guardrails set in place for delegation are
+working as intended or perhaps need to be fine-tuned. This activity aids in identifying
+unused or overly broad permissions, reinforcing the adherence to the principle of least
+privilege and reducing potential security risks.
 
-Zero trust is beneficial throughout the entire software
-development lifecycle. From the initial stages of code
-development as developers interact with source code
-repositories, through continuous integration using internal
-and external tools to build and test software, to the
-deployment and maintenance of the workloads, each user,
-pipeline, third-party, and service needs to be authenticated
-and authorized with every request. In these scenarios, zero
-trust enforces adherence to the principle of least privilege,
-ensuring that all of these independent users and systems are
-granted access to the right resources only when necessary.
+Optionally, automate the right-sizing of permissions as part
+of these reviews. This proactive approach not only keeps IAM
+policies up-to-date, but also minimizes potential avenues for
+unauthorized access, further strengthening your overall
+security posture. Automatically right sizing roles and
+permissions based on actual activity allows organizations to
+scalably enforce that the right resources are accessible to
+the right entities, at the right times.
 
-Shifting to a zero trust model is not an all-or-nothing
-endeavor, it is a gradual process consistent with the DevOps
-principles of continuous improvement. Start small by
-pinpointing use cases that align with your organization's
-unique needs and the value and sensitivity of your systems and
-data. This understanding will guide the selection of zero
-trust principles, tools, and patterns that are most beneficial
-for your organization. Adopting zero trust often involves
-rethinking identity, authentication, and other
-context-specific factors like user behavior and device health.
-Enhance existing security practices over time, improving both
-identity-based and network-based security measures that
-complement each other to create a secure perimeter where
-identity-centric controls can operate.
+**Related information:**
 
-AWS provides several use cases that illustrate zero trust
-principles:
-
-- **Signing API requests:** Every AWS API request is
-  authenticated and authorized individually, regardless of the trustworthiness of the
-  underlying network.
-- **Service-to-service interactions:** AWS services
-  authenticate and authorize calls to each other using the same security mechanisms used
-  by customers.
-- **Zero trust for internet of things (IoT):** AWS IoT
-  extends the zero trust model to IoT devices, enabling secure communication over open
-  networks.
-  **Related information:**
-
-- [Zero
-  Trust on AWS](https://aws.amazon.com/security/zero-trust/ "https://aws.amazon.com/security/zero-trust/")
-- [Zero
-  Trust Maturity Model](https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf "https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf")
-- [Amazon Verified Permissions](https://aws.amazon.com/verified-permissions/ "https://aws.amazon.com/verified-permissions/")
-- [AWS Verified Access](https://aws.amazon.com/verified-access "https://aws.amazon.com/verified-access")
+- [AWS Well-Architected Security Pillar: SEC03-BP04 Reduce
+  permissions continuously](../security-pillar/sec_permissions_continuous_reduction.md "../security-pillar/sec_permissions_continuous_reduction.md")
+- [Regularly
+  review and remove unused users, roles, permissions,
+  policies, and credentials](../../../IAM/latest/UserGuide/best-practices.md#remove-credentials "../../../IAM/latest/UserGuide/best-practices.md#remove-credentials")
+- [Use
+  IAM Access Analyzer to generate least-privilege policies
+  based on access activity](../../../IAM/latest/UserGuide/best-practices.md#bp-gen-least-privilege-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-gen-least-privilege-policies")
+- [Verify
+  public and cross-account access to resources with IAM Access Analyzer](../../../IAM/latest/UserGuide/best-practices.md#bp-preview-access "../../../IAM/latest/UserGuide/best-practices.md#bp-preview-access")
+- [Using
+  AWS Identity and Access Management Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md")
+- [Blog: IAM Access Analyzer makes it easier to implement least
+  privilege permissions by generating IAM policies based on access activity](https://aws.amazon.com/blogs/security/iam-access-analyzer-makes-it-easier-to-implement-least-privilege-permissions-by-generating-iam-policies-based-on-access-activity/ "https://aws.amazon.com/blogs/security/iam-access-analyzer-makes-it-easier-to-implement-least-privilege-permissions-by-generating-iam-policies-based-on-access-activity/")
+- [Blog: Continuous
+  permissions rightsizing to ensure least privileges in AWS
+  using CloudKnox and AWS Config](https://aws.amazon.com/blogs/mt/continuous-permissions-rightsizing-ensure-least-privileges-aws-using-cloudknox-aws-config/ "https://aws.amazon.com/blogs/mt/continuous-permissions-rightsizing-ensure-least-privileges-aws-using-cloudknox-aws-config/")

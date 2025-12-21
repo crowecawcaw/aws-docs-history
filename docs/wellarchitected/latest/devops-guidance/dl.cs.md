@@ -1,33 +1,32 @@
-# [DL.CS.3] Enforce verification before using signed artifacts
+# [DL.CS.4] Enhance traceability using commit signing
 
-**Category:** RECOMMENDED
+**Category:** OPTIONAL
 
-Before using code artifacts, the cryptographic signature
-should be inspected and validated. This verification step
-enforces trust and security within the development lifecycle,
-ensuring that software remains unchanged before it is used or
-deployed.
+Commit signing involves attaching a digital signature to code
+commits, certifying the integrity of changes and the identity
+of the committer. While not universally adopted by all
+organizations, commit signing enhances trust and traceability
+as developers make code changes, making it easier to track the
+origin of changes and ensure their authenticity.
 
-Strictly enforce verification of cryptographic signatures each
-time a code artifact is used or deployed. Use a managed
-signing service
-like [AWS Signer](../../../signer/latest/developerguide/Welcome.md "../../../signer/latest/developerguide/Welcome.md") or the public key from your organization's
-trusted Certificate Authority (CA) for signature verification.
-Automate the verification process where possible, as manual
-checks can be error-prone and may not be strictly enforced.
-Some examples of this are integrating signature verification
-into the deployment pipeline, enforcing verification at the
-registry level as artifacts are distributed, or using the
-Kubernetes admission controller to verify each container image
-as they are pulled.
+Have developers sign their code changes when submitting to
+version control using personal private keys from tools
+like [GPG](https://gnupg.org/ "https://gnupg.org/").
+Developers should be encouraged to sign both commits and tags
+with their private keys. This can be particularly valuable for
+open-source projects or where code originates from diverse
+sources. 
+
+For this approach to be effective in practice, developers require an understanding of
+certificates and using them for signing. Developers must ensure that their private keys
+remain confidential, taking measures to store them securely and avoid potential
+exposure. They also should be trained to recognize signs of key compromise, such as
+unexpected commits. When compromise is detected, the associated key should be revoked
+immediately to mitigate potential risks.
 
 **Related information:**
 
-- [Security
-  Considerations for Code Signing](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.01262018.pdf "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.01262018.pdf")
-- [Configuring
-  code signing for AWS Lambda](../../../lambda/latest/dg/configuration-codesigning.md "../../../lambda/latest/dg/configuration-codesigning.md")
-- [Kyverno
-  extension service for Notation and the AWS signer](https://github.com/nirmata/kyverno-notation-aws "https://github.com/nirmata/kyverno-notation-aws")
-- [Announcing
-  Container Image Signing with AWS Signer and Amazon EKS](https://aws.amazon.com/blogs/containers/announcing-container-image-signing-with-aws-signer-and-amazon-eks/ "https://aws.amazon.com/blogs/containers/announcing-container-image-signing-with-aws-signer-and-amazon-eks/")
+- [Signing
+  Commits](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work#_signing_commits "https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work#_signing_commits")
+- [The GNU Privacy
+  Guard](https://gnupg.org/ "https://gnupg.org/")

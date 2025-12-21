@@ -1,41 +1,25 @@
-# [O.DIP.6] Standardize telemetry data with common formats
+# [O.DIP.3] Implement distributed tracing for system-wide request tracking
 
 **Category:** RECOMMENDED
 
-Normalize telemetry data using a common format or standard
-schema to enhance consistency in data collection and
-reporting. This facilitates seamless correlation and analysis
-across multiple facets of observability, such as system
-performance, user behaviors, and security events, improving
-the overall speed and accuracy of detection and response in
-any of these areas.
+Distributed tracing is a method to track requests as they move through distributed
+systems. It provides insights into system interactions across multiple services and
+applications, enabling quicker issue identification and resolution.
 
-Two notable open-source projects supporting this goal are
-OpenTelemetry and the Open Cybersecurity Alliance Schema
-Framework (OCSF). OpenTelemetry provides a single set of APIs,
-libraries, agents, and collector services to capture
-distributed traces and metrics from your application and send
-them to any observability platform. OCSF, on the other hand,
-is an extensible, vendor-agnostic project designed to simplify
-data ingestion and normalization specifically for
-cybersecurity events.
-
-Utilize a common telemetry format to streamline these
-processes, reduce associated costs of data processing, and
-allow teams to focus more on detecting and responding to
-actionable events. Guidelines should be established for the
-collection and reporting of data, enforcing consistency across
-all teams. Adopting and effectively using standard schemas or
-frameworks like OpenTelemetry and OCSF can provide
-considerable advantages in achieving comprehensive
-observability.
+Use a tracing solution that is scalable, provides real-time
+data collection, and supports comprehensive visualization of
+tracing data. Integrate this solution with the log and event
+aggregation tools to enhance system-wide visibility. This
+gives a comprehensive view of the entire system and its
+dependencies, facilitating quick identification and resolution
+of issues.
 
 **Related information:**
 
-- [OCSF
-  Schema](https://schema.ocsf.io/ "https://schema.ocsf.io/")
-- [OCSF
-  GitHub](https://github.com/ocsf "https://github.com/ocsf")
-- [AWS Distro
-  for OpenTelemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/")
-- [OpenTelemetry](https://opentelemetry.io/ "https://opentelemetry.io/")
+- [AWS Well-Architected Reliability Pillar: REL06-BP07 Monitor
+  end-to-end tracing of requests through your system](../reliability-pillar/rel_monitor_aws_resources_end_to_end.md "../reliability-pillar/rel_monitor_aws_resources_end_to_end.md")
+- [Distributed
+  Tracing System – AWS X-Ray](https://aws.amazon.com/xray/ "https://aws.amazon.com/xray/")
+- [Amazon CloudWatch ServiceLens](../../../AmazonCloudWatch/latest/monitoring/ServiceLens.md "../../../AmazonCloudWatch/latest/monitoring/ServiceLens.md")
+- [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https://aws.amazon.com/grafana/")
+- [AWS X-Ray integration with Grafana](../../../grafana/latest/userguide/x-ray-data-source.md "../../../grafana/latest/userguide/x-ray-data-source.md")

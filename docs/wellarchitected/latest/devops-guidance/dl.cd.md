@@ -1,34 +1,30 @@
-# [DL.CD.7] Remove manual approvals to practice continuous deployment
+# [DL.CD.2] Deploy exclusively from trusted artifact repositories
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-Fully automate all stages of the deployment process, allowing developers to push new
-code into the production environment using fully automated delivery pipelines—with no
-manual approval stages required. This is referred to as continuous deployment. Removing
-all manual deployment steps reduces potential errors and increases deployment speed. It
-allows developers to focus more on coding and less on deployment logistics, improving
-efficiency and productivity.
+All artifacts involved in the delivery process should
+originate from a trusted artifact repository. These
+repositories contain validated, tested, and integrated
+artifacts that have been deemed safe for deployment. By using
+trusted artifact repositories, teams can ensure the security
+of deployed workloads, maintain quality and security
+standards, and promote trust in the delivery pipeline.
 
-Create fully automated pipelines which perform continuous
-integration and continuous deployment. A pipeline should
-trigger upon code changes being merged into the main release
-branch. This pipeline should perform all necessary quality
-assurance tests, build the application, and deploy the new
-version to the production environment. Automated governance
-capabilities ensure that guardrails are being followed, while
-observability functions such as alerts and logs provide
-visibility.
-
-This level of automation is a hallmark of mature DevOps
-practices. However, it is an optional capability as it is not
-always achievable or desired, especially in heavily regulated
-industries or in organizations with strict governance
-controls.
+The delivery pipeline should be restricted to using only
+trusted artifact repositories, which could be enforced through
+mechanisms such as allow lists, IP restrictions, or
+authentication controls. Additionally, we recommend using
+cryptographic signing to validate artifacts and including a
+validation stage in the pipeline to verify that the artifacts
+meet the necessary standards before deployment. In this way,
+the integrity and security of the deployed workloads are
+maintained consistently.
 
 **Related information:**
 
-- [Continuous
-  Delivery vs. Continuous Deployment](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/")
-- [Practicing
-  Continuous Integration and Continuous Delivery on
-  AWS](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/implementing-continuous-integration-and-continuous-delivery.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/implementing-continuous-integration-and-continuous-delivery.md")
+- [Artifact
+  Repository - AWS CodeArtifact](https://aws.amazon.com/codeartifact/ "https://aws.amazon.com/codeartifact/")
+- [Fully
+  Managed Container Registry - Amazon Elastic Container Registry](https://aws.amazon.com/ecr/ "https://aws.amazon.com/ecr/")
+- [Code
+  Repositories and Artifact Management | AWS Marketplace](https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all "https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all")

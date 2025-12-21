@@ -1,38 +1,41 @@
-# [AG.DLM.2] Strengthen security with systematic encryption enforcement
+# [AG.DLM.4] Maintain data compliance with scalable classification strategies
 
 **Category:** FOUNDATIONAL
 
-With continuous delivery, the risk of data breaches that can disrupt the software
-delivery process and negatively impact the business increases. To remain agile and rapidly
-able to deploy safely, it is necessary to enforce encryption at scale to protect sensitive
-data from unauthorized access when it is at rest and in transit.
+Automated data classification includes using tools and
+strategies to identify, tag, and categorize data based on
+sensitivity levels, type, and more. Data classification aids
+in enforcing data security, privacy, and compliance
+requirements. Misclassification or lack of data classification
+can lead to data breaches or non-compliance with data
+protection regulations. Scaling this practice through
+automation enables organizations to catalog, secure, and
+maintain the vast amounts of data they process.
 
-Infrastructure should be defined as code and expected to change frequently. Resources
-being deploy need to be checked for a compliant encryption configuration as part of
-deployment process, while continuous scans for unencrypted data and
-resource misconfiguration should be automated in the environment. These practices not only
-aid in maintaining compliance, but also facilitates seamless and secure data management
-across various stages of the development lifecycle.
+Use tagging strategies to catalog data effectively and help
+maintain visibility of data across different services and
+stages of the software development lifecycle. Put guardrails
+in place to enforce compliance with data classification and
+handling requirements, such as those related to data privacy
+and residency. Continuously monitor data at different stages -
+collection, processing, classification, and sharing - to
+ensure the right handling strategies are in place and are
+being followed.
 
-Automate the process of encryption key creation, distribution,
-and rotation to make the use of secure encryption methods
-simpler for teams to follow and enable them to focus on their
-core tasks without compromising security. Automated governance
-guardrails and auto-remediation capabilities should be used to
-enforce encryption requirements at scale, ensuring compliance
-both during and after deployment.
+For advanced use cases, AI/ML tools can provide automatic
+recognition and classification of data, especially sensitive
+data. This approach can reduce the need for manual, human
+intervention.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL09-BP02 Secure and
-  encrypt backups](../reliability-pillar/rel_backing_up_data_secured_backups_data.md "../reliability-pillar/rel_backing_up_data_secured_backups_data.md")
-- [AWS Well-Architected Security Pillar: SEC08-BP02 Enforce
-  encryption at rest](../security-pillar/sec_protect_data_rest_encrypt.md "../security-pillar/sec_protect_data_rest_encrypt.md")
-- [AWS Well-Architected Security Pillar: SEC09-BP02 Enforce
-  encryption in transit](../security-pillar/sec_protect_data_transit_encrypt.md "../security-pillar/sec_protect_data_transit_encrypt.md")
-- [AWS Well-Architected Security Pillar: SEC09-BP01 Implement
-  secure key and certificate management](../security-pillar/sec_protect_data_transit_key_cert_mgmt.md "../security-pillar/sec_protect_data_transit_key_cert_mgmt.md")
-- [Encrypting
-  Data-at-Rest and -in-Transit](../../../whitepapers/latest/logical-separation/encrypting-data-at-rest-and--in-transit.md "../../../whitepapers/latest/logical-separation/encrypting-data-at-rest-and--in-transit.md")
-- [Amazon's
-  approach to security during development: Encryption](https://youtu.be/NeR7FhHqDGQ?t=1646 "https://youtu.be/NeR7FhHqDGQ?t=1646")
+- [AWS Well-Architected Sustainability Pillar: SUS04-BP01
+  Implement a data classification policy](../sustainability-pillar/sus_sus_data_a2.md "../sustainability-pillar/sus_sus_data_a2.md")
+- [AWS Well-Architected Cost Optimization Pillar: COST03-BP02 Add
+  organization information to cost and usage](../cost-optimization-pillar/cost_monitor_usage_org_information.md "../cost-optimization-pillar/cost_monitor_usage_org_information.md")
+- [Data
+  Classification](../../../whitepapers/latest/data-classification/data-classification.md "../../../whitepapers/latest/data-classification/data-classification.md")
+- [Best
+  Practices for Tagging AWS Resources](../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md "../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md")
+- [Sensitive
+  Data Discovery and Protection - Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/")

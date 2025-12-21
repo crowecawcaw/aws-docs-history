@@ -1,42 +1,34 @@
-# [OA.PPD.1] Encourage collaboration, innovation, learning, and continuous growth to foster a generative culture
+# [OA.PPD.5] Recognize and reward continuous learning
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-A generative culture, as defined by
-[Dr.
-Ron Westrum's research](https://qualitysafety.bmj.com/content/13/suppl_2/ii22 "https://qualitysafety.bmj.com/content/13/suppl_2/ii22"), provides teams with the
-autonomy and opportunities to experiment and learn from
-failures, creating a space for development and performance
-growth. In a generative culture, individuals feel comfortable
-expressing their ideas and opinions without fear, and
-information is openly shared for improvement.
-This culture is more amenable to successful DevOps adoption
-than pathological and bureaucratic cultures, which are
-characterized by a focus on individual power and authority and
-strict adherence to rules and procedures, respectively.
+Establish measurable learning targets, including stretch
+goals, and design meaningful reward systems to encourage
+team members to meet their set targets. Regularly provide
+feedback and progress assessments, which keeps employees
+aligned with their learning goals. Emphasize the significance
+of soft skills training and how they correlate with the
+broader business and team goals. Celebrate and broadly
+acknowledge individual and team accomplishments related to
+learning and skill development to reinforce the organization's
+commitment to fostering a culture of continuous learning.
 
-Leaders should promote a culture of openness and inclusivity
-and provide teams the autonomy and opportunities to experiment
-and learn from failures. Encouraging these behaviors allows
-individual contributors to feel comfortable expressing their
-ideas and opinions. Recognize and celebrate successes at all
-levels of the organization, while also providing constructive
-feedback for improvement as part of performance review
-processes. Leaders should model these behaviors and create an
-environment that promotes collaboration, innovation, learning,
-and continuous growth. For example, if individual contributors
-are asked to learn about DevOps, cloud technologies, or
-similar topics, leaders should also strive to become certified
-and knowledgeable about those topics as well, at least at a
-high level.
-
-Leaders should model these behaviors and create an environment that promotes
-collaboration, innovation, learning, and continuous growth. For example, if individual
-contributors are asked to learn about DevOps, cloud technologies, or similar topics,
-leaders should also strive to become knowledgeable about those topics as
-well.
+Encourage individuals to pursue relevant certifications that
+align to their roles and responsibilities to validate their
+expertise and keep up to date with latest technologies and
+best practices. Consider financial incentives or
+reimbursements for successfully obtaining a certification to
+further motive team members to invest in their continued
+learning. Organizations can also host regular internal
+training sessions, workshops, or mentorship programs to
+facilitate individuals learning from one-another and help
+accelerate learning through collaboration. Exemplary
+organizations tend to introduce immersive experiential
+learning platforms that develop skills through simulation,
+hands-on problem solving, and gamification.
 
 **Related information:**
 
-- [A
-  typology of organisational cultures](https://qualitysafety.bmj.com/content/13/suppl_2/ii22 "https://qualitysafety.bmj.com/content/13/suppl_2/ii22")
+- [AWS Certification Paths](https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf")
+- [AWS Ramp-Up Guide: DevOps Engineer](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_DevOps.pdf "https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_DevOps.pdf")
+- [AWS Jams](https://aws.amazon.com/professional-services/jam/ "https://aws.amazon.com/professional-services/jam/")

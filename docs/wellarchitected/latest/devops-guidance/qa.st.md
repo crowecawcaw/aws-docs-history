@@ -1,45 +1,31 @@
-# [QA.ST.4] Enhance source code security with static application security testing
+# [QA.ST.8] Improve security testing accuracy using interactive application security testing
 
-**Category:** FOUNDATIONAL
+**Category:** OPTIONAL
 
-Static Application Security Testing (SAST) is a proactive measure to identify
-potential vulnerabilities in your source code before they become part of a live application.
-SAST is a specialized form of non-functional static testing that enables you to analyze the
-source or binary code for security vulnerabilities, without the need for the code to be
-running.
+Interactive Application Security Testing (IAST) offers an
+inside-out approach to application security testing by
+combining strengths of both Static Application Security
+Testing (SAST) and Dynamic Application Security Testing
+(DAST). While SAST examines source code to identify
+vulnerabilities and DAST inspects a running system, IAST uses
+embedded agents which has access to application code, system
+memory, stack traces, and requests and responses to monitor
+system behavior during runtime.
 
-Choose a SAST tool, such as
-[Amazon CodeGuru Security](https://aws.amazon.com/codeguru/ "https://aws.amazon.com/codeguru/"), and use it to scan your application
-using an automated continuous integration pipeline. This
-enables identifying security vulnerabilities in the source
-code early in the development process. When selecting a SAST
-tool, consider its compatibility with your application's
-languages and frameworks, its ease of integration into your
-existing toolsets, its ability to provide actionable insights
-to fix vulnerabilities, and false positive rates. False
-positive rate is one of the most important metrics to focus on
-when selecting a SAST tool, as this can result in findings and
-alerts of potential security issues that are not actually
-exploitable. False positives can erode trust in the adoption
-of security testing.
+Unlike other automated security testing methods that can produce false alarms, IAST's
+real-time observability from within the application provides a contextual understanding
+that reduces false positive rates. When vulnerabilities are detected, IAST provides deeper
+insight into how the system is impacted, providing proof that the vulnerabilities flagged
+are genuine and actionable.
 
-To prevent developer burnout and backlash due to overwhelming
-false positives or a high rate of alerts in existing
-applications, introduce SAST rulesets incrementally. Start
-with a core set of rules and expand as your team becomes more
-accustomed to addressing security testing feedback. This
-iterative approach also allows teams to validate the tool's
-findings and fine-tune its sensitivity over time. Regularly
-update and refine enabled SAST rules to maintain its
-effectiveness in identifying potential security issues.
+Include IAST agents to the system during the build process to actively monitor the
+system in the testing environments. These agents provide additional observability to the
+system that is used to validate vulnerabilities. After the application is deployed to
+production, these agents should be turned off or set to a passive mode to avoid any
+performance overhead. IAST is optional for DevOps adoption, as many organizations find
+sufficient coverage with SAST and DAST.
 
 **Related information:**
 
 - [Security
-  in every stage of the CI/CD pipeline: SAST](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#static-application-security-testing-sast "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#static-application-security-testing-sast")
-- [Amazon CodeGuru Security](https://aws.amazon.com/codeguru/ "https://aws.amazon.com/codeguru/")
-- [Security
-  scans - CodeWhisperer](../../../codewhisperer/latest/userguide/security-scans.md "../../../codewhisperer/latest/userguide/security-scans.md")
-- [Blog:
-  Building end-to-end AWS DevSecOps CI/CD pipeline with open
-  source SCA, SAST and DAST tools](https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/ "https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/")
+  in every stage of the CI/CD pipeline: IAST](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#interactive-application-security-testing-iast "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#interactive-application-security-testing-iast")

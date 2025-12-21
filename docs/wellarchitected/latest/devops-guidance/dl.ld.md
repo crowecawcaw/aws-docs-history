@@ -1,32 +1,46 @@
-# [DL.LD.3] Commit local changes early and often
+# [DL.LD.1] Establish development environments for local development
 
 **Category:** FOUNDATIONAL
 
-While developing locally, developers should begin to make
-small, frequent commits to save versions of their code changes
-as they develop. Unlike pushing code changes so that they are
-accessible to other team members, local commits deal
-specifically with a developer's individual progress as they
-develop locally. This practice makes local development safer,
-enabling developers to freely innovate without fear of losing
-completed work by capturing snapshots of iterative changes to
-the code base.
+Create development environments that provide individual developers with a safe space
+to test changes and receive immediate feedback without impacting others on the team or
+shared environments. Development environments are small scale, production-like environments
+that provide a balance between providing developers with accurate feedback and being low
+cost and easy to manage. Development environments serve a [different purpose](../../../whitepapers/latest/organizing-your-aws-environment/sandbox-ou.md#sandbox-and-development-environments "../../../whitepapers/latest/organizing-your-aws-environment/sandbox-ou.md#sandbox-and-development-environments") than sandbox environments and should be used for day-to-day
+development and experimentation that requires access to your software components and
+services.
 
-Use version control tools, like Git, local testing tools for fast feedback,
-and [conventional
-commit](https://www.conventionalcommits.org/en/v1.0.0/ "https://www.conventionalcommits.org/en/v1.0.0/") messages that describe the nature and rationale behind the changes for.
-Strive to make it a habit to locally commit changes as soon as a logical unit of work is
-completed. This can be after fixing a bug, adding a new function, or refining an existing
-piece of code.
+Development environments can take the form of dedicated cloud environments, local
+emulations of infrastructure, or be hosted on a local workstation. While most cloud
+providers, open-source tools, and third parties provide options for emulating infrastructure
+locally on development machines, these tools might not have full feature parity, leaving
+them to only be suitable for a subset of use cases. Using cloud-based development
+environments provides the most reliable, accurate, and complete coverage when working with
+cloud workloads. We recommend providing a cloud-based development environment to each
+developer, with each environment being in a separate AWS account.
 
-Placing emphasis on the significance of making frequent local commits adapts
-developers to the idea of breaking down work into smaller, more manageable batches of work.
-This translates into streamlined integration processes when working in a team and is
-critical for practicing [continuous integration](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/") and [continuous delivery](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/") (CI/CD).
+Developers should be encouraged to use their own development environments for testing
+and debugging to reduce the chance of problems occurring in environments shared by the
+broader team. To keep the development environment as close to the production setup as
+possible, deployments to the development environment should be sourced from the main
+releasable branch, rather than from long-lived development branches. The development
+environment setup should be well-documented in an up-to-date playbook that is readily
+available to all members of the team. For this to be effective, the playbook must be updated
+as the needs of the team and environment change over time. Ideally, the full lifecycle of
+these environments, including provisioning, are managed through automated governance
+processes.
 
 **Related information:**
 
-- [Git
-  Basics - Recording Changes to the Repository](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository")
-- [Continuous
-  Integration - Martin Fowler](https://martinfowler.com/articles/continuousIntegration.html "https://martinfowler.com/articles/continuousIntegration.html")
+- [AWS Well-Architected Sustainability Pillar: SUS02-BP05
+  Optimize team member resources for activities performed](../sustainability-pillar/sus_sus_user_a6.md "../sustainability-pillar/sus_sus_user_a6.md")
+- [Setting
+  Up Your AWS Environment](https://aws.amazon.com/getting-started/guides/setup-environment/ "https://aws.amazon.com/getting-started/guides/setup-environment/")
+- [Dev
+  Environments in CodeCatalyst](../../../codecatalyst/latest/userguide/devenvironment.md "../../../codecatalyst/latest/userguide/devenvironment.md")
+- [Best
+  practices for testing serverless applications](../../../prescriptive-guidance/latest/serverless-application-testing/best-practices.md "../../../prescriptive-guidance/latest/serverless-application-testing/best-practices.md")
+- [Improving
+  the development cycle - Testing in the cloud](../../../prescriptive-guidance/latest/hexagonal-architectures/improve-dev-cycle.md "../../../prescriptive-guidance/latest/hexagonal-architectures/improve-dev-cycle.md")
+- [Improving
+  the development cycle - Testing locally](../../../prescriptive-guidance/latest/hexagonal-architectures/improve-dev-cycle.md "../../../prescriptive-guidance/latest/hexagonal-architectures/improve-dev-cycle.md")

@@ -1,21 +1,15 @@
-# [OA.BCL.7] Cultivate a psychologically-safe culture for experimentation
+# [OA.BCL.2] Automate repetitive tasks to reduce toil
 
 **Category:** FOUNDATIONAL
 
-Encourage experimentation and learning from failures by
-establishing clear guidelines and hosting sharing sessions for
-both successful and failed experiments. Foster a
-psychologically-safe environment where team members feel
-encouraged to share their ideas and speak up without fear of
-negative consequences. Recognize and celebrate successes,
-while also recognizing individuals who take risks and
-contribute to innovation. Cultivate a culture that values open
-communication, feedback, and continuous learning. Provide
-support for team members who are willing to experiment and
-think big.
+Identify repetitive, time-consuming tasks, referred to as toil. Assess the
+potential for automation, setting a high standard for automation with limited allowance
+for manual work. Continually review and reduce this allowance as more tasks are automated.
+Implement automation tools and processes to reduce toil and improve overall team efficiency.
+Encourage team members to identify opportunities for automation, and provide the
+necessary training and resources to support automation efforts.
 
 **Related information:**
 
-- [Amazon's
-  approach to security during development: Technical
-  fearlessness](https://youtu.be/NeR7FhHqDGQ?t=1031 "https://youtu.be/NeR7FhHqDGQ?t=1031")
+- [AWS Well-Architected Cost Optimization Pillar: COST11-BP01
+  Perform automations for operations](../cost-optimization-pillar/cost_evaluate_cost_effort_automations_operations.md "../cost-optimization-pillar/cost_evaluate_cost_effort_automations_operations.md")

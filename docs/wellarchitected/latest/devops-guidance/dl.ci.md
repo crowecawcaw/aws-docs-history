@@ -1,17 +1,22 @@
-# [DL.CI.4] Provide consistent, actionable feedback to developers
+# [DL.CI.5] Sequence build actions strategically for prompt feedback
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED 
 
-To identify and address issues as quickly as possible, it's important that developers
-receive consistent and actionable feedback, regardless of the technologies and tools being
-used. This consistency streamlines the process of addressing failures across diverse
-development environments, contributing to more efficient DevOps practices. Implement this by
-configuring your CI pipeline to send automatic failure notifications, offering clear,
-actionable resolution guidance. 
+By optimizing the sequence of actions or tasks in your
+continuous integration pipeline, feedback can be timely,
+allowing developers to quickly react and make necessary
+changes. This practice reduces the risk of delayed releases
+due to late detection of issues.
 
-Any failures in the process should send feedback to the
-developer automatically, describing the failure clearly with
-actionable guidance for resolution. Feedback mechanisms should
-be tailored to fit within tools already used by developers,
-such as IDEs, chat clients, or email, reducing the learning
-curve and aiding early problem detection.
+Initiate long-duration actions earlier and run them in
+parallel with other actions, preventing bottlenecks. Tasks
+less prone to failure or of lower importance should be
+scheduled later to prioritize higher impact tasks. Regularly
+reviewing and adjusting action sequences ensures they
+effectively identify issues early and provide actionable
+feedback.
+
+Strategically sequencing build actions is categorized as
+recommended as the foundational focus should first be on
+establishing a solid continuous integration pipeline and then
+later enhancing it by optimizing the build.
