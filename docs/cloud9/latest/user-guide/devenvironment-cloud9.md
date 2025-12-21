@@ -49,6 +49,11 @@ CodeCatalyst, see [Linking a
 source repository](../../../codecatalyst/latest/userguide/source-repositories-link.md "../../../codecatalyst/latest/userguide/source-repositories-link.md") in the _Amazon CodeCatalyst User
 Guide_.
 
+###### Important
+
+Dev Environments can run scripts via devfiles that have access to your
+CodeCatalyst credentials. Please inspect the repository before opening untrusted resources.
+
 ## Opening Dev Environment settings
 
 After you create a Dev Environment in the CodeCatalyst console, you can view specific
