@@ -7,10 +7,11 @@ The code for an Availability Zone is its Region code followed by a letter identi
 For example, `us-east-2a`, `us-east-2b`, and `us-east-2c`
 are the Availability Zones in the `us-east-2` Region.
 
-In our oldest Regions, we independently map Availability Zones to codes for each
-AWS account. For example, the `us-east-1a` Availability Zone for your
-account might not be the same physical location as it is in another account. For more
-information, see [Regions with independently mapped Availability Zones](az-ids.md#independently-mapped-azs "az-ids.md#independently-mapped-azs").
+For accounts created before November 2025, in our oldest Regions, we independently map
+Availability Zones to codes for each AWS account. For example, the `us-east-1a`
+Availability Zone for your account might not be the same physical location as it is in
+another account. Accounts created starting November 2025, get the same Availability Zones
+mapped to codes. For more information, see [Regions with independently mapped Availability Zones](az-ids.md#independently-mapped-azs "az-ids.md#independently-mapped-azs").
 
 Each Availability Zone has an AZ ID, which is the same physical location in every
 AWS account. An AZ ID consists of the first three letters of the Region code,

@@ -30,8 +30,9 @@ Zone code to AZ ID.
 
 ## Regions with independently mapped Availability Zones
 
-In the following Regions, we independently map Availability Zones to codes
-for each AWS account. All other Regions use a uniform mapping.
+In the following Regions, for accounts created before November 2025, we independently map Availability
+Zones to codes for each AWS account. Accounts created starting November 2025, get the same Availability Zones
+mapped to codes. All other Regions use a uniform mapping.
 
 - US East (N. Virginia)
 - US West (N. California)
