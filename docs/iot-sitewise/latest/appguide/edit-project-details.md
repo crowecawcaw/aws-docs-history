@@ -16,7 +16,7 @@ You must be a portal administrator to change project details.
 
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project to update.
 
-![The "Projects" page with a project highlighted.](images/projects-portal-admin-choose-project-console.png) 3. In the **Project details** section of the project details page,
+![The "Projects" page with a project highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png) 3. In the **Project details** section of the project details page,
 choose **Edit**.
 
 ![The "Project details" section of the projects page.](images/project-edit-project-console.png) 4. In the **Project details** dialog box, update the **Project

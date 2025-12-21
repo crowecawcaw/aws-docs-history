@@ -43,7 +43,7 @@ The following procedure assumes that you are signed in the AWS IoT SiteWise Moni
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project whose dashboards you
 want to view.
 
-![The Projects page with "Wind Farm 3" highlighted.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section of the project details page, choose
+![The Projects page with "Wind Farm 3" highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section of the project details page, choose
 the name of the dashboard to view. You can also select the check box next to the
 dashboard, and then choose **Open**.
 

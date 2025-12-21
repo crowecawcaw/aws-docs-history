@@ -32,7 +32,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 1. In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 
@@ -63,7 +63,7 @@ new project**, then choose **Next**.
 create multiple projects, each with a distinct set of assets, choose a descriptive
 name.
 
-![Add assets to project dialog, step 2 of 2.](images/asset-library-create-new-project-console.png) 5. In **Project description**, enter a description of the project and its
+![Add assets to project dialog, step 2 of 2.](/images/iot-sitewise/latest/appguide/images/asset-library-create-new-project-console.png) 5. In **Project description**, enter a description of the project and its
 contents.
 
 You can add project owners after you create the project. 6. Choose **Add asset to project**.
