@@ -102,7 +102,9 @@ and north-south traffic.
 
 - Send via — Traffic flows east-west between VPCs. All traffic for the service
   insertion action is first sent via a specific segment to the security appliance
-  and then out to other VPCs.
+  and then out to other VPCs. Send via is a bi directional action so if you have a send via action
+  from Segment A to Segment B you do not need to also specify a send via action of Segment B
+  to Segment A.
   - Single hop — Traffic traverses a single intermediate attachment, using
     the deterministically preferred source or destination Region. You can
     set a list of Regions to use, as well as setting a preferred Region to
@@ -169,7 +171,11 @@ The following are the supported core network attachments:
   with the same segment by bypassing the network functions group.
 - **Appliance mode** — Appliance mode must be enabled on the
   Inspection VPC to ensure that traffic moves in both directions.
-- **Route propagation** — Static routes defined in your Cloud WAN policy are not automatically propagated to Network Function Group route tables. Route propagation to NFGs requires specific configuration in your policy to define which routes should be available to the network functions.
+- **Route propagation** — Static routes defined in your Cloud WAN policy
+  are not automatically propagated to Network Function Group route tables. Route propagation to NFGs
+  requires specific configuration in your policy to define which routes should be available to the network functions.
+  In some situations, BGP route updates for Network Function Group route tables may take up to 30 minutes to display
+  in the GetNetworkRoutes API and console. This delay does not affect the actual routing functionality.
 
 ## Pricing
 

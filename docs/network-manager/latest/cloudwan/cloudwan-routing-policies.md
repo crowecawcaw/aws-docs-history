@@ -48,10 +48,11 @@ The following is a list of considerations that should be taken into account befo
 - Summarization only works outbound and on BGP-capable attachments
 - Routing policies associated across segments and regions are unidirectional
 - No BGP community support on Direct Connect and TGW Peering attachments
-- ASNs specified in the routing policy (replace/remove ASN) cannot overlap with the ASN range specified in the core network configuration
+- ASNs specified in the routing policy (replace/remove ASN, community tags) cannot overlap with the ASN range specified in the core network configuration.
+  This also means you cannot advertise communities into a core network that contain an ASN currently in use by the core network.
 - Replace ASN is not support cross-region (CNE-to-CNE)
 - Prefix list alias's must be unique per prefix list core network association
-- Prefix list modifications of entry values to the underlying core network routing state may not align with the prefix list state
+- Prefix list modifications of entry values to the underlying core network routing state may not align with the prefix list state.
 - Routing policies are not supported for NFGs (Service Insertion)
 - Segment share policies are applied after attachment policies
 - External AWS devices cannot advertise routes with BGP communities containing internal ASNs
