@@ -99,7 +99,7 @@ use the runbook successfully.
 - `aws:branch` - Branches the workflow based on the results of
   the previous step.
 - `aws:executeScript` - Collects information about the Elastic Beanstalk
-  environment including the load balancer, CloudFormation stack, Amazon EC2 Auto Scaling group, Amazon EC2
+  environment including the load balancer, CloudFormation stack, Auto Scaling group, Amazon EC2
   instances, and VPC configuration.
 - `aws:executeScript` - Checks for network connectivity issues
   with the route tables and ACLs associated with the subnets in your

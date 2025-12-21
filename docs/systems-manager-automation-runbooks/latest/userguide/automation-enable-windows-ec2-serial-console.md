@@ -96,9 +96,10 @@ JSON
  "arn:aws:ec2:`us-east-1`:`111122223333`:volume/`vol-049df61146EXAMPLE`",
  "arn:aws:iam::`111122223333`:instance-profile/`instance-profile-name`",
  "arn:aws:ssm:`us-east-1`:`111122223333`:parameter/aws/service/*",
- "arn:aws:ssm:`us-east-1`:`111122223333`:automation-definition/AWSSupport-StartEC2RescueWorkflow:*",
- "arn:aws:ssm:`us-east-1`:`111122223333`:document/AWS-ConfigureAWSPackage",
- "arn:aws:ssm:`us-east-1`:`111122223333`:document/AWS-RunPowerShellScript"
+ "arn:aws:ssm:`us-east-1`:*:document/AWSSupport-StartEC2RescueWorkflow",
+ "arn:aws:ssm:`us-east-1`:*:document/AWS-ConfigureAWSPackage",
+ "arn:aws:ssm:`us-east-1`:*:document/AWS-RunPowerShellScript",
+ "arn:aws:ssm:`us-east-1`:`111122223333`:automation-execution/*"
  ]
  },
  {

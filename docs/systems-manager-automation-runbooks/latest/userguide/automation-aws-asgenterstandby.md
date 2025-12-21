@@ -2,7 +2,7 @@
 
 **Description**
 
-Change the standby state of an Amazon Elastic Compute Cloud (Amazon EC2) instance in an Amazon EC2 Auto Scaling group.
+Change the standby state of an Amazon Elastic Compute Cloud (Amazon EC2) instance in an Auto Scaling group.
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ASGEnterStandby "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ASGEnterStandby")
 
@@ -34,7 +34,7 @@ the user that starts this runbook.
 Type: String
 
 Description: (Required) ID of an Amazon EC2 instance for which you want to
-change the standby state within an Amazon EC2 Auto Scaling group.
+change the standby state within an Auto Scaling group.
 
 - LambdaRoleArn
 

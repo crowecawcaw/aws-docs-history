@@ -136,7 +136,7 @@ use the runbook successfully.
    1. If `stopped` or `stopping`, the automation runs `aws:waitForAwsResourceProperty` until the Amazon EC2 instance is fully stopped.
    2. If `running` or `pending`, the automation runs `aws:waitForAwsResourceProperty` until the Amazon EC2 instance passes status checks.
 
-4. `aws:assertAwsResourceProperty`: Confirms the Amazon EC2 instance is not part of an Amazon EC2 Auto Scaling group by checking if the `aws:autoscaling:groupName` tag is applied.
+4. `aws:assertAwsResourceProperty`: Confirms the Amazon EC2 instance is not part of an Auto Scaling group by checking if the `aws:autoscaling:groupName` tag is applied.
 5. `aws:executeAwsApi`: Gathers the current instance type properties to find the equivalent AMD instance type.
 6. `aws:assertAwsResourceProperty`: Confirms a AWS Marketplace product code is not associated with the Amazon EC2 instance. Some products are not available on all instance types.
 7. `aws:branch`: Branches the automation depending on whether you want the automation to check if the Amazon EC2 instance is part of a CloudFormation stack

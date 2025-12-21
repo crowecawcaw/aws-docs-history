@@ -3,7 +3,7 @@
 **Description**
 
 The `AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck` runbook
-enables health checks for the Amazon EC2 Auto Scaling (Amazon EC2 Auto Scaling) group you specify.
+enables health checks for the Amazon EC2 Auto Scaling (Auto Scaling) group you specify.
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck")
 
@@ -42,7 +42,7 @@ Type: Integer
 
 Default: 300
 
-Description: (Optional) The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
+Description: (Optional) The amount of time, in seconds, that Auto Scaling waits
 before checking the health status of an Amazon Elastic Compute Cloud (Amazon EC2) instance that has
 come into service.
 **Required IAM permissions**
@@ -56,5 +56,5 @@ use the runbook successfully.
 - `ec2:UpdateAutoScalingGroup`
   **Document Steps**
 
-- `aws:executeScript` - Enables health checks on the Amazon EC2 Auto Scaling group
+- `aws:executeScript` - Enables health checks on the Auto Scaling group
   you specify in the `AutoScalingGroupARN` parameter.

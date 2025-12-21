@@ -103,7 +103,7 @@ use the runbook successfully.
 - `aws:executeAwsApi` - Gathers details for the specified Amazon EKS
   cluster.
 - `aws:executeScript` - Gathers details of the Amazon Elastic Compute Cloud (Amazon EC2)
-  instances, Amazon EC2 Auto Scaling groups, AMIs, and Amazon EC2 GPU graphic instance types.
+  instances, Auto Scaling groups, AMIs, and Amazon EC2 GPU graphic instance types.
 - `aws:executeScript` - Gathers details of the virtual private
   cloud (VPC), subnets, network address translation (NAT) gateways, subnet
   routes, security groups and network access control lists (ACLs) of the Amazon EKS
@@ -132,7 +132,7 @@ use the runbook successfully.
   Amazon VPC subnets.
 - `aws:executeScript` - Checks if the worker node Amazon EC2 instances
   have the required managed policies.
-- `aws:executeScript` - Checks if the Amazon EC2 Auto Scaling groups have the
+- `aws:executeScript` - Checks if the Auto Scaling groups have the
   necessary tags for cluster autoscaling.
 - `aws:executeScript` - Checks if the worker node Amazon EC2 instances
   are connected to the internet.

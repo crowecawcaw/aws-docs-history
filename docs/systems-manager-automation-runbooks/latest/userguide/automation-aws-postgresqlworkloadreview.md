@@ -247,8 +247,9 @@ JSON
  "Resource": [
  "arn:aws:ec2:`us-east-1`:`111122223333`:instance/`temporary-instance-id`",
  "arn:aws:ssm:*:*:document/AWS-RunShellScript",
- "arn:aws:ssm:*:*:automation-definition/AWS-StopEC2Instance:$DEFAULT",
- "arn:aws:ssm:*:*:automation-definition/AWS-StartEC2Instance:$DEFAULT"
+ "arn:aws:ssm:*:*:document/AWS-StopEC2Instance",
+ "arn:aws:ssm:*:*:document/AWS-StartEC2Instance",
+ "arn:aws:ssm:*:`111122223333`:automation-execution/*"
  ],
  "Effect": "Allow"
  },
@@ -258,7 +259,7 @@ JSON
  "iam:PassedToService": "ssm.amazonaws.com"
  },
  "ArnLike": {
- "iam:AssociatedResourceARN": "arn:aws:ssm:*:*:automation-definition/AWS-*"
+ "iam:AssociatedResourceARN": "arn:aws:ssm:*:*:document/AWS-*"
  }
  },
  "Action": "iam:PassRole",

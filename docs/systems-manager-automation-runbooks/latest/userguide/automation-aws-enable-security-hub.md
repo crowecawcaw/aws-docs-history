@@ -4,7 +4,7 @@
 
 The `AWSConfigRemediation-EnableSecurityHub` runbook enables AWS Security Hub CSPM
 (Security Hub CSPM) for the AWS account and AWS Region where you run the automation. For
-information about Security Hub CSPM, see [What is AWS Security Hub CSPM?](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") in the _AWS Security Hub CSPM User Guide_ .
+information about Security Hub CSPM, see [What is AWS Security Hub CSPM?](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") in the _AWS Security Hub User Guide_ .
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableSecurityHub "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableSecurityHub")
 
