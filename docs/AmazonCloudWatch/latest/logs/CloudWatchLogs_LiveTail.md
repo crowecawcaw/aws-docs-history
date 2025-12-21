@@ -28,8 +28,9 @@ AWS GovCloud (US) Regions.
 
 ###### Note
 
-The `StartLiveTail` API routes requests to `streaming-logs.`Region`.amazonaws.com` using SDK host prefix injection.
-VPC endpoint support is not available for this API.
+The `StartLiveTail` API routes requests using SDK host prefix injection. SDK versions released before April 1, 2026 route to
+`streaming-logs.`Region`.amazonaws.com`, which does not support VPC endpoints. SDK versions released on or after April 1, 2026 route to
+`stream-logs.`Region`.amazonaws.com`, which supports VPC endpoints. To set up a VPC endpoint for this API, see [Creating a VPC endpoint for CloudWatch Logs](cloudwatch-logs-and-interface-VPC.md#create-VPC-endpoint-for-CloudWatchLogs "cloudwatch-logs-and-interface-VPC.md#create-VPC-endpoint-for-CloudWatchLogs") .
 
 ## Start a Live Tail session using the AWS CLI
 

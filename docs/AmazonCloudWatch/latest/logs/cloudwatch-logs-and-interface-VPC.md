@@ -34,6 +34,9 @@ You do not need to change any settings for CloudWatch Logs. For
 more information, see [Creating an
 Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html") in the _Amazon VPC User Guide_.
 
+Some CloudWatch Logs APIs, such as StartLiveTail and GetLogObject, are hosted under a different endpoint and VPC endpoint: `stream-logs.Region.amazonaws.com`.
+To create an interface VPC endpoint for these APIs, the service to choose is **com.amazonaws.`Region`.stream-logs**. To connect with a FIPS endpoint, the service to choose is `com.amazonaws.Region.stream-logs-fips`.
+
 ## Testing the connection between your VPC and
 
 CloudWatch Logs
