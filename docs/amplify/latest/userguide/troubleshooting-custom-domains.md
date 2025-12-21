@@ -29,6 +29,7 @@ support case](../../../awssupport/latest/user/case-management.md#creating-a-supp
 - [I get SSL certificate or HTTPS errors
   when visiting my domain](#ssl-HTTPS-errors-on-domain "#ssl-HTTPS-errors-on-domain")
 - [Path components not supported in domain redirects](#domain-redirects-path-components "#domain-redirects-path-components")
+- [I get a 400 error for cross account domain association](#cross-account-domain-association-400-error "#cross-account-domain-association-400-error")
 
 ## I need to verify that my
 
@@ -315,3 +316,7 @@ Domain redirects only match the hostname portion. Path components in domain-base
 source rules (e.g., `"https://domain.com/path"`) are not supported and
 will cause the rule to be ignored without error. For more information, see [Redirects and rewrites example
 reference](redirect-rewrite-examples.md "redirect-rewrite-examples.md").
+
+## I get a 400 error for cross account domain association
+
+When initiating a DomainAssociation request for an Amplify app with a domain that is already or was previously associated with different Amplify App(s) in other AWS account(s) in the same region, this is considered a cross account domain association. If you get this error this means that you are attempting cross account domain association which requires manual verification. If you would like to proceed with a cross account domain association, please contact AWS support for assistance.

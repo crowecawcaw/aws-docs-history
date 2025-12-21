@@ -57,6 +57,10 @@ Amplify.
 
 process
 
+###### Warning
+
+When initiating a DomainAssociation request for an Amplify app with a domain that is already or was previously associated with different Amplify App(s) in other AWS account(s) in the same region, this is considered a cross account domain association. Cross account domain association requests require manual verification. If you would like to proceed with a cross account domain association, please contact AWS support for assistance.
+
 When you connect your Amplify app to a custom domain in the Amplify console,
 there are several steps that Amplify must complete before you can view your app using
 your custom domain. The following list describes each step in the domain set up and

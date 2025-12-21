@@ -33,6 +33,10 @@ Hosting](getting-started.md "getting-started.md").
 For more information about domains and DNS, see [Understanding DNS terminology
 and concepts](understanding-dns-terminology-and-concepts.md "understanding-dns-terminology-and-concepts.md").
 
+###### Warning
+
+When initiating a DomainAssociation request for an Amplify app with a domain that is already or was previously associated with different Amplify App(s) in other AWS account(s) in the same region, this is considered a cross account domain association. Cross account domain association requests require manual verification. If you would like to proceed with a cross account domain association, please contact AWS support for assistance.
+
 ###### Topics
 
 - [Understanding DNS terminology
