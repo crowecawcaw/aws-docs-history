@@ -16,7 +16,7 @@ This rule does not evaluate Amazon Aurora DB, Amazon DocumentDB, and Amazon Nept
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 

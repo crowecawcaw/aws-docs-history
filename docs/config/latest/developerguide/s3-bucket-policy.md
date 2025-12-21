@@ -154,7 +154,7 @@ When AWS Config is configured to deliver configuration history and snapshots to 
 the following permissions are required:
 
 - The IAM role you assign to the configuration recorder needs explicit permission to perform the `s3:ListBucket` operation. This is because AWS Config calls the Amazon S3 [HeadBucket](../../../AmazonS3/latest/API/API_RESTBucketHEAD.md "../../../AmazonS3/latest/API/API_RESTBucketHEAD.md") API with this IAM role to determine the bucket location.
-- The S3 bucket policy must include permissions for both the AWS Config service principal and the IAM role assigned to the configuration recorder.
+- The S3 bucket policy must include permissions for the IAM role assigned to the configuration recorder.
 
 The following is an example bucket policy configuration:
 
@@ -163,15 +163,9 @@ The following is an example bucket policy configuration:
       "Sid": "AWSConfigBucketExistenceCheck",
       "Effect": "Allow",
       "Principal": {
-        "Service": "config.amazonaws.com",
         "AWS": "`IAM Role-Arn assigned to the configuration recorder`"
       },
       "Action": "s3:ListBucket",
       "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`",
-      "Condition": {
-        "StringEquals": {
-          "AWS:SourceAccount": "`sourceAccountID`"
-        }
-      }
 }
 ```

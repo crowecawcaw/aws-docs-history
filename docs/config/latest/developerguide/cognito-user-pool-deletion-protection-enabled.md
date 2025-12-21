@@ -1,13 +1,10 @@
-# elb-tls-https-listeners-only
+# cognito-user-pool-deletion-protection-enabled
 
-Checks if your Classic Load Balancer is configured with SSL or HTTPS listeners. The rule is NON_COMPLIANT if a listener is not configured with SSL or HTTPS.
+Checks whether Amazon Cognito user pools has deletion protection enabled. This rule is NON_COMPLIANT if a user pool has deletion protection disabled.
 
-- If the Classic Load Balancer does not have a listener configured, then the rule returns `NOT_APPLICABLE`.
-- The rule is COMPLIANT if the Classic Load Balancer listeners are configured with SSL or HTTPS.
-- The rule is NON_COMPLIANT if a listener is not configured with SSL or HTTPS.
-  **Identifier:** ELB_TLS_HTTPS_LISTENERS_ONLY
+**Identifier:** COGNITO_USER_POOL_DELETION_PROTECTION_ENABLED
 
-**Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer
+**Resource Types:** AWS::Cognito::UserPool
 
 **Trigger type:** Configuration changes
 

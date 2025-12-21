@@ -20,7 +20,7 @@ The rule returns `NOT_APPLICABLE` for secrets that aren't configured for rotatio
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 

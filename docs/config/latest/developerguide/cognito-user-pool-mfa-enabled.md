@@ -1,13 +1,10 @@
-# elb-tls-https-listeners-only
+# cognito-user-pool-mfa-enabled
 
-Checks if your Classic Load Balancer is configured with SSL or HTTPS listeners. The rule is NON_COMPLIANT if a listener is not configured with SSL or HTTPS.
+Checks if Amazon Cognito user pools configured with a PASSWORD-only sign-in policy have Multi-Factor Authentication (MFA) enabled. This rule is NON_COMPLIANT if the Cognito user pool configured with PASSWORD only sign in policy does not have MFA enabled.
 
-- If the Classic Load Balancer does not have a listener configured, then the rule returns `NOT_APPLICABLE`.
-- The rule is COMPLIANT if the Classic Load Balancer listeners are configured with SSL or HTTPS.
-- The rule is NON_COMPLIANT if a listener is not configured with SSL or HTTPS.
-  **Identifier:** ELB_TLS_HTTPS_LISTENERS_ONLY
+**Identifier:** COGNITO_USER_POOL_MFA_ENABLED
 
-**Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer
+**Resource Types:** AWS::Cognito::UserPool
 
 **Trigger type:** Configuration changes
 

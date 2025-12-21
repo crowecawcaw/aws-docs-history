@@ -1,13 +1,10 @@
-# elb-tls-https-listeners-only
+# cognito-userpool-cust-auth-threat-full-check
 
-Checks if your Classic Load Balancer is configured with SSL or HTTPS listeners. The rule is NON_COMPLIANT if a listener is not configured with SSL or HTTPS.
+Checks if Amazon Cognito user pools have threat protection enabled with full-function enforcement mode for custom authentication. This rule is NON_COMPLIANT if threat protection for custom authentication is not set to full-function enforcement mode.
 
-- If the Classic Load Balancer does not have a listener configured, then the rule returns `NOT_APPLICABLE`.
-- The rule is COMPLIANT if the Classic Load Balancer listeners are configured with SSL or HTTPS.
-- The rule is NON_COMPLIANT if a listener is not configured with SSL or HTTPS.
-  **Identifier:** ELB_TLS_HTTPS_LISTENERS_ONLY
+**Identifier:** COGNITO_USERPOOL_CUST_AUTH_THREAT_FULL_CHECK
 
-**Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer
+**Resource Types:** AWS::Cognito::UserPool
 
 **Trigger type:** Configuration changes
 

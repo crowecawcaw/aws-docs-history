@@ -8,7 +8,7 @@ Checks if Amazon Redshift cluster has 'enhancedVpcRouting' enabled. The rule is 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Mexico (Central) Region
+**AWS Region:** All supported AWS regions except Europe (Stockholm), China (Beijing), Asia Pacific (Thailand), Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 

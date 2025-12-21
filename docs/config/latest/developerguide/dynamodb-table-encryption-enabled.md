@@ -8,7 +8,7 @@ Checks if the Amazon DynamoDB tables are encrypted and checks their status. The 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Europe (Stockholm), Middle East (Bahrain), Asia Pacific (Jakarta), Africa (Cape Town), AWS Secret - West, Asia Pacific (Hong Kong), Asia Pacific (Hyderabad), Asia Pacific (Osaka), Europe (Milan), Europe (Spain), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 

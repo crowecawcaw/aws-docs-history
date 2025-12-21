@@ -730,19 +730,19 @@ Options](../../../AmazonS3/latest/userguide/UsingBucket.md#bucket-config-options
 | ----------------- | ------------------------------- | ------------ | ---------------- |
 | AWS Audit Manager | `AWS::AuditManager::Assessment` | NA           | NA               |
 
-## AWS Amazon EC2 Auto Scaling
+## AWS Auto Scaling
 
-| AWS Service                                  | Resource Type Value                  | Relationship              | Related Resource    |
-| -------------------------------------------- | ------------------------------------ | ------------------------- | ------------------- |
-| AWS Amazon EC2 Auto Scaling                  | `AWS::AutoScaling::AutoScalingGroup` | contains                  | Amazon EC2 instance |
-| is associated with                           | Classic Load Balancer                |
-| Amazon EC2 Auto Scaling launch configuration |
-| Subnet                                       |
-| `AWS::AutoScaling::LaunchConfiguration`      | is associated with                   | Amazon EC2 security group |
-| `AWS::AutoScaling::ScalingPolicy`            | is associated with                   | Auto Scaling group        |
-| Alarm                                        |
-| `AWS::AutoScaling::ScheduledAction`          | is associated with                   | Auto Scaling group        |
-| `AWS::AutoScaling::WarmPool`                 | NA                                   | NA                        |
+| AWS Service                             | Resource Type Value                  | Relationship              | Related Resource    |
+| --------------------------------------- | ------------------------------------ | ------------------------- | ------------------- |
+| AWS Auto Scaling                        | `AWS::AutoScaling::AutoScalingGroup` | contains                  | Amazon EC2 instance |
+| is associated with                      | Classic Load Balancer                |
+| Auto Scaling launch configuration       |
+| Subnet                                  |
+| `AWS::AutoScaling::LaunchConfiguration` | is associated with                   | Amazon EC2 security group |
+| `AWS::AutoScaling::ScalingPolicy`       | is associated with                   | Auto Scaling group        |
+| Alarm                                   |
+| `AWS::AutoScaling::ScheduledAction`     | is associated with                   | Auto Scaling group        |
+| `AWS::AutoScaling::WarmPool`            | NA                                   | NA                        |
 
 ## AWS Backup
 
