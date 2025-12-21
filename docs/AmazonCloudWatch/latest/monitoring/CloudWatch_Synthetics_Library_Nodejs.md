@@ -9,8 +9,6 @@ The naming convention for these runtime versions is
 
 syn-nodejs-3.0
 
-Version 3.0 is the newest CloudWatch Synthetics runtime for Node.js.
-
 **Major dependencies** – AWS Lambda runtime Node.js 20.x
 
 **Changes in syn-nodejs-3.0 – Support for multi checks blueprint.**

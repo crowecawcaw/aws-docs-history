@@ -14,17 +14,20 @@ The naming convention for these runtime versions is
 
 ##
 
-syn-python-selenium-7.0
+syn-python-selenium-8.0
 
-Version 7.0 is the newest CloudWatch Synthetics runtime for Python and Selenium.
+Version 8.0 is the newest CloudWatch Synthetics runtime for Python and Selenium.
 
 **Major dependencies**:
 
 - Python 3.11
 - Selenium 4.32.0
-- Chromium version 138.0.7204.168
+- Chromium version 142.0.7444.175
 
-**Changes in syn-python-selenium-7.0 – Upgrade from Chromium version 131.0.6778.264 to 138.0.7204.168 and from Selenium 4.21.0 to Selenium 4.32.0.**
+**Changes in syn-python-selenium-8.0**
+
+- Applied security patches and updated Selenium and browser versions.
+- Modified failed HAR network request log level from ERROR to INFO.
 
 For more information, see the following:
 
@@ -35,9 +38,26 @@ The following earlier runtime versions for Python and Selenium are still support
 
 ###
 
-syn-python-selenium-6.0
+syn-python-selenium-7.0
 
-Version 6.0 is the newest CloudWatch Synthetics runtime for Python and Selenium.
+**Major dependencies**:
+
+- Python 3.11
+- Selenium 4.32.0
+- Chromium version 138.0.7204.168
+
+**Changes in syn-python-selenium-7.0**
+
+- Applied security patches and updated Selenium and browser versions.
+
+For more information, see the following:
+
+- [Selenium Change log](https://www.selenium.dev/blog/2025/selenium-4-32-released "https://www.selenium.dev/blog/2025/selenium-4-32-released")
+- [Selenium documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
+
+###
+
+syn-python-selenium-6.0
 
 **Major dependencies**:
 
@@ -45,7 +65,9 @@ Version 6.0 is the newest CloudWatch Synthetics runtime for Python and Selenium.
 - Selenium 4.21.0
 - Chromium version 131.0.6778.264
 
-**Changes in syn-python-selenium-6.0 – Upgrade from Python 3.9 to Python 3.11**
+**Changes in syn-python-selenium-6.0**
+
+- Upgrade from Python 3.9 to Python 3.11.
 
 For more information, see the following:
 
@@ -55,8 +77,6 @@ For more information, see the following:
 ###
 
 syn-python-selenium-5.1
-
-Version 5.1 is the newest CloudWatch Synthetics runtime for Python and Selenium.
 
 **Major dependencies**:
 
@@ -73,8 +93,6 @@ Version 5.1 is the newest CloudWatch Synthetics runtime for Python and Selenium.
 
 syn-python-selenium-5.0
 
-Version 5.0 is the newest CloudWatch Synthetics runtime for Python and Selenium.
-
 **Major dependencies**:
 
 - Python 3.9
@@ -88,8 +106,6 @@ Version 5.0 is the newest CloudWatch Synthetics runtime for Python and Selenium.
 ###
 
 syn-python-selenium-4.1
-
-Version 4.1 is the newest CloudWatch Synthetics runtime for Python and Selenium.
 
 **Major dependencies**:
 

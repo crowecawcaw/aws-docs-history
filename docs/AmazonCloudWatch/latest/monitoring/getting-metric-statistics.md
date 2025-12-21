@@ -7,6 +7,6 @@ resources, such as your EC2 instances.
 
 - [Get statistics for a specific resource](US_SingleMetricPerInstance.md "US_SingleMetricPerInstance.md")
 - [Aggregate statistics across resources](GetSingleMetricAllDimensions.md "GetSingleMetricAllDimensions.md")
-- [Aggregate statistics by Amazon EC2 Auto Scaling group](GetMetricAutoScalingGroup.md "GetMetricAutoScalingGroup.md")
+- [Aggregate statistics by Auto Scaling group](GetMetricAutoScalingGroup.md "GetMetricAutoScalingGroup.md")
 - [Aggregate statistics by Amazon Machine Image
   (AMI)](US_SingleMetricPerAMI.md "US_SingleMetricPerAMI.md")

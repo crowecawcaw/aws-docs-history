@@ -11,6 +11,50 @@ The naming convention for these runtime versions is
 
 ##
 
+syn-nodejs-playwright-5.0
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+- Playwright version 1.57.0
+- Playwright/test version 1.57.0
+- Chromium version 143.0.7499.4
+- Firefox version 142.0.1
+
+**Changes in syn-nodejs-playwright-5.0**
+
+- Applied security patches and updated Playwright and browser versions.
+
+For more information, see the following:
+
+- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
+- [Playwright API reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
+
+The following earlier runtime versions for Node.js and Playwright are still supported.
+
+###
+
+syn-nodejs-playwright-4.0
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+- Playwright version 1.55.0
+- Playwright/test version 1.55.0
+- Chromium version 140.0.7339.16
+- Firefox version 141.0
+
+**Changes in syn-nodejs-playwright-4.0**
+
+- Applied security patches and updated Playwright and browser versions.
+
+For more information, see the following:
+
+- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
+- [Playwright API reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
+
+###
+
 syn-nodejs-playwright-3.0
 
 **Major dependencies**:
@@ -29,8 +73,6 @@ For more information, see the following:
 
 - [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
 - [Playwright API reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
-
-The following earlier runtime versions for Node.js and Playwright are still supported.
 
 ###
 

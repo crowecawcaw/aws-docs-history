@@ -209,7 +209,7 @@ _Amazon Web Services General Reference_.
 - `aggregation_dimensions` – Optional. Specifies the
   dimensions that collected metrics are to be aggregated on. For example, if you
   roll up metrics on the `AutoScalingGroupName` dimension, the metrics
-  from all instances in each Amazon EC2 Auto Scaling group are aggregated and can be viewed as a
+  from all instances in each Auto Scaling group are aggregated and can be viewed as a
   whole.
 
 You can roll up metrics along single or multiple dimensions. For example,

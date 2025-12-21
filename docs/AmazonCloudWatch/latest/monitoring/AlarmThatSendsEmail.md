@@ -36,7 +36,7 @@ are in ALARM state.
 
 Composite alarms can send Amazon SNS notifications when they change state, and can create
 investigations, Systems Manager OpsItems, or incidents when they go into ALARM state, but can't
-perform EC2 actions or Amazon EC2 Auto Scaling actions.
+perform EC2 actions or Auto Scaling actions.
 
 ###### Note
 

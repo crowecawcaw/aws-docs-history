@@ -19,8 +19,8 @@ CloudWatch Application Insights:
   .NET worker tiers, and SQL Server databases. For more information about
   application components and technology stacks supported by Application Insights, see
   [Supported application components](appinsights-what-is.md#appinsights-components "appinsights-what-is.md#appinsights-components"). CloudWatch Application Insights automatically includes
-  Amazon EC2 Auto Scaling groups using the same tags or CloudFormation stacks as your resource group,
-  because Amazon EC2 Auto Scaling groups are not supported by CloudFormation resource groups. For
+  Auto Scaling groups using the same tags or CloudFormation stacks as your resource group,
+  because Auto Scaling groups are not supported by CloudFormation resource groups. For
   more information, see [Getting Started with
   AWS Resource Groups](../../../ARG/latest/userguide/gettingstarted.md "../../../ARG/latest/userguide/gettingstarted.md").
 - **IAM permissions** – For users who

@@ -16,13 +16,6 @@ that the runtime version is currently in a beta preview release.
 Runtime versions with the same
 major version number are backward compatible.
 
-###### Important
-
-IMPORTANT: The included AWS SDK for JavaScript v2 dependency will be removed and
-updated to use AWS SDK for JavaScript v3 in a future runtime release. When that happens, you can
-update your canary code references. Alternatively, you can continue referencing and using the included
-AWS SDK for JavaScript v2 dependency by adding it as a dependency to your source code zip file.
-
 The Lambda code in a canary is configured to have a maximum memory of 1 GB.
 Each run of a canary times out after a configured timeout value. If no timeout
 value is specified for a canary, CloudWatch chooses a timeout value
@@ -30,22 +23,57 @@ based on the canary's frequency. If you configure a timeout value, make it no sh
 15 seconds to allow for Lambda cold starts and the time it takes to boot up the canary
 instrumentation.
 
-**Notes for all runtime versions**
+## syn-nodejs-puppeteer-13.0
 
-When using `syn-nodejs-puppeteer-3.0` runtime version, make sure that
-your canary script is compatible with Node.js 12.x. If you use an earlier version
-of a `syn-nodejs` runtime version, make sure that that your script is
-compatible with Node.js 10.x.
-
-## syn-nodejs-puppeteer-11.0
-
-`syn-nodejs-puppeteer-11.0` is the most recent Synthetics runtime for Node.js and Puppeteer.
+`syn-nodejs-puppeteer-13.0` is the most recent Synthetics runtime for Node.js and Puppeteer.
 
 ###### Important
 
-Starting Synthetics `syn-nodejs-puppeteer-8.0` and later, use Lambda Nodejs 20. For Lambda Node.js 18 and later runtimes, use AWS SDK for JavaScript V3.
-If you need to migrate a function from an earlier runtime, follow the aws-sdk-js-v3 Migration Workshop on GitHub. For more information about AWS SDK for JavaScript version 3, see
+Starting Synthetics `syn-nodejs-puppeteer-8.0` and later, runtimes use AWS SDK for JavaScript V3.
+If you need to migrate a canary from an earlier runtime, follow the aws-sdk-js-v3 Migration Workshop on GitHub. For more information about AWS SDK for JavaScript version 3, see
 [this blog post](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/ "https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/").
+
+For more information, see the following:
+
+- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24250-2025-10-15 "https://pptr.dev/CHANGELOG#24250-2025-10-15")
+- [Puppeteer API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md")
+
+**Major dependencies**:
+
+- Lambda runtime Node.js 22.x
+- Puppeteer-core version 24.25.0
+- Chromium version 142.0.7444.175
+- Firefox version 145.x
+
+**Changes in syn-nodejs-puppeteer-13.0**
+
+- Applied security patches and updated Puppeteer and browser versions.
+- Bug fix – Fixed intermittent runtime extension crash issue caused by concurrent map access
+
+The following earlier runtime versions for Node.js and Puppeteer are still supported.
+
+### syn-nodejs-puppeteer-12.0
+
+For more information, see the following:
+
+- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24221-2025-09-23 "https://pptr.dev/CHANGELOG#24221-2025-09-23")
+- [Puppeteer API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.22.1/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.22.1/docs/api/index.md")
+
+**Major dependencies**:
+
+- Lambda runtime Node.js 22.x
+- Puppeteer-core version 24.22.1
+- Chromium version 140.0.7339.185
+- Firefox version 143.0.1
+
+**Changes in syn-nodejs-puppeteer-12.0**
+
+- Applied security patches and updated Puppeteer and browser versions.
+- Bug fix for Restricted header redaction – Fixed an issue where in some situations restricted headers were not being redacted in executeHttpStep(). Behavior is now consistent with Puppeteer 10.0.
+- Bug fix for includeResponseBody configuration – Fixed an issue where HAR file generation can misapply the includeResponseBody configuration setting in certain situations. HAR now ensures response bodies are excluded when setting is configured.
+- Request capture lifecycle fixed – Fixed an issue where in some situations the HTTP request capturer may cause continuous aggregation of requests. Recording now terminates correctly after each step execution.
+
+### syn-nodejs-puppeteer-11.0
 
 For more information, see the following:
 
@@ -74,18 +102,7 @@ For more information, see the following:
   in CloudWatch. Log level is configurable (for example, DEBUG, INFO, TRACE) through environment variables allowing users to control verbosity based on their needs
 - Support for ES syntax
 
-The following earlier runtime versions for Node.js and Puppeteer are still supported.
-
 ### syn-nodejs-puppeteer-10.0
-
-`syn-nodejs-puppeteer-10.0` is the most recent Synthetics runtime for Node.js and Puppeteer.
-
-###### Important
-
-Lambda Node.js 18 and later runtimes use AWS SDK for JavaScript V3. If you need to migrate a function
-from an earlier runtime, follow the [aws-sdk-js-v3 Migration Workshop](https://github.com/aws-samples/aws-sdk-js-v3-workshop "https://github.com/aws-samples/aws-sdk-js-v3-workshop") on GitHub.
-For more information about AWS SDK for JavaScript version 3, see
-[this blog post](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/ "https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/").
 
 For more information, see the following:
 
@@ -105,15 +122,6 @@ For more information, see the following:
 
 ### syn-nodejs-puppeteer-9.1
 
-`syn-nodejs-puppeteer-9.1` is the most recent Synthetics runtime for Node.js and Puppeteer.
-
-###### Important
-
-Lambda Node.js 18 and later runtimes use AWS SDK for JavaScript V3. If you need to migrate a function
-from an earlier runtime, follow the [aws-sdk-js-v3 Migration Workshop](https://github.com/aws-samples/aws-sdk-js-v3-workshop "https://github.com/aws-samples/aws-sdk-js-v3-workshop") on GitHub.
-For more information about AWS SDK for JavaScript version 3, see
-[this blog post](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/ "https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/").
-
 **Major dependencies**:
 
 - Lambda runtime Node.js 20.x
@@ -123,13 +131,6 @@ For more information about AWS SDK for JavaScript version 3, see
 **Changes in syn-nodejs-puppeteer-9.1** – Bug fixes related to date ranges and pending requests in HAR files are fixed.
 
 ### syn-nodejs-puppeteer-9.0
-
-###### Important
-
-Lambda Node.js 18 and later runtimes use AWS SDK for JavaScript V3. If you need to migrate a function
-from an earlier runtime, follow the [aws-sdk-js-v3 Migration Workshop](https://github.com/aws-samples/aws-sdk-js-v3-workshop "https://github.com/aws-samples/aws-sdk-js-v3-workshop") on GitHub.
-For more information about AWS SDK for JavaScript version 3, see
-[this blog post](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/ "https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/").
 
 **Major dependencies**:
 
@@ -148,7 +149,7 @@ for the bug fix for visual monitoring.
 
 ###### Important
 
-Lambda Node.js 18 and later runtimes use AWS SDK for JavaScript V3. If you need to migrate a function
+Lambda Node.js 18 and later runtimes use AWS SDK for JavaScript V3. If you need to migrate a canary
 from an earlier runtime, follow the [aws-sdk-js-v3 Migration Workshop](https://github.com/aws-samples/aws-sdk-js-v3-workshop "https://github.com/aws-samples/aws-sdk-js-v3-workshop") on GitHub.
 For more information about AWS SDK for JavaScript version 3, see
 [this blog post](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/ "https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/").

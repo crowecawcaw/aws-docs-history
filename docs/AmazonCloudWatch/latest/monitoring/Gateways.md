@@ -17,4 +17,4 @@ Expand the **View details** section to view the gateway metrics in graphs.
 Under **Gateways**, choose a gateway **Name** to view the dashboard.
 You can also sort the list of gateways by click the column headers in the table.
 
-![Gateways details view](images/Gateways_tile.png)
+![Gateways details view](/images/AmazonCloudWatch/latest/monitoring/images/Gateways_tile.png)

@@ -41,18 +41,26 @@ pipeline's source type.
 
 This table lists the supported schema combinations.
 
-| Pipeline Source Type      | Supported Schemas                          | Version | Mapping Version |
-| ------------------------- | ------------------------------------------ | ------- | --------------- |
-| `cloudwatch_logs`         | `cloud_trail:`                             | `1.5`   | Not required    |
-| `cloudwatch_logs`         | `route53_resolver:`                        | `1.5`   | Not required    |
-| `cloudwatch_logs`         | `vpc_flow:`                                | `1.5`   | Not required    |
-| `cloudwatch_logs`         | `eks_audit:`                               | `1.5`   | Not required    |
-| `cloudwatch_logs`         | `aws_waf:`                                 | `1.5`   | Not required    |
-| `s3`                      | Any OCSF schema                            | Any     | Any             |
-| `microsoft_office365`     | `microsoft_office365_management_activity:` | `1.5`   | `1.5.0`         |
-| `microsoft_entra_id`      | `microsoft_entra_id:`                      | `1.5`   | `1.5.0`         |
-| `microsoft_windows_event` | `microsoft_windows_event:`                 | `1.5`   | `1.5.0`         |
-| `palo_alto_ngfw`          | `palo_alto_ngfw:`                          | `1.5`   | `1.5.0`         |
+| Pipeline Source Type                      | Supported Schemas                          | Version | Mapping Version |
+| ----------------------------------------- | ------------------------------------------ | ------- | --------------- |
+| `cloudwatch_logs`                         | `cloud_trail:`                             | `1.5`   | Not required    |
+| `cloudwatch_logs`                         | `route53_resolver:`                        | `1.5`   | Not required    |
+| `cloudwatch_logs`                         | `vpc_flow:`                                | `1.5`   | Not required    |
+| `cloudwatch_logs`                         | `eks_audit:`                               | `1.5`   | Not required    |
+| `cloudwatch_logs`                         | `aws_waf:`                                 | `1.5`   | Not required    |
+| `s3`                                      | Any OCSF schema                            | Any     | Any             |
+| `microsoft_office365`                     | `microsoft_office365:`                     | `1.5`   | `1.5.0`         |
+| `microsoft_entraid`                       | `microsoft_entraid:`                       | `1.5`   | `1.5.0`         |
+| `microsoft_windows_event`                 | `microsoft_windows_event:`                 | `1.5`   | `1.5.0`         |
+| `paloaltonetworks_nextgenerationfirewall` | `paloaltonetworks_nextgenerationfirewall:` | `1.5`   | `1.5.0`         |
+| `okta_auth0`                              | `okta_auth0:`                              | `1.5`   | `1.5.0`         |
+| `okta_sso`                                | `okta_sso:`                                | `1.5`   | `1.5.0`         |
+| `crowdstrike_falcon`                      | `crowdstrike_falcon:`                      | `1.5`   | `1.5.0`         |
+| `github_auditlogs`                        | `github_auditlogs:`                        | `1.5`   | `1.5.0`         |
+| `sentinelone_endpointsecurity`            | `sentinelone_endpointsecurity:`            | `1.5`   | `1.5.0`         |
+| `servicenow_cmdb`                         | `servicenow_cmdb:`                         | `1.5`   | `1.5.0`         |
+| `wiz_cnapp`                               | `wiz_cnapp:`                               | `1.5`   | `1.5.0`         |
+| `zscaler_internetaccess`                  | `zscaler_internetaccess:`                  | `1.5`   | `1.5.0`         |
 
 ## CSV processor
 

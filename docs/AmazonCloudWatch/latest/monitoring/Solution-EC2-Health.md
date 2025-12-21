@@ -49,7 +49,7 @@ Below are the key advantages of the solution:
 - Automates metric collection for EC2 instances eliminating manual instrumentation.
 - Provides a pre-configured, consolidated CloudWatch dashboard for EC2 instance metrics. The dashboard will
   automatically handle metrics from new EC2 instances configured using the solution, even if those metrics don't
-  exist when you first create the dashboard. It also allows you to observe EC2 instances managed via Amazon EC2 Auto Scaling groups.
+  exist when you first create the dashboard. It also allows you to observe EC2 instances managed via Auto Scaling groups.
 
 The following image is an example of the dashboard for this solution.
 
@@ -110,7 +110,7 @@ The following information is intended to help you understand how to customize th
 
 ###### Note
 
-If an EC2 instance is not part of an Amazon EC2 Auto Scaling group, the CloudWatch agent drops the `AutoScalingGroupName`
+If an EC2 instance is not part of an Auto Scaling group, the CloudWatch agent drops the `AutoScalingGroupName`
 dimension entirely. This behavior helps to prevent dimension names with null/empty values. Each metric widget included in
 the solution dashboard searches for metrics which include and exclude the `AutoScalingGroup` dimension. This helps to ensure
 that all EC2 instances where the solution is applied are supported by the same dashboard.
@@ -259,8 +259,8 @@ You can use CloudFormation to install the agent and configure it to use the Clou
          to install the CloudWatch agent with this configuration. You can list a single instance or several instances.
       2. If you are deploying at scale, you can specify the **TagKey** and the corresponding **TagValue**
          to target all EC2 instances with this tag and value. If you specify a **TagKey**, you must specify a corresponding
-         **TagValue**. (For an Amazon EC2 Auto Scaling group, specify `aws:autoscaling:groupName` for the **TagKey**
-         and specify the Amazon EC2 Auto Scaling group name for the **TagValue** to deploy to all instances within the Amazon EC2 Auto Scaling group.)If you specify both the **InstanceIds** and the **TagKeys** parameters,
+         **TagValue**. (For an Auto Scaling group, specify `aws:autoscaling:groupName` for the **TagKey**
+         and specify the Auto Scaling group name for the **TagValue** to deploy to all instances within the Auto Scaling group.)If you specify both the **InstanceIds** and the **TagKeys** parameters,
          the **InstanceIds** will take precedence and the tags will be ignored.
 
 5. Review the settings, then choose **Create stack**.

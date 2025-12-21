@@ -10,19 +10,20 @@ Amazon Telemetry Pipelines enables you to collect audit logs from GitHub Enterpr
 
 ## Authenticating with GitHub
 
-To read the audit logs, pipeline needs to authenticate with your GitHub account. For Enterprise scope, you can use Personal Access Token and for Organization scope, you can either use Personal Access Token or GitHub App.
+To read the audit logs, pipeline needs to authenticate with your GitHub account. For Enterprise [scope](https://docs.github.com/en/enterprise-cloud@latest/rest/enterprise-admin/audit-log?apiVersion=2022-11-28#get-the-audit-log-for-an-enterprise "https://docs.github.com/en/enterprise-cloud@latest/rest/enterprise-admin/audit-log?apiVersion=2022-11-28#get-the-audit-log-for-an-enterprise") , you can use Personal Access Token and for Organization [scope](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/orgs?apiVersion=2022-11-28#get-the-audit-log-for-an-organization "https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/orgs?apiVersion=2022-11-28#get-the-audit-log-for-an-organization") , you can either use Personal Access Token or GitHub App.
 
 **Generate the token to authenticate as Personal Access Token:**
 
-- Sign in to GitHub using credentials for the GitHub account
+- Sign in to [GitHub](https://github.com/dashboard "https://github.com/dashboard") using credentials for the GitHub account
+- The authenticated user must be an enterprise admin to use this endpoint
 - Open the GitHub Personal access tokens (classic) page, locate the Generate new token (classic) and then follow the GitHub procedure to generate a token with `read:audit_log` scope and No expiration
 - Store this new token in a secret in the AWS Secrets Manager under the key `personal_access_token`
 
 **Generate the private key to authenticate as GitHub App:**
 
-- Sign in to GitHub using credentials for the GitHub account
-- Ensure the GitHub App has the "Administration" organization permissions (read) permission
-- Follow the instructions in Managing private keys for GitHub Apps and generate the private key
+- Sign in to [GitHub](https://github.com/dashboard "https://github.com/dashboard") using credentials for the GitHub account
+- Ensure the GitHub App has the "Administration" organization [permissions](https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app "https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app") (read) permission
+- Follow the instructions in [Managing private keys for GitHub Apps](https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps "https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps") and generate the private key
 - Store this private key in a secret in the AWS Secrets Manager under the key `private_key` and the GitHub App name under the key `app_id`
 
 ## Configuring the CloudWatch Pipeline
@@ -31,7 +32,7 @@ When configuring the pipeline to read audit logs from GitHub Enterprise Cloud, c
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 
-This integration supports OCSF schema version v1.5.0 and the GitHub actions that maps to Account Change (3001), API Activity (6003) and Entity Management (3004).
+This integration supports OCSF schema version v1.5.0 and the [GitHub actions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/security-log-events "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/security-log-events") that maps to Account Change (3001), API Activity (6003) and Entity Management (3004).
 
 **Account Change** contains the following actions:
 

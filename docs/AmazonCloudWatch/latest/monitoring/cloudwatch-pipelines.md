@@ -47,8 +47,24 @@ Be aware of the following limits that apply to CloudWatch pipelines
       + Up to 300 pipelines for collecting data from CloudWatch Logs
       + Up to 30 pipelines for collecting data from other sources
 
-  CloudWatch pipelines is available in the following AWS
-  Regions.
+  CloudWatch pipelines capabilities are offered as part of existing CloudWatch Logs Data
+  ingestion pricing at no additional cost with metering occurring at time of ingestion.
+
+Existing log class ingestion pricing for vended and custom logs are applicable. For
+example, if you ingest 30GB of custom standard class logs and process them via a pipeline
+it would cost $15/Month on logs ingestion. If you ingest and process infrequent access
+custom logs then you would pay $7.50/Month. Please refer to CloudWatch Pricing for more details
+on Log Data Ingestion Pricing.
+
+Ingestion of data from 3P connector sources or via an S3 bucket connector is classified
+as Custom logs ingestion and follows Custom Log Data Ingestion pricing. Metering occurs at
+time of data on ingestion into CloudWatch. 3P connector sources or via an S3 bucket
+connector are metered after processing. CloudWatch pipeline sources metering including
+Vended and custom CloudWatch logs sources occurs at time logs are first received which is
+before processing via a pipeline.
+
+CloudWatch pipelines is available in the following AWS
+Regions.
 
 ###### Note
 
@@ -58,17 +74,21 @@ Third-party data source collection is available in regions where OpenSearch Inge
 - US East (N. Virginia)
 - US West (N. California)
 - US West (Oregon)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Malaysia)
 - Asia Pacific (Mumbai)
 - Asia Pacific (Osaka)
 - Asia Pacific (Seoul)
 - Asia Pacific (Singapore)
 - Asia Pacific (Sydney)
+- Asia Pacific (Thailand)
 - Asia Pacific (Tokyo)
 - Canada (Central)
 - Europe (Frankfurt)
 - Europe (Ireland)
 - Europe (London)
 - Europe (Paris)
+- Europe (Spain)
 - Europe (Stockholm)
 - South America (São Paulo)
   For more details, see [Amazon CloudWatch endpoints and quotas](../../../general/latest/gr/cw_region.md "../../../general/latest/gr/cw_region.md") in the

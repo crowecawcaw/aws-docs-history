@@ -330,7 +330,7 @@ similar use as percentiles. For more information, see [CloudWatch statistics def
 You can use an _alarm_ to automatically initiate actions on your
 behalf. An alarm watches a single metric over a specified time period, and performs one or
 more specified actions, based on the value of the metric relative to a threshold over time.
-The action is a notification sent to an Amazon SNS topic or an Amazon EC2 Auto Scaling policy. You can also add
+The action is a notification sent to an Amazon SNS topic or an Auto Scaling policy. You can also add
 alarms to dashboards.
 
 Alarms invoke actions for sustained state changes only. CloudWatch alarms do not invoke

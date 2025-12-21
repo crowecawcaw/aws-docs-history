@@ -68,7 +68,7 @@ You can use the procedure in this section to view the list of a service's APIs t
 | AWS Directory Service                              | `Directory Service`                 |
 | DynamoDB Accelerator                               | `DynamoDBAccelerator`               |
 | Amazon EC2                                         | `EC2`                               |
-| EC2 Amazon EC2 Auto Scaling                        | `EC2 Auto Scaling`                  |
+| EC2 Auto Scaling                                   | `EC2 Auto Scaling`                  |
 | Amazon Elastic Container Registry                  | `ECR Public`                        |
 | Amazon Elastic Container Service                   | `ECS`                               |
 | Amazon Elastic File System                         | `EFS`                               |

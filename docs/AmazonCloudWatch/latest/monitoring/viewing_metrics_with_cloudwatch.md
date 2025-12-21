@@ -2,7 +2,7 @@
 
 Metrics are grouped first by namespace, and then by the various dimension combinations
 within each namespace. For example, you can view all EC2 metrics, EC2 metrics grouped by
-instance, or EC2 metrics grouped by Amazon EC2 Auto Scaling group.
+instance, or EC2 metrics grouped by Auto Scaling group.
 
 Only the AWS services that you're using send metrics to Amazon CloudWatch.
 

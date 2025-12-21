@@ -215,7 +215,7 @@ You can use AWS CloudFormation to install the agent and configure it to use the 
 
 ###### To install and configure the CloudWatch agent for this solution
 
-1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json](cloudformation/home.md#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json "cloudformation/home.md#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json").
+1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json").
 2. Verify that the selected Region on the console is the Region where the NVIDIA GPU workload is running.
 3. For **Stack name**, enter a name to identity this stack, such as `CWAgentInstallationStack`.
 4. In the **Parameters** section, specify the following:
@@ -226,8 +226,8 @@ You can use AWS CloudFormation to install the agent and configure it to use the 
          the CloudWatch agent with this configuration. You can list a single instance or several instances.
       2. If you are deploying at scale, you can specify the **TagKey** and the corresponding **TagValue**
          to target all EC2 instances with this tag and value. If you specify a **TagKey**, you must specify a corresponding
-         **TagValue**. (For an Amazon EC2 Auto Scaling group, specify `aws:autoscaling:groupName` for the **TagKey**
-         and specify the Amazon EC2 Auto Scaling group name for the **TagValue** to deploy to all instances within the Amazon EC2 Auto Scaling group.)
+         **TagValue**. (For an Auto Scaling group, specify `aws:autoscaling:groupName` for the **TagKey**
+         and specify the Auto Scaling group name for the **TagValue** to deploy to all instances within the Auto Scaling group.)
 
 5. Review the settings, then choose **Create stack**.
 
@@ -304,7 +304,7 @@ in the dashboard name, such as `NVIDIA-GPU-Dashboard-us-east-1`. 4. Preview the 
 
 ###### To create the dashboard via CloudFormation
 
-1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NVIDIA_GPU_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](cloudformation/home.md#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NVIDIA_GPU_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "cloudformation/home.md#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NVIDIA_GPU_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
+1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NVIDIA_GPU_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NVIDIA_GPU_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NVIDIA_GPU_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 2. Verify that the selected Region on the console is the Region where the NVIDIA GPU workload is running.
 3. For **Stack name**, enter a name to identity this stack, such as `NVIDIA-GPU-DashboardStack`.
 4. In the **Parameters** section, specify the name of the dashboard under the **DashboardName** parameter.

@@ -1,6 +1,6 @@
 # GitHub Audit Log integration configuration
 
-Amazon Telemetry Pipelines enables you to collect audit logs from GitHub Enterprise Cloud. GitHub Enterprise is an enterprise-grade software development platform designed for the complex workflows of modern development.
+Amazon Telemetry Pipelines enables you to collect audit logs from [GitHub Enterprise](https://github.com/enterprise "https://github.com/enterprise") Cloud. GitHub Enterprise is an enterprise-grade software development platform designed for the complex workflows of modern development.
 
 ###### Topics
 
