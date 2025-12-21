@@ -1,6 +1,6 @@
 # Configuring sampling rules
 
-You can use the AWS X-Ray console to configure sampling rules for your services. The X-Ray SDK and AWS services that support [active tracing](xray-services.md "xray-services.md") with sampling configuration use sampling rules to determine which requests to record.
+You can use the AWS X-Ray console to configure sampling rules for your services. The AWS Distro for OpenTelemetry, X-Ray SDK, and AWS services that support [active tracing](xray-services.md "xray-services.md") with sampling configurations use sampling rules to determine which requests to record.
 
 ###### Topics
 
@@ -20,19 +20,21 @@ You can configure sampling for the following use cases:
   [Amazon API Gateway active tracing support for AWS X-Ray](xray-services-apigateway.md "xray-services-apigateway.md").
 - **AWS AppSync** – AWS AppSync supports sampling and active tracing. To enable active tracing on AWS AppSync
   requests, see [Tracing with AWS X-Ray](../../../appsync/latest/devguide/x-ray-tracing.md "../../../appsync/latest/devguide/x-ray-tracing.md").
-- **Instrument X-Ray SDK on compute platforms** – When using compute
+- **AWS Step Functions** – AWS Step Functions supports sampling and active tracing. To enable active tracing on AWS Step Functions
+  state machines, see [X-Ray tracing in Step Functions](../../../step-functions/latest/dg/concepts-xray-tracing.md "../../../step-functions/latest/dg/concepts-xray-tracing.md").
+- **Instrument AWS Distro for OpenTelemetry on compute platforms** – When using compute
   platforms such as Amazon EC2, Amazon ECS, or AWS Elastic Beanstalk, sampling is supported when the application has been instrumented
-  with the latest X-Ray SDK.
+  with the latest AWS Distro for OpenTelemetry or X-Ray SDK.
 
 ## Customizing sampling rules
 
 By customizing sampling rules, you can control the amount of data that you record. You can also modify sampling
-behavior without modifying or redeploying your code. Sampling rules tell the X-Ray SDK how many requests to
-record for a set of criteria. By default, the X-Ray SDK records the first request each second, and five percent of any additional
-requests. One request per second is
-the _reservoir_. This ensures that at least one trace is recorded each second as long as the
-service is serving requests. Five percent is the _rate_ at which additional requests beyond the
-reservoir size are sampled.
+behavior without modifying or redeploying your code. Sampling rules tell the AWS Distro for OpenTelemetry (ADOT) or X-Ray SDK
+how many requests to record for a set of criteria. By default, the SDK records the first request each second, and five percent of any additional
+requests. One request
+per second is the _reservoir_. This ensures that at least one trace is recorded each second as
+long as the service is serving requests. Five percent is the _rate_ at which additional
+requests beyond the reservoir size are sampled.
 
 You can configure the X-Ray SDK to read sampling rules from a JSON document that you include with your code.
 However, when you run multiple instances of your service, each instance performs sampling independently. This
@@ -48,38 +50,35 @@ deployments.
 
 ###### Note
 
+When configuring sampling rules, it is critical to understand that X-Ray sampling is "Parent-based." This means the sampling decision is made only once, typically by the first X-Ray-enabled service that handles the request (the "Root" service).
+
+If a downstream service receives a request that already has a sampling decision from an upstream parent, it will honor that decision regardless of any of its own matching sampling rules.
+
+- When Rules Apply: Your custom sampling rules only take effect on services where a sampling decision has not yet been made. This usually applies to:
+  - The entry point of your application (e.g., an API Gateway, a Load Balancer, or the first instrumented Microservice).
+  - Asynchronous processes or workers that start a brand new trace.
+
+- Common Pitfall: If you create a strict sampling rule for "Service B," but "Service B" is always called by "Service A," your rule for Service B will likely never be applied because it is simply following the decision passed down by Service A. To change the sampling of traces for this workflow, you must configure the sampling rule to the Root service (Service A).
+
+###### Note
+
 X-Ray uses a best-effort approach in applying sampling rules, and in some cases the effective sampling rate may not exactly
 match the configured sampling rules. However, over time the number of requests sampled should be close to the configured
 percentage.
 
 You can now configure X-Ray sampling rules from within the Amazon CloudWatch console.
-You can also continue to use the X-Ray console.
-
-CloudWatch console
 
 ###### To configure sampling rules in the CloudWatch console
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Choose **Settings** in the left navigation pane.
+2. Choose **Settings** in the left navigation pane underneath **Setup**.
 3. Choose **View settings** under **Sampling rules** within the **X-Ray traces** section.
 4. To create a rule, choose **Create sampling rule**.
 
 To edit a rule, choose a rule and choose **Edit** to edit it.
 
 To delete a rule, choose a rule and choose **Delete** to delete it.
-
-X-Ray console
-
-###### To configure sampling rules in the X-Ray console
-
-1. Open the [X-Ray console](https://console.aws.amazon.com/xray/home# "https://console.aws.amazon.com/xray/home#").
-2. Choose **Sampling** in the left navigation pane.
-3. To create a rule, choose **Create sampling rule**.
-
-To edit a rule, choose a rule's name.
-
-To delete a rule, choose a rule and use the **Actions** menu to delete it.
 
 ## Sampling rule options
 
@@ -106,8 +105,10 @@ The following options are available for each rule. String values can use wildcar
   - `AWS::ElasticBeanstalk::Environment` – An AWS Elastic Beanstalk environment (plugin).
   - `AWS::EC2::Instance` – An Amazon EC2 instance (plugin).
   - `AWS::ECS::Container` – An Amazon ECS container (plugin).
+  - `AWS::EKS::Container` – An Amazon EKS container (plugin).
   - `AWS::APIGateway::Stage` – An Amazon API Gateway stage.
   - `AWS::AppSync::GraphQLAPI` – An AWS AppSync API request.
+  - `AWS::StepFunctions::StateMachine` – An AWS Step Functions state machine.
 
 - **Host** (string) – The hostname from the HTTP host header.
 - **HTTP method** (string) – The method of the HTTP request.
@@ -185,15 +186,15 @@ Configure a rule that triggers a sampling boost up to 50% during anomalies, with
 
 ## Configuring your service to use sampling rules
 
-The X-Ray SDK requires additional configuration to use sampling rules that you configure in the console. See
+The AWS Distro for OpenTelemetry (ADOT) and X-Ray SDK requires additional configuration to use sampling rules that you configure in the console. See
 the configuration topic for your language for details on configuring a sampling strategy:
 
-- Java: [Sampling rules](xray-sdk-java-configuration.md#xray-sdk-java-configuration-sampling "xray-sdk-java-configuration.md#xray-sdk-java-configuration-sampling")
-- Go: [Sampling rules](xray-sdk-go-configuration.md#xray-sdk-go-configuration-sampling "xray-sdk-go-configuration.md#xray-sdk-go-configuration-sampling")
-- Node.js: [Sampling rules](xray-sdk-nodejs-configuration.md#xray-sdk-nodejs-configuration-sampling "xray-sdk-nodejs-configuration.md#xray-sdk-nodejs-configuration-sampling")
-- Python: [Sampling rules](xray-sdk-python-configuration.md#xray-sdk-python-configuration-sampling "xray-sdk-python-configuration.md#xray-sdk-python-configuration-sampling")
+- Java: [Using X-Ray Remote Sampling](https://aws-otel.github.io/docs/getting-started/java-sdk/auto-instr#using-x-ray-remote-sampling "https://aws-otel.github.io/docs/getting-started/java-sdk/auto-instr#using-x-ray-remote-sampling") with ADOT Java
+- Go: [Configuring sampling](https://aws-otel.github.io/docs/getting-started/go-sdk/manual-instr#configuring-sampling "https://aws-otel.github.io/docs/getting-started/go-sdk/manual-instr#configuring-sampling") with ADOT Go
+- Node.js: [Using X-Ray Remote Sampling](https://aws-otel.github.io/docs/getting-started/js-sdk/trace-metric-auto-instr#using-x-ray-remote-sampling "https://aws-otel.github.io/docs/getting-started/js-sdk/trace-metric-auto-instr#using-x-ray-remote-sampling") with ADOT JavaScript
+- Python: [Using X-Ray Remote Sampling](https://aws-otel.github.io/docs/getting-started/python-sdk/auto-instr#using-x-ray-remote-sampling "https://aws-otel.github.io/docs/getting-started/python-sdk/auto-instr#using-x-ray-remote-sampling") with ADOT Python
 - Ruby: [Sampling rules](xray-sdk-ruby-configuration.md#xray-sdk-ruby-configuration-sampling "xray-sdk-ruby-configuration.md#xray-sdk-ruby-configuration-sampling")
-- .NET: [Sampling rules](xray-sdk-dotnet-configuration.md#xray-sdk-dotnet-configuration-sampling "xray-sdk-dotnet-configuration.md#xray-sdk-dotnet-configuration-sampling")
+- .NET: [Using X-Ray Remote Sampling](https://aws-otel.github.io/docs/getting-started/dotnet-sdk/auto-instr#using-x-ray-remote-sampling "https://aws-otel.github.io/docs/getting-started/dotnet-sdk/auto-instr#using-x-ray-remote-sampling") with ADOT .NET
 
 For API Gateway, see [Amazon API Gateway active tracing support for AWS X-Ray](xray-services-apigateway.md "xray-services-apigateway.md").
 
@@ -224,9 +225,9 @@ alarms or notifications. See [Configuring sampling, groups, and encryption setti
 AWS X-Ray API](xray-api-configuration.md "xray-api-configuration.md") for instructions and additional rule
 examples.
 
-The X-Ray SDK and AWS services also use the X-Ray API to read sampling rules, report sampling results, and get sampling targets. Services must
+The AWS Distro for OpenTelemetry, X-Ray SDK and AWS services also use the X-Ray API to read sampling rules, report sampling results, and get sampling targets. Services must
 keep track of how often they apply each rule, evaluate rules based on priority, and borrow from the reservoir when a request matches a rule for which
 X-Ray has not yet assigned the service a quota. For more detail about how a service uses the API for sampling, see [Using sampling rules with the X-Ray API](xray-api-sampling.md "xray-api-sampling.md").
 
-When the X-Ray SDK calls sampling APIs, it uses the X-Ray daemon as a proxy. If you already use TCP port
-2000, you can configure the daemon to run the proxy on a different port. See [Configuring the AWS X-Ray daemon](xray-daemon-configuration.md "xray-daemon-configuration.md") for details.
+When the AWS Distro for OpenTelemetry or the X-Ray SDK call sampling APIs, they use the CloudWatch agent as a proxy. If you already
+use TCP port 2000, you can configure the agent to run the proxy on a different port. See the [CloudWatch agent installation guide](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md") for details.

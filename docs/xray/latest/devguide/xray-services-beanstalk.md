@@ -1,9 +1,9 @@
 # AWS Elastic Beanstalk and AWS X-Ray
 
-###### Important
+###### Note
 
-End of support notice – On February 25th, 2027, AWS X-Ray will discontinue support for AWS X-Ray SDKs and daemon. After February 25th, 2027, you will no longer receive updates or releases. For more information on the timeline, see
-[X-Ray SDK and daemon end of support timeline](xray-daemon-eos.md "xray-daemon-eos.md") and for information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
+[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
 
 AWS Elastic Beanstalk platforms include the X-Ray daemon. You can [run the daemon](xray-daemon-beanstalk.md "xray-daemon-beanstalk.md") by setting an option in the Elastic Beanstalk console or with a configuration
 file.

@@ -1,9 +1,9 @@
 # AWS Lambda and AWS X-Ray
 
-###### Important
+###### Note
 
-End of support notice – On February 25th, 2027, AWS X-Ray will discontinue support for AWS X-Ray SDKs and daemon. After February 25th, 2027, you will no longer receive updates or releases. For more information on the timeline, see
-[X-Ray SDK and daemon end of support timeline](xray-daemon-eos.md "xray-daemon-eos.md") and for information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
+[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
 
 You can use AWS X-Ray to trace your AWS Lambda functions. Lambda runs the [X-Ray daemon](xray-daemon.md "xray-daemon.md") and records a segment with details about invoking
 and running the function. For further instrumentation, you can bundle the X-Ray SDK with your

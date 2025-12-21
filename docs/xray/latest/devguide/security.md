@@ -15,10 +15,9 @@ this as security _of_ the cloud and security _in_ the cloud:
 - **Security in the cloud** – Your responsibility is determined by
   the AWS service that you use. You are also responsible for other factors including the sensitivity of
   your data, your organization’s requirements, and applicable laws and regulations.
-
-This documentation will help you understand how to apply the shared responsibility model when using X-Ray.
-The following topics show you how to configure X-Ray to meet your security and compliance objectives. You'll
-also learn how to use other AWS services that can help you to monitor and secure your X-Ray resources.
+  This documentation will help you understand how to apply the shared responsibility model when using X-Ray.
+  The following topics show you how to configure X-Ray to meet your security and compliance objectives. You'll
+  also learn how to use other AWS services that can help you to monitor and secure your X-Ray resources.
 
 ###### Topics
 

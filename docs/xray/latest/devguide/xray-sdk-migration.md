@@ -2,8 +2,8 @@
 
 ###### Note
 
-The AWS X-Ray SDKs and daemon enter maintenance mode on February 25th, 2026 and reach end of support on February 25th, 2027. After February 25th, 2027, you will no longer receive updates or releases. For more information on the dates and the level of support for X-Ray SDKs and daemon, see
-[X-Ray SDK and daemon end of support timeline](xray-daemon-eos.md "xray-daemon-eos.md").
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
+[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md").
 
 X-Ray is transitioning to OpenTelemetry (OTel) as its primary instrumentation standard for application tracing and observability. This strategic shift aligns AWS with industry best practices and offers customers a more comprehensive, flexible,
 and future-ready solution for their observability needs. OpenTelemetry's wide adoption in the industry enables tracing of requests across diverse systems, including those outside AWS that may not directly integrate with X-Ray.

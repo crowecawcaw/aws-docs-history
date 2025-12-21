@@ -2,8 +2,8 @@
 
 ###### Note
 
-End-of-support notice – On February 25th, 2027, AWS X-Ray will discontinue support for AWS X-Ray SDKs and daemon. After February 25th, 2027, you will no longer receive updates or releases. For more information on the support timeline, see
-[X-Ray SDK and daemon end of support timeline](xray-daemon-eos.md "xray-daemon-eos.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
+[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
 
 The AWS X-Ray [eb-java-scorekeep](https://github.com/awslabs/eb-java-scorekeep/tree/xray "https://github.com/awslabs/eb-java-scorekeep/tree/xray") sample app, available on
 GitHub, shows the use of the AWS X-Ray SDK to instrument incoming HTTP calls, DynamoDB SDK clients, and HTTP
@@ -21,7 +21,7 @@ project's `xray-gettingstarted` branch. This is the branch that you deploy in th
 includes the basics, you can diff it against the `master` branch to quickly
 understand the basics.
 
-![Service map showing client interaction with Scorekeep container and related AWS services.](images/scorekeep-gettingstarted-servicemap-before-ECS.png)
+![Service map showing client interaction with Scorekeep container and related AWS services.](/images/xray/latest/devguide/images/scorekeep-gettingstarted-servicemap-before-ECS.png)
 The sample application shows basic instrumentation in these files:
 
 - **HTTP request filter** – [`WebConfig.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/WebConfig.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/WebConfig.java")
