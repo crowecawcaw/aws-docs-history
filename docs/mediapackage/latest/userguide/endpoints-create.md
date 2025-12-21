@@ -235,24 +235,31 @@ https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtectio
 The following example shows a role ARN.
 
 ```
-"arn:aws:iam::`accountID`:role/SpekeAccess
+arn:aws:iam::`accountID`:role/SpekeAccess
 ```
 
-7. For **Video encryption preset** and **Audio
-   encryption preset**, select the preset for encrypting audio and
-   video. For information about presets, see [Encryption presets in AWS Elemental MediaPackage](drm-content-speke-v2-presets.md "drm-content-speke-v2-presets.md").
-8. (Optional) For **Constant initialization vector** enter a
-   128-bit, 16-byte hex value represented by a 32-character string, used in
-   conjunction with the key for encrypting content. If you don't specify a
-   value, then MediaPackage creates the constant initialization vector (IV).
-9. For **Key rotation interval (sec.)**, enter the frequency
-   (in seconds) of key changes for live workflows, in which content is streamed
-   real time. The service retrieves content keys before the live content begins
-   streaming, and then retrieves them as needed over the lifetime of the
-   workflow. By default, key rotation is 300 seconds (5 minutes), the minimum
-   rotation interval, which is equivalent to setting it to `300`.
-   The maximum key rotation interval is 31,536,000 seconds (1 year). If you
-   don't enter an interval, content keys aren't rotated.
+7. (Optional) For **Certificate ARN**, enter the Amazon Resource Name (ARN) of a certificate
+   stored in ACM for content key encryption.
+
+The following example shows a certificate ARN.
+
+```
+arn:aws:acm:`Region`:`accountID`:certificate/`certificateID`
+```
+
+For information about content key encryption, see [Preparing and managing certificates for content key encryption](drm-content-key-encryption.md "drm-content-key-encryption.md"). 8. For **Video encryption preset** and **Audio
+encryption preset**, select the preset for encrypting audio and
+video. For information about presets, see [Encryption presets in AWS Elemental MediaPackage](drm-content-speke-v2-presets.md "drm-content-speke-v2-presets.md"). 9. (Optional) For **Constant initialization vector** enter a
+128-bit, 16-byte hex value represented by a 32-character string, used in
+conjunction with the key for encrypting content. If you don't specify a
+value, then MediaPackage creates the constant initialization vector (IV). 10. For **Key rotation interval (sec.)**, enter the frequency
+(in seconds) of key changes for live workflows, in which content is streamed
+real time. The service retrieves content keys before the live content begins
+streaming, and then retrieves them as needed over the lifetime of the
+workflow. By default, key rotation is 300 seconds (5 minutes), the minimum
+rotation interval, which is equivalent to setting it to `300`.
+The maximum key rotation interval is 31,536,000 seconds (1 year). If you
+don't enter an interval, content keys aren't rotated.
 
 The following example setting causes the service to rotate keys every
 thirty minutes.
@@ -261,7 +268,7 @@ thirty minutes.
 1800
 ```
 
-For information about key rotation, see [AWS Elemental MediaPackage key rotation behavior](drm-content-key-rotation.md "drm-content-key-rotation.md"). 10. (Optional) Select **Exclude segment DRM metadata** to
+For information about key rotation, see [AWS Elemental MediaPackage key rotation behavior](drm-content-key-rotation.md "drm-content-key-rotation.md"). 11. (Optional) Select **Exclude segment DRM metadata** to
 omit SEIG and SGPD boxes from CMAF segments. This can improve compatibility
 with certain devices and players that don't support these DRM metadata
 boxes.

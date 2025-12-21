@@ -62,6 +62,7 @@ for MediaPackage.
 
 ###### Topics
 
+- [Content key encryption](drm-content-key-encryption.md "drm-content-key-encryption.md")
 - [Key rotation](drm-content-key-rotation.md "drm-content-key-rotation.md")
 - [Managing DRM segment metadata](drm-segment-metadata-management.md "drm-segment-metadata-management.md")
 - [Exclude session keys](drm-session-key-exclusion.md "drm-session-key-exclusion.md")
