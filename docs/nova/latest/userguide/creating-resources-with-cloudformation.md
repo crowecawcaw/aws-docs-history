@@ -2,6 +2,10 @@
 
 AWS CloudFormation
 
+###### Note
+
+This documentation is for Version 1. is now available with new models and enhanced capabilities. New features and documentation updates are published in the User Guide. For information about CloudFormation with , visit [Create resources with CloudFormation](../nova2-userguide/creating-resources-with-cloudformation.md "../nova2-userguide/creating-resources-with-cloudformation.md").
+
 Because Amazon Bedrock is available through Amazon Bedrock, follow all CloudFormation guidance at [Create Amazon Bedrock resources with CloudFormation](../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md "../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md").
 
 For more information, including examples of JSON and YAML templates for [Amazon Bedrock agents](../../../bedrock/latest/userguide/agents.md "../../../bedrock/latest/userguide/agents.md") or [Amazon Bedrock knowledge bases](../../../bedrock/latest/userguide/knowledge-base.md "../../../bedrock/latest/userguide/knowledge-base.md"), see the

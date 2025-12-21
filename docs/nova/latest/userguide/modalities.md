@@ -1,5 +1,9 @@
 # Multimodal support for Amazon Nova
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 multimodal documentation, visit [Multimodal understanding](../nova2-userguide/using-multimodal-models.md "../nova2-userguide/using-multimodal-models.md").
+
 Amazon Nova Understanding Models are multimodal understanding models, that means they
 support multimodal inputs such as images, videos, and documents to infer and answer question
 based on the content provided. The Amazon Nova models are equipped with novel vision

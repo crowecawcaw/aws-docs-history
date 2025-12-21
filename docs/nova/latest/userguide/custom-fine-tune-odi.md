@@ -1,5 +1,9 @@
 # On-demand inference on Custom Models
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information about how to customize Amazon Nova 2 models using on-demand inference, visit [On-demand inference on Custom Models](../nova2-userguide/custom-fine-tune-odi.md "../nova2-userguide/custom-fine-tune-odi.md").
+
 On-demand (OD) inference allows you to run inference on your custom Amazon Nova models without maintaining provisioned throughput endpoints. This helps you optimize costs and scale efficiently. With On-demand inference, you are charged based on usage, measured in tokens, both in and out.
 
 ## Compatibility requirements

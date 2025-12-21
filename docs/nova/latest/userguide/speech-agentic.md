@@ -1,5 +1,9 @@
 # Building agentic flows
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Tool configuration](../nova2-userguide/sonic-tool-configuration.md "../nova2-userguide/sonic-tool-configuration.md").
+
 For more complex use cases, you can implement agentic flows by configuring multiple tools that work together to accomplish tasks. Amazon Nova Sonic can orchestrate these tools based on user requests.
 
 ## Knowledge base implementation outline

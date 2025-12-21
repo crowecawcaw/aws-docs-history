@@ -1,5 +1,9 @@
 # Using tools
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Tool configuration](../nova2-userguide/sonic-tool-configuration.md "../nova2-userguide/sonic-tool-configuration.md").
+
 In order to use a tool, it must be defined as part of the `promptStart` event in your session configuration. This is demonstrated in the following code:
 
 ```

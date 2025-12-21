@@ -1,5 +1,9 @@
 # Understanding model reasoning with extended reasoning
 
+###### Note
+
+This documentation is for Version 1. For information on how to use Extended thinking in version 2, visit [Extended thinking](../nova2-userguide/extended-thinking.md "../nova2-userguide/extended-thinking.md").
+
 Extended thinking is a setting that allows a model to approach complex problems with a
 distinct reasoning phase. During this phase, it first generates dedicated reasoning content in
 `reasoningContent` blocks involving a step by step systemic exploration of a problem.

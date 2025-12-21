@@ -1,5 +1,9 @@
 # Invoking Amazon Nova understanding models
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information on how to send a request to Amazon Nova 2, visit [Core inference](../nova2-userguide/core-inference.md "../nova2-userguide/core-inference.md").
+
 Amazon Nova Multimodal understanding models are available for use for inferencing through
 the Invoke API ([InvokeModel](../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md "../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md"), [InvokeModelWithResponseStream](../../../bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md "../../../bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md")) and the Converse API ([Converse](../../../bedrock/latest/APIReference/API_runtime_Converse.md "../../../bedrock/latest/APIReference/API_runtime_Converse.md") and [ConverseStream](../../../bedrock/latest/APIReference/API_runtime_ConverseStream.md "../../../bedrock/latest/APIReference/API_runtime_ConverseStream.md")). To create conversational applications see [Carry out a conversation with the converse API operations](../../../bedrock/latest/userguide/conversation-inference.md "../../../bedrock/latest/userguide/conversation-inference.md"). Both of the API
 methods (Invoke and Converse) follow a very similar request pattern as detailed below

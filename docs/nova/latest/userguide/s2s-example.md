@@ -1,5 +1,9 @@
 # Speech-to-speech Example
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Getting started](../nova2-userguide/sonic-getting-started.md "../nova2-userguide/sonic-getting-started.md").
+
 This example provides a step-by-step explanation of how to implement a simple, real-time audio streaming application using the Amazon Nova Sonic model. This simplified version demonstrates the core functionality needed to create a audio conversation with the Amazon Nova Sonic model.
 
 You can access the following example in our [Amazon Nova samples GitHub repo](https://github.com/aws-samples/amazon-nova-samples/blob/main/speech-to-speech/sample-codes/console-python/nova_sonic_simple.py "https://github.com/aws-samples/amazon-nova-samples/blob/main/speech-to-speech/sample-codes/console-python/nova_sonic_simple.py").

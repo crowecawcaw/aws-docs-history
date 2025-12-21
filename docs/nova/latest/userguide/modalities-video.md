@@ -1,5 +1,9 @@
 # Video understanding
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 video understanding guide, visit [Video understanding](../nova2-userguide/using-multimodal-models.md#video-understanding "../nova2-userguide/using-multimodal-models.md#video-understanding").
+
 The Amazon Nova models allow you to include a single video in the payload, which can be
 provided either in base64 format or through an Amazon S3 URI. When using the base64 method, the
 overall payload size must remain within 25 MB. However, you can specify an Amazon S3 URI for video

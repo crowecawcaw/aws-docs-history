@@ -1,5 +1,9 @@
 # Getting started with the API
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. For information on how to get started with Amazon Nova 2, visit [Getting started with the API](../nova2-userguide/getting-started-api.md "../nova2-userguide/getting-started-api.md").
+
 To get started with the API, you need credentials to grant programmatic access. If the following sections pertain to you, expand them and follow the instructions. Otherwise, proceed through the remaining sections.
 
 If you do not have an AWS account, complete the following steps to create one.

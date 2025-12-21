@@ -1,5 +1,9 @@
 # Tool use (function calling) with Amazon Nova
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information about using tools with Amazon Nova 2, visit [Using tools (function calling)](../nova2-userguide/using-tools.md "../nova2-userguide/using-tools.md").
+
 Tools are a way to provide external functionality to Amazon Nova such as an API call or a code function. This section will cover how you can define and integrate with tools when working with Amazon Nova models.
 
 Tool use involves three high level steps:

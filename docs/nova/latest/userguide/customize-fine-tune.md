@@ -1,5 +1,9 @@
 # Fine-tuning Amazon Nova models
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information about how to customize Amazon Nova 2 models using fine-tuning, visit [Fine-tuning Amazon Nova 2 models](../nova2-userguide/customize-fine-tune.md "../nova2-userguide/customize-fine-tune.md").
+
 You can customize the Amazon Nova models using the [_fine-tuning_ method](../../../bedrock/latest/userguide/custom-models.md "../../../bedrock/latest/userguide/custom-models.md") with labeled proprietary data on Amazon Bedrock to gain more performance for your use case than the models provide out-of-the-box. That is, fine-tuning provides enhancements beyond what is gained with zero- or
 few-shot invocation and other prompt engineering techniques. You can fine-tune Amazon Nova
 models when a sufficient amount of high-quality, labeled training data that is available for

@@ -2,6 +2,10 @@
 
 practices
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information on how to prompt Amazon Nova 2 text understanding models, visit [General best practices](../nova2-userguide/prompting-best-practices.md "../nova2-userguide/prompting-best-practices.md").
+
 The Amazon Nova text generation models allow you to structure prompts through the use of
 three distinct roles: system, user, and assistant. The system message, although not
 mandatory, serves to establish the overall behavioral parameters of the assistant. It can

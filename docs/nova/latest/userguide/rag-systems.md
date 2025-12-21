@@ -1,5 +1,9 @@
 # Building RAG systems with Amazon Nova
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. New features and documentation updates are published in the Amazon Nova 2 User Guide. For information, visit [What's new in Amazon Nova 2](../nova2-userguide/whats-new.md "../nova2-userguide/whats-new.md").
+
 Retrieval-Augmented Generation (RAG) optimizes the output of a large language model (LLM)
 by referencing an authoritative knowledge base outside of its training data sources before
 it generates a response. This approach helps give the model current information and ground

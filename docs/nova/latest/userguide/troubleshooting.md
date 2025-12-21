@@ -1,5 +1,9 @@
 # Troubleshooting
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information on how to troubleshoot Amazon Nova 2, visit [Troubleshooting](../nova2-userguide/troubleshooting.md "../nova2-userguide/troubleshooting.md").
+
 This section collects all of the troubleshooting and error handling advice that is found throughout this guide for quicker reference.
 
 ###### Topics

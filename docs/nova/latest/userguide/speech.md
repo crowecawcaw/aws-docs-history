@@ -1,5 +1,9 @@
 # Using the Amazon Nova Sonic Speech-to-Speech model
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Speech-to-Speech](../nova2-userguide/using-conversational-speech.md "../nova2-userguide/using-conversational-speech.md").
+
 The Amazon Nova Sonic model provides real-time, conversational interactions through bidirectional audio streaming. Amazon Nova Sonic processes and responds to real-time speech as it occurs, enabling natural, human-like conversational experiences.
 
 Amazon Nova Sonic delivers a transformative approach to conversational AI with its unified speech understanding and generation architecture. This state-of-the-art foundation model boasts industry-leading price performance, allowing enterprises to build voice experiences that remain natural and contextually aware.

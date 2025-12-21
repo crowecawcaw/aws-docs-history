@@ -1,5 +1,9 @@
 # System role adaptation
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Speech-to-Speech prompt engineering guide, visit [Voice conversation prompts](../nova2-userguide/sonic-system-prompts.md "../nova2-userguide/sonic-system-prompts.md").
+
 Amazon Nova text models benefit from [clear role definitions](prompting-system-role.md "prompting-system-role.md"). For Amazon Nova Sonic applications, consider the following:
 
 - Define roles that sound natural when speaking (such as, "friendly advisor" rather than "information retrieval system").

@@ -1,5 +1,9 @@
 # General prompting tips
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information on best practices when prompting Amazon Nova 2, visit [General best practices](../nova2-userguide/prompting-best-practices.md "../nova2-userguide/prompting-best-practices.md").
+
 The following general tips will help you create better prompts:
 
 - **Task decomposition**: If your task is complex and the Amazon Nova models demonstrate difficulty in following the intricate, interconnected logic, we recommend that you scope the problem and decompose it into a series of discrete calls. This can be achieved through the utilization of workflow techniques, such as prompt chaining (that is, chaining a sequence of individual calls) or parallel executions (that is, executing independent calls concurrently).

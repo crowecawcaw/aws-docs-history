@@ -1,5 +1,9 @@
 # Speech-friendly content techniques
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Speech-to-Speech prompt engineering guide, visit [Voice conversation prompts](../nova2-userguide/sonic-system-prompts.md "../nova2-userguide/sonic-system-prompts.md").
+
 To enhance the conversational quality of responses, consider incorporating these elements in your system prompt:
 
 ###### Conversation Turn-taking

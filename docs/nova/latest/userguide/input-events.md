@@ -1,5 +1,9 @@
 # Handling input events with the bidirectional API
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Handling input events with the bidirectional API](../nova2-userguide/sonic-input-events.md "../nova2-userguide/sonic-input-events.md").
+
 The bidirectional Stream API uses an event-driven architecture with structured input and output events. Understanding the correct event ordering is crucial for implementing successful conversational applications and maintaining the proper conversation state throughout interactions.
 
 The Nova Sonic conversation follows a structured event sequence. You begin by sending a `sessionStart` event that contains the inference configuration parameters, such as temperature and token limits. Next, you send `promptStart` to define the audio output format and tool configurations, assigning a unique `promptName` identifier that must be included in all subsequent events.

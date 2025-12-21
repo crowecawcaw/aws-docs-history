@@ -1,5 +1,9 @@
 # Prompting best practices for Amazon Nova understanding models
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 prompt engineering guide, visit [Prompt engineering guide](../nova2-userguide/prompt-engineering-guide.md "../nova2-userguide/prompt-engineering-guide.md").
+
 _Prompt engineering_ refers to the practice of optimizing textual input
 to a large language model (LLM) to improve output and receive the responses you want. Prompting
 helps an LLM perform a wide variety of tasks, including classification, question answering, code

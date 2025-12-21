@@ -1,5 +1,9 @@
 # Responsible use
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information about responsible use with Amazon Nova 2, visit [Responsible use](../nova2-userguide/responsible-use.md "../nova2-userguide/responsible-use.md").
+
 Building safety, security, and trust measures with AI models is a shared responsibility
 between AWS and our customers. Our goal is to align our models to the [AWS Acceptable Use Policy](https://aws.amazon.com/aup/ "https://aws.amazon.com/aup/") and mitigate
 undesired outcomes while providing a delightful customer experience. Our approach to

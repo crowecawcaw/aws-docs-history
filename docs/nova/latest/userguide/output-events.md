@@ -1,5 +1,9 @@
 # Handling output events with the bidirectional API
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Handling output events with the bidirectional API](../nova2-userguide/sonic-output-events.md "../nova2-userguide/sonic-output-events.md").
+
 When the Amazon Nova Sonic model responds, it follows a structured event sequence. The flow
 begins with a `completionStart` event that contains unique identifiers like
 `sessionId`, `promptName`, and `completionId`. These

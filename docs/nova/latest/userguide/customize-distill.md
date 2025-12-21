@@ -1,5 +1,9 @@
 # Distilling Amazon Nova models
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. For information on how to customize Amazon Nova 2, visit [Customizing Amazon Nova 2 models](../nova2-userguide/customization.md "../nova2-userguide/customization.md").
+
 You can customize the Amazon Nova models using the _distillation_ method
 for Amazon Bedrock to transfer knowledge from a larger advanced model (known as
 teacher) to a smaller, faster, and cost-efficient model (known as student). This results in a

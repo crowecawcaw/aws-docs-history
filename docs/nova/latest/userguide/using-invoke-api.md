@@ -1,5 +1,9 @@
 # Using the Invoke API
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information on how to use the Invoke API with Amazon Nova 2, visit [Using the Invoke API](../nova2-userguide/using-invoke-api.md "../nova2-userguide/using-invoke-api.md").
+
 Another method of invoking the Amazon Nova understanding models (Amazon Nova Micro, Lite, Pro, and Premier) is via the Invoke API. The Invoke API for Amazon Nova models is designed to be consistent
 with the Converse API, allowing for the same unification to be extended to support users who
 are on the Invoke API (_with the exception of the document understanding feature,

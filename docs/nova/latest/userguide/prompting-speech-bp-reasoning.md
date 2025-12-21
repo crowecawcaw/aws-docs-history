@@ -1,5 +1,9 @@
 # Chain-of-thought for speech
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Speech-to-Speech prompt engineering guide, visit [Voice conversation prompts](../nova2-userguide/sonic-system-prompts.md "../nova2-userguide/sonic-system-prompts.md").
+
 The [chain-of-thought reasoning technique](prompting-chain-of-thought.md "prompting-chain-of-thought.md") remains valuable but requires adaptation.
 
 - Keep reasoning chains shorter than you would for text interactions.

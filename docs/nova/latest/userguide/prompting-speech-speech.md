@@ -1,5 +1,9 @@
 # System prompt authoring guidelines and examples
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Speech-to-Speech prompt engineering guide, visit [Voice conversation prompts](../nova2-userguide/sonic-system-prompts.md "../nova2-userguide/sonic-system-prompts.md").
+
 The _system prompt_ determines the personality, style, and content of your conversational assistant. While you can't control voice parameters directly, you can influence how natural and engaging the spoken interaction feels through the content generated. Here's a recommended baseline:
 
 `You are a friend. You and the user will engage in a spoken dialog exchanging the transcripts of a natural real-time conversation.`

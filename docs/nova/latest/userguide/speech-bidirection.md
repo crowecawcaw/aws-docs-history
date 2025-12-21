@@ -1,5 +1,9 @@
 # Using the Bidirectional Streaming API
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Getting started](../nova2-userguide/sonic-getting-started.md "../nova2-userguide/sonic-getting-started.md").
+
 The Amazon Nova Sonic model uses the `InvokeModelWithBidirectionalStream` API, which enables real-time bidirectional streaming conversations. This differs from traditional request-response patterns by maintaining an open channel for continuous audio streaming in both directions.
 
 The following AWS SDKs support the new bidirectional streaming API:

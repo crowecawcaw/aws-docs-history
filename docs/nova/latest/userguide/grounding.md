@@ -1,5 +1,9 @@
 # Grounding responses with real-time search results
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information about using Web Grounding with Amazon Nova 2, visit [Web Grounding](../nova2-userguide/web-grounding.md "../nova2-userguide/web-grounding.md").
+
 Web Grounding enhances Nova models by connecting them to real-time information beyond their knowledge
 cutoff, which results in more accurate and reliable responses.
 

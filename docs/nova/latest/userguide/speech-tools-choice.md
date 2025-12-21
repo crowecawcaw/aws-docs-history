@@ -1,5 +1,9 @@
 # Controlling how tools are chosen
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Tool configuration](../nova2-userguide/sonic-tool-configuration.md "../nova2-userguide/sonic-tool-configuration.md").
+
 Amazon Nova Sonic supports three tool choice parameters to help you manage tool execution. You can control which tool the model uses by specifying the `toolChoice` parameter.
 
 - **Tool** - The `tool` option ensures that the specific named tool is called exactly once at the beginning of the response generation. For example, if you specify a knowledge base tool, the model will query this knowledge base before responding, regardless of whether it thinks the tool is needed.

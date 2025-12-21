@@ -1,5 +1,9 @@
 # With Amazon SageMaker AI
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. For information on how to customize Amazon Nova 2, visit [Customizing Amazon Nova 2 models](../nova2-userguide/customization.md "../nova2-userguide/customization.md").
+
 Developers sometimes require greater control and flexibility when customizing Amazon Nova
 models. With SageMaker AI, you can leverage larger labeled datasets, perform deeper customization
 (such as preference optimization or full rank fine-tuning), and access enhanced capabilities

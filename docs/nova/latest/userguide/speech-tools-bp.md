@@ -1,5 +1,9 @@
 # Tool choice best practices
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Tool configuration](../nova2-userguide/sonic-tool-configuration.md "../nova2-userguide/sonic-tool-configuration.md").
+
 When implementing tools with Amazon Nova Sonic, we recommend following these best practices to ensure optimal performance:
 
 - **Keep schema structure simple**: Limit top-level keys to 3 or fewer when possible.

@@ -1,5 +1,9 @@
 # Customizing Amazon Nova models
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. For information about how to customize Amazon Nova 2, visit [Customizing Amazon Nova 2 models](../nova2-userguide/customization.md "../nova2-userguide/customization.md").
+
 You can customize Amazon Nova models with [Amazon Bedrock](../../../bedrock/latest/userguide/custom-models.md "../../../bedrock/latest/userguide/custom-models.md") or [SageMaker AI](../../../sagemaker/latest/dg/gs.md "../../../sagemaker/latest/dg/gs.md"), depending on the requirements of your use case, to improve model performance and create a better customer experience.
 
 Customization for the Amazon Nova models is provided with responsible AI considerations. The following table summarizes the availability of customization and distillation for Amazon Nova.

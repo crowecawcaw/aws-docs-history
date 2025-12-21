@@ -1,5 +1,9 @@
 # Voice-specific prompting techniques
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Speech-to-Speech prompt engineering guide, visit [Voice conversation prompts](../nova2-userguide/sonic-system-prompts.md "../nova2-userguide/sonic-system-prompts.md").
+
 Even within the same language, responses and word choices can be enhanced by steering the model for a particular locale. Therefore, we suggest that you include instructions in the system prompt to feature language that is natural and specific to the locale of your voice.
 
 The available voices and locales are as follows:

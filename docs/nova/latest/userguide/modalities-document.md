@@ -1,5 +1,9 @@
 # Document understanding
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 document understanding guide, visit [Document understanding](../nova2-userguide/using-multimodal-models.md#document-understanding "../nova2-userguide/using-multimodal-models.md#document-understanding").
+
 Amazon Nova’s document understanding capability allows you to include entire documents (PDFs, Word files, spreadsheets, etc.)
 in your prompt and ask questions or requests about their content. Nova’s multimodal understanding models (Lite, Pro, Premier) can
 interpret both the text and visual elements (like charts or tables) within these documents. This enables use cases such as

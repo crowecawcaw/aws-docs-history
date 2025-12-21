@@ -1,5 +1,9 @@
 # Security in Amazon Nova
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. New features and documentation updates are published in the Amazon Nova 2 User Guide. For information about security in Amazon Nova 2, visit [Security in Amazon Nova 2](../nova2-userguide/security.md "../nova2-userguide/security.md").
+
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data
 centers and network architectures that are built to meet the requirements of the most
 security-sensitive organizations.

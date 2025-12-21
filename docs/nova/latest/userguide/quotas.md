@@ -1,5 +1,9 @@
 # Quotas for Amazon Nova
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information about quotas for Amazon Nova 2, visit [Quotas for Amazon Nova 2](../nova2-userguide/quotas.md "../nova2-userguide/quotas.md").
+
 Your AWS account has default quotas, formerly referred to as limits, for Amazon Bedrock. To view
 service quotas for Amazon Bedrock, do one of the following:
 

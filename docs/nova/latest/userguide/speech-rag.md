@@ -1,5 +1,9 @@
 # Implementing RAG
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Tool configuration](../nova2-userguide/sonic-tool-configuration.md "../nova2-userguide/sonic-tool-configuration.md").
+
 Retrieval-Augmented Generation (RAG) enhances responses by retrieving and incorporating information from your knowledge bases. With Amazon Nova Sonic, RAG is implemented through tool use.
 
 ## Knowledge base implementation outline

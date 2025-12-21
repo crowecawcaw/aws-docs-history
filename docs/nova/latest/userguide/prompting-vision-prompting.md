@@ -2,6 +2,10 @@
 
 techniques
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information about how to prompt multimodal understanding in Amazon Nova 2, visit [Prompting multimodal inputs](../nova2-userguide/prompting-multimodal.md "../nova2-userguide/prompting-multimodal.md").
+
 The following vision prompting techniques will help you create better prompts for
 Amazon Nova.
 

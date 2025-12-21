@@ -1,5 +1,9 @@
 # Building AI agents with Amazon Nova
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information about how to build AI agents with Amazon Nova 2, visit [Building AI agents](../nova2-userguide/building-ai-agents.md "../nova2-userguide/building-ai-agents.md").
+
 An AI agent helps your end-users complete actions based on organization data and user
 input. Agents orchestrate interactions between foundation models (FMs), data sources,
 software applications, and user conversations. In addition, agents automatically call APIs

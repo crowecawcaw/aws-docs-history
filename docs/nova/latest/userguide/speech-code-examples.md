@@ -1,5 +1,9 @@
 # Code examples for Amazon Nova Sonic
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Code examples](../nova2-userguide/sonic-code-examples.md "../nova2-userguide/sonic-code-examples.md").
+
 These code examples will help you quickly get started with Amazon Nova Sonic. You can access the complete list of examples in [Amazon Nova Sonic GitHub samples](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech") page.
 
 ## Getting started examples

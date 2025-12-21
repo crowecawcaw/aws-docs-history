@@ -1,5 +1,9 @@
 # Image understanding
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 image understanding guide, visit [Image understanding](../nova2-userguide/using-multimodal-models.md#image-understanding "../nova2-userguide/using-multimodal-models.md#image-understanding").
+
 Amazon Nova models allow you to include multiple images in the payload with a total payload limit of 25 MB. However, you can specify an Amazon S3 URI that contains your images for image understanding.
 This approach allows you to leverage the model for larger images and more images without being constrained by the 25 MB payload limitation. Amazon Nova models can analyze the passed images and answer
 questions, classify images, and summarize images based on your provided instructions.

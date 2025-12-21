@@ -2,7 +2,7 @@
 
 ###### Note
 
-This documentation is for Amazon Nova Version 1. Amazon Nova 2.0 is now available with new models and enhanced capabilities. New features and documentation updates are published in the Amazon Nova 2.0 User Guide. For information about what's new in Amazon Nova 2.0, see [What's new in Amazon Nova 2.0](../nova2-userguide/whats-new.md "../nova2-userguide/whats-new.md").
+This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. New features and documentation updates are published in the Amazon Nova 2 User Guide. For information about what's new in Amazon Nova 2, visit [What's new in Amazon Nova 2](../nova2-userguide/whats-new.md "../nova2-userguide/whats-new.md").
 
 Amazon Nova foundation models deliver frontier intelligence and industry-leading
 price-performance. Organizations can build and scale generative AI applications with Amazon Nova that

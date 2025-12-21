@@ -2,6 +2,10 @@
 
 practices
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information about how to prompt multimodal understanding in Amazon Nova 2, visit [Prompting multimodal inputs](../nova2-userguide/prompting-multimodal.md "../nova2-userguide/prompting-multimodal.md").
+
 The Amazon Nova model family is equipped with novel vision capabilities that enable the
 model to comprehend and analyze images and videos, thereby unlocking exciting opportunities
 for multimodal interaction. The following sections outline guidelines for working with

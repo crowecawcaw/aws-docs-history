@@ -1,5 +1,9 @@
 # Using the Converse API
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For information on how to use the Converse API with Amazon Nova 2, visit [Using the Converse API](../nova2-userguide/using-converse-api.md "../nova2-userguide/using-converse-api.md").
+
 One method of invoking the Amazon Nova understanding models (Amazon Nova Micro, Lite, Pro, and Premier)
 is through the Converse API. The components discussed previously are utilized while
 maintaining a consistent schema across the model providers. This approach offers a convenient

@@ -1,5 +1,9 @@
 # Best practices for the Amazon Nova Sonic system prompt
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Speech-to-Speech prompt engineering guide, visit [Voice conversation prompts](../nova2-userguide/sonic-system-prompts.md "../nova2-userguide/sonic-system-prompts.md").
+
 When crafting your system prompt for Amazon Nova Sonic, you should understand that speech-based interactions differ from text-based ones. While many [prompting best practices for Amazon Nova understanding models](prompting.md "prompting.md") apply to Amazon Nova Sonic, they must be adapted for the unique dynamics of spoken conversation. For instance, a user's typed response is a reliable source of input. However, a corresponding speech interaction may be limited in context and require a back-and-forth interaction to ask for more information before moving the conversation forward. Additionally, prompts that cater to long form outputs might result in a bad experience for users due to time spent listening to find the correct answer.
 
 As outlined in the [Amazon Nova prompting guidance](prompting.md "prompting.md"), _prompt engineering_ optimizes input to improve model output quality. For Amazon Nova Sonic, these principles must be tailored for conversational speech patterns.

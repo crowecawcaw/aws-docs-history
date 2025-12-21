@@ -1,5 +1,9 @@
 # Amazon Nova code examples
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For code examples relevant to Amazon Nova 2, visit [Code library](../nova2-userguide/code-library.md "../nova2-userguide/code-library.md").
+
 The following code examples demonstrate some common use cases for Amazon Nova.
 
 ###### Topics

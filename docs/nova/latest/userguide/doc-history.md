@@ -2,6 +2,10 @@
 
 The following table describes the documentation releases for Amazon Nova.
 
+###### Note
+
+This documentation is for Amazon Nova Version 1. For documentation releases for Amazon Nova 2, visit [Document history](../nova2-userguide/doc-history.md "../nova2-userguide/doc-history.md").
+
 | Change                            | Description                                                                                                                                                                                                                                                                         | Date             |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | Amazon Nova 2.0 release           | Amazon Nova 2.0 is now available with new models: Amazon Nova Lite, , Amazon Nova Sonic, and . See the [Amazon Nova 2.0 Developer Guide](../nova2-userguide/what-is.md "../nova2-userguide/what-is.md") for more information.                                                       | December 2, 2025 |
