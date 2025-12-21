@@ -2,6 +2,56 @@
 
 The following code examples show how to use `DetachThingPrincipal`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+    /// <summary>
+    /// Detaches a certificate from an IoT Thing.
+    /// </summary>
+    /// <param name="thingName">The name of the Thing.</param>
+    /// <param name="certificateArn">The ARN of the certificate to detach.</param>
+    /// <returns>True if successful, false otherwise.</returns>
+    public async Task<bool> DetachThingPrincipalAsync(string thingName, string certificateArn)
+    {
+        try
+        {
+            var request = new DetachThingPrincipalRequest
+            {
+                ThingName = thingName,
+                Principal = certificateArn
+            };
+
+            await _amazonIoT.DetachThingPrincipalAsync(request);
+            _logger.LogInformation($"Detached certificate {certificateArn} from Thing {thingName}");
+            return true;
+        }
+        catch (Amazon.IoT.Model.ResourceNotFoundException ex)
+        {
+            _logger.LogError($"Cannot detach certificate - resource not found: {ex.Message}");
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Couldn't detach certificate from Thing. Here's why: {ex.Message}");
+            return false;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [DetachThingPrincipal](../../../goto/DotNetSDKV4/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DetachThingPrincipal.md")
+  in _AWS SDK for .NET API Reference_.
+
 C++
 
 **SDK for C++**

@@ -5,7 +5,8 @@ progress events about each message as it passes from your devices through the me
 and rules engine. In the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"),
 CloudWatch logs appear in a log group named **AWSIotLogs**.
 
-For more information about CloudWatch Logs, see [CloudWatch Logs](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md"). For information about supported AWS IoT CloudWatch Logs, see [CloudWatch Logs AWS IoT log entries](cwl-format.md "cwl-format.md").
+For more information about CloudWatch Logs, see [CloudWatch Logs](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md"). For information about supported AWS IoT CloudWatch Logs, see [CloudWatch Logs AWS IoT log entries](cwl-format.md "cwl-format.md")
+.
 
 ## Viewing AWS IoT logs in the CloudWatch console
 

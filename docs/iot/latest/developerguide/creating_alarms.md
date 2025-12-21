@@ -3,7 +3,7 @@
 You can create a CloudWatch alarm that sends an Amazon SNS message when the alarm changes state. An
 alarm watches a single metric over a time period you specify. When the value of the metric
 exceeds a given threshold over a number of time periods, one or more actions are performed.
-The action can be a notification sent to an Amazon SNS topic or Amazon EC2 Auto Scaling policy. Alarms trigger
+The action can be a notification sent to an Amazon SNS topic or Auto Scaling policy. Alarms trigger
 actions for sustained state changes only. CloudWatch alarms do not trigger actions simply because
 they are in a particular state; the state must have changed and been maintained for a
 specified number of periods.
@@ -19,7 +19,8 @@ alarms.
 - [How can I be notified if my thing's shadow
   updates are being rejected each day?](#detect_rejected_updates "#detect_rejected_updates")
 - [How can I create a CloudWatch alarm for jobs?](#cw-jobs-alarms "#cw-jobs-alarms")
-  You can see all the metrics that CloudWatch alarms can monitor at [AWS IoT metrics and dimensions](metrics_dimensions.md "metrics_dimensions.md").
+  You can see all the metrics that CloudWatch alarms can monitor at [AWS IoT metrics and dimensions](metrics_dimensions.md "metrics_dimensions.md")
+  .
 
 ## How can I be notified if my things do
 
@@ -45,6 +46,7 @@ aws cloudwatch put-metric-alarm \
     --period 86400 \
     --evaluation-periods 1 \
     --alarm-actions `sns-topic-arn`
+
 ```
 
 3. Test the alarm.
@@ -83,6 +85,7 @@ aws cloudwatch put-metric-alarm \
     --period 86400 \
     --evaluation-periods 1 \
     --alarm-actions `sns-topic-arn`
+
 ```
 
 3. Test the alarm.
@@ -122,6 +125,7 @@ aws cloudwatch put-metric-alarm \
     --unit Count \
     --evaluation-periods 1 \
     --alarm-actions `sns-topic-arn`
+
 ```
 
 3. Test the alarm.
@@ -139,7 +143,8 @@ aws cloudwatch set-alarm-state --alarm-name UpdateThingShadowSuccessAlarm --stat
 ## How can I create a CloudWatch alarm for jobs?
 
 The Jobs service provides CloudWatch metrics for you to monitor your jobs. You can create
-CloudWatch alarms to monitor any [Jobs metrics](metrics_dimensions.md#jobs-metrics "metrics_dimensions.md#jobs-metrics").
+CloudWatch alarms to monitor any [Jobs metrics](metrics_dimensions.md#jobs-metrics "metrics_dimensions.md#jobs-metrics")
+.
 
 The following command creates a CloudWatch alarm to monitor the total number of failed job
 executions for Job `SampleOTAJob` and notifies you when more than

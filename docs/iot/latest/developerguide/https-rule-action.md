@@ -1,7 +1,6 @@
 # HTTP
 
-The HTTPS (`http`) action sends data from an MQTT message to a web
-application or service.
+The HTTPS (`http`) action sends data from an MQTT message to an HTTPS endpoint, which can point to a web application or service.
 
 ## Requirements
 
@@ -95,6 +94,56 @@ Authorization](../apireference/API_HttpAuthorization.md "../apireference/API_Htt
 
 Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
 
+`enableBatching`
+
+(Optional) Whether to process the HTTP action messages into a single request for a given url. Value can be true or false. For more information on batching, see [Batching HTTP action messages](http_batching.md "http_batching.md").
+
+Boolean value
+
+Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
+
+`batchConfig`
+
+(Optional) Configuration settings for batching. Once enabled, `batchConfig` parameters must be specified. If `batchConfig` parameters are not specified, the default values will be used.
+
+`maxBatchOpenMs`
+
+The maximum amount of time (in milliseconds) an outgoing message waits for other messages to create the batch.
+The higher the setting, the longer the latency of the batched HTTP action.
+
+Minimum Value: 5 ms. Maximum Value: 200 ms.
+
+Default Value: 20 ms
+
+Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
+
+`maxBatchSize`
+
+The maximum number of messages that are batched together in a single action execution.
+
+Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
+
+Minimum Value: 2 messages. Maximum Value: 10 messages
+
+Default Value: 10 messages
+
+`maxBatchSizeBytes`
+
+Maximum size of a message batch, in bytes.
+
+Minimum Value: 100 bytes. Maximum Value: 131,072 bytes
+
+Default Value: 5,120 bytes
+
+Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
+
+###### Note
+
+The default content type is application/json when the payload
+is in JSON format. Otherwise, it is application/octet-stream.
+You can overwrite it by specifying the exact content type in the
+header with the key content-type (case insensitive).
+
 ## Examples
 
 The following JSON example defines an AWS IoT rule with an HTTP action.
@@ -127,6 +176,32 @@ The following JSON example defines an AWS IoT rule with an HTTP action.
 }
 ```
 
+```
+"http": {
+    "url": "https://www.example.com/subpath",
+    "confirmationUrl": "https://www.example.com",
+    "headers": [
+        {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+    ],
+    "enableBatching": true,
+    "batchConfig": {
+      "maxBatchOpenMs": 123,
+      "maxBatchSize": 5,
+      "maxBatchSizeBytes": 131072,
+     }
+ },
+ "errorAction": {
+        "http": {
+            "url": "https://www.example.com/subpath",
+            "confirmationUrl": "https://www.example.com"
+            // batchConfig is not allowed here
+        }
+}
+```
+
 ## HTTP action retry logic
 
 The AWS IoT rules engine retries the HTTP action according to these
@@ -152,6 +227,7 @@ costs](https://aws.amazon.com/ec2/pricing/on-demand/ "https://aws.amazon.com/ec2
 
 ## See also
 
+- [Batching HTTP action messages](http_batching.md "http_batching.md")
 - [Working with HTTP topic rule
   destinations](rule-destination.md "rule-destination.md")
 - [Route data directly from AWS IoT Core to your web services](https://aws.amazon.com/blogs/iot/route-data-directly-from-iot-core-to-your-web-services/ "https://aws.amazon.com/blogs/iot/route-data-directly-from-iot-core-to-your-web-services/") in

@@ -2,6 +2,72 @@
 
 The following code examples show how to use `ListThings`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+    /// <summary>
+    /// Lists IoT Things with pagination support.
+    /// </summary>
+    /// <returns>List of Things, or empty list if listing failed.</returns>
+    public async Task<List<ThingAttribute>> ListThingsAsync()
+    {
+        try
+        {
+            // Use pages of 10.
+            var request = new ListThingsRequest()
+            {
+                MaxResults = 10
+            };
+            var response = await _amazonIoT.ListThingsAsync(request);
+
+            // Since there is not a built-in paginator, use the NextMarker to paginate.
+            bool hasMoreResults = true;
+
+            var things = new List<ThingAttribute>();
+            while (hasMoreResults)
+            {
+                things.AddRange(response.Things);
+
+                // If NextMarker is not null, there are more results. Get the next page of results.
+                if (!String.IsNullOrEmpty(response.NextMarker))
+                {
+                    request.Marker = response.NextMarker;
+                    response = await _amazonIoT.ListThingsAsync(request);
+                }
+                else
+                    hasMoreResults = false;
+            }
+
+            _logger.LogInformation($"Retrieved {things.Count} Things");
+            return things;
+        }
+        catch (Amazon.IoT.Model.ThrottlingException ex)
+        {
+            _logger.LogWarning($"Request throttled, please try again later: {ex.Message}");
+            return new List<ThingAttribute>();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Couldn't list Things. Here's why: {ex.Message}");
+            return new List<ThingAttribute>();
+        }
+    }
+
+
+```
+
+- For API details, see
+  [ListThings](../../../goto/DotNetSDKV4/iot-2015-05-28/ListThings.md "../../../goto/DotNetSDKV4/iot-2015-05-28/ListThings.md")
+  in _AWS SDK for .NET API Reference_.
+
 CLI
 
 **AWS CLI**

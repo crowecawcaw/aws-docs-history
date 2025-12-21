@@ -1,10 +1,8 @@
-# High level commands workflow
+# High-level commands workflow
 
-The following steps provide an overview of the commands workflow between your devices and
-AWS IoT Device Management commands. When you use any of the commands HTTP API operations, the request is
-signed using [Sigv4 credentials](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md").
+This workflow shows how devices interact with AWS IoT Device Management Commands. All HTTP API requests use [Sigv4 credentials](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") for signing.
 
-![Overview of the AWS IoT Device Management device command high level workflow.](images/device-command-workflow.png)
+![Overview of the AWS IoT Device Management device command high-level workflow.](images/device-command-workflow.png)
 
 ###### Workflow overview
 
@@ -22,51 +20,31 @@ To create and manage commands for your devices, perform the following steps.
 
 1. ###### Create a command resource
 
-Before you can send the command to your devices, create a command resource
-from the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") of
-the AWS IoT console, or using the [`CreateCommand`](../apireference/API_CreateCommand.md "../apireference/API_CreateCommand.md") control plane API operation. 2. ###### Specify the payload
+Create a Command from the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") or using the [`CreateCommand`](../apireference/API_CreateCommand.md "../apireference/API_CreateCommand.md") API. 2. ###### Specify the payload
 
-When creating the command, you must provide a payload for your command. The
-payload content can use any format of your choice. To make sure that the device
-correctly interprets the payload, we recommend that you also specify
-the payload content type. 3. ###### (Optional) Manage the created commands
+Provide a Payload in any format. Specify the content type to ensure correct device interpretation.
 
-After you create the command, you can update the command's display name and
-description. You can also mark a command as deprecated if you no longer intend
-to use it, or completely remove the command from your account. If you want to
-modify the payload information, you must create a new command and upload the new
-payload file.
+For dynamic Commands with payload templates, the final payload is generated at runtime using your supplied parameters. Templates support JSON format only, but the generated Payload can be sent as JSON or CBOR. 3. ###### (Optional) Manage the created commands
+
+Update the display name and description after creation. Mark Commands as deprecated when no longer needed, or delete them permanently. To modify Payload information, create a new Command.
 
 ## Choose target device for your commands and
 
 subscribe to MQTT topics
 
-To prepare for the commands workflow, choose your target device and specify the AWS IoT
-reserved MQTT topics to receive commands and publish response messages.
+Choose your target device and configure MQTT topics for receiving Commands and publishing responses.
 
 1. ###### Choose the target device for your command
 
-To prepare for the commands workflow, choose your target device that will
-receive the command and perform the actions specified. The target device can be
-an AWS IoT thing that you have registered in the AWS IoT registry, or can be
-specified using the MQTT client ID, if your device hasn't been registered
-with AWS IoT. For more information, see [Target device
-considerations](iot-remote-command-execution-start-monitor.md#iot-command-execution-target "iot-remote-command-execution-start-monitor.md#iot-command-execution-target"). 2. ###### Configure the IoT device policy
+Choose a target device to receive and execute the Command. Use a Thing name for registered devices or a Client ID for unregistered devices. For more information, see [Target device
+considerations](iot-remote-command-execution-start-monitor.md#iot-command-execution-target "iot-remote-command-execution-start-monitor.md#iot-command-execution-target"). 2. ###### Configure the AWS IoT device policy
 
-Before your device can receive command executions and publish updates, it must
-use a IAM policy that grants permissions to perform these actions. For examples
-of sample policies that you can use depending on whether your device is registered
-as an AWS IoT thing, or being specified as an MQTT client ID, see
+Configure an IAM policy granting permissions to receive Executions and publish updates. See
 [Sample IAM
-policy](iot-remote-command-execution-start-monitor.md#iot-remote-command-execution-update-policy "iot-remote-command-execution-start-monitor.md#iot-remote-command-execution-update-policy"). 3. ###### Establish an MQTT connection
+policy](iot-remote-command-execution-start-monitor.md#iot-remote-command-execution-update-policy "iot-remote-command-execution-start-monitor.md#iot-remote-command-execution-update-policy") for policy examples. 3. ###### Establish an MQTT connection
 
-To prepare your devices to use the commands feature, your devices must first
-connect to the message broker and subscribe to the request and response topics.
-Your device must be allowed to perform the `iot:Connect` action to
-connect to AWS IoT Core and establish an MQTT connection with the message broker.
-To find the data plane endpoint for your AWS account, use the
-`DescribeEndpoint` API or the `describe-endpoint` CLI
-command as shown below.
+Connect devices to the message broker and subscribe to request and response Topics. Devices need `iot:Connect` permission. Find your data plane endpoint using the
+`DescribeEndpoint` API or `describe-endpoint` CLI command:
 
 ```
 aws iot describe-endpoint --endpoint-type iot:Data-ATS
@@ -79,18 +57,11 @@ below.
 `account-specific-prefix`.iot.`region`.amazonaws.com
 ```
 
-4. ###### Susbcribe to commands topics
+4. ###### Subscribe to commands topics
 
-After a connection has been established, your devices can then subscribe to
-the commands request topic. When you create a command and start the
-command execution on your target device, the payload message will be published
-to the request topic by the message broker. Your device can then receive the
-payload message and process the command.
+Subscribe to the Commands request Topic. When you start an Execution, the message broker publishes the Payload to this Topic. Your device receives and processes the Command.
 
-(Optional) Your devices can also subscribe to these commands response topics
-(`accepted` or `rejected`)
-to receive a message that indicates whether the cloud service accepted or
-rejected the response from the device.
+(Optional) Subscribe to response Topics (`accepted` or `rejected`) to receive confirmation whether the cloud service accepted or rejected the device response.
 
 In this example, replace:
 
@@ -107,9 +78,8 @@ In this example, replace:
 If the payload type is not JSON or CBOR, the
 `<PayloadFormat>` field might not be
 present in the commands request topic. To get the payload format, we
-recommend that you use MQTT 5 to get the format information from the
-MQTT message headers. For more information, see
-[Commands topics](reserved-topics.md#reserved-topics-commands "reserved-topics.md#reserved-topics-commands").
+recommend that you use MQTT5 to get the format information from the
+MQTT message headers. For more information, see [Commands topics](reserved-topics.md#reserved-topics-commands "reserved-topics.md#reserved-topics-commands").
 
 ```
 $aws/commands/`<devices>`/`<DeviceID>`/executions/+/request/`<PayloadFormat>`
@@ -127,37 +97,25 @@ start the execution on the target device by performing the following steps.
 
 1. ###### Start command execution on the target device
 
-Start the command execution on the target device from the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") of the AWS IoT
-console, or using the `StartCommandExecution` data plane API with
-your account-specific endpoint. If you're using dual-stack endpoints (IPv4 and
-IPv6), use the `iot:Data-ATS`. The `iot:Jobs` endpoint is
-for IPv4 only.
+Start the Execution from the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") or using the `StartCommandExecution` API with
+your account-specific endpoint. Use `iot:Data-ATS` for dual-stack (IPv4/IPv6) or `iot:Jobs` for IPv4 only.
 
-The API publishes the payload message to the commands request topic mentioned
-above that the device has subscribed to.
+The API publishes the Payload to the Commands request Topic.
 
 ###### Note
 
-If the device was offline when the command was sent from the cloud and
-if it uses MQTT persistent sessions, the
-command waits at the message broker. If the device comes back online before
-the time out duration, and if it has subscribed to the commands request topic,
-the device can then process the command and publish the result to the
-commands response topic. If the device doesn't come back online before the time out
-duration, the command execution will time out and the payload message might
-expire and be discarded by the message broker. 2. ###### Update the result of the command execution
+If the device is offline and uses MQTT persistent sessions, the
+Command waits at the message broker. When the device reconnects before
+timeout, it can process the Command and publish results. If timeout expires,
+the execution times out and the payload will be discarded. 2. ###### Update the result of the command execution
 
-The device now receives the payload message and can process the command and
-perform the actions specified, and then publish the result of the command
-execution to the following commands response topic using the
-`UpdateCommandExecution` API. If your device subscribed to the
-commands accepted and rejected response topics, it will receive a message that
-indicates whether the response was accepted or rejected by the cloud
-service.
+The device receives the Payload, processes the Command,
+performs the specified actions, and publishes results to the Commands response Topic using
+`UpdateCommandExecution` MQTT based API. If subscribed to accepted and rejected Topics, the device receives confirmation whether the cloud service accepted or rejected the response.
 
-Depending on how you specified in the request topic, `<devices>`
+Depending on what you specified in the request topic, `<devices>`
 can be either things or clients, and `<DeviceID>`
-can be your IoT thing name or the MQTT client ID.
+can be your AWS IoT thing name or the MQTT client ID.
 
 ###### Note
 
@@ -170,31 +128,20 @@ $aws/commands/`<devices>`/`<DeviceID>`/executions/`<ExecutionId>`/response/`<Pay
 
 3. ###### (Optional) Retrieve command execution result
 
-To retrieve the result of the command execution, you can view the command
-history from the AWS IoT console, or use the `GetCommandExecution`
-control plane API operation. To get the latest information, your device
-must have published the command execution result to the commands response
-topic. You can also obtain additional information about the execution data,
-such as when it was last updated, the execution result, and when the
-execution was completed.
+Retrieve Execution results from the AWS IoT console or using `GetCommandExecution`. The device must publish results to the Commands response
+Topic for latest information. View additional details including last update time, result, and completion time.
 
 ## (Optional) Enable
 
 notifications for commands events
 
-You can subscribe to commands events to receive notifications when the status of a
-command execution changes. The following steps show you how to subscribe to commands
-events, and then process them.
+Subscribe to Commands events for notifications when Execution status changes.
 
 1. ###### Create a topic rule
 
-You can subscribe to the commands events topic and receive notifications when
-the status of a command execution changes. You can also create a topic rule to
-route the data processed by the device to other AWS IoT services supported by
-rules, such as AWS Lambda, Amazon SQS, and AWS Step Functions. You
-can create a topic rule either using the AWS IoT console, or the
-`CreateTopicRule` AWS IoT Core control plane API
-operation. For more information, see [Creating an AWS IoT rule](iot-create-rule.md "iot-create-rule.md").
+Subscribe to the Commands events Topic for status change notifications. Create a topic rule to
+route device data to other AWS IoT services like AWS Lambda, Amazon SQS, and AWS Step Functions using the AWS IoT console or
+[Creating an AWS IoT rule](iot-create-rule.md "iot-create-rule.md").
 
 In this example, replace
 `<CommandID>` with the
@@ -217,9 +164,7 @@ $aws/events/commandExecution/+/#
 
 2. ###### Receive and process commands events
 
-If you created a topic rule in the previous step to subscribe to commands
-events, then you can manage the commands push notifications that you receive
-and build application on top of these services.
+Manage Commands push notifications and build applications using the subscribed events.
 
 The following code shows a sample payload for the commands events notifications that
 you'll receive.

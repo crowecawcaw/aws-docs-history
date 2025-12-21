@@ -14,6 +14,108 @@ This topic also includes information about getting started and details about pre
 
 The following code examples show how to get started using AWS IoT.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+/// <summary>
+/// Hello AWS IoT example.
+/// </summary>
+public class HelloIoT
+{
+    /// <summary>
+    /// Main method to run the Hello IoT example.
+    /// </summary>
+    /// <param name="args">Command line arguments.</param>
+    /// <returns>A Task object.</returns>
+    public static async Task Main(string[] args)
+    {
+        var iotClient = new AmazonIoTClient();
+
+        try
+        {
+            Console.WriteLine("Hello AWS IoT! Let's list your IoT Things:");
+            Console.WriteLine(new string('-', 80));
+
+            // Use pages of 10.
+            var request = new ListThingsRequest()
+            {
+                MaxResults = 10
+            };
+            var response = await iotClient.ListThingsAsync(request);
+
+            // Since there is not a built-in paginator, use the NextMarker to paginate.
+            bool hasMoreResults = true;
+
+            var things = new List<ThingAttribute>();
+            while (hasMoreResults)
+            {
+                things.AddRange(response.Things);
+
+                // If NextMarker is not null, there are more results. Get the next page of results.
+                if (!String.IsNullOrEmpty(response.NextMarker))
+                {
+                    request.Marker = response.NextMarker;
+                    response = await iotClient.ListThingsAsync(request);
+                }
+                else
+                    hasMoreResults = false;
+            }
+
+            if (things is { Count: > 0 })
+            {
+                Console.WriteLine($"Found {things.Count} IoT Things:");
+                foreach (var thing in things)
+                {
+                    Console.WriteLine($"- Thing Name: {thing.ThingName}");
+                    Console.WriteLine($"  Thing ARN: {thing.ThingArn}");
+                    Console.WriteLine($"  Thing Type: {thing.ThingTypeName ?? "No type specified"}");
+                    Console.WriteLine($"  Version: {thing.Version}");
+
+                    if (thing.Attributes?.Count > 0)
+                    {
+                        Console.WriteLine("  Attributes:");
+                        foreach (var attr in thing.Attributes)
+                        {
+                            Console.WriteLine($"    {attr.Key}: {attr.Value}");
+                        }
+                    }
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("No IoT Things found in your account.");
+                Console.WriteLine("You can create IoT Things using the IoT Basics scenario example.");
+            }
+
+            Console.WriteLine("Hello IoT completed successfully.");
+        }
+        catch (Amazon.IoT.Model.ThrottlingException ex)
+        {
+            Console.WriteLine($"Request throttled, please try again later: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Couldn't list Things. Here's why: {ex.Message}");
+        }
+    }
+}
+
+
+```
+
+- For API details, see
+  [listThings](../../../goto/DotNetSDKV4/iot-2015-05-28/listThings.md "../../../goto/DotNetSDKV4/iot-2015-05-28/listThings.md")
+  in _AWS SDK for .NET API Reference_.
+
 C++
 
 **SDK for C++**

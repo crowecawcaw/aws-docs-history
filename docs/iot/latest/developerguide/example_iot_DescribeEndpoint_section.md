@@ -2,6 +2,53 @@
 
 The following code examples show how to use `DescribeEndpoint`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+    /// <summary>
+    /// Gets the AWS IoT endpoint URL.
+    /// </summary>
+    /// <returns>The endpoint URL, or null if retrieval failed.</returns>
+    public async Task<string?> DescribeEndpointAsync()
+    {
+        try
+        {
+            var request = new DescribeEndpointRequest
+            {
+                EndpointType = "iot:Data-ATS"
+            };
+
+            var response = await _amazonIoT.DescribeEndpointAsync(request);
+            _logger.LogInformation($"Retrieved endpoint: {response.EndpointAddress}");
+            return response.EndpointAddress;
+        }
+        catch (Amazon.IoT.Model.ThrottlingException ex)
+        {
+            _logger.LogWarning($"Request throttled, please try again later: {ex.Message}");
+            return null;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Couldn't describe endpoint. Here's why: {ex.Message}");
+            return null;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [DescribeEndpoint](../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint.md")
+  in _AWS SDK for .NET API Reference_.
+
 C++
 
 **SDK for C++**

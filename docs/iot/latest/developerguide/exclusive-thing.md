@@ -46,8 +46,7 @@ such as in rules. For more information, see [Lifecycle
 events](life-cycle-events.md "life-cycle-events.md").
 
 **Resource-specific logging** - You can configure resource-specific logging for thing groups, and easily apply the desired logging configuration for all things within the thing group defined. For more
-information, see [Configure resource-specific logging in AWS IoT
-(CLI)](configure-logging.md#fine-logging-cli "configure-logging.md#fine-logging-cli").
+information, see [Configure Resource-specific overrides in AWS IoT (CLI)](configure-logging.md#fine-logging-cli "configure-logging.md#fine-logging-cli").
 
 **Cost allocation** - You can create billing groups
 with custom tags for cost allocation and add the things to these groups. For more

@@ -2,6 +2,60 @@
 
 The following code examples show how to use `UpdateThing`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+    /// <summary>
+    /// Updates an IoT Thing with attributes.
+    /// </summary>
+    /// <param name="thingName">The name of the Thing to update.</param>
+    /// <param name="attributes">Dictionary of attributes to add.</param>
+    /// <returns>True if successful, false otherwise.</returns>
+    public async Task<bool> UpdateThingAsync(string thingName, Dictionary<string, string> attributes)
+    {
+        try
+        {
+            var request = new UpdateThingRequest
+            {
+                ThingName = thingName,
+                AttributePayload = new AttributePayload
+                {
+                    Attributes = attributes,
+                    Merge = true
+                }
+            };
+
+            await _amazonIoT.UpdateThingAsync(request);
+            _logger.LogInformation($"Updated Thing {thingName} with attributes");
+            return true;
+        }
+        catch (Amazon.IoT.Model.ResourceNotFoundException ex)
+        {
+            _logger.LogError($"Cannot update Thing - resource not found: {ex.Message}");
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Couldn't update Thing attributes. Here's why: {ex.Message}");
+            return false;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [UpdateThing](../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateThing.md")
+  in _AWS SDK for .NET API Reference_.
+
 C++
 
 **SDK for C++**
@@ -74,61 +128,6 @@ For more information, see [Thing Types](thing-types.md "thing-types.md") in the 
 - For API details, see
   [UpdateThing](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-thing.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-thing.html")
   in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples").
-
-```
-    /**
-     * Updates the shadow of an IoT Thing asynchronously.
-     *
-     * @param thingName The name of the IoT Thing.
-     *
-     * This method initiates an asynchronous request to update the shadow of an IoT Thing.
-     * If the request is successful, it prints a confirmation message.
-     * If an exception occurs, it prints the error message.
-     */
-    public void updateShadowThing(String thingName) {
-        // Create Thing Shadow State Document.
-        String stateDocument = "{\"state\":{\"reported\":{\"temperature\":25, \"humidity\":50}}}";
-        SdkBytes data = SdkBytes.fromString(stateDocument, StandardCharsets.UTF_8);
-        UpdateThingShadowRequest updateThingShadowRequest = UpdateThingShadowRequest.builder()
-            .thingName(thingName)
-            .payload(data)
-            .build();
-
-        CompletableFuture<UpdateThingShadowResponse> future = getAsyncDataPlaneClient().updateThingShadow(updateThingShadowRequest);
-        future.whenComplete((updateResponse, ex) -> {
-            if (updateResponse != null) {
-                System.out.println("Thing Shadow updated successfully.");
-            } else {
-                Throwable cause = ex != null ? ex.getCause() : null;
-                if (cause instanceof IotException) {
-                    System.err.println(((IotException) cause).awsErrorDetails().errorMessage());
-                } else if (cause != null) {
-                    System.err.println("Unexpected error: " + cause.getMessage());
-                } else {
-                    System.err.println("Failed to update Thing Shadow.");
-                }
-            }
-        });
-
-        future.join();
-    }
-
-
-```
-
-- For API details, see
-  [UpdateThing](../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateThing.md")
-  in _AWS SDK for Java 2.x API Reference_.
 
 Kotlin
 

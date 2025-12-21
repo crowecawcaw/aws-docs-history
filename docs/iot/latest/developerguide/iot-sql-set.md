@@ -31,7 +31,7 @@ After you define variables, you can use them in:
 - Action substitution templates
 - Error action substitution templates
 - Nested SELECT queries
-- Function parameters
+- Function parameters (certain parameters such as roleArn parameters and parameters that switch the mode of a function similar to `transform("enrichArray", attributes, values)` do not support variables)
 
 Variables are referenced using the same `@variable_name` syntax used in the SET clause. You can also use JSON extension syntax to access properties of variables that contain objects, such as `@variable_name.property`.
 

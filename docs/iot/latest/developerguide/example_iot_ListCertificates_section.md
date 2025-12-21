@@ -2,6 +2,50 @@
 
 The following code examples show how to use `ListCertificates`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+    /// <summary>
+    /// Lists all certificates associated with the account.
+    /// </summary>
+    /// <returns>List of certificate information, or empty list if listing failed.</returns>
+    public async Task<List<Certificate>> ListCertificatesAsync()
+    {
+        try
+        {
+            var request = new ListCertificatesRequest();
+            var response = await _amazonIoT.ListCertificatesAsync(request);
+
+            _logger.LogInformation($"Retrieved {response.Certificates.Count} certificates");
+            return response.Certificates;
+        }
+        catch (Amazon.IoT.Model.ThrottlingException ex)
+        {
+            _logger.LogWarning($"Request throttled, please try again later: {ex.Message}");
+            return new List<Certificate>();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Couldn't list certificates. Here's why: {ex.Message}");
+            return new List<Certificate>();
+        }
+    }
+
+
+```
+
+- For API details, see
+  [ListCertificates](../../../goto/DotNetSDKV4/iot-2015-05-28/ListCertificates.md "../../../goto/DotNetSDKV4/iot-2015-05-28/ListCertificates.md")
+  in _AWS SDK for .NET API Reference_.
+
 C++
 
 **SDK for C++**

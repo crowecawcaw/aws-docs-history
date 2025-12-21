@@ -2,14 +2,12 @@
 
 executions
 
-After you've created a command resource, you can start a command execution on the target
-device. Once the device starts executing the command, it can start updating the result of
-the command execution and publish status updates and result information to the MQTT reserved
-topics. You can then retrieve the status of the command execution and monitor the status of
-the executions in your account.
+After creating a Command, start an Execution on the target
+device. The device updates results and publishes status to MQTT reserved
+Topics. Retrieve and monitor Execution status from your account.
 
-This section shows how you can start and monitor commands using both the AWS IoT console and
-the AWS CLI.
+Start and monitor Commands using the AWS IoT console or
+AWS CLI.
 
 ###### Start and monitor commands operations
 
@@ -30,121 +28,104 @@ the AWS CLI.
 You are solely responsible for deploying commands in a manner that is safe and
 compliant with applicable laws.
 
-Before you start a command execution, you must make sure that:
+Before starting an Execution, ensure:
 
-- You have created a command in the AWS IoT namespace and provided the payload
-  information. When you start executing the command, the device will process the
-  instructions in the payload and perform the actions specified. For information
-  about creating commands, see [Create a command resource](iot-remote-command-create-manage.md#iot-remote-command-create "iot-remote-command-create-manage.md#iot-remote-command-create").
-- Your device has subscribed to the MQTT reserved topics for commands. When you
-  start the command execution, the payload information will be published to the
-  following reserved MQTT request topic.
+- You created a Command in the AWS IoT namespace with Payload
+  information. When starting Execution, the device processes
+  Payload instructions and performs specified actions. See [Create a command resource](iot-remote-command-create-manage.md#iot-remote-command-create "iot-remote-command-create-manage.md#iot-remote-command-create") for Command creation.
+- Your device subscribed to MQTT reserved Topics for Commands. When starting
+  Execution, Payload information publishes to this reserved MQTT request Topic:
 
-In this case, `<devices>` can be either be IoT
-things or MQTT clients, and `<DeviceID>` is the
-thing name, or the client ID. The supported
-`<PayloadFormat>` are JSON and CBOR. For more
-information about commands topics, see [Commands topics](reserved-topics.md#reserved-topics-commands "reserved-topics.md#reserved-topics-commands").
+`<devices>` can be Things or MQTT clients.
+`<DeviceID>` is the
+Thing name or Client ID. Supported
+`<PayloadFormat>` values: JSON and CBOR. For more information, see [Commands topics](reserved-topics.md#reserved-topics-commands "reserved-topics.md#reserved-topics-commands").
 
 ```
 $aws/commands/`<devices>`/`<DeviceID>`/executions/+/request/`<PayloadFormat>`
 ```
 
-If the `<PayloadFormat>` is not JSON and CBOR,
-then following shows the commands topic format.
+For non-JSON/CBOR `<PayloadFormat>`,
+use this Commands Topic format:
 
 ```
 $aws/commands/`<devices>`/`<DeviceID>`/executions/+/request
 ```
 
-When you want to run the command, you must specify the target device that will
-receive the command and perform the instructions specified. The target device
-can either be an AWS IoT thing, or the client ID if the device has not been
-registered in the AWS IoT registry. After receiving the command payload, the
-device can start executing the command and perform the specified actions.
+Specify the target device to receive and execute the Command. Use a Thing name for registered devices or Client ID
+for unregistered devices. After receiving the Payload, the
+device executes the Command and performs specified actions.
 
 #### AWS IoT thing
 
-The target device for the command can be an AWS IoT thing that you have
-registered in the AWS IoT thing registry. Things in AWS IoT make it easier to
-search and manage your devices.
+Target devices can be Things registered in the AWS IoT registry. Things simplify device
+search and management.
 
-You can register your device as a thing when you connect your device to
-AWS IoT from the [Connect device page](https://console.aws.amazon.com/iot/home#/connect-overview "https://console.aws.amazon.com/iot/home#/connect-overview") or using the [`CreateThing`](../apireference/API_CreateThing.md "../apireference/API_CreateThing.md")
-API. You can find an existing thing for which you want to run the command
-from the [Thing Hub](https://console.aws.amazon.com/iot/home#/thinghub "https://console.aws.amazon.com/iot/home#/thinghub")
-page of the AWS IoT console or using the [`DescribeThing`](../apireference/API_DescribeThing.md "../apireference/API_DescribeThing.md") API. For information about how to
-register your device as an AWS IoT thing, see [Managing things with the
-registry](thing-registry.md "thing-registry.md").
+Register devices as Things from the [Connect device page](https://console.aws.amazon.com/iot/home#/connect-overview "https://console.aws.amazon.com/iot/home#/connect-overview") or using [`CreateThing`](../apireference/API_CreateThing.md "../apireference/API_CreateThing.md"). Find existing Things from [Thing Hub](https://console.aws.amazon.com/iot/home#/thinghub "https://console.aws.amazon.com/iot/home#/thinghub")
+or using [`DescribeThing`](../apireference/API_DescribeThing.md "../apireference/API_DescribeThing.md"). See [Managing things with the
+registry](thing-registry.md "thing-registry.md") for registration details.
 
 #### Client ID
 
-If your device hasn't been registered as a thing with AWS IoT, you can use
-the client ID instead.
+For unregistered devices, use the Client ID.
 
-The client ID is a unique identifier that you assign to your device or
-client. The client ID is defined in the MQTT protocol, and it can contain
-alphanumeric characters, underscores, or dashes. It must be unique to each
-device that connects to AWS IoT.
+The Client ID is a unique identifier you assign to devices. Defined in the MQTT protocol, it contains
+alphanumeric characters, underscores, or dashes. Each device connecting to AWS IoT needs a unique Client ID.
 
 ###### Note
 
-- If your device has been registered as a
-  _thing_ in the AWS IoT registry, the client
-  ID can be the same as the thing name.
-- If your command execution targets a specific MQTT client ID,
-  to receive the command payload from the client ID based commands
-  topic, your device must connect to AWS IoT using the same client
-  ID.
+- For registered Things, the Client
+  ID can match the Thing name.
+- When targeting a specific Client ID,
+  devices must connect to AWS IoT using that Client
+  ID to receive the Payload.
 
-The client ID is typically the MQTT client ID that your devices can use
-when connecting to AWS IoT Core. This ID is used by AWS IoT to identify each
-specific device and manage connections and subscriptions.
+The Client ID is the MQTT client ID devices use
+when connecting to AWS IoT Core. AWS IoT uses this ID to identify
+devices and manage connections and subscriptions.
 
-The timeout indicates the duration in seconds within which your device can
-provide the result of the command execution.
+Timeout specifies the duration (in seconds) for devices to
+provide Execution results.
 
-After you create a command execution, a timer starts. If the device went
-offline or failed to report the execution result within the timeout duration,
-the command execution will time out, and the execution status will be reported
-as `TIMED_OUT`.
+After creating an Execution, a timer starts. If the device goes
+offline or fails to report results within timeout,
+the Execution times out with status `TIMED_OUT`.
 
-This field is optional and will default to 10 seconds if you don't specify any
-value. You can also configure the timeout to a maximum value of 12 hours.
+Default: 10 seconds. Maximum: 12 hours.
 
 #### Time out value and
 
 `TIMED_OUT` execution status
 
-A time out can be reported by both the cloud and the device.
+Both cloud and device can report timeout.
 
-After the command is sent to the device, a timer starts. If there was no
-response received from the device within the specified time out duration, as
-described above. In this case, the cloud sets the command execution status
-as `TIMED_OUT` with reason code as
+After sending the Command, a timer starts. If no
+device response arrives within timeout,
+the cloud sets Execution status
+to `TIMED_OUT` with reason code
 `$NO_RESPONSE_FROM_DEVICE`.
 
-This could happen in either of the following cases.
+This occurs when:
 
-- The device went offline while executing the command.
-- The device failed to complete running the command within the
-  specified duration.
-- The device failed to report the updated status information within
-  the timeout duration.
+- Device went offline during Execution.
+- Device failed to complete Execution within
+  timeout.
+- Device failed to report status within
+  timeout.
 
 In this instance, when the execution status of `TIMED_OUT` is
 reported from the cloud, the command execution is non-terminal. Your device
 can publish a response that overrides the status to any of the terminal
-statuses, `SUCCEEDED`, `FAILED`, or
-`REJECTED`. The command execution now becomes terminal and
+statuses: `SUCCEEDED`, `FAILED`, or
+`REJECTED`. The command execution then becomes terminal and
 doesn't accept any further updates.
 
 Your device can also update a `TIMED_OUT` status initiated by
-the cloud by reporting that a time out occurred when it was executing the
-command. In this case, the command execution status stays at
-`TIMED_OUT` but the `statusReason` object will be
+the cloud by reporting that a timeout occurred when it was executing the
+command. In this case, the command execution status remains at
+`TIMED_OUT`, but the `statusReason` object is
 updated based on the information reported by the device. The command
-execution will now become terminal and no further updates will be
+execution then becomes terminal, and no further updates are
 accepted.
 
 #### Using MQTT
@@ -158,16 +139,16 @@ command when it comes back online before the timeout duration, and performs
 the instructions specified.
 
 By default, the MQTT persistent session expiry is set to 60 minutes. If
-your command execution time out is configured to a value that exceeds this
-duration, command executions that run longer than 60 minutes can get
-rejected by the message broker and it can fail. To run commands that are
+your command execution timeout is configured to a value that exceeds this
+duration, command executions that run longer than 60 minutes can be
+rejected by the message broker and fail. To run commands that are
 longer than 60 minutes in duration, you can request an increase to the
 persistent session expiry time.
 
 ###### Note
 
 To ensure that you're using the MQTT persistent sessions feature
-correctly, make sure that the Clean Start flag is set to zero. For more
+correctly, set the Clean Start flag to zero. For more
 information, see [MQTT persistent sessions](mqtt.md#mqtt-persistent-sessions "mqtt.md#mqtt-persistent-sessions").
 
 To start running the command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") page of the AWS IoT console and
@@ -175,27 +156,28 @@ perform the following steps.
 
 1. To run the command that you've created, choose **Run
    command**.
-2. Review information about the command that you've created, the payload
-   file and format type, and the reserved MQTT topics.
-3. Specify the target device for which you want to run the command. The
-   device can be specified as an AWS IoT thing if it has been registered with
-   AWS IoT, or using the client ID if your device has not been registered
-   yet. For more information, see [Target device
-   considerations](#iot-command-execution-target "#iot-command-execution-target")
-4. (Optional) Configure a time out value for the command that determines
-   the duration for which you want the command to run before it times out.
-   If your command needs to run longer than 60 minutes, you may have to
-   increase the MQTT persistent sessions expiry time. For more information,
-   see [Command execution timeout
-   considerations](#iot-command-execution-timeout "#iot-command-execution-timeout").
-5. Choose **Run command**.
-   Use the [`StartCommandExecution`](../apireference/API_StartCommandExecution.md "../apireference/API_StartCommandExecution.md") HTTP data plane API
-   operation to start a command execution. The API request and response are
-   correlated by the command execution ID. After the device completes executing the
-   command, it can report the status and execution result to the cloud by
-   publishing a message to the commands response topic. For a custom response code,
-   application codes that you own can process the response message and post the
-   result to AWS IoT.
+2. Review information about the command that you created, including the MQTT reserved topics, and parameters, if
+   applicable.
+
+For dynamic commands, enter the parameter values or leave them with defaults. For parameters that do not have a
+default value,
+you must provide a value to be sent as part of this execution. 3. Specify the target device to receive and execute the Command. The
+device can be specified as an AWS IoT thing if it has been registered with
+AWS IoT, or using the client ID if your device has not been registered
+yet. For more information, see [Target device
+considerations](#iot-command-execution-target "#iot-command-execution-target") 4. (Optional) Configure a timeout value for the command that determines
+the duration for which you want the command to run before it times out.
+If your command needs to run longer than 60 minutes, you may have to
+increase the MQTT persistent sessions expiry time. For more information,
+see [Command execution timeout
+considerations](#iot-command-execution-timeout "#iot-command-execution-timeout"). 5. Choose **Run command**.
+Use the [`StartCommandExecution`](../apireference/API_StartCommandExecution.md "../apireference/API_StartCommandExecution.md") HTTP data plane API
+operation to start a command execution. The API request and response are
+correlated by the command execution ID. After the device completes executing the
+command, it can report the status and execution result to the cloud by
+publishing a message to the commands response topic. For a custom response code,
+application codes that you own can process the response message and post the
+result to AWS IoT.
 
 If your devices have subscribed to the commands request topic, the
 `StartCommandExecution` API will publish the payload message to
@@ -206,7 +188,7 @@ see [Command payload](iot-remote-command-create-manage.md#iot-commands-payload "
 $aws/commands/`<devices>`/`<DeviceID>`/executions/+/request/`<PayloadFormat>`
 ```
 
-If the payload format is not JSON or CBOR, then following shows the format of
+If the payload format is not JSON or CBOR, the following shows the format of
 the commands request topic.
 
 ```
@@ -225,7 +207,7 @@ shows an IAM policy that allows the user permission to perform the
 In this example, replace:
 
 - `region` with your
-  AWS Region, such as `ap-south-1`.
+  AWS Region, such as `us-east-1`.
 - `account-id` with your
   AWS account number, such as
   `123456789012`.
@@ -254,6 +236,9 @@ In this example, replace:
 }
 ```
 
+To see a list of condition keys supported for `StartCommandExecution`, see [Condition Keys for AWS IoT](../../../service-authorization/latest/reference/list_awsiot.md#awsiot-policy-keys "../../../service-authorization/latest/reference/list_awsiot.md#awsiot-policy-keys")
+in the _IAM User Guide_.
+
 #### Obtain
 
 account-specific data plane endpoint
@@ -267,12 +252,13 @@ endpoint is for IPv4 only. For example, if you run this command:
 aws iot describe-endpoint --endpoint-type iot:Data-ATS
 ```
 
-It will return the account-specfic endpoint URL as shown in the sample
+It returns the account-specific endpoint URL as shown in the sample
 response below.
 
 ```
 {
-    "endpointAddress": "`<account-specific-prefix>`-ats.iot.`<region>`.api.com"
+    "endpointAddress":
+    "`<account-specific-prefix>`-ats.iot.`<region>`.api.com"
 }
 ```
 
@@ -301,7 +287,7 @@ In this example, replace:
   the account-specific endpoint that you obtained in [Obtain
   account-specific data plane endpoint](#iot-remote-command-execution-start-endpoint "#iot-remote-command-execution-start-endpoint"),
   prefixed by `https://`. For example,
-  `https://`123456789012abcd`.jobs.iot.`ap-south-1`.amazonaws.com`.
+  `https://`123456789012abcd`.jobs.iot.`us-east-1`.amazonaws.com`.
 - (Optional) You can also specify an additional parameter,
   `executionTimeoutSeconds`, when performing the
   `StartCommandExecution` API operation. This optional
@@ -311,14 +297,31 @@ In this example, replace:
   starts. If the command execution result is not received before the
   timer expires, then the status automatically changes to
   `TIMED_OUT`.
+- ```
+  aws iot-jobs-data start-command-execution \
+      --command-arn `<command-arn>`  \
+      --target-arn `<target-arn>` \
+      --endpoint `<endpoint-url>` \
+      --execution-timeout-seconds `900`
+  ```
 
-```
+````
+* (Optional) For dynamic commands, specify the parameters and their values to be used for substitution. You must
+ provide a value for parameters
+ that do not have a defaultValue set at command creation. If a parameter has a defaultValue, the parameter value provided
+ here takes precedence.
+ For parameters that have valueConditions set, the parameter value provided here must satisfy the condition.
+
+
+Based on `Light_Power_Status` dynamic command example:
+* ```
 aws iot-jobs-data start-command-execution \
-    --command-arn `<command-arn>`  \
-    --target-arn `<target-arn>` \
+    --command-arn `arn:aws:iot:us-east-1:123456789012:command/Light_Power_Status`  \
+    --target-arn `arn:aws:iot:us-east-1:123456789012:thing/exampleThing` \
     --endpoint `<endpoint-url>` \
-    --execution-timeout-seconds `900`
-```
+    --execution-timeout-seconds `900` \
+    --parameters `"powerStatus={S=ON}"`
+````
 
 Running this command returns a command execution ID. You can use this ID
 to query the command execution status, details, and command execution
@@ -350,7 +353,7 @@ the status or result of a command execution.
 Before you use this API:
 
 - Your device must have established an MQTT connection and subscribed to the
-  commands request and response topics. For more information, see [High level commands workflow](iot-remote-command-workflow.md "iot-remote-command-workflow.md").
+  commands request and response topics. For more information, see [High-level commands workflow](iot-remote-command-workflow.md "iot-remote-command-workflow.md").
 - You must have already executed this command using the
   `StartCommandExecution` API operation.
 
@@ -358,12 +361,12 @@ Before you use this API operation, make sure that your IAM policy authorizes
 your device to perform these actions. Following shows an example policy that
 authorizes your device to perform the action. For additional sample IAM
 policies that allow the user permission to perform the
-`UpdateCommandExecution` action, see [Connect and publish policy examples](connect-and-pub.md "connect-and-pub.md").
+`UpdateCommandExecution` MQTT action, see [Connect and publish policy examples](connect-and-pub.md "connect-and-pub.md").
 
 In this example, replace:
 
 - `Region` with your AWS Region,
-  such as `ap-south-1`.
+  such as `us-east-1`.
 - `AccountID` with your
   AWS account number, such as
   `123456789012`.
@@ -373,7 +376,7 @@ In this example, replace:
 - `commands-request-topic` and
   `commands-response-topic`
   with the names of your AWS IoT commands request and response topics. For
-  more information, see [High level commands workflow](iot-remote-command-workflow.md "iot-remote-command-workflow.md").
+  more information, see [High-level commands workflow](iot-remote-command-workflow.md "iot-remote-command-workflow.md").
 
 #### Sample
 
@@ -540,23 +543,23 @@ when using the `UpdateCommandExecution` API
 The following are some important considerations when using the
 `UpdateCommandExecution` API.
 
-- Your devices can use an optional `statusReason` object, which can be used
-  to provide additional information about the execution. If your devices provide this object,
-  then the `reasonCode` field of the object is required, but the
+- Your devices can use an optional `statusReason` object to provide additional information about the
+  execution. If your devices provide this object,
+  the `reasonCode` field of the object is required, but the
   `reasonDescription` field is optional.
 - When your devices use the `statusReason` object, the `reasonCode`
-  must use the pattern `[A-Z0-9_-]+`, and it does not exceed 64 characters
-  in length. If you provide the `reasonDescription`, make sure that it doesn't exceed
+  must use the pattern `[A-Z0-9_-]+` and not exceed 64 characters
+  in length. If you provide the `reasonDescription`, ensure that it doesn't exceed
   1,024 characters in length. It can use any characters except control characters such
-  as new lines.
+  as newlines.
 - Your devices can use an optional `result` object to provide information
   about the result of the command execution, such as the return value of a remote function
   call. If you provide the `result`, it must require at least one entry.
 - In the `result` field, you specify the entries as key-value pairs. For
   each entry, you must specify the data type information as a string, boolean, or binary.
   A string data type must use the key `s`, a boolean data type uses the key
-  `b`, and a binary data type must use the key `bin`. You must make
-  sure that these data types are mentioned as lowercase.
+  `b`, and a binary data type must use the key `bin`. Ensure
+  that these keys are lowercase.
 - If you encounter an error when running the `UpdateCommandExecution` API,
   you can view the error in the `AWSIoTLogsV2` log group in Amazon CloudWatch. For information
   about enabling logging and viewing the logs, see [Configure AWS IoT logging](configure-logging.md "configure-logging.md").
@@ -666,7 +669,7 @@ shows an IAM policy that allows the user permission to perform the
 In this example, replace:
 
 - `region` with your
-  AWS Region, such as `ap-south-1`.
+  AWS Region, such as `us-east-1`.
 - `account-id` with your
   AWS account number, such as
   `123456789012`.
@@ -747,8 +750,8 @@ considerations](#iot-command-execution-timeout "#iot-command-execution-timeout")
 ```
 {
     "executionId": "07e4b780-7eca-4ffd-b772-b76358da5542",
-    "commandArn": "arn:aws:iot:ap-south-1:123456789012:command/LockDoor",
-    "targetArn": "arn:aws:iot:ap-south-1:123456789012:thing/myRegisteredThing",
+    "commandArn": "arn:aws:iot:us-east-1:123456789012:command/LockDoor",
+    "targetArn": "arn:aws:iot:us-east-1:123456789012:thing/myRegisteredThing",
     "status": "SUCCEEDED",
     "statusReason": {
         "reasonCode": "DEVICE_SUCCESSFULLY_EXECUTED",
@@ -768,17 +771,17 @@ considerations](#iot-command-execution-timeout "#iot-command-execution-timeout")
 using the MQTT test client
 
 You can use the MQTT test client to view the message exchange over MQTT when using the
-commands feature. After your device has established an MQTT connection with AWS IoT, you
+commands feature. After your device establishes an MQTT connection with AWS IoT, you
 can create a command, specify the payload, and then run it on the device. When you run
-the command, if your device has subscribed to the MQTT reserved request topic for
-commands, it will see the payload message published to this topic.
+the command, if your device subscribed to the MQTT reserved request topic for
+commands, it sees the payload message published to this topic.
 
 The device then receives the payload instructions and performs the specified
-operations on the IoT device. It then uses the `UpdateCommandExecution` API
+operations on the AWS IoT device. It then uses the `UpdateCommandExecution` API
 to publish the command execution result and status information to the MQTT reserved
-response topics for commands. AWS IoT Device Management listens to updates on the reponse Topics and stores
+response topics for commands. AWS IoT Device Management listens to updates on the response topics and stores
 the updated information and publishes logs to AWS CloudTrail and Amazon CloudWatch.
-You can then retrieve the latest command execution information from the console or using
+You can then retrieve the latest command execution information from the console or by using
 the `GetCommandExecution` API.
 
 The following steps show how to use the MQTT test client to observe messages.
@@ -792,8 +795,8 @@ The following steps show how to use the MQTT test client to observe messages.
 
 ###### Note
 
-You can find the thing name for your device from the [Thing Hub](https://console.aws.amazon.com/iot/home#/thinghub "https://console.aws.amazon.com/iot/home#/thinghub") page of the AWS IoT console, or
-if haven't registered your device as a thing, you can register the device
+You can find the thing name for your device from the [Thing Hub](https://console.aws.amazon.com/iot/home#/thinghub "https://console.aws.amazon.com/iot/home#/thinghub") page of the AWS IoT console. If you
+haven't registered your device as a thing, you can register the device
 when connecting to AWS IoT from the [Connect device page](https://console.aws.amazon.com/iot/home#/connect-overview "https://console.aws.amazon.com/iot/home#/connect-overview").
 
 ```
@@ -902,7 +905,7 @@ shows an IAM policy that allows the user permission to perform the
 In this example, replace:
 
 - `region` with your
-  AWS Region, such as `ap-south-1`.
+  AWS Region, such as `us-east-1`.
 - `account-id` with your
   AWS account number, such as
   `123456789012`.
@@ -1003,7 +1006,7 @@ authorizes your device to perform the action.
 In this example, replace:
 
 - `Region` with your AWS Region,
-  such as `ap-south-1`.
+  such as `us-east-1`.
 - `AccountID` with your
   AWS account number, such as
   `123456789012`.

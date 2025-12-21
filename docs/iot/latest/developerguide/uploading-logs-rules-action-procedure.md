@@ -56,6 +56,7 @@ with your preferred name.
 
 ```
 aws logs create-log-group --log-group-name `uploadLogsGroup`
+
 ```
 
 2. To confirm that the log group was created correctly, run the following
@@ -63,6 +64,7 @@ aws logs create-log-group --log-group-name `uploadLogsGroup`
 
 ```
 aws logs describe-log-groups --log-group-name-prefix `uploadLogsGroup`
+
 ```
 
 Sample output:
@@ -92,7 +94,8 @@ AWS Management Console
 ###### To create a topic rule by using the AWS Management Console
 
 1.  Open the Rule hub.
-    1. Open the AWS Management Console and navigate to [AWS IoT](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot") .
+    1. Open the AWS Management Console
+       and navigate to [AWS IoT](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot") .
     2. On the navigation bar, choose **Message routing**
        and then **Rules**.
     3. Choose **Create rule**.
@@ -127,7 +130,7 @@ AWS Management Console
 
         1. Choose **Create new role**.
         2. For **Role name**, enter a unique name and choose
-         **Create**.
+        **Create**.
         3. Confirm that the IAM role name is correct in the **IAM
          role** field.
 
@@ -175,6 +178,7 @@ AWS CLI
            "Resource": "*"
        }
    }'
+
    ```
 
    2. Copy the policy ARN from your output into a text editor.
@@ -196,6 +200,7 @@ AWS CLI
            "UpdateDate": "2023-01-23T18:30:10Z"
        }
    }
+
    ```
 
    3. Create an IAM role and trust policy.
@@ -236,6 +241,7 @@ AWS CLI
    aws iam attach-role-policy \
    --role-name `uploadLogsRole` \
    --policy-arn `arn:aws:iam::111122223333:policy/uploadLogsPolicy`
+
    ```
 
    5. Review the role.
@@ -246,6 +252,7 @@ AWS CLI
 
    ```
    aws iam get-role --role-name `uploadLogsRole`
+
    ```
 
    Sample output:
@@ -280,8 +287,8 @@ AWS CLI
 
 2. Create an AWS IoT topic rule in the AWS CLI.
    1. To create an AWS IoT topic rule, run the following command. Make sure you
-      update the `--rule-name`, `sql` statement,
-      `description`, `roleARN` , and
+      update the `--rule-name`,`sql` statement,
+      `description`,`roleARN` , and
       `logGroupName` parameter values. For more information, see
       [create-topic-rule](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/iot/create-topic-rule.html "https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/iot/create-topic-rule.html") in the AWS CLI v2 Command Reference.
 
@@ -302,6 +309,7 @@ AWS CLI
    				}
    			]
    }'
+
    ```
 
    2. To confirm that the rule was created correctly, run the following
@@ -310,6 +318,7 @@ AWS CLI
 
    ```
    aws iot get-topic-rule --rule-name `uploadLogsRule`
+
    ```
 
    Sample output:
@@ -350,13 +359,15 @@ AWS IoT
 
    For example, `$aws/rules/things/thing_name/logs`
    - The MQTT message payload is formatted correctly. For more information about
-     MQTT topic and recommended naming convention, see the [MQTT topics](upload-device-logs-to-cloudwatch.md#upload-mqtt-topics-overview "upload-device-logs-to-cloudwatch.md#upload-mqtt-topics-overview") section within [Upload device-side logs to Amazon CloudWatch](upload-device-logs-to-cloudwatch.md "upload-device-logs-to-cloudwatch.md").
+     MQTT topic and recommended naming convention, see the [MQTT topics](upload-device-logs-to-cloudwatch.md#upload-mqtt-topics-overview "upload-device-logs-to-cloudwatch.md#upload-mqtt-topics-overview")
+     section within [Upload device-side logs to Amazon CloudWatch](upload-device-logs-to-cloudwatch.md "upload-device-logs-to-cloudwatch.md")
+     .
 
 2. Confirm that the MQTT messages are received within the AWS IoT MQTT client.
    1. Open the AWS Management Console and navigate to [AWS IoT](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
    2. To view the **MQTT test client**, on the navigation bar,
-      choose **Test**, **MQTT test client**.
-   3. For **Subscribe to a topic**, **Topic
+      choose **Test**,**MQTT test client**.
+   3. For **Subscribe to a topic**,**Topic
       filter**, enter the _topic namespace_.
    4. Choose **Subscribe**.
 
@@ -371,7 +382,7 @@ AWS IoT
 ###### To review your log records in CloudWatch Logs
 
 1. Open the AWS Management Console, and navigate to [CloudWatch](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
-2. On the navigation bar, choose **Logs**, **Logs
+2. On the navigation bar, choose **Logs**,**Logs
    Insights**.
 3. On the **Select log group(s)** menu, choose the log group you
    specified in the AWS IoT rule.

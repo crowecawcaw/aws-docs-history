@@ -2,6 +2,73 @@
 
 The following code examples show how to use `CreateTopicRule`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+    /// <summary>
+    /// Creates an IoT topic rule.
+    /// </summary>
+    /// <param name="ruleName">The name of the rule.</param>
+    /// <param name="snsTopicArn">The ARN of the SNS topic for the action.</param>
+    /// <param name="roleArn">The ARN of the IAM role.</param>
+    /// <returns>True if successful, false otherwise.</returns>
+    public async Task<bool> CreateTopicRuleAsync(string ruleName, string snsTopicArn, string roleArn)
+    {
+        try
+        {
+            var request = new CreateTopicRuleRequest
+            {
+                RuleName = ruleName,
+                TopicRulePayload = new TopicRulePayload
+                {
+                    Sql = "SELECT * FROM 'topic/subtopic'",
+                    Description = $"Rule created by .NET example: {ruleName}",
+                    Actions = new List<Amazon.IoT.Model.Action>
+                    {
+                        new Amazon.IoT.Model.Action
+                        {
+                            Sns = new SnsAction
+                            {
+                                TargetArn = snsTopicArn,
+                                RoleArn = roleArn
+                            }
+                        }
+                    },
+                    RuleDisabled = false
+                }
+            };
+
+            await _amazonIoT.CreateTopicRuleAsync(request);
+            _logger.LogInformation($"Created IoT rule {ruleName}");
+            return true;
+        }
+        catch (Amazon.IoT.Model.ResourceAlreadyExistsException ex)
+        {
+            _logger.LogWarning($"Rule {ruleName} already exists: {ex.Message}");
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Couldn't create topic rule. Here's why: {ex.Message}");
+            return false;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [CreateTopicRule](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule.md")
+  in _AWS SDK for .NET API Reference_.
+
 C++
 
 **SDK for C++**

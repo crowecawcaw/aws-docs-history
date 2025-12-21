@@ -1,30 +1,17 @@
 # Deprecate a command resource
 
-You can deprecate a command to indicate that it is out of date and should not be used.
-For example, you might deprecate a command that is no longer actively maintained, or you
-might want to create a newer command with the same command ID but uses different payload
-information.
+Deprecate commands to indicate they are outdated and should not be used. For example, deprecate commands no longer actively maintained or when creating newer commands with the same ID but different payloads.
 
 ## Key
 
 considerations
 
-Following are some important considerations with deprecating a command:
+Important considerations when deprecating commands:
 
-- When you deprecate a command, it is not deleted. You can still retrieve
-  the command using it's command ID and restore it if you want to reuse the
-  command.
-- If you attempt to start a new command execution on your target device for
-  a command that has been deprecated, it generates an error, which prevents
-  you from using out-of-date commands.
-- To execute a deprecated command on your target device, you must first
-  restore it. Once restored, the command becomes available and it can be used
-  as a regular command and you can perform command executions on the target
-  device.
-- If you deprecate a command while the command executions are in progress,
-  the executions will continue to run on the target device until they are
-  completed. You can also retrieve the status of the command
-  executions.
+- Deprecating a command does not delete it. You can retrieve the command using its ID and restore it for reuse.
+- Attempting to start new executions on deprecated commands generates an error, preventing use of outdated commands.
+- To execute a deprecated command, first restore it. After restoration, the command becomes available for regular use and execution on target devices.
+- If you deprecate a command while executions are in progress, they continue running until completion. You can still retrieve execution status.
 
 ## Deprecate a command resource
 
@@ -33,7 +20,7 @@ Following are some important considerations with deprecating a command:
 To deprecate a command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") of the AWS IoT console and perform
 the following steps.
 
-1. Choose the command that you want to deprecate, and and then under
+1. Choose the command that you want to deprecate, and then under
    **Actions**, choose
    **Deprecate**.
 2. Confirm that you want to deprecate the command and then choose
@@ -43,10 +30,7 @@ the following steps.
 
 (CLI)
 
-You can mark a command as deprecated using the `update-command` CLI.
-You must first deprecate a command before it can be deleted. Once a command has been
-deprecated, if you want to use it such as for sending a command execution to the
-target device, you must un-deprecate it.
+Mark commands as deprecated using the `update-command` CLI. You must deprecate a command before deletion. To use a deprecated command, restore it first.
 
 ```
 aws iot update-command \
@@ -71,24 +55,18 @@ command.
 
 status
 
-You can use the `GetCommand` API operation to determine whether a
-command has been deprecated, and when it was last deprecated.
+Use the `GetCommand` API to determine if a command is deprecated and when it was last deprecated.
 
 ```
 aws iot get-command --command-id `<turnOffAC>`
 ```
 
-Running this command generates a response that contains information about the
-command. You can obtain information as to when when it was created, and when it was
-deprecated using the last updated information. This information can help you
-determine the lifetime of a command, and whether you want to delete the command or
-reuse it. For example, in the `turnOffAc`
-example above, he following code shows a sample response.
+This command generates a response containing command information, including creation and deprecation timestamps from the last updated field. This helps determine command lifetime and whether to delete or reuse it. The following shows a sample response for the `turnOffAc` command:
 
 ```
 {
     "commandId": "turnOffAC",
-    "commandArn": "arn:aws:iot:ap-south-1:123456789012:command/turnOffAC",
+    "commandArn": "arn:aws:iot:us-east-1:123456789012:command/turnOffAC",
     "namespace": "AWS-IoT",
     "payload": {
         "content": "testPayload.json",
@@ -102,8 +80,7 @@ example above, he following code shows a sample response.
 
 ## Restore a command resource
 
-To use the `ACSwitch` command or to send this command to your device,
-you must restore it.
+To use or send the `ACSwitch` command to your device, restore it first.
 
 To restore a command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") of the AWS IoT console, choose the
 command that you want to restore, and then under **Actions**,

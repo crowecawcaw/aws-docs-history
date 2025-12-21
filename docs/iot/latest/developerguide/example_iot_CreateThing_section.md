@@ -2,6 +2,54 @@
 
 The following code examples show how to use `CreateThing`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+    /// <summary>
+    /// Creates an AWS IoT Thing.
+    /// </summary>
+    /// <param name="thingName">The name of the Thing to create.</param>
+    /// <returns>The ARN of the Thing created, or null if creation failed.</returns>
+    public async Task<string?> CreateThingAsync(string thingName)
+    {
+        try
+        {
+            var request = new CreateThingRequest
+            {
+                ThingName = thingName
+            };
+
+            var response = await _amazonIoT.CreateThingAsync(request);
+            _logger.LogInformation($"Created Thing {thingName} with ARN {response.ThingArn}");
+            return response.ThingArn;
+        }
+        catch (Amazon.IoT.Model.ResourceAlreadyExistsException ex)
+        {
+            _logger.LogWarning($"Thing {thingName} already exists: {ex.Message}");
+            return null;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Couldn't create Thing {thingName}. Here's why: {ex.Message}");
+            return null;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [CreateThing](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md")
+  in _AWS SDK for .NET API Reference_.
+
 C++
 
 **SDK for C++**

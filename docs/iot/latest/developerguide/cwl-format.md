@@ -57,7 +57,8 @@ The AWS IoT message broker generates a log entry with an `eventType` of
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `Connect` log entries contain
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`Connect` log entries contain
 the following attributes:
 
 clientId
@@ -107,7 +108,8 @@ The AWS IoT message broker generates a log entry with an `eventType` of
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `Disconnect` log entries contain
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`Disconnect` log entries contain
 the following attributes:
 
 clientId
@@ -166,7 +168,8 @@ The AWS IoT message broker generates a log entry with an `eventType` of
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `DeleteConnection` log entries contain
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`DeleteConnection` log entries contain
 the following attributes:
 
 clientId
@@ -213,7 +216,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `GetRetainedMessage` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`GetRetainedMessage` log entries
 contain the following attributes:
 
 lastModifiedDate
@@ -256,7 +260,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `ListRetainedMessage` log
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`ListRetainedMessage` log
 entries contains the following attribute:
 
 protocol
@@ -290,7 +295,8 @@ with an `eventType` of `Publish-In`.
 
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `Publish-In` log entries contain
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`Publish-In` log entries contain
 the following attributes:
 
 clientId
@@ -310,7 +316,8 @@ retain
 
 The attribute used when a message has the RETAIN flag set with a value of
 `True`. If the message doesn't have the RETAIN flag set, this
-attribute doesn't appear in the log entry. For more information, see [MQTT retained messages](mqtt.md#mqtt-retain "mqtt.md#mqtt-retain").
+attribute doesn't appear in the log entry. For more information, see [MQTT retained messages](mqtt.md#mqtt-retain "mqtt.md#mqtt-retain")
+.
 
 sourceIp
 
@@ -348,7 +355,8 @@ When the message broker publishes an MQTT message, it generates a log entry with
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `Publish-Out` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`Publish-Out` log entries
 contain the following attributes:
 
 clientId
@@ -381,7 +389,8 @@ The name of the subscribed topic.
 
 When a device with a persistent session is disconnected, the MQTT message broker
 stores the device's messages and AWS IoT generates log entries with an eventType of
-`Queued`. For more information about MQTT persistent sessions, see [MQTT persistent sessions](mqtt.md#mqtt-persistent-sessions "mqtt.md#mqtt-persistent-sessions").
+`Queued`. For more information about MQTT persistent sessions, see [MQTT persistent sessions](mqtt.md#mqtt-persistent-sessions "mqtt.md#mqtt-persistent-sessions")
+.
 
 #### Queued server error log entry
 
@@ -403,7 +412,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `Queued` server error log
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`Queued` server error log
 entries contain the following attributes:
 
 clientId
@@ -449,7 +459,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `Queued` success log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`Queued` success log entries
 contain the following attributes:
 
 clientId
@@ -490,7 +501,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `Queued` throttled log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`Queued` throttled log entries
 contain the following attributes:
 
 clientId
@@ -544,7 +556,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `Subscribe` log entries contain
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`Subscribe` log entries contain
 the following attributes:
 
 clientId
@@ -603,7 +616,8 @@ example
 }
 ```
 
-For MQTT 5 Subscribe operations, in addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes") and the
+For MQTT 5 Subscribe operations, in addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+and the
 [MQTT 3 Subscribe log entry
 attributes](#log-mb-connect.example.subscribe "#log-mb-connect.example.subscribe"), MQTT 5 `Subscribe` log entries contain the following
 attribute:
@@ -639,7 +653,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `Unsubscribe` log entries contain
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`Unsubscribe` log entries contain
 the following attributes:
 
 protocol
@@ -741,7 +756,8 @@ The following is a log entry example of `Failure`.
 }
 ```
 
-For the `RetrieveOCSPStaple` operation, in addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), the log
+For the `RetrieveOCSPStaple` operation, in addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+, the log
 entries contain the following attributes:
 
 reason
@@ -893,7 +909,8 @@ The following is a log entry example of `Failure`.
 }
 ```
 
-For the `RetrieveOCSPStaple` operation, in addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes") and the
+For the `RetrieveOCSPStaple` operation, in addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+and the
 attributes in [RetrieveOCSPStapleData log entry](cwl-format.md#log-retrieve-ocsp-staple "cwl-format.md#log-retrieve-ocsp-staple"), the log entries for private endpoints
 contain the following attributes:
 
@@ -947,7 +964,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `DeleteThingShadow` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`DeleteThingShadow` log entries
 contain the following attributes:
 
 deviceShadowName
@@ -986,7 +1004,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `GetThingShadow` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`GetThingShadow` log entries
 contain the following attributes:
 
 deviceShadowName
@@ -1026,7 +1045,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `UpdateThingShadow` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`UpdateThingShadow` log entries
 contain the following attributes:
 
 deviceShadowName
@@ -1085,7 +1105,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `FunctionExecution` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`FunctionExecution` log entries
 contain the following attributes:
 
 clientId
@@ -1131,6 +1152,55 @@ When the AWS IoT rules engine triggers a rule's action, it generates a
         "RepublishTopic": "rules/republish"
     },
     "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167"
+}
+```
+
+#### RuleExecution with batching log
+
+entry example
+
+```
+{
+    "logLevel": "INFO",
+    "accountId": "123456789012",
+    "status": "Success",
+    "eventType": "RuleExecution",
+    "ruleName": "rule_test",
+    "ruleAction": "HttpAction",
+    "resources": {
+        "Url": "https://example.com",
+        "ConfirmationUrl": "https://example.com"
+    },
+    "details": "HttpAction made a request to the specified endpoint",
+    "batchDetails": {
+        "timestamps": [
+            "1234567890123",
+            "1234567890123",
+            "1234567890123"
+        ],
+        "traceIds": [
+            "30aa7ccc-1d23-0b97-aa7b-76196d83537e",
+            "30aa7ccc-1d23-0b97-aa7b-76196d83537c",
+            "30aa7ccc-1d23-0b97-aa7b-76196d83537d"
+        ],
+        "clientIds": [
+            "N/A",
+            "N/A",
+            "N/A"
+        ],
+        "topicNames": [
+            "topic/ruletest",
+            "topic/ruletest",
+            "topic/ruletest"
+        ],
+        "principalIds": [
+            "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+            "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+            "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167"
+        ],
+        "batchSize": 3,
+        "batchSizeInBytes": 114
+    }
 }
 ```
 
@@ -1184,7 +1254,8 @@ rule.
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `RuleMatch` log entries contain
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`RuleMatch` log entries contain
 the following attributes:
 
 clientId
@@ -1229,7 +1300,8 @@ entry example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `RuleExecutionThrottled` log
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`RuleExecutionThrottled` log
 entries contain the following attributes:
 
 clientId
@@ -1282,7 +1354,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `RuleNotFound` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`RuleNotFound` log entries
 contain the following attributes:
 
 clientId
@@ -1334,7 +1407,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `rule-` log entries contain the
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`rule-` log entries contain the
 following attributes:
 
 clientId
@@ -1398,7 +1472,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `GetJobExecution` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`GetJobExecution` log entries
 contain the following attributes:
 
 clientId
@@ -1453,7 +1528,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `GetPendingJobExecution` log
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`GetPendingJobExecution` log
 entries contain the following attributes:
 
 clientId
@@ -1500,7 +1576,8 @@ The AWS IoT Jobs service generates a log entry with an `entryType` of
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `ReportFinalJobExecutionCount`
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`ReportFinalJobExecutionCount`
 log entries contain the following attributes:
 
 details
@@ -1536,7 +1613,8 @@ service generates a log entry with an `eventType` of
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `StartNextPendingJobExecution`
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`StartNextPendingJobExecution`
 log entries contain the following attributes:
 
 clientId
@@ -1589,7 +1667,8 @@ example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `UpdateJobExecution` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`UpdateJobExecution` log entries
 contain the following attributes:
 
 clientId
@@ -1657,7 +1736,8 @@ log entry example
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `GetDeviceCredentials` log
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`GetDeviceCredentials` log
 entries contain the following attributes:
 
 details
@@ -1692,7 +1772,8 @@ example
  }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `ProvisionDevice` log entries
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,`ProvisionDevice` log entries
 contain the following attributes:
 
 details
@@ -1758,7 +1839,8 @@ groups, as described in `reason`.
 }
 ```
 
-In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"),
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
+,
 `AddThingToDynamicThingGroupsFailed` log entries contain the following
 attributes:
 
@@ -1828,7 +1910,8 @@ includes the value of `eventType` for that log entry.
 
 logLevel
 
-The log level being used. For more information, see [Log levels](configure-logging.md#log-level "configure-logging.md#log-level").
+The log level being used. For more information, see [Log levels](configure-logging.md#log-level "configure-logging.md#log-level")
+.
 
 status
 

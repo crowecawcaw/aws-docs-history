@@ -1,15 +1,11 @@
 # Commands concepts and status
 
-Use AWS IoT commands to send an instruction from the cloud to a device that's connected
-to AWS IoT. To use the commands feature:
+Use AWS IoT Commands to send instructions from the cloud to connected devices. To use this feature:
 
-1. First, create a command resource with a payload that contains the
-   configurations required to run the command on the device.
-2. Specify the target device that will receive the payload and perform the
-   specified actions.
-3. Run the command on the target device, and retrieve the status information from
-   the device. To troubleshoot any issues, see the CloudWatch logs.
-   For more information about this workflow, see [High level commands workflow](iot-remote-command-workflow.md "iot-remote-command-workflow.md").
+1. Create a command with a payload containing the configurations required to run on the device.
+2. Specify the target device that will receive the payload and perform the actions.
+3. Execute the command on the target device and retrieve status information. To troubleshoot issues, see CloudWatch logs.
+   For more information about this workflow, see [High-level commands workflow](iot-remote-command-workflow.md "iot-remote-command-workflow.md").
 
 ###### Topics
 
@@ -19,123 +15,173 @@ to AWS IoT. To use the commands feature:
 
 ## Commands key concepts
 
-The following shows some key concepts for using the commands feature.
+The following key concepts help you understand the Commands feature. Terms are used consistently throughout this documentation:
+
+- _Command_ - A reusable template defining device instructions
+- _Execution_ - An instance of a command running on a device
+- _Thing name_ - Identifier for devices registered in IoT registry
+- _Client ID_ - MQTT identifier for unregistered devices
+- _Payload_ - The instruction data sent to devices
+- _Topic_ - MQTT channel for command communication
 
 **Commands**
 
-Commands are instructions that are sent from the cloud to your IoT
-devices. These instructions (command payload) are sent to the devices as
-MQTT messages. After the devices receive the command payload, they can
-process the instructions to take the corresponding action. Examples of
-such actions include modifying device configuration settings,
-transmitting sensor readings, or uploading logs. The devices can then
-run the command and return the result to the cloud. This enables you to
-remotely monitor and control connected devices.
+Commands are instructions sent from the cloud to your IoT devices as MQTT messages. After receiving the payload, devices process the instructions and take corresponding actions, such as modifying configuration settings, transmitting sensor readings, or uploading logs. Devices then return results to the cloud, enabling remote monitoring and control.
 
 **Namespace**
 
-When you use the commands feature, you can specify the namespace for
-the command. When you want to create a command in AWS IoT Device Management, you must use
-the default `AWS-IoT` namespace. When you use this namespace,
-you must provide a payload when creating the command. The payload will
-be used when you run the command on your target device. If you want to
-create a command for AWS IoT FleetWise instead, you must use
-the `AWS-IoT-FleetWise` namespace instead. For more
-information, see [Remote commands](../../../iot-fleetwise/latest/developerguide/remote-commands.md "../../../iot-fleetwise/latest/developerguide/remote-commands.md") in the
-_AWS IoT FleetWise developer guide for
-commands_.
+When creating a command, specify its namespace. For AWS IoT Device Management commands, use the default `AWS-IoT` namespace and provide either a payload or payloadTemplate. For AWS IoT FleetWise commands, use the `AWS-IoT-FleetWise` namespace. For more information, see [Remote commands](../../../iot-fleetwise/latest/developerguide/remote-commands.md "../../../iot-fleetwise/latest/developerguide/remote-commands.md") in the _AWS IoT FleetWise Developer Guide_.
 
 **Payload**
 
-When you create the command, you must provide a payload that defines
-the actions the device must perform. The payload can use any format of
-your choice. To make sure that the device can correctly read and
-understand the information that you're sending, we recommend that you
-specify the payload format type in the command. If your devices use
-MQTT5, they can follow the MQTT standard to identify the payload format.
-A format indicator for JSON or CBOR will be available in the commands
-request topic.
+When creating a command, provide a static payload that defines the actions the device must perform. The payload can use any supported format. To ensure devices correctly interpret the payload, we recommend specifying the payload format type. Devices using the MQTT5 protocol can follow the MQTT standard to identify the format. Format indicators for JSON or CBOR are available in the commands request topic.
+
+**Payload template**
+
+A payload template defines a command payload with placeholders that generate different payloads at runtime based on parameter values you provide. For example, instead of creating separate payloads for different temperature values, create one template with a temperature placeholder and specify the value during execution. This eliminates maintaining multiple similar payloads.
 
 **Target device**
 
-When you want to run the command, you must specify a target device
-that will receive the command and perform actions. If your device has
-been registered as a _thing_ with AWS IoT, you can use
-the thing name. If your device hasn't been registered, you can use the
-MQTT client ID instead. The client ID is a unique identifier for your
-device or client defined in the [MQTT](mqtt.md "mqtt.md") protocol. It can be used to connect your
-device to AWS IoT.
-
-**Command execution**
-
-A command execution is an instance of a command that runs on the
-target device. When you start the execution, the command (payload) is
-delivered to the target device. A unique command execution ID is now
-generated for the target. The device can then execute the command and
-report its progress to AWS IoT. The device-side logic determines how the
-command will be executed and how the status gets published to the
-reserved topics.
+To execute a command, specify a target device using either its thing name (for devices registered with AWS IoT) or MQTT client ID (for unregistered devices). The client ID is a unique identifier defined in the [MQTT](mqtt.md "mqtt.md") protocol used to connect devices to AWS IoT. For details, see [Target device
+considerations](iot-remote-command-execution-start-monitor.md#iot-command-execution-target "iot-remote-command-execution-start-monitor.md#iot-command-execution-target").
 
 **Commands topics**
 
-Before you run the command, your device must have subscribed to the
-commands request topic. When you send the request to the cloud to
-execute the command, the payload will be sent to the device on the
-commands request topic. After the device executes the command, it can
-publish the result and status of the execution to the commands response
-topic. For more information, see [Commands topics](reserved-topics.md#reserved-topics-commands "reserved-topics.md#reserved-topics-commands").
+Before executing a command, devices must subscribe to the commands request topic. When you execute a command, the payload is sent to the device on this topic. After execution, devices publish results and status to the commands response topic. For more information, see [Commands topics](reserved-topics.md#reserved-topics-commands "reserved-topics.md#reserved-topics-commands").
 
-## Command states
+**Command execution**
 
-A command that you create in your AWS account can be either in an
-_Available_, _Deprecated_, or a
-_Pending deletion_ state.
+An execution is an instance of a command running on a target device. When you start an execution, the payload is delivered to the device and a unique execution ID is generated. The device executes the command and reports progress to AWS IoT. Device-side logic determines execution behavior and status reporting to reserved topics.
 
-**Available**
+### Parameter value conditions
 
-After you've successfully created a command resource, it will be in an
-available state. The command can now be used to send a command execution
-to the device.
+When creating commands with payload templates, define value conditions to validate parameter values before execution. Value conditions ensure parameters meet requirements, preventing invalid executions.
 
-**Deprecated**
+**Supported operators by [CommandParameterValue](../apireference/API_CommandParameterValue.md "../apireference/API_CommandParameterValue.md") type**
 
-If you no longer intend to use a command, you can mark it for
-deprecation. In this state, you cannot send any new executions of the
-command to your devices. Any pending executions that had already started
-will continue running on the device to completion. To send new
-executions, you must restore the command so that it becomes
-available.
+**Numeric types (INTEGER, LONG, DOUBLE, UNSIGNEDLONG)**
 
-**Pending deletion**
+- `EQUALS` - Value must equal the specified number
+- `NOT_EQUALS` - Value must not equal the specified number
+- `GREATER_THAN` - Value must be greater than the specified number
+- `GREATER_THAN_EQUALS` - Value must be greater than or equal to the specified number
+- `LESS_THAN` - Value must be less than the specified number
+- `LESS_THAN_EQUALS` - Value must be less than or equal to the specified number
+- `IN_RANGE` - Value must be within the specified range (inclusive)
+- `NOT_IN_RANGE` - Value must be outside the specified range (inclusive)
+- `IN_SET` - Value must match one of the specified numbers
+- `NOT_IN_SET` - Value must not match any of the specified numbers
 
-When you mark a command for deletion, if the command has been
-deprecated for a duration that's longer than the maximum timeout, the
-command will be deleted automatically. This action is permanent and
-can't be undone. By default, the maximum timeout duration is 12 hours.
-If the command isn't deprecated, or has been deprecated for a duration
-shorter than the maximum timeout, the command will be in a pending
-deletion state. The command will be removed automatically from your
-account after the maximum timeout duration.
+**String type (STRING)**
 
-## Command execution status
+- `EQUALS` - Value must equal the specified string
+- `NOT_EQUALS` - Value must not equal the specified string
+- `IN_SET` - Value must match one of the specified strings
+- `NOT_IN_SET` - Value must not match any of the specified strings
 
-When you start the command execution on the target device, the command execution
-enters a `CREATED` status. It can then transition to any of the other
-command execution statuses depending on the status reported by the device. You can
-then retrieve the status information and track your command executions.
+**Boolean type**
+
+- Value conditions are not supported
+
+**Binary type**
+
+- Value conditions are not supported
+
+**Example: Temperature control command**
+
+```
+{
+  "commandId": "SetTemperature",
+  "namespace": "AWS-IoT",
+  "payloadTemplate": "{\"temperature\": \"${aws:iot:commandexecution::parameter:temperature}\"}",
+  "parameters": [
+    {
+      "name": "temperature",
+      "type": "INTEGER",
+      "valueConditions": [
+        {
+          "comparisonOperator": "IN_RANGE",
+          "operand": {
+            "numberRange": {
+              "min": "60",
+              "max": "80"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+In this example, the `temperature` parameter must be between 60 and 80 (inclusive). Execution requests with values outside this range fail validation.
 
 ###### Note
 
-For a given target device, you can run multiple commands concurrently. You can
-use the concurrency control feature to limit the maximum number of executions
-that are sent to the same device, which prevents the device from being
-overloaded. For information about the maximum number of concurrent executions
-that you can run for each device, see [AWS IoT Device Management
+Value conditions are evaluated at invocation of [StartCommandExecution API](../apireference/API_iot-jobs-data_StartCommandExecution.md "../apireference/API_iot-jobs-data_StartCommandExecution.md"). Failed validations return an error and prevent execution creation.
+
+### Parameter value priority and evaluation
+
+When starting command executions with payload templates, parameter values are resolved using the following priority:
+
+1. **Execution request parameters** - Values provided in the `StartCommandExecution` request take highest priority
+2. **Command default values** - If a parameter is not provided in the execution request, the parameter's `defaultValue` is used
+3. **No value** - If neither is provided, execution fails as the parameter required to generate the execution request
+
+Value conditions are evaluated on the final parameter value derived above on the priority and before execution creation. If validation fails, the execution request returns an error.
+
+**Example: SetTemperature command with `defaultValue`**
+
+```
+{
+  "parameters": [
+    {
+      "name": "temperature",
+      "type": "INTEGER",
+      "defaultValue": {"I": 72},
+      "valueConditions": [
+        {
+          "comparisonOperator": "IN_RANGE",
+          "operand": {"numberRange": {"min": "60", "max": "80"}}
+        }
+      ]
+    }
+  ]
+}
+```
+
+When starting execution:
+
+- If you provide `"temperature": {"I": 75}` in the request, 75 is used
+- If you omit the temperature parameter, the default value 72 is used
+- Both values are validated against the range condition [60,80]
+
+## Command states
+
+Commands in your AWS account can be in one of three states: _Available_, _Deprecated_, or _Pending deletion_.
+
+**Available**
+
+After successful creation, a command is in the Available state and can be executed on devices.
+
+**Deprecated**
+
+Mark commands for deprecation when no longer needed. Deprecated commands cannot start new executions, but pending executions continue to completion. To enable new executions, restore the command to Available state.
+
+**Pending deletion**
+
+When you mark a command for deletion, it is deleted automatically if deprecated longer than the maximum timeout (default: 12 hours). This action is permanent. If not deprecated or deprecated for less than the timeout, the command enters Pending deletion state and is removed after the timeout expires.
+
+## Command execution status
+
+When you start an execution on a target device, it enters `CREATED` status and can transition to other statuses based on device reports. You can retrieve status information and track executions.
+
+###### Note
+
+You can run multiple commands concurrently on a device. Use concurrency control to limit executions per device and prevent overload. For maximum concurrent executions per device, see [AWS IoT Device Management
 commands quotas](../../../general/latest/gr/iot_device_management.md#commands-limits "../../../general/latest/gr/iot_device_management.md#commands-limits").
 
-The following table shows the different statuses of a command execution and how
-the command execution transitions between the various statuses depending on the
-progress of the execution.
+The following table shows execution statuses and their transitions based on execution progress.
 
 | Command execution status and source | Command execution status | Initiated by device/cloud? | Terminal execution?                                                   | Allowed status transitions |
 | ----------------------------------- | ------------------------ | -------------------------- | --------------------------------------------------------------------- | -------------------------- |
@@ -146,26 +192,18 @@ progress of the execution.
 | `FAILED`                            | Device                   | Yes                        | Not applicable                                                        |
 | `REJECTED`                          | Device                   | Yes                        | Not applicable                                                        |
 
-As your devices execute the command, it can publish updates to the status and
-result any time to the cloud using the commands reserved MQTT topics. To provide
-additional context about the status of each command execution to the cloud, it can
-use the `reasonCode` and `reasonDescription` that are
-contained within the `statusReason` object.
+Devices can publish status and result updates anytime using commands reserved MQTT topics. To provide additional context, devices can use `reasonCode` and `reasonDescription` fields in the `statusReason` object.
 
-The following diagram shows the various command execution statuses and how the
-transition occurs between them.
+The following diagram shows execution status transitions.
 
 ![Image showing how a command execution status transitions between various statuses.](images/command-execution-status-transitions.png)
 
 ###### Note
 
-When AWS IoT detects no device response within the timeout period, it sets `TIMED_OUT` as a temporary status that allows retries and
-state changes. If your device explicitly reports `TIMED_OUT` during command execution, this becomes a terminal status with no further transitions
-possible. See [Non-terminal command
+When AWS IoT detects no device response within the timeout period, it sets `TIMED_OUT` as a temporary status allowing retries and state changes. If your device explicitly reports `TIMED_OUT`, this becomes a terminal status with no further transitions. For more information, see [Non-terminal command
 executions](#iot-command-execution-status-nonterminal "#iot-command-execution-status-nonterminal").
 
-The following section describes terminal and non-terminal command executions, the
-various execution statuses, and how it works.
+The following sections describe terminal and non-terminal executions and their statuses.
 
 ###### Topics
 
@@ -178,59 +216,26 @@ various execution statuses, and how it works.
 
 executions
 
-Your command execution is non-terminal if the execution can accept updates
-from devices or clients. An execution in a non-terminal status is considered
-_Active_. The following statuses are non-terminal.
+An execution is non-terminal if it can accept updates from devices. Non-terminal executions are considered _Active_. The following statuses are non-terminal:
 
 - ###### CREATED
 
-When you start a command execution from the AWS IoT console, or use
-the `StartCommandExecution` API to send the command to
-your device using the commands request topic. If the request is
-successful, the command execution status changes to
-`CREATED`. From this status, the command execution
-can transition to any of the other non-terminal or terminal
-statuses.
+When you start an execution from the AWS IoT console or use the `StartCommandExecution` API, successful requests change the status to `CREATED`. From this status, executions can transition to any other non-terminal or terminal status.
 
 - ###### IN_PROGRESS
 
-After receiving the command payload, your device can start
-executing the instructions in the payload and perform the actions
-specified. While executing the command, the device can publish a
-response to the commands response topic and update the command
-execution status as `IN_PROGRESS`. From the
-`IN_PROGRESS` status, the command execution can
-transition to any of the other terminal or non-terminal statuses
-other than `CREATED`.
+After receiving the payload, devices can start executing instructions and performing specified actions. While executing, devices can publish responses to the commands response topic and update status to `IN_PROGRESS`. From `IN_PROGRESS`, executions can transition to any terminal or non-terminal status except `CREATED`.
 
 ###### Note
 
-The `UpdateCommandExecution` API can be invoked
-multiple times with a status of `IN_PROGRESS`. You can
-specify additional details about the execution using the
-`statusReason` object.
+The `UpdateCommandExecution` API can be invoked multiple times with `IN_PROGRESS` status. Specify additional execution details using the `statusReason` object.
 
 - ###### TIMED_OUT
 
-This command execution status can be triggered by both the cloud
-and the device. An execution in `CREATED` or
-`IN_PROGRESS` status can change to the
-`TIMED_OUT` status due to the following
-reasons.
+Both cloud and device can trigger this status. Executions in `CREATED` or `IN_PROGRESS` status can change to `TIMED_OUT` for the following reasons:
 
-    + After the command is sent to the device, a timer starts. If
-     there is no response from the device within a specified
-     duration, the cloud changes the command execution status to
-     `TIMED_OUT`. In this case, the command execution
-     is non-terminal.
-    + The device can override the status to any of the other
-     terminal statuses, or report that a time out occurred when
-     executing the command, and set the status to
-     `TIMED_OUT`. In this case, the execution status
-     stays at `TIMED_OUT` but the fields of the
-     `StatusReason` object change depending on the
-     information reported by the devices. The command execution now
-     becomes terminal.
+    + After sending the command, a timer starts. If the device doesn't respond within the specified duration, the cloud changes status to `TIMED_OUT`. In this case, the execution is non-terminal.
+    + The device can override status to any terminal status or report a timeout and set status to `TIMED_OUT`. In this case, status remains `TIMED_OUT`, but `StatusReason` object fields change based on device information. The execution becomes terminal.
 
 For more information, see [Time out value and
 TIMED_OUT execution status](iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status "iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status").
@@ -239,32 +244,16 @@ TIMED_OUT execution status](iot-remote-command-execution-start-monitor.md#iot-co
 
 executions
 
-A command execution becomes terminal if the execution no longer accepts any
-additional updates from the devices. The following statuses are terminal. An
-execution can transition to the terminal statuses from any of the non-terminal
-statuses, `CREATED`, `IN_PROGRESS`, or
-`TIMED_OUT`.
+An execution becomes terminal when it no longer accepts updates from devices. The following statuses are terminal. Executions can transition to terminal statuses from any non-terminal status: `CREATED`, `IN_PROGRESS`, or `TIMED_OUT`.
 
 - ###### SUCCEEDED
 
-If the device successfully completed executing the command, it can
-publish a response to the commands response topic and update the
-command execution status to `SUCCEEDED`.
+If the device successfully completes execution, it can publish a response to the commands response topic and update status to `SUCCEEDED`.
 
 - ###### FAILED
 
-When your device fails to complete executing the command, it can
-publish a response to the commands response topic and update the
-command execution status to `FAILED`. You can use the
-`reasonCode` and `reasonDescription`
-fields of the `statusReason` object, or the CloudWatch logs, to
-further troubleshoot the failures.
+When a device fails to complete execution, it can publish a response to the commands response topic and update status to `FAILED`. Use the `reasonCode` and `reasonDescription` fields in the `statusReason` object, or CloudWatch logs, to troubleshoot failures.
 
 - ###### REJECTED
 
-When your device receives an invalid or incompatible request, the
-device can invoke the `UpdateCommandExecution` API with a
-status of `REJECTED`. You can use the
-`reasonCode` and `reasonDescription`
-fields of the `statusReason` object, or the CloudWatch logs, to
-further troubleshoot any issues.
+When a device receives an invalid or incompatible request, it can invoke the `UpdateCommandExecution` API with status `REJECTED`. Use the `reasonCode` and `reasonDescription` fields in the `statusReason` object, or CloudWatch logs, to troubleshoot issues.

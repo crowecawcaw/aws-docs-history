@@ -861,7 +861,7 @@ Any valid expression containing
 [Data types](iot-sql-data-types.md "iot-sql-data-types.md"),
 [Functions](iot-sql-functions.md "iot-sql-functions.md"),
 [Literals](iot-sql-literals.md "iot-sql-literals.md"),
-[Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage")
+[Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage"),
 [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"), or
 [JSON extensions](iot-sql-json.md "iot-sql-json.md").
 
@@ -871,7 +871,7 @@ defaultValue
 [Data types](iot-sql-data-types.md "iot-sql-data-types.md"),
 [Functions](iot-sql-functions.md "iot-sql-functions.md"),
 [Literals](iot-sql-literals.md "iot-sql-literals.md"),
-[Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage")
+[Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage"),
 [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"), or
 [JSON extensions](iot-sql-json.md "iot-sql-json.md").
 This is the value to be returned whenever the first argument returns

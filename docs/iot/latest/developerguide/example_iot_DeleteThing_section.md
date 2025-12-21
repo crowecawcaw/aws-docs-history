@@ -2,6 +2,54 @@
 
 The following code examples show how to use `DeleteThing`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+    /// <summary>
+    /// Deletes an IoT Thing.
+    /// </summary>
+    /// <param name="thingName">The name of the Thing to delete.</param>
+    /// <returns>True if successful, false otherwise.</returns>
+    public async Task<bool> DeleteThingAsync(string thingName)
+    {
+        try
+        {
+            var request = new DeleteThingRequest
+            {
+                ThingName = thingName
+            };
+
+            await _amazonIoT.DeleteThingAsync(request);
+            _logger.LogInformation($"Deleted Thing {thingName}");
+            return true;
+        }
+        catch (Amazon.IoT.Model.ResourceNotFoundException ex)
+        {
+            _logger.LogError($"Cannot delete Thing - resource not found: {ex.Message}");
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Couldn't delete Thing. Here's why: {ex.Message}");
+            return false;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [DeleteThing](../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteThing.md")
+  in _AWS SDK for .NET API Reference_.
+
 C++
 
 **SDK for C++**

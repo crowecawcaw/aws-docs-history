@@ -1,8 +1,7 @@
 # Create and manage commands
 
-You can use the AWS IoT Device Management commands feature to either configure reusable remote actions or
-send one-time, immediate instructions to your devices. The following sections show you
-how you can create and manage commands from the AWS IoT console and using the AWS CLI.
+Use AWS IoT Device Management Commands to configure reusable remote actions or
+send immediate instructions to devices. Create and manage Commands from the AWS IoT console or using the AWS CLI.
 
 ###### Create and manage commands operations
 
@@ -16,112 +15,119 @@ how you can create and manage commands from the AWS IoT console and using the AW
 
 ## Create a command resource
 
-When you create a command, you must provide the following information.
+Provide the following information when creating a Command:
 
 - ###### General information
 
-When creating a command, you must provide a command ID, which is a unique
-identifier to help you identify the command when you want to run it on the
-target device. Optionally, you can also specify a display name, description,
-and tags to further help you manage the command.
+Provide a unique Command ID to identify the Command when running it on target devices. Optionally specify a display name, description,
+and tags for management.
 
 - ###### Payload
 
-You must also provide a payload that defines the actions the
-device must perform. While optional, we recommend that you specify the
-payload format type so that the device correctly inteprets the payload.
+For static Commands, provide a Payload defining device actions. Specify the
+Payload format type for correct device interpretation.
 
-The commands reserved topics use a format that depends on
-the payload format type.
+For dynamic Commands, see the Payload template attribute.
 
-- If you specify a payload content type of `application/json`
-  or `application/cbor`, then the request topic will be the following.
+- ###### Payload template
+
+For dynamic Commands, provide a payloadTemplate with placeholders and parameters.
+Optionally provide `defaultValue` and conditions. AWS IoT Device Management Commands replaces placeholders
+at runtime. Missing parameters use their defaultValue. All values must
+satisfy defined conditions.
+
+The following case-sensitive placeholder types are supported:
+
+    + `${aws:iot:commandexecution::parameter:`parameter1`}` – A placeholder for the value of a parameter with the name `parameter1`.
+    + `${aws:iot:commandexecution::executionTimeoutSec}` – A placeholder for the command execution timeout parameter supplied at runtime.
+
+Commands reserved Topics use a format based on Payload format type.
+
+- For `application/json`
+  or `application/cbor` content types, use this request Topic:
 
 ```
 $aws/commands/`<devices>`/`<DeviceID>`/executions/+/request/`<PayloadFormat>`
 ```
 
-- If you specify a payload content type other than
-  `application/json` or `application/cbor`,
-  or if you don't specify the payload format type, then the request
-  topic will be the following. In this case, the payload format will
-  be included in the MQTT message header.
+- For other content types or unspecified format, use this request
+  Topic. The Payload format appears in the MQTT message header.
 
 ```
 $aws/commands/`<devices>`/`<DeviceID>`/executions/+/request
 ```
 
-The commands response topic will return a format that
-uses `json` or `cbor` independent of the payload
-format type. The response topic will use the
-following format where `<PayloadFormat>`
-must be `json` or `cbor`.
+The Commands response Topic uses `json` or `cbor` format regardless of Payload
+type. `<PayloadFormat>`
+must be `json` or `cbor`:
 
 ```
 $aws/commands/`<devices>`/`<DeviceID>`/executions/`<ExecutionId>`/response/`<PayloadFormat>`
 ```
 
-The following sections show you the command payload format considerations and
-how to create commands from the console.
+The following sections describe Payload format considerations and
+Command creation from the console.
 
 ###### Topics
 
-- [Command payload format](#iot-commands-payload-format "#iot-commands-payload-format")
+- [Static command payload format](#iot-commands-payload-format "#iot-commands-payload-format")
+- [Dynamic command payload format](#iot-commands-dynamic-payload-format "#iot-commands-dynamic-payload-format")
 - [How to create a command (console)](#iot-commands-console-how "#iot-commands-console-how")
 
-#### Command payload format
+#### Static command payload format
 
-The payload can use any format of your choice. The maximum
-size of the payload must not exceed 32 KB. To make sure that the device can
-securely and correctly interpret the payload, we recommend that you specify
-the payload format type.
+The Payload supports any format up to 32 KB. Specify
+the Payload format type for secure and correct device interpretation.
 
-You specify the payload format type using the `type/subtype`
-format, such as `application/json` or
-`application/cbor`. By default, it will
-be set as `application/octet-stream`. For information about
-payload formats that you can specify, see [Common MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types "https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types").
+Specify Payload format type using `type/subtype`
+format (e.g., `application/json` or
+`application/cbor`). Default: `application/octet-stream`. See [Common MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types "https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types") for supported formats.
+
+#### Dynamic command payload format
+
+The payloadTemplate must be valid JSON with at least one placeholder, up to 32 KB.
+
+For `AwsJsonSubstitution` preprocessor, AWS IoT Device Management Commands sends notifications in JSON or CBOR format based on
+preprocessor configuration.
 
 #### How to create a command (console)
 
-To create a command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") of the AWS IoT console and
-perform the following steps.
+To create a Command from the console, go to [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") and
+follow these steps:
 
-1. To create a new command resource, choose **Create
+1. Choose **Create
    command**.
-2. Specify a unique command ID to help you identify the command that you
-   want to run on the target device.
-3. (Optional) Specify an optional display name, description, and any
-   name-value pairs as tags for your command.
-4. Upload the payload file from your local storage that contains the
-   actions the device needs to perform. While optional, we recommend that
-   you specify the payload format type so that the device correctly
-   interprets the file and processes the instructions.
-5. Choose **Create command**.
+2. Specify a unique Command ID.
+3. (Optional) Specify display name, description, and tags.
+4. Upload the Payload file containing device actions. Specify the Payload format type for correct device interpretation.
+5. (Optional) For JSON payload templates with placeholders, parameters
+   pre-populate in the inline table for editing.
+6. (Optional) Configure parameter value type (required), default value, and conditions.
+7. Choose **Create command**.
 
-This section describes the HTTP control plane API operation, [`CreateCommand`](../apireference/API_CreateCommand.md "../apireference/API_CreateCommand.md"), and the corresponding AWS CLI command, [`create-command`](../../../cli/latest/reference/iot/create-command.md "../../../cli/latest/reference/iot/create-command.md") that you can run to create a
-command resource.
+Use the [`CreateCommand`](../apireference/API_CreateCommand.md "../apireference/API_CreateCommand.md") API or [`create-command`](../../../cli/latest/reference/iot/create-command.md "../../../cli/latest/reference/iot/create-command.md") CLI command to create a
+Command.
 
 ###### Topics
 
 - [Command payload](#iot-commands-payload "#iot-commands-payload")
 - [Sample IAM policy](#iot-remote-command-create-iam "#iot-remote-command-create-iam")
-- [Create command
+- [Static command creation
   example](#iot-remote-command-create-example "#iot-remote-command-create-example")
+- [Dynamic command creation
+  example](#iot-remote-dynamic-command-create-example "#iot-remote-dynamic-command-create-example")
 
 #### Command payload
 
-When creating the command, you must provide a payload. The payload
-that you provide is base64 encoded. When your devices receive the
-command, the device-side logic can process the payload and perform
-the specified actions. To make sure that your devices correctly
-receive the command and the payload, we recommend that you specify
-the payload content type.
+Provide a static Payload or payload template. Static Payloads are base64 encoded. For payload templates, the final Payload generates at runtime
+using parameter values. Devices process the Payload and perform
+specified actions. Specify
+the Payload content type for correct device reception.
 
 ###### Note
 
-After you create the command, you cannot modify the payload.
-To modify the payload, you'll have to create a new command.
+Payloads cannot be modified after Command creation.
+Create a new Command to modify the Payload.
 
 #### Sample IAM policy
 
@@ -134,7 +140,7 @@ In this example, replace:
 
 - `region` with your
   AWS Region, such as
-  `ap-south-1`.
+  `us-east-1`.
 - `account-id` with your
   AWS account number, such as
   `123456789012`.
@@ -157,15 +163,15 @@ In this example, replace:
 
 ```
 
-#### Create command
+#### Static command creation
 
 example
 
-The following example shows how you can create a command. Depending on your
+The following example shows how you can create a static command. Depending on your
 application, replace:
 
 - `<command-id>` with a
-  unique identifier for the command. For example, to lock the doc-history
+  unique identifier for the command. For example, to lock the door
   of your house, you can specify `LockDoor`.
   We recommend that you use UUID. You can also use alpha-numeric
   characters, "-", and "\_".
@@ -176,7 +182,9 @@ application, replace:
   name and a meaningful description for the command, such as
   `Lock the doors of my home`.
 - `namespace`, which you can use to specify the namespace
-  of the command. It must be `AWS-IoT`.
+  of the command. It must be `AWS-IoT`. For information about using this feature for
+  AWS IoT FleetWise, see [Remote
+  commands](../../../iot-fleetwise/latest/developerguide/remote-commands.md "../../../iot-fleetwise/latest/developerguide/remote-commands.md")
 - `payload` contains information about the payload that
   you want to use when running the command and it's content
   type.
@@ -199,7 +207,57 @@ command.
 ```
 {
     "commandId": "LockDoor",
-    "commandArn": "arn:aws:iot:ap-south-1:123456789012:command/LockDoor"
+    "commandArn": "arn:aws:iot:us-east-1:123456789012:command/LockDoor"
+}
+```
+
+#### Dynamic command creation
+
+example
+
+The following example shows how you can create a dynamic command. Depending on your
+application, replace:
+
+- `<command-id>` with a
+  unique identifier for the command. For example, to set the light power status,
+  you can specify `Light_Power_Status`.
+  We recommend that you use UUID. You can also use alpha-numeric
+  characters, "-", and "\_".
+- (Optional)
+  `<display-name>` and
+  `<description>`
+  , which are optional fields that you can use to provide a friendly
+  name and a meaningful description for the command, such as
+  `Turn a light ON or OFF`.
+- `namespace`, which you can use to specify the namespace
+  of the command. It must be `AWS-IoT`. For information about using this feature for
+  AWS IoT FleetWise, see [Remote
+  commands](../../../iot-fleetwise/latest/developerguide/remote-commands.md "../../../iot-fleetwise/latest/developerguide/remote-commands.md")
+- `payloadTemplate` contains the JSON formatted playoad template with placehodlers.
+- `preprocessor` contains the configuration for preprocessor that determines how the payloadTemplate must be processed.
+- `mandatoryParameter` contains the parameters corresponding to the placeholders in the payloadTemplate, their type, default values, and conditions.
+
+```
+aws iot create-command \
+    --command-id `Light_Power_Status` \
+    --description `"Turn a light ON or OFF"` \
+    --namespace AWS-IoT \
+    --payload-template `'{"powerStatus":"${aws:iot:commandexecution::parameter:powerStatus}"}'` \
+    --preprocessor `awsJsonSubstitution={outputFormat=JSON}` \
+    --mandatory-parameters `"name=powerStatus, defaultValue={S=OFF}, valueConditions=[{comparisonOperator=IN_SET, operand={strings=['ON','OFF']}}]"`
+
+```
+
+Running this command generates a response that contains the ID and ARN
+(Amazon resource name) of the command. For example, if you specified the
+`Light_Power_Status`
+command during creation, the following shows a sample output of running the
+command.
+
+```
+{
+    "commandId": "Light_Power_Status",
+    "commandArn": "arn:aws:iot:us-east-1:123456789012:command/Light_Power_Status"
 }
 ```
 
@@ -212,7 +270,9 @@ console and using the AWS CLI. You can obtain the following information.
   description that you specified for the command.
 - The command state, which indicates whether a command is available to
   run on the target device, or whether it's being deprecated or deleted.
-- The payload that you provided and it's format type.
+- The payload or payloadTemplate that you provided.
+- The preprocessor that you provided.
+- The mandatoryParameters that you provided.
 - The time when the command was created and last updated.
 
 To retrieve a command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") of the AWS IoT console and then
@@ -239,13 +299,13 @@ shows an IAM policy that allows the user permission to perform the
 In this example, replace:
 
 - `region` with your
-  AWS Region, such as `ap-south-1`.
+  AWS Region, such as `us-east-1`.
 - `account-id` with your
   AWS account number, such as
   `123456789023`.
 - `command-id` with your AWS IoT
   unique command identifier, such as
-  `LockDoor`. If you
+  `LockDoor` or `Light_Power_Status`. If you
   want to retrieve more than one command, you can specify these
   commands under the _Resource_
   section in the IAM policy.
@@ -336,7 +396,7 @@ shows an IAM policy that allows the user permission to perform the
 In this example, replace:
 
 - `region` with your
-  AWS Region, such as `ap-south-1`.
+  AWS Region, such as `us-east-1`.
 - `account-id` with your
   AWS account number, such as
   `123456789012`.
@@ -410,7 +470,7 @@ shows an IAM policy that allows the user permission to perform the
 In this example, replace:
 
 - `region` with your
-  AWS Region, such as `ap-south-1`.
+  AWS Region, such as `us-east-1`.
 - `account-id` with your
   AWS account number, such as
   `123456789012`.
@@ -473,7 +533,7 @@ Running this command generates the following response.
 ```
 {
     "commandId": "LockDoor",
-    "commandArn": "arn:aws:iot:ap-south-1:123456789012:command/LockDoor",
+    "commandArn": "arn:aws:iot:us-east-1:123456789012:command/LockDoor",
     "displayName": "Secondary lock door",
     "description": "Locks doors to my home",
     "lastUpdatedAt": "2024-05-09T23:15:53.899000-07:00"
@@ -544,7 +604,7 @@ shows an IAM policy that allows the user permission to perform the
 In this example, replace:
 
 - `region` with your
-  AWS Region, such as `ap-south-1`.
+  AWS Region, such as `us-east-1`.
 - `account-id` with your
   AWS account number, such as
   `123456789012`.

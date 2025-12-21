@@ -2,6 +2,63 @@
 
 The following code examples show how to use `DeleteCertificate`.
 
+.NET
+
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+
+```
+    /// <summary>
+    /// Deletes an IoT certificate.
+    /// </summary>
+    /// <param name="certificateId">The ID of the certificate to delete.</param>
+    /// <returns>True if successful, false otherwise.</returns>
+    public async Task<bool> DeleteCertificateAsync(string certificateId)
+    {
+        try
+        {
+            // First, update the certificate to inactive state
+            var updateRequest = new UpdateCertificateRequest
+            {
+                CertificateId = certificateId,
+                NewStatus = CertificateStatus.INACTIVE
+            };
+            await _amazonIoT.UpdateCertificateAsync(updateRequest);
+
+            // Then delete the certificate
+            var deleteRequest = new DeleteCertificateRequest
+            {
+                CertificateId = certificateId
+            };
+
+            await _amazonIoT.DeleteCertificateAsync(deleteRequest);
+            _logger.LogInformation($"Deleted certificate {certificateId}");
+            return true;
+        }
+        catch (Amazon.IoT.Model.ResourceNotFoundException ex)
+        {
+            _logger.LogError($"Cannot delete certificate - resource not found: {ex.Message}");
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Couldn't delete certificate. Here's why: {ex.Message}");
+            return false;
+        }
+    }
+
+
+```
+
+- For API details, see
+  [DeleteCertificate](../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate.md")
+  in _AWS SDK for .NET API Reference_.
+
 C++
 
 **SDK for C++**
