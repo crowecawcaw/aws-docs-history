@@ -60,7 +60,7 @@ automatically remediating any failures using the Kubernetes
 control plane.
 
 Design patterns that are accessed through a load balancer using
-compute clusters should leverage Amazon EC2 Auto Scaling groups. ELB (ELB) automatically distributes incoming
+compute clusters should leverage Auto Scaling groups. ELB (ELB) automatically distributes incoming
 application traffic across multiple targets and virtual
 appliances in one or more Availability Zones (AZs).
 
@@ -89,8 +89,8 @@ availability.
 
 ### Implementation steps
 
-- Use Amazon EC2 Auto Scaling groups to deploy tiers in a workload.
-  [Amazon EC2 Auto Scaling](../../../autoscaling/plans/userguide/how-it-works.md "../../../autoscaling/plans/userguide/how-it-works.md") can perform self-healing on stateless
+- Use Auto Scaling groups to deploy tiers in a workload.
+  [Auto Scaling](../../../autoscaling/plans/userguide/how-it-works.md "../../../autoscaling/plans/userguide/how-it-works.md") can perform self-healing on stateless
   applications and add or remove capacity.
 - For compute instances noted previously, use
   [load

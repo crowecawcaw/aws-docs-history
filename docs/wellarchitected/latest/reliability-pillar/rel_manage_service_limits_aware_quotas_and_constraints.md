@@ -56,7 +56,7 @@ needs, then contact Support to see if there are mitigations.
 Service quotas can be Region specific or can also be global in nature.
 Using an AWS service that reaches its quota will not act as expected in
 normal usage and may cause service disruption or degradation. For example,
-a service quota limits the number of DL Amazon EC2 instances used in a Region. That limit may be reached during a traffic scaling event using Amazon EC2 Auto Scaling groups (ASG).
+a service quota limits the number of DL Amazon EC2 instances used in a Region. That limit may be reached during a traffic scaling event using Auto Scaling groups (ASG).
 
 Service quotas for each account should be assessed for usage on a regular
 basis to determine what the appropriate service limits might be for that
