@@ -1,145 +1,39 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Describe scheduled query
+# Code samples
 
-You can use the following code snippets to describe a scheduled query.
+You can access Amazon Timestream using the AWS SDKs. Timestream supports two SDKs per
+language; namely, the Write SDK and the Query SDK. The Write SDK is used to perform CRUD
+operations and to insert your time series data into Timestream. The Query SDK is used to
+query your existing time series data stored in Timestream. Select a topic from the list
+below for more details, including code samples for each of the supported SDKs.
 
-Java
+###### Topics
 
-```
-public void describeScheduledQueries(String scheduledQueryArn) {
-    System.out.println("Describing Scheduled Query");
-    try {
-        DescribeScheduledQueryResult describeScheduledQueryResult = queryClient.describeScheduledQuery(new DescribeScheduledQueryRequest().withScheduledQueryArn(scheduledQueryArn));
-        System.out.println(describeScheduledQueryResult);
-    }
-    catch (ResourceNotFoundException e) {
-        System.out.println("Scheduled Query doesn't exist");
-        throw e;
-    }
-    catch (Exception e) {
-        System.out.println("Describe Scheduled Query failed: " + e);
-        throw e;
-    }
-}
-```
-
-Java v2
-
-```
-public void describeScheduledQueries(String scheduledQueryArn) {
-    System.out.println("Describing Scheduled Query");
-    try {
-        DescribeScheduledQueryResponse describeScheduledQueryResult =
-                queryClient.describeScheduledQuery(DescribeScheduledQueryRequest.builder()
-                        .scheduledQueryArn(scheduledQueryArn)
-                        .build());
-        System.out.println(describeScheduledQueryResult);
-    }
-    catch (ResourceNotFoundException e) {
-        System.out.println("Scheduled Query doesn't exist");
-        throw e;
-    }
-    catch (Exception e) {
-        System.out.println("Describe Scheduled Query failed: " + e);
-        throw e;
-    }
-}
-```
-
-Go
-
-```
-func (timestreamBuilder TimestreamBuilder) DescribeScheduledQuery(scheduledQueryArn string) error {
-
-     describeScheduledQueryInput := &timestreamquery.DescribeScheduledQueryInput{
-         ScheduledQueryArn: aws.String(scheduledQueryArn),
-     }
-     describeScheduledQueryOutput, err := timestreamBuilder.QuerySvc.DescribeScheduledQuery(describeScheduledQueryInput)
-
-     if err != nil {
-         if aerr, ok := err.(awserr.Error); ok {
-             switch aerr.Code() {
-             case timestreamquery.ErrCodeResourceNotFoundException:
-                 fmt.Println(timestreamquery.ErrCodeResourceNotFoundException, aerr.Error())
-             default:
-                 fmt.Printf("Error: %s", err.Error())
-             }
-         } else {
-             fmt.Printf("Error: %s", aerr.Error())
-         }
-         return err
-     } else {
-         fmt.Println("DescribeScheduledQuery is successful, below is the output:")
-         fmt.Println(describeScheduledQueryOutput.ScheduledQuery)
-         return nil
-     }
- }
-```
-
-Python
-
-```
-def describe_scheduled_query(self, scheduled_query_arn):
-    print("\nDescribing Scheduled Query")
-    try:
-        response = self.query_client.describe_scheduled_query(ScheduledQueryArn=scheduled_query_arn)
-        if 'ScheduledQuery' in response:
-            response = response['ScheduledQuery']
-            for key in response:
-                print("{} :{}".format(key, response[key]))
-    except self.query_client.exceptions.ResourceNotFoundException as err:
-        print("Scheduled Query doesn't exist")
-        raise err
-    except Exception as err:
-        print("Scheduled Query describe failed:", err)
-        raise err
-```
-
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
-
-```
-async function describeScheduledQuery(scheduledQueryArn) {
-     console.log("Describing Scheduled Query");
-     var params = {
-         ScheduledQueryArn: scheduledQueryArn
-     }
-     try {
-         const data = await queryClient.describeScheduledQuery(params).promise();
-         console.log(data.ScheduledQuery);
-     } catch (err) {
-         console.log("Describe Scheduled Query failed: ", err);
-         throw err;
-     }
- }
-```
-
-.NET
-
-```
-private async Task DescribeScheduledQuery(string scheduledQueryArn)
- {
-     try
-     {
-         Console.WriteLine("Describing Scheduled Query");
-         DescribeScheduledQueryResponse response = await _amazonTimestreamQuery.DescribeScheduledQueryAsync(
-             new DescribeScheduledQueryRequest()
-             {
-                 ScheduledQueryArn = scheduledQueryArn
-             });
-         Console.WriteLine($"{JsonConvert.SerializeObject(response.ScheduledQuery)}");
-     }
-     catch (ResourceNotFoundException e)
-     {
-         Console.WriteLine($"Scheduled Query doesn't exist: {e}");
-         throw;
-     }
-     catch (Exception e)
-     {
-         Console.WriteLine($"Describe Scheduled Query failed: {e}");
-         throw;
-     }
- }
-```
+- [Write SDK client](code-samples.md "code-samples.md")
+- [Query SDK client](code-samples.md "code-samples.md")
+- [Create database](code-samples.md "code-samples.md")
+- [Describe database](code-samples.md "code-samples.md")
+- [Update database](code-samples.md "code-samples.md")
+- [Delete database](code-samples.md "code-samples.md")
+- [List databases](code-samples.md "code-samples.md")
+- [Create table](code-samples.md "code-samples.md")
+- [Describe table](code-samples.md "code-samples.md")
+- [Update table](code-samples.md "code-samples.md")
+- [Delete table](code-samples.md "code-samples.md")
+- [List tables](code-samples.md "code-samples.md")
+- [Write data (inserts and upserts)](code-samples.md "code-samples.md")
+- [Run query](code-samples.md "code-samples.md")
+- [Run UNLOAD query](code-samples.md "code-samples.md")
+- [Cancel query](code-samples.md "code-samples.md")
+- [Create batch load task](code-samples.md "code-samples.md")
+- [Describe batch load task](code-samples.md "code-samples.md")
+- [List batch load tasks](code-samples.md "code-samples.md")
+- [Resume batch load task](code-samples.md "code-samples.md")
+- [Create scheduled query](code-samples.md "code-samples.md")
+- [List scheduled query](code-samples.md "code-samples.md")
+- [Describe scheduled query](code-samples.md "code-samples.md")
+- [Execute scheduled query](code-samples.md "code-samples.md")
+- [Update scheduled query](code-samples.md "code-samples.md")
+- [Delete scheduled query](code-samples.md "code-samples.md")

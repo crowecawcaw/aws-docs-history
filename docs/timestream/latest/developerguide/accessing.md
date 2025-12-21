@@ -12,8 +12,12 @@ review the following:
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
 - [Provide Timestream for LiveAnalytics access](#getting-started.prereqs.iam-user "#getting-started.prereqs.iam-user")
 - [Grant programmatic access](#programmatic-access "#programmatic-access")
+- [Using the console](console_timestream.md "console_timestream.md")
+- [Accessing Amazon Timestream for LiveAnalytics using the AWS CLI](Tools.md "Tools.md")
+- [Using the API](Using.md "Using.md")
+- [Using the AWS SDKs](getting-started-sdks.md "getting-started-sdks.md")
 
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 If you do not have an AWS account, complete the following steps to create one.
 
@@ -33,7 +37,7 @@ complete. At any time, you can view your current account activity and manage you
 going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
 Account**.
 
-### Create a user with administrative access
+## Create a user with administrative access
 
 After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you
 don't use the root user for everyday tasks.
@@ -71,7 +75,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-### Provide Timestream for LiveAnalytics access
+## Provide Timestream for LiveAnalytics access
 
 The permissions that are required to access Timestream for LiveAnalytics are already granted to the
 administrator. For other users, you should grant them Timestream for LiveAnalytics access using the following
@@ -114,7 +118,7 @@ For information about `dbqms`, see [Actions, resources, and condition keys for D
 Service](../../../service-authorization/latest/reference/list_databasequerymetadataservice.md "../../../service-authorization/latest/reference/list_databasequerymetadataservice.md"). For information about `kms` see [Actions, resources, and condition keys for AWS Key Management
 Service](../../../service-authorization/latest/reference/list_awskeymanagementservice.md "../../../service-authorization/latest/reference/list_awskeymanagementservice.md").
 
-### Grant programmatic access
+## Grant programmatic access
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 

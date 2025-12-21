@@ -14,5 +14,6 @@ your InfluxDB instances.
 - [Updating DB instances](timestream-for-influx-managing-modifying-db.md "timestream-for-influx-managing-modifying-db.md")
 - [Maintaining a DB instance](timestream-for-influx-managing-maintaining-db.md "timestream-for-influx-managing-maintaining-db.md")
 - [Deleting a DB instance](timestream-for-influx-managing-deleting-db.md "timestream-for-influx-managing-deleting-db.md")
+- [Rebooting a DB instance](timestream-for-influx-managing-rebooting-db.md "timestream-for-influx-managing-rebooting-db.md")
 - [Multi-AZ DB instance deployments](timestream-for-influx-managing-multi-az-instance-deployments.md "timestream-for-influx-managing-multi-az-instance-deployments.md")
 - [Setup to view InfluxDB logs on Timestream Influxdb Instances](timestream-for-influx-managing-view-influx-logs.md "timestream-for-influx-managing-view-influx-logs.md")

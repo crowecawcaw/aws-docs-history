@@ -111,5 +111,7 @@ across at least two Availability Zones to ensure increased write availability an
   replica DB cluster](timestream-for-influx-connecting-cluster.md "timestream-for-influx-connecting-cluster.md")
 - [Modifying a read replica cluster
   for Amazon Timestream for InfluxDB](timestream-for-influx-modifying-rr-cluster.md "timestream-for-influx-modifying-rr-cluster.md")
+- [Rebooting a read replica cluster
+  in Amazon Timestream for InfluxDB](timestream-for-influx-rebooting-rr-cluster.md "timestream-for-influx-rebooting-rr-cluster.md")
 - [Creating CloudWatch alarms to monitor Amazon Timestream for InfluxDB](timestream-for-influx-creating-cw-alarms.md "timestream-for-influx-creating-cw-alarms.md")
 - [Read replica licensing through AWS Marketplace](timestream-for-influx-rr-licensing.md "timestream-for-influx-rr-licensing.md")
