@@ -80,7 +80,9 @@ Nitro Enclaves has the following requirements:
   | M7i             | All instance types, **except**: `m7i.large`   | `m7i.metal-24xl`  | `m7i.metal-48xl`  |
   | M8a             | All instance types, **except**: `m8a.medium`  | `m8a.metal-24xl`  | `m8a.metal-48xl`  |
   | M8g             | All instance types, **except**: `m8g.medium`  | `m8g.metal-24xl`  | `m8g.metal-48xl`  |
+  | M8gb            | All instance types, **except**: `m8gb.medium` |
   | M8gd            | All instance types, **except**: `m8gd.medium` | `m8gd.metal-24xl` | `m8gd.metal-48xl` |
+  | M8gn            | All instance types, **except**: `m8gn.medium` |
   | M8i             | All instance types, **except**: `m8i.large`   | `m8i.metal-48xl`  | `m8i.metal-96xl`  |
 
   Compute optimized
