@@ -40,11 +40,16 @@ limitations:
   within the same AWS Region.
 - Trusted account resources are billed to the buyer of the Oracle Database@AWS
   subscription.
+- When using a resource that is shared, you must provide the Amazon Resource Name (ARN).
 
 ## Creating VM clusters on shared Exadata infrastructure
 
 If your trusted account has access to a shared Exadata infrastructure and ODB network, you can create
-Exadata VM clusters or Autonomous VM clusters on this infrastructure.
+Exadata VM clusters, Autonomous VM clusters, or ODB peerings on this infrastructure.
+
+###### Note
+
+When using a resource that is shared to you, instead of only specifying the resource ID, you must specifying the Amazon Resource Name (ARN).
 
 1. Open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/ "https://console.aws.amazon.com/odb/").
 2. In the navigation pane, choose **Exadata VM clusters** or
@@ -61,13 +66,12 @@ Exadata VM clusters or Autonomous VM clusters on this infrastructure.
 aws odb create-cloud-vm-cluster --region us-east-1 \
     --cloud-exadata-infrastructure-id `arn:aws:odb:us-east-1:111111111111:cloud-exadata-infrastructure/exa_aaaaaaaaaa` \
     --odb-network-id `arn:aws:odb:us-east-1:111111111111:odb-network/odbnet_aaaaaaaaaa` \
-    --compartment-id `ocid1.compartment.oc1..example` \
     --cpu-core-count `4` \
     --display-name "`Shared-VMC-1`" \
     --gi-version "`19.0.0.0`" \
-    --hostname-prefix "`vmchost`" \
+    --hostname "`vmchost`" \
     --ssh-public-keys "`ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ...`" \
-    --subnet-id `ocid1.subnet.oc1.phx.example`
+
 ```
 
 To create an Autonomous VM cluster on shared Exadata infrastructure using the AWS CLI, use the

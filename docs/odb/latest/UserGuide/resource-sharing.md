@@ -128,8 +128,8 @@ When sharing Oracle Database@AWS resources, keep in mind the following limitatio
 - A trusted account can use shared resources from only one buyer account (from one private
   offer). Thus, two buyer accounts can't share resources with the same trusted account.
 - A buyer account can't share resources with another buyer account.
-- The first resource shared with a trusted account must be shared by the buyer account in
-  the US East (N. Virginia) Region.
+- Resources shared with a trusted account must be shared by the buyer account in
+  the buyer's [home region](https://docs.oracle.com/en/cloud/foundation/cloud_architecture/governance/regions.html#home-region "https://docs.oracle.com/en/cloud/foundation/cloud_architecture/governance/regions.html#home-region") first.
 - When you unshare a resource, we recommend that you wait approximately 15 minutes before
   resharing the same resource with the same trusted account.
 
