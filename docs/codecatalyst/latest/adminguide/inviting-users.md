@@ -32,6 +32,11 @@ Members who accept a project invitation are added to the space by default. The
 **Project members** table shows all members in the space that have a role in
 a project.
 
+###### Important
+
+Only invite users you trust. Inviting someone grants them access to your space and
+resources according to the permissions you assign.
+
 ###### To invite a user to your space
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
