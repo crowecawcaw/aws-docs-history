@@ -18,7 +18,7 @@ the top of the app screen.
 ![Project name dropdown menu in the header of an application interface.](images/projectname.png)
 or
 
-![Header bar with expandable site name menu and notification bell icon.](/images/Monitron/latest/user-guide/images/site-level.png)
+![Header bar with expandable site name menu and notification bell icon.](images/site-level.png)
 Project-level admin users and technicians can switch between the project level and the
 site level or between individual sites.
 

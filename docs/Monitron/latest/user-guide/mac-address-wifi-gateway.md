@@ -34,7 +34,7 @@ When the scan successfully completes, Amazon Monitron displays the Gateway ID an
 MAC address on the **Scan QR Code** page in the mobile
 app.
 
-![Mobile app screen showing Gateway ID and MAC address for scanning gateway QR code.](images/scan-5.png)
+![Mobile app screen showing Gateway ID and MAC address for scanning gateway QR code.](/images/Monitron/latest/user-guide/images/scan-5.png)
 
 You can also select the copy icon (
 ![Icon representing the copy or duplicate function with two overlapping squares.](images/copy-icon.png)
@@ -54,4 +54,4 @@ scanning process if permissions haven't already been granted.
 
 **On iOS devices**
 
-![Pop-up requesting camera access for Monitron to scan QR code on gateway.](images/scan-4.png)
+![Pop-up requesting camera access for Monitron to scan QR code on gateway.](/images/Monitron/latest/user-guide/images/scan-4.png)

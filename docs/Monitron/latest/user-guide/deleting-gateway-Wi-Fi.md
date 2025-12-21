@@ -26,7 +26,7 @@ mobile app
 
 1. Navigate to the **Gateways** page.
 2. Choose the vertical ellipses icon (
-   ![Three vertical dots representing a menu or more options in a user interface.](images/details.png)
+   ![Three vertical dots representing a menu or more options in a user interface.](/images/Monitron/latest/user-guide/images/details.png)
    ) next to the gateway that you want to delete.
 3. Choose **Delete gateway**.
 4. Choose **Delete** again.

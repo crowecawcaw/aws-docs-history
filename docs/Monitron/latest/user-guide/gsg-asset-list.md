@@ -26,7 +26,7 @@ its health. The following table describes these icons.
 When you choose an asset, the app displays the health status of each underlying
 sensor position.
 
-![Mobile app interface showing Sorter 1 status with two positions, one in alarm and one healthy.](/images/Monitron/latest/user-guide/images/unhealthy_asset.png)
+![Mobile app interface showing Sorter 1 status with two positions, one in alarm and one healthy.](images/unhealthy_asset.png)
 The following table describes the position status indicators.
 
 | Status                                                                                    | State                                                                                                                                                                                                                                                                                         |
