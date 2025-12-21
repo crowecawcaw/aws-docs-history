@@ -6,6 +6,27 @@ This topic describes how to install and uninstall Amazon Corretto 21 on a host o
 
 Option 1: Install using the yum Package Manager on Amazon Linux
 
+1. Enable the yum repository in Amazon Linux 2. This is not required on Amazon Linux 2022 and later.
+
+```
+sudo amazon-linux-extras enable corretto8
+```
+
+2. You can install Amazon Corretto 21 as either the runtime environment (JRE) or the full development environment (JDK).
+   The development environment includes the runtime environment.
+
+Install Amazon Corretto 21 as JRE.
+
+```
+sudo yum install java-21-amazon-corretto
+```
+
+Install Amazon Corretto 21 as JDK.
+
+```
+sudo yum install java-21-amazon-corretto-devel
+```
+
 Amazon Corretto 21 has a 'headless' variant available. This variant omits runtime dependencies that are
 typically associated with GUI applications such as X11 and ALSA and is worth considering for
 server-oriented workloads. The 'headful' variant adds support for X11 and ALSA. There is also a
@@ -86,6 +107,18 @@ sudo alternatives --config javac
 ## Uninstall Amazon Corretto 21
 
 You can uninstall Amazon Corretto 21 with the following commands.
+
+Uninstall JRE:
+
+```
+sudo yum remove java-21-amazon-corretto
+```
+
+Uninstall JDK:
+
+```
+sudo yum remove java-21-amazon-corretto-devel
+```
 
 Uninstall headless:
 

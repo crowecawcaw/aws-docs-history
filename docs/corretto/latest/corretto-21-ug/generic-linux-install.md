@@ -207,6 +207,12 @@ command:
 apk add amazon-corretto-21
 ```
 
+You can install Corretto 21 JRE by running
+
+```
+apk add amazon-corretto-21-jre
+```
+
 ### Uninstall Amazon Corretto 21
 
 You can uninstall Amazon Corretto 21 by using the following
