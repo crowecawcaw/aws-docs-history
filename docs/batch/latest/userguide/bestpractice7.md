@@ -38,13 +38,13 @@ getting stuck in `RUNNABLE` status, see [Jobs stuck in a RUNNABLE status](job_st
   created, it means that your compute environment scaled as expected. If your instances aren't
   created, find the associated subnets in your compute environment to change. For more
   information, see [Verify a scaling activity for
-  an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md "../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md").
+  an Auto Scaling group](../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md "../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md").
 
 We also recommend that you verify that your instances can fulfill your related job requirements. For example,
 a job might require 1 TiB of memory, but the compute environment uses a C5 instance type that's limited to 192 GB
 of memory.
 
-- Verify that your instances are being requested by AWS Batch – Check Amazon EC2 Auto Scaling
+- Verify that your instances are being requested by AWS Batch – Check Auto Scaling
   group history to verify that your instances are being requested by AWS Batch. This is an indication of how Amazon EC2
   tries to acquire instances. If you receive an error stating the Amazon EC2 Spot can’t acquire an instance in a specific
   Availability Zone, this might be because the Availability Zone doesn't offer a specific instance family.
