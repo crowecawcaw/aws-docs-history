@@ -1,12 +1,12 @@
 # Merging APIs in AWS AppSync
 
 As the use of GraphQL expands within an organization, trade-offs between API ease-of-use and
-API development velocity can arise. One the one hand, organizations adopt AWS AppSync and GraphQL to
-simplify application development by giving developers a flexible API they can use to securely
+API development velocity can arise. On the one hand, organizations adopt AWS AppSync and GraphQL to
+simplify application development. This gives developers a flexible API they can use to securely
 access, manipulate, and combine data from one or more data domains with a single network call.
 On the other hand, teams within an organization that are responsible for the different data
 domains combined into a single GraphQL API endpoint may want the ability to create, manage, and
-deploy API updates independent of each other in order to increase their development velocities.
+deploy API updates independent of each other. This increases their development velocities.
 
 To resolve this tension, the AWS AppSync Merged APIs feature allows teams from different data
 domains to independently create and deploy AWS AppSync APIs (e.g., GraphQL schemas, resolvers, data
@@ -15,10 +15,12 @@ organizations the ability to maintain a simple to use, cross domain API, and a w
 different teams that contribute to that API the ability to quickly and independently make API
 updates.
 
-![Diagram showing AWS AppSync Merged API combining APIs from two separate AWS accounts.](images/merged-api-workflow.png)
+The following diagram shows the merged API workflow:
+
+![Diagram showing the merged API workflow with multiple source APIs being combined into a single merged API endpoint](images/merged-api-workflow.png)
 Using Merged APIs, organizations can import the resources of multiple, independent source
-AWS AppSync APIs into a single AWS AppSyncMerged API endpoint. To do this, AWS AppSync allows you to create a
-list of source AWS AppSync source APIs, and then merge all of the metadata associated with the source
+AWS AppSync APIs into a single AWS AppSync Merged API endpoint. To do this, AWS AppSync allows you to create a
+list of source AWS AppSync APIs, and then merge all of the metadata associated with the source
 APIs including schema, types, datasources, resolvers, and functions, into a new AWS AppSync merged
 API.
 
@@ -41,7 +43,7 @@ _build time_ approach to schema composition, where source
 APIs are combined into a separate, Merged API. An alternative approach is to layer a _run time_ router across multiple source APIs or sub-graphs. In this
 approach, the router receives a request, references a combined schema that it maintains as
 metadata, constructs a request plan, and then distributes request elements across its
-underlying sub-graphs/servers.The following table compares the AWS AppSync Merged API build-time
+underlying sub-graphs/servers. The following table compares the AWS AppSync Merged API build-time
 approach with router-based, run-time approaches to GraphQL schema composition:
 
 |                                           |                                                                                                       |                                                                                                                                                                                     |
@@ -76,6 +78,7 @@ Federation v2: [Apollo GraphQL Federation with AWS AppSync](https://aws.amazon.c
 - [Merging](#merges "#merges")
 - [Additional support for Merged APIs](#merge-api-additional-support "#merge-api-additional-support")
 - [Merged API limitations](#merged-api-limits "#merged-api-limits")
+- [Merged API considerations](#merged-api-considerations "#merged-api-considerations")
 - [Creating Merged APIs](#creating-merged-api "#creating-merged-api")
 
 ## Merged API conflict resolution
@@ -732,6 +735,34 @@ When developing Merged APIs, take note of the following rules:
 3. The default size limit for a Merged API schema document is 10 MB.
 4. The default number of source APIs that can be associated with a Merged API is 10. However, you can request
    a limit increase if you need more than 10 source APIs in your Merged API.
+
+## Merged API considerations
+
+When designing and implementing Merged APIs, consider the following:
+
+Merging multiple source APIs into a single endpoint can increase the size and complexity of your
+GraphQL schema and queries. As your merged schema grows, queries may need to traverse multiple
+resolvers to fulfill a single request, which can add latency to your overall
+request time. For example, a query that accesses fields from multiple source APIs may require
+AWS AppSync to execute resolvers from each source API in sequence, with each resolver adding to the
+total response time.
+
+We strongly recommend that you test your Merged APIs thoroughly during development and
+under realistic load conditions to ensure they meet your business requirements. Pay specific
+attention to:
+
+- The depth and complexity of your merged schema, particularly queries that access
+  fields across multiple source APIs.
+- The number of resolvers that must execute to fulfill common query
+  patterns.
+- The performance characteristics of your data sources and resolvers under expected
+  load.
+- The impact of network latency when accessing resources across multiple source
+  APIs.
+
+Consider implementing performance optimizations such as caching, batching data source
+requests, and designing your source API schemas to minimize the number of resolver
+executions required for common operations.
 
 ## Creating Merged APIs
 
