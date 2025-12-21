@@ -138,6 +138,7 @@ AWS FIS actions support the following resource types for action targets:
 - **Tables** – Amazon DynamoDB multi-Region eventually consistent global tables
 - **Tasks** – Amazon ECS tasks
 - **TransitGateways** – Transit gateways
+- **VirtualInterfaces** – Direct Connect Virtual Interfaces
 - **Volumes** – Amazon EBS volumes
 - **VPCEndpoints** – Amazon VPC endpoints
 

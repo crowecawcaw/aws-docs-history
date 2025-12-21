@@ -32,6 +32,7 @@ For more information on how AWS FIS actions work, see [Actions for AWS FIS](acti
 - [Amazon RDS actions](#rds-actions-reference "#rds-actions-reference")
 - [Amazon S3 actions](#s3-actions-reference-fis "#s3-actions-reference-fis")
 - [Systems Manager actions](#ssm-actions-reference "#ssm-actions-reference")
+- [AWS Direct Connect actions](#directconnect-actions-reference "#directconnect-actions-reference")
 - [Use Systems Manager SSM documents with AWS FIS](actions-ssm-agent.md "actions-ssm-agent.md")
 - [Use the AWS FIS aws:ecs:task actions](ecs-task-actions.md "ecs-task-actions.md")
 - [Use the AWS FIS aws:eks:pod actions](eks-pod-actions.md "eks-pod-actions.md")
@@ -468,7 +469,7 @@ ec2:InjectApiError](security_iam_id-based-policy-examples.md#security-iam-policy
 ### aws:ec2:asg-insufficient-instance-capacity-error
 
 Injects `InsufficientInstanceCapacity` error responses on requests made by the
-target Amazon EC2 Auto Scaling groups. This action only supports Amazon EC2 Auto Scaling groups using
+target Auto Scaling groups. This action only supports Auto Scaling groups using
 launch templates. To learn more about insufficient instance capacity errors,
 see the [Amazon EC2 user guide](../../../AWSEC2/latest/UserGuide/troubleshooting-launch.md#troubleshooting-launch-capacity "../../../AWSEC2/latest/UserGuide/troubleshooting-launch.md#troubleshooting-launch-capacity").
 
@@ -484,14 +485,14 @@ see the [Amazon EC2 user guide](../../../AWSEC2/latest/UserGuide/troubleshooting
 - **availabilityZoneIdentifiers** – The comma separated
   list of Availability Zones. Supports Zone IDs (e.g. `"use1-az1, use1-az2"`)
   and Zone names (e.g. `"us-east-1a"`).
-- **percentage** – Optional. The percentage (1-100) of the target Amazon EC2 Auto Scaling group's launch requests to inject the fault.
+- **percentage** – Optional. The percentage (1-100) of the target Auto Scaling group's launch requests to inject the fault.
   The default is 100.
 
 ###### Permissions
 
 - `ec2:InjectApiError`with condition key ec2:FisActionId
   value set to `aws:ec2:asg-insufficient-instance-capacity-error` and
-  `ec2:FisTargetArns` condition key set to target Amazon EC2 Auto Scaling groups.
+  `ec2:FisTargetArns` condition key set to target Auto Scaling groups.
 - `autoscaling:DescribeAutoScalingGroups`
 
 For an example policy, see [Example: Use condition keys for
@@ -1910,3 +1911,40 @@ Runs the Systems Manager API action [StartAutomationExecution](../../../systems-
 ###### AWS managed policy
 
 - [AWSFaultInjectionSimulatorSSMAccess](../../../aws-managed-policy/latest/reference/AWSFaultInjectionSimulatorSSMAccess.md "../../../aws-managed-policy/latest/reference/AWSFaultInjectionSimulatorSSMAccess.md")
+
+## AWS Direct Connect actions
+
+AWS FIS supports the following AWS Direct Connect action.
+
+###### Actions
+
+- [aws:directconnect:virtual-interface-disconnect](#directconnect-virtual-interface-disconnect "#directconnect-virtual-interface-disconnect")
+
+### aws:directconnect:virtual-interface-disconnect
+
+Tests the resilience of the AWS Direct Connect connection by temporarily disrupting the Border Gateway Protocol
+(BGP) sessions between the on-premises networks and peers associated with target Virtual Interfaces (VIFs).
+Before initiating the experiment, FIS verifies that all VIFs targeted in the experiment are in an 'available'
+state and each VIF has all BGP peers with 'available' state and 'up' BGP status. During the experiment,
+BGP peering sessions for the targeted Virtual Interfaces will be placed in the down state. For the detailed
+information about Direct Connect failover testing, please refer to the
+[AWS Direct Connect documentation](../../../directconnect/latest/UserGuide/resiliency_failover.md "../../../directconnect/latest/UserGuide/resiliency_failover.md").
+
+###### Resource type
+
+- aws:directconnect:virtual-interface
+
+###### Parameters
+
+- `duration` – The duration, from 10 minutes to 12 hours.
+  In the AWS FIS API, the value is a string in ISO 8601 format. For example,
+  PT10M represents ten minutes. In the AWS FIS console, you enter the number
+  of seconds, minutes, or hours.
+
+###### Permissions
+
+- `directconnect:DescribeVirtualInterfaces`
+- `directconnect:StartBgpFailoverTest`
+- `directconnect:ListVirtualInterfaceTestHistory`
+- `directconnect:StopBgpFailoverTest`
+- `tag:GetResources`
