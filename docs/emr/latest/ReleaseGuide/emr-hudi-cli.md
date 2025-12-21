@@ -39,7 +39,7 @@ you can switch back to the classic Hudi CLI with the following command:
 This command runs the `hudi-cli.sh` script, sets the `--cliBundle` flag, and instructs the CLI to use the individual
 JAR files instead of the bundled JAR. By default, the `--cliBundle` is set to true, which means the CLI uses the bundled JAR instead.
 
-### Using Amazon EMR 7.9.0 and higher releases
+## Using Amazon EMR 7.9.0 and higher releases
 
 ###### Note
 

@@ -11,7 +11,7 @@ To access the SMUS Managed MCP server, an IAM role is required with the followin
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "allowUseDataProcessingMcpServer",
+            "Sid": "AllowUseSagemakerUnifiedStudioMcpServer",
             "Effect": "Allow",
             "Action": [
                 "sagemaker-unified-studio-mcp:InvokeMcp",
