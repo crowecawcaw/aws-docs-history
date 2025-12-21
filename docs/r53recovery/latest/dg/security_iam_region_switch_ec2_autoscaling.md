@@ -1,6 +1,6 @@
-# EC2 Amazon EC2 Auto Scaling execution block sample policy
+# EC2 Auto Scaling execution block sample policy
 
-The following is a sample policy to attach if you add execution blocks to a Region switch plan for EC2 Amazon EC2 Auto Scaling groups.
+The following is a sample policy to attach if you add execution blocks to a Region switch plan for EC2 Auto Scaling groups.
 
 JSON
 

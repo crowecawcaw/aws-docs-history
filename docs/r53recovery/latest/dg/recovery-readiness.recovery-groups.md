@@ -11,10 +11,10 @@ You typically create one resource set and readiness check for each type of resou
 readiness check, you create a top level DNS target resource and a global (recovery group level) resource set for it, and then
 create cell level DNS target resources, for a separate resource set.
 
-The following diagram shows an example of a recovery group with three cells (Availability Zones), each with a Network Load Balancer (NLB) and Amazon EC2 Auto Scaling group (ASG).
+The following diagram shows an example of a recovery group with three cells (Availability Zones), each with a Network Load Balancer (NLB) and Auto Scaling group (ASG).
 
-![A sample recovery group for ARC. It has three cells (AZs), each with one NLB and one EC2 Amazon EC2 Auto Scaling group.](images/Sample3AZRecoveryGroup.png)
-In this scenario, you would create a resource set and readiness check for the three Network Load Balancers, and a resource set and readiness check for the three Amazon EC2 Auto Scaling
+![A sample recovery group for ARC. It has three cells (AZs), each with one NLB and one EC2 Auto Scaling group.](images/Sample3AZRecoveryGroup.png)
+In this scenario, you would create a resource set and readiness check for the three Network Load Balancers, and a resource set and readiness check for the three Auto Scaling
 groups. Now you have a readiness check for each set of resources for your recovery group, by resource type.
 
 By creating _readiness scopes_ for resources, you can add readiness check summaries for cells or recovery
@@ -24,7 +24,7 @@ in a resource set. You can do this when you're creating a readiness check for a 
 For example, when you add a readiness check for a resource set for the Network Load Balancers for this recovery group, you can add
 readiness scopes to each NLB at the same time. In this case, you would associate the ARN of AZ 1a to the NLB in AZ 1a, the ARN of `AZ 1b`
 to the NLB `AZ 1b`, and the ARN of `AZ 1c` to the NLB in `AZ 1c`. When you create a readiness check for
-the Amazon EC2 Auto Scaling groups, you would do the same, assigning readiness scopes to each of them when you create the readiness check for the Amazon EC2 Auto Scaling
+the Auto Scaling groups, you would do the same, assigning readiness scopes to each of them when you create the readiness check for the Auto Scaling
 group resource set.
 
 It’s optional to associate readiness scopes when you create a readiness check, however, we strongly recommend that you set them.

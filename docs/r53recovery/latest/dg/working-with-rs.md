@@ -11,7 +11,7 @@ To create a recovery plan for your application, you do the following:
 Optionally, you can create several plans, and nest those _child plans_
 within an overall recovery plan. 2. Create a workflow for the plan. You can’t execute a plan without creating a workflow first. 3. In the workflow, add one or more steps that are each an _execution block_.
 
-For example, you could add an execution block to scale up EC2 Amazon EC2 Auto Scaling groups in a destination Region. 4. After you add execution blocks to your workflow, additional steps might be required, such as
+For example, you could add an execution block to scale up EC2 Auto Scaling groups in a destination Region. 4. After you add execution blocks to your workflow, additional steps might be required, such as
 configuring health checks in Amazon Route 53. Each execution block section includes the configuration information
 that you need. For more information, see [Add execution blocks](working-with-rs-execution-blocks.md "working-with-rs-execution-blocks.md"). 5. To recover your application when it's running in an impaired AWS Region, execute the plan.
 

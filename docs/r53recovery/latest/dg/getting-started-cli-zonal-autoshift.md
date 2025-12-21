@@ -1,19 +1,22 @@
-# Cancel an in-progress autoshift
+# Cancel an in-progress practice run
 
-You can cancel an in-progress autoshift with the CLI by canceling the zonal autoshift for the resource. To cancel a zonal autoshift, use the `cancel-zonal-shift command`.
+You can cancel an in-progress practice run with the CLI by using the `cancel-practice-run` command.
+
+For example, to cancel a practice run for a resource, use a command like the following:
 
 ```
-aws arc-zonal-shift cancel-zonal-shift --zonal-shift-id 9ac9ec1e-1df1-0755-3dc5-8cf573cd9c38
+aws arc-zonal-shift cancel-practice-run \
+   --zonal-shift-id="="arn:aws:testservice::111122223333:ExampleALB123456890"
 ```
 
 ```
 {
+    "zonalShiftId": "2222222-3333-444-1111",
+    "resourceIdentifier": "arn:aws:testservice::111122223333:ExampleALB123456890",
     "awayFrom": "usw2-az1",
-    "comment": "Zonal autoshift started. Shifting traffic away from Availability Zone usw2-az1.",
-    "expiryTime": "2024-12-17T22:29:38-08:00",
-    "resourceIdentifier": "arn:aws:elasticloadbalancing:us-east-1:111122223333:loadbalancer/app/Testing/5a19403ecd42dc05",
-    "startTime": "2024-12-17T21:27:26-08:00",
+    "expiryTime": 2024-11-15T10:35:42+00:00,
+    "startTime": 2024-11-15T09:35:42+00:00,
     "status": "CANCELED",
-    "zonalShiftId": "9ac9ec1e-1df1-0755-3dc5-8cf573cd9c38"
+    "comment": "Practice run canceled"
 }
 ```

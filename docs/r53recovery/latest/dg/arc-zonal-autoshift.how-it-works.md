@@ -10,7 +10,7 @@ completes, before ARC ends the traffic shift started by the autoshift. If the ca
 fails when the autoshift ends, traffic is not shifted back to the Availability Zone that it was
 moved away from.
 
-Checks for balanced capacity are only completed for load balancers and Amazon EC2 Auto Scaling groups.
+Checks for balanced capacity are only completed for load balancers and Auto Scaling groups.
 
 For a load balancer resource, capacity checks validate that healthy hosts associated with the load balancer
 are distributed across Availability Zones. Specifically, capacity checks make sure that the number of healthy
@@ -20,9 +20,9 @@ means that the healthy capacity for each Availability Zone is in parity with the
 Note that capacity checks are not applied to load balancers with target groups of type Lambda nor to Application Load Balancers,
 because those targets are not configured zonally.
 
-Capacity checks are also completed for Amazon EC2 Auto Scaling groups. For an Amazon EC2 Auto Scaling group, capacity checks validate that the total
-healthy zonal capacity of an Amazon EC2 Auto Scaling group–that is, the number of total healthy hosts across all the
-Availability Zones–meet the desired capacity set for that Amazon EC2 Auto Scaling group.
+Capacity checks are also completed for Auto Scaling groups. For an Auto Scaling group, capacity checks validate that the total
+healthy zonal capacity of an Auto Scaling group–that is, the number of total healthy hosts across all the
+Availability Zones–meet the desired capacity set for that Auto Scaling group.
 
 **When a capacity check fails**
 

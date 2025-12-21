@@ -53,7 +53,7 @@ For an active/passive approach, Region switch calculates the new desired capacit
 in the destination (activating) Region.
 The new desired capacity is compared against the destination ECS service's desired
 capacity. The formula that Region switch uses to calculate desired capacity is the following:
-`ceil(percentToMatch * Source Amazon EC2 Auto Scaling group capacity)`, where ceil() is a
+`ceil(percentToMatch * Source Auto Scaling group capacity)`, where ceil() is a
 function that rounds up any fractional result. If the current desired count for the destination
 ECS service is higher than the calculated new desired capacity for the ECS service, the
 plan execution proceeds. Note that Region switch does not scale down ECS service capacity.

@@ -1,52 +1,47 @@
-# How readiness rules
+# Readiness check in ARC
 
-determine readiness status
+With readiness check in Amazon Application Recovery Controller (ARC), you can gain insights into whether your applications
+and resources are prepared for recovery. After you model your AWS application in ARC and
+create readiness checks, the checks continually monitor information about your application, such
+as AWS resource quotas, capacity, and network routing policies. Then, you can choose to be
+notified about changes that would affect your ability to fail over to a replica of your application,
+to recover from an event. Readiness checks help make sure, on an ongoing basis, that you can maintain
+your multi-Region applications in a state that is scaled and configured to handle failover traffic.
 
-ARC readiness checks determine readiness status based on the predefined rules for each resource type and the way those rules are defined.
-ARC includes one group of rules for each type of resource that it supports. For example, ARC has groups of readiness rules for Amazon Aurora clusters,
-Amazon EC2 Auto Scaling groups, and so on. Some readiness rules compare resources in a set to each other, and some look at specific information about each resource
-in the resource set.
+This chapter explains how to model your application in ARC to set up the structure that
+enables readiness checks to work, by creating a recovery group and cells that describe your application.
+Then, you can follow the steps to add readiness checks and readiness scopes so that ARC can audit
+readiness for your application.
 
-You can't add, edit, or remove readiness rules, or groups of rules. However, you can create an Amazon CloudWatch alarm
-and create a readiness check to monitor the state of the alarm. For example, you can create a custom CloudWatch alarm to monitor Amazon EKS container
-services, and create a readiness check to audit the readiness status of the alarm.
+After you create readiness checks, you can monitor the readiness status of your resources.
+Readiness checks help you to ensure that a standby application replica and its resources match your production
+replica on an ongoing basis, reflecting the capacity, routing policies, and other configuration details of your production
+application. If the replica doesn't match, you can add capacity or change a configuration so that your application
+replicas are aligned again.
 
-You can view all the readiness rules for each resource type in the AWS Management Console when you create a resource set, or
-you can view the readiness rules later by navigating to the details page for a resource set. You can also view
-readiness rules in the following section: [Readiness rules in ARC](recovery-readiness.md#recovery-readiness.list-rules "recovery-readiness.md#recovery-readiness.list-rules").
+###### Important
 
-When a readiness check audits a set of resources with a set of rules, the way each rule is defined determines whether the result will be
-`READY` or `NOT READY` for all the resources or if the result will be different for different resources. In addition, you can view
-readiness status in multiple ways. For example, you can view the readiness status of a group of resources in a resource set or view a summary of readiness
-status for a recovery group or a cell (that is, an AWS Region or Availability Zone, depending on how you've set up your recovery group).
+Readiness checks are most useful for verifying, on an ongoing basis, that application replica
+configurations and runtime states are aligned. Readiness checks shouldn't be used to indicate whether your
+production replica is healthy, nor should you rely on readiness checks as a primary trigger for failover
+during a disaster event.
 
-The wording in each rule description explains how it evaluates the resources to determine the readiness status when that
-rule is applied. A rule is defined to inspect _each resource_ or to inspect _all resources_ in a resource set to
-determine readiness. Specifically, the rules work as follows:
+## Set up a resilient recovery process for your application
 
-- The rule inspects _each resource_ in the resource set to ensure a condition.
+To use Amazon Application Recovery Controller (ARC) with AWS applications that are in multiple AWS Regions, there are guidelines
+to follow to set up your applications for resilience, so that you can support recovery readiness effectively.
+Then, you can create readiness checks for your application and set up routing controls to reroute traffic
+for failover. You can also review the recommendations ARC provides to about your application's architecture
+that can improve resiliency.
 
-      + If all resources succeed, all resources are set as `READY`.
-      + If one resource fails, that resource is set as `NOT READY`, and the other cells remain `READY`.
+###### Note
 
-  For example: **MskClusterState:** Inspects each Amazon MSK cluster to ensure that it is in an
-  `ACTIVE` state.
+If you have an application that is siloed by Availability Zones, consider using zonal shift or
+zonal autoshift for failover recovery. No setup is required to use zonal shift or zonal autoshift to reliably
+recover applications from Availability Zone impairments.
 
-- The rule inspects _all resources_ in the resource set to ensure a condition.
-  - If the condition is ensured, all resources are set as `READY`.
-  - If any fails to meet the condition, all resources are set as `NOT READY`.For example: **VpcSubnetCount:** Inspects all VPC subnets to ensure that they have the same
-    number of subnets.
+To move traffic away from an Availability Zone for load balancer resources, start a zonal shift in
+the ARC console or in the ELB console. Or, you can use the AWS Command Line Interface or AWS SDK with zonal shift
+API actions. For more information, see [Zonal shift in ARC](arc-zonal-shift.md "arc-zonal-shift.md").
 
-- Non-critical rule: The rule inspects all resources in the resource set to ensure a condition.
-
-      + If any fails, the readiness status is unchanged. A rule with this behavior has a note in its description.For example: **ElbV2CheckAzCount:** Inspects each Network Load Balancer to ensure that it is attached to only one Availability Zone.
-
-  Note: This rule does not affect readiness status.
-  In addition, ARC takes an extra step for quotas. If a readiness check detects a mismatch across cells for service
-  quotas (the maximum value for resource creation and operations) for any supported resource, ARC automatically raises the quota
-  for the resource with the lower quota. This applies only to quotas (limits). For capacity, you should add additional capacity
-  as required for your application needs.
-
-You can also set up an Amazon EventBridge notification for readiness checks, for example, when any readiness check status changes to `NOT READY`.
-Then when a configuration mismatch is detected, EventBridge sends you a notification and you can take corrective action to make
-sure that your application replicas are aligned and prepared for recovery. For more information, see [Using readiness check in ARC with Amazon EventBridge](eventbridge-readiness.md "eventbridge-readiness.md").
+To learn more about getting started with resilient failover configurations, see [Getting started with multi-Region recovery in Amazon Application Recovery Controller (ARC)](getting-started.md "getting-started.md").
