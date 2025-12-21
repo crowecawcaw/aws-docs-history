@@ -47,7 +47,7 @@ If the resource is an Amazon EC2 instance, consult the following list.
      Amazon EC2 instances are visible in the console for a short time after
      they're terminated. You aren't billed for any instances that aren't
      in the running state
-    + Delete your Amazon EC2 Auto Scaling infrastructure.
+    + Delete your Auto Scaling infrastructure.
     + Release all Dedicated Hosts.
     + Delete all Amazon EBS volumes and Amazon EBS snapshots.
     + Release all Elastic IP addresses.
