@@ -13,14 +13,17 @@ and then choose **Next**:
 4. For **Allow users to deeplink to their web portal**, choose
    **Allowed** or **Not Allowed**. For more information
    about deep links, see [Deep links in Amazon WorkSpaces Secure Browser](deep-links.md "deep-links.md").
-5. Under **Toolbar controls**, choose the settings that you want under
+5. For **Allow users to use local authentication in their portal session**, choose
+   **Allowed** or **Not Allowed**. For more information
+   about web authentication, see [Enabling WebAuthn redirection support in Amazon WorkSpaces Secure Browser](web-authentication.md "web-authentication.md").
+6. Under **Toolbar controls**, choose the settings that you want under
    **Features**.
-6. Under **Settings**, manage the toolbar presentation view at start of the
+7. Under **Settings**, manage the toolbar presentation view at start of the
    session including toolbar state (docked or detached), theme (dark or light mode), icon
    visibility, and maximum display resolution for the session. Leave these settings
    unconfigured to grant end users full control over these options. For more information,
    see [Managing toolbar controls in Amazon WorkSpaces Secure Browser](toolbar-controls.md "toolbar-controls.md").
-7. For **Session timeouts**, specify the following:
+8. For **Session timeouts**, specify the following:
    - For **Disconnect timeout in minutes**, choose the amount of time that
      a streaming session remains active after users disconnect. If users try to reconnect to the
      streaming session after a disconnection or network interruption within this time interval,
