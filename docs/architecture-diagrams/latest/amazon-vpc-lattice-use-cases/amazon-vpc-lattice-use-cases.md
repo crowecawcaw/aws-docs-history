@@ -107,7 +107,7 @@ can also shared their services using AWS Resource Access Manager.
    instance queries the VPC resolver to get domain name resolution of _service2_.
 2. DNS resolution determines that the traffic should be sent to the service network.
 3. In this example, both policies at the service network and service level
-   allow traffic to the target (Amazon EC2 Auto Scaling group) from the consumer, so
+   allow traffic to the target (Auto Scaling group) from the consumer, so
    the application in the **Amazon EC2** instance can consume
    _service2_.
 4. The consumer application gets the domain name resolution of _service1_.
@@ -133,7 +133,7 @@ achieved or complemented with the use of policies.
    function queries the VPC resolver to resolve the domain name of _service1_.
 2. DNS resolution determines that the traffic should be sent to service network 2.
 3. Both policies at the service network and service level allow traffic to
-   the target (Amazon EC2 Auto Scaling group) from the consumer, so the consumer application
+   the target (Auto Scaling group) from the consumer, so the consumer application
    can consume the service.
 4. The consumer application placed in an **Amazon EC2** instance
    queries the VPC resolver to resolve the domain name of the _service2_.
@@ -163,7 +163,7 @@ its own service network and choose which services they want to consume.
    function queries the VPC resolver for DNS resolution of _service2_.
 5. DNS resolution determines that the traffic should be sent to service network 2.
 6. Both policies at the service network and service level allow traffic to
-   the target (Amazon EC2 Auto Scaling group) from the consumer, so the consumer application
+   the target (Auto Scaling group) from the consumer, so the consumer application
    can consume _service2_.
 
 ## Download editable diagram
