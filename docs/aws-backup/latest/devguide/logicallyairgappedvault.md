@@ -69,9 +69,6 @@ recovery when you desire a vault for your backups that
 
 - Cross-Region copy to or from a logically air-gapped vault is not currently available
   for backups that contain Amazon Aurora, Amazon DocumentDB, and Amazon Neptune.
-- A backup containing one or more Amazon EBS volumes that is copied into a logically air-gapped vault must
-  be smaller than 16 TB; backups for this resource type that are greater in size
-  are not supported.
 - Amazon EC2 offers [EC2 Allowed AMIs](../../../AWSEC2/latest/UserGuide/ec2-allowed-amis.md "../../../AWSEC2/latest/UserGuide/ec2-allowed-amis.md"). If
   this setting is enabled in your account, add the alias `aws-backup-vault` to your
   allowlist.

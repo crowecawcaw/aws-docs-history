@@ -73,29 +73,29 @@ Use the **start-backup-job** command:
 
 ```
 aws backup start-backup-job \
-                                  --backup-vault-name my-backup-vault \
-                                  --resource-arn arn:aws:eks:us-west-2:123456789012:cluster/my-cluster \
-                                  --iam-role-arn arn:aws:iam::123456789012:role/service-role \
-                                  --region us-west-2
+    --backup-vault-name my-backup-vault \
+    --resource-arn arn:aws:eks:us-west-2:123456789012:cluster/my-cluster \
+    --iam-role-arn arn:aws:iam::123456789012:role/AWSBackupDefaultServiceRole \
+    --region us-west-2
 ```
 
 Optionally, specify additional parameters such as lifecycle settings:
 
 ```
 aws backup start-backup-job \
-                                  --backup-vault-name my-backup-vault \
-                                  --resource-arn arn:aws:eks:us-west-2:123456789012:cluster/my-cluster \
-                                  --iam-role-arn arn:aws:iam::123456789012:role/service-role \
-                                  --lifecycle MoveToColdStorageAfterDays=30,DeleteAfterDays=365 \
-                                  --region us-west-2
+    --backup-vault-name my-backup-vault \
+    --resource-arn arn:aws:eks:us-west-2:123456789012:cluster/my-cluster \
+    --iam-role-arn arn:aws:iam::123456789012:role/AWSBackupDefaultServiceRole \
+    --lifecycle MoveToColdStorageAfterDays=30,DeleteAfterDays=365 \
+    --region us-west-2
 ```
 
 Monitor the backup job status:
 
 ```
 aws backup describe-backup-job \
-                                  --backup-job-id backup-job-id \
-                                  --region us-west-2
+    --backup-job-id backup-job-id \
+    --region us-west-2
 ```
 
 ## Amazon EKS backup ARN format
@@ -157,9 +157,10 @@ You can copy a composite recovery point, or you can copy a nested recovery point
 To copy recovery points using the AWS Backup console:
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
-2. Click on **Protected Resources** in the left-hand navigation. In the text box, type `EKS` to display only your Amazon EKS clusters.
-3. Composite recovery points will be displayed in the Recovery points pane. The plus sign (+) to the left of each recovery point ID can be clicked to expand each composite recovery point, showing all nested recovery points contained in the composite. You can click the radial circle button to the left of any recovery point to copy it.
-4. Once it is selected, click the **Copy** button in the top-right corner of the pane.
+2. Click on **Vaults** in the left-hand navigation, and go to the vault that contains the recovery point you want to copy. In the text box, type `EKS` to display only your recovery points for Amazon EKS clusters.
+3. Both composite and nested recovery points will be displayed under the Recovery point ID pane. Note you cannot select and copy a nested EKS recovery point.
+4. The arrow sign to the left of each composite recovery point ID can be clicked to expand, showing all nested recovery points contained in the composite. You can click the square checkbox to the left of any recovery point to copy it.
+5. Once it is selected, click the **Actions** dropdown in the top-right corner of the pane and click **Copy**.
 
 Amazon EKS backups support all copy types:
 
@@ -170,10 +171,11 @@ Amazon EKS backups support all copy types:
 
 ## Limitations
 
-- Persistent volumes using a CSI Driver via CSI migration, in-tree storage plugins or ACK controllers are not supported.
-- Amazon S3 buckets with specific prefixes attached to CSI Driver MountPoints cannot be backed up. Only Amazon S3 buckets as targets are supported, not specific prefixes
+- Persistent volumes using a CSI Driver via CSI migration, in-tree storage plugins or ACK controllers are not supported. Note that the annotation `volume.kubernetes.io/storage-provisioner: ebs.csi.aws.com` is metadata indicating which provisioner could manage the volume, not that the volume uses CSI. The actual provisioner is determined by the storageClass.
+- Amazon S3 buckets with specific prefixes attached to CSI Driver MountPoints cannot be backed up. Only Amazon S3 buckets as targets are supported, not specific prefixes.
 - Amazon S3 bucket backups as part of an EKS cluster backup will only support snapshot backups.
-- Amazon FSx via CSI driver is not supported via EKS Backups
+- Amazon FSx via CSI driver is not supported via EKS Backups.
+- AWS Backup does not support Amazon EKS on AWS Outposts.
 - Subject to [backup and restore quotas](aws-backup/latest/devguide/aws-backup-limits.md "aws-backup/latest/devguide/aws-backup-limits.md")
 
 ## Frequently Asked Questions

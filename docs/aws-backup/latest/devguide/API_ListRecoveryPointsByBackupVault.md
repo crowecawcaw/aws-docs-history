@@ -67,6 +67,7 @@ Returns only recovery points that match the specified resource type(s):
 - `EBS` for Amazon Elastic Block Store
 - `EC2` for Amazon Elastic Compute Cloud
 - `EFS` for Amazon Elastic File System
+- `EKS` for Amazon Elastic Kubernetes Service
 - `FSx` for Amazon FSx
 - `Neptune` for Amazon Neptune
 - `RDS` for Amazon Relational Database Service

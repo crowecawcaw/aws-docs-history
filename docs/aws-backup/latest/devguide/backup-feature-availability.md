@@ -83,7 +83,7 @@ controls except [cross-account copy](controls-and-remediation.md#backup-cross-ac
 
 3 Amazon RDS, Aurora, DocumentDB, and Neptune now support cross-Region and cross-account snapshot copying in a single action. RDS multi availability
 zone (Multi-AZ) database instances can be copied, but Multi-AZ clusters do not currently
-support cross-Region or cross-account copy. See [Cross-Region copy considerations with
+support any copy operations. See [Cross-Region copy considerations with
 specific resources](cross-region-backup.md#cross-region-considerations "cross-region-backup.md#cross-region-considerations") for further information.
 
 4 See [RDS multi-availability zone
@@ -189,8 +189,10 @@ Regions:**
 | AWS GovCloud (US-West)     | [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/ "https://aws.amazon.com/govcloud-us/")              | ✓                                                                           | ✓                                                                             | ✓4                                                                                           | ✓3                                                                                                                                                      |                                                            | ✓                                                    | ✓                                                       | ✓                                                                   |
 
 1Cross-Region and cross-account copy to a logically
-air-gapped vault is not currently available in Canada West (Calgary), China (Beijing),
-China (Ningxia), AWS GovCloud (US-East), or AWS GovCloud (US-West) Regions.
+air-gapped vault is not currently available in Asia Pacific (Malaysia), Canada West (Calgary),
+Mexico (Central), Asia Pacific (Thailand), Asia Pacific (Taipei), Asia Pacific (New Zealand),
+China (Beijing), China (Ningxia), AWS GovCloud (US-East), or AWS GovCloud (US-West)
+Regions.
 
 2China (Beijing) and China (Ningxia) support cross-Region
 copy from one of these two Regions to the other. Cross-Region copy is not

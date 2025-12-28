@@ -78,6 +78,7 @@ For more information about the metadata for each resource, see the following:
 - [Metadata for Amazon EBS](restoring-ebs.md#ebs-restore-cli "restoring-ebs.md#ebs-restore-cli")
 - [Metadata for Amazon EC2](restoring-ec2.md#restoring-ec2-cli "restoring-ec2.md#restoring-ec2-cli")
 - [Metadata for Amazon EFS](restoring-efs.md#efs-restore-cli "restoring-efs.md#efs-restore-cli")
+- [Metadata for Amazon EKS](restoring-eks.md#eks-restore-backup-section "restoring-eks.md#eks-restore-backup-section")
 - [Metadata for Amazon FSx](restoring-fsx.md#fsx-restore-cli "restoring-fsx.md#fsx-restore-cli")
 - [Metadata for Amazon Neptune](restoring-nep.md#nep-restore-cli "restoring-nep.md#nep-restore-cli")
 - [Metadata for Amazon RDS](restoring-rds.md#rds-restore-cli "restoring-rds.md#rds-restore-cli")
@@ -111,6 +112,7 @@ Starts a job to restore a recovery point for one of the following resources:
 - `EBS` - Amazon Elastic Block Store
 - `EC2` - Amazon Elastic Compute Cloud
 - `EFS` - Amazon Elastic File System
+- `EKS` - Amazon Elastic Kubernetes Service
 - `FSx` - Amazon FSx
 - `Neptune` - Amazon Neptune
 - `RDS` - Amazon Relational Database Service

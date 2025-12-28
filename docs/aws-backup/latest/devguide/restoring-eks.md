@@ -157,38 +157,40 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
 
 **Optional metadata:**
 
-- `newCluster` - (true/false) If we should create a new EKS cluster during restore
-  - If newCluster is "true", the following metadata fields apply:
-    - `eksClusterVersion` - Desired K8s version of cluster if wanting to increase cluster version during restore
-    - `clusterRole` - The IAM Role ARN to attach to the created EKS cluster
-    - `clusterVpcConfig` - VPC/Networking configuration for the created EKS cluster. This field has the following nested fields:
-      - `vpcId` - The VPC associated with your cluster
-      - `subnetIds` - The subnets associated with your cluster
-      - `securityGroupIds` - The additional security groups associated with your cluster
+- `newCluster` - (true/false) If we should create a new EKS cluster during restore. If newCluster is "true", the following metadata fields apply:
+  - `eksClusterVersion` - Desired K8s version of cluster if wanting to increase cluster version during restore
+  - `clusterRole` - The IAM Role ARN to attach to the created EKS cluster
+  - `clusterVpcConfig` - VPC/Networking configuration for the created EKS cluster. This field has the following nested fields:
+    - `vpcId` - The VPC associated with your cluster
+    - `subnetIds [Required]` - The subnets associated with your cluster
+    - `securityGroupIds [Required]` - The additional security groups associated with your cluster
 
-    - `nodeGroups` - The Managed Node Groups to be created on the EKS Cluster. The NodeGroups for restore must have all of the same node groups from backup time and have matching nodeGroupId.
-      - `nodeGroupId` - The ID of the node group
-      - `subnetIds` - The subnets that were specified for the Auto Scaling group that is associated with your node group
-      - `instanceTypes` - If the node group wasn't deployed with a launch template, then this is the instance type that is associated with the node group
-      - `nodeRole` - The IAM role associated with your node group
-      - `securityGroupIds` - The security group IDs that are allowed SSH access to the nodes
-      - `remoteAccessEc2SshKey` - The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group
+  - `nodeGroups` - The Managed Node Groups to be created on the EKS Cluster. The NodeGroups for restore must have all of the same node groups from backup time and have matching nodeGroupId.
+    - `nodeGroupId [Required]` - The ID of the node group
+    - `subnetIds [Required]` - The subnets that were specified for the Auto Scaling group that is associated with your node group
+    - `instanceTypes` - If the node group wasn't deployed with a launch template, then this is the instance type that is associated with the node group
+    - `nodeRole [Required]` - The IAM role associated with your node group
+    - `securityGroupIds` - The security group IDs that are allowed SSH access to the nodes
+    - `remoteAccessEc2SshKey` - The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group
 
-    - `fargateProfiles` - The Fargate Profiles to be created on the EKS Cluster. The Fargate Profiles for restore must have all the same Fargate Profiles from backup time and have matching name.
-      - `name` - The name of the Fargate profile
-      - `subnetIds` - The IDs of subnets to launch a Pod into
-      - `podExecutionRoleArn` - The IAM Role ARN of the Pod execution role to use for a Pod that matches the selectors in the Fargate profile
+  - `fargateProfiles` - The Fargate Profiles to be created on the EKS Cluster. The Fargate Profiles for restore must have all the same Fargate Profiles from backup time and have matching name.
+    - `name [Required]` - The name of the Fargate profile
+    - `subnetIds` - The IDs of subnets to launch a Pod into
+    - `podExecutionRoleArn [Required]` - The IAM Role ARN of the Pod execution role to use for a Pod that matches the selectors in the Fargate profile
 
-    - `podIdentityAssociations` - The Pod Identity Associations to be created on the EKS Cluster
-      - `associationId` - The ID of the Pod Identity Association
-      - `roleArn` - The IAM Role ARN for the Pod Identity Association
+  - `podIdentityAssociations` - The Pod Identity Associations to be created on the EKS Cluster
+    - `associationId` - The ID of the Pod Identity Association
+    - `roleArn` - The IAM Role ARN for the Pod Identity Association
 
-- `kubernetesRestoreOrder` - Override the order the Kubernetes manifests are restored in. This order will take precedence over the default service restore order. This follow the format: group/version/kind or version/kind:
+- `kubernetesRestoreOrder` - Override the order the Kubernetes manifests are restored in. This order will take precedence over the default service restore order. This follow the format: group/version/kind or version/kind
 
-["v1/persistentvolumes","v1/pods","customresource/v2/custom"]
+Ex: `["v1/persistentvolumes","v1/pods","customresource/v2/custom"]`
 
 - `namespaceLevelRestore` - (true/false) If you would like to perform a namespace level restore
-- `namespaces` - A list of namespaces to restore if namespaceLevelRestore is "true". Can provide up to 5 namespaces to restore
+- `namespaces` - A list of namespaces to restore if namespaceLevelRestore is "true". Can provide up to 5 namespaces to restore.
+
+Ex: `["ns-1","ns-2","ns-3","ns-4","ns-5"]`
+
 - `restoreKubernetesManifestsOnly` - (true/false) If you would like to only restore the Kubernetes manifest files and no persistent storage systems (EBS, S3, EFS, etc.)
 - `nestedRestoreJobs` - Restore Metadata configuration of all of the nested Recovery Points for the PersistentVolume storage systems in the composite Recovery Point. This is a map of RecoveryPointArn: RestoreMetadata of that Recovery Point
 
@@ -196,26 +198,46 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
 
 ```
 aws backup start-restore-job \
-                              --recovery-point-arn "arn:aws:backup:us-west-2:123456789012:recovery-point:composite:eks/my-cluster-20240115" \
-                              --iam-role-arn "arn:aws:iam::123456789012:role/AWSBackupServiceRolePolicyForEKSRestore" \
-                              --metadata '{"clusterName":"existing-cluster","newCluster":false}' \
-                              --resource-type "EKS"
+    --recovery-point-arn "arn:aws:backup:us-west-2:123456789012:recovery-point:composite:eks/my-cluster-20240115" \
+    --iam-role-arn "arn:aws:iam::123456789012:role/AWSBackupDefaultServiceRole" \
+    --metadata '{"clusterName":"existing-cluster","newCluster":"false"}' \
+    --resource-type "EKS"
+```
+
+**Restore specific namespaces to an existing cluster:**
+
+```
+aws backup start-restore-job \
+    --recovery-point-arn "arn:aws:backup:us-west-2:123456789012:recovery-point:composite:eks/my-cluster-20240115" \
+    --iam-role-arn "arn:aws:iam::123456789012:role/AWSBackupDefaultServiceRole" \
+    --metadata '{"clusterName":"existing-cluster","newCluster":"false","namespaceLevelRestore":"true","namespaces":"[\"ns-1\",\"ns-2\",\"ns-3\",\"ns-4\",\"ns-5\"]"}' \
+    --resource-type "EKS"
+```
+
+**Restore nested persistent volumes to an existing cluster:**
+
+```
+aws backup start-restore-job \
+    --recovery-point-arn "arn:aws:backup:us-west-2:123456789012:recovery-point:composite:eks/my-cluster-20240115" \
+    --iam-role-arn "arn:aws:iam::123456789012:role/AWSBackupDefaultServiceRole" \
+    --metadata '{"clusterName":"existing-cluster","newCluster":"false","namespaceLevelRestore":"true","nestedrestorejobs":"{\"arn:aws:ec2:us-west-2::snapshot/snap-abc123\":\"{\\\"AvailabilityZone\\\":\\\"us-west-2a\\\"}\",\"arn:aws:backup:us-west-2:123456789012:recovery-point:fa71a304-2555-4c37-8128-f154b9578032\":\"{\\\"DestinationBucketName\\\":\\\"bucket-name\\\"}\"}"}' \
+    --resource-type "EKS"
 ```
 
 **Restore to new cluster**
 
 ```
 aws backup start-restore-job \
-                              --recovery-point-arn "arn:aws:backup:us-west-2:123456789012:recovery-point:composite:eks/my-cluster-20240115" \
-                              --iam-role-arn "arn:aws:iam::123456789012:role/AWSBackupServiceRolePolicyForEKSRestore" \
-                              --metadata '{"clusterName":"new-cluster","newCluster":true,"clusterRole":"arn:aws:iam::123456789012:role/EKSClusterRole","eksClusterVersion":"1.33","clusterVpcConfig":"{\"vpcId\":\"vpc-1234\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"securityGroupIds\":[\"sg-123\"]}","nodeGroups":"[{\"nodeGroupId\":\"nodegroup-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"nodeRole\":\"arn:aws:iam::123456789012:role/EKSNodeGroupRole\",\"instanceTypes\":[\"t3.small\"]}]","fargateProfiles":"[{\"name\":\"fargate-profile-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"podExecutionRoleArn\":\"arn:aws:iam::123456789012:role/EKSFargateProfileRole\"}]"}' \
-                              --resource-type "EKS"
+    --recovery-point-arn "arn:aws:backup:us-west-2:123456789012:recovery-point:composite:eks/my-cluster-20240115" \
+    --iam-role-arn "arn:aws:iam::123456789012:role/AWSBackupDefaultServiceRole" \
+    --metadata '{"clusterName":"new-cluster","newCluster":"true","clusterRole":"arn:aws:iam::123456789012:role/EKSClusterRole","eksClusterVersion":"1.33","clusterVpcConfig":"{\"vpcId\":\"vpc-1234\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"securityGroupIds\":[\"sg-123\"]}","nodeGroups":"[{\"nodeGroupId\":\"nodegroup-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"nodeRole\":\"arn:aws:iam::123456789012:role/EKSNodeGroupRole\",\"instanceTypes\":[\"t3.small\"]}]","fargateProfiles":"[{\"name\":\"fargate-profile-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"podExecutionRoleArn\":\"arn:aws:iam::123456789012:role/EKSFargateProfileRole\"}]"}' \
+    --resource-type "EKS"
 ```
 
 After starting the restore job, use `describe-restore-job` to monitor progress:
 
 ```
-aws backup describe-restore-job --restore-job-id restore-job-id
+aws backup describe-restore-job --restore-job-id `restore-job-id`
 ```
 
 You can subscribe to **Notification Events** for failed and skipped objects for restore.

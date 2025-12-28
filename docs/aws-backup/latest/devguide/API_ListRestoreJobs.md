@@ -54,6 +54,7 @@ Include this parameter to return only restore jobs for the specified resources:
 - `EBS` for Amazon Elastic Block Store
 - `EC2` for Amazon Elastic Compute Cloud
 - `EFS` for Amazon Elastic File System
+- `EKS` for Amazon Elastic Kubernetes Service
 - `FSx` for Amazon FSx
 - `Neptune` for Amazon Neptune
 - `RDS` for Amazon Relational Database Service
