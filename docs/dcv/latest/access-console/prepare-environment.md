@@ -43,18 +43,6 @@ components and the Setup Wizard
    ```
 
 4. Download the packaged components.
-   - For Amazon Linux 2 (x86_64)
-
-   ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el7-x86_64.tgz
-   ```
-
-   - For Amazon Linux 2 (ARM aarch64)
-
-   ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el7-aarch64.tgz
-   ```
-
    - For Rocky8 (x86_64)
 
    ```
@@ -77,18 +65,6 @@ components and the Setup Wizard
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el9-aarch64.tgz
-   ```
-
-   - For Ubuntu20 (x86_64)
-
-   ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-ubuntu2004-x86_64.tgz
-   ```
-
-   - For Ubuntu20 (ARM aarch64)
-
-   ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-ubuntu2004-aarch64.tgz
    ```
 
    - For Ubuntu22 (x86_64)

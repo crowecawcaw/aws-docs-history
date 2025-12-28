@@ -13,6 +13,7 @@ This section provides release notes for the Amazon DCV Access Console by release
 
 ###### Topics
 
+- [2025.0-168 — December 23, 2025](#2025.0-168 "#2025.0-168")
 - [2025.0-159 — November 12, 2025](#2025.0-159 "#2025.0-159")
 - [2025.0-155 — October 23, 2025](#2025.0-155 "#2025.0-155")
 - [2024.0-150 — June 17, 2025](#2024.0-150 "#2024.0-150")
@@ -21,6 +22,12 @@ This section provides release notes for the Amazon DCV Access Console by release
 - [2023.1-57 — August 1, 2024](#2023.1-57 "#2023.1-57")
 - [2023.1-20 — June 26, 2024](#2023.1-20 "#2023.1-20")
 - [2023.1 — June 13, 2024](#2023.1 "#2023.1")
+
+### 2025.0-168 — December 23, 2025
+
+| Build numbers                                                                                                     | Release notes                                                                              |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Version: 2025.0-168<br>• Web Client: 168<br>• Handler: 168<br>• Authentication Server: 168<br>• Setup Wizard: 168 | • Dropped support for Amazon Linux 2 due to security vulnerabilities in required packages. |
 
 ### 2025.0-159 — November 12, 2025
 
@@ -76,6 +83,7 @@ The following table describes the documentation for this release of Amazon DCV A
 
 | Change                        | Description                                                                                                                                                    | Date              |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Amazon DCV Version 2025.0-168 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-168. For more information, see<br>[2025.0-168--December 23, 2025](#2025.0-168 "#2025.0-168"). | December 23, 2025 |
 | Amazon DCV Version 2025.0-159 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-159. For more information, see<br>[2025.0-159--November 12, 2025](#2025.0-159 "#2025.0-159"). | November 12, 2025 |
 | Amazon DCV Version 2025.0-155 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-155. For more information, see<br>[2025.0-155--October 23, 2025](#2025.0-155 "#2025.0-155").  | October 23, 2025  |
 | Amazon DCV Version 2024.0-150 | Amazon DCV Access Console has been updated for Amazon DCV 2024.0-150. For more<br>information, see [2024.0-150--June 17,<br>2025](#2024.0-150 "#2024.0-150").  | June 17, 2025     |
