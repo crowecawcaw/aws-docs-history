@@ -1,4 +1,6 @@
-# Spark native fine-grained access control alllowlisted PySpark API
+# Spark
+
+native fine-grained access control alllowlisted PySpark API
 
 To maintain security and data access controls, Spark fine-grained access control
 (FGAC) restricts certain PySpark functions. These restrictions are enforced

@@ -445,6 +445,7 @@ considerations
 When you create a custom AMI for Amazon EMR, consider the following:
 
 - The Amazon EMR 7.x series are based on Amazon Linux 2023. For these Amazon EMR versions, you need to use images based on Amazon Linux 2023 for custom AMIs. To find a base custom AMI, see [Finding a Linux AMI](../../../AWSEC2/latest/UserGuide/finding-an-ami.md "../../../AWSEC2/latest/UserGuide/finding-an-ami.md").
+- The Amazon Linux 2023 AMI should be based on Linux kernel 6.1, using Amazon Linux 2023 AMI based on Linux kernel version 6.12 can result in cluster provisioning failures.
 - For Amazon EMR versions lower than 7.x, Amazon Linux 2023 AMIs are not supported.
 - Amazon EMR 5.30.0 and higher, and the Amazon EMR 6.x series are based on Amazon Linux 2. For
   these Amazon EMR versions, you need to use images based on Amazon Linux 2 for custom

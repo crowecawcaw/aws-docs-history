@@ -162,11 +162,12 @@ Review the following limitations when using Lake Formation with Amazon EMR .
     metastore
   - `ANALYZE TABLE` command
 
-- If your Amazon EMR application is in a private subnet with VPC endpoints for Amazon S3 and you
-  attach an endpoint policy to control access, before your jobs can send
-  log data to AWS Managed Amazon S3, you must include the permissions
-  detailed in [Managed storage](logging.md#jobs-log-storage-managed-storage "logging.md#jobs-log-storage-managed-storage") in your VPC policy to S3 gateway endpoint.
-  For troubleshooting requests, contact AWS support.
+- If your Amazon EMR application is in a private subnet with VPC endpoints
+  for Amazon S3 and you attach an endpoint policy to control access, before
+  your jobs can send log data to AWS Managed Amazon S3, you must include the
+  permissions detailed in [Managed
+  storage](logging.md#jobs-log-storage-managed-storage "logging.md#jobs-log-storage-managed-storage") in your VPC policy to S3 gateway endpoint. For
+  troubleshooting requests, contact AWS support.
 - Starting with Amazon EMR 7.9.0, Spark FGAC supports S3AFileSystem when
   used with the s3a:// scheme.
 - Amazon EMR 7.11 supports creating managed tables using CTAS.
