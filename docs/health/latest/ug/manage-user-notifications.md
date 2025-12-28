@@ -28,21 +28,7 @@ To configure your AWS managed notifications subscription, complete the following
 
 ###### Note
 
-AWS Health is migrating email delivery to AWS managed notifications in AWS User Notifications. The
-following are some key dates:
-
-- September 15, 2025: AWS managed notifications are enabled for all existing AWS accounts.
-  For new AWS accounts, managed notifications are enabled by default. You
-  can enable and disable managed notifications until December 15th,
-
-2025.
-
-- December 15, 2025: AWS managed notifications are enabled for all accounts, and you can no
-  longer disable them.
-  There's no action required from you to continue receiving notifications for
-  AWS Health events. When AWS managed notifications are enabled, there will be some
-  changes and enhancements. For more information, see _What changes when I
-  enable AWS managed notifications?_ in the [AWS managed notifications in AWS User Notifications FAQ](#manage-user-notifications-faq "#manage-user-notifications-faq").
+AWS Health migrated email delivery to AWS managed notifications in AWS User Notifications. Since December 15, 2025, you receive emails from AWS managed notifications. For more information, see _What changed in the migration to AWS managed notifications?_ in the [AWS managed notifications in AWS User Notifications FAQ](#manage-user-notifications-faq "#manage-user-notifications-faq").
 
 ## AWS managed notifications in AWS User Notifications FAQ
 
@@ -56,8 +42,10 @@ For more information, see [AWS managed notifications aggregation in AWS User Not
 
 Yes, trusted access with AWS User Notifications from AWS Organizations is required.
 
-Organizational trust and the associated delegated administrator privileges are assigned by service and act as guardrails against overextended permissions. Trusted access for AWS Health enables organizational view for the AWS Health Dashboard, the AWS Health service, and AWS Health events sent through Amazon EventBridge. Trusted access for AWS User Notifications enables aggregate notifications within AWS User Notifications for AWS Health notifications. Since trusted access is not shared, setting up delegated administrators needs to be added separately for each service.
-
-Enable managed notifications from the AWS Management Console. For more information, see [Enabling or disabling AWS managed notifications for AWS Health in AWS User Notifications](../../../notifications/latest/userguide/managing-notification-features.md "../../../notifications/latest/userguide/managing-notification-features.md")
+Organizational trust and the associated delegated administrator privileges are assigned by service and act as guardrails against overextended permissions. Trusted access for AWS Health enables organizational view for the AWS Health Dashboard, the AWS Health APIs, AWS Health events sent through Amazon EventBridge, and notification configurations in User Notifications. Trusted access for AWS User Notifications enables aggregate notifications within AWS managed notifications. Because trusted access isn't shared, setting up delegated administrators needs to be added separately for each service.
 
 No. The current plain text AWS Health emails are disabled after the migration completes. If you use email rules to drive different workflows, we recommend that you evaluate AWS Health events sent through Amazon EventBridge as an alternative.
+
+Health operations, Security, and Billing notifications correspond to AWS Health account notifications and scheduled changes that have the operations, security, and billing persona respectively. AWS Health events with more than one persona tag are sent through the Security and Billing categories. Account-specific issues include issue category health events that are specific to an AWS account.
+
+Public service events aren't available through AWS managed notifications.
