@@ -326,7 +326,9 @@ use the following options:
 
 For customers who need to delete Mobile Analytics applications as part of their
 migration, you can use the following Python script. This script uses AWS Signature
-Version 4 to authenticate with the Mobile Analytics API.
+Version 4 to authenticate with the Mobile Analytics API and requires Python 3.11 or
+later ([Download
+Python 3.11](https://www.python.org/downloads/release/python-3110/ "https://www.python.org/downloads/release/python-3110/")).
 
 1. Save the following script as
    `delete_mobile_analytics_application.py`.
