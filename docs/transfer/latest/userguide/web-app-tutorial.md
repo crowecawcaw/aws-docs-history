@@ -172,7 +172,7 @@ Add the user that you previously created in IAM Identity Center.
 1. Navigate to the web app that you created earlier.
 2. Choose **Assign users and groups**.
 
-![Screen showing the details for a selected web app.](images/webapp-transfer-details.png) 3. To assign the user that you previously created in IAM Identity Center, select
+![Screen showing the details for a selected web app.](/images/transfer/latest/userguide/images/webapp-transfer-details.png) 3. To assign the user that you previously created in IAM Identity Center, select
 **Assign existing users and groups** and select
 **Next**.
 

@@ -162,7 +162,7 @@ following:
     	 For additional details,
     	 see the `PassiveIp` documentation in the [ProtocolDetails](../APIReference/API_ProtocolDetails.md "../APIReference/API_ProtocolDetails.md") topic.
 
-    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](images/create-server-configure-additional-items-all.png)
+    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](/images/transfer/latest/userguide/images/create-server-configure-additional-items-all.png)
 
 8.  In **Review and create**, review your choices.
 
