@@ -1,28 +1,27 @@
-# WEEK_DAY
+# NEXT
 
-Creates a new column containing the day of the week, from a string that represents a
-date.
+Returns a new column, where each value represents a value that is
+_n_ rows later in the source column.
 
 ###### Parameters
 
 - `sourceColumn` – The name of an existing column.
-- `value` – A character string to evaluate.
+- `numRows` – A value that represents _n_
+  rows earlier in the source column. For example, if `numRows` is 3,
+  then `NEXT` uses the third-next `sourceColumn` value as
+  the new `targetColumn` value.
 - `targetColumn` – A name for the newly created column.
-
-###### Note
-
-You can specify either `sourceColumn` or `value`, but not
-both.
 
 ###### Example
 
 ```
 {
-    "RecipeAction": {
-        "Operation": "WEEK_DAY",
+    "Action": {
+        "Operation": "NEXT",
         "Parameters": {
-            "sourceColumn": "DATETIME Column 1",
-            "targetColumn": "DATETIME Column 1_WEEKDAY"
+            "numRows": "1",
+            "sourceColumn": "age",
+            "targetColumn": "age_NEXT"
         }
     }
 }
