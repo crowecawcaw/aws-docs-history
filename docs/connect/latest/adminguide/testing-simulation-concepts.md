@@ -18,9 +18,11 @@ observed event expected from the system and many actions to validate or
 simulate system behaviors.
 
 Events
+
 Events represent expected behaviors that would come from the system, such as a prompt, a bot message, or a Lambda call.
 
 Actions
+
 Actions represent what the testing framework should do in response to an event, such as sending DTMF, responding with text, asserting attribute values or ending the test.
 
 Actors
@@ -37,19 +39,20 @@ Lambda function.
 Use interaction groups to create simulated interactions with the call center. Each interaction group has three defined steps, described as the following blocks:
 
 Observe
+
 For each interaction group, you must configure an observe block to
 validate the expected interaction from the system. There are four types of
 event you can observe from, which are test started, message received, action
-triggered, and test completed. ###### Note
+triggered, and test completed.
+
+###### Note
 
 Observe currently supports message received in English only.
 Messages received in other languages are not supported at this
 time and will cause the observe block to fail during test
 execution.
 
-![](images/test-observe-block.png)
-
-Check
+![](images/test-observe-block.png)Check
 
 This block is optional and is used to validate metadata such as user
 defined attributes, system attributes, and segment attributes. You can

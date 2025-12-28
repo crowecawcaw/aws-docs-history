@@ -274,6 +274,15 @@ callback creation flow:
     	 near future from the specific contact center
     	 number.
 
+- **Caller ID number to display**: Specify the phone
+  number that appears to customers when they receive the callback. You can
+  choose **Set manually** to select from drop-down list
+  of claimed phone numbers in your Amazon Connect instance, or
+  **Set dynamically** based on contact attributes.
+  The attribute value must be a valid phone number claimed in your
+  Amazon Connect instance. This caller ID takes precedence over the
+  outbound phone number configured on the queue.
+
 ### Flow block branches
 
 When this block is configured to **transfer to

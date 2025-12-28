@@ -28,13 +28,16 @@ To set this up you need the following prerequisites:
    - Note: You'll see a new section for AWS Entity Resolution after domain creation
 
 2. Configure AWS Entity Resolution
-   - Create a matching workflow
-   - Configure your S3 data sources
-   - Define matching criteria
-   - Review and activate your matching workflow
-
    - In your Customer Profiles domain, locate the AWS Entity Resolution section
    - Click "Set up AWS Entity Resolution"
    - You'll be redirected to the AWS Entity Resolution console.
+     - Create a matching workflow
+     - Configure your S3 data sources
+     - Define matching criteria
+     - Review and activate your matching workflow
 
 3. Connect Entity Resolution results to Customer Profiles
+   - Return to your Customer Profiles domain
+   - Select your Entity Resolution workflow
+   - Configure how matched records should be consolidated
+   - Enable the integration

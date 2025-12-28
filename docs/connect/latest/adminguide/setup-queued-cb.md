@@ -82,6 +82,10 @@ Use the steps provided in the following overview to set up queued callback.
   after they accept the contact, before they are joined to the customer. For
   example, "You're about to be connected to Customer John, who requested a refund
   for..."
+- (Optional) Provide a caller ID. This is what the customer sees when dialed.
+  Must be a valid phone number claimed in your Amazon Connect instance. This field is
+  reflected as the system endpoint in contact records. The number set here takes
+  precedence over the outbound phone number set on the queue.
 - Choose a dial mode between agent first and customer first.
 
 ###### Important
@@ -241,7 +245,12 @@ Creating a queue just for callbacks lets you view in your real-time metrics
 reports how many customers are waiting for callbacks.
 
 If you don't set a working queue, Amazon Connect uses the queue that was set previously
-in the flow. 14. The callback contact is a new contact separate from the inbound voice contact.
+in the flow. 14. You can optionally specify the caller ID that customers see when they receive
+the callback by configuring the **Caller ID number to display**
+option in the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block,
+as shown in the following image.
+
+![The optional parameters section showing Caller ID number to display options.](images/transfer-to-callback-caller-id-display.png) 15. The callback contact is a new contact separate from the inbound voice contact.
 You can optionally control the experience of this callback contact when it is
 created by configuring the **Set creation flow** option in the
 [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
@@ -303,11 +312,11 @@ block, as shown in the following image.
     		 near future from the specific contact center
     		 number.
 
-15. To save and test this flow, configure the other branches and add error
+16. To save and test this flow, configure the other branches and add error
     handling. To see an example of how this is done, see [Sample queue configurations flow in
     Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md"). For previous instances, see
     [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md").
-16. For information about how callbacks appear in real-time metrics reports and
+17. For information about how callbacks appear in real-time metrics reports and
     contact records, see [Queued callbacks in real-time metrics in
     Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
 

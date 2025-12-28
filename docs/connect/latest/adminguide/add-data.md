@@ -16,7 +16,7 @@ _Amazon Q in Connect API Reference_.
 2. On the navigation bar, choose **Content Management**, then
    **Quick responses**.
 
-![Menu showing "Content Management" and "Quick responses."](/images/connect/latest/adminguide/images/agent-application-1.png) 3. On the **Quick responses** page, choose **Import**. 4. In the **Import** dialog box, choose the **Responses Import
+![Menu showing "Content Management" and "Quick responses."](images/agent-application-1.png) 3. On the **Quick responses** page, choose **Import**. 4. In the **Import** dialog box, choose the **Responses Import
 Template.csv** link, then save the resulting **Response Import
 Template.csv** file to your desktop. The file opens in Microsoft Excel or a similar
 spreadsheet program. 5. In the .csv file, enter values in each column. Remember the following:
