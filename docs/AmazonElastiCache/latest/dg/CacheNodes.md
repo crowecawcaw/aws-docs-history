@@ -1,7 +1,7 @@
-# Replacing nodes (Valkey and Redis OSS)
+# Replacing nodes (Memcached)
 
-Amazon ElastiCache frequently upgrades its fleet with patches and upgrades being applied to
-instances seamlessly. However, from time to time we need to relaunch your ElastiCache nodes
+Amazon ElastiCache for Memcached frequently upgrades its fleet with patches and upgrades being applied to
+instances seamlessly. However, from time to time we need to relaunch your ElastiCache for Memcached nodes
 to apply mandatory OS updates to the underlying host. These replacements are required to
 apply upgrades that strengthen security, reliability, and operational
 performance.
@@ -9,9 +9,9 @@ performance.
 You have the option to manage these replacements yourself at any time before the
 scheduled node replacement window. When you manage a replacement yourself, your instance
 receives the OS update when you relaunch the node and your scheduled node replacement is
-canceled. You might continue to receive alerts indicating that the node replacement is
-to take place. If you've already manually mitigated the need for the maintenance, you
-can ignore these alerts.
+canceled. You might continue to receive alerts indicating that the node replacement
+takes place. If you already manually mitigated the need for the maintenance, you can
+ignore these alerts.
 
 ###### Note
 
@@ -20,77 +20,17 @@ addresses. You are responsible for reviewing your application configuration to
 ensure that your cache nodes are associated with the appropriate IP
 addresses.
 
-The following list identifies actions you can take when ElastiCache schedules one of your Valkey or
-Redis OSS nodes for replacement. To expedite finding the information you need for your
-situation, choose from the following menu.
+The following list identifies actions you can take when ElastiCache schedules one of your
+Memcached nodes for replacement.
 
-- [Do nothing](#DoNothing "#DoNothing") – Let Amazon ElastiCache replace the node as
-  scheduled.
-- [Change your maintenance window](#ChangeWindow "#ChangeWindow") – Change your maintenance window to a
-  better time.
-- Valkey or Redis OSS (cluster mode enabled) Configurations
-  - [Replace the only node in any Valkey or Redis OSS cluster](#ReplaceStandalone "#ReplaceStandalone") – A procedure to replace a
-    node in a Valkey or Redis OSS cluster using backup and restore.
-  - [Replace a replica node in any Valkey or Redis OSS cluster](#ReplaceReplica "#ReplaceReplica") – A procedure to replace a
-    read-replica in any Valkey or Redis OSS cluster by increasing and decreasing the
-    replica count with no cluster downtime.
-  - [Replace any node in a Valkey or Redis OSS (cluster mode enabled) shard](#ReplaceShardNode "#ReplaceShardNode") – A dynamic procedure with
-    no cluster downtime to replace a node in a Valkey or Redis OSS (cluster mode enabled) cluster by
-    scaling out and scaling in.
-
-- Valkey or Redis OSS (cluster mode disabled) Configurations
-  - [Replace the only node in any Valkey or Redis OSS cluster](#ReplaceStandalone "#ReplaceStandalone") – Procedure to replace any
-    node in a Valkey or Redis OSS cluster using backup and restore.
-  - [Replace a replica node in any Valkey or Redis OSS cluster](#ReplaceReplica "#ReplaceReplica") – A procedure to replace a
-    read-replica in any Valkey or Redis OSS cluster by increasing and decreasing the
-    replica count with no cluster downtime.
-  - [Replace a node in a Valkey or Redis OSS (cluster mode disabled) cluster](#ReplaceStandaloneClassic "#ReplaceStandaloneClassic") – Procedure to
-    replace a node in a Valkey or Redis OSS (cluster mode disabled) cluster using replication.
-  - [Replace a Valkey or Redis OSS (cluster mode disabled) read-replica](#ReplaceReadReplica "#ReplaceReadReplica") – A procedure to manually
-    replace a read-replica in a Valkey or Redis OSS (cluster mode disabled) replication group.
-  - [Replace a Valkey or Redis OSS (cluster mode disabled) primary node](#ReplacePrimary "#ReplacePrimary") – A procedure to manually
-    replace the primary node in a Valkey or Redis OSS (cluster mode disabled) replication group.
-
-###### Valkey and Redis OSS node replacement options
-
-- **Do nothing** – If you do nothing, ElastiCache replaces
-  the node as scheduled.
-
- 
-
-For non-Cluster configurations with autofailover enabled, clusters on Valkey 7.2 and above and Redis OSS 5.0.6 and above complete replacement while the cluster continues to stay online and serve incoming write requests. For auto failover enabled clusters on Redis OSS 4.0.10 or below, you might notice a brief write interruption of up to a few seconds associated with DNS updates.
-
-If the node is a member of an auto failover enabled cluster, ElastiCache for Valkey or Redis OSS provides
-improved availability during patching, updates, and other maintenance-related
-node replacements.
-
- 
-
-For ElastiCache cluster configurations that are set up to use
-ElastiCache for Valkey or Redis OSS cluster clients, replacement now completes while the
-cluster serves incoming write requests.
-
- 
-
-For non-cluster configurations with autofailover enabled, clusters on Valkey 7.2 and above and Redis OSS 5.0.6 and above complete replacement while the cluster continues to stay online
-and serve incoming write requests. For auto failover enabled clusters on Redis OSS 4.0.10 or below, you might notice a brief write interruption of up to a few
-seconds associated with DNS updates.
-
- 
-
-If the node is standalone, Amazon ElastiCache first launches a replacement node and
-then syncs from the existing node. The existing node isn't available for service
-requests during this time. Once the sync is complete, the existing node is
-terminated and the new node takes its place. ElastiCache makes a best effort to retain
-your data during this operation.
-
-- **Change your maintenance window**
-  – For scheduled maintenance events, you receive an email or a
-  notification event from ElastiCache. In these cases, if you change your maintenance
-  window before the scheduled replacement time, your node now is replaced at the
-  new time. For more information, see the following:
-  - [Modifying an ElastiCache cluster](Clusters.md "Clusters.md")
-  - [Modifying a replication group](Replication.md "Replication.md")
+- **Do nothing** – If you do nothing, ElastiCache
+  replaces the node as scheduled. When ElastiCache automatically replaces the node with
+  a new node, the new node is initially empty.
+- **Change your maintenance window** – For
+  scheduled maintenance events, you receive an email or a notification event from
+  ElastiCache. In this case, if you change your maintenance window before the scheduled
+  replacement time, your node now is replaced at the new time. For more
+  information, see [Modifying an ElastiCache cluster](Clusters.md "Clusters.md").
 
 ###### Note
 
@@ -115,122 +55,17 @@ scenarios with their outcomes:
 
 For instructions, see [Managing ElastiCache cluster maintenance](maintenance-window.md "maintenance-window.md").
 
-- **Replace the only node in any Valkey or Redis OSS cluster** – If the cluster does not have any read replicas,
-  you can use the following procedure to replace the node.
+- **Manually replace the node** – If you
+  need to replace the node before the next maintenance window, manually replace
+  the node.
 
-###### To replace the only node using backup and restore
+If you manually replace the node, keys are redistributed. This redistribution
+causes cache misses.
 
-    1. Create a snapshot of the node's cluster. For instructions, see [Taking manual backups](backups-manual.md "backups-manual.md").
-    2. Create a new cluster seeding it from the snapshot. For instructions,
-     see [Restoring from a backup into a new cache](backups-restoring.md "backups-restoring.md").
-    3. Delete the cluster with the node scheduled for replacement. For
-     instructions, see [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md").
-    4. In your application, replace the old node's endpoint with the new
-     node's endpoint.
+###### To manually replace a Memcached node
 
-- **Replace a replica node in any Valkey or Redis OSS cluster** – To replace a replica cluster, increase your
-  replica count. To do this, add a replica then decrease the replica count by
-  removing the replica that you want to replace. This process is dynamic and
-  doesn't have any cluster downtime.
-
-###### Note
-
-If your shard or replication group already has five
-replicas, reverse steps 1 and 2.
-
-###### To replace a replica in any Valkey or Redis OSS cluster
-
-    1. Increase the replica count by adding a replica to the shard or
-     replication group. For more information, see [Increasing the number of replicas in a shard](increase-replica-count.md "increase-replica-count.md").
-    2. Delete the replica you want to replace. For more information, see
-     [Decreasing the number of replicas in a shard](decrease-replica-count.md "decrease-replica-count.md").
-    3. Update the endpoints in your application.
-
-- **Replace any node in a Valkey or Redis OSS (cluster mode enabled)
-  shard** – To replace the node in a cluster with no downtime,
-  use online resharding. First add a shard by scaling out, and then delete the
-  shard with the node to be replaced by scaling in.
-
-###### To replace any node in a Valkey or Redis OSS (cluster mode enabled) cluster
-
-    1. Scale out: Add an additional shard with the same configuration as the
-     existing shard with the node to be replaced. For more information, see
-     [Adding shards with online
-     resharding](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-add "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-add").
-    2. Scale in: Delete the shard with the node to be replaced. For more
-     information, see [Removing shards with online
-     resharding](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove").
-    3. Update the endpoints in your application.
-
-- **Replace a node in a Valkey or Redis OSS (cluster mode disabled)
-  cluster** – If the cluster is a Valkey or Redis OSS (cluster mode disabled) cluster
-  without any read replicas, use the following procedure to replace the
-  node.
-
-###### To replace the node using replication (cluster mode disabled
-
-only)
-
-    1. Add replication to the cluster with the node scheduled for replacement
-     as the primary. Do not enable Multi-AZ on this cluster. For
-     instructions, see [To add replication to a Valkey or Redis OSS cluster with no shards](Clusters.md#AddReplication.CON "Clusters.md#AddReplication.CON").
-    2. Add a read-replica to the cluster. For instructions, see [To add nodes to an ElastiCache cluster (console)](Clusters.md#AddNode.CON "Clusters.md#AddNode.CON").
-    3. Promote the newly created read-replica to primary. For instructions,
-     see [Promoting a read replica to primary, for Valkey or Redis OSS (cluster mode disabled) replication groups](Replication.md "Replication.md").
-    4. Delete the node scheduled for replacement. For instructions, see [Removing nodes from an ElastiCache cluster](Clusters.md "Clusters.md").
-    5. In your application, replace the old node's endpoint with the new
-     node's endpoint.
-
-- **Replace a Valkey or Redis OSS (cluster mode disabled) read-replica** – If the
-  node is a read-replica, replace the node.
-
-If your cluster has only one replica node and Multi-AZ is enabled, you must
-disable Multi-AZ before you can delete the replica. For instructions, see [Modifying a replication group](Replication.md "Replication.md").
-
-###### To replace a Valkey or Redis OSS (cluster mode disabled) read replica
-
-    1. Delete the replica that is scheduled for replacement. For
-     instructions, see the following:
-
-
-
-
-    	+ [Decreasing the number of replicas in a shard](decrease-replica-count.md "decrease-replica-count.md")
-    	+ [Removing nodes from an ElastiCache cluster](Clusters.md "Clusters.md")
-    2. Add a new replica to replace the one that is scheduled for
-     replacement. If you use the same name as the replica you just deleted,
-     you can skip step 3. For instructions, see the following:
-
-
-
-
-    	+ [Increasing the number of replicas in a shard](increase-replica-count.md "increase-replica-count.md")
-    	+ [Adding a read replica for Valkey or Redis OSS (Cluster Mode Disabled)](Replication.md "Replication.md")
-    3. In your application, replace the old replica's endpoint with the
-     new replica's endpoint.
-    4. If you disabled Multi-AZ at the start, re-enable it now. For
-     instructions, see [Enabling Multi-AZ](AutoFailover.md#AutoFailover.Enable "AutoFailover.md#AutoFailover.Enable") .
-
-- **Replace a Valkey or Redis OSS (cluster mode disabled) primary node** – If the
-  node is the primary node, first promote a read-replica to primary. Then delete
-  the replica that used to be the primary node.
-
-If your cluster has only one replica and Multi-AZ is enabled, you must disable
-Multi-AZ before you can delete the replica in step 2. For instructions, see
-[Modifying a replication group](Replication.md "Replication.md").
-
-###### To replace a Valkey or Redis OSS (cluster mode disabled) primary node
-
-    1. Promote a read-replica to primary. For instructions, see [Promoting a read replica to primary, for Valkey or Redis OSS (cluster mode disabled) replication groups](Replication.md "Replication.md").
-    2. Delete the node that is scheduled for replacement (the old primary).
-     For instructions, see [Removing nodes from an ElastiCache cluster](Clusters.md "Clusters.md").
-    3. Add a new replica to replace the one scheduled for replacement. If you
-     use the same name as the node you just deleted, you can skip changing
-     endpoints in your application.
-
-
-    For instructions, see [Adding a read replica for Valkey or Redis OSS (Cluster Mode Disabled)](Replication.md "Replication.md").
-    4. In your application, replace the old node's endpoint with the new
-     node's endpoint.
-    5. If you disabled Multi-AZ at the start, re-enable it now. For
-     instructions, see [Enabling Multi-AZ](AutoFailover.md#AutoFailover.Enable "AutoFailover.md#AutoFailover.Enable") .
+    1. Delete the node scheduled for replacement. For instructions, see [Removing nodes from an ElastiCache cluster](Clusters.md "Clusters.md").
+    2. Add a new node to the cluster. For instructions, see [Adding nodes to an ElastiCache cluster](Clusters.md "Clusters.md").
+    3. If you are not using auto discovery on this cluster, see your
+     application and replace every instance of the old node's endpoint
+     with the new node's endpoint.

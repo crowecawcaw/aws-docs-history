@@ -1,108 +1,50 @@
-# Promoting a read replica to primary, for Valkey or Redis OSS (cluster mode disabled) replication groups
+# Finding replication group endpoints
 
-Information in the following topic applies to
-only Valkey or Redis OSS (cluster mode disabled) replication groups.
+An application can connect to any node in a replication group, provided that it has the DNS
+endpoint and port number for that node. Depending upon whether you are running a Valkey or Redis OSS (cluster mode disabled)
+or a Valkey or Redis OSS (cluster mode enabled) replication group, you will be interested in different endpoints.
 
-You can promote a Valkey or Redis OSS (cluster mode disabled) read replica to primary using the AWS Management Console, the AWS CLI,
-or the ElastiCache API. You can't promote a read replica to primary while Multi-AZ with
-Automatic Failover is enabled on the replication group. To promote a
-Valkey or Redis OSS (cluster mode disabled) replica to primary on a Multi-AZ enabled replication group, do the
-following:
+###### Valkey or Redis OSS (cluster mode disabled)
 
-1. Modify the replication group to disable Multi-AZ (doing this doesn't require
-   that all your clusters be in the same Availability Zone). For more information, see
-   [Modifying a replication group](Replication.md "Replication.md").
-2. Promote the read replica to primary.
-3. Modify the replication group to re-enable Multi-AZ.
-   Multi-AZ is not available on replication groups running Redis OSS 2.6.13 or earlier.
+Valkey or Redis OSS (cluster mode disabled) clusters with replicas have three types of endpoints; the _primary endpoint_, the _reader endpoint_ and
+the _node endpoints_.
+The primary endpoint is a DNS name that always resolves to the primary node in the cluster.
+The primary endpoint is immune to changes to your cluster, such as promoting a read replica
+to the primary role.
+For write activity, we recommend that your applications connect to the primary
+endpoint.
 
-## Using the AWS Management Console
+A reader endpoint will evenly split incoming connections to the endpoint between all read replicas in an ElastiCache cluster. Additional factors such as when the application creates the connections or how the application (re)-uses the connections will determine the traffic distribution. Reader endpoints keep up with cluster changes in real-time as replicas are added or removed.
+You can place your ElastiCache for Redis OSS cluster’s multiple read replicas in different AWS Availability Zones (AZ) to ensure high availability of reader endpoints.
 
-The following procedure uses the console to promote a replica node to primary.
+###### Note
 
-###### To promote a read replica to primary (console)
+A reader endpoint is not a load balancer. It is a DNS record that will resolve to an IP address of one of the replica nodes in a round robin fashion.
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. If the replica you want to promote is a member of a Valkey or Redis OSS (cluster mode disabled) replication
-   group where Multi-AZ is enabled, modify the replication group to disable Multi-AZ
-   before you proceed. For more information, see [Modifying a replication group](Replication.md "Replication.md").
-3. Choose **Valkey** or **Redis OSS**, then from the list of clusters, choose the
-   replication group that you want to modify. This replication group must be running
-   the "Redis" engine, not the "Clustered Redis" engine, and must have two or more
-   nodes.
-4. From the list of nodes, choose the replica node you want to promote to primary,
-   then for **Actions**, choose **Promote**.
-5. In the **Promote Read Replica** dialog box, do the
-   following:
-   1. For **Apply Immediately**, choose
-      **Yes** to promote the read replica immediately, or
-      **No** to promote it at the cluster's next maintenance
-      window.
-   2. Choose **Promote** to promote the read replica or **Cancel**
-      to cancel the operation.
+For read activity, applications can also connect to any node in the cluster.
+Unlike the primary endpoint, node endpoints resolve to specific endpoints.
+If you make a change in your cluster, such as adding or deleting a replica,
+you must update the node endpoints in your application.
 
-6. If the cluster was Multi-AZ enabled before you began the promotion process,
-   wait until the replication group's status is **available**, then modify the cluster to
-   re-enable Multi-AZ. For more information, see [Modifying a replication group](Replication.md "Replication.md").
+###### Valkey or Redis OSS (cluster mode enabled)
 
-## Using the AWS CLI
+Valkey or Redis OSS (cluster mode enabled) clusters with replicas,
+because they have multiple shards (API/CLI: node groups),
+which mean they also have multiple primary nodes, have a different endpoint structure than Valkey or Redis OSS (cluster mode disabled) clusters.
+Valkey or Redis OSS (cluster mode enabled) has a _configuration endpoint_ which "knows" all the primary and
+node endpoints in the cluster.
+Your application connects to the configuration endpoint.
+Whenever your application writes to or reads from the cluster's configuration endpoint,
+Valkey and Redis OSS, behind the scenes, determine which shard the key belongs to and which endpoint in that
+shard to use. It is all quite transparent to your application.
 
-You can't promote a read replica to primary if the replication group is Multi-AZ
-enabled. In some cases, the replica that you want to promote might be a member of a
-replication group where Multi-AZ is enabled. In these cases, you must modify the
-replication group to disable Multi-AZ before you proceed. Doing this doesn't require
-that all your clusters be in the same Availability Zone. For more information on
-modifying a replication group, see [Modifying a replication group](Replication.md "Replication.md").
+You can find the endpoints for a cluster using the ElastiCache console, the AWS CLI, or the ElastiCache API.
 
-The following AWS CLI command modifies the replication group `sample-repl-group`,
-making the read replica `my-replica-1` the primary in the replication group.
+**Finding Replication Group Endpoints**
 
-For Linux, macOS, or Unix:
+To find the endpoints for your replication group, see one of the following topics:
 
-```
-aws elasticache modify-replication-group \
-   --replication-group-id `sample-repl-group` \
-   --primary-cluster-id `my-replica-1`
-```
-
-For Windows:
-
-```
-aws elasticache modify-replication-group ^
-   --replication-group-id `sample-repl-group` ^
-   --primary-cluster-id `my-replica-1`
-```
-
-For more information on modifying a replication group, see modify-replication-group in the _Amazon ElastiCache Command Line Reference._
-
-## Using the ElastiCache API
-
-You can't promote a read replica to primary if the replication group is Multi-AZ
-enabled. In some cases, the replica that you want to promote might be a member of a
-replication group where Multi-AZ is enabled. In these cases, you must modify the
-replication group to disable Multi-AZ before you proceed. Doing this doesn't require
-that all your clusters be in the same Availability Zone. For more information on
-modifying a replication group, see [Modifying a replication group](Replication.md "Replication.md").
-
-The following ElastiCache API action modifies the replication group `myReplGroup`,
-making the read replica `myReplica-1` the primary in the replication group.
-
-```
-https://elasticache.us-west-2.amazonaws.com/
-   ?Action=ModifyReplicationGroup
-   &ReplicationGroupId=myReplGroup
-   &PrimaryClusterId=myReplica-1
-   &Version=2014-12-01
-   &SignatureVersion=4
-   &SignatureMethod=HmacSHA256
-   &Timestamp=20141201T220302Z
-   &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
-   &X-Amz-Date=20141201T220302Z
-   &X-Amz-SignedHeaders=Host
-   &X-Amz-Expires=20141201T220302Z
-   &X-Amz-Credential=<credential>
-   &X-Amz-Signature=<signature>
-```
-
-For more information on modifying a replication group, see ModifyReplicationGroup in the _Amazon ElastiCache API Reference._
+- [Finding a Valkey or Redis OSS (Cluster Mode Disabled) Cluster's Endpoints (Console)](Endpoints.md#Endpoints.Find.Redis "Endpoints.md#Endpoints.Find.Redis")
+- [Finding Endpoints for a Valkey or Redis OSS (Cluster Mode Enabled) Cluster (Console)](Endpoints.md#Endpoints.Find.RedisCluster "Endpoints.md#Endpoints.Find.RedisCluster")
+- [Finding the Endpoints for Valkey or Redis OSS Replication Groups (AWS CLI)](Endpoints.md#Endpoints.Find.CLI.ReplGroups "Endpoints.md#Endpoints.Find.CLI.ReplGroups")
+- [Finding Endpoints for Valkey or Redis OSS Replication Groups (ElastiCache API)](Endpoints.md#Endpoints.Find.API.ReplGroups "Endpoints.md#Endpoints.Find.API.ReplGroups")
