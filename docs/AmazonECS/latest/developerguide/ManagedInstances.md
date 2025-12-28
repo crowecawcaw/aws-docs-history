@@ -131,9 +131,9 @@ The following are key features of Amazon ECS Managed Instances:
 - Optimize resource utilization and cost with multiple tasks on a single
   instance by default, unlike Fargate which runs each task in its own isolated
   environment.
-- Ensure security compliance and regular patching with a maximum instance
-  lifetime of 14 days, after which tasks are automatically migrated to new
-  instances.
+- Ensure security compliance and regular instance patching. ECS Managed Instances
+  initiates instance draining after 14 days and automatically replaces service-based
+  tasks to new instances.
 - Enable advanced networking and system administration functions within
   containers using privileged Linux capabilities, including CAP_NET_ADMIN,
   CAP_SYS_ADMIN, and CAP_BPF.
@@ -163,8 +163,8 @@ workloads:
 - **Automatic patching** - AWS regularly updates
   Amazon ECS Managed Instances with the latest security patches, respecting maintenance
   windows that you configure.
-- **Limited instance lifetime** - The maximum
-  lifetime of a running instance is 14 days, ensuring your applications run on
+- **Limited instance lifetime** - ECS automatically
+  initiates instance draining after 14 days, ensuring your applications run on
   appropriately configured instances with up-to-date security patches.
 - **Privileged capabilities** - You can optionally
   enable privileged Linux capabilities for workloads that require them, such as
@@ -311,7 +311,7 @@ Migrating to Amazon ECS Managed Instances is straightforward for most workloads:
 
 Consider the following when planning your migration:
 
-- Applications should tolerate the 14-day maximum instance lifetime and planned
+- Applications should tolerate the 14-day instance lifetime and planned
   maintenance windows.
 - Long-running tasks (exceeding 14 days) are not suitable for
   Amazon ECS Managed Instances.
