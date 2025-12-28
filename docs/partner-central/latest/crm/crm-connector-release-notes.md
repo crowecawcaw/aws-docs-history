@@ -4,6 +4,7 @@ This section contains the release history for the AWS Partner Customer Relations
 
 ###### Topics
 
+- [Version 3.14 (December 17, 2025)](#3.14 "#3.14")
 - [Version 3.13 (October 30, 2025)](#3.13 "#3.13")
 - [Version 3.12 (September 16, 2025)](#3.12 "#3.12")
 - [Version 3.11 (September 10, 2025)](#3.11 "#3.11")
@@ -20,6 +21,35 @@ This section contains the release history for the AWS Partner Customer Relations
 - [Version 1.6 (January 13, 2023)](#1.6 "#1.6")
 - [Version 1.5 (January 13, 2023)](#1.5 "#1.5")
 - [Version 1.4 (December 7, 2022)](#1.4 "#1.4")
+
+## Version 3.14 (December 17, 2025)
+
+AWS Partner CRM Connector version 3.14 contains the following features and
+improvements.
+
+### AWS Partner Central API
+
+**Opportunity data backfill**
+
+- Added dedicated **backfill** feature that allows partners to initiate data synchronization directly from the connector interface for all existing opportunities from AWS Partner Central to Salesforce
+- Implemented user defined criteria for opportunity selection based on stages and other filtering options
+
+**Opportunity association enhancement**
+
+- Consolidated the four-field approach into three clear, searchable fields with consistent behavior
+- Implemented searchable dropdown fields with type-ahead functionality for **Solutions**, **AWS Products**, and **AWS Marketplace offer**
+- Improved **AWS Products** field to display friendly names (e.g. “AWS Amplify”) while maintaining correct API identifiers
+
+**Opportunity owner assignment on creation**
+
+- Added support for setting opportunity owner during opportunity creation through the CreateOpportunity API
+- Implemented proper mapping of OpportunityTeam members with BusinessTitle “OpportunityOwner”
+
+### Bug fixes
+
+- Fixed validation issue on OpportunityTeamMember email validation to share payload with AWS only when First Name, Last Name or Phone Number is provided
+- Updated National Security field logic to share selected picklist values correctly
+- Updated tooltips for Partner Account Manager fields
 
 ## Version 3.13 (October 30, 2025)
 
