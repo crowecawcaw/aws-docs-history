@@ -14,7 +14,7 @@ occurs:
 
 - EventBridge cannot retrieve the secret because it has been deleted.
 - For connections using OAuth authentication, EventBridge cannot refresh the necessary OAuth token.
-- For connections using Basic or API Key authentication, EventBridge recieves a `401 (UnAuthorize)` or `407 (Proxy_Authentication_required)` error code.
+- For connections using Basic or API Key authentication, EventBridge receives a `401 (UnAuthorize)` or `407 (Proxy_Authentication_required)` error code.
 
 In this case, update the connection with appropriate credentials to resolve the error.
 
