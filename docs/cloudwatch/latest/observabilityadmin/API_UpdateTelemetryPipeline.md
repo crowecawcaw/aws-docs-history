@@ -36,9 +36,9 @@ Microsoft Sources (Entra ID, Office365, Windows)
 
 **Updatable:** All AWS Secrets Manager attributes, `tenant_id`, `workspace_id` (Windows only), OAuth2 credentials (`client_id`, `client_secret`)
 
-Okta Sources (SSO)
+Okta Sources (SSO, Auth0)
 
-**Updatable:** All AWS Secrets Manager attributes, `domain`, `range` (SSO only), OAuth2 credentials (`client_id`, `client_secret`)
+**Updatable:** All AWS Secrets Manager attributes, `domain`, `range`, OAuth2 credentials (`client_id`, `client_secret`)
 
 Palo Alto Networks
 
