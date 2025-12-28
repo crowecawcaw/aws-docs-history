@@ -10,25 +10,26 @@ The ecosystem collection extends SBOM generation beyond packages installed throu
 This is done through the collection of applications deployed in alternative methods, such as manual installation.
 The Amazon Inspector SBOM Generator supports scanning for the following ecosystems:
 
-| Ecosystems           | Applications                                                                                                                                                                                                                                                          |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 7-Zip                | 7-Zip archiver (version 21.07 and higher)                                                                                                                                                                                                                             |
-| Apache               | Apache httpd<br>Apache tomcat                                                                                                                                                                                                                                         |
-| Curl                 | Curl<br>Libcurl                                                                                                                                                                                                                                                       |
-| Elasticsearch        | Elasticsearch                                                                                                                                                                                                                                                         |
-| Google               | Chrome                                                                                                                                                                                                                                                                |
-| Java                 | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                         |
-| Jenkins              | Jenkins (version 2.400.\<br>• and higher)                                                                                                                                                                                                                             |
-| MariaDB and MySQL    | MariaDB Server (10.6+, 11.x, 12.x)<br>Oracle MySQL Server Server (8.0, 8.4, 9.4+)                                                                                                                                                                                     |
-| Nginx                | Nginx                                                                                                                                                                                                                                                                 |
-| Node                 | Node                                                                                                                                                                                                                                                                  |
-| OpenSSH              | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                           |
-| OpenSSL              | OpenSSL                                                                                                                                                                                                                                                               |
-| Oracle               | Oracle Database Server                                                                                                                                                                                                                                                |
-| PHP                  | PHP (version 8.1 and higher)                                                                                                                                                                                                                                          |
-| WordPress            | core<br>plugin<br>theme                                                                                                                                                                                                                                               |
-| Node.JS              | node                                                                                                                                                                                                                                                                  |
-| Windows applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Runtime<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
+| Ecosystems             | Applications                                                                                                                                                                                                                                                          |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 7-Zip                  | 7-Zip archiver (version 21.07 and higher)                                                                                                                                                                                                                             |
+| Apache                 | Apache httpd<br>Apache tomcat                                                                                                                                                                                                                                         |
+| Curl                   | Curl<br>Libcurl                                                                                                                                                                                                                                                       |
+| Elasticsearch          | Elasticsearch                                                                                                                                                                                                                                                         |
+| Google                 | Chrome                                                                                                                                                                                                                                                                |
+| Java                   | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                         |
+| Jenkins                | Jenkins (version 2.400.\<br>• and higher)                                                                                                                                                                                                                             |
+| MariaDB and MySQL      | MariaDB Server (10.6+, 11.x, 12.x)<br>Oracle MySQL Server Server (8.0, 8.4, 9.4+)                                                                                                                                                                                     |
+| Nginx                  | Nginx                                                                                                                                                                                                                                                                 |
+| Node                   | Node                                                                                                                                                                                                                                                                  |
+| OpenSSH                | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                           |
+| OpenSSL                | OpenSSL                                                                                                                                                                                                                                                               |
+| Oracle                 | Oracle Database Server                                                                                                                                                                                                                                                |
+| PHP                    | PHP (version 8.1 and higher)                                                                                                                                                                                                                                          |
+| WordPress              | core<br>plugin<br>theme                                                                                                                                                                                                                                               |
+| Node.JS                | node                                                                                                                                                                                                                                                                  |
+| Microsoft applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Runtime<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
+| Atlassian              | Jira Core<br>Confluence<br>Jira Software<br>Jira Service Management                                                                                                                                                                                                   |
 
 ## 7-Zip ecosystem collection
 
@@ -991,9 +992,9 @@ Sample PURL: pkg:generic/wordpress/theme/avada@1.0.0
 
 ```
 
-## Windows applicaitons ecosystem collection
+## Microsoft applications ecosystem collection
 
-###### Supported Windows Applications
+###### Supported Microsoft applications
 
 - PowerShell
 - NuGet CLI
@@ -1089,7 +1090,7 @@ The following is an example of a `state.json` file to use to collect installed V
 
 Example PURL
 
-The following is an example package URL for each Windows applications.
+The following is an example package URL for each Microsoft Applications.
 
 ```
 // PowerShell
@@ -1142,4 +1143,74 @@ Sample PURL: pkg:generic/microsoft/powerpoint@16.0.19127.20264
 
 // Microsoft Outlook
 Sample PURL: pkg:generic/microsoft/outlook@16.0.19127.20264
+```
+
+## Atlassian ecosystem collection
+
+This section provides details about Atlassian server products and applications.
+
+### Atlassian Server Products
+
+###### Supported applications
+
+- Jira Core
+- Confluence
+
+###### Key features
+
+- Jira Core – Parses Maven POM properties from `atlassian-jira-webapp` to extract version information.
+- Confluence – Parses Maven POM properties from `confluence-webapp` to extract version information.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths:
+
+###### Linux
+
+- `/opt/atlassian/jira/atlassian-jira/META-INF/maven/com.atlassian.jira/atlassian-jira-webapp/pom.properties`
+- `/opt/atlassian/confluence/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties`
+
+###### Example PURL
+
+The following are example package URLs for Atlassian server products.
+
+```
+// Jira Core
+pkg:generic/atlassian/jira-core@10.0.1?distro=linux
+
+// Confluence
+pkg:generic/atlassian/confluence@9.2.7?distro=linux
+```
+
+### Atlassian Applications
+
+###### Supported applications
+
+- Jira Software
+- Jira Service Management
+
+###### Key features
+
+- Jira Software – Detects via `jira-software-application` JAR and extracts version from Maven POM properties.
+- Jira Service Management – Detects via `jira-servicedesk-application` JAR and extracts version from Maven POM properties.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths:
+
+###### Linux
+
+- `/opt/atlassian/jira/atlassian-jira/WEB-INF/application-installation/jira-software-application/jira-software-application-*.jar`
+- `/opt/atlassian/jira/atlassian-jira/WEB-INF/application-installation/jira-servicedesk-application/jira-servicedesk-application-*.jar`
+
+###### Example PURL
+
+The following are example package URLs for Atlassian applications.
+
+```
+// Jira Software
+pkg:generic/atlassian/jira-software@10.3.9?distro=linux
+
+// Jira Service Management
+pkg:generic/atlassian/jira-service-management@10.3.9?distro=linux
 ```

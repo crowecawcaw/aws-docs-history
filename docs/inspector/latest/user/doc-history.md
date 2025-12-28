@@ -95,24 +95,27 @@ To receive notifications about documentation updates, you can subscribe to an RS
 
 Amazon Inspector continuously monitors and identifies malicious packages from the NPM registry to protect your applications from supply chain attacks.
 
+**Latest Update:** 2025-12-22 06:00:00 UTC
+
 ### Detection Summary
 
-- **Lifetime Total:** 189,483 malicious packages identified
-- **This Month:** 146,741 new malicious packages identified
-- **Last Month:** 1,135 new malicious packages identified
-- **This Week:** 306 new malicious packages identified
+- **Lifetime Total:** 190,980 malicious packages identified
+- **This Month:** 949 new malicious packages identified
+- **Last Month:** 147,289 new malicious packages identified
+- **This Week:** 118 new malicious packages identified
+- **Last Week:** 106 new malicious packages identified
 
 ### Recent Malicious Package Reports (Last 10)
 
-| Package Name                  | MAL-ID          | Detection Date |
-| ----------------------------- | --------------- | -------------- |
-| @trigo/trigo-hapijs           | MAL-2025-190690 | 2025-11-24     |
-| @ensdomains/address-encoder   | MAL-2025-190665 | 2025-11-24     |
-| @posthog/siphash              | MAL-2025-190753 | 2025-11-24     |
-| @seung-ju/openapi-generator   | MAL-2025-190756 | 2025-11-24     |
-| @posthog/plugin-unduplicates  | MAL-2025-190889 | 2025-11-24     |
-| @ensdomains/content-hash      | MAL-2025-190666 | 2025-11-24     |
-| @mcp-use/inspector            | MAL-2025-190868 | 2025-11-24     |
-| @ensdomains/server-analytics  | MAL-2025-190811 | 2025-11-24     |
-| @asyncapi/edavisualiser       | MAL-2025-190798 | 2025-11-24     |
-| @asyncapi/generator-react-sdk | MAL-2025-190637 | 2025-11-24     |
+| Package Name                    | MAL-ID          | Detection Date |
+| ------------------------------- | --------------- | -------------- |
+| ro-mobile                       | MAL-2025-192698 | 2025-12-22     |
+| mw-frontend-utils               | MAL-2025-192697 | 2025-12-22     |
+| mui-wrapper-core                | MAL-2025-192696 | 2025-12-22     |
+| ivx-cloud-client-v1             | MAL-2025-192695 | 2025-12-22     |
+| dc-extras                       | MAL-2025-192694 | 2025-12-22     |
+| airslate-dep-webpack            | MAL-2025-192693 | 2025-12-22     |
+| @vienna_cancer_center_portal/js | MAL-2025-192692 | 2025-12-22     |
+| cloudy-uvi-sense-v11            | MAL-2025-192691 | 2025-12-22     |
+| utif-updated                    | MAL-2025-192688 | 2025-12-22     |
+| commander-stable                | MAL-2025-192687 | 2025-12-22     |

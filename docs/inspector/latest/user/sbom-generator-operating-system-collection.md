@@ -172,7 +172,7 @@ The following is an example of an RPM database file snippet.
 
 Unlike Linux-based operating systems, Windows does not use a package management system for the operating system itself. The Amazon Inspector SBOM Generator collects only the Windows OS version information.
 For Windows application scanning, use the windows-apps scanner instead. The windows-apps scanner collects information about installed applications on Windows systems.
-For more information, See [Windows applicaitons ecosystem collection](sbom-generator-ecosystem-collection.md#windows-app-ecosystem-collection "sbom-generator-ecosystem-collection.md#windows-app-ecosystem-collection").
+For more information, See [Microsoft applications ecosystem collection](sbom-generator-ecosystem-collection.md#microsoft-app-ecosystem-collection "sbom-generator-ecosystem-collection.md#microsoft-app-ecosystem-collection").
 
 ### Key features
 
