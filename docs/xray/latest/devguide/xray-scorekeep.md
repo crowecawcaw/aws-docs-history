@@ -21,7 +21,7 @@ project's `xray-gettingstarted` branch. This is the branch that you deploy in th
 includes the basics, you can diff it against the `master` branch to quickly
 understand the basics.
 
-![Service map showing client interaction with Scorekeep container and related AWS services.](/images/xray/latest/devguide/images/scorekeep-gettingstarted-servicemap-before-ECS.png)
+![Service map showing client interaction with Scorekeep container and related AWS services.](images/scorekeep-gettingstarted-servicemap-before-ECS.png)
 The sample application shows basic instrumentation in these files:
 
 - **HTTP request filter** – [`WebConfig.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/WebConfig.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/WebConfig.java")
