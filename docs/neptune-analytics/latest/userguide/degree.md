@@ -20,8 +20,8 @@ CALL neptune.algo.degree(
   [`node list (required)`],
   {
     edgeLabels: [`a list of edge labels for filtering (optional)`],
-    vertexLabels: [a list of vertex labels for filtering (optional)],
-    vertexLabel: "a node label for filtering (optional) [deprecated],
+    vertexLabels: [`a list of vertex labels for filtering (optional)`],
+    vertexLabel: [`a node label for filtering (optional) [deprecated]`],
     traversalDirection: `traversal direction (optional)`,
     concurrency: `number of threads to use (optional)`
   }
@@ -53,6 +53,10 @@ as the node list.
     _type:_ `a list of vertex label strings`;   _default: none_.
 
   Node labels for node filtering. To filter on one or more vertex labels, provide a list of node labels. Vertices matching any label in the vertexLabels list are the only vertices that are processed for degree computation. If no vertexLabels field is provided then all vertices are processed for degree computation.
+  - **vertexLabel** _(optional)_   –  
+    _type:_ `string`;   _default: none_.
+
+  [deprecated]
   - **traversalDirection** _(optional)_   –  
     _type:_ `string`;   _default:_ `"outbound"`.
 

@@ -21,7 +21,7 @@ documentation for details.
 CALL neptune.algo.degreeDistribution(
   {
     edgeLabels: [`a list of edge labels for filtering (optional)`],
-    vertexLabel: "`a list of vertex labels for filtering (optional)`",
+    vertexLabels: "`a list of vertex labels for filtering (optional)`",
     binWidth: `a positive integer that specifies the size of each bin in the degree distribution (optional, default: 1)`,
     traversalDirection: `the direction of edge used for degree computation (optional, default: "both"`,
     concurrency: `number of threads to use (optional)`
@@ -40,7 +40,7 @@ RETURN output
 
   To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is
   provided then all edge labels are processed during traversal.
-  - **vertexLabel** _(optional)_   –  
+  - **vertexLabels** _(optional)_   –  
     _type:_ `a list of vertex label strings`;   _default: no vertex filtering_.
 
   To filter on one or more vertex labels, provide a list of the ones to filter on. If no vertexLabels field is
@@ -63,145 +63,56 @@ RETURN output
   invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation
   of many algorithms concurrently.
 
-## Query examples for `.degreeDistribution`
-
-This is a standalone example, where the source node list is explicitly specified
-in the query:
-
-```
-CALL neptune.algo.degree(["101"], {edgeLabel: "route"})
-```
-
-This is a more complicated standalone query submitted using the AWS CLI:
-
-```
-aws neptune-graph execute-query \
-  --graph-identifier ${graphIdentifier} \
-  --query-string 'CALL neptune.algo.degree(
-        ["101", "102", "103"],
-        {
-          edgeLabels: ["route"],
-          vertexLabel: "airport",
-          traversalDirection: "inbound",
-          concurrency: 2
-        }
-      )
-      YIELD node, degree
-      RETURN node, degree' \
-  --language open_cypher \
-  /tmp/out.txt
-```
-
-This is a query integration example with frontier injection, where
-`.degree` follows a `MATCH` clause and finds the degree
-value for all vertices returned by `MATCH(n:airport)`:
-
-```
-MATCH(n:airport)
-CALL neptune.algo.degree(n, {edgeLabels: ["route"]})
-YIELD degree
-RETURN n, degree'
-```
-
-This is an example of multiple `.degree` invocations chained together,
-where the output of one invocation serves as the input of another:
-
-```
-CALL neptune.algo.degree(
-  ["108"],
-  {
-    edgeLabels: ["route"],
-    vertexLabel: "airport"
-  }
-)
-YIELD node
-CALL neptune.algo.degree(
-  node,
-  {
-    edgeLabels: ["route"],
-    vertexLabel: "airport"
-  }
-)
-YIELD node AS node2 WITH id(node2) AS id
-RETURN id
-```
-
-###### Warning
-
-It is not good practice to use `MATCH(n)` without restriction
-in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
-a large number of nodes is returned. Use `LIMIT` or put conditions on the
-`MATCH` clause to restrict its output appropriately.
-
 ## Sample   `.degreeDistribution`   output
 
-Here is an example of the output returned by .degree when run against the
+Here is an example of the output returned by .degreeDistribution when run against the
 [sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv "https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv"), and
 [sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv "https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv"), when using the following query:
 
 ```
 aws neptune-graph execute-query \
-  --graph-identifier ${graphIdentifier} \
-  --query-string 'MATCH (n)
-      CALL neptune.algo.degree(n)
-      YIELD node, degree
-      RETURN node, degree
-      LIMIT 2' \
-  --language open_cypher \
-  /tmp/out.txt
+    \
+   --region ${region}
+   --graph-identifier ${graphIdentifier} \
+   --query-string "CALL neptune.algo.degreeDistribution({binWidth: 50, vertexLabels: ['airport', 'country'], edgeLabels: ['route'], traversalDirection: 'inbound'}) YIELD output RETURN output" \
+   --language open_cypher \
+   /tmp/out.txt
 
 cat /tmp/out.txt
 {
-  "results": [
-    {
-      "node": {
-        "~id": "10",
-        "~entityType": "node",
-        "~labels": ["airport"],
-        "~properties": {
-          "lat": 38.94449997,
-          "elev": 313,
-          "longest": 11500,
-          "city": "Washington D.C.",
-          "type": "airport",
-          "region": "US-VA",
-          "desc": "Washington Dulles International Airport",
-          "code": "IAD",
-          "prscore": 0.002264724113047123,
-          "lon": -77.45580292,
-          "wccid": 2357352929951779,
-          "country": "US",
-          "icao": "KIAD",
-          "runways": 4
-        }
-      },
-      "degree": 312
-    },
-    {
-      "node": {
-        "~id": "12",
-        "~entityType": "node",
-        "~labels": ["airport"],
-        "~properties": {
-          "lat": 40.63980103,
-          "elev": 12,
-          "longest": 14511,
-          "city": "New York",
-          "type": "airport",
-          "region": "US-NY",
-          "desc": "New York John F. Kennedy International Airport",
-          "code": "JFK",
-          "prscore": 0.002885053399950266,
-          "lon": -73.77890015,
-          "wccid": 2357352929951779,
-          "country": "US",
-          "icao": "KJFK",
-          "runways": 4
-        }
-      },
-      "degree": 403
-    }
-  ]
+  "results": [{
+      "output": {
+        "statistics": {
+          "maxDeg": 307,
+          "mean": 13.511229946524065,
+          "minDeg": 0,
+          "p50": 3,
+          "p75": 9,
+          "p90": 36,
+          "p95": 67,
+          "p99": 173,
+          "p999": 284
+        },
+        "distribution": [[0, 268], [50, 3204], [100, 162], [150, 54], [200, 29], [250, 16], [300, 5], [350, 2]]
+      }
+    }]
 }
+
+```
+
+## Query examples for `.degreeDistribution`
+
+This is a standalone example, where the in-degree distribution is computed for the
+graph with specified vertex labels and edge label, and the mean degree is returned.
+
+```
+CALL neptune.algo.degreeDistribution({
+   vertexLabels: ['airport', 'country'],
+   edgeLabels: ['route'],
+   traversalDirection: 'inbound',
+})
+YIELD output
+WITH output.statistics.mean as meanDegree
+RETURN meanDegree
+
 ```
