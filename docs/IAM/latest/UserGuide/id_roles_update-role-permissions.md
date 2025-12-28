@@ -43,7 +43,7 @@ service.
 
         You cannot edit an AWS managed policy. AWS managed
          policies appear with the AWS icon (
-        ![Orange cube icon indicating a policy is managed by AWS.](images/policy_icon.png)
+        ![Orange cube icon indicating a policy is managed by AWS.](/images/IAM/latest/UserGuide/images/policy_icon.png)
         ). For more information about the
          difference between AWS managed policies and customer
          managed policies, see [Managed policies and inline policies](access_policies_managed-vs-inline.md "access_policies_managed-vs-inline.md").
