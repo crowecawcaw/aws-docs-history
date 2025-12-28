@@ -1,32 +1,27 @@
-# Comparing schemas in AWS Schema Conversion Tool
+# Updating and refreshing converted schemas in AWS SCT
 
-If you made changes to your source or target schema after you migrated, you can
-compare the two database schemas using AWS SCT. You can compare schemas for versions
-the same as or earlier than the source schema.
+You can update both the source schema and the target schema
+in your AWS Schema Conversion Tool project.
 
-The following schema comparisons are supported:
+- **Source** –
+  If you update the schema for your source database,
+  AWS SCT replaces the schema in your project with
+  the latest schema from your source database. Using this functionality, you can
+  update your project if changes have been made to the schema of your source
+  database.
+- **Target** –
+  If you update the schema for your target Amazon RDS DB instance,
+  AWS SCT replaces the schema in your
+  project with the latest schema from your target DB instance. If you haven't
+  applied any schema to your target DB instance, AWS SCT clears the
+  converted schema from your project. You can then convert the schema from your
+  source database for a clean target DB instance.
+  You update the schema in your AWS SCT project by choosing **Refresh
+  from Database**.
 
-- Oracle to Oracle, versions 12.1.0.2.0, 11.1.0.7.0, 11.2.0.1.0, 10
-- SQL Server to SQL Server, versions 2016, 2014, 2012, 2008 RD2, 2008
-- PostgreSQL to PostgreSQL and Aurora PostgreSQL-Compatible Edition, versions 9.6, 9.5.9, 9.5.4
-- MySQL to MySQL, versions 5.6.36, 5.7.17, 5.5
-  You specify settings for the schema comparison on the **Compare
-  Schema** tab of the **Project Settings** page.
+###### Note
 
-![Schema compare settings](images/schema-compare-settings.png)
-To compare schemas, you select the schemas, and AWS SCT indicates the objects
-that differ between the two schemas and the objects that don't.
-
-###### To compare two schemas
-
-1. Open an existing AWS SCT project, or create a project and connect to
-   the source and target endpoints.
-2. Choose the schema you want to compare.
-3. Open the context menu (right-click) and choose **Compare Schema**.
-   AWS SCT indicates objects that are different between the two schemas
-   by adding a black circle to the object's icon.
-
-![Schema compare result](images/schema-compare-results.png)
-You can apply the results of the schema comparison to a single object, to a single category
-of objects, or to the entire schema. Choose the box next to the category, object, or
-schema that you want to apply the results to.
+When you refresh your schema, AWS SCT loads metadata only as it is needed. To fully load
+all of your database's schema, open the context (right-click) menu for your schema, and choose
+**Load schema**. For example, you can use this option to load metadata for your database
+all at once, and then work offline.
