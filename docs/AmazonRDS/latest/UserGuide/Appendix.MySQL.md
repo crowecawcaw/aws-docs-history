@@ -1,42 +1,82 @@
-# Common DBA tasks for MySQL DB
+# Parameters for MySQL
 
-instances
+By default, a MySQL DB instance uses a DB parameter group that is specific to a MySQL database.
+This parameter group contains parameters for the MySQL database engine. For information about
+working with parameter groups and setting parameters, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-In the following content, you can find descriptions of the Amazon RDS-specific implementations
-of some common DBA tasks for DB instances running the MySQL database engine. To deliver a
-managed service experience, Amazon RDS doesn't provide shell access to DB instances. Also, it
-restricts access to certain system procedures and tables that require advanced privileges.
+RDS for MySQL parameters are set to the default values of the storage engine that you have
+selected. For more information about MySQL parameters, see the [MySQL
+documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html"). For more information about MySQL storage engines, see [Supported storage engines for RDS for MySQL](MySQL.Concepts.md#MySQL.Concepts.Storage "MySQL.Concepts.md#MySQL.Concepts.Storage").
 
-For information about working with MySQL log files on Amazon RDS, see [MySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md").
+You can view the parameters available for a specific RDS for MySQL version using the RDS console
+or the AWS CLI. For information about viewing the parameters in a MySQL parameter group in the
+RDS console, see [Viewing parameter values for a
+DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-## Understanding predefined
+Using the AWS CLI, you can view the parameters for an RDS for MySQL version by running the
+[`describe-engine-default-parameters`](../../../cli/latest/reference/rds/describe-engine-default-parameters.md "../../../cli/latest/reference/rds/describe-engine-default-parameters.md") command. Specify one of the following
+values for the `--db-parameter-group-family` option:
 
-users
+- `mysql8.4`
+- `mysql8.0`
+- `mysql5.7`
+  For example, to view the parameters for RDS for MySQL version 8.0, run the following
+  command.
 
-Amazon RDS automatically creates several predefined users with new RDS for MySQL DB instances.
-Predefined users and their privileges can't be changed. You can't drop, rename, or
-modify privileges for these predefined users. Attempting to do so results in an error.
+```
+aws rds describe-engine-default-parameters --db-parameter-group-family mysql8.0
+```
 
-- rdsadmin – A user that's created to
-  handle many of the management tasks that the administrator with
-  `superuser` privileges would perform on a standalone MySQL
-  database. This user is used internally by RDS for MySQL for many management tasks.
-- rdsrepladmin – A user that's used
-  internally by Amazon RDS to support replication activities on RDS for MySQL DB instances
-  and clusters.
+Your output looks similar to the following.
 
-For information about other common DBA tasks, see the following topics.
+```
+{
+    "EngineDefaults": {
+        "Parameters": [
+            {
+                "ParameterName": "activate_all_roles_on_login",
+                "ParameterValue": "0",
+                "Description": "Automatically set all granted roles as active after the user has authenticated successfully.",
+                "Source": "engine-default",
+                "ApplyType": "dynamic",
+                "DataType": "boolean",
+                "AllowedValues": "0,1",
+                "IsModifiable": true
+            },
+            {
+                "ParameterName": "allow-suspicious-udfs",
+                "Description": "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
+                "Source": "engine-default",
+                "ApplyType": "static",
+                "DataType": "boolean",
+                "AllowedValues": "0,1",
+                "IsModifiable": false
+            },
+            {
+                "ParameterName": "auto_generate_certs",
+                "Description": "Controls whether the server autogenerates SSL key and certificate files in the data directory, if they do not already exist.",
+                "Source": "engine-default",
+                "ApplyType": "static",
+                "DataType": "boolean",
+                "AllowedValues": "0,1",
+                "IsModifiable": false
+            },
+        ...
+```
 
-###### Topics
+To list only the modifiable parameters for RDS for MySQL version 8.0, run the following
+command.
 
-- [Role-based privilege model for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md")
-- [Dynamic privileges
-  for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md")
-- [Ending a session or query for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md")
-- [Skipping the current
-  replication error for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md")
-- [Working with InnoDB tablespaces to improve crash recovery times for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md")
-- [Managing the Global Status
-  History for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md")
-- [Configuring buffer pool
-  size and redo log capacity in MySQL 8.4](Appendix.MySQL.CommonDBATasks.Config.Size.8.md "Appendix.MySQL.CommonDBATasks.Config.Size.8.md")
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-engine-default-parameters --db-parameter-group-family mysql8.0 \
+   --query 'EngineDefaults.Parameters[?IsModifiable==`true`]'
+```
+
+For Windows:
+
+```
+aws rds describe-engine-default-parameters --db-parameter-group-family mysql8.0 ^
+   --query "EngineDefaults.Parameters[?IsModifiable==`true`]"
+```

@@ -1,40 +1,56 @@
-# Disabling MSDTC
+# Troubleshooting MSDTC for RDS for SQL Server
 
-To disable MSDTC, remove the `MSDTC` option from its option group.
+In some cases, you might have trouble establishing a connection between MSDTC running on a
+client computer and the MSDTC service running on an RDS for SQL Server DB instance. If
+so, make sure of the following:
 
-###### To remove the MSDTC option from its option group
+- The inbound rules for the security group associated with the DB instance are configured correctly. For more information, see [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").
+- Your client computer is configured correctly.
+- The MSDTC firewall rules on your client computer are enabled.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `MSDTC` option (`msdtc-se-2016` in
-   the previous examples).
-4. Choose **Delete option**.
-5. Under **Deletion options**, choose **MSDTC** for
-   **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it at
-   the next maintenance window.
-7. Choose **Delete**.
+###### To configure the client computer
 
-###### To remove the MSDTC option from its option group
+1. Open **Component Services**.
 
-- Use one of the following commands.
+Or, in **Server Manager**, choose
+**Tools**, and then choose **Component
+Services**. 2. Expand **Component Services**, expand
+**Computers**, expand **My Computer**,
+and then expand **Distributed Transaction
+Coordinator**. 3. Open the context (right-click) menu for **Local DTC** and choose
+**Properties**. 4. Choose the **Security** tab. 5. Choose all of the following:
 
-For Linux, macOS, or Unix:
+    * **Network DTC Access**
+    * **Allow Inbound**
+    * **Allow Outbound**
 
-```
-aws rds remove-option-from-option-group \
-    --option-group-name `msdtc-se-2016` \
-    --options MSDTC \
-    --apply-immediately
-```
+6. Make sure that the correct authentication mode is chosen:
+   - **Mutual Authentication Required** – The
+     client machine is joined to the same domain as other nodes
+     participating in distributed transaction, or there is a trust
+     relationship configured between domains.
+   - **No Authentication Required** – All other
+     cases.
 
-For Windows:
+7. Choose **OK** to save your changes.
+8. If prompted to restart the service, choose
+   **Yes**.
 
-```
-aws rds remove-option-from-option-group ^
-    --option-group-name `msdtc-se-2016` ^
-    --options MSDTC ^
-    --apply-immediately
-```
+###### To enable MSDTC firewall rules
+
+1. Open Windows Firewall, then choose **Advanced settings**.
+
+Or, in **Server Manager**, choose
+**Tools**, and then choose **Windows Firewall
+with Advanced Security**.
+
+###### Note
+
+Depending on your operating system, Windows Firewall might be called Windows Defender
+Firewall. 2. Choose **Inbound Rules** in the left pane. 3. Enable the following firewall rules, if they are not already enabled:
+
+    * **Distributed Transaction Coordinator (RPC)**
+    * **Distributed Transaction Coordinator (RPC)-EPMAP**
+    * **Distributed Transaction Coordinator (TCP-In)**
+
+4. Close Windows Firewall.

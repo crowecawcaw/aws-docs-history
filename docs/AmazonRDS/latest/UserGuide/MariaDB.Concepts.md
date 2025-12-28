@@ -1,59 +1,82 @@
-# Cache warming for MariaDB on Amazon RDS
+# MariaDB security on Amazon RDS
 
-InnoDB cache warming can provide performance gains for your MariaDB DB instance by
-saving the current state of the buffer pool when the DB instance is shut down, and
-then reloading the buffer pool from the saved information when the DB instance
-starts up. This approach bypasses the need for the buffer pool to "warm up" from
-normal database use and instead preloads the buffer pool with the pages for known
-common queries. For more information on cache warming, see [Dumping and restoring the buffer pool](http://mariadb.com/kb/en/mariadb/xtradbinnodb-buffer-pool/#dumping-and-restoring-the-buffer-pool "http://mariadb.com/kb/en/mariadb/xtradbinnodb-buffer-pool/#dumping-and-restoring-the-buffer-pool") in the MariaDB documentation.
+Security for MariaDB DB instances is managed at three levels:
 
-Cache warming is enabled by default on MariaDB 10.3 and higher DB instances. To enable
-it, set the `innodb_buffer_pool_dump_at_shutdown` and
-`innodb_buffer_pool_load_at_startup` parameters to 1 in the parameter
-group for your DB instance. Changing these parameter values in a parameter group affects
-all MariaDB DB instances that use that parameter group. To enable cache warming for
-specific MariaDB DB instances, you might need to create a new parameter group for those
-DB instances. For information on parameter groups, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+- AWS Identity and Access Management controls who can perform Amazon RDS management actions on DB
+  instances. When you connect to AWS using IAM credentials, your IAM
+  account must have IAM policies that grant the permissions required to
+  perform Amazon RDS management operations. For more information, see [Identity and access management for Amazon RDS](UsingWithRDS.md "UsingWithRDS.md").
+- When you create a DB instance, you use a VPC security group to control which devices
+  and Amazon EC2 instances can open connections to the endpoint and port of the DB instance. These connections
+  can be made using Secure Socket Layer (SSL) and Transport Layer Security (TLS).
+  In addition, firewall rules at your company can control whether devices running at
+  your company can open connections to the DB instance.
+- Once a connection has been opened to a MariaDB DB instance, authentication
+  of the login and permissions are applied the same way as in a stand-alone
+  instance of MariaDB. Commands such as `CREATE USER`,
+  `RENAME USER`, `GRANT`,
+  `REVOKE`, and `SET PASSWORD` work
+  just as they do in stand-alone databases, as does directly modifying
+  database schema tables.
+  When you create an Amazon RDS DB instance, the master user has the following default
+  privileges:
 
-Cache warming primarily provides a performance benefit for DB instances
-that use standard storage. If you use PIOPS storage, you don't commonly see a
-significant performance benefit.
+- `alter`
+- `alter routine`
+- `create`
+- `create routine`
+- `create temporary tables`
+- `create user`
+- `create view`
+- `delete`
+- `drop`
+- `event`
+- `execute`
+- `grant option`
+- `index`
+- `insert`
+- `lock tables`
+- `process`
+- `references`
+- `reload`
 
-###### Important
+This privilege is limited on MariaDB DB instances. It doesn't grant access to the
+`FLUSH LOGS` or `FLUSH TABLES WITH READ LOCK`
+operations.
 
-If your MariaDB DB instance doesn't shut down normally, such as during a
-failover, then the buffer pool state isn't saved to disk. In this case, MariaDB
-loads whatever buffer pool file is available when the DB instance is restarted. No
-harm is done, but the restored buffer pool might not reflect the most recent state
-of the buffer pool before the restart. To ensure that you have a recent state of the
-buffer pool available to warm the cache on startup, we recommend that you
-periodically dump the buffer pool "on demand." You can dump or load the buffer pool
-on demand.
+- `replication client`
+- `replication slave`
+- `select`
+- `show create routine`
 
-You can create an event to dump the buffer pool automatically and at a regular
-interval. For example, the following statement creates an event named
-`periodic_buffer_pool_dump` that dumps the buffer pool every
-hour.
+This privilege is only on MariaDB DB instances running version 11.4 and
+higher.
 
-```
-CREATE EVENT periodic_buffer_pool_dump
-   ON SCHEDULE EVERY 1 HOUR
-   DO CALL mysql.rds_innodb_buffer_pool_dump_now();
-```
+- `show databases`
+- `show view`
+- `trigger`
+- `update`
+  For more information about these privileges, see [User account management](http://mariadb.com/kb/en/mariadb/grant/ "http://mariadb.com/kb/en/mariadb/grant/") in the MariaDB
+  documentation.
 
-For more information, see [Events](http://mariadb.com/kb/en/mariadb/stored-programs-and-views-events/ "http://mariadb.com/kb/en/mariadb/stored-programs-and-views-events/") in the MariaDB documentation.
+###### Note
 
-## Dumping and loading the buffer pool on demand
+Although you can delete the master user on a DB instance, we don't recommend
+doing so. To recreate the master user, use the
+`ModifyDBInstance` API or the
+`modify-db-instance` AWS CLI and specify a
+new master user password with the appropriate parameter. If the master user does
+not exist in the instance, the master user is created with the specified
+password.
 
-You can save and load the cache on demand using the following stored
-procedures:
+To provide management services for each DB instance, the `rdsadmin`
+user is created when the DB instance is created. Attempting to drop, rename, change
+the password for, or change privileges for the `rdsadmin` account results
+in an error.
 
-- To dump the current state of the buffer pool to disk, call the
-  [mysql.rds_innodb_buffer_pool_dump_now](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_dump_now "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_dump_now")
-  stored procedure.
-- To load the saved state of the buffer pool from disk, call the
-  [mysql.rds_innodb_buffer_pool_load_now](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_now "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_now")
-  stored procedure.
-- To cancel a load operation in progress, call the
-  [mysql.rds_innodb_buffer_pool_load_abort](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_abort "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_abort")
-  stored procedure.
+To allow management of the DB instance, the standard `kill` and
+`kill_query` commands have been restricted. The Amazon RDS
+commands `mysql.rds_kill`,
+`mysql.rds_kill_query`, and
+`mysql.rds_kill_query_id` are provided for use in MariaDB and
+also MySQL so that you can end user sessions or queries on DB instances.

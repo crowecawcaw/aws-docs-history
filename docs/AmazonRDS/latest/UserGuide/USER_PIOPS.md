@@ -1,52 +1,24 @@
-# Removing additional storage volumes
+# Working with storage for Amazon RDS DB instances
 
-You can remove additional storage volumes from RDS for Oracle and RDS for SQL Server DB instances when they are no
-longer needed. Before removing a volume, make sure that you have moved all database
-files off the volume and that no database objects are referencing it. Verify that the
-volume status is `Not-in-use`.
+To specify how you want your data stored in Amazon RDS, choose a storage type and provide a
+storage size when you create or modify a DB instance. Later, you can increase the amount or
+change the type of storage by modifying the DB instance. For more information about which
+storage type to use for your workload, see [Amazon RDS storage types](CHAP_Storage.md#Concepts.Storage "CHAP_Storage.md#Concepts.Storage").
 
-###### Important
+If your instances run RDS for Oracle or RDS for SQL Server, you can add up to three additional volumes to each
+DB instance. You can choose either gp3 or io2 as the volume type, allowing you to optimize costs
+and performance based on your data access patterns. The maximum storage capacity of a DB instance that uses additional volumes is
+256 TiB.
 
-You can't remove the primary storage volume. You can only remove additional storage volumes.
+###### Topics
 
-###### To remove an additional storage volume from a DB instance
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose
-   **Databases**.
-3. Choose the DB instance that includes the volume that you want to remove.
-4. Choose **Modify**.
-5. In the **Storage** section, locate the additional storage volume that you want to remove.
-6. Choose **Remove volume** for the volume you want to delete.
-
-###### Note
-
-You can only remove volumes with a status of `Not-in-use`. If the volume is
-still in use, move all database files off the volume. 7. Choose **Continue**. 8. When the settings are as you want them, choose **Modify DB
-instance**.
-To remove an additional storage volume from a DB instance, use the AWS CLI command [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"). Set the following
-parameter:
-
-- `--additional-storage-volumes` – JSON array specifying the remaining additional storage volumes. Omit the volume you want to remove from this array.
-  The following example removes the additional storage volume named `rdsdbdata3`
-  from `mydbinstance` by specifying only the remaining volumes and
-  applies the change immediately.
-
-```
-aws rds modify-db-instance \
-	--db-instance-identifier mydbinstance \
-	--additional-storage-volumes '[{ \
-		"VolumeName": "rdsdbdata3", \
-		"SetForDelete": true
-	}]'
-```
-
-To remove an additional storage volume from a DB instance, use the Amazon RDS API operation [`ModifyDBInstance`](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md"). Set the following
-parameters:
-
-- `AdditionalStorageVolumes` – Array of additional storage volume specifications for the volumes you want to keep. Omit the volume you want to remove from this array.
-- `ApplyImmediately` – Set this option to
-  `True` to apply the storage changes immediately. Set
-  this option to `False` (the default) to apply the changes
-  during the next maintenance window.
+- [Viewing storage volume details for your DB instance](rds-storage-viewing.md "rds-storage-viewing.md")
+- [Increasing DB instance storage capacity](USER_PIOPS.md "USER_PIOPS.md")
+- [Removing additional storage volumes](USER_PIOPS.md "USER_PIOPS.md")
+- [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.md "USER_PIOPS.md")
+- [Upgrading the storage file system for a DB
+  instance](USER_PIOPS.md "USER_PIOPS.md")
+- [Modifying settings for Provisioned IOPS SSD storage](User_PIOPS.md "User_PIOPS.md")
+- [I/O-intensive storage modifications](USER_PIOPS.md "USER_PIOPS.md")
+- [Modifying settings for General Purpose SSD (gp3) storage](USER_PIOPS.md "USER_PIOPS.md")
+- [Using a dedicated log volume (DLV)](USER_PIOPS.md "USER_PIOPS.md")

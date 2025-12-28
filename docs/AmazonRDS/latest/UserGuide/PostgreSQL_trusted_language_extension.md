@@ -1,53 +1,37 @@
-# Working with Trusted Language Extensions for PostgreSQL
+# Overview of Trusted Language Extensions for PostgreSQL
 
-Trusted Language Extensions for PostgreSQL is an open source development kit for building
-PostgreSQL extensions. It allows you to build high performance PostgreSQL extensions
-and safely run them on your RDS for PostgreSQL DB instance.
-By using Trusted Language Extensions (TLE) for PostgreSQL, you can create PostgreSQL extensions that follow the
-documented approach for extending PostgreSQL functionality. For more information, see
-[Packaging
-Related Objects into an Extension](https://www.postgresql.org/docs/current/extend-extensions.html "https://www.postgresql.org/docs/current/extend-extensions.html") in the PostgreSQL documentation.
+Trusted Language Extensions for PostgreSQL is a PostgreSQL extension that you install in your RDS for PostgreSQL DB instance in the same way that you set up other PostgreSQL
+extensions. In the following image of an example database in the pgAdmin client tool,
+you can view some of the components that comprise the `pg_tle`
+extension.
 
-One key benefit of TLE is that you can use it in environments that don't provide
-access to the file system underlying the PostgreSQL instance. Previously, installing a new
-extension required access to the file system. TLE removes this constraint. It provides a
-development environment for creating new extensions for any PostgreSQL database, including
-those running on your RDS for PostgreSQL DB instances.
+![Image showing some of the components that make up the TLE development kit.](images/apg-pg_tle-installed-view-in-pgAdmin.png)
+You can see the following details.
 
-TLE is designed to prevent access to unsafe resources for the extensions that you create
-using TLE. Its runtime environment limits the impact of any extension defect to a single
-database connection. TLE also gives database administrators fine-grained control over who
-can install extensions, and it provides a permissions model for running them.
+1. The Trusted Language Extensions (TLE) for PostgreSQL development kit is packaged as the
+   `pg_tle` extension. As such, `pg_tle` is added to the
+   available extensions for the database in which it's installed.
+2. TLE has its own schema, `pgtle`. This schema contains helper functions (3) for
+   installing and managing the extensions that you create.
+3. TLE provides over a dozen helper functions for installing, registering, and managing
+   your extensions. To learn more about these functions, see [Function reference for Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension-functions-reference.md "PostgreSQL_trusted_language_extension-functions-reference.md").
+   Other components of the `pg_tle` extension include the following:
 
-TLE is supported on the following RDS for PostgreSQL versions:
-
-- Version 17.1 and higher 17 versions
-- Version 16.1 and higher 16 versions
-- Version 15.2 and higher 15 versions
-- Version 14.5 and higher 14 versions
-- Version 13.12 and higher 13 versions
-  The Trusted Language Extensions development environment and runtime are packaged as
-  the `pg_tle` PostgreSQL extension, version 1.0.1. It supports creating extensions
-  in JavaScript, Perl, Tcl, PL/pgSQL, and SQL.
-  You install the `pg_tle` extension in your RDS for PostgreSQL DB instance in the same way that you
-  install other PostgreSQL extensions. After the `pg_tle` is set up, developers can
-  use it to create new PostgreSQL extensions, known as _TLE extensions_.
-
-In the following topics, you can find information about how to set up Trusted Language Extensions
-and how to get started creating your own TLE extensions.
-
-###### Topics
-
-- [Terminology](PostgreSQL_trusted_language_extension-terminology.md "PostgreSQL_trusted_language_extension-terminology.md")
-- [Requirements for using Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension-requirements.md "PostgreSQL_trusted_language_extension-requirements.md")
-- [Setting up Trusted Language Extensions in your RDS for PostgreSQL DB instance](PostgreSQL_trusted_language_extension-setting-up.md "PostgreSQL_trusted_language_extension-setting-up.md")
-- [Overview of Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension.md "PostgreSQL_trusted_language_extension.md")
-- [Creating TLE extensions for
-  RDS for PostgreSQL](PostgreSQL_trusted_language_extension-creating-TLE-extensions.md "PostgreSQL_trusted_language_extension-creating-TLE-extensions.md")
-- [Dropping your TLE extensions from a database](PostgreSQL_trusted_language_extension-creating-TLE-extensions.md "PostgreSQL_trusted_language_extension-creating-TLE-extensions.md")
-- [Uninstalling Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension-uninstalling-pg_tle-devkit.md "PostgreSQL_trusted_language_extension-uninstalling-pg_tle-devkit.md")
-- [Using PostgreSQL hooks with your TLE extensions](PostgreSQL_trusted_language_extension.overview.md "PostgreSQL_trusted_language_extension.overview.md")
-- [Using Custom Data Types in TLE](PostgreSQL_trusted_language_extension-custom-data-type.md "PostgreSQL_trusted_language_extension-custom-data-type.md")
-- [Function reference for Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension-functions-reference.md "PostgreSQL_trusted_language_extension-functions-reference.md")
-- [Hooks reference for
-  Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension-hooks-reference.md "PostgreSQL_trusted_language_extension-hooks-reference.md")
+- The `pgtle_admin` role – The
+  `pgtle_admin` role is created when the `pg_tle`
+  extension is installed. This role is privileged and should be treated as such.
+  We strongly recommend that you follow the principle of _least
+  privilege_ when granting the `pgtle_admin` role to
+  database users. In other words, grant the `pgtle_admin` role only to
+  database users that are allowed to create, install, and manage new TLE
+  extensions, such as `postgres`.
+- The `pgtle.feature_info` table – The
+  `pgtle.feature_info` table is a protected table that contains
+  information about your TLEs, hooks, and the custom stored procedures and
+  functions that they use. If you have `pgtle_admin` privileges, you
+  use the following Trusted Language Extensions functions to add and update that information in
+  the table.
+  - [pgtle.register_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature")
+  - [pgtle.register_feature_if_not_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists")
+  - [pgtle.unregister_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature")
+  - [pgtle.unregister_feature_if_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists")

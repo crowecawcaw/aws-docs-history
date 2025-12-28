@@ -1,95 +1,149 @@
-# Transporting PostgreSQL databases between
+# Tuning RDS for PostgreSQL with Amazon DevOps Guru proactive insights
 
-DB instances
+DevOps Guru proactive insights detects conditions on your RDS for PostgreSQL DB instances that can cause problems, and lets you know
+about them before they occur. Proactive insights can alert you to a long running
+idle in transaction connection. For more information about troubleshooting long running
+idle in transaction connections, see [Database has long running idle in transaction connection](#proactive-insights.idle-txn "#proactive-insights.idle-txn")
 
-By using PostgreSQL transportable databases for Amazon RDS, you can move a PostgreSQL
-database between two DB instances. This is a very fast way to migrate large
-databases between different DB instances. To use this approach, your DB
-instances must both run the same major version of PostgreSQL.
+DevOps Guru can do the following:
 
-This capability requires that you install the `pg_transport` extension on both the source
-and the destination DB instance. The `pg_transport`
-extension provides a physical transport mechanism that moves the
-database files with minimal processing. This mechanism moves data much faster than
-traditional dump and load processes, with less downtime.
+- Prevent many common database issues by cross-checking your database configuration
+  against common recommended settings.
+- Alert you to critical issues in your fleet that, if left unchecked, can lead to
+  larger problems later.
+- Alert you to newly discovered problems.
+  Every proactive insight contains an analysis of the cause of the problem and
+  recommendations for corrective actions.
 
-###### Note
+For more information about Amazon DevOps Guru for Amazon RDS, see
+[Analyzing performance anomalies with Amazon DevOps Guru for Amazon RDS](devops-guru-for-rds.md "devops-guru-for-rds.md").
 
-PostgreSQL transportable databases are available in RDS for PostgreSQL 11.5 and higher, and RDS for PostgreSQL
-version 10.10 and higher.
+## Database has long running idle in transaction connection
 
-To transport a PostgreSQL DB instance from one RDS for PostgreSQL DB instance to another, you first
-set up the source and destination instances as detailed in [Setting up a DB instance for transport](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md"). You can then transport the database by
-using the function described in [Transporting a PostgreSQL database](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md").
+A connection to the database has been in the `idle in transaction` state for more than 1800 seconds.
 
 ###### Topics
 
-- [What happens during database transport](#PostgreSQL.TransportableDB.DuringTransport "#PostgreSQL.TransportableDB.DuringTransport")
-- [Limitations for using PostgreSQL
-  transportable databases](#PostgreSQL.TransportableDB.Limits "#PostgreSQL.TransportableDB.Limits")
-- [Setting up to transport a PostgreSQL
-  database](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md")
-- [Transporting a PostgreSQL database to the destination from the source](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md")
-- [Transportable databases function reference](PostgreSQL.TransportableDB.transport.md "PostgreSQL.TransportableDB.transport.md")
-- [Transportable databases parameter reference](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md")
+- [Supported engine versions](#proactive-insights.idle-txn.context.supported "#proactive-insights.idle-txn.context.supported")
+- [Context](#proactive-insights.idle-txn.context "#proactive-insights.idle-txn.context")
+- [Likely causes for this
+  issue](#proactive-insights.idle-txn.causes "#proactive-insights.idle-txn.causes")
+- [Actions](#proactive-insights.idle-txn.actions "#proactive-insights.idle-txn.actions")
+- [Relevant metrics](#proactive-insights.idle-txn.metrics "#proactive-insights.idle-txn.metrics")
 
-## What happens during database transport
+### Supported engine versions
 
-The PostgreSQL transportable databases feature uses a pull model to import the database from
-the source DB instance to the destination. The `transport.import_from_server` function creates the in-transit database
-on the destination DB instance. The in-transit database is inaccessible on the
-destination DB instance for the duration of the transport.
+This insight information is supported for all versions of RDS for PostgreSQL.
 
-When transport begins, all current sessions on the source database are ended. Any
-databases other than the source database on the source DB instance aren't affected
-by the transport.
+### Context
 
-The source database is put into a special read-only mode. While it's in this
-mode, you can connect to the source database and run read-only queries. However,
-write-enabled queries and some other types of commands are blocked. Only the specific
-source database that is being transported is affected by these restrictions.
+A transaction in the `idle in transaction` state can hold locks that block
+other queries. It can also prevent `VACUUM` (including autovacuum) from
+cleaning up dead rows, leading to index or table bloat or transaction ID wraparound.
 
-During transport, you can't restore the destination DB instance to a point in
-time. This is because the transport isn't transactional and doesn't use the
-PostgreSQL write-ahead log to record changes. If the destination DB instance has
-automatic backups enabled, a backup is automatically taken after transport completes.
-Point-in-time restores are available for times _after_ the backup finishes.
+### Likely causes for this
 
-If the transport fails, the `pg_transport` extension attempts to undo all
-changes to the source and destination DB instances. This includes removing the
-destination's partially transported database. Depending on the type of failure, the
-source database might continue to reject write-enabled queries. If this happens, use the
-following command to allow write-enabled queries.
+issue
+
+A transaction initiated in an interactive session with BEGIN or START TRANSACTION
+hasn't ended by using a COMMIT, ROLLBACK, or END command. This causes the transaction to move to `idle in
+ transaction` state.
+
+### Actions
+
+You can find idle transactions by querying `pg_stat_activity`.
+
+In your SQL client, run the following query to list all connections in
+`idle in transaction` state and to order them by duration:
 
 ```
-ALTER DATABASE `db-name` SET default_transaction_read_only = false;
+SELECT now() - state_change as idle_in_transaction_duration, now() - xact_start as xact_duration,*
+FROM  pg_stat_activity
+WHERE state  = 'idle in transaction'
+AND   xact_start is not null
+ORDER BY 1 DESC;
 ```
 
-## Limitations for using PostgreSQL
+We recommend different actions depending on the causes of your insight.
 
-transportable databases
+###### Topics
 
-Transportable databases have the following limitations:
+- [End transaction](#proactive-insights.idle-txn.actions.end-txn "#proactive-insights.idle-txn.actions.end-txn")
+- [Terminate the connection](#proactive-insights.idle-txn.actions.end-connection "#proactive-insights.idle-txn.actions.end-connection")
+- [Configure the idle_in_transaction_session_timeout parameter](#proactive-insights.idle-txn.actions.parameter "#proactive-insights.idle-txn.actions.parameter")
+- [Check the AUTOCOMMIT status](#proactive-insights.idle-txn.actions.autocommit "#proactive-insights.idle-txn.actions.autocommit")
+- [Check the
+  transaction logic in your application code](#proactive-insights.idle-txn.actions.app-logic "#proactive-insights.idle-txn.actions.app-logic")
 
-- **Read replicas** – You can't use transportable
-  databases on read replicas or parent instances of read replicas.
-- **Unsupported column types** – You
-  can't use the `reg` data types in any database tables that you
-  plan to transport with this method. These types depend on system catalog object
-  IDs (OIDs), which often change during transport.
-- **Tablespaces** – All source database
-  objects must be in the default `pg_default` tablespace.
-- **Compatibility** – Both the source and
-  destination DB instances must run the same major version of PostgreSQL.
-- **Extensions** – The source DB instance
-  can have only the `pg_transport` installed.
-- **Roles and ACLs** – The source database's
-  access privileges and ownership information aren't carried over to the
-  destination database. All database objects are created and owned by the local
-  destination user of the transport.
-- **Concurrent transports** – A single
-  DB instance can support up to 32 concurrent transports, including both imports and
-  exports, if worker processes have been configured properly.
-- **RDS for PostgreSQL DB instances only** – PostgreSQL
-  transportable databases are supported on RDS for PostgreSQL DB instances only. You can't
-  use it with on-premises databases or databases running on Amazon EC2.
+#### End transaction
+
+When you initiate a transaction in an interactive session with BEGIN or START
+TRANSACTION, it moves to `idle in transaction` state. It remains in
+this state until you end the transaction by issuing a COMMIT, ROLLBACK, END
+command or disconnect the connection completely to roll back the
+transaction.
+
+#### Terminate the connection
+
+Terminate the connection with an idle transaction using the following query:
+
+```
+SELECT pg_terminate_backend`(pid)`;
+
+```
+
+pid is the process ID of the connection.
+
+#### Configure the idle_in_transaction_session_timeout parameter
+
+Configure the `idle_in_transaction_session_timeout` parameter in the parameter group. The advantage of configuring this
+parameter is that it does not require a manual intervention to terminate the long idle in transaction. For more information on this parameter, see
+[the PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html "https://www.postgresql.org/docs/current/runtime-config-client.html").
+
+The following message will be reported in the PostgreSQL log file after the connection is terminated, when a transaction is
+in the idle_in_transaction state for longer than the specified time.
+
+```
+FATAL: terminating connection due to idle in transaction timeout
+```
+
+#### Check the AUTOCOMMIT status
+
+AUTOCOMMIT is turned on by default. But if it is accidentally turned off in the client ensure that you turn it back on.
+
+- In your psql client, run the following command:
+
+```
+`postgres=>` `\set AUTOCOMMIT on`
+```
+
+- In pgadmin, turn it on by choosing the AUTOCOMMIT option from the down arrow.
+
+![In pgadmin, choose AUTOCOMMIT to turn it on.](images/apg-insight-pgadmin-autocommit.png)
+
+#### Check the
+
+transaction logic in your application code
+
+Investigate your application logic for possible problems. Consider the following
+actions:
+
+- Check if the JDBC auto commit is set true in your application. Also,
+  consider using explicit `COMMIT` commands in your
+  code.
+- Check your error handling logic to see whether it closes a transaction
+  after errors.
+- Check whether your application is taking long to process the rows returned
+  by a query while the transaction is open. If so, consider coding the
+  application to close the transaction before processing the rows.
+- Check whether a transaction contains many long-running operations. If so,
+  divide a single transaction into multiple transactions.
+
+### Relevant metrics
+
+The following PI metrics are related to this insight:
+
+- idle_in_transaction_count - Number of sessions in `idle in
+transaction` state.
+- idle_in_transaction_max_time - The duration of the longest running transaction in
+  the `idle in transaction` state.

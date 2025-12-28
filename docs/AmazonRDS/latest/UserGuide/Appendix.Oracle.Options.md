@@ -1,56 +1,56 @@
-# Oracle Application Express (APEX)
+# Overview of Oracle DB options
 
-Amazon RDS supports Oracle Application Express (APEX) through the use of the `APEX`
-and `APEX-DEV` options. You can deploy Oracle APEX as a runtime environment or as
-a full development environment for web-based applications. Using Oracle APEX, you can build
-applications entirely within the web browser. For more information, see [Oracle application Express](https://apex.oracle.com/ "https://apex.oracle.com/") in the Oracle
-documentation.
+To enable options for your Oracle database, add them to an option group, and then associate the option group
+with your DB instance. For more information, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
 
 ###### Topics
 
-- [Oracle APEX components](#Appendix.Oracle.Options.APEX.components "#Appendix.Oracle.Options.APEX.components")
-- [Requirements and
-  limitations](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
-- [Setting up Oracle APEX and
-  Oracle Rest Data Services (ORDS)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
-- [Configuring Oracle Rest Data Services (ORDS)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
-- [Upgrading and removing
-  Oracle APEX](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
+- [Summary of Oracle Database options](#Appendix.Oracle.Options.summary "#Appendix.Oracle.Options.summary")
+- [Options supported for different editions](#Appendix.Oracle.Options.editions "#Appendix.Oracle.Options.editions")
+- [Memory requirements for specific options](#Appendix.Oracle.Options.memory "#Appendix.Oracle.Options.memory")
 
-## Oracle APEX components
+## Summary of Oracle Database options
 
-Oracle APEX consists of the following main components:
+You can add the following options for Oracle DB instances.
 
-- A _repository_ that stores the metadata for Oracle APEX
-  applications and components. The repository consists of tables, indexes, and
-  other objects that are installed in your Amazon RDS DB instance.
-- A _listener_ that manages HTTP communications with Oracle
-  APEX clients. The listener resides on a separate host such as an Amazon EC2 instance,
-  an on-premises server at your company, or your desktop computer. The listener
-  accepts incoming connections from web browsers, forwards them to the Amazon RDS DB instance
-  for processing, and then sends results from the repository back to the browsers.
+| Option                                                                                        | Option ID                   |
+| --------------------------------------------------------------------------------------------- | --------------------------- |
+| [Amazon S3 integration](oracle-s3-integration.md "oracle-s3-integration.md")                  | `S3_INTEGRATION`            |
+| [Oracle Application Express (APEX)](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")  | `APEX`<br>`APEX-DEV`        |
+| [Oracle Enterprise Manager](Oracle.Options.md "Oracle.Options.md")                            | `OEM`<br>`OEM_AGENT`        |
+| [Oracle Java virtual machine](oracle-options-java.md "oracle-options-java.md")                | `JVM`                       |
+| [Oracle Label Security](Oracle.Options.md "Oracle.Options.md")                                | `OLS`                       |
+| [Oracle Locator](Oracle.Options.md "Oracle.Options.md")                                       | `LOCATOR`                   |
+| [Oracle native network encryption](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")   | `NATIVE_NETWORK_ENCRYPTION` |
+| [Oracle OLAP](Oracle.Options.md "Oracle.Options.md")                                          | `OLAP`                      |
+| [Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")        | `SSL`                       |
+| [Oracle Spatial](Oracle.Options.md "Oracle.Options.md")                                       | `SPATIAL`                   |
+| [Oracle SQLT](Oracle.Options.md "Oracle.Options.md")                                          | `SQLT`                      |
+| [Oracle Statspack](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")                   | `STATSPACK`                 |
+| [Oracle time zone](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")                   | `Timezone`                  |
+| [Oracle time zone file autoupgrade](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")  | `TIMEZONE_FILE_AUTOUPGRADE` |
+| [Oracle Transparent Data Encryption](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md") | `TDE`                       |
+| [Oracle UTL_MAIL](Oracle.Options.md "Oracle.Options.md")                                      | `UTL_MAIL`                  |
+| [Oracle XML DB](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")                      | `XMLDB`                     |
 
-RDS for Oracle supports the following types of listeners:
+## Options supported for different editions
 
-    + For Oracle APEX version 5.0 and later, use Oracle REST Data Services
-     (ORDS) version 19.1 and higher. We recommend that you use the latest
-     supported version of Oracle APEX and ORDS. This documentation describes
-     older versions for backwards compatibility only.
-    + For Oracle APEX version 4.1.1, you can use Oracle APEX Listener
-     version 1.1.4.
-    + You can use Oracle HTTP Server and `mod_plsql` listeners.
+RDS for Oracle prevents you from adding options to an edition if they aren't supported. To find out which
+RDS options are supported in different Oracle Database editions, use the command `aws rds
+ describe-option-group-options`. The following example lists supported options for Oracle Database
+19c Enterprise Edition.
 
+```
+aws rds describe-option-group-options \
+    --engine-name oracle-ee \
+    --major-engine-version 19
+```
 
-    ###### Note
+For more information, see [describe-option-group-options](../../../cli/latest/reference/rds/describe-option-group-options.md "../../../cli/latest/reference/rds/describe-option-group-options.md") in the _AWS CLI Command Reference_.
 
-    Amazon RDS doesn't support the Oracle XML DB HTTP server with the
-     embedded PL/SQL gateway as a listener for Oracle APEX. In general,
-     Oracle recommends against using the embedded PL/SQL gateway for
-     applications that run on the internet.
+## Memory requirements for specific options
 
-For more information about these listener types, see [About
-choosing a web listener](https://docs.oracle.com/database/apex-5.1/HTMIG/choosing-web-listener.htm#HTMIG29321 "https://docs.oracle.com/database/apex-5.1/HTMIG/choosing-web-listener.htm#HTMIG29321") in the Oracle documentation.
-
-When you add the `APEX` and `APEX-DEV` options to your RDS for Oracle
-DB instance, Amazon RDS installs the Oracle APEX repository only. Install your listener on a
-separate host.
+Some options require additional memory to run on your DB instance. For example, Oracle Enterprise Manager
+Database Control uses about 300 MB of RAM. If you enable this option for a small DB instance, you might
+encounter performance problems due to memory constraints. You can adjust the Oracle parameters so that the
+database requires less RAM. Alternatively, you can scale up to a larger DB instance.

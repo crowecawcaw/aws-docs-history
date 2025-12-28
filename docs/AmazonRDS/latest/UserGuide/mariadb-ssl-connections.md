@@ -1,27 +1,33 @@
-# Encrypting client connections with SSL/TLS to
+# Requiring SSL/TLS for all
 
-MariaDB DB instances on Amazon RDS
+connections to a MariaDB DB instance on Amazon RDS
 
-Secure Sockets Layer (SSL) is an industry-standard protocol for securing network
-connections between client and server. After SSL version 3.0, the name was changed to
-Transport Layer Security (TLS). Amazon RDS supports SSL/TLS encryption for MariaDB DB instances.
-Using SSL/TLS, you can encrypt a connection between your application client and your MariaDB
-DB instance. SSL/TLS support is available in all AWS Regions.
+Use the `require_secure_transport` parameter to require that all user
+connections to your MariaDB DB instance use SSL/TLS. For versions 11.4 and earlier, the
+`require_secure_transport` parameter is set to `OFF` by default. For 11.8 and later versions,
+the default value is set to `ON`, enforcing SSL/TLS for connections to your DB instance. You can
+change the `require_secure_transport` parameter to `OFF` if non-secure connections are needed.
 
-With Amazon RDS, you can secure data in transit by encrypting client connections to MariaDB DB
-instances with SSL/TLS, requiring SSL/TLS for all connections to a MariaDB DB instance, and
-connecting from the MySQL command-line client with SSL/TLS (encrypted). The following
-sections provide guidance on configuring and utilizing SSL/TLS encryption for MariaDB DB
-instances on Amazon RDS.
+###### Note
 
-###### Topics
+The `require_secure_transport` parameter is only supported for MariaDB
+version 10.5 and higher.
 
-- [SSL/TLS support for MariaDB DB instances
-  on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md")
-- [Requiring SSL/TLS for
-  specific user accounts to a MariaDB DB instance on Amazon RDS](MariaDB-ssl-connections.md "MariaDB-ssl-connections.md")
-- [Requiring SSL/TLS for all
-  connections to a MariaDB DB instance on Amazon RDS](mariadb-ssl-connections.md "mariadb-ssl-connections.md")
-- [Connecting to your MariaDB DB
-  instance on Amazon RDS with SSL/TLS from the MySQL command-line client
-  (encrypted)](USER_ConnectToMariaDBInstanceSSL.md "USER_ConnectToMariaDBInstanceSSL.md")
+You can set the `require_secure_transport` parameter value by updating the
+DB parameter group for your DB instance. You don't need to reboot your DB instance for
+the change to take effect.
+
+When the `require_secure_transport` parameter is set to `ON` for
+a DB instance, a database client can connect to it if it can establish an encrypted
+connection. Otherwise, an error message similar to the following is returned to the
+client:
+
+```
+ERROR 1045 (28000): Access denied for user '`USER`'@'localhost' (using password: `YES | NO`)
+```
+
+For information about setting parameters, see [Modifying parameters in a DB parameter group
+in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+
+For more information about the `require_secure_transport` parameter, see
+the [MariaDB documentation](https://mariadb.com/docs/ent/ref/mdb/system-variables/require_secure_transport/ "https://mariadb.com/docs/ent/ref/mdb/system-variables/require_secure_transport/").

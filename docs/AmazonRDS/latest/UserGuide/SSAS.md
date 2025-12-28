@@ -1,47 +1,34 @@
-# Turning off SSAS
+# Backing up an SSAS database
 
-To turn off SSAS, remove the `SSAS` option from its option group.
+You can create SSAS database backup files only in the `D:\S3` folder on the DB
+instance. To move the backup files to your S3 bucket, use Amazon S3.
 
-###### Important
+You can back up an SSAS database as follows:
 
-Before you remove the `SSAS` option, delete your SSAS databases.
+- A domain user with the `admin` role for a particular database can use SSMS to
+  back up the database to the `D:\S3` folder.
 
-We highly recommend that you back up your SSAS databases before deleting them and removing
-the `SSAS` option.
+For more information, see [Adding a domain user as a database administrator](SSAS.md#SSAS.Admin "SSAS.md#SSAS.Admin").
 
-###### To remove the SSAS option from its option group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `SSAS` option that you want to remove (`ssas-se-2017` in the previous
-   examples).
-4. Choose **Delete option**.
-5. Under **Deletion options**, choose **SSAS** for
-   **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it at
-   the next maintenance window.
-7. Choose **Delete**.
-
-###### To remove the SSAS option from its option group
-
-- Use one of the following commands.
-
-For Linux, macOS, or Unix:
+- You can use the following stored procedure. This stored procedure doesn't support
+  encryption.
 
 ```
-aws rds remove-option-from-option-group \
-    --option-group-name `ssas-se-2017` \
-    --options SSAS \
-    --apply-immediately
+exec msdb.dbo.rds_msbi_task
+@task_type='SSAS_BACKUP_DB',
+@database_name='`myssasdb`',
+@file_path='D:\S3\`ssas_db_backup`.abf',
+[@ssas_apply_compression=1],
+[@ssas_overwrite_file=1];
 ```
 
-For Windows:
+The following parameters are required:
 
-```
-aws rds remove-option-from-option-group ^
-    --option-group-name `ssas-se-2017` ^
-    --options SSAS ^
-    --apply-immediately
-```
+    + `@task_type` – The type of the MSBI task, in this case `SSAS_BACKUP_DB`.
+    + `@database_name` – The name of the SSAS database that you're backing up.
+    + `@file_path` – The path for the SSAS backup file. The `.abf` extension is required.
+
+The following parameters are optional:
+
+    + `@ssas_apply_compression` – Whether to apply SSAS backup compression. Valid values are 1 (Yes) and 0 (No).
+    + `@ssas_overwrite_file` – Whether to overwrite the SSAS backup file. Valid values are 1 (Yes) and 0 (No).

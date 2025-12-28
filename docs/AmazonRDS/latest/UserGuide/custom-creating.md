@@ -1,75 +1,102 @@
-# Connecting to your RDS Custom DB instance using Session Manager
+# Logging in to your RDS Custom for Oracle database as
 
-After you create your RDS Custom DB instance, you can connect to it using AWS Systems Manager Session Manager. This is the
-preferred technique when your DB instance isn't publicly accessible.
+SYS
 
-Session Manager allows you to access Amazon EC2 instances through a browser-based shell or through the
-AWS CLI. For more information, see [AWS Systems Manager Session Manager](../../../systems-manager/latest/userguide/session-manager.md "../../../systems-manager/latest/userguide/session-manager.md").
+After you create your RDS Custom DB instance, you can log in to your Oracle database as user
+`SYS`, which gives you `SYSDBA` privileges. You have the following
+login options:
 
-###### To connect to your DB instance using Session Manager
+- Get the `SYS` password from Secrets Manager, and specify this password in your
+  SQL client.
+- Use OS authentication to log in to your database. In this case, you don't need a
+  password.
+
+## Finding the SYS password for your RDS Custom for Oracle
+
+database
+
+Your can log in to your Oracle database as `SYS` or `SYSTEM` or
+by specifying the master user name in an API call. The password for `SYS` and
+`SYSTEM` is stored in Secrets Manager.
+
+The secret uses the naming format
+`do-not-delete-rds-custom-`resource_id`-`uuid``
+ or
+ `rds-custom!oracle-do-not-delete-`resource_id`-`uuid``.
+You can find the password using the AWS Management Console.
+
+###### To find the SYS password for your database in Secrets Manager
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**, and then
-   choose the RDS Custom DB instance to which you want to connect.
-3. Choose **Configuration**.
-4. Note the **Resource ID** for your DB instance. For example, the
-   resource ID might be `db-ABCDEFGHIJKLMNOPQRS0123456`.
-5. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-6. In the navigation pane, choose **Instances**.
-7. Look for the name of your EC2 instance, and then click the instance ID
-   associated with it. For example, the instance ID might be
-   `i-abcdefghijklm01234`.
-8. Choose **Connect**.
-9. Choose **Session Manager**.
-10. Choose **Connect**.
+2. In the RDS console, complete the following steps:
+   1. In the navigation pane, choose
+      **Databases**.
+   2. Choose the name of your RDS Custom for Oracle DB instance.
+   3. Choose **Configuration**.
+   4. Copy the value underneath **Resource ID**.
+      For example, you resource ID might be
+      **db-ABC12CDE3FGH4I5JKLMNO6PQR7**.
 
-A window opens for your session.
-You can connect to your RDS Custom DB instance using the AWS CLI. This technique requires the
-Session Manager plugin for the AWS CLI. To learn how to install the plugin, see [Install the Session Manager plugin for the AWS CLI](../../../systems-manager/latest/userguide/session-manager-working-with-install-plugin.md "../../../systems-manager/latest/userguide/session-manager-working-with-install-plugin.md").
+3. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
+4. In the Secrets Manager console, complete the following steps:
+   1. In the left navigation pane, choose
+      **Secrets**.
+   2. Filter the secrets by the resource ID that you copied in step
+      2.d.
+   3. Choose the secret that uses the naming format
+      **do-not-delete-rds-custom-`resource_id`-`uuid`**
+      or
+      **rds-custom!oracle-do-not-delete-`resource_id`-`uuid`**.
+      The `resource_id` is the resource ID
+      that you copied in step 2.d.
 
-To find the DB resource ID of your RDS Custom DB instance, use `aws rds describe-db-instances`.
+   For example, if your resource ID is
+   **db-ABC12CDE3FGH4I5JKLMNO6PQR7** and your
+   UUID is **1234ab**, your secret is named
+   **do-not-delete-rds-custom-db-ABC12CDE3FGH4I5JKLMNO6PQR7-1234ab**
+   or
+   **rds-custom!oracle-do-not-delete-db-ABC12CDE3FGH4I5JKLMNO6PQR7-1234ab**. 4. In **Secret value**, choose
+   **Retrieve secret value**. 5. In **Key/value**, copy the value for
+   **password**.
 
-```
-aws rds describe-db-instances \
-    --query 'DBInstances[*].[DBInstanceIdentifier,DbiResourceId]' \
-    --output text
-```
+5. Install SQL\*Plus on your DB instance and log in to your database as
+   `SYS`. For more information, see [Step 3: Connect your SQL client to an
+   Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Connecting.Oracle "CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Connecting.Oracle").
 
-The following sample output shows the resource ID for your RDS Custom instance. The
-prefix is `db-`.
+## Logging in to your RDS Custom for Oracle database using
 
-```
-db-ABCDEFGHIJKLMNOPQRS0123456
-```
+OS authentication
 
-To find the EC2 instance ID of your DB instance, use `aws ec2
- describe-instances`. The following example uses
-`db-ABCDEFGHIJKLMNOPQRS0123456` for the resource ID.
+The OS user `rdsdb` owns the Oracle database binaries. You can switch to
+the `rdsdb` user and log in to your RDS Custom for Oracle database without a
+password.
 
-```
-aws ec2 describe-instances \
-    --filters "Name=tag:Name,Values=`db-ABCDEFGHIJKLMNOPQRS0123456`" \
-    --output text \
-    --query 'Reservations[*].Instances[*].InstanceId'
-```
-
-The following sample output shows the EC2 instance ID.
-
-```
-i-abcdefghijklm01234
-```
-
-Use the `aws ssm start-session` command, supplying the EC2 instance ID
-in the `--target` parameter.
+1. Connect to your DB instance with AWS Systems Manager. For more information, see [Connecting to your RDS Custom DB instance using Session Manager](custom-creating.md "custom-creating.md").
+2. Switch to the `rdsdb` user.
 
 ```
-aws ssm start-session --target "i-abcdefghijklm01234"
+sudo su - rdsdb
 ```
 
-A successful connection looks like the following.
+3. Log in to your database using OS authentication. You can use `sqlplus / as sysdba` or the `sql` alias.
 
 ```
-Starting session with SessionId: yourid-abcdefghijklm1234
-[ssm-user@ip-123-45-67-89 bin]$
+$ sqlplus / as sysdba
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Wed Apr 12 20:11:08 2023
+Version 21.9.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.10.0.0.0
+```
+
+Alternatively, you can use the `sql` alias:
+
+```
+$ sql
 ```

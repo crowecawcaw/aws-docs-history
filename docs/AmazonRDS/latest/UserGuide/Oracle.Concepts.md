@@ -1,113 +1,244 @@
-# Turning on HugePages for an RDS for Oracle instance
+# Overview of RDS for Oracle CDBs
 
-Amazon RDS for Oracle supports Linux kernel HugePages for increased database scalability. HugePages results in
-smaller page tables and less CPU time spent on memory management, increasing the performance of large database
-instances. For more information, see [Overview of HugePages](https://docs.oracle.com/database/121/UNXAR/appi_vlm.htm#UNXAR400 "https://docs.oracle.com/database/121/UNXAR/appi_vlm.htm#UNXAR400") in the
-Oracle documentation.
+You can create an RDS for Oracle DB instance as a container database (CDB) when you run Oracle
+Database 19c or higher. Starting with Oracle Database 21c, all databases are CDBs. A CDB
+differs from a non-CDB because it can contain pluggable databases (PDBs), which are called
+_tenant databases_ in RDS for Oracle. A PDB is a portable collection
+of schemas and objects that appears to an application as a separate database.
 
-You can use HugePages with all supported versions and editions of RDS for Oracle.
+You create your initial tenant database (PDB) when you create your CDB instance. In
+RDS for Oracle, your client application interacts with a PDB rather than the CDB. Your experience
+with a PDB is mostly identical to your experience with a non-CDB.
 
-The `use_large_pages` parameter controls whether HugePages are turned on for a DB instance. The possible settings for this
-parameter are `ONLY`, `FALSE`, and `{DBInstanceClassHugePagesDefault}`. The `use_large_pages`
-parameter is set to `{DBInstanceClassHugePagesDefault}` in the default DB parameter group for Oracle.
+###### Topics
 
-To control whether HugePages are turned on for a DB instance automatically, you can use the `DBInstanceClassHugePagesDefault`
-formula variable in parameter groups. The value is determined as follows:
+- [Multi-tenant configuration of
+  the CDB architecture](#multi-tenant-configuration "#multi-tenant-configuration")
+- [Single-tenant configuration of the
+  CDB architecture](#Oracle.Concepts.single-tenant "#Oracle.Concepts.single-tenant")
+- [Creation and conversion options for
+  CDBs](#oracle-cdb-creation-conversion "#oracle-cdb-creation-conversion")
+- [User accounts and privileges in a
+  CDB](#Oracle.Concepts.single-tenant.users "#Oracle.Concepts.single-tenant.users")
+- [Parameter group families in a
+  CDB](#Oracle.Concepts.single-tenant.parameters "#Oracle.Concepts.single-tenant.parameters")
+- [Limitations of RDS for Oracle
+  CDBs](#Oracle.Concepts.single-tenant-limitations "#Oracle.Concepts.single-tenant-limitations")
 
-- For the DB instance classes mentioned in the table following, `DBInstanceClassHugePagesDefault` always evaluates to
-  `FALSE` by default, and `use_large_pages` evaluates to `FALSE`. You can turn on HugePages
-  manually for these DB instance classes if the DB instance class has at least 14 GiB of memory.
-- For DB instance classes not mentioned in the table following, if the DB instance class has less than 14
-  GiB of memory, `DBInstanceClassHugePagesDefault` always evaluates to `FALSE`. Also,
-  `use_large_pages` evaluates to `FALSE`.
-- For DB instance classes not mentioned in the table following, if the instance class has at least 14 GiB of memory and less than
-  100 GiB of memory, `DBInstanceClassHugePagesDefault` evaluates to `TRUE` by default. Also,
-  `use_large_pages` evaluates to `ONLY`. You can turn off HugePages manually by setting
-  `use_large_pages` to `FALSE`.
-- For DB instance classes not mentioned in the table following, if the instance class has at least 100
-  GiB of memory, `DBInstanceClassHugePagesDefault` always evaluates to `TRUE`. Also,
-  `use_large_pages` evaluates to `ONLY` and HugePages can't be
-  disabled.
-  HugePages are not turned on by default for the following DB instance classes.
+## Multi-tenant configuration of
 
-| DB instance class family | DB instance classes with HugePages not turned on by default             |
-| ------------------------ | ----------------------------------------------------------------------- |
-| db.m5                    | db.m5.large                                                             |
-| db.m4                    | db.m4.large, db.m4.xlarge, db.m4.2xlarge, db.m4.4xlarge, db.m4.10xlarge |
-| db.t3                    | db.t3.micro, db.t3.small, db.t3.medium, db.t3.large                     |
+the CDB architecture
 
-For more information about DB instance classes, see [Hardware specifications for DB instance
-classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
-
-To turn on HugePages for new or existing DB instances manually, set the `use_large_pages` parameter to `ONLY`. You
-can't use HugePages with Oracle Automatic Memory Management (AMM). If you set the parameter `use_large_pages` to
-`ONLY`, then you must also set both `memory_target` and `memory_max_target` to `0`. For
-more information about setting DB parameters for your DB instance, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-
-You can also set the `sga_target`, `sga_max_size`, and `pga_aggregate_target`
-parameters. When you set system global area (SGA) and program global area (PGA) memory parameters, add the values
-together. Subtract this total from your available instance memory (`DBInstanceClassMemory`) to
-determine the free memory beyond the HugePages allocation. You must leave free memory of at least 2 GiB, or 10
-percent of the total available instance memory, whichever is smaller.
-
-After you configure your parameters, you must reboot your DB instance for the changes to take effect. For more
-information, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md").
+RDS for Oracle supports the _multi-tenant configuration_ of the Oracle
+multitenant architecture, also called the _CDB architecture_. In this
+configuration, your RDS for Oracle CDB instance can contain 1–30 tenant databases, depending on the database edition and any required option licenses. In Oracle database, a tenant database is a PDB. Your
+DB instance must use Oracle database release 19.0.0.0.ru-2022-01.rur-2022.r1 or higher.
 
 ###### Note
 
-The Oracle DB instance defers changes to SGA-related initialization parameters until you reboot the
-instance without failover. In the Amazon RDS console, choose **Reboot** but _do not_ choose **Reboot with failover**. In the
-AWS CLI, call the `reboot-db-instance` command with the `--no-force-failover` parameter.
-The DB instance does not process the SGA-related parameters during failover or during other maintenance
-operations that cause the instance to restart.
+The Amazon RDS configuration is called "multi-tenant" rather than "multitenant" because it is a
+capability of Amazon RDS, not just the Oracle DB engine. Similarly, the RDS term "tenant"
+refers to any tenant in an RDS configuration, not just Oracle PDBs. In the RDS documentation,
+the unhyphenated term "Oracle multitenant" refers exclusively to the Oracle database CDB
+architecture, which is compatible with both on-premises and RDS deployments.
 
-The following is a sample parameter configuration for HugePages that enables HugePages manually. You should set
-the values to meet your needs.
+You can configure the following settings:
 
-```
-memory_target            = 0
-memory_max_target        = 0
-pga_aggregate_target     = {DBInstanceClassMemory*1/8}
-sga_target               = {DBInstanceClassMemory*3/4}
-sga_max_size             = {DBInstanceClassMemory*3/4}
-use_large_pages          = ONLY
-```
+- Tenant database name
+- Tenant database master username
+- Tenant database master password (optionally integrated with Secrets Manager)
+- Tenant database character set
+- Tenant database national character set
 
-Assume the following parameters values are set in a parameter group.
+The tenant database character set can be different from the CDB character set. The
+same applies to the national character set. After you create your initial tenant
+database, you can create, modify, or delete tenant databases using RDS APIs. The CDB
+name defaults to `RDSCDB` and can't be changed. For more information, see
+[Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md") and [Modifying an RDS for Oracle tenant
+database](oracle-cdb-configuring.modifying.md "oracle-cdb-configuring.modifying.md").
 
-```
-memory_target            = IF({DBInstanceClassHugePagesDefault}, 0, {DBInstanceClassMemory*3/4})
-memory_max_target        = IF({DBInstanceClassHugePagesDefault}, 0, {DBInstanceClassMemory*3/4})
-pga_aggregate_target     = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*1/8}, 0)
-sga_target               = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*3/4}, 0)
-sga_max_size             = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*3/4}, 0)
-use_large_pages          = {DBInstanceClassHugePagesDefault}
-```
+## Single-tenant configuration of the
 
-The parameter group is used by a db.r4 DB instance class with less than 100 GiB of memory. With these parameter settings and
-`use_large_pages` set to `{DBInstanceClassHugePagesDefault}`, HugePages are turned on for the db.r4
-instance.
+CDB architecture
 
-Consider another example with following parameters values set in a parameter group.
+RDS for Oracle supports a legacy configuration of the Oracle multitenant architecture called
+the _single-tenant configuration_. In this configuration, an
+RDS for Oracle CDB instance can contain only one tenant (PDB). You can't create more PDBs later.
 
-```
-memory_target           = IF({DBInstanceClassHugePagesDefault}, 0, {DBInstanceClassMemory*3/4})
-memory_max_target       = IF({DBInstanceClassHugePagesDefault}, 0, {DBInstanceClassMemory*3/4})
-pga_aggregate_target    = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*1/8}, 0)
-sga_target              = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*3/4}, 0)
-sga_max_size            = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*3/4}, 0)
-use_large_pages         = FALSE
+## Creation and conversion options for
 
-```
+CDBs
 
-The parameter group is used by a db.r4 DB instance class and a db.r5 DB instance class, both with less than 100 GiB of memory. With
-these parameter settings, HugePages are turned off on the db.r4 and db.r5 instance.
+Oracle Database 21c supports only CDBs, whereas Oracle Database 19c supports both CDBs
+and non-CDBs. All RDS for Oracle CDB instances support both the multi-tenant and single-tenant
+configurations.
+
+### Creation, conversion,
+
+and upgrade options for the Oracle database architecture
+
+The following table shows the different architecture options for creating and
+upgrading RDS for Oracle databases.
+
+| Release             | Database creation options   | Architecture conversion options                       | Major version upgrade targets |
+| ------------------- | --------------------------- | ----------------------------------------------------- | ----------------------------- |
+| Oracle Database 21c | CDB architecture only       | N/A                                                   | N/A                           |
+| Oracle Database 19c | CDB or non-CDB architecture | Non-CDB to CDB architecture (April 2021 RU or higher) | Oracle Database 21c CDB       |
+
+As shown in the preceding table, you can't directly upgrade a non-CDB to a CDB in
+a new major database version. But you can convert an Oracle Database 19c non-CDB to
+an Oracle Database 19c CDB, and then upgrade the Oracle Database 19c CDB to an
+Oracle Database 21c CDB. For more information, see [Converting an RDS for Oracle non-CDB to a CDB](oracle-cdb-converting.md "oracle-cdb-converting.md").
+
+### Conversion options
+
+for CDB architecture configurations
+
+The following table shows the different options for converting the architecture
+configuration of an RDS for Oracle DB instance.
+
+| Current architecture and configuration    | Conversion to the single-tenant configuration of the CDB<br>architecture | Conversion to the multi-tenant configuration of the CDB<br>architecture | Conversion to the non-CDB architecture |
+| ----------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------- | -------------------------------------- |
+| Non-CDB                                   | Supported                                                                | Supported\*                                                             | N/A                                    |
+| CDB using the single-tenant configuration | N/A                                                                      | Supported                                                               | Not supported                          |
+| CDB using the multi-tenant configuration  | Not supported                                                            | N/A                                                                     | Not supported                          |
+
+\* You can't convert a non-CDB to the multi-tenant configuration in a single
+operation. When you convert a non-CDB to a CDB, the CDB is in the single-tenant
+configuration. You can then convert the single-tenant to the multi-tenant
+configuration in a separate operation.
+
+## User accounts and privileges in a
+
+CDB
+
+In the Oracle multitenant architecture, all user accounts are either _common
+users_ or _local users_. A CDB common user is a
+database user whose single identity and password are known in the CDB root and in every
+existing and future PDB. In contrast, a local user exists only in a single PDB.
+
+The RDS master user is a local user account in the PDB, which you name when you create
+your DB instance. If you create new user accounts, these users will also be local users
+residing in the PDB. You can't use any user accounts to create new PDBs or modify the
+state of the existing PDB.
+
+The `rdsadmin` user is a common user account. You can run RDS for Oracle packages
+that exist in this account, but you can't log in as `rdsadmin`. For more
+information, see [About Common Users and Local Users](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/managing-security-for-oracle-database-users.html#GUID-BBBD9904-F2F3-442B-9AFC-8ACDD9A588D8 "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/managing-security-for-oracle-database-users.html#GUID-BBBD9904-F2F3-442B-9AFC-8ACDD9A588D8") in the Oracle documentation.
+
+For master users in both the multi-tenant and single-tenant configurations, you can
+use credentials that are self-managed or managed by AWS Secrets Manager. In the single-tenant
+configuration, you use instance-level CLI commands such as
+`create-db-instance` for managed master passwords. In the multi-tenant
+configuration, you use tenant database commands such as
+`create-tenant-database` for managed master passwords. For more
+information about Secrets Manager integration, see [Managing the master user password for an
+RDS for Oracle tenant database with Secrets Manager](rds-secrets-manager.md#rds-secrets-manager-tenant "rds-secrets-manager.md#rds-secrets-manager-tenant").
+
+## Parameter group families in a
+
+CDB
+
+CDBs have their own parameter group families and default parameter values. The CDB
+parameter group families are as follows:
+
+- oracle-ee-cdb-21
+- oracle-se2-cdb-21
+- oracle-ee-cdb-19
+- oracle-se2-cdb-19
+
+## Limitations of RDS for Oracle
+
+CDBs
+
+RDS for Oracle supports a subset of features available in an on-premises CDB.
+
+### CDB limitations
+
+The following limitations apply to RDS for Oracle at the CDB level:
+
+- You can’t connect to a CDB. You always connect to the tenant database
+  (PDB) rather than the CDB. Specify the endpoint for the PDB just as for a
+  non-CDB. The only difference is that you specify
+  _pdb_name_ for the database name, where
+  _pdb_name_ is the name you chose for your PDB.
+- You can't convert a CDB in the multi-tenant configuration to a CDB in the
+  single-tenant conversion. Conversion to the multi-tenant configuration is
+  one-way and irreversible.
+- You can't enable or convert to the multi-tenant configuration if your
+  DB instance uses an Oracle database release lower than
+  19.0.0.0.ru-2022-01.rur-2022.r1.
+- You can't use Oracle Data Guard in the multi-tenant configuration, but you
+  can use it in the single-tenant configuration.
+- You can't use Database Activity Streams in a CDB.
+- You can't enable auditing from within `CDB$ROOT`. You must enable
+  auditing within each PDB individually.
+
+### Tenant database (PDB)
+
+limitations
+
+The following limitations apply to tenant databases in the RDS for Oracle multi-tenant
+configuration:
+
+- You can't defer tenant database operations to the maintenance window. All
+  changes occur immediately.
+- You can't add a tenant database to a CDB that uses the single-tenant
+  configuration.
+- You can't add or modify multiple tenant databases in a single operation.
+  You can only add or modify them one at a time.
+- You can't modify a tenant database to be named `CDB$ROOT` or
+  `PDB$SEED`.
+- You can't delete a tenant database if it is the only tenant in the
+  CDB.
+- Not all DB instance class types have sufficient resources to support multiple
+  PDBs in an RDS for Oracle CDB instance. An increased PDB count affects the
+  performance and stability of the smaller instance classes and increases the
+  time of most instance-level operations, for example, database
+  upgrades.
+- You can't use multiple AWS accounts to create PDBs in the same CDB. PDBs
+  must be owned by the same account as the DB instance that the PDBs are hosted
+  on.
+- All PDBs in a CDB use the same endpoint and database listener.
+- The following operations aren't supported at the PDB level but are
+  supported at the CDB level:
+  - Backup and recovery
+  - Database upgrades
+  - Maintenance actions
+
+- The following features aren't supported at the PDB level but are supported
+  at the CDB level:
+  - Option groups (options are installed on all PDBs on your CDB
+    instance)
+  - Parameter groups (all parameters are derived from the parameter
+    group associated with your CDB instance)
+
+- PDB-level operations that are supported in the on-premises CDB
+  architecture but aren't supported in an RDS for Oracle CDB include the
+  following:
 
 ###### Note
 
-If this parameter group is used by a db.r4 DB instance class or db.r5 DB instance class with at least 100
-GiB of memory, the `FALSE` setting for `use_large_pages` is overridden and set to
-`ONLY`. In this case, a customer notification regarding the override is sent.
+The following list is not exhaustive.
 
-After HugePages are active on your DB instance, you can view HugePages information by enabling enhanced
-monitoring. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").
+    + Application PDBs
+    + Proxy PDBs
+    + Starting and stopping a PDB
+    + Unplugging and plugging in PDBs
+
+
+    To move data into or out of your CDB, use the same techniques as
+     for a non-CDB. For more information about migrating data, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.md "Oracle.Procedural.md").
+    + Setting options at the PDB level
+
+
+    The PDB inherits options settings from the CDB option group. For
+     more information about setting options, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For best
+     practices, see [Working with DB parameter groups](CHAP_BestPractices.md#CHAP_BestPractices.DBParameterGroup "CHAP_BestPractices.md#CHAP_BestPractices.DBParameterGroup").
+    + Configuring parameters in a PDB
+
+
+    The PDB inherits parameter settings from the CDB. For more
+     information about setting option, see [Adding options to Oracle DB instances](Appendix.Oracle.md "Appendix.Oracle.md").
+    + Configuring different listeners for PDBs in the same CDB
+    + Oracle Flashback features

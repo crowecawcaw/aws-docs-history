@@ -1,54 +1,77 @@
-# Requirements and
+# Upgrading and removing
 
-limitations
+Oracle APEX
 
-The following topic lists the requirements and limitations for Oracle APEX and
-ORDS.
+To upgrade or remove Oracle APEX, follow the instructions in this topic:
 
-## Oracle APEX version
+###### Topics
 
-requirements
+- [Upgrading the Oracle APEX
+  version](#Appendix.Oracle.Options.APEX.Upgrade "#Appendix.Oracle.Options.APEX.Upgrade")
+- [Removing the APEX and APEX-DEV
+  options](#Appendix.Oracle.Options.APEX.Remove "#Appendix.Oracle.Options.APEX.Remove")
 
-The `APEX` option uses storage on the DB instance class for your DB instance. Following
-are the supported versions and approximate storage requirements for Oracle
-APEX.
+## Upgrading the Oracle APEX
 
-| Oracle APEX version         | Storage requirements | Supported Oracle Database versions | Notes                                                                                                                                                                                                                                                                                    |
-| --------------------------- | -------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Oracle APEX version 24.2.v1 | 114 MiB              | All                                | This version includes patch 37885097: PSE BUNDLE FOR APEX 24.2<br>(PSES ON TOP OF 24.2.0), PATCH_VERSION 4.                                                                                                                                                                              |
-| Oracle APEX version 24.1.v1 | 112 MiB              | All                                | This version includes patch 36695709: PSE BUNDLE FOR APEX 24.1<br>(PSES ON TOP OF 24.1.0), PATCH_VERSION 3. If you need exactly<br>the same APEX images version to install on your EC2 instance,<br>download patch 37544819: 24.1.3 PSE BUNDLE FOR APEX 24.1 (PSES<br>ON TOP OF 24.1.0). |
-| Oracle APEX version 23.2.v1 | 110 MiB              | All                                | This version includes patch 35895964: PSE BUNDLE FOR APEX 23.2<br>(PSES ON TOP OF 23.2.0), PATCH_VERSION 6. If you need exactly<br>the same APEX images version to install on your EC2 instance,<br>download patch 37593125: 23.2.6 PSE BUNDLE FOR APEX 23.2 (PSES<br>ON TOP OF 23.2.0). |
-| Oracle APEX version 23.1.v1 | 106 MiB              | All                                | This version includes patch 35283657: PSE BUNDLE FOR APEX 23.1<br>(PSES ON TOP OF 23.1.0), PATCH_VERSION 2.                                                                                                                                                                              |
-| Oracle APEX version 22.2.v1 | 106 MiB              | All                                | This version includes patch 34628174: PSE BUNDLE FOR APEX 22.2<br>(PSES ON TOP OF 22.2.0), PATCH_VERSION 4.                                                                                                                                                                              |
-| Oracle APEX version 22.1.v1 | 124 MiB              | All                                | This version includes patch 34020981: PSE BUNDLE FOR APEX 22.1<br>(PSES ON TOP OF 22.1.0), PATCH_VERSION 6.                                                                                                                                                                              |
-| Oracle APEX version 21.2.v1 | 125 MiB              | All                                | This version includes patch 33420059: PSE BUNDLE FOR APEX 21.2<br>(PSES ON TOP OF 21.2.0), PATCH_VERSION 8.                                                                                                                                                                              |
-| Oracle APEX version 21.1.v1 | 125 MiB              | All                                | This version includes patch 32598392: PSE BUNDLE FOR APEX<br>21.1, PATCH_VERSION 3.                                                                                                                                                                                                      |
-| Oracle APEX version 20.2.v1 | 148 MiB              | All except Oracle Database 21c     | This version includes patch 32006852: PSE BUNDLE FOR APEX<br>20.2, PATCH_VERSION 2020.11.12. You can see the patch number and<br>date by running the following query:<br>`<br>SELECT PATCH_VERSION, PATCH_NUMBER<br>FROM   APEX_PATCHES;<br>`                                            |
-| Oracle APEX version 20.1.v1 | 173 MiB              | All except Oracle Database 21c     | This version includes patch 30990551: PSE BUNDLE FOR APEX<br>20.1, PATCH_VERSION 2020.07.15.                                                                                                                                                                                             |
-| Oracle APEX version 19.2.v1 | 149 MiB              | All except Oracle Database 21c     |                                                                                                                                                                                                                                                                                          |
-| Oracle APEX version 19.1.v1 | 148 MiB              | All except Oracle Database 21c     |                                                                                                                                                                                                                                                                                          |
+version
 
-For downloadable Oracle APEX .zip files, see [Oracle APEX Prior Release Archives](https://www.oracle.com/tools/downloads/apex-all-archives-downloads.html "https://www.oracle.com/tools/downloads/apex-all-archives-downloads.html") on the Oracle website.
+###### Important
 
-## Oracle APEX and ORDS
+Back up your DB instance before you upgrade Oracle APEX. For more information, see
+[Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md")
+and [Testing an Oracle DB upgrade](USER_UpgradeDBInstance.Oracle.md "USER_UpgradeDBInstance.Oracle.md").
 
-prerequisites
+To upgrade Oracle APEX with your DB instance, do the following:
 
-Note the following prerequisites for using Oracle APEX and ORDS:
+- Create a new option group for the upgraded version of your DB instance.
+- Add the upgraded versions of the `APEX` and
+  `APEX-DEV` options to the new option group. Be sure to
+  include any other options that your DB instance uses. For more information, see
+  [Option group considerations](USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.OG "USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.OG").
+- When you upgrade your DB instance, specify the new option group for your
+  upgraded DB instance.
 
-- Your system must use the Java Runtime Environment (JRE).
-- Your Oracle client installation must include the following:
-  - SQL\*Plus or SQL Developer for administration tasks
-  - Oracle Net Services for configuring connections to your RDS for Oracle
-    DB instance
+After you upgrade your version of Oracle APEX, the Oracle APEX schema for the
+previous version might still exist in your database. If you don't need it anymore,
+you can drop the old Oracle APEX schema from your database after you upgrade.
 
-## Oracle APEX
+If you upgrade the Oracle APEX version and RESTful services were not configured in
+the previous Oracle APEX version, we recommend that you configure RESTful services.
+For more information, see [Configuring RESTful services for Oracle APEX](Appendix.Oracle.Options.APEX.md#Appendix.Oracle.Options.APEX.ConfigureRESTful "Appendix.Oracle.Options.APEX.md#Appendix.Oracle.Options.APEX.ConfigureRESTful").
 
-limitations
+In some cases when you plan to do a major version upgrade of your DB instance, you might
+find that you're using an Oracle APEX version that isn't compatible with
+your target database version. In these cases, you can upgrade your version of Oracle
+APEX before you upgrade your DB instance. Upgrading Oracle APEX first can reduce the
+amount of time that it takes to upgrade your DB instance.
 
-You can't modify the `APEX_`version`` user
- account, which is managed by Amazon RDS. Thus, you can't apply database profiles or
- enforce password rules on this user. The profiles and password settings for
- `APEX_`version`` are predefined by
-Oracle and AWS and are designed to meet the security requirements for
-Amazon RDS.
+###### Note
+
+After upgrading Oracle APEX, install and configure a listener for use with the
+upgraded version. For instructions, see [Setting up Oracle APEX listener](Appendix.Oracle.Options.APEX.md#Appendix.Oracle.Options.APEX.Listener "Appendix.Oracle.Options.APEX.md#Appendix.Oracle.Options.APEX.Listener").
+
+## Removing the APEX and APEX-DEV
+
+options
+
+You can remove the `APEX` and `APEX-DEV` options from a
+DB instance. To remove these options from your DB instance, do one of the following:
+
+- To remove the `APEX` and `APEX-DEV` options from
+  multiple DB instances, remove the options from the option group they belong to.
+  This change affects all DB instances that use the option group. When you remove
+  the options from an option group that is attached to multiple DB instances, a
+  brief outage occurs while the DB instances are restarted.
+
+For more information, see [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption").
+
+- To remove the `APEX` and `APEX-DEV` options from a
+  single DB instance, modify the DB instance and specify a different option group that
+  doesn't include these options. You can specify the default (empty) option
+  group, or a different custom option group. When you remove the options, a
+  brief outage occurs while your DB instance is automatically restarted.
+
+For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+
+When you remove the `APEX` and `APEX-DEV` options from a
+DB instance, the APEX schema is removed from your database.
