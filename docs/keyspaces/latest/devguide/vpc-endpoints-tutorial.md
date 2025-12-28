@@ -1,36 +1,50 @@
-# Step 5: Configure monitoring with
+# Step 7: (Optional) Clean up
 
-CloudWatch
+If you want to delete the resources that you have created in this tutorial, follow
+these procedures.
 
-This step shows you how to use Amazon CloudWatch to monitor the VPC endpoint connection to
-Amazon Keyspaces.
+###### To remove your VPC endpoint for Amazon Keyspaces
 
-AWS PrivateLink publishes data points to CloudWatch about your interface endpoints. You can
-use metrics to verify that your system is performing as expected. The
-`AWS/PrivateLinkEndpoints` namespace in CloudWatch includes the metrics for
-interface endpoints. For more information, see [CloudWatch metrics for
-AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-cloudwatch-metrics.md "../../../vpc/latest/privatelink/privatelink-cloudwatch-metrics.md") in the _AWS PrivateLink Guide_.
+1. Log in to your Amazon EC2 instance.
+2. Determine the VPC endpoint ID that is used for Amazon Keyspaces. If you omit the
+   `grep` parameters, VPC endpoint information is shown for all
+   services.
 
-###### To create a CloudWatch dashboard with VPC endpoint metrics
+```
+`aws ec2 describe-vpc-endpoint-services | grep ServiceName | grep cassandra`
 
-1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Dashboards**. Then choose
-   **Create dashboard**. Enter a name for the dashboard and
-   choose **Create**.
-3. Under **Add widget**, choose
-   **Number**.
-4. Under **Metrics**, choose
-   **AWS/PrivateLinkEndpoints**.
-5. Choose **Endpoint Type, Service Name, VPC Endpoint ID, VPC
-   ID**.
-6. Select the metrics `ActiveConnections` and
-   `NewConnections`, and choose **Create
-   Widget**.
-7. Save the dashboard.
-   The `ActiveConnections` metric is defined as the number of concurrent
-   active connections that the endpoint received during the last one-minute period. The
-   `NewConnections` metric is defined as the number of new connections that
-   were established through the endpoint during the last one-minute period.
+`{
+ "VpcEndpoint": {
+ "PolicyDocument": "{\"Version\":\"2000-00-00",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"*\",\"Resource\":\"*\"}]}",
+ "VpcId": "vpc-a1234bcd",
+ "State": "available",
+ "ServiceName": "com.amazonaws.us-east-1.cassandra",
+ "RouteTableIds": [],
+ "VpcEndpointId": "vpce-1a23b4c5",
+ "CreationTimestamp": "2025-07-26T22:00:14Z"
+ }
+}`
+```
 
-For more information about creating dashboards, see [Create
-dashboard](../../../AmazonCloudWatch/latest/monitoring/create_dashboard.md "../../../AmazonCloudWatch/latest/monitoring/create_dashboard.md") in the _CloudWatch User Guide_.
+In the example output, the VPC endpoint ID is `vpce-1a23b4c5`. Make sure to replace this value with your own. 3. Delete the VPC endpoint.
+
+```
+`aws ec2 delete-vpc-endpoints --vpc-endpoint-ids `vpce-1a23b4c5``
+
+`{
+ "Unsuccessful": []
+}`
+```
+
+The empty array `[]` indicates success (there were no unsuccessful
+requests).
+
+###### To terminate your Amazon EC2 instance
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Instances**.
+3. Choose your Amazon EC2 instance.
+4. Choose **Actions**, choose **Instance
+   State**, and then choose **Terminate**.
+5. In the confirmation window, choose **Yes, Terminate**.
