@@ -36,7 +36,7 @@ days*.*
 2. If you have a share request notification, Audit Manager displays a red dot next to
    the navigation menu icon.
 
-![Screenshot of the minimized navigation menu icon with a notification.](images/framework_sharing-navigation_minimized_notification-console.png) 3. Expand the navigation pane and look next to **Share requests**. A
+![Screenshot of the minimized navigation menu icon with a notification.](/images/audit-manager/latest/userguide/images/framework_sharing-navigation_minimized_notification-console.png) 3. Expand the navigation pane and look next to **Share requests**. A
 notification badge indicates the number of share requests that need your attention.
 
 ![Screenshot of the expanded navigation menu, with share requests highlighted and a notification badge.](images/framework_sharing-navigation_expanded_notification-console.png) 4. Choose **Share requests**. By default, this page opens on the
