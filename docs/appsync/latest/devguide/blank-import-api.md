@@ -13,7 +13,7 @@ GraphQL. There are three fundamental components of a GraphQL API:
    is made, the resolver performs the operation on the data from the source, then returns the result as a
    response. For more information, see [Resolvers](resolver-components.md#aws-appsync-resolver-components "resolver-components.md#aws-appsync-resolver-components").
 
-![GraphQL API architecture showing schema, resolvers, and data sources connected via AppSync.](images/appsync-architecture-graphql-api.png)
+![GraphQL API architecture showing schema, resolvers, and data sources connected via AppSync.](/images/appsync/latest/devguide/images/appsync-architecture-graphql-api.png)
 AWS AppSync manages your APIs by allowing you to create, edit, and store the code for your schemas and resolvers.
 Your data sources will come from external repositories such as databases, DynamoDB tables, and Lambda functions. If
 you're using an AWS service to store your data or are planning on doing so, AWS AppSync provides a near-seamless
