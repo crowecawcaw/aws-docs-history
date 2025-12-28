@@ -18,6 +18,7 @@ JSON
  "arc-region-switch:GetPlanEvaluationStatus",
  "arc-region-switch:GetPlanExecution",
  "arc-region-switch:ListRoute53HealthChecks",
+ "arc-region-switch:ListRoute53HealthChecksInRegion",
  "arc-region-switch:ListPlanExecutions",
  "arc-region-switch:ListPlanExecutionEvents",
  "arc-region-switch:ListTagsForResource"

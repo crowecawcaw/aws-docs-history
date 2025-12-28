@@ -10,6 +10,7 @@ blocks that you add to a Region switch plan.
 - [Amazon ECS service scaling execution block sample policy](security_iam_region_switch_ecs.md "security_iam_region_switch_ecs.md")
 - [ARC routing controls execution block sample policy](security_iam_region_switch_arc_routing.md "security_iam_region_switch_arc_routing.md")
 - [Aurora Global Database execution block sample policy](security_iam_region_switch_aurora.md "security_iam_region_switch_aurora.md")
+- [Amazon DocumentDB Global Cluster execution block sample policy](security_iam_region_switch_documentdb.md "security_iam_region_switch_documentdb.md")
 - [Manual approval execution block sample policy](security_iam_region_switch_manual_approval.md "security_iam_region_switch_manual_approval.md")
 - [Custom action Lambda execution block sample policy](security_iam_region_switch_lambda.md "security_iam_region_switch_lambda.md")
 - [Route 53 health check execution block sample policy](security_iam_region_switch_route53.md "security_iam_region_switch_route53.md")

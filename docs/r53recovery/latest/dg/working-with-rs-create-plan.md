@@ -35,4 +35,12 @@ you create a plan, specify the type that applies to how you want to manage failo
 
    Before you add CloudWatch alarms to a Region switch plan, make sure that you have the correct IAM policy in place.
    For more information, see [CloudWatch alarms for application health permissions](security_iam_region_switch_cloudwatch.md "security_iam_region_switch_cloudwatch.md").
+   - **Automatic report generation** - Optionally, enable automatic report generation
+     for plan executions. When enabled, Region switch generates a comprehensive PDF report after each plan execution
+     completes and delivers it to an Amazon S3 bucket that you specify. Provide the Amazon S3 URI and the account ID that
+     owns the bucket.
+
+   Before enabling automatic report generation for plans, make sure that you have the correct IAM policy in place.
+   For more information about report generation and required permissions, see
+   [Automatic plan execution reports](region-switch-plans.md#region-switch-plans.plan-execution-reports "region-switch-plans.md#region-switch-plans.plan-execution-reports").
    - **Tags** - Optionally, add one or more tags to your plan.

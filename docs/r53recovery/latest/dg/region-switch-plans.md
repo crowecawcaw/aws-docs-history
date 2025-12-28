@@ -113,6 +113,40 @@ test application recovery by executing your Region switch plan, and that you don
 solely on Region switch plan evaluation to test that your recovery plan will work as you expect
 it to.
 
+## Automatic plan execution reports
+
+Region switch can automatically generate comprehensive PDF reports for plan executions to help you meet
+regulatory compliance requirements. These reports provide evidence of your disaster recovery
+tests and actual recovery events, including detailed execution timelines, plan configurations, and
+resource states.
+
+When you configure automatic report generation for a plan, Region switch creates a PDF report after each
+plan execution completes and delivers it to an Amazon S3 bucket that you specify. Reports are typically
+available within 30 minutes of execution completion. S3 storage costs apply.
+
+Each report includes:
+
+- Executive summary with service overview and report creation date
+- Plan configuration details as they existed at execution time
+- Detailed execution timeline with steps, affected resources, and statuses
+- Plan warnings that were present when the execution started
+- Amazon CloudWatch alarm states and alarm history for associated alarms
+- For parent plans, configuration and execution details of child plans
+- Glossary of terms and concepts
+
+To enable automatic report generation, you configure a report output destination when you create or
+update a plan. You must also ensure that your plan's execution IAM role has the necessary permissions
+to write reports to your Amazon S3 bucket and access the resources needed to generate the report content.
+For more information about required permissions, see [Automatic plan execution reports permissions](security_iam_region_switch_reports.md "security_iam_region_switch_reports.md").
+
+You can view the status of report generation and download completed reports from the plan execution
+details page in the console. If report generation encounters errors, such as insufficient permissions or
+misconfigured Amazon S3 buckets, Region switch provides error details to help you troubleshoot the issue.
+
+Plan evaluation continuously validates your report configuration, including verifying that the
+execution role has the required IAM permissions. If Region switch detects configuration issues that would
+prevent successful report generation, it generates warnings that you can view on the plan details page.
+
 ## Regional alarms and actual recovery time
 
 Region switch calculates an _actual recovery time_ value for each plan execution,

@@ -21,6 +21,7 @@ For details about actions and resource types defined by ARC, including the forma
 - [Read-only permissions](security_iam_region_switch_read_only.md "security_iam_region_switch_read_only.md")
 - [Execution block permissions](security_iam_region_switch_execution_blocks.md "security_iam_region_switch_execution_blocks.md")
 - [CloudWatch alarms for application health permissions](security_iam_region_switch_cloudwatch.md "security_iam_region_switch_cloudwatch.md")
+- [Automatic plan execution reports permissions](security_iam_region_switch_reports.md "security_iam_region_switch_reports.md")
 - [Cross-account resource permissions](security_iam_region_switch_cross_account.md "security_iam_region_switch_cross_account.md")
 - [Complete plan execution role permissions](security_iam_region_switch_complete_policy.md "security_iam_region_switch_complete_policy.md")
 

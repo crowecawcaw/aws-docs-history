@@ -34,6 +34,7 @@ JSON
  "arc-region-switch:StartPlanExecution",
  "arc-region-switch:CancelPlanExecution",
  "arc-region-switch:ListRoute53HealthChecks",
+ "arc-region-switch:ListRoute53HealthChecksInRegion",
  "arc-region-switch:ListPlanExecutions",
  "arc-region-switch:ListPlanExecutionEvents",
  "arc-region-switch:ListTagsForResource",

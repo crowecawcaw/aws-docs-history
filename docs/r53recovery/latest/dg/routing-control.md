@@ -1,63 +1,63 @@
-# Creating safety rules for routing control
+# Creating a routing control
 
-When you work with several routing controls at the same time, you might decide that you want safeguards in place
-to avoid unintended consequences. For example, you might want to prevent inadvertently turning off all the routing controls for an
-application, which would result in a fail-open scenario. Or you might want to implement a master
-on-off switch to disable a set of routing controls, perhaps to prevent automation from rerouting traffic. To
-establish safeguards like these for routing control in ARC, you create _safety rules_.
+health check in ARC
 
-You configure safety rules for routing control with a combination of routing controls, rules, and other options that you specify. Each
-safety rule is associated with a single control panel, but a control panel can have more than one safety rule.
-When you create safety rules, keep in mind that safety rule names must be unique within each control panel.
+You associate a routing control health check with each routing control that you want to use for rerouting traffic.
+Then you configure each health check with a Amazon Route 53 DNS record, for example, a failover DNS record. Then you can
+reroute traffic in Amazon Application Recovery Controller (ARC) simply by updating the state of the associated routing control, to set it to
+`On` or `Off`.
 
-###### Topics
+###### Note
 
-- [Types of safety rules](#routing-control.about-safety-rule "#routing-control.about-safety-rule")
-- [Creating a safety rule on the
-  console](routing-control.md "routing-control.md")
-- [Editing or deleting a safety rule on the
-  console](routing-control.md "routing-control.md")
-- [Overriding safety rules
-  to reroute traffic](routing-control.md "routing-control.md")
+You can't edit an existing routing control health check to associate it with a different routing control.
 
-## Types of safety rules
+# To create a routing control health check
 
-There are two types of safety rules, _assertion rules_ and _gating rules_,
-which you can use to safeguard failover in different ways.
+1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
+2. Choose **Routing control**.
+3. On the **Routing control** page, choose a routing control.
+4. On the **Routing control** detail page, choose a
+   **Create health check**.
+5. Enter a name for the health check, and then choose **Create**.
+   Next, you create Route 53 DNS records, and associate your routing control health checks with each one. For example,
+   let's assume that you want to use two DNS failover records to associate your routing control health checks with.
+   For ARC to correctly fail over traffic by using routing controls, start by creating the two failover records
+   in Route 53: a primary and a secondary. For more information about configuring
+   DNS failover records, see [Health checking concepts](../../../Route53/latest/DeveloperGuide/route-53-concepts.md#route-53-concepts-health-checking "../../../Route53/latest/DeveloperGuide/route-53-concepts.md#route-53-concepts-health-checking").
 
-**Assertion rule**
-With an assertion rule, when you change one or a set of routing control states, ARC enforces that the criteria that you set when you configured the
-rule is met, or else the routing control states aren't changed.
+When you create the primary failover record, the values should be something like the following:
 
-An example of when this is useful is to prevent a fail-open scenario, like a scenario where you stop traffic from going to one cell but do not start
-traffic flowing to another cell. To avoid this, an assertion rule makes sure that at least one routing control in a set of routing controls in a
-control panel is `On` at any given time. This ensures that traffic flows to at least one Region or Availability Zone for an
-application.
+```
 
-To see an example AWS CLI command that creates an assertion rule to enforce this criteria,
-see _Create safety rules_ in
-[Examples of using ARC routing control API operations with the AWS CLI](getting-started-cli-routing.md "getting-started-cli-routing.md").
+			Name: myapp.yourdomain.com
+			Type: CNAME
+			Set Identifier: Primary
+			Failover: Primary
+			TTL: 0
+			Resource Records:
+			Value: cell1.yourdomain.com
+			Health Check ID: xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
 
-For detailed information about the assertion rule API operation properties, see
-[AssertionRule](../../../recovery-cluster/latest/api/safetyrule.md#safetyrule-model-assertionrule "../../../recovery-cluster/latest/api/safetyrule.md#safetyrule-model-assertionrule")
-in the Routing Control API Reference Guide for Amazon Application Recovery Controller.
+The secondary failover record values should be something like the following:
 
-**Gating rule**
-With a gating rule, you can enforce an overall on-off switch over a set of routing controls
-so that whether those routing control states can be changed is enforced based on a set of criteria that you
-specify in the rule. The simplest criteria is whether a single routing control that you specify as the switch is
-set to `ON` or `OFF`.
+```
 
-To implement this, you create a _gating routing control_, to use as the overall switch,
-and _target routing controls_, to control traffic flow to different Regions or Availability Zones.
-Then, to prevent manual or automated state updates to the target routing controls that
-you've configured for the gating rule, you set the gating routing control state to `Off`. To allow updates, you
-set it to `On`.
+			Name: myapp.yourdomain.com
+			Type: CNAME
+			Set Identifier: Secondary
+			Failover: Secondary
+			TTL: 0
+			Resource Records:
+			Value: cell2.yourdomain.com
+			Health Check ID: xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
 
-To see an example AWS CLI command that creates a gating rule that implements this kind of overall
-switch, see _Create safety rules_ in
-[Examples of using ARC routing control API operations with the AWS CLI](getting-started-cli-routing.md "getting-started-cli-routing.md").
+Now, say that you want to reroute traffic because there's a failure. To do this, you update the associated routing control
+states to change the primary routing control state to `OFF` and the secondary routing control state to
+`ON`. When you do this, the associated health checks stop traffic from going to the primary replica and route
+it instead to the secondary replica. For more information about failing over traffic with routing controls, see
+[Getting and updating routing control states using the ARC API (recommended)](routing-control.update.md "routing-control.update.md").
 
-For detailed information about the gating rule API operation properties,
-see [GatingRule](../../../recovery-cluster/latest/api/safetyrule.md#safetyrule-model-gatingrule "../../../recovery-cluster/latest/api/safetyrule.md#safetyrule-model-gatingrule")
-in the Routing Control API Reference Guide for Amazon Application Recovery Controller.
+To see examples of the AWS CLI commands for creating routing controls and the associated health checks using ARC
+API operations, see [Examples of using ARC routing control API operations with the AWS CLI](getting-started-cli-routing.md "getting-started-cli-routing.md").
