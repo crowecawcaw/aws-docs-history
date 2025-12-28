@@ -187,7 +187,7 @@ a repository, see [Working with repository associations](working-with-repositori
       - If CodeGuru Reviewer used your file in the code review, then **Success** appears
         under **Analysis configuration file**.
 
-      ![The Details section of a code review. Success appears under Analysis configuration file.](/images/codeguru/latest/reviewer-ug/images/code-review-config-file-success.png)
+      ![The Details section of a code review. Success appears under Analysis configuration file.](images/code-review-config-file-success.png)
       - If CodeGuru Reviewer found errors in your file, then **Error** appears under **Analysis configuration file** and a message
         indicating the errors appears at the top of the page.
 
@@ -207,7 +207,7 @@ a repository, see [Working with repository associations](working-with-repositori
       Confirm the name and location of your file, make any needed changes, and then initiate a new
       code review.
 
-      ![The Details section of a code review. No file detected appears under Analysis configuration file.](/images/codeguru/latest/reviewer-ug/images/code-review-no-file-detected.png)
+      ![The Details section of a code review. No file detected appears under Analysis configuration file.](images/code-review-no-file-detected.png)
 
 6. Check **Recommendations** to confirm that the recommendations
    match what you expect based on the settings in your
