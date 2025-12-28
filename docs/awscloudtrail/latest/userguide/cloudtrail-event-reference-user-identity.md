@@ -77,8 +77,52 @@ The following example shows a `userIdentity` element for a request made on behal
 ```
 
 To learn more about how you can use `userId`, `identityStoreArn`, and `credentialId`,
-see [Identifying the user and session in IAM Identity Center user-initiated CloudTrail events](../../../singlesignon/latest/userguide/sso-cloudtrail-use-cases.md#user-session-iam-identity-center "../../../singlesignon/latest/userguide/sso-cloudtrail-use-cases.md#user-session-iam-identity-center") 
+see [Identifying the user and session in IAM Identity Center user-initiated CloudTrail events](../../../singlesignon/latest/userguide/sso-cloudtrail-use-cases.md#user-session-iam-identity-center "../../../singlesignon/latest/userguide/sso-cloudtrail-use-cases.md#user-session-iam-identity-center")
 in the _IAM Identity Center User Guide_.
+
+**`userIdentity` with product provider-initiated request**
+
+All actions performed by product providers using temporary delegated access are automatically logged in CloudTrail.
+This provides complete visibility and auditability of product provider activity in your AWS account. You can
+identify which actions were taken by product providers, when they occurred, and which product provider account
+performed them.
+
+To help you distinguish between actions taken by your own IAM principals and those taken by product providers
+with delegated access, CloudTrail events include a new field called `invokedByDelegate` under the
+`userIdentity` element. This field contains the AWS account ID of the product provider, making it
+easy to filter and audit all delegated actions.
+
+The following example shows a `userIdentity` element for an action performed by a product provider using temporary
+delegated access.
+
+```
+"userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAI...",
+    "arn": "arn:aws:sts::123456789012:assumed-role/Alice/Session",
+    "accountId": "123456789012",
+    "sessionContext": {
+        "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAI...",
+            "arn": "arn:aws:iam::123456789012:role/Alice",
+            "accountId": "123456789012",
+            "userName": "Alice"
+        },
+        "attributes": {
+            "mfaAuthenticated": "false",
+            "creationDate": "20131102T010628Z"
+        }
+    },
+    "invokedByDelegate": {
+        "accountId": "999999999999"
+    }
+}
+```
+
+The `invokedByDelegate` field contains the AWS account ID of the product provider who performed
+the action using delegated access. In this example, account 999999999999 (the product provider) performed an
+action in account 123456789012 (the customer account).
 
 ## Fields
 
@@ -322,6 +366,22 @@ in the _Amazon EC2 User Guide_.
 The name of the AWS service that made the request, when a request is made by an AWS service such as Amazon EC2 Auto Scaling or AWS Elastic Beanstalk.
 This field is only present when a request is made by an AWS service. This includes requests made by services using
 forward access sessions (FAS), AWS service principals, service-linked roles, or service roles used by an AWS service.
+
+**Optional:** True
+
+**`invokedByDelegate`**
+
+Tracks requests made by product providers using temporary delegated access in your AWS account.
+This field appears only when a product provider initiates an API request using delegated permissions.
+If present, `invokedByDelegate` provides information about the product provider account
+that made the request. This element has the following attribute:
+
+- `accountId` – The AWS account ID of the product provider that initiated the
+  request.
+
+For more information and a JSON example of delegated access in CloudTrail events, see
+[CloudTrail
+entries for temporary security credentials](../../../IAM/latest/UserGuide/temporary-delegation-cloudtrail.md "../../../IAM/latest/UserGuide/temporary-delegation-cloudtrail.md") in the _IAM User Guide_.
 
 **Optional:** True
 

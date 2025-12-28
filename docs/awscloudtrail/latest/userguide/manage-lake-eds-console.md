@@ -53,3 +53,4 @@ You can update the following settings using the CloudTrail console:
   with the console](query-eds-termination-protection.md "query-eds-termination-protection.md")
 - [Delete an event data store with the console](query-event-data-store-delete.md "query-event-data-store-delete.md")
 - [Restore an event data store with the console](query-eds-restore.md "query-eds-restore.md")
+- [Exporting data from CloudTrail Lake Event Data Store to CloudWatch](cloudtrail-lake-export-cloudwatch.md "cloudtrail-lake-export-cloudwatch.md")
