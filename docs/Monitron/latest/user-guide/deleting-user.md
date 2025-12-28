@@ -19,7 +19,7 @@ other sites or projects, this won't remove those permissions.
 2. Navigate to the project or site, and then to the
    **Users** list page.
 3. Choose the vertical ellipses (
-   ![Three vertical dots representing a menu or more options in a user interface.](/images/Monitron/latest/user-guide/images/details.png)
+   ![Three vertical dots representing a menu or more options in a user interface.](images/details.png)
    ) next to the user name.
 4. Choose **Remove user**.
 5. On the **Confirmation** page, choose

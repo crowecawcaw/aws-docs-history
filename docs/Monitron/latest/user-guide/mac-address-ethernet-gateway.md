@@ -27,7 +27,7 @@ address.
 ![Gateway management interface showing no gateways and options to add or search for gateways.](images/scan-1.png) 3. Amazon Monitron will display a message explaining what scanning a QR code will do.
 Select **Continue**.
 
-![Explanation of Scan Gateways QR feature with options to scan for details or find MAC address.](/images/Monitron/latest/user-guide/images/scan-2.png) 4. On the **Scan QR Code** page, scan the gateway QR code
+![Explanation of Scan Gateways QR feature with options to scan for details or find MAC address.](images/scan-2.png) 4. On the **Scan QR Code** page, scan the gateway QR code
 using your mobile phone camera.
 
 When the scan successfully completes, Amazon Monitron displays the Gateway ID and
@@ -37,7 +37,7 @@ app.
 ![Mobile app screen showing Gateway ID and MAC address for scanning gateway QR code.](images/scan-5.png)
 
 You can also select the copy icon (
-![Icon representing the copy or duplicate function with two overlapping squares.](/images/Monitron/latest/user-guide/images/copy-icon.png)
+![Icon representing the copy or duplicate function with two overlapping squares.](images/copy-icon.png)
 ) to copy the MAC address.
 
 ###### Note

@@ -42,7 +42,7 @@ then analyzes that data by comparing it to the baseline temperature and vibratio
 that position to determine when a change, or abnormality, occurs. When that happens, it
 sends a notification on the Amazon Monitron app.
 
-![Diagram of motor and pump connected by coupling, with labeled components.](/images/Monitron/latest/user-guide/images/assets-positions.png)
+![Diagram of motor and pump connected by coupling, with labeled components.](images/assets-positions.png)
 This chapter explains how to manage your assets with Amazon Monitron, and how to pair
 them to the sensors that monitor their health.
 

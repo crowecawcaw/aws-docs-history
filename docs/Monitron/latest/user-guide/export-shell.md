@@ -276,7 +276,7 @@ ticket
 
 ![AWS console interface showing IAM dashboard with Support Center dropdown menu highlighted.](images/gdpr-support-question-mark.png) 2. On the next page, choose **Create case**.
 
-![Support Center interface with Quick solutions, Active cases, and Create case button.](images/s3-export-4.png) 3. On the **How can we help?** page, do the
+![Support Center interface with Quick solutions, Active cases, and Create case button.](/images/Monitron/latest/user-guide/images/s3-export-4.png) 3. On the **How can we help?** page, do the
 following:
 
     1. Choose **Account and billing support**.
