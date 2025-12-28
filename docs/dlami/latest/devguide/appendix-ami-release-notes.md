@@ -83,6 +83,8 @@ Below are the Release notes for ARM64 PyTorch DLAMIs:
 
 GPU
 
+- [ARM64 AMI GPU Pytorch 2.9 (Amazon Linux 2023)](aws-deep-learning-arm64-gpu-pytorch-2.md "aws-deep-learning-arm64-gpu-pytorch-2.md")
+- [ARM64 AMI GPU Pytorch 2.9 (Ubuntu 24.04)](aws-deep-learning-arm64-gpu-pytorch-2.md "aws-deep-learning-arm64-gpu-pytorch-2.md")
 - [ARM64 AMI GPU PyTorch 2.8 (Amazon Linux 2023)](aws-deep-learning-arm64-gpu-pytorch-2.md "aws-deep-learning-arm64-gpu-pytorch-2.md")
 - [ARM64 AMI GPU PyTorch 2.8 (Ubuntu 24.04)](aws-deep-learning-arm64-gpu-pytorch-2.md "aws-deep-learning-arm64-gpu-pytorch-2.md")
 - [ARM64 AMI GPU PyTorch 2.7 (Amazon Linux 2023)](aws-deep-learning-arm64-gpu-pytorch-2.md "aws-deep-learning-arm64-gpu-pytorch-2.md")
