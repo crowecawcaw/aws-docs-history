@@ -1,94 +1,51 @@
-# Optional configuration settings for
+# Supported data types for DynamoDBMapper for
 
-DynamoDBMapper
+Java
 
-When you create an instance of `DynamoDBMapper`, it has certain default
-behaviors; you can override these defaults by using the
-`DynamoDBMapperConfig` class.
+This section describes the supported primitive Java data types, collections, and
+arbitrary data types in Amazon DynamoDB.
 
-The following code snippet creates a `DynamoDBMapper` with custom
-settings:
+Amazon DynamoDB supports the following primitive Java data types and primitive wrapper
+classes.
 
-```
-AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
-
-DynamoDBMapperConfig mapperConfig = DynamoDBMapperConfig.builder()
-        .withSaveBehavior(DynamoDBMapperConfig.SaveBehavior.CLOBBER)
-        .withConsistentReads(DynamoDBMapperConfig.ConsistentReads.CONSISTENT)
-        .withTableNameOverride(null)
-        .withPaginationLoadingStrategy(DynamoDBMapperConfig.PaginationLoadingStrategy.EAGER_LOADING)
-    .build();
-
-DynamoDBMapper mapper = new DynamoDBMapper(client, mapperConfig);
-```
-
-For more information, see [_DynamoDBMapperConfig_](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/datamodeling/DynamoDBMapperConfig.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/datamodeling/DynamoDBMapperConfig.md") in the
-[AWS SDK for Java API Reference](../../../sdk-for-java/latest/reference.md "../../../sdk-for-java/latest/reference.md").
-
-You can use the following arguments for an instance of
-`DynamoDBMapperConfig`:
-
-- A `DynamoDBMapperConfig.ConsistentReads` enumeration value:
-
-      + `EVENTUAL`—the mapper instance uses an eventually
-       consistent read request.
-      + `CONSISTENT`—the mapper instance uses a strongly
-       consistent read request. You can use this optional setting with
-       `load`, `query`, or `scan`
-       operations. Strongly consistent reads have implications for performance
-       and billing; see the DynamoDB [product
-       detail page](https://aws.amazon.com/dynamodb "https://aws.amazon.com/dynamodb") for more information.
-
-  If you do not specify a read consistency setting for your mapper instance, the
-  default is `EVENTUAL`.
+- `String`
+- `Boolean`, `boolean`
+- `Byte`, `byte`
+- `Date` (as [ISO_8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601") millisecond-precision string, shifted to UTC)
+- `Calendar` (as [ISO_8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601") millisecond-precision string, shifted to UTC)
+- `Long`, `long`
+- `Integer`, `int`
+- `Double`, `double`
+- `Float`, `float`
+- `BigDecimal`
+- `BigInteger`
 
 ###### Note
 
-This value is applied in the `query`, `querypage`,
-`load`, and `batch load` operations of the
-DynamoDBMapper.
+- For more information about DynamoDB naming rules and the various supported
+  data types, see [Supported data types and naming rules
+  in Amazon DynamoDB](HowItWorks.md "HowItWorks.md").
+- Empty Binary values are supported by the DynamoDBMapper.
+- Empty String values are supported by AWS SDK for Java 2.x.
 
-- A `DynamoDBMapperConfig.PaginationLoadingStrategy` enumeration
-  value—Controls how the mapper instance processes a paginated list of data,
-  such as the results from a `query` or `scan`:
+In AWS SDK for Java 1.x, DynamoDBMapper supports reading of empty String
+attribute values, however, it will not write empty String attribute values
+because these attributes are dropped from the request.
+DynamoDB supports the Java [Set](http://docs.oracle.com/javase/6/docs/api/java/util/Set.html "http://docs.oracle.com/javase/6/docs/api/java/util/Set.html"),
+[List](http://docs.oracle.com/javase/6/docs/api/java/util/List.html "http://docs.oracle.com/javase/6/docs/api/java/util/List.html"), and [Map](http://docs.oracle.com/javase/6/docs/api/java/util/Map.html "http://docs.oracle.com/javase/6/docs/api/java/util/Map.html")
+collection types. The following table summarizes how these Java types map to the DynamoDB
+types.
 
-      + `LAZY_LOADING`—the mapper instance loads data when
-       possible, and keeps all loaded results in memory.
-      + `EAGER_LOADING`—the mapper instance loads the data as
-       soon as the list is initialized.
-      + `ITERATION_ONLY`—you can only use an Iterator to read
-       from the list. During the iteration, the list will clear all the
-       previous results before loading the next page, so that the list will
-       keep at most one page of the loaded results in memory. This also means
-       the list can only be iterated once. This strategy is recommended when
-       handling large items, in order to reduce memory overhead.
+| Java type                                                                                                                                         | DynamoDB type                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| All number types                                                                                                                                  | `N` (number type)                                                               |
+| Strings                                                                                                                                           | `S` (string type)                                                               |
+| Boolean                                                                                                                                           | `BOOL` (Boolean type), 0 or 1.                                                  |
+| ByteBuffer                                                                                                                                        | `B` (binary type)                                                               |
+| Date                                                                                                                                              | `S` (string type). The Date values are stored as<br>ISO-8601 formatted strings. |
+| [Set](http://docs.oracle.com/javase/6/docs/api/java/util/Set.html "http://docs.oracle.com/javase/6/docs/api/java/util/Set.html") collection types | `SS` (string set) type, `NS` (number set)<br>type, or `BS` (binary set) type.   |
 
-  If you do not specify a pagination loading strategy for your mapper instance,
-  the default is `LAZY_LOADING`.
-
-- A `DynamoDBMapperConfig.SaveBehavior` enumeration value - Specifies
-  how the mapper instance should deal with attributes during save
-  operations:
-  - `UPDATE`—during a save operation, all modeled
-    attributes are updated, and unmodeled attributes are unaffected.
-    Primitive number types (byte, int, long) are set to 0. Object types are
-    set to null.
-  - `CLOBBER`—clears and replaces all attributes,
-    included unmodeled ones, during a save operation. This is done by
-    deleting the item and re-creating it. Versioned field constraints are
-    also disregarded.
-    If you do not specify the save behavior for your mapper instance, the default
-    is `UPDATE`.
-
-###### Note
-
-DynamoDBMapper transactional operations do not support
-`DynamoDBMapperConfig.SaveBehavior` enumeration.
-
-- A `DynamoDBMapperConfig.TableNameOverride` object—Instructs
-  the mapper instance to ignore the table name specified by a class's
-  `DynamoDBTable` annotation, and instead use a different table
-  name that you supply. This is useful when partitioning your data into multiple
-  tables at runtime.
-  You can override the default configuration object for `DynamoDBMapper` per
-  operation, as needed.
+The `DynamoDBTypeConverter` interface lets you map your own arbitrary data
+types to a data type that is natively supported by DynamoDB. For more information, see
+[Mapping arbitrary data in
+DynamoDB](DynamoDBMapper.md "DynamoDBMapper.md").

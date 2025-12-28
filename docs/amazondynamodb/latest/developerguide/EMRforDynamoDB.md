@@ -1,48 +1,62 @@
-# Tutorial: Working with Amazon DynamoDB and Apache
+# Processing HiveQL statements
 
-Hive
+Hive is an application that runs on Hadoop, which is a batch-oriented framework for
+running MapReduce jobs. When you issue a HiveQL statement, Hive determines whether it
+can return the results immediately or whether it must submit a MapReduce job.
 
-In this tutorial, you will launch an Amazon EMR cluster, and then use Apache Hive to
-process data stored in a DynamoDB table.
+For example, consider the _ddb_features_ table (from [Tutorial: Working with Amazon DynamoDB and Apache
+Hive](EMRforDynamoDB.md "EMRforDynamoDB.md")). The
+following Hive query prints state abbreviations and the number of summits in
+each:
 
-_Hive_ is a data warehouse application for Hadoop that allows you
-to process and analyze data from multiple sources. Hive provides a SQL-like language,
-_HiveQL_, that lets you work with data stored locally in the
-Amazon EMR cluster or in an external data source (such as Amazon DynamoDB).
+```
+SELECT state_alpha, count(*)
+FROM ddb_features
+WHERE feature_class = 'Summit'
+GROUP BY state_alpha;
+```
 
-For more information, see to the [Hive
-Tutorial](https://cwiki.apache.org/confluence/display/Hive/Tutorial "https://cwiki.apache.org/confluence/display/Hive/Tutorial").
+Hive does not return the results immediately. Instead, it submits a MapReduce job,
+which is processed by the Hadoop framework. Hive will wait until the job is complete
+before it shows the results from the query:
 
-###### Topics
+```
+AK  2
+AL  2
+AR  2
+AZ  3
+CA  7
+CO  2
+CT  2
+ID  1
+KS  1
+ME  2
+MI  1
+MT  3
+NC  1
+NE  1
+NM  1
+NY  2
+OR  5
+PA  1
+TN  1
+TX  1
+UT  4
+VA  1
+VT  2
+WA  2
+WY  3
+Time taken: 8.753 seconds, Fetched: 25 row(s)
+```
 
-- [Before you begin](#EMRforDynamoDB.Tutorial.BeforeYouBegin "#EMRforDynamoDB.Tutorial.BeforeYouBegin")
-- [Step 1: Create an Amazon EC2 key
-  pair](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 2: Launch an Amazon EMR
-  cluster](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 3: Connect
-  to the Leader node](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 4: Load data into
-  HDFS](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 5: Copy data to
-  DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 6: Query the data
-  in the DynamoDB table](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 7: (Optional) clean
-  up](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+## Monitoring and canceling
 
-## Before you begin
+jobs
 
-For this tutorial, you will need the following:
+When Hive launches a Hadoop job, it prints output from that job. The job
+completion status is updated as the job progresses. In some cases, the status might
+not be updated for a long time. (This can happen when you are querying a large
+DynamoDB table that has a low provisioned read capacity setting.)
 
-- An AWS account. If you do not have one, see [Signing up for AWS](SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS").
-- An SSH client (Secure Shell). You use the SSH client to connect to the
-  leader node of the Amazon EMR cluster and run interactive commands. SSH
-  clients are available by default on most Linux, Unix, and Mac OS X
-  installations. Windows users can download and install the [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/ "http://www.chiark.greenend.org.uk/~sgtatham/putty/")
-  client, which has SSH support.
-
-###### Next step
-
-[Step 1: Create an Amazon EC2 key
-pair](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+If you need to cancel the job before it is complete, you can type
+`Ctrl+C` at any time.

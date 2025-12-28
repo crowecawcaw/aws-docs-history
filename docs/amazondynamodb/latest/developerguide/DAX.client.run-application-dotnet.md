@@ -1,15 +1,15 @@
-# 02-Write-Data.cs
+# 06-DeleteTable.cs
 
-The `02-Write-Data.cs` program writes test data to
-`TryDaxTable`.
+The `06-DeleteTable.cs` program deletes
+`TryDaxTable`. Run this program after you have finished
+testing.
 
 ```
 
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
+using Amazon.DynamoDBv2;
 
 namespace ClientTest
 {
@@ -21,29 +21,12 @@ namespace ClientTest
 
             var tableName = "TryDaxTable";
 
-            string someData = new string('X', 1000);
-            var pkmax = 10;
-            var skmax = 10;
-
-            for (var ipk = 1; ipk <= pkmax; ipk++)
+            var request = new DeleteTableRequest()
             {
-                Console.WriteLine($"Writing {skmax} items for partition key: {ipk}");
-                for (var isk = 1; isk <= skmax; isk++)
-                {
-                    var request = new PutItemRequest()
-                    {
-                        TableName = tableName,
-                        Item = new Dictionary<string, AttributeValue>()
-                       {
-                            { "pk", new AttributeValue{N = ipk.ToString() } },
-                            { "sk", new AttributeValue{N = isk.ToString() } },
-                            { "someData", new AttributeValue{S = someData } }
-                       }
-                    };
+                TableName = tableName
+            };
 
-                    var response = await client.PutItemAsync(request);
-                }
-            }
+            var response = await client.DeleteTableAsync(request);
 
             Console.WriteLine("Hit <enter> to continue...");
             Console.ReadLine();

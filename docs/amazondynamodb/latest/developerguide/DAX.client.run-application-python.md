@@ -1,78 +1,70 @@
-# 04-query-test.py
+# 03-getitem-test.py
 
-The `04-query-test.py` program performs `Query`
-operations on `TryDaxTable`.
+The `03-getitem-test.py` program performs `GetItem`
+operations on `TryDaxTable`. This example is given for the
+Region eu-west-1.
 
 ```
+
 import argparse
-import time
 import sys
+import time
 import amazondax
 import boto3
-from boto3.dynamodb.conditions import Key
 
 
-def query_test(partition_key, sort_keys, iterations, dyn_resource=None):
+def get_item_test(key_count, iterations, dyn_resource=None):
     """
-    Queries the table a specified number of times. The time before the
+    Gets items from the table a specified number of times. The time before the
     first iteration and the time after the last iteration are both captured
     and reported.
 
-    :param partition_key: The partition key value to use in the query. The query
-                          returns items that have partition keys equal to this value.
-    :param sort_keys: The range of sort key values for the query. The query returns
-                      items that have sort key values between these two values.
+    :param key_count: The number of items to get from the table in each iteration.
     :param iterations: The number of iterations to run.
     :param dyn_resource: Either a Boto3 or DAX resource.
     :return: The start and end times of the test.
     """
     if dyn_resource is None:
-        dyn_resource = boto3.resource("dynamodb")
+        dyn_resource = boto3.resource('dynamodb')
 
-    table = dyn_resource.Table("TryDaxTable")
-    key_condition_expression = Key("partition_key").eq(partition_key) & Key(
-        "sort_key"
-    ).between(*sort_keys)
-
+    table = dyn_resource.Table('TryDaxTable')
     start = time.perf_counter()
     for _ in range(iterations):
-        table.query(KeyConditionExpression=key_condition_expression)
-        print(".", end="")
-        sys.stdout.flush()
+        for partition_key in range(1, key_count + 1):
+            for sort_key in range(1, key_count + 1):
+                table.get_item(Key={
+                    'partition_key': partition_key,
+                    'sort_key': sort_key
+                })
+                print('.', end='')
+                sys.stdout.flush()
     print()
     end = time.perf_counter()
     return start, end
 
 
-if __name__ == "__main__":
-    # pylint: disable=not-context-manager
+if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "endpoint_url",
-        nargs="?",
-        help="When specified, the DAX cluster endpoint. Otherwise, DAX is not used.",
-    )
+        'endpoint_url', nargs='?',
+        help="When specified, the DAX cluster endpoint. Otherwise, DAX is not used.")
     args = parser.parse_args()
 
-    test_partition_key = 5
-    test_sort_keys = (2, 9)
-    test_iterations = 100
+    test_key_count = 10
+    test_iterations = 50
     if args.endpoint_url:
-        print(f"Querying the table {test_iterations} times, using the DAX client.")
+        print(f"Getting each item from the table {test_iterations} times, "
+              f"using the DAX client.")
         # Use a with statement so the DAX client closes the cluster after completion.
-        with amazondax.AmazonDaxClient.resource(endpoint_url=args.endpoint_url) as dax:
-            test_start, test_end = query_test(
-                test_partition_key, test_sort_keys, test_iterations, dyn_resource=dax
-            )
+        with amazondax.AmazonDaxClient.resource(endpoint_url=args.endpoint_url, region_name='eu-west-1') as dax:
+            test_start, test_end = get_item_test(
+                test_key_count, test_iterations, dyn_resource=dax)
     else:
-        print(f"Querying the table {test_iterations} times, using the Boto3 client.")
-        test_start, test_end = query_test(
-            test_partition_key, test_sort_keys, test_iterations
-        )
-
-    print(
-        f"Total time: {test_end - test_start:.4f} sec. Average time: "
-        f"{(test_end - test_start)/test_iterations}."
-    )
+        print(f"Getting each item from the table {test_iterations} times, "
+              f"using the Boto3 client.")
+        test_start, test_end = get_item_test(
+            test_key_count, test_iterations)
+    print(f"Total time: {test_end - test_start:.4f} sec. Average time: "
+          f"{(test_end - test_start)/ test_iterations}.")
 
 ```

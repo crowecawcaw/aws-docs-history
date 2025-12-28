@@ -1,93 +1,208 @@
-# PartiQL delete statements for DynamoDB
+# PartiQL select statements for DynamoDB
 
-Use the `DELETE` statement to delete an existing item from your
-Amazon DynamoDB table.
+Use the `SELECT` statement to retrieve data from a table in
+Amazon DynamoDB.
 
-###### Note
+Using the `SELECT` statement can result in a full table scan if an
+equality or IN condition with a partition key is not provided in the WHERE clause. A scan
+operation examines every item for the requested values and can use up the
+provisioned throughput for a large table or index in a single operation.
 
-You can only delete one item at a time. You cannot issue a single DynamoDB
-PartiQL statement that deletes multiple items. For information on deleting
-multiple items, see [Performing transactions
-with PartiQL for DynamoDB](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md") or [Running batch operations with
-PartiQL for DynamoDB](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md").
+If you want to avoid full table scan in PartiQL, you can:
+
+- Author your `SELECT` statements to not result in full table
+  scans by making sure your [WHERE clause condition](ql-reference.md#ql-reference.select.parameters "ql-reference.md#ql-reference.select.parameters") is configured accordingly.
+- Disable full table scans using the IAM policy specified at [Example: Allow select statements and
+  deny full table scan statements in PartiQL for DynamoDB](ql-iam.md#access-policy-ql-iam-example6 "ql-iam.md#access-policy-ql-iam-example6"), in the DynamoDB developer
+  guide.
+  For more information see [Best practices for
+  querying and scanning data](bp-query-scan.md "bp-query-scan.md"), in the DynamoDB developer guide.
 
 ###### Topics
 
-- [Syntax](#ql-reference.delete.syntax "#ql-reference.delete.syntax")
-- [Parameters](#ql-reference.delete.parameters "#ql-reference.delete.parameters")
-- [Return value](#ql-reference.delete.return "#ql-reference.delete.return")
-- [Examples](#ql-reference.delete.examples "#ql-reference.delete.examples")
+- [Syntax](#ql-reference.select.syntax "#ql-reference.select.syntax")
+- [Parameters](#ql-reference.select.parameters "#ql-reference.select.parameters")
+- [Examples](#ql-reference.select.examples "#ql-reference.select.examples")
 
 ## Syntax
 
 ```
-DELETE FROM `table`
- WHERE `condition` [RETURNING `returnvalues`]
- <returnvalues>  ::= ALL OLD *
+SELECT `expression`  [, ...]
+FROM `table`[.`index`]
+[ WHERE `condition` ] [ [ORDER BY `key` [DESC|ASC] , ...]
 ```
 
 ## Parameters
 
+**`expression`**
+
+(Required) A projection formed from the `*` wildcard or
+a projection list of one or more attribute names or document paths
+from the result set. An expression can consist of calls to [Use PartiQL functions with DynamoDB](ql-functions.md "ql-functions.md") or fields
+that are modified by [PartiQL arithmetic, comparison, and logical operators for DynamoDB](ql-operators.md "ql-operators.md") .
+
 **`table`**
 
-(Required) The DynamoDB table containing the item to be
-deleted.
+(Required) The table name to query.
 
-**`condition`**
+**`index`**
 
-(Required) The selection criteria for the item to be deleted; this
-condition must resolve to a single primary key value.
-
-**`returnvalues`**
-
-(Optional) Use `returnvalues` if you want to get the
-item attributes as they appeared before they were deleted. The valid
-values are:
-
-- `ALL OLD *`- The content of the old item is
-  returned.
-
-## Return value
-
-This statement does not return a value unless `returnvalues`
-parameter is specified.
+(Optional) The name of the index to query.
 
 ###### Note
 
-If the DynamoDB table does not have any item with the same primary key as
-that of the item for which the DELETE is issued, SUCCESS is returned with 0
-items deleted. If the table has an item with same primary key, but the
-condition in the WHERE clause of the DELETE statement evaluates to false,
-`ConditionalCheckFailedException` is returned.
+You must add double quotation marks to the table name and
+index name when querying an index.
+
+```
+SELECT *
+FROM "TableName"."IndexName"
+
+```
+
+**`condition`**
+
+(Optional) The selection criteria for the query.
+
+###### Important
+
+To ensure that a `SELECT` statement does not result
+in a full table scan, the `WHERE` clause condition
+must specify a partition key. Use the equality or IN
+operator.
+
+For example, if you have an `Orders` table with an
+`OrderID` partition key and other non-key
+attributes, including an `Address`, the following
+statements would not result in a full table scan:
+
+```
+SELECT *
+FROM "Orders"
+WHERE OrderID = 100
+
+SELECT *
+FROM "Orders"
+WHERE OrderID = 100 and Address='some address'
+
+SELECT *
+FROM "Orders"
+WHERE OrderID = 100 or OrderID = 200
+
+SELECT *
+FROM "Orders"
+WHERE OrderID IN [100, 300, 234]
+```
+
+The following `SELECT` statements, however, will
+result in a full table scan:
+
+```
+SELECT *
+FROM "Orders"
+WHERE OrderID > 1
+
+SELECT *
+FROM "Orders"
+WHERE Address='some address'
+
+SELECT *
+FROM "Orders"
+WHERE OrderID = 100 OR Address='some address'
+```
+
+**`key`**
+
+(Optional) A hash key or a sort key to use to order returned
+results. The default order is ascending (`ASC`) specify
+`DESC` if you want the results retuned in descending
+order.
+
+###### Note
+
+If you omit the `WHERE` clause, then all of the items in the
+table are retrieved.
 
 ## Examples
 
-The following query deletes an item in the `"Music"` table.
+The following query returns one item, if one exists, from the
+`Orders` table by specifying the partition key,
+`OrderID`, and using the equality operator.
 
 ```
-DELETE FROM "Music" WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks'
+SELECT OrderID, Total
+FROM "Orders"
+WHERE OrderID = 1
 ```
 
-You can add the parameter `RETURNING ALL OLD *` to return the data
-that was deleted.
+The following query returns all items in the `Orders` table that
+have a specific partition key, `OrderID`, values using the OR
+operator.
 
 ```
-DELETE FROM "Music" WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks' RETURNING ALL OLD *
+SELECT OrderID, Total
+FROM "Orders"
+WHERE OrderID = 1 OR OrderID = 2
 ```
 
-The `Delete` statement now returns the following:
+The following query returns all items in the `Orders` table that
+have a specific partition key, `OrderID`, values using the IN
+operator. The returned results are in descending order, based on the
+`OrderID` key attribute value.
 
 ```
-{
-    "Items": [
-        {
-            "Artist": {
-                "S": "Acme Band"
-            },
-            "SongTitle": {
-                "S": "PartiQL Rocks"
-            }
-        }
-    ]
-}
+SELECT OrderID, Total
+FROM "Orders"
+WHERE OrderID IN [1, 2, 3] ORDER BY OrderID DESC
+```
+
+The following query shows a full table scan that returns all items from the
+`Orders` table that have a `Total` greater than 500,
+where `Total` is a non-key attribute.
+
+```
+SELECT OrderID, Total
+FROM "Orders"
+WHERE Total > 500
+```
+
+The following query shows a full table scan that returns all items from the
+`Orders` table within a specific `Total` order range,
+using the IN operator and a non-key attribute `Total`.
+
+```
+SELECT OrderID, Total
+FROM "Orders"
+WHERE Total IN [500, 600]
+```
+
+The following query shows a full table scan that returns all items from the
+`Orders` table within a specific `Total` order range,
+using the BETWEEN operator and a non-key attribute `Total`.
+
+```
+SELECT OrderID, Total
+FROM "Orders"
+WHERE Total BETWEEN 500 AND 600
+```
+
+The following query returns the first date a firestick device was used to
+watch by specifying the partition key `CustomerID` and sort key
+`MovieID` in the WHERE clause condition and using document paths
+in the SELECT clause.
+
+```
+SELECT Devices.FireStick.DateWatched[0]
+FROM WatchList
+WHERE CustomerID= 'C1' AND MovieID= 'M1'
+```
+
+The following query shows a full table scan that returns the list of items
+where a firestick device was first used after 12/24/19 using document paths in
+the WHERE clause condition.
+
+```
+SELECT Devices
+FROM WatchList
+WHERE Devices.FireStick.DateWatched[0] >= '12/24/19'
 ```

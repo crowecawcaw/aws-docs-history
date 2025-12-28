@@ -1,105 +1,21 @@
-# Editing an existing data model
+# Exporting a data model
 
-###### To edit an existing model
+After you create a data model using NoSQL Workbench for Amazon DynamoDB, you can save and
+export the model in either NoSQL Workbench model format or [AWS CloudFormation
+JSON template format](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md").
+
+###### To export a data model
 
 1. In NoSQL Workbench, in the navigation pane on the left side, choose the
-   **Data modeler** button.
+   **Data modeler** icon.
 
-![Console screenshot showing the data modeler button.](images/workbench/DesignerChoose.png) 2. Select the data model and choose the table that you want to edit. Choose **Edit model**
+![Console screenshot showing the data modeler icon.](images/workbench/DesignerChoose.png) 2. Hover your pointer over **Export data model**.
 
-![Console screenshot showing the Edit link in the data modeler.](images/workbench/DesignerEditModel.png) 3. Make the needed edits, and then choose **Save edits**.
+![Console screenshot showing the import model and export model button.](images/workbench/DesignerExportModel.png)
 
-###### To manually edit an existing model and add a facet
+In the dropdown list, choose whether to export your data model in NoSQL
+Workbench model format or CloudFormation JSON template format.
 
-1. Export your model. For more information, see [Exporting a data model](workbench.Modeler.md "workbench.Modeler.md").
-2. Open the exported file in an editor.
-3. Locate the `DataModel` Object for the table that you want to create a facet
-   for.
+![Console screenshot showing the export model format dropdown menu.](images/workbench/DesignerExportModelDropdown.png) 3. Choose a location to save your model.
 
-Add a `TableFacets` array representing all the facets for the table.
-
-For each facet, add an object to the `TableFacets` array. Each array element
-has the following properties:
-
-    * `FacetName` – A name for your facet. This value must be unique across
-     the model.
-    * `PartitionKeyAlias` – A friendly name for the table's partition key.
-     This alias is displayed when you view the facet in NoSQL Workbench.
-    * `SortKeyAlias` – A friendly name for the table's sort key. This alias
-     is displayed when you view the facet in NoSQL Workbench. This property
-     is not needed if the table has no sort key defined.
-    * `NonKeyAttributes` – An array of attribute names that are needed for
-     the access pattern. These names must map to the attribute names that are
-     defined for the table.
-
-```
-{
-  "ModelName": "Music Library Data Model",
-  "DataModel": [
-    {
-      "TableName": "Songs",
-      "KeyAttributes": {
-        "PartitionKey": {
-          "AttributeName": "Id",
-          "AttributeType": "S"
-        },
-        "SortKey": {
-          "AttributeName": "Metadata",
-          "AttributeType": "S"
-        }
-      },
-      "NonKeyAttributes": [
-        {
-          "AttributeName": "DownloadMonth",
-          "AttributeType": "S"
-        },
-        {
-          "AttributeName": "TotalDownloadsInMonth",
-          "AttributeType": "S"
-        },
-        {
-          "AttributeName": "Title",
-          "AttributeType": "S"
-        },
-        {
-          "AttributeName": "Artist",
-          "AttributeType": "S"
-        },
-        {
-          "AttributeName": "TotalDownloads",
-          "AttributeType": "S"
-        },
-        {
-          "AttributeName": "DownloadTimestamp",
-          "AttributeType": "S"
-        }
-      ],
-      "TableFacets": [
-        {
-          "FacetName": "`SongDetails`",
-          "KeyAttributeAlias": {
-            "PartitionKeyAlias": "`SongId"`,
-            "SortKeyAlias": "`Metadata`"
-          },
-          "NonKeyAttributes": [`"Title",
- "Artist",
- "TotalDownloads"`
-          ]
-        },
-        {
-          "FacetName": "`Downloads`",
-          "KeyAttributeAlias": {
-            "PartitionKeyAlias": "`SongId`",
-            "SortKeyAlias": "`Metadata`"
-          },
-          "NonKeyAttributes": [`"DownloadTimestamp"`
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-4. You can now import the modified model into NoSQL Workbench. For more information, see [Importing an existing data
-   model](workbench.Modeler.md "workbench.Modeler.md").
+![Screenshot of file explorer with list of models.](images/workbench/DesignerExportModelSave.png)

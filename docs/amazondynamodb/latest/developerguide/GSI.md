@@ -1,284 +1,438 @@
-# Managing Global Secondary Indexes in DynamoDB
+# Using Global Secondary Indexes in DynamoDB
 
-This section describes how to create, modify, and delete global secondary indexes in
-Amazon DynamoDB.
+Some applications might need to perform many kinds of queries, using a variety of
+different attributes as query criteria. To support these requirements, you can create one or
+more _global secondary indexes_ and issue `Query` requests
+against these indexes in Amazon DynamoDB.
 
 ###### Topics
 
-- [Creating a table with Global Secondary Indexes](#GSI.Creating "#GSI.Creating")
-- [Describing the Global Secondary Indexes on a table](#GSI.Describing "#GSI.Describing")
-- [Adding a Global Secondary Index to an existing table](#GSI.OnlineOps.Creating "#GSI.OnlineOps.Creating")
-- [Deleting a Global Secondary Index](#GSI.OnlineOps.Deleting "#GSI.OnlineOps.Deleting")
-- [Modifying a Global Secondary Index during
-  creation](#GSI.OnlineOps.Creating.Modify "#GSI.OnlineOps.Creating.Modify")
+- [Scenario: Using a Global Secondary Index](#GSI.scenario "#GSI.scenario")
+- [Attribute projections](#GSI.Projections "#GSI.Projections")
+- [Multi-attribute key schema](#GSI.MultiAttributeKeys "#GSI.MultiAttributeKeys")
+- [Reading data from a Global Secondary Index](#GSI.Reading "#GSI.Reading")
+- [Data synchronization between tables and Global Secondary Indexes](#GSI.Writes "#GSI.Writes")
+- [Table classes with Global Secondary Index](#GSI.tableclasses "#GSI.tableclasses")
+- [Provisioned throughput considerations for Global Secondary Indexes](#GSI.ThroughputConsiderations "#GSI.ThroughputConsiderations")
+- [Storage considerations for Global Secondary Indexes](#GSI.StorageConsiderations "#GSI.StorageConsiderations")
+- [Design patterns](GSI.md "GSI.md")
+- [Managing Global Secondary Indexes in DynamoDB](GSI.md "GSI.md")
+- [Detecting and correcting index key
+  violations in DynamoDB](GSI.OnlineOps.md "GSI.OnlineOps.md")
+- [Working with Global Secondary Indexes: Java](GSIJavaDocumentAPI.md "GSIJavaDocumentAPI.md")
+- [Working with Global Secondary Indexes: .NET](GSILowLevelDotNet.md "GSILowLevelDotNet.md")
+- [Working with Global Secondary Indexes in DynamoDB using AWS CLI](GCICli.md "GCICli.md")
 
-## Creating a table with Global Secondary Indexes
+## Scenario: Using a Global Secondary Index
 
-To create a table with one or more global secondary indexes, use the
-`CreateTable` operation with the `GlobalSecondaryIndexes`
-parameter. For maximum query flexibility, you can create up to 20
-global secondary indexes (default quota) per table.
+To illustrate, consider a table named `GameScores` that tracks users and
+scores for a mobile gaming application. Each item in `GameScores` is
+identified by a partition key (`UserId`) and a sort key
+(`GameTitle`). The following diagram shows how the items in the table
+would be organized. (Not all of the attributes are shown.)
 
-You must specify one attribute to act as the index partition key. You can optionally
-specify another attribute for the index sort key. It is not necessary for either of
-these key attributes to be the same as a key attribute in the table. For example, in the
-_GameScores_ table (see [Using Global Secondary Indexes in DynamoDB](GSI.md "GSI.md")), neither `TopScore` nor `TopScoreDateTime` are key attributes.
-You could create a global secondary index with a partition key of `TopScore` and a sort key of
-`TopScoreDateTime`. You might use such an index to determine whether
-there is a correlation between high scores and the time of day a game is played.
+![GameScores table containing a list of user id, title, score, date, and wins/losses.](images/GSI_01.png)
 
-Each index key attribute must be a scalar of type `String`,
-`Number`, or `Binary`. (It cannot be a document or a set.) You
-can project attributes of any data type into a global secondary index. This includes scalars, documents,
-and sets. For a complete list of data types, see [Data types](HowItWorks.md#HowItWorks.DataTypes "HowItWorks.md#HowItWorks.DataTypes").
+Now suppose that you wanted to write a leaderboard application to display top scores
+for each game. A query that specified the key attributes (`UserId` and
+`GameTitle`) would be very efficient. However, if the application needed
+to retrieve data from `GameScores` based on `GameTitle` only, it
+would need to use a `Scan` operation. As more items are added to the table,
+scans of all the data would become slow and inefficient. This makes it difficult to
+answer questions such as the following:
 
-If using provisioned mode, you must provide `ProvisionedThroughput`
-settings for the index, consisting of `ReadCapacityUnits` and
-`WriteCapacityUnits`. These provisioned throughput settings are separate
-from those of the table, but behave in similar ways. For more information, see [Provisioned throughput considerations for Global Secondary Indexes](GSI.md#GSI.ThroughputConsiderations "GSI.md#GSI.ThroughputConsiderations").
+- What is the top score ever recorded for the game Meteor Blasters?
+- Which user had the highest score for Galaxy Invaders?
+- What was the highest ratio of wins vs. losses?
+
+To speed up queries on non-key attributes, you can create a global secondary index. A global secondary index contains a
+selection of attributes from the base table, but they are organized by a primary key
+that is different from that of the table. The index key does not need to have any of the
+key attributes from the table. It doesn't even need to have the same key schema as a
+table.
+
+For example, you could create a global secondary index named `GameTitleIndex`, with a
+partition key of `GameTitle` and a sort key of `TopScore`. The
+base table's primary key attributes are always projected into an index, so the
+`UserId` attribute is also present. The following diagram shows what
+`GameTitleIndex` index would look like.
+
+![GameTitleIndex table containing a list of titles, scores, and user ids.](images/GSI_02.png)
+
+Now you can query `GameTitleIndex` and easily obtain the scores for Meteor
+Blasters. The results are ordered by the sort key values, `TopScore`. If you
+set the `ScanIndexForward` parameter to false, the results are returned in
+descending order, so the highest score is returned first.
+
+Every global secondary index must have a partition key, and can have an optional sort key. The index
+key schema can be different from the base table schema. You could have a table with a
+simple primary key (partition key), and create a global secondary index with a composite primary key
+(partition key and sort key)—or vice versa. The index key attributes can consist
+of any top-level `String`, `Number`, or `Binary`
+attributes from the base table. Other scalar types, document types, and set types are
+not allowed.
+
+You can project other base table attributes into the index if you want. When you query
+the index, DynamoDB can retrieve these projected attributes efficiently. However, global secondary index
+queries cannot fetch attributes from the base table. For example, if you query
+`GameTitleIndex` as shown in the previous diagram, the query could not
+access any non-key attributes other than `TopScore` (although the key
+attributes `GameTitle` and `UserId` would automatically be
+projected).
+
+In a DynamoDB table, each key value must be unique. However, the key values in a global secondary index do
+not need to be unique. To illustrate, suppose that a game named Comet Quest is
+especially difficult, with many new users trying but failing to get a score above zero.
+The following is some data that could represent this.
+
+| UserId | GameTitle   | TopScore |
+| ------ | ----------- | -------- |
+| 123    | Comet Quest | 0        |
+| 201    | Comet Quest | 0        |
+| 301    | Comet Quest | 0        |
+
+When this data is added to the `GameScores` table, DynamoDB propagates it to
+`GameTitleIndex`. If we then query the index using Comet Quest for
+`GameTitle` and 0 for `TopScore`, the following data is
+returned.
+
+![Table containing a list of titles, top scores, and user ids.](images/GSI_05.png)
+
+Only the items with the specified key values appear in the response. Within that set
+of data, the items are in no particular order.
+
+A global secondary index only tracks data items where its key attributes actually exist. For example,
+suppose that you added another new item to the `GameScores` table, but only
+provided the required primary key attributes.
+
+| UserId | GameTitle   |
+| ------ | ----------- |
+| 400    | Comet Quest |
+
+Because you didn't specify the `TopScore` attribute, DynamoDB would not
+propagate this item to `GameTitleIndex`. Thus, if you queried
+`GameScores` for all the Comet Quest items, you would get the following
+four items.
+
+![Table containing a list of 4 titles, top scores, and user ids.](images/GSI_04.png)
+
+A similar query on `GameTitleIndex` would still return three items, rather
+than four. This is because the item with the nonexistent `TopScore` is not
+propagated to the index.
+
+![Table containing a list of 3 titles, top scores, and user ids.](images/GSI_05.png)
+
+## Attribute projections
+
+A _projection_ is the set of attributes that is copied from a table into a secondary index. The partition key and sort key of the table are always projected into the index; you can project other attributes to support your application's query requirements. When you query an index, Amazon DynamoDB can access any attribute in the projection as if those attributes were in a table of their own.
+
+When you create a secondary index, you need to specify the attributes that will be projected into the index. DynamoDB provides three different options for this:
+
+- _KEYS_ONLY_ – Each item in the index consists only
+  of the table partition key and sort key values, plus the index key values. The
+  `KEYS_ONLY` option results in the smallest possible secondary index.
+- _INCLUDE_ – In addition to the attributes
+  described in `KEYS_ONLY`, the secondary index will include other non-key attributes that you
+  specify.
+- _ALL_ – The secondary index includes all of the attributes from the source table. Because all of the table data is duplicated in the index, an `ALL` projection results in the largest possible secondary index.
+
+In the previous diagram, `GameTitleIndex` has
+only one projected attribute: `UserId`. So while an application can
+efficiently determine the `UserId` of the top scorers for each game using
+`GameTitle` and `TopScore` in queries, it can't efficiently
+determine the highest ratio of wins vs. losses for the top scorers. To do so, it would
+have to perform an additional query on the base table to fetch the wins and losses for
+each of the top scorers. A more efficient way to support queries on this data would be
+to project these attributes from the base table into the global secondary index, as shown in this
+diagram.
+
+![Depiction of projecting non-key attributes into a GSI to support efficient querying.](images/GSI_06.png)
+
+Because the non-key attributes `Wins` and `Losses` are projected
+into the index, an application can determine the wins vs. losses ratio for any game, or
+for any combination of game and user ID.
+
+When you choose the attributes to project into a global secondary index, you must consider the tradeoff
+between provisioned throughput costs and storage costs:
+
+- If you need to access just a few attributes with the lowest possible latency,
+  consider projecting only those attributes into a global secondary index. The smaller the index,
+  the less that it costs to store it, and the less your write costs are.
+- If your application frequently accesses some non-key attributes, you should
+  consider projecting those attributes into a global secondary index. The additional storage costs
+  for the global secondary index offset the cost of performing frequent table scans.
+- If you need to access most of the non-key attributes on a frequent basis, you
+  can project these attributes—or even the entire base table— into a
+  global secondary index. This gives you maximum flexibility. However, your storage cost would
+  increase, or even double.
+- If your application needs to query a table infrequently, but must perform many
+  writes or updates against the data in the table, consider projecting
+  `KEYS_ONLY`. The global secondary index would be of minimal size, but would still
+  be available when needed for query activity.
+
+## Multi-attribute key schema
+
+Global Secondary Indexes support multi-attribute keys, allowing you to compose partition keys and sort
+keys from multiple attributes. With multi-attribute keys, you can create a partition key
+from up to four attributes and a sort key from up to four attributes, for a total of up
+to eight attributes per key schema.
+
+Multi-attribute keys simplify your data model by eliminating the need to manually
+concatenate attributes into synthetic keys. Instead of creating composite strings like
+`TOURNAMENT#WINTER2024#REGION#NA-EAST`, you can use the natural
+attributes from your domain model directly. DynamoDB handles the composite key logic
+automatically, hashing multiple partition key attributes together for data distribution
+and maintaining hierarchical sort order across multiple sort key attributes.
+
+For example, consider a gaming tournament system where you want to organize matches by
+tournament and region. With multi-attribute keys, you can define your partition key as
+two separate attributes: `tournamentId` and `region`. Similarly,
+you can define your sort key using multiple attributes like `round`,
+`bracket`, and `matchId` to create a natural hierarchy. This
+approach keeps your data typed and your code clean, without string manipulation or
+parsing.
+
+When you query a global secondary index with multi-attribute keys, you must specify all partition key
+attributes using equality conditions. For sort key attributes, you can query them
+left-to-right in the order they're defined in the key schema. This means you can query
+the first sort key attribute alone, the first two attributes together, or all attributes
+together, but you cannot skip attributes in the middle. Inequality conditions such as
+`>`, `<`, `BETWEEN`, or
+`begins_with()` must be the last condition in your query.
+
+Multi-attribute keys work particularly well when creating global secondary indexes on existing tables.
+You can use attributes that already exist in your table without backfilling synthetic
+keys across your data. This makes it straightforward to add new query patterns to your
+application by creating indexes that reorganize your data using different attribute
+combinations.
+
+Each attribute in a multi-attribute key can have its own data type: `String`
+(S), `Number` (N), or `Binary` (B). When choosing data types,
+consider that `Number` attributes sort numerically without requiring
+zero-padding, while `String` attributes sort lexicographically. For example,
+if you use a `Number` type for a score attribute, the values 5, 50, 500, and
+1000 sort in natural numeric order. The same values as `String` type would
+sort as "1000", "5", "50", "500" unless you pad them with leading zeros.
+
+When designing multi-attribute keys, order your attributes from most general to most
+specific. For partition keys, combine attributes that are always queried together and
+that provide good data distribution. For sort keys, place frequently queried attributes
+first in the hierarchy to maximize query flexibility. This ordering allows you to query
+at any level of granularity that matches your access patterns.
+
+See the [Multi-attribute keys](GSI.DesignPattern.md "GSI.DesignPattern.md") for implementation examples.
+
+## Reading data from a Global Secondary Index
+
+You can retrieve items from a global secondary index using the `Query` and `Scan`
+operations. The `GetItem` and `BatchGetItem` operations can't be
+used on a global secondary index.
+
+### Querying a Global Secondary Index
+
+You can use the `Query` operation to access one or more items in a
+global secondary index. The query must specify the name of the base table and the name of the index
+that you want to use, the attributes to be returned in the query results, and any
+query conditions that you want to apply. DynamoDB can return the results in ascending
+or descending order.
+
+Consider the following data returned from a `Query` that requests
+gaming data for a leaderboard application.
+
+```
+{
+    "TableName": "GameScores",
+    "IndexName": "GameTitleIndex",
+    "KeyConditionExpression": "GameTitle = :v_title",
+    "ExpressionAttributeValues": {
+        ":v_title": {"S": "Meteor Blasters"}
+    },
+    "ProjectionExpression": "UserId, TopScore",
+    "ScanIndexForward": false
+}
+```
+
+In this query:
+
+- DynamoDB accesses _GameTitleIndex_, using the
+  _GameTitle_ partition key to locate the index items
+  for Meteor Blasters. All of the index items with this key are stored
+  adjacent to each other for rapid retrieval.
+- Within this game, DynamoDB uses the index to access all of the user IDs and
+  top scores for this game.
+- The results are returned, sorted in descending order because the
+  `ScanIndexForward` parameter is set to false.
+
+### Scanning a Global Secondary Index
+
+You can use the `Scan` operation to retrieve all of the data from a
+global secondary index. You must provide the base table name and the index name in the request. With
+a `Scan`, DynamoDB reads all of the data in the index and returns it to the
+application. You can also request that only some of the data be returned, and that
+the remaining data should be discarded. To do this, use the
+`FilterExpression` parameter of the `Scan` operation. For
+more information, see [Filter expressions for scan](Scan.md#Scan.FilterExpression "Scan.md#Scan.FilterExpression").
+
+## Data synchronization between tables and Global Secondary Indexes
+
+DynamoDB automatically synchronizes each global secondary index with its base table. When
+an application writes or deletes items in a table, any global secondary indexes on that table are updated
+asynchronously, using an eventually consistent model. Applications never write directly
+to an index. However, it is important that you understand the implications of how DynamoDB
+maintains these indexes.
 
 Global secondary indexes inherit the read/write capacity mode from the base table.
 For more information, see [Considerations when switching capacity modes in DynamoDB](bp-switching-capacity-modes.md "bp-switching-capacity-modes.md").
 
-###### Note
+When you create a global secondary index, you specify one or more index key attributes and their data
+types. This means that whenever you write an item to the base table, the data types for
+those attributes must match the index key schema's data types. In the case of
+`GameTitleIndex`, the `GameTitle` partition key in the index
+is defined as a `String` data type. The `TopScore` sort key in the
+index is of type `Number`. If you try to add an item to the
+`GameScores` table and specify a different data type for either
+`GameTitle` or `TopScore`, DynamoDB returns a
+`ValidationException` because of the data type mismatch.
 
-When creating a new GSI, it can be important to check if
-your choice of partition key is producing uneven or narrowed distribution of data or
-traffic across the new index’s partition key values. If this occurs, you could be
-seeing backfill and write operations occurring at the same time and throttling
-writes to the base table. The service takes measures to minimize the potential for
-this scenario, but has no insight into the shape of customer data with respect to
-the index partition key, the chosen projection, or the sparseness of the index
-primary key.
+When you put or delete items in a table, the global secondary indexes on that table
+are updated in an eventually consistent fashion. Changes to the table data are
+propagated to the global secondary indexes within a fraction of a second, under normal
+conditions. However, in some unlikely failure scenarios, longer propagation delays might
+occur. Because of this, your applications need to anticipate and handle situations where
+a query on a global secondary index returns results that are not up to date.
 
-If you suspect that your new global secondary index might have narrow or skewed
-data or traffic distribution across partition key values, consider the following
-before adding new indexes to operationally important tables.
+If you write an item to a table, you don't have to specify the attributes for any
+global secondary index sort key. Using `GameTitleIndex` as an example, you would not need to
+specify a value for the `TopScore` attribute to write a new item to the
+`GameScores` table. In this case, DynamoDB does not write any data to the
+index for this particular item.
 
-- It might be safest to add the index at a time when your application is
-  driving the least amount of traffic.
-- Consider enabling CloudWatch Contributor Insights on your base table and
-  indexes. This will give you valuable insight into your traffic
-  distribution.
-- Watch `WriteThrottleEvents`, `ThrottledRequests`, and
-  `OnlineIndexPercentageProgress` CloudWatch metrics throughout the
-  process. Adjust the provisioned write capacity as required to complete the
-  backfill in a reasonable time without any significant throttling effects on
-  your ongoing operations. `OnlineIndexConsumedWriteCapacity` and
-  `OnlineThrottleEvents` are expected to show 0 during index backfill.
-- Be prepared to cancel the index creation if you experience operational
-  impact due to write throttling.
+A table with many global secondary indexes incurs higher costs for write activity than
+tables with fewer indexes. For more information, see [Provisioned throughput considerations for Global Secondary Indexes](#GSI.ThroughputConsiderations "#GSI.ThroughputConsiderations").
 
-## Describing the Global Secondary Indexes on a table
+## Table classes with Global Secondary Index
 
-To view the status of all the global secondary indexes on a table, use the
-`DescribeTable` operation. The `GlobalSecondaryIndexes`
-portion of the response shows all of the indexes on the table, along with the current
-status of each ( `IndexStatus`).
+A global secondary index will always use the same table class as its base table. Any
+time a new global secondary index is added for a table, the new index will use the same
+table class as its base table. When a table's table class is updated, all associated
+global secondary indexes are updated as well.
 
-The `IndexStatus` for a global secondary index will be one of the following:
+## Provisioned throughput considerations for Global Secondary Indexes
 
-- `CREATING` — The index is currently being created, and is not
-  yet available for use.
-- `ACTIVE` — The index is ready for use, and applications can
-  perform `Query` operations on the index.
-- `UPDATING` — The provisioned throughput settings of the index
-  are being changed.
-- `DELETING` — The index is currently being deleted, and can no
-  longer be used.
+When you create a global secondary index on a provisioned mode table, you must specify read and write
+capacity units for the expected workload on that index. The provisioned throughput
+settings of a global secondary index are separate from those of its base table. A `Query`
+operation on a global secondary index consumes read capacity units from the index, not the base table.
+When you put, update or delete items in a table, the global secondary indexes on that
+table are also updated. These index updates consume write capacity units from the index,
+not from the base table.
 
-When DynamoDB has finished building a global secondary index, the index status changes from
-`CREATING` to `ACTIVE`.
-
-## Adding a Global Secondary Index to an existing table
-
-To add a global secondary index to an existing table, use the `UpdateTable` operation with
-the `GlobalSecondaryIndexUpdates` parameter. You must provide the
-following:
-
-- An index name. The name must be unique among all the indexes on the
-  table.
-- The key schema of the index. You must specify one attribute for the index
-  partition key; you can optionally specify another attribute for the index sort
-  key. It is not necessary for either of these key attributes to be the same as a
-  key attribute in the table. The data types for each schema attribute must be
-  scalar: `String`, `Number`, or `Binary`.
-- The attributes to be projected from the table into the index:
-  - `KEYS_ONLY` — Each item in the index consists only of
-    the table partition key and sort key values, plus the index key values.
-  - `INCLUDE` — In addition to the attributes described
-    in `KEYS_ONLY`, the secondary index includes other
-    non-key attributes that you specify.
-  - `ALL` — The index includes all of the attributes from
-    the source table.
-
-- The provisioned throughput settings for the index, consisting of
-  `ReadCapacityUnits` and `WriteCapacityUnits`. These
-  provisioned throughput settings are separate from those of the table.
-
-You can only create one global secondary index per `UpdateTable`
-operation.
+For example, if you `Query` a global secondary index and exceed its provisioned read
+capacity, your request will be throttled. If you perform heavy write activity on the
+table, but a global secondary index on that table has insufficient write capacity, the write activity on
+the table will be throttled.
 
 ###### Important
 
-When creating a Global Secondary Index (GSI), write operations to the base table
-can be throttled if the GSI activity resulting from writes to the base table exceeds
-the GSI's provisioned write capacity. This throttling affects all write operations,
-from indexing process to potentially disrupting your production workloads. For more
-information, see [Troubleshooting throttling in Amazon DynamoDB](TroubleshootingThrottling.md "TroubleshootingThrottling.md").
+To avoid potential throttling, the provisioned write capacity for a global
+secondary index should be equal or greater than the write capacity of the base table
+because new updates write to both the base table and global secondary index.
 
-### Phases of index creation
+To view the provisioned throughput settings for a global secondary index, use the
+`DescribeTable` operation. Detailed information about all of the table's
+global secondary indexes is returned.
 
-When you add a new global secondary index to an existing table, the table continues to be available
-while the index is being built. However, the new index is not available for Query
-operations until its status changes from `CREATING` to
-`ACTIVE`.
+### Read capacity units
 
-###### Note
+Global secondary indexes support eventually consistent reads, each of which
+consume one half of a read capacity unit. This means that a single global secondary index query can
+retrieve up to 2 × 4 KB = 8 KB per read capacity unit.
 
-Global secondary index creation does not use Application Auto Scaling. Increasing the `MIN` Application Auto Scaling
-capacity will not decrease the creation time of the global secondary index.
+For global secondary index queries, DynamoDB calculates the provisioned read activity in the same way
+as it does for queries against tables. The only difference is that the calculation
+is based on the sizes of the index entries, rather than the size of the item in the
+base table. The number of read capacity units is the sum of all projected attribute
+sizes across all of the items returned. The result is then rounded up to the next
+4 KB boundary. For more information about how DynamoDB calculates provisioned
+throughput usage, see [DynamoDB provisioned capacity mode](provisioned-capacity-mode.md "provisioned-capacity-mode.md").
 
-Behind the scenes, DynamoDB builds the index in two phases:
+The maximum size of the results returned by a `Query` operation is
+1 MB. This includes the sizes of all the attribute names and values
+across all of the items returned.
 
-**Resource Allocation**
+For example, consider a global secondary index where each item contains 2,000 bytes of data. Now
+suppose that you `Query` this index and that the query's
+`KeyConditionExpression` matches eight items. The total size of the
+matching items is 2,000 bytes × 8 items = 16,000 bytes. This result is then
+rounded up to the nearest 4 KB boundary. Because global secondary index queries are eventually
+consistent, the total cost is 0.5 × (16 KB / 4 KB), or 2 read capacity
+units.
 
-DynamoDB allocates the compute and storage resources that are needed for
-building the index.
+### Write capacity units
 
-During the resource allocation phase, the `IndexStatus`
-attribute is `CREATING` and the `Backfilling`
-attribute is false. Use the `DescribeTable` operation to
-retrieve the status of a table and all of its secondary indexes.
+When an item in a table is added, updated, or deleted, and a global secondary index is affected by
+this, the global secondary index consumes provisioned write capacity units for the operation. The
+total provisioned throughput cost for a write consists of the sum of write capacity
+units consumed by writing to the base table and those consumed by updating the
+global secondary indexes. If a write to a table does not require a global secondary index update, no
+write capacity is consumed from the index.
 
-While the index is in the resource allocation phase, you can't delete
-the index or delete its parent table. You also can't modify the
-provisioned throughput of the index or the table. You cannot add or
-delete other indexes on the table. However, you can modify the
-provisioned throughput of these other indexes.
+For a table write to succeed, the provisioned throughput settings for the table
+and all of its global secondary indexes must have enough write capacity to
+accommodate the write. Otherwise, the write to the table is throttled.
 
-**Backfilling**
+###### Important
 
-For each item in the table, DynamoDB determines which set of attributes
-to write to the index based on its projection (`KEYS_ONLY`,
-`INCLUDE`, or `ALL`). It then writes these
-attributes to the index. During the backfill phase, DynamoDB tracks the
-items that are being added, deleted, or updated in the table. The
-attributes from these items are also added, deleted, or updated in the
-index as appropriate.
+When creating a Global Secondary Index (GSI), write operations to the base
+table can be throttled if the GSI activity resulting from writes to the base
+table exceeds the GSI's provisioned write capacity. This throttling affects all
+write operations, from indexing process to potentially disrupting your
+production workloads. For more information, see [Troubleshooting throttling in Amazon DynamoDB](TroubleshootingThrottling.md "TroubleshootingThrottling.md").
 
-During the backfilling phase, the `IndexStatus` attribute
-is set to `CREATING`, and the `Backfilling`
-attribute is true. Use the `DescribeTable` operation to
-retrieve the status of a table and all of its secondary indexes.
+The cost of writing an item to a global secondary index depends on several factors:
 
-While the index is backfilling, you cannot delete its parent table.
-However, you can still delete the index or modify the provisioned
-throughput of the table and any of its global secondary indexes.
-
-###### Note
-
-During the backfilling phase, some writes of violating items might
-succeed while others are rejected. After backfilling, all writes to
-items that violate the new index's key schema are rejected. We
-recommend that you run the Violation Detector tool after the backfill phase
-finishes to detect and resolve any key violations that might have
-occurred. For more information, see [Detecting and correcting index key
-violations in DynamoDB](GSI.OnlineOps.md "GSI.OnlineOps.md").
-
-While the resource allocation and backfilling phases are in progress, the index is
-in the `CREATING` state. During this time, DynamoDB performs read operations
-on the table. You are not charged for read operations from the base table to
-populate the global secondary index.
-
-When the index build is complete, its status changes to `ACTIVE`. You
-can't `Query` or `Scan` the index until it is
-`ACTIVE`.
-
-###### Note
-
-In some cases, DynamoDB can't write data from the table to the index because of
-index key violations. This can occur if:
-
-- The data type of an attribute value does not match the data type of an
-  index key schema data type.
-- The size of an attribute exceeds the maximum length for an index key
-  attribute.
-- An index key attribute has an empty String or empty Binary attribute
-  value.
-  Index key violations do not interfere with global secondary index creation. However, when the
-  index becomes `ACTIVE`, the violating keys are not present in the
+- If you write a new item to the table that defines an indexed attribute, or
+  you update an existing item to define a previously undefined indexed
+  attribute, one write operation is required to put the item into the
   index.
+- If an update to the table changes the value of an indexed key attribute
+  (from A to B), two writes are required, one to delete the previous item from
+  the index and another write to put the new item into the index.
+- If an item was present in the index, but a write to the table caused the
+  indexed attribute to be deleted, one write is required to delete the old
+  item projection from the index.
+- If an item is not present in the index before or after the item is
+  updated, there is no additional write cost for the index.
+- If an update to the table only changes the value of projected attributes
+  in the index key schema, but does not change the value of any indexed key
+  attribute, one write is required to update the values of the projected
+  attributes into the index.
 
-DynamoDB provides a standalone tool for finding and resolving these issues. For
-more information, see [Detecting and correcting index key
-violations in DynamoDB](GSI.OnlineOps.md "GSI.OnlineOps.md").
+All of these factors assume that the size of each item in the index is less than
+or equal to the 1 KB item size for calculating write capacity units. Larger
+index entries require additional write capacity units. You can minimize your write
+costs by considering which attributes your queries will need to return and
+projecting only those attributes into the index.
 
-### Adding a Global Secondary Index to a large
+## Storage considerations for Global Secondary Indexes
 
-table
+When an application writes an item to a table, DynamoDB automatically copies the correct
+subset of attributes to any global secondary indexes in which those attributes should
+appear. Your AWS account is charged for storage of the item in the base table and also
+for storage of attributes in any global secondary indexes on that table.
 
-The time required for building a global secondary index depends on several factors, such as the
-following:
+The amount of space used by an index item is the sum of the following:
 
-- The size of the table
-- The number of items in the table that qualify for inclusion in the
-  index
-- The number of attributes projected into the index
-- Write activity on the main table during index builds
+- The size in bytes of the base table primary key (partition key and sort
+  key)
+- The size in bytes of the index key attribute
+- The size in bytes of the projected attributes (if any)
+- 100 bytes of overhead per index item
 
-If you are adding a global secondary index to a very large table, it might take a long time for the
-creation process to complete. To monitor progress and determine whether the index
-has sufficient write capacity, consult the following Amazon CloudWatch metrics:
+To estimate the storage requirements for a global secondary index, you can estimate the average size of
+an item in the index and then multiply by the number of items in the base table that
+have the global secondary index key attributes.
 
-- `OnlineIndexPercentageProgress`
-
-For more information about CloudWatch metrics related to DynamoDB, see [DynamoDB metrics](metrics-dimensions.md#dynamodb-metrics "metrics-dimensions.md#dynamodb-metrics").
-
-###### Important
-
-You may need to allowlist very large tables before creating or updating a
-Global Secondary Index. Please reach out to AWS Support to allowlist your
-tables.
-
-While an index is being backfilled, DynamoDB uses internal system capacity to read
-from the table. This is to minimize the impact of the index creation and to assure
-that your table does not run out of read capacity.
-
-## Deleting a Global Secondary Index
-
-If you no longer need a global secondary index, you can delete it using the `UpdateTable`
-operation.
-
-You can delete only one global secondary index per `UpdateTable`
-operation.
-
-While the global secondary index is being deleted, there is no effect on any read or write activity in
-the parent table. While the deletion is in progress, you can still modify the
-provisioned throughput on other indexes.
-
-###### Note
-
-- When you delete a table using the `DeleteTable` action, all of
-  the global secondary indexes on that table are also deleted.
-- Your account will not be charged for the delete operation of the
-  global secondary index.
-
-## Modifying a Global Secondary Index during
-
-creation
-
-While an index is being built, you can use the `DescribeTable` operation to
-determine what phase it is in. The description for the index includes a Boolean
-attribute, `Backfilling`, to indicate whether DynamoDB is currently loading the
-index with items from the table. If `Backfilling` is true, the resource
-allocation phase is complete and the index is now backfilling.
-
-During the backfilling phase, you can delete the index that is being created. During
-this phase, you can't add or delete other indexes on the table.
-
-###### Note
-
-For indexes that were created as part of a `CreateTable` operation, the
-`Backfilling` attribute does not appear in the
-`DescribeTable` output. For more information, see [Phases of index creation](#GSI.OnlineOps.Creating.Phases "#GSI.OnlineOps.Creating.Phases").
+If a table contains an item where a particular attribute(s) is not defined, but that
+attribute is defined as an index partition key or sort key, DynamoDB doesn't write any data
+for that item to the index.

@@ -1,97 +1,157 @@
-# Using projection expressions in
+# Expression attribute names (aliases)
 
-DynamoDB
+in DynamoDB
 
-To read data from a table, you use operations such as `GetItem`,
-`Query`, or `Scan`. Amazon DynamoDB returns all the item attributes
-by default. To get only some, rather than all of the attributes, use a projection
-expression.
+An _expression attribute name_ is an alias (or placeholder) that you
+use in an Amazon DynamoDB expression as an alternative to an actual attribute name. An expression
+attribute name must begin with a pound sign (`#`) and be followed by one or more
+alphanumeric characters. The underscore (`_`) character is also allowed.
 
-A _projection expression_ is a string that identifies the
-attributes that you want. To retrieve a single attribute, specify its name. For multiple
-attributes, the names must be comma-separated.
-
-The following are some examples of projection expressions, based on the
-`ProductCatalog` item from [Referring to item attributes when using
-expressions in DynamoDB](Expressions.md "Expressions.md"):
-
-- A single top-level attribute.
-
-`Title`
-
-- Three top-level attributes. DynamoDB retrieves the entire `Color`
-  set.
-
-`Title, Price, Color`
-
-- Four top-level attributes. DynamoDB returns the entire contents of
-  `RelatedItems` and `ProductReviews`.
-
-`Title, Description, RelatedItems, ProductReviews`
+This section describes several situations in which you must use expression attribute
+names.
 
 ###### Note
 
-Projection expression has no effect on provisioned throughput consumption. DynamoDB
-determines capacity units consumed based on item size, instead of the amount of data
-that is returned to an application.
+The examples in this section use the AWS Command Line Interface (AWS CLI).
 
-**Reserved words and special characters**
+###### Topics
 
-DynamoDB has reserved words and special characters. DynamoDB allows you to use these
-reserved words and special characters for names, but we recommend that you avoid doing
-so because you have to use aliases for them whenever you use these names in an
-expression. For a complete list, see [Reserved words in DynamoDB](ReservedWords.md "ReservedWords.md").
+- [Reserved
+  words](#Expressions.ExpressionAttributeNames.ReservedWords "#Expressions.ExpressionAttributeNames.ReservedWords")
+- [Attribute names containing special characters](#Expressions.ExpressionAttributeNames.AttributeNamesContainingSpecialCharacters "#Expressions.ExpressionAttributeNames.AttributeNamesContainingSpecialCharacters")
+- [Nested
+  attributes](#Expressions.ExpressionAttributeNames.NestedAttributes "#Expressions.ExpressionAttributeNames.NestedAttributes")
+- [Repeatedly referencing attribute names](#Expressions.ExpressionAttributeNames.RepeatingAttributeNames "#Expressions.ExpressionAttributeNames.RepeatingAttributeNames")
 
-You'll need to use expression attribute names in place of the actual name if:
+## Reserved
 
-- The attribute name is on the list of reserved words in DynamoDB.
-- The attribute name does not meet the requirement that the first character is
-  `a-z` or `A-Z` and that the second character (if
-  present) is `a-Z`, `A-Z`, or `0-9`.
-- The attribute name contains a **#** (hash) or
-  **:** (colon).
-  The following AWS CLI example shows how to use a projection expression with a
-  `GetItem` operation. This projection expression retrieves a top-level
-  scalar attribute (`Description`), the first element in a list
-  (`RelatedItems[0]`), and a list nested within a map
-  (`ProductReviews.FiveStar`).
+words
+
+Sometimes you might need to write an expression containing an attribute name that
+conflicts with a DynamoDB reserved word. (For a complete list of reserved words, see [Reserved words in DynamoDB](ReservedWords.md "ReservedWords.md").)
+
+For example, the following AWS CLI example would fail because `COMMENT` is a
+reserved word.
 
 ```
 aws dynamodb get-item \
     --table-name ProductCatalog \
-    --key '"Id": { "N": "123" } \
-    --projection-expression "Description, RelatedItems[0], ProductReviews.FiveStar"
+    --key '{"Id":{"N":"123"}}' \
+    --projection-expression "Comment"
 ```
 
-The following JSON would be returned for this example.
+To work around this, you can replace `Comment` with an expression attribute
+name such as `#c`. The `#` (pound sign) is required and indicates
+that this is a placeholder for an attribute name. The AWS CLI example would now look like
+the following.
 
 ```
-{
-    "Item": {
-        "Description": {
-            "S": "123 description"
-        },
-        "ProductReviews": {
-            "M": {
-                "FiveStar": {
-                    "L": [
-                        {
-                            "S": "Excellent! Can't recommend it highly enough! Buy it!"
-                        },
-                        {
-                            "S": "Do yourself a favor and buy this."
-                        }
-                    ]
-                }
-            }
-        },
-        "RelatedItems": {
-            "L": [
-                {
-                    "N": "341"
-                }
-            ]
-        }
-    }
-}
+aws dynamodb get-item \
+     --table-name ProductCatalog \
+     --key '{"Id":{"N":"123"}}' \
+     --projection-expression "#c" \
+     --expression-attribute-names '{"#c":"Comment"}'
 ```
+
+###### Note
+
+If an attribute name begins with a number, contains a space or contains a reserved
+word, you _must_ use an expression attribute name to replace that
+attribute's name in the expression.
+
+## Attribute names containing special characters
+
+In an expression, a dot (".") is interpreted as a separator character in a document
+path. However, DynamoDB also allows you to use a dot character and other special
+characters, such as a hyphen ("-") as part of an attribute name. This can be ambiguous
+in some cases. To illustrate, suppose that you wanted to retrieve the
+`Safety.Warning` attribute from a `ProductCatalog` item (see
+[Referring to item attributes when using
+expressions in DynamoDB](Expressions.md "Expressions.md")).
+
+Suppose that you wanted to access `Safety.Warning` using a projection
+expression.
+
+```
+aws dynamodb get-item \
+    --table-name ProductCatalog \
+    --key '{"Id":{"N":"123"}}' \
+    --projection-expression "Safety.Warning"
+```
+
+DynamoDB would return an empty result, rather than the expected string ("`Always
+ wear a helmet`"). This is because DynamoDB interprets a dot in an expression as a
+document path separator. In this case, you must define an expression attribute name
+(such as `#sw`) as a substitute for `Safety.Warning`. You could
+then use the following projection expression.
+
+```
+aws dynamodb get-item \
+    --table-name ProductCatalog \
+    --key '{"Id":{"N":"123"}}' \
+    --projection-expression "#sw" \
+    --expression-attribute-names '{"#sw":"Safety.Warning"}'
+```
+
+DynamoDB would then return the correct result.
+
+###### Note
+
+If an attribute name contains a dot (".") or a hyphen ("-"), you
+_must_ use an expression attribute name to replace that
+attribute's name in the expression.
+
+## Nested
+
+attributes
+
+Suppose that you wanted to access the nested attribute
+`ProductReviews.OneStar`. In an expression attribute name, DynamoDB treats
+the dot (".") as a character within an attribute's name. To reference the nested
+attribute, define an expression attribute name for each element in the document
+path:
+
+- `#pr — ProductReviews`
+- `#1star — OneStar`
+
+You could then use `#pr.#1star` for the projection expression.
+
+```
+aws dynamodb get-item \
+    --table-name ProductCatalog \
+    --key '{"Id":{"N":"123"}}' \
+    --projection-expression "#pr.#1star"  \
+    --expression-attribute-names '{"#pr":"ProductReviews", "#1star":"OneStar"}'
+```
+
+DynamoDB would then return the correct result.
+
+## Repeatedly referencing attribute names
+
+Expression attribute names are helpful when you need to refer to the same attribute
+name repeatedly. For example, consider the following expression for retrieving some of
+the reviews from a `ProductCatalog` item.
+
+```
+aws dynamodb get-item \
+    --table-name ProductCatalog \
+    --key '{"Id":{"N":"123"}}' \
+    --projection-expression "ProductReviews.FiveStar, ProductReviews.ThreeStar, ProductReviews.OneStar"
+```
+
+To make this more concise, you can replace `ProductReviews` with an
+expression attribute name such as `#pr`. The revised expression would now
+look like the following.
+
+- `#pr.FiveStar, #pr.ThreeStar, #pr.OneStar`
+
+```
+aws dynamodb get-item \
+    --table-name ProductCatalog \
+    --key '{"Id":{"N":"123"}}' \
+    --projection-expression "#pr.FiveStar, #pr.ThreeStar, #pr.OneStar" \
+    --expression-attribute-names '{"#pr":"ProductReviews"}'
+```
+
+If you define an expression attribute name, you must use it consistently throughout
+the entire expression. Also, you cannot omit the `#` symbol.
