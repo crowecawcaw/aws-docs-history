@@ -57,7 +57,7 @@ AWS strongly recommends that you migrate your jobs to supported versions.
 
 For information on migrating your Spark jobs to the latest AWS Glue version, see
 [Migrating AWS Glue jobs to
-AWS Glue version 5.0](migrating-version-50.md "migrating-version-50.md").
+AWS Glue version 5.1](migrating-version-51.md "migrating-version-51.md").
 
 For migrating your Python shell jobs to the latest AWS Glue version:
 
