@@ -1138,6 +1138,11 @@ one or the other.
 
 You don't need to update your cluster to use [PlacementGroup](#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup "#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup") / [Name](#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup-Name "#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup-Name").
 
+- When using a capacity block reservation,
+  a placement group constraint should not be set as insufficient capacity errors may occur
+  due to placement constraints outside of the reservation
+  even if the capacity reservation has remaining capacity.
+
 **`Proxy`
 (**Optional**)**
 
@@ -1795,6 +1800,10 @@ for an update.](using-pcluster-update-cluster-v3.md#update-policy-queue-update-s
 - If both `PlacementGroup` / `Enabled` and
   `Name` aren't set, their respective values default to the
   [SlurmQueues](#Scheduling-v3-SlurmQueues "#Scheduling-v3-SlurmQueues") / [Networking](#Scheduling-v3-SlurmQueues-Networking "#Scheduling-v3-SlurmQueues-Networking") / [PlacementGroup](#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup "#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup") settings.
+- When using a capacity block reservation,
+  a placement group constraint should not be set as insufficient capacity errors may occur
+  due to placement constraints outside of the reservation
+  even if the capacity reservation has remaining capacity.
 - `ComputeResources` / `Networking` /
   `PlacementGroup` is added with AWS ParallelCluster version
   3.3.0.

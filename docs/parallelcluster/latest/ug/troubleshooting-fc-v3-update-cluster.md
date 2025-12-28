@@ -12,6 +12,13 @@ If the cluster stack update rolled back, check the `/var/log/chef-client.log` fi
 
 Check to see if your issue is mentioned in [GitHub Known Issues](https://github.com/aws/aws-parallelcluster/wiki "https://github.com/aws/aws-parallelcluster/wiki") at AWS ParallelCluster on GitHub.
 
+If the rollback failed according to logs `/var/log/chef-client.log`, it may be that `clustermgtd` was stopped to prevent the amplification of failures.
+In this case, you need to manually restart it by executing the following command on the Head Node:
+
+```
+`$` `/opt/parallelcluster/pyenv/versions/`3.12.11`/envs/cookbook_virtualenv/bin/supervisorctl start clustermgtd`
+```
+
 ## The cluster update timed out
 
 This could be an issue related to `cfn-hup` not running. If the `cfn-hup` demon is terminated by an external cause,
