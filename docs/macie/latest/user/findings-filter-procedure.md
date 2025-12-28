@@ -79,7 +79,7 @@ icon (
 ) in the filter token for the condition. If you do this, Macie
 changes the operator to _not equals_ and displays the not
 equals icon (
-![The not equals icon, which is an empty gray circle that has a backslash in it.](/images/macie/latest/user/images/icon-operator-not-equals.png)
+![The not equals icon, which is an empty gray circle that has a backslash in it.](images/icon-operator-not-equals.png)
 ) in the token. To switch to the _equals_ operator again, choose the not equals icon.
 
 As you add more conditions, Macie applies their criteria and adds them to tokens in the

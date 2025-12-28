@@ -65,7 +65,7 @@ console.
         * For a filter or suppression rule, choose **Findings** in the
          navigation pane. In the **Saved rules** list, choose the edit icon
          (
-        ![The edit icon, which is a blue pencil.](/images/macie/latest/user/images/icon-edit-resource-blue.png)
+        ![The edit icon, which is a blue pencil.](images/icon-edit-resource-blue.png)
         ) next to the rule. Then choose
          **Manage tags**.
         * For a member account in your organization, choose **Accounts** in
@@ -198,7 +198,7 @@ console.
         * For a filter or suppression rule, choose **Findings** in the
          navigation pane. In the **Saved rules** list, choose the edit icon
          (
-        ![The edit icon, which is a blue pencil.](/images/macie/latest/user/images/icon-edit-resource-blue.png)
+        ![The edit icon, which is a blue pencil.](images/icon-edit-resource-blue.png)
         ) next to the rule. Then choose
          **Manage tags**.
         * For a member account in your organization, choose **Accounts** in

@@ -103,7 +103,7 @@ automated sensitive data discovery. If you're the Macie administrator for an org
 accounts that automated sensitive data discovery is currently disabled for. To display this data, choose
 **X** in the **Is monitored by automated discovery** filter
 token below the filter box. 3. At the top of the page, optionally choose refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
 ) to retrieve the latest
 bucket metadata from Amazon S3. 4. In the **S3 buckets** map, do any of the following:
 
