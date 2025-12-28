@@ -1,13 +1,11 @@
-# emr-5.33.0-20211008
+# emr-5.33.0-latest
 
-**Release notes**: `emr-5.33.0-20211008` was
-released on Dec 9, 2021. Compared to the previous version, this version contains issue fixes and
-security updates.
+**Release notes**: `emr-5.33.0-latest` currently
+points to `emr-5.33.0-20240321`.
 
 **Regions:**
-`emr-5.33.0-20211008` is available in all Regions supported by Amazon EMR on EKS. For more
+`emr-5.33.0-latest` is available in all Regions supported by Amazon EMR on EKS. For more
 information, see [Amazon EMR on EKS
 service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
 
-**Container image tag**:
-`emr-5.33.0:20211008`
+**Container image tag**: `emr-5.33.0:latest`

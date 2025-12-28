@@ -1,4 +1,4 @@
-# Uploading data into Amazon S3 Express One Zone with Amazon EMR on EKS
+# Read, Write and Upload data into Amazon S3 Express One Zone with Amazon EMR on EKS
 
 With Amazon EMR releases 7.2.0 and higher, you can use Amazon EMR on EKS with the [Amazon S3 Express One Zone](../../../AmazonS3/latest/userguide/s3-express-one-zone.md "../../../AmazonS3/latest/userguide/s3-express-one-zone.md")
 storage class for improved performance when you run jobs and workloads. S3 Express One Zone is a a high-performance, single-zone Amazon S3 storage class that delivers consistent,
@@ -66,7 +66,17 @@ To change the s3n scheme, specify the following cluster configurations:
     "Classification": "core-site",
     "Properties": {
       "fs.s3n.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
-      "fs.AbstractFileSystem.s3n.impl": "org.apache.hadoop.fs.s3a.S3A"
+      "fs.AbstractFileSystem.s3n.impl": "org.apache.hadoop.fs.s3a.S3A",
+      "fs.s3a.endpoint.region": "`us-west-2`",
+      "fs.s3a.change.detection.mode": "none",
+      "fs.s3a.select.enabled": "false"
+    }
+  },
+   {
+    "Classification": "spark-defaults",
+    "Properties": {
+      "spark.hadoop.fs.s3a.aws.credentials.provider": "software.amazon.awssdk.auth.credentials.WebIdentityTokenFileCredentialsProvider",
+      "spark.sql.sources.fastS3PartitionDiscovery.enabled": "false"
     }
   }
 ]

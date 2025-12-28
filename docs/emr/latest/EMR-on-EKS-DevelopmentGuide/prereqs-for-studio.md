@@ -42,7 +42,7 @@ your Amazon EKS cluster:
   endpoints.
 - Interactive endpoints work with Amazon EKS clusters that use Kubernetes versions up to
   1.30.
-- Only [Amazon EKS managed node groups](../../../eks/latest/userguide/managed-node-groups.md "../../../eks/latest/userguide/managed-node-groups.md") are supported.
+- Only [Amazon EKS managed node groups](../../../eks/latest/userguide/managed-node-groups.md "../../../eks/latest/userguide/managed-node-groups.md") and Karpenter provisioned nodes are supported.
 
 ## Grant Cluster access for Amazon EMR on EKS
 
