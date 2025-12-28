@@ -31,14 +31,20 @@ The Cost Estimator page contains three main sections:
 
 ### Pricing comparison table
 
+The table header includes view/edit mode controls and a reset option.
 The table displays costs in two columns:
 
-- **Individual services** – Current or estimated costs for separate security services
-- **Security Hub** – Estimated costs using simplified pricing model
+- **Individual services** – Current or estimated costs for separate security services.
+- **Security Hub** – Estimated costs using simplified pricing model.
+
+### Pricing region
+
+The first column displays pricing context information, including a note that estimates use us-east-1 pricing for calculations.
+A badge indicates that enterprise discounts are not included in the estimates.
 
 ## Viewing cost estimates
 
-When using the cost estimator you can view, edit, reset, and export estimates
+When using the cost estimator you can view, edit, reset, and export estimates.
 
 The cost estimator opens in view mode by default.
 
@@ -53,26 +59,17 @@ The cost estimator opens in view mode by default.
 
 The estimator displays data from multiple sources, indicated by labels:
 
-- **Default** – Data from AWS Cost Explorer (past 30 days)
-- **Contains sample usage** – AWS-provided sample scenarios
-- **Custom usage** – User-entered values
-- **Not enabled** – Capability not currently active
+- **Default** – Data from AWS Cost Explorer (past 30 days).
+- **$-/mo** – Cost data unavailable (shown when Cost Explorer access is not available).
+- **Custom usage** – User-entered values.
+- **Not enabled** – Shows when Cost Explorer permissions do not exist.
 
-## Show current cost only
+## Account-specific behavior
 
-When Cost Explorer data is available, you can toggle between estimated and current costs.
+When delegated administrator or member accounts access the cost estimator they will see an alert of **Organization usage data is not available for this account**.
+The cost estimator will open in edit mode by default in this scenario.
 
-###### To show current costs only
-
-1. In view mode, locate the **Show current cost only** toggle below the summary.
-2. Turn on the toggle.
-
-Only actual costs from Cost Explorer are displayed, without sample or estimated costs.
-Capabilities not currently enabled show "Not enabled" status.
-
-###### Note
-
-The toggle is not available in edit mode or when Cost Explorer data is unavailable.
+When magament accounts or stand alone accounts access the cost estimator and see alerts related to Cost Explorer the cost estimator will open in edit mode by default.
 
 ## Editing usage values
 
@@ -109,7 +106,7 @@ While in the cost estimator the data for your estimate can be exported to a PDF 
 1. Ensure you are in view mode.
 2. Choose **Download PDF** in the page header.
 
-The PDF downloads automatically with filename: `SecurityHub-Cost-Estimate-YYYY-MM-DD.pdf`
+The PDF downloads automatically with filename: `SecurityHub-Cost-Estimate-YYYY-MM-DD.pdf`.
 
 ## Troubleshooting
 
@@ -119,7 +116,7 @@ This section covers common issues and solutions that can occur when using the co
 
 ###### Problem
 
-Alert displays "No cost data available for your account"
+Alert displays "No cost data available for your account".
 
 ###### Solutions by account type
 
@@ -134,13 +131,13 @@ The solution depends on your account type:
 
 ###### Workaround
 
-Use sample data or enter custom values in edit mode.
+Enter custom values in edit mode.
 
 ### Permission errors
 
 ###### Problem
 
-"Access denied" error for specific API operations
+"Access denied" error for specific API operations.
 
 ###### To resolve permission errors
 
@@ -157,11 +154,12 @@ You can still use edit mode to enter manual values when permissions are missing,
 
 ###### Problem
 
-Capability displays "Not enabled" status
+Capability displays "Not enabled" status.
 
 ###### Explanation
 
-The capability has no usage data in Cost Explorer for the past 30 days.
+This status appears when you have Cost Explorer access but the capability is not currently active.
+If you see $-/mo instead, this indicates that Cost Explorer data is not available for your account type.
 
 ###### To view cost estimates
 
@@ -173,7 +171,7 @@ The capability has no usage data in Cost Explorer for the past 30 days.
 
 ###### Problem
 
-Capability displays "Not applicable" in Individual services column
+Capability displays "Not applicable" in Individual services column.
 
 ###### Explanation
 
@@ -183,7 +181,7 @@ This capability is only available through Security Hub simplified pricing, not a
 
 ###### Problem
 
-Edited costs differ from original Cost Explorer values
+Edited costs differ from original Cost Explorer values.
 
 ###### Explanation
 

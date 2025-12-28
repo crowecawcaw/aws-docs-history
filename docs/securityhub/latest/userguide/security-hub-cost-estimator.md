@@ -9,7 +9,7 @@ The cost estimator estimates montly costs for security capabilities using two pr
 
 - **Individual services pricing** – Pay for each security feature separately (GuardDuty, Amazon Inspector, Security Hub CSPM).
 - **Security Hub simplified pricing** – Unified pricing across 3 pricing plans, essentials plan with per-resource pricing, threat analytics with per-event and per-GB logs pricing, and Lambda Code scanning with per-resource pricing.
-  The estimator uses AWS Cost Explorer data when available, or allows manual input for custom scenarios.
+  The estimator uses AWS Cost Explorer data when available. When Cost Explorer data is unavailable, you can manually enter usage data.
   Cost estimates are based on observed and user provided usage, and public pricing infomation. Estimates may not reflect enterprise discounts.
 
 Key benefits of the cost estimator include:
@@ -21,6 +21,8 @@ Key benefits of the cost estimator include:
 
 ## Access by account type
 
+###### Note
+
 This feature automatically retrieves information on actual past usage to estimate the cost for certain account types.
 The estimator also provides sample data that you can update, in the absence of actual past usage data.
 See below for details on each of the account types and the data that is available for each account type.
@@ -28,8 +30,8 @@ See below for details on each of the account types and the data that is availabl
 | Access permissions by account type | Account Type   | Cost Explorer Data        | Data Entry        | Scope |
 | ---------------------------------- | -------------- | ------------------------- | ----------------- | ----- |
 | Management Account (MA)            | Auto-populated | Manual override available | Organization-wide |
-| Delegated Administrator (DA)       | Not available  | Manual or sample data     | Manual entry only |
-| Member Account                     | Not available  | Manual or sample data     | Manual entry only |
+| Delegated Administrator (DA)       | Not available  | Manual entry only         | Manual entry only |
+| Member Account                     | Not available  | Manual entry only         | Manual entry only |
 | Standalone Account (SA)            | Auto-populated | Manual override available | Single account    |
 
 ## Prerequisites
