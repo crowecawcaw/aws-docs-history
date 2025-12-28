@@ -1,112 +1,179 @@
-# Oracle Resource Manager and dedicated Amazon Aurora MySQL clusters
+# Oracle multitenant and MySQL databases
 
-With AWS DMS, you can migrate Oracle Resource Manager databases to dedicated Aurora MySQL clusters.
+With AWS DMS, you can migrate Oracle multitenant databases and MySQL databases to Amazon Aurora.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                    |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------ |
-| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, or users across multiple instances. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                     |
+| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, and users across multiple instances. |
 
 ## Oracle usage
 
-Oracle Resource Manager enables enhanced management of multiple concurrent workloads running under a single Oracle database. Using Oracle Resource Manager, you can partition server resources for different workloads.
+Oracle 12c introduces a new multitenant architecture that provides the ability to create additional independent pluggable databases under a single Oracle instance. Prior to Oracle 12c, a single Oracle database instance only supported running a single Oracle database as shown in the following diagram.
 
-Resource Manager helps with sharing server and database resources without causing excessive resource contention and helps to eliminate scenarios involving inappropriate allocation of resources across different database sessions.
+![A single Oracle database instance runs a single Oracle database](images/pb-oracle-multitenant.png)
 
-Oracle Resource Manager enables you to:
+Oracle 12c introduces a new multitenant container database (CDB) that supports one or more pluggable databases (PDB). The CDB can be thought of as a single superset database with multiple pluggable databases. The relationship between an Oracle instance and databases is now 1:N.
 
-- Guarantee a minimum amount of CPU cycles for certain sessions regardless of other running operations.
-- Distribute available CPU by allocating percentages of CPU time to different session groups.
-- Limit the degree of parallelism of any operation performed by members of a user group.
-- Manage the order of parallel statements in the parallel statement queue.
-- Limit the number of parallel running servers that a user group can use.
-- Create an active session pool. An active session pool consists of a specified maximum number of user sessions allowed to be concurrently active within a user group.
-- Monitor used database/server resources by dictionary views.
-- Manage runaway sessions or calls and prevent them from overloading the database.
-- Prevent the running of operations that the optimizer estimates will run for a longer time than a specified limit.
-- Limit the amount of time that a session can be connected but idle, thus forcing inactive sessions to disconnect and potentially freeing memory resources.
-- Allow a database to use different resource plans, based on changing workload requirements.
-- Manage CPU allocation when there is more than one instance on a server in an Oracle Real Application Cluster environment (also called instance caging).
+![Multitenant container Oracle database](images/pb-multitenant-container-database.png)
 
-Oracle Resource Manager introduces three concepts:
+Oracle 18c adds following multitenant related features:
 
-- **Consumer Group** — A collection of sessions grouped together based on resource requirements. The Oracle Resource Manager allocates server resources to resource consumer groups, not to the individual sessions.
-- **Resource Plan** — Specifies how the database allocates its resources to different Consumer Groups. You will need to specify how the database allocates resources by activating a specific resource plan.
-- **Resource Plan Directive** — Associates a resource consumer group with a plan and specifies how resources are to be allocated to that resource consumer group.
+- **DBCA PDB Clone** — UI interface which allows cloning multiple pluggable databases (PDB).
+- **Refreshable PDB Switchover** — An ability to switch roles between pluggable database clone and its original primary.
+- **CDB Fleet Management** — An ability to group multiple container databases (CDB) into fleets that can be managed as a single logical database.
 
-###### Note
+Oracle 19 introduced support to having more than one pluggable database (PDB) in a container database (CDB) in sharded environments.
 
-Only one Resource Plan can be active at any given time.
+### Advantages of the Oracle 12c multitenant architecture
 
-Resource Directives control the resources allocated to a Consumer Group belong to a Resource Plan.
+- You can use PDBs to isolate applications from one another.
+- You can use PDBs as portable collection of schemas.
+- You can clone PDBs and transport them to different CDBs/Oracle instances.
+- Management of many databases (individual PDBs) as a whole.
+- Separate security, users, permissions, and resource management for each PDB provides greater application isolation.
+- Enables a consolidated database model of many individual applications sharing a single Oracle server.
+- Provides an easier way to patch and upgrade individual clients and/or applications using PDBs.
+- Backups are supported at both a multitenant container-level as well as at an individual PDB-level (both for physical and logical backups).
 
-The Resource Plan can refer to Subplans to create even more complex Resource Plans.
+### The Oracle multitenant architecture
+
+- A multitenant CDB can support one or more PDBs.
+- Each PDB contains its own copy of `SYSTEM` and application tablespaces.
+- The PDBs share the Oracle Instance memory and background processes. The use of PDBs enables consolidation of many databases and applications into individual containers under the same Oracle instance.
+- A single Root Container (CDB$ROOT) exists in a CDB and contains the Oracle Instance Redo Logs, undo tablespace (unless Oracle 12.2 local undo mode is enabled), and control files.
+- A single Seed PDB exists in a CDB and is used as a template for creating new PDBs.
+
+![Container Oracle database](images/pb-oracle-container-database.png)
+
+### CDB and PDB semantics
+
+Container databases (CDB)
+
+- Created as part of the Oracle 12c software installation.
+- Contains the Oracle control files, its own set of system tablespaces, the instance undo tablespaces (unless Oracle 12.2 local undo mode is enabled), and the instance redo logs.
+- Holds the data dictionary for the root container and for all of the PDBs.
+
+Pluggable databases (PDB)
+
+- An independent database that exists under a CDB. Also known as a container.
+- Used to store application-specific data.
+- You can create a pluggable database from a the `pdb$seed` (template database) or as a clone of an existing PDB.
+- Stores metadata information specific to its own objects (data-dictionary).
+- Has its own set of application data files, system data files, and tablespaces along with temporary files to manage objects.
 
 ### Examples
 
-Create a simple Resource Plan. To use the Oracle Resource Manager, you need to assign a plan name to the `RESOURCE_MANAGER_PLAN` parameter. Using an empty string will disable the Resource Manager.
+List existing PDBs created in an Oracle CDB instance.
 
 ```
-ALTER SYSTEM SET RESOURCE_MANAGER_PLAN = 'mydb_plan';
-ALTER SYSTEM SET RESOURCE_MANAGER_PLAN = '';
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
 ```
 
-You can create complex Resource Plans. A complex Resource Plan is one that is not created with the `CREATE_SIMPLE_PLAN` PL/SQL procedure and provides more flexibility and granularity.
+Provision a new PDB from the template `seed$pdb`.
 
 ```
-BEGIN
-DBMS_RESOURCE_MANAGER.CREATE_PLAN_DIRECTIVE (
-PLAN => 'DAYTIME',
-GROUP_OR_SUBPLAN => 'OLTP',
-COMMENT => 'OLTP group',
-MGMT_P1 => 75);
-END;
-/
+CREATE PLUGGABLE DATABASE PDB2 admin USER ora_admin
+IDENTIFIED BY ora_admin FILE_NAME_CONVERT=('/pdbseed/','/pdb2/');
 ```
 
-For more information, see [Managing Resources with Oracle Database Resource Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF") in the _Oracle documentation_.
+Alter a specific PDB to the `READ/WRITE` mode and verify the change.
+
+```
+ALTER PLUGGABLE DATABASE PDB2 OPEN READ WRITE;
+
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
+```
+
+Clone a PDB from an existing PDB.
+
+```
+CREATE PLUGGABLE DATABASE PDB3
+  FROM PDB2 FILE_NAME_CONVERT= ('/pdb2/','/pdb3/');
+
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
+5       PDB3      MOUNTED
+```
+
+For more information, see [Oracle Multitenant](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html") in the _Oracle documentation_.
 
 ## MySQL usage
 
-MySQL doesn’t have built-in resource management capabilities that are equivalent to the functionality provided by Oracle Resource Manager. However, due to the elasticity and flexibility provided by cloud economics, workarounds could be applicable and such capabilities might not be as of similar importance to monolithic
-on-premises databases.
+Amazon Aurora MySQL offers a different and simplified architecture to manage and create a multitenant database environment. You can use Aurora MySQL to provide levels of functionality similar but not identical to those offered by Oracle PDBs by creating multiple databases under the same Aurora MySQL cluster and / or using separate Aurora clusters if total isolation of workloads is required.
 
-The Oracle Resource Manager primarily exists because traditionally, Oracle databases were installed on very powerful monolithic servers that powered multiple applications simultaneously. The monolithic model made the most sense in an environment where the licensing for the Oracle database was per-CPU and where Oracle databases were deployed on physical hardware. In these scenarios, it made sense to consolidate as many workloads as possible into few servers. In cloud databases, the strict requirement to maximize the usage of each individual server is often not as important and a different approach can be employed:
+You can create multiple MySQL databases under a single Amazon Aurora MySQL cluster.
 
-Individual Amazon Aurora clusters can be deployed, with varying sizes, each dedicated to a specific application or workload. Additional read-only Aurora Replica servers can be used to offload any reporting-style workloads from the master instance.
+![DB cluster](images/pb-aurora-mysql-cluster.png)
 
-The following diagram shows the traditional Oracle model where maximizing the usage of each physical Oracle server was essential due to physical hardware constraints and the per-CPU core licensing model.
+Each Amazon Aurora cluster contains a primary instance that can accept both reads and writes for all cluster databases.
 
-![Traditional Oracle model](images/pb-traditional-oracle-model.png)
+You can create up to 15 read-only nodes providing scale-out functionality for application reads and high availability.
 
-With Amazon Aurora, you can deploy separate and dedicated database clusters. Each cluster is dedicated to a specific application or workload creating isolation between multiple connected sessions and applications. The following diagram shows this architecture.
+![DB cluster storage volume](images/pb-aurora-cluster-storage-volume.png)
 
-![Separate and dedicated database clusters](images/pb-aurora-dedicated-database-clusters.png)
+An Oracle CDB/Instance is a high-level equivalent to an Amazon Aurora cluster, and an Oracle Pluggable Database (PDB) is equivalent to a MySQL database created inside the Amazon Aurora cluster. Not all features are comparable between Oracle 12c PDBs and Amazon Aurora.
 
-Each Amazon Aurora instance (primary or replica) can be scaled independently in terms of CPU and memory resources using the different instance types. Because multiple Amazon Aurora instances can be instantly deployed and much less overhead is associated with the deployment and management of Aurora instances when compared to physical servers, separating different workloads to different instance classes could be a suitable solution for controlling resource management.
+Starting with Oracle 18c and 19c, you can use this feature for the following:
 
-For instance types and resources, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+- PDB Clone
+- Refreshable PDB Switchover
+- CDB Fleet Management
+- More than one pluggable database (PDB) in a container database (CDB) in sharded environments.
 
-In addition, each Amazon Aurora primary or replica instance can also be directly accessed from your applications using its own endpoint. This capability is especially useful if you have multiple Aurora read-replicas for a given cluster and you wish to utilize different Aurora replicas to segment your workload.
+In the AWS Cloud, these features can be achieved in many ways and each can be optimized using different services.
+
+Cloning databases inside the MySQL instance is not so easy. For the same instance, you can use export and import.
+
+To achieve similar functionality to Refreshable PDB Switchover, it depends on the use case but there are multiple options mostly depended on the required granularity:
+
+- Databases in the same instance — you can do the failover using `CREATE DATABASE` statement when size and required downtime allow that and use an application failover to point to any of the databases.
+- Database links and replication method — database links or AWS DMS can be used to make sure there are two databases in two different instances that are in sync and have application failover to point to the other database when needed.
+
+Managing CDB is actually very similar to the AWS orchestration, as you can manage multiple Amazon RDS instances there (CDB) and databases inside (PDB), all monitored centrally and can be managed through the AWS console or AWS CLI.
 
 ### Examples
 
-Suppose that you were using a single Oracle Database for multiple separate applications and used Oracle Resource Manager to enforce a workload separation, allocating a specific amount of server resources for each application. With Amazon Aurora, you might want to create multiple separate databases for each individual application. Adding additional replica instances to an existing Amazon Aurora cluster is easy.
+Create a new database in MySQL using the `CREATE DATABASE` statement.
 
-1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Databases** and select the Amazon Aurora cluster that you want to scale-out by adding an additional reader.
-3. Choose **Actions** and then choose **Add reader**.
-4. Select the instance class depending on the amount of compute resources your application requires.
-5. Choose **Create Aurora Replica**.
+```
+CREATE DATABASE db1;
+CREATE DATABASE db2;
+CREATE DATABASE db3;
+```
 
-## Summary
+List all databases created under an Amazon Aurora MySQL cluster.
 
-| Oracle Resource Manager                                                         | Amazon Aurora instances                                                                                                                                                                                                                                                                                            |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Set the maximum CPU usage for a resource group                                  | Create a dedicated Aurora Instance for a specific application                                                                                                                                                                                                                                                      |
-| Limit the degree of parallelism for specific queries                            | N/A                                                                                                                                                                                                                                                                                                                |
-| Limit parallel runs                                                             | N/A                                                                                                                                                                                                                                                                                                                |
-| Limit the number of active sessions                                             | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application Data Access Layer (DAL).<br>`<br>select count(*) from information_schema.processlist<br>where user='USER_NAME' and COMMAND<>'Sleep';<br>`  |
-| Restrict maximum runtime of queries                                             | `<br>SET max_execution_time TO X;<br>`                                                                                                                                                                                                                                                                             |
-| Limit the maximum idle time for sessions                                        | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application DAL.<br>`<br>select count(*)<br>from information_schema.processlist<br>where user='USER_NAME'<br>and COMMAND='Sleep'<br>and TIME > X;<br>` |
-| Limit the time that an idle session holding open locks can block other sessions | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application DAL.<br>`<br>select count(*)<br>from information_schema.processlist<br>where user='USER_NAME'<br>and COMMAND='Sleep';<br>`                 |
-| Use instance caging in a multi-node Oracle RAC Environment                      | You can achieve similar capabilities by separating different applications to different Aurora clusters or, for read-only workloads, separate Aurora read replicas within the same Aurora cluster.                                                                                                                  |
+```
+SHOW DATABASES;
+
+Database
+information_schema
+mysql
+performance_schema
+db1
+db2
+db3
+sys
+tmp
+```
+
+### Independent database backups
+
+Oracle 12c provides the ability to perform both logical backups using DataPump and physical backups using RMAN at both the CDB and PDB levels. Similarly, Aurora MySQL provides the ability to perform logical backups on all or a specific database using mysqldump. However, for physical backups when using snapshots, the entire cluster and all databases are included in the snapshot. Backing up a specific database with in the cluster is not supported.
+
+This is usually not a concern because volume snapshots are extremely fast operations that occur at the storage infrastructure layer, incur minimal overhead, and operate at extremely fast speeds. However, the process of restoring a single MySQL database from an Aurora snapshot requires additional steps such as exporting the specific database after a snapshot restore and importing it back to the original Aurora cluster.
+
+For more information, see [CREATE DATABASE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-database.html "https://dev.mysql.com/doc/refman/5.7/en/create-database.html") in the _MySQL documentation_.
