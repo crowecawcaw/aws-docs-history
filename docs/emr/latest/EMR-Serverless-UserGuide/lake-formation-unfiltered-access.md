@@ -154,6 +154,21 @@ Delta Lake
 --conf spark.sql.catalog.dropDirectoryBeforeTable.enabled=true
 ```
 
+Hudi
+
+```
+‐‐conf spark.hadoop.fs.s3.credentialsResolverClass=com.amazonaws.glue.accesscontrol.AWSLakeFormationCredentialResolver
+--conf spark.hadoop.fs.s3.useDirectoryHeaderAsFolderObject=true
+--conf spark.hadoop.fs.s3.folderObject.autoAction.disabled=true
+--conf spark.sql.catalog.skipLocationValidationOnCreateTable.enabled=true
+--conf spark.sql.catalog.createDirectoryAfterTable.enabled=true
+--conf spark.sql.catalog.dropDirectoryBeforeTable.enabled=true
+--conf spark.jars=/usr/lib/hudi/hudi-spark-bundle.jar
+--conf spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension
+--conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.hudi.catalog.HoodieCatalog
+--conf spark.serializer=org.apache.spark.serializer.KryoSerializer
+```
+
 - `spark.hadoop.fs.s3.credentialsResolverClass=com.amazonaws.glue.accesscontrol.AWSLakeFormationCredentialResolver`:
 
 Configure EMR Filesystem (EMRFS) or EMR S3A to use AWS Lake Formation S3 credentials for Lake Formation registered tables. If the table is not
@@ -229,6 +244,26 @@ For Delta Lake tables
 }
 ```
 
+For Hudi tables
+
+```
+%%configure -f
+{
+    "conf": {
+        "spark.hadoop.fs.s3.credentialsResolverClass": "com.amazonaws.glue.accesscontrol.AWSLakeFormationCredentialResolver",
+        "spark.hadoop.fs.s3.useDirectoryHeaderAsFolderObject": true,
+        "spark.hadoop.fs.s3.folderObject.autoAction.disabled": true,
+        "spark.sql.catalog.skipLocationValidationOnCreateTable.enabled": true,
+        "spark.sql.catalog.createDirectoryAfterTable.enabled": true,
+        "spark.sql.catalog.dropDirectoryBeforeTable.enabled": true,
+        "spark.jars": "/usr/lib/hudi/hudi-spark-bundle.jar",
+        "spark.sql.extensions": "org.apache.spark.sql.hudi.HoodieSparkSessionExtension",
+        "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.hudi.catalog.HoodieCatalog",
+        "spark.serializer": "org.apache.spark.serializer.KryoSerializer"
+    }
+}
+```
+
 Replace the placeholders:
 
 - `S3_DATA_LOCATION`: Your S3 bucket path
@@ -271,7 +306,13 @@ Operations not listed above will continue to use IAM permissions to access table
 
 - Full Table Access is supported with the EMR Filesystem (EMRFS) starting in Amazon EMR release 7.8.0, and with the S3A filesystem starting
   in Amazon EMR release 7.10.0.
-- Full Table Access is supported for Hive, Iceberg, and Delta tables. Hudi tables do not support full table access.
+- Full Table Access is supported for Hive, Iceberg, Delta, and Hudi tables.
+- **Hudi FTA Write Support considerations:**
+  - Hudi FTA writes require using HoodieCredentialedHadoopStorage for credential vending during job execution. Set the following configuration when running Hudi jobs: `hoodie.storage.class=org.apache.spark.sql.hudi.storage.HoodieCredentialedHadoopStorage`
+  - Full Table Access (FTA) write support for Hudi is available starting from Amazon EMR release 7.12.
+  - Hudi FTA write support currently works only with the default Hudi configurations. Custom or non-default Hudi settings may not be fully supported and could result in unexpected behavior.
+  - Clustering for Hudi Merge-On-Read (MOR) tables is not supported at this point under FTA write mode.
+
 - Jobs referencing tables with Lake Formation Fine-Grained Access Control (FGAC) rules or Glue Data Catalog Views will fail. To query a table
   with an FGAC rules or a Glue Data Catalog View, you must use the FGAC mode. You can enable FGAC mode by following the steps
   outlined in the AWS documentation: [Using EMR Serverless with AWS Lake Formation for fine-grained access
@@ -284,3 +325,79 @@ Operations not listed above will continue to use IAM permissions to access table
   might not reflect permission changes.
 - You must use user defined role and not a service-linked
   role:[Lake Formation requirements for roles](../../../lake-formation/latest/dg/registration-role.md "../../../lake-formation/latest/dg/registration-role.md").
+
+#### Hudi FTA Write Support - Supported Operations
+
+The following table shows the supported write operations for Hudi Copy-On-Write (COW) and Merge-On-Read (MOR) tables under Full Table Access mode:
+
+| Hudi FTA Supported Write Operations | Table Type             | Operation                                          | SQL Write Command | Status |
+| ----------------------------------- | ---------------------- | -------------------------------------------------- | ----------------- | ------ |
+| COW                                 | INSERT                 | INSERT INTO TABLE                                  | Supported         |
+| COW                                 | INSERT                 | INSERT INTO TABLE<br>• PARTITION (Static, Dynamic) | Supported         |
+| COW                                 | INSERT                 | INSERT OVERWRITE                                   | Supported         |
+| COW                                 | INSERT                 | INSERT OVERWRITE<br>• PARTITION (Static, Dynamic)  | Supported         |
+| UPDATE                              | UPDATE                 | UPDATE TABLE                                       | Supported         |
+| COW                                 | UPDATE                 | UPDATE TABLE<br>• Change Partition                 | Not Supported     |
+| DELETE                              | DELETE                 | DELETE FROM TABLE                                  | Supported         |
+| ALTER                               | ALTER                  | ALTER TABLE<br>• RENAME TO                         | Not Supported     |
+| COW                                 | ALTER                  | ALTER TABLE<br>• SET TBLPROPERTIES                 | Supported         |
+| COW                                 | ALTER                  | ALTER TABLE<br>• UNSET TBLPROPERTIES               | Supported         |
+| COW                                 | ALTER                  | ALTER TABLE<br>• ALTER COLUMN                      | Supported         |
+| COW                                 | ALTER                  | ALTER TABLE<br>• ADD COLUMNS                       | Supported         |
+| COW                                 | ALTER                  | ALTER TABLE<br>• ADD PARTITION                     | Supported         |
+| COW                                 | ALTER                  | ALTER TABLE<br>• DROP PARTITION                    | Supported         |
+| COW                                 | ALTER                  | ALTER TABLE<br>• RECOVER PARTITIONS                | Supported         |
+| COW                                 | ALTER                  | REPAIR TABLE SYNC PARTITIONS                       | Supported         |
+| DROP                                | DROP                   | DROP TABLE                                         | Supported         |
+| COW                                 | DROP                   | DROP TABLE<br>• PURGE                              | Supported         |
+| CREATE                              | CREATE                 | CREATE TABLE<br>• Managed                          | Supported         |
+| COW                                 | CREATE                 | CREATE TABLE<br>• PARTITION BY                     | Supported         |
+| COW                                 | CREATE                 | CREATE TABLE IF NOT EXISTS                         | Supported         |
+| COW                                 | CREATE                 | CREATE TABLE LIKE                                  | Supported         |
+| COW                                 | CREATE                 | CREATE TABLE AS SELECT                             | Supported         |
+| CREATE                              | CREATE                 | CREATE TABLE with LOCATION<br>• External Table     | Not Supported     |
+| DATAFRAME(INSERT)                   | DATAFRAME(INSERT)      | saveAsTable.Overwrite                              | Supported         |
+| COW                                 | DATAFRAME(INSERT)      | saveAsTable.Append                                 | Not Supported     |
+| COW                                 | DATAFRAME(INSERT)      | saveAsTable.Ignore                                 | Supported         |
+| COW                                 | DATAFRAME(INSERT)      | saveAsTable.ErrorIfExists                          | Supported         |
+| COW                                 | DATAFRAME(INSERT)      | saveAsTable<br>• External table (Path)             | Not Supported     |
+| COW                                 | DATAFRAME(INSERT)      | save(path)<br>• DF v1                              | Not Supported     |
+| MOR                                 | INSERT                 | INSERT INTO TABLE                                  | Supported         |
+| MOR                                 | INSERT                 | INSERT INTO TABLE<br>• PARTITION (Static, Dynamic) | Supported         |
+| MOR                                 | INSERT                 | INSERT OVERWRITE                                   | Supported         |
+| MOR                                 | INSERT                 | INSERT OVERWRITE<br>• PARTITION (Static, Dynamic)  | Supported         |
+| UPDATE                              | UPDATE                 | UPDATE TABLE                                       | Supported         |
+| MOR                                 | UPDATE                 | UPDATE TABLE<br>• Change Partition                 | Not Supported     |
+| DELETE                              | DELETE                 | DELETE FROM TABLE                                  | Supported         |
+| ALTER                               | ALTER                  | ALTER TABLE<br>• RENAME TO                         | Not Supported     |
+| MOR                                 | ALTER                  | ALTER TABLE<br>• SET TBLPROPERTIES                 | Supported         |
+| MOR                                 | ALTER                  | ALTER TABLE<br>• UNSET TBLPROPERTIES               | Supported         |
+| MOR                                 | ALTER                  | ALTER TABLE<br>• ALTER COLUMN                      | Supported         |
+| MOR                                 | ALTER                  | ALTER TABLE<br>• ADD COLUMNS                       | Supported         |
+| MOR                                 | ALTER                  | ALTER TABLE<br>• ADD PARTITION                     | Supported         |
+| MOR                                 | ALTER                  | ALTER TABLE<br>• DROP PARTITION                    | Supported         |
+| MOR                                 | ALTER                  | ALTER TABLE<br>• RECOVER PARTITIONS                | Supported         |
+| MOR                                 | ALTER                  | REPAIR TABLE SYNC PARTITIONS                       | Supported         |
+| DROP                                | DROP                   | DROP TABLE                                         | Supported         |
+| MOR                                 | DROP                   | DROP TABLE<br>• PURGE                              | Supported         |
+| CREATE                              | CREATE                 | CREATE TABLE<br>• Managed                          | Supported         |
+| MOR                                 | CREATE                 | CREATE TABLE<br>• PARTITION BY                     | Supported         |
+| MOR                                 | CREATE                 | CREATE TABLE IF NOT EXISTS                         | Supported         |
+| MOR                                 | CREATE                 | CREATE TABLE LIKE                                  | Supported         |
+| MOR                                 | CREATE                 | CREATE TABLE AS SELECT                             | Supported         |
+| CREATE                              | CREATE                 | CREATE TABLE with LOCATION<br>• External Table     | Not Supported     |
+| DATAFRAME(UPSERT)                   | DATAFRAME(UPSERT)      | saveAsTable.Overwrite                              | Supported         |
+| MOR                                 | DATAFRAME(UPSERT)      | saveAsTable.Append                                 | Not Supported     |
+| MOR                                 | DATAFRAME(UPSERT)      | saveAsTable.Ignore                                 | Supported         |
+| MOR                                 | DATAFRAME(UPSERT)      | saveAsTable.ErrorIfExists                          | Supported         |
+| MOR                                 | DATAFRAME(UPSERT)      | saveAsTable<br>• External table (Path)             | Not Supported     |
+| MOR                                 | DATAFRAME(UPSERT)      | save(path)<br>• DF v1                              | Not Supported     |
+| DATAFRAME(DELETE)                   | DATAFRAME(DELETE)      | saveAsTable.Append                                 | Not Supported     |
+| MOR                                 | DATAFRAME(DELETE)      | saveAsTable<br>• External table (Path)             | Not Supported     |
+| MOR                                 | DATAFRAME(DELETE)      | save(path)<br>• DF v1                              | Not Supported     |
+| DATAFRAME(BULK_INSERT)              | DATAFRAME(BULK_INSERT) | saveAsTable.Overwrite                              | Supported         |
+| MOR                                 | DATAFRAME(BULK_INSERT) | saveAsTable.Append                                 | Not Supported     |
+| MOR                                 | DATAFRAME(BULK_INSERT) | saveAsTable.Ignore                                 | Supported         |
+| MOR                                 | DATAFRAME(BULK_INSERT) | saveAsTable.ErrorIfExists                          | Supported         |
+| MOR                                 | DATAFRAME(BULK_INSERT) | saveAsTable<br>• External table (Path)             | Not Supported     |
+| MOR                                 | DATAFRAME(BULK_INSERT) | save(path)<br>• DF v1                              | Not Supported     |

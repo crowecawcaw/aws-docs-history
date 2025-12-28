@@ -21,3 +21,4 @@ for each type of application that is available on EMR Serverless.
 - [Accessing S3 data in another AWS account from
   EMR Serverless](jobs-s3-access.md "jobs-s3-access.md")
 - [Troubleshooting errors in EMR Serverless](jobs-troubleshoot.md "jobs-troubleshoot.md")
+- [Enabling Job Level Cost Allocation](jobs-job-level-cost-allocation.md "jobs-job-level-cost-allocation.md")
