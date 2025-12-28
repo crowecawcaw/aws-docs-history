@@ -182,6 +182,8 @@ ISVs:
   `arn:aws:iam::123645302184:role/q-index-isv-role`
 - Saviynt —
   `arn:aws:iam::249469748895:role/ispm-isv-qindex`
+- Webex —
+  `arn:aws:iam::973559386291:role/WebexSuit-QIndex-role-prod`
 
 ### Action
 

@@ -93,3 +93,6 @@ Saviynt
 For Saviynt, the Tenant ID is the FQDN from the Saviynt Console. You can use the following instructions to retrieve the Saviynt FQDN.
 
 The URL will look similar to this example https://ispm-dev.saviyntcloud.com/ and the tenant id from this example will be "ispm-dev.saviyntcloud.com"
+
+Webex
+For Webex, the Tenant ID is Webex Organization ID. Webex Organization ID can be found in account page of Webex Suite.
