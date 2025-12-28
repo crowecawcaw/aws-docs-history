@@ -1,0 +1,3 @@
+# Option 1: Use the AWS managed policy (recommended)
+
+If you currently have the AWSSupportAccess managed policy attached, no additional permissions are required. However, to continue to use the functions included in the [Support Center Console API](aws-support-console.md "aws-support-console.md"), you must add the Support Center Console operations to your IAM policies before June 1, 2026, if you don't already have them. To do this, update the AWS Support managed policy to include the `support-console:*` actions. For more information, see [Adding IAM policies for the Support Center Console API operations](support-console-access-control.md "support-console-access-control.md").

@@ -45,6 +45,7 @@ _AWS Billing User Guide_.
 
 ###### Topics
 
+- [Set up permissions to use AI-enhanced troubleshooting](support-interaction-perm.md "support-interaction-perm.md")
 - [Create a support interaction](create-support-interaction.md "create-support-interaction.md")
 - [Create a support case from a support interaction](create-support-case-from-interaction.md "create-support-case-from-interaction.md")
 - [View support interactions](view-support-interactions.md "view-support-interactions.md")
