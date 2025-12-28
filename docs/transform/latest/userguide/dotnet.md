@@ -52,9 +52,9 @@ AWS Transform does not transform the following:
 
 - Blazor UI components
 - Win32 DLLs that don't have core compatible libraries
-- Applications written in VB.NET
 - Repositories that do not contain any solutions.
-- AWS Transform will not modify the original repo branches, and can only write to a separate target branch specified in your transformation plan.
+
+AWS Transform will not modify the original repo branches, and can only write to a separate target branch specified in your transformation plan.
 
 ## Human intervention
 

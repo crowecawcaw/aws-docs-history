@@ -4,7 +4,6 @@ AWS Transform can port the UI layer of ASP.NET websites to UI frameworks compati
 
 - MVC Razor UI porting
 - Web Forms to Blazor UI porting
-  These transformations are enabled by default, and can be deselected through job settings in both the web application and IDE experiences.
 
 ## MVC Razor UI porting
 
@@ -15,8 +14,6 @@ ASP.NET MVC projects with Razor Views UI can be ported to MVC Razor Views on ASP
 - ASP.NET Core has new features including Tag Helpers and View Components.
 
 AWS Transform detects and ports common incompatible components and constructs in Razor Views.
-
-To enable or disable MVC RazorUI porting, check or clear the Transform UI ASP.NET Web Forms to Blazor job setting.
 
 ## Web Forms to Blazor UI porting
 
@@ -58,4 +55,5 @@ The following features are not supported at present. If your workloads use these
 - Third-party vendor UI libraries/controls
 - Web Site projects
 
-Only Web Application projects (containing a .csproj file) are supported. To convert a Web Site project to a Web Application project, see Microsoft guidance Converting a Web Site Project to a Web Application Project.
+Only Web Application projects (containing a .csproj file) are supported. To convert a Web Site project to a Web Application project,
+see Microsoft guidance [Converting a Web Site Project to a Web Application Project](https://devblogs.microsoft.com/dotnet/converting-a-web-site-project-to-a-web-application-project/ "https://devblogs.microsoft.com/dotnet/converting-a-web-site-project-to-a-web-application-project/").

@@ -26,11 +26,6 @@ AWS Transform for SQL Server is available in US East (N. Virginia) - us-east-1
 - **Entity Framework transformation:** Updates Entity Framework 6.3-6.5 and EF Core 1.0-8.0 configurations for PostgreSQL
 - **ADO.NET transformation:** Converts ADO.NET data access code
   from SQL Server to PostgreSQL providers.
-
-###### Note
-
-This is a preview feature, available only in the US East (N. Virginia) Region.
-
 - **Connection string updates:** Automatically updates all database connection strings to the new target PostgreSQL database
 - **Database provider changes:** Replaces SQL Server providers with Npgsql (PostgreSQL provider)
 - **ORM configuration updates:** Modifies data type mappings, identity columns, and database-specific configurations

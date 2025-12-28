@@ -24,10 +24,9 @@ The job review includes the following details:
 1. _Job summary_
    This includes:
    1. The target branch where AWS Transform will place the transformed code.
-   2. The target .NET version, currently .NET 8.0.
+   2. The target .NET version, .NET 8.0 or .NET 10.
    3. The job settings:
       1. Exclude .NET standard projects
-      2. Transform MVC Razor Views to ASP.NET Core Razor Views
 
    4. Number of repositories selected for transformation
    5. Number of dependent repositories

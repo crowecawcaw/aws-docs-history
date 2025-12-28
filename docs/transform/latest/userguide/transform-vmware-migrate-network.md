@@ -5,7 +5,10 @@ analyzes your source network data and creates VPCs, subnets, security groups, NA
 
 ## Source Network Mapping
 
-The network mapping process requires uploading a configuration file from your source environment. You can use RVTools, Export for vCenter, or Import/Export for NSX to capture on-premises network data and import it to AWS Transform. The tool you choose depends on your source network type:
+The network mapping process requires uploading a configuration file from your
+source environment. You can use RVTools, Export for vCenter, Import/Export for
+NSX, or modelizeIT to capture on-premises network data and import it to
+AWS Transform. The tool you choose depends on your source network type:
 
 - **NSX-defined network:** Upload an NSX configuration file using Import/Export for NSX.
 - **vSphere-defined network:** Upload an RVTools file or Export for vCenter file. When using RVTools files, AWS Transform will focus on generate Amazon VPC configurations,

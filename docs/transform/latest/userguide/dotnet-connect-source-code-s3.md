@@ -4,7 +4,7 @@ You can connect AWS Transform to source code in Amazon S3 as an alternative to [
 
 ## S3 bucket organization
 
-Original source code and transformed code are stored in a common S3 bucket, organized as shown below. You must set up your S3 bucket in the same region as your AWS Transform job. Upload your source code to the bucket as a zip file. The zip file must contain a top level folder for each repository.
+Original source code and transformed code are stored in a common S3 bucket, organized as shown below. You must set up your S3 bucket in the same region as your AWS Transform job. Upload your source code to the bucket as a zip file at root level. The zip file must contain a top level folder for each repository.
 
 During transformation, AWS Transform creates a transform-output folder, and stores the transformation results in that folder. Transformation creates a zip file named _transformed-code.zip_ containing the transformed code. This includes a code differences report file name diff.txt that highlights file changes at a project level.
 
