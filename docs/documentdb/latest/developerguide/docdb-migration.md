@@ -8,3 +8,4 @@ detailed in this section.
 
 - [Quick start guide](migration-quick-start.md "migration-quick-start.md")
 - [Migration runbook](docdb-migration-runbook.md "docdb-migration-runbook.md")
+- [Migration from Couchbase Server](migration-from-couchbase.md "migration-from-couchbase.md")

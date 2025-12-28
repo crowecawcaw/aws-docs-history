@@ -23,7 +23,7 @@ Using the AWS Management Console
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Hamburger menu icon with three horizontal lines.](/images/documentdb/latest/developerguide/images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the **Cluster parameter groups** pane, choose **Create**. 4. In the **Create cluster parameter group** pane, enter the following:
 
     1. **New cluster parameter group name** — Enter a name for the cluster parameter group. For example, `sample-parameter-group`. Cluster parameter groups have the following naming constraints:

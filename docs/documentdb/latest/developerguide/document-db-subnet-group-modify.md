@@ -16,7 +16,7 @@ at least two Availability Zones associated with your subnet group.
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](/images/documentdb/latest/developerguide/images/docdb-menu-icon.png))
+(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. Choose **Actions**, and then choose **Modify**. 4. **Description**—To change the description of your subnet group, enter a new description. 5. To change the subnets associated with your subnet group, in the **Add subnets** section, do any one or more of the
 following:
 
