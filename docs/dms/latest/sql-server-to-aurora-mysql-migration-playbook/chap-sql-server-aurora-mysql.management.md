@@ -1,73 +1,144 @@
-# Viewing server logs
+# Resource governor features
 
-This topic provides reference information about logging capabilities in SQL Server and Amazon Aurora MySQL. You can gain insights into how these database systems handle error logging, slow query logging, and general logging.
+This topic provides reference information about resource management and workload isolation capabilities in SQL Server 2019 and Amazon Aurora MySQL. You can understand the differences in how these database systems handle resource limits and workload management.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                          |
-| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | View logs from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                       |
+| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------- |
+| One star feature compatibility | N/A                                | N/A                       | Use the resource limit for each user. |
 
 ## SQL Server Usage
 
-SQL Server logs system and user generated events to the _SQL Server Error Log_ and to the _Windows Application Log_. It logs recovery messages, kernel messages, security events, maintenance events, and other general server level error and informational messages. The Windows Application Log contains events from all windows applications including SQL Server and SQL Server agent.
+SQL Server Resource Governor provides the capability to control and manage resource consumption. Administrators can specify and enforce workload limits on CPU, physical I/O, and Memory. Resource configurations are dynamic and you can change them in real time.
 
-SQL Server Management Studio Log Viewer unifies all logs into a single consolidated view. You can also view the logs with any text editor.
+In SQL Server 2019 configurable value for the `REQUEST_MAX_MEMORY_GRANT_PERCENT` option of `CREATE WORKLOAD GROUP` and `ALTER WORKLOAD GROUP` has been changed from an integer to a float data type to allow more granular control of memory limits. For more information, see [ALTER WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15") and [CREATE WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
-Administrators typically use the SQL Server Error Log to confirm successful completion of processes, such as backup or batches, and to investigate the cause of run time errors. These logs can help detect current risks or potential future problem areas.
+### Use Cases
 
-To view the log for SQL Server, SQL Server Agent, Database Mail, and Windows applications, open the SQL Server Management Studio Object Explorer pane, navigate to **Management**, **SQL Server Logs**, and choose the current log.
+The following list identifies typical Resource Governor use cases:
 
-The following table identifies some common error codes database administrators typically look for in the error logs:
+- **Minimize performance bottlenecks and inconsistencies** to better support Service Level Agreements (SLA) for multiple workloads and users.
+- **Protect against runaway queries** that consume a large amount of resources or explicitly throttle I/O intensive operations. For example, consistency checks with DBCC that may bottleneck the I/O subsystem and negatively impact concurrent workloads.
+- **Allow tracking and control for resource-based pricing scenarios** to improve predictability of user charges.
 
-| Error code | Error message                 |
-| ---------- | ----------------------------- |
-| 1105       | Couldn’t allocate space.      |
-| 3041       | Backup failed.                |
-| 9002       | Transaction log full.         |
-| 14151      | Replication agent failed.     |
-| 17053      | Operating system error.       |
-| 18452      | Login failed.                 |
-| 9003       | Possible database corruption. |
+### Concepts
+
+The three basic concepts in Resource Governor are Resource Pools, Workload Groups, and Classification.
+
+- **Resource Pools** represent physical resources. Two built-in resource pools, internal and default, are created when SQL Server is installed. You can create custom user-defined resource pools for specific workload types.
+- **Workload Groups** are logical containers for session requests with similar characteristics. Workload Groups allow aggregate resource monitoring of multiple sessions. Resource limit policies are defined for a Workload Group. Each Workload Group belongs to a Resource Pool.
+- **Classification** is a process that inspects incoming connections and assigns them to a specific Workload Group based on the common attributes. User-defined functions are used to implement Classification. For more information, see [User-Defined Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
 
 ### Examples
 
-The following screenshot shows the typical log file viewer content:
+Turn on the Resource Governor.
 
-![Log file viewer](images/pb-sql-server-aurora-mysql-log-file-viewer.png)
+```
+ALTER RESOURCE GOVERNOR RECONFIGURE;
+```
 
-For more information, see [Monitoring the Error Logs](https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15") in the _SQL Server documentation_.
+Create a Resource Pool.
+
+```
+CREATE RESOURCE POOL ReportingWorkloadPool
+    WITH (MAX_CPU_PERCENT = 20);
+```
+
+```
+ALTER RESOURCE GOVERNOR RECONFIGURE;
+```
+
+Create a Workload Group.
+
+```
+CREATE WORKLOAD GROUP ReportingWorkloadGroup USING poolAdhoc;
+```
+
+```
+ALTER RESOURCE GOVERNOR RECONFIGURE;
+```
+
+Create a classifier function.
+
+```
+CREATE FUNCTION dbo.WorkloadClassifier()
+RETURNS sysname WITH SCHEMABINDING
+AS
+BEGIN
+    RETURN (CASE
+        WHEN HOST_NAME()= 'ReportServer'
+        THEN 'ReportingWorkloadGroup'
+        ELSE 'Default'
+    END)
+END;
+```
+
+Register the classifier function.
+
+```
+ALTER RESOURCE GOVERNOR with (CLASSIFIER_FUNCTION = dbo.WorkloadClassifier);
+```
+
+```
+ALTER RESOURCE GOVERNOR RECONFIGURE;
+```
+
+For more information, see [Resource Governor](https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides administrators with access to the MySQL error log, slow query log, and the general log.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support a server-wide, granular, resource-based, workload resource isolation and management capability similar to SQL Server Resource Governor. However, Aurora MySQL does support the feature User Resource Limit Options that you can use to achieve similar high-level functionality for limiting resource consumption of user connections.
 
-The MySQL Error Log is generated by default. To generate the slow query and general logs, set the corresponding parameters in the database parameter group. For more information, see [Server Options](chap-sql-server-aurora-mysql.configuration.md "chap-sql-server-aurora-mysql.configuration.md").
+You can specify User Resource Limit Options as part of the `CREATE USER` statement to place the following limits on users:
 
-You can view Aurora MySQL logs directly from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. You can also direct the logs to a database table in the main database and use SQL queries to view the data. To download a binary log, use the `mysqlbinlog` utility.
+- The number of total queries in hour an account is allowed to issue.
+- The number of updates in hour an account is allowed to issue.
+- The number of times in hour an account can establish a server connection.
+- The total number of concurrent server connections allowed for the account.
 
-The system writes error events to the `mysql-error.log` file, which you can view using the Amazon RDS console. Alternatively, you can use the Amazon RDS API, the Amazon RDS CLI, or the AWS SDKs retrieve to retrieve the log.
+For more information, see [Users and Roles](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
 
-The `mysql-error.log` file buffers are flushed every five minutes and are appended to the `filemysql-error-running.log`. The `mysql-error-running.log` file is rotated every hour and retained for 24 hours.
+### Syntax
 
-Aurora MySQL writes to the error log only on server startup, server shutdown, or when an error occurs. A database instance may run for long periods without generating log entries.
+```
+CREATE USER <User Name> ...
+WITH
+MAX_QUERIES_PER_HOUR count |
+MAX_UPDATES_PER_HOUR count |
+MAX_CONNECTIONS_PER_HOUR count |
+MAX_USER_CONNECTIONS count
+```
 
-You can turn on and configure the Aurora MySQL Slow Query and general logs to write log entries to a file or a database table by setting the corresponding parameters in the database parameter group. The following list identifies he parameters that control the log options:
+### Migration Considerations
 
-- `slow_query_log` — Set to 1 to create the Slow Query Log. The default is 0.
-- `general_log` — Set to 1 to create the General Log. The default is 0.
-- `long_query_time` — Specify a value in seconds for the shortest query run time to be logged. The default is 10 seconds; the minimum is 0.
-- `log_queries_not_using_indexes` — Set to 1 to log all queries not using indexes to the slow query log. The default is 0. Queries using indexes are logged even if their run time is less than the value of the `long_query_time` parameter.
-- `log_output` — Specify one of the following options:
-  - **TABLE** — Write general queries to the `mysql.general_log` table and slow queries to the `mysql.slow_log` table. This option is set by default.
-  - **FILE** — Write both general and slow query logs to the file system. Log files are rotated hourly.
-  - **NONE** — Disable logging.
+Although both SQL Server Resource Manager and Aurora MySQL User Resource Limit Options provide the same basic function — limiting the amount of resources for distinct types of workloads — they differ significantly in scope and flexibility.
 
-### Examples
+SQL Server Resource Manager is a dynamically configured independent framework based on actual run-time resource consumption. User Resource Limit Options are defined as part of the security objects and requires application connection changes to map to limited users. To modify these limits, you must alter the user object.
 
-The following walkthrough demonstrates how to view the Aurora PostgreSQL error logs in the Amazon RDS console.
+User Resource Limit Options don’t allow limiting workload activity based on actual resource consumption, but rather provides a quantitative limit for the number of queries or number of connections. A runaway query that consumes a large amount of resources may slow down the server.
 
-1. In the AWS console, choose **RDS**, and then choose **Databases**.
-2. Choose the instance for which you want to view the error log.
+Another important difference is how exceeded resource limits are handled. SQL Server Resource Governor throttles the run; Aurora MySQL raises errors.
 
-![Log file viewer](images/pb-sql-server-aurora-mysql-view-error-log.png) 3. Scroll down to the logs section and choose the log name. The log viewer displays the log content.
+### Example
 
-For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
+Create a resource-limited user.
+
+```
+CREATE USER 'ReportUsers'@'localhost'
+IDENTIFIED BY 'ReportPassword'
+WITH
+MAX_QUERIES_PER_HOUR 60
+MAX_UPDATES_PER_HOUR 0
+MAX_CONNECTIONS_PER_HOUR 5
+MAX_USER_CONNECTIONS 2;
+```
+
+## Summary
+
+| Feature                                   | SQL Server Resource Governor                                                 | Aurora MySQL User Resource Limit Options  | Comments                                                           |
+| ----------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------ |
+| Scope                                     | Dynamic workload pools and workload groups, mapped to a classifier function. | For each user.                            | Application connection strings need to use specific limited users. |
+| Limited resources                         | IO, CPU, and memory.                                                         | Number of queries, number of connections. |                                                                    |
+| Modifying limits                          | `ALTER RESOURCE POOL`                                                        | `ALTER USER`                              | Application may use a dynamic connection string.                   |
+| When resource threshold limit is reached. | Throttles and queues runs.                                                   | Raises an error.                          | Application retry logic may need to be added.                      |
+
+For more information, see [CREATE USER Resource-Limit Options](https://dev.mysql.com/doc/refman/5.7/en/create-user.html#create-user-resource-limits "https://dev.mysql.com/doc/refman/5.7/en/create-user.html#create-user-resource-limits") and [Setting Account Resource Limits](https://dev.mysql.com/doc/refman/5.7/en/user-resources.html "https://dev.mysql.com/doc/refman/5.7/en/user-resources.html") in the _MySQL documentation_.

@@ -1,153 +1,313 @@
-# Data types for ANSI SQL
+# Constraints for ANSI SQL
 
-This topic provides reference content about data type compatibility when migrating from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can use this information to understand how different data types in SQL Server map to their counterparts in Aurora MySQL.
+This topic provides reference information about constraint compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this guide to understand the similarities and differences in how these two database systems handle various types of constraints, including check constraints, unique constraints, primary key constraints, and foreign key constraints.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                   | Key differences                                                         |
-| ------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [Data Types](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.datatypes "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.datatypes") | Minor syntax and handling differences. No special `UNICODE` data types. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                        | Key differences                                          |
+| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | [Constraints](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints") | Unsupported `CHECK`. Indexing requirements for `UNIQUE`. |
 
 ## SQL Server Usage
 
-In SQL Server, each table column, variable, expression, and parameter has an associated data type.
+Column and table constraints are defined by the SQL standard and enforce relational data consistency. There are four types of SQL constraints: check constraints, unique constraints, primary key constraints, and foreign key constraints.
 
-SQL Server provides a rich set of built-in data types as summarized in the following table.
+### Check Constraints
 
-| Category                | Data Types                                                                                                  |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Numeric                 | `BIT`, `TINYINT`, `SMALLINT`, `INT`, `BIGINT`, `NUMERIC`, `DECIMAL`, `MONEY`, `SMALLMONEY`, `FLOAT`, `REAL` |
-| String and character    | `CHAR`, `VARCHAR`, `NCHAR`, `NVARCHAR`                                                                      |
-| Temporal                | `DATE`, `TIME`, `SMALLDATETIME`, `DATETIME`, `DATETIME2`, `DATETIMEOFFSET`                                  |
-| Binary                  | `BINARY`, `VARBINARY`                                                                                       |
-| Large Object (LOB)      | `TEXT`, `NTEXT`, `IMAGE`, `VARCHAR(MAX)`, `NVARCHAR(MAX)`, `VARBINARY(MAX)`                                 |
-| Cursor                  | `CURSOR`                                                                                                    |
-| GUID                    | `UNIQUEIDENTIFIER`                                                                                          |
-| Hierarchical identifier | `HIERARCHYID`                                                                                               |
-| Spatial                 | `GEOMETRY`, `GEOGRAPHY`                                                                                     |
-| Sets (table type)       | `TABLE`                                                                                                     |
-| XML                     | `XML`                                                                                                       |
-| Other specialty types   | `ROW VERSION`, `SQL_VARIANT`                                                                                |
+```
+CHECK (<Logical Expression>)
+```
+
+Check constraints enforce domain integrity by limiting the data values stored in table columns. They are logical Boolean expressions that evaluate to one of three values: `TRUE`, `FALSE`, and `UNKNOWN`.
 
 ###### Note
 
-You can create custom user-defined data types using T-SQL, and the .NET framework. Custom data types are based on the built-in system data types and are used to simplify development. For more information, see [User-Defined Types](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+Check constraint expressions behave differently than predicates in other query clauses. For example, in a `WHERE` clause, a logical expression that evaluates to `UNKNOWN` is functionally equivalent to `FALSE` and the row is filtered out. For check constraints, an expression that evaluates to `UNKNOWN` is functionally equivalent to `TRUE` because the value is permitted by the constraint.
 
-### TEXT, NTEXT, and IMAGE Deprecated Data Types
+You can assign multiple check constraints to a single column. A single check constraint may apply to multiple columns. In this case, it is known as a table-level check constraint.
 
-The `TEXT`, `NTEXT`, and `IMAGE` data types have been deprecated as of SQL Server 2008 R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
+In ANSI SQL, check constraints can’t access other rows as part of the expression. In SQL Server, you can use user-defined functions in constraints to access other rows, tables, or even databases.
 
-These data types are legacy types for storing `BLOB` and `CLOB` data. The `TEXT` data type was used to store ASCII text `CLOBS`, the `NTEXT` data type to store `UNICODE CLOBS`, and `IMAGE` was used as a generic data type for storing all `BLOB` data. In SQL Server 2005, Microsoft introduced the new and improved `VARCHAR (MAX)`, `NVARCHAR(MAX)`, and `VARBINARY(MAX)` data types as the new `BLOB` and `CLOB` standard. These new types support a wider range of functions and operations. They also provide enhanced performance over the legacy types.
+### Unique Constraints
 
-If your code uses `TEXT`, `NTEXT`, or `IMAGE` data types, AWS SCT automatically converts them to the appropriate Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) `BLOB` data type. `TEXT` and `NTEXT` are converted to `LONGTEXT` and image to `LONGBLOB`. Make sure you use the proper collations. For more details, see the [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+```
+UNIQUE [CLUSTERED | NONCLUSTERED] (<Column List>)
+```
+
+Unique constraints should be used for all candidate keys. A candidate key is an attribute or a set of attributes such as columns that uniquely identify each row in the relation or table data.
+
+Unique constraints guarantee that no rows with duplicate column values exist in a table.
+
+A unique constraint can be simple or composite. Simple constraints are composed of a single column. Composite constraints are composed of multiple columns. A column may be a part of more than one constraint.
+
+Although the ANSI SQL standard allows multiple rows having NULL values for unique constraints, in SQL Server, you can use a NULL value for only one row. Use a `NOT NULL` constraint in addition to a unique constraint to disallow all NULL values.
+
+To improve efficiency, SQL Server creates a unique index to support unique constraints. Otherwise, every `INSERT` and `UPDATE` would require a full table scan to verify there are no duplicates. The default index type for unique constraints is non-clustered.
+
+### Primary Key Constraints
+
+```
+PRIMARY KEY [CLUSTERED | NONCLUSTERED] (<Column List>)
+```
+
+A primary key is a candidate key serving as the unique identifier of a table row. Primary keys may consist of one or more columns. All columns that comprise a primary key must also have a NOT NULL constraint. Tables can have one primary key.
+
+The default index type for primary keys is a clustered index.
+
+### Foreign Key Constraints
+
+```
+FOREIGN KEY (<Referencing Column List>)
+REFERENCES <Referenced Table>(<Referenced Column List>)
+```
+
+Foreign key constraints enforce domain referential integrity. Similar to check constraints, foreign keys limit the values stored in a column or set of columns.
+
+Foreign keys reference columns in other tables, which must be either primary keys or have unique constraints. The set of values allowed for the referencing table is the set of values existing the referenced table.
+
+Although the columns referenced in the parent table are indexed (since they must have either a primary key or unique constraint), no indexes are automatically created for the referencing columns in the child table. A best practice is to create appropriate indexes to support joins and constraint enforcement.
+
+Foreign key constraints impose DML limitations for the referencing child table and for the parent table. The constraint’s purpose is to guarantee that no orphan rows with no corresponding matching values in the parent table exist in the referencing table. The constraint limits `INSERT` and `UPDATE` to the child table and `UPDATE` and `DELETE` to the parent table. For example, you can’t delete an order having associated order items.
+
+Foreign keys support cascading referential integrity (CRI). CRI can be used to enforce constraints and define action paths for DML statements that violate the constraints. There are four CRI options:
+
+- **NO ACTION** — When the constraint is violated due to a DML operation, an error is raised and the operation is rolled back.
+- **CASCADE** — Values in a child table are updated with values from the parent table when they are updated or deleted along with the parent.
+- **SET NULL** — All columns that are part of the foreign key are set to NULL when the parent is deleted or updated.
+- **SET DEFAULT** — All columns that are part of the foreign key are set to their DEFAULT value when the parent is deleted or updated.
+
+These actions can be customized independently of others in the same constraint. For example, a cascading constraint may have `CASCADE` for `UPDATE`, but `NO ACTION` for `UPDATE`.
 
 ### Examples
 
-Define table columns.
+The following example creates a composite non-clustered primary key.
 
 ```
 CREATE TABLE MyTable
 (
-    Col1 AS INTEGER NOT NULL PRIMARY KEY,
-    Col2 AS NVARCHAR(100) NOT NULL
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PK_MyTable
+    PRIMARY KEY NONCLUSTERED (Col1, Col2)
 );
 ```
 
-Define variable types.
+The following example creates a table-level check constraint.
 
 ```
-DECLARE @MyXMLType AS XML,
-    @MyTemporalType AS DATETIME2
-```
-
-```
-DECLARE @MyTableType
-AS TABLE
+CREATE TABLE MyTable
 (
-    Col1 AS BINARY(16) NOT NULL PRIMARY KEY,
-    Col2 AS XML NULL
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PK_MyTable
+    PRIMARY KEY NONCLUSTERED (Col1, Col2),
+    CONSTRAINT CK_MyTableCol1Col2
+    CHECK (Col2 >= Col1)
 );
 ```
 
-For more information, see [Data types (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+The following example creates a simple non-null unique constraint.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PK_MyTable
+        PRIMARY KEY NONCLUSTERED (Col1, Col2),
+    CONSTRAINT UQ_Col2Col3
+        UNIQUE (Col2, Col3)
+);
+```
+
+The following example creates a foreign key with multiple cascade actions.
+
+```
+CREATE TABLE MyParentTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PK_MyTable
+    PRIMARY KEY NONCLUSTERED (Col1, Col2)
+);
+```
+
+```
+CREATE TABLE MyChildTable
+(
+    Col1 INT NOT NULL PRIMARY KEY,
+    Col2 INT NOT NULL,
+    Col3 INT NOT NULL,
+    CONSTRAINT FK_MyChildTable_MyParentTable
+        FOREIGN KEY (Col2, Col3)
+        REFERENCES MyParentTable (Col1, Col2)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE
+);
+```
+
+For more information, see [Unique Constraints and Check Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15") and [Primary and Foreign Key Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the following data types:
-
-| Category             | Data Types                                                                                                          |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Numeric              | `BIT`, `INTEGER`, `SMALLINT`, `TINYINT`, `MEDIUMINT`, `BIGINT`, `DECIMAL`, `NUMERIC`, `FLOAT`, `DOUBLE`             |
-| String and character | `CHAR`, `VARCHAR`, `SET`                                                                                            |
-| Temporal             | `DATE`, `DATETIME`, `TIMESTAMP`, `TIME`, `YEAR`                                                                     |
-| Binary               | `BINARY`, `VARBINARY`                                                                                               |
-| Large Object (LOB)   | `BLOB`, `TEXT`                                                                                                      |
-| Cursor               | `CURSOR`                                                                                                            |
-| Spatial              | `GEOMETRY`, `POINT`, `LINESTRING`, `POLYGON`, `MULTIPOINT`, `MULTILINESTRING`, `MULTIPOLYGON`, `GEOMETRYCOLLECTION` |
-| JSON                 | `JSON`                                                                                                              |
-
-Be aware that Aurora MySQL uses different rules than SQL Server for handling out-of-range and overflow situations. SQL Server always raises an error for out-of-range values. Aurora MySQL exhibits different behavior depending on run time settings.
-
-For example, a value may be clipped to the first or last value in the range of permitted values for the data type if `STRICT SQL` mode isn’t set.
-
-For more information, see [Out-of-Range and Overflow Handling](https://dev.mysql.com/doc/refman/5.7/en/out-of-range-and-overflow.html "https://dev.mysql.com/doc/refman/5.7/en/out-of-range-and-overflow.html") in the _MySQL documentation_.
-
-### Converting from TEXT, NTEXT, and IMAGE SQL Server Deprecated Data Types
-
-The legacy SQL Server types for storing LOB data are deprecated as of SQL Server 2008 R2.
-
-When you convert from these types to Aurora MySQL using the AWS Schema Conversion Tool (AWS SCT, they are converted as shown following:
-
-| SQL Server LOB Type | Converted to Aurora MySQL data type | Comments                                                                                                                                                      |
-| ------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TEXT`              | `LONGTEXT`                          | Make sure to choose the right collation. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md"). |
-| `NTEXT`             | `LONGTEXT`                          | Make sure to choose the right collation. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md"). |
-| `IMAGE`             | `LONGBLOB`                          |                                                                                                                                                               |
-
-The size cap for all of these types is compatible and is capped at 2 GB of data, which may allow less characters depending on the chosen collation.
+Similar to SQL Server, Aurora MySQL supports all ANSI constraint types, except check.
 
 ###### Note
 
-Aurora MySQL supports UCS-2 collation, which is compatible with SQL Server `UNICODE` types.
+You can work around some of the functionality of `CHECK (<Column>) IN (<Value List>)` using the `SET` and `ENUM` data types. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md").
 
-While it is safe to use the default conversion types, remember that, unlike SQL Server, Aurora MySQL also provides smaller `BLOB` and `CLOB` types, which may be more efficient for your data.
+Unlike SQL Server, constraint names, or symbols in Aurora MySQL terminology, are optional. Identifiers are created automatically and are similar to SQL Server column constraints that are defined without an explicit name.
 
-Even the basic VARCHAR and VARBINARY data types can store strings up to 32 KB, which is much longer than SQL Server 8 KB limit. If the strings or binary data that you need to store don’t exceed 32 KB, it may be more efficient to store these as non-LOB types in Aurora MySQL.
+### Unique Constraints
+
+Unlike SQL Server, where unique constraints are objects supported by unique indexes, Aurora MySQL only provides unique indexes. A unique index is the equivalent to a SQL Server unique constraint.
+
+As with SQL Server, unique indexes enforce distinct values for index columns. If a new row is added or an existing row is updated with a value that matches an existing row, an error is raised and the operation is rolled back.
+
+Unlike SQL Server, Aurora MySQL permits multiple rows with NULL values for unique indexes.
+
+###### Note
+
+If a unique index consists of only one `INT` type column, you can use the `_rowid` alias to reference the index in `SELECT` statements.
+
+### Primary Key Constraints
+
+Similar to SQL Server, a primary key constraint in Aurora MySQL is a unique index where all columns are NOT NULL. Each table can have only one primary key. The name of the constraint is always `PRIMARY`.
+
+Primary keys in Aurora MySQL are always clustered. They can’t be configured as `NON CLUSTERED` like SQL Server. For more information, see [Indexes](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
+
+Applications can reference a primary key using the `PRIMARY` alias. If a table has no primary key, which isn’t recommended, Aurora MySQL uses the first NOT NULL and unique index.
+
+###### Note
+
+Keep the primary key short to minimize storage overhead for secondary indexes. In Aurora MySQL, the primary key is clustered. Therefore, every secondary or nonclustered index maintains a copy of the clustering key as the row pointer. It is also recommended to create tables and declare the primary key first, followed by the unique indexes. Then create the non-unique indexes.
+
+If a primary key consists of a single `INTEGER` column, it can be referenced using the `_rowid` alias in `SELECT` commands.
+
+### Foreign Key Constraints
+
+###### Note
+
+MySQL doesn’t support foreign key constraints for partitioned tables. For more information, see [Storage](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
+
+Aurora MySQL supports foreign key constraints for limiting values in a column, or a set of columns, of a child table based on their existence in a parent table.
+
+Unlike SQL Server and contrary to the ANSI standard, Aurora MySQL allows foreign keys to reference nonunique columns in the parent table. The only requirement is that the columns are indexed as the leading columns of an index, but not necessarily a unique index.
+
+Aurora MySQL supports cascading referential integrity actions using the `ON UPDATE` and `ON DELETE` clauses. The available referential actions are `RESTRICT`, `CASCADE`, `SET NULL`, and `NO ACTION`. The default action is `RESTRICT`. `RESTRICT` and `NO ACTION` are synonymous.
+
+###### Note
+
+SET DEFAULT is supported by some other MySQL Server engines. Aurora MySQL uses the InnoDB engine exclusively, which doesn’t support `SET DEFAULT`.
+
+###### Note
+
+Some database engines support the ANSI standard for deferred checks. `NO ACTION` is a deferred check as opposed to `RESTRICT`, which is immediate. In MySQL, foreign key constraints are always validated immediately. Therefore, `NO ACTION` is the same as the `RESTRICT` action.
+
+Aurora MySQL handles foreign keys differently than most other engines in the following ways:
+
+- If there are multiple rows in the parent table that have the same values for the referenced foreign key, Aurora MySQL foreign key checks behave as if the other parent rows with the same key value don’t exist. For example, if a `RESTRICT` action is defined and a child row has several parent rows, Aurora MySQL doesn’t permit deleting them.
+- If `ON UPDATE CASCADE` or `ON UPDATE SET NULL` causes a recursion and updates the same table that has been updated as part of the same cascade operation, Aurora MySQL treats it as if it was a
+  `RESTRICT` action. This effectively turns off self-referencing `ON UPDATE CASCADE` or `ON UPDATE SET NULL` operations to prevent potential infinite loops resulting from cascaded updates. A self-referencing `ON DELETE SET NULL` or `ON DELETE CASCADE` are allowed because there is no risk of an infinite loop.
+- Cascading operations are limited to 15 levels deep.
+
+### Check Constraints
+
+Standard ANSI check clauses are parsed correctly and don’t raise syntax errors. However, they are ignored and aren’t stored as part of the Aurora MySQL table definition.
+
+**Syntax**
+
+```
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name>
+(
+    <Column Definition>
+    [CONSTRAINT [<Symbol>]]
+        PRIMARY KEY (<Column List>)
+    | [CONSTRAINT [<Symbol>]]
+        UNIQUE [INDEX|KEY] [<Index Name>] [<Index Type>] (<Column List>)
+    | [CONSTRAINT [<Symbol>]]
+        FOREIGN KEY [<Index Name>] (<Column List>)
+            REFERENCES <Table Name> (<Column List>)
+                [ON DELETE RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT]
+                [ON UPDATE RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT]
+);
+```
+
+### Migration Considerations
+
+- Aurora MySQL doesn’t support check constraints. The engine parses the syntax for check constraints, but they are ignored.
+- Consider using triggers or stored routines to validate data values for complex expressions.
+- When using check constraints for limiting to a value list such as `CHECK (Col1 IN (1,2,3))`, consider using the `ENUM` or `SET` data types.
+- In Aurora MySQL, the constraint name (symbol) is optional, even for table constraints defined with the `CONSTRAINT` keyword. In SQL Server, it is mandatory.
+- Aurora MySQL requires that both the child table and the parent table in foreign key relationship are indexed. If the appropriate index doesn’t exist, Aurora MySQL automatically creates one.
+
+### Examples
+
+The following example creates a composite primary key.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PRIMARY KEY (Col1, Col2)
+);
+```
+
+The following example creates a simple non-null unique constraint.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PRIMARY KEY (Col1, Col2),
+    CONSTRAINT UNIQUE (Col2, Col3)
+);
+```
+
+The following example creates a named foreign key with multiple cascade actions.
+
+```
+CREATE TABLE MyParentTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PRIMARY KEY (Col1, Col2)
+);
+```
+
+```
+CREATE TABLE MyChildTable
+(
+    Col1 INT NOT NULL PRIMARY KEY,
+    Col2 INT NOT NULL,
+    Col3 INT NOT NULL,
+    FOREIGN KEY (Col2, Col3)
+    REFERENCES MyParentTable (Col1, Col2)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+);
+```
 
 ## Summary
 
-The following table summarizes the key differences and migration considerations for migrating from SQL Server data types to Aurora MySQL data types.
+The following table identifies similarities, differences, and key migration considerations.
 
-| SQL Server Data Type        | Convert to MySQL Data Type                       | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BIT`                       | `BIT`                                            | Aurora MySQL also supports `BIT(m)`, which can be used to store multiple bit values. In SQL Server, literal bit notation uses the numerical digits 0 and 1. Aurora MySQL uses `b'<value>` or `0b<value>` notations.<br>For more information, see [Bit-Value Type<br>• BIT](https://dev.mysql.com/doc/refman/5.7/en/bit-type.html "https://dev.mysql.com/doc/refman/5.7/en/bit-type.html") and [Bit-Value Literals](https://dev.mysql.com/doc/refman/5.7/en/bit-value-literals.html "https://dev.mysql.com/doc/refman/5.7/en/bit-value-literals.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `TINYINT`                   | `TINYINT`                                        | SQL Server only supports unsigned `TINYINT`, which can store values between 0 and 255. Aurora MySQL supports both signed `TINYINT` and `TINYINT UNSIGNED`. The latter can be used to store values between -128 and 127. The default for integer types in Aurora MySQL is to use signed integers. For compatibility, explicitly specify `TINYINT UNSIGNED`.<br>For more information, see [Integer Types (Exact Value)](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html "https://dev.mysql.com/doc/refman/5.7/en/integer-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `SMALLINT`                  | `SMALLINT`                                       | Compatible type. SQL Server supports only signed `SMALLINT`. Aurora MySQL also supports `SMALLINT UNSIGNED`, which can store values between 0 and 65535. The default for integer types in Aurora MySQL is to use signed integers. Consider using unsigned integers for storage optimization.<br>For more information, see [Integer Types (Exact Value)](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html "https://dev.mysql.com/doc/refman/5.7/en/integer-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `INTEGER`                   | `INTEGER`                                        | Compatible type. SQL Server supports only signed `INTEGER`, which can store values between -2147483648 and 2147483647. Aurora MySQL also supports `INTEGER UNSIGNED`, which can store values between 0 and 4294967295. The default for integer types in Aurora MySQL is to use signed integers. Consider using unsigned integers for storage optimization.<br>Aurora MySQL also supports a `MEDIUMINT` type, which uses only three bytes of storage vs. four bytes for `INTEGER`. For large tables, consider using `MEDIUMINT` instead of `INT` if the value range is within -8388608 to -8388607 for a `SIGNED` type, or 0 to 16777215 for `UNSIGNED` type.<br>For more information, see [Integer Types (Exact Value)](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html "https://dev.mysql.com/doc/refman/5.7/en/integer-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `BIGINT`                    | `BIGINT`                                         | Compatible type. SQL Server supports only signed `BIGINT`. Aurora MySQL also supports `BIGINT UNSIGNED`, which can store values between 0 and 2^64-1. The default for integer types in Aurora MySQL is to use signed integers. Consider using unsigned integers for storage optimization.<br>For more information, see [Integer Types (Exact Value)](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html "https://dev.mysql.com/doc/refman/5.7/en/integer-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `NUMERIC` / `DECIMAL`       | `NUMERIC` / `DECIMAL`                            | Compatible types. DECIMAL and NUMERIC are synonymous.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `MONEY` / `SMALLMONEY`      | N/A                                              | Aurora MySQL doesn’t support dedicated monetary types. Use `NUMERIC` / `DECIMAL` instead. If your application uses literals with monetary signs (for example, $50.23), rewrite to remove the monetary sign.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `FLOAT` / `REAL`            | `FLOAT` / `REAL` / `DOUBLE`                      | Compatible types. In SQL Server, both `REAL` and `FLOAT(n)`, where `n⇐24`, use 4 bytes of storage, are equivalent to `FLOAT` and `REAL` in Aurora MySQL. In SQL Server, `FLOAT(n)`, where `n>24`, uses 8 bytes.<br>The Aurora MySQL<br>`DOUBLE PRECISION` type always uses 8 bytes.<br>Aurora MySQL also supports the nonstandard `FLOAT(M,D)`, `REAL(M,D)` or `DOUBLE PRECISION(M,D)` where `(M,D)` indicates values can be stored with up to M digits in total with D digits after the decimal point.<br>For more information, see [Floating-Point Types (Approximate Value)](https://dev.mysql.com/doc/refman/5.7/en/floating-point-types.html "https://dev.mysql.com/doc/refman/5.7/en/floating-point-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `CHAR`                      | `CHAR` / `VARCHAR`                               | Compatible types up to 255 characters only. SQL Server supports `CHAR` data types up to 8,000 characters. The Aurora MySQL<br>`CHAR` data type is limited to a maximum of 255 characters.<br>For strings requiring more than 255 characters, use `VARCHAR`. When converting from `CHAR` to `VARCHAR`, exercise caution because `VARCHAR` behaves differently than `CHAR`; trailing spaces are trimmed.<br>For more information, see [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/5.7/en/char.html "https://dev.mysql.com/doc/refman/5.7/en/char.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `VARCHAR`                   | `VARCHAR`                                        | Compatible types. SQL Server supports `VARCHAR` columns up to 8,000 characters. Aurora MySQL can store up to 65,535 characters with regard to the maximal row size limit.<br>For more information, see [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/5.7/en/char.html "https://dev.mysql.com/doc/refman/5.7/en/char.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `NCHAR`                     | `CHAR`                                           | Aurora MySQL doesn’t require the use of specific data types for storing `UNICODE` data. Use the `CHAR` data type and define a `UNICODE` collation using the `CHARACTER SET` or `COLLATE` keywords.<br>For more information, see [Unicode Character Sets](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html "https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `NVARCHAR`                  | `VARCHAR`                                        | Aurora MySQL doesn’t require the use of specific data types for storing `UNICODE` data. Use the `VARCHAR` data type and define a `UNICODE` collation using the `CHARACTER SET` or `COLLATE` keywords.<br>For more information, see [Unicode Character Sets](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html "https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `DATE`                      | `DATE`                                           | Compatible types. The range for SQL Server `DATE` data type is '0001-01-01' through '9999-12-31'. The range for Aurora MySQL is '1000-01-01' through '9999-12-31'.<br>Aurora MySQL doesn’t support dates before 1000 AD. For more information, see [Date and Time Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").<br>For more information, see [The DATE, DATETIME, and TIMESTAMP Types](https://dev.mysql.com/doc/refman/5.7/en/datetime.html "https://dev.mysql.com/doc/refman/5.7/en/datetime.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `TIME`                      | `TIME`                                           | Compatible types. SQL Server supports explicit fractional seconds using the format `TIME(n)` where n is between 0 to 7. Aurora MySQL doesn’t allow explicit fractional setting.<br>Aurora MySQL supports up to 6 digits for microsecond resolution of fractional seconds. SQL Server provides one more digit to support a resolution of up to 100 nanoseconds.<br>If your application uses the `TIME(n)` format, rewrite to remove the `(n)` setting.<br>Aurora MySQL also supports `TIME` values that range from `-838:59:59` to `838:59:59`. You can use the hours part to represent the time of day, where hours must be less than 24, or to represent a time interval, which can be greater than 24 hours and have negative values.<br>For more information, see [The TIME Type](https://dev.mysql.com/doc/refman/5.7/en/time.html "https://dev.mysql.com/doc/refman/5.7/en/time.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `SMALLDATETIME`             | `DATETIME` / `TIMESTAMP`                         | Aurora MySQL doesn’t support `SMALLDATETIME`. Use `DATETIME` instead. Use `SMALLDATETIME` for storage space optimization where lower ranges and resolutions are required.<br>For more information, see [Date and Time Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `DATETIME`                  | `DATETIME`                                       | In SQL Server, the `DATETIME` data type supports a value range between `1753-01-01` and `9999-12-31` with a resolution of up to 3.33ms. Aurora MySQL<br>`DATETIME` supports a wider value range between `1000-01-01 00:00:00` and `9999-12-31 23:59:59` with a higher resolution of microseconds and optional six fractional second digits.<br>For more information, see [Date and Time Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").<br>For more information about `DATETIME`, see [The DATE, DATETIME, and TIMESTAMP Types](https://dev.mysql.com/doc/refman/5.7/en/datetime.html "https://dev.mysql.com/doc/refman/5.7/en/datetime.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `DATETIME2`                 | `DATETIME`                                       | In SQL Server, the `DATETIME2` data type supports a value range between `0001-01-01` and `9999-12-31` with a resolution of up to 100 nanoseconds using seven fractional second digits. Aurora MySQL<br>`DATETIME` supports a narrower value range between `1000-01-01 00:00:00` and `9999-12-31 23:59:59` with a lower resolution of microseconds and optional six fractional second digits.<br>For more information, see [Date and Time Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").<br>For more information about `DATETIME`, see [The DATE, DATETIME, and TIMESTAMP Types](https://dev.mysql.com/doc/refman/5.7/en/datetime.html "https://dev.mysql.com/doc/refman/5.7/en/datetime.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `DATETIMEOFFSET`            | `TIMESTAMP`                                      | Aurora MySQL doesn’t support full time zone awareness and management functions. Use the `time_zone` system variable in conjunction with `TIMESTAMP` columns to achieve partial time zone awareness.<br>For more information, see [Server Options](chap-sql-server-aurora-mysql.configuration.md "chap-sql-server-aurora-mysql.configuration.md").<br>In Aurora MySQL, `TIMESTAMP` isn’t the same as in SQL Server. The latter is a synonym for `ROW_VERSION`. Aurora MySQL<br>`TIMESTAMP` is equivalent to the `DATETIME` type with a smaller range.<br>With Aurora MySQL<br>`DATETIME`, you can use values between `1000-01-01 00:00:00` and `9999-12-31 23:59:59`. TIMESTAMP is limited to values between `1970-01-01 00:00:01` and `2038-01-19 03:14:07`.<br>Aurora MySQL converts `TIMESTAMP` values from the current time zone to UTC for storage and back from UTC to the current time zone for retrieval.<br>For more information, see [MySQL Server Time Zone Support](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html "https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html") in the _MySQL documentation_.                                                                                                                                                                                                              |
-| `BINARY`                    | `BINARY` / `VARBINARY`                           | In Aurora MySQL, the `BINARY` data type is considered to be a string data type and is similar to `CHAR`. `BINARY` contains byte strings rather than character strings and uses the binary character set and collation. Comparison and sorting are based on the numeric values of the bytes in the values.<br>SQL Server supports up to 8,000 bytes for a `BINARY` data types. Aurora MySQL<br>`BINARY` is limited to 255 characters, similar to `CHAR`. If larger values are needed, use `VARBINARY`.<br>Literal assignment for Aurora MySQL<br>`BINARY` types use string literals, unlike SQL Server explicit binary `0x` notation.<br>For more information, see [The BINARY and VARBINARY Types](https://dev.mysql.com/doc/refman/5.7/en/binary-varbinary.html "https://dev.mysql.com/doc/refman/5.7/en/binary-varbinary.html") and [The binary Collation Compared to bin Collations](https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html "https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                     |
-| `VARBINARY`                 | `VARBINARY`                                      | In Aurora MySQL, the `VARBINARY` data type is considered a string data type, similar to VARCHAR. `VARBINARY` contains byte strings rather than character strings and has a binary character set. Collation, comparison, and sorting are based on the numeric values of the bytes in the values.<br>Aurora MySQL<br>`VARBINARY` supports up to 65,535 characters, significantly larger than the 8,000 byte limit in SQL Server. Literal assignment for Aurora MySQL BINARY types use string literals, unlike SQL Server explicit binary `0x` notation.<br>For more information, see [The BINARY and VARBINARY Types](https://dev.mysql.com/doc/refman/5.7/en/binary-varbinary.html "https://dev.mysql.com/doc/refman/5.7/en/binary-varbinary.html") and [The binary Collation Compared to bin Collations](https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html "https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                    |
-| `TEXT` / `VARCHAR (MAX)`    | `VARCHAR` / `TEXT` / `MEDIUMTEXT` / `LONGTEXT`   | In SQL Server, a `TEXT` data type is a variable-length ASCII string data type with a maximum string length of 2^31-1 (2 GB).<br>Use the following list to determine the optimal Aurora MySQL data type:<br>• For a string length of 2^16-1 bytes, use `VARCHAR` or `TEXT`.<br>• For a string length of 2^24-1 bytes, use `MEDIUMTEXT`.<br>• For a string length of 2^32-1 bytes, use `LONGTEXT`.<br>For more information, see [The BLOB and TEXT Types](https://dev.mysql.com/doc/refman/5.7/en/blob.html "https://dev.mysql.com/doc/refman/5.7/en/blob.html") and [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html#data-types-storage-reqs-string "https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html#data-types-storage-reqs-string") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `NTEXT` / `NVARCHAR (MAX)`  | `VARCHAR` / `TEXT` / `MEDIUMTEXT` / `LONGTEXT`   | Aurora MySQL doesn’t require the use of specific data types for storing `UNICODE` data. Use the `TEXT` compatible data types listed earlier and define a `UNICODE` collation using the `CHARACTER SET` or `COLLATE` keywords.<br>For more information, see [Unicode Character Sets](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html "https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-sets.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `IMAGE` / `VARBINARY (MAX)` | `VARBINARY` / `BLOB` / `MEDIUMBLOB` / `LONGBLOB` | In SQL Server, an `IMAGE` data type is a variable-length binary data type with a range of 0 through 2^31-1 (2 GB).<br>Similar to the `BINARY` and `VARBINARY` data types, the `BLOB` data types are considered string data types. `BLOB` data types contain byte strings rather than character strings and use a binary character set. Collation, comparison, and sorting are based on the numeric values of the bytes in the values.<br>Use the following list to determine the optimal Aurora MySQL data type:<br>• For a string length of 2^16-1 bytes, use `VARBINARY` or `BLOB`.<br>• For a string length of 2^24-1 bytes, use `MEDIUMBLOB`.<br>• For a string length of 2^32-1 bytes, use `LONGBLOB`.<br>For more information, see [The BLOB and TEXT Types](https://dev.mysql.com/doc/refman/5.7/en/blob.html "https://dev.mysql.com/doc/refman/5.7/en/blob.html"), [String Type Storage Requirements](https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html#data-types-storage-reqs-strings "https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html#data-types-storage-reqs-strings"), and [The binary Collation Compared to bin Collations](https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html "https://dev.mysql.com/doc/refman/5.7/en/charset-binary-collations.html") in the _MySQL documentation_. |
-| `CURSOR`                    | `CURSOR`                                         | Types are compatible, although in Aurora MySQL a cursor isn’t really considered to be a type. For more information, see [Cursors](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `UNIQUEIDENTIFIER`          | N/A                                              | Aurora MySQL doesn’t support a native unique identifier type. Use `BINARY(16)`, which is the same base type used for the `UNIQUEIDENTIFIER` type in SQL Server. It generates values using the `UUID()` function, which is the equivalent of the `NEW_ID` function in SQL Server.<br>UUID returns a Universal Unique Identifier generated according to RFC 4122. For more information, see [A Universally Unique IDentifier (UUID) URN Namespace](https://www.ietf.org/rfc/rfc4122.txt "https://www.ietf.org/rfc/rfc4122.txt").<br>For more information, see [UUID()](https://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html#function_uuid "https://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html#function_uuid") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `HIERARCHYID`               | N/A                                              | Aurora MySQL doesn’t support native hierarchy representation. Rewrite functionality with custom application code using one the common SQL hierarchical data representation approaches:<br>• Adjacency list.<br>• Nested set.<br>• Closure table.<br>• Materialized path.<br>For more information, see [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list "https://en.wikipedia.org/wiki/Adjacency_list") and [Nested set model](https://en.wikipedia.org/wiki/Nested_set_model "https://en.wikipedia.org/wiki/Nested_set_model").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `GEOMETRY`                  | `GEOMETRY`                                       | In SQL Server, the `GEOMETRY` type represents data in a Euclidean (flat) coordinate system. SQL Server supports a set of methods for this type, which include methods defined by the Open Geospatial Consortium (OGC) standard, and a set of additional extensions.<br>Aurora MySQL supports `GEOMETRY` spatial data, although the syntax and functionality may differ significantly from SQL Server. A rewrite of the code is required.<br>For more information, see [Spatial Data Types](https://dev.mysql.com/doc/refman/5.7/en/spatial-types.html "https://dev.mysql.com/doc/refman/5.7/en/spatial-types.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `TABLE`                     | N/A                                              | Aurora MySQL doesn’t support a `TABLE` data type. For more information, see [User-Defined Types](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `XML`                       | N/A                                              | Aurora MySQL doesn’t support a native XML data type. However, it does provide full support for JSON data types, which SQL Server doesn’t.<br>Because XML and JSON are text documents, consider migrating the XML formatted documents to JSON or use string BLOBs and custom code to parse and query documents.<br>For more information, see [The JSON Data Type](https://dev.mysql.com/doc/refman/5.7/en/json.html "https://dev.mysql.com/doc/refman/5.7/en/json.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `ROW_VERSION`               | N/A                                              | Aurora MySQL doesn’t support a row version. Use triggers to update a dedicated column from a primary sequence value table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `SQL_VARIANT`               | N/A                                              | Aurora MySQL doesn’t support a hybrid, all-purpose data type similar to `SQL_VARIANT` in SQL Server. Rewrite applications to use explicit types.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Feature                         | SQL Server                                        | Aurora MySQL                                   | Comments                                                                  |
+| ------------------------------- | ------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------- |
+| Check constraints               | `CHECK`                                           | Not supported                                  | Aurora MySQL parses `CHECK` syntax, but ignores it.                       |
+| Unique constraints              | `UNIQUE`                                          | `UNIQUE`                                       |                                                                           |
+| Primary key constraints         | `PRIMARY KEY`                                     | `PRIMARY KEY`                                  |                                                                           |
+| Foreign key constraints         | `FOREIGN KEY`                                     | `FOREIGN KEY`                                  |                                                                           |
+| Cascaded referential actions    | `NO ACTION`, `CASCADE`, `SET NULL`, `SET DEFAULT` | `RESTRICT`, `CASCADE`, `SET NULL`, `NO ACTION` | `NO ACTION` and `RESTRICT` are synonymous.                                |
+| Indexing of referencing columns | Not required                                      | Required                                       | If not specified, an index is created silently to support the constraint. |
+| Indexing of referenced columns  | `PRIMARY KEY` or `UNIQUE`                         | Required                                       | Aurora MySQL doesn’t enforce uniqueness of referenced columns.            |
+| Cascade recursion               | Not allowed, discovered at `CREATE` time          | Not allowed, discovered at run time.           |                                                                           |
 
-For more information, see [Data Types](https://dev.mysql.com/doc/refman/5.7/en/data-types.html "https://dev.mysql.com/doc/refman/5.7/en/data-types.html") in the _MySQL documentation_.
+For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), [How MySQL Deals with Constraints](https://dev.mysql.com/doc/refman/5.7/en/constraints.html "https://dev.mysql.com/doc/refman/5.7/en/constraints.html"), and [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html "https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html") in the _MySQL documentation_.
