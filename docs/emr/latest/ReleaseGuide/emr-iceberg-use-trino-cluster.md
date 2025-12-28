@@ -49,6 +49,21 @@ have the following content.
 ]
 ```
 
+Starting with Amazon EMR 7.7.0, include the property `fs.native-s3.enabled=true`
+
+```
+[
+  {
+    "Classification": "trino-connector-iceberg",
+    "Properties": {
+      "connector.name": "iceberg",
+      "iceberg.catalog.type": "glue",
+      "fs.native-s3.enabled": "true"
+    }
+  }
+]
+```
+
 2. Create a cluster with the following configuration, replacing the
    example Amazon S3 bucket path and key name with your own.
 
