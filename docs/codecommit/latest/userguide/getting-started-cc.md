@@ -274,7 +274,7 @@ pull requests for the repository. In **Description**, enter
 details about what this review is about and any other useful information for
 reviewers. Choose **Create**.
 
-![Creating a pull request](/images/codecommit/latest/userguide/images/codecommit-pull-request-create.png) 4. Your pull request appears in the list of pull requests for the repository. You
+![Creating a pull request](images/codecommit-pull-request-create.png) 4. Your pull request appears in the list of pull requests for the repository. You
 can filter the view to show only open requests, closed requests, requests that
 you created, and more.
 
