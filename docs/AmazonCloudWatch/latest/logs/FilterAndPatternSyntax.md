@@ -511,9 +511,9 @@ to match JSON terms with numeric values.
 // Filter pattern with not equal sign
 { $.errorCode != 500 }
 // Filter pattern with scientific notation and plus symbol
-{ $.number[0] = 1e-3 }
+{ $.number[0] = 1e+3 }
 // Filter pattern with scientific notation and minus symbol
-{ $.number[0] != 1e+3 }
+{ $.number[0] != 1e-3 }
 
 ```
 

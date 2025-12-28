@@ -50,7 +50,7 @@ The transformer configuration is this, using `addKeys` with
         "addKeys": {
             "entries": [
                 {
-                    "source": "outer_key.new_key",
+                    "key": "outer_key.new_key",
                     "value": "new_value"
                 }
             ]
@@ -269,7 +269,7 @@ The transformer configuration is this, using `copyValue` with
         "copyValue": {
             "entries": [
                 {
-                    "source": "outer_key.new_key",
+                    "key": "outer_key.new_key",
                     "target": "new_key"
                 },
                 {

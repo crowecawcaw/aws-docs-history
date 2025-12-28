@@ -124,21 +124,11 @@ which splits a field into an array using a delimiting character.
 Take the following example log event:
 
 ```
-[
-    {
-        "parseJSON": {}
-    },
-    {
-        "splitString": {
-            "entries": [
-                {
-                    "source": "outer_key.inner_key",
-                    "delimiter": "_"
-                }
-            ]
-        }
+{
+    "outer_key": {
+        "inner_key": "inner_value"
     }
-]
+}
 ```
 
 The transformer configuration is this, using `splitString` with

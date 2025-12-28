@@ -1,6 +1,6 @@
 # Cross-account
 
-cross-Region account-level subscriptions using Kinesis Data Streams
+cross-Region account-level subscriptions using Amazon Kinesis Data Streams
 
 When you create a cross-account subscription, you can specify a single account or
 an organization to be the sender. If you specify an organization, then this
@@ -23,7 +23,7 @@ still have to set up separate subscription filters for each sender
 account.
 
 - **Log data recipient**—sets up a destination that
-  encapsulates a Kinesis Data Streams stream and lets CloudWatch Logs know that the recipient wants to
+  encapsulates a Amazon Kinesis Data Streams stream and lets CloudWatch Logs know that the recipient wants to
   receive log data. The recipient then shares the information about this
   destination with the sender. In the procedures in the rest of this section,
   the log data recipient is shown with a fictional AWS account number of

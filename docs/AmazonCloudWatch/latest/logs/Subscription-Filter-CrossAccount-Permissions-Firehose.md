@@ -44,7 +44,7 @@ the cross-account destination resource.
 
 The following policy provides permissions to create a subscription
 filter on any destination resource only in a single AWS account,
-account `123456789012`:
+account `999999999999`:
 
 JSON
 

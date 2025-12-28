@@ -10,7 +10,7 @@ You can also use CloudWatch Logs centralization to replicate log data from multi
 regions into a central location. For more information, see [Cross-account cross-Region log
 centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md").
 
-To begin subscribing to log events, create the receiving resource, such as a Kinesis Data Streams stream,
+To begin subscribing to log events, create the receiving resource, such as a Amazon Kinesis Data Streams stream,
 where the events will be delivered. A subscription filter defines the filter pattern to use
 for filtering which log events get delivered to your AWS resource, as well as information
 about where to send matching log events to. Log events are sent to the receiving resource

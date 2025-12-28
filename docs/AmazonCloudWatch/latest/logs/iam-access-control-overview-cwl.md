@@ -89,7 +89,7 @@ about IAM policy syntax and descriptions, see [IAM policy reference](../../../IA
 in the _IAM User Guide_.
 
 Policies attached to an IAM identity are referred to as identity-based policies
-(IAM polices) and policies attached to a resource are referred to as
+(IAM policies) and policies attached to a resource are referred to as
 resource-based policies. CloudWatch Logs supports identity-based policies, and resource-based
 policies for destinations, which are used to enable cross account subscriptions. For
 more information, see [Cross-account cross-Region

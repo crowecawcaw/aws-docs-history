@@ -3,7 +3,7 @@
 permissions [V1]
 
 Some AWS services use a common infrastructure to send their logs to CloudWatch Logs, Amazon S3, or
-Firehose. To enable the AWS services listed in the following table to send their logs to
+Firehose. To enable the AWS services listed in the preceding table to send their logs to
 these destinations, you must be logged in as a user that has certain permissions.
 
 Additionally, permissions must be granted to AWS to enable the logs to be sent.

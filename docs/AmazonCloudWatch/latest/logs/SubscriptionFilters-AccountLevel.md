@@ -15,7 +15,7 @@ You can set an account-level subscription policy that includes a subset of log g
 in the account. The account subscription policy can work with Amazon Kinesis Data Streams, AWS Lambda, or
 Amazon Data Firehose. Logs sent to a service through an account-level subscription policy are
 base64 encoded and compressed with the gzip format. This section provides examples you
-can follow to create an account-level subscription for Kinesis Data Streams, Lambda, and Firehose.
+can follow to create an account-level subscription for Amazon Kinesis Data Streams, Lambda, and Firehose.
 
 ###### Note
 
@@ -27,7 +27,7 @@ parameter. For more information, see [describe-account-policies¶](../../../cli/
 ###### Examples
 
 - [Example 1: Subscription
-  filters with Kinesis Data Streams](#DestinationKinesisExample-AccountLevel "#DestinationKinesisExample-AccountLevel")
+  filters with Amazon Kinesis Data Streams](#DestinationKinesisExample-AccountLevel "#DestinationKinesisExample-AccountLevel")
 - [Example 2: Subscription filters
   with AWS Lambda](#LambdaFunctionExample-AccountLevel "#LambdaFunctionExample-AccountLevel")
 - [Example 3: Subscription filters with
@@ -35,12 +35,12 @@ parameter. For more information, see [describe-account-policies¶](../../../cli/
 
 ## Example 1: Subscription
 
-filters with Kinesis Data Streams
+filters with Amazon Kinesis Data Streams
 
-Before you create a Kinesis Data Streams data stream to use with an account-level subscription
+Before you create a Amazon Kinesis Data Streams data stream to use with an account-level subscription
 policy, calculate the volume of log data that will be generated. Be sure to create a
 stream with enough shards to handle this volume. If a stream doesn't have enough
-shards, it is throttled. For more information about stream volume limits, see [Quotas and Limits](../../../streams/latest/dev/service-sizes-and-limits.md "../../../streams/latest/dev/service-sizes-and-limits.md") in the Kinesis Data Streams documentation.
+shards, it is throttled. For more information about stream volume limits, see [Quotas and Limits](../../../streams/latest/dev/service-sizes-and-limits.md "../../../streams/latest/dev/service-sizes-and-limits.md") in the Amazon Kinesis Data Streams documentation.
 
 ###### Warning
 
@@ -50,24 +50,24 @@ for up to 24 hours. After 24 hours, the failed deliverables are dropped.
 
 To mitigate the risk of throttling, you can take the following steps:
 
-- Monitor your Kinesis Data Streams stream with CloudWatch metrics. This helps you identify
+- Monitor your Amazon Kinesis Data Streams stream with CloudWatch metrics. This helps you identify
   throttling and adjust your configuration accordingly. For example, the
   `DeliveryThrottling` metric tracks the number of log
   events for which CloudWatch Logs was throttled when forwarding data to the
   subscription destination. For more information, see [Monitoring with CloudWatch metrics](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md "CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md").
-- Use the on-demand capacity mode for your stream in Kinesis Data Streams. On-demand
+- Use the on-demand capacity mode for your stream in Amazon Kinesis Data Streams. On-demand
   mode instantly accommodates your workloads as they ramp up or down. For
   more information, see [On-demand mode](../../../streams/latest/dev/how-do-i-size-a-stream.md#ondemandmode "../../../streams/latest/dev/how-do-i-size-a-stream.md#ondemandmode").
 - Restrict your CloudWatch Logs subscription filter pattern to match the capacity
-  of your stream in Kinesis Data Streams. If you are sending too much data to the stream,
+  of your stream in Amazon Kinesis Data Streams. If you are sending too much data to the stream,
   you might need to reduce the filter size or adjust the filter
   criteria.
 
 The following example uses an account-level subscription policy to forward all log
-events to a stream in Kinesis Data Streams. The filter pattern matches any log events with the text
-`Test` and forwards them to the stream in Kinesis Data Streams.
+events to a stream in Amazon Kinesis Data Streams. The filter pattern matches any log events with the text
+`Test` and forwards them to the stream in Amazon Kinesis Data Streams.
 
-###### To create an account-level subscription policy for Kinesis Data Streams
+###### To create an account-level subscription policy for Amazon Kinesis Data Streams
 
 1. Create a destination stream using the following command:
 
@@ -220,9 +220,9 @@ subscription filter. For more information about this issue and determining
 which log groups to exclude, see [Log recursion prevention](Subscriptions-recursion-prevention.md "Subscriptions-recursion-prevention.md"). Currently, NOT IN
 is the only supported operator for `selection-criteria`.
 
-You can verify that the flow of log events by by using a Kinesis Data Streams shard
-iterator and using the Kinesis Data Streams `get-records` command to fetch some
-Kinesis Data Streams records::
+You can verify that the flow of log events by by using a Amazon Kinesis Data Streams shard
+iterator and using the Amazon Kinesis Data Streams `get-records` command to fetch some
+Amazon Kinesis Data Streams records::
 
 ```
 `aws kinesis get-shard-iterator --stream-name TestStream --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON`
@@ -239,11 +239,11 @@ Kinesis Data Streams records::
 `aws kinesis get-records --limit 10 --shard-iterator "AAAAAAAAAAFGU/kLvNggvndHq2UIFOw5PZc6F01s3e3afsSscRM70JSbjIefg2ub07nk1y6CDxYR1UoGHJNP4m4NFUetzfL+wev+e2P4djJg4L9wmXKvQYoE+rMUiFq+p4Cn3IgvqOb5dRA0yybNdRcdzvnC35KQANoHzzahKdRGb9v4scv+3vaq+f+OIK8zM5My8ID+g6rMo7UKWeI4+IWiK2OSh0uP"`
 ```
 
-You might need to use this command a few times before Kinesis Data Streams starts to
+You might need to use this command a few times before Amazon Kinesis Data Streams starts to
 return data.
 
 You should expect to see a response with an array of records. The
-**Data** attribute in a Kinesis Data Streams record is base64 encoded
+**Data** attribute in a Amazon Kinesis Data Streams record is base64 encoded
 and compressed with the gzip format. You can examine the raw data from the
 command line using the following Unix commands:
 
@@ -289,7 +289,7 @@ The key elements in the data structure are the following:
 **messageType**
 
 Data messages will use the "DATA_MESSAGE" type. Sometimes
-CloudWatch Logs might emit Kinesis Data Streams records with a "CONTROL_MESSAGE" type,
+CloudWatch Logs might emit Amazon Kinesis Data Streams records with a "CONTROL_MESSAGE" type,
 mainly for checking if the destination is reachable.
 
 **owner**
@@ -342,7 +342,7 @@ information about Lambda limits, see [AWS Lambda Limits](../../../lambda/latest/
 1. Create the AWS Lambda function.
 
 Ensure that you have set up the Lambda execution role. For more
-information, see [Step 2.2: Create an IAM Role (execution role)](../../../lambda/latest/dg/walkthrough-custom-events-create-test-function.md "../../../lambda/latest/dg/walkthrough-custom-events-create-test-function.md") in the
+information, see [Step 2.2: Create an IAM Role (execution role)](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") in the
 _AWS Lambda Developer Guide_. 2. Open a text editor and create a file named
 `helloWorld.js` with the following contents:
 
@@ -480,7 +480,7 @@ The key elements in the data structure are the following:
 **messageType**
 
 Data messages will use the "DATA_MESSAGE" type. Sometimes
-CloudWatch Logs might emit Kinesis Data Streams records with a "CONTROL_MESSAGE" type,
+CloudWatch Logs might emit Amazon Kinesis Data Streams records with a "CONTROL_MESSAGE" type,
 mainly for checking if the destination is reachable.
 
 **owner**

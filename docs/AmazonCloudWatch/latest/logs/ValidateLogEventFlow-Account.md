@@ -7,8 +7,8 @@ forwards all the incoming log events that match the filter pattern and
 selection criteria to the stream that is encapsulated within the destination
 stream called "**RecipientStream**". The destination owner
 can verify that this is happening by using the **aws kinesis
-get-shard-iterator** command to grab a Kinesis Data Streams shard, and using
-the **aws kinesis get-records** command to fetch some Kinesis Data Streams
+get-shard-iterator** command to grab a Amazon Kinesis Data Streams shard, and using
+the **aws kinesis get-records** command to fetch some Amazon Kinesis Data Streams
 records:
 
 ```
@@ -31,10 +31,10 @@ records:
 ###### Note
 
 You might need to rerun the `get-records` command a few
-times before Kinesis Data Streams starts to return data.
+times before Amazon Kinesis Data Streams starts to return data.
 
-You should see a response with an array of Kinesis Data Streams records. The data
-attribute in the Kinesis Data Streams record is compressed in gzip format and then base64
+You should see a response with an array of Amazon Kinesis Data Streams records. The data
+attribute in the Amazon Kinesis Data Streams record is compressed in gzip format and then base64
 encoded. You can examine the raw data from the command line using the
 following Unix command:
 
@@ -79,7 +79,7 @@ The key elements in the data structure are the following:
 **messageType**
 
 Data messages will use the "DATA_MESSAGE" type. Sometimes
-CloudWatch Logs might emit Kinesis Data Streams records with a "CONTROL_MESSAGE" type,
+CloudWatch Logs might emit Amazon Kinesis Data Streams records with a "CONTROL_MESSAGE" type,
 mainly for checking if the destination is reachable.
 
 **owner**

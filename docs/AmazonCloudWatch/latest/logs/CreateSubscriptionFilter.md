@@ -43,5 +43,5 @@ Add/validate IAM permissions for the cross-account destination](Subscription-Fil
 ```
 
 The log group and the destination must be in the same AWS Region.
-However, the destination can point to an AWS resource such as a Kinesis Data Streams
+However, the destination can point to an AWS resource such as a Amazon Kinesis Data Streams
 stream that is located in a different Region.

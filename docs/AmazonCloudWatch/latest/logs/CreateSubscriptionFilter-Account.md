@@ -42,4 +42,4 @@ is the only supported operator for `selection-criteria`.
 
 The sender account's log groups and the destination must be in the same
 AWS Region. However, the destination can point to an AWS resource such
-as a Kinesis Data Streams stream that is located in a different Region.
+as a Amazon Kinesis Data Streams stream that is located in a different Region.

@@ -21,6 +21,12 @@ the `isPresent(field)` function.
 The only query command that you can use in a query after the
 `dedup` command is `limit`.
 
+When you use `dedup` in a query, the console displays a message
+such as **Showing X of Y records**, where X is the number of
+deduplicated results and Y is the total number of records matched before
+deduplication. This indicates that duplicate records were removed and does not
+mean that data is missing.
+
 **Example: See only the most recent log event for each unique value
 of the field named `server`**
 

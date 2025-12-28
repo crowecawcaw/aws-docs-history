@@ -18,7 +18,7 @@ the following keywords:
 
 You can include as many as five prefixes in the list.
 
-- `accountIdentifiers` runs the query against log groups
+- `accountIdentifier` runs the query against log groups
   in the specified AWS account. This works only when you run the
   query in a monitoring account. If you omit this, the default is to
   query all linked source accounts and the current monitoring account.

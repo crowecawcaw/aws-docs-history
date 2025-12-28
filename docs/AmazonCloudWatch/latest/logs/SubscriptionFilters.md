@@ -6,7 +6,7 @@ with the gzip format. If you are using centralized logs with your AWS Organizati
 choose to emit the `@aws.account` and `@aws.region` system field
 to identify which data comes from which accounts and regions in your organization. This
 section provides examples you can follow to create a CloudWatch Logs subscription filter that
-sends log data to Firehose, Lambda, Kinesis Data Streams, and OpenSearch Service.
+sends log data to Firehose, Lambda, Amazon Kinesis Data Streams, and OpenSearch Service.
 
 ###### Note
 
@@ -16,7 +16,7 @@ pattern syntax](FilterAndPatternSyntax.md "FilterAndPatternSyntax.md").
 ###### Examples
 
 - [Example 1: Subscription filters with
-  Kinesis Data Streams](#DestinationKinesisExample "#DestinationKinesisExample")
+  Amazon Kinesis Data Streams](#DestinationKinesisExample "#DestinationKinesisExample")
 - [Example 2: Subscription filters with
   AWS Lambda](#LambdaFunctionExample "#LambdaFunctionExample")
 - [Example 3: Subscription filters with
@@ -26,11 +26,11 @@ pattern syntax](FilterAndPatternSyntax.md "FilterAndPatternSyntax.md").
 
 ## Example 1: Subscription filters with
 
-Kinesis Data Streams
+Amazon Kinesis Data Streams
 
 The following example associates a subscription filter with a log group containing
 AWS CloudTrail events. The subscription filter delivers every logged activity made by
-"Root" AWS credentials to a stream in Kinesis Data Streams called "RootAccess." For more
+"Root" AWS credentials to a stream in Amazon Kinesis Data Streams called "RootAccess." For more
 information about how to send AWS CloudTrail events to CloudWatch Logs, see [Sending CloudTrail Events to CloudWatch Logs](../../../awscloudtrail/latest/userguide/cw_send_ct_events.md "../../../awscloudtrail/latest/userguide/cw_send_ct_events.md")
 in the _AWS CloudTrail User Guide_.
 
@@ -55,15 +55,15 @@ To mitigate the risk of throttling, you can take the following steps:
   number of log events for which CloudWatch Logs was throttled when
   forwarding data to the subscription destination. For more information
   about monitoring, see [Monitoring with CloudWatch metrics](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md "CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md").
-- Use the on-demand capacity mode for your stream in Kinesis Data Streams. On-demand
+- Use the on-demand capacity mode for your stream in Amazon Kinesis Data Streams. On-demand
   mode instantly accommodates your workloads as they ramp up or down. More
   information about on-demand capacity mode, see [On-demand mode](../../../streams/latest/dev/how-do-i-size-a-stream.md#ondemandmode "../../../streams/latest/dev/how-do-i-size-a-stream.md#ondemandmode").
 - Restrict your CloudWatch subscription filter pattern to match the capacity
-  of your stream in Kinesis Data Streams. If you are sending too much data to the stream,
+  of your stream in Amazon Kinesis Data Streams. If you are sending too much data to the stream,
   you might need to reduce the filter size or adjust the filter
   criteria.
 
-###### To create a subscription filter for Kinesis Data Streams
+###### To create a subscription filter for Amazon Kinesis Data Streams
 
 1. Create a destination stream using the following command:
 
@@ -72,7 +72,7 @@ To mitigate the risk of throttling, you can take the following steps:
 ```
 
 2. Wait until the stream becomes Active (this might take a minute or two).
-   You can use the following Kinesis Data Streams [describe-stream](../../../cli/latest/reference/kinesis/describe-stream.md "../../../cli/latest/reference/kinesis/describe-stream.md")
+   You can use the following Amazon Kinesis Data Streams [describe-stream](../../../cli/latest/reference/kinesis/describe-stream.md "../../../cli/latest/reference/kinesis/describe-stream.md")
    command to check the **StreamDescription.StreamStatus**
    property. In addition, note the
    **StreamDescription.StreamARN** value, as you will need
@@ -208,8 +208,8 @@ aws logs put-subscription-filter \
 
 8. After you set up the subscription filter, CloudWatch Logs forwards all the incoming
    log events that match the filter pattern to your stream. You can verify that
-   this is happening by grabbing a Kinesis Data Streams shard iterator and using the Kinesis Data Streams
-   get-records command to fetch some Kinesis Data Streams records:
+   this is happening by grabbing a Amazon Kinesis Data Streams shard iterator and using the Amazon Kinesis Data Streams
+   get-records command to fetch some Amazon Kinesis Data Streams records:
 
 ```
 `aws kinesis get-shard-iterator --stream-name RootAccess --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON`
@@ -226,11 +226,11 @@ aws logs put-subscription-filter \
 `aws kinesis get-records --limit 10 --shard-iterator "AAAAAAAAAAFGU/kLvNggvndHq2UIFOw5PZc6F01s3e3afsSscRM70JSbjIefg2ub07nk1y6CDxYR1UoGHJNP4m4NFUetzfL+wev+e2P4djJg4L9wmXKvQYoE+rMUiFq+p4Cn3IgvqOb5dRA0yybNdRcdzvnC35KQANoHzzahKdRGb9v4scv+3vaq+f+OIK8zM5My8ID+g6rMo7UKWeI4+IWiK2OSh0uP"`
 ```
 
-Note that you might need to make this call a few times before Kinesis Data Streams starts
+Note that you might need to make this call a few times before Amazon Kinesis Data Streams starts
 to return data.
 
 You should expect to see a response with an array of records. The
-**Data** attribute in a Kinesis Data Streams record is base64 encoded
+**Data** attribute in a Amazon Kinesis Data Streams record is base64 encoded
 and compressed with the gzip format. You can examine the raw data from the
 command line using the following Unix commands:
 
@@ -292,7 +292,7 @@ originating log data.
 **messageType**
 
 Data messages will use the "DATA_MESSAGE" type. Sometimes
-CloudWatch Logs may emit Kinesis Data Streams records with a "CONTROL_MESSAGE" type,
+CloudWatch Logs may emit Amazon Kinesis Data Streams records with a "CONTROL_MESSAGE" type,
 mainly for checking if the destination is reachable.
 
 **logEvents**
@@ -320,7 +320,7 @@ more information about Lambda limits, see [AWS Lambda Limits](../../../lambda/la
 1. Create the AWS Lambda function.
 
 Ensure that you have set up the Lambda execution role. For more
-information, see [Step 2.2: Create an IAM Role (execution role)](../../../lambda/latest/dg/walkthrough-custom-events-create-test-function.md "../../../lambda/latest/dg/walkthrough-custom-events-create-test-function.md") in the
+information, see [Step 2.2: Create an IAM Role (execution role)](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") in the
 _AWS Lambda Developer Guide_. 2. Open a text editor and create a file named
 `helloWorld.js` with the following contents:
 
@@ -475,7 +475,7 @@ from CloudWatch Logs to Amazon Data Firehose is already compressed with gzip lev
 do not need to use compression within your Firehose delivery stream. You can then use
 the decompression feature in Firehose to automatically decompress the logs. For more
 information, see [Send CloudWatch Logs to
-Firehose](../../../firehose/latest/dev/writing-with-cloudwatch-logs.md "../../../firehose/latest/dev/writing-with-cloudwatch-logs.md").
+Firehose](../../../logs/SubscriptionFilters.md#FirehoseExample "../../../logs/SubscriptionFilters.md#FirehoseExample").
 
 ###### Note
 

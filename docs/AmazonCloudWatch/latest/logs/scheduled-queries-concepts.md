@@ -137,7 +137,7 @@ crosses regional boundaries. Consider the following:
   same region as your primary log groups.
 
 **Alternative approach:** Use [CloudWatch Logs
-centralization](../../../CloudWatchLogs_Centralization.md "../../../CloudWatchLogs_Centralization.md") to replicate log data from multiple accounts and regions
+centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md") to replicate log data from multiple accounts and regions
 into a central monitoring account. This allows you to create scheduled queries in a
 single region that access all your centralized logs, avoiding cross-region queries
 and simplifying IAM permissions management.

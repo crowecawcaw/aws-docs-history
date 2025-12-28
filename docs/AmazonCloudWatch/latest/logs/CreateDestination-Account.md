@@ -10,7 +10,7 @@ account.
 For this example, the log data recipient account has an AWS account ID
 of 999999999999, while the log data sender AWS account ID is 111111111111.
 
-This example creates a destination using a Kinesis Data Streams stream called
+This example creates a destination using a Amazon Kinesis Data Streams stream called
 RecipientStream, and a role that enables CloudWatch Logs to write data to it.
 
 When the destination is created, CloudWatch Logs sends a test message to the
@@ -20,7 +20,7 @@ account’s behalf.
 
 ###### To create a destination
 
-1. In the recipient account, create a destination stream in Kinesis Data Streams. At
+1. In the recipient account, create a destination stream in Amazon Kinesis Data Streams. At
    a command prompt, type:
 
 ```

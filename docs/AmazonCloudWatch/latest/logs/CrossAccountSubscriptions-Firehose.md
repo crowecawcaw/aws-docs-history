@@ -11,7 +11,7 @@ receiver:
   of this section, the log data sender is shown with a fictional AWS account
   number of 111111111111.
 - **Log data recipient**—sets up a destination that
-  encapsulates a Kinesis Data Streams stream and lets CloudWatch Logs know that the recipient wants to
+  encapsulates a Amazon Kinesis Data Streams stream and lets CloudWatch Logs know that the recipient wants to
   receive log data. The recipient then shares the information about this
   destination with the sender. In the procedures in the rest of this section,
   the log data recipient is shown with a fictional AWS account number of

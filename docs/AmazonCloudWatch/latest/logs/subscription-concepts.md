@@ -11,7 +11,7 @@ pattern syntax, see [Filter pattern syntax for metric filters, subscription filt
 
 **destination arn**
 
-The Amazon Resource Name (ARN) of the Kinesis Data Streams stream, Firehose stream, or Lambda
+The Amazon Resource Name (ARN) of the Amazon Kinesis Data Streams stream, Firehose stream, or Lambda
 function you want to use as the destination of the subscription feed.
 
 **role arn**
