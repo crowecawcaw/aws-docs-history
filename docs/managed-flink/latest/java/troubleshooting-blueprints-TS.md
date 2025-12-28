@@ -34,7 +34,7 @@ rolled back. What can I do to fix it?
   for Amazon Bedrock and Amazon OpenSearch Service that will be used by all other stacks deployed in your
   account. If a stack fails, check if that stack created VPC endpoints for
   Amazon Bedrock and Amazon OpenSearch Service and delete them if they are not used anywhere else in your
-  account. For steps for deleting VPC endpoints, see [How do I safely delete my application? (delete)](https://quip-amazon.com/0b6ZAIBsnSVq#temp:C:bPV8fc43821a8e74a11836825b86 "https://quip-amazon.com/0b6ZAIBsnSVq#temp:C:bPV8fc43821a8e74a11836825b86").
+  account. For steps for deleting VPC endpoints, refer to the documentation on how to safely delete your application.
 - There might be other services or applications in your account using the
   VPC endpoint. Deleting it might create network disruption for other
   services. Be careful in deleting these endpoints.

@@ -211,8 +211,7 @@ Depending on how you configured your application, you might see duplicate messag
 the index. One common reason is application restart. The application is configured by
 default to start reading from the earliest message in the source topic. When you change
 the configuraiton, the application restarts, and processes all messages in the topic
-again. To avoid re-processing, see [How
-do I use source.msk.starting.offset?](https://quip-amazon.com/0b6ZAIBsnSVq#temp:C:bPV2d49853149e54000ac324cc04 "https://quip-amazon.com/0b6ZAIBsnSVq#temp:C:bPV2d49853149e54000ac324cc04") and correctly set the starting offset
+again. To avoid re-processing, refer to the documentation on how to use source.msk.starting.offset and correctly set the starting offset
 for your application.
 
 ## Can I send data to multiple OpenSearch indices?
