@@ -1,6 +1,7 @@
 # TagResource
 
-Adds one or more tags to a signaling channel. A _tag_ is a
+Adds one or more tags to a signaling channel **only**. **Note :** To tag streams, use the TagStream API instead.
+A _tag_ is a
 key-value pair (the value is optional) that you can define and assign to AWS resources.
 If you specify a tag that already exists, the tag value is replaced with the value that
 you specify in the request. For more information, see [Using Cost Allocation
