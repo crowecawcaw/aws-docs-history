@@ -73,7 +73,7 @@ _INLINE CREATE_:
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-37qquo9wbpa8x" --change-type-version "1.0" --title "Delete or deactivate access key" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-DeactivateIAMAccessKey\",\"Region\": \"`us-east-1`\",\"Parameters\": {\"UserName\": \"`test-user`\", \"AccessKeyId\": \"`AKIAIOSFODNN7EXAMPLE`\", \"Delete\": `false`}}"
+aws amscm create-rfc --change-type-id "ct-37qquo9wbpa8x" --change-type-version "2.0" --title "Delete or deactivate access key" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-DeactivateIAMAccessKeyV2\",\"Region\": \"\",\"Parameters\": {\"UserName\": \"`test-user`\", \"AccessKeyId\": \"`AKIAIOSFODNN7EXAMPLE`\", \"Delete\": `false`}}"
 ```
 
 _TEMPLATE CREATE_:
@@ -88,7 +88,7 @@ aws amscm get-change-type-version --change-type-id "ct-37qquo9wbpa8x" --query "C
 
 ```
 {
-  "DocumentName": "AWSManagedServices-DeactivateIAMAccessKey",
+  "DocumentName": "AWSManagedServices-DeactivateIAMAccessKeyV2",
   "Region": "`us-east-1`",
   "Parameters": {
     "UserName": "`test-user`",
@@ -109,7 +109,7 @@ aws amscm create-rfc --generate-cli-skeleton > DeactivateIamAccessKeyRfc.json
 
 ```
 {
-    "ChangeTypeVersion": "1.0",
+    "ChangeTypeVersion": "2.0",
     "ChangeTypeId": "ct-37qquo9wbpa8x",
     "Title": "`Delete or Deactivate Access Key`"
 }

@@ -70,7 +70,8 @@ _INLINE CREATE_:
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-0lqruajvhwsbk" --change-type-version "1.0" --title "`Authorize security group egress rule`" --execution-parameters '{"DocumentName":"AWSManagedServices-AuthorizeSecurityGroupEgressRule","Region":"`us-east-1`","Parameters":{"SecurityGroupId":["`SG_ID`"],"IpProtocol":["`tcp`"],"FromPort":[`80`],"ToPort":[`80`],"Destination":["`10.0.0.1/24`"],"Description":["`HTTP Port for 10.0.0.1/24`"]}}'
+aws amscm create-rfc --change-type-id "ct-0lqruajvhwsbk" --change-type-version "2.0" --title "`AWSManagedServices-AuthorizeSecurityGroupEgressRulesV2`" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-AuthorizeSecurityGroupEgressRulesV2\",\"Region\": \"`us-east-1`\",\"Parameters\": {\"SecurityGroupId\": [
+\"`sg-03b5e3a1ad874bdd7`\"],\"OutboundRules\": [{\"IpProtocol\": \"`tcp`\",\"FromPort\": \"`80`\",\"ToPort\": \"`80`\",\"Destination\": \"`192.168.1.0/24`\"},{\"IpProtocol\": \"`tcp`\",\"FromPort\": \"`99`\",\"ToPort\": \"`99`\",\"Destination\": \"`172.16.0.0/24`\", \"Description\": \"`On-prem IP`\"}]}}"
 ```
 
 _TEMPLATE CREATE_:
@@ -85,15 +86,29 @@ aws amscm get-change-type-version --change-type-id "ct-0lqruajvhwsbk" --query "C
 
 ```
 {
-"DocumentName" : "AWSManagedServices-AuthorizeSecurityGroupEgressRule",
-"Region" : "`us-east-1`",
-"Parameters" : {
-"SecurityGroupId" : ["`SG_ID`"],
-"IpProtocol" : ["`tcp`"],
-"FromPort" : [`80`],
-"ToPort" : [`80`],
-"Destination" : ["`10.0.0.1/24`"]
-"Description" : ["`HTTP Port for 10.0.0.1/24`"]
+"DocumentName": "AWSManagedServices-AuthorizeSecurityGroupEgressRulesV2",
+"Region": "`us-east-1`",
+"Parameters": {
+{
+"SecurityGroupId": [
+"sg-03b5e3a1ad874bdd7"
+],
+"OutboundRules": [
+{
+"IpProtocol": "`tcp`",
+"FromPort": "`80`",
+"ToPort": "`80`",
+"Destination": "`192.168.1.0/24`"
+},
+{
+"IpProtocol": "`tcp`",
+"FromPort": "`99`",
+"ToPort": "`99`",
+"Destination": "`172.16.0.0/24`",
+"Description": "`On-prem IP`"
+}
+]
+}
 }
 }
 ```
@@ -108,9 +123,9 @@ aws amscm create-rfc --generate-cli-skeleton > AuthSGEgressRfc.json
 
 ```
 {
-  "ChangeTypeId": "ct-0lqruajvhwsbk",
-  "ChangeTypeVersion": "1.0",
-  "Title": "Authorize security group egress rule"
+"ChangeTypeVersion": "2.0",
+"ChangeTypeId": "ct-0lqruajvhwsbk",
+"Title": "Authorize Multiple Egress Rules"
 }
 ```
 

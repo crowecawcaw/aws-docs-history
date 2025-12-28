@@ -138,8 +138,6 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 - To learn more about Amazon RDS, including size recommendations, see
   [Amazon Relational Database Service Documentation](https://aws.amazon.com/documentation/rds/ "https://aws.amazon.com/documentation/rds/").
-- For an informal comparison of Secrets Manager and SSM Parameter Store, see
-  [AWS — Difference between Secrets Manager and Parameter Store (Systems Manager)](https://medium.com/awesome-cloud/aws-difference-between-secrets-manager-and-parameter-store-systems-manager-f02686604eae "https://medium.com/awesome-cloud/aws-difference-between-secrets-manager-and-parameter-store-systems-manager-f02686604eae").
 
 ## Execution Input Parameters
 
