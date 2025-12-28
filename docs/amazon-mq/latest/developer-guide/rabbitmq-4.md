@@ -11,6 +11,9 @@ You can only create new brokers on RabbitMQ 4.2. In place upgrades from RabbitMQ
 The default queue type on Amazon MQ for RabbitMQ 4.2 brokers will be “quorum”.
 If no queue type argument is specified during queue creation, a quorum queue will be created.
 
+We highly recommend using quorum queues on RabbitMQ 4 for durability needs,
+since classic queues are not guaranteed to be durable in all cases.
+
 ## The following changes have been introduced in RabbitMQ 4 on Amazon MQ
 
 - **AMQP 1.0 as a core protocol:** For more information, see [Protocols](rabbitmq-supported-protocols.md "rabbitmq-supported-protocols.md").

@@ -8,6 +8,7 @@ In addition to the values described in the following table, Amazon MQ supports a
 - [LDAP configuration](ldap-for-amq-for-rabbitmq.md "ldap-for-amq-for-rabbitmq.md")
 - [ARN support](arn-support-rabbitmq-configuration.md "arn-support-rabbitmq-configuration.md")
 - [Resource limits](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md")
+- [AMQP client SSL configuration](rabbitmq-amqp-client-ssl-configuration.md "rabbitmq-amqp-client-ssl-configuration.md")
 
 | Configuration                                                     | Default Value                                                                                            | Recommended Value       | Values                                                                              | Applicable Versions | Description                                                                                                                                                       |
 | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |

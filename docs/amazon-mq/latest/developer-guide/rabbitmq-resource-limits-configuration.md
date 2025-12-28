@@ -26,6 +26,10 @@ The default resource limits applied for RabbitMQ 4.2 brokers are
 
 ## Default resource limits
 
+###### Important
+
+Amazon MQ for RabbitMQ 3 brokers, the default is configured with the maximum resource limit and Amazon MQ does not provide the ability to override resource limit configuration.
+
 ### Default values for single instance brokers
 
 | Instance type   | Connections per Node | Channels per Node | Consumers per channel | Queues | vhosts | Shovels | Exchanges | Message size in Bytes |
