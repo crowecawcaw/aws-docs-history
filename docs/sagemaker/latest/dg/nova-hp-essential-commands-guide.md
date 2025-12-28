@@ -35,9 +35,9 @@ Before using these commands, ensure you have completed the following setup:
 Navigate to the root of your recipe repository before running the installation
 command.
 
-###### Standard public repository (contains Nova 1.0 recipes) + [Forge] Nova Forge
+###### Use the SageMaker HyperPodrecipes repository if using Non Forge customization techniques,
 
-repository (contains Nova 2.0 recipes)
+for Forge based customization refer to the forge specific recipe repository.
 
 Run the following commands to install the HyperPod CLI:
 
@@ -50,14 +50,24 @@ If you are, please exit the environment using:
 - `conda deactivate` for conda / anaconda / miniconda environments
 - `deactivate` for python virtual environments
 
+If you are using a Non Forge customization technique, download the
+sagemaker-hyperpod-recipes as shown below:
+
 ```
-git clone -b release_v2 https://github.com/aws/sagemaker-hyperpod-cli.git
-cd sagemaker-hyperpod-cli
+git clone -b release_v2 https://github.com/aws/sagemaker-hyperpod-cli.git cd sagemaker-hyperpod-cli
 pip install -e .
 cd ..
 root_dir=$(pwd)
 export PYTHONPATH=${root_dir}/sagemaker-hyperpod-cli/src/hyperpod_cli/sagemaker_hyperpod_recipes/launcher/nemo/nemo_framework_launcher/launcher_scripts:$PYTHONPATH
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh rm -f ./get_helm.sh
+```
 
+If you are a **Forge Subscriber,** you should be
+downloading the recipes using below mentioned process.
+
+```
 mkdir NovaForgeHyperpodCLI
 cd NovaForgeHyperpodCLI
 aws s3 cp s3://nova-forge-c7363-206080352451-us-east-1/v1/ ./ --recursive
@@ -65,8 +75,7 @@ pip install -e .
 
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
-./get_helm.sh
-rm -f ./get_helm.sh
+./get_helm.sh rm -f ./get_helm.sh
 ```
 
 ###### Tip
@@ -79,9 +88,12 @@ environment](https://docs.python.org/3/library/venv.html "https://docs.python.or
 - Your command line will now display (nova_forge) at the beginning of your prompt
 - This ensures there are no competing dependencies when using the CLI
 
-**Purpose**: Installs the HyperPod CLI in editable
-mode, allowing you to use updated recipes without reinstalling each time. It also enables
-you to add new recipes that the CLI can automatically pick up.
+**Purpose**: Why do we do `pip install -e .`
+?
+
+This command installs the HyperPod CLI in editable mode, allowing you to use
+updated recipes without reinstalling each time. It also enables you to add new recipes that
+the CLI can automatically pick up.
 
 ## Connecting to your
 
@@ -116,7 +128,7 @@ interacting with your jobs.
 
 ## Starting a training job
 
-See Common Issues for frequently seen problems and their resolution.
+###### Note
 
 If running PPO/RFT jobs, ensure you add label selector settings to
 `src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/cluster/k8s.yaml`
@@ -133,10 +145,10 @@ Launch a training job using a recipe with optional parameter overrides:
 
 ```
 hyperpod start-job -n kubeflow \
-  --recipe fine-tuning/nova/nova_micro_p5_gpu_sft \
-  --override-parameters '{
-    "instance_type": "ml.p5.48xlarge",
-    "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-SFT-DATAMIX-latest"
+--recipe fine-tuning/nova/nova_1_0/nova_micro/SFT/nova_micro_1_0_p5_p4d_gpu_lora_sft \
+--override-parameters '{
+"instance_type": "ml.p5.48xlarge",
+    "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest"
   }'
 ```
 

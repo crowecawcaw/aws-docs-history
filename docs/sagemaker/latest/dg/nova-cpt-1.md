@@ -23,7 +23,7 @@ CPT:
 - **Scale**: Larger datasets help, but beyond a certain
   threshold (such as running multiple epochs on limited data), over-fitting risks
   increase.
-  Training and validation datasets must be JSONL files following the Converse format,
+  Training and validation datasets must be JSONL files following the format shown below,
   where each line contains a JSON object representing a conversation with the required fields
   and structure. Here is an example:
 
@@ -59,8 +59,8 @@ models.
 | Amazon Nova Lite  | 256 | 100,000                      | 16                     | 8,192              | 4                                  |
 | Amazon Nova Pro   | 256 | 100,000                      | 24                     | 8,192              | 10                                 |
 
-Training and validation datasets must be JSONL files following the [Amazon Bedrock
-Converse operation format](../../../bedrock/latest/APIReference/API_runtime_Converse.md "../../../bedrock/latest/APIReference/API_runtime_Converse.md"), where each line contains a JSON object representing a
+Training and validation datasets must be JSONL files following the format shown below,
+where each line contains a JSON object representing a
 conversation with the required fields and structure.
 
 The Amazon Nova parameters that are available for tuning with CPT include:

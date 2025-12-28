@@ -13,7 +13,7 @@ while maintaining its superior reasoning and analytical abilities.
 
 ###### Data format requirements
 
-Training and validation datasets must be JSONL files following the Converse format,
+Training and validation datasets must be JSONL files following the format shown below,
 where each line contains a JSON object representing a conversation with the required
 fields and structure. Here is an example:
 

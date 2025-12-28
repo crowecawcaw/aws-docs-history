@@ -25,7 +25,7 @@ Nova Forge provides the following key capabilities:
 
 ### Subscribe to Nova Forge
 
-To request access to the Nova Forge service, first step is to add the following
+To request access to the Nova Forge service, the first step is to add the following
 key-value pair as tags to your role: forge-subscription. After you've added these
 tags to your role, please go to SageMaker AI Console > Model training and customization and
 click on Nova Forge. On this page, you'll find details about the service, pricing

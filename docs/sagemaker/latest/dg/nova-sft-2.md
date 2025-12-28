@@ -30,18 +30,6 @@ Key features of SFT on Nova 2.0 include:
 - [Creating a Fine-Tuning Job](#nova-sft-2-creating-job "#nova-sft-2-creating-job")
 - [Hyperparameter Guidance](#nova-sft-2-hyperparameters "#nova-sft-2-hyperparameters")
 
-###### Topics
-
-- [Reasoning Mode Selection (Nova 2.0
-  Only)](#nova-sft-2-reasoning-mode "#nova-sft-2-reasoning-mode")
-- [Tool calling data format](#nova-sft-2-tool-calling "#nova-sft-2-tool-calling")
-- [Document understanding data
-  format](#nova-sft-2-document-understanding "#nova-sft-2-document-understanding")
-- [Video Understanding for SFT](#nova-sft-2-video-understanding "#nova-sft-2-video-understanding")
-- [Data Upload Instructions](#nova-sft-2-data-upload "#nova-sft-2-data-upload")
-- [Creating a Fine-Tuning Job](#nova-sft-2-creating-job "#nova-sft-2-creating-job")
-- [Hyperparameter Guidance](#nova-sft-2-hyperparameters "#nova-sft-2-hyperparameters")
-
 ## Reasoning Mode Selection (Nova 2.0
 
 Only)
@@ -348,7 +336,7 @@ the recipe's `run` block:
 run:
   ...
   data_s3_path: "s3://<bucket-name>/<training-directory>/<training-file>.jsonl"
-  validation_data_s3_path: "s3://<bucket-name>/<validation-directory>/<validation-file>.jsonl"
+
 ```
 
 **Note**: Replace `<bucket-name>`,
@@ -368,8 +356,8 @@ Define the base model using the `model_type` and
 ## Run config
 run:
   ...
-  model_type: "amazon.nova-lite-v1:0:300k"
-  model_name_or_path: "nova-lite-2/prod"
+  model_type: amazon.nova-2-lite-v1:0:256k
+  model_name_or_path: nova-lite-2/prod
   ...
 ```
 

@@ -2,14 +2,6 @@
 
 Amazon Nova customization doesn't support the following capabilities on SageMaker AI.
 
-- **Custom metrics for evaluation (RegEx or
-  LLMAsJudge-based)**
-
-The current Amazon Nova evaluation recipe doesn't support incorporating your own
-regex-based or LLMAsJudge-based custom metrics. As a workaround, you can export
-the model to Amazon Bedrock and then make inference calls in order to evaluate the custom
-model with custom metrics.
-
 - **SSH into the instance to find the
   metrics**
 

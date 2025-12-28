@@ -1,5 +1,19 @@
 # Fine-tune Nova 2.0
 
+## Prerequisites
+
+Before you start a training job, note the following.
+
+- Amazon S3 buckets to store your input data and output of training jobs. You can
+  either use one bucket for both or separate buckets for each type of the
+  data. Make sure your buckets are in the same AWS Region where you create
+  all the other resources for training. For more information, see [Creating a
+  general purpose bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md").
+- An IAM role with permissions to run a training job. Make sure you attach
+  an IAM policy with `AmazonSageMakerFullAccess`. For more
+  information, see [How to use SageMaker execution roles](sagemaker-roles.md "sagemaker-roles.md").
+- Base Amazon Nova recipes, see [Getting Amazon Nova recipes](nova-model-recipes.md#nova-model-get-recipes "nova-model-recipes.md#nova-model-get-recipes").
+
 ## What is SFT?
 
 Supervised fine-tuning (SFT) trains a language model using labeled input-output pairs. The model learns from demonstration examples consisting of prompts and responses, refining its capabilities to align with specific tasks, instructions, or desired behaviors.

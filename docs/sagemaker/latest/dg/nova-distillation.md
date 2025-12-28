@@ -3,19 +3,13 @@
 This quick start guide helps you get started with Amazon Nova model distillation using
 supervised fine-tuning (SFT) on SageMaker AI.
 
-###### Topics
-
-- [Concepts](#nova-distillation-training-job-concepts "#nova-distillation-training-job-concepts")
-
-## Concepts
-
 Model distillation is a method that transfers knowledge from large, advanced
 models to smaller, efficient ones. With Amazon Nova models, a larger "teacher" model
 (like Amazon Nova Pro or Amazon Nova Premier) passes its capabilities to a smaller "student" model
 (like Amazon Nova Lite or Amazon Nova Micro). This creates a customized model that maintains
 high performance while using fewer resources.
 
-### Key
+## Key
 
 components
 
@@ -35,7 +29,7 @@ knowledge:
 - Amazon Nova Pro (amazon.nova-pro-v1:0:300k) - Available only when using
   Amazon Nova Premier as teacher
 
-### Use cases
+## Use cases
 
 Mode distillation is particularly beneficial when:
 
@@ -46,14 +40,14 @@ Mode distillation is particularly beneficial when:
 - You want to match the performance of advanced models while maintaining
   the efficiency of smaller models.
 
-### Prerequisites
+## Prerequisites
 
 - AWS account with access to Amazon Nova models and appropriate service
   quotas (min. 6 P5 and 1 R5 instances).
 - IAM role with permissions for SageMaker training jobs.
 - Amazon S3 bucket to store training data and outputs.
 
-### Setting up data
+## Setting up data
 
 augmentation
 
@@ -61,7 +55,7 @@ The data augmentation phase uses SageMaker training jobs to generate high-qualit
 training data using the teacher model. This section details the setup process
 and requirements.
 
-#### IAM
+### IAM
 
 role
 
@@ -165,7 +159,7 @@ aws iam put-role-policy \
 }
 ```
 
-#### Amazon VPC
+### Amazon VPC
 
 configuration
 
@@ -214,7 +208,7 @@ For each endpoint:
 - Choose the private subnets
 - Select the Distillation-SG security group
 
-#### AWS KMS
+### AWS KMS
 
 keys
 
@@ -249,7 +243,7 @@ output:
 Save the KMS key ARN from the output as you'll need it for the Amazon S3
 bucket creation in the next section.
 
-#### Amazon S3
+### Amazon S3
 
 bucket
 
@@ -289,7 +283,7 @@ aws s3api create-bucket \
 }'
 ```
 
-### Starting a SageMaker training
+## Starting a SageMaker training
 
 job
 
@@ -419,13 +413,13 @@ trainingInput = TrainingInput(
 estimator.fit(inputs={"train": trainingInput})
 ```
 
-### CloudWatch logs
+## CloudWatch logs
 
 Logs are available in Amazon CloudWatch under the
 `/aws/sagemaker/TrainingJobs` log group in your AWS account.
 You will see one log file per host used for your training job.
 
-### Successful
+## Successful
 
 training
 
@@ -460,7 +454,7 @@ The output bucket contains the following files:
 }
 ```
 
-### Validating augmented
+## Validating augmented
 
 data quality
 

@@ -240,10 +240,7 @@ training_config:
 
 ## Limitations
 
-Publishing metrics to Weights & Biases and MLFlow is not supported.
-
-Intermediate checkpoints are not saved for evaluation and you can't resume from an
-intermediate checkpoint. Only the last checkpoint is saved.
+Publishing metrics to Weights & Biases is not supported.
 
 To adjust the hyperparameters, follow the guidance in [Selecting
 hyperparameters](../../../nova/latest/userguide/customize-fine-tune-hyperparameters.md "../../../nova/latest/userguide/customize-fine-tune-hyperparameters.md").
@@ -396,14 +393,8 @@ training_config:
                 adapter_dropout: 0.01  # Regularization for LoRA parameters
 ```
 
-PEFT has the following limitations:
-
-- The training configuration provided earlier has the recommended values for
-  each parameter.
-- Intermediate checkpoints are not saved for evaluation and you can't resume
-  from an intermediate checkpoint. Only the last checkpoint is saved.
-  Use the following information to help resolve issues that you might
-  encounter:
+Use the following information to help resolve issues that you might
+encounter:
 
 - The input dataset for both training and validation should reside in
   customer-owned buckets, not in escrow, or service-managed S3 buckets.

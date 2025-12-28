@@ -6,13 +6,12 @@ sources like Amazon S3, executes your training code, and stores the resulting mo
 artifacts.
 
 The purpose of training is to customize the base Amazon Nova model using your proprietary data.
-The training process typically involves steps to prepare your data, choose a recipe, modify
-configuration parameters in YAML files, and submit a training job. The training process will
-output trained model checkpoint in a service-managed Amazon S3 bucket. You can use this
-checkpoint location for evaluation jobs. Nova customization on SageMaker training jobs stores
-model artifacts in a service-managed Amazon S3 bucket. Artifacts in the service-managed bucket
-are encrypted with SageMaker-managed KMS keys. Service-managed Amazon S3 buckets don't currently
-support data encryption using customer-managed KMS keys.
+The training process typically involves steps to prepare your data, choose a [recipe](nova-model-recipes.md "nova-model-recipes.md"), modify configuration parameters in YAML files, and submit a training
+job. The training process will output trained model checkpoint in a service-managed Amazon S3
+bucket. You can use this checkpoint location for evaluation jobs. Nova customization on SageMaker
+training jobs stores model artifacts in a service-managed Amazon S3 bucket. Artifacts in the
+service-managed bucket are encrypted with SageMaker-managed KMS keys. Service-managed Amazon S3
+buckets don't currently support data encryption using customer-managed KMS keys.
 
 ## Overview
 
@@ -22,7 +21,7 @@ best approach for your needs and available data.
 ### Two stages of LLM training
 
 Large language model training consists of two major stages: pre-training and
-post-training. During pre-training, the model processes trillions of tokens of raw
+post-training. During pre-training, the model processes tokens of raw
 text and optimizes for next-token prediction. This process creates a pattern
 completer that absorbs syntax, semantics, facts, and reasoning patterns from web and
 curated text. However, the pre-trained model doesn't understand instructions, user
@@ -46,6 +45,9 @@ reliable, policy-aligned system that performs complex tasks consistently.
 ### Choose the right
 
 customization approach
+
+In this section we will cover post training customization strategies: RFT and
+SFT.
 
 #### Reinforcement fine-tuning
 

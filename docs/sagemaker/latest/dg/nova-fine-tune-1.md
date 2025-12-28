@@ -27,7 +27,7 @@ your datasets effectively for fine-tuning Amazon Nova models.
 **SFT**
 
 SFT data format requirements - For both full-rank SFT and LoRA SFT, data
-should follow the Converse format. For examples and constraints of this
+should follow the format shown below. For examples and constraints of this
 format, see [Preparing data for fine-tuning Understanding models](../../../nova/latest/userguide/fine-tune-prepare-data-understanding.md "../../../nova/latest/userguide/fine-tune-prepare-data-understanding.md").
 
 SFT data validation - To validate your dataset format before submission, we
@@ -39,7 +39,7 @@ job.
 **DPO**
 
 DPO data format requirements - For both DPO in full-rank and DPO with
-LoRA, data should follow the Converse format. The dataset also needs to be
+LoRA, data should follow the format shown below. The dataset also needs to be
 in the similar format as SFT except the last turn needs to have preference
 pairs.
 
@@ -483,12 +483,6 @@ if (validation_s3_uri):
 else:
     estimator.fit(inputs={"train": trainingInput})
 
-# 5. Monitor your training job
-# To monitor your training job, you can either:
-#  * Go to your AWS console -> Amazon Sagemaker AI -> Training -> Training Jobs
-#  * run the following command
-
-# sm.describe_training_job(TrainingJobName="<complete training job name>")
 ```
 
 ## Hyperparameter optimization guidance

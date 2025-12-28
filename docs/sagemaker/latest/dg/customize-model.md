@@ -6,7 +6,7 @@ streamlined workflow that can be completed in days. This feature addresses the c
 challenge faced by AI developers who need to customize foundation models with proprietary
 data to create highly differentiated customer experiences. Detailed customization
 documentation, including step-by-step guides and advanced configuration options, is provided
-in this SageMaker AI guide. For a brief overview of Nova model customization, see[Customize and fine-tune with SageMaker](../../../nova/latest/userguide/customize-fine-tune-sagemaker.md "../../../nova/latest/userguide/customize-fine-tune-sagemaker.md") in the Amazon Nova User Guide.
+in this SageMaker AI guide. For a brief overview of Nova model customization, see [Customize and fine-tune with SageMaker](../../../nova/latest/userguide/customize-fine-tune-sagemaker.md "../../../nova/latest/userguide/customize-fine-tune-sagemaker.md") in the Amazon Nova User Guide.
 
 The capability includes a new guided user interface that understands natural language
 requirements, with a comprehensive suite of advanced model customization techniques, all

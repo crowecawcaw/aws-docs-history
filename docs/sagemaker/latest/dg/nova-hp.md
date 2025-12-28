@@ -27,25 +27,25 @@ pricing](https://aws.amazon.com/sagemaker-ai/pricing/ "https://aws.amazon.com/sa
 The following tables summarize the computational requirements for SageMaker HyperPod and SageMaker AI
 training jobs training for Nova 1.0 models.
 
-| Pre-training         | Model | Sequence length | Nodes          | Instance | Accelerator |
-| -------------------- | ----- | --------------- | -------------- | -------- | ----------- |
-| Amazon Nova Micro    | 8,192 | 8               | ml.p5.48xlarge | GPU H100 |
-| Amazon Nova Lite     | 8,192 | 16              | ml.p5.48xlarge | GPU H100 |
-| Amazon Nova Lite 2.0 | 8,192 | 12              | ml.p5.48xlarge | GPU H100 |
+| Pre-training      | Model | Sequence length | Nodes          | Instance | Accelerator |
+| ----------------- | ----- | --------------- | -------------- | -------- | ----------- |
+| Amazon Nova Micro | 8,192 | 8               | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova Lite  | 8,192 | 16              | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova Pro   | 8,192 | 12              | ml.p5.48xlarge | GPU H100 |
 
 | Direct preference optimization (DPO)  | Model  | Sequence length | Number of nodes | Instance | Accelerator |
 | ------------------------------------- | ------ | --------------- | --------------- | -------- | ----------- |
 | Direct Preference Optimization (Full) | 32,768 | 2, 4, or 6      | ml.p5.48xlarge  | GPU H100 |
 | Direct Preference Optimization (LoRA) | 32,768 | 2, 4, or 6      | ml.p5.48xlarge  | GPU H100 |
 
-| Fine-tuning                   | Model  | Sequence length | Number of nodes | Instance | Accelerator |
-| ----------------------------- | ------ | --------------- | --------------- | -------- | ----------- |
-| Supervised Fine-Tuning (LoRA) | 65,536 | 2               | ml.p5.48xlarge  | GPU H100 |
-| Supervised Fine-Tuning (Full) | 65,536 | 2               | ml.p5.48xlarge  | GPU H100 |
-| Supervised Fine-Tuning (LoRA) | 32,768 | 4               | ml.p5.48xlarge  | GPU H100 |
-| Supervised Fine-Tuning (Full) | 65,536 | 4               | ml.p5.48xlarge  | GPU H100 |
-| Supervised Fine-Tuning (LoRA) | 65,536 | 6               | ml.p5.48xlarge  | GPU H100 |
-| Supervised Fine-Tuning (Full) | 65,536 | 6               | ml.p5.48xlarge  | GPU H100 |
+| Fine-tuning         | Model                         | Technique | Sequence length | Number of nodes | Instance | Accelerator |
+| ------------------- | ----------------------------- | --------- | --------------- | --------------- | -------- | ----------- |
+| Amazon Nova 1 Micro | Supervised Fine-Tuning (LoRA) | 65,536    | 2               | ml.p5.48xlarge  | GPU H100 |
+| Amazon Nova 1 Micro | Supervised Fine-Tuning (Full) | 65,536    | 2               | ml.p5.48xlarge  | GPU H100 |
+| Amazon Nova 1 Lite  | Supervised Fine-Tuning (LoRA) | 32,768    | 4               | ml.p5.48xlarge  | GPU H100 |
+| Amazon Nova 1 Lite  | Supervised Fine-Tuning (Full) | 65,536    | 4               | ml.p5.48xlarge  | GPU H100 |
+| Amazon Nova 1 Pro   | Supervised Fine-Tuning (LoRA) | 65,536    | 6               | ml.p5.48xlarge  | GPU H100 |
+| Amazon Nova 1 Pro   | Supervised Fine-Tuning (Full) | 65,536    | 6               | ml.p5.48xlarge  | GPU H100 |
 
 | Distillation                         | Model | Nodes          | Instance |
 | ------------------------------------ | ----- | -------------- | -------- |
@@ -71,14 +71,14 @@ training jobs training for Nova 1.0 models.
 The following tables summarize the computational requirements for SageMaker HyperPod and SageMaker AI
 training jobs training for Nova 2 models.
 
-| Nova 2 Training Requirements                  | Training Technique | Minimum Instances | Instance Type | GPU Count                                       | Notes               | Supported Models |
-| --------------------------------------------- | ------------------ | ----------------- | ------------- | ----------------------------------------------- | ------------------- | ---------------- |
-| SFT (LoRA)                                    | 4                  | P5.48xlarge       | 16            | Parameter-efficient fine-tuning                 | Nova 1, Nova 2 Lite |
-| SFT (Full Rank)                               | 4                  | P5.48xlarge       | 32            | Full model fine-tuning                          | Nova 1, Nova 2 Lite |
-| RFT on SageMaker AI Training Jobs (LoRA)      | 2                  | P5.48xlarge       | 16            | Custom Reward Functions in your AWS Environment | Nova 2 Lite         |
-| RFT on SageMaker AI Training Jobs (Full Rank) | 4                  | P5.48xlarge       | 32            | 32K context length                              | Nova 2 Lite         |
-| RFT on SageMaker HyperPod                     | 8                  | P5.48xlarge       | 64            | Default 8192 context length                     | Nova 1              |
-| CPT                                           | 2                  | P5.48xlarge       | 16            | Processes approximately 1.25B tokens per day    | Nova 1              |
+| Nova 2 Training Requirements                  | Training Technique | Minimum Instances | Instance Type | GPU Count                                       | Notes |
+| --------------------------------------------- | ------------------ | ----------------- | ------------- | ----------------------------------------------- | ----- |
+| SFT (LoRA)                                    | 4                  | P5.48xlarge       | 16            | Parameter-efficient fine-tuning                 |
+| SFT (Full Rank)                               | 4                  | P5.48xlarge       | 32            | Full model fine-tuning                          |
+| RFT on SageMaker AI Training Jobs (LoRA)      | 2                  | P5.48xlarge       | 16            | Custom Reward Functions in your AWS Environment |
+| RFT on SageMaker AI Training Jobs (Full Rank) | 4                  | P5.48xlarge       | 32            | 32K context length                              |
+| RFT on SageMaker HyperPod                     | 8                  | P5.48xlarge       | 64            | Default 8192 context length                     |
+| CPT                                           | 2                  | P5.48xlarge       | 16            | Processes approximately 1.25B tokens per day    |
 
 ###### Topics
 

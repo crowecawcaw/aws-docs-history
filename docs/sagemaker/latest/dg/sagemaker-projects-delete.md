@@ -36,7 +36,7 @@ Studio Classic
 
 1. Sign in to Studio Classic. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
 2. In the Studio Classic sidebar, choose the **Home** icon (
-   ![Black square icon representing a placeholder or empty image.](/images/sagemaker/latest/dg/images/studio/icons/house.png)
+   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
    ).
 3. Select **Deployments** from the menu, and then
    select **Projects**.

@@ -8,41 +8,21 @@ for your use case, this SDK provides everything you need in one unified interfac
 
 ## Benefits
 
-- Unified experience
-
-One SDK for the entire model customization lifecycle—from data preparation to
-deployment and monitoring.
-
-- Flexible training options
-
-Support for multiple training methods including supervised fine-tuning (SFT)
-and reinforcement fine-tuning (RFT), with both LoRA and full-rank
-approaches.
-
-- Enterprise-ready infrastructure
-
-Built-in support for SageMaker AI Training Jobs and SageMaker HyperPod, with automatic
-resource management.
-
-- On-the-fly recipe creation
-
-No more finding the right recipes or container URI for your training
-techniques.
-
-- Custom recipe support
-
-Bring your own training recipes or use the SDK's intelligent defaults with
-parameter overrides.
-
-- Automatic validation
-
-The SDK validates your configuration against supported model and instance
-combinations, preventing errors before training starts.
-
-- Complete observability
-
-Integrated Amazon CloudWatch monitoring enables you to track training progress in
-real-time.
+- One SDK for the entire model customization lifecycle—from data preparation to
+  deployment and monitoring.
+- Support for multiple training methods including supervised fine-tuning (SFT)
+  and reinforcement fine-tuning (RFT), with both LoRA and full-rank
+  approaches.
+- Built-in support for SageMaker AI Training Jobs and SageMaker HyperPod, with automatic
+  resource management.
+- No more finding the right recipes or container URI for your training
+  techniques.
+- Bring your own training recipes or use the SDK's intelligent defaults with
+  parameter overrides.
+- The SDK validates your configuration against supported model and instance
+  combinations, preventing errors before training starts.
+- Integrated Amazon CloudWatch monitoring enables you to track training progress in
+  real-time.
 
 ## Requirements
 
@@ -63,12 +43,12 @@ Techniques
 The SDK supports the following models and techniques within the Amazon Nova
 family:
 
-| Method                              | Supported Models |
-| ----------------------------------- | ---------------- |
-| Supervised Fine-tuning LoRA         | All Nova Models  |
-| Supervised Fine-tuning Full-Rank    | All Nova Models  |
-| Reinforcement Fine-tuning LoRA      | Nova Lite 2.0    |
-| Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0    |
+| Method                              | Supported Models                                                                                                           |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Supervised Fine-tuning LoRA         | [All Nova Models](nova-model-recipes.md#nova-model-recipes-reference "nova-model-recipes.md#nova-model-recipes-reference") |
+| Supervised Fine-tuning Full-Rank    | [All Nova Models](nova-model-recipes.md#nova-model-recipes-reference "nova-model-recipes.md#nova-model-recipes-reference") |
+| Reinforcement Fine-tuning LoRA      | Nova Lite 2.0                                                                                                              |
+| Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0                                                                                                              |
 
 ## Getting Started
 
