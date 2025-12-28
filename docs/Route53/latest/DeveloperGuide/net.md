@@ -1,78 +1,25 @@
-# .net.au (Australia)
+# .net
+
+Used for all types of websites. The .net extension is an abbreviation of
+network.
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
-**Confirmation email from the TLD registry**
-
-Our registrar associate, Gandi, resells .net.au domains through
-DomainDirectors. When you transfer a domain name to Route 53,
-DomainDirectors sends an email to the registrant contact for the
-domain to verify contact information or to authorize transfer
-requests.
-
 **Lease period for registration and renewal**
 
-One to five years.
-
-**Restrictions**
-
-Only second-level domains are available. Route 53 supports the
-second-level domains .com.au and net.au.
-
-Open to the public, with some restrictions:
-
-- The .com.au and .net.au domains are open to legal persons,
-  trading, partnerships, or sole traders registered in
-  Australia; to foreign companies licensed to trade in
-  Australia; and to owners or applicants of an
-  Australian-registered trademark.
-- Your domain name must be identical to your name, as
-  registered with the relevant Australian authorities or to
-  your trademark (or to the abbreviation or acronym).
-- The domain name should indicate your activity. For
-  example, it should indicate a product that you sell or a
-  service that you provide.
-- During the registration process, you must indicate the
-  following:
-  - Your registration type: ABN (Australian Business
-    Number), ACN (Australian Company Number), or TM
-    (Trademark) if the domain name corresponds to your
-    trademark.
-  - Your ID number, which can be an Australian Business Number (ABN),
-    an Australian Company Number (ACN), or your trademark number (TM) if the domain name corresponds to your trademark.
-  - Your registrant name, which is the name of the legal entity registering the domain.
-    This value must exactly match the name on the provided.
-  - Your eligibility type, which refers to the type of the legal entity registering this domain name.
-  - The reason why you are allowed to register this domain name (Policy reason):
-    - The domain name matches the acronym or abbreviation of the registrant's company or trading name,
-      organization or association name, or trademark. (Policy reason 1)
-    - The domain name meets the allocation rules but is not an acronym or abbreviation of the registrant's company
-      or trading name, organization or association name, or trademark.
-      (Policy reason 2). To view the allocation rules for .net.au,
-      see SCHEDULE E from the [net.au registry](https://www.auda.org.au/au-domain-names/au-rules-and-policies/domain-name-eligibility-and-allocation-policy-rules-open-2lds-2012-04/ "https://www.auda.org.au/au-domain-names/au-rules-and-policies/domain-name-eligibility-and-allocation-policy-rules-open-2lds-2012-04/").
-
-- Incorrect or mismatched contact information, including
-  name, ABN, or Trademark (TM) number will result in
-  registration, trade, and renewals failures. An ownership
-  change might be required to correct information for existing
-  domains.
+One to ten years.
 
 **Privacy protection**
 
-Not supported.
+All information is hidden.
 
 **Domain locking to prevent unauthorized transfers**
 
-Not supported. We recommend that you prevent unauthorized
-transfers by restricting access to the [RetrieveDomainAuthCode](../APIReference/API_domains_RetrieveDomainAuthCode.md "../APIReference/API_domains_RetrieveDomainAuthCode.md") API action. (When you restrict
-access to this Route 53 API, you also restrict who can generate an
-authorization code using the Route 53 console, AWS SDKs, and other
-programmatic methods.) For more information, see [Identity and access management in
-Amazon Route 53](auth-and-access-control.md "auth-and-access-control.md").
+Supported.
 
 **Internationalized domain names**
 
-Not supported.
+Supported.
 
 **Authorization code required for transfers**
 
@@ -80,39 +27,15 @@ Yes
 
 **DNSSEC**
 
-Supported for domain registration. When you set the key, you must
-choose DNS security algorithm 2 (DH). For more information, see
-[Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md").
+Supported for domain registration. For more information, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md").
 
 **Deadlines for renewing and restoring domains**
 
-- Renewal is possible: Between 60 days before expiration and
-  the expiration date
-- Late renewal with Route 53 is possible: Until 29 days after
+- Renewal is possible: Until the expiration date
+- Late renewal with Route 53 is possible: Until 44 days after
   expiration
-- Domain is deleted from Route 53: 29 days after
+- Domain is deleted from Route 53: 45 days after expiration
+- Restoration with the registry is possible: Between 45 days and
+  75 days after expiration
+- Domain is deleted from the registry: 75 days after
   expiration
-- Restoration with the registry is possible: No
-- Domain is deleted from the registry: 30 days after
-  expiration
-
-**Deletion of domain registration**
-
-The registry for .net.au domains doesn't allow you to delete
-domain registrations. Instead, you must disable automatic renewal
-and wait for the domain to expire. For more information, see [Deleting a domain name registration](domain-delete.md "domain-delete.md").
-
-**Changing ownership**
-
-Change the owner, either programmatically or by using the Route 53
-console. See [Updating contact information for a
-domain](domain-update-contacts.md#domain-update-contacts-basic "domain-update-contacts.md#domain-update-contacts-basic"). Then complete
-the following process to complete the ownership change:
-
-1. Both the old and new registrants must click the link they receive in an email from
-   *transfers@1api.net* to their listed
-   email addresses. If this isn't completed within 14 days, you
-   have to start the process again.
-2. After the responses are confirmed, the owner change in the
-   registry will be processed in a short time without any
-   further confirmation.
