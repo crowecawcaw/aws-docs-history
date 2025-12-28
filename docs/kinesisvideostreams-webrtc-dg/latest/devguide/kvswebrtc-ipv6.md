@@ -1,16 +1,16 @@
-# Use IPv6 with Amazon Kinesis Video Streams
+# Use IPv6/Dual-Stack endpoints with Amazon Kinesis Video WebRTC
 
-You can configure Amazon Kinesis Video Streams to use IPv6 for both control plane and data plane operations. This enables your applications to communicate with Kinesis Video Streams services using IPv6 addresses through dual-stack endpoints.
+You can configure Amazon Kinesis Video WebRTC to use IPv6 for both control plane and data plane operations. This enables your applications to communicate with Kinesis Video WebRTC services using IPv6 addresses through dual-stack endpoints.
 
 ###### Note
 
-IPv6 support requires specific SDK versions and configuration settings. Ensure that your Kinesis Video Streams SDK and Amazon Web Services SDK versions support IPv6 dual-stack endpoints. Dual-stack endpoints support both IPv4 and IPv6 traffic and are available for some services in some Regions.
+IPv6 support requires specific SDK versions and configuration settings. Ensure that your Kinesis Video WebRTC SDK and Amazon Web Services SDK versions support IPv6 dual-stack endpoints. Dual-stack endpoints support both IPv4 and IPv6 traffic and are available for some services in some Region.
 
-Amazon Kinesis Video Streams supports IPv6 through dual-stack endpoints for both producer and consumer applications. You can configure your applications to use IPv6 for control plane API calls and data plane streaming operations.
+Amazon Kinesis Video WebRTC supports IPv6 through dual-stack endpoints for both master and viewer applications. You can configure your applications to use IPv6/Dual-Stack endpoints for control plane API calls and data plane operations.
 
-## Configure the Amazon Web Services SDK for IPv6
+## Configure the Amazon Web Services SDK for IPv6-Dual-Stack Endpoints
 
-If you're using the Amazon Web Services SDK to call Kinesis Video Streams control plane APIs in your production setup, you can enable IPv6 by configuring dual-stack endpoints. The Amazon Web Services SDK provides several standardized methods to enable dual-stack endpoints.
+If you're using the Amazon Web Services SDK to call Kinesis Video WebRTC control plane APIs in your production setup, you can enable IPv6 by configuring dual-stack endpoints. The Amazon Web Services SDK provides several standardized methods to enable dual-stack endpoints.
 
 ###### Important
 
@@ -72,78 +72,39 @@ The following Amazon Web Services SDKs support dual-stack endpoint configuration
 | Tools for PowerShell V5 | Yes       | Environment variable, configuration file               |
 | Tools for PowerShell V4 | Yes       | Environment variable, configuration file               |
 
-After you configure dual-stack endpoints, the Amazon Web Services SDK automatically uses IPv6 endpoints when calling Kinesis Video Streams control plane APIs.
+After you configure dual-stack endpoints, the Amazon Web Services SDK automatically uses IPv6 endpoints when calling Kinesis Video WebRTC control plane APIs.
 
-## Configure the Kinesis Video Streams Producer SDK for IPv6
+## Configure the Kinesis Video WebRTC SDK for IPv6/Dual-Stack Endpoints
 
-The Kinesis Video Streams Producer SDK provides IPv6 configuration options for both control plane and data plane operations. These settings work with the Amazon Web Services SDK dual-stack endpoint configuration.
+The Kinesis Video WebRTC SDK provides dual-stack configuration options for both control plane and data plane operations. These settings work with the Amazon Web Services SDK dual-stack endpoint configuration.
 
-### Configure the C/C++ Producer SDK
+## Configure the WebRTC C SDK
 
-To enable IPv6 in the C/C++ Producer SDK:
-
-1. **Configure the Amazon Web Services SDK for dual-stack**
-
-First, ensure that dual-stack endpoints are enabled using one of the methods described previously. 2. **Set the IPv6 configuration flag**
-
-Configure the client info structure to enable IPv6:
+To use dual-stack AWS KVS endpoints and attempt to gather IPv6 ICE candidates, set the following environment variable:
 
 ```
-ClientInfo clientInfo;
-// ... other configuration ...
-clientInfo.useIPv6 = TRUE;
+export KVS_DUALSTACK_ENDPOINTS=ON
 ```
 
-3. **URL construction**
+In dual-stack mode, ICE gathering will attempt to include IPv6 candidates, but compatibility ultimately depends on the local network configuration and the capabilities of the receiving peers.
 
-The SDK automatically constructs IPv6 dual-stack endpoints for the control plane when IPv6 is enabled. 4. **cURL configuration**
-
-The SDK might set CURLOPT_IPRESOLVE to choose between IPv4 and IPv6 resolution based on your configuration.
-
-### Configure the Java Producer SDK
-
-To enable IPv6 in the Java Producer SDK:
-
-1. **Configure the Amazon Web Services SDK for dual-stack**
-
-Set the dual-stack endpoint configuration:
+To disable dual-stack mode, unset the environment variable:
 
 ```
-// Using JVM system property
-System.setProperty("aws.useDualstackEndpoint", "true");
-
-// Or using environment variable before starting the application
-// export AWS_USE_DUALSTACK_ENDPOINT=true
+unset KVS_DUALSTACK_ENDPOINTS
 ```
 
-2. **Set the Kinesis Video Streams IPv6 configuration**
+## Data plane endpoint resolution
 
-```
-System.setProperty("kvs.useIPv6", "true");
-```
-
-3. **Client configuration**
-
-The SDK constructs appropriate IPv6 URLs in the Java layer when IPv6 is enabled.
-
-### Configure the GStreamer plugin
-
-The GStreamer plugin uses the underlying C Producer SDK, so IPv6 configuration is handled automatically when you:
-
-- Configure the Amazon Web Services SDK for dual-stack endpoints
-- Configure the C SDK for IPv6 as described previously
-
-### Data plane endpoint resolution
-
-For data plane operations, the Kinesis Video Streams SDK uses the GetDataEndpoint API to retrieve the appropriate IPv6 data plane endpoint. The SDK automatically requests IPv6 endpoints when IPv6 is configured.
+For data plane operations, the Kinesis Video WebRTC SDK uses the GetSignalingChannelEndpoint API to retrieve the appropriate IPv6/Dual-stack data plane endpoint. The SDK automatically requests IPv6/Dual-stack endpoints when IPv6/Dual-stack is configured.
 
 ###### Important
 
-The GetDataEndpoint API has been updated to support IPv6 endpoints. Ensure that you're using a compatible SDK version that supports this functionality.
+The GetSignalingChannelEndpoint API has been updated to support IPv6 endpoints. Ensure that you're using a compatible SDK version that supports this functionality.
 
-## Configure the AWS CLI for IPv6
+## Configure the AWS CLI for IPv6/Dual-Stack
 
-If you're using the AWS CLI for Kinesis Video Streams operations (typically for proof-of-concept work), you can enable IPv6 by configuring dual-stack endpoints.
+If you're using the AWS CLI for Kinesis Video WebRTC operations (typically for proof-of-concept work), you can enable IPv6 by configuring dual-stack endpoints.
 
 ### Use an environment variable
 
@@ -160,90 +121,7 @@ Add the following to your AWS CLI configuration file (~/.aws/config):
 use_dualstack_endpoint = true
 ```
 
-After you configure dual-stack endpoints, the AWS CLI uses IPv6 dual-stack endpoints for all Amazon Web Services calls, including Kinesis Video Streams operations.
-
-## Configuration examples
-
-### C SDK example
-
-```
-#include "KinesisVideoProducer.h"
-
-int main() {
-    // First, ensure Amazon Web Services SDK is configured for dual-stack
-    // This can be done via environment variable:
-    // export AWS_USE_DUALSTACK_ENDPOINT=true
-
-    ClientInfo clientInfo;
-
-    // Basic configuration
-    STRCPY(clientInfo.clientId, "MyKVSClient");
-    clientInfo.clientInfo.version = CLIENT_INFO_CURRENT_VERSION;
-
-    // Enable IPv6 for Kinesis Video Streams SDK
-    clientInfo.useIPv6 = TRUE;
-
-    // Create Kinesis Video Streams client
-    PKinesisVideoClient pKinesisVideoClient;
-    STATUS status = createKinesisVideoClient(clientInfo, pKinesisVideoClient);
-
-    if (STATUS_FAILED(status)) {
-        printf("Failed to create Kinesis Video Streams client with IPv6\n");
-        return -1;
-    }
-
-    // Continue with stream creation and data ingestion...
-
-    return 0;
-}
-```
-
-### Java SDK example
-
-```
-import com.amazonaws.kinesisvideo.client.KinesisVideoClient;
-import com.amazonaws.kinesisvideo.client.KinesisVideoClientConfiguration;
-
-public class KVSIPv6Example {
-    public static void main(String[] args) {
-        // Enable dual-stack endpoints for Amazon Web Services SDK
-        System.setProperty("aws.useDualstackEndpoint", "true");
-
-        // Enable IPv6 for Kinesis Video Streams SDK
-        System.setProperty("kvs.useIPv6", "true");
-
-        // Create Kinesis Video Streams client configuration
-        KinesisVideoClientConfiguration configuration =
-            KinesisVideoClientConfiguration.builder()
-                .withRegion("us-west-2")
-                .withCredentialsProvider(/* your credentials provider */)
-                .build();
-
-        // Create Kinesis Video Streams client
-        KinesisVideoClient kvsClient = KinesisVideoClient.builder()
-            .withConfiguration(configuration)
-            .build();
-
-        // Continue with stream operations...
-    }
-}
-```
-
-### Python (Boto3) example
-
-```
-import os
-import boto3
-
-# Configure dual-stack endpoints
-os.environ['AWS_USE_DUALSTACK_ENDPOINT'] = 'true'
-
-# Create Kinesis Video Streams client
-kvs_client = boto3.client('kinesisvideo', region_name='us-west-2')
-
-# The client now uses IPv6 dual-stack endpoints
-response = kvs_client.list_streams()
-```
+After you configure dual-stack endpoints, the AWS CLI uses IPv6 dual-stack endpoints for all Amazon Web Services calls, including Kinesis Video WebRTC operations.
 
 ## Considerations
 
@@ -253,7 +131,7 @@ If you're using IoT credentials for authentication:
 
 - IoT credentials endpoints support IPv6
 - Configure dual-stack endpoints using the standard Amazon Web Services SDK configuration methods described previously
-- The IoT credentials flow is separate from Kinesis Video Streams-specific IPv6 configuration
+- The IoT credentials flow is separate from Kinesis Video WebRTC-specific IPv6 configuration
 
 ### Network requirements
 
@@ -270,17 +148,18 @@ If you're using IoT credentials for authentication:
 
 ### Testing and validation
 
-Before you deploy IPv6-enabled Kinesis Video Streams applications to production:
+Before you deploy IPv6-enabled Kinesis Video WebRTC applications to production:
 
-- Test control plane operations (stream creation, deletion, listing)
-- Verify data plane operations (video ingestion and consumption)
+- Test control plane operations (channel creation, deletion, listing)
+- Verify data plane operations (STUN, TURN and WebRTC Signaling)
+- Verify successful peer-to-peer streaming session establishment
 - Validate performance and connectivity in your network environment
 - Run canary tests to ensure consistent IPv6 functionality
 - Test failover behavior when dual-stack endpoints aren't available
 
 ## Customers impacted by the upgrade to include IPv6
 
-When you enable IPv6 for Amazon Kinesis Video Streams, there are several areas where you might need to update your existing configurations and policies to ensure continued functionality. This section outlines the key areas that require attention when transitioning to IPv6-enabled endpoints.
+When you enable IPv6 for Amazon Kinesis Video WebRTC, there are several areas where you might need to update your existing configurations and policies to ensure continued functionality. This section outlines the key areas that require attention when transitioning to IPv6-enabled endpoints.
 
 ### IAM policies and IP address filtering
 
@@ -324,7 +203,7 @@ Key considerations for IAM policy updates:
 
 ### Network security groups and access control lists
 
-If you're running Kinesis Video Streams applications on Amazon EC2 instances or other Amazon Web Services services, you need to update your security groups and network ACLs to allow IPv6 traffic.
+If you're running Kinesis Video WebRTC applications on Amazon EC2 instances or other Amazon Web Services services, you need to update your security groups and network ACLs to allow IPv6 traffic.
 
 - **Security groups** – Add inbound and outbound rules for IPv6 CIDR blocks (::/0 for all IPv6 traffic, or specific IPv6 ranges)
 - **Network ACLs** – Update subnet-level network ACLs to allow IPv6 traffic on the required ports
@@ -343,7 +222,7 @@ Example IPv6 address in AWS CloudTrail logs:
 ```
 {
   "sourceIPAddress": "2001:db8::1",
-  "eventName": "CreateStream",
+  "eventName": "CreateSignalingChannel",
   "eventSource": "kinesisvideo.amazonaws.com"
 }
 ```
@@ -368,7 +247,7 @@ Update your monitoring and alerting systems to account for IPv6 traffic:
 
 ### Third-party integrations
 
-Review and update third-party services and tools that integrate with your Kinesis Video Streams applications:
+Review and update third-party services and tools that integrate with your Kinesis Video WebRTC applications:
 
 - **Content delivery networks (CDNs)** – Ensure CDN configurations support IPv6 if you're using CDNs for video distribution
 - **Load balancers** – Configure Application Load Balancers or Network Load Balancers to handle IPv6 traffic
@@ -420,10 +299,10 @@ Consider implementing a phased approach to IPv6 adoption:
 ### Verification steps
 
 - Check that AWS_USE_DUALSTACK_ENDPOINT=true is set or use_dualstack_endpoint = true is in your configuration file
-- Verify that Kinesis Video Streams SDK IPv6 configuration flags are properly set
+- Verify that Kinesis Video WebRTC SDK IPv6 configuration flags are properly set
 - Test network connectivity to Amazon Web Services IPv6 endpoints
 - Review application logs for IPv6-specific error messages
-- Confirm that your Region supports dual-stack endpoints for Kinesis Video Streams
+- Confirm that your Region supports dual-stack endpoints for Kinesis Video WebRTC
 
 ### Configuration validation
 
