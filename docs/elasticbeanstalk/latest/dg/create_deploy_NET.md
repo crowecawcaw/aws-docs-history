@@ -1,21 +1,30 @@
-# Managing accounts
+# Configuring .NET containers using the AWS toolkit for Visual Studio
 
-##
+The **Container/.NET Options** panel lets you fine-tune the behavior of your Amazon EC2 instances and enable or disable Amazon S3
+log rotation. You can use the AWS Toolkit for Visual Studio to configure your container information.
 
-If you want to set up different AWS accounts to perform different tasks, such as testing,
-staging, and production, you can add, edit, and delete accounts using the AWS Toolkit for
-Visual Studio.
+###### Note
 
-###### To manage multiple accounts
+You can modify your configuration settings with zero downtime by swapping the CNAME for your environments. For more information, see [Blue/Green deployments with Elastic Beanstalk](using-features.md "using-features.md").
 
-1. In Visual Studio, on the **View** menu, click **AWS
-   Explorer**.
-2. Beside the **Account** list, click the **Add
-   Account** button.
+If you want to, you can extend the number of parameters. For information about extending parameters, see [Option settings](ebextensions-optionsettings.md "ebextensions-optionsettings.md").
 
-![AWS explorer tab](images/aeb-aws-explorer-tab.png)
+###### To access the Container/.NET options panel for your Elastic Beanstalk application
 
-The **Add Account** dialog box appears.
+1. In AWS Toolkit for Visual Studio, expand the Elastic Beanstalk node and your application node.
+2. In **AWS Explorer**, double-click your Elastic Beanstalk environment.
+3. At the bottom of the **Overview** pane, click the **Configuration** tab.
+4. Under **Container**, you can configure container options.
 
-![Add account dialog box](images/aeb-vs-add-account.png) 3. Fill in the requested information. 4. Your account information now appears on the **AWS Explorer** tab.
-When you publish to Elastic Beanstalk, you can select which account you would like to use.
+![Elastic Beanstalk container panel](images/aeb-vs-container.png)
+
+## .NET container options
+
+You can choose the version of .NET Framework for your application. Choose either 2.0 or 4.0 for **Target runtime**. Select
+**Enable 32-bit Applications** if you want to enable 32-bit applications.
+
+## Application settings
+
+The **Application Settings** section lets you specify environment variables that you can read from your application code.
+
+![Elastic Beanstalk container panel](images/aeb-vs-container-envproperties.png)
