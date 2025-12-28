@@ -37,7 +37,7 @@ Navigate in the AWS Console to the **Athena** service
 3. Under Views, scroll down until you locate the **summary_view**.
 4. Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 
-![Athena Query editor highlighting the summary view query and its context menu to select show edit query](images/cust_showedit_qry.png)
+![Athena Query editor highlighting the summary view query and its context menu to select show edit query](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_showedit_qry.png)
 
 1. Modify the "Where" condition and include the two new "And" lines. In this example we also remove Refund, Credit and Tax along with Discounts
 
@@ -61,7 +61,7 @@ view the changes immediately.
 
 1. Navigate to Amazon Quick Sight in the console.
 
-![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
+![AWS Console search with results for Quick Sight](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
 ![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
 dataset. 4. Click on the **Refresh** tab in the top left of the page. 5. Click on **Refresh Now** button in the top right of the page. 6. Repeat the steps to refresh **resource_view** dataset as well.

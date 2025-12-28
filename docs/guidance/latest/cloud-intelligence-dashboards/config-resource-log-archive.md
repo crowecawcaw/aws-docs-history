@@ -28,7 +28,7 @@ Ensure you are in the Region where both your Log Archive bucket and Amazon Quick
 1. Log into the AWS Management Console for your Log Archive account.
 2. Click the Launch Stack button below to open the stack template in your CloudFormation console. This Stack will create the data pipeline resources for the dashboard.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources") 3. Specify the following parameters:
+[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources") 3. Specify the following parameters:
 
     * `Log Archive account ID` Enter the AWS account ID where you are currently logged in (Required).
     * `Log Archive bucket` Enter the name of the Amazon S3 bucket that collects AWS Config data (Required).

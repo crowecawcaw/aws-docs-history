@@ -50,7 +50,7 @@ ELSE 0 END) "net_amortized_cost"
 1. click the **Run again** button and confirm that the query view updates
    successfully.
 
-![Inset show the run again button of the query window and the successful result](images/cust_runagain.png)
+![Inset show the run again button of the query window and the successful result](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png)
 
 1. Under Views, locate **resource_view**, Select the three dots to the
    right of the view and select **Show/edit query** from the context menu.
