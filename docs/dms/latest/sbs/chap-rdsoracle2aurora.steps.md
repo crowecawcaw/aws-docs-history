@@ -1,35 +1,35 @@
-# Step 9: Create and Run Your AWS DMS Migration Task
+# Step 10: Verify That Your Data Migration Completed Successfully
 
-Using a AWS DMS task, you can specify what schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data only.
-
-1. On the **Create Task** page, specify the task options. The following table describes the settings.
-
-| For This Parameter       | Do This                                                                                  |
-| ------------------------ | ---------------------------------------------------------------------------------------- |
-| **Task name**            | Enter `migratehrschema`.                                                                 |
-| **Task description**     | Enter a description for the task.                                                        |
-| **Source endpoint**      | Shows `orasource` (the Amazon RDS for Oracle endpoint).                                  |
-| **Target endpoint**      | Shows `aurtarget` (the Amazon Aurora MySQL endpoint).                                    |
-| **Replication instance** | Shows `DMSdemo-repserver` (the AWS DMS replication instance created in an earlier step). |
-| **Migration type**       | Choose **Migrate existing data**.                                                        |
-| **Start task on create** | Select this option.                                                                      |
-
-The page should look like the following:
-
-![Create task page](images/sbs-rdsor2aurora23.png) 2. Under **Task Settings**, choose **Do nothing** for **Target table preparation mode**, because you have already created the tables through Schema Migration Tool. Because this migration doesn’t contain any LOBs, you can leave the LOB settings at their defaults.
-
-Optionally, you can select **Enable logging**. If you enable logging, you will incur additional Amazon CloudWatch charges for the creation of CloudWatch logs. For this walkthrough, logs are not necessary.
-
-![Task Settings section](images/sbs-rdsor2aurora24.png) 3. Leave the Advanced settings at their default values. 4. Choose **Table mappings**, choose **Default** for **Mapping method**, and then choose `HR` for **Schema to migrate**.
-
-The completed section should look like the following.
-
-![Completed Table mappings section](images/sbs-rdsor2aurora25.png) 5. Choose **Create task**. The task will begin immediately.
-The Tasks section shows you the status of the migration task.
-
-![Table statistics tab](images/sbs-rdsor2aurora25.5.png)
-You can monitor your task if you choose **Enable logging** when you set up your task. You can then view the CloudWatch metrics by doing the following:
+When the migration task completes, you can compare your task results with the expected results.
 
 1. On the navigation pane, choose **Tasks**.
 2. Choose your migration task (`migratehrschema`).
-3. Choose the **Task monitoring** tab, and monitor the task in progress on that tab.
+3. Choose the **Table statistics** tab, shown following.
+
+![Table statistics tab](images/sbs-rdsor2aurora26.png) 4. Connect to the Amazon Aurora MySQL instance by using SQL Workbench/J, and then check if the database tables were successfully migrated from Oracle to Aurora MySQL by running the SQL script shown following.
+
+```
+SELECT TABLE_NAME,TABLE_ROWS
+    FROM INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_SCHEMA = 'HR' and TABLE_TYPE='BASE TABLE' order by 1;
+```
+
+![Table statistics tab](images/sbs-rdsor2aurora27.png) 5. Run the following query to check the relationship in tables; this query checks the departments with employees greater than 10.
+
+```
+SELECT B.DEPARTMENT_NAME,COUNT(*)
+  FROM HR.EMPLOYEES A,HR.DEPARTMENTS B
+  WHERE A.DEPARTMENT_ID=B.DEPARTMENT_ID
+  GROUP BY B.DEPARTMENT_NAME HAVING COUNT(*) > 10
+  ORDER BY 1;
+```
+
+The output from this query should be similar to the following.
+
+```
+department_name	count(*)
+Sales                34
+Shipping             45
+```
+
+Now you have successfully completed a database migration from an Amazon RDS for Oracle database instance to Amazon Aurora MySQL.

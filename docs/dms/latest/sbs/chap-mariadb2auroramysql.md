@@ -1,54 +1,64 @@
-# Cut over for the migration from a MariaDB database
+# Set up Aurora MySQL as a target database
 
-After the data validation is complete and any problems resolved, you can load the database triggers, functions, and procedures.
+To provision Aurora MySQL as a target database, download the [AuroraMysql_CF.yaml template](https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml "https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml"). This template creates an Aurora MySQL database with required parameters.
 
-To do this, use the `routines.sql` file generated from MariaDB to create the necessary routines in Aurora MySQL. The following statement loads all procedures, functions, and triggers into the Aurora MySQL database.
+1. On the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), under **Services**, choose **CloudFormation**.
+2. Choose **Create stack**, and then choose **With new resources (standard)**.
+3. For **Specify template**, choose **Upload a template file**.
+4. Select **Choose file**.
+5. Choose the `AuroraMySQL.yaml` file.
+6. Choose **Next**.
+7. On the **Specify stack details** page, edit the predefined values as needed, and then choose **Next**:
+   - **Stack name** — Enter a name for the stack.
+   - **CIDR** — Enter the CIDR IP range to access the instance.
+   - **DBBackupRetentionPeriod** — The number of days for backup retention.
+   - **DBInstanceClass** — Enter the instance type of the database server.
+   - **DBMasterPassword** — Enter the master password for the DB instance.
+   - **DBMasterUsername** — Enter the master user name for the DB instance.
+   - **DBName** — Enter the name of the database.
+   - **DBSubnetGroup** — Enter the DB subnet group.
+   - **Engine** — Enter the Aurora engine version; the default is `5.7.mysql-aurora.2.03.4`.
+   - **PreferredBackupWindow** — Enter the daily time range in UTC during which you want to create automated backups.
+   - **PreferredMaintenanceWindow** — Enter the weekly time range in UTC during which system maintenance can occur.
+   - **VPCID** — Enter the ID for the VPC to launch your DB instance in.
+
+8. On the **Configure stack options** page, for **Tags**, specify any optional tags, and then choose **Next**.
+9. On the **Review** page, choose **Next**.
+10. Choose **Create stack**.
+    After the Aurora MySQL database is created, log in to the Aurora MySQL instance:
 
 ```
-$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306 < routines.sql
+$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com -u master -p migration -P 3306
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| awsdms_control     |
+| mysql              |
+| performance_schema |
+| source             |
+| tmp                |
+| webdb              |
++--------------------+
+7 rows in set (0.001 sec)
+
+MySQL [(none)]> create database migration;
+Query OK, 1 row affected (0.016 sec)
+
+MySQL [(none)]> use migration;
+Database changed
+
+MySQL [migration]> show tables;
+Empty set (0.001 sec)
 ```
 
-After the routines are loaded, connect to the Aurora MySQL database to validate as shown following.
+Use `mysql_tables_indexes.sql` to create table and index structures in Aurora MySQL.
 
 ```
-$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306
+$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306 < mysql_tables_indexes.sql
 Enter password:
-Reading table information for completion of table and column names
-You can turn off this feature to get a quicker startup with -A
-
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MySQL connection id is 957
-Server version: 5.6.10 MySQL Community Server (GPL)
-
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Enter 'help;' or '\h' for help. Enter '\c' to clear the current input statement.
-
-MySQL [migration]> select routine_schema as database_name,
-    ->             routine_name,
-    ->             routine_type as type,
-    ->             data_type as return_type
-    ->             from information_schema.routines
-    ->      where routine_schema not in ('sys', 'information_schema',
-    ->                                   'mysql', 'performance_schema');
-+---------------+----------------+-----------+-------------+
-| database_name | routine_name   | type      | return_type |
-+---------------+----------------+-----------+-------------+
-| migration     | CalcValue      | FUNCTION  | int         |
-| migration     | loadMLBPlayers | PROCEDURE |             |
-| migration     | loadNFLPlayers | PROCEDURE |             |
-+---------------+----------------+-----------+-------------+
-3 rows in set (0.002 sec)
-
-
-MySQL [migration]> select TRIGGER_SCHEMA, TRIGGER_NAME from information_schema.triggers where TRIGGER_SCHEMA='migration';
-+----------------+-----------------------+
-| TRIGGER_SCHEMA | TRIGGER_NAME          |
-+----------------+-----------------------+
-| migration      | increment_animal      |
-| migration      | contacts_after_update |
-+----------------+-----------------------+
-2 rows in set (0.009 sec)
+$
 ```
 
-The preceding output shows that all the procedures, triggers, and functions are loaded successfully to the Aurora MySQL database.
+After the tables and indexes are successfully created, the next step is to set up and use AWS DMS.

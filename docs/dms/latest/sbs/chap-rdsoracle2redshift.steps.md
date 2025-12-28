@@ -1,41 +1,38 @@
-# Step 9: Create and Run Your AWS DMS Migration Task
+# Step 2: Install the SQL Tools and AWS Schema Conversion Tool on Your Local Computer
 
-Using an AWS DMS task, you can specify what schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data only.
+Next, you need to install a SQL client and AWS SCT on your local computer.
 
-1. On the **Create Task** page, specify the task options. The following table describes the settings.
+This walkthrough assumes you will use the SQL Workbench/J client to connect to the RDS instances for migration validation.
 
-| Parameter                | Action                                                                                   |
-| ------------------------ | ---------------------------------------------------------------------------------------- |
-| **Task name**            | Enter `migrateSHschema`.                                                                 |
-| **Replication instance** | Shows `DMSdemo-repserver` (the AWS DMS replication instance created in an earlier step). |
-| **Source endpoint**      | Shows `orasource` (the Amazon RDS for Oracle endpoint).                                  |
-| **Target endpoint**      | Shows `redshifttarget` (the Amazon Redshift endpoint).                                   |
-| **Migration type**       | Choose **Migrate existing data**.                                                        |
-| **Start task on create** | Choose this option.                                                                      |
+1.  Download SQL Workbench/J from [the SQL Workbench/J website](http://www.sql-workbench.net/downloads.html "http://www.sql-workbench.net/downloads.html"), and then install it on your local computer. This SQL client is free, open-source, and DBMS-independent.
+2.  Download the JDBC driver for your Oracle database release. For more information, go to [https://www.oracle.com/jdbc](https://www.oracle.com/jdbc "https://www.oracle.com/jdbc").
+3.  Download the Amazon Redshift driver file, `RedshiftJDBC41-1.1.17.1017.jar`, as described following.
+    1. Find the Amazon S3 URL to the file in [Previous JDBC Driver Versions](../../../redshift/latest/mgmt/jdbc-previous-versions.md "../../../redshift/latest/mgmt/jdbc-previous-versions.md") of the _Amazon Redshift Cluster Management Guide_.
+    2. Download the driver as described in [Download the Amazon Redshift JDBC Driver](../../../redshift/latest/mgmt/configure-jdbc-connection.md#download-jdbc-driver "../../../redshift/latest/mgmt/configure-jdbc-connection.md#download-jdbc-driver") of the same guide.
 
-The page should look like the following.
+4.  Using SQL Workbench/J, configure JDBC drivers for Oracle and Amazon Redshift to set up connectivity, as described following.
 
-![Create task page](images/sbs-rdsor2redshift23.png) 2. On the **Task Settings** section, specify the settings as shown in the following table.
+        1. In SQL Workbench/J, choose **File**, then choose **Manage Drivers**.
+        2. From the list of drivers, choose **Oracle**.
+        3. Choose the **Open** icon, then choose the `ojdbc.jar` file that you downloaded in the previous step. Choose **OK**.
 
-| Parameter                              | Action                       |
-| -------------------------------------- | ---------------------------- |
-| **Target table preparation mode**      | Choose **Do nothing**.       |
-| **Include LOB columns in replication** | Choose **Limited LOB mode**. |
-| **Max LOB size (kb)**                  | Accept the default (32).     |
 
-The section should look like the following.
 
-![Create task page](images/sbs-rdsor2redshift23.5.png) 3. In the **Selection rules** section, specify the settings as shown in the following table.
+        ![driver management](images/sbs-rdsor2redshift7.png)
+        4. From the list of drivers, choose **Redshift**.
+        5. Choose the **Open** icon, then choose the Amazon Redshift JDBC driver that you downloaded in the previous step. Choose **OK**.
 
-| Parameter               | Action                   |
-| ----------------------- | ------------------------ |
-| **Schema name is**      | Choose `Enter a schema`. |
-| **Schema name is like** | Enter `SH%`.             |
-| **Table name is like**  | Enter **%**.             |
-| **Action**              | Choose `Include`.        |
 
-The section should look like the following:
 
-![Add selection rule page](images/sbs-rdsor2redshift24.png) 4. Choose **Add selection rule**. 5. Choose **Create task**. The task begins immediately. The **Tasks** section shows you the status of the migration task.
+        ![driver management](images/sbs-rdsor2redshift8.png)
 
-![Tasks page](images/sbs-rdsor2redshift25.5.png)
+    Next, install AWS SCT and the required JDBC drivers.
+
+5.  Download AWS SCT from [Installing, verifying, and updating the Schema Conversion Tool](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md").
+6.  Follow the instructions to install AWS SCT.
+7.  Launch AWS SCT.
+8.  In AWS SCT, choose **Global settings** from **Settings**.
+9.  Choose **Settings**, **Global settings**, then choose **Drivers**, and then choose **Browse** for **Oracle driver path**. Locate the Oracle JDBC driver and choose **OK**.
+10. Choose **Browse** for **Amazon Redshift driver path**. Locate the Amazon Redshift JDBC driver and choose **OK**. Choose **OK** to close the dialog box.
+
+![Connecting to the Oracle DB instance](images/sct-drivers.png)

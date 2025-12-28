@@ -1,100 +1,81 @@
-# PostgreSQL pg_dump and pg_restore utility
+# Migrating an Amazon RDS for MySQL Database to an Amazon DynamoDB target
 
-pg_dump and pg_restore is a native PostgreSQL client utility. You can find this utility as part of the database installation. It produces a set of SQL statements that you can run to reproduce the original database object definitions and table data.
+This walkthrough helps you to understand the process of migrating data from Amazon Relational Database Service (Amazon RDS) for MySQL to Amazon DynamoDB using AWS Database Migration Service (AWS DMS).
 
-The pg_dump and pg_restore utility is suitable for the following use cases if:
+Amazon DynamoDB is a key-value and document database that delivers single-digit millisecond performance at any scale for modern applications. It’s a fully managed, multi-region, multi-master, durable database with built-in security, backup and restore, and in-memory caching for internet-scale applications. DynamoDB can handle more than 10 trillion requests per day and can support peaks of more than 20 million requests per second. Many of the world’s fastest growing businesses depend on the scale and performance of DynamoDB to support their mission-critical workloads.
 
-- Your database size is less than 100 GB.
-- You plan to migrate database metadata as well as table data.
-- You have a relatively large number of tables to migrate.
-  The pg_dump and pg_restore utility may not be suitable for the following use cases if:
+Customers use DynamoDB for banking/finance, gaming, ad-tech, retail, media & entertainment workloads to build internet-scale applications supporting user-content metadata and caches. It requires high concurrency and connections for millions of users and requests, where there is a requirement for a very stringent response time. With DynamoDB, you can use design patterns for deploying shopping carts, workflow engines, inventory tracking, customer profiles, fraud detection, and leader boards, to name a few.
 
-- Your database size is greater than 100 GB.
-- You want to avoid downtime.
+In this document, we will talk about a use case where a customer is running an application that handles a COVID-19 vaccination drive and stores this information in a data store. Currently, they use RDS MySQL to store vaccine data, but because of the sheer scale where data of millions of people can be getting stored at the same time, MySQL poses scalability challenges vis-à-vis response time. As business and application requirements are sensitive enough for response time in both writing data and reading it back, a relational database like MySQL cannot meet the SLA requirements. So, the customer decides to migrate to DynamoDB, which is purpose built to be performant at scale and is specifically designed to handle such use cases. The business also requires that the initial transfer of data from RDS MySQL to Amazon DynamoDB must complete within a 15-hour window.
 
-## Example
+To illustrate the process, we use AWS DMS to migrate data from an example database. AWS DMS is a managed service that helps migrate between heterogeneous sources and targets. In our case, we migrate an RDS MySQL database to Amazon DynamoDB. AWS DMS supports not only the migration of your existing data, but also ensures that the source and target are synchronized for ongoing transactions.
 
-At a high level, you can use the following steps to migrate the [`dms_sample`](https://github.com/aws-samples/aws-database-migration-samples/tree/master/PostgreSQL/sampledb/v1 "https://github.com/aws-samples/aws-database-migration-samples/tree/master/PostgreSQL/sampledb/v1") database.
+###### Topics
 
-1. Export data to one or more dump files.
-2. Create a target database.
-3. Import the dump file or files.
-4. (Optional) Migrate database roles and users.
+- [Why use AWS DMS?](#chap-manageddatabases.mysql2dynamodb.whydms "#chap-manageddatabases.mysql2dynamodb.whydms")
+- [Example data set](#chap-manageddatabases.mysql2dynamodb.sampledataset "#chap-manageddatabases.mysql2dynamodb.sampledataset")
+- [Solution overview](#chap-manageddatabases.mysql2dynamodb.solutionoverview "#chap-manageddatabases.mysql2dynamodb.solutionoverview")
+- [Prerequisites](#chap-manageddatabases.mysql2dynamodb.prerequisites "#chap-manageddatabases.mysql2dynamodb.prerequisites")
+- [Step-by-step Amazon RDS for MySQL database to Amazon DynamoDB migration walkthrough](chap-manageddatabases.mysql2dynamodb.md "chap-manageddatabases.mysql2dynamodb.md")
 
-## Export Data
+## Why use AWS DMS?
 
-You can use the following command to create dump files for your source database.
+When migrating from a relational database like MySQL to Dynamo DB, there are multiple approaches that you can take. One can be dumping your data using a CSV dump and loading that into Amazon DynamoDB Tables from S3. However, it comes with its own challenges in regard to size and requires taking extended downtime. AWS DMS supports binary log-based replication between MySQL based engines and Dynamo DB which can help achieve such migrations with minimal downtime. Also, Relational Database Management System (RDBMS) tables store the data in a normalized way across multiple tables. However, using DMS, you can customize the target table using the object mapping feature to denormalize the data into a single target table.
 
-```
-pg_dump -h <hostname> -p 5432 -U <username> -Fc -b -v -f <dumpfilelocation.sql> -d  <database_name>
+In this document, we guide you through the steps that you take to migrate the example MySQL database into Amazon DynamoDB. In the next sections, we describe the characteristics of the database. Then, we build the replication resources in AWS DMS that we use to migrate the database, paying close attention to matching the AWS DMS configuration with our particular use case.
 
--h is the name of source server where you would like to migrate your database.
--U is the name of the user present on the source server
--Fc: Sets the output as a custom-format archive suitable for input into pg_restore.
--b: Include large objects in the dump.
--v: Specifies verbose mode
--f: Dump file path
-```
+## Example data set
 
-## Create a Database on Your Target Instance
+In this walkthrough, the following is the table information that is used to store the vaccine drive data. As it can be noted that the schema does not completely play out the relational model of normalization, and all data are stored in a single table in a de-normalized way.
 
-First, login to your target database server.
+![Data set](images/mysql2dynamodb_dataset.png)
 
-```
-psql -h <hostname> -p 5432 -U <username> -d <database_name>
+Generally, relational tables are used to fetch a fixed data set based on the table definition. However, in this use case, we define the tables in a de-normalized manner, and going forward based on the business requirement schema, growth can be exponential in rate and dynamic in nature. Services like Amazon DynamoDB help application developers and architects to rethink the data model in a key-value format for such use cases, and plan to move the data store on DynamoDB.
 
--h is the name of target server where you would like to migrate your database.
--U is the name of the user present on the target server.
--d is the name of database name present on target already.
-```
+The “vaccine_drive_stats” table contains 1022 million records with a size of 210 GB. This table mainly collects the information for people who participated in the vaccination program, including their vaccine status and user details.
 
-Then, use the following command to create a database.
+Note that the table contains composite primary keys for the “user_id” and “area_code” columns. In MySQL, the application and admin user accesses the data using composite keys for reporting and manipulating the records in the tables.
 
-```
-create database migrated_database;
-```
+There are additional use cases to get aggregate data , such as the total number of people who have received the first or second vaccination, state-wise vaccine numbers, total percentage of the population receiving vaccination, etc. All of these aggregate use cases can be handled using a DynamoDB schema designed to cater to aggregations.
 
-## Import Dump Files
+Migration of this use case can be handled using one-to-one mapping from RDBMS MySQL to a DynamoDB table.
 
-You can use the following command to import the dump file into your Amazon RDS instance.
+Similarly, if you have the following types of tables, you can consider migrating to a DynamoDB target using DMS with less downtime.
 
-```
-pg_restore -v -h <hostname> -U <username> -d <database_name> -j 2 <dumpfilelocation.sql>
+1. Table with non-relational data
+2. Logging tables
+3. User preference tables
+4. Application Session state tables
 
--h is the name of target server where you would like to migrate your database.
--U is the name of the user present on the target server.
--d is the name of database name that was created in step 2.
-<dumpfilelocation.sql> is the dump file that was created to generate the script of the database using pg_dump
-```
+## Solution overview
 
-## Migrate Database Roles and Users
+The following diagram displays a high-level architecture of the solution, where we use AWS DMS to move data from a MySQL database hosted on RDS to Amazon DynamoDB.
 
-To export such database objects as roles and users, you can use the `pg_dumpall` utility.
+![Data set](images/mysql2dynamodb_architecture.png)
 
-To generate a script for users and roles, run the following command on the source database.
+To connect to the source database where your data resides and target Amazon DynamoDB, you will create two endpoint resources in AWS DMS. An “endpoint” is a resource for storing connection information such as hostname, username, and password. For DynamoDB, it stores an IAM role name that provides access to resources. Endpoint resources also store unique settings for each endpoint to configure the endpoint behavior.
 
-```
-pg_dumpall -U <username> -h <hostname>  -f <dumpfilelocation.sql> --no-role-passwords -g
+The endpoint itself does not have a mechanism to connect to the source or target. A resource called a “replication task” connects to the source and target to migrate data. One source and target endpoint can be associated with single replication task. Tasks can use source and target endpoints, which are used by other tasks.
 
+A replication instance is a resource where your replication task is running. It has a network interface connected to your VPC, through which AWS DMS tasks communicate with sources and targets.
 
--h is the name of source server where you would like to migrate your database.
--U is the name of the user present on the source server.
--f: Dump file path.
--g: Dump only global objects (roles and tablespaces), no databases.
-```
+In summary, in this walkthrough you will set up the following resources in AWS DMS
 
-To restore users and roles, run the following command on your target database.
+- **Replication Instance** — An AWS managed instance that hosts the AWS DMS engine. You control the type or size of the instance based on your workload.
+- **Source Endpoint** — A resource that provides connection details, data store type, and credentials to connect to a source database. For this use case, we will configure the source endpoint to point to the Amazon RDS for MySQL database.
+- **Target table** - A DynamoDB table used on this scenario to consume the data from the Source database. We will create a DynamoDB table with customized settings for migration.
+- **Target Endpoint** — AWS DMS supports several target systems including Amazon RDS, Amazon Aurora, Amazon Redshift, Amazon Kinesis Data Streams, Amazon S3, and more. For this use case, we will configure Amazon Dynamo DB as the target endpoint.
+- **Replication Task** — A resource that runs on the replication instance and connects to endpoints to replicate data from the source to the target.
 
-```
-psql -h <hostname> -U <username> -f <dumpfilelocation.sql>
+## Prerequisites
 
--h is the name of target server where you would like to migrate your database.
--U is the name of the user present on the target server.
--f: Dump file path.
-```
+The following prerequisites are required to complete this walkthrough:
 
-To complete the export and import operations, the pg_dump and pg_restore requires some time. This time depends on the following parameters.
+- An understanding of Amazon Relational Database Service (Amazon RDS), the applicable database technologies, and SQL.
+- A user with AWS Identity and Access Management (IAM) credentials that allows you to launch Amazon RDS and AWS Database Migration Service (AWS DMS) instances in your AWS Region. For information about IAM credentials, see [Create an IAM user](../userguide/CHAP_GettingStarted.md#CHAP_SettingUp.IAM "../userguide/CHAP_GettingStarted.md#CHAP_SettingUp.IAM").
+- An understanding of the Amazon Virtual Private Cloud (Amazon VPC) service and security groups. For information about using Amazon VPC with Amazon RDS, see [Amazon Virtual Private Cloud (VPCs) and Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md"). For information about Amazon RDS security groups, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md").
+- An understanding of the supported features and limitations of AWS DMS. For information about AWS DMS, see [What is Database Migration Service](../userguide/Welcome.md "../userguide/Welcome.md")?
+- An understanding of how to work with MySQL as a source and Amazon DynamoDB as a target. For information about working with MySQL as a source, see [Using an MySQL database as a source](../userguide/CHAP_Source.md "../userguide/CHAP_Source.md"). For information about working with Amazon DynamoDB as a target, see [Using Amazon DynamoDB as a target](../userguide/CHAP_Target.md "../userguide/CHAP_Target.md").
+- An understanding of the supported data type conversion options for MySQL and Amazon DynamoDB. For information about data types for MySQL as a source, see [Source data types for MySQL](../userguide/CHAP_Source.md#CHAP_Source.MySQL.DataTypes "../userguide/CHAP_Source.md#CHAP_Source.MySQL.DataTypes"). For information about data types for Amazon DynamoDB as a target, see [Target data types for Amazon DynamoDB](../userguide/CHAP_Target.md#CHAP_Target.DynamoDB.DataTypes "../userguide/CHAP_Target.md#CHAP_Target.DynamoDB.DataTypes").
 
-- The size of your source database.
-- The number of jobs.
-- The resources that you provision for your instance used to invoke pg_dump and pg_restore.
+For more information about AWS DMS, see [Getting started with Database Migration Service](../userguide/CHAP_GettingStarted.md "../userguide/CHAP_GettingStarted.md").

@@ -1,31 +1,69 @@
-# Step 5: Create an AWS DMS Replication Instance
+# Step 7: Create and Run Your AWS DMS Migration Task
 
-After validating the schema structure between source and target databases, continue with the core part of this walkthrough, which is the data migration. The following illustration shows a high-level view of the migration process.
+Using an AWS DMS task, you can specify which schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data and replicates ongoing changes.
 
-![Migration process](images/datarep-conceptual2.png)
-An AWS DMS replication instance performs the actual data migration between source and target. The replication instance also caches the transaction logs during the migration. How much CPU and memory capacity a replication instance has influences the overall time required for the migration.
+1. On the **Create Task** page, specify the task options. The following table describes the settings.
 
-1. Sign in to the AWS Management Console, and select AWS DMS at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/"). Next, choose **Create Migration**. If you are signed in as an AWS Identity and Access Management (IAM) user, then you must have the appropriate permissions to access AWS DMS. For more information about the permissions required, see [IAM Permissions](../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions "../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions").
-2. Choose **Next** to start a database migration from the console’s Welcome page.
-3. On the **Create replication instance** page, specify your replication instance information.
+| Parameter                | Description                                                                                                                             |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Task name**            | Enter a name for the migration task.                                                                                                    |
+| **Task description**     | Enter a description for the task.                                                                                                       |
+| **Source endpoint**      | Shows the Oracle source endpoint.<br>If you have more than one endpoint in the account, then choose the correct endpoint from the list. |
+| **Target endpoint**      | Shows the PostgreSQL target endpoint.                                                                                                   |
+| **Replication instance** | Shows the AWS DMS replication instance.                                                                                                 |
+| **Migration type**       | Choose **Migrate existing data and replicate ongoing changes**.                                                                         |
+| **Start task on create** | Select this option.                                                                                                                     |
 
-| Parameter               | Description                                                                                                                                                                                                                                                  |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Name**                | Select a name for your replication instance. If you will be using multiple replication servers or sharing an account, then choose a name that will help you quickly differentiate between the different servers.                                             |
-| **Description**         | Enter a brief description.                                                                                                                                                                                                                                   |
-| **Instance class**      | Select the type of replication server to create. Each size and type of instance class will have increasing CPU, memory, and I/O capacity. Generally, the `t2` instances are for lower load tasks, and the `c4` instances are for higher load and more tasks. |
-| **VPC**                 | Choose the VPC in which your replication instance will be launched. If possible, select the same VPC in which either your source or target database resides (or both).                                                                                       |
-| **Multi-AZ**            | When \*_Yes_<br>• is selected, AWS DMS creates a second replication server in a different Availability Zone for failover if there is a problem with the primary replication server.                                                                          |
-| **Publicly accessible** | If either your source or target database resides outside of the VPC in which your replication server resides, then you must make your replication server policy publicly accessible.                                                                         |
+The page should look like the following:
 
-4. For the **Advanced** section, specify the following information.
+![Create task page](images/sbs-rdsor2postgressql23.png) 2. Under **Task Settings**, choose **Do nothing** or **Truncate** for **Target table preparation mode**, because you have already created the tables using the AWS Schema Conversion Tool.
 
-| Parameter                    | Description                                                                                                                                                                                                                                                                                |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Allocated storage (GB)**   | Amount of storage on the replication server for the AWS DMS task logs, including historical tasks logs. AWS DMS also uses disk storage to cache certain data while it replicates it from the source to the target. Additionally, more storage generally enables better IOPS on the server. |
-| **Replication Subnet Group** | If you are running in a Multi-AZ configuration, then you will need at least two subnet groups.                                                                                                                                                                                             |
-| **Availability zone**        | Generally, performance is better if you locate your primary replication server in the same Availability Zone as your target database.                                                                                                                                                      |
-| **VPC Security Group(s)**    | Security groups enable you to control ingress and egress to your VPC. AWS DMS allows you to associate one or more security groups with the VPC in which your replication server is launched.                                                                                               |
-| **KMS key**                  | With AWS DMS, all data is encrypted at rest using a KMS encryption key. By default, AWS DMS will create a new encryption key for your replication server. However, you may choose to use an existing key.                                                                                  |
+If the Oracle database has LOBs, then for **Include LOB columns in replication**, select **Full LOB mode** if you want to replicate the entire LOB for all tables. Select **Limited LOB mode** if you want to replicate the LOBs only up to a certain size. You specify the size of the LOB to migrate in **Max LOB size (kb)**.
 
-For information about the KMS key, see [Setting an Encryption Key and Specifying KMS Permissions](../userguide/CHAP_Security.md "../userguide/CHAP_Security.md"). 5. Click **Next**.
+It is best to select **Enable logging**. If you enable logging, then you can see any errors or warnings that the task encounters, and you can troubleshoot those issues.
+
+![Task Settings section](images/sbs-rdsor2postgresql23.5.png) 3. Leave the Advanced settings at their default values. 4. Choose **Table mappings**, and select the **JSON** tab. Next, select **Enable JSON editing**, and enter the table mappings you saved in the last step in [Step 4: Convert the Oracle Schema to PostgreSQL](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md").
+
+The following is an example of mappings that convert schema names and table names to lowercase.
+
+```
+{
+  "rules": [
+    {
+      "rule-type": "transformation",
+      "rule-id": "100000",
+      "rule-name": "Default Lowercase Table Rule",
+      "rule-action": "convert-lowercase",
+      "rule-target": "table",
+      "object-locator": {
+        "schema-name": "%",
+        "table-name": "%"
+      }
+    },
+    {
+      "rule-type": "transformation",
+      "rule-id": "100001",
+      "rule-name": "Default Lowercase Schema Rule",
+      "rule-action": "convert-lowercase",
+      "rule-target": "schema",
+      "object-locator": {
+        "schema-name": "%"
+      }
+    }
+  ]
+}
+```
+
+5. Choose **Create task**. The task will begin immediately.
+   The Tasks section shows you the status of the migration task.
+
+![Migration task status](images/sbs-rdsor2postgressql25.png)
+You can monitor your task if you chose **Enable logging** when you set up your task. You can then view the CloudWatch metrics by doing the following:
+
+1. On the navigation pane, choose **Tasks**.
+2. Choose your migration task.
+3. Choose the **Task monitoring** tab, and monitor the task in progress on that tab.
+
+When the full load is complete and cached changes are applied, the task will stop on its own. 4. On the target PostgreSQL database, enable foreign key constraints and triggers using the script you saved previously. 5. On the target PostgreSQL database, re-create the secondary indexes if you removed them previously. 6. In the AWS DMS console, start the AWS DMS task by clicking **Start/Resume** for the task.
+
+The AWS DMS task keeps the target PostgreSQL database up-to-date with source database changes. AWS DMS will keep all of the tables in the task up-to-date until it is time to implement the application migration. The latency will be zero, or close to zero, when the target has caught up to the source.
