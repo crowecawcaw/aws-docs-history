@@ -49,6 +49,21 @@ You can use the AZs with the physical IDs `use1-az4` and `use1-az6`.
 You can use the AZs with the physical IDs `usw2-az3` and
 `usw2-az4`.
 
+**Asia Pacific (Tokyo)**
+
+You can use the AZs with the physical IDs `apne1-az1` and
+`apne1-az4`.
+
+**US East (Ohio)**
+
+You can use the AZs with the physical IDs `use2-az1` and
+`use2-az2`.
+
+**Europe (Frankfurt)**
+
+You can use the AZs with the physical IDs `euc1-az1` and
+`euc1-az2`.
+
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run
 the following command.
 
