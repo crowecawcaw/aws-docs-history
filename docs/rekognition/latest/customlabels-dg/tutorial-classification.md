@@ -70,7 +70,7 @@ aws s3 cp s3://custom-labels-console-`region`-`numbers`/assets/rooms_`version nu
 Make a list of the classes that you want your model to find.
 For example, if you're training a model to recognize rooms in a house, you can classify the following image as `living_room`.
 
-![Cozy living room with fireplace, plush sofa, armchair, overlooking outdoors.](/images/rekognition/latest/customlabels-dg/images/image-classification.jpg)
+![Cozy living room with fireplace, plush sofa, armchair, overlooking outdoors.](images/image-classification.jpg)
 
 Each class maps to an image-level label. Later you assign image-level labels to the images in your training and test datasets.
 
