@@ -1,178 +1,31 @@
-# Transformation rules and actions
+# Using transformation rule expressions to define column content
 
-You use the transformation actions to specify any transformations you want to
-apply to the selected schema, table, or view. Transformation rules are optional.
+To define content for new and existing columns, you can use an expression within a
+transformation rule. For example, using expressions you can add a column or
+replicate source table headers to a target. You can also use expressions to flag
+records on target tables as inserted, updated, or deleted at the source.
 
-## Limitations
+###### Topics
 
-- You cannot apply more than one transformation rule action against the same object (schema,
-  table, column, table-tablespace, or index-tablespace). You can apply several
-  transformation rule actions on any level as long as each transformation
-  action is applied against a different object. However, this restriction is
-  not applicable when using data masking transformation rules where you can
-  have another transformation like `ADD-COLUMN` or
-  `CHANGE-DATA-TYPE` for the same column.
-- Table names and column names in transformation rules are case-sensitive. For example, you must
-  provide table names and column names for an Oracle or Db2 database in
-  upper-case.
-- Transformations are not supported for column names with Right-to-Left languages.
-- Transformations cannot be performed on columns that contain special characters
-  (e.g. #, \, /, -) in their name.
-- The only supported transformation for columns that are mapped to BLOB/CLOB data types is to
-  drop the column on the target.
-- AWS DMS doesn't support replicating two source tables to a single target table. AWS DMS replicates
-  records from table to table, and from column to column, according to the
-  replication task’s transformation rules. The object names must be unique to
-  prevent overlapping.
+- [Adding a column using an expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-adding "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-adding")
+- [Flagging target records using an expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Flagging "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Flagging")
+- [Replicating source table headers using expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers")
+- [Using SQLite functions to build expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite")
+- [Adding metadata to a target table using expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Metadata "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Metadata")
 
-For example, a source table has a column named `ID` and the corresponding target table
-has a pre-existing column called `id`. If a rule uses an `ADD-COLUMN` statement
-to add a new column called `id`, and a SQLite statement to populate the column with custom
-values, this creates a duplicate, ambiguous object named `id` and is not supported.
+## Adding a column using an expression
 
-- When creating a transformation rule, we recommend using the `data-type` parameter only when
-  the selection rules specify multiple columns, for instance, when you set
-  `column-name` to `%`. We don't recommend using `data-type`
-  for selecting a single column.
-- AWS DMS does not support transformation rules where source and target
-  objects (tables) are on the same database/schema. Using the same table as
-  both source and target in a transformation rule can lead to unexpected and
-  potentially harmful results, including but not limited to unintended
-  alterations to the table data, modification of table structures or even
-  tables getting dropped.
-
-## Values
-
-For table-mapping rules that use the transformation rule type, you can apply the
-following values.
-
-| Parameter          | Possible values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `rule-type`        | `transformation`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | A value that applies the rule to each object<br>specified by the selection rule. Use `transformation`<br>unless otherwise noted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `rule-id`          | A numeric value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | A unique numeric value to identify the<br>rule. If you specify multiple transformation rules for the same object<br>(schema, table, column, inter-table space, or index table space), AWS DMS applies the transformation<br>rule with the lower rule-id.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `rule-name`        | An alphanumeric value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | A unique name to identify the rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `object-locator`   | An object with the following parameters:<br>• `schema-name` – The name of the<br>schema. For MongoDB and Amazon DocumentDB endpoints, this is the<br>name of the database holding a set of<br>collections.<br>• `table-name` – The name of the<br>table, view, or collection.<br>• `table-tablespace-name` – The name<br>of an existing table tablespace.<br>• `index-tablespace-name` – The name<br>of an existing index tablespace.<br>• `column-name` – The name of an<br>existing column.<br>• `data-type` – The name of an<br>existing column data type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | The name of each schema, table or view, table tablespace,<br>index tablespace, and column to which the rule applies. You can<br>use the "%" percent sign as a wildcard for all or part<br>of the value of each `object-locator` parameter,<br>except `data-type`. Thus, you can match these<br>items:<br>• A single table or view in a single schema<br>• A single table or view in some or all schemas<br>• Some or all tables and views in a single schema<br>• Some or all tables and views in some or all<br>schemas<br>• One or more columns in the specified table or tables,<br>view or views, and schema or schemas.<br>• We recommend using the `data-type` parameter only when<br>the selection rules specify multiple columns, for instance, when you set<br>`column-name` to `%`. We don't recommend using this parameter<br>for a single column.<br>Also, the `table-tablespace-name` or<br>`index-tablespace-name` parameter is only<br>available to match an Oracle source endpoint. You can specify<br>either `table-tablespace-name` or<br>`index-tablespace-name` in a single rule, but not<br>both. Thus, you can match \*either<br>• of the<br>following items:<br>• One, some, or all table tablespaces<br>• One, some, or all index tablespaces                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `rule-action`      | `add-column`, `include-column`,<br>`remove-column`<br>`rename`<br>`convert-lowercase`,<br>`convert-uppercase`<br>`add-prefix`, `remove-prefix`,<br>`replace-prefix`<br>`add-suffix`, `remove-suffix`,<br>`replace-suffix`<br>`define-primary-key`<br>`change-data-type`<br>`add-before-image-columns`<br>`data-masking-digits-mask`<br>`data-masking-digits-randomize`<br>`data-masking-hash-mask`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | The transformation you want to apply to the object. All<br>transformation rule actions are case-sensitive.<br>The `add-column` value of the<br>`rule-action` parameter adds a column to a table.<br>But you can't add a new column with the same name as an existing<br>column of the same table.<br>When used with the `expression` and<br>`data-type` parameters, `add-column`<br>specifies the value of new column data.<br>The `change-data-type` value for<br>`rule-action` is only available for<br>`column` rule targets.<br>The `include-column` value of the `rule-action`<br>parameter changes the mode of the table to *drop all columns by<br>default<br>• and *include the columns specified\*.<br>Multiple columns are included in the target by invoking the `include-column`<br>rule multiple times.<br>You can't use a `define-primary-key` rule when the rule has a wildcard (`%`) in<br>a schema or table name.<br>For an existing task, transformation rule actions which alter the target table schema such as<br>`remove-column`, `rename`, or `add-prefix` will not take effect<br>until you restart the task. If you resume the task after adding the transformation rule,<br>you may see unexpected behavior for the altered column, which might include missing column data.<br>A task restart is required to ensure the transformation rule works properly.<br>The `data-masking-digits-mask`, `data-masking-digits-randomize`, and `data-masking-hash-mask`<br>are for masking sensitive information contained in one or more columns of the table when loading to target.<br>These transformations are only available for column rule targets. For more details, see<br>[Using data masking to hide sensitive information](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md") |
-| `rule-target`      | `schema`, `table`,<br>`column`, `table-tablespace`,<br>`index-tablespace`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | The type of object that you're<br>transforming.The `table-tablespace` and<br>`index-tablespace` values are only available for<br>an Oracle target endpoint. Make sure to specify a<br>value for the parameter that you specify as part of the<br>`object-locator`:<br>`table-tablespace-name` or<br>`index-tablespace-name` name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `value`            | An alphanumeric value that follows the naming<br>rules for the target type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | The new value for actions that require input, such<br>as `rename`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `old-value`        | An alphanumeric value that follows the naming<br>rules for the target type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | The old value for actions that require<br>replacement, such as `replace-prefix`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `data-type`        | `type` – The data type to use if the<br>`rule-action` is `add-column` or the<br>replacement data type if the`rule-action` is<br>`change-data-type`.<br>Or, the name of the replacement data type when<br>`rule-action` is `change-data-type`,<br>the value of `column-name` is `"%"`, and<br>an additional `data-type` parameter to identify the<br>existing data type is included in the<br>`object-locator`.<br>AWS DMS supports column data type transformations for the<br>following DMS data types: `"bytes", "date", "time",<br>"datetime", "int1", "int2", "int4", "int8", "numeric",<br>"real4", "real8", "string", "uint1", "uint2", "uint4",<br>"uint8", "wstring", "blob", "nclob", "clob", "boolean",<br>"set", "list" "map", "tuple"`<br>NoteAWS DMS can apply transformations from one type to another<br>ONLY in supported formats. E.g. DATE should be represented<br>in `YYYY:MM:DD/YYYY-MM-DD.` DATETIME should be<br>represented in `YYYY:MM:DD HH:MM:SS/YYYY-MM-DD<br>HH:MM:SS`. TIME should be represented in<br>`HH:MM:SS`.<br>`precision` – If the added column or<br>replacement data type has a precision, an integer value to<br>specify the precision.<br>`scale` – If the added column or<br>replacement data type has a scale, an integer value or date<br>time value to specify the scale.<br>`length` – The length of new column data<br>(when used with `add-column`) | The following is an example of a `data-type`<br>parameter to specify the existing data type to be replaced.<br>`<br>{<br>"rules": [{<br>"rule-type": "selection",<br>"rule-id": "1",<br>"rule-name": "1",<br>"object-locator": {<br>"schema-name": "%",<br>"table-name": "%"<br>},<br>"rule-action": "include"<br>},<br>{<br>"rule-type": "transformation",<br>"rule-id": "2",<br>"rule-name": "2",<br>"rule-target": "column",<br>"object-locator": {<br>"schema-name": "test",<br>"table-name": "table_t",<br>"column-name": "col10"<br>},<br>"rule-action": "change-data-type",<br>"data-type": {<br>"type": "string",<br>"length": "4092",<br>"scale": ""<br>}<br>}<br>]<br>}<br>`<br>Here, the `col10` column of the `table_t` table<br>is changed to the `string` data type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `expression`       | An alphanumeric value that follows SQLite syntax.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | When used with the `rule-action` set to<br>`rename-schema`, the `expression`<br>parameter specifies a new schema. When used with the<br>`rule-action` set to `rename-table`,<br>`expression` specifies a new table. When used<br>with the `rule-action` set to<br>`rename-column`, `expression`<br>specifies a new column name value.<br>When used with the `rule-action` set to<br>`add-column`, `expression` specifies<br>data that makes up a new column.<br>Note that only expressions are supported for this parameter. Operators and commands<br>are not supported.<br>For more information about using expressions for<br>transformation rules, see [Using transformation rule expressions to define column content](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").<br>For more information about SQLite expressions, see [Using SQLite functions to build expressions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `primary-key-def`  | An object with the following parameters:<br>• `name` – The name of a new primary<br>key or unique index for the table or view.<br>• (Optional) `origin` – The type of<br>unique key to define: `primary-key` (the<br>default) or `unique-index`.<br>• `columns` – An array of strings<br>listing the names of columns in the order they appear in<br>the primary key or unique index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | This parameter can define the name, type, and<br>content of a unique key on the transformed table or view. It does so<br>when the `rule-action` is set to<br>`define-primary-key` and the `rule-target`<br>is set to `table`. By default, the unique key is defined<br>as a primary key.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `before-image-def` | An object with the following parameters:<br>• `column-prefix` – A value prepended<br>to a column name. The default value is<br>`BI_`.<br>• `column-suffix` – A value appended<br>to the column name. The default is empty.<br>• `column-filter` – Requires one of<br>the following values: `pk-only` (default),<br>`non-lob` (optional) and `all`<br>(optional).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | This parameter defines a naming convention to identify the<br>before-image columns and specifies a filter to identify which<br>source columns can have before-image columns created for them on<br>the target. You can specify this parameter when the<br>`rule-action` is set to<br>`add-before-image-columns` and the<br>`rule-target` is set to<br>`column`.<br>Don't set both `column-prefix` and<br>`column-suffix` to empty strings.<br>For `column-filter`, select:<br>• `pk-only` – To add only columns that<br>are part of table primary keys.<br>• `non-lob` – To add only columns that<br>are not of LOB type.<br>• `all` – To add any column that has a<br>before-image value.<br>NoteThe `before-image-def` parameter does not<br>support large binary object (LOB) data types such as CLOB<br>and BLOB. If the data type is set as LOB, a void column is<br>created in the table.<br>For more information about before-image support for AWS DMS<br>target endpoints, see:<br>• [Using a before image to view<br>original values of CDC rows for a Kinesis data stream as a target](CHAP_Target.md#CHAP_Target.Kinesis.BeforeImage "CHAP_Target.md#CHAP_Target.Kinesis.BeforeImage")<br>• [Using a before image to view<br>original values of CDC rows for Apache Kafka as a target](CHAP_Target.md#CHAP_Target.Kafka.BeforeImage "CHAP_Target.md#CHAP_Target.Kafka.BeforeImage")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
-## Examples
-
-###### Example Rename a schema
-
-The following example renames a schema from `Test` in your source
-to `Test1` in your target.
-
-```
-{
-
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-        {
-            "rule-type": "transformation",
-            "rule-id": "2",
-            "rule-name": "2",
-            "rule-action": "rename",
-            "rule-target": "schema",
-            "object-locator": {
-                "schema-name": "Test"
-            },
-            "value": "Test1"
-        }
-    ]
-}
-```
-
-###### Example Rename a table
-
-The following example renames a table from `Actor` in your
-source to `Actor1` in your target.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-        {
-            "rule-type": "transformation",
-            "rule-id": "2",
-            "rule-name": "2",
-            "rule-action": "rename",
-            "rule-target": "table",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "Actor"
-            },
-            "value": "Actor1"
-        }
-    ]
-}
-```
-
-###### Example Rename a column
-
-The following example renames a column in table `Actor` from
-`first_name` in your source to `fname` in your
+To add columns to tables using an expression in a transformation rule, use an
+`add-column` rule action and a `column` rule
 target.
 
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-         {
-            "rule-type": "transformation",
-            "rule-id": "4",
-            "rule-name": "4",
-            "rule-action": "rename",
-            "rule-target": "column",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "Actor",
-                "column-name" : "first_name"
-            },
-            "value": "fname"
-        }
-    ]
-}
-```
-
-###### Example Rename an Oracle table tablespace
-
-The following example renames the table tablespace named
-`SetSpace` for a table named `Actor` in your
-Oracle source to `SceneTblSpace` in your Oracle target
-endpoint.
+The following example adds a new column to the `ITEM` table. It
+sets the new column name to `FULL_NAME`, with a data type of
+`string`, 50 characters long. The expression concatenates the
+values of two existing columns, `FIRST_NAME` and
+`LAST_NAME`, to evaluate to `FULL_NAME`. The `schema-name`,
+`table-name`, and expression parameters refer to objects in the source database
+table. `Value` and the `data-type` block refer to objects in the target database table.
 
 ```
 {
@@ -182,79 +35,7 @@ endpoint.
             "rule-id": "1",
             "rule-name": "1",
             "object-locator": {
-                "schema-name": "Play",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-        {
-            "rule-type": "transformation",
-            "rule-id": "2",
-            "rule-name": "2",
-            "rule-action": "rename",
-            "rule-target": "table-tablespace",
-            "object-locator": {
-                "schema-name": "Play",
-                "table-name": "Actor",
-                "table-tablespace-name": "SetSpace"
-            },
-            "value": "SceneTblSpace"
-        }
-    ]
-}
-```
-
-###### Example Rename an Oracle index tablespace
-
-The following example renames the index tablespace named
-`SetISpace` for a table named `Actor` in your
-Oracle source to `SceneIdxSpace` in your Oracle target
-endpoint.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "Play",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-        {
-            "rule-type": "transformation",
-            "rule-id": "2",
-            "rule-name": "2",
-            "rule-action": "rename",
-            "rule-target": "table-tablespace",
-            "object-locator": {
-                "schema-name": "Play",
-                "table-name": "Actor",
-                "table-tablespace-name": "SetISpace"
-            },
-            "value": "SceneIdxSpace"
-        }
-    ]
-}
-```
-
-###### Example Add a column
-
-The following example adds a `datetime` column to the table
-`Actor` in schema `test`.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "test",
+                "schema-name": "Test",
                 "table-name": "%"
             },
             "rule-action": "include"
@@ -266,363 +47,444 @@ The following example adds a `datetime` column to the table
             "rule-action": "add-column",
             "rule-target": "column",
             "object-locator": {
-                "schema-name": "test",
-                "table-name": "actor"
+                "schema-name": "Test",
+                "table-name": "ITEM"
             },
-            "value": "last_updated",
+            "value": "FULL_NAME",
+            "expression": "$FIRST_NAME||'_'||$LAST_NAME",
             "data-type": {
-                "type": "datetime",
-                "precision": 6
+                 "type": "string",
+                 "length": 50
             }
         }
     ]
 }
-```
-
-###### Example Remove a column
-
-The following example transforms the table named `Actor` in
-your source to remove all columns starting with the characters
-`col` from it in your target.
 
 ```
-{
- 	"rules": [{
-		"rule-type": "selection",
-		"rule-id": "1",
-		"rule-name": "1",
-		"object-locator": {
-			"schema-name": "test",
-			"table-name": "%"
-		},
-		"rule-action": "include"
-	}, {
-		"rule-type": "transformation",
-		"rule-id": "2",
-		"rule-name": "2",
-		"rule-action": "remove-column",
-		"rule-target": "column",
-		"object-locator": {
-			"schema-name": "test",
-			"table-name": "Actor",
-			"column-name": "col%"
-		}
-	}]
- }
-```
 
-###### Example Convert to lowercase
+## Flagging target records using an expression
 
-The following example converts a table name from `ACTOR` in
-your source to `actor` in your target.
+To flag records in target tables as inserted, updated, or deleted in the
+source table, use an expression in a transformation rule. The expression
+uses an `operation_indicator` function to flag records. Records
+deleted from the source aren't deleted from the target. Instead, the
+target record is flagged with a user-provided value to indicate that it was
+deleted from the source.
+
+###### Note
+
+The `operation_indicator` function works only on tables
+that have a primary key on both source and target database.
+
+For example, the following transformation rule first adds a new
+`Operation` column to a target table. It then updates the
+column with the value `D` whenever a record is deleted from a
+source table.
 
 ```
 {
-	"rules": [{
-		"rule-type": "selection",
-		"rule-id": "1",
-		"rule-name": "1",
-		"object-locator": {
-			"schema-name": "test",
-			"table-name": "%"
-		},
-		"rule-action": "include"
-	}, {
-		"rule-type": "transformation",
-		"rule-id": "2",
-		"rule-name": "2",
-		"rule-action": "convert-lowercase",
-		"rule-target": "table",
-		"object-locator": {
-			"schema-name": "test",
-			"table-name": "ACTOR"
-		}
-	}]
+      "rule-type": "transformation",
+      "rule-id": "2",
+      "rule-name": "2",
+      "rule-target": "column",
+      "object-locator": {
+        "schema-name": "%",
+        "table-name": "%"
+      },
+      "rule-action": "add-column",
+      "value": "Operation",
+      "expression": "operation_indicator('D', 'U', 'I')",
+      "data-type": {
+        "type": "string",
+        "length": 50
+      }
 }
-```
-
-###### Example Convert to uppercase
-
-The following example converts all columns in all tables and all schemas
-from lowercase in your source to uppercase in your target.
 
 ```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-        {
-            "rule-type": "transformation",
-            "rule-id": "2",
-            "rule-name": "2",
-            "rule-action": "convert-uppercase",
-            "rule-target": "column",
-            "object-locator": {
-                "schema-name": "%",
-                "table-name": "%",
-                "column-name": "%"
-            }
-        }
-    ]
-}
-```
 
-###### Example Add a prefix
+## Replicating source table headers using expressions
 
-The following example transforms all tables in your source to add the
-prefix `DMS_` to them in your target.
+By default, headers for source tables aren't replicated to the target. To
+indicate which headers to replicate, use a transformation rule with an
+expression that includes the table column header.
+
+You can use the following column headers in expressions.
+
+| Header                | Value in ongoing replication                                                                                                                                                                                                     | Value in full load                                                     | Data type          |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------ |
+| AR_H_STREAM_POSITION  | The stream position value from the source.<br>This value might be the system change number (SCN) or the<br>log sequence number (LSN), depending on the source<br>endpoint.                                                       | An empty string.                                                       | STRING             |
+| AR_H_TIMESTAMP        | A timestamp indicating the time of the<br>change.                                                                                                                                                                                | A timestamp indicating the current time data<br>arrives at the target. | DATETIME (scale=7) |
+| AR_H_COMMIT_TIMESTAMP | A timestamp indicating the time of the<br>commit.                                                                                                                                                                                | A timestamp indicating the current<br>time.                            | DATETIME (scale=7) |
+| AR_H_OPERATION        | INSERT, UPDATE, or DELETE                                                                                                                                                                                                        | INSERT                                                                 | STRING             |
+| AR_H_USER             | The user name, ID, or any other information<br>that the source provides about the user that made the<br>change. This header is supported on the SQL Server and<br>Oracle (version 11.2.0.3 and higher) source endpoints<br>only. | An empty string.                                                       | STRING             |
+| AR_H_CHANGE_SEQ       | A unique incrementing number from the source<br>database that consists of a timestamp and an auto incrementing number.<br>The value depends on the source database system.                                                       | An empty string.                                                       | STRING             |
+
+The following example adds a new column to the target by using the stream
+position value from the source. For SQL Server, the stream position value is
+the LSN for the source endpoint. For Oracle, the stream position value is
+the SCN for the source endpoint.
 
 ```
 {
- 	"rules": [{
-		"rule-type": "selection",
-		"rule-id": "1",
-		"rule-name": "1",
-		"object-locator": {
-			"schema-name": "test",
-			"table-name": "%"
-		},
-		"rule-action": "include"
-	}, {
-		"rule-type": "transformation",
-		"rule-id": "2",
-		"rule-name": "2",
-		"rule-action": "add-prefix",
-		"rule-target": "table",
-		"object-locator": {
-			"schema-name": "test",
-			"table-name": "%"
-		},
-		"value": "DMS_"
-	}]
-
-}
-```
-
-###### Example Replace a prefix
-
-The following example transforms all columns containing the prefix
-`Pre_` in your source to replace the prefix with
-`NewPre_` in your target.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "test",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        },
-        {
-            "rule-type": "transformation",
-            "rule-id": "2",
-            "rule-name": "2",
-            "rule-action": "replace-prefix",
-            "rule-target": "column",
-            "object-locator": {
-                "schema-name": "%",
-                "table-name": "%",
-                "column-name": "%"
-            },
-            "value": "NewPre_",
-            "old-value": "Pre_"
-        }
-    ]
-}
-```
-
-###### Example Remove a suffix
-
-The following example transforms all tables in your source to remove the
-suffix `_DMS` from them in your target.
-
-```
-{
-	"rules": [{
-		"rule-type": "selection",
-		"rule-id": "1",
-		"rule-name": "1",
-		"object-locator": {
-			"schema-name": "test",
-			"table-name": "%"
-		},
-		"rule-action": "include"
-	}, {
-		"rule-type": "transformation",
-		"rule-id": "2",
-		"rule-name": "2",
-		"rule-action": "remove-suffix",
-		"rule-target": "table",
-		"object-locator": {
-			"schema-name": "test",
-			"table-name": "%"
-		},
-		"value": "_DMS"
-	}]
-}
-```
-
-###### Example Define a primary key
-
-The following example defines a primary key named
-`ITEM-primary-key` on three columns of the `ITEM`
-table migrated to your target endpoint.
-
-```
-{
-	"rules": [{
-		"rule-type": "selection",
-		"rule-id": "1",
-		"rule-name": "1",
-		"object-locator": {
-			"schema-name": "inventory",
-			"table-name": "%"
-		},
-		"rule-action": "include"
-	}, {
-		"rule-type": "transformation",
-		"rule-id": "2",
-		"rule-name": "2",
-		"rule-action": "define-primary-key",
-		"rule-target": "table",
-		"object-locator": {
-			"schema-name": "inventory",
-			"table-name": "ITEM"
-		},
-		"primary-key-def": {
-			"name": "ITEM-primary-key",
-			"columns": [
-				"ITEM-NAME",
-				"BOM-MODEL-NUM",
-				"BOM-PART-NUM"
-			]
-              }
-	}]
-}
-```
-
-###### Example Define a unique index
-
-The following example defines a unique index named
-`ITEM-unique-idx` on three columns of the `ITEM`
-table migrated to your target endpoint.
-
-```
-{
-	"rules": [{
-		"rule-type": "selection",
-		"rule-id": "1",
-		"rule-name": "1",
-		"object-locator": {
-			"schema-name": "inventory",
-			"table-name": "%"
-		},
-		"rule-action": "include"
-	}, {
-		"rule-type": "transformation",
-		"rule-id": "2",
-		"rule-name": "2",
-		"rule-action": "define-primary-key",
-		"rule-target": "table",
-		"object-locator": {
-			"schema-name": "inventory",
-			"table-name": "ITEM"
-		},
-		"primary-key-def": {
-			"name": "ITEM-unique-idx",
-			"origin": "unique-index",
-			"columns": [
-				"ITEM-NAME",
-				"BOM-MODEL-NUM",
-				"BOM-PART-NUM"
-			]
-              }
-	}]
-}
-```
-
-###### Example Change data type of target column
-
-The following example changes the data type of a target column named
-`SALE_AMOUNT` from an existing data type to
-`int8`.
-
-```
-{
-    "rule-type": "transformation",
-    "rule-id": "1",
-    "rule-name": "RuleName 1",
-    "rule-action": "change-data-type",
-    "rule-target": "column",
-    "object-locator": {
-        "schema-name": "dbo",
-        "table-name": "dms",
-        "column-name": "SALE_AMOUNT"
-    },
-    "data-type": {
-        "type": "int8"
+      "rule-type": "transformation",
+     "rule-id": "2",
+      "rule-name": "2",
+      "rule-target": "column",
+      "object-locator": {
+        "schema-name": "%",
+        "table-name": "%"
+      },
+      "rule-action": "add-column",
+      "value": "transact_id",
+      "expression": "$AR_H_STREAM_POSITION",
+      "data-type": {
+        "type": "string",
+        "length": 50
+      }
     }
-}
+
 ```
 
-###### Example Add a before image column
-
-For a source column named `emp_no`, the transformation rule in
-the example following adds a new column named `BI_emp_no` in the
-target.
+The following example adds a new column to the target that has a unique
+incrementing number from the source. This value represents a 35 digit unique
+number at task level. The first 16 digits are part of a timestamp, and the last
+19 digits are the record_id number incremented by the DBMS.
 
 ```
 {
-	"rules": [{
-			"rule-type": "selection",
-			"rule-id": "1",
-			"rule-name": "1",
-			"object-locator": {
-				"schema-name": "%",
-				"table-name": "%"
-			},
-			"rule-action": "include"
-		},
-		{
-			"rule-type": "transformation",
-			"rule-id": "2",
-			"rule-name": "2",
-			"rule-target": "column",
-			"object-locator": {
-				"schema-name": "%",
-				"table-name": "employees"
-			},
-			"rule-action": "add-before-image-columns",
-			"before-image-def": {
-				"column-prefix": "BI_",
-				"column-suffix": "",
-				"column-filter": "pk-only"
-			}
-		}
-	]
+"rule-type": "transformation",
+"rule-id": "2",
+"rule-name": "2",
+"rule-target": "column",
+"object-locator": {
+"schema-name": "%",
+"table-name": "%"
+},
+"rule-action": "add-column",
+"value": "transact_id",
+"expression": "$AR_H_CHANGE_SEQ",
+"data-type": {
+"type": "string",
+"length": 50
+}
+}
+
+```
+
+## Using SQLite functions to build expressions
+
+You use table settings to specify any settings that you want to apply to the
+selected table or view for a specified operation. Table-settings rules are
+optional.
+
+###### Note
+
+Instead of the concept of tables and views, MongoDB and DocumentDB
+databases store data records as documents that are gathered together in
+_collections_. So then, when migrating
+from a MongoDB or DocumentDB source, consider the range segmentation type of
+parallel load settings for selected _collections_ rather than tables and views.
+
+###### Topics
+
+- [Using a CASE expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.CASE "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.CASE")
+- [Examples](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.Ex "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.Ex")
+
+Following, you can find string functions that you can use to build
+transformation rule expressions.
+
+| String functions       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `lower(`x`)`           | The<br>`lower(`x`)`<br>function returns a copy of string<br>`x` with all<br>characters converted to lowercase. The default, built-in<br>`lower` function works for ASCII characters<br>only.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `upper(`x`)`           | The<br>`upper(`x`)`<br>function returns a copy of string<br>`x` with all<br>characters converted to uppercase. The default, built-in<br>`upper` function works for ASCII characters<br>only.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `ltrim(`x`,`y`)`       | The<br>`ltrim(`x`,`y`)`<br>function returns a string formed by removing all characters<br>that appear in y from the left side of x. If there is no<br>value for y, `ltrim(x)` removes spaces from the<br>left side of x.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `replace(`x``,y`,`z`)` | The<br>`replace(`x``,y`,`z`)`<br>function returns a string formed by substituting string z<br>for every occurrence of string y in string x.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `rtrim(`x`,`y`)`       | The<br>`rtrim(`x`,`y`)`<br>function returns a string formed by removing all characters<br>that appear in y from the right side of x. If there is no<br>value for y, `rtrim(x)` removes spaces from the<br>right side of x.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `substr(`x`,`y`,`z`)`  | The<br>`substr(`x`,`y`,`z`)`<br>function returns a substring of the input string<br>`x` that<br>begins with the `y`th<br>character, and which is<br>`z` characters<br>long.<br>If `z` is omitted,<br>`substr(`x`,`y`)`<br>returns all characters through the end of string<br>`x` beginning<br>with the `y`th<br>character. The leftmost character of<br>`x` is number<br>1. If `y` is negative,<br>the first character of the substring is found by counting<br>from the right rather than the left. If<br>`z` is<br>negative, then the `abs(z)` characters preceding<br>the `y`th character<br>are returned. If `x`<br>is a string, then the characters' indices refer to<br>actual UTF-8 characters. If<br>`x` is a BLOB,<br>then the indices refer to bytes. |
+| `trim(`x`,`y`)`        | The<br>`trim(`x`,`y`)`<br>function returns a string formed by removing all characters<br>that appear in `y`<br>from both sides of<br>`x`. If there is no<br>value for `y`,<br>`trim(`x`)`<br>removes spaces from both sides of<br>`x`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+Following, you can find LOB functions that you can use to build transformation
+rule expressions.
+
+| LOB functions         | Description                                                                                                                                                    |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hex(x)`              | The `hex` function receives a BLOB as an<br>argument and returns an uppercase hexadecimal string version<br>of the BLOB content.                               |
+| `randomblob<br>(`N`)` | The `randomblob(`N`)`<br>function returns an<br>`N`-byte BLOB that<br>contains pseudorandom bytes. If `N`<br>is less than 1, a 1-byte random BLOB is returned. |
+| `zeroblob(N)`         | The `zeroblob(`N`)`<br>function returns a BLOB that consists of<br>`N` bytes of<br>0x00.                                                                       |
+
+Following, you can find numeric functions that you can use to build
+transformation rule expressions.
+
+| Numeric functions     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `abs(`x`)`            | The `abs(`x`)`<br>function returns the absolute value of the numeric argument<br>`x`. The<br>`abs(`x`)`<br>function returns NULL if `x` is<br>NULL. The `abs(`x`)`<br>function returns 0.0 if<br>`x`<br>is a string or BLOB that can't be converted to a<br>numeric value.                                                                                                                                                                                                                                                                                                                                    |
+| `random()`            | The `random` function returns a pseudorandom<br>integer between -9,223,372,036,854,775,808 and<br>+9,223,372,036,854,775,807.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `round<br>(`x`,`y`)`  | The `round<br>(`x`,`y`)`<br>function returns a floating-point value<br>`x` rounded to<br>`y` digits to the right of the<br>decimal point. If there is no value for<br>`y`, it's assumed to be<br>0.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `max<br>(`x`,`y`...)` | The multiargument `max` function returns the<br>argument with the maximum value, or returns NULL if any<br>argument is NULL.<br>The `max` function searches its arguments from<br>left to right for an argument that defines a collating<br>function. If one is found, it uses that collating function<br>for all string comparisons. If none of the arguments to<br>`max` define a collating function, the<br>`BINARY` collating function is used. The<br>`max` function is a simple function when it<br>has two or more arguments, but it operates as an aggregate<br>function if it has a single argument. |
+| `min<br>(`x`,`y`...)` | The multiargument `min` function returns the<br>argument with the minimum value.<br>The `min` function searches its arguments from<br>left to right for an argument that defines a collating<br>function. If one is found, it uses that collating function<br>for all string comparisons. If none of the arguments to<br>`min` define a collating function, the<br>`BINARY` collating function is used. The<br>`min` function is a simple function when it<br>has two or more arguments, but it operates as an aggregate<br>function if it has a single argument.                                             |
+
+Following, you can find NULL check functions that you can use to build
+transformation rule expressions.
+
+| NULL check functions    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `coalesce (`x`,`y`...)` | The `coalesce` function returns a copy of its<br>first non-NULL argument, but it returns NULL if all<br>arguments are NULL. The coalesce function has at least two<br>arguments.                                                                                                                                                                                                                                                                                                                              |
+| `ifnull(`x`,`y`)`       | The `ifnull` function returns a copy of its<br>first non-NULL argument, but it returns NULL if both<br>arguments are NULL. The `ifnull` function has<br>exactly two arguments. The `ifnull` function is<br>the same as `coalesce` with two arguments.                                                                                                                                                                                                                                                         |
+| `nullif(`x`,`y`)`       | The<br>`nullif(`x`,`y`)`<br>function returns a copy of its first argument if the<br>arguments are different, but it returns NULL if the<br>arguments are the same.<br>The<br>`nullif(`x`,`y`)`<br>function searches its arguments from left to right for an<br>argument that defines a collating function. If one is found,<br>it uses that collating function for all string comparisons.<br>If neither argument to nullif defines a collating function,<br>then the `BINARY` collating function is<br>used. |
+
+Following, you can find date and time functions that you can use to build
+transformation rule expressions.
+
+| Date and time functions                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `date(`timestring`,<br>`modifier`,<br>`modifier`...)`                  | The `date` function returns the<br>date in the format YYYY-MM-DD.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `time(`timestring`,<br>`modifier`,<br>`modifier`...)`                  | The `time` function returns the time in the<br>format HH:MM:SS.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `datetime(`timestring`,<br>`modifier`,<br>`modifier`...)`              | The `datetime` function returns the date and<br>time in the format YYYY-MM-DD HH:MM:SS.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `julianday(`timestring`,<br>`modifier`,<br>`modifier`...)`             | The `julianday` function returns the number of<br>days since noon in Greenwich on November 24, 4714<br>B.C.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `strftime(`format`,<br>`timestring`,<br>`modifier`,<br>`modifier`...)` | The `strftime` function returns the date<br>according to the format string specified as the first<br>argument, using one of the following variables:<br>`%d`: day of month<br>`%H`: hour 00–24<br>`%f`: \*\<br>• fractional seconds SS.SSS<br>`%j`: day of year 001–366<br>`%J`: \*\<br>• Julian day number<br>`%m`: month 01–12<br>`%M`: minute 00–59<br>`%s`: seconds since 1970-01-01<br>`%S`: seconds 00–59<br>`%w`: day of week 0–6 sunday==0<br>`%W`: week of year 00–53<br>`%Y`: year 0000–9999<br>`%%`: % |
+
+Following, you can find a hash function that you can use to build
+transformation rule expressions.
+
+| Hash function      | Description                                                                                                                                                                                                                                                                                                         |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hash_sha256(`x`)` | The `hash` function generates a hash value for<br>an input column (using the SHA-256 algorithm) and returns<br>the hexadecimal value of the generated hash value.<br>To use the `hash` function in an expression,<br>add `hash_sha256(`x`)`<br>to the expression and replace<br>`x` with the<br>source column name. |
+
+### Using a CASE expression
+
+The SQLite `CASE` expression evaluates a list of conditions
+and returns an expression based on the result. Syntax is shown
+following.
+
+```
+    CASE case_expression
+     WHEN when_expression_1 THEN result_1
+     WHEN when_expression_2 THEN result_2
+     ...
+     [ ELSE result_else ]
+    END
+
+# Or
+
+     CASE
+     WHEN case_expression THEN result_1
+     WHEN case_expression THEN result_2
+     ...
+     [ ELSE result_else ]
+    END
+```
+
+### Examples
+
+###### Example of adding a new string column to the target table using a case
+
+condition
+
+The following example transformation rule adds a new string column,
+`emp_seniority`, to the target table,
+`employee`. It uses the SQLite `round`
+function on the salary column, with a case condition to check if the
+salary equals or exceeds 20,000. If it does, the column gets the value
+`SENIOR`, and anything else has the
+value `JUNIOR`.
+
+```
+  {
+      "rule-type": "transformation",
+      "rule-id": "2",
+      "rule-name": "2",
+      "rule-action": "add-column",
+      "rule-target": "column",
+      "object-locator": {
+        "schema-name": "public",
+        "table-name": "employee"
+      },
+      "value": "emp_seniority",
+      "expression": " CASE WHEN round($emp_salary)>=20000 THEN ‘SENIOR’ ELSE ‘JUNIOR’ END",
+      "data-type": {
+        "type": "string",
+        "length": 50
+      }
+
+  }
+```
+
+###### Example of adding a new string column to the target table using a SUBSTR
+
+function
+
+The following example transformation rule adds a new string column using
+SQLite operators or functions to define the data in a column. This approach
+involves using SQLite functions to transform the GUID data loaded from
+Oracle to UUID format before inserting it into the Postgresql target
+table.
+
+Following rule uses the SQLite substring (SUBSTR), hexadecimal function
+(HEX), and lowercase (LOWER) functions to break the GUID data into several
+groups separated by hyphens, specifically a group of 8 digits followed by
+three groups of 4 digits followed by a group of 12 digits, for a total of 32
+digits representing the 128 bits.
+
+Here is the sample source data and output on target post processing
+through transformation rule:
+
+###### Source Table (Oracle GUID format)
+
+T_COL2
+
+```
+06F6949D234911EE80670242AC120002
+1A2B3C4D5E6F11EE80670242AC120003
+F5E4D3C2B1A011EE80670242AC120004
+```
+
+###### Target Table (PostgreSQL UUID format)
+
+T_COL2_TMP
+
+```
+06f6949d-2349-11ee-8067-0242ac120002
+1a2b3c4d-5e6f-11ee-8067-0242ac120003
+f5e4d3c2-b1a0-11ee-8067-0242ac120004
+```
+
+```
+{
+  "rule-type": "transformation",
+  "rule-id": "2",
+  "rule-name": "2",
+  "rule-action": "add-column",
+  "rule-target": "column",
+  "object-locator": {
+    "schema-name": "SPORTS",
+    "table-name": "TEST_TBL_2"
+  },
+  "value": "t_col2_tmp",
+  "expression": "CASE LOWER(SUBSTR(HEX($T_COL2), 1, 8) || '-' || SUBSTR(HEX($T_COL2), 9, 4) || '-' || SUBSTR(HEX($T_COL2), 13, 4) || '-' || SUBSTR(HEX($T_COL2), 17, 4) || '-' || SUBSTR(HEX($T_COL2), 21, 12)) WHEN '----' THEN NULL ELSE LOWER(SUBSTR(HEX($T_COL2), 1, 8) || '-' || SUBSTR(HEX($T_COL2), 9, 4) || '-' || SUBSTR(HEX($T_COL2), 13, 4) || '-' || SUBSTR(HEX($T_COL2), 17, 4) || '-' || SUBSTR(HEX($T_COL2), 21, 12)) END",
+  "data-type": {
+    "type": "string",
+    "length": 60
+  }
 }
 ```
 
-Here, the following statement populates a `BI_emp_no` column in the
-corresponding row with 1.
+###### Example of adding a new date column to the target table
+
+The following example adds a new date column, `createdate`, to
+the target table, `employee`. When you use the SQLite date
+function `datetime`, the date is added to the newly created table
+for each row inserted.
 
 ```
-UPDATE employees SET emp_no = 3 WHERE BI_emp_no = 1;
+  {
+      "rule-type": "transformation",
+      "rule-id": "2",
+      "rule-name": "2",
+      "rule-action": "add-column",
+      "rule-target": "column",
+      "object-locator": {
+        "schema-name": "public",
+        "table-name": "employee"
+      },
+      "value": "createdate",
+      "expression": "datetime ()",
+      "data-type": {
+        "type": "datetime",
+        "precision": 6
+      }
+  }
 ```
 
-When writing CDC updates to supported AWS DMS targets, the
-`BI_emp_no` column makes it possible to tell which rows have
-updated values in the `emp_no` column.
+###### Example of adding a new numeric column to the target table
+
+The following example adds a new numeric column,
+`rounded_emp_salary`, to the target table,
+`employee`. It uses the SQLite `round` function to
+add the rounded salary.
+
+```
+  {
+      "rule-type": "transformation",
+      "rule-id": "2",
+      "rule-name": "2",
+      "rule-action": "add-column",
+      "rule-target": "column",
+      "object-locator": {
+        "schema-name": "public",
+        "table-name": "employee"
+      },
+      "value": "rounded_emp_salary",
+      "expression": "round($emp_salary)",
+      "data-type": {
+        "type": "int8"
+      }
+  }
+```
+
+###### Example of adding a new string column to the target table using the hash
+
+function
+
+The following example adds a new string column,
+`hashed_emp_number`, to the target table,
+`employee`. The SQLite
+`hash_sha256(`x`)` function
+creates hashed values on the target for the source column,
+`emp_number`.
+
+```
+  {
+      "rule-type": "transformation",
+      "rule-id": "2",
+      "rule-name": "2",
+      "rule-action": "add-column",
+      "rule-target": "column",
+      "object-locator": {
+        "schema-name": "public",
+        "table-name": "employee"
+      },
+      "value": "hashed_emp_number",
+      "expression": "hash_sha256($emp_number)",
+      "data-type": {
+        "type": "string",
+        "length": 64
+      }
+  }
+```
+
+## Adding metadata to a target table using expressions
+
+You can add the metadata information to the target table by using the
+expressions following:
+
+- `$AR_M_SOURCE_SCHEMA` – The name of the source schema.
+- `$AR_M_SOURCE_TABLE_NAME` – The name of the source table.
+- `$AR_M_SOURCE_COLUMN_NAME` – The name of a column in the source table.
+- `$AR_M_SOURCE_COLUMN_DATATYPE` – The data type of a column in the source table.
+
+###### Example
+
+of adding a column for a schema name using the schema name from the source
+
+The example following adds a new column named `schema_name` to the target by using the schema name from the source.
+
+```
+  {
+      "rule-type": "transformation",
+      "rule-id": "2",
+      "rule-name": "2",
+      "rule-action": "add-column",
+      "rule-target": "column",
+      "object-locator": {
+        "schema-name": "%",
+        "table-name": "%"
+      },
+      "rule-action": "add-column",
+      "value":"schema_name",
+      "expression": "$AR_M_SOURCE_SCHEMA",
+      "data-type": {
+         "type": "string",
+         "length": 50
+      }
+  }
+```

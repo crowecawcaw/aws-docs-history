@@ -1,200 +1,28 @@
-# Time Travel task
+# Stream
 
-settings
+buffer task settings
 
-To log and debug replication tasks, you can use AWS DMS Time Travel. In this
-approach, you use Amazon S3 to store logs and encrypt them using your encryption
-keys. Only with access to your Time Travel S3 bucket, can you retrieve your S3
-logs using date-time filters, then view, download, and obfuscate logs as needed.
-By doing this, you can securely "travel back in time" to investigate database
-activities. Time Travel works independently from the CloudWatch logging. For more
-information on CloudWatch logging, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+You can set stream buffer settings using the AWS CLI, including the
+following. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
-You can use Time Travel in all AWS Regions with AWS DMS-supported Oracle, Microsoft SQL Server,
-and PostgreSQL source endpoints, and AWS DMS-supported PostgreSQL and MySQL target endpoints.
-You can turn on Time Travel only for full-load and change data capture (CDC) tasks and
-for CDC-only tasks. To turn on Time Travel or to modify any existing Time Travel settings,
-ensure that your replication task is stopped.
-
-The Time Travel settings include the `TTSettings` properties following:
-
-- `EnableTT` – If this option is set to
-  `true`, Time Travel logging is turned on for the task.
-  The default value is `false`.
-
-Type: Boolean
-
-Required: No
-
-- `EncryptionMode` – The type of server-side
-  encryption being used on your S3 bucket to store your data and logs. You
-  can specify either `"SSE_S3"` (the default) or
-  `"SSE_KMS"`.
-
-You can change `EncryptionMode` from `"SSE_KMS"`
-to `"SSE_S3"`, but not the reverse.
-
-Type: String
-
-Required: No
-
-- `ServerSideEncryptionKmsKeyId` – If you specify
-  `"SSE_KMS"` for `EncryptionMode`, provide the
-  ID for your custom managed AWS KMS key. Make sure that the key that you
-  use has an attached policy that
-  turns on AWS Identity and Access Management (IAM) user permissions and allows use of the key.
-
-Only your own custom-managed symmetric KMS key is supported with the
-`"SSE_KMS"` option.
-
-Type: String
-
-Required: Only if you set `EncryptionMode` to `"SSE_KMS"`
-
-- `ServiceAccessRoleArn` – The Amazon Resource Name
-  (ARN) used by the service to access the IAM role. Set the role name to
-  `dms-tt-s3-access-role`. This is a required setting that
-  allows AWS DMS to write and read objects from an S3 bucket.
-
-Type: String
-
-Required: If Time Travel is turned on
-
-Following is an example policy for this role.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "kms:GenerateDataKey",
- "kms:Decrypt",
- "s3:ListBucket",
- "s3:DeleteObject"
- ],
- "Resource": [
- "arn:aws:s3:::S3bucketName*",
- "arn:aws:kms:us-east-1:112233445566:key/1234a1a1-1m2m-1z2z-d1d2-12dmstt1234"
- ]
- }
- ]
-}`
-
-```
-
-Following is an example trust policy for this role.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": [
- "dms.amazonaws.com"
- ]
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
-```
-
-- `BucketName` – The name of the S3 bucket to store
-  Time Travel logs. Make sure to create this S3 bucket before turning on
-  Time Travel logs.
-
-Type: String
-
-Required: If Time Travel is turned on
-
-- `BucketFolder` – An optional parameter to set a
-  folder name in the S3 bucket. If you specify this parameter, DMS creates
-  the Time Travel logs in the path
-  `"/`BucketName`/`BucketFolder`/`taskARN`/`YYYY`/`MM`/`DD`/`hh`"`.
-  If you don't specify this parameter, AWS DMS creates the default path as
-  `"/`BucketName`/dms-time-travel-logs/`taskARN`/`YYYY`/`MM`/`DD`/`hh``.
-
-Type: String
-
-Required: No
-
-- `EnableDeletingFromS3OnTaskDelete` – When this
-  option is set to `true`, AWS DMS deletes the Time Travel logs
-  from S3 if the task is deleted. The default value is
-  `false`.
-
-Type: String
-
-Required: No
-
-- `EnableRawData` – When this option is set to
-  `true`, the data manipulation language (DML) raw data for
-  Time Travel logs appears under the `raw_data` column of the
-  Time Travel logs. For the details, see
-  [Using the Time Travel logs](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md").
-  The default value is `false`. When this option is set to
-  `false`, only the type of DML is captured.
-
-Type: String
-
-Required: No
-
-- `RawDataFormat` – In AWS DMS versions 3.5.0 and higher,
-  when `EnableRawData` is set to `true`. This property
-  specifies a format for the raw data of the DML in a Time Travel log and can be
-  presented as:
-
-      + `"TEXT"` – Parsed, readable column names
-       and values for DML events captured during CDC as `Raw` fields.
-      + `"HEX"` – The original hexidecimal for column names
-       and values captured for DML events during CDC.
-
-  This property applies to Oracle and Microsoft SQL Server database sources.
-
-Type: String
-
-Required: No
-
-- `OperationsToLog` – Specifies the type of DML operations to log in Time Travel logs. You can specify one
-  of the following:
-
-      + `"INSERT"`
-      + `"UPDATE"`
-      + `"DELETE"`
-      + `"COMMIT"`
-      + `"ROLLBACK"`
-      + `"ALL"`
-
-  The default is `"ALL"`.
-
-Type: String
-
-Required: No
-
-- `MaxRecordSize` – Specifies the maximum size
-  of Time Travel log records that are logged for each row. Use this
-  property to control the growth of Time Travel logs for especially
-  busy tables. The default is 64 KB.
-
-Type: Integer
-
-Required: No
-For more information on turning on and using Time Travel logs, see the
-following topics.
-
-###### Topics
-
-- [Turning on the Time Travel logs for a task](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")
-- [Using the Time Travel logs](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")
-- [How often AWS DMS uploads Time Travel logs to S3](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")
+- `StreamBufferCount` – Use this option to specify the
+  number of data stream buffers for the migration task. The default stream
+  buffer number is 3. Increasing the value of this setting might increase
+  the speed of data extraction. However, this performance increase is
+  highly dependent on the migration environment, including the source
+  system and instance class of the replication server. The default is
+  sufficient for most situations.
+- `StreamBufferSizeInMB` – Use this option to indicate
+  the maximum size of each data stream buffer. The default size is 8 MB.
+  You might need to increase the value for this option when you work with
+  very large LOBs. You also might need to increase the value if you
+  receive a message in the log files that the stream buffer size is
+  insufficient. When calculating the size of this option, you can use the
+  following equation: `[Max LOB size (or LOB chunk size)]*[number of
+LOB columns]*[number of stream buffers]*[number of tables loading in
+parallel per task(MaxFullLoadSubTasks)]*3`
+- `CtrlStreamBufferSizeInMB` – Use this option to set
+  the size of the control stream buffer. The value is in megabytes, and
+  can be 1–8. The default value is 5. You might need to increase
+  this when working with a very large number of tables, such as tens of
+  thousands of tables.
