@@ -18,7 +18,7 @@ Complete the following steps to enable or disable typing indicators.
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2 "getting-started.md#sign-in-step2").
 2. In the navigation pane, choose
-   ![Settings icon](images/icon-wickr-settings-hamburger.png)
+   ![Settings icon](/images/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png)
    , and then choose **Settings**.
 3. In the **Settings** pane that appears, choose
    **Privacy & Safety**.
