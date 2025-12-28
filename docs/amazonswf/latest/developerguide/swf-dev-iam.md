@@ -1,298 +1,351 @@
-# Amazon SWF IAM Policies
+# API Summary
 
-An IAM policy contains one or more `Statement` elements, each of which
-contains a set of elements that define the policy. For a complete list of elements and a
-general discussion of how to construct policies, see [The Access Policy Language](../../../IAM/latest/UserGuide/AccessPolicyLanguage.md "../../../IAM/latest/UserGuide/AccessPolicyLanguage.md"). Amazon SWF
-access control is based on the following elements:
+This section briefly describes how you can use IAM policies to control how an actor
+can use each API and pseudo API to access Amazon SWF resources.
 
-Effect
+- For all actions except `RegisterDomain` and `ListDomains`,
+  you can allow or deny access to any or all of an account's domains by expressing
+  permissions for the domain resource.
+- You can allow or deny permission for any member of the regular API and, if you
+  grant permission to call `RespondDecisionTaskCompleted`, any member of the pseudo API.
+- You can use a Condition to constrain some parameters' allowable values.
+  The following sections list the parameters that can be constrained for each member of
+  the regular and pseudo API and provide the associated key, and note any limitations on how
+  you can control domain access.
 
-(Required) The effect of the statement: `deny` or
-`allow`.
+## Regular API
 
-###### Note
+This section lists the regular API members, and briefly describes the parameters that
+can be constrained and the associated keys. It also notes any limitations on how you can
+control domain access.
 
-You must explicitly allow access; IAM denies access by default.
+`CountClosedWorkflowExecutions`
 
-Resource
-
-(Required) The resource—an entity in an AWS service that a user can
-interact with—that the statement applies to.
-
-You can express resource permissions only for domains. For example, a policy
-can allow access to only certain domains in your account. To express permissions
-for a domain, set `Resource` to the domain's Amazon Resource Name
-(ARN), which has the format
-"arn:aws:swf:`Region`:`AccountID`:/domain/`DomainName`".
-`Region` is the AWS region,
-`AccountID` is the account ID with no dashes, and
-`DomainName` is the domain name.
-
-Action
-
-(Required) The action that the statement applies to, which you refer to by
-using the following format:
-`serviceId`:`action`. For
-Amazon SWF, set `serviceID` to `swf`. For example,
-`swf:StartWorkflowExecution` refers to the [StartWorkflowExecution](../apireference/API_StartWorkflowExecution.md "../apireference/API_StartWorkflowExecution.md") action, and is used to control which users are
-allowed to start workflows.
-
-If you grant permission to use [RespondDecisionTaskCompleted](../apireference/API_RespondDecisionTaskCompleted.md "../apireference/API_RespondDecisionTaskCompleted.md"), you can also control access to the
-included list of decisions by using `Action` to express permissions for
-the pseudo API. Because IAM denies access by default, a decider's decision must
-be explicitly allowed or it will not be accepted. You can use a `*`
-value to allow all decisions.
-
-Condition
-
-(Optional) Expresses a constraint on one or more of an action's parameters,
-which restricts the allowed values.
-
-Amazon SWF actions often have a wide scope, which you can reduce by using IAM
-conditions. For example, to limit which task lists the [PollForActivityTask](../apireference/API_PollForActivityTask.md "../apireference/API_PollForActivityTask.md")
-action is allowed to access, you include a `Condition` and use the
-`swf:taskList.name` key to specify the allowable lists.
-
-You can express constraints for the following entities.
-
-- The workflow type. The name and version have separate keys.
-- The activity type. The name and version have separate keys.
-- Task lists.
-- Tags. You can specify multiple tags for some actions. In that case, each
-  tag has a separate key.
+- `tagFilter.tag` – String constraint. The key is
+  `swf:tagFilter.tag`
+- `typeFilter.name` – String constraint. The key is
+  `swf:typeFilter.name`.
+- `typeFilter.version` – String constraint. The key is
+  `swf:typeFilter.version`.
 
 ###### Note
 
-For Amazon SWF, the values are all strings so you constrain a parameter by using
-a string operator such as `StringEquals`, which restricts the
-parameter to a specified string. However, the regular string comparison
-operators such as `StringEquals` require all requests to include the
-parameter. If you don't include the parameter explicitly, and there is no
-default value such as the default task list provided during type registration,
-access will be denied.
+`CountClosedWorkflowExecutions` requires `typeFilter` and
+`tagFilter` to be mutually exclusive.
 
-It is often useful to treat conditions as optional, so that you can call an
-action without necessarily including the associated parameter. For example, you
-might want to allow a decider to specify a set of [RespondDecisionTaskCompleted](../apireference/API_RespondDecisionTaskCompleted.md "../apireference/API_RespondDecisionTaskCompleted.md") decisions, but also allow it to
-specify only one of them for any particular call. In that case, you constrain
-the appropriate parameters by using a `StringEqualsIfExists`
-operator, which allows access if the parameter satisfies the condition, but
-doesn't deny access if the parameter is absent.
+`CountOpenWorkflowExecutions`
 
-For a complete list of constrainable parameters and the associated keys, see
-[API Summary](swf-dev-iam.md "swf-dev-iam.md").
+- `tagFilter.tag` – String constraint. The key is
+  `swf:tagFilter.tag`
+- `typeFilter.name` – String constraint. The key is
+  `swf:typeFilter.name`.
+- `typeFilter.version` – String constraint. The key is
+  `swf:typeFilter.version`.
 
-The following section provides examples of how to construct Amazon SWF policies. For details,
-see [String Conditions](../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md#AccessPolicyLanguage_ConditionType "../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md#AccessPolicyLanguage_ConditionType").
+###### Note
 
-## Writing policies for Amazon SWF
+`CountOpenWorkflowExecutions` requires `typeFilter` and
+`tagFilter` to be mutually exclusive.
 
-A workflow consists of multiple _actors_—activities, deciders, and so on. You can control access
-for each actor by attaching an appropriate IAM policy.
+`CountPendingActivityTasks`
 
-With the following action, the actor will be granted full account access across all
-regions:
+- `taskList.name` – String constraint. The key is
+  `swf:taskList.name`.
 
-- **Action** : `swf:*`
-- **Resource** : `arn:aws:swf:*:123456789012:/domain/*`
+`CountPendingDecisionTasks`
 
-You can use wildcards to have a single value represent multiple resources, actions, or
-regions.
+- `taskList.name` – String constraint. The key is
+  `swf:taskList.name`.
 
-- The first wildcard (`*`) in the `Resource` value
-  indicates that the resource permissions apply to all **regions**.
+`DeleteActivityType`
 
-To restrict permissions to a single region, replace the wildcard with the
-appropriate region string, such as us-east-1.
+- `activityType.name` – String constraint. The key is
+  `swf:activityType.name`.
+- `activityType.version` – String constraint. The key is
+  `swf:activityType.version`.
 
-- The second wildcard (`*`) in the `Resource` value allows
-  the actor to access any of the account's domains in the specified regions.
-- The wildcard (`*`) in the `Action` value allows the actor
-  to call any Amazon SWF action.
+`DeprecateActivityType`
 
-For details on how to use wildcards, see [Element
-Descriptions](../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md "../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md")
+- `activityType.name` – String constraint. The key is
+  `swf:activityType.name`.
+- `activityType.version` – String constraint. The key is
+  `swf:activityType.version`.
 
-### Domain Permissions
+`DeprecateDomain`
 
-To restrict a department's workflows to a particular domain, you could grant
-permission that allows an actor to call any action, but only for a specific
-department.
+- You can't constrain this action's parameters.
 
-To gran an actor access to more than one domain, express permission for each
-domain as a list of Statements:
+`DeleteWorkflowType`
 
-- **Action** : `swf:*`
-- **Resource** :
-  `arn:aws:swf:*:123456789012:/domain/department1`
-- **Resource** :
-  `arn:aws:swf:*:123456789012:/domain/department2`
+- `workflowType.name` – String constraint. The key is
+  `swf:workflowType.name`.
+- `workflowType.version` – String constraint. The key is
+  `swf:workflowType.version`.
 
-You can allow an actor to use any Amazon SWF action in the `department1` and
-`department2` domains. You can also sometimes use wildcards to
-represent multiple domains.
+`DeprecateWorkflowType`
 
-### API Permissions and
+- `workflowType.name` – String constraint. The key is
+  `swf:workflowType.name`.
+- `workflowType.version` – String constraint. The key is
+  `swf:workflowType.version`.
 
-Constraints
+`DescribeActivityType`
 
-You control which **actions** an actor can use by
-specifying the action in the `Action` element.
+- `activityType.name` – String constraint. The key is
+  `swf:activityType.name`.
+- `activityType.version` – String constraint. The key is
+  `swf:activityType.version`.
 
-With the following action, an actor can only call
-`StartWorkflowExecution` to start workflows. It can't use any other
-actions.
+`DescribeDomain`
 
-- **Action** :
-  `swf:StartWorkflowExecution`
+- You can't constrain this action's parameters.
 
-###### Conditions
+`DescribeWorkflowExecution`
 
-You can optionally constrain the action's allowable parameter values by using
-a `Condition` element.
+- You can't constrain this action's parameters.
 
-To restrict which workflows an actor can start, constrain one or more of the
-`StartWorkflowExecution` parameter values, as follows:
+`DescribeWorkflowType`
 
-```
-"Condition" : {
-   "StringEquals" : {
-      "swf:workflowType.name" : "workflow1",
-      "swf:workflowType.version" : "version2"
-    }
-}
-```
+- `workflowType.name` – String constraint. The key is
+  `swf:workflowType.name`.
+- `workflowType.version` – String constraint. The key is
+  `swf:workflowType.version`.
 
-An actor with the previous constraints can run only `version2` of
-`workflow1` and both parameters must be included in the
-request.
+`GetWorkflowExecutionHistory`
 
-You can constrain a parameter without requiring it to be included in a request by
-using a `StringEqualsIfExists` operator, as follows:
+- You can't constrain this action's parameters.
 
-```
-"Condition" : {
-   "StringEqualsIfExists" : { "swf:taskList.name" : "task_list_name" }
-}
-```
+`ListActivityTypes`
 
-An actor with the previous policy can optionally specify a task list when starting
-a workflow execution.
+- You can't constrain this action's parameters.
 
-You can constrain a list of tags for some actions. Each tag has a separate key, so
-you use `swf:tagList.member.0` to constrain the first tag in the
-list, `swf:tagList.member.1` to constrain the second tag in the list,
-and so on, up to a maximum of 5.
+`ListClosedWorkflowExecutions`
 
-You must be careful how you constrain tag lists. For instance, the following
-condition is **_not_**
-recommended.
+- `tagFilter.tag` – String constraint. The key is
+  `swf:tagFilter.tag`
+- `typeFilter.name` – String constraint. The key is
+  `swf:typeFilter.name`.
+- `typeFilter.version` – String constraint. The key is
+  `swf:typeFilter.version`.
 
-The following Condition is **not** recommended
-because it allows you to optionally specify either `some_ok_tag` or
-`another_ok_tag`. However, the Condition constrains only the
-**first element** of the tag list. The list could
-have additional elements with arbitrary values that would all be allowed because
-the condition doesn't apply any conditions to `swf:tagList.member.1`,
-`swf:tagList.member.2`, and so on.
+###### Note
 
-```
-// Example to illustrate an insecure Condition
-"Condition" : {
-   "StringEqualsIfExists" : {
-      "swf:tagList.member.0" : "some_ok_tag", "another_ok_tag"
-   }
-}
-```
+`ListClosedWorkflowExecutions` requires `typeFilter` and
+`tagFilter` to be mutually exclusive.
 
-One way to address the previous issue is to disallow the use of tag lists.
+`ListDomains`
 
-The following policy ensures that only `some_ok_tag` or
-`another_ok_tag` are allowed by requiring the list to have only one
-element.
+- You can't constrain this action's parameters.
 
-```
-"Condition" : {
-   "StringEqualsIfExists" : {
-      "swf:tagList.member.0" : "some_ok_tag", "another_ok_tag"
-    },
-    "Null" : { "swf:tagList.member.1" : "true" }
-}
-```
+`ListOpenWorkflowExecutions`
 
-### Pseudo API Permissions and
+- `tagFilter.tag` – String constraint. The key is
+  `swf:tagFilter.tag`
+- `typeFilter.name` – String constraint. The key is
+  `swf:typeFilter.name`.
+- `typeFilter.version` – String constraint. The key is
+  `swf:typeFilter.version`.
 
-Constraints
+###### Note
 
-To restrict the decisions available to `RespondDecisionTaskCompleted`,
-you must first allow the actor to call
-`RespondDecisionTaskCompleted`. You then express permissions for the
-appropriate pseudo API members using the same syntax as for the regular API, as
-follows:
+`ListOpenWorkflowExecutions` requires `typeFilter` and
+`tagFilter` to be mutually exclusive.
 
-- **Statement 1**
+`ListWorkflowTypes`
 
-**Resource** :
-`arn:aws:swf:*:123456789012:/domain/*`
+- You can't constrain this action's parameters.
 
-**Action** :
-`swf:RespondDecisionTaskCompleted`
+`PollForActivityTask`
 
-- **Statement 2**
+- `taskList.name` – String constraint. The key is
+  `swf:taskList.name`.
 
-**Resource** : `*`
+`PollForDecisionTask`
 
-**Action** :
-`swf:ScheduleActivityTask`
+- `taskList.name` – String constraint. The key is
+  `swf:taskList.name`.
 
-**Condition** : `"StringEquals" : {
- "swf:activityType.name" : "SomeActivityType" }`
+`RecordActivityTaskHeartbeat`
 
-The first `Statement` allows the actor to call
-`RespondDecisionTaskCompleted`. The second statement allows the actor
-to use the `ScheduleActivityTask` decision to direct Amazon SWF to
-schedule an activity task. To allow all decisions, replace
-"swf:ScheduleActivityTask" with "swf:\*".
+- You can't constrain this action's parameters.
 
-You can use Condition operators to constrain parameters just as with the regular
-API. The `StringEquals` operator in the previous example
-`Condition` allows `RespondDecisionTaskCompleted` to
-schedule an activity task for the `SomeActivityType` activity, and it
-must schedule that task. If you want to allow
-`RespondDecisionTaskCompleted` to use a parameter value but not
-require it to do so, you can instead use the `StringEqualsIfExists`
-operator.
+`RegisterActivityType`
 
-## AWS managed policy:
+- `defaultTaskList.name` – String constraint. The key is
+  `swf:defaultTaskList.name`.
+- `name` – String constraint. The key is
+  `swf:name`.
+- `version` – String constraint. The key is
+  `swf:version`.
 
-SimpleWorkflowFullAccess
+`RegisterDomain`
 
-You can attach the `SimpleWorkflowFullAccess` policy to your IAM
-identities.
+- `name` – The name of the domain being registered is available
+  as the resource of this action.
 
-This policy provides full access to the Amazon SWF configuration service.
+`RegisterWorkflowType`
 
-## Service Model Limitations on IAM
+- `defaultTaskList.name` – String constraint. The key is
+  `swf:defaultTaskList.name`.
+- `name` – String constraint. The key is
+  `swf:name`.
+- `version` – String constraint. The key is
+  `swf:version`.
 
-Policies
+`RequestCancelWorkflowExecution`
 
-You must consider service model constraints when creating IAM policies. It is
-possible to create a syntactically valid IAM policy that represents an invalid Amazon SWF
-request; a request that is allowed in terms of access control can still fail because it
-is an invalid request.
+- You can't constrain this action's parameters.
 
-For example, the Amazon SWF service model does **not** allow
-the `typeFilter` and `tagFilter` parameters to be used in the
-same `ListOpenWorkflowExecutions` request. The following condition would
-allow calls that the service will reject—by throwing
-`ValidationException`—as an invalid request:
+`RespondActivityTaskCanceled`
 
-```
-"Condition" : {
-   "StringEquals" : {
-      "swf:typeFilter.name" : "workflow_name",
-      "swf:typeFilter.version" : "workflow_version",
-      "swf:tagFilter.tag" : "some_tag"
-    }
-}
-```
+- You can't constrain this action's parameters.
+
+`RespondActivityTaskCompleted`
+
+- You can't constrain this action's parameters.
+
+`RespondActivityTaskFailed`
+
+- You can't constrain this action's parameters.
+
+`RespondDecisionTaskCompleted`
+
+- `decisions.member.N` – Restricted indirectly through pseudo
+  API permissions. For details, see [Pseudo API](#swf-dev-iam.api.pseudo "#swf-dev-iam.api.pseudo").
+
+`SignalWorkflowExecution`
+
+- You can't constrain this action's parameters.
+
+`StartWorkflowExecution`
+
+- `tagList.member.0` – String constraint. The key is
+  `swf:tagList.member.0`
+- `tagList.member.1` – String constraint. The key is
+  `swf:tagList.member.1`
+- `tagList.member.2` – String constraint. The key is
+  `swf:tagList.member.2`
+- `tagList.member.3` – String constraint. The key is
+  `swf:tagList.member.3`
+- `tagList.member.4` – String constraint. The key is
+  `swf:tagList.member.4`
+- `taskList.name` – String constraint. The key is
+  `swf:taskList.name`.
+- `workflowType.name` – String constraint. The key is
+  `swf:workflowType.name`.
+- `workflowType.version` – String constraint. The key is
+  `swf:workflowType.version`.
+
+###### Note
+
+You can't constrain more than five tags.
+
+`TerminateWorkflowExecution`
+
+- You can't constrain this action's parameters.
+
+## Pseudo API
+
+This section lists the members of the pseudo API, which represent the decisions
+included in `RespondDecisionTaskCompleted`. If you have granted permission to
+use `RespondDecisionTaskCompleted`, your policy can express permissions for
+the members of this API in the same way as the regular API. You can further restrict
+some members of the pseudo-API by setting conditions on one or more parameters. This
+section lists the pseudo API members, and briefly describes the parameters that can be
+constrained and the associated keys.
+
+###### Note
+
+The `aws:SourceIP`, `aws:UserAgent`, and
+`aws:SecureTransport` keys are not available for the pseudo API. If
+your intended security policy requires these keys to control access to the pseudo
+API, you can use them with the `RespondDecisionTaskCompleted` action.
+
+`CancelTimer`
+
+- You can't constrain this action's parameters.
+
+`CancelWorkflowExecution`
+
+- You can't constrain this action's parameters.
+
+`CompleteWorkflowExecution`
+
+- You can't constrain this action's parameters.
+
+`ContinueAsNewWorkflowExecution`
+
+- `tagList.member.0` – String constraint. The key is
+  `swf:tagList.member.0`
+- `tagList.member.1` – String constraint. The key is
+  `swf:tagList.member.1`
+- `tagList.member.2` – String constraint. The key is
+  `swf:tagList.member.2`
+- `tagList.member.3` – String constraint. The key is
+  `swf:tagList.member.3`
+- `tagList.member.4` – String constraint. The key is
+  `swf:tagList.member.4`
+- `taskList.name` – String constraint. The key is
+  `swf:taskList.name`.
+- `workflowTypeVersion` – String constraint. The key is
+  `swf:workflowTypeVersion`.
+
+###### Note
+
+You can't constrain more than five tags.
+
+`FailWorkflowExecution`
+
+- You can't constrain this action's parameters.
+
+`RecordMarker`
+
+- You can't constrain this action's parameters.
+
+`RequestCancelActivityTask`
+
+- You can't constrain this action's parameters.
+
+`RequestCancelExternalWorkflowExecution`
+
+- You can't constrain this action's parameters.
+
+`ScheduleActivityTask`
+
+- `activityType.name` – String constraint. The key is
+  `swf:activityType.name`.
+- `activityType.version` – String constraint. The key is
+  `swf:activityType.version`.
+- `taskList.name` – String constraint. The key is
+  `swf:taskList.name`.
+
+`SignalExternalWorkflowExecution`
+
+- You can't constrain this action's parameters.
+
+`StartChildWorkflowExecution`
+
+- `tagList.member.0` – String constraint. The key is
+  `swf:tagList.member.0`
+- `tagList.member.1` – String constraint. The key is
+  `swf:tagList.member.1`
+- `tagList.member.2` – String constraint. The key is
+  `swf:tagList.member.2`
+- `tagList.member.3` – String constraint. The key is
+  `swf:tagList.member.3`
+- `tagList.member.4` – String constraint. The key is
+  `swf:tagList.member.4`
+- `taskList.name` – String constraint. The key is
+  `swf:taskList.name`.
+- `workflowType.name` – String constraint. The key is
+  `swf:workflowType.name`.
+- `workflowType.version` – String constraint. The key is
+  `swf:workflowType.version`.
+
+###### Note
+
+You can't constrain more than five tags.
+
+`StartTimer`
+
+- You can't constrain this action's parameters.
