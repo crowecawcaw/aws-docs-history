@@ -116,7 +116,7 @@ Next, register a camera stream with the AWS Panorama console.
 1. Open the AWS Panorama console [Data sources page](https://console.aws.amazon.com/panorama/home#data-sources "https://console.aws.amazon.com/panorama/home#data-sources").
 2. Choose **Add data source**.
 
-![Add streams to an AWS Panorama appliance on the console.](images/setup-addstream.png) 3. Configure the following settings.
+![Add streams to an AWS Panorama appliance on the console.](/images/panorama/latest/dev/images/setup-addstream.png) 3. Configure the following settings.
 
 ######
 
