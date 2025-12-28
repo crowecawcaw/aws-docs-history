@@ -12,7 +12,7 @@ is an identity within your AWS account that has specific custom permissions. Whe
 signs in, they can use a sign-in URL that includes their AWS account or alias, such as `https://`account_alias_or_id`.signin.aws.amazon.com/console/`
 instead of the main AWS sign in URL `https://console.aws.amazon.com/`.
 
-You can sign in to up 5 different identities simultaneously in a single browser in the
+You can sign in to up to 5 different identities simultaneously in a single browser in the
 AWS Management Console. These can be a combination of root users, IAM users, or federated roles in different
 accounts or in the same account. For details, see [Signing in to multiple accounts](../../../awsconsolehelpdocs/latest/gsg/multisession.md "../../../awsconsolehelpdocs/latest/gsg/multisession.md") in
 the _AWS Management Console Getting Started Guide_.

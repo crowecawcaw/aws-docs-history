@@ -48,7 +48,7 @@ parameters:
 3. To end your session, use:
 
 ```
-`$` `aws logout`
+`$` `aws sso logout`
 ```
 
 If you are accessing AWS services programmatically by using AWS Tools for PowerShell, please see [Authenticating the AWS Tools for PowerShell with AWS](../../../powershell/v5/userguide/creds-idc.md "../../../powershell/v5/userguide/creds-idc.md").
