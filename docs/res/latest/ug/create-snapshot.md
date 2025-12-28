@@ -19,7 +19,6 @@ to manage the bucket lifecycle from the console.
    your own:
    - `111122223333` -> your AWS Account ID
    - `{RES_ENVIRONMENT_NAME}` -> your RES environment name
-   - `us-east-1` -> your AWS region
    - `amzn-s3-demo-bucket` -> your S3 bucket name
 
 ###### Important

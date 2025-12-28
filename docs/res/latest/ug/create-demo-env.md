@@ -68,7 +68,7 @@ this product](plan-your-deployment.md#quotas-for-aws-services-in-this-product "p
 
 ###### Note
 
-Make sure you are in your administrator account. 2. Launch [the template](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml") in the console. 3. Under **Parameters**, review the parameters for this
+Make sure you are in your administrator account. 2. Launch [the template](https://console.aws.amazon.com/cloudformation/home#/stacks/quickcreate?templateURL=https%3A%2F%2Fs3.amazonaws.com%2Faws-hpc-recipes%2Fmain%2Frecipes%2Fres%2Fres_demo_env%2Fassets%2Fres-demo-stack.yaml "https://console.aws.amazon.com/cloudformation/home#/stacks/quickcreate?templateURL=https%3A%2F%2Fs3.amazonaws.com%2Faws-hpc-recipes%2Fmain%2Frecipes%2Fres%2Fres_demo_env%2Fassets%2Fres-demo-stack.yaml") in the console. 3. Under **Parameters**, review the parameters for this
 product template and modify them as necessary.
 
 | Parameter          | Default        | Description                                                                                                                                                                                      |

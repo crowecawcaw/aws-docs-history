@@ -21,7 +21,7 @@ The AWS CloudFormation template deploys Research and Engineering Studio on AWS i
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Launch the [template](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json") .
+2. Launch the [template](https://console.aws.amazon.com/cloudformation/home#/stacks/quickcreate?templateURL=https%3A%2F%2Fresearch-engineering-studio-us-east-1.s3.amazonaws.com%2Freleases%2Flatest%2FResearchAndEngineeringStudio.template.json "https://console.aws.amazon.com/cloudformation/home#/stacks/quickcreate?templateURL=https%3A%2F%2Fresearch-engineering-studio-us-east-1.s3.amazonaws.com%2Freleases%2Flatest%2FResearchAndEngineeringStudio.template.json") .
 
 To deploy in AWS GovCloud (US-West), launch this [template](https://console.amazonaws-us-gov.com/cloudformation/home?region=us-gov-west-1#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json "https://console.amazonaws-us-gov.com/cloudformation/home?region=us-gov-west-1#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json"). 3. The template launches in the US East (N. Virginia) Region by default. To launch the
 solution in a different AWS Region, use the Region selector in the console navigation
@@ -75,7 +75,11 @@ tab of the external resources stack.
 | CognitoUserPoolId                  |                                 | Cognito user pool for user and client authentication. RES will create<br>one by default if no Cognito user pool is specified.                                                                                                                                                                                                                                                                                                                                                                   |
 | CognitoUserPoolDomainUrl           |                                 | Cognito user pool domain for managed login. This parameter must be provided<br>when the `CognitoUserPoolId` is specified.                                                                                                                                                                                                                                                                                                                                                                       |
 
-5. Choose **Create stack** to deploy the stack.
+5. Under **Configure stack options → Tags - _optional_**,
+   add the tags (key-value pairs) you want to apply to RES deployed resources.
+   Tag key `Name` and `res:*` are preserved by RES and
+   could not be used as tag key.
+6. Choose **Create stack** to deploy the stack.
    You can view the status of the stack in the AWS CloudFormation console in the **Status** column. You should receive a CREATE_COMPLETE status in
    approximately 60 minutes.
 

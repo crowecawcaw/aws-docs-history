@@ -22,6 +22,11 @@ create a new stack:
 You can use an unencrypted Systems Manager parameter as an alias for the software
 stack ID.
 
+The Systems Manager parameter will require the following tags for RES to access them:
+
+- key: `res:EnvironmentName`, value: `<your RES environment name>`
+- key: `res:ModuleName`, value: `virtual-desktop-controller`
+
 1. Choose **Register Software Stack**.
 2. Enter details for the new software stack.
 3. Choose **Submit**.

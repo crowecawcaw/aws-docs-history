@@ -214,15 +214,17 @@ For information on how to install an SSM agent, see:
      for Windows Server](../../../systems-manager/latest/userguide/sysman-install-win.md "../../../systems-manager/latest/userguide/sysman-install-win.md").
 
 7. For Linux based recipes, add the Amazon-managed `aws-cli-version-2-linux`
-   build component to the recipe. RES installation scripts use the AWS CLI
-   to provide VDI access to configuration values for the DynamoDB cluster-settings.
-   Windows does not require this component.
+   build component to the recipe. For Windows based recipes, add the Amazon-managed
+   `aws-cli-version-2-windows` build component to the recipe.
+   RES installation scripts use the AWS CLI to provide VDI access to
+   configuration values for the DynamoDB cluster-settings.
 8. Add the EC2 Image Builder component created for your Linux or Windows environment.
 
 ###### Important
 
-For Linux environments, you must add these components in order with the
-`aws-cli-version-2-linux` build component added first.
+You must add these components in order with the
+`aws-cli-version-2-linux` (for Linux) or
+`aws-cli-version-2-windows` (for Windows) build component added first.
 
 ![Components page showing build components added](images/res-ami-build-components.png) 9. (Recommended) Add the Amazon-managed
 `simple-boot-test-<linux-or-windows>` test component to
@@ -235,15 +237,17 @@ If you have an existing EC2 Image Builder recipe, you can use it by adding the f
 components:
 
 1. For Linux based recipes, add the Amazon-managed `aws-cli-version-2-linux`
-   build component to the recipe. RES installation scripts use
-   the AWS CLI to provide VDI access to configuration values for the DynamoDB
-   cluster-settings. Windows does not require this component.
+   build component to the recipe. For Windows based recipes, add the Amazon-managed
+   `aws-cli-version-2-windows` build component to the recipe.
+   RES installation scripts use the AWS CLI to provide VDI access to
+   configuration values for the DynamoDB cluster-settings.
 2. Add the EC2 Image Builder component created for your Linux or Windows environment.
 
 ###### Important
 
-For Linux environments, you must add these components in order with the
-`aws-cli-version-2-linux` build component added first.
+You must add these components in order with the
+`aws-cli-version-2-linux` (for Linux) or
+`aws-cli-version-2-windows` (for Windows) build component added first.
 
 ![Components page showing build components added](images/res-ami-build-components.png) 3. Complete any optional sections if needed, add any other desired components,
 and choose **Create recipe**.

@@ -26,6 +26,21 @@ in the RES web portal under the **Identity management** page:
 
 ![Active directory synchronization pop-out](images/active-directory-synchronization.png)
 
+### Automatically Join Active Directory
+
+Administrators can configure the
+**Automatically Join Active Directory**
+setting to control directory domain join behavior during VDI launch.
+
+**Configuration options:**
+
+- **Enabled** - Automatically joins Windows and Linux VDIs to your directory domain during launch.
+- **Disabled** - Turns off automatic domain joining. Linux instances can launch with or without domain joining. Windows instances require domain joining to launch successfully, so administrators must include domain-join logic in their custom launch scripts.
+
+###### Important
+
+If you disable this setting, verify that your Windows instance custom launch scripts include the necessary domain-join logic.
+
 ### Additional settings
 
 **Filters**
@@ -72,7 +87,7 @@ The following example enables debug level for SSSD logs:
 
 ![Additional SSSD configurations showing new key and value pair entered](images/res-additional-sssd-config2.png)
 
-## Email Update after Initial AD Sync (release 2025.09)
+## Email Update after Initial AD Sync (release 2025.09 and later)
 
 If an email address of an active directory user has changed, administrators can manually
 start the AD sync or wait for the next scheduled AD sync for the change to be picked up
