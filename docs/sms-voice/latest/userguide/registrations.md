@@ -96,7 +96,6 @@ The following registration forms can be filled out and submitted through the AWS
 
 - [Estimated registration times](registration-eta.md "registration-eta.md")
 - [Manage registrations](registrations-manage.md "registrations-manage.md")
-- [Help with registration rejections](help-registration-rejection-reason.md "help-registration-rejection-reason.md")
-- [Get more information on registration issues](registrations-request-support.md "registrations-request-support.md")
+- [Gen-AI Feedback on Registrations](registrations-genai-feedback.md "registrations-genai-feedback.md")
 - [Registration forms](registrations-country.md "registrations-country.md")
 - [Dedicated number registration forms](registrations-dedicated-number.md "registrations-dedicated-number.md")

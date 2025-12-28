@@ -21,7 +21,7 @@ icon and a brief description of the issue.
 If your registration was rejected and requires updates the banner lists the
 reason the registration was rejected and which fields need to be updated. For
 more information about registration rejections, see [Toll-free number
-registration rejection reasons](registrations-tfn-rejection-reason.md "registrations-tfn-rejection-reason.md") and [Help with registration rejections in AWS End User Messaging SMS](help-registration-rejection-reason.md "help-registration-rejection-reason.md"). 5. Choose **Submit registration** to resubmit when you're done.
+registration rejection reasons](registrations-tfn-rejection-reason.md "registrations-tfn-rejection-reason.md") and [Gen-AI Feedback on Registrations (Preview)](registrations-genai-feedback.md "registrations-genai-feedback.md"). 5. Choose **Submit registration** to resubmit when you're done.
 
 ###### Important
 

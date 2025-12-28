@@ -22,7 +22,7 @@ see [10DLC brand registration form](registrations-10dlc-company.md "registration
 
 For more information on expected registration times, see [United States 10DLC registration](registrations-10dlc.md "registrations-10dlc.md").
 
-For more information on 10DLC campaign registration issues, see [Help with registration rejections in AWS End User Messaging SMS](help-registration-rejection-reason.md "help-registration-rejection-reason.md").
+For more information on 10DLC campaign registration issues, see [Gen-AI Feedback on Registrations (Preview)](registrations-genai-feedback.md "registrations-genai-feedback.md").
 
 In this section, you provide additional details about your 10DLC campaign.
 

@@ -1,9 +1,6 @@
-# Help with registration rejections in AWS End User Messaging SMS
+# Understanding rejection reasons
 
-If your registration was rejected, use the following table to determine why it was
-rejected and what you can do to fix your registration. After you
-determine why the registration was rejected, you can modify the existing registration to address
-that issue and resubmit. For more information, see [Edit a registration in AWS End User Messaging SMS](registrations-edit.md "registrations-edit.md").
+If your registration was rejected, use the following tables to determine why it was rejected and what you can do to fix your registration. After you determine why the registration was rejected, you can modify the existing registration to address that issue and resubmit. For more information, see [Edit a registration in AWS End User Messaging SMS](registrations-edit.md "registrations-edit.md").
 
 If your brand registration was rejected, use the following table to determine why it
 was rejected and what you can do to fix it. You can modify the existing registration to
@@ -21,7 +18,6 @@ address the issue and resubmit. For more information on editing a registration, 
 | Brand associated with or website references high risk financial services<br>which are prohibited by mobile operators.          | Brand associated with or website indicates that message content contains<br>the following which is considered restricted or disallowed by mobile<br>operators: **High risk financial<br>services**.                       |
 | Brand associated with or website references illegal substances which is<br>prohibited by mobile operators.                     | Brand associated with or website indicates that message content contains<br>the following which is considered restricted or disallowed by mobile<br>operators: **Illegal substances**.                                    |
 | Brand associated with or website references third party job boards which<br>is prohibited by mobile operators.                 | Brand associated with or website indicates that message content contains<br>the following which is considered restricted or disallowed by mobile<br>operators: **Third party job boards**.                                |
-| Brand associated with or website references SHAFT content which is<br>prohibited by mobile operators.                          | Brand associated with or website indicates that message content contains<br>the following which is considered restricted or disallowed by mobile<br>operators: **SHAFT (sex, hate, alcohol, firearms,<br>tobacco/vape)**. |
 | Brand associated with or website references SHAFT content which is<br>prohibited by mobile operators.                          | Brand associated with or website indicates that message content contains<br>the following which is considered restricted or disallowed by mobile<br>operators: **SHAFT (sex, hate, alcohol, firearms,<br>tobacco/vape)**. |
 | Brand associated with or website references sweepstakes which is<br>prohibited by mobile operators.                            | Brand associated with or website indicates that message content contains<br>the following which is considered restricted or disallowed by mobile<br>operators: **Sweepstakes**.                                           |
 | Brand support phone number is missing or invalid.                                                                              | The brand's support phone number is missing or invalid. Update the phone<br>number and resubmit the form.                                                                                                                 |
@@ -115,7 +111,6 @@ issue and resubmit. For more information on editing a registration, see
 | Privacy policy rejection reasons                                                                                                                                           | AWS End User Messaging SMS rejection short description                                                                                  | AWS End User Messaging SMS rejection long description |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | Privacy policy link is missing or inaccessible.                                                                                                                            | The privacy policy URL is unavailable to review or the provided URL is<br>inaccessible. Update the URL and resubmit.                    |
-| Privacy policy references mobile opt-in data sharing with third parties<br>or does not state that no mobile opt-in data will be shared with third<br>parties or affiliate. | The privacy policy must indicate that mobile opt-in data will not be shared with third parties. Update the privacy policy and resubmit. |
 | Privacy policy references mobile opt-in data sharing with third parties<br>or does not state that no mobile opt-in data will be shared with third<br>parties or affiliate. | The privacy policy must indicate that mobile opt-in data will not be shared with third parties. Update the privacy policy and resubmit. |
 
 If your samples messages were rejected, use the following table to determine why it was

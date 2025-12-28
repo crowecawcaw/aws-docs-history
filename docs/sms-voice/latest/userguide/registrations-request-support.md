@@ -2,7 +2,7 @@
 
 The 3rd party downstream reviewer might find issues
 with the registration that results in a denied registration with a related error
-message. For more information on registration error messages and solutions, see [Help with registration rejections in AWS End User Messaging SMS](help-registration-rejection-reason.md "help-registration-rejection-reason.md"). You should also review
+message. For more information on registration error messages and solutions, see [Gen-AI Feedback on Registrations (Preview)](registrations-genai-feedback.md "registrations-genai-feedback.md"). You should also review
 [10DLC Registration Best Practices to Send SMS with Amazon Pinpoint](https://aws.amazon.com/blogs/messaging-and-targeting/10dlc-registration-best-practices-to-send-sms-with-amazon-pinpoint/ "https://aws.amazon.com/blogs/messaging-and-targeting/10dlc-registration-best-practices-to-send-sms-with-amazon-pinpoint/") and
 [How to Build a Compliant SMS Opt-In Process With Amazon Pinpoint](https://aws.amazon.com/blogs/messaging-and-targeting/how-to-build-a-compliant-sms-opt-in-process-with-amazon-pinpoint/ "https://aws.amazon.com/blogs/messaging-and-targeting/how-to-build-a-compliant-sms-opt-in-process-with-amazon-pinpoint/") blog articles that have more in-depth details on how to successful register an SMS
 use case.
