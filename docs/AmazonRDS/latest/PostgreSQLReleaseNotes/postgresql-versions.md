@@ -316,6 +316,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 17.4-R2 on Amazon RDS](#postgresql-versions-version174R2 "#postgresql-versions-version174R2")
 - [PostgreSQL version 17.4 on Amazon RDS](#postgresql-versions-version174 "#postgresql-versions-version174")
 - [PostgreSQL version 17.3 on Amazon RDS](#postgresql-versions-version173R1 "#postgresql-versions-version173R1")
+- [PostgreSQL version 17.2-R3 on Amazon RDS](#postgresql-versions-version172R3 "#postgresql-versions-version172R3")
 - [PostgreSQL version 17.2-R2 on Amazon RDS](#postgresql-versions-version172R2 "#postgresql-versions-version172R2")
 - [PostgreSQL version 17.2 on Amazon RDS](#postgresql-versions-version172 "#postgresql-versions-version172")
 - [PostgreSQL version 17.1 on Amazon RDS](#postgresql-versions-version171 "#postgresql-versions-version171")
@@ -353,8 +354,7 @@ This version also includes the following extension changes:
 
 Amazon RDS
 
-PostgreSQL version 17.6-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for
-PostgreSQL announced in [PostgreSQL 17.6](https://www.postgresql.org/docs/release/17.6/ "https://www.postgresql.org/docs/release/17.6/").
+PostgreSQL version 17.6-R2 is now available on Amazon RDS.
 
 This version also includes the following extension changes:
 
@@ -380,9 +380,7 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 17.5-R2 on Amazon RDS
 
-PostgreSQL version 17.5-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), and [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for PostgreSQL
-announced in [PostgreSQL
-17.6](https://www.postgresql.org/docs/release/17.6/ "https://www.postgresql.org/docs/release/17.6/").
+PostgreSQL version 17.5-R2 is now available on Amazon RDS.
 
 **General enhancements**
 
@@ -416,9 +414,7 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 17.4-R2 on Amazon RDS
 
-PostgreSQL version 17.4-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), and [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for PostgreSQL
-announced in [PostgreSQL
-17.4](https://www.postgresql.org/docs/release/17.4/ "https://www.postgresql.org/docs/release/17.4/").
+PostgreSQL version 17.4-R2 is now available on Amazon RDS.
 
 **Fixes and improvements**
 
@@ -462,6 +458,15 @@ PostgreSQL version 17.3 is now available on Amazon RDS. This release contains se
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
 17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
+
+### PostgreSQL version 17.2-R3 on Amazon RDS
+
+PostgreSQL version 17.2-R3 is now available on Amazon RDS.
+
+**General enhancements**
+
+- Updated V8 engine to version 11.5.150.2 for the `plv8` extension
+  3.1.10.
 
 ### PostgreSQL version 17.2-R2 on Amazon RDS
 
@@ -722,6 +727,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 16.8-R2 on Amazon RDS](#postgresql-versions-version168R2 "#postgresql-versions-version168R2")
 - [PostgreSQL version 16.8 on Amazon RDS](#postgresql-versions-version168 "#postgresql-versions-version168")
 - [PostgreSQL version 16.7 on Amazon RDS](#postgresql-versions-version167R1 "#postgresql-versions-version167R1")
+- [PostgreSQL version 16.6-R3 on Amazon RDS](#postgresql-versions-version166R3 "#postgresql-versions-version166R3")
 - [PostgreSQL version 16.6-R2 on Amazon RDS](#postgresql-versions-version166R2 "#postgresql-versions-version166R2")
 - [PostgreSQL version 16.6 on Amazon RDS](#postgresql-versions-version166 "#postgresql-versions-version166")
 - [PostgreSQL version 16.5 on Amazon RDS](#postgresql-versions-version165 "#postgresql-versions-version165")
@@ -770,8 +776,7 @@ This version also includes the following extension changes:
 
 Amazon RDS
 
-PostgreSQL version 16.10-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for
-PostgreSQL announced in [PostgreSQL 16.10](https://www.postgresql.org/docs/release/16.10/ "https://www.postgresql.org/docs/release/16.10/").
+PostgreSQL version 16.10-R2 is now available on Amazon RDS.
 
 This version also includes the following extension changes:
 
@@ -797,9 +802,7 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 16.9-R2 on Amazon RDS
 
-PostgreSQL version 16.9-R2 is now available on Amazon RDS. This release contains several fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), and [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for PostgreSQL
-announced in [PostgreSQL
-16.10](https://www.postgresql.org/docs/release/16.10/ "https://www.postgresql.org/docs/release/16.10/").
+PostgreSQL version 16.9-R2 is now available on Amazon RDS.
 
 **General enhancements**
 
@@ -832,9 +835,7 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 16.8-R2 on Amazon RDS
 
-PostgreSQL version 16.8-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), and [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for PostgreSQL
-announced in [PostgreSQL
-16.8](https://www.postgresql.org/docs/release/16.8/ "https://www.postgresql.org/docs/release/16.8/").
+PostgreSQL version 16.8-R2 is now available on Amazon RDS.
 
 **Fixes and improvements**
 
@@ -875,6 +876,15 @@ PostgreSQL version 16.7 is now available on Amazon RDS. This release contains se
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+
+### PostgreSQL version 16.6-R3 on Amazon RDS
+
+PostgreSQL version 16.6-R3 is now available on Amazon RDS.
+
+**General enhancements**
+
+- Updated V8 engine to version 11.5.150.2 for the `plv8` extension
+  3.1.10.
 
 ### PostgreSQL version 16.6-R2 on Amazon RDS
 
@@ -1303,6 +1313,7 @@ reached the end of standard support or deprecated.)
 - [PostgreSQL version 15.12-R2 on Amazon RDS](#postgresql-versions-version1512R2 "#postgresql-versions-version1512R2")
 - [PostgreSQL version 15.12 on Amazon RDS](#postgresql-versions-version1512 "#postgresql-versions-version1512")
 - [PostgreSQL version 15.11 on Amazon RDS](#postgresql-versions-version1511R1 "#postgresql-versions-version1511R1")
+- [PostgreSQL version 15.10-R3 on Amazon RDS](#postgresql-versions-version1510R3 "#postgresql-versions-version1510R3")
 - [PostgreSQL version 15.10-R2 on Amazon RDS](#postgresql-versions-version1510R2 "#postgresql-versions-version1510R2")
 - [PostgreSQL version 15.10 on Amazon RDS](#postgresql-versions-version1510 "#postgresql-versions-version1510")
 - [PostgreSQL version 15.9 on Amazon RDS](#postgresql-versions-version159 "#postgresql-versions-version159")
@@ -1351,8 +1362,7 @@ This version also includes the following extension changes:
 
 Amazon RDS
 
-PostgreSQL version 15.14-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for
-PostgreSQL announced in [PostgreSQL 15.14](https://www.postgresql.org/docs/release/15.14/ "https://www.postgresql.org/docs/release/15.14/").
+PostgreSQL version 15.14-R2 is now available on Amazon RDS.
 
 This version also includes the following extension changes:
 
@@ -1378,12 +1388,7 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 15.13-R2 on Amazon RDS
 
-PostgreSQL version 15.13-R2 is now available on Amazon RDS. This release contains several fixes and
-improvements for PostgreSQL announced in the [PostgreSQL 15.13 release](https://www.postgresql.org/docs/release/15.13/ "https://www.postgresql.org/docs/release/15.13/").
-
-[CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for PostgreSQL
-announced in [PostgreSQL
-15.14](https://www.postgresql.org/docs/release/15.14/ "https://www.postgresql.org/docs/release/15.14/").
+PostgreSQL version 15.13-R2 is now available on Amazon RDS.
 
 **General enhancements**
 
@@ -1416,9 +1421,7 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 15.12-R2 on Amazon RDS
 
-PostgreSQL version 15.12-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), and [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for PostgreSQL
-announced in [PostgreSQL
-15.12](https://www.postgresql.org/docs/release/15.12/ "https://www.postgresql.org/docs/release/15.12/").
+PostgreSQL version 15.12-R2 is now available on Amazon RDS.
 
 **Fixes and improvements**
 
@@ -1459,6 +1462,15 @@ PostgreSQL version 15.11 is now available on Amazon RDS. This release contains s
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+
+### PostgreSQL version 15.10-R3 on Amazon RDS
+
+PostgreSQL version 15.10-R3 is now available on Amazon RDS.
+
+**General enhancements**
+
+- Updated V8 engine to version 11.5.150.2 for the `plv8` extension
+  3.1.10.
 
 ### PostgreSQL version 15.10-R2 on Amazon RDS
 
@@ -1901,6 +1913,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 14.17-R2 on Amazon RDS](#postgresql-versions-version1417R2 "#postgresql-versions-version1417R2")
 - [PostgreSQL version 14.17 on Amazon RDS](#postgresql-versions-version1417 "#postgresql-versions-version1417")
 - [PostgreSQL version 14.16 on Amazon RDS](#postgresql-versions-version1416R1 "#postgresql-versions-version1416R1")
+- [PostgreSQL version 14.15-R3 on Amazon RDS](#postgresql-versions-version1415R3 "#postgresql-versions-version1415R3")
 - [PostgreSQL version 14.15-R2 on Amazon RDS](#postgresql-versions-version1415R2 "#postgresql-versions-version1415R2")
 - [PostgreSQL version 14.15 on Amazon RDS](#postgresql-versions-version1415 "#postgresql-versions-version1415")
 - [PostgreSQL version 14.14 on Amazon RDS](#postgresql-versions-version1414 "#postgresql-versions-version1414")
@@ -1949,8 +1962,7 @@ This version also includes the following extension changes:
 
 Amazon RDS
 
-PostgreSQL version 14.19-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for
-PostgreSQL announced in [PostgreSQL 14.19](https://www.postgresql.org/docs/release/14.19/ "https://www.postgresql.org/docs/release/14.19/").
+PostgreSQL version 14.19-R2 is now available on Amazon RDS.
 
 This version also includes the following extension changes:
 
@@ -1976,9 +1988,7 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 14.18-R2 on Amazon RDS
 
-PostgreSQL version 14.18-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), and [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for PostgreSQL
-announced in [PostgreSQL
-14.19](https://www.postgresql.org/docs/release/14.19/ "https://www.postgresql.org/docs/release/14.19/").
+PostgreSQL version 14.18-R2 is now available on Amazon RDS.
 
 **General enhancements**
 
@@ -2011,9 +2021,7 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 14.17-R2 on Amazon RDS
 
-PostgreSQL version 14.17-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), and [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for PostgreSQL
-announced in [PostgreSQL
-14.17](https://www.postgresql.org/docs/release/14.17/ "https://www.postgresql.org/docs/release/14.17/").
+PostgreSQL version 14.17-R2 is now available on Amazon RDS.
 
 **Fixes and improvements**
 
@@ -2054,6 +2062,15 @@ PostgreSQL version 14.16 is now available on Amazon RDS. This release contains s
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+
+### PostgreSQL version 14.15-R3 on Amazon RDS
+
+PostgreSQL version 14.15-R3 is now available on Amazon RDS.
+
+**General enhancements**
+
+- Updated V8 engine to version 11.5.150.2 for the `plv8` extension
+  3.1.10.
 
 ### PostgreSQL version 14.15-R2 on Amazon RDS
 
@@ -2624,6 +2641,7 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 - [PostgreSQL version 13.20-R2 on Amazon RDS](#postgresql-versions-version1320R2 "#postgresql-versions-version1320R2")
 - [PostgreSQL version 13.20 on Amazon RDS](#postgresql-versions-version1320 "#postgresql-versions-version1320")
 - [PostgreSQL version 13.19 on Amazon RDS](#postgresql-versions-version1319R1 "#postgresql-versions-version1319R1")
+- [PostgreSQL version 13.18-R3 on Amazon RDS](#postgresql-versions-version1318R3 "#postgresql-versions-version1318R3")
 - [PostgreSQL version 13.18-R2 on Amazon RDS](#postgresql-versions-version1318R2 "#postgresql-versions-version1318R2")
 - [PostgreSQL version 13.18 on Amazon RDS](#postgresql-versions-version1318 "#postgresql-versions-version1318")
 - [PostgreSQL version 13.17 on Amazon RDS](#postgresql-versions-version1317 "#postgresql-versions-version1317")
@@ -2672,8 +2690,7 @@ This version also includes the following extension changes:
 
 Amazon RDS
 
-PostgreSQL version 13.22-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for
-PostgreSQL announced in [PostgreSQL 13.22](https://www.postgresql.org/docs/release/13.22/ "https://www.postgresql.org/docs/release/13.22/").
+PostgreSQL version 13.22-R2 is now available on Amazon RDS.
 
 This version also includes the following extension changes:
 
@@ -2697,12 +2714,16 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 13.21-R2 on Amazon RDS
 
-PostgreSQL version 13.21-R2 is now available on Amazon RDS. This release contains several fixes
-and improvements for PostgreSQL announced in the [PostgreSQL 13.21
-release](https://www.postgresql.org/docs/release/13.21/ "https://www.postgresql.org/docs/release/13.21/").
+PostgreSQL version 13.21-R2 is now available on Amazon RDS.
 
-[CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for
-PostgreSQL announced in [PostgreSQL 13.22](https://www.postgresql.org/docs/release/13.22/ "https://www.postgresql.org/docs/release/13.22/").
+**General enhancements**
+
+- Updated V8 engine to version 11.5.150.2 for the `plv8` extension
+  3.1.10.
+
+This version also includes the following extension changes:
+
+- The `pgactive` extension was updated to version 2.1.6.
 
 ### PostgreSQL version 13.21 on Amazon RDS
 
@@ -2725,9 +2746,7 @@ This version also includes the following extension changes:
 
 ### PostgreSQL version 13.20-R2 on Amazon RDS
 
-PostgreSQL version 13.20-R2 is now available on Amazon RDS. This release contains fix for [CVE-2025-8714](https://nvd.nist.gov/vuln/detail/CVE-2025-8714 "https://nvd.nist.gov/vuln/detail/CVE-2025-8714"), and [CVE-2025-8715](https://nvd.nist.gov/vuln/detail/CVE-2025-8715 "https://nvd.nist.gov/vuln/detail/CVE-2025-8715") for PostgreSQL
-announced in [PostgreSQL
-13.22](https://www.postgresql.org/docs/release/13.22/ "https://www.postgresql.org/docs/release/13.22/").
+PostgreSQL version 13.20-R2 is now available on Amazon RDS.
 
 **Fixes and Improvements**
 
@@ -2766,6 +2785,15 @@ PostgreSQL version 13.19 is now available on Amazon RDS. This release contains s
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+
+### PostgreSQL version 13.18-R3 on Amazon RDS
+
+PostgreSQL version 13.18-R3 is now available on Amazon RDS.
+
+**General enhancements**
+
+- Updated V8 engine to version 11.5.150.2 for the `plv8` extension
+  3.1.10.
 
 ### PostgreSQL version 13.18-R2 on Amazon RDS
 
@@ -3324,6 +3352,8 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 
 ###### Minor versions
 
+- [PostgreSQL version 12.22-R3 on Amazon RDS (This
+  version has reached the end of standard support.)](#postgresql-versions-version1222R3 "#postgresql-versions-version1222R3")
 - [PostgreSQL version 12.22-R2 on Amazon RDS (This
   version has reached the end of standard support.)](#postgresql-versions-version1222R2 "#postgresql-versions-version1222R2")
 - [PostgreSQL version 12.22 on Amazon RDS (This
@@ -3358,6 +3388,17 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 - [PostgreSQL version 12.4 on Amazon RDS (Deprecated)](#postgresql-versions-version124 "#postgresql-versions-version124")
 - [PostgreSQL version 12.3 on Amazon RDS (Deprecated)](#postgresql-versions-version123 "#postgresql-versions-version123")
 - [PostgreSQL version 12.2 on Amazon RDS (Deprecated)](#postgresql-versions-version122 "#postgresql-versions-version122")
+
+### PostgreSQL version 12.22-R3 on Amazon RDS (This
+
+version has reached the end of standard support.)
+
+PostgreSQL version 12.22-R3 is now available on Amazon RDS.
+
+**General enhancements**
+
+- Updated V8 engine to version 11.5.150.2 for the `plv8` extension
+  3.1.10.
 
 ### PostgreSQL version 12.22-R2 on Amazon RDS (This
 
