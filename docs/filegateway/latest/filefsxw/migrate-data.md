@@ -15,8 +15,6 @@ Amazon EC2 instances, or to refresh the underlying server hardware.
 
 Use these instructions only for migrating gateway appliances running version 1.x. You can't use them to migrate gateway appliances running lower versions.
 
-\*Method 1 is only supported when migrating between gateways that have the same generation and major version number.
-
 ###### Note
 
 Migration can only be performed between gateways of the same type. For example, you
