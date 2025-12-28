@@ -239,7 +239,7 @@ schema to validate any registry files that you create.
           "type": "string"
         },
         "version": {
-          "description": "Version string for this server. SHOULD follow semantic versioning (for example, '1.0.2', '2.1.0-alpha'). Equivalent of Implementation.version in MCP specification. Non-semantic versions are allowed but may not sort predictably. Version ranges are rejected (for example, '^1.2.3', '~1.2.3', '\u003e=1.2.3', '1.x', '1.*').",
+          "description": "Version string for this server. SHOULD follow semantic versioning (e.g., '1.0.2', '2.1.0-alpha'). Equivalent of Implementation.version in MCP specification. Non-semantic versions are allowed but may not sort predictably. Version ranges are rejected (e.g., '^1.2.3', '~1.2.3', '\u003e=1.2.3', '1.x', '1.*').",
           "example": "1.0.2",
           "maxLength": 255,
           "type": "string"
@@ -274,7 +274,7 @@ schema to validate any registry files that you create.
     "Package": {
       "properties": {
         "registryType": {
-          "description": "Registry type indicating how to download packages (for example, 'npm', 'pypi', 'oci')",
+          "description": "Registry type indicating how to download packages (e.g., 'npm', 'pypi', 'oci')",
           "enum": [
             "npm",
             "pypi",
@@ -421,12 +421,20 @@ schema to validate any registry files that you create.
     },
     "PositionalArgument": {
       "properties": {
+        "type": {
+          "enum": [
+            "positional"
+          ],
+          "example": "positional",
+          "type": "string"
+        },
         "value": {
           "description": "The value for the input.",
           "type": "string"
         }
       },
       "required": [
+        "type",
         "value"
       ],
       "type": "object"

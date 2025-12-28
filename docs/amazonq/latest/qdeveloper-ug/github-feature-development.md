@@ -63,9 +63,8 @@ For more information, see [Creating a label](https://docs.github.com/en/issues/u
    existing issue, ensure you save the changes. For more informaiton, see [Editing an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/editing-an-issue "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/editing-an-issue") in the _GitHub documentation_.
 
 When Amazon Q Developer finishes generating code changes for the feature development, it
-comments on the issue and opens a pull request. 6. Navigate to the comment left by Amazon Q Developer (example: "`I finished generating the
- proposed code changes and opened a pull request: Resolve Create an image recognition
- app`"), and then choose the pull request link.
+comments on the issue and opens a pull request. 6. Navigate to the comment left by Amazon Q Developer (example: "`I finished the
+ proposed code changes, and the pull request is ready for review: [PR link]`"), and then choose the pull request link.
 
 You can also navigate to the **Pull requests** tab, and then choose
 the pull request created by Amazon Q Developer. 7. Choose the **Files changed** tab to view the code changes. 8. If you're satisfied with the suggested code changes, you can merge the pull request.
@@ -78,26 +77,17 @@ suggested code changes by providing feedback to Amazon Q Developer.
 1. Choose the pull request
    created by Amazon Q Developer, and then choose the **Files changed** tab to view
    the code changes.
-2. For the line of code you want to leave feedback for and have Amazon Q Developer iterate,
-   choose **+** to add a comment with feedback, and then choose
-   **Start a review**.
+2. Optionally, for specific lines of code you want to provide feedback on, choose
+   **+** to add a comment with feedback.
 
-After you submit the review, Amazon Q Developer begins reviewing the code based on your
-feedback. When Amazon Q Developer is done revising your feedback, it commits the changes to the
-pull request and updates you with a comment. 3. Choose **Finish your review**, choose the **Request
-changes** radio button, and then choose **Submit review** to
-have your feedback reviewed. 4. If you're satisfied with the updated code changes, you can merge the pull request or
+In the conversation, you can use the `/q` command followed by your
+instructions in natural language (for example, `/q implement my suggestions`
+or `/q refactor this function for better performance`). Amazon Q Developer will
+respond with a comment describing the changes it will make based on your feedback (for
+example, "I will implement the following changes based on the feedback: ..."). When the
+implementation is complete, Amazon Q Developer will post another comment confirming the changes
+(for example, "I have implemented the suggested changes.") along with a link to the
+generated commit where you can view the changes. 3. Review the changes made by Amazon Q Developer by following the commit link provided in the
+conversation. You can continue to provide additional feedback using the `/q`
+command for further iterations as needed. 4. If you're satisfied with the updated code changes, you can merge the pull request or
 iterate on the code again with new feedback. For more information, see [Merge a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request").
-Amazon Q Developer integrates with GitHub Actions workflows to create an intelligent feedback loop
-system. When a pull request is created, configured workflows, such as unit tests,
-automatically execute. If the workflow fails, Amazon Q Developer analyzes the output, and based on the
-results and failure information, it iterates on the code changes. As code changes are pushed
-and workflows execute, Amazon Q Developer interprets the results and uses this information to refine
-its approach. That creates a continuous learning loop where each iteration builds upon
-previous attempts and Amazon Q Developer is able to evolve its solutions.
-
-The effectiveness of a feedback loop is dependent on having well-defined tests and
-workflows that provide meaningful feedback to Amazon Q Developer to interpret and act upon. You can
-configure workflows using GitHub Actions YAML files in your repository, allowing for customized
-testing and validation processes that Amazon Q Developer can respond to. For more information, see
-[Understanding GitHub Actions](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions")in the _GitHub documentation_.
