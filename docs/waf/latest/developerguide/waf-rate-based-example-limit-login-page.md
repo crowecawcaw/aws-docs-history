@@ -11,7 +11,7 @@ statement that matches requests to your login page and with the request
 aggregation set to **Count all**.
 
 The rate-based rule will count all requests for the login page in a single aggregation
-instance and apply the rule action when the requests exceed the limit.
+instance and apply the rule action to all requests matching the scope-down statement when the requests exceed the limit.
 
 The following JSON listing shows an example of this rule configuration. The count all aggregation option
 is listed in the JSON as the setting `CONSTANT`. This example matches login pages that start with
