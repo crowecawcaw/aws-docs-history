@@ -1,52 +1,56 @@
-# LWLock:buffer_mapping
+# Lock:tuple
 
-This event occurs when a session is waiting to associate a data block with a buffer in the shared buffer
-pool.
-
-###### Note
-
-This event appears as `LWLock:buffer_mapping` in Aurora PostgreSQL version 12 and lower, and
-`LWLock:BufferMapping` in version 13 and higher.
+The `Lock:tuple` event occurs when a backend process is waiting to
+acquire a lock on a tuple.
 
 ###### Topics
 
-- [Supported
-  engine versions](#apg-waits.lwl-buffer-mapping.context.supported "#apg-waits.lwl-buffer-mapping.context.supported")
-- [Context](#apg-waits.lwl-buffer-mapping.context "#apg-waits.lwl-buffer-mapping.context")
-- [Causes](#apg-waits.lwl-buffer-mapping.causes "#apg-waits.lwl-buffer-mapping.causes")
-- [Actions](#apg-waits.lwl-buffer-mapping.actions "#apg-waits.lwl-buffer-mapping.actions")
+- [Supported engine versions](#apg-waits.locktuple.context.supported "#apg-waits.locktuple.context.supported")
+- [Context](#apg-waits.locktuple.context "#apg-waits.locktuple.context")
+- [Likely causes of increased waits](#apg-waits.locktuple.causes "#apg-waits.locktuple.causes")
+- [Actions](#apg-waits.locktuple.actions "#apg-waits.locktuple.actions")
 
-## Supported
+## Supported engine versions
 
-engine versions
-
-This wait event information is relevant for Aurora PostgreSQL version 9.6 and higher.
+This wait event information is supported for all versions of Aurora PostgreSQL.
 
 ## Context
 
-The _shared buffer pool_ is an Aurora PostgreSQL memory area that holds
-all pages that are or were being used by processes. When a process needs a page, it
-reads the page into the shared buffer pool. The `shared_buffers` parameter
-sets the shared buffer size and reserves a memory area to store the table and index
-pages. If you change this parameter, make sure to restart the database. For more
-information, see [Shared
-buffers](AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.buffer-pool "AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.buffer-pool").
+The event `Lock:tuple` indicates that a backend is waiting to acquire a lock on a tuple
+while another backend holds a conflicting lock on the same tuple. The following table illustrates a scenario in
+which sessions generate the `Lock:tuple` event.
 
-The `LWLock:buffer_mapping` wait event occurs in the following scenarios:
+| Time | Session 1             | Session 2                                                                                                                                             | Session 3                                                                                     |
+| ---- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| t1   | Starts a transaction. |                                                                                                                                                       |                                                                                               |
+| t2   | Updates row 1.        |                                                                                                                                                       |                                                                                               |
+| t3   |                       | Updates row 1. The session acquires an exclusive lock on the tuple and then waits for<br>session 1 to release the lock by committing or rolling back. |                                                                                               |
+| t4   |                       |                                                                                                                                                       | Updates row 1. The session waits for session 2 to release the exclusive lock on the<br>tuple. |
 
-- A process searches the buffer table for a page and acquires a shared buffer mapping lock.
-- A process loads a page into the buffer pool and acquires an exclusive buffer mapping lock.
-- A process removes a page from the pool and acquires an exclusive buffer mapping lock.
+Or you can simulate this wait event by using the benchmarking tool
+`pgbench`. Configure a high number of concurrent sessions to update the
+same row in a table with a custom SQL file.
 
-## Causes
+To learn more about conflicting lock modes, see [Explicit Locking](https://www.postgresql.org/docs/current/explicit-locking.html "https://www.postgresql.org/docs/current/explicit-locking.html") in the
+PostgreSQL documentation. To learn more about `pgbench`, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html") in the PostgreSQL
+documentation.
 
-When this event appears more than normal, possibly indicating a performance problem, the database is
-paging in and out of the shared buffer pool. Typical causes include the following:
+## Likely causes of increased waits
 
-- Large queries
-- Bloated indexes and tables
-- Full table scans
-- A shared pool size that is smaller than the working set
+When this event appears more than normal, possibly indicating a performance problem, typical causes
+include the following:
+
+- A high number of concurrent sessions are trying to acquire a conflicting lock
+  for the same tuple by running `UPDATE` or `DELETE`
+  statements.
+- Highly concurrent sessions are running a `SELECT` statement using
+  the `FOR UPDATE` or `FOR NO KEY UPDATE` lock modes.
+- Various factors drive application or connection pools to open more sessions to execute the same
+  operations. As new sessions are trying to modify the same rows, DB load can spike, and
+  `Lock:tuple` can appear.
+
+For more information, see [Row-Level Locks](https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS "https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS") in
+the PostgreSQL documentation.
 
 ## Actions
 
@@ -54,57 +58,97 @@ We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Monitor buffer-related metrics](#apg-waits.lwl-buffer-mapping.actions.monitor-metrics "#apg-waits.lwl-buffer-mapping.actions.monitor-metrics")
-- [Assess your indexing strategy](#apg-waits.lwl-buffer-mapping.actions.indexes "#apg-waits.lwl-buffer-mapping.actions.indexes")
-- [Reduce the number of buffers that must be
-  allocated quickly](#apg-waits.lwl-buffer-mapping.actions.buffers "#apg-waits.lwl-buffer-mapping.actions.buffers")
+- [Investigate your application logic](#apg-waits.locktuple.actions.problem "#apg-waits.locktuple.actions.problem")
+- [Find the blocker session](#apg-waits.locktuple.actions.find-blocker "#apg-waits.locktuple.actions.find-blocker")
+- [Reduce concurrency when it is high](#apg-waits.locktuple.actions.concurrency "#apg-waits.locktuple.actions.concurrency")
+- [Troubleshoot bottlenecks](#apg-waits.locktuple.actions.bottlenecks "#apg-waits.locktuple.actions.bottlenecks")
 
-### Monitor buffer-related metrics
+### Investigate your application logic
 
-When `LWLock:buffer_mapping` waits spike, investigate the buffer hit ratio. You can use these
-metrics to get a better understanding of what is happening in the buffer cache. Examine the following
-metrics:
+Find out whether a blocker session has been in the `idle in
+ transaction` state for long time. If so, consider ending the blocker
+session as a short-term solution. You can use the `pg_terminate_backend`
+function. For more information about this function, see [Server Signaling Functions](https://www.postgresql.org/docs/13/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL "https://www.postgresql.org/docs/13/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL") in the PostgreSQL documentation.
 
-`BufferCacheHitRatio`
+For a long-term solution, do the following:
 
-This Amazon CloudWatch metric measures the percentage of requests that are served by the buffer cache of
-a DB instance in your DB cluster. You might see this metric decrease in the lead-up to the
-`LWLock:buffer_mapping` wait event.
+- Adjust the application logic.
+- Use the `idle_in_transaction_session_timeout` parameter. This
+  parameter ends any session with an open transaction that has been idle for
+  longer than the specified amount of time. For more information, see [Client Connection Defaults](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT "https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT") in the PostgreSQL
+  documentation.
+- Use autocommit as much as possible. For more information, see [SET AUTOCOMMIT](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html "https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html") in the PostgreSQL documentation.
 
-`blks_hit`
+### Find the blocker session
 
-This Performance Insights counter metric indicates the number of blocks that were retrieved
-from the shared buffer pool. After the `LWLock:buffer_mapping` wait event appears, you
-might observe a spike in `blks_hit`.
+While the `Lock:tuple` wait event is occurring, identify the blocker and
+blocked session by finding out which locks depend on one another. For more
+information, see [Lock
+dependency information](https://wiki.postgresql.org/wiki/Lock_dependency_information "https://wiki.postgresql.org/wiki/Lock_dependency_information") in the PostgreSQL wiki. To analyze past
+`Lock:tuple` events, use the Aurora function
+`aurora_stat_backend_waits`.
 
-`blks_read`
+The following example queries all sessions, filtering on `tuple` and
+ordering by `wait_time`.
 
-This Performance Insights counter metric indicates the number of blocks that required I/O to be
-read into the shared buffer pool. You might observe a spike in `blks_read` in the
-lead-up to the `LWLock:buffer_mapping` wait event.
+```
+--AURORA_STAT_BACKEND_WAITS
+      SELECT a.pid,
+             a.usename,
+             a.app_name,
+             a.current_query,
+             a.current_wait_type,
+             a.current_wait_event,
+             a.current_state,
+             wt.type_name AS wait_type,
+             we.event_name AS wait_event,
+             a.waits,
+             a.wait_time
+        FROM (SELECT pid,
+                     usename,
+                     left(application_name,16) AS app_name,
+                     coalesce(wait_event_type,'CPU') AS current_wait_type,
+                     coalesce(wait_event,'CPU') AS current_wait_event,
+                     state AS current_state,
+                     left(query,80) as current_query,
+                     (aurora_stat_backend_waits(pid)).*
+                FROM pg_stat_activity
+               WHERE pid <> pg_backend_pid()
+                 AND usename<>'rdsadmin') a
+NATURAL JOIN aurora_stat_wait_type() wt
+NATURAL JOIN aurora_stat_wait_event() we
+WHERE we.event_name = 'tuple'
+    ORDER BY a.wait_time;
 
-### Assess your indexing strategy
+  pid  | usename | app_name |                 current_query                  | current_wait_type | current_wait_event | current_state | wait_type | wait_event | waits | wait_time
+-------+---------+----------+------------------------------------------------+-------------------+--------------------+---------------+-----------+------------+-------+-----------
+ 32136 | sys     | psql     | /*session3*/ update tab set col=1 where col=1; | Lock              | tuple              | active        | Lock      | tuple      |     1 |   1000018
+ 11999 | sys     | psql     | /*session4*/ update tab set col=1 where col=1; | Lock              | tuple              | active        | Lock      | tuple      |     1 |   1000024
+```
 
-To confirm that your indexing strategy is not degrading performance, check the following:
+### Reduce concurrency when it is high
 
-Index bloat
+The `Lock:tuple` event might occur constantly, especially in a busy
+workload time. In this situation, consider reducing the high concurrency for very
+busy rows. Often, just a few rows control a queue or the Boolean logic, which makes
+these rows very busy.
 
-Ensure that index and table bloat aren't leading to unnecessary pages being read into the
-shared buffer. If your tables contain unused rows, consider archiving the data and removing the
-rows from the tables. You can then rebuild the indexes for the resized tables.
+You can reduce concurrency by using different approaches based in the business requirement, application
+logic, and workload type. For example, you can do the following:
 
-Indexes for frequently used queries
+- Redesign your table and data logic to reduce high concurrency.
+- Change the application logic to reduce high concurrency at the row level.
+- Leverage and redesign queries with row-level locks.
+- Use the `NOWAIT` clause with retry operations.
+- Consider using optimistic and hybrid-locking logic concurrency control.
+- Consider changing the database isolation level.
 
-To determine whether you have the optimal indexes, monitor DB engine metrics in Performance
-Insights. The `tup_returned` metric shows the number of rows read. The
-`tup_fetched` metric shows the number of rows returned to the client. If
-`tup_returned` is significantly larger than `tup_fetched`, the data
-might not be properly indexed. Also, your table statistics might not be current.
+### Troubleshoot bottlenecks
 
-### Reduce the number of buffers that must be
+The `Lock:tuple` can occur with bottlenecks such as CPU starvation or maximum usage of Amazon EBS
+bandwidth. To reduce bottlenecks, consider the following approaches:
 
-allocated quickly
-
-To reduce the `LWLock:buffer_mapping` wait events, try to reduce the number of buffers that must
-be allocated quickly. One strategy is to perform smaller batch operations. You might be able to achieve
-smaller batches by partitioning your tables.
+- Scale up your instance class type.
+- Optimize resource-intensive queries.
+- Change the application logic.
+- Archive data that is rarely accessed.

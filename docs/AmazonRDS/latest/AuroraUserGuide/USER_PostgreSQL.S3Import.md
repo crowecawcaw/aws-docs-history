@@ -1,244 +1,340 @@
-# Function reference
+# Setting up access to an Amazon S3
 
-###### Functions
+bucket
 
-- [aws_s3.table_import_from_s3](#aws_s3.table_import_from_s3 "#aws_s3.table_import_from_s3")
-- [aws_commons.create_s3_uri](#USER_PostgreSQL.S3Import.create_s3_uri "#USER_PostgreSQL.S3Import.create_s3_uri")
-- [aws_commons.create_aws_credentials](#USER_PostgreSQL.S3Import.create_aws_credentials "#USER_PostgreSQL.S3Import.create_aws_credentials")
+To import data from an Amazon S3 file, give the Aurora PostgreSQL DB
+cluster permission to access the Amazon S3 bucket containing the file. You provide
+access to an Amazon S3 bucket in one of two ways, as described in the following
+topics.
 
-## aws_s3.table_import_from_s3
+###### Topics
 
-Imports Amazon S3 data into an Aurora PostgreSQL table. The `aws_s3` extension provides the
-`aws_s3.table_import_from_s3` function. The return value is text.
+- [Using an IAM role to access an
+  Amazon S3 bucket](#USER_PostgreSQL.S3Import.ARNRole "#USER_PostgreSQL.S3Import.ARNRole")
+- [Using security credentials to
+  access an Amazon S3 bucket](#USER_PostgreSQL.S3Import.Credentials "#USER_PostgreSQL.S3Import.Credentials")
+- [Troubleshooting access to
+  Amazon S3](#USER_PostgreSQL.S3Import.troubleshooting "#USER_PostgreSQL.S3Import.troubleshooting")
 
-### Syntax
+## Using an IAM role to access an
 
-The required parameters are `table_name`, `column_list` and `options`.
-These identify the database table and specify how the data is copied into the table.
+Amazon S3 bucket
 
-You can also use the following parameters:
+Before you load data from an Amazon S3 file, give your Aurora PostgreSQL DB cluster permission to access the Amazon S3 bucket the file is
+in. This way, you don't have to manage additional credential information or
+provide it in the [aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3") function call.
 
-- The `s3_info` parameter specifies the Amazon S3 file to import.
-  When you use this parameter, access to Amazon S3 is provided by an IAM role
-  for the PostgreSQL DB cluster.
+To do this, create an IAM policy that provides access to the Amazon S3 bucket. Create
+an IAM role and attach the policy to the role. Then assign the IAM role to your DB
+cluster.
 
-```
-aws_s3.table_import_from_s3 (
-   table_name text,
-   column_list text,
-   options text,
-   s3_info aws_commons._s3_uri_1
-)
-```
+###### Note
 
-- The `credentials` parameter specifies the credentials to
-  access Amazon S3. When you use this parameter, you don't use an IAM
-  role.
+You can't associate an IAM role with an
+Aurora Serverless v1 DB cluster, so the following steps don't apply.
 
-```
-aws_s3.table_import_from_s3 (
-   table_name text,
-   column_list text,
-   options text,
-   s3_info aws_commons._s3_uri_1,
-   credentials aws_commons._aws_credentials_1
-)
-```
+###### To give an Aurora PostgreSQL DB cluster access to
 
-### Parameters
+Amazon S3 through an IAM role
 
-_table_name_
+1. Create an IAM policy.
 
-A required text string containing the name of the PostgreSQL
-database table to import the data into.
+This policy provides the bucket and object permissions that allow your
+Aurora PostgreSQL DB cluster
+to
+access Amazon S3.
 
-_column_list_
+Include in the policy the following required actions to allow the transfer
+of files from an Amazon S3 bucket to Aurora PostgreSQL:
 
-A required text string containing an optional list of the
-PostgreSQL database table columns in which to copy the data. If the
-string is empty, all columns of the table are used. For an example,
-see [Importing an
-Amazon S3 file that uses a custom delimiter](USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter "USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter").
+    * `s3:GetObject`
+    * `s3:ListBucket`
 
-_options_
+Include in the policy the following resources to identify the Amazon S3 bucket
+and objects in the bucket. This shows the Amazon Resource Name (ARN) format
+for accessing Amazon S3.
 
-A required text string containing arguments for the PostgreSQL
-`COPY` command. These arguments specify how the data
-is to be copied into the PostgreSQL table. For more details, see the
-[PostgreSQL COPY documentation](https://www.postgresql.org/docs/current/sql-copy.html "https://www.postgresql.org/docs/current/sql-copy.html").
+    * arn:aws:s3:::`amzn-s3-demo-bucket`
+    * arn:aws:s3:::`amzn-s3-demo-bucket`/\*
 
-_s3_info_
+For more information on creating an IAM policy for Aurora PostgreSQL, see [Creating and using an IAM policy for
+IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"). See also [Tutorial: Create and
+attach your first customer managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../../../IAM/latest/UserGuide/tutorial_managed-policies.md") in the
+_IAM User Guide_.
 
-An `aws_commons._s3_uri_1` composite type containing
-the following information about the S3 object:
+The following AWS CLI command creates an IAM policy named
+`rds-s3-import-policy` with these options. It grants access
+to a bucket named `amzn-s3-demo-bucket`.
 
-- `bucket` – The name of the Amazon S3 bucket
-  containing the file.
-- `file_path` – The Amazon S3 file name
-  including the path of the file.
-- `region` – The AWS Region that the file
-  is in. For a listing of AWS Region names and associated
-  values, see [Regions and
-  Availability Zones](Concepts.md "Concepts.md").
+###### Note
 
-_credentials_
+Make a note of the Amazon Resource Name (ARN) of
+the policy returned by this command. You need
+the ARN in a subsequent
+step when you attach the
+policy to an IAM role.
 
-An `aws_commons._aws_credentials_1` composite type
-containing the following credentials to use for the import
-operation:
+###### Example
 
-- Access key
-- Secret key
-- Session token
-
-For information about creating an
-`aws_commons._aws_credentials_1` composite structure,
-see [aws_commons.create_aws_credentials](#USER_PostgreSQL.S3Import.create_aws_credentials "#USER_PostgreSQL.S3Import.create_aws_credentials").
-
-### Alternate
-
-syntax
-
-To help with testing, you can use an expanded set of parameters instead of the
-`s3_info` and `credentials` parameters. Following are
-additional syntax variations for the `aws_s3.table_import_from_s3`
-function:
-
-- Instead of using the `s3_info` parameter to identify an
-  Amazon S3 file, use the combination of the `bucket`,
-  `file_path`, and `region` parameters. With
-  this form of the function, access to Amazon S3 is provided by an IAM role on
-  the PostgreSQL DB instance.
+For Linux, macOS, or Unix:
 
 ```
-aws_s3.table_import_from_s3 (
-   table_name text,
-   column_list text,
-   options text,
-   bucket text,
-   file_path text,
-   region text
-)
+aws iam create-policy \
+   --policy-name rds-s3-import-policy \
+   --policy-document '{
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "s3import",
+         "Action": [
+           "s3:GetObject",
+           "s3:ListBucket"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+           "arn:aws:s3:::`amzn-s3-demo-bucket`",
+           "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+         ]
+       }
+     ]
+   }'
 ```
 
-- Instead of using the `credentials` parameter to specify
-  Amazon S3 access, use the combination of the `access_key`,
-  `session_key`, and `session_token`
-  parameters.
+For Windows:
 
 ```
-aws_s3.table_import_from_s3 (
-   table_name text,
-   column_list text,
-   options text,
-   bucket text,
-   file_path text,
-   region text,
-   access_key text,
-   secret_key text,
-   session_token text
-)
+aws iam create-policy ^
+   --policy-name rds-s3-import-policy ^
+   --policy-document '{
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "s3import",
+         "Action": [
+           "s3:GetObject",
+           "s3:ListBucket"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+           "arn:aws:s3:::`amzn-s3-demo-bucket`",
+           "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+         ]
+       }
+     ]
+   }'
 ```
 
-### Alternate parameters
+2. Create an IAM role.
 
-_bucket_
+You do this so Aurora PostgreSQL can assume this IAM role to access your
+Amazon S3 buckets. For more information, see [Creating a role to
+delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the
+_IAM User Guide_.
 
-A text string containing the name of the Amazon S3 bucket that contains
-the file.
+We recommend using the `aws:SourceArn` and
+`aws:SourceAccount`
+global condition context keys in resource-based policies to limit the service's permissions to a specific
+resource. This is the most effective way to protect against the [confused
+deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md").
 
-_file_path_
+If you use both global condition context keys and the
+`aws:SourceArn` value contains the account ID, the `aws:SourceAccount` value and
+the account in the `aws:SourceArn` value must use the same account ID when used in the
+same policy statement.
 
-A text string containing the Amazon S3 file name including the path of
-the file.
+    * Use `aws:SourceArn` if you want cross-service access for a single resource.
+    * Use `aws:SourceAccount` if you want to allow any resource in that account to be associated with the cross-service use.
 
-_region_
+In the policy, be sure to use
+the `aws:SourceArn` global condition context key with the full ARN of the resource. The following example shows how to do so using the AWS CLI command to create a role named
+`rds-s3-import-role`.
 
-A text string identifying the AWS Region location of the file.
-For a listing of AWS Region names and associated values, see [Regions and
-Availability Zones](Concepts.md "Concepts.md").
+###### Example
 
-_access_key_
-
-A text string containing the access key to use for the import
-operation. The default is NULL.
-
-_secret_key_
-
-A text string containing the secret key to use for the import
-operation. The default is NULL.
-
-_session_token_
-
-(Optional) A text string containing the session key to use for the
-import operation. The default is NULL.
-
-## aws_commons.create_s3_uri
-
-Creates an `aws_commons._s3_uri_1` structure to hold Amazon S3 file
-information. Use the results of the `aws_commons.create_s3_uri` function
-in the `s3_info` parameter of the [aws_s3.table_import_from_s3](#aws_s3.table_import_from_s3 "#aws_s3.table_import_from_s3") function.
-
-### Syntax
+For Linux, macOS, or Unix:
 
 ```
-aws_commons.create_s3_uri(
-   bucket text,
-   file_path text,
-   region text
-)
+aws iam create-role \
+   --role-name rds-s3-import-role \
+   --assume-role-policy-document '{
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+            "Service": "rds.amazonaws.com"
+          },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+             "StringEquals": {
+                "aws:SourceAccount": "`111122223333`",
+                "aws:SourceArn": "`arn:aws:rds:us-east-1:111122223333:cluster:clustername`"
+                }
+             }
+       }
+     ]
+   }'
 ```
 
-### Parameters
-
-_bucket_
-
-A required text string containing the Amazon S3 bucket name for the
-file.
-
-_file_path_
-
-A required text string containing the Amazon S3 file name including the
-path of the file.
-
-_region_
-
-A required text string containing the AWS Region that the file is
-in. For a listing of AWS Region names and associated values, see
-[Regions and
-Availability Zones](Concepts.md "Concepts.md").
-
-## aws_commons.create_aws_credentials
-
-Sets an access key and secret key in an `aws_commons._aws_credentials_1`
-structure. Use the results of the `aws_commons.create_aws_credentials`
-function in the `credentials` parameter of the [aws_s3.table_import_from_s3](#aws_s3.table_import_from_s3 "#aws_s3.table_import_from_s3") function.
-
-### Syntax
+For Windows:
 
 ```
-aws_commons.create_aws_credentials(
-   access_key text,
-   secret_key text,
-   session_token text
-)
+aws iam create-role ^
+   --role-name rds-s3-import-role ^
+   --assume-role-policy-document '{
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+            "Service": "rds.amazonaws.com"
+          },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+             "StringEquals": {
+                "aws:SourceAccount": "`111122223333`",
+                "aws:SourceArn": "`arn:aws:rds:us-east-1:111122223333:cluster:clustername`"
+                }
+             }
+       }
+     ]
+   }'
 ```
 
-### Parameters
+3. Attach the IAM policy that you created to the IAM role that you
+   created.
 
-_access_key_
+The following AWS CLI command attaches the policy created in the previous step to the
+role named `rds-s3-import-role` Replace
+`your-policy-arn` with the
+policy ARN that you noted in an earlier step.
 
-A required text string containing the access key to use for importing
-an Amazon S3 file. The default is NULL.
+###### Example
 
-_secret_key_
+For Linux, macOS, or Unix:
 
-A required text string containing the secret key to use for importing
-an Amazon S3 file. The default is NULL.
+```
+aws iam attach-role-policy \
+   --policy-arn `your-policy-arn` \
+   --role-name rds-s3-import-role
+```
 
-_session_token_
+For Windows:
 
-An optional text string containing the session token to use for
-importing an Amazon S3 file. The default is NULL. If you provide an optional
-`session_token`, you can use temporary
-credentials.
+```
+aws iam attach-role-policy ^
+   --policy-arn `your-policy-arn` ^
+   --role-name rds-s3-import-role
+```
+
+4. Add the IAM role to the DB cluster.
+
+You do so by using the AWS Management Console or AWS CLI, as described following.
+
+###### To add an IAM role for a PostgreSQL DB cluster
+
+using the console
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Choose the PostgreSQL DB cluster
+   name to display its
+   details.
+3. On the **Connectivity & security** tab, in
+   the **Manage IAM roles** section, choose the role
+   to add under **Add IAM roles to this
+   cluster**.
+4. Under **Feature**, choose
+   **s3Import**.
+5. Choose **Add role**.
+
+###### To add an IAM role for a PostgreSQL DB cluster using the CLI
+
+- Use the following command to add the role to the PostgreSQL DB
+  cluster named `my-db-cluster`. Replace
+  `your-role-arn` with
+  the role ARN that you noted in a previous step. Use
+  `s3Import` for the value of the
+  `--feature-name` option.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws rds add-role-to-db-cluster \
+   --db-cluster-identifier `my-db-cluster` \
+   --feature-name s3Import \
+   --role-arn `your-role-arn`   \
+   --region `your-region`
+```
+
+For Windows:
+
+```
+aws rds add-role-to-db-cluster ^
+   --db-cluster-identifier `my-db-cluster` ^
+   --feature-name s3Import ^
+   --role-arn `your-role-arn` ^
+   --region `your-region`
+```
+
+To add an IAM role for a PostgreSQL DB cluster using
+the Amazon RDS API, call the [AddRoleToDBCluster](../APIReference/API_AddRoleToDBCluster.md "../APIReference/API_AddRoleToDBCluster.md")
+operation.
+
+## Using security credentials to
+
+access an Amazon S3 bucket
+
+If you prefer, you can use security credentials to provide access to an Amazon S3
+bucket instead of providing access with an IAM role. You do so by specifying the
+`credentials` parameter in the [aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3") function call.
+
+The `credentials` parameter is a structure of type
+`aws_commons._aws_credentials_1`, which contains AWS credentials. Use
+the [aws_commons.create_aws_credentials](USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_aws_credentials "USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_aws_credentials") function
+to set the access key and secret key in an
+`aws_commons._aws_credentials_1` structure, as shown following.
+
+```
+`postgres=>` SELECT aws_commons.create_aws_credentials(
+   '`sample_access_key`', '`sample_secret_key`', '')
+AS creds \gset
+```
+
+After creating the `aws_commons._aws_credentials_1` structure, use the
+[aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3") function with the
+`credentials` parameter to import the data, as shown
+following.
+
+```
+`postgres=>` SELECT aws_s3.table_import_from_s3(
+   't', '', '(format csv)',
+   :'s3_uri',
+   :'creds'
+);
+```
+
+Or you can include the [aws_commons.create_aws_credentials](USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_aws_credentials "USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_aws_credentials") function
+call inline within the `aws_s3.table_import_from_s3` function
+call.
+
+```
+`postgres=>` SELECT aws_s3.table_import_from_s3(
+   't', '', '(format csv)',
+   :'s3_uri',
+   aws_commons.create_aws_credentials('`sample_access_key`', '`sample_secret_key`', '')
+);
+```
+
+## Troubleshooting access to
+
+Amazon S3
+
+If you encounter connection problems when attempting to import data from Amazon S3, see
+the following for recommendations:
+
+- [Troubleshooting Amazon Aurora identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Troubleshooting Amazon S3](../../../AmazonS3/latest/userguide/troubleshooting.md "../../../AmazonS3/latest/userguide/troubleshooting.md") in the _Amazon Simple Storage Service User Guide_
+- [Troubleshooting Amazon S3 and IAM](../../../IAM/latest/UserGuide/troubleshoot_iam-s3.md "../../../IAM/latest/UserGuide/troubleshoot_iam-s3.md") in the _IAM User Guide_

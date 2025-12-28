@@ -1,35 +1,41 @@
-# Supported Regions and DB engines for Aurora engine-native
+# Supported
 
-features
+Regions and Aurora DB engines for IAM database
+authentication
 
-Aurora database engines also support additional features and functionality specifically
-for Aurora. Some engine-native features might have limited support or restricted
-privileges for a particular Aurora DB engine, version, or Region.
+With IAM database authentication in Aurora, you can authenticate to your DB cluster
+using AWS Identity and Access Management (IAM) database authentication. With this
+authentication method, you don't need to use a password when you connect to a DB
+cluster. Instead, you use an authentication token. For more information, see [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md").
 
 ###### Topics
 
-- [Engine-native features for Aurora MySQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.EngineNativeFeatures.amy "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.EngineNativeFeatures.amy")
-- [Engine-native features for Aurora PostgreSQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.EngineNativeFeatures.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.EngineNativeFeatures.apg")
+- [IAM
+  database authentication with Aurora MySQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.IAMdbauth.amy "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.IAMdbauth.amy")
+- [IAM
+  database authentication with Aurora PostgreSQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.IAMdbauth.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.IAMdbauth.apg")
 
-## Engine-native features for Aurora MySQL
+## IAM
 
-Following are the engine-native features for Aurora MySQL.
+database authentication with Aurora MySQL
 
-- [Advanced Auditing](AuroraMySQL.md "AuroraMySQL.md")
-- [Backtrack](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md")
-- [Fault injection
-  queries](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md")
-- [In-cluster write
-  forwarding](aurora-mysql-write-forwarding.md "aurora-mysql-write-forwarding.md")
-- [Parallel
-  query](aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-planning "aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-planning")
+IAM database authentication with Aurora MySQL is available in all Regions for the
+following versions:
 
-## Engine-native features for Aurora PostgreSQL
+- Aurora MySQL 3 – All available versions
+- Aurora MySQL 2 – All available versions
 
-Following are the engine-native features for Aurora PostgreSQL.
+## IAM
 
-- [Babelfish](babelfish.md "babelfish.md")
-- [Fault
-  injection queries](AuroraPostgreSQL.Managing.md "AuroraPostgreSQL.Managing.md")
-- [Query plan
-  management](AuroraPostgreSQL.md "AuroraPostgreSQL.md")
+database authentication with Aurora PostgreSQL
+
+IAM database authentication with Aurora PostgreSQL is available in all Regions for
+the following engine versions:
+
+- Aurora PostgreSQL 17 – All available versions
+- Aurora PostgreSQL 16 – All available versions
+- Aurora PostgreSQL 15 – All available versions
+- Aurora PostgreSQL 14 – All available versions
+- Aurora PostgreSQL 13 – All available versions
+- Aurora PostgreSQL 12 – All available versions
+- Aurora PostgreSQL 11 – All available versions

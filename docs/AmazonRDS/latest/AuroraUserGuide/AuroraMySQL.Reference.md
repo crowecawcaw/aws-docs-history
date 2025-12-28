@@ -1,90 +1,168 @@
-# Aurora MySQL–specific information_schema tables
+# Aurora MySQL isolation levels
 
-Aurora MySQL has certain `information_schema` tables that are specific to Aurora.
+Learn how DB instances in an Aurora MySQL cluster implement the database property of
+isolation. This topic explains how the Aurora MySQL default behavior balances between strict
+consistency and high performance. You can use this information to help you decide when to
+change the default settings based on the traits of your workload.
 
-## information_schema.aurora_global_db_instance_status
+## Available isolation levels for writer instances
 
-The `information_schema.aurora_global_db_instance_status` table contains information about the status of all DB instances in a global database's primary and secondary DB clusters.
-The following table shows the columns that you can use. The remaining columns are for Aurora internal use only.
+You can use the isolation levels `REPEATABLE READ`, `READ COMMITTED`, `READ UNCOMMITTED`, and
+`SERIALIZABLE` on the primary instance of an Aurora MySQL DB cluster. These isolation levels work the same in
+Aurora MySQL as in RDS for MySQL.
+
+## REPEATABLE READ isolation level for reader instances
+
+By default, Aurora MySQL DB instances that are configured as read-only Aurora Replicas always use the `REPEATABLE
+ READ` isolation level. These DB instances ignore any `SET TRANSACTION ISOLATION LEVEL` statements and
+continue using the `REPEATABLE READ` isolation level.
+
+## READ COMMITTED isolation level for reader instances
+
+If your application includes a write-intensive workload on the primary instance and long-running queries on the Aurora
+Replicas, you might experience substantial purge lag. _Purge lag_ happens when internal garbage
+collection is blocked by long-running queries. The symptom that you see is a high value for `history list length` in
+the output from the `SHOW ENGINE INNODB STATUS` command. You can monitor this value using the
+`RollbackSegmentHistoryListLength` metric in CloudWatch. Substantial purge lag can reduce the effectiveness of
+secondary indexes, decrease overall query performance, and lead to wasted storage space.
+
+If you experience such issues, you can set an Aurora MySQL session-level configuration setting,
+`aurora_read_replica_read_committed`, to use the `READ COMMITTED` isolation level on Aurora Replicas.
+When you apply this setting, you can help reduce slowdowns and wasted space that can result from performing long-running queries
+at the same time as transactions that modify your tables.
+
+We recommend making sure that you understand the specific Aurora MySQL behavior of the `READ COMMITTED` isolation
+before using this setting. The Aurora Replica `READ COMMITTED` behavior complies with the ANSI SQL standard. However,
+the isolation is less strict than typical MySQL `READ COMMITTED` behavior that you might be familiar with. Therefore,
+you might see different query results under `READ COMMITTED` on an Aurora MySQL read replica than you might see for the
+same query under `READ COMMITTED` on the Aurora MySQL primary instance or on RDS for MySQL. You might consider using the
+`aurora_read_replica_read_committed` setting for such cases as a comprehensive report that scans a very large
+database. In contrast, you might avoid it for short queries with small result sets, where precision and repeatability are
+important.
+
+The `READ COMMITTED` isolation level isn't available for sessions within a secondary cluster in an Aurora
+global database that use the write forwarding feature. For information about write forwarding, see [Using write forwarding in an Amazon Aurora global database](aurora-global-database-write-forwarding.md "aurora-global-database-write-forwarding.md").
+
+### Using READ COMMITTED for readers
+
+To use the `READ COMMITTED` isolation level for Aurora Replicas, set the
+`aurora_read_replica_read_committed` configuration setting to `ON`. Use this setting at the
+session level while connected to a specific Aurora Replica. To do so, run the following SQL commands.
+
+```
+set session aurora_read_replica_read_committed = ON;
+set session transaction isolation level read committed;
+
+```
+
+You might use this configuration setting temporarily to perform interactive, one-time queries. You might also want to run
+a reporting or data analysis application that benefits from the `READ COMMITTED` isolation level, while leaving
+the default setting unchanged for other applications.
+
+When the `aurora_read_replica_read_committed` setting is turned on, use the `SET TRANSACTION ISOLATION
+ LEVEL` command to specify the isolation level for the appropriate transactions.
+
+```
+set transaction isolation level read committed;
+```
+
+### Differences in READ COMMITTED behavior on Aurora
+
+replicas
+
+The `aurora_read_replica_read_committed` setting makes the `READ COMMITTED` isolation level
+available for an Aurora Replica, with consistency behavior that is optimized for long-running transactions. The `READ
+ COMMITTED` isolation level on Aurora Replicas has less strict isolation than on Aurora primary instances. For that
+reason, enable this setting only on Aurora Replicas where you know that your queries can accept the possibility of certain
+types of inconsistent results.
+
+Your queries can experience certain kinds of read anomalies when the `aurora_read_replica_read_committed`
+setting is turned on. Two kinds of anomalies are especially important to understand and handle in your application code. A
+_non-repeatable read_ occurs when another transaction commits while your query is running. A
+long-running query can see different data at the start of the query than it sees at the end. A _phantom
+read_ occurs when other transactions cause existing rows to be reorganized while your query is running, and
+one or more rows are read twice by your query.
+
+Your queries might experience inconsistent row counts as a result of phantom reads. Your queries might also return
+incomplete or inconsistent results due to non-repeatable reads. For example, suppose that a join operation refers to tables
+that are concurrently modified by SQL statements such as `INSERT` or `DELETE`. In this case, the join
+query might read a row from one table but not the corresponding row from another table.
+
+The ANSI SQL standard allows both of these behaviors for the `READ COMMITTED` isolation level. However, those
+behaviors are different than the typical MySQL implementation of `READ COMMITTED`. Thus, before enabling the
+`aurora_read_replica_read_committed` setting, check any existing SQL code to verify if it operates as
+expected under the looser consistency model.
+
+Row counts and other results might not be strongly consistent under the `READ COMMITTED` isolation level while
+this setting is enabled. Thus, you typically enable the setting only while running analytic queries that aggregate large
+amounts of data and don't require absolute precision. If you don't have these kinds of long-running queries
+alongside a write-intensive workload, you probably don't need the `aurora_read_replica_read_committed`
+setting. Without the combination of long-running queries and a write-intensive workload, you're unlikely to encounter
+issues with the length of the history list.
+
+###### Example Queries showing isolation behavior for READ COMMITTED on Aurora Replicas
+
+The following example shows how `READ COMMITTED` queries on an Aurora Replica might return non-repeatable
+results if transactions modify the associated tables at the same time. The table `BIG_TABLE` contains 1
+million rows before any queries start. Other data manipulation language (DML) statements add, remove, or change rows
+while they are running.
+
+The queries on the Aurora primary instance under the `READ COMMITTED` isolation level produce predictable
+results. However, the overhead of keeping the consistent read view for the lifetime of every long-running query can lead
+to expensive garbage collection later.
+
+The queries on the Aurora Replica under the `READ COMMITTED` isolation level are optimized to minimize this
+garbage collection overhead. The tradeoff is that the results might vary depending on whether the queries retrieve rows
+that are added, removed, or reorganized by transactions that are committed while the query is running. The queries are
+allowed to consider these rows, but aren't required to. For demonstration purposes, the queries check only the
+number of rows in the table by using the `COUNT(*)` function.
+
+| Time | DML statement on Aurora primary instance                                                                                      | Query on Aurora primary instance with READ COMMITTED                                                    | Query on Aurora Replica with READ COMMITTED                                                             |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| T1   | `INSERT INTO big_table SELECT<br>• FROM other_table LIMIT 1000000; COMMIT;`                                                   |                                                                                                         |                                                                                                         |
+| T2   |                                                                                                                               | **Q1:**<br>`SELECT COUNT(*) FROM big_table;`                                                            | **Q2:**<br>`SELECT COUNT(*) FROM big_table;`                                                            |
+| T3   | `INSERT INTO big_table (c1, c2) VALUES (1, 'one more row'); COMMIT;`                                                          |                                                                                                         |                                                                                                         |
+| T4   |                                                                                                                               | If Q1 finishes now, result is 1,000,000.                                                                | If Q2 finishes now, result is 1,000,000 or 1,000,001.                                                   |
+| T5   | `DELETE FROM big_table LIMIT 2; COMMIT;`                                                                                      |                                                                                                         |                                                                                                         |
+| T6   |                                                                                                                               | If Q1 finishes now, result is 1,000,000.                                                                | If Q2 finishes now, result is 1,000,000 or 1,000,001 or 999,999 or 999,998.                             |
+| T7   | `UPDATE big_table SET c2 = CONCAT(c2,c2,c2); COMMIT;`                                                                         |                                                                                                         |                                                                                                         |
+| T8   |                                                                                                                               | If Q1 finishes now, result is 1,000,000.                                                                | If Q2 finishes now, result is 1,000,000 or 1,000,001 or 999,999, or possibly some higher number.        |
+| T9   |                                                                                                                               | **Q3:**<br>`SELECT COUNT(*) FROM big_table;`                                                            | **Q4:**<br>`SELECT COUNT(*) FROM big_table;`                                                            |
+| T10  |                                                                                                                               | If Q3 finishes now, result is 999,999.                                                                  | If Q4 finishes now, result is 999,999.                                                                  |
+| T11  |                                                                                                                               | **Q5:**<br>`SELECT COUNT(*) FROM parent_table p JOIN child_table c ON (p.id = c.id) WHERE p.id = 1000;` | **Q6:**<br>`SELECT COUNT(*) FROM parent_table p JOIN child_table c ON (p.id = c.id) WHERE p.id = 1000;` |
+| T12  | `INSERT INTO parent_table (id, s) VALUES (1000, 'hello'); INSERT INTO child_table (id, s) VALUES<br>(1000, 'world'); COMMIT;` |                                                                                                         |                                                                                                         |
+| T13  |                                                                                                                               | If Q5 finishes now, result is 0.                                                                        | If Q6 finishes now, result is 0 or 1.                                                                   |
+
+If the queries finish quickly, before any other transactions perform DML statements and commit, the results are
+predictable and the same between the primary instance and the Aurora Replica. Let's examine the differences in behavior
+in detail, starting with the first query.
+
+The results for Q1 are highly predictable because `READ COMMITTED` on the primary instance uses a strong
+consistency model similar to the `REPEATABLE READ` isolation level.
+
+The results for Q2 might vary depending on what transactions are committed while that query is running. For example,
+suppose that other transactions perform DML statements and commit while the queries are running. In this case, the query
+on the Aurora Replica with the `READ COMMITTED` isolation level might or might not take the changes into
+account. The row counts aren't predictable in the same way as under the `REPEATABLE READ` isolation level.
+They also aren't as predictable as queries running under the `READ COMMITTED` isolation level on the
+primary instance, or on an RDS for MySQL instance.
+
+The `UPDATE` statement at T7 doesn't actually change the number of rows in the table. However, by
+changing the length of a variable-length column, this statement can cause rows to be reorganized internally. A
+long-running `READ COMMITTED` transaction might see the old version of a row, and later within the same query
+see the new version of the same row. The query can also skip both the old and new versions of the row, so the row count
+might be different than expected.
+
+The results of Q5 and Q6 might be identical or slightly different. Query Q6 on the Aurora Replica under `READ
+ COMMITTED` is able to see, but is not required to see, the new rows that are committed while the query is
+running. It might also see the row from one table, but not from the other table. If the join query doesn't find a
+matching row in both tables, it returns a count of zero. If the query does find both the new rows in
+`PARENT_TABLE` and `CHILD_TABLE`, the query returns a count of one. In a long-running query,
+the lookups from the joined tables might happen at widely separated times.
 
 ###### Note
 
-This information schema table is only available with Aurora MySQL version 3.04.0 and higher
-global databases.
-
-| Column                  | Data type            | Description                                                                                                                                                                                                                                              |
-| ----------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SERVER_ID               | varchar(100)         | The identifier of the DB instance.                                                                                                                                                                                                                       |
-| SESSION_ID              | varchar(100)         | A unique identifier for the current session. A value of `MASTER_SESSION_ID` identifies the Writer (primary) DB instance.                                                                                                                                 |
-| AWS_REGION              | varchar(100)         | The AWS Region in which this global database instance runs. For a list of Regions, see [Region availability](Concepts.md#Aurora.Overview.Availability "Concepts.md#Aurora.Overview.Availability").                                                       |
-| DURABLE_LSN             | bigint unsigned      | The log sequence number (LSN) made durable in storage.<br>A log sequence number (LSN) is a unique sequential number that identifies a record in the database transaction log.<br>LSNs are ordered such that a larger LSN represents a later transaction. |
-| HIGHEST_LSN_RCVD        | bigint unsigned      | The highest LSN received by the DB instance from the writer DB instance.                                                                                                                                                                                 |
-| OLDEST_READ_VIEW_TRX_ID | bigint unsigned      | The ID of the oldest transaction that the writer DB instance can purge to.                                                                                                                                                                               |
-| OLDEST_READ_VIEW_LSN    | bigint unsigned      | The oldest LSN used by the DB instance to read from storage.                                                                                                                                                                                             |
-| VISIBILITY_LAG_IN_MSEC  | float(10,0) unsigned | For readers in the primary DB cluster, how far this DB instance is lagging behind the writer DB instance in milliseconds.<br>For readers in a secondary DB cluster, how far this DB instance is lagging behind the secondary volume in milliseconds.     |
-
-## information_schema.aurora_global_db_status
-
-The `information_schema.aurora_global_db_status` table contains information about various aspects of Aurora global database lag, specifically, lag
-of the underlying Aurora storage (so called durability lag) and lag between the recovery point objective (RPO).
-The following table shows the columns that you can use. The remaining columns are for Aurora internal use only.
-
-###### Note
-
-This information schema table is only available with Aurora MySQL version 3.04.0 and higher
-global databases.
-
-| Column                         | Data type            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS_REGION                     | varchar(100)         | The AWS Region in which this global database instance runs. For a list of Regions, see [Region availability](Concepts.md#Aurora.Overview.Availability "Concepts.md#Aurora.Overview.Availability").                                                                                                                                                                                                                                                                                                                                                                               |
-| HIGHEST_LSN_WRITTEN            | bigint unsigned      | The highest log sequence number (LSN) that currently exists<br>on this DB cluster. A log sequence number (LSN) is a unique sequential number that identifies a record in the database transaction log.<br>LSNs are ordered such that a larger LSN represents a later transaction.                                                                                                                                                                                                                                                                                                |
-| DURABILITY_LAG_IN_MILLISECONDS | float(10,0) unsigned | The difference in the timestamp values between the `HIGHEST_LSN_WRITTEN` on a<br>secondary DB cluster and the `HIGHEST_LSN_WRITTEN` on the primary DB cluster. This value is always 0 on the primary DB cluster of the Aurora global database.                                                                                                                                                                                                                                                                                                                                   |
-| RPO_LAG_IN_MILLISECONDS        | float(10,0) unsigned | The recovery point objective (RPO) lag. The RPO lag is the time<br>it takes for the most recent user transaction COMMIT to be stored on a secondary DB cluster after it's been stored<br>on the primary DB cluster of the Aurora global database. This value is always 0 on the primary DB cluster of the Aurora global database.<br>In simple terms, this metric calculates the recovery point objective for each Aurora MySQL DB cluster in the Aurora global database, that is, how much data might be lost<br>if there were an outage. As with lag, RPO is measured in time. |
-| LAST_LAG_CALCULATION_TIMESTAMP | datetime             | The timestamp that specifies when values were last calculated for<br>`DURABILITY_LAG_IN_MILLISECONDS` and `RPO_LAG_IN_MILLISECONDS`. A time value such as `1970-01-01 00:00:00+00` means<br>this is the primary DB cluster.                                                                                                                                                                                                                                                                                                                                                      |
-| OLDEST_READ_VIEW_TRX_ID        | bigint unsigned      | The ID of the oldest transaction that the writer DB instance can purge to.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-
-## information_schema.replica_host_status
-
-The `information_schema.replica_host_status` table contains replication information. The columns that you can
-use are shown in the following table. The remaining columns are for Aurora internal use only.
-
-| Column                      | Data type    | Description                                                                                             |
-| --------------------------- | ------------ | ------------------------------------------------------------------------------------------------------- |
-| CPU                         | double       | The CPU percentage usage of the replica host.                                                           |
-| IS_CURRENT                  | tinyint      | Whether the replica is current.                                                                         |
-| LAST_UPDATE_TIMESTAMP       | datetime(6)  | The time the last update occurred. Used to determine whether a record is stale.                         |
-| REPLICA_LAG_IN_MILLISECONDS | double       | The replica lag in milliseconds.                                                                        |
-| SERVER_ID                   | varchar(100) | The ID of the database server.                                                                          |
-| SESSION_ID                  | varchar(100) | The ID of the database session. Used to determine whether a DB instance is a writer or reader instance. |
-
-###### Note
-
-When a replica instance falls behind, the information queried from its `information_schema.replica_host_status`
-table might be outdated. In this situation, we recommend that you query from the writer instance instead.
-
-While the `mysql.ro_replica_status` table has similar information, we don't recommend that you use
-it.
-
-## information_schema.aurora_forwarding_processlist
-
-The `information_schema.aurora_forwarding_processlist` table contains information about processes involved in
-write forwarding.
-
-The contents of this table are visible only on the writer DB instance for a DB cluster with global or in-cluster write
-forwarding turned on. An empty result set is returned on reader DB instances.
-
-| Field                       | Data type    | Description                                                                                                                                                                                                                                                                                                                                                        |
-| --------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ID                          | bigint       | The identifier of the connection on the writer DB instance. This<br>identifier is the same value displayed in the `Id` column<br>of the `SHOW PROCESSLIST` statement and returned by the<br>`CONNECTION_ID()` function within the thread.                                                                                                                          |
-| USER                        | varchar(32)  | The MySQL user that issued the statement.                                                                                                                                                                                                                                                                                                                          |
-| HOST                        | varchar(255) | The MySQL client that issued the statement. For forwarded<br>statements, this field shows the application client host address<br>that established the connection on the forwarding reader DB<br>instance.                                                                                                                                                          |
-| DB                          | varchar(64)  | The default database for the thread.                                                                                                                                                                                                                                                                                                                               |
-| COMMAND                     | varchar(16)  | The type of command the thread is executing on behalf of the client, or `Sleep` if the session<br>is idle. For descriptions of thread commands, see the MySQL documentation on [Thread Command Values](https://dev.mysql.com/doc/refman/8.0/en/thread-commands.html "https://dev.mysql.com/doc/refman/8.0/en/thread-commands.html") in the<br>MySQL documentation. |
-| TIME                        | int          | The time in seconds that the thread has been in its current state.                                                                                                                                                                                                                                                                                                 |
-| STATE                       | varchar(64)  | An action, event, or state that indicates what the thread is doing. For descriptions of state values, see<br>[General Thread<br>States](https://dev.mysql.com/doc/refman/8.0/en/general-thread-states.html "https://dev.mysql.com/doc/refman/8.0/en/general-thread-states.html") in the MySQL documentation.                                                       |
-| INFO                        | longtext     | The statement that the thread is executing, or `NULL` if it isn't executing a statement. The<br>statement might be the one sent to the server, or an innermost statement if the statement executes other<br>statements.                                                                                                                                            |
-| IS_FORWARDED                | bigint       | Indicates whether the thread is forwarded from a reader DB instance.                                                                                                                                                                                                                                                                                               |
-| REPLICA_SESSION_ID          | bigint       | The connection identifier on the Aurora Replica. This identifier<br>is the same value displayed in the `Id` column of the<br>`SHOW PROCESSLIST` statement on the forwarding Aurora<br>reader DB instance.                                                                                                                                                          |
-| REPLICA_INSTANCE_IDENTIFIER | varchar(64)  | The DB instance identifier of the forwarding thread.                                                                                                                                                                                                                                                                                                               |
-| REPLICA_CLUSTER_NAME        | varchar(64)  | The DB cluster identifier of the forwarding thread. For<br>in-cluster write forwarding, this identifier is the same DB cluster<br>as the writer DB instance.                                                                                                                                                                                                       |
-| REPLICA_REGION              | varchar(64)  | The AWS Region from which the forwarding thread originates. For<br>in-cluster write forwarding, this Region is the same<br>AWS Region as the writer DB instance.                                                                                                                                                                                                   |
+These differences in behavior depend on the timing of when transactions are committed and when the queries process
+the underlying table rows. Thus, you're most likely to see such differences in report queries that take minutes
+or hours and that run on Aurora clusters processing OLTP transactions at the same time. These are the kinds of mixed
+workloads that benefit the most from the `READ COMMITTED` isolation level on Aurora Replicas.

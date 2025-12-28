@@ -1,28 +1,82 @@
-# Troubleshooting cross-Region replicas for Amazon Aurora MySQL
+# Promoting a read replica to a DB cluster for Aurora MySQL
 
-Following you can find a list of common error messages that you might encounter when creating an Amazon Aurora
-cross-Region read replica, and how to resolve the specified errors.
+You can promote an Aurora MySQL read replica to a standalone DB cluster. When you promote an Aurora MySQL read
+replica, its DB instances are rebooted before they become available.
 
-## Source cluster [DB cluster ARN] doesn't have binlogs enabled
+Typically, you promote an Aurora MySQL read replica to a standalone DB cluster as a data recovery scheme if
+the source DB cluster fails.
 
-To resolve this issue, turn on binary logging on the source DB cluster. For more information, see
-[Before you begin](AuroraMySQL.Replication.md#AuroraMySQL.Replication.CrossRegion.Prerequisites "AuroraMySQL.Replication.md#AuroraMySQL.Replication.CrossRegion.Prerequisites").
+To do this, first create a read replica and then monitor the source DB cluster for failures. In the event of
+a failure, do the following:
 
-## Source cluster [DB cluster ARN] doesn't have cluster parameter group in sync on writer
+1. Promote the read replica.
+2. Direct database traffic to the promoted DB cluster.
+3. Create a replacement read replica with the promoted DB cluster as its source.
 
-You receive this error if you have updated the `binlog_format` DB cluster parameter, but have
-not rebooted the primary instance for the DB cluster. Reboot the primary instance (that is, the writer)
-for the DB cluster and try again.
+When you promote a read replica, the read replica becomes a standalone Aurora DB cluster. The promotion
+process can take several minutes or longer to complete, depending on the size of the read replica. After you
+promote the read replica to a new DB cluster, it's just like any other DB cluster. For example, you can
+create read replicas from it and perform point-in-time restore operations. You can also create Aurora
+Replicas for the DB cluster.
 
-## Source cluster [DB cluster ARN] already has a read replica in this region
+Because the promoted DB cluster is no longer a read replica, you can't use it as a replication target.
 
-You can have up to five cross-Region DB clusters that are read replicas for each source DB cluster in any
-AWS Region. If you already have the maximum number of read replicas for a DB cluster in a particular
-AWS Region, you must delete an existing one before you can create a new cross-Region DB cluster in that
-Region.
+The following steps show the general process for promoting a read replica to a DB cluster:
 
-## DB cluster [DB cluster ARN] requires a database engine upgrade for cross-Region replication support
+1. Stop any transactions from being written to the read replica source DB cluster, and then wait for all
+   updates to be made to the read replica. Database updates occur on the read replica after they have
+   occurred on the source DB cluster, and this replication lag can vary significantly. Use the
+   `ReplicaLag` metric to determine when all updates have been made to the read replica. The
+   `ReplicaLag` metric records the amount of time a read replica DB instance lags behind the
+   source DB instance. When the `ReplicaLag` metric reaches `0`, the read replica has
+   caught up to the source DB instance.
+2. Promote the read replica by using the **Promote** option on the Amazon RDS console, the
+   AWS CLI command
+   [promote-read-replica-db-cluster](../../../cli/latest/reference/rds/promote-read-replica-db-cluster.md "../../../cli/latest/reference/rds/promote-read-replica-db-cluster.md"),
+   or the
+   [PromoteReadReplicaDBCluster](../APIReference/API_PromoteReadReplicaDBCluster.md "../APIReference/API_PromoteReadReplicaDBCluster.md")
+   Amazon RDS API operation.
 
-To resolve this issue, upgrade the database engine version for all of the instances in the source DB
-cluster to the most recent database engine version, and then try creating a cross-Region read replica DB
-again.
+You choose an Aurora MySQL DB instance to promote the read replica. After the read replica is promoted,
+the Aurora MySQL DB cluster is promoted to a standalone DB cluster. The DB instance with the highest
+failover priority is promoted to the primary DB instance for the DB cluster. The other DB instances
+become Aurora Replicas.
+
+###### Note
+
+The promotion process takes a few minutes to complete. When you promote a read replica, replication is
+stopped and the DB instances are rebooted. When the reboot is complete, the read replica is available
+as a new DB cluster.
+
+###### To promote an Aurora MySQL read replica to a DB cluster
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. On the console, choose **Instances**.
+
+The **Instance** pane appears. 3. In the **Instances** pane, choose the read replica that you want to promote.
+
+The read replicas appear as Aurora MySQL DB instances. 4. For **Actions**, choose **Promote read replica**. 5. On the acknowledgment page, choose **Promote read replica**.
+
+To promote a read replica to a DB cluster, use the AWS CLI
+[promote-read-replica-db-cluster](../../../cli/latest/reference/rds/promote-read-replica-db-cluster.md "../../../cli/latest/reference/rds/promote-read-replica-db-cluster.md")
+command.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws rds promote-read-replica-db-cluster \
+    --db-cluster-identifier `mydbcluster`
+```
+
+For Windows:
+
+```
+aws rds promote-read-replica-db-cluster ^
+    --db-cluster-identifier `mydbcluster`
+```
+
+To promote a read replica to a DB cluster, call
+[PromoteReadReplicaDBCluster](../APIReference/API_PromoteReadReplicaDBCluster.md "../APIReference/API_PromoteReadReplicaDBCluster.md").

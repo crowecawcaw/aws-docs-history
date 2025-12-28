@@ -1,45 +1,58 @@
-# Loading data into Aurora PostgreSQL Limitless Database
+# Using the COPY command with Aurora PostgreSQL Limitless Database
 
-You can load data into Aurora PostgreSQL Limitless Database tables by using the `COPY` command or by using the data loading utility.
+You can use the [\copy](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY "https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY") functionality in the
+`psql` utility for importing data into and exporting data from Aurora PostgreSQL Limitless Database
 
-###### Note
+## Using the COPY command to load data into Aurora PostgreSQL Limitless Database
 
-You can load data into standard, sharded, and reference tables.
+Aurora PostgreSQL Limitless Database is compatible with the [\copy](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY "https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY")
+functionality in the `psql` utility for importing data.
 
-###### Contents
+In Limitless Database as in Aurora PostgreSQL, the following aren't supported:
 
-- [Using the COPY command with Aurora PostgreSQL Limitless Database](limitless-load.md "limitless-load.md")
-  - [Using the COPY command to load data into Aurora PostgreSQL Limitless Database](limitless-load.md#limitless-load.copy-to "limitless-load.md#limitless-load.copy-to")
-    - [Splitting data into multiple files](limitless-load.md#limitless-load.copy-split "limitless-load.md#limitless-load.copy-split")
+- Direct SSH access to DB instances – You can't copy a data file (such as in .csv format) to the DB instance host and run
+  `COPY` from the file.
+- Using local files on the DB instance – Use `COPY ... FROM STDIN` and `COPY ... TO STDOUT`.
 
-  - [Using the COPY command to copy Limitless Database data to a file](limitless-load.md#limitless-load.copy-from "limitless-load.md#limitless-load.copy-from")
+The `COPY` command in PostgreSQL has options for working with local files (`FROM/TO`) and transmitting data using a
+connection between the client and the server (`STDIN/STDOUT`). For more information, see [COPY](https://www.postgresql.org/docs/current/sql-copy.html "https://www.postgresql.org/docs/current/sql-copy.html") in the PostgreSQL documentation.
 
-- [Using the Aurora PostgreSQL Limitless Database data loading utility](limitless-load.md "limitless-load.md")
-  - [Limitations](limitless-load.md#limitless-load.limitations "limitless-load.md#limitless-load.limitations")
-  - [Prerequisites](limitless-load.md#limitless-load.prereqs "limitless-load.md#limitless-load.prereqs")
-  - [Preparing the source database](limitless-load.md#limitless-load.source "limitless-load.md#limitless-load.source")
-  - [Preparing the destination database](limitless-load.md#limitless-load.destination "limitless-load.md#limitless-load.destination")
-  - [Creating database credentials](limitless-load.md#limitless-load.users "limitless-load.md#limitless-load.users")
-    - [Create the source database credentials](limitless-load.md#limitless-load.users.source "limitless-load.md#limitless-load.users.source")
-    - [Create the destination database credentials](limitless-load.md#limitless-load.users.destination "limitless-load.md#limitless-load.users.destination")
+The `\copy` command in the PostgreSQL `psql` utility works with local files on the computer where you run the
+`psql` client. It invokes the respective `COPY ... FROM STDIN` or `COPY ... FROM STDOUT` command on the
+remote (for example, Limitless Database) server to which you connect. It reads data from the local file to `STDIN` or writes to it from
+`STDOUT`.
 
-  - [Setting up database authentication and resource access using a script](limitless-load.md "limitless-load.md")
-    - [Setup script for the data loading utility](limitless-load.md#limitless-load.script.file "limitless-load.md#limitless-load.script.file")
-    - [Output from the data loading utility setup script](limitless-load.md#limitless-load.script.output "limitless-load.md#limitless-load.script.output")
-    - [Cleaning up failed resources](limitless-load.md#limitless-load.script.cleanup "limitless-load.md#limitless-load.script.cleanup")
+### Splitting data into multiple files
 
-  - [Setting up database authentication and resource access manually](limitless-load.md "limitless-load.md")
-    - [Creating the customer-managed AWS KMS key](limitless-load.md#limitless-load.auth.create-kms "limitless-load.md#limitless-load.auth.create-kms")
-    - [Creating the database secrets](limitless-load.md#limitless-load.auth.secrets "limitless-load.md#limitless-load.auth.secrets")
-    - [Creating the IAM role](limitless-load.md#limitless-load.auth.iam-role "limitless-load.md#limitless-load.auth.iam-role")
-    - [Updating the customer-managed AWS KMS key](limitless-load.md#limitless-load.auth.update-kms "limitless-load.md#limitless-load.auth.update-kms")
-    - [Adding the IAM role permission policies](limitless-load.md#limitless-load.auth.iam-policy "limitless-load.md#limitless-load.auth.iam-policy")
+Data is stored on multiple shards in Aurora PostgreSQL Limitless Database. To speed up data loading using `\copy`, you can split your data into multiple
+files. Then import independently for each data file by running separate `\copy` commands in parallel.
 
-  - [Loading data from an Aurora PostgreSQL DB cluster or RDS for PostgreSQL DB instance](limitless-load.md "limitless-load.md")
-  - [Monitoring data loading](limitless-load.md "limitless-load.md")
-    - [Listing data loading jobs](limitless-load.md#limitless-load.monitor-list "limitless-load.md#limitless-load.monitor-list")
-    - [Viewing details of data loading jobs using the job ID](limitless-load.md#limitless-load.monitor-describe "limitless-load.md#limitless-load.monitor-describe")
-    - [Monitoring the Amazon CloudWatch log group](limitless-load.md#limitless-load.monitor-cwl "limitless-load.md#limitless-load.monitor-cwl")
-    - [Monitoring RDS events](limitless-load.md#limitless-load.monitor-events "limitless-load.md#limitless-load.monitor-events")
+For example, you have an input data file in CSV format with 3 million rows to import. You can split the file into chunks each holding
+200,000 rows (15 chunks):
 
-  - [Canceling data loading](limitless-load.md "limitless-load.md")
+```
+split -l200000 data.csv data_ --additional-suffix=.csv -d
+```
+
+This results in files `data_00.csv` through `data_14.csv`. You can then import data using 15
+parallel `\copy` commands, for example:
+
+```
+psql -h dbcluster.limitless-111122223333.aws-region.rds.amazonaws.com -U username -c "\copy test_table from '/tmp/data_00.csv';" postgres_limitless &
+psql -h dbcluster.limitless-111122223333.aws-region.rds.amazonaws.com -U username -c "\copy test_table FROM '/tmp/data_01.csv';" postgres_limitless &
+...
+psql -h dbcluster.limitless-111122223333.aws-region.rds.amazonaws.com -U username -c "\copy test_table FROM '/tmp/data_13.csv';" postgres_limitless &
+psql -h dbcluster.limitless-111122223333.aws-region.rds.amazonaws.com -U username -c "\copy test_table FROM '/tmp/data_14.csv';" postgres_limitless
+```
+
+Using this technique, the same amount of data is imported approximately 10 times faster than using a single `\copy`
+command.
+
+## Using the COPY command to copy Limitless Database data to a file
+
+You can use the [\copy](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY "https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY") command to copy
+data from a limitless table to a file, as shown in the following example:
+
+```
+postgres_limitless=> \copy test_table TO '/tmp/test_table.csv' DELIMITER ',' CSV HEADER;
+```

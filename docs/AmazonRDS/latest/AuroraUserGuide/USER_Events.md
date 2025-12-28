@@ -1,47 +1,38 @@
-# Granting permissions to publish notifications to an Amazon SNS topic
+# Amazon RDS event notification tags and
 
-To grant Amazon RDS permissions to publish notifications to an Amazon Simple Notification Service (Amazon SNS) topic, attach
-an AWS Identity and Access Management (IAM) policy to the destination topic. For more information about
-permissions, see [Example cases for Amazon Simple Notification Service access
-control](../../../sns/latest/dg/sns-access-policy-use-cases.md "../../../sns/latest/dg/sns-access-policy-use-cases.md") in the _Amazon Simple Notification Service Developer Guide_.
+attributes
 
-By default, an Amazon SNS topic has a policy allowing all Amazon RDS resources within the same account to publish notifications to it.
-You can attach a custom policy to allow cross-account notifications, or to restrict access to certain resources.
+When Amazon RDS sends an event notification to Amazon Simple Notification Service (SNS) or Amazon EventBridge, the notification
+contains message attributes and event tags. RDS sends the message attributes separately
+along with the message, while the event tags are in the body of the message. Use the message
+attributes and the Amazon RDS tags to add metadata to your resources. You can modify these tags
+with your own notations about the DB instances, Aurora clusters,
+and so on. For more information about tagging Amazon RDS resources, see [Tagging Amazon Aurora and Amazon RDS resources](USER_Tagging.md "USER_Tagging.md").
 
-The following is an example of an IAM policy that you attach to the destination Amazon SNS topic. It restricts the topic to DB
-instances with names that match the specified prefix. To use this policy, specify the following values:
+By default, the Amazon SNS and Amazon EventBridge receives every message sent to them. SNS and EventBridge can
+filter the message and send the notifications to the preferred communication mode, such as
+an email, a text message, or a call to an HTTP endpoint.
 
-- `Resource` – The Amazon Resource Name (ARN) for your Amazon SNS
-  topic
-- `SourceARN` – Your RDS resource ARN
-- `SourceAccount` – Your AWS account ID
-  To see a list of resource types and their ARNs, see [Resources Defined by Amazon RDS](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies") in the _Service Authorization Reference_.
+###### Note
 
-JSON
+The notification sent in an email or a text message will not have event tags.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "events.rds.amazonaws.com"
- },
- "Action": [
- "sns:Publish"
- ],
- "Resource": "arn:aws:sns:`us-east-1`:`123456789012`:`topic_name`",
- "Condition": {
- "ArnLike": {
- "aws:SourceArn": "arn:aws:rds:`us-east-1`:`123456789012`:db:prefix-*"
- },
- "StringEquals": {
- "aws:SourceAccount": "`123456789012`"
- }
- }
- }
- ]
-}`
+The following table shows the message attributes for RDS events sent to the topic
+subscriber.
 
-```
+| Amazon RDS event attribute | Description                                                                                                                      |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| EventID                    | Identifier for the RDS event message, for example,<br>RDS-EVENT-0006.                                                            |
+| Resource                   | The ARN identifier for the resource emitting the event, for example,<br>`arn:aws:rds:ap-southeast-2:123456789012:db:database-1`. |
+
+The RDS tags provide data about the resource that was affected by the service event. RDS
+adds the current state of the tags in the message body when the notification is sent to SNS
+or EventBridge.
+
+For more information about filtering message attributes for SNS, see [Amazon SNS message filtering](../../../sns/latest/dg/sns-message-filtering.md "../../../sns/latest/dg/sns-message-filtering.md") in the
+_Amazon Simple Notification Service Developer Guide_.
+
+For more information about filtering event tags for EventBridge, see [Comparison operators for use in event patterns in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-event-patterns-content-based-filtering.md "../../../eventbridge/latest/userguide/eb-event-patterns-content-based-filtering.md") in the _Amazon
+EventBridge User Guide_.
+
+For more information about filtering payload-based tags for SNS, see [Introducing payload-based message filtering for Amazon SNS](https://aws.amazon.com/blogs/compute/introducing-payload-based-message-filtering-for-amazon-sns/ "https://aws.amazon.com/blogs/compute/introducing-payload-based-message-filtering-for-amazon-sns/")

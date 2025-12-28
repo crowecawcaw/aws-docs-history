@@ -1,28 +1,47 @@
-# Tuning Aurora MySQL
+# Displaying volume status for an Aurora MySQL DB cluster
 
-Wait events and thread states are important tuning tools for Aurora MySQL. If you can
-find out why sessions are waiting for resources and what they are doing, you are better able
-to reduce bottlenecks. You can use the information in this section to find possible causes
-and corrective actions.
+In Amazon Aurora, a DB cluster volume consists of a collection of logical blocks. Each of
+these represents 10 gigabytes of allocated storage. These blocks are called
+_protection groups_.
 
-Amazon DevOps Guru for RDS can proactively determine whether your Aurora MySQL databases are
-experiencing problematic conditions that might cause bigger problems later. Amazon DevOps Guru for
-RDS publishes an explanation and recommendations for corrective actions in a proactive
-insight. This section contains insights for common problems.
+The data in each protection group is replicated across six physical storage devices,
+called _storage nodes_. These storage nodes are allocated across
+three Availability Zones (AZs) in the AWS Region where the DB cluster resides. In turn, each
+storage node contains one or more logical blocks of data for the DB cluster volume. For
+more information about protection groups and storage nodes, see
+[Introducing the Aurora storage engine](https://aws.amazon.com/blogs/database/introducing-the-aurora-storage-engine/ "https://aws.amazon.com/blogs/database/introducing-the-aurora-storage-engine/") on the AWS Database Blog.
 
-###### Important
+You can simulate the failure of an entire storage node, or a single logical block of
+data within a storage node. To do so, you use the `ALTER SYSTEM SIMULATE DISK
+ FAILURE` fault injection statement. For the statement, you specify the index value of
+a specific logical block of data or storage node. However, if you specify an index value
+greater than the number of logical blocks of data or storage nodes used by the DB
+cluster volume, the statement returns an error. For more information about fault injection
+queries, see [Testing Amazon Aurora MySQL using fault injection queries](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
 
-The wait events and thread states in this section are specific to Aurora MySQL. Use
-the information in this section to tune only Amazon Aurora, not Amazon RDS for MySQL.
+You can avoid that error by using the `SHOW VOLUME STATUS` statement. The statement
+returns two server status variables, `Disks` and `Nodes`. These
+variables represent the total number of logical blocks of data and storage nodes,
+respectively, for the DB cluster volume.
 
-Some wait events in this section have no analogs in the open source versions of these database engines.
-Other wait events have the same names as events in open source engines, but behave differently. For example,
-Amazon Aurora storage works different from open source storage, so storage-related wait events indicate different
-resource conditions.
+## Syntax
 
-###### Topics
+```
+SHOW VOLUME STATUS
+```
 
-- [Essential concepts for Aurora MySQL tuning](AuroraMySQL.Managing.Tuning.md "AuroraMySQL.Managing.Tuning.md")
-- [Tuning Aurora MySQL with wait events](AuroraMySQL.Managing.Tuning.md "AuroraMySQL.Managing.Tuning.md")
-- [Tuning Aurora MySQL with thread states](AuroraMySQL.Managing.Tuning.md "AuroraMySQL.Managing.Tuning.md")
-- [Tuning Aurora MySQL with Amazon DevOps Guru proactive insights](MySQL.Tuning.md "MySQL.Tuning.md")
+## Example
+
+The following example illustrates a typical SHOW VOLUME STATUS result.
+
+```
+
+`mysql>` **SHOW VOLUME STATUS**;
+`+---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| Disks | 96 |
+| Nodes | 74 |
++---------------+-------+`
+
+```

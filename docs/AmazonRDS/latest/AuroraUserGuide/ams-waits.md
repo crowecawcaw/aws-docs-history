@@ -1,34 +1,36 @@
-# io/redo_log_flush
+# synch/mutex/innodb/buf_pool_mutex
 
-The `io/redo_log_flush` event occurs when a session is writing persistent data to Amazon Aurora storage.
+The `synch/mutex/innodb/buf_pool_mutex` event occurs when a thread has
+acquired a lock on the InnoDB buffer pool to access a page in memory.
 
 ###### Topics
 
-- [Supported engine versions](#ams-waits.io-redologflush.context.supported "#ams-waits.io-redologflush.context.supported")
-- [Context](#ams-waits.io-redologflush.context "#ams-waits.io-redologflush.context")
-- [Likely causes of increased waits](#ams-waits.io-redologflush.causes "#ams-waits.io-redologflush.causes")
-- [Actions](#ams-waits.io-redologflush.actions "#ams-waits.io-redologflush.actions")
+- [Relevant engine versions](#ams-waits.bufpoolmutex.context.supported "#ams-waits.bufpoolmutex.context.supported")
+- [Context](#ams-waits.bufpoolmutex.context "#ams-waits.bufpoolmutex.context")
+- [Likely causes of increased waits](#ams-waits.bufpoolmutex.causes "#ams-waits.bufpoolmutex.causes")
+- [Actions](#ams-waits.bufpoolmutex.actions "#ams-waits.bufpoolmutex.actions")
 
-## Supported engine versions
+## Relevant engine versions
 
 This wait event information is supported for the following engine versions:
 
-- Aurora MySQL version 3
+- Aurora MySQL version 2
 
 ## Context
 
-The `io/redo_log_flush` event is for a write input/output (I/O) operation in Aurora MySQL.
+The `buf_pool` mutex is a single mutex that protects the control data structures of the buffer pool.
 
-###### Note
-
-In Aurora MySQL version 2, this wait event is named [io/aurora_redo_log_flush](ams-waits.md "ams-waits.md").
+For more information, see [Monitoring
+InnoDB Mutex Waits Using Performance Schema](https://dev.mysql.com/doc/refman/5.7/en/monitor-innodb-mutex-waits-performance-schema.html "https://dev.mysql.com/doc/refman/5.7/en/monitor-innodb-mutex-waits-performance-schema.html") in the MySQL documentation.
 
 ## Likely causes of increased waits
 
-For data persistence, commits require a durable write to stable storage. If the database is doing too many commits, there is a wait event on the
-write I/O operation, the `io/redo_log_flush` wait event.
+This is a workload-specific wait event. Common causes for `synch/mutex/innodb/buf_pool_mutex` to appear
+among the top wait events include the following:
 
-For examples of the behavior of this wait event, see [io/aurora_redo_log_flush](ams-waits.md "ams-waits.md").
+- The buffer pool size isn't large enough to hold the working set of data.
+- The workload is more specific to certain pages from a specific table in the database, leading to contention in the
+  buffer pool.
 
 ## Actions
 
@@ -36,113 +38,77 @@ We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Identify the problematic sessions and
-  queries](#ams-waits.io-redologflush.actions.identify-queries "#ams-waits.io-redologflush.actions.identify-queries")
-- [Group your write operations](#ams-waits.io-redologflush.actions.action0 "#ams-waits.io-redologflush.actions.action0")
-- [Turn off
-  autocommit](#ams-waits.io-redologflush.actions.action1 "#ams-waits.io-redologflush.actions.action1")
-- [Use transactions](#ams-waits.io-redologflush.action2 "#ams-waits.io-redologflush.action2")
-- [Use batches](#ams-waits.io-redologflush.action3 "#ams-waits.io-redologflush.action3")
+- [Identify the sessions and queries causing the events](#ams-waits.bufpoolmutex.actions.identify "#ams-waits.bufpoolmutex.actions.identify")
+- [Use Performance Insights](#ams-waits.bufpoolmutex.actions.action1 "#ams-waits.bufpoolmutex.actions.action1")
+- [Create Aurora Replicas](#ams-waits.bufpoolmutex.actions.action2 "#ams-waits.bufpoolmutex.actions.action2")
+- [Examine the buffer pool size](#ams-waits.bufpoolmutex.actions.action3 "#ams-waits.bufpoolmutex.actions.action3")
+- [Monitor the global status history](#ams-waits.bufpoolmutex.actions.action4 "#ams-waits.bufpoolmutex.actions.action4")
 
-### Identify the problematic sessions and
+### Identify the sessions and queries causing the events
 
-queries
+Typically, databases with moderate to significant load have wait events. The wait events might be acceptable if
+performance is optimal. If performance isn't optimal, then examine where the database is spending the most time. Look
+at the wait events that contribute to the highest load, and find out whether you can optimize the database and application
+to reduce those events.
 
-If your DB instance is experiencing a bottleneck, your first task is to find the sessions and queries that
-cause it. For a useful AWS Database Blog post, see [Analyze Amazon Aurora
-MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
+###### To view the Top SQL chart in the AWS Management Console
 
-###### To identify sessions and queries causing a bottleneck
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
+1. Open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Performance Insights**.
-3. Choose your DB instance.
-4. In **Database load**, choose **Slice by wait**.
-5. At the bottom of the page, choose **Top SQL**.
+3. Choose a DB instance. The Performance Insights dashboard is shown for that DB instance.
+4. In the **Database load** chart, choose **Slice by wait**.
+5. Underneath the **Database load** chart, choose **Top SQL**.
 
-The queries at the top of the list are causing the highest load on the database.
+The chart lists the SQL queries that are responsible for the load. Those at the top of the list are most
+responsible. To resolve a bottleneck, focus on these statements.
 
-### Group your write operations
+For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze
+Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 
-The following examples trigger the `io/redo_log_flush` wait
-event. (Autocommit is turned on.)
+### Use Performance Insights
 
-```
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-....
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+This event is related to workload. You can use Performance Insights to do the following:
 
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
-....
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
+- Identify when wait events start, and whether there's any change in the workload around that time from the
+  application logs or related sources.
+- Identify the SQL statements responsible for this wait event. Examine the execution plan of the queries to make
+  sure that these queries are optimized and using appropriate indexes.
 
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-....
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-```
+If the top queries responsible for the wait event are related to the same database object or table, then consider
+partitioning that object or table.
 
-To reduce the time spent waiting on the `io/redo_log_flush` wait event, group your write operations
-logically into a single commit to reduce persistent calls to storage.
+### Create Aurora Replicas
 
-### Turn off
+You can create Aurora Replicas to serve read-only traffic. You can also use Aurora
+Auto Scaling to handle surges in read traffic. Make sure to run scheduled read-only
+tasks and logical backups on Aurora Replicas.
 
-autocommit
+For more information, see [Amazon Aurora Auto Scaling with Aurora Replicas](Aurora.Integrating.md "Aurora.Integrating.md").
 
-Turn off autocommit before making large changes that aren't within a
-transaction, as shown in the following example.
+### Examine the buffer pool size
 
-```
-SET SESSION AUTOCOMMIT=OFF;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
-....
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
--- Other DML statements here
-COMMIT;
+Check whether the buffer pool size is sufficient for the workload by looking at the metric
+`innodb_buffer_pool_wait_free`. If the value of this metric is high and increasing continuously, that
+indicates that the size of the buffer pool isn't sufficient to handle the workload. If
+`innodb_buffer_pool_size` has been set properly, the value of `innodb_buffer_pool_wait_free`
+should be small. For more information, see [Innodb_buffer_pool_wait_free](https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free") in the MySQL documentation.
 
-SET SESSION AUTOCOMMIT=ON;
-```
+Increase the buffer pool size if the DB instance has enough memory for session
+buffers and operating-system tasks. If it doesn't, change the DB instance to a
+larger DB instance class to get additional memory that can be allocated to the
+buffer pool.
 
-### Use transactions
+###### Note
 
-You can use transactions, as shown in the following example.
+Aurora MySQL automatically adjusts the value of `innodb_buffer_pool_instances` based on the configured
+`innodb_buffer_pool_size`.
 
-```
-BEGIN
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-....
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+### Monitor the global status history
 
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-....
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+By monitoring the change rates of status variables, you can detect locking or
+memory issues on your DB instance. Turn on Global Status History (GoSH) if it
+isn't already turned on. For more information on GoSH, see [Managing the global status history](../UserGuide/Appendix.MySQL.md#Appendix.MySQL.CommonDBATasks.GoSH "../UserGuide/Appendix.MySQL.md#Appendix.MySQL.CommonDBATasks.GoSH").
 
--- Other DML statements here
-END
-```
-
-### Use batches
-
-You can make changes in batches, as shown in the following example. However, using batches that are too large can cause
-performance issues, especially in read replicas or when doing point-in-time recovery (PITR).
-
-```
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES
-('xxxx','xxxxx'),('xxxx','xxxxx'),...,('xxxx','xxxxx'),('xxxx','xxxxx');
-
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1 BETWEEN xx AND xxx;
-
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1<xx;
-```
+You can also create custom Amazon CloudWatch metrics to monitor status variables. For more information, see [Publishing custom
+metrics](../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md "../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md").

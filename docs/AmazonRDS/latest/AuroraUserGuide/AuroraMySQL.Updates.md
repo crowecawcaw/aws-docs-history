@@ -1,39 +1,66 @@
-# Amazon Aurora MySQL lab mode
+# Enabling automatic upgrades between minor Aurora MySQL versions
 
-###### Important
+For an Amazon Aurora MySQL DB cluster, you can specify that Aurora upgrades the DB cluster
+automatically to new minor versions. You do so by setting the
+`AutoMinorVersionUpgrade` property (**Auto minor version upgrade**
+in the AWS Management Console) of the DB cluster.
 
-Lab mode was introduced in Aurora MySQL version 2 to enable the [Fast DDL](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md") optimization, which improved
-the efficiency of certain DDL operations. In Aurora MySQL version 3, lab mode has been
-removed, and Fast DDL has been replaced by the MySQL 8.0 feature called [Instant DDL](https://dev.mysql.com/doc/refman/8.4/en/innodb-online-ddl-operations.html "https://dev.mysql.com/doc/refman/8.4/en/innodb-online-ddl-operations.html").
+Automatic upgrades occur during the maintenance window. If the individual DB instances in the DB cluster have different
+maintenance windows from the cluster maintenance window, then the cluster maintenance window takes precedence.
 
-Aurora lab mode is used to enable Aurora features that are available in the current
-Aurora database version, but are not enabled by default. While Aurora lab mode features
-are not recommended for use in production DB clusters, you can use Aurora lab mode to
-enable these features for DB clusters in your development and test environments. For
-more information about Aurora features available when Aurora lab mode is enabled, see
-[Aurora lab mode features](#AuroraMySQL.Updates.LabModeFeatures "#AuroraMySQL.Updates.LabModeFeatures").
+Automatic minor version upgrade doesn't apply to the following kinds of Aurora MySQL clusters:
 
-The `aurora_lab_mode` parameter is an instance-level parameter that is in the
-default parameter group. The parameter is set to `0`
-(disabled) in the default parameter group. To enable Aurora lab mode, create a custom parameter
-group, set the `aurora_lab_mode` parameter to `1` (enabled) in the custom
-parameter group, and modify one or more DB instances in your Aurora cluster to use the custom parameter
-group. Then connect to the appropriate instance endpoint to try the lab mode features. For information
-on modifying a DB parameter group, see [Modifying parameters in a DB parameter group
-in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For information on
-parameter groups and Amazon Aurora, see [Aurora MySQL configuration parameters](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").
+- Clusters that are part of an Aurora global database
+- Clusters that have cross-Region replicas
+  The outage duration varies depending on workload, cluster size, the amount of binary log data, and if Aurora can use the
+  zero-downtime patching (ZDP) feature. Aurora restarts the database cluster, so you might experience a short period of unavailability
+  before resuming use of your cluster. In particular, the amount of binary log data affects recovery time. The DB instance processes
+  the binary log data during recovery. Thus, a high volume of binary log data increases recovery time.
 
-## Aurora lab mode features
+###### Note
 
-The following Aurora feature is currently available when Aurora lab mode is enabled. You must enable Aurora lab mode before any of these features can
-be used.
+Aurora only performs automatic upgrades if all DB instances in your DB cluster have the `AutoMinorVersionUpgrade` setting enabled.
+For information on how to set it, and how it works when applied at the cluster and instance levels, see
+[Automatic minor version upgrades for Aurora
+DB clusters](USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU "USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU").
 
-**Fast DDL**
+Then if an upgrade path exists for the DB cluster's instances to a minor DB engine version
+that has `AutoUpgrade` set to true, the upgrade will take place. The
+`AutoUpgrade` setting is dynamic, and is set by RDS.
 
-This feature allows you to run an `ALTER TABLE `tbl_name`ADD COLUMN`col_name`
-`column_definition`` operation nearly instantaneously. The operation completes without requiring the
-table to be copied and without materially impacting other DML statements. Because it doesn't consume temporary storage for a table copy,
-it makes DDL statements practical even for large tables on small instance classes.
+Auto minor version upgrades are performed to the default minor version.
 
-Fast DDL is currently only supported for adding a nullable column, without a default value, at the end of a table. For more
-information about using this feature, see [Altering tables in Amazon Aurora using Fast DDL](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
+You can use a CLI command such as the following to check the status of the `AutoMinorVersionUpgrade` setting for all of
+the DB instances in your Aurora MySQL clusters.
+
+```
+aws rds describe-db-instances \
+  --query '*[].{DBClusterIdentifier:DBClusterIdentifier,DBInstanceIdentifier:DBInstanceIdentifier,AutoMinorVersionUpgrade:AutoMinorVersionUpgrade}'
+
+```
+
+That command produces output similar to the following:
+
+```
+[
+  {
+      "DBInstanceIdentifier": "db-t2-medium-instance",
+      "DBClusterIdentifier": "cluster-57-2020-06-03-6411",
+      "AutoMinorVersionUpgrade": true
+  },
+  {
+      "DBInstanceIdentifier": "db-t2-small-original-size",
+      "DBClusterIdentifier": "cluster-57-2020-06-03-6411",
+      "AutoMinorVersionUpgrade": false
+  },
+  {
+      "DBInstanceIdentifier": "instance-2020-05-01-2332",
+      "DBClusterIdentifier": "cluster-57-2020-05-01-4615",
+      "AutoMinorVersionUpgrade": true
+  },
+... output omitted ...
+
+```
+
+In this example, **Enable auto minor version upgrade** is turned off for the DB cluster
+`cluster-57-2020-06-03-6411`, because it's turned off for one of the DB instances in the cluster.

@@ -1,62 +1,89 @@
-# Using pglogical to synchronize
+# Dead connection
 
-data across instances
+handling in PostgreSQL
 
-All currently available Aurora PostgreSQL versions support the `pglogical`
-extension. The pglogical extension predates the functionally similar logical replication feature
-that was introduced by PostgreSQL in version 10. For more
-information, see [Overview of PostgreSQL logical
-replication with Aurora](AuroraPostgreSQL.Replication.md "AuroraPostgreSQL.Replication.md").
+Dead connections occur when a database session remains active on the server despite the
+client application having abandoned or terminated abnormally. This situation typically arises
+when client processes crash or terminate unexpectedly without properly closing their database
+connections or canceling ongoing requests.
 
-The `pglogical` extension supports logical replication between two or more
-Aurora PostgreSQL DB clusters.
-It also supports replication
-between different PostgreSQL versions, and between databases running on RDS for PostgreSQL DB
-instances and Aurora PostgreSQL DB clusters. The `pglogical` extension uses a
-publish-subscribe model to replicate changes to tables and other objects, such as sequences,
-from a publisher to a subscriber. It relies on a replication slot to ensure that changes are
-synchronized from a publisher node to a subscriber node, defined as follows.
-
-- The _publisher node_ is the Aurora PostgreSQL
-  DB cluster
-  that's the source of data to be replicated to other nodes. The publisher node defines
-  the tables to be replicated in a publication set.
-- The _subscriber node_ is the Aurora PostgreSQL
-  DB cluster that
-  receives WAL updates from the publisher. The subscriber creates a subscription to connect to
-  the publisher and get the decoded WAL data. When the subscriber creates the subscription,
-  the replication slot is created on the publisher node.
-  Following, you can find information about setting up the `pglogical` extension.
+PostgreSQL efficiently identifies and cleans up dead connections when server processes are
+idle or attempt to send data to clients. However, detection is challenging for sessions that are
+idle, waiting for client input, or actively running queries. To handle these scenarios,
+PostgreSQL provides `tcp_keepalives_*`, `tcp_user_timeout`, and
+`client_connection_check_interval` parameters.
 
 ###### Topics
 
-- [Requirements and limitations for the pglogical extension](#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations "#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations")
-- [Setting up the
-  pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
-- [Setting up
-  logical replication for Aurora PostgreSQL DB cluster](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
-- [Reestablishing logical replication after a major upgrade](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
-- [Managing logical
-  replication slots for Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
-- [Parameter reference
-  for the pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Understanding TCP keepalive](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Understanding "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Understanding")
+- [Key TCP
+  keepalive parameters in Aurora PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Parameters "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Parameters")
+- [Use cases
+  for TCP keepalive settings](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.UseCases "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.UseCases")
+- [Best
+  practices](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.BestPractices "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.BestPractices")
 
-## Requirements and limitations for the pglogical extension
+## Understanding TCP keepalive
 
-All currently available releases of Aurora PostgreSQL support the
-`pglogical` extension.
+TCP Keepalive is a protocol-level mechanism that helps maintain and verify connection
+integrity. Each TCP connection maintains kernel-level settings that govern keepalive behavior.
+When the keepalive timer expires, the system does the following:
 
-Both the publisher node and the subscriber node must be set up for logical
-replication.
+- Sends a probe packet with no data and the ACK flag set.
+- Expects a response from the remote endpoint according to TCP/IP specifications.
+- Manages connection state based on the response or lack thereof.
 
-The tables that you want to replicate from a publisher to a subscriber must have the same
-names and the same schema. These tables must also contain the same columns, and the columns
-must use the same data types. Both publisher and subscriber tables must have the same primary
-keys. We recommend that you use only the PRIMARY KEY as the unique constraint.
+## Key TCP
 
-The tables on the subscriber node can have more permissive constraints than those on the
-publisher node for CHECK constraints and NOT NULL constraints.
+keepalive parameters in Aurora PostgreSQL
 
-The `pglogical` extension provides features such as two-way replication that
-aren't supported by the logical replication feature built into PostgreSQL (version 10 and
-higher). For more information, see [PostgreSQL bi-directional replication using pglogical](https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/ "https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/").
+| Parameter                          | Description                                                                                                                                                     | Default values |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `tcp_keepalives_idle`              | Specifies number of seconds of inactivity before sending keepalive message.                                                                                     | 300            |
+| `tcp_keepalives_interval`          | Specifies number of seconds between retransmissions of unacknowledged keepalive<br>messages.                                                                    | 30             |
+| `tcp_keepalives_count`             | Maximum lost keepalive messages before declaring connection dead                                                                                                | 2              |
+| `tcp_user_timeout`                 | Specifies how long (in Milliseconds) unacknowledged data can remain before forcibly<br>closing the connection.                                                  | 0              |
+| `client_connection_check_interval` | Sets the interval (in Milliseconds) for checking client connection status during<br>long-running queries. This ensures quicker detection of closed connections. | 0              |
+
+## Use cases
+
+for TCP keepalive settings
+
+### Keeping idle sessions alive
+
+To prevent idle connections from being terminated by firewalls or routers due to
+inactivity:
+
+- Configure `tcp_keepalives_idle` to send keepalive packets at regular
+  intervals.
+
+### Detecting dead connections
+
+To detect dead connections promptly:
+
+- Adjust `tcp_keepalives_idle`, `tcp_keepalives_interval`, and
+  `tcp_keepalives_count`. For example, with Aurora PostgreSQL defaults, it
+  takes about a minute (2 probes × 30 seconds) to detect a dead connection. Lowering these
+  values can speed up detection.
+- Use `tcp_user_timeout` to specify the maximum wait time for an
+  acknowledgment.
+
+TCP keepalive settings help the kernel detect dead connections, but PostgreSQL may not
+act until the socket is used. If a session is running a long query, dead connections might
+only be detected after query completion. In PostgreSQL 14 and higher versions,
+`client_connection_check_interval` can expedite dead connection detection by
+periodically polling the socket during query execution.
+
+## Best
+
+practices
+
+- **Set reasonable keepalive intervals:** Tune
+  `tcp_user_timeout`, `tcp_keepalives_idle`,
+  `tcp_keepalives_count` and `tcp_keepalives_interval` to balance
+  detection speed and resource use.
+- **Optimize for your environment:** Align settings with
+  network behavior, firewall policies, and session needs.
+- **Leverage PostgreSQL features:** Use
+  `client_connection_check_interval` in PostgreSQL 14 and higher versions for efficient
+  connection checks.

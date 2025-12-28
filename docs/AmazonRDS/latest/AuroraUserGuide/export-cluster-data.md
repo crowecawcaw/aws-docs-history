@@ -1,73 +1,95 @@
-# Monitoring DB cluster export tasks
+# Considerations for DB cluster exports
 
-You can monitor DB cluster exports using the AWS Management Console, the AWS CLI, or the RDS API.
+Use the following sections to learn about the limitations, file naming conventions, and data conversion and storage when exporting DB cluster data to Amazon S3.
 
-###### To monitor DB cluster exports
+###### Topics
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Exports in Amazon S3**.
+- [Limitations](#export-cluster-data.Limits "#export-cluster-data.Limits")
+- [File naming convention](#export-cluster-data.FileNames "#export-cluster-data.FileNames")
+- [Data conversion and storage format](#export-cluster-data.data-types "#export-cluster-data.data-types")
 
-DB cluster exports are indicated in the **Source type** column. Export status is displayed in
-the **Status** column. 3. To view detailed information about a specific DB cluster export, choose the export task.
-To monitor DB cluster export tasks using the AWS CLI, use the [describe-export-tasks](../../../cli/latest/reference/rds/describe-export-tasks.md "../../../cli/latest/reference/rds/describe-export-tasks.md") command.
+## Limitations
 
-The following example shows how to display current information about all of your DB cluster exports.
+Exporting DB cluster data to Amazon S3 has the following limitations:
+
+- You can't run multiple export tasks for the same DB cluster simultaneously. This applies to both full and partial
+  exports.
+- You can have up to five concurrent DB snapshot export tasks in progress per AWS account.
+- Aurora Serverless v1 DB clusters don't support exports to S3.
+- Aurora MySQL and Aurora PostgreSQL support exports to S3 only for the provisioned engine mode.
+- Exports to S3 don't support S3 prefixes containing a colon (:).
+- The following characters in the S3 file path are converted to underscores (\_) during export:
 
 ```
-aws rds describe-export-tasks
-
-{
-    "ExportTasks": [
-        {
-            "Status": "CANCELED",
-            "TaskEndTime": "2022-11-01T17:36:46.961Z",
-            "S3Prefix": "something",
-            "S3Bucket": "`amzn-s3-demo-bucket`",
-            "PercentProgress": 0,
-            "KmsKeyId": "arn:aws:kms:`us-west-2`:123456789012:key/K7MDENG/bPxRfiCYEXAMPLEKEY",
-            "ExportTaskIdentifier": "anewtest",
-            "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
-            "TotalExtractedDataInGB": 0,
-            "SourceArn": "arn:aws:rds:`us-west-2`:123456789012:cluster:parameter-groups-test"
-        },
-{
-            "Status": "COMPLETE",
-            "TaskStartTime": "2022-10-31T20:58:06.998Z",
-            "TaskEndTime": "2022-10-31T21:37:28.312Z",
-            "WarningMessage": "{\"skippedTables\":[],\"skippedObjectives\":[],\"general\":[{\"reason\":\"FAILED_TO_EXTRACT_TABLES_LIST_FOR_DATABASE\"}]}",
-            "S3Prefix": "",
-            "S3Bucket": "`amzn-s3-demo-bucket1`",
-            "PercentProgress": 100,
-            "KmsKeyId": "arn:aws:kms:`us-west-2`:123456789012:key/2Zp9Utk/h3yCo8nvbEXAMPLEKEY",
-            "ExportTaskIdentifier": "thursday-events-test",
-            "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
-            "TotalExtractedDataInGB": 263,
-            "SourceArn": "arn:aws:rds:`us-west-2`:123456789012:cluster:example-1-2019-10-31-06-44"
-        },
-        {
-            "Status": "FAILED",
-            "TaskEndTime": "2022-10-31T02:12:36.409Z",
-            "FailureCause": "The S3 bucket `amzn-s3-demo-bucket2` isn't located in the current AWS Region. Please, review your S3 bucket name and retry the export.",
-            "S3Prefix": "",
-            "S3Bucket": "`amzn-s3-demo-bucket2`",
-            "PercentProgress": 0,
-            "KmsKeyId": "arn:aws:kms:`us-west-2`:123456789012:key/2Zp9Utk/h3yCo8nvbEXAMPLEKEY",
-            "ExportTaskIdentifier": "wednesday-afternoon-test",
-            "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
-            "TotalExtractedDataInGB": 0,
-            "SourceArn": "arn:aws:rds:`us-west-2`:123456789012:cluster:example-1-2019-10-30-06-45"
-        }
-    ]
-}
+\ ` " (space)
 ```
 
-To display information about a specific export task, include the `--export-task-identifier` option with
-the `describe-export-tasks` command. To filter the output, include the `--Filters` option. For
-more options, see the [describe-export-tasks](../../../cli/latest/reference/rds/describe-export-tasks.md "../../../cli/latest/reference/rds/describe-export-tasks.md")
-command.
+- If a database, schema, or table has characters in its name other than the following, partial export isn't
+  supported. However, you can export the entire DB cluster.
+  - Latin letters (A–Z)
+  - Digits (0–9)
+  - Dollar symbol ($)
+  - Underscore (\_)
 
-To display information about DB cluster exports using the Amazon RDS API, use the [DescribeExportTasks](../APIReference/API_DescribeExportTasks.md "../APIReference/API_DescribeExportTasks.md") operation.
+- Spaces ( ) and certain characters aren't supported in database table column names. Tables with the following
+  characters in column names are skipped during export:
 
-To track completion of the export workflow or to initiate another workflow, you can subscribe to Amazon Simple Notification Service topics. For more
-information on Amazon SNS, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").
+```
+, ; { } ( ) \n \t = (space)
+```
+
+- Tables with slashes (/) in their names are skipped during export.
+- Aurora PostgreSQL temporary and unlogged tables are skipped during export.
+- If the data contains a large object, such as a BLOB or CLOB, that is close to or greater than 500 MB, then the export
+  fails.
+- If a table contains a large row that is close to or greater than 2 GB, then the table is skipped during export.
+- For partial exports, the `ExportOnly` list has a maximum size of
+  200 KB.
+- We strongly recommend that you use a unique name for each export task. If you don't use a unique task name, you might
+  receive the following error message:
+
+**`ExportTaskAlreadyExistsFault: An error occurred (ExportTaskAlreadyExists) when calling the StartExportTask
+ operation: The export task with the ID `xxxxx` already exists.`**
+
+- Because some tables might be skipped, we recommend that you verify row and table counts in the data after
+  export.
+
+## File naming convention
+
+Exported data for specific tables is stored in the format
+``base_prefix`/`files``, where the base prefix is
+the following:
+
+```
+`export_identifier`/`database_name`/`schema_name`.`table_name`/
+```
+
+For example:
+
+```
+export-1234567890123-459/rdststcluster/mycluster.DataInsert_7ADB5D19965123A2/
+```
+
+Output files use the following naming convention, where `partition_index` is alphanumeric:
+
+```
+``partition_index`/part-00000-`random_uuid`.`format-based_extension``
+```
+
+For example:
+
+```
+1/part-00000-c5a881bb-58ff-4ee6-1111-b41ecff340a3-c000.gz.parquet
+    a/part-00000-d7a881cc-88cc-5ab7-2222-c41ecab340a4-c000.gz.parquet
+
+
+```
+
+The file naming convention is subject to change. Therefore, when reading target tables, we recommend that you read everything
+inside the base prefix for the table.
+
+## Data conversion and storage format
+
+When you export a DB cluster to an Amazon S3 bucket, Amazon Aurora converts, exports, and stores data in the Parquet
+format. For more information, see [Data conversion when exporting to an Amazon S3
+bucket](aurora-export-snapshot.md#aurora-export-snapshot.data-types "aurora-export-snapshot.md#aurora-export-snapshot.data-types").

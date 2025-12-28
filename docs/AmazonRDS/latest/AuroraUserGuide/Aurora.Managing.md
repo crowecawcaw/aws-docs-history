@@ -1,362 +1,151 @@
-# Managing performance and scaling for Aurora DB
+# Overview of backing up and restoring an Aurora DB
 
-clusters
+cluster
 
-You can use the following options to manage performance and scaling for Aurora DB clusters
-and DB instances:
+The following topics describe Aurora backups and how to restore your Aurora DB cluster.
 
-###### Topics
+###### Contents
 
-- [Storage scaling](#Aurora.Managing.Performance.StorageScaling "#Aurora.Managing.Performance.StorageScaling")
-- [Instance scaling](#Aurora.Managing.Performance.InstanceScaling "#Aurora.Managing.Performance.InstanceScaling")
-- [Read scaling](#Aurora.Managing.Performance.ReadScaling "#Aurora.Managing.Performance.ReadScaling")
-- [Managing connections](#Aurora.Managing.MaxConnections "#Aurora.Managing.MaxConnections")
-- [Managing query execution plans](#Aurora.Managing.Optimizing "#Aurora.Managing.Optimizing")
+- [Backups](Aurora.Managing.md#Aurora.Managing.Backups.Backup "Aurora.Managing.md#Aurora.Managing.Backups.Backup")
+  - [Using AWS Backup](Aurora.Managing.md#AuroraBackups.BKP "Aurora.Managing.md#AuroraBackups.BKP")
 
-## Storage scaling
+- [Backup window](Aurora.Managing.md#Aurora.Managing.Backups.BackupWindow "Aurora.Managing.md#Aurora.Managing.Backups.BackupWindow")
+- [Restoring data](Aurora.Managing.md#Aurora.Managing.Backups.Restore "Aurora.Managing.md#Aurora.Managing.Backups.Restore")
+- [Database cloning for Aurora](Aurora.Managing.md#Aurora.Managing.Backups.Restore.Cloning "Aurora.Managing.md#Aurora.Managing.Backups.Restore.Cloning")
+- [Backtrack](Aurora.Managing.md#Aurora.Managing.Backups.Backtrack "Aurora.Managing.md#Aurora.Managing.Backups.Backtrack")
 
-Aurora storage automatically scales with the data in your cluster volume. As your data
-grows, your cluster volume storage expands depending on the DB engine version. For
-information about maximum Aurora cluster volume sizes for each engine version, see [Amazon Aurora size limits](CHAP_Limits.md#RDS_Limits.FileSize.Aurora "CHAP_Limits.md#RDS_Limits.FileSize.Aurora").
-To learn what kinds of data are included in the cluster volume, see [Amazon Aurora
-storage](Aurora.Overview.md "Aurora.Overview.md"). For details about the maximum
-size for a specific version, see [Amazon Aurora size limits](CHAP_Limits.md#RDS_Limits.FileSize.Aurora "CHAP_Limits.md#RDS_Limits.FileSize.Aurora").
+## Backups
 
-The size of your cluster volume is evaluated on an hourly basis to determine your
-storage costs. For pricing information, see the [Aurora pricing page](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing").
+Aurora backs up your cluster volume automatically and retains restore data for the length of the _backup retention
+period_. Aurora automated backups are continuous and incremental, so you can quickly restore to any point within
+the backup retention period. No performance impact or interruption of database service occurs as backup data is being written.
+You can specify a backup retention period from 1–35 days when you create or modify a DB cluster. Aurora automated backups
+are stored in Amazon S3. For more information about retaining automated backups, see [Retaining automated backups](Aurora.Managing.Backups.md "Aurora.Managing.Backups.md")
 
-Even though an Aurora cluster volume can scale up in size to many tebibytes, you are
-only charged for the space that you use in the volume. The mechanism for determining
-billed storage space depends on the version of your Aurora cluster.
-
-- When Aurora data is removed from the cluster volume, the overall billed space
-  decreases by a comparable amount. This dynamic resizing behavior happens when
-  underlying tablespaces are dropped or reorganized to require less space. Thus,
-  you can reduce storage charges by dropping tables and databases that you no
-  longer need. Dynamic resizing applies to certain Aurora versions. The following
-  are the Aurora versions where the cluster volume dynamically resizes as you
-  remove data:
-
-| Database engine      | Versions with dynamic resizing                                                                                                    |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Aurora MySQL         | + Version 3 (compatible with MySQL 8.0): all<br>supported versions<br>+ Version 2 (compatible with MySQL 5.7): 2.11 and<br>higher |
-| Aurora PostgreSQL    | All supported versions                                                                                                            |
-| Aurora Serverless v2 | All supported versions                                                                                                            |
-| Aurora Serverless v1 | Not available                                                                                                                     |
-
-- In Aurora versions lower than those in the preceding list, the cluster volume
-  can reuse space that's freed up when you remove data, but the volume itself
-  never decreases in size.
-
-Dynamic resizing applies to operations that physically remove or resize tablespaces
-within the cluster volume. Thus, it applies to SQL statements such as `DROP
- TABLE`, `DROP DATABASE`, `TRUNCATE TABLE`, and
-`ALTER TABLE ... DROP PARTITION`. It doesn't apply to deleting rows
-using the `DELETE` statement. If you delete a large number of rows from a
-table, you can run the Aurora MySQL `OPTIMIZE TABLE` statement or use the
-Aurora PostgreSQL `pg_repack` extension afterward to reorganize the table and
-dynamically resize the cluster volume.
-
-For Aurora MySQL, the following considerations apply:
-
-- After you upgrade your DB cluster to a DB engine version that supports dynamic
-  resizing, and when the feature is enabled in that specific AWS Region, any
-  space that's later freed by certain SQL statements, such as `DROP
-TABLE`, is reclaimable.
-
-If the feature is explicitly disabled in a particular AWS Region, the space
-might only be reusable—and not reclaimable—even on versions that
-support dynamic resizing.
-
-The feature was enabled for specific DB engine versions (1.23.0–1.23.4,
-2.09.0–2.09.3, and 2.10.0) between November 2020 and March 2022, and is
-enabled by default on any subsequent versions.
-
-- A table is stored internally in one or more contiguous fragments of varying
-  sizes. While running `TRUNCATE TABLE` operations, the space
-  corresponding to the first fragment is reusable and not reclaimable. Other
-  fragments are reclaimable. During `DROP TABLE` operations, space
-  corresponding to the entire tablespace is reclaimable.
-- The `innodb_file_per_table` parameter affects how table storage is
-  organized. When tables are part of the system tablespace, dropping the table
-  doesn't reduce the size of the system tablespace. Thus, make sure to set
-  `innodb_file_per_table` to 1 for Aurora MySQL DB clusters to take
-  full advantage of dynamic resizing.
-- In version 2.11 and higher, the InnoDB temporary tablespace is dropped and
-  re-created on restart. This releases the space occupied by the temporary
-  tablespace to the system, and then the cluster volume resizes. To take full
-  advantage of the dynamic resizing feature, we recommend that you upgrade your DB
-  cluster to version 2.11 or higher.
+If you want to retain data beyond the backup retention period, you can take a snapshot of the data in your cluster volume.
+Aurora DB cluster snapshots don't expire. You can create a new DB cluster from the snapshot. For more information, see [Creating a DB cluster snapshot](USER_CreateSnapshotCluster.md "USER_CreateSnapshotCluster.md").
 
 ###### Note
 
-The dynamic resizing feature doesn't reclaim space immediately when tables in
-tablespaces are dropped, but gradually at a rate of approximately 10 TB per day.
-Space in the system tablespace isn't reclaimed, because the system tablespace is
-never removed. Unreclaimed free space in a tablespace is reused when an operation
-needs space in that tablespace. The dynamic resizing feature can reclaim storage
-space only when the cluster is in an available state.
+- For Amazon Aurora DB clusters, the default backup retention period is one day regardless of how the DB cluster is created.
+- You can't disable automated backups on Aurora. The backup retention period for Aurora is managed by the DB cluster.
 
-You can check how much storage space a cluster is using by monitoring the
-`VolumeBytesUsed` metric in CloudWatch. For more information on storage
-billing, see [How Aurora data storage is billed](Aurora.Overview.md#aurora-storage-data-billing "Aurora.Overview.md#aurora-storage-data-billing").
+Your costs for backup storage depend upon the amount of Aurora backup and snapshot data you keep and how long you keep it.
+For information about the storage associated with Aurora backups and snapshots, see
+[Understanding Amazon Aurora backup storage usage](aurora-storage-backup.md "aurora-storage-backup.md").
+For pricing information about Aurora backup storage, see [Amazon RDS for Aurora pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing").
+After the Aurora cluster associated with a snapshot is deleted, storing that snapshot incurs the standard backup storage charges for Aurora.
 
-- In the AWS Management Console, you can see this figure in a chart by viewing the
-  `Monitoring` tab on the details page for the cluster.
-- With the AWS CLI, you can run a command similar to the following Linux example.
-  Substitute your own values for the start and end times and the name of the
-  cluster.
+### Using AWS Backup
 
-```
-aws cloudwatch get-metric-statistics --metric-name "VolumeBytesUsed" \
-  --start-time "$(date -d '6 hours ago')" --end-time "$(date -d 'now')" --period 60 \
-  --namespace "AWS/RDS" \
-  --statistics Average Maximum Minimum \
-  --dimensions Name=DBClusterIdentifier,Value=`my_cluster_identifier`
-```
+You can use AWS Backup to manage backups of Amazon Aurora DB clusters.
 
-That command produces output similar to the following.
+Snapshots managed by AWS Backup are considered manual DB cluster snapshots, but don't count toward the DB cluster snapshot
+quota for Aurora. Snapshots that were created with AWS Backup have names with
+`awsbackup:job-`AWS-Backup-job-number``. For more information about AWS Backup, see the
+[_AWS Backup Developer
+Guide_](../../../aws-backup/latest/devguide.md "../../../aws-backup/latest/devguide.md").
 
-```
-{
-    "Label": "VolumeBytesUsed",
-    "Datapoints": [
-        {
-            "Timestamp": "2020-08-04T21:25:00+00:00",
-            "Average": 182871982080.0,
-            "Minimum": 182871982080.0,
-            "Maximum": 182871982080.0,
-            "Unit": "Bytes"
-        }
-    ]
-}
-```
+You can also use AWS Backup to manage automated backups of Amazon Aurora DB clusters. If your DB cluster is associated with a backup
+plan in AWS Backup, you can use that backup plan for point-in-time recovery. Automated (continuous) backups that are managed by
+AWS Backup have names with `continuous:cluster-`AWS-Backup-job-number``. For more
+information, see [Restoring a DB cluster to a specified time using AWS Backup](aurora-pitr-bkp.md "aurora-pitr-bkp.md").
 
-The following examples show how you might track storage usage for an Aurora cluster
-over time using AWS CLI commands on a Linux system. The `--start-time` and
-`--end-time` parameters define the overall time interval as one day. The
-`--period` parameter requests the measurements at one hour intervals. It
-doesn't make sense to choose a `--period` value that's small,
-because the metrics are collected at intervals, not continuously. Also, Aurora storage
-operations sometimes continue for some time in the background after the relevant SQL
-statement finishes.
+## Backup window
 
-The first example returns output in the default JSON format. The data points are
-returned in arbitrary order, not sorted by timestamp. You might import this JSON data
-into a charting tool to do sorting and visualization.
+Automated backups occur daily during the preferred backup window. If the backup requires more time than allotted to the
+backup window, the backup continues after the window ends, until it finishes. The backup window can't overlap with the
+weekly maintenance window for the DB cluster.
 
-```
-`$` aws cloudwatch get-metric-statistics --metric-name "VolumeBytesUsed" \
-  --start-time "$(date -d '1 day ago')" --end-time "$(date -d 'now')" --period 3600
-  --namespace "AWS/RDS" --statistics Maximum --dimensions Name=DBClusterIdentifier,Value=`my_cluster_id`
-`{
- "Label": "VolumeBytesUsed",
- "Datapoints": [
- {
- "Timestamp": "2020-08-04T19:40:00+00:00",
- "Maximum": 182872522752.0,
- "Unit": "Bytes"
- },
- {
- "Timestamp": "2020-08-05T00:40:00+00:00",
- "Maximum": 198573719552.0,
- "Unit": "Bytes"
- },
- {
- "Timestamp": "2020-08-05T05:40:00+00:00",
- "Maximum": 206827454464.0,
- "Unit": "Bytes"
- },
- {
- "Timestamp": "2020-08-04T17:40:00+00:00",
- "Maximum": 182872522752.0,
- "Unit": "Bytes"
- },
-... output omitted ...`
+Aurora automated backups are continuous and incremental, but the backup window is used to create a daily system backup that
+is preserved within the backup retention period. You can copy the backup to preserve it outside of the retention period.
 
-```
+###### Note
 
-This example returns the same data as the previous one. The `--output`
-parameter represents the data in compact plain text format. The `aws cloudwatch` command pipes its output to the `sort` command. The `-k`
-parameter of the `sort` command sorts the output by the third field, which is
-the timestamp in Universal Coordinated Time (UTC) format.
+When you create a DB cluster using the AWS Management Console, you can't specify a backup window.
+However, you can specify a backup window when you create a DB cluster using the AWS CLI
+or RDS API.
 
-```
-`$` aws cloudwatch get-metric-statistics --metric-name "VolumeBytesUsed" \
-  --start-time "$(date -d '1 day ago')" --end-time "$(date -d 'now')" --period 3600 \
-  --namespace "AWS/RDS" --statistics Maximum --dimensions Name=DBClusterIdentifier,Value=`my_cluster_id` \
-  --output text | sort -k 3
-`VolumeBytesUsed
-DATAPOINTS 182872522752.0 2020-08-04T17:41:00+00:00 Bytes
-DATAPOINTS 182872522752.0 2020-08-04T18:41:00+00:00 Bytes
-DATAPOINTS 182872522752.0 2020-08-04T19:41:00+00:00 Bytes
-DATAPOINTS 182872522752.0 2020-08-04T20:41:00+00:00 Bytes
-DATAPOINTS 187667791872.0 2020-08-04T21:41:00+00:00 Bytes
-DATAPOINTS 190981029888.0 2020-08-04T22:41:00+00:00 Bytes
-DATAPOINTS 195587244032.0 2020-08-04T23:41:00+00:00 Bytes
-DATAPOINTS 201048915968.0 2020-08-05T00:41:00+00:00 Bytes
-DATAPOINTS 205368492032.0 2020-08-05T01:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T02:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T03:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T04:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T05:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T06:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T07:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T08:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T09:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T10:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T11:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T12:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T13:41:00+00:00 Bytes
-DATAPOINTS 206827454464.0 2020-08-05T14:41:00+00:00 Bytes
-DATAPOINTS 206833664000.0 2020-08-05T15:41:00+00:00 Bytes
-DATAPOINTS 206833664000.0 2020-08-05T16:41:00+00:00 Bytes`
+If you don't specify a preferred backup window when you create the DB cluster, Aurora assigns a default 30-minute backup
+window. This window is selected at random from an 8-hour block of time for each AWS Region. The following table lists the time
+blocks for each AWS Region from which the default backup windows are assigned.
 
-```
+| Region Name                | Region         | Time Block      |
+| -------------------------- | -------------- | --------------- |
+| US East (N. Virginia)      | us-east-1      | 03:00–11:00 UTC |
+| US East (Ohio)             | us-east-2      | 03:00–11:00 UTC |
+| US West (N. California)    | us-west-1      | 06:00–14:00 UTC |
+| US West (Oregon)           | us-west-2      | 06:00–14:00 UTC |
+| Africa (Cape Town)         | af-south-1     | 03:00–11:00 UTC |
+| Asia Pacific (Hong Kong)   | ap-east-1      | 06:00–14:00 UTC |
+| Asia Pacific (Hyderabad)   | ap-south-2     | 06:30–14:30 UTC |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | 08:00–16:00 UTC |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | 09:00–17:00 UTC |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | 11:00–19:00 UTC |
+| Asia Pacific (Mumbai)      | ap-south-1     | 16:30–00:30 UTC |
+| Asia Pacific (New Zealand) | ap-southeast-6 | 13:00–21:00 UTC |
+| Asia Pacific (Osaka)       | ap-northeast-3 | 00:00–08:00 UTC |
+| Asia Pacific (Seoul)       | ap-northeast-2 | 13:00–21:00 UTC |
+| Asia Pacific (Singapore)   | ap-southeast-1 | 14:00–22:00 UTC |
+| Asia Pacific (Sydney)      | ap-southeast-2 | 12:00–20:00 UTC |
+| Asia Pacific (Taipei)      | ap-east-2      | 9:00–17:00 UTC  |
+| Asia Pacific (Thailand)    | ap-southeast-7 | 8:00–16:00 UTC  |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | 13:00–21:00 UTC |
+| Canada (Central)           | ca-central-1   | 03:00–11:00 UTC |
+| Canada West (Calgary)      | ca-west-1      | 18:00–02:00 UTC |
+| China (Beijing)            | cn-north-1     | 06:00–14:00 UTC |
+| China (Ningxia)            | cn-northwest-1 | 06:00–14:00 UTC |
+| Europe (Frankfurt)         | eu-central-1   | 20:00–04:00 UTC |
+| Europe (Ireland)           | eu-west-1      | 22:00–06:00 UTC |
+| Europe (London)            | eu-west-2      | 22:00–06:00 UTC |
+| Europe (Milan)             | eu-south-1     | 02:00–10:00 UTC |
+| Europe (Paris)             | eu-west-3      | 07:29–14:29 UTC |
+| Europe (Spain)             | eu-south-2     | 02:00–10:00 UTC |
+| Europe (Stockholm)         | eu-north-1     | 23:00–07:00 UTC |
+| Europe (Zurich)            | eu-central-2   | 02:00–10:00 UTC |
+| Israel (Tel Aviv)          | il-central-1   | 03:00–11:00 UTC |
+| Mexico (Central)           | mx-central-1   | 19:00–03:00 UTC |
+| Middle East (Bahrain)      | me-south-1     | 06:00–14:00 UTC |
+| Middle East (UAE)          | me-central-1   | 05:00–13:00 UTC |
+| South America (São Paulo)  | sa-east-1      | 23:00–07:00 UTC |
+| AWS GovCloud (US-East)     | us-gov-east-1  | 17:00–01:00 UTC |
+| AWS GovCloud (US-West)     | us-gov-west-1  | 06:00–14:00 UTC |
 
-The sorted output shows how much storage was used at the start and end of the
-monitoring period. You can also find the points during that period when Aurora allocated
-more storage for the cluster. The following example uses Linux commands to reformat the
-starting and ending `VolumeBytesUsed` values as gigabytes (GB) and as
-gibibytes (GiB). Gigabytes represent units measured in powers of 10 and are commonly
-used in discussions of storage for rotational hard drives. Gibibytes represent units
-measured in powers of 2. Aurora storage measurements and limits are typically stated in
-the power-of-2 units, such as gibibytes and tebibytes.
+## Restoring data
 
-```
-`$` GiB=$((1024*1024*1024))
-`$` GB=$((1000*1000*1000))
-`$` echo "Start: $((182872522752/$GiB)) GiB, End: $((206833664000/$GiB)) GiB"
-`Start: 170 GiB, End: 192 GiB`
-`$` echo "Start: $((182872522752/$GB)) GB, End: $((206833664000/$GB)) GB"
-`Start: 182 GB, End: 206 GB`
+You can recover your data by creating a new Aurora DB cluster from the backup data that Aurora retains, from a DB cluster
+snapshot that you have saved, or from a retained automated backup. You can quickly restore a new copy of a DB cluster
+created from backup data to any point in time during your backup retention period. Because Aurora backups are continuous
+and incremental during the backup retention period, you don't need to take frequent snapshots of your data to improve
+restore times.
 
-```
+The _latest restorable time_ for a DB cluster is the most recent point to which you can restore your DB
+cluster. This is typically within 5 minutes of the current time for an active DB cluster, or 5 minutes of the cluster deletion
+time for a retained automated backup.
 
-The `VolumeBytesUsed` metric tells you how much storage in the cluster is
-incurring charges. Thus, it's best to minimize this number when practical. However,
-this metric doesn't include some storage that Aurora uses internally in the cluster
-and doesn't charge for. If your cluster is approaching the storage limit and might
-run out of space, it's more helpful to monitor the
-`AuroraVolumeBytesLeftTotal` metric and try to maximize that number. The
-following example runs a similar calculation as the previous one, but for
-`AuroraVolumeBytesLeftTotal` instead of
-`VolumeBytesUsed`.
+The _earliest restorable time_ specifies how far back within the backup retention period that you can
+restore your cluster volume.
 
-```
-`$` aws cloudwatch get-metric-statistics --metric-name "AuroraVolumeBytesLeftTotal" \
-  --start-time "$(date -d '1 hour ago')" --end-time "$(date -d 'now')" --period 3600 \
-  --namespace "AWS/RDS" --statistics Maximum --dimensions Name=DBClusterIdentifier,Value=`my_old_cluster_id` \
-  --output text | sort -k 3
-`AuroraVolumeBytesLeftTotal
-DATAPOINTS 140530528288768.0 2023-02-23T19:25:00+00:00 Count`
-`$` TiB=$((1024*1024*1024*1024))
-`$` TB=$((1000*1000*1000*1000))
-`$` echo "$((69797067915264 / $TB)) TB remaining for this cluster"
-`69 TB remaining for this cluster`
-`$` echo "$((69797067915264 / $TiB)) TiB remaining for this cluster"
-`63 TiB remaining for this cluster`
+To determine the latest or earliest restorable time for a DB cluster, look for the `Latest restorable time` or
+`Earliest restorable time` values on the RDS console. For information about viewing these values, see [Viewing retained automated backups for Amazon Aurora](Aurora.Managing.Backups.Retaining.md "Aurora.Managing.Backups.Retaining.md").
 
-```
+You can determine when the restore of a DB cluster is complete by checking the `Latest restorable time` and
+`Earliest restorable time` values. These values return NULL until the restore operation is complete. You
+can't request a backup or restore operation if either `Latest restorable time` or `Earliest restorable
+ time` returns NULL.
 
-For a cluster running Aurora MySQL version 2.09 or higher, or Aurora PostgreSQL, the free
-size reported by `VolumeBytesUsed` increases when data is added and decreases
-when data is removed. The following example shows how. This report shows the maximum and
-minimum storage size for a cluster at 15-minute intervals as tables with temporary data
-are created and dropped. The report lists the maximum value before the minimum value.
-Thus, to understand how storage usage changed within the 15-minute interval, interpret
-the numbers from right to left.
+For information about restoring a DB cluster to a specified time, see
+[Restoring a DB cluster to a specified time](aurora-pitr.md "aurora-pitr.md").
 
-```
-`$` aws cloudwatch get-metric-statistics --metric-name "VolumeBytesUsed" \
-  --start-time "$(date -d '4 hours ago')" --end-time "$(date -d 'now')" --period 1800 \
-  --namespace "AWS/RDS" --statistics Maximum Minimum --dimensions Name=DBClusterIdentifier,Value=`my_new_cluster_id`
-  --output text | sort -k 4
-`VolumeBytesUsed
-DATAPOINTS 14545305600.0 14545305600.0 2020-08-05T20:49:00+00:00 Bytes
-DATAPOINTS 14545305600.0 14545305600.0 2020-08-05T21:19:00+00:00 Bytes
-DATAPOINTS **22022176768.0 14545305600.0** 2020-08-05T21:49:00+00:00 Bytes
-DATAPOINTS 22022176768.0 22022176768.0 2020-08-05T22:19:00+00:00 Bytes
-DATAPOINTS 22022176768.0 22022176768.0 2020-08-05T22:49:00+00:00 Bytes
-DATAPOINTS **22022176768.0 15614263296.0** 2020-08-05T23:19:00+00:00 Bytes
-DATAPOINTS 15614263296.0 15614263296.0 2020-08-05T23:49:00+00:00 Bytes
-DATAPOINTS 15614263296.0 15614263296.0 2020-08-06T00:19:00+00:00 Bytes`
+## Database cloning for Aurora
 
-```
+You can also use database cloning to clone the databases of your Aurora DB cluster to a new DB cluster, instead of restoring
+a DB cluster snapshot. The clone databases use only minimal additional space when first created. Data is copied only as data
+changes, either on the source databases or on the clone databases. You can make multiple clones from the same DB cluster, or
+create additional clones even from other clones. For more information, see
+[Cloning a volume for an Amazon Aurora DB cluster](Aurora.Managing.md "Aurora.Managing.md").
 
-The following example shows how for clusters running compatible versions of
-Aurora MySQL or Aurora PostgreSQL, the free size reported by
-`AuroraVolumeBytesLeftTotal` reflects the 256-TiB size limit. For more
-information about compatible versions, see [Amazon Aurora size limits](CHAP_Limits.md#RDS_Limits.FileSize.Aurora "CHAP_Limits.md#RDS_Limits.FileSize.Aurora").
+## Backtrack
 
-```
-`$` aws cloudwatch get-metric-statistics --region us-east-1 --metric-name "AuroraVolumeBytesLeftTotal" \
-  --start-time "$(date -d '4 hours ago')" --end-time "$(date -d 'now')" --period 1800 \
-  --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBClusterIdentifier,Value=pq-57 \
-  --output text | sort -k 3
-`AuroraVolumeBytesLeftTotal
-DATAPOINTS 140515818864640.0 2020-08-05T20:56:00+00:00 Count
-DATAPOINTS 140515818864640.0 2020-08-05T21:26:00+00:00 Count
-DATAPOINTS 140515818864640.0 2020-08-05T21:56:00+00:00 Count
-DATAPOINTS 140514866757632.0 2020-08-05T22:26:00+00:00 Count
-DATAPOINTS 140511020580864.0 2020-08-05T22:56:00+00:00 Count
-DATAPOINTS 140503168843776.0 2020-08-05T23:26:00+00:00 Count
-DATAPOINTS 140503168843776.0 2020-08-05T23:56:00+00:00 Count
-DATAPOINTS 140515818864640.0 2020-08-06T00:26:00+00:00 Count`
-`$` TiB=$((1024*1024*1024*1024))
-`$` TB=$((1000*1000*1000*1000))
-`$` echo "$((140515818864640 / $TB)) TB remaining for this cluster"
-`140 TB remaining for this cluster`
-`$` echo "$((140515818864640 / $TiB)) TiB remaining for this cluster"
-`256 TiB remaining for this cluster`
-
-```
-
-## Instance scaling
-
-You can scale your Aurora DB cluster as needed by modifying the DB instance class for
-each DB instance in the DB cluster. Aurora supports several DB instance classes optimized
-for Aurora, depending on database engine compatibility.
-
-| Database engine          | Instance scaling                                                                                                                                                                                       |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon Aurora MySQL      | See [Scaling Aurora MySQL DB instances](AuroraMySQL.Managing.md#AuroraMySQL.Managing.Performance.InstanceScaling "AuroraMySQL.Managing.md#AuroraMySQL.Managing.Performance.InstanceScaling")           |
-| Amazon Aurora PostgreSQL | See [Scaling<br>Aurora PostgreSQL DB instances](AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.Performance.InstanceScaling "AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.Performance.InstanceScaling") |
-
-## Read scaling
-
-You can achieve read scaling for your Aurora DB cluster by creating up to
-15 Aurora Replicas in a DB cluster. Each Aurora Replica returns the same
-data from the cluster volume with minimal replica lag—usually considerably less
-than 100 milliseconds after the primary instance has written an update. As your read
-traffic increases, you can create additional Aurora Replicas and connect to them directly
-to distribute the read load for your DB cluster. Aurora Replicas don't have to be of
-the same DB instance class as the primary instance.
-
-For information about adding Aurora Replicas to a DB cluster, see [Adding Aurora Replicas to a DB cluster](aurora-replicas-adding.md "aurora-replicas-adding.md").
-
-## Managing connections
-
-The maximum number of connections allowed to an Aurora DB instance is determined by the
-`max_connections` parameter in the instance-level parameter group for the
-DB instance. The default value of that parameter varies depends on the DB instance class
-used for the DB instance and database engine compatibility.
-
-| Database engine          | max_connections default value                                                                                                                                                                 |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Aurora MySQL      | See [Maximum connections to an Aurora MySQL DB instance](AuroraMySQL.Managing.md#AuroraMySQL.Managing.MaxConnections "AuroraMySQL.Managing.md#AuroraMySQL.Managing.MaxConnections")           |
-| Amazon Aurora PostgreSQL | See [Maximum connections to an<br>Aurora PostgreSQL DB instance](AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.MaxConnections "AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.MaxConnections") |
-
-###### Tip
-
-If your applications frequently open and close connections, or keep a large number
-of long-lived connections open, we recommend that you use Amazon RDS Proxy. RDS Proxy is a
-fully managed, highly available database proxy that uses connection pooling to share
-database connections securely and efficiently. To learn more about RDS Proxy, see
-[Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
-
-## Managing query execution plans
-
-If you use query plan management for Aurora PostgreSQL, you gain control over which plans
-the optimizer runs. For more information, see [Managing query execution plans for
-Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+Aurora MySQL now supports "rewinding" a DB cluster to a specific time, without restoring
+data from a backup. For more information, see [Backtracking an Aurora DB cluster](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
