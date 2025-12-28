@@ -26,8 +26,8 @@ AWS Transit Gateway](tgw-connect.md "tgw-connect.md") feature.
 | Name                                                                                               | Default | Adjustable                                                                                                                                                                 |
 | -------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Transit gateway route tables per transit gateway                                                   | 20      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-43872EB7 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-43872EB7") |
-| Total combined routes (dynamic and static) across all route tables<br>for a single transit gateway | 10,000  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-BCC1FB47 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-BCC1FB47") |
-| Dynamic routes advertised from a virtual router appliance to a Connect peer                        | 1,000   | Yes                                                                                                                                                                        |
+| Total combined routes (dynamic and static) across all route tables<br>for a single transit gateway | 10,000  | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance.                                                                        |
+| Dynamic routes advertised from a virtual router appliance to a Connect peer                        | 1,000   | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance.                                                                        |
 | Routes advertised from a Connect peer on a transit gateway to a virtual router<br>appliance        | 5,000   | No                                                                                                                                                                         |
 | Static routes for a prefix to a single attachment                                                  | 1       | No                                                                                                                                                                         |
 
@@ -39,7 +39,7 @@ A transit gateway cannot have more than one VPC attachment to the same VPC.
 
 | Name                                                                                                                       | Default | Adjustable                                                                                                                                                                 |
 | -------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Attachments per transit gateway                                                                                            | 5,000   | No                                                                                                                                                                         |
+| Attachments per transit gateway                                                                                            | 5,000   | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-E0233F82 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-E0233F82") |
 | Transit gateways per VPC                                                                                                   | 5       | No                                                                                                                                                                         |
 | Peering attachments per transit gateway                                                                                    | 50      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-A1B5A36F "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-A1B5A36F") |
 | Pending peering attachments per transit gateway                                                                            | 10      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-62499967 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-62499967") |
@@ -62,8 +62,6 @@ will attempt to provide additional bandwidth beyond the default value.
 | Packets per second per transit gateway VPC attachment per Availability<br>Zone                                                              | Up to 7,500,000 | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
 | Bandwidth for Direct Connect gateway or peered transit gateway connection<br>per available Availability Zone in the Region                  | Up to 100 Gbps  | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
 | Packets per second per transit gateway attachment (Direct Connect and<br>peering attachments) per available Availability Zone in the Region | Up to 7,500,000 | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
-| Maximum bandwidth per VPN tunnel                                                                                                            | Up to 1.25 Gbps | No                                                                                                  |
-| Maximum packets per second per VPN tunnel                                                                                                   | Up to 140,000   | No                                                                                                  |
 | Maximum bandwidth per Connect peer (GRE tunnel) per Connect attachment                                                                      | Up to 5 Gbps    | No                                                                                                  |
 | Maximum packets per second per Connect peer                                                                                                 | Up to 300,000   | No                                                                                                  |
 
@@ -79,6 +77,9 @@ bandwidth. You can use ECMP to get higher bandwidth by scaling horizontally
 across multiple Connect peers of the same Connect attachment or across
 multiple Connect attachments on the same transit gateway. The transit gateway cannot use ECMP
 between the BGP peerings of the same Connect peer.
+
+For bandwidth and packet limits with VPN tunnel, please refer to
+[VPN bandwidth and throughput](../../../vpn/latest/s2svpn/vpn-limits.md#vpn-quotas-bandwidth "../../../vpn/latest/s2svpn/vpn-limits.md#vpn-quotas-bandwidth") .
 
 ## Direct Connect gateways
 
@@ -120,20 +121,19 @@ performance-sensitive applications. We strongly recommend that you review the
 following multicast limits. Contact your account or Solution Architect team for a
 detailed review of your performance requirements.
 
-| Name                                                                             | Default   | Adjustable                                                                                                                                                                 |
-| -------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Multicast domains per transit gateway                                            | 20        | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-31775423 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-31775423") |
-| Multicast network interfaces per transit gateway                                 | 10,000    | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-C673935A "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-C673935A") |
-| Multicast domain associations per VPC                                            | 20        | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-9F8FA74B "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-9F8FA74B") |
-| Sources per transit gateway multicast group                                      | 1         | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-4F2F99E3 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-4F2F99E3") |
-| Static and IGMPv2 multicast group members and sources per transit gateway        | 10,000    | No                                                                                                                                                                         |
-| Static and IGMPv2 multicast group members per transit gateway multicast<br>group | 100       | No                                                                                                                                                                         |
-| Maximum multicast throughput per flow                                            | 1 Gbps    | No                                                                                                                                                                         |
-| Maximum aggregate multicast throughput per Availability Zone                     | 20 Gbps   | No                                                                                                                                                                         |
-| Maximum packets per second per flow (less than 10 receivers)                     | 75,000    | No                                                                                                                                                                         |
-| Maximum packets per second per flow (greater than 10<br>receivers)               | 15,000    | No                                                                                                                                                                         |
-| Maximum aggregate packets per second (less than 10 receivers)                    | 2,500,000 | No                                                                                                                                                                         |
-| Maximum aggregate packets per second (greater than 10<br>receivers)              | 500,000   | No                                                                                                                                                                         |
+| Name                                                                             | Default   | Adjustable                                                                                          |
+| -------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------- |
+| Multicast domains per transit gateway                                            | 20        | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
+| Multicast network interfaces per transit gateway                                 | 10,000    | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
+| Multicast domain associations per VPC                                            | 20        | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
+| Static and IGMPv2 multicast group members and sources per transit gateway        | 10,000    | No                                                                                                  |
+| Static and IGMPv2 multicast group members per transit gateway multicast<br>group | 100       | No                                                                                                  |
+| Maximum multicast throughput per flow                                            | 1 Gbps    | No                                                                                                  |
+| Maximum aggregate multicast throughput per Availability Zone                     | 20 Gbps   | No                                                                                                  |
+| Maximum packets per second per flow (less than 10 receivers)                     | 75,000    | No                                                                                                  |
+| Maximum packets per second per flow (greater than 10<br>receivers)               | 15,000    | No                                                                                                  |
+| Maximum aggregate packets per second (less than 10 receivers)                    | 2,500,000 | No                                                                                                  |
+| Maximum aggregate packets per second (greater than 10<br>receivers)              | 500,000   | No                                                                                                  |
 
 ## AWS Network Manager
 
