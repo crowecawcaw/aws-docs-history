@@ -4,6 +4,10 @@
 are under a main address. Additionally, `Geocode` also returns secondary
 units, if any are present within the `QueryText`.
 
+A result item with a place type of `InferredSecondaryAddress` may be returned if
+there is parsed query support, `ParsedQuery.Address.SecondaryAddressComponents`, for that country.
+`InferredSecondaryAddress` results are returned based on provided data in the query.
+
 ## Potential use cases
 
 - **Address form completion:** To select a more
@@ -26,7 +30,7 @@ Coverage for
 `ParsedQuery.Address.SecondaryAddressComponents` is
 available in the following countries:
 
-AUS, AUT, BRA, CAN, ESP, FRA, GBR, IDN, IND, NZL, TUR, TWN, USA
+AUS, AUT, BRA, CAN, ESP, FRA, GBR, HKG, IDN, IND, NZL, TUR, TWN, USA
 
 Sample request
 

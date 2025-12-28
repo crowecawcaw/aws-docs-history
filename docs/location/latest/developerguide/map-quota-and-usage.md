@@ -9,7 +9,7 @@ service.
 
 Amazon Location Service sets default quotas for APIs to help manage service capacity, which can
 be viewed in the [AWS service
-quotas management console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas"). You can request an increase in quotas through
+quotas management console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas"). You can request an increase in quotas through
 the [self-service console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas"), for up to twice the default limit for each API.
 
 For quota limits exceeding twice the default limit, request through the self
@@ -22,15 +22,15 @@ more information, see [Manage quotas with Service Quotas](manage-quotas.md "mana
 
 ### Dynamic map
 
-| API name   | Default | Max adjustable limit | More than Adjustable Max limit                                                                                                                                                                                                                     |
-| ---------- | ------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GetTiles` | 2000    | 4000                 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support<br>team |
+| API name   | Default | Max adjustable limit | More than Adjustable Max limit                                                                                                                                                                                   |
+| ---------- | ------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GetTiles` | 2000    | 4000                 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support<br>team |
 
 ### Static map
 
-| API name       | Default | Max adjustable limit | More than Adjustable Max limit                                                                                                                                                                                                                     |
-| -------------- | ------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GetStaticMap` | 50      | 100                  | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support<br>team |
+| API name       | Default | Max adjustable limit | More than Adjustable Max limit                                                                                                                                                                                   |
+| -------------- | ------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GetStaticMap` | 50      | 100                  | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support<br>team |
 
 ## Usage limits
 

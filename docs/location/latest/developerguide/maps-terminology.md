@@ -1,6 +1,6 @@
 # Maps terminology
 
-This section defines key terms related to Amazon Location Service Maps, providing insights into core concepts like basemaps, vector and raster data, map rendering, and map styles. Understanding these terms is essential for effectively utilizing the Amazon Location Service mapping APIs and resources.
+Understanding these key terms helps you effectively use Amazon Location Service mapping APIs and resources.
 
 **Basemap**
 
@@ -16,15 +16,15 @@ Raster data is image data made up of a grid, typically representing continuous d
 
 **Map Rendering**
 
-The map rendering library pulls data from Amazon Location Service at runtime, rendering the map based on the selected map resource. A map resource defines the data provider and map style. Amazon Location Service recommends using the MapLibre rendering engine.
+The map rendering library pulls data from Amazon Location Service at runtime, rendering the map based on the selected map resource. A map resource defines the data provider and map style. Amazon Location Service requires the [MapLibre](https://maplibre.org/ "https://maplibre.org/") rendering engine.
 
 **Vector Tile**
 
-A vector tile is a format that stores map data using vector shapes. It adjusts to the display resolution and selectively renders features, while maintaining a small file size for optimal performance. Supported format: Mapbox Vector Tiles (MVT).
+A vector tile stores map data using vector shapes. It adjusts to display resolution and selectively renders features while maintaining small file size for optimal performance. Supported format: [Mapbox Vector Tiles (MVT)](https://docs.mapbox.com/data/tilesets/guides/vector-tiles-standards/ "https://docs.mapbox.com/data/tilesets/guides/vector-tiles-standards/").
 
 **Map Style**
 
-A map style defines color and other styling information for the map data, determining how the map will appear when rendered. Amazon Location Service provides map styles based on the Mapbox GL style specification.
+A map style defines color and other styling information for map data, determining how the map appears when rendered. Amazon Location Service provides map styles based on the Mapbox GL style specification.
 
 **Glyph File**
 
@@ -36,4 +36,4 @@ A Portable Network Graphic (PNG) image file that contains small raster images an
 
 **Bounding Box**
 
-A bounding box is defined by two diagonal corner points: the northwest (NW) (top-left) and southeast (SE) (bottom-right) points. These points are key for specifying the spatial extent of an map.
+A bounding box is defined by two diagonal corner points: the northwest (NW) (top-left) and southeast (SE) (bottom-right) points. These points specify the spatial extent of a map.

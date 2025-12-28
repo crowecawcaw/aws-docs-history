@@ -9293,7 +9293,7 @@ chains.
 | FARMACIAS DE DESCUENTO UNIÓN                        | FARMACIAS_DE_DESCUENTO_UNIÓN                      |
 | FARMAPLUS                                           | FARMAPLUS                                         |
 | FARMERS SUPERMARKET                                 | FARMERS_SUPERMARKET                               |
-| FARMÁCIA SANT'ANA                                   | FARMÁCIA_SANT'ANA                                 |
+| FARMACIA SANT'ANA                                   | FARMÁCIA_SANT'ANA                                 |
 | FAST AÇAÍ                                           | FAST_AÇAÍ                                         |
 | FAST FIT                                            | FAST_FIT                                          |
 | FAST GYM 24                                         | FAST_GYM_24                                       |
@@ -15947,7 +15947,7 @@ chains.
 | Madhur Courier Service                              | Madhur_Courier_Service                            |
 | Madhya Pradesh Gramin Bank                          | Madhya_Pradesh_Gramin_Bank                        |
 | Madhyanchal Gramin Bank                             | Madhyanchal_Gramin_Bank                           |
-| Mad-ison County FCU                                 | Madison_County_FCU                                |
+| Madison County FCU                                  | Madison_County_FCU                                |
 | Madlen                                              | Madlen                                            |
 | Mado                                                | Mado                                              |
 | Madras Coffee House                                 | Madras_Coffee_House                               |

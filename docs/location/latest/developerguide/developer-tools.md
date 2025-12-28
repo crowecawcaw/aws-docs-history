@@ -10,5 +10,6 @@ There are several tools that will help you to use Amazon Location Service.
 ###### Topics
 
 - [SDKs and frameworks for Amazon Location Service](dev-sdks.md "dev-sdks.md")
+- [Working with AI and LLMs](ai-llms.md "ai-llms.md")
 - [Amazon Location Service API and CLI](api-cli.md "api-cli.md")
 - [Examples and Learning Resources](demos-samples.md "demos-samples.md")

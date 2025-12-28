@@ -1,13 +1,10 @@
 # Autocomplete
 
-`Autocomplete` returns complete addresses and address components based on partial input.
-Key use cases include address form auto-filling and typeahead address completion
-(completing the address interactively while the end user is typing it).
+`Autocomplete` returns complete addresses and address components based on partial input. Key use cases include address form auto-filling and typeahead address completion (completing the address interactively while the end user is typing it).
 
 ###### Note
 
-By default, only the place ID, place type, and label attributes are returned for each result.
-Rich additional detail, including the full address breakdown and input highlight ranges for interactive
+By default, only the place ID, place type, and label attributes are returned for each result. Rich additional detail, including the full address breakdown and input highlight ranges for interactive
 use cases can be obtained by setting the `AdditionalFeatures` input attribute, but note that requesting
 additional features may impact [Places pricing](places-pricing.md "places-pricing.md")
 
@@ -15,22 +12,17 @@ additional features may impact [Places pricing](places-pricing.md "places-pricin
 
 Japanese addresses are not supported.
 
-Results are always addresses, or address components such as streets, postal codes, and countries. Points of interest are never returned.
-Results do not include geocodes, since `Autocomplete` is focused on address completion, not geocoding.
-To get address geocode coordinates, use the [Geocode](geocode.md "geocode.md") operation.Results can be filtered by geographic area.
+Results are always addresses, or address components such as streets, postal codes, and countries. Points of interest are never returned. Results do not include geocodes, since `Autocomplete` is focused on address completion, not geocoding. To get address geocode coordinates, use the [Geocode](geocode.md "geocode.md") operation. Results can be filtered by geographic area.
 They can also be filtered by place type, for example to include only localities or only postal codes.
 
-For full details on all the Autocomplete request and response attributes, please, see[Autocomplete](../APIReference/API_geoplaces_Autocomplete.md "../APIReference/API_geoplaces_Autocomplete.md")
-in the _Amazon Location Service API Reference_.
+For full details on all the Autocomplete request and response attributes, please, see [Autocomplete](../APIReference/API_geoplaces_Autocomplete.md "../APIReference/API_geoplaces_Autocomplete.md") in the _Amazon Location Service API Reference_.
 
 For example requests, responses, cURL, and CLI commands for this API, see [How
 to use Autocomplete](autocomplete-how-to.md "autocomplete-how-to.md").
 
 ## Use cases
 
-- **Enhance checkout experience:** Provide real-time address completion as customers enter their addresses
-  in e-commerce checkout experiences and other address entry experiences on websites or apps.
-  Ensure that delivery or pick-up locations match known addresses, reducing costly errors and increasing customer satisfaction.
+- **Enhance checkout experience:** Provide real-time address completion as customers enter their address in e-commerce checkout experiences and other address entry experiences on websites or apps. Ensure that delivery or pick-up locations match known addresses, reducing costly errors and increasing customer satisfaction.
 - **Support customer services:** Give real-time address suggestions to customer service representatives
   in fields such as contact centers and emergency service dispatching, streamlining the process of collecting accurate address information and
   improving user satisfaction by reducing the time needed to obtain correct address information.
@@ -75,8 +67,7 @@ Note that requesting these extra attributes may impact [pricing](https://aws.ama
 
 Use the Filter attribute to filter the returned results based on specific countries,
 place types, or geographic areas. For more details, see [Filtering](places-filtering.md "places-filtering.md")
-in the
-_Amazon Location Service Developer Guide_.
+in the _Amazon Location Service Developer Guide_.
 
 ## Understand the response
 

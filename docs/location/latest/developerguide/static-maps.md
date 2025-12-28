@@ -19,7 +19,7 @@ specified parameters like center coordinates, bounding boxes, or overlays. The A
 customization of map features and style, enabling use in web or mobile applications without
 interactive map functionality.
 
-For more information, see [GetStaticMap](../../../latest/APIReference/API_geomaps_GetStaticMap.md "../../../latest/APIReference/API_geomaps_GetStaticMap.md") in the
+For more information, see [GetStaticMap](../APIReference/API_geomaps_GetStaticMap.md "../APIReference/API_geomaps_GetStaticMap.md") in the
 _Amazon Location Service API Reference_.
 
 For example requests, responses, cURL, and CLI commands for this API, see [How to use

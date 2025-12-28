@@ -5,7 +5,7 @@ Geofences.
 
 ###### Note
 
-If you require a higher quota, you can use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") for adjustable quotas. When requesting a
+If you require a higher quota, you can use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") for adjustable quotas. When requesting a
 quota increase, select the Region you require the quota increase in, since most
 quotas are specific to the AWS Region. You can request up to twice the default
 limit for each API.
@@ -20,16 +20,16 @@ Region. Amazon Location Service denies additional requests that exceed the servi
 
 ## Resources
 
-| API name                         | Default | Max adjustable limit                                                                                                                                                                                                                                                               |
-| -------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Collection resources per account | 1500    | 3000<br>If you need more than this, [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact the support<br>team. |
-| Geofences per collection         | 50000   | Contact the support team.                                                                                                                                                                                                                                                          |
+| API name                         | Default | Max adjustable limit                                                                                                                                                                                                                             |
+| -------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Collection resources per account | 1500    | 3000<br>If you need more than this, [request quota increases](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact the support<br>team. |
+| Geofences per collection         | 50000   | Contact the support team.                                                                                                                                                                                                                        |
 
 ## CRUD API
 
 ###### Note
 
-If you need a higher limit for any of these APIs, [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact the support team.
+If you need a higher limit for any of these APIs, [request quota increases](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact the support team.
 
 | API name                                                                                                                                                                  | Default | Max adjustable limit |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |
@@ -43,7 +43,7 @@ If you need a higher limit for any of these APIs, [request quota increases](http
 
 ###### Note
 
-If you need a higher limit for any of these APIs, [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact the support team.
+If you need a higher limit for any of these APIs, [request quota increases](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact the support team.
 
 | API name                                                                                                                                                      | Default | Max adjustable limit |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |

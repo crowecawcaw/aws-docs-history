@@ -30,5 +30,7 @@ mapping functions to complex geopolitical and localization needs.
 - [How to set the political view of a
   map](how-to-set-political-view-map.md "how-to-set-political-view-map.md")
 - [How to filter POI on the map](how-to-filter-poi-map.md "how-to-filter-poi-map.md")
-- [How to set style features for a
-  map](how-to-set-style-features-map.md "how-to-set-style-features-map.md")
+- [How to create topographic maps](how-to-create-topographic-maps.md "how-to-create-topographic-maps.md")
+- [How to show real-time traffic on a map](how-to-set-real-time-traffic-map.md "how-to-set-real-time-traffic-map.md")
+- [How to create a logistics map](how-to-create-logistic-map.md "how-to-create-logistic-map.md")
+- [How to show transit details on a map](how-to-show-transit-details-map.md "how-to-show-transit-details-map.md")

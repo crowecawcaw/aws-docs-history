@@ -30,6 +30,12 @@ below.
 An address that includes secondary designators, such as a suite or unit
 number, building, or floor information.
 
+**Inferred Secondary Address**
+
+An inferred address that includes secondary designators, such as a suite or unit number,
+building, or floor information. Inferred secondary addresses are derived from the input query
+and are not guaranteed to exist.
+
 **Point of Interest (POI)**
 
 A POI refers to notable locations, such as businesses (like restaurants,

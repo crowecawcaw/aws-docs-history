@@ -1,69 +1,27 @@
 # Amazon Location Service Maps
 
 ![Map icon leading to SDK package, then to multiple devices showing maps.](images/maps-overview.png)
-The Amazon Location Service Map gives you access to the underlying base map data for 190 countries with 5
-million daily updates. Through both static and dynamic map capabilities, you gain
-flexibility to cater to diverse user needs and deliver immersive, contextually relevant
-mapping solutions.
+Amazon Location Service Maps give you access to base map data for 190 countries with 5 million daily updates. Static and dynamic map capabilities provide flexibility to meet diverse user needs and deliver immersive, contextually relevant mapping solutions.
 
-Static maps offer pre-rendered representations of geographic data, enabling you to embed
-high-quality visuals that enhance reports and provide spatial context in emails. Dynamic
-maps allow you to create interactive and responsive experiences, where users can pan, zoom,
-and explore the map in real-time, aligning with the requirements and preferences of your
-business. Whether you're showing real-time turn-by-turn navigation, visualizing
-location-based data, or enabling users to explore new areas, Amazon’s services equip you
-with the tools to deliver tailored solutions that resonate with your audience.
+## Maps offering
 
-## Features
-
-The Amazon Location Service offers dynamic maps and static maps.
+Amazon Location Service offers dynamic and static maps.
 
 **Dynamic maps**
 
-You can use AWS Map Styles such as standard, monochrome, hybrid, and
-satellite. You can add an interactive map to your application using AWS
-Map Styles with a map rendering engine such as MapLibre. Dynamic maps also
-support map gestures such as zoom, pan, ease, fly, pitch, rotate, and
-bearing.
+Use AWS Map Styles including standard, monochrome, hybrid, and satellite. Add interactive maps to your application using AWS map style and [MapLibre](https://maplibre.org/ "https://maplibre.org/") rendering engine. Dynamic maps support gestures including zoom, pan, ease, fly, pitch, rotate, and bearing. For more details, see [dynamic maps](dynamic-maps.md "dynamic-maps.md").
 
 **Static maps**
 
-You can use static map URLs to embed simple map images on your website,
-report, or email without the need for a map rendering engine. Static maps
-allow you to overlay markers (or pins), routes, and polygon areas as needed
-for your application.
+Use static map URLs to embed simple map images in websites, reports, or emails without a map rendering engine. Static maps support overlays including markers (pins), routes, and polygon areas for your application. For more details, see [static maps](static-maps.md "static-maps.md").
 
-**Political view**
+## Prebuilt map styles
 
-To switch from the international perspective to a country-specific
-geopolitical view, use the political view parameter in your API query. This
-helps businesses comply with local laws, as certain countries require
-adherence to their specific geopolitical views for maps and map data.
+AWS map styles follow recognized industry conventions and deliver a polished, professional visual appearance. These ready-made styles accelerate development without requiring custom cartographic design. Build attractive, user-ready maps with minimal effort. For more details, see [AWS map styles](map-styles.md "map-styles.md").
 
-**Terrain**
+## Features
 
-You can display topography of a region with elevation shading using the
-terrain parameter in your API query. This helps show physical terrain
-details and geographic elevation changes.
-
-**ContourDensity**
-
-You can show terrain steepness and shape through elevation contour lines
-using the contour density parameter in your API query. This provides
-detailed information about land forms at varying density levels.
-
-**Traffic**
-
-You can display real-time traffic conditions on your map using the traffic
-parameter in your API query. This shows current road congestion,
-construction, and incidents, enabling informed routing decisions.
-
-**TravelMode**
-
-You can display transportation-specific routing information using the
-travel mode parameter in your API query. This shows relevant transit systems
-(buses, trains, subways) or truck routing data with road restrictions for
-specialized navigation needs.
+AWS Map features provide enhanced visualization options for geographic, [topographic](maps-topographic-map.md "maps-topographic-map.md"), and [navigation](maps-navigation-map.md "maps-navigation-map.md") such as transit, logistics, and real-time traffic data. Create informative, context-aware map experiences tailored to your specific needs. AWS maps support [internationalization and localization](maps-localization-internationalization.md "maps-localization-internationalization.md") including political views and languages. Choose Point of interest (POI) and [color schemes](maps-color-scheme.md "maps-color-scheme.md") that suit your use case. For more details, see [map features](maps-concepts.md "maps-concepts.md").
 
 ## Common use cases
 

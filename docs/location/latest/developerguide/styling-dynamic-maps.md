@@ -22,6 +22,12 @@ To learn more about predefined map styles, see:
 - [Hybrid map style](map-styles.md#hybrid-map "map-styles.md#hybrid-map")
 - [Satellite map style](map-styles.md#satellite-map "map-styles.md#satellite-map")
 
+## Add map style features to your AWS map
+
+AWS map style features enable you to customize your maps with advanced style features including terrain, contour density, traffic, and truck or transit overlays. These new customization options allow you to tailor map appearances to specific use cases.
+
+For more information, see [map features](maps-concepts.md "maps-concepts.md").
+
 ## Benefits of using AWS map styles
 
 - **Time and resource efficiency**: AWS Map
@@ -54,8 +60,8 @@ Learn more about [How to display a map](how-to-display-a-map.md "how-to-display-
 
 ## Use cases
 
-- Customizing map styles based on color schemes like "Light" or
-  "Dark".
+- Customizing map styles based on color schemes like `Light` or
+  `Dark`.
 - Displaying maps according to specific political views or geographic
   boundaries.
 - Optimizing map styles for different use cases, such as logistics, outdoor
@@ -70,11 +76,12 @@ and `PoliticalView` to define the map's style and presentation. The
 style.
 
 - **`ColorScheme`**: Sets the map's
-  color tone, such as "Light" or "Dark".
+  color palette, such as `Light` or
+  `Dark`.
 - **`PoliticalView`**: Specifies the
   political view for map visualization.
 - **`Style`**: Defines the style of
-  the map, like "Standard" or "Monochrome".
+  the map, like `Standard` or `Monochrome`.
 - **`Terrain`**: Displays
   topographic features through elevation shading and geographic
   highlighting.

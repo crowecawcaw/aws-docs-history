@@ -2,7 +2,7 @@
 
 ###### Note
 
-If you require a higher quota, you can use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") for adjustable quotas. When requesting a quota
+If you require a higher quota, you can use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") for adjustable quotas. When requesting a quota
 increase, select the Region you require the quota increase in since most quotas are
 specific to the AWS Region.
 
@@ -69,7 +69,7 @@ _AWS CLI Command Reference_.
 ###### What are the default quotas for Amazon Location Service resources?
 
 Amazon Location Service sets default quotas for APIs to help manage service
-capacity, which can be viewed in the [AWS Service Quotas Management Console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas"). You can find links to all of these in the [Monitoring your Amazon Location service quotas](#manage-quotas_monitor "#manage-quotas_monitor") section below.
+capacity, which can be viewed in the [AWS Service Quotas Management Console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas"). You can find links to all of these in the [Monitoring your Amazon Location service quotas](#manage-quotas_monitor "#manage-quotas_monitor") section below.
 
 ###### How can I request an increase in quotas for Amazon Location Service?
 
