@@ -85,12 +85,16 @@ specifying months in cron expressions for associations.) An additional
 field, the `Seconds` field (the first in a cron expression), is
 optional. Fields are separated by a space.
 
-| Cron expression examples | Minutes | Hours | Day of month | Month   | Day of week | Year                                             | Meaning |
-| ------------------------ | ------- | ----- | ------------ | ------- | ----------- | ------------------------------------------------ | ------- |
-| 0                        | 10      | \*    | \*           | ?       | \*          | Run at 10:00 am (UTC) every day                  |
-| 15                       | 12      | \*    | \*           | ?       | \*          | Run at 12:15 PM (UTC) every day                  |
-| 0                        | 18      | ?     | \*           | MON-FRI | \*          | Run at 6:00 PM (UTC) every Monday through Friday |
-| 0                        | 8       | 1     | \*           | ?       | \*          | Run at 8:00 AM (UTC) every 1st day of the month  |
+| Cron expression examples | Minutes | Hours | Day of month | Month   | Day of week | Year                                                                        | Meaning |
+| ------------------------ | ------- | ----- | ------------ | ------- | ----------- | --------------------------------------------------------------------------- | ------- |
+| 0                        | 10      | \*    | \*           | ?       | \*          | Run at 10:00 am (UTC) every day                                             |
+| 15                       | 12      | \*    | \*           | ?       | \*          | Run at 12:15 PM (UTC) every day                                             |
+| 0                        | 18      | ?     | \*           | MON-FRI | \*          | Run at 6:00 PM (UTC) every Monday through Friday (maintenance windows only) |
+| 0                        | 8       | 1     | \*           | ?       | \*          | Run at 8:00 AM (UTC) every 1st day of the month                             |
+
+###### Note
+
+Day-of-week ranges (such as `MON-FRI`) and comma-separated day lists (such as `MON,TUE,WED`) are supported for maintenance windows only. For associations, you must specify a single day (such as `MON`) or use `*` for every day.
 
 **Supported values**
 

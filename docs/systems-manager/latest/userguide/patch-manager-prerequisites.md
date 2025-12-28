@@ -41,15 +41,15 @@ Debian Server, and Ubuntu Server OSs require a supported version of Python 3 (3.
 
 ## Additional package requirements
 
-For DNF-based operating systems, the `zstd` and `xz` utilities may be required for
-decompressing repository information. DNF-based operating systems include Amazon Linux 2023,
+For DNF-based operating systems, the `zstd`, `xz`, and `unzip` utilities may be required for
+decompressing repository information and patch files. DNF-based operating systems include Amazon Linux 2023,
 Red Hat Enterprise Linux 8 and later versions, Oracle Linux8 and later versions, Rocky Linux, AlmaLinux, &
-CentOS 8 and later versions. If you see an error similar to `No such file or directory: b'zstd'`
-or `No such file or directory: b'unxz'`, then you need to install these utilities.
-`zstd` and `xz` can be installed by running the following:
+CentOS 8 and later versions. If you see an error similar to `No such file or directory: b'zstd'`,
+`No such file or directory: b'unxz'`, or patching failures due to missing `unzip`, then you need to install these utilities.
+`zstd`, `xz`, and `unzip` can be installed by running the following:
 
 ```
-dnf install zstd xz
+dnf install zstd xz unzip
 ```
 
 ## Connectivity to the patch source
