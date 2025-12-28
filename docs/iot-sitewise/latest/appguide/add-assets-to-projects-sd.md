@@ -36,7 +36,7 @@ to that asset) to a project. To create a dashboard to compare two assets that ar
 of a common parent asset, add that common parent to the project. 4. In the **Add assets to project** dialog box, choose **Create
 new project**, then choose **Next**.
 
-![Add assets to project dialog, step 1 of 2.](images/asset-library-add-assets-to-new-project-console.png) 5. In **Project name**, enter a name for your project. If you plan to
+![Add assets to project dialog, step 1 of 2.](/images/iot-sitewise/latest/appguide/images/asset-library-add-assets-to-new-project-console.png) 5. In **Project name**, enter a name for your project. If you plan to
 create multiple projects, each with a distinct set of assets, choose a descriptive
 name.
 
