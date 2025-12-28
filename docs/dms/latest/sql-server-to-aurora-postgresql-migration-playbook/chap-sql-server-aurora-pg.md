@@ -1,18 +1,12 @@
-# SQL Server 2018 deprecated features list
+# Migration tools and services overview
 
-This topic provides reference information related to migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It covers a range of database concepts and features that differ between the two systems, including data types, table creation, maintenance operations, and query syntax. You’ll find information on how various SQL Server constructs and functionalities map to their PostgreSQL equivalents or alternatives.
+This topic provides conceptual content about migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It introduces you to the AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS), explaining how these tools can streamline your database migration process. The content covers various aspects of the migration, including schema conversion, data transfer, and handling different database features. It also touches on related services like Amazon RDS on Outposts, Amazon RDS Proxy, and Amazon Aurora Serverless v1, providing a comprehensive overview of the AWS database ecosystem. By understanding these concepts, you can better plan and execute your database migration strategy, anticipate potential challenges, and leverage AWS tools and services to ensure a smooth transition to Aurora PostgreSQL.
 
-| SQL Server 2018 deprecated feature                        | Section                                                                                                    |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `TEXT`, `NTEXT`, and `IMAGE` data types                   | [Data Types](chap-sql-server-aurora-pg.sql.md "chap-sql-server-aurora-pg.sql.md")                          |
-| `SET ROWCOUNT` for DML                                    | [Session Options](chap-sql-server-aurora-pg.configuration.md "chap-sql-server-aurora-pg.configuration.md") |
-| `TIMESTAMP` syntax for `CREATE TABLE`                     | [Creating Tables](chap-sql-server-aurora-pg.sql.md "chap-sql-server-aurora-pg.sql.md")                     |
-| `DBCC DBREINDEX`, `INDEXDEFRAG`, and `SHOWCONTIG`         | [Maintenance Plans](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")     |
-| Old SQL Mail                                              | [Database Mail](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")         |
-| `IDENTITY` seed, increment, non primary key, and compound | [Sequences and Identity](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")            |
-| Stored procedures `RETURN` values                         | [Stored Procedures](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")                 |
-| `GROUP BY ALL`, `Cube`, and `Compute By`                  | [GROUP BY](chap-sql-server-aurora-pg.sql.md "chap-sql-server-aurora-pg.sql.md")                            |
-| DTS                                                       | [ETL](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")                   |
-| Old outer join syntax `**=**` and `=`                     | [Table JOIN](chap-sql-server-aurora-pg.sql.md "chap-sql-server-aurora-pg.sql.md")                          |
-| `'String Alias' = Expression`                             | [Migration Quick Tips](chap-sql-server-aurora-pg.md "chap-sql-server-aurora-pg.md")                        |
-| `DEFAULT` keyword for `INSERT` statements                 | [Migration Quick Tips](chap-sql-server-aurora-pg.md "chap-sql-server-aurora-pg.md")                        |
+###### Topics
+
+- [AWS Schema Conversion Tool overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [AWS SCT Action Code Index overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [AWS Database Migration Service overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [Amazon RDS on Outposts overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [Amazon RDS Proxy overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [Amazon Aurora Serverless v1 overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")

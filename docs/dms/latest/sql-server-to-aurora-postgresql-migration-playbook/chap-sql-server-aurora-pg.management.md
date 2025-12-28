@@ -1,163 +1,150 @@
-# Maintenance plans
+# ETL features
 
-This topic provides reference information comparing database maintenance tasks between Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand the key differences in how these two database systems handle common maintenance operations such as backups, index management, statistics updates, and consistency checks.
+This topic provides reference information about migrating ETL (Extract, Transform, Load) functionality from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It introduces AWS Glue as an alternative to SQL Server’s native ETL tools, specifically SQL Server Integration Services (SSIS) which replaced the older Data Transformation Services (DTS).
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                              |
-| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Backups using the Amazon RDS services. Table maintenance using SQL commands. |
+| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                    |
+| ------------------------ | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- |
+| No feature compatibility | N/A                                | N/A                       | Use [AWS Glue](https://aws.amazon.com/glue "https://aws.amazon.com/glue") for ETL. |
 
 ## SQL Server Usage
 
-A _maintenance plan_ is a set of automated tasks used to optimize a database, performs regular backups, and ensure it is free of inconsistencies. Maintenance plans are implemented as SQL Server Integration Services (SSIS) packages and are run by SQL Server Agent jobs. You can run them manually or automatically at scheduled time intervals.
+SQL Server offers a native extract, transform, and load (ETL) framework of tools and services to support enterprise ETL requirements. The legacy Data Transformation Services (DTS) has been deprecated as of SQL
+Server 2008 and replaced with SQL Server Integration Services (SSIS), which was introduced in SQL Server 2005. For more information, see [Data Transformation Services (DTS)](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/cc707786(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/cc707786(v=sql.105)") in the _SQL Server documentation_.
 
-SQL Server provides a variety of pre-configured maintenance tasks. You can create custom tasks using TSQL scripts or operating system batch files.
+### DTS
 
-Maintenance plans are typically used for the following tasks:
+DTS was introduced in SQL Server version 7 in 1998. It was significantly expanded in SQL Server 2000 with features such as FTP, database level operations, and Microsoft Message Queuing (MSMQ) integration. It included a set of objects, utilities, and services that enabled easy, visual construction of complex ETL operations across heterogeneous data sources and targets.
 
-- Backing up database and transaction log files.
-- Performing cleanup of database backup files in accordance with retention policies.
-- Performing database consistency checks.
-- Rebuilding or reorganizing indexes.
-- Decreasing data file size by removing empty pages (shrink a database).
-- Updating statistics to help the query optimizer obtain updated data distributions.
-- Running SQL Server Agent jobs for custom actions.
-- Running a T-SQL task.
+DTS supported OLE DB, ODBC, and text file drivers. It allowed transformations to be scheduled using SQL Server Agent. For more information, see [SQL Server Agent](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md"). DTS also provided version control and backup capabilities with version control systems such as Microsoft Visual SourceSafe.
 
-Maintenance plans can include tasks for operator notifications and history or maintenance cleanup. They can also generate reports and output the contents to a text file or the maintenance plan tables in the `msdb` database.
+The fundamental entity in DTS was the DTS Package. Packages were the logical containers for DTS objects such as connections, data transfers, transformations, and notifications. The DTS framework also included the following tools:
 
-You can create and manage maintenance plans using the maintenance plan wizard in SQL Server Management Studio, Maintenance Plan Design Surface (provides enhanced functionality over the wizard), Management Studio Object Explorer, and T-SQL system stored procedures.
+- DTS Wizards.
+- DTS Package Designers.
+- DTS Query Designer.
+- DTS Run Utility.
 
-For more information, see [SQL Server Agent and PostgreSQL Scheduled Lambda](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md").
+### SSIS
 
-### Deprecated DBCC Index and Table Maintenance Commands
+The SSIS framework was introduced in SQL Server 2005, but was limited to the top-tier editions only, unlike DTS which was available with all editions.
 
-The DBCC DBREINDEX, INDEXDEFRAG, and SHOWCONTIG commands have been deprecated as of SQL Server 2008R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
+SSIS has evolved over DTS to offer a true modern, enterprise class, heterogeneous platform for a broad range of data migration and processing tasks. It provides a rich workflow-oriented design with features for all types of enterprise data warehousing. It also supports scheduling capabilities for multi-dimensional cubes management.
 
-In place of the deprecated DBCC, SQL Server provides newer syntax alternatives as detailed in the following table.
+SSIS provides the following tools:
 
-| Deprecated DBCC command | Use instead                      |
-| ----------------------- | -------------------------------- |
-| `DBCC DBREINDEX`        | `ALTER INDEX …​ REBUILD`         |
-| `DBCC INDEXDEFRAG`      | `ALTER INDEX …​ REORGANIZE`      |
-| `DBCC SHOWCONTIG`       | `sys.dm_db_index_physical_stats` |
+- SSIS Import/Export Wizard is an SQL Server Management Studio extension that enables quick creation of packages for moving data between a wide array of sources and destinations. However, it has limited transformation capabilities.
+- SQL Server Business Intelligence Development Studio (BIDS) is a developer tool for creating complex packages and transformations. It provides the ability to integrate procedural code into package transformations and provides a scripting environment. Recently, BIDS has been replaced by SQL Server Data Tools - Business intelligence (SSDT-BI).
 
-For the Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) alternatives to these maintenance commands, see [Aurora PostgreSQL Maintenance Plans](#chap-sql-server-aurora-pg.management.maintenanceplans.pg "#chap-sql-server-aurora-pg.management.maintenanceplans.pg").
+SSIS objects include:
 
-### Examples
+- Connections.
+- Event handlers.
+- Workflows.
+- Error handlers.
+- Parameters (starting with SQL Server 2012).
+- Precedence constraints.
+- Tasks.
+- Variables.
 
-Enable Agent XPs, which are disabled by default.
+SSIS packages are constructed as XML documents and you can save them to the file system or store within a SQL Server instance using a hierarchical name space.
 
-```
-EXEC [sys].[sp_configure] @configname = 'show advanced options', @configvalue = 1 RECONFIGURE ;
-```
-
-```
-EXEC [sys].[sp_configure] @configname = 'agent xps', @configvalue = 1 RECONFIGURE;
-```
-
-Create a T-SQL maintenance plan for a single index rebuild.
-
-```
-USE msdb;
-```
-
-Add the Index Maintenance `IDX1` job to SQL Server Agent.
-
-```
-EXEC dbo.sp_add_job @job_name = N'Index Maintenance IDX1', @enabled = 1, @description = N'Optimize IDX1 for INSERT' ;
-```
-
-Add the T-SQL job step `Rebuild IDX1 to 50 percent fill`.
-
-```
-EXEC dbo.sp_add_jobstep @job_name = N'Index Maintenance IDX1', @step_name = N'Rebuild IDX1 to 50 percent fill', @subsystem = N'TSQL',
-@command = N'Use MyDatabase; ALTER INDEX IDX1 ON Shcema.Table REBUILD WITH ( FILL_FACTOR = 50), @retry_attempts = 5, @retry_interval = 5;
-```
-
-Add a schedule to run every day at 01:00 AM.
-
-```
-EXEC dbo.sp_add_schedule @schedule_name = N'Daily0100', @freq_type = 4, @freq_interval = 1, @active_start_time = 010000;
-```
-
-Associate the schedule `Daily0100` with the job index maintenance `IDX1`.
-
-```
-EXEC sp_attach_schedule @job_name = N'Index Maintenance IDX1' @schedule_name = N'Daily0100' ;
-```
-
-For more information, see [Maintenance Plans](https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [SQL Server Integration Services](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15") in the _SQL Server documentation_ and [Data Transformation Services](https://en.wikipedia.org/wiki/Data_Transformation_Services "https://en.wikipedia.org/wiki/Data_Transformation_Services") in _Wikipedia_.
 
 ## PostgreSQL Usage
 
-Amazon Relational Database Service (Amazon RDS) performs automated database backups by creating storage volume snapshots that back up entire instances, not individual databases.
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) provides [AWS Glue](https://aws.amazon.com/glue "https://aws.amazon.com/glue") for enterprise class extract, transform, and load (ETL). It is a fully managed service that performs data cataloging, cleansing, enriching, and movement between heterogeneous data sources and destinations. Being a fully managed service, the user doesn’t need to be concerned with infrastructure management.
 
-Amazon RDS creates snapshots during the backup window for individual database instances and retains snapshots in accordance with the backup retention period. You can use the snapshots to restore a database to any point in time within the backup retention period.
+### AWS Glue Key Features
 
-###### Note
+**Integrated data catalog**
 
-The state of a database instance must be ACTIVE for automated backups to occur.
+The AWS Glue Data Catalog is a persistent metadata store, that you can use to store all data assets, whether in the cloud or on-premises. It stores table schemas, job steps, and additional meta data information for managing these processes. AWS Glue can automatically calculate statistics and register partitions to make queries more efficient. It maintains a comprehensive schema version history for tracking changes over time.
 
-You can backup database instances manually by creating an explicit database snapshot. Use the AWS console, the AWS CLI, or the AWS API to take manual snapshots.
+**Automatic schema discovery**
+
+AWS Glue provides automatic crawlers that can connect to source or target data providers. The crawler uses a prioritized list of classifiers to determine the schema for your data and then generates and stores the metadata in the AWS Glue Data Catalog. You can schedule crawlers or run on-demand. You can also trigger a crawler when an event occurs to keep metadata current.
+
+**Code generation**
+
+AWS Glue automatically generates the code to extract, transform, and load data. All you need to do is point Glue to your data source and target. The ETL scripts to transform, flatten, and enrich data are created automatically. You can generate AWS Glue scripts in Scala or Python and use them in Apache Spark.
+
+**Developer endpoints**
+
+When interactively developing AWS Glue ETL code, AWS Glue provides development endpoints for editing, debugging, and testing. You can use any IDE or text editor for ETL development. You can import custom readers, writers, and transformations into Glue ETL jobs as libraries. You can also use and share code with other developers in the [AWS Glue GitHub repository](https://github.com/awslabs/aws-glue-libs "https://github.com/awslabs/aws-glue-libs").
+
+**Flexible job scheduler**
+
+You can trigger AWS Glue jobs for running either on a pre-defined schedule, on-demand, or as a response to an event.
+
+You can start multiple jobs in parallel and explicitly define dependencies across jobs to build complex ETL pipelines. AWS Glue handles all inter-job dependencies, filters bad data, and retries failed jobs. All logs and notifications are pushed to Amazon CloudWatch; you can monitor and get alerts from a central service.
+
+### Migration Considerations
+
+You can use AWS Schema Conversion Tool (AWS SCT) to convert your Microsoft SSIS ETL scripts to AWS Glue. For more information, see [Converting SSIS](../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue-ssis.md "../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue-ssis.md").
 
 ### Examples
 
-**Create a manual database snapshot using the Amazon RDS console**
+The following walkthrough describes how to create an AWS Glue job to upload a comma-separated values (CSV) file from Amazon S3 to Aurora PostgreSQL.
 
-1. In the AWS console, choose **RDS**, and then choose **Databases**.
-2. Choose your Aurora PostgreSQL instance, and for **Instance actions** choose **Take snapshot**.
+The source file for this walkthrough is a simple Visits table in CSV format. The objective is to upload this file to an Amazon S3 bucket and create an AWS Glue job to discover and copy it into an Aurora PostgreSQL database.
 
-![Take snapshot](images/pb-sql-server-aurora-pg-take-snapshot.png)
+#### Step 1 — Create a Bucket in Amazon S3 and Upload the CSV File
 
-**Restore a snapshot using the Amazon RDS console**
+1. In the AWS console, choose **S3**, and then choose **Create bucket**.
 
-1. In the AWS console, choose **RDS**, and then choose **Snapshots**.
-2. Choose the snapshot to restore, and for **Actions** choose **Restore snapshot**.
+###### Note
 
-This action creates a new instance. 3. Enter the required configuration options in the wizard for creating a new Amazon Aurora database instance. Choose **Restore DB Instance**.
+This walkthrough demonstrates how to create the buckets and upload the files manually, which is automated using the Amazon S3 API for production ETLs. Using the console to manually run all the settings will help you get familiar with the terminology, concepts, and workflow. 2. Enter a unique name for the bucket, select a region, and define the level of access. 3. Turn on versioning, add tags, turn on server-side encryption, and choose **Create bucket**. 4. On the Amazon S3 Management Console, choose the newly created bucket. 5. On the bucket page, choose **Upload**. 6. Choose **Add files**, select your CSV file, and choose **Upload**.
 
-You can also restore a database instance to a point-in-time. For more information, see [Backup and Restore](chap-sql-server-aurora-pg.hadr.md "chap-sql-server-aurora-pg.hadr.md").
+#### Step 2 — Add an Amazon Glue Crawler to Discover and Catalog the Visits File
 
-For all other tasks, use a third-party or a custom application scheduler.
+1. In the AWS console, choose **AWS Glue** .
+2. Choose **Tables**, and then choose **Add tables using a crawler**.
+3. Enter the name of the crawler and choose **Next**.
+4. On the **Specify crawler source type** page, leave the default values, and choose **Next**.
+5. On the **Add a data store** page, specify a valid Amazon S3 path, and choose **Next**.
+6. On the **Choose an IAM role** page, choose an existing IAM role, or create a new IAM role. Choose **Next**.
+7. On the **Create a schedule for this crawler** page, choose **Run on demand**, and choose **Next**.
+8. On the **Configure the crawler’s output** page, choose a database for the crawler’s output, enter an optional table prefix for easy reference, and choose **Next**.
+9. Review the information that you provided and choose **Finish** to create the crawler.
 
-**Rebuild and reorganize a table**
+![Crawler](images/pb-sql-server-aurora-pg-crawler.png)
 
-Aurora PostgreSQL supports the `VACUUM`, `ANALYZE`, and `REINDEX` commands, which are similar to the `REORGANIZE` option of SQL Server indexes.
+#### Step 3 — Run the Amazon Glue Crawler
 
-```
-VACUUM MyTable;
-ANALYZE MyTable;
-REINDEX TABLE MyTable;
-```
+1. In the AWS console, choose **AWS Glue** , and then choose **Crawlers**.
+2. Choose the crawler that you created on the previous step, and choose **Run crawler**.
 
-- `VACUUM` reclaims storage.
-- `ANALYZE` collects statistics.
-- `REINDEX` recreates all indexes.
+After the crawler completes, the table should be discovered and recorded in the catalog in the table specified.
 
-For more information, see [ANALYZE](https://www.postgresql.org/docs/13/sql-analyze.html "https://www.postgresql.org/docs/13/sql-analyze.html"), [VACUUM](https://www.postgresql.org/docs/13/sql-vacuum.html "https://www.postgresql.org/docs/13/sql-vacuum.html"), and [REINDEX](https://www.postgresql.org/docs/13/sql-reindex.html "https://www.postgresql.org/docs/13/sql-reindex.html") in the _PostgreSQL documentation_.
+Click the link to get to the table that was just discovered and then click the table name.
 
-**Convert deprecated DBCC index and table maintenance commands**
+Verify the crawler identified the table’s properties and schema correctly.
 
-| Deprecated DBCC command | Aurora PostgreSQL equivalent                           |
-| ----------------------- | ------------------------------------------------------ |
-| `DBCC DBREINDEX`        | `REINDEX INDEX` or `REINDEX TABLE`                     |
-| `DBCC INDEXDEFRAG`      | `VACUUM table_name` or `VACUUM table_name column_name` |
+###### Note
 
-**Update statistics to help the query optimizer get updated data distribution**
+You can manually adjust the properties and schema JSON files using the buttons on the top right.
 
-For more information, see [SQL Server Managing Statistics and PostgreSQL Table Statistics](chap-sql-server-aurora-pg.tuning.md "chap-sql-server-aurora-pg.tuning.md").
+If you don’t want to add a crawler, you can add tables manually.
 
-## Summary
+1. In the AWS console, choose **AWS Glue** .
+2. Choose **Tables**, and then choose **Add table manually**.
 
-The following table summarizes the key tasks that use SQL Server maintenance plans and a comparable Aurora PostgreSQL solutions.
+#### Step 4 — Create an ETL Job to Copy the Visits Table to an Aurora PostgreSQL Database
 
-| Task                                                                        | SQL Server                                 | Aurora PostgreSQL                          |
-| --------------------------------------------------------------------------- | ------------------------------------------ | ------------------------------------------ |
-| Rebuild or reorganize indexes                                               | `ALTER INDEX` or `ALTER TABLE`             | `REINDEX INDEX` or `REINDEX TABLE`         |
-| Decrease data file size by removing empty pages                             | `DBCC SHRINKDATABASE` or `DBCC SHRINKFILE` | `VACUUM`                                   |
-| Update statistics to help the query optimizer get updated data distribution | `UPDATE STATISTICS` or `sp_updatestats`    | `ANALYZE`                                  |
-| Perform database consistency checks                                         | `DBCC CHECKDB` or `DBCC CHECKTABLE`        | N/A                                        |
-| Back up the database and transaction log files                              | `BACKUP DATABASE` or `BACKUP LOG`          | Automatically (for example, using AWS CLI) |
-| Run SQL Server Agent jobs for custom actions                                | `sp_start_job` or `scheduled`              | N/A                                        |
+1. In the AWS console, choose **AWS Glue** .
+2. Choose **Jobs (legacy)**, and then choose **Add job**.
+3. Enter a name for the ETL job and pick a role for the security context. For this example, use the same role created for the crawler. The job may consist of a pre-existing ETL script, a manually-authored script, or an automatic script generated by Amazon Glue. For this example, use Amazon Glue. Enter a name for the script file or accept the default, which is also the job’s name. Configure advanced properties and parameters if needed and choose **Next**.
+4. Select the data source for the job and choose **Next**.
+5. On the **Choose a transform type** page, choose **Change schema**.
+6. On the **Choose a data target** page, choose **Create tables in your data target**, use the JDBC Data store, and the `gluerds` connection type. Choose **Add Connection**.
+7. On the **Add connection** page, enter the access details for the Amazon Aurora Instance and choose **Add**.
+8. Choose **Next** to display the column mapping between the source and target. Leave the default mapping and data types, and choose **Next**.
+9. Review the job properties and choose **Save job and edit script**.
+10. Review the generated script and make manual changes if needed. You can use the built-in templates for source, target, target location, transform, and spigot using the buttons at the top right section of the screen.
+11. Choose **Run job**.
+12. In the AWS console, choose **AWS Glue** , and then choose **Jobs (legacy)**.
+13. On the history tab, verify that the job status is set to **Succeeded**.
+14. Open your query IDE, connect to the Aurora PostgreSQL cluster, and query the visits database to make sure the data has been transferred successfully.
 
-For more information, see [Working with backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _PostgreSQL documentation_.
+For more information, see [AWS Glue Developer Guide](../../../glue/latest/dg/what-is-glue.md "../../../glue/latest/dg/what-is-glue.md") and [AWS Glue resources](https://aws.amazon.com/glue/resources "https://aws.amazon.com/glue/resources").
