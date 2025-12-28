@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.1.1.0.R4 (2022-06-23)
+# Amazon Neptune Engine Version 1.1.1.0.R7 (2023-01-23)
 
-As of 2022-06-23, engine version 1.1.1.0.R4 is being generally deployed. Please note
+As of 2023-01-23, engine version 1.1.1.0.R7 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Important
@@ -41,55 +41,51 @@ This process generates the following events:
   - `Finished applying off-line patches to DB instance`
   - `DB instance restarted`
 
-###### Note
-
-There is a breaking change in this release for code that uses openCypher with IAM
-authentication. Up to now, the host string in the IAM signature included the protocol,
-such as `bolt://`, like this:
-
-```
-"Host":"bolt://`(host URL)`:`(port)`"
-```
-
-Starting with engine release `1.1.1.0`, the protocol must be omitted:
-
-```
-"Host":"`(host URL)`:`(port)`"
-```
-
-See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
-
 ## Improvements in This Engine Release
 
-- Updated instance configuration for `x2g` instance types.
-- Improved performance of vertex drops.
+- Improved performance of openCypher queries involving `MERGE`
+  and `OPTIONAL MATCH`.
+- Improved performance of openCypher queries involving `UNWIND`
+  of a list of maps of literal values.
+- Improved performance of openCypher queries that have an `IN`
+  filter for `id`. For example:
+
+```
+MATCH (n) WHERE id(n) IN ['1', '2', '3'] RETURN n
+```
+
+- Performance improvements and correctness fixes for various Gremlin
+  operators, including `repeat`, `coalesce`, `store`,
+  and `aggregate`.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where solutions were not maintaining a stable order
-  for a query called multiple times or across multiple readers for certain kinds of ASK
-  joins.
-- Also, narrowed the scope of a change in the previous release that was
-  causing performance regressions for certain kinds of ASK joins in Gremlin.
-- Fixed a Gremlin bug in the `union()` step that occurred
-  when there was an edge input and a traversal to a vertex within child traversals.
-- Fixed a Gremlin profile bug where some steps were reported as not
-  optimized when they actually were.
-- Fixed a SPARQL bug where variables used inside `FILTER`
-  expressions nested into `UNION` clauses were getting assigned invalid
-  scoping information.
+- Fixed an openCypher bug where a request using HTTP keep-alive could
+  be incorrectly closed if it was submitted after a failed request.
+- Fixed an openCypher bug where the parameter type was not always correctly
+  interpreted for a list or a list of maps.
+- Fixed an openCypher bug where queries returned the string, `"null"`,
+  instead of a null value in Bolt and SPARQL-JSON.
+- Fixed openCypher error codes and error messages for query timeout
+  failures and out-of-memory errors.
+- Fixed a Gremlin bug that caused `valueMap()` not to be
+  optimized under a `by()` traversal in the DFE engine.
+- Fixed an issue with deadlock detector logic that occasionally made
+  the engine unresponsive.
+- Fixed an audit log bug that caused unnecessary information to be logged
+  and certain fields to be missing from the logs.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.1.1.0.R4, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.1.1.0.R7, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
-- _Gremlin latest version supported:_ `3.5.4`
+- _Gremlin latest version supported:_ `3.5.3`
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade paths to engine release 1.1.1.0.R4
+## Upgrade paths to engine release 1.1.1.0.R7
 
 Your cluster will be upgraded to this patch release automatically during your next
 maintenance window if you are running engine version `1.1.1.0`.
