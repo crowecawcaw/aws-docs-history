@@ -1,15 +1,36 @@
-# [OA.TI.2] Streamline intra-team communication using tools and processes
+# [OA.TI.10] Choose interaction modes for improved efficiency and cost savings
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Equip teams with tools to automate and manage their workflows, priorities, and
-decision-making processes. Implement team collaboration, document sharing,
-task creation, and progress monitoring tools. Establish team norms and practices, such as
-lexicons, story pointing, and defining _done_, to streamline intra-team
-communication. Use reporting tools, playbooks, and retrospective sessions to
-improve processes and team norms.
+Teach teams about the different interaction modes as outlined in [Team Topologies](https://teamtopologies.com/ "https://teamtopologies.com/"), including _X as a Service_ (XaaS), facilitation, and
+collaboration. With knowledge of how to optimize interaction modes for specific scenarios,
+teams can measure the cost, efficiency, and applicability of each mode against their use
+case. Identify excessive and costly interaction modes and create a tailored improvement
+plan to optimize them depending on each team's preferences, topology, and skills.
+Provide training and support to help teams better understand the available interaction
+modes and how to use them effectively to achieve the desired outcome. By optimizing team
+interactions, organizations can reduce costs while maintaining efficiency and
+collaboration.
 
-**Related information:**
+XaaS is typically the most cost-effective and efficient
+interaction mode between teams when available, as it involves
+providing and consuming self-service capabilities rather than
+sustained direct communications. In this mode, a team provides
+an interface that can easily be integrated into the existing
+workflows of one or more teams.
 
-- [Team
-  Collaboration with Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/")
+Facilitation is the second most efficient, where a team temporarily mentors another team to provide
+resources and support to accomplish a task. While
+facilitation can be more expensive than XaaS, it can also be
+more effective in situations where face-to-face communication
+or more direct support is needed. 
+
+Collaboration is the least efficient interaction mode. It
+involves working together as a team to achieve a common goal.
+This interaction mode can be highly effective in certain
+situations; however, it can also be more time-consuming and
+less cost-efficient than other interaction modes. Meetings are
+expensive, and collaboration always requires direct
+involvement between teams. Find the right balance between the
+different interaction modes by choosing the right mode for the
+use case.

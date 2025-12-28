@@ -1,29 +1,46 @@
-# [AG.ACG.1] Adopt a risk-based compliance framework
+# [AG.ACG.9] Integrate software provenance tracking throughout the development lifecycle
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Managing compliance in a DevOps model can initially feel even
-more challenging than traditional models due to the
-fast-paced, iterative, and distributed ways of workings.
-Risk-based compliance framework such as NIST Cybersecurity
-Framework, ISO 27001, or CIS Controls help to align your
-DevOps processes and tools with industry best practices and
-compliance requirements. These frameworks offer a structured
-methodology for managing cybersecurity risk in compliance with
-the organization's business needs.
+Software provenance tracking inspects the origin and evolution
+of software components throughout their lifecycle to
+understand where a piece of software originated, its
+development and update history, and its distribution.
+Provenance tracking ensures the integrity of software,
+maintains compliance, and enhances the security of the
+software supply chain throughout the development
+lifecycle. Effective provenance tracking can prevent the
+introduction of insecure components, offer early detection of
+potential vulnerabilities, and provide insights for timely
+remediation.
 
-Select a relevant framework that fits your business and security needs and assess
-your current practices against this framework, identifying any gaps in compliance. Work
-towards addressing these gaps and continually monitor and reassess your practices to help
-ensure ongoing compliance. Leverage this well-architected guidance to improve your DevOps
-capabilities to more efficiently meet these compliance requirements. Use cloud-native
-services and tools to track compliance against your chosen framework.
+Developers are encouraged to use the best tools for the task
+at hand, often including third-party software components.
+These third-party elements can introduce an additional layer
+of complexity and potential risk. Implementing software
+provenance tracking mitigates these risks by promoting better
+visibility into the lifecycle of software components, thereby
+increasing accountability, transparency, and trust.
+
+Provenance tracking should be integrated into all stages of
+the development lifecycle. For instance, source code
+provenance should be tracked at the time of code check-in or
+commit into Version Control Systems like Git, while the
+provenance of third-party components should be verified at the
+time of component acquisition and usage using tools like
+Software Composition Analysis (SCA). A
+[Software
+Bill of Materials (SBOM)](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md") can be used as a detailed list
+of all components within your software, including the exact
+version, digital signatures, and origin of each one.
+
+Verify provenance at build and deploy time. Use digital signatures and hashing
+algorithms to verify the integrity and provenance of software artifacts as part of the
+deployment pipeline, validating the signature of an artifact against a trusted source
+before it is used. It can also be useful to check running software continuously to
+identify compromised or outdated software components post-deployment.
 
 **Related information:**
 
-- [Security Hub CSPM standards reference](../../../securityhub/latest/userguide/standards-reference.md "../../../securityhub/latest/userguide/standards-reference.md")
-- [Conformance
-  Packs - AWS Config](../../../config/latest/developerguide/conformance-packs.md "../../../config/latest/developerguide/conformance-packs.md")
-- [Automate
-  Cloud Audits - AWS Audit Manager](https://aws.amazon.com/audit-manager/ "https://aws.amazon.com/audit-manager/")
-- [AWS Well-Architected Tool](https://aws.amazon.com/well-architected-tool/ "https://aws.amazon.com/well-architected-tool/")
+- [SLSA
+  specification](https://slsa.dev/spec/v1.0/ "https://slsa.dev/spec/v1.0/")

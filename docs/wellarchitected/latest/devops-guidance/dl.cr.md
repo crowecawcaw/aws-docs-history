@@ -1,27 +1,25 @@
-# [DL.CR.8] Designate code owners for expert review
+# [DL.CR.1] Standardize coding practices
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-A code owners process assigns a designated owner, usually the
-person or team with the most knowledge or expertise, to each
-part of the code base. In a DevOps environment, this helps
-ensure that there is an expert reviewer available for specific
-or complex parts of the system at all times.
+Coding standards promote uniformity and consistency across the organization.
+Individual teams can also extend this standard to adopt specific practices that align with
+the team's preferences. Having standards not only helps ensure consistency across
+distributed teams, but can also make code reviews more efficient, support knowledge sharing,
+and lead to faster issue resolution.
 
-To implement a code owners process, determine who the code owners should be based on
-expertise and distribute the ownership equally amongst the team to avoid bottlenecks. You
-can use features in version control systems that automatically assign code owners to
-review code changes in their area of expertise. One example of this would be to use a
-`CODEOWNERS` file stored along with the code in the repository. This file
-defines individuals or teams that are responsible for code in a repository.
+Identify or develop coding standards that align with the primary programming
+languages used across the organization. This does not mean that other languages cannot be
+used, but does lead to a structured approach to development for new teams and new employees.
+The coding standards are meant to facilitate error detection, improve code readability,
+simplify maintenance, and enhance the overall efficiency of builders, not prevent
+innovation.
 
-While this practice is optional and not beneficial for all organizations, it can be
-particularly useful for larger teams or those with complex, distributed systems as it
-provides an additional layer of control and can prevent potential issues from going
-unnoticed if all reviewers are not equally experienced with a specific or complex part of
-the code base.
-
-**Related information:**
-
-- [About
-  code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners")
+These standards can be codified into linters and code quality tools to improve
+developer experience. This approach provides fast feedback to developers and evaluate their
+adherence to the standards automatically. Hold training sessions for developers on these
+standards, store them in centralized knowledge sharing spaces, and create mechanisms to
+gather feedback to continuously improve the standard over time. We recommend getting started
+by adopting industry-specific standards, such as the [Secure Coding
+Guidelines for Java SE](https://www.oracle.com/java/technologies/javase/seccodeguide.html "https://www.oracle.com/java/technologies/javase/seccodeguide.html"), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/ "https://www.conventionalcommits.org/en/v1.0.0/") for Git,
+or the [PEP8](https://pypi.org/project/pep8/ "https://pypi.org/project/pep8/") styling guide for Python.

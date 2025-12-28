@@ -1,53 +1,36 @@
-# [OA.STD.7] Amplify the scale and impact of centralized functions
+# [OA.STD.2] Tailor operating models to business needs and team preferences
 
 **Category:** FOUNDATIONAL
 
-As decentralized teams become responsible for their respective
-value streams and products, including responsibilities like
-security and quality assurance, centralized functions can
-often become bottlenecks. These bottlenecks can delay releases
-and cause inefficiencies in the development lifecycle, which
-can limit the adoption of DevOps best practices.
+Adopt operating models that align with the needs of the business goals, while considering the
+capabilities and preferences of individual teams. The AWS Well-Architected Framework
+Operational Excellence Pillar provides a detailed [2 by 2 representations of operating model implementations](../operational-excellence-pillar/operating-model-2-by-2-representations.md "../operational-excellence-pillar/operating-model-2-by-2-representations.md") that can be reviewed
+to gain insights into potential combinations. Selecting the right operating model involves
+evaluating the organization's requirements, such as decision-making processes, communication
+channels, and resource allocation. Keep in mind that multiple
+operating models can be used concurrently, catering to different use cases, levels of
+organizational maturity, and individual team and product needs.
 
-We recommend adopting a [Guardian
-Model](https://www.youtube.com/clip/UgkxFAoUn6nHH6D3GjwAHD3xXK07Q2NhcYGx "https://www.youtube.com/clip/UgkxFAoUn6nHH6D3GjwAHD3xXK07Q2NhcYGx") within your organization to scale centralized functions. This involves
-embedding specialized champions or _Guardians_ within individual teams to
-enhance and scale the capabilities of centralized functions, such as security, quality, and
-audit. Embedding guardians directly into teams helps make specialized knowledge
-always available, reducing wait times and facilitating real-time, context-aware
-decision-making. This approach not only accelerates delivery, but also continually meets
-quality, security, and compliance standards.
+Not all operating models support a DevOps culture, and DevOps might not be suitable
+for every system. In some cases, especially in large and diverse organizations,
+it might be necessary to support stringent compliance requirements. Additionally, mass migration
+to a new way of working for all teams may not be feasible due to time, complexity
+of the system, or skill requirements. For these use cases, a [fully separated](../operational-excellence-pillar/fully-separated-operating-model.md "../operational-excellence-pillar/fully-separated-operating-model.md")
+operating model or introducing an Internal MSP and Consulting Partner
+might be needed for those systems that must stay _as is_ with
+more traditional ways of working.
 
-To implement this model, begin by defining the strategy for the initiative. Recognize
-the inefficiencies and gaps within teams that these guardians can rectify, and identify
-which centralized function would benefit most from on-the-ground, embedded expertise.
-Security, quality assurance, and audit functions are great examples of centralized functions that must scale when adopting DevOps best practices. Leadership support is
-required so that they can allocate necessary resources, make policy changes, and inspire an
-organizational culture that genuinely values the guardian role.
-
-When selecting and training guardians, pinpoint passionate
-team members who volunteer to undergo specialized training to
-become focal points for their respective domains. This
-includes proactive responsibilities, such as threat modeling
-or test planning, and reactive responsibilities, like defect
-resolution or compliance checks. These responsibilities should
-be clearly defined to avoid ambiguity, confusion, and
-conflict. Continue to gather feedback from guardians and their
-teams, using the insights to refine and iterate on the model.
-
-The guardian role is an important factor for the success of this
-model. Encourage adoption of the role by providing specialized training opportunities, avenues for
-influencing best practices, and clear paths for career evolution. These incentives keep
-guardians motivated, engaged, and eager to drive excellence within their respective
-teams.
+When choosing a Well-Architected operating model for systems that can support DevOps, first determine if centralized or decentralized control of governance is
+necessary. A centralized governance model grants platform teams within an organization the
+ability to control _how_ and _what_ other
+teams are able to deploy, at the cost of restricting those teams' ability to innovate and
+make changes quickly. Conversely, a fully decentralized model offers teams more flexibility and autonomy, requiring
+less intensive collaboration between teams through reliance on guardrails and automated
+governance over strict control.
 
 **Related information:**
 
-- [AWS Well-Architected Security Pillar: SEC11-BP08 Build a
-  program that embeds security ownership in workload teams](../security-pillar/sec_appsec_build_program_that_embeds_security_ownership_in_teams.md "../security-pillar/sec_appsec_build_program_that_embeds_security_ownership_in_teams.md")
-- [Scaling
-  security and compliance](https://aws.amazon.com/blogs/security/scaling-security-and-compliance/ "https://aws.amazon.com/blogs/security/scaling-security-and-compliance/")
-- [AWS Security Guardians](https://youtube.com/clip/UgkxFAoUn6nHH6D3GjwAHD3xXK07Q2NhcYGx "https://youtube.com/clip/UgkxFAoUn6nHH6D3GjwAHD3xXK07Q2NhcYGx")
-- [Amazon's
-  approach to security during development: Security Review
-  Process](https://youtu.be/NeR7FhHqDGQ?t=1285 "https://youtu.be/NeR7FhHqDGQ?t=1285")
+- [AWS Well-Architected Operational Excellence Pillar: Operating
+  model 2 by 2 representations](../operational-excellence-pillar/operating-model-2-by-2-representations.md "../operational-excellence-pillar/operating-model-2-by-2-representations.md")
+- [Building
+  your Cloud Operating Model: Organize for Success](../../../prescriptive-guidance/latest/strategy-cloud-operating-model/implement-roadmap.md#organize "../../../prescriptive-guidance/latest/strategy-cloud-operating-model/implement-roadmap.md#organize")

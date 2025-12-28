@@ -1,15 +1,10 @@
-# [OA.BCL.2] Automate repetitive tasks to reduce toil
+# [OA.BCL.4] Boost team efficiency by limiting work in progress
 
 **Category:** FOUNDATIONAL
 
-Identify repetitive, time-consuming tasks, referred to as toil. Assess the
-potential for automation, setting a high standard for automation with limited allowance
-for manual work. Continually review and reduce this allowance as more tasks are automated.
-Implement automation tools and processes to reduce toil and improve overall team efficiency.
-Encourage team members to identify opportunities for automation, and provide the
-necessary training and resources to support automation efforts.
-
-**Related information:**
-
-- [AWS Well-Architected Cost Optimization Pillar: COST11-BP01
-  Perform automations for operations](../cost-optimization-pillar/cost_evaluate_cost_effort_automations_operations.md "../cost-optimization-pillar/cost_evaluate_cost_effort_automations_operations.md")
+Provide ample capacity to accomplish goals on time by reducing
+work in progress (WIP). Prioritize finishing tasks over starting new ones, which helps to
+reduce context-switching and impacts overall team efficiency. Continually monitor and adjust
+WIP limits to prioritize tasks that align with business outcomes. Encourage teams to use
+agile project management tools and rules, such as Kanban or Scrum, to
+manage work in progress and complete tasks in a timely manner.

@@ -1,29 +1,26 @@
-# [O.CM.2] Plan for large scale events
+# [O.CM.7] Visualize telemetry data in real-time
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-A large scale event (LSE) is an incident that has a wide
-impact, such as service outages or major security
-incidents. Proper management of LSEs help to ensure business
-continuity, maintain customer trust, and reduce the negative
-impact of such events.
+Visualization tools simplify the task of correlating and
+understanding large, complex datasets. Using these tools,
+teams are able to detect trends, patterns, and anomalies in
+data in a readily available and easy to understand way. 
 
-Prepare a detailed incident management plan, outlining the
-roles, responsibilities, and processes to be followed in the
-event of a large-scale incident. At a minimum, the plan should
-outline how teams expect to maintain availability and
-reliability of systems by having the capability to
-automatically scale resources, re-route traffic, and failover
-to backup systems when required.
+Utilize visualization tools to correlate and comprehend large
+sets of telemetry data in real-time. Visualization tools
+support the uniquely human capability to discover patterns
+that automated tools may otherwise miss. Choose a tool that
+provides a clear view of system data at varying time
+intervals, allowing teams to easily detect issues both during
+or after they arise. Ensure that the tool is flexible and
+customizable, so that teams can adjust the views and create
+dashboards based on their unique needs.
 
 **Related information:**
 
-- [Disaster
-  Recovery of Workloads on AWS: Recovery in the Cloud](../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.md "../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.md")
-- [Incident
-  management](../../../whitepapers/latest/tagging-best-practices/incident-management.md "../../../whitepapers/latest/tagging-best-practices/incident-management.md")
-- [Disaster
-  recovery plan](https://aws.amazon.com/disaster-recovery/faqs/#Core_concepts "https://aws.amazon.com/disaster-recovery/faqs/#Core_concepts")
-- [Amazon's
-  approach to security during development: Handling a
-  security incident](https://youtu.be/NeR7FhHqDGQ?t=1962 "https://youtu.be/NeR7FhHqDGQ?t=1962")
+- [Building
+  dashboards for operational visibility](https://aws.amazon.com/builders-library/building-dashboards-for-operational-visibility "https://aws.amazon.com/builders-library/building-dashboards-for-operational-visibility")
+- [Building
+  Prowler into a QuickSight powered AWS Security
+  Dashboard](https://catalog.us-east-1.prod.workshops.aws/workshops/b1cdc52b-eb11-44ed-8dc8-9dfe5fb254f5/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/b1cdc52b-eb11-44ed-8dc8-9dfe5fb254f5/en-US")

@@ -1,30 +1,36 @@
-# [DL.CD.2] Deploy exclusively from trusted artifact repositories
+# [DL.CD.6] Refine delivery pipelines using metrics for continuous improvement
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-All artifacts involved in the delivery process should
-originate from a trusted artifact repository. These
-repositories contain validated, tested, and integrated
-artifacts that have been deemed safe for deployment. By using
-trusted artifact repositories, teams can ensure the security
-of deployed workloads, maintain quality and security
-standards, and promote trust in the delivery pipeline.
+Use key metrics—whether sourced from this guidance, established frameworks
+like [DORA](https://dora.dev/ "https://dora.dev/") or [SPACE](https://queue.acm.org/detail.cfm?id=3454124 "https://queue.acm.org/detail.cfm?id=3454124"), or custom to your
+organization—to continually optimize the development lifecycle. Metrics such as deployment
+frequency, change lead time, failure rate, and time to recover serve as outcome-based
+lagging indicators. These indicators span many DevOps capabilities to provide insights
+into the efficiency and reliability of the full delivery process. While individual metrics
+offer granular insights to optimize specific continuous delivery capabilities, these
+aggregated metrics present a holistic overview of the end-to-end development
+lifecycle. Both granular and holistic metrics are important for continuous improvement.
 
-The delivery pipeline should be restricted to using only
-trusted artifact repositories, which could be enforced through
-mechanisms such as allow lists, IP restrictions, or
-authentication controls. Additionally, we recommend using
-cryptographic signing to validate artifacts and including a
-validation stage in the pipeline to verify that the artifacts
-meet the necessary standards before deployment. In this way,
-the integrity and security of the deployed workloads are
-maintained consistently.
+Use observability practices to continuously monitor the
+development lifecycle, including incorporating monitoring and
+logging into your delivery pipelines. Use logs to generate
+metrics, and use these metrics to identify areas for
+improvement. Make these metrics visible to all team members
+and use them to drive your continuous improvement efforts.
+
+Putting an emphasis on continually optimizing pipelines using
+metrics is recommended. When getting started with DevOps
+adoption, initial efforts should prioritize the establishment
+of a stable and effective delivery pipeline, with subsequent
+enhancements to the pipeline being driven by metrics.
 
 **Related information:**
 
-- [Artifact
-  Repository - AWS CodeArtifact](https://aws.amazon.com/codeartifact/ "https://aws.amazon.com/codeartifact/")
-- [Fully
-  Managed Container Registry - Amazon Elastic Container Registry](https://aws.amazon.com/ecr/ "https://aws.amazon.com/ecr/")
-- [Code
-  Repositories and Artifact Management | AWS Marketplace](https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all "https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all")
+- [Deployment
+  Pipeline Reference Architecture](https://pipelines.devops.aws.dev/application-pipeline/ "https://pipelines.devops.aws.dev/application-pipeline/")
+- [AWS Observability Best Practices: Key Performance
+  Indicators](https://aws-observability.github.io/observability-best-practices/guides/operational/business/key-performance-indicators/ "https://aws-observability.github.io/observability-best-practices/guides/operational/business/key-performance-indicators/")
+- [DevOps Research and
+  Assessment (DORA)](https://dora.dev/ "https://dora.dev/")
+- [SPACE](https://queue.acm.org/detail.cfm?id=3454124 "https://queue.acm.org/detail.cfm?id=3454124")

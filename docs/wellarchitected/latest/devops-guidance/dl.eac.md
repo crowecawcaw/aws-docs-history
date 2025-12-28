@@ -1,57 +1,50 @@
-# [DL.EAC.5] Integrate technical and operational documentation into the development lifecycle
+# [DL.EAC.6] Use general-purpose programming languages to generate Infrastructure-as-Code
 
 **Category:** RECOMMENDED
 
-Integrating documentation and code involves creating,
-maintaining, and publishing documentation using the same tools
-and processes used for application development. With this
-approach, changes to systems should be immediately reflected
-in documentation, reducing the risk of discrepancies between
-system behavior and documentation. By making documentation
-part of the development lifecycle, it becomes a living
-document that evolves with the system over time.
+Developing infrastructure as code (IaC) using general-purpose programming languages
+aligns closely with modern software development practices and DevOps principles. IaC has
+traditionally been implemented as predefined templates modeled through domain-specific
+languages using markup languages like JSON or YAML. During deployment, these templates are
+provided parameters which specify environment-specific details. While parameterized
+templates are still a best practice for traditional IaC templates, this approach can
+become difficult to develop, troubleshoot, and manage as infrastructure and environments
+become more complex.
 
-Documentation should be stored in a versioned source code repository and written in a
-machine-readable markup language, such as Markdown. The documentation can be made directly
-accessible through the repository or through knowledge sharing tools capable of rendering
-the markup language, like Git-based wikis, static site generators, or directly in
-developers' integrated development environments (IDEs).
+Using general-purpose programming languages changes how we develop, manage, and
+deploy IaC. It is no longer a collection of parameterized templates, but instead
+infrastructure is written in common programming languages such as TypeScript, Python, or
+Java, and can be treated the same as other code throughout the development lifecycle.
+Instead of providing environment-specific configuration during deployment, tools
+like [AWS Cloud Development Kit (AWS CDK)](../../../cdk/v2/guide/best-practices.md#best-practices-apps-stages "../../../cdk/v2/guide/best-practices.md#best-practices-apps-stages")
+generate separate templates for each environment using configurations defined in source
+code. This provides a more predictable, consistent, and reproducible deployment process.
 
-Code should include clear, insightful comments and commit
-messages should be structured using a machine-readable
-specification, such
-as [Conventional
-Commits](https://www.conventionalcommits.org/en/v1.0.0/ "https://www.conventionalcommits.org/en/v1.0.0/"). This information can be used as a source to
-generate detailed documentation and change logs using tools
-specific to the programming language and platforms being used.
-Many of these tools can create API references, class diagrams,
-or other technical documents from inline comments in your
-source code, ensuring the documentation is always in line with
-the most recent changes. Automate this process by adding a
-stage to the deployment pipeline to generate documentation
-with every change to a main, releasable branch.
-
-This approach is not only limited to documenting code, but also can be used to store
-operational documentation like incident response procedures, disaster recovery plans,
-training material, and onboarding processes. While some aspects of these documents still
-likely require manual effort to create, the benefits of incorporating these documents into
-the development lifecycle include enforced reviews of changes, ability to write tests to
-suggest updating documentation when changes are significant or made to important
-components, and versioning the documents for auditability.
+Transitioning to using general-purpose programming languages
+for IaC can also change how you govern IaC at scale. For
+example, AWS CDK includes the ability to consume, publish, and
+version software components called AWS CDK
+[constructs](../../../cdk/v2/guide/constructs.md "../../../cdk/v2/guide/constructs.md")
+through private artifact registries or the
+open-source [Construct
+Hub](https://constructs.dev/ "https://constructs.dev/") registry.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL12-BP01 Use
-  playbooks to investigate failures](../reliability-pillar/rel_testing_resiliency_playbook_resiliency.md "../reliability-pillar/rel_testing_resiliency_playbook_resiliency.md")
-- [Write
-  the Docs: Docs as Code](https://www.writethedocs.org/guide/docs-as-code/ "https://www.writethedocs.org/guide/docs-as-code/")
-- [One
-  AWS team's move to docs as code](https://www.youtube.com/watch?v=Cxuo3udElcE "https://www.youtube.com/watch?v=Cxuo3udElcE")
-- [AWS Incident Response Playbook Samples](https://github.com/aws-samples/aws-incident-response-playbooks "https://github.com/aws-samples/aws-incident-response-playbooks")
-- [Using
-  code as documentation to save time and share
-  context](https://github.com/readme/guides/code-as-documentation "https://github.com/readme/guides/code-as-documentation")
-- [DocFx](https://dotnet.github.io/docfx/ "https://dotnet.github.io/docfx/")
-- [How
-  to build an automated C# code documentation generator
-  using AWS DevOps](https://aws.amazon.com/blogs/modernizing-with-aws/how-to-build-an-automated-c-code-documentation-generator-using-aws-devops/ "https://aws.amazon.com/blogs/modernizing-with-aws/how-to-build-an-automated-c-code-documentation-generator-using-aws-devops/")
+- [Best
+  practices for developing and deploying cloud
+  infrastructure with the AWS CDK](../../../cdk/v2/guide/best-practices.md "../../../cdk/v2/guide/best-practices.md")
+- [CDK
+  for Terraform (CDKtf)](https://www.terraform.io/docs/cdktf/index.html "https://www.terraform.io/docs/cdktf/index.html")
+- [CDK for Kubernetes
+  (CDK8s)](https://cdk8s.io/ "https://cdk8s.io/")
+- [AWS Solutions Constructs](../../../solutions/latest/constructs/welcome.md "../../../solutions/latest/constructs/welcome.md")
+- [Artifact
+  Repository - AWS CodeArtifact](https://aws.amazon.com/codeartifact/ "https://aws.amazon.com/codeartifact/")
+- [Infrastructure
+  IS Code with the AWS CDK](https://www.youtube.com/watch?v=Lh-kVC2r2AU "https://www.youtube.com/watch?v=Lh-kVC2r2AU")
+- [Best
+  practices for using the AWS CDK in TypeScript to create
+  IaC projects](../../../prescriptive-guidance/latest/best-practices-cdk-typescript-iac/introduction.md "../../../prescriptive-guidance/latest/best-practices-cdk-typescript-iac/introduction.md")
+- [Adding
+  the "AWS CDK bootstrap" action in Amazon CodeCatalyst](../../../codecatalyst/latest/userguide/cdk-boot-action.md "../../../codecatalyst/latest/userguide/cdk-boot-action.md")
